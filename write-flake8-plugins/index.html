@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Flake8, Python, Code, " />
+
+<meta property="og:title" content="How to write Flake8 plugins 😍 "/>
+<meta property="og:url" content="https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2" />
+<meta property="og:description" content="Really important parts of code reviews are almost impossible to automate: Architectural decisions and logical bugs. They are too customized to your codebase; too specific for the pull request. However, many comments in code reviews are not like that. They are about simply style decisions, common minor mistakes, and misconceptions …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-09-25T20:00:00+02:00" />
+<meta name="twitter:title" content="How to write Flake8 plugins 😍 ">
+<meta name="twitter:description" content="Really important parts of code reviews are almost impossible to automate: Architectural decisions and logical bugs. They are too customized to your codebase; too specific for the pull request. However, many comments in code reviews are not like that. They are about simply style decisions, common minor mistakes, and misconceptions …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>How to write Flake8 plugins 😍  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2"> How to write Flake8 plugins 😍  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#about-flake8" title="About Flake8">About Flake8</a></li><li><a class="toc-href" href="#the-flake8-plugin-skeleton" title="The Flake8 Plugin Skeleton">The Flake8 Plugin Skeleton</a></li><li><a class="toc-href" href="#the-flake8-plugin-class" title="The Flake8 Plugin class">The Flake8 Plugin class</a></li><li><a class="toc-href" href="#understanding-pythons-ast" title="Understanding Pythons AST">Understanding Pythons AST</a></li><li><a class="toc-href" href="#a-flake8-visitor-class" title="A Flake8 visitor class">A Flake8 visitor class</a></li><li><a class="toc-href" href="#testing-flake8-plugins" title="Testing Flake8 plugins">Testing Flake8 plugins</a></li><li><a class="toc-href" href="#complete-example" title="Complete example">Complete example</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Really important parts of code reviews are almost impossible to automate:
+Architectural decisions and logical bugs. They are too customized to your
+codebase; too specific for the pull request.</p>
+<p>However, many comments in code reviews are not like that. They are about simply
+style decisions, common minor mistakes, and misconceptions. They are valuable
+as well, but they distract the reviewer from the harder parts. The lining
+system Flake8 allows you to write plugins that automatically capture those
+simple things. You can execute them in your CI pipeline and thus never need to
+think about them again.</p>
+<p>In this article, you will learn how to create a Flake8 plugin. As an example,
+we will create a plugin which recognizes the pattern</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
+<span class="ow">not</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+<p>and thus can suggest using the following instead:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Good</span>
+<span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+</code></pre></div>
+<p><img alt="Cartoon by Geek-and-Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/5602/1*1QTVPrx8DtO14F7-_jnBBw.png"/><em>Cartoon by <a href="http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices">Geek-and-Poke</a> (Oliver Widder)</em></p>
+<h2 id="about-flake8">About Flake8</h2>
+<p>Flake8 is a linter which only checks rules. It does not change the code. Every rule has a message and a code. The built-in rule codes begin either with E (Error) or with W (Warning). After that, a 3-digit number follows:</p>
+<ul>
+<li>E101: indentation contains mixed spaces and tabs</li>
+<li>E111: indentation is not a multiple of four</li>
+<li>E112: expected an indented block</li>
+</ul>
+<p>One can select the rules which one wants to check on a prefix-basis:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check all rules beginning with "E1" and nothing else</span>
+flake8 --select E1 .
+</code></pre></div>
+<p>Alternatively, one can blacklist rules:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check all rules except the ones beginning with E1 or W512</span>
+flake8 --ignore E1,W512 .
+</code></pre></div>
+<p>Plugins need a 3-character prefix. For my plugin <a href="https://pypi.org/project/flake8-simplify/0.1.0/">flake8-simplify</a>, I chose SIM as a prefix.</p>
+<blockquote>
+<p>The 3-character prefix should not start with E or W as people might want to completely block Flake8 W-rules.</p>
+</blockquote>
+<p><img alt="Comic by Geek and Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/8534/1*TX5RSfIk0XrEeSX0aXm4hg.jpeg"/><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html">Geek and Poke</a> (Oliver Widder)</em></p>
+<h2 id="the-flake8-plugin-skeleton">The Flake8 Plugin Skeleton</h2>
+<p><a href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> is a command-line utility that allows you to create a project from scratch by using a template. Install it via</p>
+<div class="highlight"><pre><span></span><code>pip install cookiecutter
+</code></pre></div>
+<p>To create your Flake8 plugin template, use:</p>
+<div class="highlight"><pre><span></span><code>cookiecutter https://github.com/MartinThoma/cookiecutter-flake8-plugin
+</code></pre></div>
+<h2 id="the-flake8-plugin-class">The Flake8 Plugin class</h2>
+<p>You need to create a plugin class like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>  <span class="c1"># pragma: no cover (&lt;PY38)</span>
+    <span class="c1"># Third party</span>
+    <span class="kn">import</span> <span class="nn">importlib_metadata</span>
+<span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: no cover (PY38+)</span>
+    <span class="c1"># Core Library</span>
+    <span class="kn">import</span> <span class="nn">importlib.metadata</span> <span class="k">as</span> <span class="nn">importlib_metadata</span>
+
+
+<span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="vm">__name__</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">importlib_metadata</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">AST</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="n">tree</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="n">visitor</span> <span class="o">=</span> <span class="n">Visitor</span><span class="p">()</span>
+        <span class="n">visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">visitor</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+<p>You need to point to that class in the setup.cfg:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[options.entry_points]</span>
+<span class="na">flake8.extension</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    AWE=flake8_awesome:Plugin</span>
+</code></pre></div>
+<p>Just replace AWE by the 3-character code you want to have for your rules. We are, of course, not there jet. The visitor class still needs to be implemented. But to understand the visitor, we need to understand Pythons AST.</p>
+<h2 id="understanding-pythons-ast">Understanding Pythons AST</h2>
+<p>An <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a> (AST) is another representation of the code.</p>
+<p>Install <a href="https://pypi.org/project/astpretty/">astpretty</a> to understand how the AST looks like for a piece of code you&rsquo;re interested in:</p>
+<div class="highlight"><pre><span></span><code>pip install astpretty
+</code></pre></div>
+<p>Here is how you use it:</p>
+<div class="highlight"><pre><span></span><code>$ astpretty --no-show-offsets /dev/stdin <span class="o">&lt;&lt;&lt;</span> <span class="s2">"not a == b"</span>
+
+Module<span class="o">(</span>
+    <span class="nv">body</span><span class="o">=[</span>
+        Expr<span class="o">(</span>
+            <span class="nv">value</span><span class="o">=</span>UnaryOp<span class="o">(</span>
+                <span class="nv">op</span><span class="o">=</span>Not<span class="o">()</span>,
+                <span class="nv">operand</span><span class="o">=</span>Compare<span class="o">(</span>
+                    <span class="nv">left</span><span class="o">=</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'a'</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())</span>,
+                    <span class="nv">ops</span><span class="o">=[</span>Eq<span class="o">()]</span>,
+                    <span class="nv">comparators</span><span class="o">=[</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'b'</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())]</span>,
+                <span class="o">)</span>,
+            <span class="o">)</span>,
+        <span class="o">)</span>,
+    <span class="o">]</span>,
+    <span class="nv">type_ignores</span><span class="o">=[]</span>,
+<span class="o">)</span>
+</code></pre></div>
+<p>Next, we need to recognize that pattern.</p>
+<h2 id="a-flake8-visitor-class">A Flake8 visitor class</h2>
+<p>The logic of the linter is in the visitor class. The visitor gets called for every node in the AST. It has various methods which are based on the operations you see within astpretty, e.g. visit_UnaryOp . This method receives an ast.UnaryOp with which you can do whatever you want. More often than not, this will not be of the pattern you need. In this example, you need to look for the op == Not() and operand==Compare and ops=[Eq()] .</p>
+<p>This is how it&rsquo;s done:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">DefaultDict</span><span class="p">,</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span>
+
+
+<span class="k">class</span> <span class="nc">Visitor</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">NodeVisitor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">visit_UnaryOp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">UnaryOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">+=</span> <span class="n">_get_not_equal_calls</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_not_equal_calls</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">UnaryOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">"""Get a list of all calls where an unary 'not' is used for an quality."""</span>
+    <span class="n">errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Not</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Compare</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">errors</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="o">.</span><span class="n">ops</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="o">.</span><span class="n">ops</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ast</span><span class="o">.</span><span class="n">Eq</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">errors</span>
+    <span class="n">comparison</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">operand</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">astor</span><span class="o">.</span><span class="n">to_source</span><span class="p">(</span><span class="n">comparison</span><span class="o">.</span><span class="n">left</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">astor</span><span class="o">.</span><span class="n">to_source</span><span class="p">(</span><span class="n">comparison</span><span class="o">.</span><span class="n">comparators</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">col_offset</span><span class="p">,</span> <span class="n">SIM201</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">right</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">errors</span>
+</code></pre></div>
+<p>I like <a href="https://pypi.org/project/astor/">astor</a>.to_source to get a string like it was in the source code back from the AST node.</p>
+<h2 id="testing-flake8-plugins">Testing Flake8 plugins</h2>
+<p>A big shoutout to Anthony Sottile. Before his video (linked below), I had no clue how to test Flake8 plugins. Thank you ❤️</p>
+<p>It&rsquo;s trivial once you know it: You create a string that contains a line or multiple lines of code. You pass it to ast.parse to get the abstract syntax tree. That one can be passed to your plugin, which should generate some output. That output can then be checked:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Core Library</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="c1"># First party</span>
+<span class="kn">from</span> <span class="nn">flake8_simplify</span> <span class="kn">import</span> <span class="n">Plugin</span>
+
+
+<span class="k">def</span> <span class="nf">_results</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">"""Apply the plugin to the given code."""</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="n">Plugin</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">()}</span>
+
+
+<span class="k">def</span> <span class="nf">test_trivial_case</span><span class="p">():</span>
+    <span class="sd">"""Check the plugins output for no code."""</span>
+    <span class="k">assert</span> <span class="n">_results</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
+</code></pre></div>
+<p>A non-trivial test looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_unary_not_equality</span><span class="p">():</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">_results</span><span class="p">(</span><span class="s2">"not a == b"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">ret</span> <span class="o">==</span> <span class="p">{(</span><span class="s2">"1:0 SIM201 Used 'not a == b' instead of 'a != b'"</span><span class="p">)}</span>
+</code></pre></div>
+<h2 id="complete-example">Complete example</h2>
+<p>This is part of <a href="https://github.com/MartinThoma/flake8-simplify/tree/0.2.0">flake8-simplify 0.2.0</a>. I&rsquo;ve pinned the version so that you can see the code in the simple form it has right now.</p>
+<p>Please make me proud and automate your reviews &mdash; make the following comics true for Flake8 plugins as well :-)</p>
+<p><img alt="Comic by geek-and-poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/2000/1*WYl8FGvNz-nvPpzuQd54-w.jpeg"/><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html">geek-and-poke</a> (Oliver Widder)</em></p>
+<h2 id="see-also">See also</h2>
+<p>I can highly recommend the following video by <a href="undefined">Anthony Sottile</a> (<a href="https://www.linkedin.com/in/anthony-sottile-940008b1/">LinkedIn</a>, <a href="https://github.com/asottile">Github</a>). He is the awesome guy who develops <a href="https://github.com/asottile/pyupgrade">pyupgrade</a>, <a href="https://github.com/asottile/blacken-docs">blacken-docs</a>, and <a href="https://github.com/asottile/astpretty">astpretty</a>:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ot5Z4KQPBL8" width="560"></iframe></center></p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-09-25T20:00:00+02:00">Sep 25, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#flake8-ref">Flake8
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>132</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
