@@ -756,9 +756,9 @@ Fabrics:
             <td>Feigen (frisch)</td>
             <td></td>
             <td></td>
-            <td>0.99 € / 4 pieces</td>
+            <td>0.99 € / 4 pieces, 1.29 € / 8 pieces</td>
             <td></td>
-            <td>0.99 € / 4 pieces</td>
+            <td>2.28 € / 12 pieces</td>
         </tr>
         <tr>
             <td>Figs medium dry (Feigen halbtrocken)</td>
@@ -1065,7 +1065,7 @@ Fabrics:
             <td>4 days</td>
             <td>0.99 € / 500g and 1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>31.53 € / 2.5 kg</td>
+            <td>32.82 € / 3.0 kg</td>
         </tr>
         <tr>
             <td>Brotbackmischung</td>
@@ -1137,7 +1137,7 @@ Fabrics:
             <td>9 months</td>
             <td>0.49 € / 200ml</td>
             <td>5.88 € / year</td>
-            <td>0.98 € / 400ml</td>
+            <td>1.47 € / 600ml</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mayonnaise">Mayonnaise</a></td>
@@ -1145,7 +1145,7 @@ Fabrics:
             <td>6 months</td>
             <td>1.69 € / 200ml</td>
             <td></td>
-            <td>3.38 € / 400ml</td>
+            <td>5.07 € / 600ml</td>
         </tr>
         <tr>
             <td>Remoulade</td>
@@ -1161,7 +1161,7 @@ Fabrics:
             <td>1 to 4 months ❄️</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
             <td>67.34 € / year</td>
-            <td>72.99 € / 9.75kg</td>
+            <td>75.68 € / 10.15kg</td>
         </tr>
         <tr>
             <td>Schmelzscheiben für Toast Hawaii</td>
@@ -1487,7 +1487,7 @@ General Cooking:
             <td>2 years 9 months</td>
             <td>1.99 € / 250ml</td>
             <td></td>
-            <td>7.96 € / 1000ml</td>
+            <td>9.95 € / 1250ml</td>
         </tr>
         <tr>
             <td>Wheat Flour (Weizenmehl)</td>
@@ -2012,7 +2012,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>94.93 € / 67 packages</td>
+            <td>96.72 € / 68 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
@@ -2640,7 +2640,7 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td></td>
-            <td>120 € / 11 time</td>
+            <td>133 € / 12 time (+ 3 times being invited)</td>
         </tr>
         <tr>
             <td>Food for Work (e.g. Semmel)</td>
