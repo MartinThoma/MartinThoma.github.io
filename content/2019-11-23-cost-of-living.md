@@ -2801,7 +2801,7 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
-            <td>147.19 €</td>
+            <td>163.09 €</td>
         </tr>
         <tr>
             <td>Geschenke an Freunde</td>
