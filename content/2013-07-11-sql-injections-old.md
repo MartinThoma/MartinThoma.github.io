@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SQL Injections
+slug: sql-injections-old
 author: Martin Thoma
 date: 2013-07-11 19:25:03.000000000 +02:00
 category: Code
