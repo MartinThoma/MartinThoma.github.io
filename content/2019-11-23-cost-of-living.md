@@ -646,7 +646,7 @@ Fabrics:
             <td>1 week</td>
             <td>0.86 €/kg - 1.79 € / kg</td>
             <td>32.58 € / year</td>
-            <td>3.39 € / 2.818 kg</td>
+            <td>3.63 € / 3.098 kg</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen)</td>
@@ -718,7 +718,7 @@ Fabrics:
             <td>4 weeks</td>
             <td>2.99 € / kg</td>
             <td></td>
-            <td>20.75 € / 6.296kg</td>
+            <td>22.34 € / 6.796kg</td>
         </tr>
         <tr>
             <td>Annanas in a tin can</td>
@@ -726,7 +726,7 @@ Fabrics:
             <td>18 months</td>
             <td>0.79 € / 340g (<a href="https://de.wikipedia.org/wiki/Abtropfgewicht">Abtropfgewicht</a>)</td>
             <td>2.37 € / year</td>
-            <td>0.89 € / 340g</td>
+            <td>1.85 € / 680g</td>
         </tr>
         <tr>
             <td>Kiwi</td>
@@ -774,7 +774,7 @@ Fabrics:
             <td>9 months</td>
             <td>1.49 € / 250g</td>
             <td>17.88 € / year</td>
-            <td>8.33 € / 1500 g</td>
+            <td>9.77 € / 1750 g</td>
         </tr>
         <tr>
             <td>Citrons (Zitronen)</td>
@@ -856,7 +856,7 @@ Fabrics:
             <td>2.5 years</td>
             <td>1.39 € / 0.65 kg</td>
             <td></td>
-            <td>3.77 € / 1.95 kg</td>
+            <td>4.76 € / 2.60 kg</td>
         </tr>
         <tr>
             <td>Spring onion (🇩🇪 Frühlingszwiebeln / Lauchzwiebeln)</td>
@@ -1047,9 +1047,9 @@ Fabrics:
             <td>Bread roll (🇩🇪 Brötchen / Semmel)</td>
             <td>100 / year</td>
             <td>1 day</td>
-            <td>0.85 / piece</td>
+            <td>0.30 €/piece - 0.85 €/ piece</td>
             <td>85.00 € / year</td>
-            <td>4.23 € / 6 piece</td>
+            <td>4.53 € / 7 piece</td>
         </tr>
         <tr>
             <td>Toast (Sandwichtoast)</td>
@@ -1089,7 +1089,7 @@ Fabrics:
             <td>1 day (3 weeks for backing)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece at the baker</td>
             <td>32.54 € / year</td>
-            <td>16.51 € / 23 piece</td>
+            <td>18.11 € / 24 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
@@ -1121,7 +1121,7 @@ Fabrics:
             <td>3 months</td>
             <td>1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>28.41 € / 4750g</td>
+            <td>29.56 € / 5000g</td>
         </tr>
         <tr>
             <td>Margarine</td>
@@ -1137,7 +1137,7 @@ Fabrics:
             <td>9 months</td>
             <td>0.49 € / 200ml</td>
             <td>5.88 € / year</td>
-            <td>1.47 € / 600ml</td>
+            <td>1.96 € / 800ml</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mayonnaise">Mayonnaise</a></td>
@@ -1161,7 +1161,7 @@ Fabrics:
             <td>1 to 4 months ❄️</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
             <td>67.34 € / year</td>
-            <td>75.68 € / 10.15kg</td>
+            <td>82.96 € / 11.15kg</td>
         </tr>
         <tr>
             <td>Schmelzscheiben für Toast Hawaii</td>
@@ -1193,7 +1193,7 @@ Fabrics:
             <td></td>
             <td>0.69 € / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
             <td></td>
-            <td>11.95 € / 2275g</td>
+            <td>12.64 € / 2400g</td>
         </tr>
         <tr>
             <td>Ofenkäse</td>
@@ -1289,7 +1289,7 @@ Fabrics:
 
 ### Spices
 
-I also count mixes like "Knorr fix" in here.
+I also count mixes like "Knorr fix" / "Maggi" in here.
 
 <table class="table">
     <thead>
@@ -1328,12 +1328,12 @@ I also count mixes like "Knorr fix" in here.
             <td>0.98 € / 140g</td>
         </tr>
         <tr>
-            <td>Knorr Fix or Similar (Nudelgratin / Lasagne / Geschnetzeltes / Jägersauce)</td>
+            <td>Knorr Fix, Maggi or Similar (Nudelgratin / Lasagne / Geschnetzeltes / Jägersauce)</td>
             <td></td>
             <td>1 year (?)</td>
-            <td>0.39 / package</td>
+            <td>0.39 € / package - 1.19 € / package</td>
             <td></td>
-            <td>3.21 € / 9 package</td>
+            <td>4.40 € / 10 package</td>
         </tr>
         <tr>
             <td>Gemüsebrühe</td>
@@ -1367,7 +1367,7 @@ General Cooking:
             <td>2 months (?)</td>
             <td>0.65 € / L</td>
             <td>33.90 € / year</td>
-            <td>15.17 € / 22 L</td>
+            <td>15.85 € / 23 L</td>
         </tr>
         <tr>
             <td>Gezuckerte Kondensmilch</td>
@@ -1429,9 +1429,9 @@ General Cooking:
             <td>Haferflocken</td>
             <td></td>
             <td>1 year</td>
-            <td>0.49 € / 500g</td>
+            <td>0.47 € / 500g - 0.96 € / 500g</td>
             <td></td>
-            <td>1.43 € / 1500g</td>
+            <td>1.90 € / 2500g</td>
         </tr>
         <tr>
             <td>Müsli (Nougat/Granola Bits)</td>
@@ -1447,7 +1447,7 @@ General Cooking:
             <td>1 year</td>
             <td>0.99 € / L</td>
             <td>11.88 € / year</td>
-            <td>7.88 € / 7 L</td>
+            <td>8.84 € / 8 L</td>
         </tr>
         <tr>
             <td>Rapsöl</td>
@@ -1842,7 +1842,7 @@ General Cooking:
             <td>5 days 🧊</td>
             <td>2.99 € - 3.29 € / 400g</td>
             <td>8.97 € / year</td>
-            <td>15.47 € / 2100g</td>
+            <td>20.95 € / 2800g</td>
         </tr>
         <tr>
             <td>Next Level Burger Patties (Vegan)</td>
@@ -1906,7 +1906,7 @@ General Cooking:
             <td>1 month?</td>
             <td>1.99 € -2.21 €/ 500g</td>
             <td></td>
-            <td>6.19 € / 1500g</td>
+            <td>8.40 € / 2000g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Tuna">Tuna</a> in tin (Thunfisch in der Dose)</td>
@@ -1994,9 +1994,9 @@ General Cooking:
             <td>Joghurt / Pudding / Sahne-Kefir / Milchreis (also as powder: Paradiesecreme)</td>
             <td>3 pieces / week</td>
             <td>2 weeks (?)❄</td>
-            <td>0.29 € / piece</td>
+            <td>0.29 € / piece - 0.57 € / piece</td>
             <td>45.37 €</td>
-            <td>40.82 € / 139 piece</td>
+            <td>41.96 € / 141 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -2012,15 +2012,15 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>96.72 € / 68 packages</td>
+            <td>104.04 € / 73 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
             <td></td>
             <td>2 years 🧊</td>
-            <td>1.30 € / ball (1 ball = 80g)</td>
+            <td>1.30 € / ball (1 ball = 80g); 1.93 € / 500g</td>
             <td></td>
-            <td>15.21 € / 1890g</td>
+            <td>19.07 € / 2795g</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -2106,9 +2106,9 @@ General Cooking:
             <td>Juice (Saft: Orangen-Nektar)</td>
             <td>18 L / year</td>
             <td>?</td>
-            <td>0.79 € / 1.5 L</td>
+            <td>0.79 € / 1.5 L - 0.96 € / 1.5 L</td>
             <td>9.48 € / year</td>
-            <td>19.04 € / 34.5 L</td>
+            <td>20.79 € / 37.5 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2298,7 +2298,7 @@ General Cooking:
             <td>Pizza (ready-made)</td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>2.59 € / 2 pieces</td>
             <td></td>
             <td>2.59 € / 2 pieces</td>
         </tr>
@@ -2306,9 +2306,17 @@ General Cooking:
             <td>Ready-made pizza dough (Pizza Teig)</td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>1.15 € / 1 piece</td>
             <td></td>
             <td>1.15 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Kloß-Teig</td>
+            <td></td>
+            <td></td>
+            <td>0.99 € / package</td>
+            <td></td>
+            <td>0.99 € / package</td>
         </tr>
         <tr>
             <td>Kichererbsen in der Dose</td>
