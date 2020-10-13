@@ -19,6 +19,7 @@ After reading this article you will understand what the effect of being vulnerab
 
 SQL Injection attacks are so common nowadays that I just give you this list with some of the biggest known attacks. Please note that SQL injections don’t necessarily break anything and thus they might not always be noticed. Most of the time, the attacker steals data.
 
+* Injection flaws are part of the [OWASP Top-10](https://owasp.org/www-project-top-ten/), meaning it's recognized as a common vulnerability
 * **1998**: Jeff Forristal explains the issue ([source](https://www.esecurityplanet.com/network-security/how-was-sql-injection-discovered.html), [original](http://phrack.org/issues/54/8.html#article)).
 * **2009**: 130 million credit card numbers were stolen from Heartland Payment Systems, 7-Eleven, and others ([source](http://news.bbc.co.uk/2/hi/americas/8206305.stm)). They claimed **$130 million** in losses ([source](https://www.wired.com/2010/03/heartland-sentencing/)).
 * **2010**: 110,000 credit card numbers were stolen from Twin America LLC ([source](https://www.bankinfosecurity.co.uk/sql-injection-blamed-for-new-breach-a-3195)).
@@ -116,14 +117,21 @@ I love [Tom Scott](https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)) and [C
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/_jKylhJtPmI" frameborder="0" allowfullscreen></iframe></center>
 
+
 ## What’s next?
 
-This was the first part of a series about application security (AppSec). In future articles, I will present:
+In this series about application security (AppSec) we already had:
 
-* Leaking Credentials
+* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95)
+* Part 2: [Leaking Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
+
+In future articles, I will present:
+
 * XSS
 * CSRF
 * DOS
-* Zip Bombs
+* Password Hashing
+* ZIP Bombs
+* Credential Stuffing
 
-Let me know if you’re interested in other topics around AppSec!
+Let me know if you are interested in more articles! (info@martin-thoma.de)
