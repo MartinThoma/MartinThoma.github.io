@@ -1,16 +1,14 @@
 ---
 layout: post
-title: SQL Injections
+title: SQL Injections 😈
 slug: sql-injections
 URL: https://medium.com/faun/sql-injections-e8bc9a14c95
 author: Martin Thoma
 date: 2020-10-12 20:00
 category: My bits and bytes
-tags: AppSec, ITSec, Security, Cybersecurity
+tags: InfoSec, AppSec, Security, Cybersecurity
 featured_image: logos/code.png
 ---
-![An SQL injection attack. Yes, they are that easy. The attacker chose the user “admin’ OR ‘1’=’1” to change the original query. Image by Author.](https://cdn-images-1.medium.com/max/3840/1*n6xW9rfKO1JO6DN9gdUg-g.png)*An SQL injection attack. Yes, they are that easy. The attacker chose the user “admin’ OR ‘1’=’1” to change the original query. Image by Author.*
-
 An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don’t worry, I’ll explain that later in detail.
 
 After reading this article you will understand what the effect of being vulnerable to SQL injections can be, how to execute SQL injections yourself, and how to prevent them. Let’s get started!
@@ -122,16 +120,17 @@ I love [Tom Scott](https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)) and [C
 
 In this series about application security (AppSec) we already had:
 
-* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95)
-* Part 2: [Leaking Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
+* Part 1: [SQL Injections 😈](https://medium.com/faun/sql-injections-e8bc9a14c95)
+* Part 2: [Leaking Secrets 😇](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
+* Part 3: [Cross-site Scripting (XSS) 😈](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f)
 
-In future articles, I will present:
+And this is about to come:
 
-* XSS
 * CSRF
 * DOS
 * Password Hashing
 * ZIP Bombs
 * Credential Stuffing
+* Cryptojacking
 
 Let me know if you are interested in more articles! (info@martin-thoma.de)

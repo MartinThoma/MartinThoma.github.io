@@ -1,16 +1,14 @@
 ---
 layout: post
-title: Leaking Secrets
+title: Leaking Secrets 😇
 slug: leaking-secrets
 URL: https://levelup.gitconnected.com/leaking-secrets-240a3484cb80
 author: Martin Thoma
 date: 2020-10-13 20:00
 category: My bits and bytes
-tags: InfoSec, AppSec
+tags: InfoSec, AppSec, Security, Cybersecurity
 featured_image: logos/star.png
 ---
-![Image by [Tumisu](https://pixabay.com/de/users/tumisu-148124/) from [Pixabay](https://pixabay.com/de/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5137228)](https://cdn-images-1.medium.com/max/3840/1*YHK8PA4XRbv4P0tFV_TqTw.jpeg)*Image by [Tumisu](https://pixabay.com/de/users/tumisu-148124/) from [Pixabay](https://pixabay.com/de/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5137228)*
-
 One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.
 
 It’s best to prevent leaking credentials completely, but if it’s done you need to change them directly. You cannot hope that nobody has noticed it. People are scanning the public repositories for committed secrets.
@@ -151,16 +149,17 @@ INFO[2020-10-13T17:38:49+02:00] No leaks detected. 29 commits scanned in 111 mil
 
 In this series about application security (AppSec) we already had:
 
-* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95)
-* Part 2: [Leaking Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
+* Part 1: [SQL Injections 😈](https://medium.com/faun/sql-injections-e8bc9a14c95)
+* Part 2: [Leaking Secrets 😇](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
+* Part 3: [Cross-site Scripting (XSS) 😈](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f)
 
-In future articles, I will present:
+And this is about to come:
 
-* XSS
 * CSRF
 * DOS
 * Password Hashing
 * ZIP Bombs
 * Credential Stuffing
+* Cryptojacking
 
 Let me know if you are interested in more articles! (info@martin-thoma.de)
