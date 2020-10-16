@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2020-10-13 20:00
 category: My bits and bytes
 tags: InfoSec, AppSec, Security, Cybersecurity
-featured_image: logos/star.png
+featured_image: logos/cybersecurity.png
 ---
 One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.
 

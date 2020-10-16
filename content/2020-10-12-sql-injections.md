@@ -5,9 +5,9 @@ slug: sql-injections
 URL: https://medium.com/faun/sql-injections-e8bc9a14c95
 author: Martin Thoma
 date: 2020-10-12 20:00
-category: My bits and bytes
+category: Code
 tags: InfoSec, AppSec, Security, Cybersecurity
-featured_image: logos/code.png
+featured_image: logos/cybersecurity.png
 ---
 An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don’t worry, I’ll explain that later in detail.
 
