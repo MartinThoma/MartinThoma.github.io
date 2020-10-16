@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2020-10-02 20:00
 category: My bits and bytes
 tags: Security, AppSec, 2FA, MFA, JWT, OAuth
-featured_image: logos/star.png
+featured_image: logos/cybersecurity.png
 ---
 Identification, authentication, and authorization are closely related, but not the same.
 > # Identification is about knowing who somebody is, even without their cooperation.
