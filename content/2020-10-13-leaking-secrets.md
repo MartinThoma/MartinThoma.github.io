@@ -147,17 +147,18 @@ INFO[2020-10-13T17:38:49+02:00] No leaks detected. 29 commits scanned in 111 mil
 
 ## What’s next?
 
-In this series about application security (AppSec) we already had:
+In this series about application security (AppSec) we already explained some of
+the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
-* Part 1: [SQL Injections 😈](https://medium.com/faun/sql-injections-e8bc9a14c95)
-* Part 2: [Leaking Secrets 😇](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
-* Part 3: [Cross-site Scripting (XSS) 😈](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f)
+* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
+* Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
+* Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
+* Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
 
 And this is about to come:
 
 * CSRF
 * DOS
-* Password Hashing
 * ZIP Bombs
 * Credential Stuffing
 * Cryptojacking
