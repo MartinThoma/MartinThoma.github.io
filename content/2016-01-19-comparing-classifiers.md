@@ -109,7 +109,7 @@ Guessing randomly will give an accuracy of <span markdown="0">$\frac{1}{10} = 0.
 ### Neural Networks
 
 Please note that there are neural networks which get much better accuracy.
-Most notably the [MNIST Expert tutorial](https://www.tensorflow.org/versions/master/tutorials/mnist/pros/index.html#deep-mnist-for-experts) with 99.2% accuracy.
+Most notably the [MNIST Expert tutorial](https://www.tensorflow.org/tutorials/quickstart/advanced) with 99.2% accuracy.
 
 #### Simple Network
 
