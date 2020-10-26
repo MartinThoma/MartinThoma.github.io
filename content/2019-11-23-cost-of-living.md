@@ -209,7 +209,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>63.00 €</td>
             <td>4 years</td>
             <td>15.75 € / year</td>
-            <td>9.74 € / 1 pieces</td>
+            <td>13.63 € / 2 pieces</td>
         </tr>
         <tr>
             <td>5x Business-Hemd</td>
@@ -442,6 +442,21 @@ which I think I really need... turns out, it's a lot of stuff.
 * Stichsäge
 * Imbus-Schlüssel
 * Meterstab
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount 2020</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Holzschrauben</td>
+            <td>3.79 € / 100 pieces</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Kitchen
 
@@ -734,7 +749,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>0.29 € / piece to 0.39 € / piece</td>
             <td>4.68 € / year</td>
-            <td>1.74 € / 6 pieces</td>
+            <td>2.05 € / 7 pieces</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Vaccinium">Blueberries</a> (Heidelbeeren)</td>
@@ -780,9 +795,9 @@ Fabrics:
             <td>Citrons (Zitronen)</td>
             <td></td>
             <td>2 weeks ?</td>
-            <td>1.19 € / 500g</td>
+            <td>0.79 € / 500g - 1.19 € / 500g</td>
             <td></td>
-            <td>4.00 € / 10 pieces</td>
+            <td>4.79 € / 15 pieces</td>
         </tr>
     </tbody>
 </table>
@@ -814,17 +829,17 @@ Fabrics:
             <td>Carrots (🇩🇪 Karotten / Möhren)</td>
             <td></td>
             <td>3 months (?)</td>
-            <td>0.99 € / 2kg</td>
+            <td>0.89 €/1kg - 0.99 € / 2kg</td>
             <td></td>
-            <td>5.18 € / 5.975 kg</td>
+            <td>6.99 € / 7.443 kg</td>
         </tr>
         <tr>
-            <td>Brokkoli</td>
+            <td>Brokkoli (Broccoli)</td>
             <td></td>
             <td>2 weeks</td>
-            <td>1.39 € / 500g</td>
+            <td>0.86 € / 500g to 1.49 € / 500g</td>
             <td></td>
-            <td>2.88 € / 1000g</td>
+            <td>8.81 € / 6000g</td>
         </tr>
         <tr>
             <td>Radisichen</td>
@@ -907,14 +922,6 @@ Fabrics:
             <td>13.47 € / 3346g</td>
         </tr>
         <tr>
-            <td>Broccoli</td>
-            <td></td>
-            <td></td>
-            <td>0.86 € / 500g to 1.49 € / 500g</td>
-            <td></td>
-            <td>5.93 € / 2000g</td>
-        </tr>
-        <tr>
             <td>Corn in a can (🇩🇪Mais in der Dose)</td>
             <td>2520g</td>
             <td>33 months</td>
@@ -942,9 +949,9 @@ Fabrics:
             <td><a href="https://en.wikipedia.org/wiki/Capsicum">Pepper</a> (🇩🇪 Paprika)</td>
             <td>6 kg / year</td>
             <td>2 weeks</td>
-            <td>2.19 € / 500g</td>
+            <td>4.38 € / kg - 5.90 € / kg</td>
             <td>15.48 € / year</td>
-            <td>4.52 € / 1.330 kg</td>
+            <td>5.48 € / 1.492 kg</td>
         </tr>
         <tr>
             <td>Champignons</td>
@@ -952,7 +959,7 @@ Fabrics:
             <td>?</td>
             <td>1.39 € / 500g</td>
             <td>16.68 € / year</td>
-            <td>0 €</td>
+            <td>0.57 €</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
@@ -960,15 +967,15 @@ Fabrics:
             <td>1 month (?)</td>
             <td>0.89 € / kg to 1.99 € / kg</td>
             <td>11.94 € / kg</td>
-            <td>1.40 € / 0.972kg</td>
+            <td>2.48 € / 1.374kg</td>
         </tr>
         <tr>
             <td>Olives (entkernte Oliven im Glas)</td>
             <td></td>
             <td>3 years</td>
-            <td>0.57 € / 160g</td>
+            <td>0.57 € / 160g - 0.79 € / 160g</td>
             <td></td>
-            <td>0.57 € / 160g</td>
+            <td>2.13 € / 480g</td>
         </tr>
         <tr>
             <td>Kapern</td>
@@ -998,9 +1005,9 @@ Fabrics:
             <td>Ingwer</td>
             <td></td>
             <td></td>
+            <td>5.90 € / kg</td>
             <td></td>
-            <td></td>
-            <td>0.21 € / 0.036kg</td>
+            <td>0.48 € / 0.082kg</td>
         </tr>
         <tr>
             <td>Salad (Salat)</td>
@@ -1065,7 +1072,7 @@ Fabrics:
             <td>4 days</td>
             <td>0.99 € / 500g and 1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>32.82 € / 3.0 kg</td>
+            <td>35.00 € / 4.0 kg</td>
         </tr>
         <tr>
             <td>Brotbackmischung</td>
@@ -1159,9 +1166,9 @@ Fabrics:
             <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse; Almzeit; Parmigiano Reggiano)</td>
             <td>400g / 2 weeks</td>
             <td>1 to 4 months ❄️</td>
-            <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
+            <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano; 1.19 € / 200g für Brie</td>
             <td>67.34 € / year</td>
-            <td>82.96 € / 11.15kg</td>
+            <td>84.15 € / 11.35kg</td>
         </tr>
         <tr>
             <td>Schmelzscheiben für Toast Hawaii</td>
@@ -1249,7 +1256,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>0.89 € / 150g</td>
             <td></td>
-            <td>10.74 € / 1800g</td>
+            <td>11.73 € / 1950g</td>
         </tr>
         <tr>
             <td>Antipasti (Brotaufstrich/Salat)</td>
@@ -1260,7 +1267,7 @@ Fabrics:
             <td>10.34€ / 900g</td>
         </tr>
         <tr>
-            <td>Nougat Creme (e.g. Nutella)</td>
+            <td>Nougat Creme / Schokocreme (e.g. Nutella)</td>
             <td>?</td>
             <td>1 year</td>
             <td>0.59 €/400g - 1.29 € / 400g</td>
@@ -1365,9 +1372,9 @@ General Cooking:
             <td>Milk (Milch)</td>
             <td>1 L / week</td>
             <td>2 months (?)</td>
-            <td>0.65 € / L</td>
+            <td>0.65 € / L - 0.68 € / L</td>
             <td>33.90 € / year</td>
-            <td>15.85 € / 23 L</td>
+            <td>17.23 € / 25 L</td>
         </tr>
         <tr>
             <td>Gezuckerte Kondensmilch</td>
@@ -1683,12 +1690,12 @@ General Cooking:
             <td>2.48 € / 150g</td>
         </tr>
         <tr>
-            <td>Kokusnussmilch</td>
+            <td>Kokosnussmilch</td>
             <td></td>
             <td>18 months</td>
             <td></td>
             <td></td>
-            <td>0.99 € / 400ml</td>
+            <td>2.97 € / 1600ml</td>
         </tr>
         <tr>
             <td>Gewürzmischung (AHG / Bamboe)</td>
@@ -1996,7 +2003,7 @@ General Cooking:
             <td>2 weeks (?)❄</td>
             <td>0.29 € / piece - 0.57 € / piece</td>
             <td>45.37 €</td>
-            <td>41.96 € / 141 piece</td>
+            <td>43.09 € / 144 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -2012,7 +2019,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>104.04 € / 73 packages</td>
+            <td>110.41 € / 78 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
@@ -2172,7 +2179,7 @@ General Cooking:
             <td></td>
             <td>2.19 € / package</td>
             <td></td>
-            <td>10.55 € / 5 package</td>
+            <td>12.74 € / 6 package</td>
         </tr>
         <tr>
             <td>Chili Sin Carne (in a tin can)</td>
@@ -2361,10 +2368,10 @@ General Cooking:
         </tr>
         <tr>
             <td>Toothbrush (Oral-B Pulsar Zahnbürste)</td>
-            <td>3.45 €</td>
+            <td>3.45 € / piece</td>
             <td>One per 3 months</td>
             <td>13.80 € / year</td>
-            <td>13.80 € / 4 piece</td>
+            <td>17.25 € / 5 piece</td>
         </tr>
         <tr>
             <td>Toothpaste (Odol med 3 Zahnpasta)</td>
@@ -2372,6 +2379,13 @@ General Cooking:
             <td>125ml per 80 days</td>
             <td>11.10 € / year</td>
             <td>(I started the year with about 380ml in Toothpaste... I don't think I will need to buy any)</td>
+        </tr>
+        <tr>
+            <td>Face cleaning</td>
+            <td>5.15 €</td>
+            <td></td>
+            <td></td>
+            <td>5.15 €</td>
         </tr>
         <tr>
             <td>Mundspülung</td>
@@ -2385,7 +2399,14 @@ General Cooking:
             <td>2.45 € / 200ml</td>
             <td>200ml / 60 days</td>
             <td>15.52 € / year</td>
-            <td>7.35 € / 600ml</td>
+            <td>9.80 € / 800ml</td>
+        </tr>
+        <tr>
+            <td>Badesalz / Pulver</td>
+            <td>0.93 € / piece</td>
+            <td></td>
+            <td></td>
+            <td>1.86 € / 2 pieces</td>
         </tr>
         <tr>
             <td>Nosetstrips</td>
@@ -2648,7 +2669,7 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td></td>
-            <td>133 € / 12 time (+ 3 times being invited)</td>
+            <td>145 € / 13 time (+ 3 times being invited)</td>
         </tr>
         <tr>
             <td>Food for Work (e.g. Semmel)</td>
@@ -2662,7 +2683,7 @@ pills and maybe a couple of months for creams and ointment.
             <td>15 € / person</td>
             <td></td>
             <td></td>
-            <td>309.60 € / 19 people (11 times in total)</td>
+            <td>401.60 € / 25 people (14 times in total)</td>
         </tr>
         <tr>
             <td>Restaurant/Café (private, just drink)</td>
@@ -2686,11 +2707,11 @@ pills and maybe a couple of months for creams and ointment.
             <td>15.90 € / 1 time</td>
         </tr>
         <tr>
-            <td>Swimming</td>
+            <td>Swimming (Schwimmen)</td>
             <td>6 € / 1 time</td>
             <td></td>
             <td></td>
-            <td>6 € / 1 time</td>
+            <td>12 € / 2 time</td>
         </tr>
         <tr>
             <td>GEZ / <a href="https://de.wikipedia.org/wiki/Rundfunkbeitrag">Rundfunkbeitrag</a></td>
@@ -2809,7 +2830,7 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
-            <td>163.09 €</td>
+            <td>195.09 €</td>
         </tr>
         <tr>
             <td>Geschenke an Freunde</td>
