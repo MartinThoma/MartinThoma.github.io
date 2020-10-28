@@ -124,13 +124,17 @@ In this series about application security (AppSec) we already explained some of 
 * Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
 * Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
 * Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
+* Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
 
 And this is about to come:
 
-* CSRF
-* DOS
-* ZIP Bombs
-* Credential Stuffing
-* Cryptojacking
+* CSRF 😈
+* DOS 😈
+* Credential Stuffing 😈
+* Cryptojacking 😈
+* Single-Sign-On 😇
+* Two-Factor Authentication 😇
+* Backups 😇
+* Disk Encryption 😇
 
 Let me know if you are interested in more articles! (info@martin-thoma.de)

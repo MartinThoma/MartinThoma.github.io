@@ -145,22 +145,31 @@ INFO[2020-10-13T17:38:49+02:00] No leaks detected. 29 commits scanned in 111 mil
 [**HaveIbeenPwned**](https://haveibeenpwned.com/) is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: **Don’t re-use passwords! A re-used password is a leaked password!**
 
 
+## A note about environment Variables
+
+Environment variables are by far not bullet-proof. Several malicious 3rd-party
+packages simply send the hostname with environment variables to a server ([source](https://github.com/rsc-dev/pypi_malware#malware-packages)).
+
+
 ## What’s next?
 
-In this series about application security (AppSec) we already explained some of
-the techniques of the attackers 😈 and also techniques of the defenders 😇:
+In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
 * Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
 * Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
 * Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
 * Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
+* Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
 
 And this is about to come:
 
-* CSRF
-* DOS
-* ZIP Bombs
-* Credential Stuffing
-* Cryptojacking
+* CSRF 😈
+* DOS 😈
+* Credential Stuffing 😈
+* Cryptojacking 😈
+* Single-Sign-On 😇
+* Two-Factor Authentication 😇
+* Backups 😇
+* Disk Encryption 😇
 
 Let me know if you are interested in more articles! (info@martin-thoma.de)
