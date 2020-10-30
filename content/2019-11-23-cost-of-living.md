@@ -661,7 +661,7 @@ Fabrics:
             <td>1 week</td>
             <td>0.86 €/kg - 1.79 € / kg</td>
             <td>32.58 € / year</td>
-            <td>3.63 € / 3.098 kg</td>
+            <td>3.84 € / 3.316 kg</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen)</td>
@@ -675,9 +675,9 @@ Fabrics:
             <td>Apples (Äpfel)</td>
             <td>3 kg / year</td>
             <td>3 months (?)</td>
-            <td>0.89 € / kg</td>
+            <td>0.89 € / kg - 1.25 € / kg</td>
             <td>2.67 € / year</td>
-            <td>4.00 € / 2.056kg</td>
+            <td>6.49 € / 4.056kg</td>
         </tr>
         <tr>
             <td>Birne</td>
@@ -710,6 +710,14 @@ Fabrics:
             <td>5.90 €/kg</td>
             <td></td>
             <td>9.08 € / 1.938 kg</td>
+        </tr>
+        <tr>
+            <td>Sauerkirschen (eingelegt, gezuckert, entsteint)</td>
+            <td></td>
+            <td>3 years</td>
+            <td>1.49 € / 350g</td>
+            <td></td>
+            <td>1.49 € / 350g</td>
         </tr>
         <tr>
             <td>Mango (Tin can)</td>
@@ -885,9 +893,9 @@ Fabrics:
             <td>Onion (🇩🇪 Speisezwiebeln)</td>
             <td>2 kg / 3 months</td>
             <td>2 months (?)</td>
-            <td>1.19 € - 1.69 € / 2kg</td>
+            <td>0.98 € / 2kg - 1.69 € / 2kg</td>
             <td>3.16 € / year</td>
-            <td>7.27 € / 9kg</td>
+            <td>7.76 € / 10kg</td>
         </tr>
         <tr>
             <td>Garlic (🇩🇪 Knoblauch)</td>
@@ -927,7 +935,7 @@ Fabrics:
             <td>33 months</td>
             <td>0.99 € / 420g - 1.29 € / 420g (🇩🇪 Abtropfgewicht)</td>
             <td>7.14 € / year</td>
-            <td>7.34 € / 2520g</td>
+            <td>9.72 € / 3360g</td>
         </tr>
         <tr>
             <td>🇩🇪 Maiskölbchen</td>
@@ -957,9 +965,9 @@ Fabrics:
             <td>Champignons</td>
             <td>6kg / year</td>
             <td>?</td>
-            <td>1.39 € / 500g</td>
+            <td>0.57 € /280g - 1.39 € / 500g</td>
             <td>16.68 € / year</td>
-            <td>0.57 €</td>
+            <td>1.14 € / 560g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
@@ -975,7 +983,7 @@ Fabrics:
             <td>3 years</td>
             <td>0.57 € / 160g - 0.79 € / 160g</td>
             <td></td>
-            <td>2.13 € / 480g</td>
+            <td>2.89 € / 640g</td>
         </tr>
         <tr>
             <td>Kapern</td>
@@ -1021,9 +1029,9 @@ Fabrics:
             <td>Buttergemüße</td>
             <td></td>
             <td>months 🧊</td>
-            <td>0.59 € / 300g</td>
+            <td>0.57 € / 300g - 0.59 € / 300g</td>
             <td></td>
-            <td>1.18 € / 600g</td>
+            <td>1.75 € / 900g</td>
         </tr>
     </tbody>
 </table>
@@ -1056,15 +1064,15 @@ Fabrics:
             <td>1 day</td>
             <td>0.30 €/piece - 0.85 €/ piece</td>
             <td>85.00 € / year</td>
-            <td>4.53 € / 7 piece</td>
+            <td>5.39 € / 9 piece</td>
         </tr>
         <tr>
             <td>Toast (Sandwichtoast)</td>
             <td>750g / week (?)</td>
             <td>2 weeks (?)</td>
-            <td>0.89 € / 750g or 0.68 € / 500g</td>
+            <td>0.89 € / 750g or 0.57 € /500g - 0.68 € / 500g</td>
             <td>23.01 € / year</td>
-            <td>8.70 € / 6500g</td>
+            <td>9.27 € / 7000g</td>
         </tr>
         <tr>
             <td>Bread (Brot: Eiweis-Brot, Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
@@ -1096,7 +1104,7 @@ Fabrics:
             <td>1 day (3 weeks for backing)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece at the baker</td>
             <td>32.54 € / year</td>
-            <td>18.11 € / 24 piece</td>
+            <td>19.48 € / 25 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
@@ -1142,9 +1150,9 @@ Fabrics:
             <td><a href="https://en.wikipedia.org/wiki/Mustard_(condiment)">Mustard</a> (medium-hot; Senf)</td>
             <td>200 ml / month</td>
             <td>9 months</td>
-            <td>0.49 € / 200ml</td>
+            <td>0.47 € / 200ml - 0.49 € / 200ml</td>
             <td>5.88 € / year</td>
-            <td>1.96 € / 800ml</td>
+            <td>2.43 € / 1000ml</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mayonnaise">Mayonnaise</a></td>
@@ -1158,17 +1166,17 @@ Fabrics:
             <td>Remoulade</td>
             <td></td>
             <td>6 months</td>
-            <td>1.69 € / 200ml</td>
+            <td>1.63 € /200ml - 1.69 € / 200ml</td>
             <td></td>
-            <td>3.38 € / 400ml</td>
+            <td>5.01 € / 600ml</td>
         </tr>
         <tr>
-            <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse; Almzeit; Parmigiano Reggiano)</td>
+            <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse; Almzeit; Parmigiano Reggiano; Brie)</td>
             <td>400g / 2 weeks</td>
             <td>1 to 4 months ❄️</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano; 1.19 € / 200g für Brie</td>
             <td>67.34 € / year</td>
-            <td>84.15 € / 11.35kg</td>
+            <td>85.34 € / 11.55kg</td>
         </tr>
         <tr>
             <td>Schmelzscheiben für Toast Hawaii</td>
@@ -1286,9 +1294,9 @@ Fabrics:
             <td>Honey (Honig)</td>
             <td>?</td>
             <td>1 year</td>
-            <td>2.89 € / 500g</td>
+            <td>1.92 €/500g - 2.89 € / 500g</td>
             <td>?</td>
-            <td>2.89 € / 500g</td>
+            <td>4.81 € / 1000g</td>
         </tr>
     </tbody>
 </table>
@@ -1335,12 +1343,20 @@ I also count mixes like "Knorr fix" / "Maggi" in here.
             <td>0.98 € / 140g</td>
         </tr>
         <tr>
+            <td>Oregano</td>
+            <td></td>
+            <td>3 years</td>
+            <td>1.85 € / 70g</td>
+            <td></td>
+            <td>1.85 € / 70g</td>
+        </tr>
+        <tr>
             <td>Knorr Fix, Maggi or Similar (Nudelgratin / Lasagne / Geschnetzeltes / Jägersauce)</td>
             <td></td>
             <td>1 year (?)</td>
-            <td>0.39 € / package - 1.19 € / package</td>
+            <td>0.28 € / package - 1.19 € / package</td>
             <td></td>
-            <td>4.40 € / 10 package</td>
+            <td>5.83 € / 13 package</td>
         </tr>
         <tr>
             <td>Gemüsebrühe</td>
@@ -1406,7 +1422,7 @@ General Cooking:
             <td>2 weeks</td>
             <td>0.63 € / 200 g</td>
             <td>7.56 € / year</td>
-            <td>4.02 € / 1200g</td>
+            <td>5.28 € / 1600g</td>
         </tr>
         <tr>
             <td>Schmand</td>
@@ -1454,7 +1470,7 @@ General Cooking:
             <td>1 year</td>
             <td>0.99 € / L</td>
             <td>11.88 € / year</td>
-            <td>8.84 € / 8 L</td>
+            <td>9.83 € / 9 L</td>
         </tr>
         <tr>
             <td>Rapsöl</td>
@@ -1494,7 +1510,7 @@ General Cooking:
             <td>2 years 9 months</td>
             <td>1.99 € / 250ml</td>
             <td></td>
-            <td>9.95 € / 1250ml</td>
+            <td>11.94 € / 1500ml</td>
         </tr>
         <tr>
             <td>Wheat Flour (Weizenmehl)</td>
@@ -1508,9 +1524,9 @@ General Cooking:
             <td>Zucker</td>
             <td></td>
             <td>10 years</td>
-            <td>0.75 € / kg</td>
+            <td>0.75 € / kg - 0.77 € / kg</td>
             <td></td>
-            <td>0.75 € / kg</td>
+            <td>1.52 € / 2 kg</td>
         </tr>
         <tr>
             <td>Tapioka Mehl</td>
@@ -1779,12 +1795,12 @@ General Cooking:
             <td>2.07 € / 750g</td>
         </tr>
         <tr>
-            <td>Pesto</td>
+            <td>Barilla Pesto</td>
             <td></td>
             <td>6 months</td>
             <td>1.99 € / 200g</td>
             <td></td>
-            <td>6.91 € / 600g</td>
+            <td>8.90 € / 800g</td>
         </tr>
         <tr>
             <td>Nudelsoße</td>
@@ -1826,6 +1842,14 @@ General Cooking:
             <td>1.99 € / package</td>
             <td></td>
             <td>7.89 € / 3 package</td>
+        </tr>
+        <tr>
+            <td>Fisch Filet (Schlemmerfilet)</td>
+            <td></td>
+            <td>2 years 🧊</td>
+            <td>2.15 € / 380g</td>
+            <td></td>
+            <td>2.15 € / 380g</td>
         </tr>
         <tr>
             <td>Fish in tin can (Hering / Thunfisch)</td>
@@ -1980,6 +2004,30 @@ General Cooking:
             <td></td>
             <td>1.59 € / 439g</td>
         </tr>
+        <tr>
+            <td>Kuchenglasur</td>
+            <td></td>
+            <td>2 years</td>
+            <td>0.68 € / 200g</td>
+            <td></td>
+            <td>0.68 € / 200g</td>
+        </tr>
+        <tr>
+            <td>Griess</td>
+            <td></td>
+            <td>?</td>
+            <td>1.27 € / ?</td>
+            <td></td>
+            <td>1.27 € / ?</td>
+        </tr>
+        <tr>
+            <td>Hefe</td>
+            <td></td>
+            <td>?</td>
+            <td>1.95 € / ?</td>
+            <td></td>
+            <td>1.95 € / ?</td>
+        </tr>
     </tbody>
 </table>
 
@@ -2003,7 +2051,7 @@ General Cooking:
             <td>2 weeks (?)❄</td>
             <td>0.29 € / piece - 0.57 € / piece</td>
             <td>45.37 €</td>
-            <td>43.09 € / 144 piece</td>
+            <td>44.15 € / 148 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -2014,12 +2062,12 @@ General Cooking:
             <td>3.18 € / 2775g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel, Milchlaible, Mozart-Kugeln, Gummibären)</td>
+            <td>Sweets like Cookies (chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>110.41 € / 78 packages</td>
+            <td>115.35 € / 82 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
@@ -2027,7 +2075,7 @@ General Cooking:
             <td>2 years 🧊</td>
             <td>1.30 € / ball (1 ball = 80g); 1.93 € / 500g</td>
             <td></td>
-            <td>19.07 € / 2795g</td>
+            <td>21.00 € / 3315g</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -2115,7 +2163,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 € / 1.5 L - 0.96 € / 1.5 L</td>
             <td>9.48 € / year</td>
-            <td>20.79 € / 37.5 L</td>
+            <td>21.64 € / 39.0 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2257,9 +2305,9 @@ General Cooking:
             <td>Geschälte Tomaten in der Dose</td>
             <td></td>
             <td></td>
-            <td>0.39 € / 240g</td>
+            <td>0.38 € /240g - 0.39 € / 240g</td>
             <td></td>
-            <td>1.16 € / 720g</td>
+            <td>1.54 € / 960g</td>
         </tr>
         <tr>
             <td>Zitronensaft</td>
@@ -2291,7 +2339,7 @@ General Cooking:
             <td>6 months</td>
             <td>0.99 € / 8 pieces (200 g total)</td>
             <td></td>
-            <td>0.99 € / 8 pieces (200 g total)</td>
+            <td>1.98 € / 16 pieces (200 g total)</td>
         </tr>
         <tr>
             <td>Crutons</td>
@@ -2361,10 +2409,10 @@ General Cooking:
         </tr>
         <tr>
             <td>8x200 Toilet paper (3 layers)</td>
-            <td>2.15 € / 1600 Blatt (6 rolls)</td>
+            <td>2.08 € / 1600 Blatt - 2.15 € / 1600 Blatt (6 rolls)</td>
             <td>One Roll per week (?)</td>
             <td>14.02 € / year</td>
-            <td>13.96 € / 9600 Blatt (30 rolls)</td>
+            <td>16.04 € / 11200 Blatt (36 rolls)</td>
         </tr>
         <tr>
             <td>Toothbrush (Oral-B Pulsar Zahnbürste)</td>
@@ -2669,7 +2717,7 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td></td>
-            <td>145 € / 13 time (+ 3 times being invited)</td>
+            <td>157 € / 14 time (+ 3 times being invited)</td>
         </tr>
         <tr>
             <td>Food for Work (e.g. Semmel)</td>
@@ -2725,7 +2773,7 @@ pills and maybe a couple of months for creams and ointment.
             <td>13 €</td>
             <td>Each 6 Weeks</td>
             <td>113.00 € / year</td>
-            <td>65 € / 4 time</td>
+            <td>81 € / 5 time</td>
         </tr>
         <tr>
             <td><a href="https://www.check24.de/handytarife">SIM card</a></td>
@@ -2799,8 +2847,8 @@ pills and maybe a couple of months for creams and ointment.
     </thead>
     <tbody>
         <tr>
-            <td>Books bought (Amazon, ReBuy)</td>
-            <td>24.25 € / 4 books</td>
+            <td>Books bought (Amazon, ReBuy, Hugendubel)</td>
+            <td>39.24 € / 5 books</td>
         </tr>
     </tbody>
 </table>
