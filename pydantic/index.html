@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, mypy, hypothesis, Code, " />
+
+<meta property="og:title" content="pydantic  - The library you must know if you juggle data around "/>
+<meta property="og:url" content="https://towardsdatascience.com/pydantic-688e897cfd3a" />
+<meta property="og:description" content="Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although Python dictionaries are amazing, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-11-02T20:00:00+01:00" />
+<meta name="twitter:title" content="pydantic  - The library you must know if you juggle data around ">
+<meta name="twitter:description" content="Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although Python dictionaries are amazing, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>pydantic  - The library you must know if you juggle data around  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/pydantic-688e897cfd3a"> pydantic  <small> The library you must know if you juggle data around </small>  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#create-a-pydantic-model" title="Create a pydantic model">Create a pydantic model</a></li><li><a class="toc-href" href="#use-it-for-input-parsing" title="Use it for input parsing">Use it for input parsing</a></li><li><a class="toc-href" href="#constrained-types" title="Constrained Types">Constrained Types</a></li><li><a class="toc-href" href="#missing-data-use-default-values" title="Missing data: Use default values">Missing data: Use default values</a></li><li><a class="toc-href" href="#additional-data-ignore-allow-or-forbid" title="Additional data: Ignore, allow, or forbid">Additional data: Ignore, allow, or forbid</a></li><li><a class="toc-href" href="#rename-attributes" title="Rename attributes">Rename attributes</a></li><li><a class="toc-href" href="#validators" title="Validators">Validators</a></li><li><a class="toc-href" href="#property-based-testing-with-pydantic" title="Property-based Testing with Pydantic">Property-based Testing with Pydantic</a></li><li><a class="toc-href" href="#more-neat-stuff" title="More neat stuff">More neat stuff</a></li><li><a class="toc-href" href="#operational-safety" title="Operational Safety">Operational Safety</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although <a href="https://www.youtube.com/watch?v=npw4s1QTmPg">Python dictionaries are amazing</a>, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in the passed dictionary and (2) how do I prevent typos?</p>
+<p>If you use classes, your editor or mypy prevents typos in attribute names. For dictionaries, any valid string can be a key.</p>
+<p>A solution to both problems is using a library: <a href="https://pypi.org/project/pydantic/"><strong>pydantic</strong></a>. It is a validation and parsing library which maps your data to a Python class.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Install pydantic via</p>
+<div class="highlight"><pre><span></span><code>pip install pydantic
+</code></pre></div>
+<p>For this article, I assume that your data is a network of people in <a href="https://gist.github.com/MartinThoma/517d20998501afc4fff72be032782d41">people.json</a>. They have an ID, a name, a list of friends given by their ID, a birthdate, and the amount of money on their bank account.</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Anna"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1992-01-15"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mf">12.3</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1962-12-31"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Charlie"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1992-02-28"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mf">9007199254740993.0</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Martin"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1990-04-28"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mi">9007199254740993</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>We want to calculate how much more everybody has than their median friend with this <a href="https://gist.github.com/MartinThoma/fe33638b8a6228dc656e37dcf7a9fb92">example.py</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Mapping</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">get_people</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">friends_difference</span> <span class="o">=</span> <span class="n">get_account_difference</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">person_id</span><span class="p">,</span> <span class="n">diff</span> <span class="ow">in</span> <span class="n">friends_difference</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">person_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2"> EUR"</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_account_difference</span><span class="p">(</span>
+    <span class="n">people</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s2">"friends"</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">friends_account</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">people</span><span class="p">[</span><span class="n">friend</span><span class="p">][</span><span class="s2">"bank_account"</span><span class="p">]</span> <span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="n">person</span><span class="p">[</span><span class="s2">"friends"</span><span class="p">]</span>
+            <span class="p">]</span>
+            <span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">friends_account</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">median</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">median</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">person</span><span class="p">[</span><span class="s2">"bank_account"</span><span class="p">]</span> <span class="o">-</span> <span class="n">median</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">get_people</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">people</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="n">id2person</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+        <span class="n">id2person</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">person</span>
+    <span class="k">return</span> <span class="n">id2person</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"people.json"</span><span class="p">))</span>
+</code></pre></div>
+<p>The problems we want to approach are:</p>
+<ul>
+<li><strong>Ugly None</strong>: Having None as a value for friends is pretty ugly. In some cases, None is different from an empty list. In this case, let&rsquo;s just assume it means the same. Replacing missing data with something else is called <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputation</a> and there are several techniques.</li>
+<li><strong>Ugly Any</strong>: The type annotations have Dict[str, Any] , because it was considered too complicated or even impossible to know which values the dictionary representing a person can map too.</li>
+<li><strong>Ugly indexing</strong>: It&rsquo;s just syntax, but ["id"] is 50% longer than .id . This is the reason why <a href="https://pypi.org/project/bunch/">bunch</a>/<a href="https://pypi.org/project/munch/">munch</a> exists.</li>
+<li><strong>Typos</strong>: If you make a typo in any of the string indices of a dictionary, no static code analysis tool can help you to detect them. No auto-completion will work properly.</li>
+<li><strong>Late Errors</strong>: Good software modularizes responsibilities. There is one module responsible for the business logic and one for input/output. When I write &ldquo;module&rdquo; I mean a unit of code &mdash; it could be a Python module, a class, a function, a method. It is bad to have simply one function to deal with those different types of complexity. Getting the business logic right is inherently different from making sure your input/output looks as expected. One is about defining and validating proper interfaces, the other one is about understanding the domain.</li>
+<li><strong>Documentation</strong>: New developers regularly have to read the code of bigger applications. Usually, there is no time to explain every single part in great detail by somebody who knows everything about the application. Most of the time, there isn&rsquo;t even a single person who knows everything &mdash; even if the project was done by a single developer. I always forget parts of my code. Hence documenting is crucial. In Python, documenting expected parameter types and its return values is crucial. Having Dict[str, Any] is better than nothing, but way worse than Person .</li>
+</ul>
+<h2 id="create-a-pydantic-model">Create a pydantic model</h2>
+<p>We create a new type for the ID of a person, simply because PersonId is so much more meaningful than just int . Then we subclass <a href="https://pydantic-docs.helpmanual.io/usage/models/#basic-model-usage">pydantic.BaseModel</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"PersonId"</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bank_account</span><span class="p">:</span> <span class="n">Decimal</span>
+    <span class="n">birthdate</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+<h2 id="use-it-for-input-parsing">Use it for input parsing</h2>
+<p>Next, we use <a href="https://pydantic-docs.helpmanual.io/usage/models/#parsing-data-into-a-specified-type">parse_file_as</a> to read the JSON file:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Mapping</span>
+
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Person</span><span class="p">,</span> <span class="n">PersonId</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">parse_file_as</span>
+
+
+<span class="k">def</span> <span class="nf">get_people</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">PersonId</span><span class="p">,</span> <span class="n">Person</span><span class="p">]:</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">parse_file_as</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">Person</span><span class="p">],</span> <span class="n">filepath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">person</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">person</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">}</span>
+</code></pre></div>
+<p>Please note that <a href="https://pydantic-docs.helpmanual.io/usage/types/#datetime-types">datetime</a> and Decimal are automatically parsed &mdash; you still should always look up how it is done. Doing data validation early is good so that errors also happen early and in a known place. This means pydantic nudges you into a good design. I love it 😍</p>
+<h2 id="constrained-types">Constrained Types</h2>
+<p><a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">Constrained types</a> are integers/floats in a certain value range or a string that matches a RegEx 😃</p>
+<h2 id="missing-data-use-default-values">Missing data: Use default values</h2>
+<p>If your JSON might miss some attributes which you want to have, you need to work with default values. A typical default is None which means that you need to change the type to Optional[what it was before] . This is typically pretty ugly as you need to check for None later in the code.</p>
+<p>Especially for Lists, you might want to consider using an empty list instead. You do it like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+</code></pre></div>
+<p>For immutable data types like strings, integers, floats, tuples, you can simply assign the value. For mutable ones, you need to use Field with the default_factory that generates a new list every time. <a href="https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments">Learn why mutable defaults are evil</a>, if you don&rsquo;t know it already.</p>
+<h2 id="additional-data-ignore-allow-or-forbid">Additional data: Ignore, allow, or forbid</h2>
+<p>It&rsquo;s sometimes impossible to know at development time which attributes a JSON object has. Still, you need to pass those around. This is super unfortunate and should be challenged, but it can happen.</p>
+<p>Pydantic calls those <strong>extras</strong>. If you ignore them, the read pydantic model will not know them. <strong>Ignored extra arguments are dropped</strong>. Allowing them means to accept that this unfortunate design is necessary. <strong>Allowed extras will be part of the parsed object</strong>. Finally, to <strong>forbid</strong> extra arguments means an pydantic.ValidationError<strong> exception</strong> will be thrown if an extra argument occurs.</p>
+<p>This is configured by adding a subclass calledConfig to the pydantic model:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bank_account</span><span class="p">:</span> <span class="n">Decimal</span>
+    <span class="n">birthdate</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
+</code></pre></div>
+<h2 id="rename-attributes">Rename attributes</h2>
+<p>Names are important. <a href="https://www.python.org/dev/peps/pep-0020/">Readability counts</a>. In Python, variables should follow a snake_case naming scheme, while in JavaScript variables should follow a camelCase naming scheme. To fulfill both, pydantic offers <a href="https://pydantic-docs.helpmanual.io/usage/model_config/">allow_population_by_field_name</a> as a config parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bank_account</span><span class="p">:</span> <span class="n">Decimal</span>
+    <span class="n">birthdate</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">allow_population_by_field_name</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># We use the Python attribute 'bank_account',</span>
+        <span class="c1"># but read/write the JSON 'bankAccount'</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bank_account"</span><span class="p">:</span> <span class="s2">"bankAccount"</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="validators">Validators</h2>
+<p>Sometimes, simple types are not enough. You want to check more complex stuff.</p>
+<p>The docs already give a pretty good example for such a scenario:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">validator</span>
+
+
+<span class="k">class</span> <span class="nc">UserModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">password1</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">password2</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">name_must_contain_space</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">" "</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"must contain a space"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">"password2"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">passwords_match</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">"password1"</span> <span class="ow">in</span> <span class="n">values</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">values</span><span class="p">[</span><span class="s2">"password1"</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"passwords do not match"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">username_alphanumeric</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">v</span><span class="o">.</span><span class="n">isalnum</span><span class="p">(),</span> <span class="s2">"must be alphanumeric"</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"samuel colvin"</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">"scolvin"</span><span class="p">,</span> <span class="n">password1</span><span class="o">=</span><span class="s2">"zxcvbns"</span><span class="p">,</span> <span class="n">password2</span><span class="o">=</span><span class="s2">"zxcvbn"</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>You can check pretty much anything as long as you just need the class itself. Please don&rsquo;t run queries against a database to do consistency checks; e.g. if you want a username to be unique or something similar. Although you can likely make this run, it will be unexpected to trigger a database query by creating a &ldquo;data container&rdquo;.</p>
+<p>In our case, we might want to prevent that people can be a friend of themselves:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">root_validator</span>
+
+<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"PersonId"</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bank_account</span><span class="p">:</span> <span class="n">Decimal</span>
+    <span class="n">birthdate</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
+
+    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">cannot_self_friend</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="n">friends</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"friends"</span><span class="p">)</span>
+        <span class="n">self_id</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">friends</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">friend_id</span> <span class="o">==</span> <span class="n">self_id</span> <span class="k">for</span> <span class="n">friend_id</span> <span class="ow">in</span> <span class="n">friends</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"You cannot be a friend of yourself"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span>
+</code></pre></div>
+<p>Instead of throwing an exception, we can also simply fix it:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">root_validator</span>
+
+<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"PersonId"</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bank_account</span><span class="p">:</span> <span class="n">Decimal</span>
+    <span class="n">birthdate</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
+
+    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">cannot_self_friend</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="n">friends</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"friends"</span><span class="p">)</span>
+        <span class="n">self_id</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">friends</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">values</span><span class="p">[</span><span class="s2">"friends"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">friend_id</span> <span class="k">for</span> <span class="n">friend_id</span> <span class="ow">in</span> <span class="n">friends</span> <span class="k">if</span> <span class="n">friend_id</span> <span class="o">!=</span> <span class="n">self_id</span>
+            <span class="p">]</span>
+        <span class="k">return</span> <span class="n">values</span>
+</code></pre></div>
+<h2 id="property-based-testing-with-pydantic">Property-based Testing with Pydantic</h2>
+<p><img alt="Photo by Science in HD on Unsplash" src="https://cdn-images-1.medium.com/max/12032/0*lF5tdh_5CjjsGaJt"/><em>Photo by <a href="https://unsplash.com/@scienceinhd?utm_source=medium&amp;utm_medium=referral">Science in HD</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Property-based tests auto-generate inputs for the function under test and make sure a certain property is fulfilled. In the simplest case, this property is that the function under test does not crash. If you want to learn more about this type of testing, read my article about <a href="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119">property-based testing with hypothesis</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+<span class="kn">from</span> <span class="nn">hypothesis.strategies</span> <span class="kn">import</span> <span class="n">from_type</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">ValidationError</span>
+
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Person</span>
+<span class="kn">from</span> <span class="nn">pydantic_example</span> <span class="kn">import</span> <span class="n">get_account_difference</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">from_type</span><span class="p">(</span><span class="n">Person</span><span class="p">),</span> <span class="n">from_type</span><span class="p">(</span><span class="n">Person</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_two_people</span><span class="p">(</span><span class="n">person_a</span><span class="p">:</span> <span class="n">Person</span><span class="p">,</span> <span class="n">person_b</span><span class="p">:</span> <span class="n">Person</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">person_a</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">person_b</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">person_a</span><span class="o">.</span><span class="n">friends</span> <span class="o">=</span> <span class="p">(</span><span class="n">person_b</span><span class="o">.</span><span class="n">id</span><span class="p">,)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">person_a</span><span class="o">.</span><span class="n">friends</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">person_a</span><span class="o">.</span><span class="n">friends</span> <span class="o">=</span> <span class="p">(</span><span class="n">person_b</span><span class="o">.</span><span class="n">id</span><span class="p">,)</span>
+        <span class="n">person_b</span><span class="o">.</span><span class="n">friends</span> <span class="o">=</span> <span class="p">(</span><span class="n">person_a</span><span class="o">.</span><span class="n">id</span><span class="p">,)</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="n">get_account_difference</span><span class="p">(</span>
+            <span class="n">people</span><span class="o">=</span><span class="p">{</span><span class="n">person_a</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">person_a</span><span class="p">,</span> <span class="n">person_b</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">person_b</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="n">diff</span><span class="p">[</span><span class="n">person_a</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">==</span> <span class="n">diff</span><span class="p">[</span><span class="n">person_b</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</code></pre></div>
+<p>By the way, this test actually pointed out a potential issue:</p>
+<div class="highlight"><pre><span></span><code>Falsifying example: test_two_people(
+    person_a=Person(id=0, name='', bank_account=Decimal('NaN'), birthdate=datetime.date(2000, 1, 1), friends=[]),
+    person_b=Person(id=0, name='', bank_account=Decimal('NaN'), birthdate=datetime.date(2000, 1, 1), friends=[]),
+)
+</code></pre></div>
+<h2 id="more-neat-stuff">More neat stuff</h2>
+<p>Pydantic is pretty awesome:</p>
+<ul>
+<li>You can generate a schema from its models (<a href="https://pydantic-docs.helpmanual.io/usage/schema/">source</a>),</li>
+<li>a <a href="https://pydantic-docs.helpmanual.io/mypy_plugin/">mypy plugin</a> gives even better type checks</li>
+<li>Serialization to a dictionary can be done with the .dict() method, serialization to a JSON string can be done with the .json() method.</li>
+<li><a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">Constrained types</a> allow</li>
+</ul>
+<h2 id="operational-safety">Operational Safety</h2>
+<p><img alt="Photo by ThisisEngineering RAEng on Unsplash" src="https://cdn-images-1.medium.com/max/10944/0*fdsabhkbM69RDDI2"/><em>Photo by <a href="https://unsplash.com/@thisisengineering?utm_source=medium&amp;utm_medium=referral">ThisisEngineering RAEng</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>One part that usually worries me is general support. Here are some indicators that pydantic has a healthy community:</p>
+<ul>
+<li>
+<p>✔️ <a href="https://github.com/samuelcolvin/pydantic">GitHub</a>: 4.5k stars, 404 forks, 172 contributors</p>
+</li>
+<li>
+<p>✔️ Usage: <a href="https://fastapi.tiangolo.com/#example-upgrade">FastAPI</a> uses it. <a href="https://github.com/microsoft/onefuzz">Microsoft Onefuzz</a> uses it. <a href="https://github.com/awslabs/aws-lambda-powertools-python">AWS Lambda Powertools</a> as well. Many machine learning projects</p>
+</li>
+<li>
+<p>✘ <a href="https://pypi.org/project/pydantic/">PyPI project</a>: Sadly, this only has one maintainer. I always like it a bit better if there are two. Simply to prevent that one might lose their password.</p>
+</li>
+<li>
+<p>✔️Self-decided project status: The maintainer considers pydantic to be production-ready/stable.</p>
+</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>pydantic is an awesome data parsing and validation library. It can support you very well to get better <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations in Python</a>. Use it!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-11-02T20:00:00+01:00">Nov 2, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#hypothesis-ref">hypothesis
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#mypy-ref">mypy
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>134</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
