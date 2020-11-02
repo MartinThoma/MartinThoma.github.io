@@ -6,8 +6,8 @@ author: Martin Thoma
 status: draft
 date: 2020-08-02 20:00
 category: Code
-tags: Python, Testing, Unit Testing, fuzzing
-featured_image: logos/star.png
+tags: Python, Testing, Unit Testing, fuzzing, hypothesis
+featured_image: logos/python.png
 ---
 When you write unit tests, it’s hard to find the right test cases. You want to
 be certain that you covered all the interesting cases, but you could simply not
