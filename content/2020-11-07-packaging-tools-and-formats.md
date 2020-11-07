@@ -2,7 +2,8 @@
 layout: post
 title: Packaging in Python: Tools and Format
 subtitle: 16 solutions to 9 problems — which ones do you know?
-slug: packaging-tools-and-formats
+slug: python-packaging-tools-and-formats
+URL: https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee
 author: Martin Thoma
 date: 2020-11-07 20:00
 category: My bits and bytes
@@ -143,6 +144,85 @@ In order to create the source distribution, we run
 
 ```shell
 $ python setup.py sdist
+```
+
+I don’t like the setup.py file so much, because it is code. For metadata, I
+prefer to use a configuration file. Setuptools allows to use a setup.cfg file.
+You still need a setup.py, but it can be reduced to:
+
+```python
+from setuptools import setup
+
+setup()
+```
+
+And then you have the setup.cfg file as follows. There is documentation about
+[the setup.cfg format](https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files).
+
+```ini
+[metadata]
+name = mpu
+
+author = Martin Thoma
+author_email = info@martin-thoma.de
+maintainer = Martin Thoma
+maintainer_email = info@martin-thoma.de
+
+# keep in sync with mpu/_version.py
+version = 0.23.1
+description = Martins Python Utilities
+long_description = file: README.md
+long_description_content_type = text/markdown
+
+keywords = utility,
+platforms = Linux
+url = https://github.com/MartinThoma/mpu
+download_url = https://github.com/MartinThoma/mpu
+license = MIT
+
+# https://pypi.org/pypi?%3Aaction=list_classifiers
+classifiers =
+    Development Status :: 3 - Alpha
+    Environment :: Console
+    Intended Audience :: Developers
+    Intended Audience :: Information Technology
+    License :: OSI Approved :: MIT License
+    Natural Language :: English
+    Operating System :: OS Independent
+    Programming Language :: Python :: 3.7
+    Programming Language :: Python :: 3.8
+    Programming Language :: Python :: 3.9
+    Topic :: Software Development
+    Topic :: Utilities
+
+[options]
+packages = find:
+python_requires = >=3.7
+install_requires =
+    requests
+    click
+
+[tool:pytest]
+addopts = --doctest-modules --ignore=docs/ --durations=3 --timeout=30
+doctest_encoding = utf-8
+
+[pydocstyle]
+match_dir = mpu
+ignore = D105, D413, D107, D416, D212, D203, D417
+
+[flake8]
+max-complexity=10
+max_line_length = 88
+exclude = tests/*,.tox/*,.nox/*,docs/*
+ignore = H301,H306,H404,H405,W503,D105,D413,D103
+
+[mutmut]
+backup = False
+runner = python -m pytest
+tests_dir = tests/
+
+[mypy]
+ignore_missing_imports = True
 ```
 
 ## Problem 3: Secure Uploads
@@ -387,13 +467,20 @@ allow you to add configuration to the `setup.cfg`.
 
 ## Honorable mentions
 
-### virtualenv
+The tools in this section are relatively wide-spread, but as of today, they
+don’t really solve any issue that one of the tools from above doesn’t solve.
+They might be more convenient to use than others.
+
+### virtualenv and virtualenvwrapper
 
 The 3rd party tool [virtualenv](https://pypi.org/project/virtualenv/) existed
 before the core module [venv](https://docs.python.org/3/library/venv.html).
 They are not completely identical, but for me venv was always good enough. I’m
 happy if somebody can show me a problem to which virtualenv (and not venv) is
 the solution 🙂
+
+
+[virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) extends virtualenv.
 
 ### pipenv
 
@@ -412,8 +499,9 @@ Essentially, it wraps `venv`.
 
 [Poetry](https://pypi.org/project/poetry/) is a tool for dependency management
 and packaging. It combines a lot of tools, but it’s core functionality is
-identical to pipenv. The only difference is that it uses pyproject.toml and
-poetry.lock instead of `Pipfile` and `Pipfile.lock`.
+identical to pipenv. The main difference is that it uses pyproject.toml and
+poetry.lock instead of `Pipfile` and `Pipfile.lock`. A [detailed comparison
+between poetry and pipenv](https://frostming.com/2019/01-04/pipenv-poetry) can be found in Frosts’ blog.
 
 The projects poetry wraps or replaces are:
 
@@ -489,11 +577,6 @@ Conda is the package manager of Anaconda. It is way more powerful than pip and
 can build/install code of arbitrary languages. With the pyproject.toml , I
 wonder if conda will be necessary in future 🤔
 
-### Virtualenvwrapper
-
-[virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) is a
-tool around virtualenv. I havn’t ever used it, but I have seen it being
-mentioned.
 
 ## Red Herrings
 
