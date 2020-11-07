@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-11-07T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Packaging in Python: Tools and Format</title><link href="https://martin-thoma.com/packaging-tools-and-formats/" rel="alternate"></link><published>2020-11-07T20:00:00+01:00</published><updated>2020-11-07T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-11-07:/packaging-tools-and-formats/</id><summary type="html">&lt;p&gt;A virtual environment is an isolated Python environment. It has it&amp;rsquo;s own
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-11-07T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Packaging in Python: Tools and Format</title><link href="https://martin-thoma.com/https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee" rel="alternate"></link><published>2020-11-07T20:00:00+01:00</published><updated>2020-11-07T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-11-07:/https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee</id><summary type="html">&lt;p&gt;A virtual environment is an isolated Python environment. It has it&amp;rsquo;s own
 installed site-packages which can be different from the systems site-packages.
 Don&amp;rsquo;t worry, we will go into more detail later.&lt;/p&gt;
 &lt;p&gt;After reading this article, you will understand what the following tools are
@@ -98,6 +98,79 @@ numpy~=3.1.2 # 3.1.2 or later, but not version 3.2.0 or later.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In order to create the source distribution, we run&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python setup.py sdist
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I don&amp;rsquo;t like the setup.py file so much, because it is code. For metadata, I
+prefer to use a configuration file. Setuptools allows to use a setup.cfg file.
+You still need a setup.py, but it can be reduced to:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And then you have the setup.cfg file as follows. There is documentation about
+&lt;a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files"&gt;the setup.cfg format&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[metadata]&lt;/span&gt;
+&lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;mpu&lt;/span&gt;
+
+&lt;span class="na"&gt;author&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Martin Thoma&lt;/span&gt;
+&lt;span class="na"&gt;author_email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;info@martin-thoma.de&lt;/span&gt;
+&lt;span class="na"&gt;maintainer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Martin Thoma&lt;/span&gt;
+&lt;span class="na"&gt;maintainer_email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;info@martin-thoma.de&lt;/span&gt;
+
+&lt;span class="c1"&gt;# keep in sync with mpu/_version.py&lt;/span&gt;
+&lt;span class="na"&gt;version&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0.23.1&lt;/span&gt;
+&lt;span class="na"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Martins Python Utilities&lt;/span&gt;
+&lt;span class="na"&gt;long_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;file: README.md&lt;/span&gt;
+&lt;span class="na"&gt;long_description_content_type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;text/markdown&lt;/span&gt;
+
+&lt;span class="na"&gt;keywords&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;utility,&lt;/span&gt;
+&lt;span class="na"&gt;platforms&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Linux&lt;/span&gt;
+&lt;span class="na"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://github.com/MartinThoma/mpu&lt;/span&gt;
+&lt;span class="na"&gt;download_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://github.com/MartinThoma/mpu&lt;/span&gt;
+&lt;span class="na"&gt;license&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;MIT&lt;/span&gt;
+
+&lt;span class="c1"&gt;# https://pypi.org/pypi?%3Aaction=list_classifiers&lt;/span&gt;
+&lt;span class="na"&gt;classifiers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&lt;/span&gt;
+&lt;span class="s"&gt;    Development Status :: 3 - Alpha&lt;/span&gt;
+&lt;span class="s"&gt;    Environment :: Console&lt;/span&gt;
+&lt;span class="s"&gt;    Intended Audience :: Developers&lt;/span&gt;
+&lt;span class="s"&gt;    Intended Audience :: Information Technology&lt;/span&gt;
+&lt;span class="s"&gt;    License :: OSI Approved :: MIT License&lt;/span&gt;
+&lt;span class="s"&gt;    Natural Language :: English&lt;/span&gt;
+&lt;span class="s"&gt;    Operating System :: OS Independent&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3.7&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3.8&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3.9&lt;/span&gt;
+&lt;span class="s"&gt;    Topic :: Software Development&lt;/span&gt;
+&lt;span class="s"&gt;    Topic :: Utilities&lt;/span&gt;
+
+&lt;span class="k"&gt;[options]&lt;/span&gt;
+&lt;span class="na"&gt;packages&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;find:&lt;/span&gt;
+&lt;span class="na"&gt;python_requires&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;gt;=3.7&lt;/span&gt;
+&lt;span class="na"&gt;install_requires&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&lt;/span&gt;
+&lt;span class="s"&gt;    requests&lt;/span&gt;
+&lt;span class="s"&gt;    click&lt;/span&gt;
+
+&lt;span class="k"&gt;[tool:pytest]&lt;/span&gt;
+&lt;span class="na"&gt;addopts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;--doctest-modules --ignore=docs/ --durations=3 --timeout=30&lt;/span&gt;
+&lt;span class="na"&gt;doctest_encoding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;utf-8&lt;/span&gt;
+
+&lt;span class="k"&gt;[pydocstyle]&lt;/span&gt;
+&lt;span class="na"&gt;match_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;mpu&lt;/span&gt;
+&lt;span class="na"&gt;ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;D105, D413, D107, D416, D212, D203, D417&lt;/span&gt;
+
+&lt;span class="k"&gt;[flake8]&lt;/span&gt;
+&lt;span class="na"&gt;max-complexity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;10&lt;/span&gt;
+&lt;span class="na"&gt;max_line_length&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;88&lt;/span&gt;
+&lt;span class="na"&gt;exclude&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;tests/*,.tox/*,.nox/*,docs/*&lt;/span&gt;
+&lt;span class="na"&gt;ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;H301,H306,H404,H405,W503,D105,D413,D103&lt;/span&gt;
+
+&lt;span class="k"&gt;[mutmut]&lt;/span&gt;
+&lt;span class="na"&gt;backup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;False&lt;/span&gt;
+&lt;span class="na"&gt;runner&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;python -m pytest&lt;/span&gt;
+&lt;span class="na"&gt;tests_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;tests/&lt;/span&gt;
+
+&lt;span class="k"&gt;[mypy]&lt;/span&gt;
+&lt;span class="na"&gt;ignore_missing_imports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;True&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="problem-3-secure-uploads"&gt;Problem 3: Secure Uploads&lt;/h2&gt;
 &lt;p&gt;You want to upload packages securely to PyPI. You need to authenticate and you
@@ -276,12 +349,16 @@ it was a good step towards more flexibility.&lt;/p&gt;
 the &lt;code&gt;pyproject.toml&lt;/code&gt;, similar as &lt;code&gt;flake8&lt;/code&gt;, &lt;code&gt;pytest&lt;/code&gt;, &lt;code&gt;pylint&lt;/code&gt; and many more
 allow you to add configuration to the &lt;code&gt;setup.cfg&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id="honorable-mentions"&gt;Honorable mentions&lt;/h2&gt;
-&lt;h3 id="virtualenv"&gt;virtualenv&lt;/h3&gt;
+&lt;p&gt;The tools in this section are relatively wide-spread, but as of today, they
+don&amp;rsquo;t really solve any issue that one of the tools from above doesn&amp;rsquo;t solve.
+They might be more convenient to use than others.&lt;/p&gt;
+&lt;h3 id="virtualenv-and-virtualenvwrapper"&gt;virtualenv and virtualenvwrapper&lt;/h3&gt;
 &lt;p&gt;The 3rd party tool &lt;a href="https://pypi.org/project/virtualenv/"&gt;virtualenv&lt;/a&gt; existed
 before the core module &lt;a href="https://docs.python.org/3/library/venv.html"&gt;venv&lt;/a&gt;.
 They are not completely identical, but for me venv was always good enough. I&amp;rsquo;m
 happy if somebody can show me a problem to which virtualenv (and not venv) is
 the solution 🙂&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;virtualenvwrapper&lt;/a&gt; extends virtualenv.&lt;/p&gt;
 &lt;h3 id="pipenv"&gt;pipenv&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://pypi.org/project/pipenv/"&gt;Pipenv&lt;/a&gt; is a tool for dependency management
 and packaging. It introduces &lt;a href="https://github.com/pypa/pipfile"&gt;two new files&lt;/a&gt;:&lt;/p&gt;
@@ -362,10 +439,6 @@ a part of poetry.&lt;/p&gt;
 &lt;p&gt;Conda is the package manager of Anaconda. It is way more powerful than pip and
 can build/install code of arbitrary languages. With the pyproject.toml , I
 wonder if conda will be necessary in future 🤔&lt;/p&gt;
-&lt;h3 id="virtualenvwrapper"&gt;Virtualenvwrapper&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;virtualenvwrapper&lt;/a&gt; is a
-tool around virtualenv. I havn&amp;rsquo;t ever used it, but I have seen it being
-mentioned.&lt;/p&gt;
 &lt;h2 id="red-herrings_1"&gt;Red Herrings&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;easy_install : That is the oldest way to install stuff in Python. It is similar to pip , but you cannot (easily) uninstall things that were installed with easy_install&lt;/li&gt;
