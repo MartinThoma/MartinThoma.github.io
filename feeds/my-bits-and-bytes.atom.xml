@@ -1,5 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-10-13T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Leaking Secrets 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80" rel="alternate"></link><published>2020-10-13T20:00:00+02:00</published><updated>2020-10-13T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-13:/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80</id><summary type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-11-07T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Packaging in Python: Tools and Format</title><link href="https://martin-thoma.com/packaging-tools-and-formats/" rel="alternate"></link><published>2020-11-07T20:00:00+01:00</published><updated>2020-11-07T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-11-07:/packaging-tools-and-formats/</id><summary type="html">&lt;p&gt;A virtual environment is an isolated Python environment. It has it&amp;rsquo;s own
+installed site-packages which can be different from the systems site-packages.
+Don&amp;rsquo;t worry, we will go into more detail later.&lt;/p&gt;
+&lt;p&gt;After reading this article, you will understand what the following tools are
+and which problems they solve …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A virtual environment is an isolated Python environment. It has it&amp;rsquo;s own
+installed site-packages which can be different from the systems site-packages.
+Don&amp;rsquo;t worry, we will go into more detail later.&lt;/p&gt;
+&lt;p&gt;After reading this article, you will understand what the following tools are
+and which problems they solve: pip, pyenv, venv, virtualenv, pipx, pipenv,
+pip-tools, setup.py, requirements.txt, requirementst.in, Pipfile, Pipfile.lock,
+twine, poetry, flint, and hatch.&lt;/p&gt;
+&lt;h2 id="package-types"&gt;Package Types&lt;/h2&gt;
+&lt;p&gt;For this article, you need to distinguish two types of (packaged) code:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Libraries &lt;/strong&gt;are&lt;strong&gt; imported&lt;/strong&gt; by other libraries or applications. Libraries do not run on their own; they are always run by an application. Examples for libraries in Python are Numpy, SciPy, Pandas, Flask, Django, &lt;a href="https://pypi.org/project/click/"&gt;click&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Applications &lt;/strong&gt;are &lt;strong&gt;executed&lt;/strong&gt;. Examples for applications in Python are &lt;a href="https://pypi.org/project/awscli/"&gt;awscli&lt;/a&gt;, &lt;a href="https://pypi.org/project/jupyter/"&gt;Jupyter&lt;/a&gt; (the notebooks), any website created with &lt;a href="https://pypi.org/project/Flask/"&gt;Flask&lt;/a&gt; or &lt;a href="https://pypi.org/project/Django/"&gt;Django&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can further distinguish those, e.g. libraries and frameworks. Or command line applications, applications with graphical user interfaces, services, and many more. But for this article, we only need to distinguish between libraries and applications.&lt;/p&gt;
+&lt;p&gt;Please note that some applications also contain code that can be imported or some libraries have a part of the functionality shipped as an application. In those cases, you can either use them as a library (including their code in your project) or as an application (just executing them). You are in command.&lt;/p&gt;
+&lt;h2 id="the-basics-pip-site-packages-and-the-prompt"&gt;&lt;strong&gt;The Basics: pip, site-packages, and the prompt&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Python has pip as a default package manager. You use it like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install mpu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you run it, you should see this message:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Collecting mpu
+  Using cached [https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl](https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl)
+Installing collected packages: mpu
+Successfully installed mpu-0.23.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In order to be able to show you both, the output and what I&amp;rsquo;ve inserted, I start the line which contains the command I&amp;rsquo;ve entered with $ :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ pip install mpu
+Collecting mpu
+  Using cached &lt;span class="o"&gt;[&lt;/span&gt;https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl&lt;span class="o"&gt;](&lt;/span&gt;https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl&lt;span class="o"&gt;)&lt;/span&gt;
+Installing collected packages: mpu
+Successfully installed mpu-0.23.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This $ is called the &lt;strong&gt;prompt&lt;/strong&gt;. Within Python, the prompt is &amp;gt;&amp;gt;&amp;gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python
+&amp;gt;&amp;gt;&amp;gt; import mpu
+&amp;gt;&amp;gt;&amp;gt; mpu.__file__
+&lt;span class="s1"&gt;'/home/moose/venv/lib/python3.7/site-packages/mpu/__init__.py'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This command shows you where the package mpu was installed to. By default, this
+is the systems Python location. This means that all Python packages share the
+same set of installed libraries.&lt;/p&gt;
+&lt;h2 id="problem-1-different-python-version-required"&gt;Problem 1: Different Python Version Required&lt;/h2&gt;
+&lt;p&gt;We have Python 3.6 installed, but the application requires Python 3.8. We
+cannot upgrade our systems Python version, e.g. because we&amp;rsquo;re missing
+administrator privileges or because other things would break.&lt;/p&gt;
+&lt;h2 id="solution-pyenv"&gt;Solution: pyenv&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt; allows you to install any Python
+version you want. You can also easily switch between Python environments with
+&lt;code&gt;pyenv&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python --version
+Python &lt;span class="m"&gt;3&lt;/span&gt;.6.0
+
+$ pyenv global &lt;span class="m"&gt;3&lt;/span&gt;.8.6
+
+$ python --version
+Python &lt;span class="m"&gt;3&lt;/span&gt;.8.6
+
+$ pip --version
+pip &lt;span class="m"&gt;20&lt;/span&gt;.2.1 from /home/math/.pyenv/versions/3.8.6/lib/python3.8/site-packages/pip &lt;span class="o"&gt;(&lt;/span&gt;python &lt;span class="m"&gt;3&lt;/span&gt;.8&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For more information, read my article &lt;a href="https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483"&gt;A Beginner&amp;rsquo;s Guide to Python Development&lt;/a&gt;. For detailed installation instructions, go directly to &lt;a href="https://github.com/pyenv/pyenv"&gt;the official pyenv website&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="problem-2-package-and-distribution-building"&gt;Problem 2: Package and Distribution building&lt;/h2&gt;
+&lt;p&gt;You typically don&amp;rsquo;t only use bare Python. As developers, we stand on the
+shoulders of giants &amp;mdash; the whole ecosystem of freely available software. In the
+beginning of Python, people just copied files. A Python file, when imported, is
+also called a &lt;strong&gt;module&lt;/strong&gt;. If we have multiple Python files in one folder with
+an &lt;strong&gt;init&lt;/strong&gt;.py , they can import each other. This folder is then called a
+&lt;strong&gt;package&lt;/strong&gt;. Packages can contain other packages &amp;mdash; subfolders which also have
+an &lt;strong&gt;init&lt;/strong&gt;.py and are then called &lt;strong&gt;sub-packages&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Copying files and folders is inconvenient. If the author of that code makes an
+update, I might need to update dozens of files. I need to know that there is an
+update in the first place. I might need to install hundreds of dependencies as
+well. Doing that by copy-and-paste would be hell.&lt;/p&gt;
+&lt;p&gt;We need a more convenient way to distribute the packages.&lt;/p&gt;
+&lt;h2 id="solution-source-distributions"&gt;Solution: Source Distributions&lt;/h2&gt;
+&lt;p&gt;A packaging system needs three core components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Package Format&lt;/strong&gt;: The simplest format in Python is called a &lt;em&gt;source distribution&lt;/em&gt;. It is essentially a ZIP file that has a certain structure. One essential part of this file is the possibility to specify dependencies of the package. It should also contain other metadata, such as the name of the package, the author, and license information.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package manager&lt;/strong&gt;: A program that installs packages. pip installs packages in Python.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software repository&lt;/strong&gt;: A central place where package managers can look for packages. In the Python ecosystem, &lt;a href="https://pypi.org/"&gt;pypi.org&lt;/a&gt; is THE public one. I&amp;rsquo;m not even aware of other public ones. You can create private ones, of course.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As mentioned, we need a way to specify metadata and dependencies. This is done with the setup.py file. It typically looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"my_awesome_package"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"0.1.0"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;install_requires&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"requests"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"click"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There are many more &lt;a href="https://www.python.org/dev/peps/pep-0440/#version-specifiers"&gt;version specifiers&lt;/a&gt; you can use, for example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;numpy&amp;gt;3.0.0  # 3.0.1 is acceptable, but not 3.0.0
+numpy~=3.1   # 3.1 or later, but not version 4.0 or later.
+numpy~=3.1.2 # 3.1.2 or later, but not version 3.2.0 or later.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In order to create the source distribution, we run&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python setup.py sdist
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="problem-3-secure-uploads"&gt;Problem 3: Secure Uploads&lt;/h2&gt;
+&lt;p&gt;You want to upload packages securely to PyPI. You need to authenticate and you
+want to be certain that nobody tampers with your package.&lt;/p&gt;
+&lt;h2 id="solution-twine"&gt;Solution: twine&lt;/h2&gt;
+&lt;p&gt;Install &lt;a href="https://pypi.org/project/twine/"&gt;twine&lt;/a&gt; via pip install twine and you
+can upload your distribution files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ twine upload dist/*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="problem-4-dependency-conflicts"&gt;Problem 4: Dependency Conflicts&lt;/h2&gt;
+&lt;p&gt;You want to install youtube-downloader which needs the library requests in version 1.2.3 and vimeo-downloader which needs the library requests in version 3.2.1 . Hence the library requests is a dependency of both applications. Both applications need to be executed with Python 3.8. That is a problem as both applications store requests in the same site-packages directory. Once you install one version, the other one is gone. You need two different environments to run those two applications.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="a-python-environment-is-the-python-executable-pip-and-the-set-of-installed-packages-different-environments-are-isolated-from-each-other-and-thus-dont-influence-each-other"&gt;A Python environment is the python executable, pip, and the set of installed packages. Different environments are isolated from each other and thus don&amp;rsquo;t influence each other.&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We solve this dependency conflict by creating a virtual environment. We call it &lt;em&gt;virtual&lt;/em&gt; because they actually share the Python executable and other things like the shells' environment variables.&lt;/p&gt;
+&lt;h2 id="solution-venv"&gt;Solution: venv&lt;/h2&gt;
+&lt;p&gt;Python has the &lt;a href="https://docs.python.org/3/library/venv.html"&gt;venv module&lt;/a&gt; which happens to be executable as well. You can create and use a fresh virtual environment like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python -m venv my-fresh-venv
+$ &lt;span class="nb"&gt;source&lt;/span&gt; my-fresh-venv/bin/activate
+
+&lt;span class="o"&gt;(&lt;/span&gt;my-fresh-venv&lt;span class="o"&gt;)&lt;/span&gt;$ pip --version
+pip &lt;span class="m"&gt;20&lt;/span&gt;.1.1 from /home/moose/my-fresh-venv/lib/python3.8/site-packages/pip &lt;span class="o"&gt;(&lt;/span&gt;python &lt;span class="m"&gt;3&lt;/span&gt;.8&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The environment is called &amp;ldquo;fresh&amp;rdquo; because there is nothing in it. Everything
+you install after source-ing the activate script will be installed in this
+local directory. This means when you install youtube-downloader in one such
+virtual environment and vimeo-downloader in another, you can have both. You can
+go out of a virtual environment by executing deactivate .&lt;/p&gt;
+&lt;p&gt;If you want more details, I recommend to read &lt;a href="https://realpython.com/python-virtual-environments-a-primer/"&gt;Python Virtual Environments: A Primer&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="problem-5-inconvenience"&gt;Problem 5: Inconvenience&lt;/h2&gt;
+&lt;p&gt;You would still need to switch between the virtual environments all the time
+which is inconvenient.&lt;/p&gt;
+&lt;h2 id="solution-pipx"&gt;Solution: pipx&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/pipxproject/pipx"&gt;pipx&lt;/a&gt; automatically installs packages
+into their own virtual environment. It also automatically executes the
+applications within that environment 😍&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: This only makes sense for applications! You need libraries within the
+same environment as your application. So don&amp;rsquo;t ever install libraries with
+pipx. Install applications (and indirectly the libraries) with pipx.&lt;/p&gt;
+&lt;h2 id="problem-6-changing-third-party-code"&gt;Problem 6: Changing third-party code&lt;/h2&gt;
+&lt;p&gt;As an application developer, I want to be certain that my application keeps
+working. I want to be independent of potential breaking changes of third party
+software I use.&lt;/p&gt;
+&lt;p&gt;For example, think about the youtube-downloader which needed requests in
+version 1.2.3. At some point, probably during development, that version of
+requests was likely the latest version. Then the development of the
+youtube-downloader was stopped, but requests kept changing.&lt;/p&gt;
+&lt;h2 id="solution-dependency-pinning"&gt;Solution: Dependency pinning&lt;/h2&gt;
+&lt;p&gt;Give the exact version you want to install:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;numpy==3.2.1
+scipy==1.2.3
+pandas==4.5.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;However, this has a problem of its own if you do it in setup.py . You will
+force this version upon other packages in the same environment. Python is
+pretty messy here: Once another package installs one of your dependencies in
+another version in the same environment, it&amp;rsquo;s simply overwritten. Your
+dependencies might still work, but you don&amp;rsquo;t get the expected version.&lt;/p&gt;
+&lt;p&gt;For applications, you can pin the dependencies like this in the setup.py and
+tell your users to use pipx to install them. This way you and your users can be
+happy 💕&lt;/p&gt;
+&lt;p&gt;For libraries, you cannot do this. By definition, libraries are included by
+other code. Code that potentially includes a lot of libraries. If all of them
+pinned their dependencies, it would be very likely to get a dependency
+conflict. This makes library development hard if the developed library itself
+has several dependencies.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s common practice to NOT pin dependencies in the setup.py file, but instead create a flat text file with pinned dependencies. &lt;a href="https://www.python.org/dev/peps/pep-0440/"&gt;PEP 440&lt;/a&gt; defined the format or requirements files in 2013. It&amp;rsquo;s usually called requirements.txt or requirements-dev.txt and typically looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;numpy==3.2.1
+scipy==1.2.3
+pandas==4.5.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can also specify locations where the packages can be downloaded (e.g. not
+only the name but a git repository) according to PEP 440.&lt;/p&gt;
+&lt;p&gt;Packages within a requirements.txt (including their dependencies) can be
+installed with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="problem-7-changing-transitive-dependencies"&gt;Problem 7: Changing Transitive Dependencies&lt;/h2&gt;
+&lt;p&gt;Imagine you write code which depends on the packages foo and bar . Those two
+packages might themselves have dependencies as well. Those dependencies are
+called &lt;em&gt;transitive&lt;/em&gt; dependencies of your code. They are indirect dependencies.
+The reason why you need to care is the following.&lt;/p&gt;
+&lt;p&gt;Assume there are multiple versions of foo and bar published. foo and bar
+happened to both have exactly one dependency: fizz&lt;/p&gt;
+&lt;p&gt;Here is the situation:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;foo 1.0.0 requires fizz==1.0.0
+foo 1.2.0 requires fizz&amp;gt;=1.5.0, fizz&amp;lt;2.0.0
+foo 2.0.0 requires fizz&amp;gt;=1.5.0, fizz&amp;lt;3.0.0
+
+bar 1.0.0 requires fizz&amp;gt;2.0.0
+bar 1.0.1 requires fizz==3.0.0
+
+fizz 1.0.0 is available
+fizz 1.2.0 is available
+fizz 1.5.0 is available
+fizz 2.0.0 is available
+fizz 2.0.1 is available
+fizz 3.0.0 is available
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You might be tempted to just say &amp;ldquo;I need foo==2.0.0 and bar==1.0.0 . There are
+two problems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Dependency satisfaction can be hard&lt;/strong&gt;: The client needs to figure out that those two requirements can (only) be satisfied by fizz==2.0.0 orfizz==2.0.1 . This can be time-consuming as Python source distributions are not well designed and do not expose this information well (&lt;a href="https://github.com/python-poetry/poetry/issues/2094"&gt;example discussion&lt;/a&gt;). The dependency resolver actually needs to download the package to find the dependencies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Breaking transitive change&lt;/strong&gt;: The packages foo and bar could not state their dependencies. You install them and things work, because you happen to have foo==2.0.0 , bar==1.0.0 , fizz==2.0.1 . But after a while, fizz==3.0.0 is released. Without telling pip what to install, it will install the latest version of fizz . Nobody tested that before as it didn&amp;rsquo;t exist. Your user is the first one and it breaks for them 😢&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="solution-pinning-transitive-dependencies"&gt;Solution: Pinning Transitive Dependencies&lt;/h2&gt;
+&lt;p&gt;You need to figure out the transitive dependencies as well and tell pip exactly
+what to install. To do so, I start either with a setup.py or a requirements.in
+file. The requirements.in file contains what I know must be fulfilled &amp;mdash; it&amp;rsquo;s
+pretty similar to the setup.py file. In contrast to the setup.py file it is a
+flat text file.&lt;/p&gt;
+&lt;p&gt;Then I use pip-compile from &lt;a href="https://pypi.org/project/pip-tools/"&gt;pip-tools&lt;/a&gt; to
+find the transitive dependencies. It will generate a requirements.txt file
+which looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;#
+# This file is autogenerated by pip-compile
+# To update, run:
+#
+#    pip-compile setup.py
+#
+foo==2.0.0   # via setup.py
+bar==1.0.0   # via setup.py
+fizz==2.0.1  # via foo, bar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Typically, I have the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;setup.py&lt;/strong&gt;: Defining abstract dependencies and known minimum versions /
+  maximum versions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;requirements.txt&lt;/strong&gt;: One version combination that I know &lt;a href="https://blog.codinghorror.com/the-works-on-my-machine-certification-program/"&gt;works on my
+  machine&lt;/a&gt;.
+  For web services where I control the installation, this is also used to
+  install the dependencies via pip install -r requirements.txt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;requirements-dev.in&lt;/strong&gt;: Development tools I use. Things like pytest, flake8,
+  flake8 plugins, mypy, black &amp;hellip; see my &lt;a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287"&gt;static code analysis
+  post&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;requirements-dev.txt&lt;/strong&gt;: The exact version of the tools I use + their
+  transitive dependencies. Those are also installed in the &lt;a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38"&gt;CI
+  pipeline&lt;/a&gt;.
+  For applications, I also include the requirements.txt file in here. Please
+  note that I create a combined requirements-dev.txt which includes the
+  requirements.txt . If I would install the requirements.txt before the
+  requirements-dev.txt, it could change the version. That would mean I would
+  not test against exactly the same package versions. If I would install the
+  requirements.txt after the requirements-dev.txt , I could break something for
+  the dev tools. Hence I create one combined file via &lt;code&gt;pip-compile
+  --output-file requirements-dev.txt requirements.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can also add &lt;code&gt;--generate-hashes&lt;/code&gt; if you want to be certain it&amp;rsquo;s exactly the
+same.&lt;/p&gt;
+&lt;h2 id="problem-8-non-python-code"&gt;Problem 8: Non-Python Code&lt;/h2&gt;
+&lt;p&gt;Packages like &lt;a href="https://pypi.org/project/cryptography/"&gt;cryptography&lt;/a&gt; have code
+written in C. If you install the source distribution of cryptography, you need
+to be able to compile that code. You might not have a compile like gcc
+installed and compiling takes quite a bit of time.&lt;/p&gt;
+&lt;h2 id="solution-built-distributions-wheels"&gt;Solution: Built Distributions (Wheels)&lt;/h2&gt;
+&lt;p&gt;Package creators can also upload built distributions, e.g. as wheels files.
+This prevents you from having to compile stuff yourself. It is done like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ pip install wheels
+$ python setup.py bdist_wheel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For example, &lt;a href="https://pypi.org/project/numpy/#files"&gt;NumPy&lt;/a&gt; does this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The screenshot of pypi.org was taken by the author." src="https://cdn-images-1.medium.com/max/2000/1*YE4EWu3Ld-iUdbaZ3aNRlQ.png"/&gt;&lt;em&gt;The screenshot of pypi.org was taken by the author.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="problem-9-specification-of-build-system"&gt;Problem 9: Specification of build-system&lt;/h2&gt;
+&lt;p&gt;The Python ecosystem is very strongly attached to setuptools. No matter how
+good setuptools are, there will always be features people are missing. But we
+couldn&amp;rsquo;t change the build system for quite a while.&lt;/p&gt;
+&lt;h2 id="solution-pyprojecttoml"&gt;Solution: pyproject.toml&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.python.org/dev/peps/pep-0517/"&gt;PEP 517&lt;/a&gt; and &lt;a href="https://www.python.org/dev/peps/pep-0518"&gt;PEP 518&lt;/a&gt; specified thepyproject.toml file format. It looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;[build-system]
+requires = ["poetry-core&amp;gt;=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Yes, it&amp;rsquo;s not much. It tells pip what is necessary to build your package. But
+it was a good step towards more flexibility.&lt;/p&gt;
+&lt;p&gt;Other tools, like poetry and black, used this file for their configuration to
+the &lt;code&gt;pyproject.toml&lt;/code&gt;, similar as &lt;code&gt;flake8&lt;/code&gt;, &lt;code&gt;pytest&lt;/code&gt;, &lt;code&gt;pylint&lt;/code&gt; and many more
+allow you to add configuration to the &lt;code&gt;setup.cfg&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="honorable-mentions"&gt;Honorable mentions&lt;/h2&gt;
+&lt;h3 id="virtualenv"&gt;virtualenv&lt;/h3&gt;
+&lt;p&gt;The 3rd party tool &lt;a href="https://pypi.org/project/virtualenv/"&gt;virtualenv&lt;/a&gt; existed
+before the core module &lt;a href="https://docs.python.org/3/library/venv.html"&gt;venv&lt;/a&gt;.
+They are not completely identical, but for me venv was always good enough. I&amp;rsquo;m
+happy if somebody can show me a problem to which virtualenv (and not venv) is
+the solution 🙂&lt;/p&gt;
+&lt;h3 id="pipenv"&gt;pipenv&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://pypi.org/project/pipenv/"&gt;Pipenv&lt;/a&gt; is a tool for dependency management
+and packaging. It introduces &lt;a href="https://github.com/pypa/pipfile"&gt;two new files&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pipfile&lt;/strong&gt;: A TOML file. Its content is similar in thought to the one of
+  requirements.in : Abstract dependencies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pipfile.lock&lt;/strong&gt;: A TOML file. Its content is similar in thought to the one
+  of requirements.txt : Pinned concrete dependencies, including transitive
+  dependencies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Essentially, it wraps &lt;code&gt;venv&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="poetry"&gt;poetry&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://pypi.org/project/poetry/"&gt;Poetry&lt;/a&gt; is a tool for dependency management
+and packaging. It combines a lot of tools, but it&amp;rsquo;s core functionality is
+identical to pipenv. The only difference is that it uses pyproject.toml and
+poetry.lock instead of &lt;code&gt;Pipfile&lt;/code&gt; and &lt;code&gt;Pipfile.lock&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The projects poetry wraps or replaces are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Scaffolding&lt;/strong&gt;: poetry new project-name vs
+  &lt;a href="https://github.com/MartinThoma/cookiecutter-python-package"&gt;cookie-cutter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Building Distributions&lt;/strong&gt;: poetry build vs python setup.py build sdist_build&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dependency Management&lt;/strong&gt;: poetry add foobar vs manually editing the setup.py
+  / requirements.txt file. Poetry will then create a virtual environment, a
+  poetry.lock file which is identical in concept to the Pipfile.lock and update
+  the pyproject.toml . You can see an example of that below. They use their own
+  dependency section which will not be compatible with anything else. I hope
+  they move to PEP 631 (see
+  &lt;a href="https://github.com/python-poetry/poetry/issues/3332"&gt;issue&lt;/a&gt; for updates).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload to PyPI&lt;/strong&gt;: poetry publish vs twine upload dist/*&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bump version&lt;/strong&gt;: poetry version minor vs manually editing setup.py /
+  setup.cfg or using &lt;a href="https://pypi.org/project/bumpversion/"&gt;bumpversion&lt;/a&gt;. ⚠️
+  Although poetry generates an &lt;strong&gt;init&lt;/strong&gt;.py in the scaffolding which contains a
+  version, poetry version does not change that!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It goes away from the de-facto standard setup.py / setup.cfg for specifying dependencies. Instead, poetry expects dependencies to be within it&amp;rsquo;s configuration:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[tool.poetry]&lt;/span&gt;
+&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"mpu"&lt;/span&gt;
+&lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"0.1.0"&lt;/span&gt;
+&lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;""&lt;/span&gt;
+&lt;span class="n"&gt;authors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;["Martin Thoma &amp;lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&amp;gt;"]&lt;/span&gt;
+&lt;span class="n"&gt;license&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"MIT"&lt;/span&gt;
+
+&lt;span class="k"&gt;[tool.poetry.dependencies]&lt;/span&gt;
+&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"^3.8"&lt;/span&gt;
+&lt;span class="n"&gt;awscli&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"^1.18.172"&lt;/span&gt;
+&lt;span class="n"&gt;pydantic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"^1.7.2"&lt;/span&gt;
+&lt;span class="n"&gt;click&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"^7.1.2"&lt;/span&gt;
+
+&lt;span class="k"&gt;[tool.poetry.dev-dependencies]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I hope that they will also implement &lt;a href="https://www.python.org/dev/peps/pep-0621/"&gt;PEP 621&lt;/a&gt; and &lt;a href="https://www.python.org/dev/peps/pep-0631/"&gt;PEP 631&lt;/a&gt; which gives metadata and dependencies an official place under the [project] section. Let&amp;rsquo;s see, &lt;a href="https://github.com/python-poetry/poetry/issues/3332"&gt;maybe they change that&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some people like to have one tool which does everything. I rather go with the &lt;a href="https://en.wikipedia.org/wiki/Unix_philosophy"&gt;Unix philosophy&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new &amp;ldquo;features&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As poetry combines a lot of tools, it&amp;rsquo;s also important what it doesn&amp;rsquo;t do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Package management&lt;/strong&gt;: You still need pip. And pip supports &lt;a href="https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support"&gt;pyproject.toml&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scaffolding&lt;/strong&gt;: Cookiecutter has a lot of templates. I created two myself: one for &lt;a href="https://github.com/MartinThoma/cookiecutter-python-package"&gt;typical Python projects&lt;/a&gt; and one for &lt;a href="https://github.com/MartinThoma/cookiecutter-flake8-plugin"&gt;Flake8 plugins&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Setup.py&lt;/strong&gt;: You might not need to create one yourself, but poetry creates a setup.py file for you. Just look at the distribution file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I should also point out that poetry has a super nice CLI and a visually pleasing website.&lt;/p&gt;
+&lt;h3 id="hatch"&gt;hatch&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://pypi.org/project/hatch/"&gt;Hatch&lt;/a&gt; also aims to replace quite a lot of tools:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Scaffolding&lt;/strong&gt;: hatch new project-name vs &lt;a href="https://github.com/MartinThoma/cookiecutter-python-package"&gt;cookie-cutter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bump version&lt;/strong&gt;: hatch grow minor vs manually editing setup.py / setup.cfg or using &lt;a href="https://pypi.org/project/bumpversion/"&gt;bumpversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Running pytest&lt;/strong&gt;: hatch test vs pytest&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create a virtual environment&lt;/strong&gt;: hatch env my-venv vs python -m venv my-venv&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Installing packages&lt;/strong&gt;: hatch install package vs pip install package&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I had a couple of errors when I tried hatch.&lt;/p&gt;
+&lt;h3 id="flit"&gt;Flit&lt;/h3&gt;
+&lt;p&gt;Flit is a way to put Python packages and modules on PyPI. It is a 3rd party
+replacement for setuptools. In that sense it&amp;rsquo;s similar to setuptools + twine or
+a part of poetry.&lt;/p&gt;
+&lt;h3 id="conda"&gt;Conda&lt;/h3&gt;
+&lt;p&gt;Conda is the package manager of Anaconda. It is way more powerful than pip and
+can build/install code of arbitrary languages. With the pyproject.toml , I
+wonder if conda will be necessary in future 🤔&lt;/p&gt;
+&lt;h3 id="virtualenvwrapper"&gt;Virtualenvwrapper&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://virtualenvwrapper.readthedocs.io/en/latest/"&gt;virtualenvwrapper&lt;/a&gt; is a
+tool around virtualenv. I havn&amp;rsquo;t ever used it, but I have seen it being
+mentioned.&lt;/p&gt;
+&lt;h2 id="red-herrings_1"&gt;Red Herrings&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;easy_install : That is the oldest way to install stuff in Python. It is similar to pip , but you cannot (easily) uninstall things that were installed with easy_install&lt;/li&gt;
+&lt;li&gt;distutils : Although it&amp;rsquo;s core Python, it&amp;rsquo;s not used anymore. setuptools is more powerful and installed everywhere.&lt;/li&gt;
+&lt;li&gt;distribute : I&amp;rsquo;m not sure if that ever was a thing?&lt;/li&gt;
+&lt;li&gt;pyvenv : Deprecated in favor of venv .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;pip is Pythons &lt;strong&gt;package manager&lt;/strong&gt;. It goes to the Python &lt;strong&gt;package index&lt;/strong&gt;
+  PyPI.org to install your packages and their dependencies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Abstract dependencies&lt;/strong&gt; can be denoted with setup.py, requirements.in,
+  Pipfile, or pyproject.toml. You only need one.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Concrete dependencies&lt;/strong&gt; can be denoted with requirements.txt, Pipfile.lock,
+  or poetry.lock. You only need one.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Building packages&lt;/strong&gt; is done with setuptools or with poetry.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Uploading packages&lt;/strong&gt; is done with twine or poetry.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual environments&lt;/strong&gt; are created with venv or with poetry / pipenv /
+  hatch / conda&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pipx&lt;/strong&gt; is cool if you want to install applications. Don&amp;rsquo;t use it for
+  libraries.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="My bits and bytes"></category><category term="Python"></category><category term="Packaging"></category><category term="pip"></category><category term="pyenv"></category><category term="venv"></category><category term="virtualenv"></category><category term="pipx"></category><category term="pipenv"></category><category term="pip-tools"></category><category term="setup.py"></category><category term="requirements.txt"></category><category term="requirementst.in"></category><category term="Pipfile"></category><category term="Pipfile.lock"></category><category term="twine"></category><category term="poetry"></category><category term="flint"></category><category term="hatch"></category></entry><entry><title>Leaking Secrets 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80" rel="alternate"></link><published>2020-10-13T20:00:00+02:00</published><updated>2020-10-13T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-13:/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80</id><summary type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s best to prevent leaking credentials completely, but if it&amp;rsquo;s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s best to prevent leaking credentials completely, but if it&amp;rsquo;s done you need to change them directly. You cannot hope that nobody has noticed it. People are scanning the public repositories for committed secrets.&lt;/p&gt;
 &lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
@@ -4970,12 +5358,20 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;3.84 &amp;euro; / 3.316 kg&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Mandarin_orange"&gt;Mandarin orange&lt;/a&gt; (Mandarinen)&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Mandarin_orange"&gt;Mandarin orange&lt;/a&gt; (Mandarinen / Clementinen)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1.15 &amp;euro; / 500 g (?)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;td&gt;4.83 &amp;euro; / 2.25 kg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Orange&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.95 &amp;euro; / 1 St&amp;uuml;ck - 0.97 &amp;euro; / 1 St&amp;uuml;ck&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;3.68 &amp;euro; / 1.75 kg&lt;/td&gt;
+&lt;td&gt;1.97 &amp;euro; / 2 St&amp;uuml;ck&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Apples (&amp;Auml;pfel)&lt;/td&gt;
@@ -5005,9 +5401,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;Mango&lt;/td&gt;
 &lt;td&gt;5 / year&lt;/td&gt;
 &lt;td&gt;3 weeks&lt;/td&gt;
-&lt;td&gt;0.99 &amp;euro; / piece&lt;/td&gt;
+&lt;td&gt;0.99 &amp;euro; / piece - 1.93 &amp;euro; / piece&lt;/td&gt;
 &lt;td&gt;4.95 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;12.62 &amp;euro; / 12 piece&lt;/td&gt;
+&lt;td&gt;14.55 &amp;euro; / 13 piece&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Kirschen&lt;/td&gt;
@@ -5032,6 +5428,14 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;1.29 &amp;euro; / 250g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;1.29 &amp;euro; / 250g&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pfirsich (Tin can)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;3 years&lt;/td&gt;
+&lt;td&gt;0.99 &amp;euro; / 480g&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.99 &amp;euro; / 480g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Strawberries (Erdbeeren)&lt;/td&gt;
@@ -5077,9 +5481,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Diospyros_kaki"&gt;Kaki&lt;/a&gt; / Sharonfrucht&lt;/td&gt;
 &lt;td&gt;5 kg / year&lt;/td&gt;
 &lt;td&gt;2 weeks (?)&lt;/td&gt;
-&lt;td&gt;1.79 &amp;euro; / kg&lt;/td&gt;
+&lt;td&gt;1.79 &amp;euro; / kg (0.47 &amp;euro; / piece .. roughly 250g)&lt;/td&gt;
 &lt;td&gt;8.95 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;2.58 &amp;euro; / 1.44 kg&lt;/td&gt;
+&lt;td&gt;3.05 &amp;euro; / 1.69 kg&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Feigen (frisch)&lt;/td&gt;
@@ -5087,7 +5491,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;0.99 &amp;euro; / 4 pieces, 1.29 &amp;euro; / 8 pieces&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;2.28 &amp;euro; / 12 pieces&lt;/td&gt;
+&lt;td&gt;4.89 &amp;euro; / 20 pieces&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Figs medium dry (Feigen halbtrocken)&lt;/td&gt;
@@ -5103,7 +5507,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;9 months&lt;/td&gt;
 &lt;td&gt;1.49 &amp;euro; / 250g&lt;/td&gt;
 &lt;td&gt;17.88 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;9.77 &amp;euro; / 1750 g&lt;/td&gt;
+&lt;td&gt;12.70 &amp;euro; / 2250 g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Citrons (Zitronen)&lt;/td&gt;
@@ -5230,7 +5634,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;1 week&lt;/td&gt;
 &lt;td&gt;1.49 &amp;euro; / 250g (1 package) or 1.19 &amp;euro; / 500g Roma-Tomaten&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;13.47 &amp;euro; / 3346g&lt;/td&gt;
+&lt;td&gt;15.97 &amp;euro; / 4096g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Corn in a can (🇩🇪Mais in der Dose)&lt;/td&gt;
@@ -5368,6 +5772,14 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;5.39 &amp;euro; / 9 piece&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;Buns (Hamburger Br&amp;ouml;tchen)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1 month&lt;/td&gt;
+&lt;td&gt;0.68 &amp;euro; / 6 pieces&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.68 &amp;euro; / 6 pieces&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;Toast (Sandwichtoast)&lt;/td&gt;
 &lt;td&gt;750g / week (?)&lt;/td&gt;
 &lt;td&gt;2 weeks (?)&lt;/td&gt;
@@ -5381,7 +5793,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;4 days&lt;/td&gt;
 &lt;td&gt;0.99 &amp;euro; / 500g and 1.95 &amp;euro; / 500g and 1.29 &amp;euro; / 500g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;35.00 &amp;euro; / 4.0 kg&lt;/td&gt;
+&lt;td&gt;36.29 &amp;euro; / 4.5 kg&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Brotbackmischung&lt;/td&gt;
@@ -5437,7 +5849,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;3 months&lt;/td&gt;
 &lt;td&gt;1.39 &amp;euro; / 250g&lt;/td&gt;
 &lt;td&gt;33.54 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;29.56 &amp;euro; / 5000g&lt;/td&gt;
+&lt;td&gt;32.34 &amp;euro; / 5500g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Margarine&lt;/td&gt;
@@ -5477,7 +5889,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;1 to 4 months ❄️&lt;/td&gt;
 &lt;td&gt;2.69 &amp;euro; / 400g f&amp;uuml;r Emmentaler; 1.99 &amp;euro; / 200g f&amp;uuml;r Limburger; 1.19 &amp;euro; / 150g f&amp;uuml;r Almzeit; 4.84 &amp;euro; / 250g f&amp;uuml;r Parmigiano; 1.19 &amp;euro; / 200g f&amp;uuml;r Brie&lt;/td&gt;
 &lt;td&gt;67.34 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;85.34 &amp;euro; / 11.55kg&lt;/td&gt;
+&lt;td&gt;97.23 &amp;euro; / 13.00kg&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Schmelzscheiben f&amp;uuml;r Toast Hawaii&lt;/td&gt;
@@ -5507,9 +5919,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;Cheese (Mozzarella)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;0.69 &amp;euro; / 125 g (&lt;abbr title="Abtropfgewicht"&gt;ATG&lt;/abbr&gt;)&lt;/td&gt;
+&lt;td&gt;0.57 &amp;euro; / 125g - 0.69 &amp;euro; / 125 g (&lt;abbr title="Abtropfgewicht"&gt;ATG&lt;/abbr&gt;)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;12.64 &amp;euro; / 2400g&lt;/td&gt;
+&lt;td&gt;13.21 &amp;euro; / 2525g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Ofenk&amp;auml;se&lt;/td&gt;
@@ -5523,9 +5935,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;Sausage (&lt;a href="https://en.wikipedia.org/wiki/Mortadella"&gt;Mortadella&lt;/a&gt; Wurst, Salami)&lt;/td&gt;
 &lt;td&gt;1 package / month&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;0.89 &amp;euro; / (package)?&lt;/td&gt;
+&lt;td&gt;0.89 &amp;euro; / (package); 1.49 &amp;euro; / 300g&lt;/td&gt;
 &lt;td&gt;10.68 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;2.82 &amp;euro; / 400g&lt;/td&gt;
+&lt;td&gt;4.31 &amp;euro; / 700g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Vegetarian sausage (Veggi Aufschniitt)&lt;/td&gt;
@@ -5541,7 +5953,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;18 months&lt;/td&gt;
 &lt;td&gt;1.29 &amp;euro; / 450g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;4.55 &amp;euro; / 2200g&lt;/td&gt;
+&lt;td&gt;5.84 &amp;euro; / 2650g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Obatzter (Obazda)&lt;/td&gt;
@@ -5557,7 +5969,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;2 weeks&lt;/td&gt;
 &lt;td&gt;0.99 &amp;euro; / 200g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;4.89 &amp;euro; / 1000g&lt;/td&gt;
+&lt;td&gt;5.88 &amp;euro; / 1200g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Cr&amp;egrave;me fra&amp;icirc;che based spread (Tomaten-Mozzarella Brotaufstrich / Thunfisch)&lt;/td&gt;
@@ -5653,7 +6065,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;1 year (?)&lt;/td&gt;
 &lt;td&gt;0.28 &amp;euro; / package - 1.19 &amp;euro; / package&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;5.83 &amp;euro; / 13 package&lt;/td&gt;
+&lt;td&gt;6.77 &amp;euro; / 15 package&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Gem&amp;uuml;sebr&amp;uuml;he&lt;/td&gt;
@@ -5716,7 +6128,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;2 weeks&lt;/td&gt;
 &lt;td&gt;0.63 &amp;euro; / 200 g&lt;/td&gt;
 &lt;td&gt;7.56 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;5.28 &amp;euro; / 1600g&lt;/td&gt;
+&lt;td&gt;6.54 &amp;euro; / 2000g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Schmand&lt;/td&gt;
@@ -5748,7 +6160,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;1 year&lt;/td&gt;
 &lt;td&gt;0.47 &amp;euro; / 500g - 0.96 &amp;euro; / 500g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;1.90 &amp;euro; / 2500g&lt;/td&gt;
+&lt;td&gt;2.37 &amp;euro; / 3000g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;M&amp;uuml;sli (Nougat/Granola Bits)&lt;/td&gt;
@@ -5878,12 +6290,12 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;7.97 &amp;euro; / 1390ml&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Other Sauce (andere So&amp;szlig;en)&lt;/td&gt;
+&lt;td&gt;Other Sauce / Dip (andere So&amp;szlig;en)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;6 months&lt;/td&gt;
+&lt;td&gt;0.26 &amp;euro; / 50g; 1.11 &amp;euro; / 250ml&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;1.34 &amp;euro; / 500ml&lt;/td&gt;
+&lt;td&gt;4.08 &amp;euro; / 1100ml&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Kecap Manis (ABC)&lt;/td&gt;
@@ -5897,9 +6309,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;Jasmin Rice (Reis)&lt;/td&gt;
 &lt;td&gt;1 kg / 2 months&lt;/td&gt;
 &lt;td&gt;2 years&lt;/td&gt;
-&lt;td&gt;1.89 &amp;euro; / kg&lt;/td&gt;
+&lt;td&gt;1.89 &amp;euro; / kg - 1.92 &amp;euro; / kg&lt;/td&gt;
 &lt;td&gt;11.34 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;13.86 &amp;euro; / 7kg&lt;/td&gt;
+&lt;td&gt;17.77 &amp;euro; / 9kg&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Sushi Rice&lt;/td&gt;
@@ -6069,12 +6481,12 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Pasta (Hartweizengrie&amp;szlig;, z.B. Bandnudeln, Penne)&lt;/td&gt;
+&lt;td&gt;Pasta (Hartweizengrie&amp;szlig;, z.B. Bandnudeln, Penne, Spaghetti)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;2.5 years&lt;/td&gt;
-&lt;td&gt;0.49 &amp;euro; / 500g - 0.59 &amp;euro; / 500g&lt;/td&gt;
+&lt;td&gt;0.48 &amp;euro; / 500g - 0.59 &amp;euro; / 500g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;5.55 &amp;euro; / 3500g&lt;/td&gt;
+&lt;td&gt;6.03 &amp;euro; / 4000g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Tortelloni Pasta&lt;/td&gt;
@@ -6159,9 +6571,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;Rinderhackfleisch&lt;/td&gt;
 &lt;td&gt;1.2 kg&lt;/td&gt;
 &lt;td&gt;5 days 🧊&lt;/td&gt;
-&lt;td&gt;2.99 &amp;euro; - 3.29 &amp;euro; / 400g&lt;/td&gt;
+&lt;td&gt;2.89 &amp;euro; / 400g - 3.29 &amp;euro; / 400g&lt;/td&gt;
 &lt;td&gt;8.97 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;20.95 &amp;euro; / 2800g&lt;/td&gt;
+&lt;td&gt;26.63 &amp;euro; / 3600g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Next Level Burger Patties (Vegan)&lt;/td&gt;
@@ -6220,12 +6632,12 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Frikadellen&lt;/td&gt;
+&lt;td&gt;Frikadellen / Gem&amp;uuml;se-Nuggets&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;1 month?&lt;/td&gt;
 &lt;td&gt;1.99 &amp;euro; -2.21 &amp;euro;/ 500g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;8.40 &amp;euro; / 2000g&lt;/td&gt;
+&lt;td&gt;10.61 &amp;euro; / 2500g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Tuna"&gt;Tuna&lt;/a&gt; in tin (Thunfisch in der Dose)&lt;/td&gt;
@@ -6314,6 +6726,22 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;1.95 &amp;euro; / ?&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sahnefest&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 years&lt;/td&gt;
+&lt;td&gt;0.29 &amp;euro; / 40g&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.29 &amp;euro; / 40g&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gelatine&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 years&lt;/td&gt;
+&lt;td&gt;0.85 &amp;euro; / 30g&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.85 &amp;euro; / 30g&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id="other-food"&gt;Other Food&lt;/h3&gt;
@@ -6335,7 +6763,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;2 weeks (?)❄&lt;/td&gt;
 &lt;td&gt;0.29 &amp;euro; / piece - 0.57 &amp;euro; / piece&lt;/td&gt;
 &lt;td&gt;45.37 &amp;euro;&lt;/td&gt;
-&lt;td&gt;44.15 &amp;euro; / 148 piece&lt;/td&gt;
+&lt;td&gt;45.31 &amp;euro; / 152 piece&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Natural Joghurt (Joghurt Pur)&lt;/td&gt;
@@ -6351,7 +6779,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;months to years&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;115.35 &amp;euro; / 82 packages&lt;/td&gt;
+&lt;td&gt;126.34 &amp;euro; / 90 packages&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Ice Cream (Eis Creme)&lt;/td&gt;
@@ -6421,9 +6849,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Fried_onion"&gt;Fried Onion&lt;/a&gt; (R&amp;ouml;stzwiebeln)&lt;/td&gt;
 &lt;td&gt;3kg / year&lt;/td&gt;
 &lt;td&gt;1 year&lt;/td&gt;
-&lt;td&gt;0.99 &amp;euro; / 150g&lt;/td&gt;
+&lt;td&gt;0.76 &amp;euro; / 150g - 0.99 &amp;euro; / 150g&lt;/td&gt;
 &lt;td&gt;19.80 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;3.76 &amp;euro; / 600g&lt;/td&gt;
+&lt;td&gt;4.52 &amp;euro; / 750g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Pickles (Cornichons)&lt;/td&gt;
@@ -6431,7 +6859,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;34 months&lt;/td&gt;
 &lt;td&gt;0.99 &amp;euro; / 190g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;7.92 &amp;euro; / 1520g&lt;/td&gt;
+&lt;td&gt;9.90 &amp;euro; / 1900g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Eggs (Eier)&lt;/td&gt;
@@ -6439,7 +6867,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;5 weeks&lt;/td&gt;
 &lt;td&gt;1.29 &amp;euro; / 10 pieces&lt;/td&gt;
 &lt;td&gt;11.88 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;10.28 &amp;euro; / 80 pieces&lt;/td&gt;
+&lt;td&gt;11.53 &amp;euro; / 90 pieces&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Juice (Saft: Orangen-Nektar)&lt;/td&gt;
@@ -6447,15 +6875,15 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;td&gt;0.79 &amp;euro; / 1.5 L - 0.96 &amp;euro; / 1.5 L&lt;/td&gt;
 &lt;td&gt;9.48 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;21.64 &amp;euro; / 39.0 L&lt;/td&gt;
+&lt;td&gt;22.40 &amp;euro; / 40.5 L&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Softdrinks (Eistee)&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;td&gt;2 months&lt;/td&gt;
-&lt;td&gt;0.79 &amp;euro; / 1.5 L&lt;/td&gt;
+&lt;td&gt;0.48 &amp;euro; / 1.5 L - 0.79 &amp;euro; / 1.5 L&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
-&lt;td&gt;0.79 &amp;euro; / 1.5 L&lt;/td&gt;
+&lt;td&gt;2.13 &amp;euro; / 6.0 L&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wine (Wein)&lt;/td&gt;
@@ -6471,7 +6899,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;1 year&lt;/td&gt;
 &lt;td&gt;0.11 &amp;euro; / 0.5 L&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;0.66 &amp;euro; / 3.0 L&lt;/td&gt;
+&lt;td&gt;0.88 &amp;euro; / 4.0 L&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Malz&lt;/td&gt;
@@ -6495,7 +6923,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;2 months ❄&lt;/td&gt;
 &lt;td&gt;1.99 &amp;euro; / 4 pieces&lt;/td&gt;
 &lt;td&gt;11.94 &amp;euro; / year&lt;/td&gt;
-&lt;td&gt;13.80 &amp;euro; / 48 pieces&lt;/td&gt;
+&lt;td&gt;15.79 &amp;euro; / 52 pieces&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Canned Soup (Dosensuppe, Thai-Suppe, Bihun-Suppe)&lt;/td&gt;
@@ -6509,9 +6937,9 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;Fertiggericht (Pfannengericht)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;2.19 &amp;euro; / package&lt;/td&gt;
+&lt;td&gt;2.12 &amp;euro; / package - 2.19 &amp;euro; / package&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;12.74 &amp;euro; / 6 package&lt;/td&gt;
+&lt;td&gt;16.98 &amp;euro; / 8 package&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Chili Sin Carne (in a tin can)&lt;/td&gt;
@@ -6583,7 +7011,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;2 years&lt;/td&gt;
 &lt;td&gt;0.49 &amp;euro; / 200g&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;0.98 &amp;euro; / 400g&lt;/td&gt;
+&lt;td&gt;1.47 &amp;euro; / 600g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Gesch&amp;auml;lte Tomaten in der Dose&lt;/td&gt;
@@ -7144,7 +7572,7 @@ pills and maybe a couple of months for creams and ointment.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Dates / Girlfriend&lt;/td&gt;
-&lt;td&gt;195.09 &amp;euro;&lt;/td&gt;
+&lt;td&gt;209.86 &amp;euro;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Geschenke an Freunde&lt;/td&gt;
