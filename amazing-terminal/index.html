@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Code, Linux, Windows, Code, " />
+
+<meta property="og:title" content="How to get an amazing Terminal  - In Windows and Linux; including prompts, fonts, and colors "/>
+<meta property="og:url" content="https://towardsdatascience.com/how-to-get-an-amazing-terminal-91619a0beeb7" />
+<meta property="og:description" content="As a developer with 10+ years of experience, I love using the shell. The commands never change, I can create custom shortcuts, it’s reliable and fast. The defaults are not great, though. After reading this article, you will know how to get an awesome shell + terminal on your system …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-11-13T20:00:00+01:00" />
+<meta name="twitter:title" content="How to get an amazing Terminal  - In Windows and Linux; including prompts, fonts, and colors ">
+<meta name="twitter:description" content="As a developer with 10+ years of experience, I love using the shell. The commands never change, I can create custom shortcuts, it’s reliable and fast. The defaults are not great, though. After reading this article, you will know how to get an awesome shell + terminal on your system …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>How to get an amazing Terminal  - In Windows and Linux; including prompts, fonts, and colors  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/how-to-get-an-amazing-terminal-91619a0beeb7"> How to get an amazing Terminal  <small> In Windows and Linux; including prompts, fonts, and colors </small>  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a></li><li><a class="toc-href" href="#fonts" title="Fonts">Fonts</a></li><li><a class="toc-href" href="#windows-terminal" title="Windows Terminal">Windows Terminal</a></li><li><a class="toc-href" href="#linux-and-windows-terminal-aminal" title="Linux and Windows Terminal: Aminal">Linux and Windows Terminal: Aminal</a></li><li><a class="toc-href" href="#linux-gnome-terminal" title="Linux: Gnome Terminal">Linux: Gnome Terminal</a></li><li><a class="toc-href" href="#linux-shell-fish" title="Linux Shell: fish">Linux Shell: fish</a></li><li><a class="toc-href" href="#aliases" title="Aliases">Aliases</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>As a developer with 10+ years of experience, I love using the shell. The commands never change, I can create custom shortcuts, it&rsquo;s reliable and fast. The defaults are not great, though. After reading this article, you will know how to get an awesome shell + terminal on your system.</p>
+<h2 id="terminology">Terminology</h2>
+<p>The <strong>shell</strong> is what actually executes the command. The <strong>terminal</strong> is a
+wrapper that runs the shell.</p>
+<p>The <strong>terminal</strong> is where you set the font face, font size, color schemes, support for multiple tabs. Examples for terminal emulators are <a href="https://en.wikipedia.org/wiki/GNOME_Terminal">GNOME terminal</a>, <a href="https://en.wikipedia.org/wiki/Konsole">Konsole</a> on KDE, <a href="https://en.wikipedia.org/wiki/Terminator_(terminal_emulator)">Terminator</a>, and <a href="https://en.wikipedia.org/wiki/Xterm">XTerm</a>. On Linux, I recommend keeping the default. On Windows, the <a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701">Windows Terminal</a> is awesome. On Mac, I&rsquo;ve heard good things about <a href="https://www.iterm2.com/">iTerm 2</a>.</p>
+<p><img alt="Four terminal emulators on Linux (Gnome Terminal, Konsole, XTerm, Terminator). XTerm does not directly support tabs. The others have 2 tabs open. All of them run the Bash shell. The image was created by Martin Thoma." src="https://cdn-images-1.medium.com/max/2754/1*OhItafIJ3T--kdh9F716VA.png"/><em>Four terminal emulators on Linux (Gnome Terminal, Konsole, XTerm, Terminator). XTerm does not directly support tabs. The others have 2 tabs open. All of them run the Bash shell. The image was created by Martin Thoma.</em></p>
+<p>The <strong>shell</strong> stores the history of entered commands, defines how you set
+environment variables, how you switch the current directory. Examples for
+shells on Linux are <a href="https://en.wikipedia.org/wiki/Z_shell">ZSH</a>,
+<a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a>,
+<a href="https://en.wikipedia.org/wiki/Fish_(Unix_shell)">fish</a>. On Windows, the
+typical shells are <a href="https://en.wikipedia.org/wiki/PowerShell">PowerShell</a>. You
+can see which shell you are running by executing echo $0 . On Linux, it&rsquo;s most
+likely Bash.</p>
+<p><img alt="Three Linux shells (ZSH, Bash, fish) within the Gnome Terminal. I&rsquo;ve heavily customized the ZSH shell; Bash and fish show the default. You can see that fish has an in-line autosuggestion feature that the two other shells lack. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/2692/1*FYSzehDiGtZNHjowCZxUXg.png"/><em>Three Linux shells (ZSH, Bash, fish) within the Gnome Terminal. I&rsquo;ve heavily customized the ZSH shell; Bash and fish show the default. You can see that fish has an in-line autosuggestion feature that the two other shells lack. Image by Martin Thoma.</em></p>
+<p>Every shell has a <strong>prompt</strong>. The prompt is what is written before your cursor.
+It signalizes that you can enter a command and gives useful context
+information. In the example above, the prompt contains the user name <code>moose</code>,
+the current computer <code>pc08</code>, the current working directory
+<code>~/GitHub/MartinThoma/flake8-simplify</code>, the active git branch <code>feature/19</code> and
+the fact that there are modifications <code>&plusmn;</code>.</p>
+<h2 id="fonts">Fonts</h2>
+<p>No matter what you take, the font matters. You might want to have a monospace
+font. And you for sure want a <a href="https://github.com/powerline/fonts">powerline
+font</a>; trust me with that one. The
+powerline font gives your shell the possibility to use characters that look
+like images. It can make the prompt way nicer.</p>
+<p>I like <a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">Ubuntu Mono</a> and <a href="https://github.com/powerline/fonts/tree/master/DroidSansMono">Droid Sans Mono</a>:</p>
+<p><img alt="The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2236/1*TrxyQTnHKZA7DPuLZT4sfg.png"/><em>The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma</em></p>
+<p>There are also &ldquo;programming fonts&rdquo; like <a href="https://github.com/tonsky/FiraCode">Fira Code</a> or <a href="https://www.jetbrains.com/lp/mono/?ref=betterwebtype">Jetbrains Mono</a>. I don&rsquo;t like them, because they make it harder for me to really know what is written. They look nice, though.</p>
+<h2 id="windows-terminal">Windows Terminal</h2>
+<p>First, make sure you have the <a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?source=lp&amp;activetab=pivot:overviewtab">Windows Terminal</a> installed:
+<a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?source=lp&amp;activetab=pivot:overviewtab"><strong>Get Windows Terminal &mdash; Microsoft Store</strong>
+<em>The Windows Terminal is a modern, fast, efficient, powerful, and productive terminal application for users of&hellip;</em>www.microsoft.com</a></p>
+<p>Launch a terminal and navigate to the settings. It&rsquo;s this small downwards pointing &ldquo;arrow&rdquo;:</p>
+<p><img alt="Click on &ldquo;Settings&rdquo;. The screenshot was taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/0*FSlD8BQx1mNP532h.png"/><em>Click on &ldquo;Settings&rdquo;. The screenshot was taken by Martin Thoma</em></p>
+<p>You should see a JSON file which you can change to fit your taste. I have the following:</p>
+<iframe frameborder="0" src="https://medium.com/media/db0a1b7a8b8d0eccc2a75276eec241da"></iframe>
+<p>Download and install all 4 &ldquo;<a href="https://github.com/powerline/fonts/tree/master/DejaVuSansMono">DejaVu Sans Mono Powerline</a>&rdquo; fonts. On all systems I know, installing a font is done by double-clicking it. Then a window opens which has an &ldquo;Install&rdquo; button.</p>
+<h2 id="linux-and-windows-terminal-aminal">Linux and Windows Terminal: Aminal</h2>
+<p><a href="https://github.com/liamg/aminal">Aminal</a> is a Terminal Emulator written in Go. It can be used on Linux, Windows, and Mac. It allows configuration via a configuration file and includes the color and keyboard shortcuts in it.</p>
+<p>First, you need to install and configure Go on your system. On Ubuntu, it works like this:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install golang libgl1-mesa-dev xorg-dev
+$ <span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/go"</span>
+$ <span class="nb">export</span> <span class="nv">GOBIN</span><span class="o">=</span><span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</code></pre></div>
+<p>Then you can install and run aminal:</p>
+<div class="highlight"><pre><span></span><code>$ go get -u github.com/liamg/aminal
+$ aminal
+</code></pre></div>
+<h2 id="linux-gnome-terminal">Linux: Gnome Terminal</h2>
+<p>The Gnome terminal can be customized by editing the profile. Here I set the <a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">Ubuntu Mono derivate Powerline Regular</a> with a font size of 12.</p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*DTs5EGYqnJvLIN16WMhwBA.png"/><em>Image by Martin Thoma</em></p>
+<p>The command is set to zsh as this is my favorite shell.</p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*JNf0sfN047bN3AqDfVfRSw.png"/><em>Image by Martin Thoma</em></p>
+<p>The colors are set to <a href="https://ethanschoonover.com/solarized/">solarized dark</a> (left-to-right, top-line / bottom-line)</p>
+<ul>
+<li>Background: #2e3436 / #555753</li>
+<li>Dark Red: #cc0000 / Light Red: ef2929</li>
+<li>Dark Green: #4e9a06 / Light Green: #8ae234</li>
+<li>Dark Yellow: #c4a000 / Light Yellow: #fce94f</li>
+<li>Dark Blue: #3465a4 / Light Blue: #729fcf</li>
+<li>Dark Purple: #75507b / Light Purple: #ad7fa8</li>
+<li>Dark Teal: #06989a / Light Teal: #34e2e2</li>
+<li>Dark Gray: #d3d7cf / Light Gray: #eeeeec</li>
+</ul>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*P4xCOjogPGb3SdquyLiC2Q.png"/></p>
+<h2 id="linux-shell-fish">Linux Shell: fish</h2>
+<p>Install the <strong>fish</strong> shell:</p>
+<div class="highlight"><pre><span></span><code>sudo apt-get install fish
+</code></pre></div>
+<p>Change the default shell in your terminal emulator to fish . Within Gnome
+terminal, it is called &ldquo;custom command&rdquo;.</p>
+<p>Then install &ldquo;<a href="https://github.com/oh-my-fish/oh-my-fish"><strong>Oh My Fish</strong></a>&rdquo;:</p>
+<div class="highlight"><pre><span></span><code>curl -L https://get.oh-my.fish <span class="p">|</span> fish
+</code></pre></div>
+<p>And set the theme to <strong>agnoster</strong>:</p>
+<div class="highlight"><pre><span></span><code>omf install agnoster
+omf theme agnoster
+</code></pre></div>
+<p>For cool features of the fish shell, read <a href="https://medium.com/better-programming/why-i-use-fish-shell-over-bash-and-zsh-407d23293839">Why I Use Fish Shell Over Bash and Zsh</a> by <a href="undefined">Alec Brunelle</a>.</p>
+<h2 id="aliases">Aliases</h2>
+<p>A core part of making the terminal awesome is making common commands short. To do so, you create an alias for a command &mdash; a shorter version of the original command. The most common example is changing a directory to go one level up. For example, if you are in /home/user/foo/bar , you want to get to /home/user/foo . In most shells, you have to enter cd .. . I like to abbreviate that to .. . So I have the alias alias ..='cd ..' . The syntax may vary, depending on your shell. For Bash, ZSH, and fish it is</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">short</span><span class="o">=</span><span class="s1">'long'</span>
+</code></pre></div>
+<p>For bash, you insert them in ~/.bashrc , for ZSH in ~/.zshrc . In fish, <a href="https://stackoverflow.com/a/2763014/562769">it is different</a>.</p>
+<p>Here are some aliases I like:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Shorten things</span>
+<span class="nb">alias</span> ..<span class="o">=</span><span class="s1">'cd ..'</span>
+<span class="nb">alias</span> ...<span class="o">=</span><span class="s1">'cd ../../'</span>
+<span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -alF'</span>
+<span class="nb">alias</span> <span class="nv">la</span><span class="o">=</span><span class="s1">'ls -A'</span>
+<span class="nb">alias</span> <span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CF'</span>
+<span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
+
+<span class="c1"># If your terminal supports colors, use them!</span>
+<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">'ls --color=auto'</span>
+<span class="nb">alias</span> <span class="nv">grep</span><span class="o">=</span><span class="s1">'grep --color=auto'</span>
+<span class="nb">alias</span> <span class="nv">fgrep</span><span class="o">=</span><span class="s1">'fgrep --color=auto'</span>
+<span class="nb">alias</span> <span class="nv">egrep</span><span class="o">=</span><span class="s1">'egrep --color=auto'</span>
+<span class="nb">alias</span> <span class="nv">diff</span><span class="o">=</span><span class="s1">'colordiff'</span>
+
+<span class="c1"># Works only if you have notify-send</span>
+<span class="nb">alias</span> <span class="nv">alert</span><span class="o">=</span><span class="s1">'notify-send --urgency=low -i "$([ $? = 0 ] &amp;&amp; echo terminal || echo error)" "$(history|tail -n1|sed -e '</span><span class="se">\'</span><span class="s1">'s/^\s*[0-9]\+\s*//;s/[;&amp;|]\s*alert$//'</span><span class="se">\'</span><span class="s1">')"'</span>
+</code></pre></div>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Make sure you have a reasonable <strong>terminal emulator</strong>. I suggest <a href="https://en.wikipedia.org/wiki/GNOME_Terminal">Gnome Terminal</a> for Linux, <a href="https://www.iterm2.com/">iTerm 2</a> for Mac, and <a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701">Windows Terminal</a> for Windows.</li>
+<li>Install a good powerline font like <a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">**Ubuntu Mono Powerline</a>**.</li>
+<li>Adjust the <strong>font face</strong>, <strong>font size</strong>, and <strong>color scheme</strong> of your terminal emulator to your preferences.</li>
+<li>Install a good <strong>shell</strong>. I suggest <a href="https://en.wikipedia.org/wiki/Fish_(Unix_shell)">fish</a> for Linux and <a href="https://en.wikipedia.org/wiki/PowerShell">PowerShell</a> for Windows.</li>
+<li>Adjust the <strong>prompt</strong> of your shell to your needs. I like the <strong>agnoster theme</strong>.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-11-13T20:00:00+01:00">Nov 13, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#code-ref">Code
+                    <span>8</span>
+</a></li>
+                <li><a href="../tags.html#linux-ref">Linux
+                    <span>17</span>
+</a></li>
+                <li><a href="../tags.html#windows-ref">Windows
+                    <span>2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
