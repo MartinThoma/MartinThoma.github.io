@@ -6,7 +6,7 @@ URL: https://medium.com/python-in-plain-english/a-beginners-guide-to-python-deve
 author: Martin Thoma
 date: 2020-10-20 20:00
 category: Code
-tags: Code, Development
+tags: Code, Development, Windows
 featured_image: logos/python.png
 ---
 The Python programming language is used for [web development](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world), [data analysis](https://www.udacity.com/course/intro-to-data-analysis--ud170), [machine learning](https://www.udacity.com/course/intro-to-machine-learning--ud120), [statistics](https://towardsdatascience.com/hypothesis-testing-in-machine-learning-using-python-a0dc89e169ce), [web scraping](https://martin-thoma.com/scraping-with-selenium/), and so much more. There are tons of tutorials which, ironically, makes it pretty hard to recommend one. However, there is also a lack of support for Windows.
