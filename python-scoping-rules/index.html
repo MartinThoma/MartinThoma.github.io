@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Code, Python, Scope, Code, " />
+
+<meta property="og:title" content="Pythons Scoping Rules  - The extraordinary short guide to Pythons crazy scoping rules "/>
+<meta property="og:url" content="https://towardsdatascience.com/but-its-not-declared-40501fb1e943" />
+<meta property="og:description" content="It’s obvious that you cannot access a variable before it was declared. But if it was declared inside a loop, can you access it outside a loop? If it was declared in a function, can you access the variable outside of the function? This kind of “variable lifetime” is …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-11-23T20:00:00+01:00" />
+<meta name="twitter:title" content="Pythons Scoping Rules  - The extraordinary short guide to Pythons crazy scoping rules ">
+<meta name="twitter:description" content="It’s obvious that you cannot access a variable before it was declared. But if it was declared inside a loop, can you access it outside a loop? If it was declared in a function, can you access the variable outside of the function? This kind of “variable lifetime” is …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Pythons Scoping Rules  - The extraordinary short guide to Pythons crazy scoping rules  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/but-its-not-declared-40501fb1e943"> Pythons Scoping Rules  <small> The extraordinary short guide to Pythons crazy scoping rules </small>  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-3-scopes-of-python" title="The 3 Scopes of Python">The 3 Scopes of Python</a></li><li><a class="toc-href" href="#the-global-statement" title="The &ldquo;global&rdquo; statement">The &ldquo;global&rdquo; statement</a></li><li><a class="toc-href" href="#the-nonlocal-statement" title="The &ldquo;nonlocal&rdquo; statement">The &ldquo;nonlocal&rdquo; statement</a></li><li><a class="toc-href" href="#confusing-examples" title="Confusing Examples">Confusing Examples</a><ul><li><a class="toc-href" href="#append-element-vs-element" title="Append element vs &lsquo;+= [element]&rsquo;">Append element vs &lsquo;+= [element]&rsquo;</a></li><li><a class="toc-href" href="#global-scope-does-fall-back-to-built-ins" title="Global scope DOES fall back to built-ins">Global scope DOES fall back to built-ins</a></li><li><a class="toc-href" href="#assignment" title="Assignment">Assignment</a></li><li><a class="toc-href" href="#mypy" title="mypy">mypy</a></li></ul></li><li><a class="toc-href" href="#summary_1" title="Summary">Summary</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>It&rsquo;s obvious that you cannot access a variable before it was declared. But if
+it was declared inside a loop, can you access it outside a loop? If it was
+declared in a function, can you access the variable outside of the function?</p>
+<p>This kind of &ldquo;variable lifetime&rdquo; is known as scoping. After reading this
+article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
+<h2 id="the-3-scopes-of-python">The 3 Scopes of Python</h2>
+<p>Python has 3 scopes:</p>
+<ul>
+<li><strong>Global</strong>: In the main part of the script. By default, this already contains
+  the built-ins. You can access all global variables with <code>globals()</code></li>
+<li><strong>Enclosed</strong>: In the outer function, if this is a nested function</li>
+<li><strong>Local</strong>: Within the current function. You can access all local variables
+  with <code>locals()</code>. Within the main script, <code>locals() == globals()</code></li>
+</ul>
+<p>You can see all three in action here:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"enclosing"</span>
+
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+        <span class="sd">"""Bar is enclosed by 'foo'"""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">baz</span><span class="p">():</span>
+        <span class="sd">"""Baz is also enclosed by 'foo'"""</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+
+    <span class="n">bar</span><span class="p">()</span>
+    <span class="n">baz</span><span class="p">()</span>
+
+
+<span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"global"</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+<p>There is a crucial point here:</p>
+<blockquote>
+<h1 id="the-scope-of-a-variable-is-defined-at-compile-time">The scope of a variable is defined at compile-time!</h1>
+</blockquote>
+<p>For this reason, the following code throws an exception:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+<p>throws the exception:</p>
+<div class="highlight"><pre><span></span><code>Traceback (most recent call last):
+  File "example.py", line 5, in &lt;module&gt;
+    foo()
+  File "example.py", line 2, in foo
+    print(min([1, 2, 3]))
+UnboundLocalError: local variable 'min' referenced before assignment
+</code></pre></div>
+<h2 id="the-global-statement">The &ldquo;global&rdquo; statement</h2>
+<p>You can assign a value to a global variable in a function with the global
+statement:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+</code></pre></div>
+<p>I need this very rarely. To make sure that I don&rsquo;t confuse anything, I like to
+use the globals() dictionary. In this case, I would rather use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">globals</span><span class="p">()[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"local"</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+</code></pre></div>
+<h2 id="the-nonlocal-statement">The &ldquo;nonlocal&rdquo; statement</h2>
+<p>You can assign a value to an enclosed variable with the nonlocal statement:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">"enclosed"</span>
+
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
+
+    <span class="n">bar</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+</code></pre></div>
+<h2 id="confusing-examples">Confusing Examples</h2>
+<p><img alt="Image by wokandapix (source)" src="https://cdn-images-1.medium.com/max/2560/1*NCC4Tkv3KmiED56OvLmJyw.jpeg"/><em>Image by wokandapix (<a href="https://pixabay.com/de/photos/wtf-sms-social-media-akronym-1934220/">source</a>)</em></p>
+<h3 id="append-element-vs-element">Append element vs &lsquo;+= [element]&rsquo;</h3>
+<div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># OK</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+<p>vs</p>
+<div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">xs</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>  <span class="c1"># UnboundLocalError: local variable 'xs'</span>
+    <span class="c1"># referenced before assignment</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+<p>The reason why the first works but not the second is that the first one calls a
+function of <code>xs</code>. It never assigns a value to <code>xs</code>. The second one is equal to</p>
+<div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">+</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+<p>When Python parses the assignment <code>xs = ...</code>, the xs is assigned the local
+scope. But in the local scope, <code>xs</code> does not exist before <code>xs = xs + [42]</code> is
+executed. Hence the error.</p>
+<p>In the first example with <code>xs.append(42)</code>, the global scope of xs is used.
+Hence we don&rsquo;t face any issue, because it is defined in the global scope.</p>
+<h3 id="global-scope-does-fall-back-to-built-ins">Global scope DOES fall back to built-ins</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># prints 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+</code></pre></div>
+<p>but the same does not work in a local scope</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># UnboundLocalError: local variable 'min' referenced before assignment</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></div>
+<p>The reason is that <code>locals() == globals()</code> within the global scope. Although built-ins are a bit special, they kind of live in the global scope.</p>
+<h3 id="assignment">Assignment</h3>
+<p>This one is confusing to people with a Java, C, or C++ background. This is
+valid Python code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># prints 12</span>
+</code></pre></div>
+<p>But in Java you need to declare it upfront to be able to use the variable after
+the loop:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span>
+<span class="p">{</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+     <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">y</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+     <span class="p">}</span>
+  <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="mypy">mypy</h3>
+<p>mypy is a wide-spread <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type-checker for Python</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+    <span class="c1"># error: Incompatible types in assignment (expression has type "str", variable has type "int")</span>
+</code></pre></div>
+<p>So mypy doesn&rsquo;t like that you assign the string &ldquo;foo&rdquo; to y , because it first
+read took the <code>bool(external_service()) == True</code> path and assumed that y would
+be an integer.</p>
+<p>Then you might want to do this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"foo"</span>
+    <span class="c1"># error: Name 'y' already defined on line 2</span>
+</code></pre></div>
+<p>You can see that mypy assumes the y should be the same type in both cases. It&rsquo;s
+reasonable because otherwise the following analysis might get extremely
+complicated.</p>
+<p>The next try might be:</p>
+<div class="highlight"><pre><span></span><code><span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1"># error: Incompatible types in assignment</span>
+<span class="c1"># (expression has type "None", variable has type "Union[str, int]")</span>
+
+<span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+</code></pre></div>
+<p>That should have been expected. Assigning None is not possible to a type which
+does not include None &mdash; and adding None to that type might cause many more
+issues down the road.</p>
+<p>You can do this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+</code></pre></div>
+<p>But I can also see when this feels strange. What might be cleaner is this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+</code></pre></div>
+<h2 id="summary_1">Summary</h2>
+<p>We have seen the three types of scopes in Python: Local, Enclosed, and global.
+We&rsquo;ve seen that you can access globals with the global keyword or over the
+globals() dictionary. Locals can be accessed with the locals() dictionary and
+enclosed variables with the nonlocal keyword. Keep that in mind and Python
+scoping should make sense 🙂</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-11-23T20:00:00+01:00">Nov 23, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#code-ref">Code
+                    <span>9</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>137</span>
+</a></li>
+                <li><a href="../tags.html#scope-ref">Scope
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
