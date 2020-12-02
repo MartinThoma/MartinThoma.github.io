@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-02T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Email Spoofing 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" rel="alternate"></link><published>2020-12-02T20:00:00+01:00</published><updated>2020-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-02:/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf</id><summary type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security &lt;a href="mailto:something@phishy.com"&gt;something@phishy.com&lt;/a&gt; , or spoofing the email address.&lt;/p&gt;
+&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
+&lt;p&gt;Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&amp;rsquo;ve found are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2014&lt;/strong&gt;: The drug company Upsher-Smith Laboratories lost &lt;strong&gt;$50 million USD&lt;/strong&gt; by CEO fraud (&lt;a href="https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2015&lt;/strong&gt;: The networking company Ubiquiti Networks lost &lt;strong&gt;$46.7 million USD&lt;/strong&gt; to a scammer who impersonated employees (&lt;a href="https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;In &lt;strong&gt;2018&lt;/strong&gt;, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over &lt;strong&gt;$1.2 billion&lt;/strong&gt;&amp;rdquo; (&lt;a href="https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-are-emails-spoofed"&gt;How are Emails spoofed?&lt;/h2&gt;
+&lt;p&gt;Emails are transferred via the &lt;a href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol"&gt;SMTP&lt;/a&gt; protocol. This protocol has an envelope that contains the sender (&lt;strong&gt;MAIL FROM&lt;/strong&gt;) and the recipient (&lt;strong&gt;RCPT TO&lt;/strong&gt;). The sender is typically not verified and not displayed. Instead, the content of the mail contains additional metadata. One item there is the &lt;strong&gt;reply-to&lt;/strong&gt; and the &lt;strong&gt;sender&lt;/strong&gt;. It&amp;rsquo;s interesting that reply-to and sender are different.&lt;/p&gt;
+&lt;p&gt;As an attacker, one can manipulate everything. Just like with normal mail:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write a wrong MAIL FROM&lt;/li&gt;
+&lt;li&gt;Claim within the mail you&amp;rsquo;re another person (sender)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A key difference here is that typically, a lot is handled in the background.&lt;/p&gt;
+&lt;p&gt;To make it clear that this is super easy and the attackers are not doing rocket science, here is how an email can be sent with Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;smtplib&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;email.message&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;EmailMessage&lt;/span&gt;
+
+&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;EmailMessage&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You've been a good boy"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"Subject"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Ho-ho-ho"&lt;/span&gt;
+&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="s2"&gt;"From"&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"[santa.clause@christm.as](mailto:santa.clause@christm.as)"&lt;/span&gt;  &lt;span class="c1"&gt;# The fake sender&lt;/span&gt;
+&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"To"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"victim@example.com"&lt;/span&gt;  &lt;span class="c1"&gt;# The actual receiver&lt;/span&gt;
+&lt;span class="c1"&gt;# msg.add_header("reply-to", "[phishy@phising.com](mailto:phishy@phising.com)")  # The attackers address&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Send the message via our own SMTP server.&lt;/span&gt;
+&lt;span class="c1"&gt;# On Ubuntu, you need to install sendmail:&lt;/span&gt;
+&lt;span class="c1"&gt;#     $ apt-get install sendmail&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;smtplib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SMTP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"localhost"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;send_message&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Which then looks like this in Gmail:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2020/12/email-spoofing-gmail-1.png"&gt;&lt;img alt="Spoofed Email in Gmail" src="../images/2020/12/email-spoofing-gmail-1.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Spoofed Email in Gmail&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;When I click on it, I see this:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2020/12/email-spoofing-gmail-1-full.png"&gt;&lt;img alt="Spoofed Email in Gmail - full view" src="../images/2020/12/email-spoofing-gmail-1-full.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Spoofed Email in Gmail - full view&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Even when I go on the details, I see:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2020/12/gmail-show-original.png"&gt;&lt;img alt="'Show original' in Gmail" src="../images/2020/12/gmail-show-original.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;'Show original' in Gmail&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2020/12/gmail-original-mail.png"&gt;&lt;img alt="Original view of email" src="../images/2020/12/gmail-original-mail.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Original view of email&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The attacker might also put a reply-to in the mail:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_header&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"reply-to"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"phishy@phising.com"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The attacker can also add a name to the email address:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;email.utils&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;formataddr&lt;/span&gt;
+
+&lt;span class="n"&gt;fake_address&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"santa.clause@christm.as"&lt;/span&gt;
+&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"From"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;formataddr&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s2"&gt;"Santa Clause"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fake_address&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Interestingly, that triggered Gmails spam detection:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2976/1*Z6XyVCcysdDbLdMlhEkaxw.png"/&gt;&lt;em&gt;Screenshot taken by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="how-can-i-prevent-email-spoofing"&gt;How can I prevent Email Spoofing?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework"&gt;&lt;strong&gt;SPF&lt;/strong&gt;&lt;/a&gt; (Sender
+  Policy Framework), is an email authentication method designed to detect
+  forging sender addresses in emails. Domain owners (e.g. me for
+  martin-thoma.com) can publish SPF records to DNS. In that record, they
+  &lt;strong&gt;whitelist IP addresses&lt;/strong&gt; that can send emails for their domain. Email
+  servers can then perform an SPF lookup when they receive an email for the
+  (claimed) sender's domain. That prevents spammers from using your domains
+  &lt;strong&gt;in the email envelope&lt;/strong&gt;. When spammers do, the receiving email server
+  &lt;strong&gt;can&lt;/strong&gt; check the SPF record and either reject the email completely or mark
+  it as spam. More information can be found at
+  &lt;a href="http://www.open-spf.org/SPF_Record_Syntax/"&gt;open-spf.org&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail"&gt;&lt;strong&gt;DKIM&lt;/strong&gt;&lt;/a&gt;
+  (DomainKeys Identified Mail), is an email authentication method designed to
+  detect forged sender addresses in emails. It works by &lt;strong&gt;cryptographically
+  signing sent emails&lt;/strong&gt; from a given domain. This is not a signature per
+  person, but a signature for your organization. The corresponding public key
+  is published to the DNS records where email servers that receive those mails
+  can get it and verify it. DKIM makes sure that nobody tampered with the email
+  after it was sent. Imagine DKIM like a seal. SPF then is the knowledge which
+  seal should be used.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/DMARC"&gt;&lt;strong&gt;DMARC&lt;/strong&gt;&lt;/a&gt; (Domain-based Message
+  Authentication, Reporting, and Conformance), is an email authentication
+  protocol. DMARC uses SPF and DKIM and gives &lt;strong&gt;policies&lt;/strong&gt; on how to deal with
+  error cases. The domain owner creates a DMARC DNS record that contains
+  instructions on what to do with messages that failed the SPF / DKIM test.
+  Received emails that failed can on the receiver side either be rejected or
+  quarantined. If that happens, DMARC can be configured to send a report back.
+  DMARC enforces an &lt;strong&gt;alignment&lt;/strong&gt; of the MAIL FROM and the sender. This can be
+  problematic for newsletters but represents also what users expect.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As a domain owner, you can validate your SPF record like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ dig google.com txt &lt;span class="p"&gt;|&lt;/span&gt; grep spf
+google.com.  &lt;span class="m"&gt;3600&lt;/span&gt; IN TXT &lt;span class="s2"&gt;"v=spf1 include:_spf.google.com ~all"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To verify DKIM, look in an email you received for this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=medium.com; \
+h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; \
+s=m1; bh=NY62YFtbfuXkL/SNoiClZV8gaZxkiYhFD4J77gUHGEY=; \
+b=EL3HbaL iSgAJsE6LO8L10T52+rYyump4R1aMAV9nCwyXLENaxbS0xgZvksgoplu8Rjo/wWV J0jDEFRe+UsOnIhaCTBXa1H7LVdjkRyOu9+9Qwd7hlWY5fx/mtRQXvWRDfe9KEsS 9WH8o0lRbOAq7AJXPLID/tZokm+KIMmMc/H0=
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The record is structured in tag=version pairs which are separated by &lt;code&gt;;&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;v&lt;/code&gt;: DKIM &lt;strong&gt;version&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a&lt;/code&gt;: The signature &lt;strong&gt;algorithm&lt;/strong&gt;, typically rsa-sha256&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;c&lt;/code&gt;: The &lt;strong&gt;canonicalization&lt;/strong&gt; algorithm. The first value is for the header, the second one for the body of the email.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;d&lt;/code&gt;: The used &lt;strong&gt;domain&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;h&lt;/code&gt;: The &lt;strong&gt;headers&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s&lt;/code&gt;: The DKIM &lt;strong&gt;selector&lt;/strong&gt; record name.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;b&lt;/code&gt;: The base64 encoded hash value of the headers h .&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bh&lt;/code&gt;: The hash of the body of the email.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can look up your DMARC record like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ dig _dmarc.google.com txt &lt;span class="p"&gt;|&lt;/span&gt; grep DMARC
+_dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class="s2"&gt;"v=DMARC1; p=reject; \&lt;/span&gt;
+&lt;span class="s2"&gt;    rua=[mailauth-reports@google.com](mailto:mailauth-reports@google.com)"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The record is structured in tag=value pairs which are separated by &lt;code&gt;;&lt;/code&gt; (&lt;a href="https://dmarc.org/overview/"&gt;source&lt;/a&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;v&lt;/code&gt;: The protocol &lt;strong&gt;version.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;p&lt;/code&gt;: The &lt;strong&gt;policy&lt;/strong&gt;. It typically should be reject , but can also be quarantine&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rua&lt;/code&gt;: The reporting URI for &lt;strong&gt;aggregate reports&lt;/strong&gt; (how the domain is used)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ruf&lt;/code&gt;: The reporting URI for &lt;strong&gt;forensic reports&lt;/strong&gt;
+ (showing when validation failed)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pct&lt;/code&gt;: How many percent of mails get handled with DMARC. You can set this to an integer from 0 to 100. For the beginning, you can set it low for testing. It should become 100 over time. If you don&amp;rsquo;t use the tag at all, it&amp;rsquo;s by default 100%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Spoofing emails is easy.&lt;/p&gt;
+&lt;p&gt;As a system administrator, you can protect your company by setting an &lt;a href="https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide"&gt;anti-phishing-policy in Office 365&lt;/a&gt; or review the &lt;a href="https://support.google.com/a/answer/9157861?hl=en"&gt;advanced phishing and malware settings of G Suite&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As a domain owner, make sure you have SPF, DKIM, and DMARC configured correctly to protect your customers or clients.&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="email"></category></entry></feed>

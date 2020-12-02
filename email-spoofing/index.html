@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Security, email, Security, " />
+
+<meta property="og:title" content="Email Spoofing 😈  - Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC "/>
+<meta property="og:url" content="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" />
+<meta property="og:description" content="Email spoofing is the creation of emails with a forged sender address. Faking the senders’ address is often a part of a phishing attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-12-02T20:00:00+01:00" />
+<meta name="twitter:title" content="Email Spoofing 😈  - Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC ">
+<meta name="twitter:description" content="Email spoofing is the creation of emails with a forged sender address. Faking the senders’ address is often a part of a phishing attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …">
+<meta property="og:image" content="logos/devil.png" />
+<meta name="twitter:image" content="logos/devil.png" >
+
+        <title>Email Spoofing 😈  - Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"> Email Spoofing 😈  <small> Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC </small>  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-emails-spoofed" title="How are Emails spoofed?">How are Emails spoofed?</a></li><li><a class="toc-href" href="#how-can-i-prevent-email-spoofing" title="How can I prevent Email Spoofing?">How can I prevent Email Spoofing?</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Email spoofing is the creation of emails with a forged sender address. Faking the senders&rsquo; address is often a part of a <strong>phishing</strong> attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security <a href="mailto:something@phishy.com">something@phishy.com</a> , or spoofing the email address.</p>
+<h2 id="why-it-matters">Why it Matters</h2>
+<p>Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&rsquo;ve found are:</p>
+<ul>
+<li><strong>2014</strong>: The drug company Upsher-Smith Laboratories lost <strong>$50 million USD</strong> by CEO fraud (<a href="https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million">source</a>)</li>
+<li><strong>2015</strong>: The networking company Ubiquiti Networks lost <strong>$46.7 million USD</strong> to a scammer who impersonated employees (<a href="https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201">source</a>)</li>
+<li>&ldquo;In <strong>2018</strong>, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over <strong>$1.2 billion</strong>&rdquo; (<a href="https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf">source</a>)</li>
+</ul>
+<h2 id="how-are-emails-spoofed">How are Emails spoofed?</h2>
+<p>Emails are transferred via the <a href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> protocol. This protocol has an envelope that contains the sender (<strong>MAIL FROM</strong>) and the recipient (<strong>RCPT TO</strong>). The sender is typically not verified and not displayed. Instead, the content of the mail contains additional metadata. One item there is the <strong>reply-to</strong> and the <strong>sender</strong>. It&rsquo;s interesting that reply-to and sender are different.</p>
+<p>As an attacker, one can manipulate everything. Just like with normal mail:</p>
+<ul>
+<li>Write a wrong MAIL FROM</li>
+<li>Claim within the mail you&rsquo;re another person (sender)</li>
+</ul>
+<p>A key difference here is that typically, a lot is handled in the background.</p>
+<p>To make it clear that this is super easy and the attackers are not doing rocket science, here is how an email can be sent with Python:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="s2">"You've been a good boy"</span><span class="p">)</span>
+
+<span class="n">msg</span><span class="p">[</span><span class="s2">"Subject"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Ho-ho-ho"</span>
+<span class="n">msg</span><span class="p">[</span>
+    <span class="s2">"From"</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">"[santa.clause@christm.as](mailto:santa.clause@christm.as)"</span>  <span class="c1"># The fake sender</span>
+<span class="n">msg</span><span class="p">[</span><span class="s2">"To"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"victim@example.com"</span>  <span class="c1"># The actual receiver</span>
+<span class="c1"># msg.add_header("reply-to", "[phishy@phising.com](mailto:phishy@phising.com)")  # The attackers address</span>
+
+<span class="c1"># Send the message via our own SMTP server.</span>
+<span class="c1"># On Ubuntu, you need to install sendmail:</span>
+<span class="c1">#     $ apt-get install sendmail</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s2">"localhost"</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</code></pre></div>
+<p>Which then looks like this in Gmail:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/12/email-spoofing-gmail-1.png"><img alt="Spoofed Email in Gmail" src="../images/2020/12/email-spoofing-gmail-1.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Spoofed Email in Gmail</figcaption>
+</figure>
+<p>When I click on it, I see this:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/12/email-spoofing-gmail-1-full.png"><img alt="Spoofed Email in Gmail - full view" src="../images/2020/12/email-spoofing-gmail-1-full.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Spoofed Email in Gmail - full view</figcaption>
+</figure>
+<p>Even when I go on the details, I see:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/12/gmail-show-original.png"><img alt="'Show original' in Gmail" src="../images/2020/12/gmail-show-original.png" style="width: 512px;"/></a>
+<figcaption class="text-center">'Show original' in Gmail</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/12/gmail-original-mail.png"><img alt="Original view of email" src="../images/2020/12/gmail-original-mail.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Original view of email</figcaption>
+</figure>
+<p>The attacker might also put a reply-to in the mail:</p>
+<div class="highlight"><pre><span></span><code><span class="n">msg</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s2">"reply-to"</span><span class="p">,</span> <span class="s2">"phishy@phising.com"</span><span class="p">)</span>
+</code></pre></div>
+<p>The attacker can also add a name to the email address:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">email.utils</span> <span class="kn">import</span> <span class="n">formataddr</span>
+
+<span class="n">fake_address</span> <span class="o">=</span> <span class="s2">"santa.clause@christm.as"</span>
+<span class="n">msg</span><span class="p">[</span><span class="s2">"From"</span><span class="p">]</span> <span class="o">=</span> <span class="n">formataddr</span><span class="p">((</span><span class="s2">"Santa Clause"</span><span class="p">,</span> <span class="n">fake_address</span><span class="p">))</span>
+</code></pre></div>
+<p>Interestingly, that triggered Gmails spam detection:</p>
+<p><img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2976/1*Z6XyVCcysdDbLdMlhEkaxw.png"/><em>Screenshot taken by Martin Thoma</em></p>
+<h2 id="how-can-i-prevent-email-spoofing">How can I prevent Email Spoofing?</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework"><strong>SPF</strong></a> (Sender
+  Policy Framework), is an email authentication method designed to detect
+  forging sender addresses in emails. Domain owners (e.g. me for
+  martin-thoma.com) can publish SPF records to DNS. In that record, they
+  <strong>whitelist IP addresses</strong> that can send emails for their domain. Email
+  servers can then perform an SPF lookup when they receive an email for the
+  (claimed) sender's domain. That prevents spammers from using your domains
+  <strong>in the email envelope</strong>. When spammers do, the receiving email server
+  <strong>can</strong> check the SPF record and either reject the email completely or mark
+  it as spam. More information can be found at
+  <a href="http://www.open-spf.org/SPF_Record_Syntax/">open-spf.org</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail"><strong>DKIM</strong></a>
+  (DomainKeys Identified Mail), is an email authentication method designed to
+  detect forged sender addresses in emails. It works by <strong>cryptographically
+  signing sent emails</strong> from a given domain. This is not a signature per
+  person, but a signature for your organization. The corresponding public key
+  is published to the DNS records where email servers that receive those mails
+  can get it and verify it. DKIM makes sure that nobody tampered with the email
+  after it was sent. Imagine DKIM like a seal. SPF then is the knowledge which
+  seal should be used.</li>
+<li><a href="https://en.wikipedia.org/wiki/DMARC"><strong>DMARC</strong></a> (Domain-based Message
+  Authentication, Reporting, and Conformance), is an email authentication
+  protocol. DMARC uses SPF and DKIM and gives <strong>policies</strong> on how to deal with
+  error cases. The domain owner creates a DMARC DNS record that contains
+  instructions on what to do with messages that failed the SPF / DKIM test.
+  Received emails that failed can on the receiver side either be rejected or
+  quarantined. If that happens, DMARC can be configured to send a report back.
+  DMARC enforces an <strong>alignment</strong> of the MAIL FROM and the sender. This can be
+  problematic for newsletters but represents also what users expect.</li>
+</ul>
+<p>As a domain owner, you can validate your SPF record like this:</p>
+<div class="highlight"><pre><span></span><code>$ dig google.com txt <span class="p">|</span> grep spf
+google.com.  <span class="m">3600</span> IN TXT <span class="s2">"v=spf1 include:_spf.google.com ~all"</span>
+</code></pre></div>
+<p>To verify DKIM, look in an email you received for this:</p>
+<div class="highlight"><pre><span></span><code>DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=medium.com; \
+h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; \
+s=m1; bh=NY62YFtbfuXkL/SNoiClZV8gaZxkiYhFD4J77gUHGEY=; \
+b=EL3HbaL iSgAJsE6LO8L10T52+rYyump4R1aMAV9nCwyXLENaxbS0xgZvksgoplu8Rjo/wWV J0jDEFRe+UsOnIhaCTBXa1H7LVdjkRyOu9+9Qwd7hlWY5fx/mtRQXvWRDfe9KEsS 9WH8o0lRbOAq7AJXPLID/tZokm+KIMmMc/H0=
+</code></pre></div>
+<p>The record is structured in tag=version pairs which are separated by <code>;</code>:</p>
+<ul>
+<li><code>v</code>: DKIM <strong>version</strong></li>
+<li><code>a</code>: The signature <strong>algorithm</strong>, typically rsa-sha256</li>
+<li><code>c</code>: The <strong>canonicalization</strong> algorithm. The first value is for the header, the second one for the body of the email.</li>
+<li><code>d</code>: The used <strong>domain</strong>.</li>
+<li><code>h</code>: The <strong>headers</strong>.</li>
+<li><code>s</code>: The DKIM <strong>selector</strong> record name.</li>
+<li><code>b</code>: The base64 encoded hash value of the headers h .</li>
+<li><code>bh</code>: The hash of the body of the email.</li>
+</ul>
+<p>You can look up your DMARC record like this:</p>
+<div class="highlight"><pre><span></span><code>$ dig _dmarc.google.com txt <span class="p">|</span> grep DMARC
+_dmarc.google.com. <span class="m">290</span> IN TXT <span class="s2">"v=DMARC1; p=reject; \</span>
+<span class="s2">    rua=[mailauth-reports@google.com](mailto:mailauth-reports@google.com)"</span>
+</code></pre></div>
+<p>The record is structured in tag=value pairs which are separated by <code>;</code> (<a href="https://dmarc.org/overview/">source</a>):</p>
+<ul>
+<li><code>v</code>: The protocol <strong>version.</strong></li>
+<li><code>p</code>: The <strong>policy</strong>. It typically should be reject , but can also be quarantine</li>
+<li><code>rua</code>: The reporting URI for <strong>aggregate reports</strong> (how the domain is used)</li>
+<li><code>ruf</code>: The reporting URI for <strong>forensic reports</strong>
+ (showing when validation failed)</li>
+<li><code>pct</code>: How many percent of mails get handled with DMARC. You can set this to an integer from 0 to 100. For the beginning, you can set it low for testing. It should become 100 over time. If you don&rsquo;t use the tag at all, it&rsquo;s by default 100%.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Spoofing emails is easy.</p>
+<p>As a system administrator, you can protect your company by setting an <a href="https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide">anti-phishing-policy in Office 365</a> or review the <a href="https://support.google.com/a/answer/9157861?hl=en">advanced phishing and malware settings of G Suite</a>.</p>
+<p>As a domain owner, make sure you have SPF, DKIM, and DMARC configured correctly to protect your customers or clients.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
+<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="https://medium.com/plain-and-simple/captcha-500991bd90a3">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf">Email Spoofing</a></li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF 😈</li>
+<li>DOS 😈</li>
+<li>Credential Stuffing 😈</li>
+<li>Cryptojacking 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Two-Factor Authentication 😇</li>
+<li>Backups 😇</li>
+<li>Disk Encryption 😇</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-12-02T20:00:00+01:00">Dez 2, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#security-ref">Security</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#email-ref">email
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#security-ref">Security
+                    <span>9</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
