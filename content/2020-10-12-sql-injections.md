@@ -109,6 +109,51 @@ Doing any of those three options is nice, but it is not enough. You want to be s
 
 The principles are the same for any programming language, but you might be interested in seeing more concrete advice in the language that is relevant to you. Have a look at [bobby-tables.com](https://bobby-tables.com/).
 
+## Creative SQL Injections
+
+There are some SQL Injections that are less trivial than the before mentioned examples.
+
+### Simplifying Queries
+
+An attacker might not know exactly how a query continues. So the attacker
+inserts `--` at the end to make the rest of the query a comment.
+
+### Information Gathering
+
+An attacker might not know the structure of the database. However, many
+databases have a special table that contains the information. For MySQL,
+MariaDB, and Postgres it is called `information_schema`.
+
+It’s possible to restrict access to that table
+([example](https://dba.stackexchange.com/a/25668/25983)). You should do it from
+a defense-in-depth perspective.
+
+### Order By
+
+You might be tempted to think that the following SQL query is secure because
+the user input is just in the ORDER BY clause:
+
+```sql
+SELECT book_title FROM books ORDER BY {user_input}
+```
+
+where the developer expects `user_input` to be either `sales` or
+`average_review`. However, an attacker could change `user_input` to this:
+
+```sql
+CASE WHEN
+    (SELECT 1 FROM users
+     WHERE username = "admin"
+         AND SUBSTRING(password, 1, 1) = "a"
+     ) = 1
+     THEN sales
+     ELSE average_review
+END ASC
+```
+
+This way the attacker can get the password hash of the admin user. Character by
+character. Just by looking at how the sorting changes.
+
 ## See also
 
 I love [Tom Scott](https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)) and [Computerphile](https://www.youtube.com/user/Computerphile) and they made a video about the topic!
