@@ -40,9 +40,9 @@ an interesting alternative.
 ## Summaries and Explanations
 
 A site which I discovered in the beginning of 2016 is
-[shortscience.org](http://www.shortscience.org/). It gives you the possibility
+[shortscience.org](https://www.shortscience.org/). It gives you the possibility
 to save and share your summaries of papers. Have a look at
-[my profile](http://www.shortscience.org/user?name=MartinThoma) if you're
+[my profile](https://www.shortscience.org/user?name=MartinThoma) if you're
 interested. The service is still in its early stages, but I like it very much.
 
 [Scholarpedia.org](http://www.scholarpedia.org/article/Main_Page) is a site
@@ -63,17 +63,17 @@ The typesetting system of my choice is
 especially for mathematical formulae. A couple of years ago I wrote some
 [installation instructions](https://martin-thoma.com/how-to-install-the-latest-latex-version/).
 If you need help with something specific,
-[tex.stackexchange.com](http://tex.stackexchange.com/) is really nice.
+[tex.stackexchange.com](https://tex.stackexchange.com/) is really nice.
 
 If you're only looking for a symbol to write with LaTeX, I can recommend
 [write-math.com](http://write-math.com).
-[Other options](http://tex.stackexchange.com/q/14/5645) are available, too.
+[Other options](https://tex.stackexchange.com/q/14/5645) are available, too.
 
 
 ### Content
 
 If I have questions about academic writing (the content), then
-[academia.stackexchange.com](http://academia.stackexchange.com/) is the site
+[academia.stackexchange.com](https://academia.stackexchange.com/) is the site
 of my choice.
 
 
@@ -95,7 +95,7 @@ for yourself.
 
 ### Publishing
 
-[arxiv.org](http://arxiv.org/) is one of the best places to publish your paper
+[arxiv.org](https://arxiv.org/) is one of the best places to publish your paper
 quickly. Even faster, but a lot less reach has
 [zenodo.org](https://zenodo.org/). The nice thing about Zenodo is that you can
 share datasets, too.
@@ -111,7 +111,7 @@ the BibTeX entry is
   month        = jan,
   year         = 2015,
   doi          = {10.5281/zenodo.50022},
-  url          = {http://dx.doi.org/10.5281/zenodo.50022}
+  url          = {https://dx.doi.org/10.5281/zenodo.50022}
 }
 ```
 
@@ -121,7 +121,7 @@ the BibTeX entry is
 I'm not sure how important this is in Science, but there are some social
 networks for researchers.
 
-[ORCiD](http://orcid.org/) is one site which aims to give researchers unique
+[ORCiD](https://orcid.org/) is one site which aims to give researchers unique
 numbers so that you can track who wrote what, even if people are in the same
 field of research and have the same names. It also allows you to add a CV as
 you can see with [my ORCiD](http://orcid.org/0000-0002-6517-1690).

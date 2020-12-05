@@ -15,13 +15,14 @@ pages from that. The generation process is independant of user
 requests.
 
 [Jekyll](http://jekyllrb.com/) is a static blog generator, just like
-[Pelican](http://blog.getpelican.com/), [Hyde](http://ringce.com/hyde),
+[Pelican](https://blog.getpelican.com/), [Hyde](http://ringce.com/hyde),
 [nanoc](http://nanoc.ws/) and [Octopress](http://octopress.org/).
 
 I've spend about 40-80 hours to migrate from WordPress to Jekyll.
 And I'm not done jet.
 
-## Jekyll compared with WordPress ##
+## Jekyll compared with WordPress
+
 Jekyll is a static site generator. This means you have the
 source files on your computer. Then you generate the website
 with Jekyll and upload only the generated files. So you only push
@@ -67,6 +68,7 @@ Reasons for WordPress:
   create them with WordPress. With Jekyll, on the other hand, you have to know
   how to create cronjobs. And your computer has to be running.
 
+
 ## Install Jekyll
 
 On an Ubunty system I need for this blog:
@@ -79,13 +81,14 @@ $ sudo gem install fileutils
 $ sudo mkdir -p /var/www/blog
 ```
 
-## GitHub ##
+## GitHub
 
-### Create your repository ###
+### Create your repository
+
 1. Go to <a href="https://github.com/">github.com</a>, sign in and create a new repo:
 2. Call it `[Username].github.io`.
 
-### Branches ###
+### Branches
 The way to use Jekyll with GitHub is by using branches.
 Go to your Git repository that cointains your blog:
 
@@ -121,7 +124,7 @@ to the `source` branch. After you've entered the command, you can
 look at the folder in your file system. There will only be the data
 of the current branch.
 
-### Custom Domain ###
+### Custom Domain
 If you want to host your content at GitHub, but have a custom Domain
 like `martin-thoma.com` instead of `martinthoma.github.io`, you
 have to:
@@ -133,7 +136,7 @@ have to:
 
 GitHub also offers some help on [setting up a custom domain with Pages](https://help.github.com/articles/setting-up-a-custom-domain-with-pages).
 
-## FTP Server ##
+## FTP Server
 If you have your own FTP server, you probably want to use it.
 
 One tool that might now come to your mind is `rsync`. But rsync
@@ -163,7 +166,7 @@ and you can also umount it:
 rsync --delete /var/backups /mnt/ftpserver
 ```
 
-## Markdown ##
+## Markdown
 I've switched between `rdiscount` and `redcarpet`. The former is
 faster, the latter supports fenced code blocks. I finally stuck with
 redcarped, because Liquid has problems when it comes to C++ for loops
@@ -191,7 +194,7 @@ Everything was tested with [this site](https://github.com/MartinThoma/MartinThom
 Kramdown destroyed some fenced code blocks (but not all) and maruku
 did not even compile my site at all.
 
-### Linebreaks and newline ###
+### Linebreaks and newline
 Linebreaks are an issue. Sometimes I want to get a `<br/>`, sometimes
 I make linebreaks to make reading of the text files easier. It's
 basically [this discussion](http://meta.stackoverflow.com/questions/26011/should-the-markdown-renderer-treat-a-single-line-break-as-br).
@@ -200,24 +203,25 @@ Currently, I'm not satisfied with the situation. I never had that
 problem with WordPress. WordPress simply created paragraphs just at
 the right location.
 
-## Customization ##
+## Customization
 You can create [custom Liquid filters](http://jekyllrb.com/docs/plugins/),
 plugins and templates. Everything is quite easy. The Liquid templating
 language seems to be very similar to Django Templates (Python).
 
-## Make the Website super-fast ##
+## Make the Website super-fast
 
-### CSS Minification ###
+### CSS Minification
+
 ```bash
 sudo gem install juicer
 juicer install jslint
 juicer install yui_compressor
 ```
 
-### Images ###
+### Images
 I've included small images as base64 (used [this online tool](http://webcodertools.com/imagetobase64converter/Create)). According to [caniuse](http://caniuse.com/datauri) it's quite save to use.
 
-## Site Search ##
+## Site Search
 Site search is a real problem. I've seen three solutions so far:
 
 1. **Dynamic Search**: You can add a dynamic part to your statically
@@ -233,9 +237,9 @@ Site search is a real problem. I've seen three solutions so far:
         * [Index Den](http://www.indexden.com/): Has no direct support
           to parse your website
 
-### PHP+SQLite ###
+### PHP+SQLite
 
-### JavaScript solutions ###
+### JavaScript solutions
 One JavaScript solution I've found is [lunr](https://github.com/slashdotdash/jekyll-lunr-js-search).
 This one is really bad as it copies the whole body to a json file.
 This json file has to be loaded before it works. But my posts total
@@ -246,7 +250,7 @@ websites.
 [Christan Fei's solution](http://christian-fei.com/simple-jekyll-search-jquery-plugin/)
 does only search in the title and category.
 
-## Templates ##
+## Templates
 Jekyll uses Liquid as a templating language. It is similar to Django
 templates. [Here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 is a short introduction to Liquid.
@@ -276,13 +280,14 @@ ${5:}
 </snippet>
 ```
 
-## Some tests ##
+## Some tests
+
 * Validation
   * [validator.w3.org](http://validator.w3.org/check?uri=martin-thoma.com):
     My site is HTML-valid. The error that this validator shows is caused
     by an bug inside of the validator itself.
   * [jigsaw.w3.org](http://jigsaw.w3.org/css-validator/validator?uri=martin-thoma.com):
-  My site is CSS-valid.
+    My site is CSS-valid.
 * Speed: Could be better...
   * [tools.pingdom.com](http://tools.pingdom.com/)
   * [PageSpeed](http://developers.google.com/speed/pagespeed/insights/?url=martin-thoma.com) 72 on mobile and 85 on desktop
@@ -293,13 +298,20 @@ ${5:}
   * [Mobile readyness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
   * [Load test](http://loadimpact.com/)
   * [Alexa](http://www.alexa.com/siteinfo/martin-thoma.com)
-  * [Google Structured Data Testing Tool](http://www.google.com/webmasters/tools/richsnippets): Test if google can extract the author from your blog posts
-  * [Twitter card validator](https://dev.twitter.com/docs/cards/validation/validator) (more about [Twitter cards](https://dev.twitter.com/cards))
-  * [Nibbler](http://nibbler.silktide.com/reports/martin-thoma.com): This one tests quite a lot.
+  * [Google Structured Data Testing
+    Tool](http://www.google.com/webmasters/tools/richsnippets): Test if google
+    can extract the author from your blog posts
+  * [Twitter card
+    validator](https://dev.twitter.com/docs/cards/validation/validator) (more
+    about [Twitter cards](https://dev.twitter.com/cards))
+  * [Nibbler](http://nibbler.silktide.com/reports/martin-thoma.com): This one
+    tests quite a lot.
 
-I've also used LinkChecker to check if all new links are valid. I've found quite a lot of old links and replaced them with new links.
+I've also used LinkChecker to check if all new links are valid. I've found
+quite a lot of old links and replaced them with new links.
 
-## Resources ##
+## Resources
+
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>
 * <a href="https://alybadawy.com/developing/2013/08/02/search-a-jekyll-generated-website/">Search a Jekyll-generated website</a>
 * <a href="http://philipm.at/2011/jekyll_vs_hyde.html">Jekyll vs. Hyde - A Comparison Of Two Static Site Generators</a>

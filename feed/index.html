@@ -15,7 +15,7 @@ layout: null
     {% for post in site.posts %}
     <item>
       <title>{{ post.title }}</title>
-      <link>{{ site.baseurl }}{{ post.url }}/</link>
+      <link>{% if post.url.startswith('http') %}{{ post.url }}{% else %}{{ site.baseurl }}{{ post.url }}/{% endif %}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>info@martin-thoma.de (Martin Thoma)</author>
       <guid>{{ site.baseurl }}{{ post.id }}</guid>

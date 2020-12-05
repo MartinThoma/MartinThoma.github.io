@@ -26,7 +26,7 @@ AUTHOR_FEED_RSS = None
 READERS = {"html": None, "htm": None}
 
 # Blogroll
-LINKS = (("Pelican", "http://getpelican.com/"),)
+LINKS = (("Pelican", "https://blog.getpelican.com/"),)
 
 # Social widget
 SOCIAL = (

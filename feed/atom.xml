@@ -17,7 +17,7 @@ layout: null
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title | xml_escape }}</title>
-   <link href="https://martin-thoma.com{{ post.url }}"/>
+   <link href="{% if post.url.startswith('http') %}{{ post.url }}{% else %}{{ site.baseurl }}{{ post.url }}/{% endif %}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>https://martin-thoma.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>

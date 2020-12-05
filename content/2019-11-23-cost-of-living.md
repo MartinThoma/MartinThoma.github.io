@@ -659,9 +659,9 @@ Fabrics:
             <td>Banana (Bananen)</td>
             <td>0.35 kg / week</td>
             <td>1 week</td>
-            <td>0.86 €/kg - 1.79 € / kg</td>
+            <td>0.72 €/kg - 1.79 € / kg</td>
             <td>32.58 € / year</td>
-            <td>3.84 € / 3.316 kg</td>
+            <td>3.99 € / 3.520 kg</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen / Clementinen)</td>
@@ -755,9 +755,9 @@ Fabrics:
             <td>Grapes (Trauben)</td>
             <td></td>
             <td>4 weeks</td>
-            <td>2.99 € / kg</td>
+            <td>2.12 € / 500g;  2.99 € / kg</td>
             <td></td>
-            <td>22.34 € / 6.796kg</td>
+            <td>24.46 € / 7.296kg</td>
         </tr>
         <tr>
             <td>Annanas in a tin can</td>
@@ -773,7 +773,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>0.29 € / piece to 0.39 € / piece</td>
             <td>4.68 € / year</td>
-            <td>2.05 € / 7 pieces</td>
+            <td>2.43 € / 8 pieces</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Vaccinium">Blueberries</a> (Heidelbeeren)</td>
@@ -1045,9 +1045,9 @@ Fabrics:
             <td>Buttergemüße</td>
             <td></td>
             <td>months 🧊</td>
-            <td>0.57 € / 300g - 0.59 € / 300g</td>
+            <td>0.57 € / 300g - 0.59 € / 300g, 0.89 € / 450g</td>
             <td></td>
-            <td>1.75 € / 900g</td>
+            <td>2.64 € / 1350g</td>
         </tr>
     </tbody>
 </table>
@@ -1080,7 +1080,7 @@ Fabrics:
             <td>1 day</td>
             <td>0.30 €/piece - 0.85 €/ piece</td>
             <td>85.00 € / year</td>
-            <td>5.39 € / 9 piece</td>
+            <td>5.99 € / 11 piece</td>
         </tr>
         <tr>
             <td>Buns (Hamburger Brötchen)</td>
@@ -1104,7 +1104,7 @@ Fabrics:
             <td>4 days</td>
             <td>0.99 € / 500g and 1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>38.28 € / 5.0 kg</td>
+            <td>39.57 € / 5.5 kg</td>
         </tr>
         <tr>
             <td>Brotbackmischung</td>
@@ -1129,6 +1129,14 @@ Fabrics:
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece at the baker</td>
             <td>32.54 € / year</td>
             <td>19.48 € / 25 piece</td>
+        </tr>
+        <tr>
+            <td>Körnersemmel, Weltmeisterbrötchen, Pfefferstange, ...</td>
+            <td></td>
+            <td></td>
+            <td>1.50 € / piece</td>
+            <td></td>
+            <td>1.50 € / 1 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
@@ -1160,7 +1168,7 @@ Fabrics:
             <td>3 months</td>
             <td>1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>32.34 € / 5500g</td>
+            <td>33.73 € / 5750g</td>
         </tr>
         <tr>
             <td>Margarine</td>
@@ -1365,6 +1373,14 @@ I also count mixes like "Knorr fix" / "Maggi" in here.
             <td>0.49 € / 70g</td>
             <td></td>
             <td>0.98 € / 140g</td>
+        </tr>
+        <tr>
+            <td>Muskatnuss-Gewürzpulver</td>
+            <td></td>
+            <td>3 years</td>
+            <td>1.19 € / 50g</td>
+            <td></td>
+            <td>1.19 € / 50g</td>
         </tr>
         <tr>
             <td>Oregano</td>
@@ -1819,12 +1835,12 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Pasta (Hartweizengrieß, z.B. Bandnudeln, Penne, Spaghetti)</td>
+            <td>Pasta (Hartweizengrieß, z.B. Bandnudeln, Penne, Spaghetti, Fusilli)</td>
             <td></td>
             <td>2.5 years</td>
             <td>0.48 € / 500g - 0.59 € / 500g</td>
             <td></td>
-            <td>6.03 € / 4000g</td>
+            <td>6.51 € / 4500g</td>
         </tr>
         <tr>
             <td>Tortelloni Pasta</td>
@@ -2123,7 +2139,7 @@ General Cooking:
             <td>2 weeks (?)❄</td>
             <td>0.29 € / piece - 0.57 € / piece</td>
             <td>45.37 €</td>
-            <td>45.89 € / 154 piece</td>
+            <td>46.97 € / 158 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -2134,12 +2150,12 @@ General Cooking:
             <td>3.18 € / 2775g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären)</td>
+            <td>Sweets like Cookies (chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären, Marzipan)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>126.34 € / 90 packages</td>
+            <td>131.72 € / 96 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
@@ -2219,7 +2235,7 @@ General Cooking:
             <td>34 months</td>
             <td>0.99 € / 190g</td>
             <td></td>
-            <td>9.90 € / 1900g</td>
+            <td>10.89 € / 2090g</td>
         </tr>
         <tr>
             <td>Eggs (Eier)</td>
@@ -2227,7 +2243,7 @@ General Cooking:
             <td>5 weeks</td>
             <td>1.29 € / 10 pieces</td>
             <td>11.88 € / year</td>
-            <td>11.53 € / 90 pieces</td>
+            <td>12.82 € / 100 pieces</td>
         </tr>
         <tr>
             <td>Juice (Saft: Orangen-Nektar)</td>
@@ -2243,7 +2259,7 @@ General Cooking:
             <td>2 months</td>
             <td>0.48 € / 1.5 L - 0.79 € / 1.5 L</td>
             <td>?</td>
-            <td>2.13 € / 6.0 L</td>
+            <td>2.92 € / 7.5 L</td>
         </tr>
         <tr>
             <td>Wine (Wein)</td>
@@ -2305,9 +2321,9 @@ General Cooking:
             <td>Fertiggericht (Pfannengericht; z.B. Nasi Goreng)</td>
             <td></td>
             <td></td>
-            <td>2.12 € / package - 2.19 € / package</td>
+            <td>1.79 € / package - 2.19 € / package</td>
             <td></td>
-            <td>19.10 € / 9 package</td>
+            <td>20.89 € / 10 package</td>
         </tr>
         <tr>
             <td>Chili Sin Carne (in a tin can)</td>
@@ -2492,7 +2508,7 @@ General Cooking:
             <td>2.08 € / 1600 Blatt - 2.15 € / 1600 Blatt (6 rolls)</td>
             <td>One Roll per week (?)</td>
             <td>14.02 € / year</td>
-            <td>16.04 € / 11200 Blatt (36 rolls)</td>
+            <td>18.13 € / 12800 Blatt (42 rolls)</td>
         </tr>
         <tr>
             <td>Toothbrush (Oral-B Pulsar Zahnbürste)</td>

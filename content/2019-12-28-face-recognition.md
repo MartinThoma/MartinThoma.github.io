@@ -33,9 +33,9 @@ There are four main tasks in face recognition:
 ## Important papers
 
 <ul>
-    <li><a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deep Face: closing the gap to human level performance</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14#martinthoma">summary</a>)</li>
-    <li><a href="https://arxiv.org/abs/1503.03832">FaceNet: A unified embedding for face recognition and clustering</a> (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1503.03832">summary</a>)</li>
-    <li><a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf">Deep Face recognition</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/bmvc/ParkhiVZ15">summary</a>)</li>
+    <li><a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deep Face: closing the gap to human level performance</a> (<a href="https://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14#martinthoma">summary</a>)</li>
+    <li><a href="https://arxiv.org/abs/1503.03832">FaceNet: A unified embedding for face recognition and clustering</a> (<a href="https://www.shortscience.org/paper?bibtexKey=journals/corr/1503.03832">summary</a>)</li>
+    <li><a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf">Deep Face recognition</a> (<a href="https://www.shortscience.org/paper?bibtexKey=conf/bmvc/ParkhiVZ15">summary</a>)</li>
 </ul>
 
 
