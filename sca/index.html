@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Security, SCA, Security, " />
+
+<meta property="og:title" content="Software Composition Analysis (SCA) "/>
+<meta property="og:url" content="sca/" />
+<meta property="og:description" content="The job as a software developer is pretty crazy: You need to learn constantly about new technologies, understand topics within the domain you’re working, estimate how long it will take to build stuff you have never built before, explain issues to people who have absolutely no clue. On top …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-12-04T20:00:00+01:00" />
+<meta name="twitter:title" content="Software Composition Analysis (SCA) ">
+<meta name="twitter:description" content="The job as a software developer is pretty crazy: You need to learn constantly about new technologies, understand topics within the domain you’re working, estimate how long it will take to build stuff you have never built before, explain issues to people who have absolutely no clue. On top …">
+<meta property="og:image" content="logos/cybersecurity.png" />
+<meta name="twitter:image" content="logos/cybersecurity.png" >
+
+        <title>Software Composition Analysis (SCA)  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../sca/">Software Composition Analysis (SCA)</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#problem-1-malicious-third-party-software" title="Problem 1: Malicious Third-Party Software">Problem 1: Malicious Third-Party Software</a></li><li><a class="toc-href" href="#problem-2-vulnerable-third-party-software" title="Problem 2: Vulnerable Third-Party Software">Problem 2: Vulnerable Third-Party Software</a></li><li><a class="toc-href" href="#problem-3-licenses-of-third-party-software" title="Problem 3: Licenses of Third-Party Software">Problem 3: Licenses of Third-Party Software</a></li><li><a class="toc-href" href="#how-sca-works" title="How SCA works">How SCA works</a></li><li><a class="toc-href" href="#prerequisite-bill-of-materials-bom" title="Prerequisite: Bill of Materials (BOM)">Prerequisite: Bill of Materials (BOM)</a></li><li><a class="toc-href" href="#examples-for-sca-tools" title="Examples for SCA Tools">Examples for SCA Tools</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>The job as a software developer is pretty crazy: You need to learn constantly
+about new technologies, understand topics within the domain you&rsquo;re working,
+estimate how long it will take to build stuff you have never built before,
+explain issues to people who have absolutely no clue. On top of all that, you
+need to protect your software system against attackers. But the attackers are
+usually not a problem &mdash; until they are. This means it can happen that security
+receives little attention as it seems not to provide direct value. And when the
+value becomes apparent, it&rsquo;s too late.</p>
+<p>Considering that developers are so busy with many other topics and might have a
+hard time to justify the need for security improvements, the security
+improvements need to be part of the normal workflow. You want to have something
+running completely automatically which takes care of that for you.</p>
+<p>There are many different topics in security and many different tools. One group
+of tools do so-called <em>software composition analysis</em> &mdash; SCA in short. After
+reading this article you will understand what SCA is and how it helps you.</p>
+<h2 id="problem-1-malicious-third-party-software">Problem 1: Malicious Third-Party Software</h2>
+<p>Software that is written to cause harm can get into your dependencies. Either
+by a typo and <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a>
+attacker or by a trojan horse. A trojan horse is software that seems to be
+useful but does something else.</p>
+<h2 id="problem-2-vulnerable-third-party-software">Problem 2: Vulnerable Third-Party Software</h2>
+<p>The more complex software becomes, the harder it is to have all relevant
+aspects of it in your mind. This can lead to vulnerabilities &mdash; especially with
+many contributors.</p>
+<h2 id="problem-3-licenses-of-third-party-software">Problem 3: Licenses of Third-Party Software</h2>
+<p>You can also run into legal issues. As an organization, you want to make your
+mind up about which licenses are acceptable. The acceptable ones will be in an
+allowlist. Then you want to automatically check any dependency regularly
+against this allowlist.</p>
+<p>Typical licenses are MIT, BSD, Apache 2.0, LGPL, GPL, MPL.</p>
+<p>Have a look at <a href="https://tldrlegal.com/">tldrlegal.com</a> to get a quick overview.</p>
+<h2 id="how-sca-works">How SCA works</h2>
+<p>Checking for malicious and vulnerable third-party packages is simple:
+Blocklists. If a version of a package (or the complete package) is known to
+cause problems, it gets on a blocklist. SCA tools can check the blocklists and
+prevent you from installing problematic software.</p>
+<p>For the licenses, you need to have a way to extract the licenses from a
+package. Some important things to consider:</p>
+<ul>
+<li>Package authors can add alternative licenses</li>
+<li>Package authors can add multiple licenses which all need to be fulfilled</li>
+<li>Package authors can (technically) not give any license &mdash; that means you
+  cannot use it!</li>
+<li>Package authors can give inconsistent licenses, e.g. in Python, there are at
+  least 3 different common ways where you can denote the license.</li>
+</ul>
+<h2 id="prerequisite-bill-of-materials-bom">Prerequisite: Bill of Materials (BOM)</h2>
+<p>You need to know which third-party software you are using. For that, you create
+a so-called <em>Bill of Materials</em>. Sounds fancy, but it really is just a list of
+the software you use. The programming languages typically come already with
+solutions for that:</p>
+<ul>
+<li>
+<p><strong>Java</strong>: pom.xml (see
+  <a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">dependencies</a>)</p>
+</li>
+<li>
+<p><strong>JavaScript</strong>: <a href="https://classic.yarnpkg.com/en/docs/yarn-lock/">yarn.lock</a></p>
+</li>
+<li><strong>PHP</strong>: <a href="https://getcomposer.org/doc/02-libraries.md#lock-file">composer.lock</a></li>
+<li><strong>Python</strong>: requirements.txt files with transitively-pinned dependencies,
+  e.g. via pip-compile from <a href="https://pypi.org/project/pip-tools">pip-tools</a></li>
+<li><strong>Ruby</strong>: <a href="https://bundler.io/rationale.html">Gemfile.lock</a></li>
+<li><strong>Rust</strong>: Cargo.tom &mdash; I&rsquo;m uncertain if that contains transitive dependencies
+  (see
+  <a href="https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html">dependencies</a>)</li>
+</ul>
+<p>Please let me know about how this is called in other languages &mdash; I will expand
+this list then.</p>
+<h2 id="examples-for-sca-tools">Examples for SCA Tools</h2>
+<p>Free solutions:</p>
+<ul>
+<li><strong>JavaScript</strong>: <a href="https://classic.yarnpkg.com/en/docs/cli/audit/">yarn audit</a>
+  for vulnerabilities and <a href="https://classic.yarnpkg.com/en/docs/cli/licenses/">yarn
+  licenses</a> + scripting
+  around it for licenses.</li>
+<li><strong>Python</strong>: <a href="https://pypi.org/project/safety/">safety</a> for vulnerabilities,
+  <a href="https://pypi.org/project/pip-licenses/">pip-licenses</a> for licenses.</li>
+</ul>
+<p>Commercial solutions:</p>
+<ul>
+<li><a href="https://www.blackducksoftware.com/">Blackduck</a></li>
+<li><a href="https://dependabot.com/">Dependabot</a>: I&rsquo;ve seen this on Github some times.</li>
+<li><a href="https://snyk.io/product/open-source-security-management/">Snyk</a> for
+  vulnerabilities: You can see it in Github pretty often. It&rsquo;s free for
+  open-source software.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Software Composition Analysis (SCA) tools can help you a lot and usually stay
+in the background. Integrate them in your Continuous Integration (CI) pipeline,
+run them regularly as a scheduled task. In most cases, you don&rsquo;t have to do
+anything. But when the tool complains, it is important.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
+<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="https://medium.com/plain-and-simple/captcha-500991bd90a3">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf">Email Spoofing</a></li>
+<li>Part 8: <a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e">Software Composition Analysis</a> (SCA) 😇</li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF 😈</li>
+<li>DOS 😈</li>
+<li>Credential Stuffing 😈</li>
+<li>Cryptojacking 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Two-Factor Authentication 😇</li>
+<li>Backups 😇</li>
+<li>Disk Encryption 😇</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-12-04T20:00:00+01:00">Dez 4, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#security-ref">Security</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#sca-ref">SCA
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#security-ref">Security
+                    <span>13</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
