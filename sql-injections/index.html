@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-sql-injection-attacks-executed" title="How are SQL injection attacks executed?">How are SQL injection attacks executed?</a></li><li><a class="toc-href" href="#how-can-i-do-prevent-sql-injections" title="How can I do prevent SQL injections?">How can I do prevent SQL injections?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-sql-injection-attacks-executed" title="How are SQL injection attacks executed?">How are SQL injection attacks executed?</a></li><li><a class="toc-href" href="#how-can-i-do-prevent-sql-injections" title="How can I do prevent SQL injections?">How can I do prevent SQL injections?</a></li><li><a class="toc-href" href="#creative-sql-injections" title="Creative SQL Injections">Creative SQL Injections</a><ul><li><a class="toc-href" href="#simplifying-queries" title="Simplifying Queries">Simplifying Queries</a></li><li><a class="toc-href" href="#information-gathering" title="Information Gathering">Information Gathering</a></li><li><a class="toc-href" href="#order-by" title="Order By">Order By</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -184,7 +184,37 @@ MathJax.Hub.Queue(function() {
 <p>The third option is to create a <a href="https://en.wikipedia.org/wiki/Prepared_statement">prepared statement</a>. This is also using parameter binding but on the side of the SQL server. I think those are typically harder to use from a developers' perspective.</p>
 <p>Doing any of those three options is nice, but it is not enough. You want to be sure that you or anybody else doesn&rsquo;t accidentally add code that is vulnerable to SQL injections. For this reason, static application security testing tools (SAST) like <a href="https://pypi.org/project/bandit/">bandit</a> check for potential SQL injection vulnerabilities (<a href="https://bandit.readthedocs.io/en/latest/plugins/b608_hardcoded_sql_expressions.html">source</a>). Insert that in your CI pipeline and stay safe!</p>
 <p>The principles are the same for any programming language, but you might be interested in seeing more concrete advice in the language that is relevant to you. Have a look at <a href="https://bobby-tables.com/">bobby-tables.com</a>.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="creative-sql-injections">Creative SQL Injections</h2>
+<p>There are some SQL Injections that are less trivial than the before mentioned examples.</p>
+<h3 id="simplifying-queries">Simplifying Queries</h3>
+<p>An attacker might not know exactly how a query continues. So the attacker
+inserts <code>--</code> at the end to make the rest of the query a comment.</p>
+<h3 id="information-gathering">Information Gathering</h3>
+<p>An attacker might not know the structure of the database. However, many
+databases have a special table that contains the information. For MySQL,
+MariaDB, and Postgres it is called <code>information_schema</code>.</p>
+<p>It&rsquo;s possible to restrict access to that table
+(<a href="https://dba.stackexchange.com/a/25668/25983">example</a>). You should do it from
+a defense-in-depth perspective.</p>
+<h3 id="order-by">Order By</h3>
+<p>You might be tempted to think that the following SQL query is secure because
+the user input is just in the ORDER BY clause:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">book_title</span> <span class="k">FROM</span> <span class="n">books</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">{</span><span class="n">user_input</span><span class="err">}</span>
+</code></pre></div>
+<p>where the developer expects <code>user_input</code> to be either <code>sales</code> or
+<code>average_review</code>. However, an attacker could change <code>user_input</code> to this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CASE</span> <span class="k">WHEN</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="mi">1</span> <span class="k">FROM</span> <span class="n">users</span>
+     <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="ss">"admin"</span>
+         <span class="k">AND</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="ss">"a"</span>
+     <span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+     <span class="k">THEN</span> <span class="n">sales</span>
+     <span class="k">ELSE</span> <span class="n">average_review</span>
+<span class="k">END</span> <span class="k">ASC</span>
+</code></pre></div>
+<p>This way the attacker can get the password hash of the admin user. Character by
+character. Just by looking at how the sorting changes.</p>
+<h2 id="see-also_1">See also</h2>
 <p>I love <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> and <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> and they made a video about the topic!</p>
 <p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_jKylhJtPmI" width="560"></iframe></center></p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
