@@ -138,8 +138,6 @@ print(x)  # gives "local"
 
 ## Confusing Examples
 
-![Image by wokandapix ([source](https://pixabay.com/de/photos/wtf-sms-social-media-akronym-1934220/))](https://cdn-images-1.medium.com/max/2560/1*NCC4Tkv3KmiED56OvLmJyw.jpeg)*Image by wokandapix ([source](https://pixabay.com/de/photos/wtf-sms-social-media-akronym-1934220/))*
-
 ### Append element vs ‘+= [element]’
 
 ```python
