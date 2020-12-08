@@ -6,7 +6,7 @@ URL: https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287
 author: Martin Thoma
 date: 2020-08-17 20:00
 category: Code
-tags: Unit Testing, Flake8, mypy
+tags: Unit Testing, Flake8, mypy, Security, AppSec
 featured_image: logos/static-code-analysis.png
 ---
 Static code analysis looks at the code without executing it. It is usually extremely fast to execute, requires little effort to add to your workflow, and can uncover common mistakes. The only downside is that it is not tailored towards your code.

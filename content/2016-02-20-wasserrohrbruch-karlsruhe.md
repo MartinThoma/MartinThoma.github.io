@@ -13,7 +13,7 @@ das Wasser nicht mehr.
 
 Die Website der Stadtwerke ist überlastet, aber Twitter gibt Informationen:
 
-<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr"><a href="https://twitter.com/themoosemind">@themoosemind</a> <a href="https://twitter.com/kanews">@kanews</a> Laut Polizei ein großer Rohrbruch in Hagsfeld. Stadtwerke arbeiten wohl dran!</p>&mdash; Jens Hansen (@jeansonson) <a href="https://twitter.com/jeansonson/status/700975471044009985">20. Februar 2016</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr"><a href="https://twitter.com/_martinthoma">@_martinthoma</a> <a href="https://twitter.com/kanews">@kanews</a> Laut Polizei ein großer Rohrbruch in Hagsfeld. Stadtwerke arbeiten wohl dran!</p>&mdash; Jens Hansen (@jeansonson) <a href="https://twitter.com/jeansonson/status/700975471044009985">20. Februar 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 

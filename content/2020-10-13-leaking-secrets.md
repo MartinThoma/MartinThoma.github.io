@@ -5,7 +5,7 @@ slug: leaking-secrets
 URL: https://levelup.gitconnected.com/leaking-secrets-240a3484cb80
 author: Martin Thoma
 date: 2020-10-13 20:00
-category: My bits and bytes
+category: Security
 tags: InfoSec, AppSec, Security, Cybersecurity
 featured_image: logos/cybersecurity.png
 ---
@@ -162,6 +162,8 @@ In this series about application security (AppSec) we already explained some of 
 * Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
 * Part 6: [CAPTCHA](https://medium.com/plain-and-simple/captcha-500991bd90a3) 😇
 * Part 7: [Email Spoofing](https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf)
+* Part 8: [Software Composition Analysis](https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e) (SCA) 😇
+* Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈
 
 And this is about to come:
 

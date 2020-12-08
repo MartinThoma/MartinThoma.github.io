@@ -30,7 +30,7 @@ LINKS = (("Pelican", "https://blog.getpelican.com/"),)
 
 # Social widget
 SOCIAL = (
-    ("Twitter", "https://twitter.com/themoosemind"),
+    ("Twitter", "https://twitter.com/_martinthoma"),
     ("Email", "mailto:info@martin-thoma.de"),
     ("Github", "https://github.com/MartinThoma"),
     ("Stackoverflow", "http://stackoverflow.com/users/562769/martin-thoma"),

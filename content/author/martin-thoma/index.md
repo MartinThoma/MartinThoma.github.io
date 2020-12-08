@@ -26,9 +26,9 @@ alias: /author/moose/index.html
 <ul>
     <li>Science: <a href="http://orcid.org/0000-0002-6517-1690" rel="me">ORCiD</a>, <a href="http://arxiv.org/a/thoma_m_1.html" rel="me">arxiv</a> and <a href="http://www.shortscience.org/user?name=MartinThoma">Shortscience</a>, <a href="http://dblp.uni-trier.de/pers/hd/t/Thoma_0001:Martin">dblp</a></li>
     <li>Websites: <a href="http://www.martin-thoma.de/">martin-thoma.de</a></li>
-    <li>Social: <a href="https://plus.google.com/+MartinThoma/about" rel="me">Google+</a> and <a href="https://twitter.com/#!/themoosemind" rel="me">Twitter</a></li>
+    <li>Social: <a href="https://plus.google.com/+MartinThoma/about" rel="me">Google+</a> and <a href="https://twitter.com/_martinthoma" rel="me">Twitter</a></li>
     <li><a href="https://careers.stackoverflow.com/thoma" rel="me">StackOverflow</a></li>
-    <li><a href="https://www.linkedin.com/in/themoosemind" rel="me">linkedin</a></li>
+    <li><a href="https://www.linkedin.com/in/martin-thoma/" rel="me">linkedin</a></li>
     <li><a href="https://de.wikipedia.org/wiki/Benutzer:MartinThoma">Wikipedia</a> (<a href="https://de.wikipedia.org/wiki/Benutzer:MartinThoma/Visualisierungen">de</a>, <a href="https://en.wikipedia.org/wiki/User:MartinThoma">en</a>, <a href="https://commons.wikimedia.org/wiki/User:MartinThoma">commons</a> and more languages on wikipedia.org)</li>
     <li><a href="http://paypal.me/martinthoma">Paypal</a></li>
 </ul>
