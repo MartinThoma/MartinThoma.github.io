@@ -57,7 +57,7 @@ Instead, it should have been looking for the combination (username is admin AND 
 
 What happened here is that the attacker injected SQL into the query. This changed the logic of access control and thus let the attacker login as admin.
 
-## How can I do prevent SQL injections?
+## How can I prevent SQL injections?
 
 Input validation and proper escaping are the keys to prevent SQL injections. Preventing SQL injections in this case also helps the poor users who actually wanted to have a ' within their username/password. Never blindly trust user input. Don’t use simple string concatenation to build SQL queries with parameters supplied by the user.
 
