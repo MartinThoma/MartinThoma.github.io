@@ -867,7 +867,7 @@ Fabrics:
             <td>3 months (?)</td>
             <td>0.89 €/1kg - 0.99 € / 2kg</td>
             <td></td>
-            <td>6.99 € / 7.443 kg</td>
+            <td>7.98 € / 9.443 kg</td>
         </tr>
         <tr>
             <td>Brokkoli (Broccoli)</td>
@@ -905,17 +905,17 @@ Fabrics:
             <td>Purple cabbage coleslaw (🇩🇪 Tafelfertiger Rotkohl)</td>
             <td></td>
             <td>2.5 years</td>
-            <td>0.99 € /0.65kg - 1.39 € / 0.65 kg</td>
+            <td>0.57 € /0.65kg - 1.39 € / 0.65 kg</td>
             <td></td>
-            <td>5.75 € / 3.25 kg</td>
+            <td>6.32 € / 3.90 kg</td>
         </tr>
         <tr>
             <td>Spring onion (🇩🇪 Frühlingszwiebeln / Lauchzwiebeln)</td>
             <td>1 bundle / 2 weeks</td>
             <td>2 weeks (?)</td>
-            <td>0.59 € / bundle</td>
+            <td>0.59 € / bundle - 0.87 € / bundle</td>
             <td>15.39 € / year</td>
-            <td>5.04 € / 8 bundles</td>
+            <td>5.91 € / 9 bundles</td>
         </tr>
         <tr>
             <td>Onion (🇩🇪 Speisezwiebeln)</td>
@@ -955,7 +955,7 @@ Fabrics:
             <td>1 week</td>
             <td>1.49 € / 250g (1 package) or 0.99 € / 500g - 1.19 € / 500g for Roma-Tomaten</td>
             <td></td>
-            <td>18.75 € / 5096g</td>
+            <td>19.19 € / 5322g</td>
         </tr>
         <tr>
             <td>Corn in a can (🇩🇪Mais in der Dose)</td>
@@ -993,9 +993,9 @@ Fabrics:
             <td>Champignons</td>
             <td>6kg / year</td>
             <td>?</td>
-            <td>0.57 € /280g - 1.59 € / 400g</td>
+            <td>0.57 € /280g - 1.95 € / 400g</td>
             <td>16.68 € / year</td>
-            <td>2.73 € / 960g</td>
+            <td>4.68 € / 1360g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
@@ -1092,7 +1092,7 @@ Fabrics:
             <td>1 day</td>
             <td>0.30 €/piece - 0.85 €/ piece</td>
             <td>85.00 € / year</td>
-            <td>8.24 € / 18 piece</td>
+            <td>8.84 € / 20 piece</td>
         </tr>
         <tr>
             <td>Brezel</td>
@@ -1164,7 +1164,7 @@ Fabrics:
             <td></td>
             <td>0.90 € /piece - 1.50 € / piece</td>
             <td></td>
-            <td>5.00 € / 4 piece</td>
+            <td>6.30 € / 5 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
@@ -1416,7 +1416,7 @@ I also count mixes like "Knorr fix" / "Maggi" in here.
             <td>3 years</td>
             <td>0.59 € / 50g</td>
             <td>1.18 € / year</td>
-            <td>0.59 € / 50g</td>
+            <td>1.16 € / 100g</td>
         </tr>
         <tr>
             <td>Garlic powder (Knoblauch-Gewürzpulver)</td>
@@ -1448,7 +1448,7 @@ I also count mixes like "Knorr fix" / "Maggi" in here.
             <td>1 year (?)</td>
             <td>0.28 € / package - 1.19 € / package</td>
             <td></td>
-            <td>6.77 € / 15 package</td>
+            <td>7.74 € / 16 package</td>
         </tr>
         <tr>
             <td>Gemüsebrühe</td>
@@ -1573,6 +1573,14 @@ General Cooking:
             <td>0.67 € / 200g</td>
         </tr>
         <tr>
+            <td>Speisequark</td>
+            <td></td>
+            <td>2 weeks?</td>
+            <td>0.54 € / 200g?</td>
+            <td></td>
+            <td>0.54 € / 200g</td>
+        </tr>
+        <tr>
             <td>Haferflocken</td>
             <td></td>
             <td>1 year</td>
@@ -1686,12 +1694,12 @@ General Cooking:
             <td>4.47 € / 780g</td>
         </tr>
         <tr>
-            <td>Coconut Milk (Kokosmilch)</td>
+            <td>Coconut Milk (Kokusmilch)</td>
             <td></td>
             <td>1 year 6 months</td>
-            <td>0.99 € / 400ml</td>
+            <td>0.96 € / 400ml - 0.99 € / 400ml</td>
             <td></td>
-            <td>1.98 € / 800ml</td>
+            <td>3.90 € / 1600ml</td>
         </tr>
         <tr>
             <td>Oister Sauce (🇩🇪 Austernsoße)</td>
@@ -1935,6 +1943,14 @@ General Cooking:
             <td>1.29 € / 400g</td>
         </tr>
         <tr>
+            <td>Gehackte Tomaten</td>
+            <td></td>
+            <td>3 years (in Tin can)</td>
+            <td>0.48 € / 400g</td>
+            <td></td>
+            <td>0.48 € / 400g</td>
+        </tr>
+        <tr>
             <td>Passierte Tomaten</td>
             <td></td>
             <td>1 year</td>
@@ -2121,6 +2137,14 @@ General Cooking:
             <td>0.28 € / 150g</td>
         </tr>
         <tr>
+            <td>Vanillin/Vanille-Zucker</td>
+            <td></td>
+            <td>1 year</td>
+            <td>0.96 € / 80g</td>
+            <td></td>
+            <td>1.92 € / 160g</td>
+        </tr>
+        <tr>
             <td>Vanille-Pulver für Soße</td>
             <td></td>
             <td>2 years</td>
@@ -2172,9 +2196,9 @@ General Cooking:
             <td>Hefe</td>
             <td></td>
             <td>?</td>
-            <td>1.95 € / ?</td>
+            <td>1.95 € / 120g or 0.57 € / 42g</td>
             <td></td>
-            <td>1.95 € / ?</td>
+            <td>2.52 € / 162g</td>
         </tr>
         <tr>
             <td>Sahnefest</td>
@@ -2223,7 +2247,7 @@ General Cooking:
             <td>2 weeks (?)❄</td>
             <td>0.29 € / piece - 0.57 € / piece</td>
             <td>45.37 €</td>
-            <td>49.54 € / 167 piece</td>
+            <td>51.09 € / 173 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -2234,12 +2258,12 @@ General Cooking:
             <td>3.85 € / 3275g</td>
         </tr>
         <tr>
-            <td>Sweets (Cookies, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären, Marzipan, Maxi-King, Maxi-Queen, Milchschnitte)</td>
+            <td>Sweets (Cookies, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären, Marzipan, Maxi-King, Maxi-Queen, Milchschnitte; some for baking such as Löffelbuisquits)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>142.52 € / 104 packages</td>
+            <td>147.10 € / 107 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
@@ -2293,9 +2317,9 @@ General Cooking:
             <td>Expensive Tea bags (Teure Teebeutel)</td>
             <td></td>
             <td>2 years</td>
-            <td>1.65 € / 25 pieces</td>
+            <td>1.65 € / 25 pieces - 1.75 € / 20 pieces</td>
             <td></td>
-            <td>1.65 € / 25 pieces</td>
+            <td>3.40 € / 45 pieces</td>
         </tr>
         <tr>
             <td>Waffles (Frischeiwaffeln)</td>
@@ -2333,9 +2357,9 @@ General Cooking:
             <td>Juice (Saft: Orangen-Nektar, Apfelsaft)</td>
             <td>18 L / year</td>
             <td>?</td>
-            <td>Apple Juice: 0.77 € / 1 L; Orange Juice: 0.79 € / 1.5 L - 0.96 € / 1.5 L; Other Juice: 0.85 € / 1 L</td>
+            <td>Apple Juice: 0.77 € / 1 L; Orange Juice: 0.79 € / 1.5 L - 0.96 € / 1.5 L; Other Juice: 0.85 € / 1 L - 0.86 € / 1 L</td>
             <td>9.48 € / year</td>
-            <td>26.62 € / 46.5 L</td>
+            <td>29.23 € / 50.5 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2343,7 +2367,7 @@ General Cooking:
             <td>2 months</td>
             <td>0.48 € / 1.5 L - 1.39 € / 1.5 L</td>
             <td>?</td>
-            <td>4.31 € / 9.0 L</td>
+            <td>5.10 € / 10.5 L</td>
         </tr>
         <tr>
             <td>Wine (Wein)</td>
@@ -2477,9 +2501,9 @@ General Cooking:
             <td>Tomatenmark</td>
             <td></td>
             <td>2 years</td>
-            <td>0.49 € / 200g</td>
+            <td>0.49 € / 200g - 0.57 € / 200g</td>
             <td></td>
-            <td>1.47 € / 600g</td>
+            <td>2.04 € / 800g</td>
         </tr>
         <tr>
             <td>Geschälte Tomaten in der Dose</td>
@@ -2493,9 +2517,9 @@ General Cooking:
             <td>Zitronensaft</td>
             <td></td>
             <td>6 months</td>
-            <td>0.49 € / 200ml</td>
+            <td>0.48 € / 200ml - 0.49 € / 200ml</td>
             <td></td>
-            <td>0.49 € / 200ml</td>
+            <td>0.97 € / 400ml</td>
         </tr>
         <tr>
             <td>Semmelknödel</td>
@@ -2595,6 +2619,34 @@ General Cooking:
             <td>18.13 € / 12800 Blatt (42 rolls)</td>
         </tr>
         <tr>
+            <td>Taschentücher</td>
+            <td>1.85 € / 300 pieces</td>
+            <td></td>
+            <td></td>
+            <td>1.85 € / 300 pieces</td>
+        </tr>
+        <tr>
+            <td>Bambus Küchenrolle</td>
+            <td>2.49 € / 20 pieces</td>
+            <td></td>
+            <td></td>
+            <td>2.49 € / 20 pieces</td>
+        </tr>
+        <tr>
+            <td>Küchenrolle</td>
+            <td>1.50 € / 204 Blatt</td>
+            <td></td>
+            <td></td>
+            <td>1.50 € / 204 Blatt</td>
+        </tr>
+        <tr>
+            <td>Backpapier</td>
+            <td>0.92 € / 30 Blatt</td>
+            <td></td>
+            <td></td>
+            <td>0.92 € / 30 Blatt</td>
+        </tr>
+        <tr>
             <td>Toothbrush (Oral-B Pulsar Zahnbürste)</td>
             <td>3.45 € / piece</td>
             <td>One per 3 months</td>
@@ -2659,10 +2711,10 @@ General Cooking:
         </tr>
         <tr>
             <td>Dishwasher Tabs (Geschirrreiniger)</td>
-            <td>2.95 € for 40 pieces to 2.95 € for 65 pieces</td>
+            <td>2.85€/40 pieces - 2.95 €/40 pieces to 2.95 €/65 pieces</td>
             <td>1 per 3 days (?)</td>
             <td>5.53 € / year</td>
-            <td>5.67 € / 100 pieces</td>
+            <td>8.52 € / 140 pieces</td>
         </tr>
         <tr>
             <td>Bad-Reiniger</td>
@@ -2719,20 +2771,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.89 € / 6 pieces</td>
-        </tr>
-        <tr>
-            <td>Taschentücher</td>
-            <td>1.85 € / 300 pieces</td>
-            <td></td>
-            <td></td>
-            <td>1.85 € / 300 pieces</td>
-        </tr>
-        <tr>
-            <td>Bambus Küchenrolle</td>
-            <td>2.49 € / 20 pieces</td>
-            <td></td>
-            <td></td>
-            <td>2.49 € / 20 pieces</td>
         </tr>
         <tr>
             <td>Sonnencreme</td>
@@ -3072,11 +3110,11 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
-            <td>238.83 €</td>
+            <td>252.99 €</td>
         </tr>
         <tr>
             <td>Geschenke an Freunde / Familie</td>
-            <td>208.89 €</td>
+            <td>210.24 €</td>
         </tr>
         <tr>
             <td>Battery (9V)</td>
@@ -3088,7 +3126,11 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Other</td>
-            <td>0.55 €</td>
+            <td>6.56 €</td>
+        </tr>
+        <tr>
+            <td>Plants (Pflanzen, Pflanzentopf, ...)</td>
+            <td>3.98 € / 2 piece</td>
         </tr>
     </tbody>
 </table>
