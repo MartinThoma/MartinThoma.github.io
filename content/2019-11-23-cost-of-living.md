@@ -216,7 +216,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>200.00 €</td>
             <td>4 years</td>
             <td>50.00 € / year</td>
-            <td>0 € / 0 pieces</td>
+            <td>22.99 € / 1 pieces</td>
         </tr>
         <tr>
             <td>5x Sport Hose (PUMA Herren Active Woven Short 5')</td>
@@ -550,11 +550,25 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>0</td>
         </tr>
         <tr>
+            <td>Fahrrad-Mantel (Schwalbe Marathon Plus)</td>
+            <td>32.14 €</td>
+            <td>10 years</td>
+            <td>3.22 € / year</td>
+            <td>32.14 € / 1 piece</td>
+        </tr>
+        <tr>
             <td>Fahrradschlauch (Schwalbe Schlauch SV 17 - 28", 700)</td>
             <td>12.60 €</td>
             <td>2 years</td>
             <td>6.30 € / year</td>
             <td>12.90 € / 2 pieces</td>
+        </tr>
+        <tr>
+            <td>Fahrrad Felgendband (Schwalbe)</td>
+            <td>3.33 €</td>
+            <td>10 years</td>
+            <td>0.34 € / year</td>
+            <td>3.33 € / 1 piece</td>
         </tr>
         <tr>
             <td>Fahrradketten-Öl</td>
@@ -621,6 +635,14 @@ which I think I really need... turns out, it's a lot of stuff.
             <td></td>
             <td></td>
             <td>2.95 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Glasuntersetzer</td>
+            <td>7.49 € / 4 pieces</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>7.49 € / 4 pieces</td>
         </tr>
     </tbody>
 </table>
@@ -2800,6 +2822,10 @@ General Cooking:
             <td></td>
             <td>1.90 € / 2 piece</td>
         </tr>
+        <tr>
+            <td>Bildschirm / Display Reiniger (V7 VCL1623)</td>
+            <td>6.49 € / 250ml</td>
+        </tr>
         </tbody>
         <tfoot>
         <tr>
@@ -3080,10 +3106,67 @@ pills and maybe a couple of months for creams and ointment.
     <tbody>
         <tr>
             <td>Books bought (Amazon, ReBuy, Hugendubel)</td>
-            <td>39.24 € / 5 books</td>
+            <td>207.10 € / 14 books</td>
+        </tr>
+        <tr>
+            <td>Movies</td>
+            <td>3.99 € / 1 movie</td>
         </tr>
     </tbody>
 </table>
+
+Book-Highlights:
+
+* Tagebuch eines Killerbots (Martha Wells)
+
+
+## Corona-Stuff
+
+2020 was special due to Corona. I've bought a couple of things to deal with
+that. Some things were triggered by Corona, but also fit in another category.
+Others were paid by my employer. And I've got some presents as well.
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>2020</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Handy Kamera-Stativ</td>
+            <td>17.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Kondensator Mikrofon (FIFINE K670)</td>
+            <td>45.99 €</td>
+        </tr>
+        <tr>
+            <td>USB Hub from USB-C (for my Smartphone; QGeeM)</td>
+            <td>14.44 €</td>
+        </tr>
+        <tr>
+            <td>In-ear Headset (eo-ig955bsegww)</td>
+            <td>9.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Haarschere Set</td>
+            <td>20.59 € / 1 set</td>
+        </tr>
+        <tr>
+            <td>Tageslichtlampe 10000 LUX (DZY)</td>
+            <td>29.99 € / 1 piece</td>
+        </tr>
+    </tbody>
+</table>
+
+
+I bought a big amount of headsets as well. Here are some I sent back, because
+I didn't like them:
+
+* LUDOS Ultra by Ludos Tech (13.57 €, 4.4 stars)
+* AKG eo-ig955bsegww by RS Traders (9.99 €, 4.1 stars)
 
 
 ## Other
@@ -3110,15 +3193,15 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
-            <td>252.99 €</td>
+            <td>355.65 €</td>
         </tr>
         <tr>
             <td>Geschenke an Freunde / Familie</td>
-            <td>210.24 €</td>
+            <td>268.98 €</td>
         </tr>
         <tr>
             <td>Battery (9V)</td>
-            <td>1.10 €</td>
+            <td>18.69 € / 5 pieces</td>
         </tr>
         <tr>
             <td>Kerze</td>
@@ -3126,11 +3209,79 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Other</td>
-            <td>6.56 €</td>
+            <td>28.97 €</td>
         </tr>
         <tr>
             <td>Plants (Pflanzen, Pflanzentopf, ...)</td>
             <td>3.98 € / 2 piece</td>
+        </tr>
+        <tr>
+            <td>Teekanne (Kela 11355 ✨)</td>
+            <td>29.13 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Standmixer (Russell Mix&Go ✨)</td>
+            <td>29.23 / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Gewürzflaschen (Reapow Store)</td>
+            <td>27.99 € / 20 pieces</td>
+        </tr>
+        <tr>
+            <td>Batterietester (BT-168D)</td>
+            <td>9.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Aufbewahrungskiste (Rotho Country 18L, Kühlschrank Organizer)</td>
+            <td>32.77 € / 5 piece</td>
+        </tr>
+        <tr>
+            <td>Elektrische Moskito Fliegenklatsche / Zapper ✨</td>
+            <td>19.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>HDMI-zu-DVI Adapter (1.83m)</td>
+            <td>6.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>External Harddrive HDD/SSD (WD My Passport 5 TB) ✨</td>
+            <td>127.06 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>WLAN Router (AVM Fritz!Box 7530)</td>
+            <td>115.90 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Akku Ladegerät for 9V, AA, AAA (EBL)</td>
+            <td>11.09 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Thinkpad Notebook Ladegerät</td>
+            <td>19.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>16 GB RAM (DDR4, PC4-19200, Crucial)</td>
+            <td>52.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Haushalt Vorhang Gardine</td>
+            <td>20.90 € / 4.5m</td>
+        </tr>
+        <tr>
+            <td>Haushalt Tischdecke</td>
+            <td>12.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Diktiergerät</td>
+            <td>26.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Handventilator (EasyAcc USB Faltbar) ✨</td>
+            <td>22.88 € / 2 piece</td>
+        </tr>
+        <tr>
+            <td>Board Game / Card Game</td>
+            <td>35.78 € / 3 games</td>
         </tr>
     </tbody>
 </table>
