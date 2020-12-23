@@ -50,65 +50,61 @@ $A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$
 <div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div>
 
 ```python
-def isPinRectangle(r, P):
-    """
-        r: A list of four points, each has a x- and a y- coordinate
-        P: A point
-    """
+from typing import Tuple
+from dataclasses import dataclass
 
-    areaRectangle = 0.5 * abs(
-        #                 y_A      y_C      x_D      x_B
-        (r[0][1] - r[2][1]) * (r[3][0] - r[1][0])
-        #                  y_B     y_D       x_A     x_C
-        + (r[1][1] - r[3][1]) * (r[0][0] - r[2][0])
+
+@dataclass
+class Point:
+    x: float
+    y: float
+
+
+Rectangle = Tuple[Point, Point, Point, Point]
+
+
+def is_p_in_rectangle(r: Rectangle, P: Point) -> bool:
+    area_rectangle = 0.5 * abs(
+        #   y_A      y_C      x_D      x_B
+        (r[0].y - r[2].y) * (r[3].x - r[1].x)
+        #    y_B     y_D       x_A     x_C
+        + (r[1].y - r[3].y) * (r[0].x - r[2].x)
     )
 
     ABP = 0.5 * (
-        r[0][0] * (r[1][1] - r[2][1])
-        + r[1][0] * (r[2][1] - r[0][1])
-        + r[2][0] * (r[0][1] - r[1][1])
+        r[0].x * (r[1].y - r[2].y)
+        + r[1].x * (r[2].y - r[0].y)
+        + r[2].x * (r[0].y - r[1].y)
     )
     BCP = 0.5 * (
-        r[1][0] * (r[2][1] - r[3][1])
-        + r[2][0] * (r[3][1] - r[1][1])
-        + r[3][0] * (r[1][1] - r[2][1])
+        r[1].x * (r[2].y - r[3].y)
+        + r[2].x * (r[3].y - r[1].y)
+        + r[3].x * (r[1].y - r[2].y)
     )
     CDP = 0.5 * (
-        r[2][0] * (r[3][1] - r[0][1])
-        + r[3][0] * (r[0][1] - r[2][1])
-        + r[0][0] * (r[2][1] - r[3][1])
+        r[2].x * (r[3].y - r[0].y)
+        + r[3].x * (r[0].y - r[2].y)
+        + r[0].x * (r[2].y - r[3].y)
     )
     DAP = 0.5 * (
-        r[3][0] * (r[0][1] - r[1][1])
-        + r[0][0] * (r[1][1] - r[3][1])
-        + r[1][0] * (r[3][1] - r[0][1])
+        r[3].x * (r[0].y - r[1].y)
+        + r[0].x * (r[1].y - r[3].y)
+        + r[1].x * (r[3].y - r[0].y)
     )
-    return areaRectangle == (ABP + BCP + CDP + DAP)
+    return area_rectangle == (ABP + BCP + CDP + DAP)
 ```
 
 ## Triangle
 The same idea can easily be adopted to triangles:
 
 ```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+from dataclasses import dataclass
 
 
+@dataclass
 class Point:
-    """Represents a two dimensional point."""
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __get__(self, obj, cls=None):
-        return obj
-
-    def __repr__(self):
-        return "P(%.2lf|%.2lf)" % (self.x, self.y)
-
-    def __str__(self):
-        return repr(self)
+    x: float
+    y: float
 
 
 class Triangle:
@@ -116,33 +112,29 @@ class Triangle:
 
     epsilon = 0.001
 
-    def __init__(self, a, b, c):
-        assert isinstance(a, Point)
-        assert isinstance(b, Point)
-        assert isinstance(c, Point)
+    def __init__(self, a: Point, b: Point, c: Point):
         self.a = a
         self.b = b
         self.c = c
 
-    def getArea(self):
+    def get_area(self) -> float:
         """Get area of this triangle.
-           >>> Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).getArea()
+           >>> Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).get_area()
            50.0
-           >>> Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).getArea()
+           >>> Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).get_area()
            100.0
         """
         a, b, c = self.a, self.b, self.c
         return abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2
 
-    def isInside(self, p):
+    def is_inside(self, p: Point) -> bool:
         """Check if p is inside this triangle."""
-        assert isinstance(p, Point)
-        currentArea = self.getArea()
+        current_area = self.get_area()
         pab = Triangle(p, self.a, self.b)
         pac = Triangle(p, self.a, self.c)
         pbc = Triangle(p, self.b, self.c)
-        newArea = pab.getArea() + pac.getArea() + pbc.getArea()
-        return abs(currentArea - newArea) < Triangle.epsilon
+        new_area = pab.get_area() + pac.get_area() + pbc.get_area()
+        return abs(current_area - new_area) < Triangle.epsilon
 
 
 if __name__ == "__main__":
