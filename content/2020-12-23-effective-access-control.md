@@ -6,8 +6,8 @@ URL: https://levelup.gitconnected.com/effective-access-control-331f883cb0ff
 author: Martin Thoma
 date: 2020-12-23 20:00
 category: Security
-tags: OWASP, Security
-featured_image: logos/security.png
+tags: InfoSec, AppSec, Security, Cybersecurity, OWASP
+featured_image: logos/cybersecurity.png
 ---
 Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.
 
@@ -369,16 +369,17 @@ Steven Gorden summarized parts of the terminology really well:
 
 In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
-* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈🐝
+* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
 * Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
-* Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈🐝
+* Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
 * Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
 * Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
 * Part 6: [CAPTCHA](https://medium.com/plain-and-simple/captcha-500991bd90a3) 😇
 * Part 7: [Email Spoofing](https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf) 😈
 * Part 8: [Software Composition Analysis](https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e) (SCA) 😇
-* Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈🐝
-* Part 10: Effective Access Control 😇🐝
+* Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈
+* Part 10: [Effective Access Control](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff) 😇
+* Part 11: [DOS via a Billion Laughs](https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139) 😈
 
 And this is about to come:
 
