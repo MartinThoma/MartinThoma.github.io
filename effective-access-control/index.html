@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="OWASP, Security, Security, " />
+
+<meta property="og:title" content="Effective Access Control 😇 "/>
+<meta property="og:url" content="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff" />
+<meta property="og:description" content="Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated. In this article, I focus on web services. Access to …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-12-23T20:00:00+01:00" />
+<meta name="twitter:title" content="Effective Access Control 😇 ">
+<meta name="twitter:description" content="Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated. In this article, I focus on web services. Access to …">
+<meta property="og:image" content="logos/security.png" />
+<meta name="twitter:image" content="logos/security.png" >
+
+        <title>Effective Access Control 😇  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Effective Access Control 😇</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-can-access-control-be-broken" title="How can access control be broken?">How can access control be broken?</a><ul><li><a class="toc-href" href="#hiding-a-system-isnt-secure" title="Hiding a system isn&rsquo;t secure">Hiding a system isn&rsquo;t secure</a></li><li><a class="toc-href" href="#forgetting-to-apply-access-control" title="Forgetting to apply access control">Forgetting to apply access control</a></li><li><a class="toc-href" href="#client-side-access-control" title="Client-side access control">Client-side access control</a></li><li><a class="toc-href" href="#trusting-the-client" title="Trusting the client">Trusting the client</a></li><li><a class="toc-href" href="#missing-expiration-date" title="Missing Expiration Date">Missing Expiration Date</a></li><li><a class="toc-href" href="#broken-authentication-control" title="Broken Authentication Control">Broken Authentication Control</a></li></ul></li><li><a class="toc-href" href="#access-control-policies_1" title="Access Control Policies">Access Control Policies</a><ul><li><a class="toc-href" href="#discretionary-access-control-dac" title="Discretionary Access Control (DAC)">Discretionary Access Control (DAC)</a></li><li><a class="toc-href" href="#mandatory-access-control-mac" title="Mandatory Access Control (MAC)">Mandatory Access Control (MAC)</a></li><li><a class="toc-href" href="#role-based-access-control-rbac" title="Role-based Access Control (RBAC)">Role-based Access Control (RBAC)</a></li><li><a class="toc-href" href="#attribute-based-access-control-abac" title="Attribute-based Access Control (ABAC)">Attribute-based Access Control (ABAC)</a></li><li><a class="toc-href" href="#why-rbacabac-with-decorators-is-great" title="Why RBAC/ABAC with Decorators is great">Why RBAC/ABAC with Decorators is great</a></li></ul></li><li><a class="toc-href" href="#tricks-to-make-access-control-effective_1" title="Tricks to make Access Control Effective">Tricks to make Access Control Effective</a></li><li><a class="toc-href" href="#credits" title="Credits">Credits</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.</p>
+<p>In this article, I focus on web services. Access to physical systems like your notebook / full disk encryption is a different story. And access to buildings/tailgating is yet another story.</p>
+<p>In the context of access control, one typically speaks of those entities:</p>
+<ul>
+<li><strong>Subjects</strong>: People like my girlfriend/Obama/my neighbor; organizations like
+  the NSA; companies like Github/Google/Facebook; software like bots</li>
+<li><strong>Objects</strong>: Partitions, files, databases, database schemas, database tables, &hellip;</li>
+<li><strong>Rights</strong>: Read, write, modify/alter, delete, add/insert, append, enter, execute, &hellip;</li>
+</ul>
+<p>For example, my girlfriend has permission to enter my house. In this case, my
+girlfriend is the subject, the object is &ldquo;house&rdquo; and the right is &ldquo;enter&rdquo;.</p>
+<p>In this article, you will get to know how access control can be broken,
+different types of access control, and finally some tricks for effective access
+control. Let&rsquo;s start!</p>
+<h2 id="how-can-access-control-be-broken">How can access control be broken?</h2>
+<p>Many things can go wrong in access control and some of them are very hard to
+automatically check. This is the reason why broken access Control (BAC) is
+<a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">number 4 in OWASP TOP-10
+2017</a>.</p>
+<h3 id="hiding-a-system-isnt-secure">Hiding a system isn&rsquo;t secure</h3>
+<p>The (implicit) assumption that some systems or data don&rsquo;t need access control,
+because they are never (purposely) exposed to the public is a common mistake.
+I&rsquo;m thinking here of AWS S3 buckets where people let just everybody upload. The
+thought here is that people need to know the name of the bucket and no one
+would just try <code>s3://company-data</code> or similar.</p>
+<p>Another attack that goes in this direction is called <strong>insecure direct object
+reference (IDOR)</strong>. Imagine you wanted to download an invoice from Amazon and
+found that it downloaded it fromhttps://amazon.com/invoice/1234/invoice.pdf .
+Wouldn&rsquo;t you be curious about what
+<a href="https://amazon.com/invoice/1234/invoice.pdf">https://amazon.com/invoice/1233/invoice.pdf</a>
+contained? It could very well be that this would be an invoice of a different
+person. And it could be that there is no more access control performed.</p>
+<h3 id="forgetting-to-apply-access-control">Forgetting to apply access control</h3>
+<p>Many backend systems have dozens of routes. All of them need to apply access
+control. It depends on the implementation of your access control system, but it
+could be that you need to add code to every route which is not public. This
+makes it easy to forget. And to miss it in a code review that it was forgotten.
+Even if all people agree that the route needs access control.</p>
+<h3 id="client-side-access-control">Client-side access control</h3>
+<p><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." src="https://cdn-images-1.medium.com/max/2400/1*vtfvTaqe3QLcjA2v0Mh0vQ.png"/><em>Age verification for adult content is a typical example of client-side access control. Image by the author.</em></p>
+<p>I haven&rsquo;t seen client-side access control in a long time, but please don&rsquo;t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.</p>
+<h3 id="trusting-the-client">Trusting the client</h3>
+<p>Authentication typically means that the user needs to enter a username/email
+and a password. Then the server creates either a session or a token to remember
+that user. We don&rsquo;t want the user to have to authenticate again and again.</p>
+<p>Typically, there are at least 3 levels of users:</p>
+<ul>
+<li>Anonymous users</li>
+<li>Registered users</li>
+<li>Admins</li>
+</ul>
+<p>The admins are also registered but have more privileges than all other users.
+The system needs a way to distinguish the admin from normal users.</p>
+<p>Sometimes, this is done with an unsigned cookie. Hence we store the information
+if the user is an admin at the client. Non-malicious users will not tamper with
+that information and thus the browser tells us with every request &ldquo;I&rsquo;m not an
+admin&rdquo;. But malicious users can change that cookie. By changing the is_admin
+cookie from <code>is_admin=false</code> to <code>is_admin=true</code> they perform a <strong>privilege
+escalation</strong>.</p>
+<p>There are two typical ways around it:</p>
+<ul>
+<li>Cryptographically sign this information and check the signature with every request</li>
+<li>Store that information on the server and look it up when you receive the
+  cryptographically signed user id.</li>
+</ul>
+<p>Storing the information on the client has the advantage that you might be able
+to save some requests to the database.</p>
+<p>Storing the information on the server has the advantage that a loss in
+privileges will instantly be effective.</p>
+<h3 id="missing-expiration-date">Missing Expiration Date</h3>
+<p>Imagine this: Your company has a system for employees. Most employees can only
+see their payslip, but team leads can also see the payslip of their team. Team
+leads also can give rewards to well-performing employees. You are a team lead.
+You use that system daily and you never log-out. At some point, you get a
+promotion. You are no longer a team lead, though. Hence you should no longer be
+able to see your former team's payslips. But you do.</p>
+<p>If the system stores the authorization and the role in a token that never
+expires on the client, the client could use that token forever. As some of your
+systems might rely on that token being correct, they never check another
+source. The cryptographic signature is right and thus the token is trustworthy.
+And it was. Until the contained information changed.</p>
+<h3 id="broken-authentication-control">Broken Authentication Control</h3>
+<p>If you can authenticate as another user, you will get all rights of that user.
+It&rsquo;s not really broken access control but has the same effect. I&rsquo;ll write a
+couple of articles about authentication:</p>
+<ul>
+<li><a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Multi-factor authentication &mdash; yet to be written!</li>
+<li>Single-sign on &mdash; it&rsquo;s on my list, buddy 🤞</li>
+<li>OAuth and OpenID &mdash; you guessed it&hellip; it&rsquo;s on the way 😅</li>
+</ul>
+<h2 id="access-control-policies_1">Access Control Policies</h2>
+<p>The following access control policies deal with slightly different problems.
+I&rsquo;m not talking about specific technologies here, but the abstract concepts
+which many implementations use.</p>
+<h3 id="discretionary-access-control-dac"><strong>Discretionary Access Control (DAC)</strong></h3>
+<p>You can formally store all rights as tuples (Subject, Object, Right). You can
+store those tuples either as a matrix or as a list of tuples. Or you can do it
+object-centric and store a list of all subjects with their rights. For example,
+for the file foobar.txt you could store <code>Alice:read,write; Bob:read</code>. This is
+called an <strong>Access Control List (ACL)</strong>. You can also store that information
+subject-centric: For each user, store what the user can do. That is called a
+<strong>Capability List (C-List)</strong>. It&rsquo;s still the same information, but another data
+structure.</p>
+<p>The &ldquo;discretionary&rdquo; part is that the users are allowed to change the
+permissions of an object.</p>
+<h3 id="mandatory-access-control-mac"><strong>Mandatory Access Control (MAC)</strong></h3>
+<p>In the case of DAC, the rights did not have any relation to each other. This is
+different in MAC. For MAC, the rights are ordered: <code>Public &lt; confidential &lt;
+secret &lt;top secret</code>. Users have a clearance and objects have a classification.
+If Bob has a &ldquo;secret&rdquo; clearance, he is allowed to read documents that are
+classified as &ldquo;secret&rdquo;, &ldquo;confidential&rdquo;, or &ldquo;public&rdquo;. MAC is used by SELinux and
+AppArmor.</p>
+<p>In contrast to DAC, in the MAC case users are not allowed to change the
+permissions. The permissions are set by the system administrator.</p>
+<h3 id="role-based-access-control-rbac"><strong>Role-based Access Control (RBAC)</strong></h3>
+<p>Assigning permissions to subjects directly might be a lot of administrative
+work. Instead, you can create a role, e.g. &ldquo;team lead&rdquo;, &ldquo;quality assurance&rdquo;,
+&ldquo;developer&rdquo;, &ldquo;accounting&rdquo;, &ldquo;CTO&rdquo;. Every subject can have an arbitrary amount of
+roles. Roles have rights for objects. For example, for the &ldquo;others salary&rdquo; the
+role &ldquo;CTO&rdquo; might have the right to &ldquo;read&rdquo; and &ldquo;edit&rdquo; it. For a given object,
+the rights of a subject are the set of all rights of all roles that the user
+has. RBAC is used by all content management systems (CMS) I know. Famous
+examples are Wikipedia, Reddit, and StackExchange.</p>
+<p>To apply RBAC, you need a role table (could also be called group ) and a table
+that connects users with groups:</p>
+<p><img alt="Image by author" src="https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png"/><em>Image by author</em></p>
+<p>Then you need to get all roles a user has:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">role_id</span> <span class="k">FROM</span> <span class="n">role_user</span> <span class="k">WHERE</span> <span class="n">user_id</span> <span class="o">=</span> <span class="p">:</span><span class="k">current_user</span>
+</code></pre></div>
+<p>You might want to cache this query as you will execute it a lot and the roles
+might not change that quickly.</p>
+<p>The last ingredient is to store an access control list per route. In Flask, it
+could look like this with <a href="https://pypi.org/project/Flask-User/">Flask-User</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/analytics"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"GET"</span><span class="p">])</span>
+<span class="nd">@roles_required</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">analytics_route</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"some"</span><span class="p">:</span> <span class="s2">"analytics_data"</span><span class="p">}</span>
+</code></pre></div>
+<p>When this route is called, the <code>@roles_required</code> decorator first executes the
+access control code. If the user doesn&rsquo;t have access, the rest is ignored and
+an exception is thrown or an error response is returned.</p>
+<p>RBAC can be combined with either DAC or MAC. For web applications, it&rsquo;s typical
+that the objects (the routes) have some fixed roles they require. Only the
+developers can change them. They are fixed in the code, not in a database. The
+decorator <code>@roles_required("admin")</code> here is an ACL.</p>
+<h3 id="attribute-based-access-control-abac"><strong>Attribute-based Access Control (ABAC)</strong></h3>
+<p>One part that is missing for RBAC is context. You want to use the relationship
+between the subject and the object, e.g. if the subject is the creator of that
+object it might automatically grant the subject some rights. Or depending on
+the time or location, the rights might change. For example, normal employees
+might not be allowed to access the office between 11 pm and 5 am.</p>
+<p>We don&rsquo;t want to fire too many requests against our database, give meaningful
+error responses, and not repeat code. A good compromise could be this pattern:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/article/&lt;article_id&gt;"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"PATCH"</span><span class="p">])</span>  <span class="c1"># execute (1)</span>
+<span class="nd">@get_article</span>  <span class="c1"># execute (2)</span>
+<span class="nd">@attribute_required</span><span class="p">(</span><span class="n">is_author</span><span class="p">)</span>  <span class="c1"># execute (3)</span>
+<span class="k">def</span> <span class="nf">edit_article</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">):</span>  <span class="c1"># execute (4)</span>
+    <span class="o">...</span>  <span class="c1"># update the article</span>
+</code></pre></div>
+<p>The get_article decorator simply uses the ORM:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+
+<span class="k">def</span> <span class="nf">get_article</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Make the variable "article" available.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    func : Callable</span>
+<span class="sd">        Needs to have an 'article' keyword parameter.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    modified_func : Callable</span>
+<span class="sd">        A function where the parameter 'article' is added to</span>
+<span class="sd">        the signature</span>
+<span class="sd">    """</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="n">article_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">"article_id"</span><span class="p">]</span>
+        <span class="n">article</span> <span class="o">=</span> <span class="n">get_article_from_db</span><span class="p">(</span><span class="n">article_id</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">"article"</span><span class="p">]</span> <span class="o">=</span> <span class="n">article</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div>
+<p>The is_author function then is pretty straight forward:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_author</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">article</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+</code></pre></div>
+<p>More complicated is the design of attribute_required , but in principle, it works similarly to the decorator above.</p>
+<h3 id="why-rbacabac-with-decorators-is-great">Why RBAC/ABAC with Decorators is great</h3>
+<p>Let&rsquo;s say you build the e-commerce website eBay. One entity is an auction. It has various attributes:</p>
+<ul>
+<li><strong>Auction ID</strong>: Set by the system, immutable</li>
+<li><strong>Seller ID</strong>: Set by the system, immutable</li>
+<li><strong>Title</strong>: Set by the user, immutable</li>
+<li><strong>Description text</strong>: Set by seller, editable by seller</li>
+</ul>
+<p>You could implement the change_descripion_text function like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">auction</span><span class="o">.</span><span class="n">seller_id</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">"Only the seller may edit"</span><span class="p">)</span>
+</code></pre></div>
+<p>Then you realize that admins should always be able to change it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">is_seller</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">auction</span><span class="o">.</span><span class="n">seller_id</span>
+    <span class="n">is_admin</span> <span class="o">=</span> <span class="n">is_admin</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_seller</span> <span class="ow">or</span> <span class="n">is_admin</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">"Only the seller may edit"</span><span class="p">)</span>
+</code></pre></div>
+<p>And you might realize that you also should check for moderators. And maybe you
+allow companies to sell as well. So not only the person who put it in the shop
+but also moderators of that company should be able to adjust description texts.
+And then you realize that there is metadata such as weight/volume of the item
+as well. The mentioned access control just has too many places in which the
+developers can get things wrong.</p>
+<p>Instead, you can use roles. For example, seller sounds like a role. The roles
+can be context-dependent.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@requires_role</span><span class="p">([</span><span class="n">SellerRole</span><span class="p">(</span><span class="nb">id</span><span class="p">),</span> <span class="n">AdminRole</span><span class="p">(),</span> <span class="n">ModeratorRole</span><span class="p">()])</span>
+<span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="tricks-to-make-access-control-effective_1">Tricks to make Access Control Effective</h2>
+<p><img alt="Photo by Jaimie Harmsen on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*qLPyfhzI9rq7ObkR"/><em>Photo by <a href="https://unsplash.com/@jaimie_96?utm_source=medium&amp;utm_medium=referral">Jaimie Harmsen</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>The case of creating web services is certainly most interesting to most
+readers, so let&rsquo;s focus on that. Access control is enforced in the backend and
+hence typically on the API level. It&rsquo;s most of the time about which users can
+call which API endpoints, but sometimes it can be more complicated. For
+example, in a social network, every user might be allowed to get the list of
+friends of another user. But you might only see the birthday if you are a
+friend of that user yourself. Hence some endpoints might be callable but
+deliver different data depending on the caller.</p>
+<p>For now, let&rsquo;s just focus on the simple case with a REST API. If you have the
+permission to call an endpoint with a given set of parameters, then you will
+always get the same result. No matter who you are / which role you have. The
+only right we care about for now is &ldquo;can call&rdquo;. Our subjects are &ldquo;users&rdquo; and
+our objects are the combination (route, parameter).</p>
+<p>In such a scenario, you will typically want to make a role-based system. There are some simple principles that can help:</p>
+<ul>
+<li><strong>Deny by default</strong>: It&rsquo;s easy to add a new route somewhere. Make sure that
+  people don&rsquo;t leak data by not allowing any access whatsoever by default. Make
+  them write down which roles are allowed.</li>
+<li><strong>DRY</strong>: Don&rsquo;t repeat yourself. Implement the access control code once and
+  make it simple to check without copy-pasting the implementation. In Python /
+  Flask, you typically want a decorator over your function to denote the
+  allowed roles.</li>
+<li><strong>Least privilege</strong>: Don&rsquo;t give people roles they don&rsquo;t need. Don&rsquo;t give
+  roles permissions they don&rsquo;t need. Remove roles from people if they leave &mdash;
+  no matter if they leave the job or just that role. The fewer people have
+  access, the less potential for issues.</li>
+<li><strong>YAGNI</strong>: Designing good software is hard. Some software engineers tend to
+  think 10 steps ahead and build the system for potential future use cases. Of
+  course, sometimes you already know that topics are on the table. Otherwise,
+  <strong>y</strong>ou <strong>a</strong>in&rsquo;t <strong>g</strong>onna <strong>n</strong>eed <strong>i</strong>t (YAGNI). Build stuff when you
+  need it. That might mean a bit more work and refactoring parts of the
+  software. That&rsquo;s ok.</li>
+<li><strong>Minimize attack surface</strong>: Whenever you can, try to remove features and
+  outdated code. Code you delete doesn&rsquo;t need to get maintained. It cannot have
+  security issues.</li>
+<li><strong>Clustering objects around Rights</strong>: If you have a few types of
+  rights/roles, you could group your objects around that. For example, if your
+  objects are files, your roles are &ldquo;owner&rdquo;, &ldquo;group&rdquo;, &ldquo;other&rdquo; and the rights
+  are &ldquo;read&rdquo; / &ldquo;write&rdquo; / &ldquo;execute&rdquo;, then this grouping is a directory with
+  Unix-style permissions. If you&rsquo;re thinking about web services, your objects
+  could be routes, the rights would be &ldquo;call&rdquo; and the roles would be
+  &ldquo;anonymous&rdquo;, &ldquo;registered&rdquo;, &ldquo;admin&rdquo;. Then you can organize your code in such a
+  way that no file contains routes for anonymous users AND admin users. If you
+  do that, then human errors become way easier to exclude. In a review, if
+  suddenly an admin-type route appears in a &ldquo;normal user&rdquo; file, this is easy to
+  spot.</li>
+</ul>
+<h2 id="credits">Credits</h2>
+<p>Steven Gorden summarized parts of the terminology really well:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" width="560"></iframe></center></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="https://medium.com/plain-and-simple/captcha-500991bd90a3">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="https://medium.com/faun/xxe-attacks-750e91448e8f">XXE attacks</a> 😈🐝</li>
+<li>Part 10: Effective Access Control 😇🐝</li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF 😈</li>
+<li>DOS 😈</li>
+<li>Credential Stuffing 😈</li>
+<li>Cryptojacking 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Two-Factor Authentication 😇</li>
+<li>Backups 😇</li>
+<li>Disk Encryption 😇</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-12-23T20:00:00+01:00">Dez 23, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#security-ref">Security</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#owasp-ref">OWASP
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#security-ref">Security
+                    <span>14</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
