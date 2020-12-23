@@ -1,5 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-23T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Effective Access Control 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/effective-access-control-331f883cb0ff" rel="alternate"></link><published>2020-12-23T20:00:00+01:00</published><updated>2020-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-23:/https://levelup.gitconnected.com/effective-access-control-331f883cb0ff</id><summary type="html">&lt;p&gt;Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-23T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>DOS via a billion laughs 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139" rel="alternate"></link><published>2020-12-23T20:00:00+01:00</published><updated>2020-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-23:/https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139</id><summary type="html">&lt;p&gt;&lt;img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/&gt;&lt;em&gt;Image by the author&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The billion laughs attack is known since 2003 (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564"&gt;source&lt;/a&gt;). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It&amp;rsquo;s also known as a LOL bomb, XML bomb, or in a variation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/&gt;&lt;em&gt;Image by the author&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The billion laughs attack is known since 2003 (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564"&gt;source&lt;/a&gt;). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It&amp;rsquo;s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.&lt;/p&gt;
+&lt;h2 id="why-you-should-care"&gt;Why you should care&lt;/h2&gt;
+&lt;p&gt;This is a bit too specific to be visible in many news articles. However, there are several big projects which were vulnerable over the years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2003: libxml2 was vulnerable (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564"&gt;CVE-2003&amp;ndash;1564&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2015: MediaWiki was vulnerable (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2942"&gt;CVE-2015&amp;ndash;2942&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2016: &lt;a href="https://en.wikipedia.org/wiki/Libxml2"&gt;libxml2&lt;/a&gt; was vulnerable &amp;hellip; again (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3705"&gt;CVE-2016&amp;ndash;3705&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2016: HTTP/2 header compression was used to build an HPACK bomb (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2016-6581"&gt;CVE-2016&amp;ndash;6581&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2019: Kubernetes was vulnerable (&lt;a href="https://github.com/kubernetes/kubernetes/issues/83253"&gt;source&lt;/a&gt;, &lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253"&gt;CVE-2019&amp;ndash;11253&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2019: &lt;a href="https://www.mchange.com/projects/c3p0/"&gt;c3p0&lt;/a&gt; (JDBC database drivers) was vulnerable (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2019-5427"&gt;CVE-2019&amp;ndash;5427&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-it-works"&gt;How it works&lt;/h2&gt;
+&lt;p&gt;The following XML defines an entity laugh , then an entity ha2 which contains laugh twice. This pattern is repeated. This means ha5 contains laugh indirectly 16 times. You can see the exponential growth, can&amp;rsquo;t you?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;?xml version="1.0"?&amp;gt;&lt;/span&gt;
+
+&lt;span class="cp"&gt;&amp;lt;!DOCTYPE root [&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!ENTITY laugh "😆"&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!ENTITY ha2 "&amp;amp;ha; &amp;amp;ha;"&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!ENTITY ha3 "&amp;amp;ha2; &amp;amp;ha2;"&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!ENTITY ha4 "&amp;amp;ha3; &amp;amp;ha3;"&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!ENTITY ha5 "&amp;amp;ha4; &amp;amp;ha4;"&amp;gt;&lt;/span&gt;
+]&amp;gt;
+
+&lt;span class="nt"&gt;&amp;lt;root&amp;gt;&lt;/span&gt;&lt;span class="ni"&gt;&amp;amp;ha5;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/root&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With ha31, we would have 2&amp;sup3;⁰ times 😆 . That is a billion laughs. Please note how asymmetric this is: With a document that is less than 1kB big the attacker can make the parser consume about Gigabytes of memory. This can easily consume all memory of a machine and thus render it unusable until the parser is killed or the machine is restarted.&lt;/p&gt;
+&lt;p&gt;A slight variation of the &lt;strong&gt;billion laughs attack&lt;/strong&gt; is called &lt;strong&gt;quadratic blowup&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Please notice that similar attacks are possible in other file formats such as YAML. The key point here is that those formats have references.&lt;/p&gt;
+&lt;h2 id="how-can-i-defend-against-a-billion-laughs"&gt;How can I defend against a billion laughs?&lt;/h2&gt;
+&lt;p&gt;Assuming that you cannot control the input directly and prevent XMLs with attacks from reaching you at all, I can think of 4 measures:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lazy evaluation of references&lt;/strong&gt;: Instead of evaluating the whole document at once, the references are only resolved when necessary. It might solve some issues.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No evaluation of references&lt;/strong&gt;: Throwing the dangerous feature out of the window for sure means that you&amp;rsquo;re not vulnerable to the attack anymore. You need to make sure it doesn&amp;rsquo;t affect your users, though. Communicating this might be hard.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reference recursion depth limit&lt;/strong&gt;: The parser itself could be aware of this issue and have a threshold when it stops evaluating references. However, this might also lead to false-positives &amp;mdash; documents that get not parsed, because the parser thinks it&amp;rsquo;s an attack.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAM restriction&lt;/strong&gt;: You can run the code that might execute the billion laughs attack under resource restrictions. This means the execution thread/process receives a (catchable) exception and can continue execution normally. It might especially mean that even if the exception is not thrown, the rest of your system might be fine. Only that thread/process might be killed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, how do you do this with Python?&lt;/p&gt;
+&lt;p&gt;The resource restriction is easiest:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;resource&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;contextlib&lt;/span&gt;
+
+
+&lt;span class="nd"&gt;@contextlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contextmanager&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Temporarily limit a resource."""&lt;/span&gt;
+    &lt;span class="n"&gt;soft_limit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hard_limit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;resource&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getrlimit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;resource&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setrlimit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hard_limit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;# set soft limit&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt;
+    &lt;span class="k"&gt;finally&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;resource&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setrlimit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;soft_limit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hard_limit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;# restore&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dangerous_call&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RLIMIT_AS&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;dangerous_call&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;MemoryError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Your call consumed too much memory!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Restricting the parser is sometimes possible, sometimes not. It depends on your
+parser. Some have parameters like resolve_entities
+(&lt;a href="https://lxml.de/api/lxml.etree.XMLParser-class.html"&gt;lxml&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Limiting the maximum decompression size was done against the HTTP/2 &amp;ldquo;HPACK&amp;rdquo;
+bomb
+(&lt;a href="https://python-hyper.org/projects/hpack/en/latest/security/CVE-2016-6581.html#the-solution"&gt;source&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;p&gt;Kate Murphey wrote an awesome article about git bombs, check it out!
+&lt;a href="https://kate.io/blog/git-bomb/"&gt;&lt;strong&gt;Exploding Git Repositories&lt;/strong&gt;
+&lt;em&gt;If you are an adventurous sort (and can handle a potential reboot) I invite you to clone this tiny repo: $ git clone&amp;hellip;&lt;/em&gt;kate.io&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category></entry><entry><title>Effective Access Control 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/effective-access-control-331f883cb0ff" rel="alternate"></link><published>2020-12-23T20:00:00+01:00</published><updated>2020-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-23:/https://levelup.gitconnected.com/effective-access-control-331f883cb0ff</id><summary type="html">&lt;p&gt;Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.&lt;/p&gt;
 &lt;p&gt;In this article, I focus on web services. Access to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.&lt;/p&gt;
 &lt;p&gt;In this article, I focus on web services. Access to physical systems like your notebook / full disk encryption is a different story. And access to buildings/tailgating is yet another story.&lt;/p&gt;
 &lt;p&gt;In the context of access control, one typically speaks of those entities:&lt;/p&gt;
@@ -284,16 +385,17 @@ our objects are the combination (route, parameter).&lt;/p&gt;
 &lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
 &lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈🐝&lt;/li&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈🐝&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
-&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈🐝&lt;/li&gt;
-&lt;li&gt;Part 10: Effective Access Control 😇🐝&lt;/li&gt;
+&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -306,7 +408,7 @@ our objects are the combination (route, parameter).&lt;/p&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
 &lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="OWASP"></category><category term="Security"></category></entry><entry><title>Software Composition Analysis (SCA)</title><link href="https://martin-thoma.com/sca/" rel="alternate"></link><published>2020-12-04T20:00:00+01:00</published><updated>2020-12-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-04:/sca/</id><summary type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="OWASP"></category></entry><entry><title>Software Composition Analysis (SCA)</title><link href="https://martin-thoma.com/sca/" rel="alternate"></link><published>2020-12-04T20:00:00+01:00</published><updated>2020-12-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-04:/sca/</id><summary type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
 about new technologies, understand topics within the domain you&amp;rsquo;re working,
 estimate how long it will take to build stuff you have never built before,
 explain issues to people who have absolutely no clue. On top …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
@@ -410,9 +512,11 @@ anything. But when the tool complains, it is important.&lt;/p&gt;
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -572,9 +676,11 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -679,9 +785,11 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -694,7 +802,7 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Backups 😇&lt;/li&gt;
 &lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="AppSec"></category></entry><entry><title>Password Hashing 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/password-hashing-eb3b97684636" rel="alternate"></link><published>2020-10-19T20:00:00+02:00</published><updated>2020-10-19T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-19:/https://levelup.gitconnected.com/password-hashing-eb3b97684636</id><summary type="html">&lt;p&gt;Software gets hacked, data breaches happen, data is leaked. It&amp;rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.&lt;/p&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="AppSec"></category><category term="DOS"></category></entry><entry><title>Password Hashing 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/password-hashing-eb3b97684636" rel="alternate"></link><published>2020-10-19T20:00:00+02:00</published><updated>2020-10-19T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-19:/https://levelup.gitconnected.com/password-hashing-eb3b97684636</id><summary type="html">&lt;p&gt;Software gets hacked, data breaches happen, data is leaked. It&amp;rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h1 id="defense-in-depth-means-we-dont-rely-on-a-single-security-mechanism-but-have-multiple-layers-of-security-instead"&gt;Defense in depth means we don&amp;rsquo;t rely on …&lt;/h1&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Software gets hacked, data breaches happen, data is leaked. It&amp;rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -799,9 +907,11 @@ you two functions:&lt;/p&gt;
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -901,9 +1011,11 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -1021,9 +1133,11 @@ packages simply send the hostname with environment variables to a server (&lt;a 
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -1267,9 +1381,11 @@ Schwenk.&lt;/p&gt;
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
