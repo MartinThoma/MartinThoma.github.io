@@ -887,9 +887,9 @@ Fabrics:
             <td>Carrots (🇩🇪 Karotten / Möhren)</td>
             <td></td>
             <td>3 months (?)</td>
-            <td>0.89 €/1kg - 0.99 € / 2kg</td>
+            <td>0.89 €/1kg - 1.19€/1kg; 0.99 € / 2kg</td>
             <td></td>
-            <td>7.98 € / 9.443 kg</td>
+            <td>9.17 € / 10.443 kg</td>
         </tr>
         <tr>
             <td>Brokkoli (Broccoli)</td>
@@ -975,9 +975,9 @@ Fabrics:
             <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten, Rispen-Tomaten)</td>
             <td></td>
             <td>1 week</td>
-            <td>1.49 € / 250g (1 package) or 0.99 € / 500g - 1.19 € / 500g for Roma-Tomaten</td>
+            <td>1.49 € / 250g (1 package) or 0.95 € / 500g - 1.19 € / 500g for Roma-Tomaten</td>
             <td></td>
-            <td>19.19 € / 5322g</td>
+            <td>20.14 € / 5822g</td>
         </tr>
         <tr>
             <td>Corn in a can (🇩🇪Mais in der Dose)</td>
@@ -1146,7 +1146,7 @@ Fabrics:
             <td>4 days</td>
             <td>0.99 € / 500g and 1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>42.15 € / 6.5 kg</td>
+            <td>43.44 € / 7.0 kg</td>
         </tr>
         <tr>
             <td>Früchtebrot</td>
@@ -1216,9 +1216,9 @@ Fabrics:
             <td>Butter (not salted)</td>
             <td>250g / 2 weeks (?)</td>
             <td>3 months</td>
-            <td>1.35 € /250g - 1.39 € / 250g</td>
+            <td>1.07 € /250g - 1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>39.21 € / 6750g</td>
+            <td>40.28 € / 7000g</td>
         </tr>
         <tr>
             <td>Margarine (Letta)</td>
@@ -1266,7 +1266,7 @@ Fabrics:
             <td>1 to 4 months ❄️</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano; 1.15 € /200g - 1.19 € / 200g für Brie</td>
             <td>67.34 € / year</td>
-            <td>105.75 € / 14.20kg</td>
+            <td>108.93 € / 14.60kg</td>
         </tr>
         <tr>
             <td>Schmelzscheiben für Toast Hawaii</td>
@@ -1568,7 +1568,7 @@ General Cooking:
             <td>2 weeks</td>
             <td>0.63 € / 200 g</td>
             <td>7.56 € / year</td>
-            <td>7.17 € / 2200g</td>
+            <td>7.80 € / 2400g</td>
         </tr>
         <tr>
             <td>Schmand</td>
@@ -1938,7 +1938,7 @@ General Cooking:
             <td>2.5 years</td>
             <td>0.48 € / 500g - 0.59 € / 500g</td>
             <td></td>
-            <td>6.51 € / 4500g</td>
+            <td>7.00 € / 5000g</td>
         </tr>
         <tr>
             <td>Tortelloni Pasta</td>
@@ -2036,6 +2036,14 @@ General Cooking:
             <td>2.89 € / 400g - 3.29 € / 400g</td>
             <td>8.97 € / year</td>
             <td>26.63 € / 3600g</td>
+        </tr>
+        <tr>
+            <td>Rind Sauerbraten</td>
+            <td>600g</td>
+            <td>3 weeks 🧊</td>
+            <td>5.39 € / 600g</td>
+            <td>5.39 € / year</td>
+            <td>5.39 € / 600g</td>
         </tr>
         <tr>
             <td>Rumpsteak</td>
@@ -2269,7 +2277,7 @@ General Cooking:
             <td>2 weeks (?)❄</td>
             <td>0.29 € / piece - 0.57 € / piece</td>
             <td>45.37 €</td>
-            <td>51.09 € / 173 piece</td>
+            <td>52.25 € / 177 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -2293,7 +2301,7 @@ General Cooking:
             <td>2 years 🧊</td>
             <td>1.30 € / ball (1 ball = 80g); 1.93 € / 500g</td>
             <td></td>
-            <td>27.47 € / 4869g</td>
+            <td>2.916 € / 5369g</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -2381,7 +2389,7 @@ General Cooking:
             <td>?</td>
             <td>Apple Juice: 0.77 € / 1 L; Orange Juice: 0.79 € / 1.5 L - 0.96 € / 1.5 L; Other Juice: 0.85 € / 1 L - 0.86 € / 1 L</td>
             <td>9.48 € / year</td>
-            <td>29.23 € / 50.5 L</td>
+            <td>30.02 € / 52.0 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2550,6 +2558,14 @@ General Cooking:
             <td>0.68 € / 200g - 0.69 € / 200g (6 pieces)</td>
             <td></td>
             <td>3.44 € / 800g (30 pieces)</td>
+        </tr>
+        <tr>
+            <td>Kartoffelknödelteig</td>
+            <td></td>
+            <td>1 month</td>
+            <td>1.29 € / 750g</td>
+            <td></td>
+            <td>1.29 € / 750g</td>
         </tr>
         <tr>
             <td>Kartoffelsalat</td>
@@ -3189,7 +3205,7 @@ I didn't like them:
         </tr>
         <tr>
             <td>Dishwasher</td>
-            <td>TODO</td>
+            <td>125.00 €</td>
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
