@@ -213,7 +213,7 @@ würden profitieren. Lehre würde vergleichbarer sein.
 
 ### Öffentlich-Rechtliche Zusammenarbeit
 
-Es gibt zahlreiche Sendungen mit Lehrinhalten:
+Es gibt zahlreiche sehr gute Sendungen mit Lehrinhalten:
 
 * [Die Sendung mit der Maus](https://de.wikipedia.org/wiki/Die_Sendung_mit_der_Maus)
 * [Quarks und Co](https://de.wikipedia.org/wiki/Quarks_(Medienmarke))
