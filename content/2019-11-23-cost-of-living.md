@@ -15,6 +15,11 @@ pay if I lost all my stuff at once (e.g. a fire or moving without my stuff)?
 I wanted to be able to answer those questions and started writing down stuff
 which I think I really need... turns out, it's a lot of stuff.
 
+## Legend
+
+* 🧊 Needs to be in the freezer
+* ❄️ Needs to be in the fridge
+* 🥫 In a tin can
 
 ## Furniture
 
@@ -140,9 +145,9 @@ which I think I really need... turns out, it's a lot of stuff.
     </tbody>
     <tfoot>
         <tr>
-            <td>Total</td>
-            <td>1878.38 €</td>
-            <td>-</td>
+            <th>Total</th>
+            <th>1878.38 €</th>
+            <th>-</th>
         </tr>
     </tfoot>
 </table>
@@ -323,6 +328,13 @@ which I think I really need... turns out, it's a lot of stuff.
             <td></td>
             <td>44.99 € / 1 pair</td>
         </tr>
+        <tr>
+            <td>Laufschuhe Asics GT-2000</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>100.00 € / 1 pair</td>
+        </tr>
     </tbody>
     <tfoot>
         <tr>
@@ -330,13 +342,12 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>1354.80 €</td>
             <td>-</td>
             <td>290.30 € / year</td>
-            <td>0 € / 0 pieces</td>
+            <td>102.65 €</td>
         </tr>
     </tfoot>
 </table>
 
 * Alltagsschuhe
-* Laufschuhe
 * Regenjacke
 * Herbstjacke
 
@@ -369,22 +380,22 @@ which I think I really need... turns out, it's a lot of stuff.
             <td></td>
         </tr>
         <tr>
-            <td>Wanderschuhe</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Regenjacke</td>
-            <td></td>
+            <td>Wanderschuhe (Meindl Herren Island Mfs Active)</td>
+            <td>235 € / 1 pair</td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
-            <td>Fließjacke</td>
+            <td>Regenjacke (Fjällräven Keb Eco Shell)</td>
+            <td>320 € / 1 piece</td>
             <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Fließjacke (Mammut Innominata Advanced ML Jacket)</td>
+            <td>113 € / 1 piece</td>
             <td></td>
             <td></td>
             <td></td>
@@ -408,7 +419,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>Fahrrad Fahrradmanufaktur Damen Citybike</td>
             <td>600 €</td>
             <td>5 years</td>
-            <th>120.00 € / year</th>
+            <td>120.00 € / year</td>
         </tr>
         <tr>
             <td>Notebook (<a href="https://www.notebookcheck.com/Test-Lenovo-ThinkPad-T460p-Core-i7-GeForce-940MX-Notebook.163310.0.html" title="I'll probably take a ThinkPad X1 Carbon with an i7-6000+ with at least 8 GB RAM next">ThinkPad T460p GeForce 940MX</a>)</td>
@@ -422,18 +433,22 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>2 years</td>
             <td>93.50 € / year</td>
         </tr>
+        <tr>
+            <td>Monitor (Think Vision P27)</td>
+            <td>355 €</td>
+            <td>5 years</td>
+            <td>71.00 € / year</td>
+        </tr>
     </tbody>
     <tfoot>
         <tr>
             <th>Total</th>
-            <td>2187.00 €</td>
+            <td>2542.00 €</td>
             <td>-</td>
-            <td>563.50 € / year</td>
+            <td>634.50 € / year</td>
         </tr>
     </tfoot>
 </table>
-
-* Monitor
 
 
 ## Tools
@@ -673,191 +688,159 @@ Fabrics:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>Usage 2020</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Banana (Bananen)</td>
-            <td>0.35 kg / week</td>
             <td>1 week</td>
             <td>0.72 €/kg - 1.79 € / kg</td>
-            <td>32.58 € / year</td>
             <td>3.99 € / 3.520 kg</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen / Clementinen)</td>
-            <td></td>
             <td>1.15 € / 500 g (?)</td>
-            <td></td>
             <td></td>
             <td>4.83 € / 2.25 kg</td>
         </tr>
         <tr>
             <td>Orange</td>
+            <td>0.95 € / 1 piece - 0.97 € / 1 piece</td>
             <td></td>
-            <td>0.95 € / 1 Stück - 0.97 € / 1 Stück</td>
-            <td></td>
-            <td></td>
-            <td>1.97 € / 2 Stück</td>
+            <td>1.97 € / 2 pieces</td>
         </tr>
         <tr>
             <td>Blutorange</td>
-            <td></td>
             <td>1.99 € / 1 kg</td>
-            <td></td>
             <td></td>
             <td>1.99 € / 1 kg</td>
         </tr>
         <tr>
             <td>Apples (Äpfel)</td>
-            <td>3 kg / year</td>
             <td>3 months (?)</td>
             <td>0.89 € / kg - 1.25 € / kg</td>
-            <td>2.67 € / year</td>
             <td>6.49 € / 4.056kg</td>
         </tr>
         <tr>
             <td>Birne</td>
-            <td></td>
             <td>2 months</td>
             <td>2.99 € / kg</td>
-            <td></td>
-            <td>1.79 € / 0.600 kg</td>
+            <td>1.79 € / 0.6 kg</td>
         </tr>
         <tr>
             <td>Nektarinen</td>
-            <td>?</td>
             <td>3 weeks</td>
             <td>2.79 € / 500g</td>
-            <td>?</td>
             <td>2.79 € / 500g</td>
         </tr>
         <tr>
             <td>Mango</td>
-            <td>5 / year</td>
             <td>3 weeks</td>
             <td>0.99 € / piece - 1.93 € / piece</td>
-            <td>4.95 € / year</td>
             <td>14.55 € / 13 piece</td>
         </tr>
         <tr>
             <td>Kirschen</td>
-            <td></td>
             <td>2 weeks</td>
             <td>5.90 €/kg</td>
-            <td></td>
             <td>9.08 € / 1.938 kg</td>
         </tr>
         <tr>
             <td>Sauerkirschen (eingelegt, gezuckert, entsteint)</td>
-            <td></td>
             <td>3 years</td>
             <td>1.49 € / 350g</td>
-            <td></td>
             <td>1.49 € / 350g</td>
         </tr>
         <tr>
-            <td>Mango (Tin can)</td>
-            <td></td>
+            <td>Mango 🥫</td>
             <td>1 year</td>
             <td>1.29 € / 250g</td>
-            <td></td>
             <td>1.29 € / 250g</td>
         </tr>
         <tr>
-            <td>Pfirsich (Tin can)</td>
-            <td></td>
+            <td>Pfirsich 🥫</td>
             <td>3 years</td>
             <td>0.99 € / 480g</td>
-            <td></td>
             <td>0.99 € / 480g</td>
         </tr>
         <tr>
             <td>Strawberries (Erdbeeren)</td>
-            <td></td>
             <td>3 days</td>
             <td>1.89 € / 500g</td>
-            <td></td>
             <td>8.75 € / 2500g</td>
         </tr>
         <tr>
             <td>Grapes (Trauben)</td>
-            <td></td>
             <td>4 weeks</td>
             <td>1.99 € /500g - 2.12 € / 500g;  2.99 € / kg</td>
-            <td></td>
             <td>26.45 € / 7.796kg</td>
         </tr>
         <tr>
-            <td>Annanas in a tin can</td>
-            <td>1020g / year</td>
+            <td>Annanas 🥫</td>
             <td>18 months</td>
             <td>0.79 € / 340g (<a href="https://de.wikipedia.org/wiki/Abtropfgewicht">Abtropfgewicht</a>)</td>
-            <td>2.37 € / year</td>
             <td>1.85 € / 680g</td>
         </tr>
         <tr>
             <td>Kiwi</td>
-            <td>12 pieces / year</td>
             <td>2 weeks</td>
             <td>0.29 € / piece to 0.39 € / piece</td>
-            <td>4.68 € / year</td>
             <td>2.43 € / 8 pieces</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Vaccinium">Blueberries</a> (Heidelbeeren)</td>
-            <td>1.5 kg / year</td>
             <td>2 weeks</td>
             <td>1.29 € / 125g</td>
-            <td>15.48 € / year</td>
             <td>3.28 € / 375g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Diospyros_kaki">Kaki</a> / Sharonfrucht</td>
-            <td>5 kg / year</td>
             <td>2 weeks (?)</td>
             <td>1.79 € / kg (0.47 € / piece .. roughly 250g)</td>
-            <td>8.95 € / year</td>
             <td>3.05 € / 1.69 kg</td>
         </tr>
         <tr>
             <td>Feigen (frisch)</td>
             <td></td>
-            <td></td>
             <td>0.99 € / 4 pieces, 1.29 € / 8 pieces</td>
-            <td></td>
             <td>4.89 € / 20 pieces</td>
         </tr>
         <tr>
             <td>Figs medium dry (Feigen halbtrocken)</td>
-            <td>?</td>
             <td>6 months</td>
             <td>1.99 € / 650g</td>
-            <td>?</td>
             <td>4.38 € / 650g</td>
         </tr>
         <tr>
             <td>Dates (Datteln)</td>
-            <td>3kg / year</td>
             <td>9 months</td>
             <td>1.49 € / 250g</td>
-            <td>17.88 € / year</td>
             <td>14.19 € / 2500 g</td>
         </tr>
         <tr>
             <td>Citrons (Zitronen)</td>
-            <td></td>
             <td>2 weeks ?</td>
             <td>0.79 € / 500g - 1.19 € / 500g</td>
-            <td></td>
             <td>4.79 € / 15 pieces</td>
         </tr>
+        <tr>
+            <td>Limetten</td>
+            <td>2 weeks?</td>
+            <td>1.69 € / 5 pieces</td>
+            <td>1.69 € / 5 pieces</td>
+        </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>127.10 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 
@@ -867,43 +850,33 @@ Fabrics:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
-            <th>2020</th>
+            <th>Usage 2020</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Potato (🇩🇪 Kartoffeln)</td>
-            <td></td>
             <td>3 months (?)</td>
             <td>0.75 € / 2kg</td>
-            <td></td>
             <td>2.49 € / 2.5 kg</td>
         </tr>
         <tr>
             <td>Carrots (🇩🇪 Karotten / Möhren)</td>
-            <td></td>
             <td>3 months (?)</td>
             <td>0.89 €/1kg - 1.19€/1kg; 0.99 € / 2kg</td>
-            <td></td>
             <td>9.17 € / 10.443 kg</td>
         </tr>
         <tr>
             <td>Brokkoli (Broccoli)</td>
-            <td></td>
             <td>2 weeks</td>
             <td>0.86 € / 500g to 1.49 € / 500g</td>
-            <td></td>
             <td>8.81 € / 6000g</td>
         </tr>
         <tr>
             <td>Radisichen</td>
-            <td></td>
             <td>0.29 € / Bund</td>
-            <td></td>
             <td></td>
             <td>0.29 € / Bund</td>
         </tr>
@@ -911,150 +884,112 @@ Fabrics:
             <td>Zuckererbsen</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
             <td>1.79 € / 200g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Cabbage">Cabbage</a> (🇩🇪 Weißkohl)</td>
-            <td></td>
             <td>3 months</td>
-            <td></td>
             <td></td>
             <td>0.79 € / 2.04 kg (1 piece)</td>
         </tr>
         <tr>
             <td>Purple cabbage coleslaw (🇩🇪 Tafelfertiger Rotkohl)</td>
-            <td></td>
             <td>2.5 years</td>
             <td>0.57 € /0.65kg - 1.39 € / 0.65 kg</td>
-            <td></td>
             <td>6.32 € / 3.90 kg</td>
         </tr>
         <tr>
             <td>Spring onion (🇩🇪 Frühlingszwiebeln / Lauchzwiebeln)</td>
-            <td>1 bundle / 2 weeks</td>
             <td>2 weeks (?)</td>
             <td>0.59 € / bundle - 0.87 € / bundle</td>
-            <td>15.39 € / year</td>
             <td>5.91 € / 9 bundles</td>
         </tr>
         <tr>
             <td>Onion (🇩🇪 Speisezwiebeln)</td>
-            <td>2 kg / 3 months</td>
             <td>2 months (?)</td>
             <td>0.98 € / 2kg - 1.69 € / 2kg</td>
-            <td>3.16 € / year</td>
             <td>8.35 € / 11kg</td>
         </tr>
         <tr>
             <td>Garlic (🇩🇪 Knoblauch)</td>
-            <td>36 bulbs / year</td>
             <td>2 months (?)</td>
             <td>0.77 € - 0.89 € / 3 bulbs</td>
-            <td>10.68 € / year</td>
             <td>2.91 € / 12 bulbs</td>
         </tr>
         <tr>
             <td>Red beans (🇩🇪 Kidneybohnen)</td>
             <td></td>
-            <td></td>
             <td>0.39 € / 400g</td>
-            <td>0 € / year</td>
             <td>0.98 € / 800g</td>
         </tr>
         <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Phaseolus_vulgaris">Beans</a> (🇩🇪 Buschbohnen, Prinzessinenbohnen)</td>
-            <td>3kg</td>
+            <td><a href="https://en.wikipedia.org/wiki/Phaseolus_vulgaris">Beans</a> (🇩🇪 Buschbohnen, Prinzessbohnen)</td>
             <td>1 month</td>
             <td>1.79 € / 250g</td>
-            <td>21.48 € / year</td>
-            <td>4.23 € / 450g</td>
+            <td>5.96 € / 700g</td>
         </tr>
         <tr>
             <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten, Rispen-Tomaten)</td>
-            <td></td>
             <td>1 week</td>
             <td>1.49 € / 250g (1 package) or 0.95 € / 500g - 1.19 € / 500g for Roma-Tomaten</td>
-            <td></td>
             <td>20.14 € / 5822g</td>
         </tr>
         <tr>
             <td>Corn in a can (🇩🇪Mais in der Dose)</td>
-            <td>2520g</td>
             <td>33 months</td>
             <td>0.99 € / 420g - 1.29 € / 420g (🇩🇪 Abtropfgewicht)</td>
-            <td>7.14 € / year</td>
             <td>9.72 € / 3360g</td>
         </tr>
         <tr>
             <td>🇩🇪 Maiskölbchen</td>
-            <td></td>
             <td>18 months</td>
             <td>0.89 € / 190g  (🇩🇪 Abtropfgewicht)</td>
-            <td></td>
             <td>0.89 € / 190g</td>
         </tr>
         <tr>
             <td>Zuckermais (frisch)</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
             <td>1.69 € / 2 pieces</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Capsicum">Pepper</a> (🇩🇪 Paprika)</td>
-            <td>6 kg / year</td>
             <td>2 weeks</td>
             <td>4.38 € / kg - 5.90 € / kg</td>
-            <td>15.48 € / year</td>
             <td>5.48 € / 1.492 kg</td>
         </tr>
         <tr>
             <td>Champignons</td>
-            <td>6kg / year</td>
             <td>?</td>
             <td>0.57 € /280g - 1.95 € / 400g</td>
-            <td>16.68 € / year</td>
             <td>4.68 € / 1360g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
-            <td>6kg / year (<span title="one piece is about 262g">*</span>)</td>
             <td>1 month (?)</td>
             <td>0.89 € / kg to 1.99 € / kg</td>
-            <td>11.94 € / kg</td>
             <td>2.48 € / 1.374kg</td>
         </tr>
         <tr>
             <td>Olives (entkernte Oliven im Glas)</td>
-            <td></td>
             <td>3 years</td>
             <td>0.57 € / 160g - 0.79 € / 160g</td>
-            <td></td>
             <td>2.89 € / 640g</td>
         </tr>
         <tr>
             <td>Kapern</td>
-            <td></td>
             <td>3 years</td>
             <td>0.97 € / 60g</td>
-            <td></td>
             <td>0.97 € / 60g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Cucumber">Cucumber</a> (🇩🇪 Gurke)</td>
-            <td></td>
             <td>1 week</td>
             <td>0.49 € / piece</td>
-            <td></td>
             <td>2.40 € / 4 piece</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Avocado">Avocado</a></td>
-            <td></td>
-            <td></td>
             <td></td>
             <td></td>
             <td>1.29 € / 1 piece</td>
@@ -1062,28 +997,54 @@ Fabrics:
         <tr>
             <td>Ingwer</td>
             <td></td>
-            <td></td>
             <td>5.90 € / kg</td>
-            <td></td>
             <td>0.48 € / 0.082kg</td>
         </tr>
         <tr>
             <td>Salad (Feldsalat, Kopfsalat)</td>
-            <td></td>
             <td>1 week</td>
             <td>0.49 € / 1 piece Eisbergsalat</td>
-            <td></td>
             <td>1.88 € / 2 piece</td>
         </tr>
         <tr>
             <td>Buttergemüße</td>
-            <td></td>
             <td>months 🧊</td>
             <td>0.57 € / 300g - 0.59 € / 300g, 0.89 € / 450g</td>
-            <td></td>
             <td>2.64 € / 1350g</td>
         </tr>
+        <tr>
+            <td>Pak Choi</td>
+            <td>?</td>
+            <td>5.85 € / kg</td>
+            <td>2.78 € / 475g</td>
+        </tr>
+        <tr>
+            <td>Gangat</td>
+            <td>?</td>
+            <td>2.60 € / 100g</td>
+            <td>2.60 € / 100g</td>
+        </tr>
+        <tr>
+            <td>Tamarind</td>
+            <td>30 months</td>
+            <td>2.59 € / 454g</td>
+            <td>2.59 € / 454g</td>
+        </tr>
+        <tr>
+            <td>Minze</td>
+            <td>1 week</td>
+            <td>0.96 € / 25g</td>
+            <td>0.96 € / 25g</td>
+        </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>116.01 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 ### Bread-based
@@ -1092,319 +1053,249 @@ Fabrics:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>Usage 2020</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Baguette</td>
-            <td>1 / week</td>
             <td>1 month (?)</td>
             <td>0.69 € / pice</td>
-            <td>35.88 € / year</td>
             <td>2.23 € / 3 pieces</td>
         </tr>
         <tr>
             <td>Bread roll (🇩🇪 Brötchen / Semmel, e.g. Kaisersemmel)</td>
-            <td>100 / year</td>
             <td>1 day</td>
             <td>0.30 €/piece - 0.85 €/ piece</td>
-            <td>85.00 € / year</td>
             <td>8.84 € / 20 piece</td>
         </tr>
         <tr>
             <td>Brezel</td>
             <td></td>
-            <td></td>
             <td>0.70 € / piece</td>
-            <td></td>
             <td>0.70 € / 1 piece</td>
         </tr>
         <tr>
             <td>Buns (Hamburger Brötchen)</td>
-            <td></td>
             <td>1 month</td>
             <td>0.68 € / 6 pieces</td>
-            <td></td>
             <td>0.68 € / 6 pieces</td>
         </tr>
         <tr>
             <td>Toast (Sandwichtoast)</td>
-            <td>750g / week (?)</td>
             <td>2 weeks (?)</td>
             <td>0.89 € / 750g or 0.57 € /500g - 1.29 € / 500g</td>
-            <td>23.01 € / year</td>
             <td>10.56 € / 7500g</td>
         </tr>
         <tr>
             <td>Bread (Brot: Eiweis-Brot, Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot, Kürbiskernbrot)</td>
-            <td></td>
             <td>4 days</td>
             <td>0.99 € / 500g and 1.95 € / 500g and 1.29 € / 500g</td>
-            <td></td>
             <td>43.44 € / 7.0 kg</td>
         </tr>
         <tr>
             <td>Früchtebrot</td>
             <td></td>
-            <td></td>
             <td>2.49 € / 500g</td>
-            <td></td>
             <td>2.49 € / 500g</td>
         </tr>
         <tr>
             <td>Brotbackmischung</td>
-            <td></td>
             <td>18 months</td>
-            <td>0.89 € / 1kg</td>
-            <td></td>
-            <td>0.89 € / 1kg</td>
+            <td>0.86€/1kg - 0.89 € / 1kg</td>
+            <td>2.64 € / 3kg</td>
         </tr>
         <tr>
             <td>Tacos</td>
-            <td></td>
             <td>4 months</td>
             <td>1.50 € / 12 pieces</td>
-            <td></td>
             <td>1.50 € / 12 pieces</td>
         </tr>
         <tr>
             <td>Croissants</td>
-            <td>104 pieces / year</td>
             <td>1 day (3 weeks for backing)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece - 1.80 € / 1 piece at the baker</td>
-            <td>32.54 € / year</td>
             <td>21.28 € / 26 piece</td>
         </tr>
         <tr>
             <td>Körnersemmel, Weltmeisterbrötchen, Pfefferstange, ...</td>
             <td></td>
-            <td></td>
             <td>0.90 € /piece - 1.50 € / piece</td>
-            <td></td>
             <td>6.30 € / 5 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
-            <td></td>
             <td>1 day</td>
             <td>0.89 € / piece</td>
-            <td></td>
             <td>0.89 € / 1 piece</td>
         </tr>
         <tr>
             <td>🇩🇪 <a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
-            <td>100 pieces</td>
             <td>?</td>
             <td>1.29 € / 10 pieces</td>
-            <td>12.90 €</td>
             <td>1.29 € / 10 pieces</td>
         </tr>
         <tr>
             <td>🇩🇪 Laugenstange</td>
-            <td></td>
             <td>?</td>
             <td>1.29 € / 8 pieces</td>
-            <td></td>
             <td>1.98 € / 9 pieces</td>
         </tr>
         <tr>
             <td>Butter (not salted)</td>
-            <td>250g / 2 weeks (?)</td>
             <td>3 months</td>
             <td>1.07 € /250g - 1.39 € / 250g</td>
-            <td>33.54 € / year</td>
             <td>40.28 € / 7000g</td>
         </tr>
         <tr>
             <td>Margarine (Letta)</td>
-            <td>?</td>
             <td>2 months</td>
             <td>0.75 €/500g - 1.79 € / 500g</td>
-            <td>?</td>
             <td>3.84 € / 1250g (3 packages)</td>
         </tr>
         <tr>
             <td>Kräuterbutter</td>
             <td>?</td>
-            <td>?</td>
             <td>0.77 € / 100g</td>
-            <td>?</td>
             <td>0.77 € / 100g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mustard_(condiment)">Mustard</a> (medium-hot; Senf)</td>
-            <td>200 ml / month</td>
             <td>9 months</td>
             <td>0.47 € / 200ml - 0.49 € / 200ml</td>
-            <td>5.88 € / year</td>
             <td>2.43 € / 1000ml</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mayonnaise">Mayonnaise</a></td>
-            <td></td>
             <td>6 months</td>
             <td>1.69 € / 200ml</td>
-            <td></td>
             <td>5.07 € / 600ml</td>
         </tr>
         <tr>
             <td>Remoulade</td>
-            <td></td>
             <td>6 months</td>
             <td>1.63 € /200ml - 1.69 € / 200ml</td>
-            <td></td>
             <td>5.01 € / 600ml</td>
         </tr>
         <tr>
             <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse; Almzeit; Parmigiano Reggiano; Brie)</td>
-            <td>400g / 2 weeks</td>
             <td>1 to 4 months ❄️</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano; 1.15 € /200g - 1.19 € / 200g für Brie</td>
-            <td>67.34 € / year</td>
             <td>108.93 € / 14.60kg</td>
         </tr>
         <tr>
             <td>Schmelzscheiben für Toast Hawaii</td>
             <td></td>
-            <td></td>
             <td>0.99 € / 250g</td>
-            <td></td>
             <td>0.99 € / 250g</td>
         </tr>
         <tr>
             <td>Frischkäse (Ananas Frischkäse-Ring)</td>
-            <td></td>
             <td>6 weeks</td>
             <td>0.96 € /125g - 0.99 € / 125g</td>
-            <td></td>
             <td>8.82 € / 1125g</td>
         </tr>
         <tr>
             <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
-            <td>-</td>
             <td>3 months</td>
-            <td>-</td>
             <td>-</td>
             <td>2.59 € / 150g</td>
         </tr>
         <tr>
             <td>Cheese (Mozzarella)</td>
             <td></td>
-            <td></td>
             <td>0.57 € / 125g - 0.69 € / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
-            <td></td>
             <td>17.34 € / 3400g</td>
         </tr>
         <tr>
             <td>Ofenkäse</td>
-            <td></td>
             <td>3 weeks</td>
             <td>1.63 € / 180 g</td>
-            <td></td>
             <td>1.63 € / 180 g</td>
         </tr>
         <tr>
             <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
-            <td>1 package / month</td>
             <td></td>
             <td>0.89 € / (package); 1.49 € / 300g</td>
-            <td>10.68 € / year</td>
             <td>7.34 € / 1200g</td>
         </tr>
         <tr>
             <td>Vegetarian sausage (Veggi Aufschniitt)</td>
-            <td></td>
             <td>1 month</td>
             <td>1.39 € / 125g</td>
-            <td></td>
             <td>1.39 € / 125g</td>
         </tr>
         <tr>
             <td>🇩🇪 Marmelade / Konfitüre (Strawberry, Preiselbeeren)</td>
-            <td>?</td>
             <td>18 months</td>
             <td>1.29 € / 450g</td>
-            <td></td>
             <td>5.84 € / 2650g</td>
         </tr>
         <tr>
             <td>Obatzter (Obazda)</td>
-            <td></td>
             <td>2 months</td>
             <td>1.49€/125g - 1.59€/125g</td>
-            <td></td>
             <td>12.81 € / 1100g</td>
         </tr>
         <tr>
             <td>Hummus</td>
-            <td></td>
             <td>2 weeks</td>
             <td>0.99 € / 200g</td>
-            <td></td>
             <td>6.87 € / 1400g</td>
         </tr>
         <tr>
             <td>Crème fraîche based spread (Tomaten-Mozzarella Brotaufstrich / Thunfisch)</td>
-            <td></td>
             <td>2 weeks</td>
             <td>0.89 € / 150g</td>
-            <td></td>
             <td>13.51 € / 2250g</td>
         </tr>
         <tr>
             <td>Antipasti (Brotaufstrich/Salat)</td>
-            <td></td>
             <td>2 weeks</td>
             <td>1.59€/150g - 1.79 € / 150g</td>
-            <td></td>
             <td>10.34€ / 900g</td>
         </tr>
         <tr>
             <td>Sonstiger Brotaufstrich</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
             <td>0.97 € / 150g</td>
         </tr>
         <tr>
             <td>Nougat Creme / Schokocreme (e.g. Nutella)</td>
-            <td>?</td>
             <td>1 year</td>
             <td>0.59 €/400g - 1.29 € / 400g</td>
-            <td>?</td>
             <td>4.46 € / 1600g</td>
         </tr>
         <tr>
             <td>Peanut Butter (Erdnuss-Creme)</td>
-            <td></td>
             <td>1 year</td>
             <td>1.69 € / 350g</td>
-            <td></td>
             <td>1.69 € / 350g</td>
         </tr>
         <tr>
             <td>Honey (Honig)</td>
-            <td>?</td>
             <td>1 year</td>
             <td>1.92 €/500g - 2.89 € / 500g</td>
-            <td>?</td>
             <td>4.81 € / 1000g</td>
         </tr>
         <tr>
             <td>Lachsaufschnitt</td>
-            <td></td>
             <td>?</td>
             <td>3.62 € / 150g</td>
-            <td></td>
             <td>3.62 € / 150g</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>374.42 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 
@@ -1416,103 +1307,93 @@ I also count mixes like "Knorr fix" / "Maggi" in here.
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
-            <th>2020</th>
+            <th>Usage 2020</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Salt (Salz)</td>
-            <td>500g / year (?)</td>
             <td>many years</td>
             <td>0.19 € / kg</td>
-            <td>0.19 € / year</td>
             <td>0</td>
         </tr>
         <tr>
             <td>Pepper (Pfeffer)</td>
-            <td>100g / year</td>
             <td>3 years</td>
             <td>0.59 € / 50g</td>
-            <td>1.18 € / year</td>
             <td>1.16 € / 100g</td>
         </tr>
         <tr>
             <td>Garlic powder (Knoblauch-Gewürzpulver)</td>
-            <td></td>
             <td>3 years</td>
             <td>0.49 € / 70g</td>
-            <td></td>
             <td>0.98 € / 140g</td>
         </tr>
         <tr>
             <td>Muskatnuss-Gewürzpulver</td>
-            <td></td>
             <td>3 years</td>
             <td>1.19 € / 50g</td>
-            <td></td>
             <td>1.19 € / 50g</td>
         </tr>
         <tr>
             <td>Oregano</td>
-            <td></td>
             <td>3 years</td>
             <td>1.85 € / 70g</td>
-            <td></td>
             <td>1.85 € / 70g</td>
         </tr>
         <tr>
             <td>Knorr Fix, Maggi or Similar (Nudelgratin / Lasagne / Geschnetzeltes / Jägersauce)</td>
-            <td></td>
             <td>1 year (?)</td>
             <td>0.28 € / package - 1.19 € / package</td>
-            <td></td>
             <td>7.74 € / 16 package</td>
         </tr>
         <tr>
             <td>Gemüsebrühe</td>
-            <td></td>
             <td>22 months</td>
             <td>0.59 €</td>
-            <td></td>
             <td>0.59 € / 140g</td>
         </tr>
         <tr>
             <td>Fresh Basil (Frischer Basilikum)</td>
-            <td></td>
             <td>years?</td>
             <td>1.76 € / plant</td>
-            <td></td>
             <td>1.76 € / 1 plant</td>
         </tr>
         <tr>
             <td>Pommes-Gewürz / Steak & Grill Gewürz</td>
-            <td></td>
             <td>4 years</td>
             <td>1.95 € / 60g</td>
-            <td></td>
             <td>3.90 € / 120g</td>
         </tr>
         <tr>
             <td>Küchenkräuter (Schnittlauch)</td>
-            <td></td>
             <td>?</td>
             <td>0.99 € / 12.5g</td>
-            <td></td>
             <td>0.99 € / 12.5g</td>
         </tr>
         <tr>
             <td>Kräutersalz (Tomatensalz)</td>
-            <td></td>
             <td>9 months</td>
             <td>1.69 € / 60g</td>
-            <td></td>
             <td>1.69 € / 60g</td>
         </tr>
+        <tr>
+            <td>Pandan Paste</td>
+            <td>3 years</td>
+            <td>1.49 € / 25ml</td>
+            <td>1.49 € / 25ml</td>
+        </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>21.85 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 
@@ -1522,175 +1403,141 @@ General Cooking:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>2020</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Milk (Milch)</td>
-            <td>1 L / week</td>
             <td>2 months (?)</td>
-            <td>0.65 € / L - 0.69 € / L</td>
-            <td>33.90 € / year</td>
-            <td>18.61 € / 27 L</td>
+            <td>0.65 € / L - 0.70 € / L</td>
+            <td>20.01 € / 29 L</td>
         </tr>
         <tr>
             <td>Gezuckerte Kondensmilch</td>
             <td></td>
-            <td></td>
             <td>1.99 € / 397g</td>
-            <td></td>
             <td>1.99 € / 397g</td>
         </tr>
         <tr>
             <td>Haferdrink / Hafermilch</td>
-            <td></td>
             <td>8 months</td>
             <td>0.99 € / L</td>
-            <td></td>
             <td>0.99 € / 1 L</td>
         </tr>
         <tr>
             <td>Sojadrink / Sojamilch</td>
-            <td></td>
             <td>10 months</td>
             <td>0.92 € / L</td>
-            <td></td>
             <td>0.92 € / L</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
-            <td>2.4 kg / year</td>
             <td>2 weeks</td>
             <td>0.63 € / 200 g</td>
-            <td>7.56 € / year</td>
             <td>7.80 € / 2400g</td>
         </tr>
         <tr>
             <td>Schmand</td>
-            <td></td>
             <td>6 weeks</td>
             <td>0.53 € / 200g</td>
-            <td></td>
             <td>0.53 € / 200g</td>
         </tr>
         <tr>
             <td>Saure Sahne</td>
-            <td></td>
             <td>2 weeks</td>
             <td>0.40 € / 200 g</td>
-            <td></td>
             <td>0.40 € / 200 g</td>
         </tr>
         <tr>
             <td>Creme Fraiche (30%)</td>
-            <td></td>
             <td>4 weeks</td>
             <td>0.67 € / 200g</td>
-            <td></td>
             <td>0.67 € / 200g</td>
         </tr>
         <tr>
             <td>Speisequark</td>
-            <td></td>
             <td>2 weeks?</td>
             <td>0.54 € / 200g?</td>
-            <td></td>
             <td>0.54 € / 200g</td>
         </tr>
         <tr>
             <td>Haferflocken</td>
-            <td></td>
             <td>1 year</td>
             <td>0.47 € / 500g - 0.96 € / 500g</td>
-            <td></td>
             <td>3.35 € / 4000g</td>
         </tr>
         <tr>
             <td>Müsli (Nougat/Granola Bits)</td>
-            <td></td>
             <td>1 year</td>
             <td>1.99 € / 750g or 2.49 / 500g</td>
-            <td></td>
             <td>22.39 € / 8000g</td>
         </tr>
         <tr>
             <td>Sunflower oil (Sonnenblumenöl)</td>
-            <td>1 L / month</td>
             <td>1 year</td>
             <td>0.99 € / L - 1.09 € / L</td>
-            <td>11.88 € / year</td>
             <td>10.92 € / 10 L</td>
         </tr>
         <tr>
             <td>Rapsöl</td>
-            <td>1 L / month</td>
             <td>1 year</td>
             <td>0.97 € / L</td>
-            <td></td>
             <td>0.97 € / 1 L</td>
         </tr>
         <tr>
             <td>Olivenöl</td>
-            <td></td>
             <td>1 year</td>
             <td>3.59 € / 750 ml</td>
-            <td></td>
             <td>3.59 € / 750 ml</td>
         </tr>
         <tr>
-            <td>Sugar</td>
-            <td>1 kg / 6 months</td>
-            <td>many years?</td>
-            <td>0.85 € / kg</td>
-            <td>1.70 € / year</td>
-            <td>0</td>
+            <td>Sugar (Zucker)</td>
+            <td>10 years</td>
+            <td>0.75 € / kg - 0.79 € / kg</td>
+            <td>2.31 € / 3 kg</td>
+        </tr>
+        <tr>
+            <td>Palm Sugar</td>
+            <td>3 years</td>
+            <td>4.00 € / 250g</td>
+            <td>4.00 € / 250g</td>
         </tr>
         <tr>
             <td>Balsamic vinegar</td>
-            <td>500 ml / year</td>
             <td>4 years</td>
             <td>0.95 € / 500 ml</td>
-            <td>0.95 € / year</td>
             <td>0</td>
         </tr>
         <tr>
             <td>Balsamico Crema</td>
-            <td></td>
             <td>2 years 9 months</td>
             <td>1.99 € / 250ml</td>
-            <td></td>
             <td>19.99 € / 2500ml</td>
         </tr>
         <tr>
             <td>Wheat Flour (Weizenmehl)</td>
-            <td>1 kg / year</td>
             <td>1 year</td>
             <td>0.38 €/kg - 0.39 € / kg</td>
-            <td>0.39 € / year</td>
             <td>3.11 € / 6 kg</td>
-        </tr>
-        <tr>
-            <td>Zucker</td>
-            <td></td>
-            <td>10 years</td>
-            <td>0.75 € / kg - 0.79 € / kg</td>
-            <td></td>
-            <td>2.31 € / 3 kg</td>
         </tr>
         <tr>
             <td>Tapioka Mehl</td>
             <td></td>
-            <td></td>
             <td>0.99 € / 400g</td>
-            <td></td>
             <td>0.99 € / 400g</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>105.47 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 ### Asian
@@ -1702,7 +1549,6 @@ General Cooking:
             <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>2020</th>
         </tr>
     </thead>
@@ -1712,7 +1558,6 @@ General Cooking:
             <td></td>
             <td>1 year 6 months</td>
             <td></td>
-            <td></td>
             <td>4.47 € / 780g</td>
         </tr>
         <tr>
@@ -1720,7 +1565,6 @@ General Cooking:
             <td></td>
             <td>1 year 6 months</td>
             <td>0.96 € / 400ml - 0.99 € / 400ml</td>
-            <td></td>
             <td>3.90 € / 1600ml</td>
         </tr>
         <tr>
@@ -1728,14 +1572,12 @@ General Cooking:
             <td>500g / 2 months (?)</td>
             <td>2 years</td>
             <td>10 € / kg</td>
-            <td>30.00 € / year</td>
             <td>2.29 € / 295ml</td>
         </tr>
         <tr>
             <td>Sweet Chilisauce</td>
             <td></td>
             <td>1 year 4 months</td>
-            <td></td>
             <td></td>
             <td>7.97 € / 1390ml</td>
         </tr>
@@ -1744,7 +1586,6 @@ General Cooking:
             <td></td>
             <td>6 months</td>
             <td>0.26 € / 50g; 1.11 € / 250ml</td>
-            <td></td>
             <td>5.07 € / 1350ml</td>
         </tr>
         <tr>
@@ -1752,7 +1593,6 @@ General Cooking:
             <td>600 ml / 2 months (?)</td>
             <td>1 year</td>
             <td>3.99 € / 600ml</td>
-            <td>23.94 € / year</td>
             <td>0</td>
         </tr>
         <tr>
@@ -1760,7 +1600,6 @@ General Cooking:
             <td>1 kg / 2 months</td>
             <td>2 years</td>
             <td>1.89 € / kg - 1.92 € / kg</td>
-            <td>11.34 € / year</td>
             <td>19.76 € / 10kg</td>
         </tr>
         <tr>
@@ -1768,20 +1607,17 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>2.99 € / kg</td>
-            <td></td>
             <td>7.97 € / 3000g</td>
         </tr>
         <tr>
             <td>Mochi</td>
             <td></td>
             <td>1 year</td>
-            <td></td>
-            <td></td>
-            <td>11.97 € / 1020g</td>
+            <td>2.99 € / 180g</td>
+            <td>14.96 € / 1200g</td>
         </tr>
         <tr>
             <td>Fortune Cookie (🇩🇪 Glückskeks)</td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -1792,7 +1628,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td>1.79 € / 200g</td>
         </tr>
         <tr>
@@ -1800,14 +1635,12 @@ General Cooking:
             <td></td>
             <td></td>
             <td>2.99 € / 28g</td>
-            <td></td>
             <td>5.38 € / 48g</td>
         </tr>
         <tr>
             <td>Instant Noodles (Instant-Nudeln)</td>
             <td></td>
             <td>9 months</td>
-            <td></td>
             <td></td>
             <td>2.64 € / 6 piece</td>
         </tr>
@@ -1816,12 +1649,10 @@ General Cooking:
             <td></td>
             <td></td>
             <td>3.59 € / 500g</td>
-            <td></td>
             <td>7.28 € / 1000g</td>
         </tr>
         <tr>
             <td>Mogu MoGu</td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -1832,7 +1663,6 @@ General Cooking:
             <td></td>
             <td>6 months</td>
             <td></td>
-            <td></td>
             <td>2.99 € / 60g</td>
         </tr>
         <tr>
@@ -1840,7 +1670,6 @@ General Cooking:
             <td></td>
             <td>1 month</td>
             <td>1.99 € / 400g</td>
-            <td></td>
             <td>3.39 € / 800g</td>
         </tr>
         <tr>
@@ -1848,7 +1677,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.79 € / 394g</td>
-            <td></td>
             <td>1.79 € / 394g</td>
         </tr>
         <tr>
@@ -1856,14 +1684,12 @@ General Cooking:
             <td></td>
             <td>4 weeks</td>
             <td>1.49 € / 100g</td>
-            <td></td>
             <td>2.48 € / 150g</td>
         </tr>
         <tr>
             <td>Kokosnussmilch</td>
             <td></td>
             <td>18 months</td>
-            <td></td>
             <td></td>
             <td>2.97 € / 1600ml</td>
         </tr>
@@ -1872,7 +1698,6 @@ General Cooking:
             <td></td>
             <td>18 months</td>
             <td>1.79 € / piece</td>
-            <td></td>
             <td>7.15 € / 5 pieces</td>
         </tr>
         <tr>
@@ -1880,12 +1705,10 @@ General Cooking:
             <td></td>
             <td>2 weeks?</td>
             <td>1.46 € / 50g</td>
-            <td></td>
             <td>1.46 € / 50g</td>
         </tr>
         <tr>
             <td>Reisessig</td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -1896,7 +1719,6 @@ General Cooking:
             <td></td>
             <td>14 months</td>
             <td>4.99 € / 500ml</td>
-            <td></td>
             <td>4.99 € / 500ml</td>
         </tr>
         <tr>
@@ -1904,7 +1726,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.99 € / 140ml</td>
-            <td></td>
             <td>1.99 € / 140ml</td>
         </tr>
         <tr>
@@ -1912,7 +1733,6 @@ General Cooking:
             <td></td>
             <td>1 year 3 months</td>
             <td>0.75 € / 300ml</td>
-            <td></td>
             <td>0.75 € / 300ml</td>
         </tr>
     </tbody>
@@ -1927,7 +1747,6 @@ General Cooking:
             <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>2020</th>
         </tr>
     </thead>
@@ -1937,7 +1756,6 @@ General Cooking:
             <td></td>
             <td>2.5 years</td>
             <td>0.48 € / 500g - 0.59 € / 500g</td>
-            <td></td>
             <td>7.00 € / 5000g</td>
         </tr>
         <tr>
@@ -1945,7 +1763,6 @@ General Cooking:
             <td>3 kg / year</td>
             <td>4 months</td>
             <td>0.69 € / 250g</td>
-            <td>8.28 €</td>
             <td>2.07 € / 750g</td>
         </tr>
         <tr>
@@ -1953,7 +1770,6 @@ General Cooking:
             <td></td>
             <td>6 months</td>
             <td>1.99 € / 200g - 2.90 € / 200g</td>
-            <td></td>
             <td>11.80 € / 1000g</td>
         </tr>
         <tr>
@@ -1961,15 +1777,13 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.29 € / 400g</td>
-            <td></td>
             <td>1.29 € / 400g</td>
         </tr>
         <tr>
             <td>Gehackte Tomaten</td>
             <td></td>
-            <td>3 years (in Tin can)</td>
+            <td>3 years 🥫</td>
             <td>0.48 € / 400g</td>
-            <td></td>
             <td>0.48 € / 400g</td>
         </tr>
         <tr>
@@ -1977,7 +1791,6 @@ General Cooking:
             <td></td>
             <td>1 year</td>
             <td>0.39 € / 500g</td>
-            <td></td>
             <td>1.17 € / 1000g</td>
         </tr>
     </tbody>
@@ -1992,7 +1805,6 @@ General Cooking:
             <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>2020</th>
         </tr>
     </thead>
@@ -2002,7 +1814,6 @@ General Cooking:
             <td></td>
             <td>days 🧊</td>
             <td>1.99 € / package</td>
-            <td></td>
             <td>9.88 € / 4 packages</td>
         </tr>
         <tr>
@@ -2010,15 +1821,13 @@ General Cooking:
             <td></td>
             <td>2 years 🧊</td>
             <td>1.93 € / 380g - 3.13 € / 380g</td>
-            <td></td>
             <td>7.21 € / 1140g</td>
         </tr>
         <tr>
-            <td>Fish in tin can (Hering / Thunfisch)</td>
+            <td>Fish 🥫 (Hering / Thunfisch)</td>
             <td></td>
             <td>4 years</td>
             <td>1.49 € / 200g</td>
-            <td></td>
             <td>5.40 € / 460g</td>
         </tr>
         <tr>
@@ -2026,7 +1835,6 @@ General Cooking:
             <td></td>
             <td>🧊</td>
             <td>3.99 € / 200g - 4.79 € / 200g</td>
-            <td></td>
             <td>12.77 € / 600g</td>
         </tr>
         <tr>
@@ -2034,7 +1842,6 @@ General Cooking:
             <td>1.2 kg</td>
             <td>5 days 🧊</td>
             <td>2.89 € / 400g - 3.29 € / 400g</td>
-            <td>8.97 € / year</td>
             <td>26.63 € / 3600g</td>
         </tr>
         <tr>
@@ -2042,7 +1849,6 @@ General Cooking:
             <td>600g</td>
             <td>3 weeks 🧊</td>
             <td>5.39 € / 600g</td>
-            <td>5.39 € / year</td>
             <td>5.39 € / 600g</td>
         </tr>
         <tr>
@@ -2050,7 +1856,6 @@ General Cooking:
             <td></td>
             <td>14 days</td>
             <td>24.99 € / kg</td>
-            <td></td>
             <td>12.85 € / 514g</td>
         </tr>
         <tr>
@@ -2058,7 +1863,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>2.41 € / 225g</td>
-            <td></td>
             <td>2.41 € / 225g</td>
         </tr>
         <tr>
@@ -2066,7 +1870,6 @@ General Cooking:
             <td>4.8 kg</td>
             <td>?</td>
             <td>2.69 € / 400g</td>
-            <td>32.28 € / year</td>
             <td>25.41 € / 3700g</td>
         </tr>
         <tr>
@@ -2074,7 +1877,6 @@ General Cooking:
             <td></td>
             <td>?</td>
             <td>2.89 € / 400g</td>
-            <td></td>
             <td>5.69 € / 800g</td>
         </tr>
         <tr>
@@ -2082,7 +1884,6 @@ General Cooking:
             <td></td>
             <td>🧊</td>
             <td>1.69 € / 500g - 1.79 € / 500g</td>
-            <td></td>
             <td>6.50 € / 2000g</td>
         </tr>
         <tr>
@@ -2090,7 +1891,6 @@ General Cooking:
             <td>?</td>
             <td>1 month</td>
             <td>2.59 € / 800g</td>
-            <td>?</td>
             <td>9.20 € / 2700g</td>
         </tr>
         <tr>
@@ -2098,7 +1898,6 @@ General Cooking:
             <td></td>
             <td>2 months</td>
             <td>1.49 € / 150g</td>
-            <td></td>
             <td>15.43€ / 1200g</td>
         </tr>
         <tr>
@@ -2106,7 +1905,6 @@ General Cooking:
             <td>2.8 kg</td>
             <td>?</td>
             <td>2.19 € / 280g</td>
-            <td>21.90 € / year</td>
             <td>0</td>
         </tr>
         <tr>
@@ -2114,14 +1912,12 @@ General Cooking:
             <td></td>
             <td>1 month?</td>
             <td>1.99 € -2.21 €/ 500g</td>
-            <td></td>
             <td>10.61 € / 2500g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Tuna">Tuna</a> in tin (Thunfisch in der Dose)</td>
             <td></td>
             <td>2.5 years</td>
-            <td></td>
             <td></td>
             <td>0.99 € / 195g (Abtropfgewicht)</td>
         </tr>
@@ -2130,7 +1926,6 @@ General Cooking:
             <td></td>
             <td>1.5 years</td>
             <td>1.59 € / 860ml</td>
-            <td></td>
             <td>1.59 € / 860ml</td>
         </tr>
     </tbody>
@@ -2145,7 +1940,6 @@ General Cooking:
             <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>2020</th>
         </tr>
     </thead>
@@ -2155,7 +1949,6 @@ General Cooking:
             <td></td>
             <td>6 months</td>
             <td>2.49 € / 200g</td>
-            <td></td>
             <td>2.49 € / 200g</td>
         </tr>
         <tr>
@@ -2163,7 +1956,6 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>0.28 € / 150g</td>
-            <td></td>
             <td>0.28 € / 150g</td>
         </tr>
         <tr>
@@ -2171,7 +1963,6 @@ General Cooking:
             <td></td>
             <td>1 year</td>
             <td>0.96 € / 80g</td>
-            <td></td>
             <td>1.92 € / 160g</td>
         </tr>
         <tr>
@@ -2179,7 +1970,6 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>0.97 € / 1.5 L</td>
-            <td></td>
             <td>0.97 € / 1.5 L</td>
         </tr>
         <tr>
@@ -2187,7 +1977,6 @@ General Cooking:
             <td></td>
             <td>1 year</td>
             <td>1.25 € / 400g</td>
-            <td></td>
             <td>1.25 € / 400g</td>
         </tr>
         <tr>
@@ -2195,7 +1984,6 @@ General Cooking:
             <td></td>
             <td>6 months</td>
             <td>0.96 € / 100g</td>
-            <td></td>
             <td>0.96 € / 100g</td>
         </tr>
         <tr>
@@ -2203,7 +1991,6 @@ General Cooking:
             <td></td>
             <td>8 months</td>
             <td>1.59 € / 439g - 3.23 € / </td>
-            <td></td>
             <td>4.82 € / 819g</td>
         </tr>
         <tr>
@@ -2211,7 +1998,6 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>0.68 € / 200g</td>
-            <td></td>
             <td>0.68 € / 200g</td>
         </tr>
         <tr>
@@ -2219,7 +2005,6 @@ General Cooking:
             <td></td>
             <td>?</td>
             <td>1.27 € / ?</td>
-            <td></td>
             <td>1.27 € / ?</td>
         </tr>
         <tr>
@@ -2227,15 +2012,13 @@ General Cooking:
             <td></td>
             <td>?</td>
             <td>1.95 € / 120g or 0.57 € / 42g</td>
-            <td></td>
             <td>2.52 € / 162g</td>
         </tr>
         <tr>
-            <td>Sahnefest</td>
+            <td>Sahnefest/Sahnesteif</td>
             <td></td>
             <td>2 years</td>
             <td>0.29 € / 40g</td>
-            <td></td>
             <td>0.29 € / 40g</td>
         </tr>
         <tr>
@@ -2243,7 +2026,6 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>0.85 € / 30g</td>
-            <td></td>
             <td>0.85 € / 30g</td>
         </tr>
         <tr>
@@ -2251,7 +2033,6 @@ General Cooking:
             <td></td>
             <td>?</td>
             <td>0.59 € / 710g</td>
-            <td></td>
             <td>0.59 € / 710g</td>
         </tr>
     </tbody>
@@ -2266,7 +2047,6 @@ General Cooking:
             <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
-            <th>Cost per Year</th>
             <th>2020</th>
         </tr>
     </thead>
@@ -2274,17 +2054,15 @@ General Cooking:
         <tr>
             <td>Joghurt / Pudding / Sahne-Kefir / Milchreis (also as powder: Paradiesecreme)</td>
             <td>3 pieces / week</td>
-            <td>2 weeks (?)❄</td>
+            <td>2 weeks (?)❄️</td>
             <td>0.29 € / piece - 0.57 € / piece</td>
-            <td>45.37 €</td>
-            <td>52.25 € / 177 piece</td>
+            <td>52.54 € / 178 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
             <td></td>
-            <td>1 month ❄</td>
+            <td>1 month ❄️</td>
             <td>0.49 € / 500g to 0.75 € / 500g</td>
-            <td></td>
             <td>3.85 € / 3275g</td>
         </tr>
         <tr>
@@ -2292,20 +2070,17 @@ General Cooking:
             <td>-</td>
             <td>months to years</td>
             <td></td>
-            <td></td>
-            <td>147.10 € / 107 packages</td>
+            <td>148.15 € / 109 packages</td>
         </tr>
         <tr>
             <td>Ice Cream (Eis Creme)</td>
             <td></td>
             <td>2 years 🧊</td>
             <td>1.30 € / ball (1 ball = 80g); 1.93 € / 500g</td>
-            <td></td>
             <td>2.916 € / 5369g</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -2316,14 +2091,12 @@ General Cooking:
             <td></td>
             <td>1 day</td>
             <td></td>
-            <td></td>
             <td>6.15 / 11 pieces</td>
         </tr>
         <tr>
             <td>Bakery Sweets (<a href="https://de.wikipedia.org/wiki/Teilchen_(Backware)">Teilchen</a>; Bienenstichplunder)</td>
             <td></td>
             <td>1 day</td>
-            <td></td>
             <td></td>
             <td>14.14 € / 7 pieces</td>
         </tr>
@@ -2332,7 +2105,6 @@ General Cooking:
             <td>1.8 kg / year</td>
             <td>6 Months</td>
             <td>1.89 € / 150g</td>
-            <td>22.68 € / year</td>
             <td>1.89 € / 150g</td>
         </tr>
         <tr>
@@ -2340,7 +2112,6 @@ General Cooking:
             <td>50 pieces / year</td>
             <td>1 year</td>
             <td>0.59 € / 25 pieces</td>
-            <td>1.18 € / year</td>
             <td>1.15 € / 50 pieces</td>
         </tr>
         <tr>
@@ -2348,7 +2119,6 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>1.65 € / 25 pieces - 1.75 € / 20 pieces</td>
-            <td></td>
             <td>3.40 € / 45 pieces</td>
         </tr>
         <tr>
@@ -2356,7 +2126,6 @@ General Cooking:
             <td>36 pieces / year</td>
             <td>?</td>
             <td>0.95 € / 6 pieces</td>
-            <td>5.70 € / year</td>
             <td>0 €</td>
         </tr>
         <tr>
@@ -2364,7 +2133,6 @@ General Cooking:
             <td>3kg / year</td>
             <td>1 year</td>
             <td>0.76 € / 150g - 0.99 € / 150g</td>
-            <td>19.80 € / year</td>
             <td>5.31 € / 900g</td>
         </tr>
         <tr>
@@ -2372,7 +2140,6 @@ General Cooking:
             <td></td>
             <td>34 months</td>
             <td>0.96 € / 190g - 0.99 € / 190g</td>
-            <td></td>
             <td>13.83 € / 2660g</td>
         </tr>
         <tr>
@@ -2380,7 +2147,6 @@ General Cooking:
             <td>120 pieces / year</td>
             <td>5 weeks</td>
             <td>1.29 € / 10 pieces</td>
-            <td>11.88 € / year</td>
             <td>12.82 € / 100 pieces</td>
         </tr>
         <tr>
@@ -2388,7 +2154,6 @@ General Cooking:
             <td>18 L / year</td>
             <td>?</td>
             <td>Apple Juice: 0.77 € / 1 L; Orange Juice: 0.79 € / 1.5 L - 0.96 € / 1.5 L; Other Juice: 0.85 € / 1 L - 0.86 € / 1 L</td>
-            <td>9.48 € / year</td>
             <td>30.02 € / 52.0 L</td>
         </tr>
         <tr>
@@ -2396,7 +2161,6 @@ General Cooking:
             <td>?</td>
             <td>2 months</td>
             <td>0.48 € / 1.5 L - 1.39 € / 1.5 L</td>
-            <td>?</td>
             <td>5.10 € / 10.5 L</td>
         </tr>
         <tr>
@@ -2404,23 +2168,13 @@ General Cooking:
             <td></td>
             <td></td>
             <td>2.13 € / 0.75 L</td>
-            <td></td>
             <td>2.13 € / 0.75 L</td>
-        </tr>
-        <tr>
-            <td>Metaxa 7 ******** (Alcohol)</td>
-            <td></td>
-            <td></td>
-            <td>16.56 € / 0.70 L</td>
-            <td></td>
-            <td>16.56 € / 0.70 L</td>
         </tr>
         <tr>
             <td>Water (Wasser)</td>
             <td></td>
             <td>1 year</td>
             <td>0.11 € / 0.5 L</td>
-            <td></td>
             <td>0.88 € / 4.0 L</td>
         </tr>
         <tr>
@@ -2428,7 +2182,6 @@ General Cooking:
             <td></td>
             <td>1 year</td>
             <td>0.29 € / 0.5L</td>
-            <td></td>
             <td>0.54 € / 1.0L</td>
         </tr>
         <tr>
@@ -2436,15 +2189,13 @@ General Cooking:
             <td></td>
             <td>1 week (needs ❄️)</td>
             <td>0.39 € / 250ml</td>
-            <td></td>
             <td>1.65 € / 1250ml</td>
         </tr>
         <tr>
             <td>Camembert</td>
             <td>24 pieces / year (?)</td>
-            <td>2 months ❄</td>
+            <td>2 months ❄️</td>
             <td>1.99 € / 4 pieces</td>
-            <td>11.94 € / year</td>
             <td>17.78 € / 56 pieces</td>
         </tr>
         <tr>
@@ -2452,7 +2203,6 @@ General Cooking:
             <td></td>
             <td>33 months</td>
             <td>0.79 € / 400 ml</td>
-            <td></td>
             <td>6.62 € / 3200 ml</td>
         </tr>
         <tr>
@@ -2460,44 +2210,38 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.79 € / package - 3.23 € / package</td>
-            <td></td>
             <td>27.00 € / 13 package</td>
         </tr>
         <tr>
-            <td>Chili Sin Carne (in a tin can)</td>
+            <td>Chili Sin Carne 🥫</td>
             <td></td>
             <td>3 years</td>
             <td>1.69 € / 800g</td>
-            <td></td>
             <td>1.69 € / 800g</td>
         </tr>
         <tr>
-            <td>Raviolio (in a tin can)</td>
-            <td></td>
+            <td>Raviolio 🥫</td>
             <td></td>
             <td></td>
             <td></td>
             <td>1.19 € / 800g</td>
         </tr>
         <tr>
-            <td>Gulasch in der Dose (in a tin can)</td>
+            <td>Gulasch in der Dose 🥫</td>
             <td></td>
             <td>2 years</td>
             <td>1.15 € / 800g</td>
-            <td></td>
             <td>2.99 € / 400g (?)</td>
         </tr>
         <tr>
-            <td>Ravioli in der Dose (in a tin can)</td>
-            <td></td>
+            <td>Ravioli in der Dose 🥫</td>
             <td></td>
             <td></td>
             <td></td>
             <td>1.15 € / 800g</td>
         </tr>
         <tr>
-            <td>Bohneneintopf (in a tin can)</td>
-            <td></td>
+            <td>Bohneneintopf 🥫</td>
             <td></td>
             <td></td>
             <td></td>
@@ -2508,7 +2252,6 @@ General Cooking:
             <td></td>
             <td>11 months</td>
             <td>1.34 € / 450g</td>
-            <td></td>
             <td>4.72 € / 1800 g</td>
         </tr>
         <tr>
@@ -2516,7 +2259,6 @@ General Cooking:
             <td></td>
             <td>18 months</td>
             <td>6.95 € / 350g</td>
-            <td></td>
             <td>20.85 € / 1000g</td>
         </tr>
         <tr>
@@ -2524,7 +2266,6 @@ General Cooking:
             <td></td>
             <td>10 months</td>
             <td>1.25 € / 500g</td>
-            <td></td>
             <td>1.25 € / 500g</td>
         </tr>
         <tr>
@@ -2532,7 +2273,6 @@ General Cooking:
             <td></td>
             <td>2 years</td>
             <td>0.49 € / 200g - 0.57 € / 200g</td>
-            <td></td>
             <td>2.04 € / 800g</td>
         </tr>
         <tr>
@@ -2540,7 +2280,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>0.38 € /240g - 0.39 € / 240g</td>
-            <td></td>
             <td>1.54 € / 960g</td>
         </tr>
         <tr>
@@ -2548,7 +2287,6 @@ General Cooking:
             <td></td>
             <td>6 months</td>
             <td>0.48 € / 200ml - 0.49 € / 200ml</td>
-            <td></td>
             <td>0.97 € / 400ml</td>
         </tr>
         <tr>
@@ -2556,7 +2294,6 @@ General Cooking:
             <td></td>
             <td>1 year</td>
             <td>0.68 € / 200g - 0.69 € / 200g (6 pieces)</td>
-            <td></td>
             <td>3.44 € / 800g (30 pieces)</td>
         </tr>
         <tr>
@@ -2564,7 +2301,6 @@ General Cooking:
             <td></td>
             <td>1 month</td>
             <td>1.29 € / 750g</td>
-            <td></td>
             <td>1.29 € / 750g</td>
         </tr>
         <tr>
@@ -2572,23 +2308,20 @@ General Cooking:
             <td>?</td>
             <td>2 weeks</td>
             <td>1.89 € / 750g</td>
-            <td>?</td>
             <td>3.38 € / 1500g</td>
         </tr>
         <tr>
             <td>Müsli-Riegel (Granola)</td>
             <td></td>
             <td>6 months</td>
-            <td>0.99 € / 8 pieces (200 g total)</td>
-            <td></td>
-            <td>1.98 € / 16 pieces (200 g total)</td>
+            <td>0.99 € / 8 pieces (200 g)</td>
+            <td>1.98 € / 16 pieces (200 g)</td>
         </tr>
         <tr>
             <td>Crutons</td>
             <td></td>
             <td>18 months</td>
             <td>0.79 € / 25g</td>
-            <td></td>
             <td>2.23 € / 150g</td>
         </tr>
         <tr>
@@ -2596,7 +2329,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.54 € / 2 pieces - 2.59 € / 2 pieces</td>
-            <td></td>
             <td>6.72 € / 6 pieces</td>
         </tr>
         <tr>
@@ -2604,7 +2336,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>1.15 € / 1 piece</td>
-            <td></td>
             <td>1.15 € / 1 piece</td>
         </tr>
         <tr>
@@ -2612,7 +2343,6 @@ General Cooking:
             <td></td>
             <td></td>
             <td>0.99 € / package</td>
-            <td></td>
             <td>0.99 € / package</td>
         </tr>
         <tr>
@@ -2620,7 +2350,6 @@ General Cooking:
             <td></td>
             <td>3 years</td>
             <td>0.89 € / 240g</td>
-            <td></td>
             <td>0.89 € / 240g</td>
         </tr>
     </tbody>
@@ -2840,6 +2569,8 @@ General Cooking:
         </tr>
         <tr>
             <td>Bildschirm / Display Reiniger (V7 VCL1623)</td>
+            <td>6.49 € / 250ml</td>
+            <td></td>
             <td>6.49 € / 250ml</td>
         </tr>
         </tbody>
@@ -3101,11 +2832,11 @@ pills and maybe a couple of months for creams and ointment.
     </tbody>
     <tfoot>
         <tr>
-            <td>Total</td>
-            <td>-</td>
-            <td>-</td>
-            <td>2029.58 € / year</td>
-            <td>-</td>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>2029.58 € / year</th>
+            <th>TODO</th>
         </tr>
     </tfoot>
 </table>
@@ -3129,6 +2860,12 @@ pills and maybe a couple of months for creams and ointment.
             <td>3.99 € / 1 movie</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th>TODO</th>
+        </tr>
+    </tfoot>
 </table>
 
 Book-Highlights:
@@ -3145,8 +2882,8 @@ Others were paid by my employer. And I've got some presents as well.
 <table class="table">
     <thead>
         <tr>
-            <td>Name</td>
-            <td>2020</td>
+            <th>Name</th>
+            <th>2020</th>
         </tr>
     </thead>
     <tbody>
@@ -3213,7 +2950,7 @@ I didn't like them:
         </tr>
         <tr>
             <td>Geschenke an Freunde / Familie</td>
-            <td>268.98 €</td>
+            <td>285.54 €</td>
         </tr>
         <tr>
             <td>Battery (9V)</td>
@@ -3225,7 +2962,7 @@ I didn't like them:
         </tr>
         <tr>
             <td>Other</td>
-            <td>28.97 €</td>
+            <td>30.26 €</td>
         </tr>
         <tr>
             <td>Plants (Pflanzen, Pflanzentopf, ...)</td>
