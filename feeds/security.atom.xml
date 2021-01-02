@@ -1,5 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-23T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>DOS via a billion laughs 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139" rel="alternate"></link><published>2020-12-23T20:00:00+01:00</published><updated>2020-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-23:/https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139</id><summary type="html">&lt;p&gt;&lt;img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/&gt;&lt;em&gt;Image by the author&lt;/em&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-28T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Full Disk Encryption 😇</title><link href="https://martin-thoma.com/https://medium.com/faun/full-disk-encryption-2090489f9760" rel="alternate"></link><published>2020-12-28T20:00:00+01:00</published><updated>2020-12-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-28:/https://medium.com/faun/full-disk-encryption-2090489f9760</id><summary type="html">&lt;p&gt;Having an attacker with physical access to your device is one of the worst
+scenarios. If the data is not encrypted on the disk, then the attacker can
+simply disassemble your device, get the HDD/SDD, put it in his machine, and
+read the data. For this reason, encrypting your …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having an attacker with physical access to your device is one of the worst
+scenarios. If the data is not encrypted on the disk, then the attacker can
+simply disassemble your device, get the HDD/SDD, put it in his machine, and
+read the data. For this reason, encrypting your data is crucial.&lt;/p&gt;
+&lt;p&gt;There are so many things you want to protect that it makes sense to just
+encrypt the complete hard drive. For example, you might have valuable data on
+your swap partition or within temporary files. So just encrypt the whole drive.
+This is called &lt;strong&gt;F&lt;/strong&gt;ull &lt;strong&gt;D&lt;/strong&gt;isk &lt;strong&gt;E&lt;/strong&gt;ncryption, or &lt;strong&gt;FDE&lt;/strong&gt; in short. Let&amp;rsquo;s
+talk about how it works, different implementations of it, and the weaknesses.&lt;/p&gt;
+&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2009&lt;/strong&gt;: According to &amp;ldquo;The Cost of a Lost Laptop&amp;rdquo; by Ponemon Institute, the
+  average damage organizations suffer due to lost laptops is &lt;strong&gt;$49,246&lt;/strong&gt;.
+  Please note that this includes the hardware, the damage done by leaked
+  confidential data, and the damage done by lost work.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2015&lt;/strong&gt;: &amp;ldquo;Nearly 41% of all data breach events from 2005 through 2015 were
+  caused by lost devices such as laptops, tablets, and smartphones.&amp;rdquo;
+  (&lt;a href="https://www.forbes.com/sites/steveolenski/2017/12/08/is-the-data-on-your-business-digital-devices-safe/?sh=22fc1c014c6a"&gt;source&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="fde-does-not-solve"&gt;FDE does not solve&amp;hellip;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;hellip; lost data: You need to make backups for that&lt;/li&gt;
+&lt;li&gt;&amp;hellip; leaking data through memory: FDE is about protecting data at rest. When
+  your computer is turned off. Not about protecting data in memory or in
+  transit. &lt;a href="undefined"&gt;Subash SN&lt;/a&gt; shows this beautifully in his article
+  &lt;a href="https://blog.appsecco.com/breaking-full-disk-encryption-from-a-memory-dump-5a868c4fc81e"&gt;Breaking Full Disk Encryption from a Memory
+  Dump&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&amp;hellip; leaking data through the internet: If an attacker gets live access to your
+  computer, e.g. by convincing you to install some software to make a remote
+  fix on your machine (phishing), FDE does not help at all.&lt;/li&gt;
+&lt;li&gt;&amp;hellip; &lt;a href="https://en.wikipedia.org/wiki/Rubber-hose_cryptanalysis"&gt;rubber-hose
+  cryptanalysis&lt;/a&gt;:
+  Torturing you to give your password away.&lt;/li&gt;
+&lt;li&gt;&amp;hellip; &lt;a href="https://en.wikipedia.org/wiki/Keystroke_logging"&gt;hardware keyloggers&lt;/a&gt;: If
+  the attacker can record all your keystrokes, they will also get the password
+  you&amp;rsquo;re using to decrypt the drive.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-fde-works"&gt;How FDE Works&lt;/h2&gt;
+&lt;p&gt;Full disk encryption (FDE) works on a very low level. It is below the file
+system which also means it&amp;rsquo;s compatible with every file system. It uses a
+symmetric encryption algorithm that operates on blocks of data, e.g. 128-bit.
+Those blocks are automatically encrypted when they are written and
+automatically decrypted when they are requested. The program typically keeps
+the key in memory.&lt;/p&gt;
+&lt;p&gt;A typical choice is a &lt;strong&gt;block size of 128-bit&lt;/strong&gt;, the &lt;strong&gt;AES block cipher&lt;/strong&gt; with
+a &lt;strong&gt;256-bit key &lt;/strong&gt;and&lt;strong&gt; CBC operation mode&lt;/strong&gt;. Block ciphers operate on blocks
+of an exact size (e.g. 128-bit). They get this size as input and give the same
+size in output. The operation mode &amp;mdash; or short &amp;ldquo;mode&amp;rdquo; &amp;mdash; is the rule that is
+applied to deal with other block sizes. The simplest mode is ECB
+(&lt;strong&gt;e&lt;/strong&gt;lectronic &lt;strong&gt;c&lt;/strong&gt;ode&lt;strong&gt;b&lt;/strong&gt;ook). That mode just splits the plain text into
+blocks of the desired size, pads the last message with zeros, and applies the
+cipher to every block independently. This is a bad idea as it shows repeating
+patterns clearly. XTS is a common mode explained by &lt;a href="undefined"&gt;Prof Bill Buchanan
+OBE&lt;/a&gt; in his article &lt;a href="https://medium.com/asecuritysite-when-bob-met-alice/who-needs-a-tweak-meet-full-disk-encryption-437e720879ac"&gt;Who Needs a Tweak? Meet Full Disk
+Encryption&lt;/a&gt;.
+Computerphile has a nice explanation of the modes:&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Rk0NIQfEXBA" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;The key has to be stored on the device to encrypt the data. This means the key
+needs to be secure. Additionally, one may not store the key in plaintext on the
+machine and one needs to prevent brute-forcing of the key. What the user
+memorizes is the passphrase. This passphrase is run through a cryptographic
+hash function to generate the key. This &amp;ldquo;cryptographic&amp;rdquo; means that it is
+computationally heavy &amp;mdash; you have to spend that computation every time you
+unlock your computer. But the attacker also has to do it. Meaning if you need
+e.g. 1 second to run this, the attacker would need one second for every single
+attempt. A typical &lt;strong&gt;key derivation function&lt;/strong&gt; is &lt;strong&gt;PBKDF2&lt;/strong&gt; and a typical
+&lt;strong&gt;cryptographic hash function&lt;/strong&gt; is &lt;strong&gt;SHA-512&lt;/strong&gt;. After the key has been derived,
+it is stored securely in memory.&lt;/p&gt;
+&lt;p&gt;Instead of using a password, you could also give your users a physical token
+such as a Yubikey
+(&lt;a href="https://www.yubico.com/works-with-yubikey/catalog/secure-disk-for-bitlocker/"&gt;example&lt;/a&gt;)
+or similar solutions. Or you simply put the key file on a USB stick. The
+advantage of such tokens is that users cannot give them away. But this is a
+topic for another article.&lt;/p&gt;
+&lt;p&gt;All of that is not worth anything if you have a keylogger running. Hardware
+keyloggers need extra considerations, but for software keyloggers, we want to
+ensure the integrity of the boot path. This is where TPM can help. TPM is a
+piece of hardware that ensures that no tampering happened to the hardware or
+essential parts of the software, namely the BIOS&lt;/p&gt;
+&lt;h2 id="what-is-secure"&gt;What is Secure?&lt;/h2&gt;
+&lt;p&gt;NIST is the US national institute of standards and technology. Their
+recommendations are widely followed. The German BSI is also interesting to look
+at.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904691"&gt;NIST 800&amp;ndash;38E&lt;/a&gt;
+(2010) approves the XTS-AES mode with either 256-bit keys (XTS-AES-128; 128 is
+the block size here) or &lt;strong&gt;512-bit keys&lt;/strong&gt; for a &lt;strong&gt;256-bit block size&lt;/strong&gt; using the
+&lt;strong&gt;AES cipher&lt;/strong&gt; in &lt;strong&gt;XTS mode&lt;/strong&gt;. Please note that AES-128 refers to a block size
+of 128-bit, not to the length of the key.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile"&gt;BSI
+TR-02102&amp;ndash;1&lt;/a&gt;
+(2020) recommends using one of those block-ciphers: AES-128, AES-192, AES-256.
+They say CCM, GCM, CBC, CTR are acceptable. Interestingly, they do not mention
+XTS here. In another part of the document, they mention potential issues of
+this mode for backups.&lt;/p&gt;
+&lt;h2 id="fde-solutions"&gt;FDE Solutions&lt;/h2&gt;
+&lt;h3 id="windows-bitlocker"&gt;Windows: BitLocker&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/BitLocker"&gt;BitLocker&lt;/a&gt; is an FDE feature included
+with Microsoft Windows since 2007. By default, it uses AES in CBC mode with a
+128-bit key. It can be configured to use XTS mode and/or a 256-bit key. It can
+use a &lt;a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module"&gt;TPM&lt;/a&gt; to validate
+the integrity of boot and system files before decrypting a protected volume.&lt;/p&gt;
+&lt;p&gt;Here is a guide on how to set BitLocker up on Windows: &lt;a href="https://www.windowscentral.com/how-use-bitlocker-encryption-windows-10"&gt;&lt;strong&gt;Setting up BitLocker
+Drive Encryption on Windows 10&lt;/strong&gt; &lt;em&gt;When you store sensitive data on your
+computer, it's crucial that you take the necessary steps to protect that
+data&amp;hellip;&lt;/em&gt;www.windowscentral.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="linux-dm-crypt-using-luks2"&gt;Linux: dm-crypt using LUKS2&lt;/h3&gt;
+&lt;p&gt;dm-crypt using LUKS is the default way to do FDE on Linux since 2004. dm-crypt
+supports XTS, but the default cipher string specification is
+aes-cbc-essiv:sha256
+(&lt;a href="http://manpages.ubuntu.com/manpages/bionic/man8/cryptsetup.8.html"&gt;source&lt;/a&gt;).
+You can use cryptsetup and cryptmount to manage your dm-crypt .&lt;/p&gt;
+&lt;p&gt;You can use GRUBs cryptodisk feature to secure your boot path.&lt;/p&gt;
+&lt;p&gt;Detailed instructions can be found here:
+&lt;a href="https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019"&gt;&lt;strong&gt;Full_Disk_Encryption_Howto_2019&lt;/strong&gt;
+&lt;em&gt;Further support may be available from Freenode IRC channel #ubuntu. This page is an up-to-date guide to comprehensive&amp;hellip;&lt;/em&gt;help.ubuntu.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="mac-filevault-2"&gt;Mac: FileVault 2&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/FileVault"&gt;FileVault&lt;/a&gt; is the FDE program that was introduced for Mac in 2003. By default, it uses XTS-AES with 128-bit blocks and a 256-bit key.&lt;/p&gt;
+&lt;p&gt;Here is a guide on how to turn on FileVault on Mac:
+&lt;a href="https://support.apple.com/en-us/HT204837"&gt;&lt;strong&gt;Use FileVault to encrypt the startup disk on your Mac&lt;/strong&gt;
+&lt;em&gt;FileVault 2 is available in OS X Lion or later. When FileVault is turned on, your Mac always requires that you log in&amp;hellip;&lt;/em&gt;support.apple.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="android"&gt;Android&lt;/h3&gt;
+&lt;p&gt;Only Android 7.0 to 9 support FDE. Android 10 only supports file-based
+encryption
+(&lt;a href="https://source.android.com/security/encryption/full-disk"&gt;source&lt;/a&gt;). Some
+speculations why the FDE was removed are issues with alarm clocks and support
+options in case of forgotten passwords
+(&lt;a href="https://www.reddit.com/r/Android/comments/gt3ib8/why_was_fulldisk_encryption_removeddisallowed_in/"&gt;source&lt;/a&gt;).
+As a phone is typically running all the time and rather easy to unlock, disk
+encryption is actually not enough. The memory needs to be protected as well.&lt;/p&gt;
+&lt;p&gt;The supported Android versions used dm-crypt .&lt;/p&gt;
+&lt;p&gt;In my Samsung S10, the setting to enable FDE on Android is called &amp;ldquo;Strong Protection&amp;rdquo;. You find a guide here:
+&lt;a href="https://www.androidauthority.com/how-to-encrypt-android-device-326700/"&gt;&lt;strong&gt;How to encrypt your Android device&lt;/strong&gt;
+&lt;em&gt;There's little doubt that keeping your personal data secure these days is pretty important, so it is fortunate that&amp;hellip;&lt;/em&gt;www.androidauthority.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="honorable-mentions"&gt;Honorable Mentions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1995 which would be equivalent to 350k &amp;euro; or $427k USD in 2019.&lt;/li&gt;
+&lt;li&gt;PGP (Linux): Pretty Good Privacy (PGP) from Symantec (now NortonLifeLock) calls the concept &lt;strong&gt;W&lt;/strong&gt;hole &lt;strong&gt;D&lt;/strong&gt;isk &lt;strong&gt;E&lt;/strong&gt;ncryption (&lt;strong&gt;WDE&lt;/strong&gt;) instead of FDE. WDE was introduced in 2014 to PGP. It uses a password as authentication before the rest of the operating system can boot. This means you can use it for Windows and Linux.&lt;/li&gt;
+&lt;li&gt;VeraCrypt (former TrueCrypt): If you&amp;rsquo;re interested in how to use it, have a look at &lt;a href="undefined"&gt;Andrew Douma&lt;/a&gt;s article &lt;a href="https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61"&gt;Full Disk Encryption with VeraCrypt&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="lost-device-policy_1"&gt;Lost Device Policy&lt;/h2&gt;
+&lt;p&gt;Having FDE on all your devices is not enough. On the one hand, you need to make
+sure that the employees use strong passwords and that those passwords are not
+written on the device.&lt;/p&gt;
+&lt;p&gt;But even that should not be it. You should have a documented way how to handle
+lost devices. You need a Lost Device Policy. This can include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Block all accounts of that employee. Even if the laptop gets compromised, at least the remaining accounts cannot be used to steal more data.&lt;/li&gt;
+&lt;li&gt;Try to get the laptop again by calling lost&amp;amp;found stations (e.g. for the taxi/airport/hotel)&lt;/li&gt;
+&lt;li&gt;Inform the police that the laptop was stolen. You should have a model name and the serial number at hand. Maybe even something that makes the laptop unique?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;p&gt;While searching for references for this article, I came across some very good resources.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ArchLinux: &lt;a href="https://wiki.archlinux.org/index.php/Data-at-rest_encryption"&gt;Data-at-rest encryption&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ArchLinux: &lt;a href="https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system"&gt;dmcrypt/Encrypting an entire system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Security.SE: &lt;a href="https://security.stackexchange.com/questions/39306/how-secure-is-ubuntus-default-full-disk-encryption"&gt;How secure is Ubuntu&amp;rsquo;s default full-disk encryption?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="IT Security"></category><category term="InfoSec"></category></entry><entry><title>DOS via a billion laughs 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139" rel="alternate"></link><published>2020-12-23T20:00:00+01:00</published><updated>2020-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-23:/https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139</id><summary type="html">&lt;p&gt;&lt;img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/&gt;&lt;em&gt;Image by the author&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The billion laughs attack is known since 2003 (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564"&gt;source&lt;/a&gt;). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It&amp;rsquo;s also known as a LOL bomb, XML bomb, or in a variation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/&gt;&lt;em&gt;Image by the author&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The billion laughs attack is known since 2003 (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564"&gt;source&lt;/a&gt;). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It&amp;rsquo;s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.&lt;/p&gt;
 &lt;h2 id="why-you-should-care"&gt;Why you should care&lt;/h2&gt;
@@ -88,6 +274,7 @@ bomb
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -98,7 +285,6 @@ bomb
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category></entry><entry><title>Effective Access Control 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/effective-access-control-331f883cb0ff" rel="alternate"></link><published>2020-12-23T20:00:00+01:00</published><updated>2020-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-23:/https://levelup.gitconnected.com/effective-access-control-331f883cb0ff</id><summary type="html">&lt;p&gt;Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.&lt;/p&gt;
 &lt;p&gt;In this article, I focus on web services. Access to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.&lt;/p&gt;
@@ -396,6 +582,7 @@ our objects are the combination (route, parameter).&lt;/p&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -406,7 +593,6 @@ our objects are the combination (route, parameter).&lt;/p&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="OWASP"></category></entry><entry><title>Software Composition Analysis (SCA)</title><link href="https://martin-thoma.com/sca/" rel="alternate"></link><published>2020-12-04T20:00:00+01:00</published><updated>2020-12-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-04:/sca/</id><summary type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
 about new technologies, understand topics within the domain you&amp;rsquo;re working,
@@ -517,6 +703,7 @@ anything. But when the tool complains, it is important.&lt;/p&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -527,9 +714,8 @@ anything. But when the tool complains, it is important.&lt;/p&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="SCA"></category></entry><entry><title>Email Spoofing 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" rel="alternate"></link><published>2020-12-02T20:00:00+01:00</published><updated>2020-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-02:/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf</id><summary type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security &lt;a href="mailto:something@phishy.com"&gt;something@phishy.com&lt;/a&gt; , or spoofing the email address.&lt;/p&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="InfoSec"></category><category term="SCA"></category></entry><entry><title>Email Spoofing 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" rel="alternate"></link><published>2020-12-02T20:00:00+01:00</published><updated>2020-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-02:/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf</id><summary type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security &lt;a href="mailto:something@phishy.com"&gt;something@phishy.com&lt;/a&gt; , or spoofing the email address.&lt;/p&gt;
 &lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
 &lt;p&gt;Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&amp;rsquo;ve found are:&lt;/p&gt;
 &lt;ul&gt;
@@ -681,6 +867,7 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -691,9 +878,8 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="email"></category><category term="InfoSec"></category></entry><entry><title>ZIP Bombs 💣😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112" rel="alternate"></link><published>2020-10-28T20:00:00+01:00</published><updated>2020-10-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-28:/https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112</id><summary type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Zip_bomb"&gt;zip bomb&lt;/a&gt; is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of &lt;strong&gt;42kB&lt;/strong&gt;. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Zip_bomb"&gt;zip bomb&lt;/a&gt; is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of &lt;strong&gt;42kB&lt;/strong&gt;. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses to a size of 4.3GB . This file is added in total over a million times to the archive, leading to a total unpacked size of &lt;strong&gt;4.5PB&lt;/strong&gt; . This is well over the size of any available storage system.&lt;/p&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="email"></category><category term="InfoSec"></category><category term="CyberSecurity"></category></entry><entry><title>ZIP Bombs 💣😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112" rel="alternate"></link><published>2020-10-28T20:00:00+01:00</published><updated>2020-10-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-28:/https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112</id><summary type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Zip_bomb"&gt;zip bomb&lt;/a&gt; is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of &lt;strong&gt;42kB&lt;/strong&gt;. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Zip_bomb"&gt;zip bomb&lt;/a&gt; is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of &lt;strong&gt;42kB&lt;/strong&gt;. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses to a size of 4.3GB . This file is added in total over a million times to the archive, leading to a total unpacked size of &lt;strong&gt;4.5PB&lt;/strong&gt; . This is well over the size of any available storage system.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h1 id="zip-bombs-are-a-form-of-decompression-bomb-decompression-bombs-are-compressed-files-which-extract-to-a-crazy-file-size-decompression-bombs-are-a-form-of-denial-of-service-attacks"&gt;Zip bombs are a form of decompression bomb. Decompression bombs are compressed files which extract to a crazy file size. Decompression bombs are a form of denial-of-service attacks.&lt;/h1&gt;
 &lt;/blockquote&gt;
@@ -790,6 +976,7 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -800,7 +987,6 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="AppSec"></category><category term="DOS"></category></entry><entry><title>Password Hashing 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/password-hashing-eb3b97684636" rel="alternate"></link><published>2020-10-19T20:00:00+02:00</published><updated>2020-10-19T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-19:/https://levelup.gitconnected.com/password-hashing-eb3b97684636</id><summary type="html">&lt;p&gt;Software gets hacked, data breaches happen, data is leaked. It&amp;rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -912,6 +1098,7 @@ you two functions:&lt;/p&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -922,7 +1109,6 @@ you two functions:&lt;/p&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="Password"></category></entry><entry><title>Cross-site Scripting (XSS) 😈</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f" rel="alternate"></link><published>2020-10-16T20:00:00+02:00</published><updated>2020-10-16T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-16:/https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f</id><summary type="html">&lt;p&gt;Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users&amp;rsquo; machine.&lt;/p&gt;
 &lt;p&gt;Various types of XSS are distinguished:&lt;/p&gt;
@@ -1016,6 +1202,7 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -1026,7 +1213,6 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="XSS"></category></entry><entry><title>Leaking Secrets 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80" rel="alternate"></link><published>2020-10-13T20:00:00+02:00</published><updated>2020-10-13T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-13:/https://levelup.gitconnected.com/leaking-secrets-240a3484cb80</id><summary type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s best to prevent leaking credentials completely, but if it&amp;rsquo;s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.&lt;/p&gt;
@@ -1138,6 +1324,7 @@ packages simply send the hostname with environment variables to a server (&lt;a 
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -1148,7 +1335,6 @@ packages simply send the hostname with environment variables to a server (&lt;a 
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category></entry><entry><title>SQL Injections 😈</title><link href="https://martin-thoma.com/https://medium.com/faun/sql-injections-e8bc9a14c95" rel="alternate"></link><published>2020-10-12T20:00:00+02:00</published><updated>2020-10-12T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-10-12:/https://medium.com/faun/sql-injections-e8bc9a14c95</id><summary type="html">&lt;p&gt;An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don&amp;rsquo;t worry, I&amp;rsquo;ll explain that later in detail.&lt;/p&gt;
 &lt;p&gt;After reading this article you will understand what the effect of being vulnerable to SQL injections can …&lt;/p&gt;</summary><content type="html">&lt;p&gt;An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don&amp;rsquo;t worry, I&amp;rsquo;ll explain that later in detail.&lt;/p&gt;
@@ -1267,9 +1453,12 @@ character. Just by looking at how the sorting changes.&lt;/p&gt;
 &lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -1280,7 +1469,6 @@ character. Just by looking at how the sorting changes.&lt;/p&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category></entry><entry><title>XXE attacks 😈</title><link href="https://martin-thoma.com/https://medium.com/faun/xxe-attacks-750e91448e8f" rel="alternate"></link><published>2020-05-17T20:00:00+02:00</published><updated>2020-05-17T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-05-17:/https://medium.com/faun/xxe-attacks-750e91448e8f</id><summary type="html">&lt;p&gt;XML is probably the most commonly used markup language. It&amp;rsquo;s organized around tags &lt;code&gt;&amp;lt;example&amp;gt;foo&amp;lt;/example&amp;gt;&lt;/code&gt; and allows pretty complicated structures&lt;/p&gt;
 &lt;p&gt;One interesting property about XML is that you can reference external entities, e.g. you can include another file. That is where the name XXE comes from: &lt;strong&gt;X …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;XML is probably the most commonly used markup language. It&amp;rsquo;s organized around tags &lt;code&gt;&amp;lt;example&amp;gt;foo&amp;lt;/example&amp;gt;&lt;/code&gt; and allows pretty complicated structures&lt;/p&gt;
@@ -1386,6 +1574,7 @@ Schwenk.&lt;/p&gt;
 &lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
@@ -1396,6 +1585,5 @@ Schwenk.&lt;/p&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;li&gt;Disk Encryption 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Cybersecurity"></category><category term="AppSec"></category></entry></feed>

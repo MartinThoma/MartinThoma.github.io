@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Security, Cybersecurity, IT Security, InfoSec, Security, " />
+
+<meta property="og:title" content="Full Disk Encryption 😇  - Keep your data private, even if you lose your device "/>
+<meta property="og:url" content="https://medium.com/faun/full-disk-encryption-2090489f9760" />
+<meta property="og:description" content="Having an attacker with physical access to your device is one of the worst scenarios. If the data is not encrypted on the disk, then the attacker can simply disassemble your device, get the HDD/SDD, put it in his machine, and read the data. For this reason, encrypting your …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-12-28T20:00:00+01:00" />
+<meta name="twitter:title" content="Full Disk Encryption 😇  - Keep your data private, even if you lose your device ">
+<meta name="twitter:description" content="Having an attacker with physical access to your device is one of the worst scenarios. If the data is not encrypted on the disk, then the attacker can simply disassemble your device, get the HDD/SDD, put it in his machine, and read the data. For this reason, encrypting your …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>Full Disk Encryption 😇  - Keep your data private, even if you lose your device  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://medium.com/faun/full-disk-encryption-2090489f9760">Full Disk Encryption 😇 <small>Keep your data private, even if you lose your device</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#fde-does-not-solve" title="FDE does not solve&hellip;">FDE does not solve&hellip;</a></li><li><a class="toc-href" href="#how-fde-works" title="How FDE Works">How FDE Works</a></li><li><a class="toc-href" href="#what-is-secure" title="What is Secure?">What is Secure?</a></li><li><a class="toc-href" href="#fde-solutions" title="FDE Solutions">FDE Solutions</a><ul><li><a class="toc-href" href="#windows-bitlocker" title="Windows: BitLocker">Windows: BitLocker</a></li><li><a class="toc-href" href="#linux-dm-crypt-using-luks2" title="Linux: dm-crypt using LUKS2">Linux: dm-crypt using LUKS2</a></li><li><a class="toc-href" href="#mac-filevault-2" title="Mac: FileVault 2">Mac: FileVault 2</a></li><li><a class="toc-href" href="#android" title="Android">Android</a></li><li><a class="toc-href" href="#honorable-mentions" title="Honorable Mentions">Honorable Mentions</a></li></ul></li><li><a class="toc-href" href="#lost-device-policy_1" title="Lost Device Policy">Lost Device Policy</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Having an attacker with physical access to your device is one of the worst
+scenarios. If the data is not encrypted on the disk, then the attacker can
+simply disassemble your device, get the HDD/SDD, put it in his machine, and
+read the data. For this reason, encrypting your data is crucial.</p>
+<p>There are so many things you want to protect that it makes sense to just
+encrypt the complete hard drive. For example, you might have valuable data on
+your swap partition or within temporary files. So just encrypt the whole drive.
+This is called <strong>F</strong>ull <strong>D</strong>isk <strong>E</strong>ncryption, or <strong>FDE</strong> in short. Let&rsquo;s
+talk about how it works, different implementations of it, and the weaknesses.</p>
+<h2 id="why-it-matters">Why it Matters</h2>
+<ul>
+<li><strong>2009</strong>: According to &ldquo;The Cost of a Lost Laptop&rdquo; by Ponemon Institute, the
+  average damage organizations suffer due to lost laptops is <strong>$49,246</strong>.
+  Please note that this includes the hardware, the damage done by leaked
+  confidential data, and the damage done by lost work.</li>
+<li><strong>2015</strong>: &ldquo;Nearly 41% of all data breach events from 2005 through 2015 were
+  caused by lost devices such as laptops, tablets, and smartphones.&rdquo;
+  (<a href="https://www.forbes.com/sites/steveolenski/2017/12/08/is-the-data-on-your-business-digital-devices-safe/?sh=22fc1c014c6a">source</a>)</li>
+</ul>
+<h2 id="fde-does-not-solve">FDE does not solve&hellip;</h2>
+<ul>
+<li>&hellip; lost data: You need to make backups for that</li>
+<li>&hellip; leaking data through memory: FDE is about protecting data at rest. When
+  your computer is turned off. Not about protecting data in memory or in
+  transit. <a href="undefined">Subash SN</a> shows this beautifully in his article
+  <a href="https://blog.appsecco.com/breaking-full-disk-encryption-from-a-memory-dump-5a868c4fc81e">Breaking Full Disk Encryption from a Memory
+  Dump</a>.</li>
+<li>&hellip; leaking data through the internet: If an attacker gets live access to your
+  computer, e.g. by convincing you to install some software to make a remote
+  fix on your machine (phishing), FDE does not help at all.</li>
+<li>&hellip; <a href="https://en.wikipedia.org/wiki/Rubber-hose_cryptanalysis">rubber-hose
+  cryptanalysis</a>:
+  Torturing you to give your password away.</li>
+<li>&hellip; <a href="https://en.wikipedia.org/wiki/Keystroke_logging">hardware keyloggers</a>: If
+  the attacker can record all your keystrokes, they will also get the password
+  you&rsquo;re using to decrypt the drive.</li>
+</ul>
+<h2 id="how-fde-works">How FDE Works</h2>
+<p>Full disk encryption (FDE) works on a very low level. It is below the file
+system which also means it&rsquo;s compatible with every file system. It uses a
+symmetric encryption algorithm that operates on blocks of data, e.g. 128-bit.
+Those blocks are automatically encrypted when they are written and
+automatically decrypted when they are requested. The program typically keeps
+the key in memory.</p>
+<p>A typical choice is a <strong>block size of 128-bit</strong>, the <strong>AES block cipher</strong> with
+a <strong>256-bit key </strong>and<strong> CBC operation mode</strong>. Block ciphers operate on blocks
+of an exact size (e.g. 128-bit). They get this size as input and give the same
+size in output. The operation mode &mdash; or short &ldquo;mode&rdquo; &mdash; is the rule that is
+applied to deal with other block sizes. The simplest mode is ECB
+(<strong>e</strong>lectronic <strong>c</strong>ode<strong>b</strong>ook). That mode just splits the plain text into
+blocks of the desired size, pads the last message with zeros, and applies the
+cipher to every block independently. This is a bad idea as it shows repeating
+patterns clearly. XTS is a common mode explained by <a href="undefined">Prof Bill Buchanan
+OBE</a> in his article <a href="https://medium.com/asecuritysite-when-bob-met-alice/who-needs-a-tweak-meet-full-disk-encryption-437e720879ac">Who Needs a Tweak? Meet Full Disk
+Encryption</a>.
+Computerphile has a nice explanation of the modes:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Rk0NIQfEXBA" width="560"></iframe></center></p>
+<p>The key has to be stored on the device to encrypt the data. This means the key
+needs to be secure. Additionally, one may not store the key in plaintext on the
+machine and one needs to prevent brute-forcing of the key. What the user
+memorizes is the passphrase. This passphrase is run through a cryptographic
+hash function to generate the key. This &ldquo;cryptographic&rdquo; means that it is
+computationally heavy &mdash; you have to spend that computation every time you
+unlock your computer. But the attacker also has to do it. Meaning if you need
+e.g. 1 second to run this, the attacker would need one second for every single
+attempt. A typical <strong>key derivation function</strong> is <strong>PBKDF2</strong> and a typical
+<strong>cryptographic hash function</strong> is <strong>SHA-512</strong>. After the key has been derived,
+it is stored securely in memory.</p>
+<p>Instead of using a password, you could also give your users a physical token
+such as a Yubikey
+(<a href="https://www.yubico.com/works-with-yubikey/catalog/secure-disk-for-bitlocker/">example</a>)
+or similar solutions. Or you simply put the key file on a USB stick. The
+advantage of such tokens is that users cannot give them away. But this is a
+topic for another article.</p>
+<p>All of that is not worth anything if you have a keylogger running. Hardware
+keyloggers need extra considerations, but for software keyloggers, we want to
+ensure the integrity of the boot path. This is where TPM can help. TPM is a
+piece of hardware that ensures that no tampering happened to the hardware or
+essential parts of the software, namely the BIOS</p>
+<h2 id="what-is-secure">What is Secure?</h2>
+<p>NIST is the US national institute of standards and technology. Their
+recommendations are widely followed. The German BSI is also interesting to look
+at.</p>
+<p><a href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904691">NIST 800&ndash;38E</a>
+(2010) approves the XTS-AES mode with either 256-bit keys (XTS-AES-128; 128 is
+the block size here) or <strong>512-bit keys</strong> for a <strong>256-bit block size</strong> using the
+<strong>AES cipher</strong> in <strong>XTS mode</strong>. Please note that AES-128 refers to a block size
+of 128-bit, not to the length of the key.</p>
+<p><a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile">BSI
+TR-02102&ndash;1</a>
+(2020) recommends using one of those block-ciphers: AES-128, AES-192, AES-256.
+They say CCM, GCM, CBC, CTR are acceptable. Interestingly, they do not mention
+XTS here. In another part of the document, they mention potential issues of
+this mode for backups.</p>
+<h2 id="fde-solutions">FDE Solutions</h2>
+<h3 id="windows-bitlocker">Windows: BitLocker</h3>
+<p><a href="https://en.wikipedia.org/wiki/BitLocker">BitLocker</a> is an FDE feature included
+with Microsoft Windows since 2007. By default, it uses AES in CBC mode with a
+128-bit key. It can be configured to use XTS mode and/or a 256-bit key. It can
+use a <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">TPM</a> to validate
+the integrity of boot and system files before decrypting a protected volume.</p>
+<p>Here is a guide on how to set BitLocker up on Windows: <a href="https://www.windowscentral.com/how-use-bitlocker-encryption-windows-10"><strong>Setting up BitLocker
+Drive Encryption on Windows 10</strong> <em>When you store sensitive data on your
+computer, it's crucial that you take the necessary steps to protect that
+data&hellip;</em>www.windowscentral.com</a></p>
+<h3 id="linux-dm-crypt-using-luks2">Linux: dm-crypt using LUKS2</h3>
+<p>dm-crypt using LUKS is the default way to do FDE on Linux since 2004. dm-crypt
+supports XTS, but the default cipher string specification is
+aes-cbc-essiv:sha256
+(<a href="http://manpages.ubuntu.com/manpages/bionic/man8/cryptsetup.8.html">source</a>).
+You can use cryptsetup and cryptmount to manage your dm-crypt .</p>
+<p>You can use GRUBs cryptodisk feature to secure your boot path.</p>
+<p>Detailed instructions can be found here:
+<a href="https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019"><strong>Full_Disk_Encryption_Howto_2019</strong>
+<em>Further support may be available from Freenode IRC channel #ubuntu. This page is an up-to-date guide to comprehensive&hellip;</em>help.ubuntu.com</a></p>
+<h3 id="mac-filevault-2">Mac: FileVault 2</h3>
+<p><a href="https://en.wikipedia.org/wiki/FileVault">FileVault</a> is the FDE program that was introduced for Mac in 2003. By default, it uses XTS-AES with 128-bit blocks and a 256-bit key.</p>
+<p>Here is a guide on how to turn on FileVault on Mac:
+<a href="https://support.apple.com/en-us/HT204837"><strong>Use FileVault to encrypt the startup disk on your Mac</strong>
+<em>FileVault 2 is available in OS X Lion or later. When FileVault is turned on, your Mac always requires that you log in&hellip;</em>support.apple.com</a></p>
+<h3 id="android">Android</h3>
+<p>Only Android 7.0 to 9 support FDE. Android 10 only supports file-based
+encryption
+(<a href="https://source.android.com/security/encryption/full-disk">source</a>). Some
+speculations why the FDE was removed are issues with alarm clocks and support
+options in case of forgotten passwords
+(<a href="https://www.reddit.com/r/Android/comments/gt3ib8/why_was_fulldisk_encryption_removeddisallowed_in/">source</a>).
+As a phone is typically running all the time and rather easy to unlock, disk
+encryption is actually not enough. The memory needs to be protected as well.</p>
+<p>The supported Android versions used dm-crypt .</p>
+<p>In my Samsung S10, the setting to enable FDE on Android is called &ldquo;Strong Protection&rdquo;. You find a guide here:
+<a href="https://www.androidauthority.com/how-to-encrypt-android-device-326700/"><strong>How to encrypt your Android device</strong>
+<em>There's little doubt that keeping your personal data secure these days is pretty important, so it is fortunate that&hellip;</em>www.androidauthority.com</a></p>
+<h3 id="honorable-mentions">Honorable Mentions</h3>
+<ul>
+<li>GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1995 which would be equivalent to 350k &euro; or $427k USD in 2019.</li>
+<li>PGP (Linux): Pretty Good Privacy (PGP) from Symantec (now NortonLifeLock) calls the concept <strong>W</strong>hole <strong>D</strong>isk <strong>E</strong>ncryption (<strong>WDE</strong>) instead of FDE. WDE was introduced in 2014 to PGP. It uses a password as authentication before the rest of the operating system can boot. This means you can use it for Windows and Linux.</li>
+<li>VeraCrypt (former TrueCrypt): If you&rsquo;re interested in how to use it, have a look at <a href="undefined">Andrew Douma</a>s article <a href="https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61">Full Disk Encryption with VeraCrypt</a>.</li>
+</ul>
+<h2 id="lost-device-policy_1">Lost Device Policy</h2>
+<p>Having FDE on all your devices is not enough. On the one hand, you need to make
+sure that the employees use strong passwords and that those passwords are not
+written on the device.</p>
+<p>But even that should not be it. You should have a documented way how to handle
+lost devices. You need a Lost Device Policy. This can include:</p>
+<ul>
+<li>Block all accounts of that employee. Even if the laptop gets compromised, at least the remaining accounts cannot be used to steal more data.</li>
+<li>Try to get the laptop again by calling lost&amp;found stations (e.g. for the taxi/airport/hotel)</li>
+<li>Inform the police that the laptop was stolen. You should have a model name and the serial number at hand. Maybe even something that makes the laptop unique?</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<p>While searching for references for this article, I came across some very good resources.</p>
+<ul>
+<li>ArchLinux: <a href="https://wiki.archlinux.org/index.php/Data-at-rest_encryption">Data-at-rest encryption</a></li>
+<li>ArchLinux: <a href="https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system">dmcrypt/Encrypting an entire system</a></li>
+<li>Security.SE: <a href="https://security.stackexchange.com/questions/39306/how-secure-is-ubuntus-default-full-disk-encryption">How secure is Ubuntu&rsquo;s default full-disk encryption?</a></li>
+</ul>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
+<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="https://medium.com/plain-and-simple/captcha-500991bd90a3">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="https://medium.com/faun/xxe-attacks-750e91448e8f">XXE attacks</a> 😈</li>
+<li>Part 10: <a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="https://medium.com/faun/full-disk-encryption-2090489f9760">Full Disk Encryption</a> 😇</li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF 😈</li>
+<li>DOS 😈</li>
+<li>Credential Stuffing 😈</li>
+<li>Cryptojacking 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Two-Factor Authentication 😇</li>
+<li>Backups 😇</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-12-28T20:00:00+01:00">Dez 28, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#security-ref">Security</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#cybersecurity-ref">Cybersecurity
+                    <span>12</span>
+</a></li>
+                <li><a href="../tags.html#infosec-ref">InfoSec
+                    <span>10</span>
+</a></li>
+                <li><a href="../tags.html#it-security-ref">IT Security
+                    <span>12</span>
+</a></li>
+                <li><a href="../tags.html#security-ref">Security
+                    <span>16</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
