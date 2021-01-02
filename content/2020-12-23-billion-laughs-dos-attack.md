@@ -118,6 +118,7 @@ In this series about application security (AppSec) we already explained some of 
 * Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈
 * Part 10: [Effective Access Control](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff) 😇
 * Part 11: [DOS via a Billion Laughs](https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139) 😈
+* Part 12: [Full Disk Encryption](https://medium.com/faun/full-disk-encryption-2090489f9760) 😇
 
 And this is about to come:
 
@@ -128,6 +129,5 @@ And this is about to come:
 * Single-Sign-On 😇
 * Two-Factor Authentication 😇
 * Backups 😇
-* Disk Encryption 😇
 
 Let me know if you are interested in more articles around AppSec / InfoSec!
