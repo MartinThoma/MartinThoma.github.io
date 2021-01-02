@@ -322,33 +322,31 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>6.99 € / 1 pair</td>
         </tr>
         <tr>
-            <td>Herrenschuhe</td>
-            <td></td>
+            <td>Herrenschuhe / Alltagsschuhe</td>
+            <td>44.99 € / 1 pair</td>
             <td></td>
             <td></td>
             <td>44.99 € / 1 pair</td>
         </tr>
         <tr>
             <td>Laufschuhe Asics GT-2000</td>
-            <td></td>
-            <td></td>
-            <td></td>
             <td>100.00 € / 1 pair</td>
+            <td></td>
+            <td></td>
+            <td>0</td>
         </tr>
     </tbody>
     <tfoot>
         <tr>
             <th>Total</th>
-            <td>1354.80 €</td>
-            <td>-</td>
-            <td>290.30 € / year</td>
-            <td>102.65 €</td>
+            <th>1354.80 €</th>
+            <th>-</th>
+            <th>290.30 € / year</th>
+            <th>102.65 €</th>
         </tr>
     </tfoot>
 </table>
 
-* Alltagsschuhe
-* Regenjacke
 * Herbstjacke
 
 
@@ -358,7 +356,7 @@ which I think I really need... turns out, it's a lot of stuff.
     <thead>
         <tr>
             <th>Name</th>
-            <th>Price</th>
+            <th>Price per piece</th>
             <th>Durability</th>
             <th>Per year</th>
             <th>2020</th>
@@ -366,41 +364,64 @@ which I think I really need... turns out, it's a lot of stuff.
     </thead>
     <tbody>
         <tr>
-            <td>Schlafsack</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><a href="https://martin-thoma.com/sleeping-bags/">Schlafsack</a> (Mountain Equipment GLACIER 1000 REGULAR)</td>
+            <td>359.92 €</td>
+            <td>20 years</td>
+            <td>18.00 €</td>
+            <td>359.92 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td><a href="https://martin-thoma.com/sleeping-bags/">Schlafsack</a></td>
+            <td>17.54 €</td>
+            <td>10 years</td>
+            <td>1.76 €</td>
             <td>17.54 € / 1 piece</td>
         </tr>
         <tr>
-            <td>Rucksack</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><a href="https://martin-thoma.com/hardshell-jackets/">Hardshell Jackets</a> (Regenjacke, Fjällräven Keb Eco Shell)</td>
+            <td>320 €</td>
+            <td>10 years</td>
+            <td>32.00 €</td>
             <td></td>
         </tr>
         <tr>
             <td>Wanderschuhe (Meindl Herren Island Mfs Active)</td>
-            <td>235 € / 1 pair</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>235 €</td>
+            <td>10 years</td>
+            <td>23.50 €</td>
+            <td>0</td>
         </tr>
         <tr>
-            <td>Regenjacke (Fjällräven Keb Eco Shell)</td>
-            <td>320 € / 1 piece</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Wanderhose (Fjällräven M KEB TROUSERS REGULAR)</td>
+            <td>197.91 €</td>
+            <td>10 years</td>
+            <td>19.80 €</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Rucksack (Deuter Aircontact 55+10)</td>
+            <td>170.92 €</td>
+            <td>15 years</td>
+            <td>11.40 €</td>
+            <td>0</td>
         </tr>
         <tr>
             <td>Fließjacke (Mammut Innominata Advanced ML Jacket)</td>
-            <td>113 € / 1 piece</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>113 €</td>
+            <td>10 years</td>
+            <td>11.30 €</td>
+            <td>0</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>TODO</th>
+            <th>17.54 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 ## Expensive Stuff
@@ -443,9 +464,9 @@ which I think I really need... turns out, it's a lot of stuff.
     <tfoot>
         <tr>
             <th>Total</th>
-            <td>2542.00 €</td>
-            <td>-</td>
-            <td>634.50 € / year</td>
+            <th>2542.00 €</th>
+            <th>-</th>
+            <th>634.50 € / year</th>
         </tr>
     </tfoot>
 </table>
@@ -475,6 +496,12 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>4.67 € / 66m</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th>8.46 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 ## Kitchen
@@ -587,7 +614,10 @@ which I think I really need... turns out, it's a lot of stuff.
         </tr>
         <tr>
             <td>Fahrradketten-Öl</td>
-            <td>5.99 € / 60ml (Finish Line; total rippoff - you can get it for 4 € / 100ml)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>5.99 € / 60ml (Finish Line; rippoff - you can get it for 4 € / 100ml)</td>
         </tr>
         <tr>
             <td>Schnürsenkel</td>
@@ -619,6 +649,9 @@ which I think I really need... turns out, it's a lot of stuff.
         </tr>
         <tr>
             <td>Briefmarke (Post)</td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>1.75 / 2 letters or packages</td>
         </tr>
         <tr>
@@ -640,13 +673,11 @@ which I think I really need... turns out, it's a lot of stuff.
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td>2.99 € / 1</td>
         </tr>
         <tr>
             <td>Regenschirm</td>
             <td>2.95 € / 1 piece</td>
-            <td></td>
             <td></td>
             <td></td>
             <td>2.95 € / 1 piece</td>
@@ -656,10 +687,18 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>7.49 € / 4 pieces</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>7.49 € / 4 pieces</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>
 </table>
 
 Electronics:
@@ -1546,7 +1585,6 @@ General Cooking:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
             <th>2020</th>
@@ -1554,71 +1592,55 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Mie Nudeln</td>
-            <td></td>
-            <td>1 year 6 months</td>
-            <td></td>
-            <td>4.47 € / 780g</td>
-        </tr>
-        <tr>
-            <td>Coconut Milk (Kokusmilch)</td>
-            <td></td>
-            <td>1 year 6 months</td>
-            <td>0.96 € / 400ml - 0.99 € / 400ml</td>
-            <td>3.90 € / 1600ml</td>
-        </tr>
-        <tr>
-            <td>Oister Sauce (🇩🇪 Austernsoße)</td>
-            <td>500g / 2 months (?)</td>
+            <td>Jasmin Rice (Reis)</td>
             <td>2 years</td>
-            <td>10 € / kg</td>
-            <td>2.29 € / 295ml</td>
+            <td>1.89 € / kg - 1.92 € / kg</td>
+            <td>19.76 € / 10kg</td>
+        </tr>
+        <tr>
+            <td>Mochi</td>
+            <td>1 year</td>
+            <td>2.99 € / 180g</td>
+            <td>14.96 € / 1200g</td>
+        </tr>
+        <tr>
+            <td>Sushi Rice</td>
+            <td>2 years</td>
+            <td>2.99 € / kg</td>
+            <td>7.97 € / 3000g</td>
         </tr>
         <tr>
             <td>Sweet Chilisauce</td>
-            <td></td>
             <td>1 year 4 months</td>
             <td></td>
             <td>7.97 € / 1390ml</td>
         </tr>
         <tr>
             <td>Other Sauce / Dip (andere Soßen)</td>
-            <td></td>
             <td>6 months</td>
             <td>0.26 € / 50g; 1.11 € / 250ml</td>
             <td>5.07 € / 1350ml</td>
         </tr>
         <tr>
-            <td>Kecap Manis (ABC)</td>
-            <td>600 ml / 2 months (?)</td>
-            <td>1 year</td>
-            <td>3.99 € / 600ml</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>Jasmin Rice (Reis)</td>
-            <td>1 kg / 2 months</td>
-            <td>2 years</td>
-            <td>1.89 € / kg - 1.92 € / kg</td>
-            <td>19.76 € / 10kg</td>
-        </tr>
-        <tr>
-            <td>Sushi Rice</td>
+            <td>Mie Nudeln</td>
+            <td>1 year 6 months</td>
             <td></td>
-            <td>2 years</td>
-            <td>2.99 € / kg</td>
-            <td>7.97 € / 3000g</td>
+            <td>4.47 € / 780g</td>
         </tr>
         <tr>
-            <td>Mochi</td>
-            <td></td>
-            <td>1 year</td>
-            <td>2.99 € / 180g</td>
-            <td>14.96 € / 1200g</td>
+            <td>Coconut Milk (Kokusmilch)</td>
+            <td>1 year 6 months</td>
+            <td>0.96 € / 400ml - 0.99 € / 400ml</td>
+            <td>3.90 € / 1600ml</td>
+        </tr>
+        <tr>
+            <td>Oister Sauce (🇩🇪 Austernsoße)</td>
+            <td>2 years</td>
+            <td>10 € / kg</td>
+            <td>2.29 € / 295ml</td>
         </tr>
         <tr>
             <td>Fortune Cookie (🇩🇪 Glückskeks)</td>
-            <td></td>
             <td></td>
             <td></td>
             <td>0.19 € / 1 piece</td>
@@ -1627,26 +1649,22 @@ General Cooking:
             <td>Garuda coated peanuts snack (🇩🇪 Erdnuss-Atom Knoblauch)</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>1.79 € / 200g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Nori">Nori</a> (🇩🇪 Seetang geröstet MIYATA)</td>
-            <td></td>
             <td></td>
             <td>2.99 € / 28g</td>
             <td>5.38 € / 48g</td>
         </tr>
         <tr>
             <td>Instant Noodles (Instant-Nudeln)</td>
-            <td></td>
             <td>9 months</td>
             <td></td>
             <td>2.64 € / 6 piece</td>
         </tr>
         <tr>
             <td>Surimi Daru</td>
-            <td></td>
             <td></td>
             <td>3.59 € / 500g</td>
             <td>7.28 € / 1000g</td>
@@ -1655,54 +1673,58 @@ General Cooking:
             <td>Mogu MoGu</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>5.56 € / 1280ml</td>
         </tr>
         <tr>
-            <td>Roastet White Sesame (🇩🇪 Gerösteter weißer Sesam)</td>
-            <td></td>
-            <td>6 months</td>
-            <td></td>
-            <td>2.99 € / 60g</td>
-        </tr>
-        <tr>
-            <td>Tofu</td>
-            <td></td>
-            <td>1 month</td>
-            <td>1.99 € / 400g</td>
-            <td>3.39 € / 800g</td>
-        </tr>
-        <tr>
-            <td>Tempeh</td>
-            <td></td>
-            <td></td>
-            <td>1.79 € / 394g</td>
-            <td>1.79 € / 394g</td>
-        </tr>
-        <tr>
-            <td>Kleine Chilischoten</td>
-            <td></td>
-            <td>4 weeks</td>
-            <td>1.49 € / 100g</td>
-            <td>2.48 € / 150g</td>
-        </tr>
-        <tr>
-            <td>Kokosnussmilch</td>
-            <td></td>
-            <td>18 months</td>
-            <td></td>
-            <td>2.97 € / 1600ml</td>
-        </tr>
-        <tr>
             <td>Gewürzmischung (AHG / Bamboe)</td>
-            <td></td>
             <td>18 months</td>
             <td>1.79 € / piece</td>
             <td>7.15 € / 5 pieces</td>
         </tr>
         <tr>
-            <td>Zitronengraß</td>
+            <td>Sojasauce</td>
+            <td>14 months</td>
+            <td>4.99 € / 500ml</td>
+            <td>4.99 € / 500ml</td>
+        </tr>
+        <tr>
+            <td>Tofu</td>
+            <td>1 month</td>
+            <td>1.99 € / 400g</td>
+            <td>3.39 € / 800g</td>
+        </tr>
+        <tr>
+            <td>Roastet White Sesame (🇩🇪 Gerösteter weißer Sesam)</td>
+            <td>6 months</td>
             <td></td>
+            <td>2.99 € / 60g</td>
+        </tr>
+        <tr>
+            <td>Kokosnussmilch</td>
+            <td>18 months</td>
+            <td></td>
+            <td>2.97 € / 1600ml</td>
+        </tr>
+        <tr>
+            <td>Kleine Chilischoten</td>
+            <td>4 weeks</td>
+            <td>1.49 € / 100g</td>
+            <td>2.48 € / 150g</td>
+        </tr>
+        <tr>
+            <td>Worchestersauce</td>
+            <td></td>
+            <td>1.99 € / 140ml</td>
+            <td>1.99 € / 140ml</td>
+        </tr>
+        <tr>
+            <td>Tempeh</td>
+            <td></td>
+            <td>1.79 € / 394g</td>
+            <td>1.79 € / 394g</td>
+        </tr>
+        <tr>
+            <td>Zitronengraß</td>
             <td>2 weeks?</td>
             <td>1.46 € / 50g</td>
             <td>1.46 € / 50g</td>
@@ -1711,31 +1733,29 @@ General Cooking:
             <td>Reisessig</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>1.39 € / 250ml</td>
         </tr>
         <tr>
-            <td>Sojasauce</td>
-            <td></td>
-            <td>14 months</td>
-            <td>4.99 € / 500ml</td>
-            <td>4.99 € / 500ml</td>
-        </tr>
-        <tr>
-            <td>Worchestersauce</td>
-            <td></td>
-            <td></td>
-            <td>1.99 € / 140ml</td>
-            <td>1.99 € / 140ml</td>
-        </tr>
-        <tr>
-            <td>Sauce</td>
-            <td></td>
+            <td>Other Sauce</td>
             <td>1 year 3 months</td>
             <td>0.75 € / 300ml</td>
             <td>0.75 € / 300ml</td>
         </tr>
+        <tr>
+            <td>Kecap Manis (ABC)</td>
+            <td>1 year</td>
+            <td>3.99 € / 600ml</td>
+            <td>0</td>
+        </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>120.58</th>
+        </tr>
+    </tfoot>
 </table>
 
 ### Noodles
@@ -1744,7 +1764,6 @@ General Cooking:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
             <th>2020</th>
@@ -1753,21 +1772,18 @@ General Cooking:
     <tbody>
         <tr>
             <td>Pasta (Hartweizengrieß, z.B. Bandnudeln, Penne, Spaghetti, Fusilli)</td>
-            <td></td>
             <td>2.5 years</td>
             <td>0.48 € / 500g - 0.59 € / 500g</td>
             <td>7.00 € / 5000g</td>
         </tr>
         <tr>
             <td>Tortelloni Pasta</td>
-            <td>3 kg / year</td>
             <td>4 months</td>
             <td>0.69 € / 250g</td>
             <td>2.07 € / 750g</td>
         </tr>
         <tr>
             <td>Barilla Pesto</td>
-            <td></td>
             <td>6 months</td>
             <td>1.99 € / 200g - 2.90 € / 200g</td>
             <td>11.80 € / 1000g</td>
@@ -1775,25 +1791,30 @@ General Cooking:
         <tr>
             <td>Nudelsoße</td>
             <td></td>
-            <td></td>
             <td>1.29 € / 400g</td>
             <td>1.29 € / 400g</td>
         </tr>
         <tr>
             <td>Gehackte Tomaten</td>
-            <td></td>
             <td>3 years 🥫</td>
             <td>0.48 € / 400g</td>
             <td>0.48 € / 400g</td>
         </tr>
         <tr>
             <td>Passierte Tomaten</td>
-            <td></td>
             <td>1 year</td>
             <td>0.39 € / 500g</td>
             <td>1.17 € / 1000g</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>23.81 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 ### Meat and Fish
@@ -1802,7 +1823,6 @@ General Cooking:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
             <th>2020</th>
@@ -1810,123 +1830,114 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Fish (e.g. Knusperfilets)</td>
-            <td></td>
-            <td>days 🧊</td>
-            <td>1.99 € / package</td>
-            <td>9.88 € / 4 packages</td>
-        </tr>
-        <tr>
-            <td>Fisch Filet (Schlemmerfilet, Iglo Filegro, Filet Müllerin-Art)</td>
-            <td></td>
-            <td>2 years 🧊</td>
-            <td>1.93 € / 380g - 3.13 € / 380g</td>
-            <td>7.21 € / 1140g</td>
-        </tr>
-        <tr>
-            <td>Fish 🥫 (Hering / Thunfisch)</td>
-            <td></td>
-            <td>4 years</td>
-            <td>1.49 € / 200g</td>
-            <td>5.40 € / 460g</td>
-        </tr>
-        <tr>
-            <td>Prawn / Shrimp / Meeresfrüchte (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>, Eismeergarnelen)</td>
-            <td></td>
-            <td>🧊</td>
-            <td>3.99 € / 200g - 4.79 € / 200g</td>
-            <td>12.77 € / 600g</td>
-        </tr>
-        <tr>
             <td>Rinderhackfleisch</td>
-            <td>1.2 kg</td>
             <td>5 days 🧊</td>
             <td>2.89 € / 400g - 3.29 € / 400g</td>
             <td>26.63 € / 3600g</td>
         </tr>
         <tr>
-            <td>Rind Sauerbraten</td>
-            <td>600g</td>
-            <td>3 weeks 🧊</td>
-            <td>5.39 € / 600g</td>
-            <td>5.39 € / 600g</td>
-        </tr>
-        <tr>
-            <td>Rumpsteak</td>
-            <td></td>
-            <td>14 days</td>
-            <td>24.99 € / kg</td>
-            <td>12.85 € / 514g</td>
-        </tr>
-        <tr>
-            <td>Next Level Burger Patties (Vegan)</td>
-            <td></td>
-            <td></td>
-            <td>2.41 € / 225g</td>
-            <td>2.41 € / 225g</td>
-        </tr>
-        <tr>
             <td>Chicken (Hähnchenfilet / Hähnchengeschnetzeltes / Hähnchen-Minutenschnitzel)</td>
-            <td>4.8 kg</td>
             <td>?</td>
             <td>2.69 € / 400g</td>
             <td>25.41 € / 3700g</td>
         </tr>
         <tr>
-            <td>Hähnchen-Schnitzel / Cordon Bleu</td>
-            <td></td>
-            <td>?</td>
-            <td>2.89 € / 400g</td>
-            <td>5.69 € / 800g</td>
-        </tr>
-        <tr>
-            <td>Pommes (Süßkartoffel-Pommes)</td>
-            <td></td>
-            <td>🧊</td>
-            <td>1.69 € / 500g - 1.79 € / 500g</td>
-            <td>6.50 € / 2000g</td>
-        </tr>
-        <tr>
-            <td>Sausage (Würstchen, Bratwurst, Wiener)</td>
-            <td>?</td>
-            <td>1 month</td>
-            <td>2.59 € / 800g</td>
-            <td>9.20 € / 2700g</td>
-        </tr>
-        <tr>
             <td>Würstchen (trocken, für Reisen; Rottentaler; Kaminwurzer)</td>
-            <td></td>
             <td>2 months</td>
             <td>1.49 € / 150g</td>
             <td>15.43€ / 1200g</td>
         </tr>
         <tr>
-            <td>Sausage (<a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a>)</td>
-            <td>2.8 kg</td>
-            <td>?</td>
-            <td>2.19 € / 280g</td>
-            <td>0</td>
+            <td>Prawn / Shrimp / Meeresfrüchte (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>, Eismeergarnelen)</td>
+            <td>🧊</td>
+            <td>3.99 € / 200g - 4.79 € / 200g</td>
+            <td>12.77 € / 600g</td>
+        </tr>
+        <tr>
+            <td>Rumpsteak</td>
+            <td>14 days</td>
+            <td>24.99 € / kg</td>
+            <td>12.85 € / 514g</td>
         </tr>
         <tr>
             <td>Frikadellen / Gemüse-Nuggets</td>
-            <td></td>
             <td>1 month?</td>
             <td>1.99 € -2.21 €/ 500g</td>
             <td>10.61 € / 2500g</td>
         </tr>
         <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Tuna">Tuna</a> in tin (Thunfisch in der Dose)</td>
+            <td>Fish (e.g. Knusperfilets)</td>
+            <td>days 🧊</td>
+            <td>1.99 € / package</td>
+            <td>9.88 € / 4 packages</td>
+        </tr>
+        <tr>
+            <td>Sausage (Würstchen, Bratwurst, Wiener)</td>
+            <td>1 month</td>
+            <td>2.59 € / 800g</td>
+            <td>9.20 € / 2700g</td>
+        </tr>
+        <tr>
+            <td>Fisch Filet (Schlemmerfilet, Iglo Filegro, Filet Müllerin-Art)</td>
+            <td>2 years 🧊</td>
+            <td>1.93 € / 380g - 3.13 € / 380g</td>
+            <td>7.21 € / 1140g</td>
+        </tr>
+        <tr>
+            <td>Pommes (Süßkartoffel-Pommes)</td>
+            <td>🧊</td>
+            <td>1.69 € / 500g - 1.79 € / 500g</td>
+            <td>6.50 € / 2000g</td>
+        </tr>
+        <tr>
+            <td>Fish 🥫 (Hering / Thunfisch)</td>
+            <td>4 years</td>
+            <td>1.49 € / 200g</td>
+            <td>5.40 € / 460g</td>
+        </tr>
+        <tr>
+            <td>Rind Sauerbraten</td>
+            <td>3 weeks 🧊</td>
+            <td>5.39 € / 600g</td>
+            <td>5.39 € / 600g</td>
+        </tr>
+        <tr>
+            <td>Hähnchen-Schnitzel / Cordon Bleu</td>
+            <td>?</td>
+            <td>2.89 € / 400g</td>
+            <td>5.69 € / 800g</td>
+        </tr>
+        <tr>
+            <td>Next Level Burger Patties (Vegan)</td>
             <td></td>
+            <td>2.41 € / 225g</td>
+            <td>2.41 € / 225g</td>
+        </tr>
+        <tr>
+            <td>Ketchup</td>
+            <td>1.5 years</td>
+            <td>1.59 € / 860ml</td>
+            <td>1.59 € / 860ml</td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Tuna">Tuna</a> in tin (Thunfisch in der Dose)</td>
             <td>2.5 years</td>
             <td></td>
             <td>0.99 € / 195g (Abtropfgewicht)</td>
         </tr>
         <tr>
-            <td>Ketchup</td>
-            <td></td>
-            <td>1.5 years</td>
-            <td>1.59 € / 860ml</td>
-            <td>1.59 € / 860ml</td>
+            <td>Sausage (<a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a>)</td>
+            <td>?</td>
+            <td>2.19 € / 280g</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>157.96 €</th>
         </tr>
     </tbody>
 </table>
@@ -1937,7 +1948,6 @@ General Cooking:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
             <th>2020</th>
@@ -1946,96 +1956,91 @@ General Cooking:
     <tbody>
         <tr>
             <td>Walnusskerne</td>
-            <td></td>
             <td>6 months</td>
             <td>2.49 € / 200g</td>
             <td>2.49 € / 200g</td>
         </tr>
         <tr>
             <td>Backpulver</td>
-            <td></td>
             <td>2 years</td>
             <td>0.28 € / 150g</td>
             <td>0.28 € / 150g</td>
         </tr>
         <tr>
             <td>Vanillin/Vanille-Zucker</td>
-            <td></td>
             <td>1 year</td>
             <td>0.96 € / 80g</td>
             <td>1.92 € / 160g</td>
         </tr>
         <tr>
             <td>Vanille-Pulver für Soße</td>
-            <td></td>
             <td>2 years</td>
             <td>0.97 € / 1.5 L</td>
             <td>0.97 € / 1.5 L</td>
         </tr>
         <tr>
             <td>Schokostreusel</td>
-            <td></td>
             <td>1 year</td>
             <td>1.25 € / 400g</td>
             <td>1.25 € / 400g</td>
         </tr>
         <tr>
             <td>Gehackte Mandeln</td>
-            <td></td>
             <td>6 months</td>
             <td>0.96 € / 100g</td>
             <td>0.96 € / 100g</td>
         </tr>
         <tr>
             <td>Kuchen Backmischung</td>
-            <td></td>
             <td>8 months</td>
             <td>1.59 € / 439g - 3.23 € / </td>
             <td>4.82 € / 819g</td>
         </tr>
         <tr>
             <td>Kuchenglasur</td>
-            <td></td>
             <td>2 years</td>
             <td>0.68 € / 200g</td>
             <td>0.68 € / 200g</td>
         </tr>
         <tr>
             <td>Griess</td>
-            <td></td>
             <td>?</td>
             <td>1.27 € / ?</td>
             <td>1.27 € / ?</td>
         </tr>
         <tr>
             <td>Hefe</td>
-            <td></td>
             <td>?</td>
             <td>1.95 € / 120g or 0.57 € / 42g</td>
             <td>2.52 € / 162g</td>
         </tr>
         <tr>
             <td>Sahnefest/Sahnesteif</td>
-            <td></td>
             <td>2 years</td>
             <td>0.29 € / 40g</td>
             <td>0.29 € / 40g</td>
         </tr>
         <tr>
             <td>Gelatine</td>
-            <td></td>
             <td>2 years</td>
             <td>0.85 € / 30g</td>
             <td>0.85 € / 30g</td>
         </tr>
         <tr>
             <td>Apfelmuß</td>
-            <td></td>
             <td>?</td>
             <td>0.59 € / 710g</td>
             <td>0.59 € / 710g</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>18.89 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 ### Other Food
@@ -2044,7 +2049,6 @@ General Cooking:
     <thead>
         <tr>
             <th>Food</th>
-            <th>Usage</th>
             <th>Durability</th>
             <th>Price</th>
             <th>2020</th>
@@ -2052,113 +2056,121 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Joghurt / Pudding / Sahne-Kefir / Milchreis (also as powder: Paradiesecreme)</td>
-            <td>3 pieces / week</td>
-            <td>2 weeks (?)❄️</td>
-            <td>0.29 € / piece - 0.57 € / piece</td>
-            <td>52.54 € / 178 piece</td>
-        </tr>
-        <tr>
-            <td>Natural Joghurt (Joghurt Pur)</td>
-            <td></td>
-            <td>1 month ❄️</td>
-            <td>0.49 € / 500g to 0.75 € / 500g</td>
-            <td>3.85 € / 3275g</td>
-        </tr>
-        <tr>
             <td>Sweets (Cookies, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären, Marzipan, Maxi-King, Maxi-Queen, Milchschnitte; some for baking such as Löffelbuisquits)</td>
-            <td>-</td>
             <td>months to years</td>
             <td></td>
             <td>148.15 € / 109 packages</td>
         </tr>
         <tr>
+            <td>Joghurt / Pudding / Sahne-Kefir / Milchreis (also as powder: Paradiesecreme)</td>
+            <td>2 weeks (?)❄️</td>
+            <td>0.29 € / piece - 0.57 € / piece</td>
+            <td>52.54 € / 178 piece</td>
+        </tr>
+        <tr>
             <td>Ice Cream (Eis Creme)</td>
-            <td></td>
             <td>2 years 🧊</td>
             <td>1.30 € / ball (1 ball = 80g); 1.93 € / 500g</td>
-            <td>2.916 € / 5369g</td>
+            <td>29.16 € / 5369g</td>
+        </tr>
+        <tr>
+            <td>Juice (Saft: Orangen-Nektar, Apfelsaft)</td>
+            <td>?</td>
+            <td>Apple Juice: 0.77 € / 1 L; Orange Juice: 0.79 € / 1.5 L - 0.96 € / 1.5 L; Other Juice: 0.85 € / 1 L - 0.86 € / 1 L</td>
+            <td>30.02 € / 52.0 L</td>
+        </tr>
+        <tr>
+            <td>Fertiggericht (Pfannengericht; z.B. Nasi Goreng)</td>
+            <td>2 months 🧊</td>
+            <td>1.79 € / package - 3.23 € / package</td>
+            <td>27.00 € / 13 package</td>
+        </tr>
+        <tr>
+            <td>Eiweiß</td>
+            <td>18 months</td>
+            <td>6.95 € / 350g</td>
+            <td>20.85 € / 1000g</td>
+        </tr>
+        <tr>
+            <td>Camembert</td>
+            <td>2 months ❄️</td>
+            <td>1.99 € / 4 pieces</td>
+            <td>17.78 € / 56 pieces</td>
+        </tr>
+        <tr>
+            <td>Bakery Sweets (<a href="https://de.wikipedia.org/wiki/Teilchen_(Backware)">Teilchen</a>; Bienenstichplunder)</td>
+            <td>1 day</td>
+            <td></td>
+            <td>14.14 € / 7 pieces</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
-            <td></td>
             <td></td>
             <td></td>
             <td>12.48 € / 12 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Brezel)</td>
-            <td></td>
             <td>1 day</td>
             <td></td>
             <td>6.15 / 11 pieces</td>
         </tr>
         <tr>
-            <td>Bakery Sweets (<a href="https://de.wikipedia.org/wiki/Teilchen_(Backware)">Teilchen</a>; Bienenstichplunder)</td>
-            <td></td>
-            <td>1 day</td>
-            <td></td>
-            <td>14.14 € / 7 pieces</td>
+            <td><a href="https://en.wikipedia.org/wiki/Fried_onion">Fried Onion</a> (Röstzwiebeln)</td>
+            <td>1 year</td>
+            <td>0.76 € / 150g - 0.99 € / 150g</td>
+            <td>5.31 € / 900g</td>
+        </tr>
+        <tr>
+            <td>Natural Joghurt (Joghurt Pur)</td>
+            <td>1 month ❄️</td>
+            <td>0.49 € / 500g to 0.75 € / 500g</td>
+            <td>3.85 € / 3275g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Trail_mix">Trail Mix</a> (Studentenfutter)</td>
-            <td>1.8 kg / year</td>
             <td>6 Months</td>
             <td>1.89 € / 150g</td>
             <td>1.89 € / 150g</td>
         </tr>
         <tr>
             <td>Cheap Tea bags (Billige Teebeutel)</td>
-            <td>50 pieces / year</td>
             <td>1 year</td>
             <td>0.59 € / 25 pieces</td>
             <td>1.15 € / 50 pieces</td>
         </tr>
         <tr>
             <td>Expensive Tea bags (Teure Teebeutel)</td>
-            <td></td>
             <td>2 years</td>
             <td>1.65 € / 25 pieces - 1.75 € / 20 pieces</td>
             <td>3.40 € / 45 pieces</td>
         </tr>
         <tr>
-            <td>Waffles (Frischeiwaffeln)</td>
-            <td>36 pieces / year</td>
-            <td>?</td>
-            <td>0.95 € / 6 pieces</td>
-            <td>0 €</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Fried_onion">Fried Onion</a> (Röstzwiebeln)</td>
-            <td>3kg / year</td>
-            <td>1 year</td>
-            <td>0.76 € / 150g - 0.99 € / 150g</td>
-            <td>5.31 € / 900g</td>
-        </tr>
-        <tr>
             <td>Pickles (Cornichons)</td>
-            <td></td>
             <td>34 months</td>
             <td>0.96 € / 190g - 0.99 € / 190g</td>
             <td>13.83 € / 2660g</td>
         </tr>
         <tr>
             <td>Eggs (Eier)</td>
-            <td>120 pieces / year</td>
             <td>5 weeks</td>
             <td>1.29 € / 10 pieces</td>
             <td>12.82 € / 100 pieces</td>
         </tr>
         <tr>
-            <td>Juice (Saft: Orangen-Nektar, Apfelsaft)</td>
-            <td>18 L / year</td>
-            <td>?</td>
-            <td>Apple Juice: 0.77 € / 1 L; Orange Juice: 0.79 € / 1.5 L - 0.96 € / 1.5 L; Other Juice: 0.85 € / 1 L - 0.86 € / 1 L</td>
-            <td>30.02 € / 52.0 L</td>
+            <td>Pizza (ready-made)</td>
+            <td></td>
+            <td>1.54 € / 2 pieces - 2.59 € / 2 pieces</td>
+            <td>6.72 € / 6 pieces</td>
+        </tr>
+        <tr>
+            <td>Canned Soup 🥫 (Dosensuppe, Thai-Suppe, Bihun-Suppe)</td>
+            <td>33 months</td>
+            <td>0.79 € / 400 ml</td>
+            <td>6.62 € / 3200 ml</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
-            <td>?</td>
             <td>2 months</td>
             <td>0.48 € / 1.5 L - 1.39 € / 1.5 L</td>
             <td>5.10 € / 10.5 L</td>
@@ -2166,55 +2178,29 @@ General Cooking:
         <tr>
             <td>Wine (Wein)</td>
             <td></td>
-            <td></td>
             <td>2.13 € / 0.75 L</td>
             <td>2.13 € / 0.75 L</td>
         </tr>
         <tr>
             <td>Water (Wasser)</td>
-            <td></td>
             <td>1 year</td>
             <td>0.11 € / 0.5 L</td>
             <td>0.88 € / 4.0 L</td>
         </tr>
         <tr>
             <td>Malz</td>
-            <td></td>
             <td>1 year</td>
             <td>0.29 € / 0.5L</td>
             <td>0.54 € / 1.0L</td>
         </tr>
         <tr>
             <td>Milchgetränk / Joghurtgetränk / Joghurt-Drink</td>
-            <td></td>
             <td>1 week (needs ❄️)</td>
             <td>0.39 € / 250ml</td>
             <td>1.65 € / 1250ml</td>
         </tr>
         <tr>
-            <td>Camembert</td>
-            <td>24 pieces / year (?)</td>
-            <td>2 months ❄️</td>
-            <td>1.99 € / 4 pieces</td>
-            <td>17.78 € / 56 pieces</td>
-        </tr>
-        <tr>
-            <td>Canned Soup (Dosensuppe, Thai-Suppe, Bihun-Suppe)</td>
-            <td></td>
-            <td>33 months</td>
-            <td>0.79 € / 400 ml</td>
-            <td>6.62 € / 3200 ml</td>
-        </tr>
-        <tr>
-            <td>Fertiggericht (Pfannengericht; z.B. Nasi Goreng)</td>
-            <td></td>
-            <td></td>
-            <td>1.79 € / package - 3.23 € / package</td>
-            <td>27.00 € / 13 package</td>
-        </tr>
-        <tr>
             <td>Chili Sin Carne 🥫</td>
-            <td></td>
             <td>3 years</td>
             <td>1.69 € / 800g</td>
             <td>1.69 € / 800g</td>
@@ -2223,12 +2209,10 @@ General Cooking:
             <td>Raviolio 🥫</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>1.19 € / 800g</td>
         </tr>
         <tr>
             <td>Gulasch in der Dose 🥫</td>
-            <td></td>
             <td>2 years</td>
             <td>1.15 € / 800g</td>
             <td>2.99 € / 400g (?)</td>
@@ -2237,40 +2221,28 @@ General Cooking:
             <td>Ravioli in der Dose 🥫</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>1.15 € / 800g</td>
         </tr>
         <tr>
             <td>Bohneneintopf 🥫</td>
             <td></td>
             <td></td>
-            <td></td>
             <td>0.96 € / 800g</td>
         </tr>
         <tr>
             <td>Zwieback</td>
-            <td></td>
             <td>11 months</td>
             <td>1.34 € / 450g</td>
             <td>4.72 € / 1800 g</td>
         </tr>
         <tr>
-            <td>Eiweiß</td>
-            <td></td>
-            <td>18 months</td>
-            <td>6.95 € / 350g</td>
-            <td>20.85 € / 1000g</td>
-        </tr>
-        <tr>
             <td>Leinsamen</td>
-            <td></td>
             <td>10 months</td>
             <td>1.25 € / 500g</td>
             <td>1.25 € / 500g</td>
         </tr>
         <tr>
             <td>Tomatenmark</td>
-            <td></td>
             <td>2 years</td>
             <td>0.49 € / 200g - 0.57 € / 200g</td>
             <td>2.04 € / 800g</td>
@@ -2278,62 +2250,47 @@ General Cooking:
         <tr>
             <td>Geschälte Tomaten in der Dose</td>
             <td></td>
-            <td></td>
             <td>0.38 € /240g - 0.39 € / 240g</td>
             <td>1.54 € / 960g</td>
         </tr>
         <tr>
             <td>Zitronensaft</td>
-            <td></td>
             <td>6 months</td>
             <td>0.48 € / 200ml - 0.49 € / 200ml</td>
             <td>0.97 € / 400ml</td>
         </tr>
         <tr>
             <td>Semmelknödel</td>
-            <td></td>
             <td>1 year</td>
             <td>0.68 € / 200g - 0.69 € / 200g (6 pieces)</td>
             <td>3.44 € / 800g (30 pieces)</td>
         </tr>
         <tr>
             <td>Kartoffelknödelteig</td>
-            <td></td>
             <td>1 month</td>
             <td>1.29 € / 750g</td>
             <td>1.29 € / 750g</td>
         </tr>
         <tr>
             <td>Kartoffelsalat</td>
-            <td>?</td>
             <td>2 weeks</td>
             <td>1.89 € / 750g</td>
             <td>3.38 € / 1500g</td>
         </tr>
         <tr>
             <td>Müsli-Riegel (Granola)</td>
-            <td></td>
             <td>6 months</td>
             <td>0.99 € / 8 pieces (200 g)</td>
             <td>1.98 € / 16 pieces (200 g)</td>
         </tr>
         <tr>
             <td>Crutons</td>
-            <td></td>
             <td>18 months</td>
             <td>0.79 € / 25g</td>
             <td>2.23 € / 150g</td>
         </tr>
         <tr>
-            <td>Pizza (ready-made)</td>
-            <td></td>
-            <td></td>
-            <td>1.54 € / 2 pieces - 2.59 € / 2 pieces</td>
-            <td>6.72 € / 6 pieces</td>
-        </tr>
-        <tr>
             <td>Ready-made pizza dough (Pizza Teig)</td>
-            <td></td>
             <td></td>
             <td>1.15 € / 1 piece</td>
             <td>1.15 € / 1 piece</td>
@@ -2341,18 +2298,24 @@ General Cooking:
         <tr>
             <td>Kloß-Teig</td>
             <td></td>
-            <td></td>
             <td>0.99 € / package</td>
             <td>0.99 € / package</td>
         </tr>
         <tr>
             <td>Kichererbsen in der Dose</td>
-            <td></td>
             <td>3 years</td>
             <td>0.89 € / 240g</td>
             <td>0.89 € / 240g</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th>458.0 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 
@@ -2571,16 +2534,17 @@ General Cooking:
             <td>Bildschirm / Display Reiniger (V7 VCL1623)</td>
             <td>6.49 € / 250ml</td>
             <td></td>
+            <td></td>
             <td>6.49 € / 250ml</td>
         </tr>
         </tbody>
         <tfoot>
         <tr>
             <th>Total</th>
-            <td>32.50 €</td>
-            <td>-</td>
-            <td>96.97 € / year</td>
-            <td>0</td>
+            <th>32.50 €</th>
+            <th>-</th>
+            <th>96.97 € / year</th>
+            <th>99.13 €</th>
         </tr>
     </tfoot>
 </table>
@@ -2605,28 +2569,12 @@ pills and maybe a couple of months for creams and ointment.
     </thead>
     <tbody>
         <tr>
-            <td>Paracetamol 500mg</td>
-            <td>2 pieces / year</td>
-            <td>2 years</td>
-            <td>4.68 / 20 pieces</td>
-            <td>2.34 € / year</td>
-            <td>0</td>
-        </tr>
-        <tr>
             <td>Ibuhexal Akut 400</td>
             <td></td>
             <td>4 years</td>
             <td>3.45 € / 10 pieces</td>
             <td></td>
             <td>3.45 € / 10 pieces</td>
-        </tr>
-        <tr>
-            <td>Aspirin 500mg</td>
-            <td>4 pieces / year</td>
-            <td>4 years</td>
-            <td>7.06 / 98 pieces</td>
-            <td>1.77 € / year</td>
-            <td>0</td>
         </tr>
         <tr>
             <td>Em-eukal Gummidrops</td>
@@ -2692,7 +2640,33 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td>2.95 € / 5 pieces</td>
         </tr>
+        <tr>
+            <td>Aspirin 500mg</td>
+            <td>4 pieces / year</td>
+            <td>4 years</td>
+            <td>7.06 / 98 pieces</td>
+            <td>1.77 € / year</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Paracetamol 500mg</td>
+            <td>2 pieces / year</td>
+            <td>2 years</td>
+            <td>4.68 / 20 pieces</td>
+            <td>2.34 € / year</td>
+            <td>0</td>
+        </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>27.07 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 
@@ -2711,6 +2685,20 @@ pills and maybe a couple of months for creams and ointment.
     </thead>
     <tbody>
         <tr>
+            <td>Restaurant (private)</td>
+            <td>15 € / person</td>
+            <td></td>
+            <td></td>
+            <td>401.60 € / 25 people (14 times in total)</td>
+        </tr>
+        <tr>
+            <td>GEZ / <a href="https://de.wikipedia.org/wiki/Rundfunkbeitrag">Rundfunkbeitrag</a></td>
+            <td>17.50 €</td>
+            <td>Each month</td>
+            <td>210.00 € / year</td>
+            <td>210 €</td>
+        </tr>
+        <tr>
             <td>Public transportation - ÖPNV ticket (DB, Bahn, Reisen, FlixBus)</td>
             <td>79.10 €</td>
             <td>Each month</td>
@@ -2725,18 +2713,46 @@ pills and maybe a couple of months for creams and ointment.
             <td>157 € / 14 time (+ 3 times being invited)</td>
         </tr>
         <tr>
+            <td>Hair Cut (Friseur)</td>
+            <td>16 € / cut</td>
+            <td>Each 6 Weeks</td>
+            <td>113.00 € / year</td>
+            <td>97 € / 6 cuts</td>
+        </tr>
+        <tr>
+            <td>Hotel</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>87.5 € / 2 nights</td>
+        </tr>
+        <tr>
+            <td>Urlaub (nicht Hotel, ÖPNV, Restaurant)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>18.20 € / 2 days</td>
+        </tr>
+        <tr>
+            <td>Climbing (Klettern: Kletterwelt München)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>15.90 € / 1 time</td>
+        </tr>
+        <tr>
+            <td>Hiking (Sleeping place, Food)</td>
+            <td></td>
+            <td></td>
+            <td>72.00 € / 1 hike</td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Food for Work (e.g. Semmel)</td>
             <td></td>
             <td></td>
             <td></td>
             <td>2.30 € / 1 time</td>
-        </tr>
-        <tr>
-            <td>Restaurant (private)</td>
-            <td>15 € / person</td>
-            <td></td>
-            <td></td>
-            <td>401.60 € / 25 people (14 times in total)</td>
         </tr>
         <tr>
             <td>Restaurant/Café (private, just drink)</td>
@@ -2753,32 +2769,11 @@ pills and maybe a couple of months for creams and ointment.
             <td>0 €</td>
         </tr>
         <tr>
-            <td>Climbing (Klettern: Kletterwelt München)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>15.90 € / 1 time</td>
-        </tr>
-        <tr>
             <td>Swimming (Schwimmen)</td>
             <td>6 € / 1 time</td>
             <td></td>
             <td></td>
             <td>12 € / 2 time</td>
-        </tr>
-        <tr>
-            <td>GEZ / <a href="https://de.wikipedia.org/wiki/Rundfunkbeitrag">Rundfunkbeitrag</a></td>
-            <td>17.50 €</td>
-            <td>Each month</td>
-            <td>210.00 € / year</td>
-            <td>0 €</td>
-        </tr>
-        <tr>
-            <td>Hair Cut (Friseur)</td>
-            <td>16 € / cut</td>
-            <td>Each 6 Weeks</td>
-            <td>113.00 € / year</td>
-            <td>97 € / 6 cuts</td>
         </tr>
         <tr>
             <td><a href="https://www.check24.de/handytarife">SIM card</a></td>
@@ -2802,27 +2797,6 @@ pills and maybe a couple of months for creams and ointment.
             <td>0 €</td>
         </tr>
         <tr>
-            <td>Hiking (Sleeping place, Food)</td>
-            <td></td>
-            <td></td>
-            <td>72.00 € / 1 hike</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Urlaub (nicht Hotel, ÖPNV, Restaurant)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>18.20 € / 2 days</td>
-        </tr>
-        <tr>
-            <td>Hotel</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>87.5 € / 2 nights</td>
-        </tr>
-        <tr>
             <td>Printing</td>
             <td></td>
             <td></td>
@@ -2836,7 +2810,7 @@ pills and maybe a couple of months for creams and ointment.
             <th></th>
             <th></th>
             <th>2029.58 € / year</th>
-            <th>TODO</th>
+            <th>958.50</th>
         </tr>
     </tfoot>
 </table>
@@ -2863,7 +2837,7 @@ pills and maybe a couple of months for creams and ointment.
     <tfoot>
         <tr>
             <th>Total</th>
-            <th>TODO</th>
+            <th>211.09 €</th>
         </tr>
     </tfoot>
 </table>
@@ -2912,6 +2886,12 @@ Others were paid by my employer. And I've got some presents as well.
             <td>29.99 € / 1 piece</td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th>138.99 €</th>
+        </tr>
+    </tfoot>
 </table>
 
 
@@ -2933,18 +2913,6 @@ I didn't like them:
     </thead>
     <tbody>
         <tr>
-            <td>Moving</td>
-            <td>35 €</td>
-        </tr>
-        <tr>
-            <td>Lack</td>
-            <td>0.99 €</td>
-        </tr>
-        <tr>
-            <td>Dishwasher</td>
-            <td>125.00 €</td>
-        </tr>
-        <tr>
             <td>Dates / Girlfriend</td>
             <td>355.65 €</td>
         </tr>
@@ -2953,76 +2921,48 @@ I didn't like them:
             <td>285.54 €</td>
         </tr>
         <tr>
-            <td>Battery (9V)</td>
-            <td>18.69 € / 5 pieces</td>
-        </tr>
-        <tr>
-            <td>Kerze</td>
-            <td>3.98 € / 2 pieces</td>
-        </tr>
-        <tr>
-            <td>Other</td>
-            <td>30.26 €</td>
-        </tr>
-        <tr>
-            <td>Plants (Pflanzen, Pflanzentopf, ...)</td>
-            <td>3.98 € / 2 piece</td>
-        </tr>
-        <tr>
-            <td>Teekanne (Kela 11355 ✨)</td>
-            <td>29.13 € / 1 piece</td>
-        </tr>
-        <tr>
-            <td>Standmixer (Russell Mix&Go ✨)</td>
-            <td>29.23 / 1 piece</td>
-        </tr>
-        <tr>
-            <td>Gewürzflaschen (Reapow Store)</td>
-            <td>27.99 € / 20 pieces</td>
-        </tr>
-        <tr>
-            <td>Batterietester (BT-168D)</td>
-            <td>9.99 € / 1 piece</td>
-        </tr>
-        <tr>
-            <td>Aufbewahrungskiste (Rotho Country 18L, Kühlschrank Organizer)</td>
-            <td>32.77 € / 5 piece</td>
-        </tr>
-        <tr>
-            <td>Elektrische Moskito Fliegenklatsche / Zapper ✨</td>
-            <td>19.99 € / 1 piece</td>
-        </tr>
-        <tr>
-            <td>HDMI-zu-DVI Adapter (1.83m)</td>
-            <td>6.99 € / 1 piece</td>
-        </tr>
-        <tr>
             <td>External Harddrive HDD/SSD (WD My Passport 5 TB) ✨</td>
             <td>127.06 € / 1 piece</td>
+        <tr>
+            <td>Dishwasher</td>
+            <td>125.00 €</td>
+        </tr>
         </tr>
         <tr>
             <td>WLAN Router (AVM Fritz!Box 7530)</td>
             <td>115.90 € / 1 piece</td>
         </tr>
         <tr>
-            <td>Akku Ladegerät for 9V, AA, AAA (EBL)</td>
-            <td>11.09 € / 1 piece</td>
-        </tr>
-        <tr>
-            <td>Thinkpad Notebook Ladegerät</td>
-            <td>19.99 € / 1 piece</td>
-        </tr>
-        <tr>
             <td>16 GB RAM (DDR4, PC4-19200, Crucial)</td>
             <td>52.99 € / 1 piece</td>
         </tr>
         <tr>
-            <td>Haushalt Vorhang Gardine</td>
-            <td>20.90 € / 4.5m</td>
+            <td>Board Game / Card Game</td>
+            <td>35.78 € / 3 games</td>
         </tr>
         <tr>
-            <td>Haushalt Tischdecke</td>
-            <td>12.99 € / 1 piece</td>
+            <td>Moving</td>
+            <td>35 €</td>
+        </tr>
+        <tr>
+            <td>Aufbewahrungskiste (Rotho Country 18L, Kühlschrank Organizer)</td>
+            <td>32.77 € / 5 piece</td>
+        </tr>
+        <tr>
+            <td>Other</td>
+            <td>30.26 €</td>
+        </tr>
+        <tr>
+            <td>Standmixer (Russell Mix&Go ✨)</td>
+            <td>29.23 / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Teekanne (Kela 11355 ✨)</td>
+            <td>29.13 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Gewürzflaschen (Reapow Store)</td>
+            <td>27.99 € / 20 pieces</td>
         </tr>
         <tr>
             <td>Diktiergerät</td>
@@ -3033,8 +2973,52 @@ I didn't like them:
             <td>22.88 € / 2 piece</td>
         </tr>
         <tr>
-            <td>Board Game / Card Game</td>
-            <td>35.78 € / 3 games</td>
+            <td>Haushalt Vorhang Gardine</td>
+            <td>20.90 € / 4.5m</td>
+        </tr>
+        <tr>
+            <td>Thinkpad Notebook Ladegerät</td>
+            <td>19.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Elektrische Moskito Fliegenklatsche / Zapper ✨</td>
+            <td>19.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Battery (9V)</td>
+            <td>18.69 € / 5 pieces</td>
+        </tr>
+        <tr>
+            <td>Haushalt Tischdecke</td>
+            <td>12.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Akku Ladegerät for 9V, AA, AAA (EBL)</td>
+            <td>11.09 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Batterietester (BT-168D)</td>
+            <td>9.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>HDMI-zu-DVI Adapter (1.83m)</td>
+            <td>6.99 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Plants (Pflanzen, Pflanzentopf, ...)</td>
+            <td>3.98 € / 2 piece</td>
+        </tr>
+        <tr>
+            <td>Kerze</td>
+            <td>3.98 € / 2 pieces</td>
+        </tr>
+        <tr>
+            <td>Lack</td>
+            <td>0.99 €</td>
         </tr>
     </tbody>
+    <tfoot>
+        <th>Total</th>
+        <th>1495.89</th>
+    </tfoot>
 </table>
