@@ -797,9 +797,10 @@ function mySubmitFunction() {
       success: function(data) {alert("You've subscribed");return false;},
       error: function(e) {console.log(e);}
   });
+  return false;
 }
 &lt;/script&gt;
-&lt;form onsubmit="mySubmitFunction()"&gt;
+&lt;form onsubmit="event.preventDefault();return mySubmitFunction()"&gt;
 &lt;label for="email"&gt;E-Mail&lt;/label&gt;
 &lt;input id="email" name="email" type="email"/&gt;
 &lt;button onclick="mySubmitFunction(); return false;" type="button"&gt;Subscribe&lt;/button&gt;
