@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Subscribe via Email "/>
 <meta property="og:url" content="email-subscription/" />
-<meta property="og:description" content="The subscription is done via Authory: function post(path, params, method=&#39;post&#39;) { // The rest of this code assumes you are not using a library. // It can be made less wordy if you use one. const form = document.createElement(&#39;form&#39;); form.method = method; form.action = path; for (const key in params …" />
+<meta property="og:description" content="The subscription is done via Authory: function mySubmitFunction() { console.log(&#34;mySubmitFunction&#34;); $.ajax({ type: &#34;POST&#34;, url: &#34;ttps://api-production.authory.com/subscribe/MartinThoma&#34;, data: {&#34;email&#34;: document.getElementById(&#39;email&#39;).value}, success: function(data) {alert(&#34;You&#39;ve subscribed&#34;);return false;}, error: function(e) {console.log(e);} }); E-Mail Add Item" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-20T20:00:00+02:00" />
 <meta name="twitter:title" content="Subscribe via Email ">
-<meta name="twitter:description" content="The subscription is done via Authory: function post(path, params, method=&#39;post&#39;) { // The rest of this code assumes you are not using a library. // It can be made less wordy if you use one. const form = document.createElement(&#39;form&#39;); form.method = method; form.action = path; for (const key in params …">
+<meta name="twitter:description" content="The subscription is done via Authory: function mySubmitFunction() { console.log(&#34;mySubmitFunction&#34;); $.ajax({ type: &#34;POST&#34;, url: &#34;ttps://api-production.authory.com/subscribe/MartinThoma&#34;, data: {&#34;email&#34;: document.getElementById(&#39;email&#39;).value}, success: function(data) {alert(&#34;You&#39;ve subscribed&#34;);return false;}, error: function(e) {console.log(e);} }); E-Mail Add Item">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -107,42 +107,20 @@ MathJax.Hub.Queue(function() {
             
             <p>The subscription is done via <a href="https://authory.com/MartinThoma">Authory</a>:</p>
 <script>
-function post(path, params, method='post') {
-
-  // The rest of this code assumes you are not using a library.
-  // It can be made less wordy if you use one.
-  const form = document.createElement('form');
-  form.method = method;
-  form.action = path;
-
-  for (const key in params) {
-    if (params.hasOwnProperty(key)) {
-      const hiddenField = document.createElement('input');
-      hiddenField.type = 'hidden';
-      hiddenField.name = key;
-      hiddenField.value = params[key];
-
-      form.appendChild(hiddenField);
-    }
-  }
-
-  document.body.appendChild(form);
-  form.submit();
-}
-
-function mySubmitFunction(e) {
+function mySubmitFunction() {
   console.log("mySubmitFunction");
-  //action="https://api-production.authory.com/subscribe/MartinThoma"
-  e.preventDefault();
-  console.log(e);
-  post("https://api-production.authory.com/subscribe/MartinThoma", {"email": document.getElementById('email').value})
-  return false;
-}
+  $.ajax({
+      type: "POST",
+      url: "ttps://api-production.authory.com/subscribe/MartinThoma",
+      data: {"email": document.getElementById('email').value},
+      success: function(data) {alert("You've subscribed");return false;},
+      error: function(e) {console.log(e);}
+  });
 </script>
-<form onsubmit="return mySubmitFunction(event)">
+<form onsubmit="mySubmitFunction()">
 <label for="email">E-Mail</label>
 <input id="email" name="email" type="email"/>
-<input type="submit"/>
+<button onclick="mySubmitFunction(); return false;" type="button">Add Item</button>
 </form>
             
         </div>
