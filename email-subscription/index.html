@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Subscribe via Email "/>
 <meta property="og:url" content="email-subscription/" />
-<meta property="og:description" content="The subscription is done via Authory: function mySubmitFunction(e) { console.log(&#34;mySubmitFunction&#34;); //action=&#34;https://api-production.authory.com/subscribe/MartinThoma&#34; e.preventDefault(); console.log(e); return false; } function subscribe(form){ console.log(&#34;subscribe&#34;); //ret = form.submit(); console.log(ret); } E-Mail Subscribe" />
+<meta property="og:description" content="The subscription is done via Authory: function post(path, params, method=&#39;post&#39;) { // The rest of this code assumes you are not using a library. // It can be made less wordy if you use one. const form = document.createElement(&#39;form&#39;); form.method = method; form.action = path; for (const key in params …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-20T20:00:00+02:00" />
 <meta name="twitter:title" content="Subscribe via Email ">
-<meta name="twitter:description" content="The subscription is done via Authory: function mySubmitFunction(e) { console.log(&#34;mySubmitFunction&#34;); //action=&#34;https://api-production.authory.com/subscribe/MartinThoma&#34; e.preventDefault(); console.log(e); return false; } function subscribe(form){ console.log(&#34;subscribe&#34;); //ret = form.submit(); console.log(ret); } E-Mail Subscribe">
+<meta name="twitter:description" content="The subscription is done via Authory: function post(path, params, method=&#39;post&#39;) { // The rest of this code assumes you are not using a library. // It can be made less wordy if you use one. const form = document.createElement(&#39;form&#39;); form.method = method; form.action = path; for (const key in params …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -107,27 +107,44 @@ MathJax.Hub.Queue(function() {
             
             <p>The subscription is done via <a href="https://authory.com/MartinThoma">Authory</a>:</p>
 <script>
-function mySubmitFunction(e) {
-  console.log("mySubmitFunction");
-  //action="https://api-production.authory.com/subscribe/MartinThoma" 
-  e.preventDefault();
-  console.log(e);
-  return false;
+function post(path, params, method='post') {
+
+  // The rest of this code assumes you are not using a library.
+  // It can be made less wordy if you use one.
+  const form = document.createElement('form');
+  form.method = method;
+  form.action = path;
+
+  for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = key;
+      hiddenField.value = params[key];
+
+      form.appendChild(hiddenField);
+    }
+  }
+
+  document.body.appendChild(form);
+  form.submit();
 }
 
-function subscribe(form){
-    console.log("subscribe");
-    //ret = form.submit();
-    console.log(ret);
+function mySubmitFunction(e) {
+  console.log("mySubmitFunction");
+  //action="https://api-production.authory.com/subscribe/MartinThoma"
+  e.preventDefault();
+  console.log(e);
+  post("https://api-production.authory.com/subscribe/MartinThoma", {"email": document.getElementById('email').value})
+  return false;
 }
 </script>
 <form onsubmit="return mySubmitFunction(event)">
 <label for="email">E-Mail</label>
 <input id="email" name="email" type="email"/>
-<button onclick="subscribe(this.form)" type="submit">Subscribe</button>
+<input type="submit"/>
 </form>
             
-            <hr/>
         </div>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
@@ -166,7 +183,7 @@ function subscribe(form){
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
-        <li><a href="email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
         <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
         <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
         <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
