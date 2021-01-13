@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Blockchain, Blockchain, " />
+
+<meta property="og:title" content="The Blockchain  - An Introduction to Blockchain, Bitcoin ₿, and related concepts "/>
+<meta property="og:url" content="https://medium.com/coinmonks/the-blockchain-473aac352e5" />
+<meta property="og:description" content="An example of a blockchain. Image by Martin Thoma. Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the most-known cryptocurrency. It is one application using a blockchain. In this article, I will walk you through some core concepts …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-01-13T20:00:00+01:00" />
+<meta name="twitter:title" content="The Blockchain  - An Introduction to Blockchain, Bitcoin ₿, and related concepts ">
+<meta name="twitter:description" content="An example of a blockchain. Image by Martin Thoma. Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the most-known cryptocurrency. It is one application using a blockchain. In this article, I will walk you through some core concepts …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>The Blockchain  - An Introduction to Blockchain, Bitcoin ₿, and related concepts  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://medium.com/coinmonks/the-blockchain-473aac352e5">The Blockchain <small>An Introduction to Blockchain, Bitcoin ₿, and related concepts</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-idea-of-a-ledger" title="The Idea of a Ledger">The Idea of a Ledger</a></li><li><a class="toc-href" href="#how-to-get-rid-of-the-bank" title="How to get rid of the Bank">How to get rid of the Bank</a></li><li><a class="toc-href" href="#lets-make-it-digital" title="Let&rsquo;s make it digital!">Let&rsquo;s make it digital!</a></li><li><a class="toc-href" href="#example-vs-bitcoin" title="Example vs Bitcoin">Example vs Bitcoin</a></li><li><a class="toc-href" href="#bitcoin-vs-blockchain" title="Bitcoin vs Blockchain">Bitcoin vs Blockchain</a></li><li><a class="toc-href" href="#blockchain-vs-dlt" title="Blockchain vs DLT">Blockchain vs DLT</a></li><li><a class="toc-href" href="#when-is-blockchain-useful" title="When is Blockchain useful?">When is Blockchain useful?</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next">What&rsquo;s next</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a><ul><li><a class="toc-href" href="#literature" title="Literature">Literature</a></li><li><a class="toc-href" href="#videos" title="Videos">Videos</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="An example of a blockchain. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*PnKV_yIgbdLZMehrIlM1ZQ.png"/><em>An example of a blockchain. Image by Martin Thoma.</em></p>
+<p>Bitcoin crossed $40,000 USD for the first time recently, so it&rsquo;s again in the news. Bitcoin is just the most-known <strong>cryptocurrency</strong>. It is one application using a <strong>blockchain</strong>. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let&rsquo;s start!</p>
+<h2 id="the-idea-of-a-ledger">The Idea of a Ledger</h2>
+<p><img alt="German Ledger from 1828 (Source: RaphaelQS)" src="https://cdn-images-1.medium.com/max/3412/1*FTMD4L4J-UYMwVAjGP65UQ.png"/><em>German Ledger from 1828 (Source: <a href="https://commons.wikimedia.org/wiki/File:Ledger.png">RaphaelQS</a>)</em></p>
+<p>Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let&rsquo;s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put $100 USD in their bank account:</p>
+<div class="highlight"><pre><span></span><code>Date             | Sender    | Receiver |  Amount
+-------------------------------------------------
+2021-01-01 06:00 | (Deposit) | Anna     |    $100
+2021-01-01 06:01 | (Deposit) | Bob      |    $100
+2021-01-01 06:08 | (Deposit) | Charlie  |    $100
+</code></pre></div>
+<p>Now they make a few transactions. Before the bank's system accepts any transaction, it checks if the account balance would still be non-negative. To get the account balance, they can sum up all previous transactions. To make it a bit easier to follow, I will shorten the &ldquo;Date&rdquo; to just a number counting up and add the balance after the transaction is executed for <strong>A</strong>nna, <strong>B</strong>ob, and <strong>C</strong>harlie to the table. The ABC columns are just for you to keep track of; they are not necessary:</p>
+<div class="highlight"><pre><span></span><code>Date | Sender   | Receiver | Amount |       A  |  B   |  C
+------------------------------------|     ------------------
+1    | (Deposit)| Anna     | $100   |     $100 |   $0 |   $0
+2    | (Deposit)| Bob      | $100   |     $100 | $100 |   $0
+3    | (Deposit)| Charlie  | $100   |     $100 | $100 | $100
+4    | Bob      | Charlie  |  $20   |     $100 |  $80 | $120
+5    | Bob      | Anna     |  $30   |     $130 |  $50 | $120
+6    | Anna     | Bob      | $130   |     $0   | $180 | $120
+</code></pre></div>
+<p>Hence the ledger is just a database of all transactions.</p>
+<p>(I&rsquo;m simplifying a lot here. If you&rsquo;re interested in <a href="https://www.youtube.com/channel/UCYJLdSmyKoXCbnd-pklMn5Q">Accounting Stuff</a>, James Hearle summarized those ideas and more, including double-entry accounting in the linked channel.)</p>
+<h2 id="how-to-get-rid-of-the-bank">How to get rid of the Bank</h2>
+<p><img alt="Photo by the blowup on Unsplash" src="https://cdn-images-1.medium.com/max/9832/0*CpxtEZdU4BBJgDa8"/><em>Photo by <a href="https://unsplash.com/@theblowup?utm_source=medium&amp;utm_medium=referral">the blowup</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Anna, Bob, and Charlie are unhappy with their bank. They don&rsquo;t like that it takes typically two working days until the booked transaction actually takes place. They are unhappy with paying fees. They wonder what would happen if their bank suddenly closed or maybe even manipulated the numbers.</p>
+<p>As Anna, Bob, and Charlie live in the same apartment and they spent their money on stuff for the apartment (soap, toilet paper, dishwasher tabs, &hellip;), they put a list on the fridge. They simply make it public who made which transaction. They don&rsquo;t have complete trust in each other, though.</p>
+<p>For example, Bob might write in the ledger that he got $20 from Charlie &mdash; although Charlie never approved that. To make sure <strong>only the account owners can send money</strong> from their accounts, every new transaction needs the <strong>signature</strong> of the sender. To make sure that <strong>everybody only sends money they have</strong>, the <strong>remaining participants check the balance of the sender</strong>. If an invalid balance is seen, the transaction is rejected.</p>
+<p>They also want to make sure that <strong>nobody can erase any transaction</strong>. The solution is simple: Every transaction gets an incrementing transaction number.</p>
+<h2 id="lets-make-it-digital">Let&rsquo;s make it digital!</h2>
+<p><img alt="Photo by Joshua Sortino on Unsplash" src="https://cdn-images-1.medium.com/max/8390/0*KWahhiN2IJx8UXSR"/><em>Photo by <a href="https://unsplash.com/@sortino?utm_source=medium&amp;utm_medium=referral">Joshua Sortino</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Anna, Bob, and Charlie want to be certain they will never lose their ledger. Instead of having a single central ledger, they decide to <strong>distribute</strong> it. They all want to have a copy of it.</p>
+<p>Being young students, all of them happen to have a website. So they come up with this protocol which they all want to follow:</p>
+<ol>
+<li>
+<p>If anybody wants to make a new transaction, they add the transaction to the copy of the ledger they have on their website.</p>
+</li>
+<li>
+<p>Everybody regularly checks if there are newer transactions in any of the other ledgers.</p>
+</li>
+<li>
+<p>If there is just one ledger with at least one new transaction, they just copy the newer transactions.</p>
+</li>
+</ol>
+<p>Then they notice two problems. The first one is the signature. Luckily, one of them heard of Public-Key Cryptography and digital signatures. They quickly realized that for any transaction, they can easily make a digital version of a signature that cannot be forged. The <strong>digital signature</strong> does not only prove who made the transaction but also makes sure that the content of the transaction is not modified. As the content of the transaction contains the transaction number it is also not possible to delete a single transaction. As the longest list of transactions is shared, one cannot simply crop a whole lot of transactions off at the end.</p>
+<p><img alt="Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but bob discarded the blue blocks in which he sent money to charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3786/1*l_g-X3q0xEVBskHQQsrSQA.png"/><em>Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but bob discarded the blue blocks in which he sent money to charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma</em></p>
+<p>What happens if Anna sees a new transaction from Bob and a new transaction from Charlie? Let&rsquo;s say Anna has already confirmed that both, Bob and Charlie, have the same indices up to #42. Bob and Charlie had a lot of transactions after that and the correct latest transaction #60. But Bob doesn&rsquo;t like that he had to send quite a bit of money to Charlie in transactions #43 to #60, so he simply writes 10 transactions after #42. Charlie still receives some money, but less than he should. Anna sees that Charlie has already transaction number #70 and ignores what Charlie has.</p>
+<p>To prevent this, they make it more difficult to create a transaction. They have heard of <a href="https://en.wikipedia.org/wiki/Hashcash">Hashcash</a> to prevent spammers from sending too many emails. The idea is to make the Email sender (the potential spammer) execute a computationally heavy function. The result of that function is easy to verify, but there is no way to speed the execution of the function up in the first place. The result is then called <strong>Proof of Work</strong>. The specific kind of proof of work that is typically used is called a <strong>nonce</strong>: Number only used once. Finding such a nonce is intentionally computationally intensive. This is what <strong>mining</strong> is. Alice, Bob, and Charlie agree to add the proof of work to each transaction. Thus re-calculating a lot of transactions is just not worth it anymore.</p>
+<p><img alt="Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3066/1*y7lcxfcKXW5GMUf8lq-aFw.png"/><em>Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma</em></p>
+<p>However, there is one big flaw: If they just store the transaction number, one could replace transactions in the middle. If Bob is unhappy that he has sent $100 to Charlie in transaction #43, he could just craft another transaction #43. So instead of storing the transaction number, they agree to store an identifier that is unique to the content of the previous transaction. A so-called <strong>hash value</strong>.</p>
+<p>Let&rsquo;s summarize:</p>
+<ul>
+<li><strong>Digital signatures</strong> prevent <strong>transaction forgery.</strong></li>
+<li>Storing the previous transactions' <strong>hash value</strong> prevents <strong>dropping existing transactions</strong> by the sender. It also prevents <strong>duplication attacks</strong>.</li>
+<li>Storing a <strong>proof of work</strong> per transaction prevents <strong>re-computation of many transactions</strong> at the end of the ledger.</li>
+<li>Having the chain of transactions, the ledger, <strong>distributed</strong> among all participants makes the current state <strong>transparent</strong>. It&rsquo;s a pre-requisite of preventing the re-computation.</li>
+</ul>
+<p>You might already have guessed it: A transaction in this example is pretty close to a block in the blockchain. In our example, a transaction contains:</p>
+<ul>
+<li>The hash value of the previous block</li>
+<li>Amount of transaction</li>
+<li>Sender</li>
+<li>Receiver</li>
+</ul>
+<p>Those four elements are signed.</p>
+<p>There is one special case: The first block. It does not have a previous block
+and thus there cannot be a hash value of a previous block. The first block is
+called the <strong>genesis block</strong>.</p>
+<h2 id="example-vs-bitcoin">Example vs Bitcoin</h2>
+<p>One part I haven&rsquo;t addressed at all is how the users of Bitcoin interact. We
+didn&rsquo;t talk about the network at all. Just to be clear: It&rsquo;s NOT the case that
+everybody adds their own website and everybody else has to know and check. That
+was just a simplification. There is a
+<a href="https://en.wikipedia.org/wiki/Peer-to-peer">Peer-To-Peer</a> protocol in place.</p>
+<p>An important element of Bitcoin is the <strong>consensus algorithm</strong> which decides
+what the latest block is. The network members check new data before it&rsquo;s added
+with a consensus mechanism. The consensus algorithm has two elements. One
+consensus mechanism is <strong>proof of work</strong>. The proof of work mechanism uses the
+computing capacity of the members to validate work. In the example, I made it
+constant. It&rsquo;s more complicated. The other element of the consensus algorithm
+is that in the case of a draw, if multiple parties have created a new block at
+exactly the same time, one waits until one of the chains gets longer. <strong>The
+longer chain wins</strong>.</p>
+<p>Bitcoin also does not store the account balance. <a href="https://bitcoin.stackexchange.com/q/29780/6721">It&rsquo;s more
+complicated</a>. It stores a
+sequence of transactions. A transaction consists of inputs and outputs. The sum
+of inputs must be greater than or equal to the sum of outputs. This way, the
+double-spending problem is solved. The inputs must be associated with the
+signature of the transaction &mdash; only the owner is allowed to send money. This
+structure is the reason why you typically have two outputs: The receiver of the
+money and your own address for the change. You can imagine every input as a
+coin. Coins can only be split by having multiple outputs in a transaction, not
+by taking a part of a coin as input. You can also join coins by having just one
+output.</p>
+<p>It took me quite a while and the help of <a href="https://www.rene-pickhardt.de/">Rene
+Pickhardt</a> to understand that Bitcoin is
+actually NOT account-based, but everything that really matters is the
+transactions. It&rsquo;s not verified that the account is a non-negative balance, but
+that a transaction spends only available money. That is a crucial difference!
+Rene is an awesome educator; check out his <a href="https://www.youtube.com/watch?v=TrF9RmfyLbw">introductory video about electronic
+cash</a>.</p>
+<h2 id="bitcoin-vs-blockchain">Bitcoin vs Blockchain</h2>
+<p><img alt="Photo by Thought Catalog on Unsplash" src="https://cdn-images-1.medium.com/max/14934/0*IN19QU1F182EeISq"/><em>Photo by <a href="https://unsplash.com/@thoughtcatalog?utm_source=medium&amp;utm_medium=referral">Thought Catalog</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Bitcoin is an application that uses the blockchain. As an analogy, think of
+email. Email is an application that uses the internet.</p>
+<p>Blockchain Technology combines 4 concepts:</p>
+<ul>
+<li>Cryptography to ensure messages cannot be faked</li>
+<li>A Consensus Algorithm</li>
+<li>A data structure for storage</li>
+<li>Distribution via Peer-to-Peer protocols</li>
+</ul>
+<p>For Bitcoin, those choices are:</p>
+<ul>
+<li><strong>Cryptography</strong>: Bitcoin uses ECDSA for signatures, double SHA-256 for hashing</li>
+<li><strong>Consensus Algorithm</strong>: Proof of Work (Proof of Stake would be an alternative)</li>
+<li><strong>Storage</strong>: Merkle Tree</li>
+<li><strong>Distribution</strong>: A TCP-based peer-to-peer protocol (<a href="https://en.bitcoin.it/wiki/Protocol_documentation#cmpctblock">source 1</a>, <a href="https://developer.bitcoin.org/reference/p2p_networking.html">source 2</a>)</li>
+</ul>
+<h2 id="blockchain-vs-dlt">Blockchain vs DLT</h2>
+<p>Blockchain is a distributed ledger technology (DLT). Two other examples of DLT are <a href="https://en.wikipedia.org/wiki/IOTA_(technology)#The_Tangle">Tangle</a> and <a href="https://hackernoon.com/demystifying-hashgraph-benefits-and-challenges-d605e5c0cee5">Hashgraph</a>.</p>
+<h2 id="when-is-blockchain-useful">When is Blockchain useful?</h2>
+<p>As with every hype, people want to apply it everywhere. But where does it
+actually make sense?</p>
+<p>You can see the blockchain as a very special database. It only supports
+insertions, but no deletions or edits. It&rsquo;s <strong>managed by the network</strong>.
+Depending on the protocol, this can mean that the data in the blockchain is
+<strong>immutable</strong>. The data is <strong>distributed</strong>.</p>
+<p>There are some properties where blockchain will never be able to compete with well-known database systems:</p>
+<ul>
+<li><strong>Insertion Speed</strong>: Visa is able to handle 65k transactions/second
+  (<a href="https://usa.visa.com/dam/VCOM/download/corporate/media/visanet-technology/aboutvisafactsheet.pdf">source</a>),
+  Bitcoin can only handle 7 transactions/second
+  (<a href="https://www.comp.nus.edu.sg/~prateeks/papers/Bitcoin-scaling.pdf">source</a>).
+  That means, without the Bitcoin Lightning Network (BLN) extensions. With the
+  BLN, the system can process over 10k transactions/second
+  (<a href="https://arxiv.org/pdf/2002.01374.pdf">source</a>).</li>
+<li><strong>Latency</strong>: Probably less than 5 seconds for Visa, but about 1 hour for
+  Bitcoin
+  (<a href="https://hackernoon.com/latency-and-finality-in-different-cryptocurrencies-a7182a06d07a">source</a>).</li>
+<li><strong>Queries</strong>: We have lots of database types. Especially relational databases
+  allow very complex queries. You will not have that with the blockchain.</li>
+</ul>
+<p>Those alone already show that you want traditional database systems for a lot of problems. So let&rsquo;s see where the Blockchain shines:</p>
+<ul>
+<li><strong>Cryptocurrencies </strong>are probably the best-known examples of Blockchain
+  technology as Bitcoin made the whole topic famous. The idea here is that you
+  have a digital asset that cannot be forged. It&rsquo;s impossible to create fake
+  bitcoins. The government cannot decide to print new Bitcoins. The process is
+  transparent and open to everybody: Every person and every organization.
+  Privacy here is an interesting topic; if you&rsquo;re interested I would write an
+  own article about that. It also has challenges. For example, it&rsquo;s impossible
+  to get Bitcoin back if you lose your wallet. They are gone. For everybody.
+  Forever. Or if somebody steals your computer and transfers them. If you get
+  hacked. There is no court that can undo it.</li>
+<li><strong>Supply Chain Management</strong>: Many brands nowadays want to make their supply
+  chain more transparent. They want to prove to the customers where their
+  product came from; &ldquo;traceability&rdquo; is the buzzword. They also want to make
+  sure that counterfeits can be identified. So they upload data and about the
+  origin of their products at every step. Those steps have timestamps and are
+  very fine-granular. One problem the blockchain doesn&rsquo;t solve is that all of
+  the uploaded data could be faked. If you want to know more, get in touch with
+  my friend <a href="https://www.linkedin.com/in/petermerkert/">Peter Merkert</a>. He
+  built <a href="https://retraced.co/">retraced</a>, a company that supports the clothing
+  industry in supply chain management. A big <strong>thank you</strong> also to him for
+  proof-reading this article 🤗</li>
+<li><strong>Real Estate</strong>: I know that in Germany we have pretty good maps of the
+  country, of ownership of every single piece of land. The process of buying
+  and selling land includes a trusted party &mdash; a
+  <a href="https://en.wikipedia.org/wiki/Notary">notary</a>. The notary gets 1.5% of the
+  amount you pay for the land. A square meter of land costs about 4000 EUR in
+  Munich. A small house has about 300m&sup2; &mdash; so you would pay 1.2 million EUR for
+  the land and thus 18k for the notary. This is a pretty good incentive to get
+  rid of the notary, isn&rsquo;t it? The other case is that you might not have such a
+  process in all countries.</li>
+<li><strong>Capital Markets</strong>: Blockchain-based digital securities provide cost
+  advantages because they can be issued and exchanged without middlemen
+  (<a href="https://cashlink.de/cost-disruption/">source</a>). The numbers in this source
+  are pretty crazy: <a href="https://cashlink.de/">Cashlink</a> and Finoa estimate that
+  cost savings from 35% to 65% for tokenization compared to traditional
+  securitization are possible.</li>
+<li><strong>Energy</strong> can be traded using blockchain. Read <a href="https://arxiv.org/abs/1902.07233">When Energy Trading meets
+  Blockchain in Electrical Power System: The State of the
+  Art</a> to learn more.</li>
+</ul>
+<p>A good sign that you might have a valid use case if there is <strong>no trusted
+middleman</strong> or if you want to get rid of the middleman. Just look at the supply
+chain case. If there is an organization that people trust, then you don&rsquo;t need
+to store the data in the blockchain. That organization just stores it in a
+traditional database they control.</p>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<ul>
+<li>Hashing: What it is, what cryptographic hashing is, what SHA / MD5 is</li>
+<li>Merkle Trees: What they are, how they work, and how they are used in Bitcoin</li>
+<li>Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it&rsquo;s so important</li>
+<li>Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.</li>
+<li>Smart contracts: What they are and how they work; e.g. with Etherium as an example</li>
+<li><a href="https://en.wikipedia.org/wiki/Initial_coin_offering">Initial Coin Offering</a> (ICO)</li>
+<li>Bitcoins consensus algorithm</li>
+<li>Bitcoin and the network: How do people connect?</li>
+<li>Bitcoin Wallets</li>
+<li>Peer-To-Peer Stuff: How Gossip Protocols work</li>
+</ul>
+<p>Let me know what you&rsquo;re interested in!</p>
+<h2 id="see-also">See also</h2>
+<h3 id="literature">Literature</h3>
+<ul>
+<li>Satoshi Nakamoto: &ldquo;<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>&rdquo;, 2008.</li>
+<li>Gavin Wood: &ldquo;<a href="http://gavwood.com/Paper.pdf">Ethereum: A secure decentralised generalised transaction ledger</a>&rdquo;, 2014</li>
+<li><a href="https://www.der-bank-blog.de/author/patrick-schueffel/">Patrick Schueffel</a>: &ldquo;<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3144241">Alternative Distributed Ledger Technologies Blockchain vs. Tangle vs. Hashgraph &mdash; A High-Level Overview and Comparison</a>&rdquo;, 2017.</li>
+</ul>
+<h3 id="videos">Videos</h3>
+<p>Bosch created an awesome introductory video:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/NKAanYdic9Q" width="560"></iframe></center></p>
+<p>And also 3Blue1Brown:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/bBC-nXj3Ng4" width="560"></iframe></center></p>
+<blockquote>
+<h1 id="join-coinmonks-telegram-group-and-learn-about-crypto-trading-and-investing">Join Coinmonks <a href="https://t.me/joinchat/EPmjKpNYwRMsBI4p">Telegram group</a> and learn about crypto trading and investing</h1>
+</blockquote>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-01-13T20:00:00+01:00">Jan 13, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#blockchain-ref">Blockchain</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#blockchain-ref">Blockchain
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
