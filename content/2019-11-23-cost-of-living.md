@@ -1001,7 +1001,7 @@ Fabrics:
             <td>Champignons</td>
             <td>?</td>
             <td>0.57 € /280g - 1.95 € / 400g</td>
-            <td>4.68 € / 1360g</td>
+            <td>6.24 € / 1760g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
@@ -1048,8 +1048,8 @@ Fabrics:
         <tr>
             <td>Buttergemüße</td>
             <td>months 🧊</td>
-            <td>0.57 € / 300g - 0.59 € / 300g, 0.89 € / 450g</td>
-            <td>2.64 € / 1350g</td>
+            <td>0.57 € / 300g - 0.59 € / 300g, 0.89 € / 450g - 1.76€/450g</td>
+            <td>4.40 € / 1800g</td>
         </tr>
         <tr>
             <td>Pak Choi</td>
@@ -1258,7 +1258,7 @@ Fabrics:
             <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
             <td></td>
             <td>0.89 € / (package); 1.49 € / 300g</td>
-            <td>7.34 € / 1200g</td>
+            <td>9.29 € / 1500g</td>
         </tr>
         <tr>
             <td>Vegetarian sausage (Veggi Aufschniitt)</td>
@@ -1777,6 +1777,12 @@ General Cooking:
             <td>7.00 € / 5000g</td>
         </tr>
         <tr>
+            <td>Pasta (Lasagne)</td>
+            <td>2.5 years</td>
+            <td>1.95 € / 500g</td>
+            <td>1.95 € / 500g</td>
+        </tr>
+        <tr>
             <td>Tortelloni Pasta</td>
             <td>4 months</td>
             <td>0.69 € / 250g</td>
@@ -2292,8 +2298,8 @@ General Cooking:
         <tr>
             <td>Ready-made pizza dough (Pizza Teig)</td>
             <td></td>
-            <td>1.15 € / 1 piece</td>
-            <td>1.15 € / 1 piece</td>
+            <td>1.15 € / 1 piece - 1.54 € / 1 piece</td>
+            <td>2.69 € / 2 piece</td>
         </tr>
         <tr>
             <td>Kloß-Teig</td>
@@ -2917,8 +2923,8 @@ I didn't like them:
             <td>355.65 €</td>
         </tr>
         <tr>
-            <td>Geschenke an Freunde / Familie</td>
-            <td>285.54 €</td>
+            <td>Presents to Friends / Family (Geschenke an Freunde / Familie)</td>
+            <td>288.66 €</td>
         </tr>
         <tr>
             <td>External Harddrive HDD/SSD (WD My Passport 5 TB) ✨</td>
