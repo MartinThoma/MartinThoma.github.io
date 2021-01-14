@@ -26,6 +26,42 @@ pädagogischen, technischen und rechtlichen Fragen unterstützen. Eine Plattform
 wird von zentraler Stelle bereitgestellt und gewartet, die Inhalte werden
 dezentral produziert.
 
+### Formen des Unterrichts
+
+In diesem Artikel geht es um Online-Kurse. Es gibt auch noch andere Konzepte.
+Alle haben Vor- und Nachteile. Es gibt keinen Grund sich exklusiv für ein
+Konzept zu entscheiden. Wir haben gute Angebote für synchronen Präsenzunterricht,
+jedoch kaum Angebote für die anderen Formen des Unterrichts:
+
+<table class="table">
+    <tr>
+        <th>&nbsp;</th>
+        <th>Präsenzunterricht (Vor Ort)</th>
+        <th><a href="https://de.wikipedia.org/wiki/Distanzunterricht">Distanzunterricht</a> (Räumlich Getrennt)</th>
+    </tr>
+    <tr>
+        <th>Synchron</th>
+        <td>Klassischer Schulunterricht; Klassische Nachhilfe</td>
+        <td>Video-Konferenz</td>
+    </tr>
+    <tr>
+        <th>Asynchron</th>
+        <td>Museen</td>
+        <td>Online-Kurse</td>
+    </tr>
+</table>
+
+
+Die Vorteile von asynchronen Online-Kursen im Vergleich zu klassischem
+Schulunterricht sind im Abschnitt [Warum benötigen wir eine Online-Schule?](https://martin-thoma.com/online-schule/#warum-benotigen-wir-eine-online-schule_1)
+verlinkt.
+
+Der klassische Schulunterricht hat auch Vorteile. Man sollte ihn nicht durch
+Online-Kurse ersetzten, sondern beide Unterrichtsformen parallel anbieten.
+Aktuell könnte er tatsächlich den Unterricht ersetzen, auf lange Sicht bieten
+Online-Kurse eine sinnvolle Ergänzung des klassischen Präsenzunterrichts.
+
+
 ### Inhalte
 
 Es könnten die typischen MINT-Fächer (Mathematik, Informatik, Physik, Chemie,
@@ -221,6 +257,42 @@ Es gibt zahlreiche sehr gute Sendungen mit Lehrinhalten:
 * Geschichstssendungen, z.B. [Die Deutschen](https://www.youtube.com/watch?v=IsLFiVxvyIk) oder [verschiedenes zum Ersten Weltkrieg](https://www.daserste.de/information/politik-weltgeschehen/erster-weltkrieg/index.html)
 
 Wieso gibt es das nicht auch gezielt für Schulinhalte?
+
+## Wie sehen gute Online-Inhalte aus?
+
+### Videos
+
+* Länge: Optimalerweise sind Videos kurz. Es kann durchaus kürzer als eine
+  Minute sein und sollte selten länger als 10 Minuten sein. Sie behandeln genau
+  einen Aspekt. Das macht es leicht den Teil zu wiederholen, wenn man ihn nicht
+  verstanden hat.
+* Inhalt: Die Videos haben keine Einleitung, sondern starten direkt. Das
+  bedeutet, dass man Inhalte auch anders zusammenstellen kann. Eventuell
+  benötigt man für eine Unterrichtseinheit dann ein kurzes einleitendes Video,
+  das Kontext bereitstellt.
+* Auf eine Lerneinheit folgt eine Selbstkontrolle. Das kann z.B. eine
+  Multiple-Choice Frage sein. Oder eine Aufgabe, die gelöst werden muss. Etwas,
+  dass es dem Schüler erlaubt zu sehen, ob ein Inhalt verstanden wurde.
+
+
+### Podcasts
+
+* Inhaltliche Aspekte: Sie benötigen kein Bild.
+* Technische Aspekte: Sie können länger sein. Die Lautstärke ist sinnvoll und
+  hat keine zu extremen Schwankungen. Es gibt keine Nebengeräusche.
+
+
+### Arbeitsblätter
+
+Wenn die Blätter zum Drucken gedacht sind, gibt es ein paar Probleme:
+
+* Nicht jeder hat einen Drucker
+* Nicht jeder hat einen Farbdrucker
+* Nicht jeder hat gerade Farbe / Papier im Drucker
+* Nicht jeder hat Word - benutze PDF, falls nichts ausgefüllt werden muss.
+
+Wenn sie zum Online bearbeiten gedacht sind, kann man ggf. auch direkt eine
+Webseite machen.
 
 
 ## Und nun?
