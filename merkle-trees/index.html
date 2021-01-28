@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Blockchain, Code, " />
+
+<meta property="og:title" content="Merkle Trees  - The concept and applications - plain and simple! "/>
+<meta property="og:url" content="https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094" />
+<meta property="og:description" content="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes. Image by Martin Thoma. A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is a binary tree in which the value of an inner node is …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-01-27T20:00:00+01:00" />
+<meta name="twitter:title" content="Merkle Trees  - The concept and applications - plain and simple! ">
+<meta name="twitter:description" content="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes. Image by Martin Thoma. A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is a binary tree in which the value of an inner node is …">
+<meta property="og:image" content="logos/bitcoin.png" />
+<meta name="twitter:image" content="logos/bitcoin.png" >
+
+        <title>Merkle Trees  - The concept and applications - plain and simple!  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094">Merkle Trees <small>The concept and applications - plain and simple!</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#bittorrent" title="BitTorrent">BitTorrent</a></li><li><a class="toc-href" href="#proof-of-inclusion" title="Proof of Inclusion">Proof of Inclusion</a></li><li><a class="toc-href" href="#how-does-bitcoin-use-merkle-trees" title="How does Bitcoin use Merkle Trees?">How does Bitcoin use Merkle Trees?</a></li><li><a class="toc-href" href="#applications-of-merkle-trees" title="Applications of Merkle Trees">Applications of Merkle Trees</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next">What&rsquo;s next</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png"/><em>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes. Image by Martin Thoma.</em></p>
+<p>A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is
+a binary tree in which the value of an inner node is the hash of its leaf
+nodes. The root node of that tree is called &ldquo;Merkle root&rdquo; or &ldquo;root hash&rdquo;.</p>
+<p>So much about the definition. To me, it&rsquo;s always helpful to know the problem
+technology solves to really understand it.</p>
+<h2 id="bittorrent">BitTorrent</h2>
+<p>How do you send big amounts of data over a network which randomly introduces
+errors? When you just send a stream of data, you cannot guarantee the
+integrity.</p>
+<p>The first improvement is to add the value of a hash function:
+<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d"><strong>The 3 Applications of Hash Functions</strong>
+<em>What they are, what the options are, and why they matter</em>levelup.gitconnected.com</a></p>
+<p>If the hash value of the downloaded file is not equal to the expected hash
+value, you just download the file again.</p>
+<p>It should be clear that this is inefficient as errors happen rarely. Very
+likely, most of the file is completely fine. Maybe there is just a single bit
+that flipped its value. You want to download as little as possible and just
+fix the broken part.</p>
+<p><img alt="A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/2000/1*VWinFE8Gmh8pmcg_IoN-ow.png"/><em>A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.</em></p>
+<p>The next idea is to build blocks. You store the hash of each block. When you
+download the file, you first download a header. The header contains
+meta-information, e.g. the total number of blocks, the hash of each block, and
+a hash of the metadata itself. If the metadata block is broken, you download
+it again. Then you download each block and verify it. If a block is broken,
+the block is downloaded again.</p>
+<p>Now the question is which block-size makes the most sense. The smaller the
+block sizes, the less you have to download in case of an error. But the more
+blocks you have, the more metadata you need to store. Take the most extreme
+case: Every single bit has its own hash value. A typical hash value has 256
+bit. This means the total size would increase by a factor of 257! In other
+words: You could download the file 257 times instead.</p>
+<p>Let&rsquo;s say the file we want to download has a size of 4 GiB. Then the following
+table gives the number of blocks and the additional size you have to download.
+If you make the blocks of size 32 Byte for a 32 Byte hash, you need to
+download double the data. This means additionally 100%:</p>
+<div class="highlight"><pre><span></span><code>block size     :       blocks  additional download size
+-------------------------------------------------------
+        32 Byte:  134,217,728  100.00%
+       128 Byte:   33,554,432   25.00%
+       512 Byte:    8,388,608    6.25%
+         1 KiB :    4,194,304    3.12%
+       256 KiB :       16,384    0.01%
+         1 MiB :        4,096    0.00%
+</code></pre></div>
+<p>The torrent files of BitTorrent are essentially dictionaries with this information:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+ <span class="nt">"announce"</span><span class="p">:</span> <span class="s2">"tracker url"</span><span class="p">,</span>
+ <span class="nt">"info"</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">"length"</span><span class="p">:</span> <span class="s2">"file size in bytes"</span><span class="p">,</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"suggested file name"</span><span class="p">,</span>
+  <span class="nt">"piece length"</span><span class="p">:</span> <span class="s2">"typically 256 KiB"</span><span class="p">,</span>
+  <span class="nt">"pices"</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">"sha-1 hash of block #1"</span><span class="p">,</span>
+   <span class="s2">"sha-1 hash of block #2"</span><span class="p">,</span>
+   <span class="s2">"sha-1 hash of block #3"</span>
+  <span class="p">]</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To summarize: A list of hash values of blocks can speed up the download of
+files over an unreliable network a lot.</p>
+<h2 id="proof-of-inclusion">Proof of Inclusion</h2>
+<p>Suppose you wanted to show that a piece of data is part of your data
+structure. This is easy with Merkle trees.</p>
+<p><img alt='Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.' src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png"/><em>Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</em></p>
+<p>Merkle trees allow it to prove that a transaction is included. Suppose Alice
+wants to prove to Bob that transaction T happened. To do that, she provides:</p>
+<ul>
+<li>The transaction itself, for which Bob can easily create a hash.</li>
+<li>All hashes which are missing to calculate the root hash</li>
+</ul>
+<p>Bob then has to verify that the Merkle root is equal to the root he has. He
+also needs to hash the transaction and builds all hashes up to the Merkle
+root. As cryptographic hash functions make it impossible to find hash
+functions to forge an image (<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">collisions-attack
+resistance</a>),
+Bob does not have to have all the data. It&rsquo;s enough to know which root to use.</p>
+<p>The supplied hashes (the blue nodes) are called a <strong>Merkle proof</strong>. You prove
+that the data belongs to the Merkle tree. If you want to see another example,
+have a look at <a href="undefined">Belavadi Prahalad</a> article <a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle proofs
+explained</a>.</p>
+<p>In the context of Bitcoin, this is called <strong>Simplified Payment Verification
+(SPV)</strong>. It&rsquo;s chapter 8 of <a href="https://bitcoin.org/bitcoin.pdf">the bitcoin
+paper</a>, or <a href="https://medium.com/coinmonks/spv-proofs-explained-f38f8bb8f580">SVP proofs
+explained</a> by
+<a href="undefined">Albert Acebr&oacute;n</a>.</p>
+<h2 id="how-does-bitcoin-use-merkle-trees">How does Bitcoin use Merkle Trees?</h2>
+<p>Every single block contains a Merkle tree of transactions. The Bitcoin blocks
+have a size limitation of 4 MB for <a href="https://bitcoinmagazine.com/what-is-bitcoin/what-is-the-bitcoin-block-size-limit">various
+reasons</a>.
+Only the Merkle Trees root hash used to hash the block. This means that
+Bitcoin nodes can throw quite a bit of data away and still compute the same
+hash.</p>
+<h2 id="applications-of-merkle-trees">Applications of Merkle Trees</h2>
+<ul>
+<li><strong>Git</strong> uses a hash tree to store its data (<a href="https://git-scm.com/book/en/v2/Git-Internals-Git-Objects">source</a>). If you want to understand why read <a href="https://nextjournal.com/blog/git">Towards Reproducibility: git</a> by <a href="undefined">Martin Kavalar</a></li>
+<li><strong>Database Systems</strong>: Apache Cassandra uses Merkle Trees to detect inconsistencies in replicas (<a href="https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/operations/opsRepairNodesManualRepair.html">source</a>, <a href="https://www.youtube.com/watch?v=1Sz_K8UID6E">video</a>)</li>
+<li><strong>Bitcoin &amp; IPFS, and <a href="https://storj.io/storj2014.pdf">Storj</a></strong>: The core data structure to store data</li>
+<li><strong>Ethereum</strong> also uses a Merkle Tree, but a different type than Bitcoin. Ethereum uses a Merkle Patricia Trie.</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>This article is part of my series about Blockchain:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/coinmonks/the-blockchain-473aac352e5">An Introduction to Blockchain</a></li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">The 3 Applications of Hash Functions</a></li>
+<li>Part 3: Merkle Trees</li>
+</ul>
+<p>Topics I will consider next:</p>
+<ul>
+<li>Merkle Patricia Tries</li>
+<li>Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it&rsquo;s so important</li>
+<li>Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.</li>
+<li>Smart contracts: What they are and how they work; e.g. with Etherium as an example</li>
+<li><a href="https://en.wikipedia.org/wiki/Initial_coin_offering">Initial Coin Offering</a> (ICO)</li>
+<li>Bitcoins consensus algorithm</li>
+<li>Bitcoin and the network: How do people connect?</li>
+<li>Bitcoin Wallets</li>
+<li>Peer-To-Peer Stuff: How Gossip Protocols work</li>
+</ul>
+<p>Let me know what you&rsquo;re interested in!</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Tara Vancil: <a href="https://www.youtube.com/watch?v=YIc6MNfv5iQ">How Merkle Trees Enable the Decentralized Web!</a>, 2017 on YouTube.</li>
+<li>Gaurav Sen: <a href="https://www.youtube.com/watch?v=qHMLy5JjbjQ">Merkle Tree with real-world examples</a>, 2019 on YouTube.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-01-27T20:00:00+01:00">Jan 27, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#blockchain-ref">Blockchain
+                    <span>2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
