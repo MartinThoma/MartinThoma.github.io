@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="hash, Software Development, Cyberculture, " />
+
+<meta property="og:title" content="The 3 Applications of Hash Functions  - What they are, what the options are, and why they matter "/>
+<meta property="og:url" content="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d" />
+<meta property="og:description" content="Image by Martin Thoma Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later. After reading …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-01-17T20:00:00+01:00" />
+<meta name="twitter:title" content="The 3 Applications of Hash Functions  - What they are, what the options are, and why they matter ">
+<meta name="twitter:description" content="Image by Martin Thoma Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later. After reading …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>The 3 Applications of Hash Functions  - What they are, what the options are, and why they matter  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">The 3 Applications of Hash Functions <small>What they are, what the options are, and why they matter</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#a-trivial-hash-function" title="A trivial hash function">A trivial hash function</a></li><li><a class="toc-href" href="#application-1-passwords" title="Application 1: Passwords">Application 1: Passwords</a></li><li><a class="toc-href" href="#application-2-integrity-checks" title="Application 2: Integrity Checks">Application 2: Integrity Checks</a></li><li><a class="toc-href" href="#application-3-proof-of-work-in-blockchain" title="Application 3: Proof-of-Work in Blockchain">Application 3: Proof-of-Work in Blockchain</a></li><li><a class="toc-href" href="#bonus-dictionaries-maps-associative-arrays" title="Bonus: Dictionaries / Maps / Associative Arrays">Bonus: Dictionaries / Maps / Associative Arrays</a></li><li><a class="toc-href" href="#how-common-are-collisions" title="How common are collisions?">How common are collisions?</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/4610/1*61uolxM5HsroqBFaQxsGxQ.png"/><em>Image by Martin Thoma</em></p>
+<p>Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.</p>
+<p>After reading this article you will know three different applications of hash functions. All of them are crucial for modern software development. Let&rsquo;s go!</p>
+<h2 id="a-trivial-hash-function">A trivial hash function</h2>
+<p>Let&rsquo;s say we want a hash function that takes arbitrary length input and generates a 128-bit output.</p>
+<p>The trivial way to compute a hash would be to look at 128-bit blocks of data. If the input is not a multiple of 128 bit, we just pad it with zeroes. Then we <a href="https://en.wikipedia.org/wiki/Exclusive_or#Truth_table">XOR</a> the blocks:</p>
+<iframe frameborder="0" src="https://medium.com/media/1c8f9e7f0049590301791dddaca1b0ee"></iframe>
+<p>This is just one very simple example of a hash function. It has two nice properties: It&rsquo;s very fast to execute and very simple.</p>
+<p>The disadvantages are also very clear:</p>
+<ul>
+<li>It&rsquo;s trivial to enforce a certain hash value by changing the input</li>
+<li>If you&rsquo;re using the hash function for error checking, you will not be able
+  to capture an even amount of errors at the same location modulo the hash
+  length. So if you have an error at bit 127 and 255 the hash will be the same
+  as without an error.</li>
+<li>The hash value of short inputs (below the length of the hash) is just the
+  padded input. You can directly read it.</li>
+</ul>
+<h2 id="application-1-passwords">Application 1: Passwords</h2>
+<p>When you register at a website, you typically have to enter a password. But
+the website could get hacked and an attacker could get your password. To
+protect users, the passwords are not stored in plain text. They are also not
+encrypted. Instead, they are hashed. This means we apply a <strong>one-way
+function</strong> to them. A typical example of a hashing function is MD5. In Python
+you can apply it like this:</p>
+<div class="highlight"><pre><span></span><code># IMPORTANT: DO NOT USE MD5 FOR PASSWORDS!
+&gt;&gt;&gt; import hashlib
+&gt;&gt;&gt; hashlib.md5(b"unicorn").hexdigest()
+'1abcb33beeb811dca15f0ac3e47b88d9'
+&gt;&gt;&gt; hashlib.md5(b"unicorns").hexdigest()
+'02d8c4ac323c5df679077f020f170453'
+</code></pre></div>
+<p>You can see two key properties here: (1) The length of the input does not
+matter; the length of the output is constant and (2) different inputs map to
+different outputs.</p>
+<p>What you cannot see is the one-way nature of hash functions:</p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3486/1*QUPHWtW-lPEXWGEpb-YPtg.png"/><em>Image by Martin Thoma</em></p>
+<p>Computing the hash value of a given password is comparatively fast and
+deterministic. Given the hash value, it is impossible to know for sure the
+original password. The reason for this is collisions: Passwords can be
+arbitrarily long, but the hash values have a fixed length. This means there
+must be some (different) passwords that have the same hash value. It&rsquo;s just
+super unlikely for good hash functions.</p>
+<p>Typically the best option to find a password with a given hash value is to
+just try every possible password until you see the same hash value:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">inverse_hash</span><span class="p">(</span><span class="n">hashed_password</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">password</span> <span class="ow">in</span> <span class="n">generate_new_password</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">hash</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">==</span> <span class="n">hashed_password</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">password</span>
+</code></pre></div>
+<p>This is way harder than computing the hash value. For randomly generated
+passwords it is likely that you have to try billions of passwords until you
+happen to find one that has the correct hash.</p>
+<p><strong>Cryptographic hash functions</strong> are hash functions, but not all hash functions
+are cryptographic hash functions. The additional properties you want for cryptographic
+hash functions are:</p>
+<ul>
+<li><strong>Pre-image attack resistance</strong>: Given <code>hash(m1)</code> it is infeasible to find <code>m1</code>.</li>
+<li><strong>Avalanche effect</strong>: If you change a single bit in the input, each bit in the
+  output changes with 50% probability. This property is desirable because it
+  indicates that you don&rsquo;t get any information about the pre-image.</li>
+<li><strong>Collision attack resistance</strong>: It is infeasible to find to messages m1 and m2
+  that have the same hash value: hash(m1) == hash(m2) .</li>
+<li><strong>Chosen-prefix attack resistance</strong>: This is more general than the collision
+  attack resistance. Given two prefixes p1 and p2 find two messages m1 and m2 such
+  that their concatenation gives the same hash: <code>hash(p1+m1) == hash(p2+m2)</code> (<a href="https://en.wikipedia.org/wiki/Collision_attack">source</a>)</li>
+</ul>
+<p>If an attacker wants to apply a inverse_hash like given above, you want to
+make this a super time-intensive operation. Hence you push the execution time
+from maybe 100&mu;s to 100ms by applying the hash function 1000 times.</p>
+<p>For more details, read my article about password hashing:
+<a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"><strong>Password Hashing 😇</strong>
+<em>Prepare to get hacked</em>levelup.gitconnected.com</a></p>
+<h2 id="application-2-integrity-checks">Application 2: Integrity Checks</h2>
+<p>Sometimes you just want to know if two files can be possibly identical. For
+example, you might want to create a program that scans a directory and all
+subdirectories for duplicate files:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">def</span> <span class="nf">find_duplicates</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]]:</span>
+    <span class="n">fingerprint2paths</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">directory</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"**/*"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">fingerprint</span> <span class="o">=</span> <span class="n">get_fingerprint</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">fingerprint2paths</span><span class="p">[</span><span class="n">fingerprint</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">paths</span> <span class="k">for</span> <span class="n">paths</span> <span class="ow">in</span> <span class="n">fingerprint2paths</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">get_fingerprint</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hash_md5</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">),</span> <span class="sa">b</span><span class="s2">""</span><span class="p">):</span>
+            <span class="n">hash_md5</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hash_md5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+
+<span class="k">for</span> <span class="n">duplicate_set</span> <span class="ow">in</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">duplicate_set</span><span class="p">)</span>
+</code></pre></div>
+<p>In this application, we use the fact that two different hash values typically
+mean the input was different. Hash collisions are rare. You could then also
+compare the files in the duplicate_set to make sure they are actually
+duplicates.</p>
+<p>This method can also be used to ensure file integrity. Think of big files
+you&rsquo;ve downloaded. You can check if something went wrong during the download
+by calculating the checksum of the file you have downloaded against a checksum
+of the file which is online.</p>
+<h2 id="application-3-proof-of-work-in-blockchain">Application 3: Proof-of-Work in Blockchain</h2>
+<p>Bitcoin and various other blockchains use a concept called &ldquo;proof of work&rdquo;. It is important for those technologies to be able to prove that you&rsquo;ve put a certain amount of computational resources into a problem. It needs to be hard to solve that problem, but easy to generate problem instances. A common choice for proof of work is to use a cryptographic hash function and ask for an input that generates a hash value with a certain pattern. For example:</p>
+<blockquote>
+<p>Find a string x such that y := sha256(x) and y begins with 0000</p>
+</blockquote>
+<p>The more restricted this pattern is, the harder it becomes to solve this task.
+Hence the more work you have to put into it.</p>
+<p>Here is a short program that solves such a task:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+
+<span class="k">def</span> <span class="nf">find_hash</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"00"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="n">nb_probed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">probe</span> <span class="ow">in</span> <span class="n">generate_random_str</span><span class="p">():</span>
+        <span class="n">nb_probed</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">hashval</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="s2">"utf8"</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">hashval</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">probe</span><span class="p">,</span> <span class="n">nb_probed</span>
+
+
+<span class="k">def</span> <span class="nf">generate_random_str</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">abc</span> <span class="o">=</span> <span class="s2">"abcdefghijklmnopqrstuvwxyz"</span>
+    <span class="n">chars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">abc</span> <span class="o">+</span> <span class="n">abc</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"0123456789"</span> <span class="o">+</span> <span class="s1">' !"&sect;$%&amp;/()=?+-'</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Length=</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">chars</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">length</span><span class="p">):</span>
+            <span class="n">random_str</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">random_str</span>
+        <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">probe</span><span class="p">,</span> <span class="n">nb_probed</span> <span class="o">=</span> <span class="n">find_hash</span><span class="p">(</span><span class="s2">"0000"</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">hashval</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="s2">"utf8"</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">probe</span><span class="si">=}</span><span class="s2">; </span><span class="si">{</span><span class="n">hashval</span><span class="si">=}</span><span class="s2">; nb_probed=</span><span class="si">{</span><span class="n">nb_probed</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>If you want to get more context about how the proof of work is used in Blockchain, have a look at my introductory article:
+<a href="https://medium.com/coinmonks/the-blockchain-473aac352e5"><strong>The Blockchain</strong>
+<em>An Introduction to Blockchain, Bitcoin ₿, and related concepts</em>medium.com</a></p>
+<h2 id="bonus-dictionaries-maps-associative-arrays">Bonus: Dictionaries / Maps / Associative Arrays</h2>
+<p>A <strong>hash map</strong> is a data structure that typically maps a string or a number to any object. They are called dictionaries in Python, associative arrays in PHP, HashMap/HashTable in Java, and simply map in C++. The concept is super cool; have a look at <a href="https://en.wikipedia.org/wiki/Hash_table">the Wikipedia article</a>.</p>
+<p>If you&rsquo;re interested how Python does it, then <a href="undefined">Praveen Gollakota</a> wrote an <a href="https://stackoverflow.com/a/9022835/562769">awesome StackOverflow answer</a> and <a href="undefined">Ian Clelland</a> explains <a href="https://stackoverflow.com/a/8998010/562769">which hash functions are used by default</a>.</p>
+<h2 id="how-common-are-collisions">How common are collisions?</h2>
+<p>For this example, let&rsquo;s just hash 466,550 English words. A pretty comprehensive dictionary.</p>
+<p>Let&rsquo;s first get the overview:</p>
+<div class="highlight"><pre><span></span><code>Hash function        collisions      ns/value          bits
+-------------------------------------------------------------------
+sha512               0                1250.0 ns/value  512 bit
+sha256               0                1039.0 ns/value  256 bit
+sha1                 0                 884.0 ns/value  160 bit
+RIPEMD160            0               13892.7 ns/value  160 bit
+md5                  0                 857.8 ns/value  128 bit
+crc32                23                596.3 ns/value   32 bit
+adler32              227,149           660.9 ns/value   32 bit
+char_xor             466,422           993.9 ns/value    7 bit
+</code></pre></div>
+<p>A couple of things are noteworthy here:</p>
+<ul>
+<li>The hashes with 128-bit or more did not have any collision. The char_xor effectively only uses 7 bit and thus can only encode a maximum of 128 different words.</li>
+<li>RIPEMD160 is way slower than the SHA hash functions. It&rsquo;s very likely that the <a href="https://en.wikipedia.org/wiki/Intel_SHA_extensions">Intel SHA extensions</a>, hence direct hardware support, are the reason why those are so fast. SHA is extremely well-known and widespread. For this reason, I expect the implementation to be very efficient.</li>
+</ul>
+<p>In case you&rsquo;re curious, there are the 23 collisions of CRC32:</p>
+<div class="highlight"><pre><span></span><code>('Audras', 'bermensch')
+('defeudalize', 'demobilisation')
+('dyn', 'gigmanism')
+('gigmaness', 'hyp')
+('Endamoebidae', 'Ilysa')
+('card-cutting', 'intertwinements')
+('eminency', 'Kelcie')
+('drift-netter', 'lattermath')
+('meny', 'menthols')
+('funerary', 'morenosite')
+('envoyship', 'platycarpous')
+('buckeroo', 'plumless')
+('fetishists', 'precedential')
+('penetration', 'prepituitary')
+('death-polluted', 'rabbitoh')
+('Bridget', 'slagging')
+('bimasty', 'superspecial')
+('droopingness', 'thalloid')
+('coach-box', 'tythed')
+('luminesce', 'twice-given')
+('casewood', 'uncontorted')
+('bronziest', 'unexigible')
+('pachadoms', 'wind-changing')
+</code></pre></div>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>I thought about writing a series about developer fundamentals. I could imagine
+an article about floats, one about date/time, architecture, networks. Let me
+know what you&rsquo;re interested in!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-01-17T20:00:00+01:00">Jan 17, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#hash-ref">hash
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#software-development-ref">Software Development
+                    <span>12</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
