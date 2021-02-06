@@ -5,7 +5,7 @@ slug: online-banking
 author: Martin Thoma
 date: 2018-02-17 20:00
 category: My bits and bytes
-tags: Banking
+tags: Banking, N26
 featured_image: logos/money.png
 ---
 

@@ -3,6 +3,7 @@
 - `git clone git@github.com:MartinThoma/MartinThoma.github.io.git --recursive` to get the blog data with all submodules
 - `pre-commit install`
 - `pip install -r requirements.txt --user` to install the required software
+- `sudo apt-get install npm && sudo apt-get install nodejs && sudo npm install -g mediumexporter`
 - `make html-local` and `make serve` to see the result on http://127.0.0.1:8000/
 
 ## TODO

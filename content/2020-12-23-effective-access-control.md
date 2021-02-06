@@ -381,11 +381,14 @@ In this series about application security (AppSec) we already explained some of 
 * Part 10: [Effective Access Control](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff) 😇
 * Part 11: [DOS via a Billion Laughs](https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139) 😈
 * Part 12: [Full Disk Encryption](https://medium.com/faun/full-disk-encryption-2090489f9760) 😇
+* Part 13: [Insecure Deserialization](https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e) 😈
+* Part 14: [Docker Security](https://levelup.gitconnected.com/docker-security-5f4df118948c) 😇
 
 And this is about to come:
 
 * CSRF 😈
 * DOS 😈
+* ReDoS 😈
 * Credential Stuffing 😈
 * Cryptojacking 😈
 * Single-Sign-On 😇
