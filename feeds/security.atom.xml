@@ -1,5 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-12-28T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Full Disk Encryption 😇</title><link href="https://martin-thoma.com/https://medium.com/faun/full-disk-encryption-2090489f9760" rel="alternate"></link><published>2020-12-28T20:00:00+01:00</published><updated>2020-12-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-28:/https://medium.com/faun/full-disk-encryption-2090489f9760</id><summary type="html">&lt;p&gt;Having an attacker with physical access to your device is one of the worst
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-01-28T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Insecure Deserialization 😈🐝</title><link href="https://martin-thoma.com/insecure-deserialization/" rel="alternate"></link><published>2021-01-28T20:00:00+01:00</published><updated>2021-01-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-01-28:/insecure-deserialization/</id><summary type="html">&lt;p&gt;Serialization is the act of transforming objects from an internal
+representation to a stream of characters or bytes. The representation of the
+serialized object should be platform- and language-independent. Data is
+serialized and deserialized in applications to &lt;strong&gt;store&lt;/strong&gt; or &lt;strong&gt;transport&lt;/strong&gt; it.
+In web applications, &lt;strong&gt;JSON&lt;/strong&gt; or &lt;strong&gt;XML&lt;/strong&gt; is often used …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Serialization is the act of transforming objects from an internal
+representation to a stream of characters or bytes. The representation of the
+serialized object should be platform- and language-independent. Data is
+serialized and deserialized in applications to &lt;strong&gt;store&lt;/strong&gt; or &lt;strong&gt;transport&lt;/strong&gt; it.
+In web applications, &lt;strong&gt;JSON&lt;/strong&gt; or &lt;strong&gt;XML&lt;/strong&gt; is often used for data exchange by
+many APIs and protocols. File formats like PNG/GIF/JPEG/MPEG use XML to store
+metadata. YAML became extremely popular for configuration files, e.g. in
+&lt;a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html"&gt;Cloudformation
+templates&lt;/a&gt;
+or &lt;a href="https://docs.gitlab.com/ee/ci/yaml/"&gt;GitlabCI configuration files&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some file formats allow you to do more than just (de)serializing basic data
+types. For example, imagine that you want to set up a CI pipeline. You might
+have one step for executing unit tests, one step for checking the types, one
+for linting. All of those steps might require installing the same set of
+dependencies. Instead of repeating yourself, you want to use &lt;strong&gt;references&lt;/strong&gt;.
+You define a dictionary once and copy it in many places. References allow a
+human to read, write, and modify the file quickly while the machine simply has
+the same value(s) in multiple places.&lt;/p&gt;
+&lt;p&gt;Another powerful feature is to include &lt;strong&gt;external entities&lt;/strong&gt;. In the simplest
+case, this means that you want to include another file. For example, you could
+have a logging configuration that you want to use in multiple places. In more
+extreme cases, the external entities could be not in local files but only
+available over the internet. To be honest, I don&amp;rsquo;t know why you would want
+that. Please leave a commend if you know!&lt;/p&gt;
+&lt;p&gt;Most serialization formats are not powerful enough to represent arbitrary
+objects you can have. There are differences in how powerful those formats are.
+Some want to go very far in terms of compatibility with many languages. As a
+potential side effect, they could allow &lt;strong&gt;arbitrary code execution&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id="why-you-should-care"&gt;Why you should care&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Insecure deserialization was number 8 in the &lt;strong&gt;OWASP Top 10&lt;/strong&gt;
+  (&lt;a href="https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization"&gt;source&lt;/a&gt;) 🐝&lt;/li&gt;
+&lt;li&gt;2013: The YAML node package
+  (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660"&gt;CVE-2013&amp;ndash;4660&lt;/a&gt;)
+  allowed remote code execution. Remote code execution is as bad as it gets:
+  People can take your data, install a backdoor, shut down your service,
+  delete or encrypt your data, use your service for crypto-mining, potentially
+  harm your hardware.&lt;/li&gt;
+&lt;li&gt;2014: Android &amp;lt; 5.0 an insecure deserialization can result in arbitrary code
+  execution (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2014-7911"&gt;CVE-2014&amp;ndash;7911&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;2015: Android &amp;lt; 5.1.1 allows arbitrary code execution
+  (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837"&gt;CVE-2015&amp;ndash;3837&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2015: ArcGIS allowed arbitrary code execution
+  (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2002"&gt;CVE-2015&amp;ndash;2002&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2015: &lt;a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-peles.pdf"&gt;One Class to Rule Them All: 0-Day Deserialization Vulnerabilities in Android&lt;/a&gt; by Or Peles, Roee Hay, referencing &lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837"&gt;CVE-2015&amp;ndash;3837&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2019: Kubernetes was vulnerable to a billion laughs DOS attack (&lt;a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253"&gt;CVE-2019&amp;ndash;11253&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2020: TYPO3 (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11067"&gt;CVE-2020&amp;ndash;11067&lt;/a&gt;), IBM QRadar (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4280"&gt;CVE-2020&amp;ndash;4280&lt;/a&gt; ) allowed remote code execution.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2020: Apache Tomcat allows remote code execution (&lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484"&gt;CVE-2020&amp;ndash;9484&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-do-deserialization-attacks-work"&gt;How do Deserialization attacks work?&lt;/h2&gt;
+&lt;p&gt;There is actually a multitude of deserialization attacks. One way to group them is by file format, e.g. YAML, XML, Python pickle files, and many others. Another way is by the objective the attacker wants to reach, e.g. Arbitrary Code execution or Denial of Service (DOS).&lt;/p&gt;
+&lt;p&gt;The issue is that those file formats are too powerful. They either directly allow code execution or they allow to create references to the file system or references to elements within the document.&lt;/p&gt;
+&lt;h3 id="attacking-a-yaml-deserializer"&gt;Attacking a YAML deserializer&lt;/h3&gt;
+&lt;p&gt;Take this example.yaml file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;!!python/object/apply:os.system&lt;/span&gt;
+
+&lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'cat&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;/etc/passwd'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And execute this Python code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;yaml&lt;/span&gt;  &lt;span class="c1"&gt;# pip install pyyaml is required&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"example.yaml"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fp&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;yaml&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unsafe_load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will print the contents of &lt;code&gt;/etc/passwd&lt;/code&gt;. You could also delete any (or
+all) files on the system, send a web request (e.g. with the contents of that
+password file), download and execute software (e.g. a rootkit/backdoor). This
+is probably as bad as it can get.&lt;/p&gt;
+&lt;p&gt;If you want to know more about YAML features, read this:
+&lt;a href="https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3"&gt;&lt;strong&gt;6 YAML Features most programmers don&amp;rsquo;t know&lt;/strong&gt;
+&lt;em&gt;Level-up your YAML knowledge to write cleaner YAML files&lt;/em&gt;levelup.gitconnected.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="attacking-xml-deserialization"&gt;Attacking XML Deserialization&lt;/h3&gt;
+&lt;p&gt;XML allows referencing external entities such as files (e.g. /etc/passwd ) or
+websites. If you want to learn more about why this is an issue, read my
+article about XXE attacks &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;&lt;strong&gt;XXE attacks 😈&lt;/strong&gt; &lt;em&gt;PDF, Excel, SVG, ebooks &amp;mdash; all
+use XML. They can be
+vulnerable.&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another possible attack vector is to use the reference feature of XML in a
+billion laughs attack: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;&lt;strong&gt;DOS via a billion laughs 😈&lt;/strong&gt; &lt;em&gt;Consume arbitrary much
+RAM by repeated
+referencing&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="attacking-pickle-deserialization"&gt;Attacking Pickle Deserialization&lt;/h3&gt;
+&lt;p&gt;Marco Slaviero has shown that deserialization of pickle files allows arbitrary code execution in his paper &amp;ldquo;&lt;a href="https://media.blackhat.com/bh-us-11/Slaviero/BH_US_11_Slaviero_Sour_Pickles_WP.pdf"&gt;Sour Pickles&lt;/a&gt;&amp;rdquo;. It was summarized nicely by &lt;a href="https://stackoverflow.com/a/10302328/562769"&gt;Charles Menguy&lt;/a&gt; in an example similar to this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pickle&lt;/span&gt;
+
+&lt;span class="n"&gt;pickle&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;b&lt;/span&gt;&lt;span class="s2"&gt;"cos&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;system&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;(S'cat /etc/passwd'&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;tR."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="how-can-i-defend-against-deserialization-attacks_1"&gt;How can I defend against deserialization attacks?&lt;/h2&gt;
+&lt;p&gt;Two measures you can almost always do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Principle of least privilege&lt;/strong&gt;: Run your code with as few privileges as
+  possible. You do for sure not need root privileges. Depending on your level
+  of paranoia, you could create a specialized user which only does the
+  deserialization. You could remove the right to use the network from that
+  user.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Defense in Depth&lt;/strong&gt;: Make sure every component takes possible security
+  measures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For some formats, you can tell the deserializer to ignore some of its features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PyYAML&lt;/strong&gt;: Use the yaml.safe_load function. At some point, they changed the
+  interface so that yaml.load points to yaml.safe_load . You can still use
+  yaml.unsafe_load . I love that they included &amp;ldquo;unsafe&amp;rdquo; in the function call.
+  This makes it obvious that something might be dangerous.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XML&lt;/strong&gt;: For Python, there is
+  &lt;a href="https://pypi.org/project/defusedxml"&gt;defusedxml&lt;/a&gt; which sets various XML
+  parsers of Python to safe defaults, preventing
+  &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XEE&lt;/a&gt;, the billion laughs
+  attack, and quadratic blowup.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For other formats like pickle, you just have to be sure that your input does not cause harm.&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="AppSec"></category><category term="Cybersecurity"></category></entry><entry><title>Full Disk Encryption 😇</title><link href="https://martin-thoma.com/https://medium.com/faun/full-disk-encryption-2090489f9760" rel="alternate"></link><published>2020-12-28T20:00:00+01:00</published><updated>2020-12-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-28:/https://medium.com/faun/full-disk-encryption-2090489f9760</id><summary type="html">&lt;p&gt;Having an attacker with physical access to your device is one of the worst
 scenarios. If the data is not encrypted on the disk, then the attacker can
 simply disassemble your device, get the HDD/SDD, put it in his machine, and
 read the data. For this reason, encrypting your …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having an attacker with physical access to your device is one of the worst
@@ -174,11 +329,14 @@ lost devices. You need a Lost Device Policy. This can include:&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -275,11 +433,14 @@ bomb
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -583,11 +744,14 @@ our objects are the combination (route, parameter).&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -704,11 +868,14 @@ anything. But when the tool complains, it is important.&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -868,11 +1035,14 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -977,11 +1147,14 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -1099,11 +1272,14 @@ you two functions:&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -1203,11 +1379,14 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -1325,11 +1504,14 @@ packages simply send the hostname with environment variables to a server (&lt;a 
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -1459,11 +1641,14 @@ character. Just by looking at how the sorting changes.&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
@@ -1575,15 +1760,157 @@ Schwenk.&lt;/p&gt;
 &lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
 &lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
 &lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;And this is about to come:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;CSRF 😈&lt;/li&gt;
 &lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
 &lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
 &lt;li&gt;Cryptojacking 😈&lt;/li&gt;
 &lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Cybersecurity"></category><category term="AppSec"></category></entry></feed>
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Cybersecurity"></category><category term="AppSec"></category></entry><entry><title>CAPTCHA</title><link href="https://martin-thoma.com/captcha/" rel="alternate"></link><published>2011-09-29T09:20:35+02:00</published><updated>2011-09-29T09:20:35+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2011-09-29:/captcha/</id><summary type="html">&lt;p&gt;Spam is really a problem if you have a WordPress blog, a forum or a guestbook. A very common approach to solve this problem are CAPTCHAs - &lt;strong&gt;C&lt;/strong&gt;ompletely &lt;strong&gt;A&lt;/strong&gt;utomated &lt;strong&gt;P&lt;/strong&gt;ublic &lt;strong&gt;T&lt;/strong&gt;uring test to tell &lt;strong&gt;C&lt;/strong&gt;omputers and &lt;strong&gt;H&lt;/strong&gt;umans &lt;strong&gt;A&lt;/strong&gt;part.&lt;/p&gt;
+&lt;p&gt;The idea behind CAPTCHAs is to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Spam is really a problem if you have a WordPress blog, a forum or a guestbook. A very common approach to solve this problem are CAPTCHAs - &lt;strong&gt;C&lt;/strong&gt;ompletely &lt;strong&gt;A&lt;/strong&gt;utomated &lt;strong&gt;P&lt;/strong&gt;ublic &lt;strong&gt;T&lt;/strong&gt;uring test to tell &lt;strong&gt;C&lt;/strong&gt;omputers and &lt;strong&gt;H&lt;/strong&gt;umans &lt;strong&gt;A&lt;/strong&gt;part.&lt;/p&gt;
+&lt;p&gt;The idea behind CAPTCHAs is to give the spammer a problem which is hard to solve for a computer program but easy to solve for a human.&lt;/p&gt;
+&lt;p&gt;Most CAPTCHAs are really boring. I tried to find different categories of them, but most you will find online are in the "Optical character recognition" category:&lt;/p&gt;
+&lt;h2 id="optical character recognition"&gt;Optical character recognition&lt;/h2&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/Web-Wiz-CAPTCHA.png"&gt;&lt;img alt="Web Wiz CAPTCHA" class="size-full wp-image-2751" src="../images/2011/09/Web-Wiz-CAPTCHA.png" style="max-width:310px;max-height:155px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Web Wiz CAPTCHA&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I hope nobody seriously pays the 6 Euro for &lt;a href="http://www.webwiz.co.uk/web-wiz-captcha/demo/"&gt;Web Wiz&lt;/a&gt;. As many very simple CAPTCHAs it lacks a support for blind people. It is quite easy to read for humans, but I guess also for bots. They always use only five random characters which are written in blue. They added some dots and straight lines to make segmentation more difficult. I guess they never tried to hack their own CAPTCHA. If they did, they should be aware that those small dots don't change anything and the straight lines can easily be detected and removed. It also seems to me as if they only used one font.&lt;/p&gt;
+&lt;p&gt;Google did some great work with &lt;a href="http://www.google.com/recaptcha"&gt;reCAPTCHA&lt;/a&gt;. I think I'll write a longer post about this later, but to keep it short:
+&lt;ul&gt;
+&lt;li&gt;They use the reader (or spammer) to digitalize the books they scan. So if someone uses very good algorithms to bypass their CAPTCHA, the spammer will help Google. This is a very nice way to end up in a win-win situation, isn't it?&lt;/li&gt;
+&lt;li&gt;reCAPTCHA has also support for blind people.&lt;/li&gt;
+&lt;li&gt;The characters you have to type in are actual words. This makes it a lot easier for humans to recognize the characters.&lt;/li&gt;
+&lt;li&gt;reCAPTCHA is very easy to use. No need of &lt;a href="http://php.net/manual/en/book.image.php"&gt;GD&lt;/a&gt; or &lt;a href="http://www.php.net/manual/en/book.imagick.php"&gt;ImageMagick&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you can't read it, just reload it.&lt;/li&gt;
+&lt;/ul&gt;
+Here is a screenshot of reCAPTCHA:
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/reCAPTCHA.png"&gt;&lt;img alt="reCAPTCHA" class="size-full wp-image-2781" src="../images/2011/09/reCAPTCHA.png" style="max-width:338px;max-height:175px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;reCAPTCHA&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Here is another "traditional" CAPTCHA example.&lt;/p&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/SimpleCaptcha.png"&gt;&lt;img alt="SimpleCaptcha" class="size-full wp-image-2831" src="../images/2011/09/SimpleCaptcha.png" style="max-width:219px;max-height:65px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;&lt;a href="http://simplecaptcha.sourceforge.net/"&gt;SimpleCaptcha&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="kittenauth"&gt;KittenAuth&lt;/h2&gt;
+&lt;p&gt;I have never seen a working demo of &lt;a href="http://thepcspy.com/kittenauth/"&gt;KittenAuth&lt;/a&gt;, but the idea is simple: You get 9 pictures and you're supposed to spot the cats:
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/kittenAuth-captcha.jpg"&gt;&lt;img alt="kittenAuth CAPTCHA" class="size-full wp-image-2891" src="../images/2011/09/kittenAuth-captcha.jpg" style="max-width:382px;max-height:387px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;The KittenAuth system. Source: ThePCSpy.com&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Very simmiliar is &lt;a href="http://research.microsoft.com/en-us/um/redmond/projects/asirra/"&gt;ASIRRA&lt;/a&gt;:
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/ASIRRA.png"&gt;&lt;img alt="ASIRRA" class="size-full wp-image-2941" src="../images/2011/09/ASIRRA.png" style="max-width:549px;max-height:511px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;ASIRRA&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id="basic human knowledge"&gt;Basic human knowledge&lt;/h2&gt;
+&lt;p&gt;Another CAPTCHA-type is based on basic human knowledge. &lt;a href="http://textcaptcha.com/"&gt;Text CAPTCHA&lt;/a&gt; is an example for this type. They ask you questions like:
+&lt;ul&gt;
+&lt;li&gt;Which of milk, hotel or brain is a body part?&lt;/li&gt;
+&lt;li&gt;How many letters in "devotional"?&lt;/li&gt;
+&lt;li&gt;The word "tamers" has which letter in 2nd position?&lt;/li&gt;
+&lt;li&gt;Enter the smallest number of 28, thirteen, twenty, 60, fifty six or 78:&lt;/li&gt;
+&lt;li&gt;Which of knee, leg, ear or ankle is above the waist?&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;I don't think this type is very good as the spammer has to do almost the same amount of work as the programmer. He has to parse the different types of questions, but I guess this isn't too hard.&lt;/p&gt;
+&lt;p&gt;He might just ask Google: &lt;a href="http://www.google.com/search?q=what+is+7+minus+3+times+2%3F"&gt;what is 7 minus 3 times 2?&lt;/a&gt; or &lt;a href="http://www.google.com/search?q=the+number+of+horns+on+a+unicorn#sclient=psy-ab&amp;amp;hl=de&amp;amp;source=hp&amp;amp;q=what+is+the+number+of+horns+on+a+unicorn+times+the+answer+to+life%2C+the+universe%2C+and+everything%3F&amp;amp;pbx=1&amp;amp;oq=what+is+the+number+of+horns+on+a+unicorn+times+the+answer+to+life%2C+the+universe%2C+and+everything%3F&amp;amp;aq=f&amp;amp;aqi=&amp;amp;aql=&amp;amp;gs_sm=e&amp;amp;gs_upl=15192l15192l2l15913l1l1l0l0l0l0l281l281l2-1l1l0&amp;amp;bav=on.2,or.r_gc.r_pw.r_cp.&amp;amp;fp=1f755a13a5fe778&amp;amp;biw=1366&amp;amp;bih=630"&gt;what is the number of horns on a unicorn times the answer to life, the universe, and everything?&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/egglue-Egglue-Semantic-CAPTCHA.png"&gt;&lt;img alt="egglue - Egglue Semantic CAPTCHA" class="size-full wp-image-2801" src="../images/2011/09/egglue-Egglue-Semantic-CAPTCHA.png" style="max-width:256px;max-height:143px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;&lt;a href="http://code.google.com/p/egglue/"&gt;egglue&lt;/a&gt; - Egglue Semantic CAPTCHA&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="mathematics"&gt;Mathematics&lt;/h2&gt;
+&lt;p&gt;I've seen some CAPTCHAs asking for very basic math questions like the following one. They are very easy to bypass if you want to write a bot:&lt;/p&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/CAPTCHA-Basic-mathematics.png"&gt;&lt;img alt="CAPTCHA - Basic mathematics" class="size-full wp-image-2761" src="../images/2011/09/CAPTCHA-Basic-mathematics.png" style="max-width:212px;max-height:52px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;CAPTCHA - Basic mathematics (&lt;a href="http://mylittlehomepage.net/demos/captcha/index_math.php"&gt;example&lt;/a&gt;)&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Sometimes they are not that easy:
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/Rosocosmos.jpg"&gt;&lt;img alt="Rosocosmos CAPTCHA" class="size-full wp-image-2901" src="../images/2011/09/Rosocosmos.jpg" style="max-width:520px;max-height:294px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Rosocosmos CAPTCHA - Found on &lt;a href="http://haunty.hubpages.com/hub/22-Funny-Captchas"&gt;hubpages.com&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/Hard-math-CAPTCHA.png"&gt;&lt;img alt="Hard math CAPTCHA" class="size-full wp-image-2921" src="../images/2011/09/Hard-math-CAPTCHA.png" style="max-width:356px;max-height:207px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Hard math CAPTCHA - found on &lt;a href="http://random.irb.hr/signup.php"&gt;random.irb.hr&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="social captcha"&gt;Social CAPTCHA&lt;/h2&gt;
+&lt;p&gt;I've just found Facebooks social CAPTCHA. I didn't read &lt;a href="http://blog.facebook.com/blog.php?post=486790652130"&gt;the article&lt;/a&gt;. I guess the idea is that you know the name of your friends, but a stranger doesn't. I had the same idea for a school website where you would have been forced to know the name of the teachers. Here is the example:
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/Social-CAPTCHA.png"&gt;&lt;img alt="Social CAPTCHA" class="size-full wp-image-2851" src="../images/2011/09/Social-CAPTCHA.png" style="max-width:539px;max-height:266px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Social CAPTCHA&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id="playthru"&gt;PLAYTHRU&lt;/h2&gt;
+&lt;p&gt;To get through this CAPTCHA, you have to play a short game.&lt;/p&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/playthru-1.png"&gt;&lt;img alt="PLAYTHRU" class="size-full wp-image-43001" src="../images/2011/09/playthru-1.png" style="max-width:360px;max-height:160px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;PLAYTHRU&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class="aligncenter"&gt;
+&lt;a href="../images/2011/09/playthru-2.png"&gt;&lt;img alt="PLAYTHROU" class="size-full wp-image-43011" src="../images/2011/09/playthru-2.png" style="max-width:360px;max-height:160px"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;PLAYTHROU&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;You can get &lt;a href="http://areyouahuman.com/"&gt;PLAYTHRU&lt;/a&gt; here.&lt;/p&gt;
+&lt;h2 id="further reading"&gt;Further reading&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fun:
+  &lt;ul&gt;
+&lt;li&gt;xkcd: &lt;a href="http://xkcd.com/233/"&gt;A New CAPTCHA Approach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.smosh.com/smosh-pit/photos/24-wtf-captchas"&gt;24 WTF Captchas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.smosh.com/PC/smosh-pit/photos/25-very-naughty-facebook-captchas"&gt;25 Very Naughty Facebook Captchas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Free CAPTCHA systems:
+  &lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.google.com/recaptcha"&gt;reCAPTCHA&lt;/a&gt;: I recommend this one.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://code.google.com/p/cool-php-captcha/"&gt;cool php captcha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.1stwebdesigner.com/freebies/captcha-solutions-kill-spam/"&gt;Fight with Spam: 15+ Free Captcha Solutions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Breaking or creating CAPTCHAs:
+  &lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.blackhat-seo.com/2008/how-to-break-captchas/"&gt;How to break captchas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://caca.zoy.org/wiki/PWNtcha"&gt;PWNtcha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.scribd.com/doc/24497942/Strong-CAPTCHA-Guidelines-v1-2"&gt;Strong CAPTCHA Guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="CAPTCHA"></category><category term="Spam"></category><category term="Security"></category><category term="Cybersecurity"></category></entry></feed>
