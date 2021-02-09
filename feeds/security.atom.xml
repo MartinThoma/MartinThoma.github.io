@@ -1,5 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-01-28T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Insecure Deserialization 😈🐝</title><link href="https://martin-thoma.com/insecure-deserialization/" rel="alternate"></link><published>2021-01-28T20:00:00+01:00</published><updated>2021-01-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-01-28:/insecure-deserialization/</id><summary type="html">&lt;p&gt;Serialization is the act of transforming objects from an internal
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-02-06T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Docker Security 😇</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/docker-security-5f4df118948c" rel="alternate"></link><published>2021-02-06T20:00:00+01:00</published><updated>2021-02-06T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-02-06:/https://levelup.gitconnected.com/docker-security-5f4df118948c</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by Andrey Sharpilo on Unsplash" src="https://cdn-images-1.medium.com/max/9600/0*r4ZMVDm0J0WtgNKQ"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@sharpiloa?utm_source=medium&amp;amp;utm_medium=referral"&gt;Andrey Sharpilo&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let&amp;rsquo;s have a closer …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Photo by Andrey Sharpilo on Unsplash" src="https://cdn-images-1.medium.com/max/9600/0*r4ZMVDm0J0WtgNKQ"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@sharpiloa?utm_source=medium&amp;amp;utm_medium=referral"&gt;Andrey Sharpilo&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let&amp;rsquo;s have a closer look!&lt;/p&gt;
+&lt;h2 id="host-security"&gt;Host Security&lt;/h2&gt;
+&lt;p&gt;All Docker containers run on a host system. The host needs to be secure AND the container needs to be secure.&lt;/p&gt;
+&lt;p&gt;There are various vulnerability scanning, auditing, and hardening tools for Linux systems:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cisofy.com/lynis/"&gt;Lynis&lt;/a&gt;: Executesudo apt-get install lynis &amp;amp;&amp;amp; sudo lynis audit system and wait for a couple of minutes and you get a pretty nice report indicating what you can do to harden your system.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux"&gt;SELinux&lt;/a&gt;: Provides Mandatory Access Control (MAC) as a kernel-module. Thomas Cameron gave an &lt;a href="https://www.youtube.com/watch?v=_WOKRaM-HI4"&gt;introduction to SELinux&lt;/a&gt;. The key point for SELinux and AppArmor is the Access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Learn more about the differences&lt;/a&gt;. &lt;a href="undefined"&gt;Luc Juggery&lt;/a&gt; gave a nice introduction to &lt;a href="https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621"&gt;SELinux &amp;amp; Docker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/AppArmor"&gt;AppArmor&lt;/a&gt;: Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. &lt;a href="http://sarnold.org/resume/sarnold.html"&gt;Seth Arnold&lt;/a&gt; gave a nice talk about &lt;a href="https://www.youtube.com/watch?v=PRZ59lxLlOY"&gt;AppArmor 3.0&lt;/a&gt;. Again, &lt;a href="undefined"&gt;Luc Juggery&lt;/a&gt; wrote a hands-on guide for &lt;a href="https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b"&gt;AppArmor &amp;amp; Docker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Docker Daemon: Run the daemon as a non-privileged user. Especially not as root.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You should run regular checks against vulnerability databases. If they find an
+issue, you need an effective way to get notified, e.g. by posting to a Slack
+channel.&lt;/p&gt;
+&lt;p&gt;You could also use an OS that is optimized for containers, e.g. &lt;a href="https://cloud.google.com/container-optimized-os"&gt;Googles
+Container-Optimized OS&lt;/a&gt;
+(COS).&lt;/p&gt;
+&lt;p&gt;There are many more things to say about the host system, but that is not the
+focus of this article. If you&amp;rsquo;re interested, I&amp;rsquo;ll write a follow-up 🙂&lt;/p&gt;
+&lt;h2 id="base-image"&gt;Base Image&lt;/h2&gt;
+&lt;p&gt;The base image is the foundation of your docker image. Within your Dockerfile,
+you define the base image with FROM . For me, it typically is
+&lt;a href="https://hub.docker.com/_/python"&gt;python:3.8.7-slim-buster&lt;/a&gt; or similar. You
+need to ask yourself:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do I trust the base images&amp;rsquo; author to have good intentions?&lt;/li&gt;
+&lt;li&gt;Do I trust the base images&amp;rsquo; author to have a secure development setup so that malware isn&amp;rsquo;t uploaded unintentionally, e.g. by leaking the credentials to the account or password re-use?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You should also scan your base image for vulnerabilities. Even for very
+standard images, there are often vulnerabilities. Some can be fixed by
+directly running an update (e.g. RUN apt-get update &amp;amp;&amp;amp; apt-get upgrade),
+others don&amp;rsquo;t have an update within the repository. But pretty often you also
+don&amp;rsquo;t need all the installed stuff.&lt;/p&gt;
+&lt;p&gt;Be aware that alpine does only share vulnerabilities that they have already
+fixed. So the scan might look better for them, although they are not better.
+Alpine images are smaller, though. So the attack surface is smaller.&lt;/p&gt;
+&lt;h2 id="harden-your-image"&gt;Harden Your Image&lt;/h2&gt;
+&lt;p&gt;Hardening is the process of reducing the attack surface or increasing the
+difficulty to find and use existing vulnerability. It reduces the blast radius
+any ticking bomb in your system could have.&lt;/p&gt;
+&lt;h3 id="copy-only-necessary-files"&gt;Copy only necessary files&lt;/h3&gt;
+&lt;p&gt;You can use the
+&lt;a href="https://docs.docker.com/engine/reference/builder/#dockerignore-file"&gt;.dockerignore&lt;/a&gt;
+file to make sure that some files are not added.&lt;/p&gt;
+&lt;h3 id="run-non-privileged-user-in-the-container"&gt;Run non-privileged user in the container&lt;/h3&gt;
+&lt;p&gt;By default, the code you execute within a docker container runs with the user
+ID 0 &amp;mdash; with root. It is recommended not to do that. You can change that in
+multiple ways:&lt;/p&gt;
+&lt;p&gt;Within the Dockerfile &amp;mdash; I prefer that one:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; groupadd -r noroot &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; useradd -r -g noroot noroot
+&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="s"&gt; noroot&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you start the container:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ docker run -u &lt;span class="m"&gt;1000&lt;/span&gt; -it python:3.9.1-buster bash
+I have no name!@a70ba4f24042:/$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$UID&lt;/span&gt;
+&lt;span class="m"&gt;1000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In Kubernetes via RunAsUser in the securityContext
+(&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"&gt;docs&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id="multi-stage-builds"&gt;Multi-Stage Builds&lt;/h3&gt;
+&lt;p&gt;If an attacker gets access to your container, you want them to have as few tools there as possible. Use &lt;a href="https://docs.docker.com/develop/develop-images/multistage-build/"&gt;multi-stage builds&lt;/a&gt; for that. Build your code in a build-container and use the built artifact in another container. As a bonus, your image size will be smaller.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://docs.docker.com/develop/develop-images/multistage-build/"&gt;Docker docs&lt;/a&gt; give a very good example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="s"&gt;golang:1.7.3&lt;/span&gt;
+&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="s"&gt; /go/src/github.com/alexellis/href-counter/&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; go get -d -v golang.org/x/net/html
+&lt;span class="k"&gt;COPY&lt;/span&gt; app.go .
+&lt;span class="k"&gt;RUN&lt;/span&gt; &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux go build -a -installsuffix cgo -o app .
+
+&lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="s"&gt;alpine:latest&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt; apk --no-cache add ca-certificates
+&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="s"&gt; /root/&lt;/span&gt;
+&lt;span class="k"&gt;COPY&lt;/span&gt; **--from&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;** /go/src/github.com/alexellis/href-counter/app .
+&lt;span class="k"&gt;CMD&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"./app"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="harden-your-containers_1"&gt;Harden Your Containers&lt;/h2&gt;
+&lt;h3 id="read-only-root-file-system"&gt;Read-Only Root File System&lt;/h3&gt;
+&lt;p&gt;This depends on how you run the docker image, but if you use docker run you can add the &lt;a href="https://docs.docker.com/engine/reference/commandline/run/"&gt;--read-only flag&lt;/a&gt;. This makes the root file system read-only. This means if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.&lt;/p&gt;
+&lt;p&gt;You should also be aware that some pretty standard tasks like creating a temporary file obviously don&amp;rsquo;t work anymore:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it --read-only python:3.9.1-buster
+Python &lt;span class="m"&gt;3&lt;/span&gt;.9.1 &lt;span class="o"&gt;(&lt;/span&gt;default, Jan &lt;span class="m"&gt;12&lt;/span&gt; &lt;span class="m"&gt;2021&lt;/span&gt;, &lt;span class="m"&gt;16&lt;/span&gt;:45:25&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;GCC &lt;span class="m"&gt;8&lt;/span&gt;.3.0&lt;span class="o"&gt;]&lt;/span&gt; on linux
+Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyright"&lt;/span&gt;, &lt;span class="s2"&gt;"credits"&lt;/span&gt; or &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; more information.
+&amp;gt;&amp;gt;&amp;gt; import tempfile
+&amp;gt;&amp;gt;&amp;gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
+Traceback &lt;span class="o"&gt;(&lt;/span&gt;most recent call last&lt;span class="o"&gt;)&lt;/span&gt;:
+  File &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;, line &lt;span class="m"&gt;1&lt;/span&gt;, in &amp;lt;module&amp;gt;
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;348&lt;/span&gt;, in mkdtemp
+    prefix, suffix, dir, &lt;span class="nv"&gt;output_type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; _sanitize_params&lt;span class="o"&gt;(&lt;/span&gt;prefix, suffix, dir&lt;span class="o"&gt;)&lt;/span&gt;
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;118&lt;/span&gt;, in _sanitize_params
+    &lt;span class="nv"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; gettempdir&lt;span class="o"&gt;()&lt;/span&gt;
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;287&lt;/span&gt;, in gettempdir
+    &lt;span class="nv"&gt;tempdir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; _get_default_tempdir&lt;span class="o"&gt;()&lt;/span&gt;
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;219&lt;/span&gt;, in _get_default_tempdir
+    raise FileNotFoundError&lt;span class="o"&gt;(&lt;/span&gt;_errno.ENOENT,
+FileNotFoundError: &lt;span class="o"&gt;[&lt;/span&gt;Errno &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; No usable temporary directory found in &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/var/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/usr/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can work around this issue by mounting /tmp as a volume:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it --mount &lt;span class="nv"&gt;source&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;myvol2,target&lt;span class="o"&gt;=&lt;/span&gt;/tmp --read-only python:3.9.1-buster
+Python &lt;span class="m"&gt;3&lt;/span&gt;.9.1 &lt;span class="o"&gt;(&lt;/span&gt;default, Jan &lt;span class="m"&gt;12&lt;/span&gt; &lt;span class="m"&gt;2021&lt;/span&gt;, &lt;span class="m"&gt;16&lt;/span&gt;:45:25&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;GCC &lt;span class="m"&gt;8&lt;/span&gt;.3.0&lt;span class="o"&gt;]&lt;/span&gt; on linux
+Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyright"&lt;/span&gt;, &lt;span class="s2"&gt;"credits"&lt;/span&gt; or &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; more information.
+&amp;gt;&amp;gt;&amp;gt; import tempfile&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
+
+
+$ sudo docker run --rm -i -v&lt;span class="o"&gt;=&lt;/span&gt;myvol2:/tmp/v busybox find /tmp/v
+/tmp/v
+/tmp/v/tmpbhw8djco
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Even better is using the host's temporary file system:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it **--tmpfs /tmp** --read-only python:3.9.1-buster
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="limit-capabilities"&gt;Limit Capabilities&lt;/h3&gt;
+&lt;p&gt;You can limit the &lt;a href="https://man7.org/linux/man-pages/man7/capabilities.7.html"&gt;Linux kernel capabilities&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ docker run **--cap-drop all** -it python:3.9.1-buster bash
+root@3c568219116e:/# groupadd -r noroot
+**groupadd: failure &lt;span class="k"&gt;while&lt;/span&gt; writing changes to /etc/gshadow**
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can then grant the ones your application needs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ docker run --cap-drop all --cap-add CHOWN -it python:3.9.1-buster bash
+root@3c568219116e:/# groupadd -r noroot
+groupadd: failure &lt;span class="k"&gt;while&lt;/span&gt; writing changes to /etc/gshadow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In Kubernetes, this is done via capabilities in the securityContext
+(&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"&gt;docs&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id="no-new-privileges"&gt;no-new-privileges&lt;/h3&gt;
+&lt;p&gt;You might want to always set --security-opt=no-new-privileges . It disables
+container processes from gaining new privileges
+(&lt;a href="https://docs.docker.com/engine/reference/run/#security-configuration"&gt;docs&lt;/a&gt;).
+In Kubernetes, this is called allowPrivilegeEscalation
+(&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"&gt;docs&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id="scanning-for-vulnerabilities"&gt;Scanning for vulnerabilities&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/quay/clair"&gt;Clair&lt;/a&gt; by quay seems to be a commonly used
+[tool to scan containers for vulnerabilities. I haven&amp;rsquo;t used it so far,
+[though.&lt;/p&gt;
+&lt;h2 id="inter-container-communication_1"&gt;Inter Container Communication&lt;/h2&gt;
+&lt;p&gt;A key thought of &amp;ldquo;defense in depth&amp;rdquo; is to make every single step as hard as
+possible for an attacker. If something is not strictly necessary for the
+application to run, it is not allowed. Restricting the way the containers
+communicate with other containers is one part of that.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3972/1*t8W3Hpw3xa89r9j8JNScWw.png"/&gt;&lt;em&gt;Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Most companies have a lot of different microservices running in containers.
+Some of the containers need to communicate, others don&amp;rsquo;t need it. Maybe two
+have vulnerabilities as shown in the image above. The backend has a
+vulnerability that allows the attacker to get into the container and another
+service might suffer from the same issue. But there is no direct way the
+attacker can communicate with the other vulnerable service and thus harm is
+prevented.&lt;/p&gt;
+&lt;p&gt;Have a look at &lt;a href="https://docs.docker.com/config/containers/container-networking/"&gt;Docker container
+networking&lt;/a&gt;
+or &lt;a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/"&gt;Kubernetes network
+policies&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Container Security is an extremely broad field. The &lt;a href="https://www.nist.gov/publications/application-container-security-guide"&gt;NIST Application
+Container Security
+Guide&lt;/a&gt;
+is way more extensive than this article, the &lt;a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html"&gt;OWASP Docker Cheat
+Sheet&lt;/a&gt;
+is of similar length. Tsvi Korren made a pretty good presentation container
+security:&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_5uZnM1yv0Y" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;In security, it is hard to recommend what to do. For maximum security, you want to do everything. But a very short and actionable guide would be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure you use a well-known, trusted, maintained base image.&lt;/li&gt;
+&lt;li&gt;Install only software you need, copy only files you use. Try multi-stage builds if you need software to build the software.&lt;/li&gt;
+&lt;li&gt;Use a non-root user.&lt;/li&gt;
+&lt;li&gt;Restrict privileges / inter container communication.&lt;/li&gt;
+&lt;li&gt;Use a read-only file system.&lt;/li&gt;
+&lt;li&gt;Get a workflow that automatically scans for vulnerabilities and alerts you if anything new was found.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
+&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
+&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
+&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And this is about to come:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSRF 😈&lt;/li&gt;
+&lt;li&gt;DOS 😈&lt;/li&gt;
+&lt;li&gt;ReDoS 😈&lt;/li&gt;
+&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
+&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
+&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
+&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
+&lt;li&gt;Backups 😇&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Docker"></category><category term="AppSec"></category></entry><entry><title>Insecure Deserialization 😈🐝</title><link href="https://martin-thoma.com/insecure-deserialization/" rel="alternate"></link><published>2021-01-28T20:00:00+01:00</published><updated>2021-01-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-01-28:/insecure-deserialization/</id><summary type="html">&lt;p&gt;Serialization is the act of transforming objects from an internal
 representation to a stream of characters or bytes. The representation of the
 serialized object should be platform- and language-independent. Data is
 serialized and deserialized in applications to &lt;strong&gt;store&lt;/strong&gt; or &lt;strong&gt;transport&lt;/strong&gt; it.
@@ -758,7 +957,43 @@ our objects are the combination (route, parameter).&lt;/p&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="OWASP"></category></entry><entry><title>Software Composition Analysis (SCA)</title><link href="https://martin-thoma.com/sca/" rel="alternate"></link><published>2020-12-04T20:00:00+01:00</published><updated>2020-12-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-04:/sca/</id><summary type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="InfoSec"></category><category term="AppSec"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="OWASP"></category></entry><entry><title>The Cyber Security Triad</title><link href="https://martin-thoma.com/cyber-security-triad-cia/" rel="alternate"></link><published>2020-12-11T20:00:00+01:00</published><updated>2020-12-11T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-11:/cyber-security-triad-cia/</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by Tobias Tullius on Unsplash" src="https://cdn-images-1.medium.com/max/9824/0*y0XhVZB7bT94OK4T"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@tobiastu?utm_source=medium&amp;amp;utm_medium=referral"&gt;Tobias Tullius&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The Cyber Security Triad, also called the CIA triad, is a set of three goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Confidentiality&lt;/strong&gt;: Information or resources can only be accessed by
+  authorized parties.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrity&lt;/strong&gt;: Information can only be added, edited, or removed by
+  authorized parties.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Availability&lt;/strong&gt;: Systems are available to their …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Photo by Tobias Tullius on Unsplash" src="https://cdn-images-1.medium.com/max/9824/0*y0XhVZB7bT94OK4T"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@tobiastu?utm_source=medium&amp;amp;utm_medium=referral"&gt;Tobias Tullius&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The Cyber Security Triad, also called the CIA triad, is a set of three goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Confidentiality&lt;/strong&gt;: Information or resources can only be accessed by
+  authorized parties.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrity&lt;/strong&gt;: Information can only be added, edited, or removed by
+  authorized parties.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Availability&lt;/strong&gt;: Systems are available to their users according to the
+  service level agreements (SLAs).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="email-example"&gt;Email Example&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Confidentiality&lt;/strong&gt;: Only the sender and the receiver can read an email.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrity&lt;/strong&gt;: Only you can delete emails you received. Nobody can edit the
+  emails you received.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Availability&lt;/strong&gt;: You can read emails in your inbox whenever you want.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="whatsapp-example"&gt;WhatsApp Example&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s ignore groups for the moment.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Confidentiality&lt;/strong&gt;: Only the sender and the receiver can read a message.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrity&lt;/strong&gt;: Only you can delete messages you received, with the exception
+  of messages you haven&amp;rsquo;t read / which are not older than a certain time.
+  Nobody can edit the messages you received.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Availability&lt;/strong&gt;: You can read your messages whenever you want.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please note that the integrity criterion is different for WhatsApp compared to
+Email! This shows that the meaning of the criterion depends on the context.
+Similarly, availability in many business applications can mean &amp;ldquo;available at
+typical business hours&amp;rdquo;.&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="Cybersecurity"></category></entry><entry><title>Software Composition Analysis (SCA)</title><link href="https://martin-thoma.com/sca/" rel="alternate"></link><published>2020-12-04T20:00:00+01:00</published><updated>2020-12-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-04:/sca/</id><summary type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly
 about new technologies, understand topics within the domain you&amp;rsquo;re working,
 estimate how long it will take to build stuff you have never built before,
 explain issues to people who have absolutely no clue. On top …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The job as a software developer is pretty crazy: You need to learn constantly

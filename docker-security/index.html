@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Docker, AppSec, Security, " />
+
+<meta property="og:title" content="Docker Security 😇  - A hands-on guide to security for Docker "/>
+<meta property="og:url" content="https://levelup.gitconnected.com/docker-security-5f4df118948c" />
+<meta property="og:description" content="Photo by Andrey Sharpilo on Unsplash Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let’s have a closer …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-02-06T20:00:00+01:00" />
+<meta name="twitter:title" content="Docker Security 😇  - A hands-on guide to security for Docker ">
+<meta name="twitter:description" content="Photo by Andrey Sharpilo on Unsplash Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let’s have a closer …">
+<meta property="og:image" content="logos/docker.png" />
+<meta name="twitter:image" content="logos/docker.png" >
+
+        <title>Docker Security 😇  - A hands-on guide to security for Docker  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://levelup.gitconnected.com/docker-security-5f4df118948c">Docker Security 😇 <small>A hands-on guide to security for Docker</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#host-security" title="Host Security">Host Security</a></li><li><a class="toc-href" href="#base-image" title="Base Image">Base Image</a></li><li><a class="toc-href" href="#harden-your-image" title="Harden Your Image">Harden Your Image</a><ul><li><a class="toc-href" href="#copy-only-necessary-files" title="Copy only necessary files">Copy only necessary files</a></li><li><a class="toc-href" href="#run-non-privileged-user-in-the-container" title="Run non-privileged user in the container">Run non-privileged user in the container</a></li><li><a class="toc-href" href="#multi-stage-builds" title="Multi-Stage Builds">Multi-Stage Builds</a></li></ul></li><li><a class="toc-href" href="#harden-your-containers_1" title="Harden Your Containers">Harden Your Containers</a><ul><li><a class="toc-href" href="#read-only-root-file-system" title="Read-Only Root File System">Read-Only Root File System</a></li><li><a class="toc-href" href="#limit-capabilities" title="Limit Capabilities">Limit Capabilities</a></li><li><a class="toc-href" href="#no-new-privileges" title="no-new-privileges">no-new-privileges</a></li><li><a class="toc-href" href="#scanning-for-vulnerabilities" title="Scanning for vulnerabilities">Scanning for vulnerabilities</a></li></ul></li><li><a class="toc-href" href="#inter-container-communication_1" title="Inter Container Communication">Inter Container Communication</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="Photo by Andrey Sharpilo on Unsplash" src="https://cdn-images-1.medium.com/max/9600/0*r4ZMVDm0J0WtgNKQ"/><em>Photo by <a href="https://unsplash.com/@sharpiloa?utm_source=medium&amp;utm_medium=referral">Andrey Sharpilo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let&rsquo;s have a closer look!</p>
+<h2 id="host-security">Host Security</h2>
+<p>All Docker containers run on a host system. The host needs to be secure AND the container needs to be secure.</p>
+<p>There are various vulnerability scanning, auditing, and hardening tools for Linux systems:</p>
+<ul>
+<li><a href="https://cisofy.com/lynis/">Lynis</a>: Executesudo apt-get install lynis &amp;&amp; sudo lynis audit system and wait for a couple of minutes and you get a pretty nice report indicating what you can do to harden your system.</li>
+<li><a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux">SELinux</a>: Provides Mandatory Access Control (MAC) as a kernel-module. Thomas Cameron gave an <a href="https://www.youtube.com/watch?v=_WOKRaM-HI4">introduction to SELinux</a>. The key point for SELinux and AppArmor is the Access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. <a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Learn more about the differences</a>. <a href="undefined">Luc Juggery</a> gave a nice introduction to <a href="https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621">SELinux &amp; Docker</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/AppArmor">AppArmor</a>: Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. <a href="http://sarnold.org/resume/sarnold.html">Seth Arnold</a> gave a nice talk about <a href="https://www.youtube.com/watch?v=PRZ59lxLlOY">AppArmor 3.0</a>. Again, <a href="undefined">Luc Juggery</a> wrote a hands-on guide for <a href="https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b">AppArmor &amp; Docker</a>.</li>
+<li>Docker Daemon: Run the daemon as a non-privileged user. Especially not as root.</li>
+</ul>
+<p>You should run regular checks against vulnerability databases. If they find an
+issue, you need an effective way to get notified, e.g. by posting to a Slack
+channel.</p>
+<p>You could also use an OS that is optimized for containers, e.g. <a href="https://cloud.google.com/container-optimized-os">Googles
+Container-Optimized OS</a>
+(COS).</p>
+<p>There are many more things to say about the host system, but that is not the
+focus of this article. If you&rsquo;re interested, I&rsquo;ll write a follow-up 🙂</p>
+<h2 id="base-image">Base Image</h2>
+<p>The base image is the foundation of your docker image. Within your Dockerfile,
+you define the base image with FROM . For me, it typically is
+<a href="https://hub.docker.com/_/python">python:3.8.7-slim-buster</a> or similar. You
+need to ask yourself:</p>
+<ul>
+<li>Do I trust the base images&rsquo; author to have good intentions?</li>
+<li>Do I trust the base images&rsquo; author to have a secure development setup so that malware isn&rsquo;t uploaded unintentionally, e.g. by leaking the credentials to the account or password re-use?</li>
+</ul>
+<p>You should also scan your base image for vulnerabilities. Even for very
+standard images, there are often vulnerabilities. Some can be fixed by
+directly running an update (e.g. RUN apt-get update &amp;&amp; apt-get upgrade),
+others don&rsquo;t have an update within the repository. But pretty often you also
+don&rsquo;t need all the installed stuff.</p>
+<p>Be aware that alpine does only share vulnerabilities that they have already
+fixed. So the scan might look better for them, although they are not better.
+Alpine images are smaller, though. So the attack surface is smaller.</p>
+<h2 id="harden-your-image">Harden Your Image</h2>
+<p>Hardening is the process of reducing the attack surface or increasing the
+difficulty to find and use existing vulnerability. It reduces the blast radius
+any ticking bomb in your system could have.</p>
+<h3 id="copy-only-necessary-files">Copy only necessary files</h3>
+<p>You can use the
+<a href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">.dockerignore</a>
+file to make sure that some files are not added.</p>
+<h3 id="run-non-privileged-user-in-the-container">Run non-privileged user in the container</h3>
+<p>By default, the code you execute within a docker container runs with the user
+ID 0 &mdash; with root. It is recommended not to do that. You can change that in
+multiple ways:</p>
+<p>Within the Dockerfile &mdash; I prefer that one:</p>
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span> groupadd -r noroot <span class="o">&amp;&amp;</span> useradd -r -g noroot noroot
+<span class="k">USER</span><span class="s"> noroot</span>
+</code></pre></div>
+<p>When you start the container:</p>
+<div class="highlight"><pre><span></span><code>$ docker run -u <span class="m">1000</span> -it python:3.9.1-buster bash
+I have no name!@a70ba4f24042:/$ <span class="nb">echo</span> <span class="nv">$UID</span>
+<span class="m">1000</span>
+</code></pre></div>
+<p>In Kubernetes via RunAsUser in the securityContext
+(<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>
+<h3 id="multi-stage-builds">Multi-Stage Builds</h3>
+<p>If an attacker gets access to your container, you want them to have as few tools there as possible. Use <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi-stage builds</a> for that. Build your code in a build-container and use the built artifact in another container. As a bonus, your image size will be smaller.</p>
+<p>The <a href="https://docs.docker.com/develop/develop-images/multistage-build/">Docker docs</a> give a very good example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">golang:1.7.3</span>
+<span class="k">WORKDIR</span><span class="s"> /go/src/github.com/alexellis/href-counter/</span>
+<span class="k">RUN</span> go get -d -v golang.org/x/net/html
+<span class="k">COPY</span> app.go .
+<span class="k">RUN</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>linux go build -a -installsuffix cgo -o app .
+
+<span class="k">FROM</span> <span class="s">alpine:latest</span>
+<span class="k">RUN</span> apk --no-cache add ca-certificates
+<span class="k">WORKDIR</span><span class="s"> /root/</span>
+<span class="k">COPY</span> **--from<span class="o">=</span><span class="m">0</span>** /go/src/github.com/alexellis/href-counter/app .
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">"./app"</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="harden-your-containers_1">Harden Your Containers</h2>
+<h3 id="read-only-root-file-system">Read-Only Root File System</h3>
+<p>This depends on how you run the docker image, but if you use docker run you can add the <a href="https://docs.docker.com/engine/reference/commandline/run/">--read-only flag</a>. This makes the root file system read-only. This means if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.</p>
+<p>You should also be aware that some pretty standard tasks like creating a temporary file obviously don&rsquo;t work anymore:</p>
+<div class="highlight"><pre><span></span><code>$ sudo docker run -it --read-only python:3.9.1-buster
+Python <span class="m">3</span>.9.1 <span class="o">(</span>default, Jan <span class="m">12</span> <span class="m">2021</span>, <span class="m">16</span>:45:25<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span> on linux
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import tempfile
+&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> tempfile.mkdtemp<span class="o">()</span>
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in &lt;module&gt;
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">348</span>, in mkdtemp
+    prefix, suffix, dir, <span class="nv">output_type</span> <span class="o">=</span> _sanitize_params<span class="o">(</span>prefix, suffix, dir<span class="o">)</span>
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">118</span>, in _sanitize_params
+    <span class="nv">dir</span> <span class="o">=</span> gettempdir<span class="o">()</span>
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">287</span>, in gettempdir
+    <span class="nv">tempdir</span> <span class="o">=</span> _get_default_tempdir<span class="o">()</span>
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">219</span>, in _get_default_tempdir
+    raise FileNotFoundError<span class="o">(</span>_errno.ENOENT,
+FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span class="o">]</span> No usable temporary directory found in <span class="o">[</span><span class="s1">'/tmp'</span>, <span class="s1">'/var/tmp'</span>, <span class="s1">'/usr/tmp'</span>, <span class="s1">'/'</span><span class="o">]</span>
+</code></pre></div>
+<p>You can work around this issue by mounting /tmp as a volume:</p>
+<div class="highlight"><pre><span></span><code>$ sudo docker run -it --mount <span class="nv">source</span><span class="o">=</span>myvol2,target<span class="o">=</span>/tmp --read-only python:3.9.1-buster
+Python <span class="m">3</span>.9.1 <span class="o">(</span>default, Jan <span class="m">12</span> <span class="m">2021</span>, <span class="m">16</span>:45:25<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span> on linux
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import tempfile<span class="p">;</span> <span class="nv">a</span> <span class="o">=</span> tempfile.mkdtemp<span class="o">()</span>
+
+
+$ sudo docker run --rm -i -v<span class="o">=</span>myvol2:/tmp/v busybox find /tmp/v
+/tmp/v
+/tmp/v/tmpbhw8djco
+</code></pre></div>
+<p>Even better is using the host's temporary file system:</p>
+<div class="highlight"><pre><span></span><code>$ sudo docker run -it **--tmpfs /tmp** --read-only python:3.9.1-buster
+</code></pre></div>
+<h3 id="limit-capabilities">Limit Capabilities</h3>
+<p>You can limit the <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html">Linux kernel capabilities</a>:</p>
+<div class="highlight"><pre><span></span><code>$ docker run **--cap-drop all** -it python:3.9.1-buster bash
+root@3c568219116e:/# groupadd -r noroot
+**groupadd: failure <span class="k">while</span> writing changes to /etc/gshadow**
+</code></pre></div>
+<p>You can then grant the ones your application needs:</p>
+<div class="highlight"><pre><span></span><code>$ docker run --cap-drop all --cap-add CHOWN -it python:3.9.1-buster bash
+root@3c568219116e:/# groupadd -r noroot
+groupadd: failure <span class="k">while</span> writing changes to /etc/gshadow
+</code></pre></div>
+<p>In Kubernetes, this is done via capabilities in the securityContext
+(<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>
+<h3 id="no-new-privileges">no-new-privileges</h3>
+<p>You might want to always set --security-opt=no-new-privileges . It disables
+container processes from gaining new privileges
+(<a href="https://docs.docker.com/engine/reference/run/#security-configuration">docs</a>).
+In Kubernetes, this is called allowPrivilegeEscalation
+(<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>
+<h3 id="scanning-for-vulnerabilities">Scanning for vulnerabilities</h3>
+<p><a href="https://github.com/quay/clair">Clair</a> by quay seems to be a commonly used
+[tool to scan containers for vulnerabilities. I haven&rsquo;t used it so far,
+[though.</p>
+<h2 id="inter-container-communication_1">Inter Container Communication</h2>
+<p>A key thought of &ldquo;defense in depth&rdquo; is to make every single step as hard as
+possible for an attacker. If something is not strictly necessary for the
+application to run, it is not allowed. Restricting the way the containers
+communicate with other containers is one part of that.</p>
+<p><img alt="Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3972/1*t8W3Hpw3xa89r9j8JNScWw.png"/><em>Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma</em></p>
+<p>Most companies have a lot of different microservices running in containers.
+Some of the containers need to communicate, others don&rsquo;t need it. Maybe two
+have vulnerabilities as shown in the image above. The backend has a
+vulnerability that allows the attacker to get into the container and another
+service might suffer from the same issue. But there is no direct way the
+attacker can communicate with the other vulnerable service and thus harm is
+prevented.</p>
+<p>Have a look at <a href="https://docs.docker.com/config/containers/container-networking/">Docker container
+networking</a>
+or <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Kubernetes network
+policies</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Container Security is an extremely broad field. The <a href="https://www.nist.gov/publications/application-container-security-guide">NIST Application
+Container Security
+Guide</a>
+is way more extensive than this article, the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html">OWASP Docker Cheat
+Sheet</a>
+is of similar length. Tsvi Korren made a pretty good presentation container
+security:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_5uZnM1yv0Y" width="560"></iframe></center></p>
+<p>In security, it is hard to recommend what to do. For maximum security, you want to do everything. But a very short and actionable guide would be:</p>
+<ul>
+<li>Make sure you use a well-known, trusted, maintained base image.</li>
+<li>Install only software you need, copy only files you use. Try multi-stage builds if you need software to build the software.</li>
+<li>Use a non-root user.</li>
+<li>Restrict privileges / inter container communication.</li>
+<li>Use a read-only file system.</li>
+<li>Get a workflow that automatically scans for vulnerabilities and alerts you if anything new was found.</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
+<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="https://medium.com/plain-and-simple/captcha-500991bd90a3">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="https://medium.com/faun/xxe-attacks-750e91448e8f">XXE attacks</a> 😈</li>
+<li>Part 10: <a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="https://medium.com/faun/full-disk-encryption-2090489f9760">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e">Insecure Deserialization</a> 😈</li>
+<li>Part 14: <a href="https://levelup.gitconnected.com/docker-security-5f4df118948c">Docker Security</a> 😇</li>
+</ul>
+<p>And this is about to come:</p>
+<ul>
+<li>CSRF 😈</li>
+<li>DOS 😈</li>
+<li>ReDoS 😈</li>
+<li>Credential Stuffing 😈</li>
+<li>Cryptojacking 😈</li>
+<li>Single-Sign-On 😇</li>
+<li>Two-Factor Authentication 😇</li>
+<li>Backups 😇</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-02-06T20:00:00+01:00">Feb 6, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#security-ref">Security</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#appsec-ref">AppSec
+                    <span>14</span>
+</a></li>
+                <li><a href="../tags.html#docker-ref">Docker
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
