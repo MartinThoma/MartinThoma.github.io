@@ -5,7 +5,6 @@ subtitle: A hands-on guide to security for Docker
 slug: docker-security
 url: https://levelup.gitconnected.com/docker-security-5f4df118948c
 author: Martin Thoma
-status: draft
 date: 2021-02-06 20:00
 category: Security
 tags: Docker, AppSec
