@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
 <h2 id="implementation">Implementation</h2>
 <p>First of all, I would like to mention that you can <a href="#How_is_this_realated_to_hash_functions">skip the source code</a>. I've only included it to make it easier to understand what I'm talking about.</p>
 <p>Lets say our game situation looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">gamesituation</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">gamesituation</span> <span class="p">{</span>
     <span class="cm">/** How does the board currently look like? */</span>
     <span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">];</span>
 
@@ -159,7 +159,7 @@ MathJax.Hub.Queue(function() {
 <span class="cm"> * with direction (xDir, yDir)</span>
 <span class="cm"> * @return 1 iff RED won, -1 iff BLACK won and 0 if nobody won</span>
 <span class="cm"> */</span>
-<span class="kt">signed</span> <span class="kt">char</span> <span class="nf">hasPlayerWon</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
+<span class="kt">signed</span> <span class="kt">char</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
                   <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">xDir</span><span class="p">,</span> <span class="kt">char</span> <span class="n">yDir</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">color</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
 
@@ -170,7 +170,7 @@ MathJax.Hub.Queue(function() {
         <span class="k">if</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="n">BLACK</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">perror</span><span class="p">(</span><span class="s">"this color doesn't / shouldn't exist</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
             <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -185,7 +185,7 @@ MathJax.Hub.Queue(function() {
 <span class="cm"> * somebody won.</span>
 <span class="cm"> * @return 1 iff RED won, -1 iff BLACK won, otherwise NOT_FINISHED</span>
 <span class="cm"> */</span>
-<span class="kt">int</span> <span class="nf">isBoardFinished</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
+<span class="kt">int</span> <span class="n">isBoardFinished</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
                     <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">signed</span> <span class="kt">char</span> <span class="n">status</span><span class="p">;</span>
 
@@ -211,7 +211,7 @@ MathJax.Hub.Queue(function() {
     <span class="p">}</span>
 
     <span class="c1">// top-left to down-right</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
@@ -344,7 +344,7 @@ MathJax.Hub.Queue(function() {
 <p>How would you implement <code>didBoardAlreadyOccur(board)</code>? This function (or insertID) will be the slowest part of the code and will be called VERY often. So it needs to be as fast as possible.</p>
 <h2 id="a hash function">A hash function</h2>
 <p>Most of the time you can create hash functions by mapping values to integers. In my case, I mapped the board - which is a two-dimensional char array - to one integer by thinking of it as a very long number. I think of a red disc as the digit 1, a black disc as the digit 2 and an empty field as 0:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">BLACK</span><span class="p">)</span> <span class="p">{</span>
@@ -360,7 +360,7 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">Empty=0, red=1, yellow=2<br/>The board number is 00000000000000000210000211210112212</figcaption>
 </figure></p>
 <p>For most game situations, this number will be much too big to store it in an integer. Also, we would like to get an index for our array so that we know where to store this board. The simplest solution to this problem is to calculate <code>NUMBER % ARRAY_SIZE</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getFirstIndex</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">getFirstIndex</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>

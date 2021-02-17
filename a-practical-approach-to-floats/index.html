@@ -123,15 +123,15 @@ MathJax.Hub.Queue(function() {
 <p>You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.</p>
 <p>So this is how you can check it:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // printf</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;limits.h&gt; // INT_MAX, UINT_MAX, ...</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;   // needed for NAN</span><span class="cp"></span>
-<span class="k">union</span> <span class="n">myUnion</span> <span class="p">{</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> // printf</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;limits.h&gt;</span><span class="c1"> // INT_MAX, UINT_MAX, ...</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="c1">   // needed for NAN</span><span class="cp"></span>
+<span class="k">union</span> <span class="nc">myUnion</span> <span class="p">{</span>
     <span class="kt">uint32_t</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// unsigned integer 32-bit type (on every machine)</span>
     <span class="kt">float</span> <span class="n">f</span><span class="p">;</span> <span class="c1">// a type you want to play with</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">printValue</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">printValue</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"uint32_t</span><span class="se">\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"Bits</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">"</span><span class="p">);</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
@@ -146,7 +146,7 @@ MathJax.Hub.Queue(function() {
     <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Number</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%0.10f</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">setSign</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">setSign</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -157,19 +157,19 @@ MathJax.Hub.Queue(function() {
 <span class="cm"> * your characteristic. If the characteristic is 0, you get infinity.</span>
 <span class="cm"> * Otherwise NaN.</span>
 <span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">setExponent</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">exponent</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">setExponent</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">exponent</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * The mantissa has 23 bits.</span>
 <span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">setMantissa</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mantissa</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">setMantissa</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mantissa</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">mantissa</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">union</span> <span class="n">myUnion</span> <span class="n">testVar</span><span class="p">;</span>
+    <span class="k">union</span> <span class="nc">myUnion</span> <span class="n">testVar</span><span class="p">;</span>
 
     <span class="n">printf</span><span class="p">(</span><span class="s">"Manual guessing</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -278,7 +278,7 @@ are considered equal in all programming languages I know.</p>
                     <span>1</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>137</span>
+                    <span>138</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

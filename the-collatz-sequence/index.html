@@ -256,15 +256,15 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;climits&gt; // get maximum value of unsigned long long</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt; // exit</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="c1"> // get maximum value of unsigned long long</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="c1"> // exit</span><span class="cp"></span>
 
 <span class="cp">#define SURPRESS_OUTPUT true</span>
 <span class="cp">#define SHOW_DICT_CREATION false</span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">element</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">element</span> <span class="p">{</span>
     <span class="cm">/** What is the next collatz number? */</span>
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span><span class="p">;</span>
 
@@ -272,9 +272,9 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">steps</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="k">struct</span> <span class="n">element</span><span class="o">&gt;</span> <span class="n">collatz</span><span class="p">;</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">element</span><span class="o">&gt;</span> <span class="n">collatz</span><span class="p">;</span>
 
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">CRITICAL_VALUE</span> <span class="o">=</span> <span class="p">(</span><span class="n">ULLONG_MAX</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">CRITICAL_VALUE</span> <span class="o">=</span> <span class="p">(</span><span class="n">ULLONG_MAX</span><span class="mi">-1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span>
 
 <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxAddFromOneEntry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxEntry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -282,7 +282,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">saveULong</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="cm">/** n &gt;= 1 */</span>
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="nf">nextCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">nextCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -296,7 +296,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">insertCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="p">){</span>
+<span class="kt">void</span> <span class="n">insertCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="p">){</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">collatz</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" is not in collatz:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
@@ -318,7 +318,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 
         <span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;::</span><span class="n">reverse_iterator</span> <span class="n">it</span><span class="p">;</span>
         <span class="k">for</span><span class="p">(</span><span class="n">it</span><span class="o">=</span><span class="n">steps</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">steps</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">){</span>
-            <span class="k">struct</span> <span class="n">element</span> <span class="n">el</span><span class="p">;</span>
+            <span class="k">struct</span> <span class="nc">element</span> <span class="n">el</span><span class="p">;</span>
             <span class="n">el</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
             <span class="n">el</span><span class="p">.</span><span class="n">steps</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">[</span><span class="n">current</span><span class="p">].</span><span class="n">steps</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
             <span class="n">collatz</span><span class="p">[</span><span class="o">*</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">el</span><span class="p">;</span>
@@ -344,8 +344,8 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">printCollatz</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="k">struct</span> <span class="n">element</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span><span class="o">=</span><span class="n">collatz</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="kt">void</span> <span class="n">printCollatz</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">element</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span><span class="o">=</span><span class="n">collatz</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
         <span class="n">it</span><span class="o">!=</span><span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">).</span><span class="n">first</span><span class="p">;</span>
         <span class="k">while</span><span class="p">(</span><span class="n">next</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
@@ -356,15 +356,15 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">printSteps</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="n">printSteps</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n,steps"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">max</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">","</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">steps</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">element</span> <span class="n">e</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">element</span> <span class="n">e</span><span class="p">;</span>
     <span class="n">e</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
     <span class="n">e</span><span class="p">.</span><span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">collatz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
