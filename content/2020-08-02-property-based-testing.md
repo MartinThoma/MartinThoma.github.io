@@ -3,7 +3,6 @@ layout: post
 title: Property-based Testing
 slug: https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119
 author: Martin Thoma
-status: draft
 date: 2020-08-02 20:00
 category: Code
 tags: Python, Testing, Unit Testing, fuzzing, hypothesis
