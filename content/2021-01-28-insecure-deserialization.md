@@ -2,6 +2,7 @@
 layout: post
 title: Insecure Deserialization 😈🐝
 slug: insecure-deserialization
+URL: https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e
 author: Martin Thoma
 date: 2021-01-28 20:00
 category: Security
