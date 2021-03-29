@@ -62,6 +62,11 @@ help:
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
 	@echo '                                                                          '
 
+maint:
+	pip install -r requirements.txt
+	pre-commit autoupdate
+	pip-compile -U requirements.in
+
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
