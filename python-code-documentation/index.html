@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Python Code Documentation">Python Code Documentation</a><ul><li><a class="toc-href" href="#the-sphinx-way" title="The Sphinx Way">The Sphinx Way</a></li><li><a class="toc-href" href="#the-google-way" title="The Google Way">The Google Way</a></li><li><a class="toc-href" href="#the-numpydoc-way" title="The NumPyDoc Way">The NumPyDoc Way</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Documentating your code is important when you make non-trivial projects. The
@@ -118,7 +124,7 @@ their docstrings.</p>
 
 
 <span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Apply preprocessing algorithms.</span>
+    <span class="sd">"""Apply preprocessing algorithms.</span>
 
 <span class="sd">    :param algorithms: Preprocessing allgorithms which get applied in order.</span>
 <span class="sd">    :type algorithms: a list objects</span>
@@ -128,23 +134,22 @@ their docstrings.</p>
 <span class="sd">    &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span>
 <span class="sd">    ...                        (preprocessing.connect_strokes, []),</span>
 <span class="sd">    ...                        (preprocessing.douglas_peucker,</span>
-<span class="sd">    ...                         {&#39;EPSILON&#39;: 0.2}),</span>
+<span class="sd">    ...                         {'EPSILON': 0.2}),</span>
 <span class="sd">    ...                        (preprocessing.space_evenly,</span>
-<span class="sd">    ...                         {&#39;number&#39;: 100,</span>
-<span class="sd">    ...                          &#39;KIND&#39;: &#39;cubic&#39;})]</span>
+<span class="sd">    ...                         {'number': 100,</span>
+<span class="sd">    ...                          'KIND': 'cubic'})]</span>
 <span class="sd">    &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
         <span class="n">algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="the-google-way">The Google Way</h2>
 <p>Google documented its format at <a href="http://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">google.github.io</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
 <span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Apply preprocessing algorithms.</span>
+    <span class="sd">"""Apply preprocessing algorithms.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">      algorithms (a list objects): Preprocessing allgorithms which get</span>
@@ -157,23 +162,22 @@ their docstrings.</p>
 <span class="sd">      &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span>
 <span class="sd">      ...                        (preprocessing.connect_strokes, []),</span>
 <span class="sd">      ...                        (preprocessing.douglas_peucker,</span>
-<span class="sd">      ...                         {&#39;EPSILON&#39;: 0.2}),</span>
+<span class="sd">      ...                         {'EPSILON': 0.2}),</span>
 <span class="sd">      ...                        (preprocessing.space_evenly,</span>
-<span class="sd">      ...                         {&#39;number&#39;: 100,</span>
-<span class="sd">      ...                          &#39;KIND&#39;: &#39;cubic&#39;})]</span>
+<span class="sd">      ...                         {'number': 100,</span>
+<span class="sd">      ...                          'KIND': 'cubic'})]</span>
 <span class="sd">      &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
         <span class="n">algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div>
-
 <p>To get the google way render well in Sphinx, you need <a href="https://pypi.python.org/pypi/sphinxcontrib-napoleon">Napoleon</a>.</p>
 <h2 id="the-numpydoc-way">The NumPyDoc Way</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
 <span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Apply preprocessing algorithms.</span>
+    <span class="sd">"""Apply preprocessing algorithms.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -187,16 +191,15 @@ their docstrings.</p>
 <span class="sd">    &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span>
 <span class="sd">    ...                        (preprocessing.connect_strokes, []),</span>
 <span class="sd">    ...                        (preprocessing.douglas_peucker,</span>
-<span class="sd">    ...                         {&#39;EPSILON&#39;: 0.2}),</span>
+<span class="sd">    ...                         {'EPSILON': 0.2}),</span>
 <span class="sd">    ...                        (preprocessing.space_evenly,</span>
-<span class="sd">    ...                         {&#39;number&#39;: 100,</span>
-<span class="sd">    ...                          &#39;KIND&#39;: &#39;cubic&#39;})]</span>
+<span class="sd">    ...                         {'number': 100,</span>
+<span class="sd">    ...                          'KIND': 'cubic'})]</span>
 <span class="sd">    &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
         <span class="n">algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div>
-
 <p>To make numpydoc render well, you need the <a href="https://pypi.python.org/pypi/numpydoc">numpydoc sphinx extension</a>.</p>
 <h2 id="see-also">See also</h2>
 <ul>

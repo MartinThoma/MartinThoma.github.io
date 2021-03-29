@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Virtual Environments">Virtual Environments</a><ul><li><a class="toc-href" href="#virtualenv" title="virtualenv">virtualenv</a></li><li><a class="toc-href" href="#pyvenv" title="pyvenv">pyvenv</a></li><li><a class="toc-href" href="#venv" title="venv">venv</a></li><li><a class="toc-href" href="#pyenv" title="pyenv">pyenv</a></li><li><a class="toc-href" href="#pipenv" title="pipenv">pipenv</a><ul><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li></ul></li><li><a class="toc-href" href="#docker_1" title="Docker">Docker</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>A virtual environment is an isolated Python environments. It has it's own
@@ -153,7 +159,7 @@ Python <span class="m">2</span>.7.17
 $ pip --version
 pip <span class="m">19</span>.3.1 from /home/moose/.local/lib/python3.6/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.6<span class="o">)</span>
 
-$ mkdir pyenv-experiment <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;3.8.1&quot;</span> &gt; <span class="s2">&quot;pyenv-experiment/.python-version&quot;</span>
+$ mkdir pyenv-experiment <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"3.8.1"</span> &gt; <span class="s2">"pyenv-experiment/.python-version"</span>
 $ <span class="nb">cd</span> pyenv-experiment
 
 $ python --version
@@ -161,7 +167,6 @@ Python <span class="m">3</span>.8.1
 $ pip --version
 pip <span class="m">19</span>.2.3 from /home/moose/.pyenv/versions/3.8.1/lib/python3.8/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
-
 <h2 id="pipenv">pipenv</h2>
 <p><a href="https://github.com/pypa/pipenv"><code>pipenv</code></a> automatically creates and manages a
 virtualenv for your projects, as well as adds/removes packages from your
@@ -172,11 +177,11 @@ environments.</p>
 <h3 id="usage">Usage</h3>
 <p>First, create a virtual environment:</p>
 <div class="highlight"><pre><span></span><code>$ pipenv --python <span class="m">3</span>.8
-Creating a virtualenv <span class="k">for</span> this project…
+Creating a virtualenv <span class="k">for</span> this project&hellip;
 Pipfile: /home/moose/GitHub/clana/Pipfile
-Using /home/moose/.pyenv/versions/3.8.1/bin/python3.8 <span class="o">(</span><span class="m">3</span>.8.1<span class="o">)</span> to create virtualenv…
+Using /home/moose/.pyenv/versions/3.8.1/bin/python3.8 <span class="o">(</span><span class="m">3</span>.8.1<span class="o">)</span> to create virtualenv&hellip;
 ⠏ Creating virtual environment...Already using interpreter /home/moose/.pyenv/versions/3.8.1/bin/python3.8
-Using base prefix <span class="s1">&#39;/home/moose/.pyenv/versions/3.8.1&#39;</span>
+Using base prefix <span class="s1">'/home/moose/.pyenv/versions/3.8.1'</span>
 New python executable <span class="k">in</span> /home/moose/.local/share/virtualenvs/clana-oPEDiD9W/bin/python3.8
 Also creating executable <span class="k">in</span> /home/moose/.local/share/virtualenvs/clana-oPEDiD9W/bin/python
 Installing setuptools, pip, wheel...
@@ -185,37 +190,33 @@ Running virtualenv with interpreter /home/moose/.pyenv/versions/3.8.1/bin/python
 
 ✔ Successfully created virtual environment!
 Virtualenv location: /home/moose/.local/share/virtualenvs/clana-oPEDiD9W
-requirements.txt found, instead of Pipfile! Converting…
+requirements.txt found, instead of Pipfile! Converting&hellip;
 ✔ Success!
 Warning: Your Pipfile now contains pinned versions, <span class="k">if</span> your requirements.txt did.
-We recommend updating your Pipfile to specify the <span class="s2">&quot;*&quot;</span> version, instead.
+We recommend updating your Pipfile to specify the <span class="s2">"*"</span> version, instead.
 </code></pre></div>
-
 <p>Activate the environment:</p>
 <div class="highlight"><pre><span></span><code>$ pipenv shell
-Launching subshell <span class="k">in</span> virtual environment…
+Launching subshell <span class="k">in</span> virtual environment&hellip;
  . /home/moose/.local/share/virtualenvs/clana-oPEDiD9W/bin/activate
 
 $ pip --version
 pip <span class="m">20</span>.0.2 from /home/moose/.local/share/virtualenvs/clana-oPEDiD9W/lib/python3.8/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
-
 <p>Set your <code>Pipfile.lock</code>:</p>
 <div class="highlight"><pre><span></span><code>$ pipenv lock
-Locking <span class="o">[</span>dev-packages<span class="o">]</span> dependencies…
-Locking <span class="o">[</span>packages<span class="o">]</span> dependencies…
+Locking <span class="o">[</span>dev-packages<span class="o">]</span> dependencies&hellip;
+Locking <span class="o">[</span>packages<span class="o">]</span> dependencies&hellip;
 ✔ Success!
 Updated Pipfile.lock <span class="o">(</span>310e7d<span class="o">)</span>!
 </code></pre></div>
-
 <p>Make sure your environment has exactly the stuff installed that you need:</p>
 <div class="highlight"><pre><span></span><code>$ pipenv sync
-Installing dependencies from Pipfile.lock <span class="o">(</span>310e7d<span class="o">)</span>…
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ <span class="m">14</span>/14 — <span class="m">00</span>:00:06
+Installing dependencies from Pipfile.lock <span class="o">(</span>310e7d<span class="o">)</span>&hellip;
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ <span class="m">14</span>/14 &mdash; <span class="m">00</span>:00:06
 All dependencies are now up-to-date!
 </code></pre></div>
-
-<h2 id="docker">Docker</h2>
+<h2 id="docker_1">Docker</h2>
 <p>If you want more isolation, have a look at <a href="https://martin-thoma.com/docker/">Docker</a>.
 I use the <a href="https://hub.docker.com/_/python"><code>python:3.8-slim-buster</code></a> (February 2020).</p>
 <p>The <code>Dockerfile</code> can then look like this:</p>
@@ -233,7 +234,6 @@ I use the <a href="https://hub.docker.com/_/python"><code>python:3.8-slim-buster
 <span class="k">COPY</span> . /opt/app
 <span class="k">RUN</span> pip install . --no-deps
 </code></pre></div>
-
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://virtualenv.pypa.io/en/latest/"><code>virtualenv</code></a></li>

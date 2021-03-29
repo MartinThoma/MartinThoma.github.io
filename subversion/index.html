@@ -100,82 +100,71 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Subversion">Subversion</a><ul><li><a class="toc-href" href="#get-the-repository" title="Get the repository">Get the repository</a></li><li><a class="toc-href" href="#update-to-the-latest-version" title="Update to the latest version">Update to the latest version</a></li><li><a class="toc-href" href="#check-for-changes" title="Check for changes">Check for changes</a></li><li><a class="toc-href" href="#file-actions" title="File actions">File actions</a><ul><li><a class="toc-href" href="#copy" title="Copy">Copy</a></li><li><a class="toc-href" href="#delete" title="Delete">Delete</a></li><li><a class="toc-href" href="#rename-move" title="Rename / Move">Rename / Move</a></li><li><a class="toc-href" href="#add-file" title="Add file">Add file</a></li></ul></li><li><a class="toc-href" href="#commit-the-latest-changes_1" title="Commit the latest changes">Commit the latest changes</a><ul><li><a class="toc-href" href="#check-your-changes" title="Check your changes">Check your changes</a></li><li><a class="toc-href" fine:="" href="#im-fine-upload-it" it!'="" m="" title="I" upload="">I'm fine: Upload it!</a></li></ul></li><li><a class="toc-href" href="#watch-changes_1" title="Watch changes">Watch changes</a><ul><li><a class="toc-href" href="#general" title="General">General</a></li><li><a class="toc-href" href="#one-specific-file" title="One specific file">One specific file</a></li></ul></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
-
 <p>Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.</p>
 <p>Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.</p>
 <p>All commands are executed while I'm in my local working copy of the repository.</p>
-<h2>Get the repository</h2>
-
+<h2 id="get-the-repository">Get the repository</h2>
 <div class="highlight"><pre><span></span><code>svn checkout https://community-chess.googlecode.com/svn/trunk/ community-chess --username themoosemind@googlemail.com
 </code></pre></div>
-
-<h2>Update to the latest version</h2>
-
+<h2 id="update-to-the-latest-version">Update to the latest version</h2>
 <div class="highlight"><pre><span></span><code>svn update
 </code></pre></div>
-
-<h2>Check for changes</h2>
-
+<h2 id="check-for-changes">Check for changes</h2>
 <p>If you only want to check which files were modified, added or deleted you can
 execute</p>
 <div class="highlight"><pre><span></span><code>svn status
 </code></pre></div>
-
 <p>This will show your local changes.</p>
-<h2>File actions</h2>
+<h2 id="file-actions">File actions</h2>
 <p>The actions are simmilar to the console commands, but you have to add svn:</p>
-<h3>Copy</h3>
-
+<h3 id="copy">Copy</h3>
 <div class="highlight"><pre><span></span><code>svn cp myFile.php copiedFile.php
 </code></pre></div>
-
-<h3>Delete</h3>
-
+<h3 id="delete">Delete</h3>
 <div class="highlight"><pre><span></span><code>svn rm myFile.php
 </code></pre></div>
-
-<h3>Rename / Move</h3>
-
+<h3 id="rename-move">Rename / Move</h3>
 <div class="highlight"><pre><span></span><code>svn mv myFile.php folder/myNewFile.php
 </code></pre></div>
-
-<h3>Add file</h3>
+<h3 id="add-file">Add file</h3>
 <p>If you created a file and want to submit it with the next commit, just do</p>
 <div class="highlight"><pre><span></span><code>svn add myFile.php
 </code></pre></div>
-
-<h2>Commit the latest changes</h2>
-<h3>Check your changes</h3>
+<h2 id="commit-the-latest-changes_1">Commit the latest changes</h2>
+<h3 id="check-your-changes">Check your changes</h3>
 <p>First you should try <a href="#Check_for_changes-3">svn status</a>. What files did you change? Do you really want to upload those changes?</p>
 <p>If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just make</p>
 <div class="highlight"><pre><span></span><code>svn rever /path/to/your/file.php
 </code></pre></div>
-
-<h3>I'm fine: Upload it!</h3>
+<h3 id="im-fine-upload-it">I'm fine: Upload it!</h3>
 <p>This is the command you use, if you want to send the changes you made on your working copy to the repository:</p>
-<div class="highlight"><pre><span></span><code>svn commit -m <span class="s2">&quot;Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed&quot;</span> --username themoosemind@gmail.com
+<div class="highlight"><pre><span></span><code>svn commit -m <span class="s2">"Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed"</span> --username themoosemind@gmail.com
 </code></pre></div>
-
-<h2>Watch changes</h2>
-<h3>General</h3>
+<h2 id="watch-changes_1">Watch changes</h2>
+<h3 id="general">General</h3>
 <p>See the last three changes:</p>
 <div class="highlight"><pre><span></span><code>svn log -v --limit<span class="o">=</span><span class="m">3</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>------------------------------------------------------------------------
 r118 | themoosemind@gmail.com | 2011-09-26 23:18:42 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-Geänderte Pfade:
+Ge&auml;nderte Pfade:
    M /trunk/clients/Java/ChessClient.class
    M /trunk/clients/Java/ChessClient.java
 
 small changes on the Java Client
 ------------------------------------------------------------------------
 r116 | themoosemind@gmail.com | 2011-09-26 22:53:01 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-Geänderte Pfade:
+Ge&auml;nderte Pfade:
    A /trunk/clients/Java
    A /trunk/clients/Java/ChessClient.class
    A /trunk/clients/Java/ChessClient.java
@@ -194,7 +183,7 @@ Geänderte Pfade:
 Made integration instructions for phpBB easier; added Java-Client
 ------------------------------------------------------------------------
 r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-Geänderte Pfade:
+Ge&auml;nderte Pfade:
    M /trunk/index.php
    M /trunk/install/chess.sql
    M /trunk/install/phpbb3.integration.txt
@@ -205,12 +194,10 @@ Geänderte Pfade:
 Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
 ------------------------------------------------------------------------
 </code></pre></div>
-
-<h3>One specific file</h3>
+<h3 id="one-specific-file">One specific file</h3>
 <p>I don't want to get that much output, so I don't apply -v this time:</p>
 <div class="highlight"><pre><span></span><code>svn log index.php --limit<span class="o">=</span><span class="m">3</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>------------------------------------------------------------------------
 r127 | themoosemind@gmail.com | 2011-10-04 00:09:59 +0200 (Di, 04. Okt 2011) | 1 Zeile
 

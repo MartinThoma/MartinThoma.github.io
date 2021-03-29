@@ -102,33 +102,37 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Google Code Jam 2012 &ndash; Round 1C 2012">Google Code Jam 2012 &ndash; Round 1C 2012</a><ul><li><a class="toc-href" href="#diamond-inheritance" title="Diamond Inheritance">Diamond Inheritance</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>4230 tried the first problem, but only 3189 people are listed in the <a href="http://code.google.com/codejam/contest/1781488/scoreboard?c=1781488">scoreboard</a>.</p>
 <ul>
-  <li>Problem 1 (<a href="http://code.google.com/codejam/contest/1781488/dashboard#s=p0">Diamond Inheritance</a>):
+<li>Problem 1 (<a href="http://code.google.com/codejam/contest/1781488/dashboard#s=p0">Diamond Inheritance</a>):
   <ul>
-     <li>Small Set: 3077/4230 users (73%)</li>
-     <li>Large Set: 2387/3044 users (78%)</li>
-  </ul>
-  </li>
-  <li>Problem 2 (<a href="http://code.google.com/codejam/contest/1781488/dashboard#s=p1">Out of Gas</a>):
-  <ul>
-     <li>Small Set: 471/766 users (61%)</li>
-     <li>Large Set: 73/253 users (29%)</li>
-  </ul>
-  </li>
-  <li>Problem 3 (<a href="http://code.google.com/codejam/contest/1781488/dashboard#s=p2">Box Factory</a>):
-  <ul>
-     <li>Small Set: 1071/1810 users (59%)</li>
-     <li>Large Set: 308/788 users (39%)</li>
-  </ul>
-  </li>
+<li>Small Set: 3077/4230 users (73%)</li>
+<li>Large Set: 2387/3044 users (78%)</li>
 </ul>
-
-<h2>Diamond Inheritance</h2>
-
+</li>
+<li>Problem 2 (<a href="http://code.google.com/codejam/contest/1781488/dashboard#s=p1">Out of Gas</a>):
+  <ul>
+<li>Small Set: 471/766 users (61%)</li>
+<li>Large Set: 73/253 users (29%)</li>
+</ul>
+</li>
+<li>Problem 3 (<a href="http://code.google.com/codejam/contest/1781488/dashboard#s=p2">Box Factory</a>):
+  <ul>
+<li>Small Set: 1071/1810 users (59%)</li>
+<li>Large Set: 308/788 users (39%)</li>
+</ul>
+</li>
+</ul>
+<h2 id="diamond-inheritance">Diamond Inheritance</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -140,7 +144,7 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">line2intlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
     <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">numbers</span>
 
@@ -154,12 +158,12 @@ MathJax.Hub.Queue(function() {
             <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">justAppended</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">classDict</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
                     <span class="k">if</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">reachable</span><span class="p">:</span>
-                        <span class="k">return</span> <span class="s2">&quot;Yes&quot;</span>
+                        <span class="k">return</span> <span class="s2">"Yes"</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">newJustAppended</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
                         <span class="n">reachable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
             <span class="n">justAppended</span> <span class="o">=</span> <span class="n">newJustAppended</span>
-    <span class="k">return</span> <span class="s2">&quot;No&quot;</span>
+    <span class="k">return</span> <span class="s2">"No"</span>
 
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
@@ -168,13 +172,12 @@ MathJax.Hub.Queue(function() {
     <span class="k">for</span> <span class="n">classNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">liste</span> <span class="o">=</span> <span class="n">line2intlist</span><span class="p">(</span><span class="n">raw_input</span><span class="p">())</span>
         <span class="n">classDict</span><span class="p">[</span><span class="n">classNr</span><span class="p">]</span> <span class="o">=</span> <span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span>
 </code></pre></div>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
-  <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
+<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
+<li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

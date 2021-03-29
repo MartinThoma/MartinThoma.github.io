@@ -100,13 +100,18 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Error correcting Codes">Error correcting Codes</a><ul><li><a class="toc-href" href="#introduction" title="Introduction">Introduction</a></li><li><a class="toc-href" href="#hamming-codes" title="Hamming codes">Hamming codes</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">This blogpost is strongly related to <a href="http://page.math.tu-berlin.de/~felsner/DMSWe/Aufgaben/codes.pdf">this germand PDF</a> of a pupils' competition in which I have participated in 2008.</div>
-
 <p>Today, we have a lot of data that is stored or transferred in a binary way. Once in a while an error occurs and single bits get switched from 0 to 1 or the other way around. <a href="http://en.wikipedia.org/wiki/Coding_theory">Coding theory</a> tries to find algorithms with which you can <strong>detect</strong> and <strong>correct</strong> errors.</p>
-<h2>Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 <p>To keep it simple, we make a small example. We have </p>
 <div class="math">\begin{align}
     \{A, B, C, D, E, F, G, H\}     &amp;= \mathcal{F}_3\\
@@ -122,15 +127,14 @@ c_3 = \{&amp;(1,1,1,1,1,1),\\
 &amp;(1,0,1,0,0,1),\\
 &amp;(1,1,0,0,0,0)\}
 \end{align}</div>
-<h2>Hamming codes</h2>
+<h2 id="hamming-codes">Hamming codes</h2>
 <p><a href="http://en.wikipedia.org/wiki/Hamming_code">Hamming codes</a> are a family of <span class="math">\((2^k - 1, 2^{(2^k -1)-k}, 3), \quad k \geq 2\)</span> codes. This means, every hamming code can only correct one error.</p>
 <p>The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, ...) of each message are only parity bits. This are obviously <span class="math">\(\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2^k - 1) \rceil = k\)</span>).</p>
 <p>Wikipedia has a really nice image for that:</p>
 <figure class="aligncenter">
-            <a href="../images/2012/10/hamming-code-parity.png"><img src="../images/2012/10/hamming-code-parity.png" alt="Parity-bits and data bits in a Hamming codeword" style="max-width:500px;max-height:95px" class="size-full wp-image-47691"/></a>
-            <figcaption class="text-center">Parity-bits and data bits in a Hamming codeword</figcaption>
-        </figure>
-
+<a href="../images/2012/10/hamming-code-parity.png"><img alt="Parity-bits and data bits in a Hamming codeword" class="size-full wp-image-47691" src="../images/2012/10/hamming-code-parity.png" style="max-width:500px;max-height:95px"/></a>
+<figcaption class="text-center">Parity-bits and data bits in a Hamming codeword</figcaption>
+</figure>
 <p>Now, how are the parity-bits calculated?
 Well, think of each messages as a vector in <span class="math">\(\{0,1\}^{(2^k - 1) - k}\)</span>. Then you define a matrix <span class="math">\(G \in \{0,1\}^{2^k - 1} \times \{0,1\}^{(2^k - 1) - k}\)</span>. Now you can get the codewords <span class="math">\(c\)</span> by multiplying the datawords <span class="math">\(d\)</span> (messages) with <span class="math">\(G\)</span>:
 <span class="math">\(c = G \cdot d\)</span>.

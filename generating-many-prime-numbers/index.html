@@ -102,13 +102,18 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Generating many prime numbers">Generating many prime numbers</a><ul><li><a class="toc-href" href="#trivial-approach" title="Trivial approach">Trivial approach</a></li><li><a class="toc-href" href="#sieve-of-eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a><ul><li><a class="toc-href" href="#a-first-try" title="A first try">A first try</a></li><li><a class="toc-href" href="#ofstream-endl-n-and-buffers" title="ofstream, endl, \n and buffers">ofstream, endl, \n and buffers</a></li><li><a class="toc-href" href="#improve-sieving" title="Improve sieving">Improve sieving</a></li><li><a class="toc-href" href="#primesieve" title="primesieve">primesieve</a></li></ul></li><li><a class="toc-href" href="#sieve-of-atkin_1" title="Sieve of Atkin">Sieve of Atkin</a><ul><li><a class="toc-href" href="#my-first-implementation" title="My first implementation">My first implementation</a></li><li><a class="toc-href" href="#primegen" title="Primegen">Primegen</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li><li><a class="toc-href" href="#finally" title="Finally">Finally</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.</p>
 <p>So, lets prove my claim.</p>
-<h2>Trivial approach</h2>
-
+<h2 id="trivial-approach">Trivial approach</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="c1"> // cin, cout</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="c1"> // sqrt</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -144,7 +149,6 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Execute it for 100,000,000:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">100000000</span> &gt; primes.txt
 
@@ -152,7 +156,6 @@ real    0m57.274s
 user    0m41.855s
 sys 0m15.229s
 </code></pre></div>
-
 <p>So 41 seconds for all primes not bigger than 100,000,000.</p>
 <p>Now, lets test it for 1,000,000,000:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; primes.txt
@@ -161,11 +164,9 @@ real    18m18.205s
 user    15m56.904s
 sys 2m12.500s
 </code></pre></div>
-
 <p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
-<h2>Sieve of Eratosthenes</h2>
-<h3>A first try</h3>
-
+<h2 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h2>
+<h3 id="a-first-try">A first try</h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="c1"> // cin, cout</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -190,7 +191,6 @@ sys 2m12.500s
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>This one takes 1 minute 5 seconds:</p>
 <div class="highlight"><pre><span></span><code>make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; testPrimes.txt
 g++ -std<span class="o">=</span>c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out
@@ -199,9 +199,8 @@ real    3m20.436s
 user    1m4.908s
 sys 2m11.748s
 </code></pre></div>
-
 <p>I'm getting closer to "seconds". ☺</p>
-<h3>ofstream, endl, \n and buffers</h3>
+<h3 id="ofstream-endl-n-and-buffers">ofstream, endl, \n and buffers</h3>
 <p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="c1"> // ofstream</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -210,7 +209,7 @@ sys 2m11.748s
 
 <span class="kt">void</span> <span class="nf">sieveOfEratosthenes</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">ofstream</span> <span class="n">myfile</span><span class="p">;</span>
-    <span class="n">myfile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">&quot;huge-prime-list.txt&quot;</span><span class="p">);</span>
+    <span class="n">myfile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">"huge-prime-list.txt"</span><span class="p">);</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">primesEratosthenes</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
     <span class="n">myfile</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">+=</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
@@ -230,14 +229,12 @@ sys 2m11.748s
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    3m21.249s
 user    1m4.016s
 sys 2m12.332s
 </code></pre></div>
-
 <p>Ok, no real change :-/</p>
 <p>Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="http://stackoverflow.com/a/5192299/562769">explanation</a>)</p>
 <p>That was a good try. Now it needs only 46 seconds:</p>
@@ -247,7 +244,6 @@ real    0m49.539s
 user    0m46.619s
 sys 0m0.920s
 </code></pre></div>
-
 <p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="c1"> // atoi</span><span class="cp"></span>
@@ -257,7 +253,7 @@ sys 0m0.920s
 
 <span class="kt">void</span> <span class="nf">sieveOfEratosthenes</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">FILE</span><span class="o">*</span> <span class="n">pFile</span><span class="p">;</span>
-    <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;huge-prime-list.txt&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">);</span>
+    <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"huge-prime-list.txt"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">);</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">primesEratosthenes</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
 
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -281,7 +277,6 @@ sys 0m0.920s
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>And execute it:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
@@ -289,7 +284,6 @@ real    0m39.700s
 user    0m38.546s
 sys 0m0.640s
 </code></pre></div>
-
 <p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
 <p>By the way, simply setting this with <code>setbuf(pFile, NULL);</code> to unbuffered resulted in 50 seconds execution time.</p>
 <p>You can get the list with this snippet:</p>
@@ -300,10 +294,10 @@ sys 0m0.640s
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;You have to specify a file name&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You have to specify a file name"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="kt">FILE</span><span class="o">*</span> <span class="n">pFile</span><span class="p">;</span>
-        <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;rb&quot;</span><span class="p">);</span>
+        <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">"rb"</span><span class="p">);</span>
 
         <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span><span class="p">;</span>
         <span class="kt">size_t</span> <span class="n">read</span><span class="p">;</span>
@@ -319,10 +313,9 @@ sys 0m0.640s
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<h3>Improve sieving</h3>
+<h3 id="improve-sieving">Improve sieving</h3>
 <p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
-<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2</em>p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.</p>
+<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</em></code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="c1"> // atoi</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -331,7 +324,7 @@ sys 0m0.640s
 
 <span class="kt">void</span> <span class="nf">sieveOfEratosthenes</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">FILE</span><span class="o">*</span> <span class="n">pFile</span><span class="p">;</span>
-    <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;huge-prime-list.bin&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">);</span>
+    <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"huge-prime-list.bin"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">);</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">primesEratosthenes</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
 
     <span class="kt">long</span> <span class="kt">long</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -351,7 +344,7 @@ sys 0m0.640s
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;You have to specify n&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You have to specify n"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="kt">long</span> <span class="kt">long</span>  <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
         <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -359,7 +352,6 @@ sys 0m0.640s
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Execute:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
@@ -367,14 +359,12 @@ real    0m24.222s
 user    0m23.485s
 sys 0m0.436s
 </code></pre></div>
-
-<h3>primesieve</h3>
+<h3 id="primesieve">primesieve</h3>
 <p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) <span class="math">\(&lt; 2^{64}\)</span> using a highly optimized implementation of the sieve of Eratosthenes.</p>
 <p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
-<h2>Sieve of Atkin</h2>
+<h2 id="sieve-of-atkin_1">Sieve of Atkin</h2>
 <p>Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
-<h3>My first implementation</h3>
-
+<h3 id="my-first-implementation">My first implementation</h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="c1"> // atoi</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -384,7 +374,7 @@ sys 0m0.436s
 
 <span class="kt">void</span> <span class="nf">sieveOfAtkin</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">limit</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">FILE</span><span class="o">*</span> <span class="n">pFile</span><span class="p">;</span>
-    <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;huge-prime-list.bin&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">);</span>
+    <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"huge-prime-list.bin"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">);</span>
 
     <span class="kt">long</span> <span class="kt">long</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">limit</span><span class="p">));</span>
 
@@ -444,7 +434,7 @@ sys 0m0.436s
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;You have to specify n&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You have to specify n"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="kt">long</span> <span class="kt">long</span>  <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
         <span class="n">sieveOfAtkin</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -452,7 +442,6 @@ sys 0m0.436s
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
@@ -460,8 +449,7 @@ real    1m6.001s
 user    1m4.724s
 sys 0m0.604s
 </code></pre></div>
-
-<h3>Primegen</h3>
+<h3 id="primegen">Primegen</h3>
 <p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.</p>
 <p>When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.</p>
 <p>Primegen is fast:</p>
@@ -471,30 +459,28 @@ real    0m11.677s
 user    0m10.649s
 sys 0m0.708s
 </code></pre></div>
-
 <p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
-<h2>See also</h2>
+<h2 id="see-also_1">See also</h2>
 <p>You might want to try the following Project Euler problem sets:</p>
 <ul>
 <li>Project Euler
   <ul>
-    <li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
-    <li><a href="http://projecteuler.net/problem=7">Problem 7</a>: What is the 10 001st prime number?</li>
-    <li><a href="http://projecteuler.net/problem=60">Problem 60</a></li>
-  </ul>
+<li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
+<li><a href="http://projecteuler.net/problem=7">Problem 7</a>: What is the 10 001st prime number?</li>
+<li><a href="http://projecteuler.net/problem=60">Problem 60</a></li>
+</ul>
 </li>
 <li>SPOJ
   <ul>
-    <li><a href="http://www.spoj.com/problems/PRIME1/">PRIME1</a></li>
-    <li><a href="http://www.spoj.com/problems/PRIME2/">PRIME2</a></li>
-    <li><a href="http://www.spoj.com/problems/KPRIMES2/">KPRIMES2</a></li>
-  </ul>
+<li><a href="http://www.spoj.com/problems/PRIME1/">PRIME1</a></li>
+<li><a href="http://www.spoj.com/problems/PRIME2/">PRIME2</a></li>
+<li><a href="http://www.spoj.com/problems/KPRIMES2/">KPRIMES2</a></li>
+</ul>
 </li>
 <li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
 <li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
 </ul>
-
-<h2>Finally</h2>
+<h2 id="finally">Finally</h2>
 <p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
             
             <div id="disqus_thread" class="no-print"></div>

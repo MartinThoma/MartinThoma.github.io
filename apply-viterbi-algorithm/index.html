@@ -102,31 +102,34 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to apply the Viterbi algorithm">How to apply the Viterbi algorithm</a><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.</p>
 <p>Lets say this is your <abbr title="Hidden Markov model">HMM</abbr>:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/09/hidden-markov-model-abc-2.png"><img src="../images/2013/09/hidden-markov-model-abc-2.png" alt="A hidden Markov model (HMM) example" style="max-width:512px;max-height:252px" class="size-full wp-image-76518"/></a>
-            <figcaption class="text-center">A hidden Markov model (HMM) example</figcaption>
-        </figure>
-
+<a href="../images/2013/09/hidden-markov-model-abc-2.png"><img alt="A hidden Markov model (HMM) example" class="size-full wp-image-76518" src="../images/2013/09/hidden-markov-model-abc-2.png" style="max-width:512px;max-height:252px"/></a>
+<figcaption class="text-center">A hidden Markov model (HMM) example</figcaption>
+</figure>
 <p>We always start in <span class="math">\(x\)</span> and always end in <span class="math">\(z\)</span>.</p>
 <p>Now you observed the sequence <span class="math">\(O_1 = BAB\)</span>. What is the most likely sequence that would generate this path?</p>
 <p>Candidates are:</p>
 <ul>
-  <li>xxyz</li>
-  <li>xyyz</li>
-  <li>xyzz</li>
+<li>xxyz</li>
+<li>xyyz</li>
+<li>xyzz</li>
 </ul>
-
 <p>If you're learing this because you will write the exam at KIT, you might have such an diagram:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/09/viterbi-algorithm.png"><img src="../images/2013/09/viterbi-algorithm.png" alt="Scheme of the Viterbi algorithm" style="max-width:751px;max-height:300px" class="size-full wp-image-76520"/></a>
-            <figcaption class="text-center">Scheme of the Viterbi algorithm</figcaption>
-        </figure>
-
+<a href="../images/2013/09/viterbi-algorithm.png"><img alt="Scheme of the Viterbi algorithm" class="size-full wp-image-76520" src="../images/2013/09/viterbi-algorithm.png" style="max-width:751px;max-height:300px"/></a>
+<figcaption class="text-center">Scheme of the Viterbi algorithm</figcaption>
+</figure>
 <p>In this case, the bold path is the Viterbi path. You can see this when you get backwards from the last state:</p>
 <p><span class="math">\(\frac{1}{125} \cdot 1 \cdot 0.2 &gt; \frac{9}{2500} \cdot 0.8 \cdot 0.2\)</span>. After this step, you only have one choice. So the Viterbi path is xyzz.</p>
 <p>Please note that there might be multiple paths with the highest possibility.</p>

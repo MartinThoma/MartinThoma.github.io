@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Reproducibility in Machine Learning">Reproducibility in Machine Learning</a><ul><li><a class="toc-href" href="#writing-a-paper" title="Writing a paper">Writing a paper</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Getting reproducible results is important because of trust: Why should somebody
@@ -145,38 +151,37 @@ feeling for how different things are.</p>
 
 
 <span class="k">def</span> <span class="nf">get_logstring</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Get important environment information that might influence experiments.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    logstring : str</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">logstring</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/proc/cpuinfo&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/cpuinfo"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">cpuinfo</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cpuinfo</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;model name&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;CPU: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+        <span class="k">if</span> <span class="s2">"model name"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"CPU: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
             <span class="k">break</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/proc/driver/nvidia/version&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/driver/nvidia/version"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">version</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;GPU driver: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
-    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;VGA: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">find_vga</span><span class="p">()))</span>
-    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">logstring</span><span class="p">)</span>
+    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"GPU driver: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"VGA: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">find_vga</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">logstring</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">find_vga</span><span class="p">():</span>
     <span class="n">vga</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
-        <span class="s2">&quot;lspci | grep -i &#39;vga\|3d\|2d&#39;&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;/bin/bash&quot;</span>
+        <span class="s2">"lspci | grep -i 'vga\|3d\|2d'"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s2">"/bin/bash"</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">vga</span>
 
 
 <span class="nb">print</span><span class="p">(</span><span class="n">get_logstring</span><span class="p">())</span>
 </code></pre></div>
-
 <p>which gives something like</p>
 <div class="highlight"><pre><span></span><code>CPU: model name    : Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
 GPU driver: NVRM version: NVIDIA UNIX x86_64 Kernel Module  384.90  Tue Sep 19 19:17:35 PDT 2017

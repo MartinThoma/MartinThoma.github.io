@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="The Reuters Dataset">The Reuters Dataset</a><ul><li><a class="toc-href" href="#classes-and-labels" title="Classes and Labels">Classes and Labels</a></li><li><a class="toc-href" href="#multi-label-scoring" title="Multi-label Scoring">Multi-label Scoring</a></li><li><a class="toc-href" href="#n-gram-features" title="n-gram Features">n-gram Features</a></li><li><a class="toc-href" href="#classifier-comparison-tf-idf" title="Classifier comparison (tf-idf)">Classifier comparison (tf-idf)</a><ul><li><a class="toc-href" href="#multilayer-perceptron" title="Multilayer Perceptron">Multilayer Perceptron</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a><ul><li><a class="toc-href" href="#data-loading" title="Data loading">Data loading</a></li><li><a class="toc-href" href="#mlp" title="MLP">MLP</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Reuters is a benchmark dataset for <a href="https://martin-thoma.com/document-classification/">document classification</a>.
@@ -209,7 +215,6 @@ set, there are still 12017 words.</p>
     89: rye                 :    1       1    383.0
     90: nkr                 :    1       2    122.3
 </code></pre></div>
-
 <p>By far most documents have either one or two labels, but some have up to 15:</p>
 <div class="highlight"><pre><span></span><code>labelcount= 1, documentcount=9160
 labelcount= 2, documentcount=1173
@@ -226,7 +231,6 @@ labelcount=14, documentcount=   2
 labelcount=12, documentcount=   1
 labelcount=15, documentcount=   1
 </code></pre></div>
-
 <p>Let's look at the relationship between the classes. Which classes occur often
 together? Are there classes which can be used to predict the presence of other
 classes? For example, <code>wheat</code> should imply <code>grain</code>.</p>
@@ -282,10 +286,8 @@ castor-oil =&gt; nzdlr (0.999613849916)
 castor-oil =&gt; palladium (0.999613849916)
 castor-oil =&gt; palmkernel (0.999613849916)
 </code></pre></div>
-
 <h2 id="multi-label-scoring">Multi-label Scoring</h2>
 <div class="warning">I have to work on the scoring; it seems as if I made a mistake in my experiments when I calculated the score.</div>
-
 <p>I've never been in a multi-label context, so it was not directly clear to me
 which scoring is used. Thanks to Chirag Nagpal who pointed me in the right
 direction.</p>
@@ -333,13 +335,12 @@ Decision Tree                 : 55.75% 53.23% in   28.43s train /    0.22s test
 Naive Bayes                   : 43.86% 47.98% in  214.75s train /   88.79s test
 SVM, linear                   : 33.55% 29.67% in 6326.33s train / 2397.51s test
 </code></pre></div>
-
 <p>There are a couple of things to notice here:</p>
 <ul>
 <li><strong>Speed</strong>:<ul>
 <li>Naive Bayes and k-nn is slow</li>
 <li>Random forests and MLP are fast</li>
-<li>SVM depends extremely on the implementation (see <a href="https://stackoverflow.com/q/45384185/562769">What is the difference between LinearSVC and SVC(kernel=“linear”)?</a>)</li>
+<li>SVM depends extremely on the implementation (see <a href="https://stackoverflow.com/q/45384185/562769">What is the difference between LinearSVC and SVC(kernel=&ldquo;linear&rdquo;)?</a>)</li>
 </ul>
 </li>
 <li><strong>Prediction Quality</strong>:<ul>
@@ -369,7 +370,7 @@ are two important things to keep in mind:</p>
 <p>As a consequence, the F1 score steadily increases. Hence by using other metrics
 one can see that the classifier makes great improvements, although the accuracy
 is pretty high from the beginning.</p>
-<h2 id="code">Code</h2>
+<h2 id="code_1">Code</h2>
 <p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/nlp/">GitHub</a>.</p>
 <p>If you use it, please cite this article or link to this blog post:</p>
 <div class="highlight"><pre><span></span><code><span class="nc">@Misc</span><span class="p">{</span><span class="nl">Thom2017-reuters</span><span class="p">,</span>
@@ -382,18 +383,17 @@ is pretty high from the beginning.</p>
   <span class="na">Url</span>                      <span class="p">=</span> <span class="s">{https://martin-thoma.com/nlp-reuters}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="data-loading">Data loading</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">Utility file for the Reuters text categorization benchmark dataset.</span>
 
 <span class="sd">See also</span>
 <span class="sd">--------</span>
 <span class="sd">http://www.vision.caltech.edu/Image_Datasets/Caltech101/</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">reuters</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
@@ -405,51 +405,50 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{}):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Load the Reuters dataset.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Tuple of Numpy arrays: `(x_train, y_train), (x_test, y_test)`.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
+<span class="sd">    """</span>
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
     <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">stop_words</span><span class="p">)</span>
     <span class="n">mlb</span> <span class="o">=</span> <span class="n">MultiLabelBinarizer</span><span class="p">()</span>
 
     <span class="n">documents</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">fileids</span><span class="p">()</span>
-    <span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">documents</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;test/&quot;</span><span class="p">)]</span>
-    <span class="n">train</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">documents</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;training/&quot;</span><span class="p">)]</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">documents</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"test/"</span><span class="p">)]</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">documents</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"training/"</span><span class="p">)]</span>
 
     <span class="n">docs</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">docs</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">reuters</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
-    <span class="n">docs</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">reuters</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">test</span><span class="p">]</span>
-    <span class="n">xs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-    <span class="n">xs</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-    <span class="n">xs</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-    <span class="n">ys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-    <span class="n">ys</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">reuters</span><span class="o">.</span><span class="n">categories</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">train</span><span class="p">])</span>
-    <span class="n">ys</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mlb</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">reuters</span><span class="o">.</span><span class="n">categories</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">test</span><span class="p">])</span>
+    <span class="n">docs</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">reuters</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
+    <span class="n">docs</span><span class="p">[</span><span class="s2">"test"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">reuters</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">test</span><span class="p">]</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"test"</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="n">xs</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="s2">"train"</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="n">xs</span><span class="p">[</span><span class="s2">"test"</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="s2">"test"</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"test"</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="n">ys</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">reuters</span><span class="o">.</span><span class="n">categories</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">train</span><span class="p">])</span>
+    <span class="n">ys</span><span class="p">[</span><span class="s2">"test"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mlb</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">reuters</span><span class="o">.</span><span class="n">categories</span><span class="p">(</span><span class="n">doc_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_id</span> <span class="ow">in</span> <span class="n">test</span><span class="p">])</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;x_train&quot;</span><span class="p">:</span> <span class="n">xs</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;y_train&quot;</span><span class="p">:</span> <span class="n">ys</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;x_test&quot;</span><span class="p">:</span> <span class="n">xs</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;y_test&quot;</span><span class="p">:</span> <span class="n">ys</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;labels&quot;</span><span class="p">],</span>
+        <span class="s2">"x_train"</span><span class="p">:</span> <span class="n">xs</span><span class="p">[</span><span class="s2">"train"</span><span class="p">],</span>
+        <span class="s2">"y_train"</span><span class="p">:</span> <span class="n">ys</span><span class="p">[</span><span class="s2">"train"</span><span class="p">],</span>
+        <span class="s2">"x_test"</span><span class="p">:</span> <span class="n">xs</span><span class="p">[</span><span class="s2">"test"</span><span class="p">],</span>
+        <span class="s2">"y_test"</span><span class="p">:</span> <span class="n">ys</span><span class="p">[</span><span class="s2">"test"</span><span class="p">],</span>
+        <span class="s2">"labels"</span><span class="p">:</span> <span class="nb">globals</span><span class="p">()[</span><span class="s2">"labels"</span><span class="p">],</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">data</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;len(data[&#39;x_train&#39;])=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_train&quot;</span><span class="p">])))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data[&#39;x_train&#39;].shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"len(data['x_train'])=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">])))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"data['x_train'].shape=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 </code></pre></div>
-
 <h3 id="mlp">MLP</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">&quot;&quot;&quot;Train and evaluate a MLP.&quot;&quot;&quot;</span>
+<span class="sd">"""Train and evaluate a MLP."""</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Dropout</span>
@@ -462,27 +461,27 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create a MLP model.&quot;&quot;&quot;</span>
+    <span class="sd">"""Create a MLP model."""</span>
     <span class="n">input_</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">input_</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s2">"sigmoid"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span>
 
 
 <span class="k">def</span> <span class="nf">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Recall metric.</span>
 
 <span class="sd">    Only computes a batch-wise average of recall.</span>
 
 <span class="sd">    Computes the recall, a metric for multi-label classification of</span>
 <span class="sd">    how many relevant items are selected.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">true_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_true</span> <span class="o">*</span> <span class="n">y_pred</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
     <span class="n">possible_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
     <span class="n">recall</span> <span class="o">=</span> <span class="n">true_positives</span> <span class="o">/</span> <span class="p">(</span><span class="n">possible_positives</span> <span class="o">+</span> <span class="n">K</span><span class="o">.</span><span class="n">epsilon</span><span class="p">())</span>
@@ -490,7 +489,7 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Precision metric.</span>
 
 <span class="sd">    Only computes a batch-wise average of precision.</span>
@@ -501,7 +500,7 @@ is pretty high from the beginning.</p>
 <span class="sd">    Source</span>
 <span class="sd">    ------</span>
 <span class="sd">    https://github.com/fchollet/keras/issues/5400#issuecomment-314747992</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">true_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_true</span> <span class="o">*</span> <span class="n">y_pred</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
     <span class="n">predicted_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
     <span class="n">precision</span> <span class="o">=</span> <span class="n">true_positives</span> <span class="o">/</span> <span class="p">(</span><span class="n">predicted_positives</span> <span class="o">+</span> <span class="n">K</span><span class="o">.</span><span class="n">epsilon</span><span class="p">())</span>
@@ -509,37 +508,37 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate the F1 score.&quot;&quot;&quot;</span>
+    <span class="sd">"""Calculate the F1 score."""</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return an optimizer.&quot;&quot;&quot;</span>
-    <span class="n">lr</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;optimizer&quot;</span><span class="p">][</span><span class="s2">&quot;initial_lr&quot;</span><span class="p">]</span>
+    <span class="sd">"""Return an optimizer."""</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">"optimizer"</span><span class="p">][</span><span class="s2">"initial_lr"</span><span class="p">]</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>  <span class="c1"># Using Adam instead of SGD to speed up training</span>
     <span class="k">return</span> <span class="n">optimizer</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Load data, train model and evaluate it.&quot;&quot;&quot;</span>
+    <span class="sd">"""Load data, train model and evaluate it."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">data_module</span><span class="o">.</span><span class="n">n_classes</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">data_module</span><span class="o">.</span><span class="n">n_classes</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">get_optimizer</span><span class="p">({</span><span class="s2">&quot;optimizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;initial_lr&quot;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">}})</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">get_optimizer</span><span class="p">({</span><span class="s2">"optimizer"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"initial_lr"</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">}})</span>
     <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-        <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span>
+        <span class="n">loss</span><span class="o">=</span><span class="s2">"binary_crossentropy"</span><span class="p">,</span>
         <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
-        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">],</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="s2">"accuracy"</span><span class="p">],</span>
     <span class="p">)</span>
     <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_train&quot;</span><span class="p">],</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_train&quot;</span><span class="p">],</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">],</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">"y_train"</span><span class="p">],</span>
         <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
         <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-        <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_test&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_test&quot;</span><span class="p">]),</span>
+        <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_test"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"y_test"</span><span class="p">]),</span>
         <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="c1"># callbacks=callbacks</span>
     <span class="p">)</span>
@@ -548,10 +547,10 @@ is pretty high from the beginning.</p>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span>
         <span class="p">(</span>
-            <span class="s2">&quot;</span><span class="si">{clf_name:&lt;30}</span><span class="s2">: </span><span class="si">{acc:0.2f}</span><span class="s2">% </span><span class="si">{f1:0.2f}% i</span><span class="s2">n </span><span class="si">{train_time:0.2f}</span><span class="s2">s &quot;</span>
-            <span class="s2">&quot;train / </span><span class="si">{test_time:0.2f}</span><span class="s2">s test&quot;</span>
+            <span class="s2">"</span><span class="si">{clf_name:&lt;30}</span><span class="s2">: </span><span class="si">{acc:0.2f}</span><span class="s2">% </span><span class="si">{f1:0.2f}% i</span><span class="s2">n </span><span class="si">{train_time:0.2f}</span><span class="s2">s "</span>
+            <span class="s2">"train / </span><span class="si">{test_time:0.2f}</span><span class="s2">s test"</span>
         <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">clf_name</span><span class="o">=</span><span class="s2">&quot;MLP&quot;</span><span class="p">,</span>
+            <span class="n">clf_name</span><span class="o">=</span><span class="s2">"MLP"</span><span class="p">,</span>
             <span class="n">acc</span><span class="o">=</span><span class="p">(</span><span class="n">get_accuracy</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
             <span class="n">f1</span><span class="o">=</span><span class="p">(</span><span class="n">get_f_score</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
             <span class="n">train_time</span><span class="o">=</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">),</span>
@@ -560,11 +559,10 @@ is pretty high from the beginning.</p>
     <span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">(</span><span class="n">reuters</span><span class="p">)</span>
 </code></pre></div>
-
-<h2 id="see-also">See also</h2>
+<h2 id="see-also_1">See also</h2>
 <ul>
 <li>NLTK: <a href="http://www.nltk.org/book/ch02.html">Other datasets</a></li>
 <li><a href="http://www.daviddlewis.com/resources/testcollections/reuters21578/">Reuters-21578</a></li>

@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Best practice for Machine Learning Projects">Best practice for Machine Learning Projects</a><ul><li><a class="toc-href" href="#know-your-problem" title="Know your problem">Know your problem</a></li><li><a class="toc-href" href="#eda" title="EDA">EDA</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#configuration-files" title="Configuration files">Configuration files</a></li><li><a class="toc-href" href="#starting-small" title="Starting small">Starting small</a></li><li><a class="toc-href" href="#logging-to-files" title="Logging to files">Logging to files</a></li><li><a class="toc-href" href="#create-a-trivial-solution" title="Create a Trivial Solution">Create a Trivial Solution</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#make-it-reproducible" title="Make it reproducible">Make it reproducible</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I did a couple of machine learning projects so far and there are some patterns
@@ -128,15 +134,14 @@ solve. I will not go into detail in this post.</p>
 <h2 id="project-structure">Project structure</h2>
 <div class="highlight"><pre><span></span><code>.
 ├── artifacts
-│   ├── train : Logfiles, trained models
-│   └── test  : Logfiles
+│&nbsp;&nbsp; ├── train : Logfiles, trained models
+│&nbsp;&nbsp; └── test  : Logfiles
 ├── datasets : Data loading scripts
 ├── experiments : Configuration files
 ├── models : Scripts defining how the model looks like
 ├── optimizers : Scripts defining the optimizeres
 └── train : Script to run the training
 </code></pre></div>
-
 <p>The important part here is that you have an <code>experiments/</code> folder which
 contains configuration files. So your scripts should not contain any
 hyperparameters. All hyperparameters, including the complete model, should be
@@ -185,12 +190,11 @@ set in the configuration.</p>
     <span class="nt">featurewise_center</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
     <span class="nt">zca_whitening</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
 </code></pre></div>
-
 <p>I load it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">&quot;&quot;&quot;Run an experiment.&quot;&quot;&quot;</span>
+<span class="sd">"""Run an experiment."""</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -200,14 +204,14 @@ set in the configuration.</p>
 <span class="kn">import</span> <span class="nn">pprint</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Example.&quot;&quot;&quot;</span>
+    <span class="sd">"""Example."""</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">)</span>
 
     <span class="c1"># Print the configuration - just to make sure that you loaded what you</span>
@@ -218,13 +222,13 @@ set in the configuration.</p>
     <span class="c1"># Here is an example how you load modules of which you put the path in the</span>
     <span class="c1"># configuration. Use this for configuring the model you use, for dataset</span>
     <span class="c1"># loading, ...</span>
-    <span class="n">dpath</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">][</span><span class="s2">&quot;script_path&quot;</span><span class="p">]</span>
+    <span class="n">dpath</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"dataset"</span><span class="p">][</span><span class="s2">"script_path"</span><span class="p">]</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">dpath</span><span class="p">))</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_source</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">][</span><span class="s2">&quot;script_path&quot;</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_source</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"dataset"</span><span class="p">][</span><span class="s2">"script_path"</span><span class="p">])</span>
 
 
 <span class="k">def</span> <span class="nf">load_cfg</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Load a YAML configuration file.</span>
 
 <span class="sd">    Parameters</span>
@@ -234,16 +238,16 @@ set in the configuration.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    cfg : dict</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># Read YAML experiment definition file</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
         <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">make_paths_absolute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">yaml_filepath</span><span class="p">),</span> <span class="n">cfg</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cfg</span>
 
 
 <span class="k">def</span> <span class="nf">make_paths_absolute</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Make all values for keys ending with `_path` absolute to dir_.</span>
 
 <span class="sd">    Parameters</span>
@@ -254,41 +258,40 @@ set in the configuration.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    cfg : dict</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cfg</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_path&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"_path"</span><span class="p">):</span>
             <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
             <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
-                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> does not exist.&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> does not exist."</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
             <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_paths_absolute</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">cfg</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Get parser object.&quot;&quot;&quot;</span>
+    <span class="sd">"""Get parser object."""</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-f&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;--file&quot;</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;experiment definition file&quot;</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
+        <span class="s2">"-f"</span><span class="p">,</span>
+        <span class="s2">"--file"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"experiment definition file"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="starting-small">Starting small</h2>
 <p>Most machine learning tasks have a lot of computation. I'm speaking of many
 hours for the "real" task you want to solve. You will not be able to do so
@@ -325,44 +328,43 @@ solutions are, because:</p>
 </ul>
 <p>Here are some examples:</p>
 <table class="table">
-    <tr>
-        <th>Problem</th>
-        <th>Trivial</th>
-        <th>Simple</th>
-        <th>Advanced</th>
-    </tr>
-    <tr>
-        <td>Classification</td>
-        <td>Rules, Predict the most common class</td>
-        <td>Decision Tree</td>
-        <td>Neural Networks, SVMs, Gradient Boosting</td>
-    </tr>
-    <tr>
-        <td>Regression</td>
-        <td>Rules, Predict the average</td>
-        <td>Linear Regression</td>
-        <td>Neural Networks, Gaussian Mixture Models, ...</td>
-    </tr>
-    <tr>
-        <td>Clustering</td>
-        <td>Rules</td>
-        <td>k-Means</td>
-        <td>DBSCAN, OPTICS, SOMs</td>
-    </tr>
-    <tr>
-        <td>Recommendations</td>
-        <td>Rules</td>
-        <td></td>
-        <td>RBMs, ...</td>
-    </tr>
-    <tr>
-        <td><abbr title="Reinforcement Learning">RL</abbr></td>
-        <td>Rules</td>
-        <td></td>
-        <td>DQN, DDQN, ... (see <a href="https://martin-thoma.com/rl-agents/">post</a>)</td>
-    </tr>
+<tr>
+<th>Problem</th>
+<th>Trivial</th>
+<th>Simple</th>
+<th>Advanced</th>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Rules, Predict the most common class</td>
+<td>Decision Tree</td>
+<td>Neural Networks, SVMs, Gradient Boosting</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>Rules, Predict the average</td>
+<td>Linear Regression</td>
+<td>Neural Networks, Gaussian Mixture Models, ...</td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td>Rules</td>
+<td>k-Means</td>
+<td>DBSCAN, OPTICS, SOMs</td>
+</tr>
+<tr>
+<td>Recommendations</td>
+<td>Rules</td>
+<td></td>
+<td>RBMs, ...</td>
+</tr>
+<tr>
+<td><abbr title="Reinforcement Learning">RL</abbr></td>
+<td>Rules</td>
+<td></td>
+<td>DQN, DDQN, ... (see <a href="https://martin-thoma.com/rl-agents/">post</a>)</td>
+</tr>
 </table>
-
 <h2 id="evaluation">Evaluation</h2>
 <p>Make sure that you have as few scoring numbers as possible. Sequences / example
 output is not so easy to compare. You should be able to tell if you improved.

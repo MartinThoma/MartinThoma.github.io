@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Dreamspark SDM Odysee">Dreamspark SDM Odysee</a><ul><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#the-problem" title="The problem">The problem</a></li><li><a class="toc-href" href="#reverse-engineering-a-little-bit" title="Reverse Engineering ... a little bit">Reverse Engineering ... a little bit</a></li><li><a class="toc-href" href="#vms" title="VMs">VMs</a></li><li><a class="toc-href" href="#installing-windows-7" title="Installing Windows 7">Installing Windows 7</a></li><li><a class="toc-href" href="#related" title="Related">Related</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I need to have Windows for work. As a student I <em>should</em> have free access to
@@ -124,24 +130,23 @@ get, you might need to re-install the system. (No, rebooting does not help.)</p>
 <h2 id="the-problem">The problem</h2>
 <p>Using the Windows 8 systems at my university gives:</p>
 <figure class="aligncenter">
-            <a href="../images/2015/03/windows-sdm-screenshot.png"><img src="../images/2015/03/windows-sdm-screenshot.png" alt="Error message when trying to install SDM" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Error message when trying to install SDM</figcaption>
-        </figure>
-
+<a href="../images/2015/03/windows-sdm-screenshot.png"><img alt="Error message when trying to install SDM" class="" src="../images/2015/03/windows-sdm-screenshot.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Error message when trying to install SDM</figcaption>
+</figure>
 <blockquote>
-<p>Das Feature, das Sie verwenden möchten, befindet sich auf einer Netzressource,
-die nicht zur Verfügung steht.</p>
+<p>Das Feature, das Sie verwenden m&ouml;chten, befindet sich auf einer Netzressource,
+die nicht zur Verf&uuml;gung steht.</p>
 <p>Klicken Sie auf "OK", um den Vorgang zu wiederholen. Oder geben Sie in das
 untenstehende Feld den Pfad zu einem anderen Ordner ein, der das
-Installationspaket "SDM_DE.msi" enthält.</p>
+Installationspaket "SDM_DE.msi" enth&auml;lt.</p>
 </blockquote>
 <p>(Sorry, I only get the German error message.)</p>
 <p>When I give the path of the SDM_DE.msi I get:</p>
 <blockquote>
-<p>Die Datei "Z:\sdm\SDM_DE.msi" ist kein gültiges Installationspaket für das
+<p>Die Datei "Z:\sdm\SDM_DE.msi" ist kein g&uuml;ltiges Installationspaket f&uuml;r das
 Produkt "Secure Download Manager". Suchen Sie das Installationspaket
 "SDM_DE.msi" in einem Order, von dem aus Sie
-"Secure Download Manager" installieren können.</p>
+"Secure Download Manager" installieren k&ouml;nnen.</p>
 </blockquote>
 <p>Then I got desperate and followed <a href="https://threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu/">threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu</a> (similar: http://boris-spinner.de/secure-download-manager-sdm-unter-linux-ausfuehren/).</p>
 <p>It seems as if I need Linux to emulate Windows to get Windows ... it's a
@@ -180,16 +185,14 @@ err:msidb:get_tablecolumns column 3 out of range</p>
 <p>Taking a look at the <code>1234567890ab.sdx</code> file reveals that it contains only a single url:</p>
 <div class="highlight"><pre><span></span><code>http://kit.onthehub.com/WebStore/Account/SdmAuthorize.aspx?o=12345678-1234-1234-123a-12234567890a&amp;ws=12345678-1234-1234-1234-1234567890ab&amp;uid=12345678-1234-1234-1234-1234567890ab&amp;abc=5
 </code></pre></div>
-
 <p>(I've replaced the numbers by 123... to avoid problems with other people using
 my link to download stuff)</p>
 <p>However, I cannot simply download it there. There is a page with two downloads,
 but when I click on download nothing happens.</p>
 <figure class="aligncenter">
-            <a href="../images/2015/03/sdm-download-page.png"><img src="../images/2015/03/sdm-download-page.png" alt="SDM download page" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">SDM download page</figcaption>
-        </figure>
-
+<a href="../images/2015/03/sdm-download-page.png"><img alt="SDM download page" class="" src="../images/2015/03/sdm-download-page.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">SDM download page</figcaption>
+</figure>
 <p>So I use Chrome developer tools
 (<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>i</kbd>) to see the request.</p>
 <p>It's a GET request which gets the response:</p>
@@ -202,7 +205,6 @@ but when I click on download nothing happens.</p>
     <span class="nt">&lt;fileURL&gt;</span>http://software.dreamspark.com/dreamspark/GERMAN/de_windows_8.1_with_update_x64_dvd_4048209.01.sdc<span class="nt">&lt;/fileURL&gt;</span>
 <span class="nt">&lt;/information&gt;</span>
 </code></pre></div>
-
 <p>Although I can download the <code>.sdc</code> file, I cannot use it. It is an encrypted
 file (which would give the <code>.iso</code>, but I don't know how to encrypt it.).</p>
 <p>If you are interested in the file format, you might want to read
@@ -213,10 +215,9 @@ https://www.modern.ie/en-us/virtualization-tools#downloads</p>
 <p>I downloaded IE11, Win 8.1. Importing the VM took about 15 minutes on my computer.
 Then I got another error:</p>
 <figure class="aligncenter">
-            <a href="../images/2015/03/vm-critical-error.png"><img src="../images/2015/03/vm-critical-error.png" alt="VM import error" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">VM import error</figcaption>
-        </figure>
-
+<a href="../images/2015/03/vm-critical-error.png"><img alt="VM import error" class="" src="../images/2015/03/vm-critical-error.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">VM import error</figcaption>
+</figure>
 <h2 id="installing-windows-7">Installing Windows 7</h2>
 <p>12:50 I fortunately had a Windows 7 DVD lying around. Installing it will
 probably take another 2 hours or so...</p>

@@ -100,17 +100,22 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="C Puzzle #3">C Puzzle #3</a><ul><li><a class="toc-href" href="#short-answer" title="Short answer">Short answer</a></li><li><a class="toc-href" href="#long-answer" title="Long answer">Long answer</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>What is the output of the following programm?</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">-13</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">-13</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>.<br/>
 .<br/>
 .<br/>
@@ -130,9 +135,9 @@ MathJax.Hub.Queue(function() {
 .<br/>
 .<br/>
 .<br/></p>
-<h2>Short answer</h2>
+<h2 id="short-answer">Short answer</h2>
 <p>-7</p>
-<h2>Long answer</h2>
+<h2 id="long-answer">Long answer</h2>
 <blockquote>Signed integers are two&rsquo;s complement binary values that can be used to represent both positive and negative
 integer values.</blockquote>
 <p>Source: <a href="http://download.intel.com/products/processor/manual/325462.pdf#page=82">Intels IA-32 Architectures Software Developer's Manuals</a>, page 83</p>
@@ -145,11 +150,10 @@ integer values.</blockquote>
 <p>Lets get the assembly code:</p>
 <div class="highlight"><pre><span></span><code>gcc -S -O0 test.c
 </code></pre></div>
-
-<div class="highlight"><pre><span></span><code>    .file   &quot;test.c&quot;
+<div class="highlight"><pre><span></span><code>    .file   "test.c"
     .section    .rodata
 .LC0:
-    .string &quot;%i\n&quot;
+    .string "%i\n"
     .text
     .globl  main
     .type   main, @function
@@ -173,17 +177,15 @@ main:
     .cfi_endproc
 .LFE0:
     .size   main, .-main
-    .ident  &quot;GCC: (Ubuntu/Linaro 4.7.2-2ubuntu1) 4.7.2&quot;
-    .section    .note.GNU-stack,&quot;&quot;,@progbits
+    .ident  "GCC: (Ubuntu/Linaro 4.7.2-2ubuntu1) 4.7.2"
+    .section    .note.GNU-stack,"",@progbits
 </code></pre></div>
-
 <p>In line 18 you can see that the bitshift already happened. When you introduce a variable for <code>a</code>, you can see that the compiler makes use of the assembly command <code>sarl %eax</code> or <code>sarl   $2, %eax</code> when you shift by two.</p>
 <p>When you take a look at Oracles <a href="http://docs.oracle.com/cd/E19455-01/806-3773/806-3773.pdf#page=56">IA-32 Assembly Language Reference Manual</a>, page 56, you find:</p>
 <blockquote>sar right shifts (signed divides) a byte, word, or long value for a count speciﬁed by
 an immediate value and stores the quotient in that byte, word, or long respectively.
 The second variation right shifts by a count value speciﬁed in the CL register. sar
 rounds toward negative inﬁnity; <strong>the high-order bit remains unchanged</strong>.</blockquote>
-
 <p>This means, 1111.1111.1111.1111.1111.1111.1111.1001 is correct. And that's -7.</p>
             
             <div id="disqus_thread" class="no-print"></div>

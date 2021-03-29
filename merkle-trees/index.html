@@ -102,18 +102,23 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Merkle Trees">Merkle Trees</a><ul><li><a class="toc-href" href="#bittorrent" title="BitTorrent">BitTorrent</a></li><li><a class="toc-href" href="#proof-of-inclusion" title="Proof of Inclusion">Proof of Inclusion</a></li><li><a class="toc-href" href="#how-does-bitcoin-use-merkle-trees" title="How does Bitcoin use Merkle Trees?">How does Bitcoin use Merkle Trees?</a></li><li><a class="toc-href" href="#applications-of-merkle-trees" title="Applications of Merkle Trees">Applications of Merkle Trees</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next">What&rsquo;s next</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <figure>
-  <img src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png" alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." width="800px">
-  <figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
+<img alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png" width="800px"/>
+<figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
 </figure>
-
 <p>A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is
 a binary tree in which the value of an inner node is the hash of its leaf
-nodes. The root node of that tree is called “Merkle root” or “root hash”.</p>
-<p>So much about the definition. To me, it’s always helpful to know the problem
+nodes. The root node of that tree is called &ldquo;Merkle root&rdquo; or &ldquo;root hash&rdquo;.</p>
+<p>So much about the definition. To me, it&rsquo;s always helpful to know the problem
 technology solves to really understand it.</p>
 <h2 id="bittorrent">BitTorrent</h2>
 <p>How do you send big amounts of data over a network which randomly introduces
@@ -128,7 +133,7 @@ value, you just download the file again.</p>
 likely, most of the file is completely fine. Maybe there is just a single bit
 that flipped its value. You want to download as little as possible and just
 fix the broken part.</p>
-<p><img alt="A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/2000/1*VWinFE8Gmh8pmcg_IoN-ow.png"><em>A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.</em></p>
+<p><img alt="A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/2000/1*VWinFE8Gmh8pmcg_IoN-ow.png"/><em>A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.</em></p>
 <p>The next idea is to build blocks. You store the hash of each block. When you
 download the file, you first download a header. The header contains
 meta-information, e.g. the total number of blocks, the hash of each block, and
@@ -141,7 +146,7 @@ blocks you have, the more metadata you need to store. Take the most extreme
 case: Every single bit has its own hash value. A typical hash value has 256
 bit. This means the total size would increase by a factor of 257! In other
 words: You could download the file 257 times instead.</p>
-<p>Let’s say the file we want to download has a size of 4 GiB. Then the following
+<p>Let&rsquo;s say the file we want to download has a size of 4 GiB. Then the following
 table gives the number of blocks and the additional size you have to download.
 If you make the blocks of size 32 Byte for a 32 Byte hash, you need to
 download double the data. This means additionally 100%:</p>
@@ -154,29 +159,27 @@ download double the data. This means additionally 100%:</p>
        256 KiB :       16,384    0.01%
          1 MiB :        4,096    0.00%
 </code></pre></div>
-
 <p>The torrent files of BitTorrent are essentially dictionaries with this information:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
- <span class="nt">&quot;announce&quot;</span><span class="p">:</span> <span class="s2">&quot;tracker url&quot;</span><span class="p">,</span>
- <span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
-  <span class="nt">&quot;length&quot;</span><span class="p">:</span> <span class="s2">&quot;file size in bytes&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;suggested file name&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;piece length&quot;</span><span class="p">:</span> <span class="s2">&quot;typically 256 KiB&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;pices&quot;</span><span class="p">:</span> <span class="p">[</span>
-   <span class="s2">&quot;sha-1 hash of block #1&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;sha-1 hash of block #2&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;sha-1 hash of block #3&quot;</span>
+ <span class="nt">"announce"</span><span class="p">:</span> <span class="s2">"tracker url"</span><span class="p">,</span>
+ <span class="nt">"info"</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nt">"length"</span><span class="p">:</span> <span class="s2">"file size in bytes"</span><span class="p">,</span>
+  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"suggested file name"</span><span class="p">,</span>
+  <span class="nt">"piece length"</span><span class="p">:</span> <span class="s2">"typically 256 KiB"</span><span class="p">,</span>
+  <span class="nt">"pices"</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">"sha-1 hash of block #1"</span><span class="p">,</span>
+   <span class="s2">"sha-1 hash of block #2"</span><span class="p">,</span>
+   <span class="s2">"sha-1 hash of block #3"</span>
   <span class="p">]</span>
  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>To summarize: A list of hash values of blocks can speed up the download of
 files over an unreliable network a lot.</p>
 <h2 id="proof-of-inclusion">Proof of Inclusion</h2>
 <p>Suppose you wanted to show that a piece of data is part of your data
 structure. This is easy with Merkle trees.</p>
-<p><img alt="Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6&quot;. Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png"><em>Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</em></p>
+<p><img alt='Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.' src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png"/><em>Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</em></p>
 <p>Merkle trees allow it to prove that a transaction is included. Suppose Alice
 wants to prove to Bob that transaction T happened. To do that, she provides:</p>
 <ul>
@@ -188,16 +191,16 @@ also needs to hash the transaction and builds all hashes up to the Merkle
 root. As cryptographic hash functions make it impossible to find hash
 functions to forge an image (<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">collisions-attack
 resistance</a>),
-Bob does not have to have all the data. It’s enough to know which root to use.</p>
+Bob does not have to have all the data. It&rsquo;s enough to know which root to use.</p>
 <p>The supplied hashes (the blue nodes) are called a <strong>Merkle proof</strong>. You prove
 that the data belongs to the Merkle tree. If you want to see another example,
 have a look at <a href="undefined">Belavadi Prahalad</a> article <a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle proofs
 explained</a>.</p>
 <p>In the context of Bitcoin, this is called <strong>Simplified Payment Verification
-(SPV)</strong>. It’s chapter 8 of <a href="https://bitcoin.org/bitcoin.pdf">the bitcoin
+(SPV)</strong>. It&rsquo;s chapter 8 of <a href="https://bitcoin.org/bitcoin.pdf">the bitcoin
 paper</a>, or <a href="https://medium.com/coinmonks/spv-proofs-explained-f38f8bb8f580">SVP proofs
 explained</a> by
-<a href="undefined">Albert Acebrón</a>.</p>
+<a href="undefined">Albert Acebr&oacute;n</a>.</p>
 <h2 id="how-does-bitcoin-use-merkle-trees">How does Bitcoin use Merkle Trees?</h2>
 <p>Every single block contains a Merkle tree of transactions. The Bitcoin blocks
 have a size limitation of 4 MB for <a href="https://bitcoinmagazine.com/what-is-bitcoin/what-is-the-bitcoin-block-size-limit">various
@@ -212,7 +215,7 @@ hash.</p>
 <li><strong>Bitcoin &amp; IPFS, and <a href="https://storj.io/storj2014.pdf">Storj</a></strong>: The core data structure to store data</li>
 <li><strong>Ethereum</strong> also uses a Merkle Tree, but a different type than Bitcoin. Ethereum uses a Merkle Patricia Trie.</li>
 </ul>
-<h2 id="whats-next">What’s next</h2>
+<h2 id="whats-next">What&rsquo;s next</h2>
 <p>This article is part of my series about Blockchain:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/coinmonks/the-blockchain-473aac352e5">An Introduction to Blockchain</a></li>
@@ -222,7 +225,7 @@ hash.</p>
 <p>Topics I will consider next:</p>
 <ul>
 <li>Merkle Patricia Tries</li>
-<li>Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it’s so important</li>
+<li>Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it&rsquo;s so important</li>
 <li>Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.</li>
 <li>Smart contracts: What they are and how they work; e.g. with Etherium as an example</li>
 <li><a href="https://en.wikipedia.org/wiki/Initial_coin_offering">Initial Coin Offering</a> (ICO)</li>
@@ -231,7 +234,7 @@ hash.</p>
 <li>Bitcoin Wallets</li>
 <li>Peer-To-Peer Stuff: How Gossip Protocols work</li>
 </ul>
-<p>Let me know what you’re interested in!</p>
+<p>Let me know what you&rsquo;re interested in!</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Tara Vancil: <a href="https://www.youtube.com/watch?v=YIc6MNfv5iQ">How Merkle Trees Enable the Decentralized Web!</a>, 2017 on YouTube.</li>

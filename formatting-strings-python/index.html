@@ -102,206 +102,155 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Formatting Strings in Python">Formatting Strings in Python</a><ul><li><a class="toc-href" href="#print-directly" title="Print directly">Print directly</a></li><li><a class="toc-href" href="#save-as-string" title="Save as string">Save as string</a></li><li><a class="toc-href" href="#named-formatting" title="Named formatting">Named formatting</a></li><li><a class="toc-href" href="#date-and-time" title="Date and Time">Date and Time</a></li><li><a class="toc-href" href="#lists" title="Lists">Lists</a></li><li><a class="toc-href" href="#str-and-repr" title="str and repr">str and repr</a></li><li><a class="toc-href" href="#formatters" title="Formatters">Formatters</a></li><li><a class="toc-href" href="#columns" title="Columns">Columns</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>In Python, you can use the following ways to format Strings:</p>
 <h2 id="print-directly">Print directly</h2>
 <p>Printing them directly (just like <a href="http://www.cplusplus.com/reference/cstdio/printf/">printf in C</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="n">birthday</span> <span class="o">=</span> <span class="mi">28</span>
-<span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;April&quot;</span>
+<span class="n">month</span> <span class="o">=</span> <span class="s2">"April"</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">1990</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My birthday is the </span><span class="si">%i</span><span class="s2">-th </span><span class="si">%s</span><span class="s2"> </span><span class="si">%i</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">birthday</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"My birthday is the </span><span class="si">%i</span><span class="s2">-th </span><span class="si">%s</span><span class="s2"> </span><span class="si">%i</span><span class="s2">."</span> <span class="o">%</span> <span class="p">(</span><span class="n">birthday</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">))</span>
 </code></pre></div>
-
 <p>The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as a integer. The second one <code>%s</code> should be interpreted as a string and the third one again as a integer.</p>
 <h2 id="save-as-string">Save as string</h2>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = &quot;Why is %i the answer?&quot; % 42
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = "Why is %i the answer?" % 42
 &gt;&gt;&gt; a
-&#39;Why is 42 the answer?&#39;
+'Why is 42 the answer?'
 </code></pre></div>
-
 <h2 id="named-formatting">Named formatting</h2>
 <p>You might prefer named formatting:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; &quot;{guy} loves {girl}.&quot;.format(girl=&quot;Marie&quot;, guy=&quot;Martin&quot;)
-&#39;Martin loves Marie.&#39;
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
+'Martin loves Marie.'
 </code></pre></div>
-
 <p>You can also store this first in a dictionary an unpack it:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; myDictionary = {&quot;girl&quot;:&quot;Marie&quot;,&quot;guy&quot;: &quot;Martin&quot;,&quot;other&quot;:&quot;Internet&quot;}
-&gt;&gt;&gt; &quot;{guy} loves {girl}.&quot;.format(girl=&quot;Marie&quot;, guy=&quot;Martin&quot;)
-&#39;Martin loves Marie.&#39;
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; myDictionary = {"girl":"Marie","guy": "Martin","other":"Internet"}
+&gt;&gt;&gt; "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
+'Martin loves Marie.'
 </code></pre></div>
-
 <h2 id="date-and-time">Date and Time</h2>
 <p>You can format time any way you like, just look at <a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">this reference</a>.</p>
-<h2>Lists</h2>
+<h2 id="lists">Lists</h2>
 <p>Question: I would like to print a list! How do I do that?
 Answer: Convert your list to a string</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; <span class="n">myList</span> = [<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>]
-&gt;&gt;&gt; <span class="nb">print</span>(<span class="s">&quot;Your list: %s&quot;</span> % (<span class="n">str</span>(<span class="n">myList</span>)))
+&gt;&gt;&gt; <span class="nb">print</span>(<span class="s">"Your list: %s"</span> % (<span class="n">str</span>(<span class="n">myList</span>)))
 <span class="n">Your</span> <span class="n">list:</span> [<span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">3</span>]
 </code></pre></div>
-
 <h2 id="str-and-repr"><strong>str</strong> and <strong>repr</strong></h2>
 <p>When you build your own objects, you should add an implementation for the method <code><strong>str</strong></code> and <code><strong>repr</strong></code>. The first one should return a string representation that is human readable of the object, the second one should return a string that identifies the object.</p>
 <h2 id="formatters">Formatters</h2>
 <table>
 <tr>
-  <td><code>%i</code></td>
-  <td>Integer</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%i&quot; % (123))
+<td><code>%i</code></td>
+<td>Integer</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%i" % (123))
 123
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%s</code></td>
-  <td>String</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%s&quot; % (&quot;Martin&quot;))
+<td><code>%s</code></td>
+<td>String</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%s" % ("Martin"))
 Martin
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%o</code></td>
-  <td>Int as octal</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%o&quot; % (123.123))
+<td><code>%o</code></td>
+<td>Int as octal</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%o" % (123.123))
 173
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%x</code></td>
-  <td>Int as hexadecimal (lower case)</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%x&quot; % (123.123))
+<td><code>%x</code></td>
+<td>Int as hexadecimal (lower case)</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%x" % (123.123))
 7b
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%X</code></td>
-  <td>Int as hexadecimal (upper case)</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%X&quot; % (123.123))
+<td><code>%X</code></td>
+<td>Int as hexadecimal (upper case)</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%X" % (123.123))
 7B
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%f</code></td>
-  <td>Floating point</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%f&quot; % (123.123))
+<td><code>%f</code></td>
+<td>Floating point</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%f" % (123.123))
 123.123000
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%.2f</code></td>
-  <td>Floating point with two decimal places</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%.2f&quot; % (123.123))
+<td><code>%.2f</code></td>
+<td>Floating point with two decimal places</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%.2f" % (123.123))
 123.12
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%e</code></td>
-  <td>Floating point in scientific notation</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%e&quot; % (123.123))
+<td><code>%e</code></td>
+<td>Floating point in scientific notation</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%e" % (123.123))
 1.231230e+02
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%%</code></td>
-  <td>Percent sign</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%i%%&quot; % (65))
+<td><code>%%</code></td>
+<td>Percent sign</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%i%%" % (65))
 65%
 </code></pre></div>
-
-
-
 </td>
 </tr>
 <tr>
-  <td><code>%6.2f</code></td>
-  <td>Print a float with 2 decimal places. Add spaces if this has less than 6 characters.</td>
-  <td>
-
-
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(&quot;%6.2f&quot; % (65.123))
+<td><code>%6.2f</code></td>
+<td>Print a float with 2 decimal places. Add spaces if this has less than 6 characters.</td>
+<td>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print("%6.2f" % (65.123))
  65.12
 </code></pre></div>
-
-
-
 </td>
 </tr>
 </table>
-
 <h2 id="columns">Columns</h2>
 <div class="highlight"><pre><span></span><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;Easybox 1234&quot;</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="s2">&quot;DC:9F:DB:B2:B1:1C&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;FRITZ!Box 6360 Cable&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;24:65:11:06:71:54&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;wkit-802.1x&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;A0:D3:C1:9F:FF:11&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"Easybox 1234"</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="s2">"DC:9F:DB:B2:B1:1C"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"FRITZ!Box 6360 Cable"</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">"24:65:11:06:71:54"</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"wkit-802.1x"</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">"A0:D3:C1:9F:FF:11"</span><span class="p">),</span>
 <span class="p">]</span>
-<span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0:&lt;20}{1:&gt;6}{2:&gt;20}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;SSID&quot;</span><span class="p">,</span> <span class="s2">&quot;Signal&quot;</span><span class="p">,</span> <span class="s2">&quot;HwAddress&quot;</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{0:&lt;20}{1:&gt;6}{2:&gt;20}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"SSID"</span><span class="p">,</span> <span class="s2">"Signal"</span><span class="p">,</span> <span class="s2">"HwAddress"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ssid</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">hwaddress</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:&lt;20}{1:&gt;6}{2:&gt;20}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="n">hwaddress</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{0:&lt;20}{1:&gt;6}{2:&gt;20}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"%"</span><span class="p">,</span> <span class="n">hwaddress</span><span class="p">))</span>
 </code></pre></div>
-
 <p>results in</p>
 <div class="highlight"><pre><span></span><code>SSID                Signal           HwAddress
 ----------------------------------------------
@@ -309,13 +258,12 @@ Easybox 1234           54%   DC:9F:DB:B2:B1:1C
 FRITZ!Box 6360 Cable   12%   24:65:11:06:71:54
 wkit-802.1x            15%   A0:D3:C1:9F:FF:11
 </code></pre></div>
-
 <h2 id="resources">Resources</h2>
 <ul>
-  <li><a href="https://pyformat.info/">pyformat.info</a></li>
-  <li><a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Format Specification Mini-Language</a></li>
-  <li><a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">Time formatting</a></li>
-  <li><a href="http://docs.python.org/2/library/pprint.html">Pretty Print</a></li>
+<li><a href="https://pyformat.info/">pyformat.info</a></li>
+<li><a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Format Specification Mini-Language</a></li>
+<li><a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">Time formatting</a></li>
+<li><a href="http://docs.python.org/2/library/pprint.html">Pretty Print</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

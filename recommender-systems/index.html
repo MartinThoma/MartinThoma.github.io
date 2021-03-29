@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Recommender Systems">Recommender Systems</a><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#user-based-collaborative-filtering" title="User-Based Collaborative Filtering">User-Based Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#more-collaborative-filtering" title="More Collaborative Filtering">More Collaborative Filtering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a><ul><li><a class="toc-href" href="#matrix-completion" title="Matrix Completion">Matrix Completion</a></li><li><a class="toc-href" href="#ranking" title="Ranking">Ranking</a></li><li><a class="toc-href" href="#other" title="Other">Other</a></li><li><a class="toc-href" href="#user-feedback" title="User Feedback">User Feedback</a></li></ul></li><li><a class="toc-href" href="#typical-problems_1" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#sparsity" title="Sparsity">Sparsity</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li><li><a class="toc-href" href="#surrogate-problem" title="Surrogate-Problem">Surrogate-Problem</a></li></ul></li><li><a class="toc-href" href="#matrix-factorization_1" title="Matrix Factorization">Matrix Factorization</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#other-resources" title="Other Resources">Other Resources</a></li><li><a class="toc-href" href="#papers" title="Papers">Papers</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I recently became interested in recommender systems. You know, the thing on
@@ -140,19 +146,18 @@ a product to a vector and use a similarity measure (e.g. cosine similarity). If
 you have natural laguage descriptions you can use tf-idf features and then use
 a similarity measure. You would then recommend the most similar products.</p>
 <dl>
-    <dt>Cosine-Similarity</dt>
-    <dd>Let $x$ and $y$ be items. Their cosine similarity is defined as $$f(x, y) := \frac{\sum_i x_i y_i}{\sqrt{\sum_i x_i^2} \sqrt{\sum_i y_i^2}}$$</dd>
-    <dt>Centered Cosine Similarity</dt>
-    <dd>Subtract the mean value from all elements. If you have null values, don't change anything there. Then apply the cosine similarity.</dd>
-    <dt>Jaccard Similarity</dt>
-    <dd>Let $x$ and $y$ be items and $r_x, r_y$ be their attributes. Their jaccard similarity is defined as $$f(x, y) := \frac{|r_x \cap r_y|}{|r_x \cup r_y|}$$</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a></dt>
-    <dd>$$f(x, y) := \left ( \sum_{i=1}^n {|x_i - y_i|}^p \right )^{1/p}$$</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Mahalanobis_distance">Mahalanobis distance</a></dt>
-    <dd>The Mahalanobis distance of an observation <math>\vec{x} = ( x_1, x_2, x_3, \dots, x_N )^T</math> from a set of observations with mean $\vec{\mu} = ( \mu_1, \mu_2, \mu_3, \dots , \mu_N )^T$ and covariance matrix $S$ is defined as:
+<dt>Cosine-Similarity</dt>
+<dd>Let $x$ and $y$ be items. Their cosine similarity is defined as $$f(x, y) := \frac{\sum_i x_i y_i}{\sqrt{\sum_i x_i^2} \sqrt{\sum_i y_i^2}}$$</dd>
+<dt>Centered Cosine Similarity</dt>
+<dd>Subtract the mean value from all elements. If you have null values, don't change anything there. Then apply the cosine similarity.</dd>
+<dt>Jaccard Similarity</dt>
+<dd>Let $x$ and $y$ be items and $r_x, r_y$ be their attributes. Their jaccard similarity is defined as $$f(x, y) := \frac{|r_x \cap r_y|}{|r_x \cup r_y|}$$</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Minkowski_distance">Minkowski Distance</a></dt>
+<dd>$$f(x, y) := \left ( \sum_{i=1}^n {|x_i - y_i|}^p \right )^{1/p}$$</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Mahalanobis_distance">Mahalanobis distance</a></dt>
+<dd>The Mahalanobis distance of an observation <math>\vec{x} = ( x_1, x_2, x_3, \dots, x_N )^T</math> from a set of observations with mean $\vec{\mu} = ( \mu_1, \mu_2, \mu_3, \dots , \mu_N )^T$ and covariance matrix $S$ is defined as:
     $$D_M(\vec{x}) = \sqrt{(\vec{x} - \vec{\mu})^T S^{-1} (\vec{x}-\vec{\mu})}$$</dd>
 </dl>
-
 <h2 id="user-based-collaborative-filtering">User-Based Collaborative Filtering</h2>
 <p>Users can have different scales on which they rate stuff:</p>
 <ul>
@@ -172,42 +177,40 @@ Most elements of the matrix are not known, though.</p>
 <p>In some sense, bestellsers are a special case of collaborative filtering:
 Simply recommending what got sold most.</p>
 <dl>
-    <dt>Adjusted Cosine</dt>
-    <dd>$$f(x, y) := \frac{\sum_i (x_i -\bar{x}) (y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}$$
+<dt>Adjusted Cosine</dt>
+<dd>$$f(x, y) := \frac{\sum_i (x_i -\bar{x}) (y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}$$
     Applicable mostly to get a similar user based on ratings. The idea is that different people have different baselines from which they operate, e.g. in a 5 star rating you could always give 5 stars if nothing is wrong. Or always 3 stars and if there is something really good, give more.</dd>
-    <dt>item-based pearson similarity</dt>
-    <dd>$$f(x, y) := \frac{\sum_i (x_i - \bar{j})(y_i - \bar{j})}{\sqrt{\sum_i (x_i - \bar{j})^2} \sqrt{\sum_i (y_i - \bar{j})^2}}$$</dd>
-    <dt>Spearman rank correlation</dt>
-    <dd>Pearson similarity based on ranks (position in the recommendation), not ratings. Usually not use in practice.</dd>
-    <dt>Mean Squared Difference Similarity</dt>
-    <dd>$$MSD(x, y) := \frac{\sum_{i \in I_{x, y}} (x_i - y_i)^2}{|I_{x, y}|}$$
+<dt>item-based pearson similarity</dt>
+<dd>$$f(x, y) := \frac{\sum_i (x_i - \bar{j})(y_i - \bar{j})}{\sqrt{\sum_i (x_i - \bar{j})^2} \sqrt{\sum_i (y_i - \bar{j})^2}}$$</dd>
+<dt>Spearman rank correlation</dt>
+<dd>Pearson similarity based on ranks (position in the recommendation), not ratings. Usually not use in practice.</dd>
+<dt>Mean Squared Difference Similarity</dt>
+<dd>$$MSD(x, y) := \frac{\sum_{i \in I_{x, y}} (x_i - y_i)^2}{|I_{x, y}|}$$
         and the similarity:
         $$MSDsim(x, y) := \frac{1}{MSD(x, y) + 1}$$</dd>
-    <dt>Jaccard Similarity</dt>
-    <dd>$$\frac{A \cap B}{A \cup B}$$</dd>
+<dt>Jaccard Similarity</dt>
+<dd>$$\frac{A \cap B}{A \cup B}$$</dd>
 </dl>
-
 <h2 id="basic-basket-analysis">Basic Basket Analysis</h2>
 <p>See <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules">Association Rule Mining</a></p>
 <h2 id="more-collaborative-filtering">More Collaborative Filtering</h2>
 <p>There are many <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> (CF) approaches</p>
 <dl>
-    <dt>Item-based collaborative filtering</dt>
-    <dd>"users who liked what you liked, also like..."<ol>
-        <li>Build an item-item matrix determining relationships between pairs of items</li>
-        <li>Infer the tastes of the current user by examining the matrix and matching that user's data</li>
-    </ol><a href="https://en.wikipedia.org/wiki/Slope_One">Slope One</a> is an example</dd>
-    <dt>Matrix Factorization</dt>
-    <dd>Factorize the rating matrix $R$ into a user-embedding matrix $U$ and an item embedding matrix $V$ such that $R = U \times \Sigma \times V$.</dd>
-    <dt>User-based collaborative filtering</dt>
-    <dd><ol>
-        <li>Look for users who share the same rating patterns with the active user (the user whom the prediction is for).</li>
-        <li>Use the ratings from those like-minded users found in step 1 to calculate a prediction for the active user</li>
-    </ol>
-    <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-NN</a> is one example.
+<dt>Item-based collaborative filtering</dt>
+<dd>"users who liked what you liked, also like..."<ol>
+<li>Build an item-item matrix determining relationships between pairs of items</li>
+<li>Infer the tastes of the current user by examining the matrix and matching that user's data</li>
+</ol><a href="https://en.wikipedia.org/wiki/Slope_One">Slope One</a> is an example</dd>
+<dt>Matrix Factorization</dt>
+<dd>Factorize the rating matrix $R$ into a user-embedding matrix $U$ and an item embedding matrix $V$ such that $R = U \times \Sigma \times V$.</dd>
+<dt>User-based collaborative filtering</dt>
+<dd><ol>
+<li>Look for users who share the same rating patterns with the active user (the user whom the prediction is for).</li>
+<li>Use the ratings from those like-minded users found in step 1 to calculate a prediction for the active user</li>
+</ol>
+<a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-NN</a> is one example.
     </dd>
 </dl>
-
 <p>One line of work goes in the direction of matrix factorization with alternating
 least squares (ALS).[^5,^6] They have a training algorithm with has a time complexity
 of <span class="math">\(\mathcal{O}(MNK^2)\)</span> for one iteration, where <span class="math">\(M\)</span> is the number of users,
@@ -223,12 +226,11 @@ of <span class="math">\(\mathcal{O}(MNK^2)\)</span> for one iteration, where <sp
 <p>One way to evaluate if recommendation systems work is by the typical train-test split.</p>
 <p>Possible Metrics, where <span class="math">\(y\)</span> is the real value and <span class="math">\(p(x)\)</span> is the predicted value:</p>
 <dl>
-    <dt>Mean Absolute Error (MAE)</dt>
-    <dd>$\frac{1}{n} \sum_{i=1}^n |y_i - p(x_i)| \in [0, 1]$, where lower is better</dd>
-    <dt>Root Mean Square Error (RMSE)</dt>
-    <dd>$\sqrt{\frac{1}{n} \sum_{i=1}^n {(y_i - p(x_i))}^2} \in [0, \infty)$, where lower is better</dd>
+<dt>Mean Absolute Error (MAE)</dt>
+<dd>$\frac{1}{n} \sum_{i=1}^n |y_i - p(x_i)| \in [0, 1]$, where lower is better</dd>
+<dt>Root Mean Square Error (RMSE)</dt>
+<dd>$\sqrt{\frac{1}{n} \sum_{i=1}^n {(y_i - p(x_i))}^2} \in [0, \infty)$, where lower is better</dd>
 </dl>
-
 <h3 id="ranking">Ranking</h3>
 <p>The problem with those two ways is that low-rated items don't matter much. If
 95% of the users look at <span class="math">\(n\)</span> items, then you want the Top-<span class="math">\(n\)</span> recommendations
@@ -236,62 +238,55 @@ to be (1) more relevant than the rest for the user and (2) the order of the
 top-<span class="math">\(n\)</span> elements to be correct.</p>
 <p>Metrics for top-n recommenders:</p>
 <dl>
-    <dt>Precision@k</dt>
-    <dd>$\frac{\text{recommended items @k that are relevant}}{k}$. This gives
+<dt>Precision@k</dt>
+<dd>$\frac{\text{recommended items @k that are relevant}}{k}$. This gives
         you the portion of items that are relevant to your user.</dd>
-    <dt>Recall@k</dt>
-    <dd>$\frac{\text{recommended items @k that are relevant}}{total relevant items}$. If precision is high and recall is low, it might indicate that $k$ is just very small. If recall is high and precision is low it might show that not so many items are relevant in comparison to the choice of $k$.</dd>
-    <dt>Average Precision@k</dt>
-    <dd>TODO</dd>
-    <dt>Hit Rate</dt>
-    <dd>Number of hits in your $n$ recommendations, divided by the number of users</dd>
-    <dt>Average Reciprocal Hit Rank (ARHR)</dt>
-    <dd>$\frac{1}{|Users| \cdot \sum_{i=1}^n \frac{1}{rank_i}}$</dd>
-    <dt>Cumulative Hit Rate (cHR)</dt>
-    <dd>Throw away low-ranking stuff (hence you need a threshold)</dd>
+<dt>Recall@k</dt>
+<dd>$\frac{\text{recommended items @k that are relevant}}{total relevant items}$. If precision is high and recall is low, it might indicate that $k$ is just very small. If recall is high and precision is low it might show that not so many items are relevant in comparison to the choice of $k$.</dd>
+<dt>Average Precision@k</dt>
+<dd>TODO</dd>
+<dt>Hit Rate</dt>
+<dd>Number of hits in your $n$ recommendations, divided by the number of users</dd>
+<dt>Average Reciprocal Hit Rank (ARHR)</dt>
+<dd>$\frac{1}{|Users| \cdot \sum_{i=1}^n \frac{1}{rank_i}}$</dd>
+<dt>Cumulative Hit Rate (cHR)</dt>
+<dd>Throw away low-ranking stuff (hence you need a threshold)</dd>
 </dl>
-
 <h3 id="other">Other</h3>
 <p>Other quality indicators for a recommendation system</p>
 <dl>
-    <dt>Diversity</dt>
-    <dd>How broad is the variety of items recommended to people?</dd>
-    <dt>Novelty</dt>
-    <dd>How many new/unfamiliar things do get recommended to a user? The higher the novelty, the more likely the user will discover something new. If it is too high, the user doesn't trust the recommendation anymore.</dd>
-    <dt>Churn</dt>
-    <dd>How often do recommendations for a user change?</dd>
-    <dt>Responsiveness</dt>
-    <dd>How quickly are recommendations adjusted?</dd>
+<dt>Diversity</dt>
+<dd>How broad is the variety of items recommended to people?</dd>
+<dt>Novelty</dt>
+<dd>How many new/unfamiliar things do get recommended to a user? The higher the novelty, the more likely the user will discover something new. If it is too high, the user doesn't trust the recommendation anymore.</dd>
+<dt>Churn</dt>
+<dd>How often do recommendations for a user change?</dd>
+<dt>Responsiveness</dt>
+<dd>How quickly are recommendations adjusted?</dd>
 </dl>
-
 <h3 id="user-feedback">User Feedback</h3>
 <p>Another way to evaluate is to ask the user:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-1.png"><img src="../images/2019/05/youtube-feedback-1.png" alt="A jellyfish" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 1 Star</figcaption>
+<a href="../images/2019/05/youtube-feedback-1.png"><img alt="A jellyfish" src="../images/2019/05/youtube-feedback-1.png" style="width: 512px;"/></a>
+<figcaption class="text-center">YouTube Asking for feedback: 1 Star</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-2.png"><img src="../images/2019/05/youtube-feedback-2.png" alt="A jellyfish" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 2 Star</figcaption>
+<a href="../images/2019/05/youtube-feedback-2.png"><img alt="A jellyfish" src="../images/2019/05/youtube-feedback-2.png" style="width: 512px;"/></a>
+<figcaption class="text-center">YouTube Asking for feedback: 2 Star</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-3.png"><img src="../images/2019/05/youtube-feedback-3.png" alt="A jellyfish" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 3 Star</figcaption>
+<a href="../images/2019/05/youtube-feedback-3.png"><img alt="A jellyfish" src="../images/2019/05/youtube-feedback-3.png" style="width: 512px;"/></a>
+<figcaption class="text-center">YouTube Asking for feedback: 3 Star</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-4.png"><img src="../images/2019/05/youtube-feedback-4.png" alt="A jellyfish" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 4 Star</figcaption>
+<a href="../images/2019/05/youtube-feedback-4.png"><img alt="A jellyfish" src="../images/2019/05/youtube-feedback-4.png" style="width: 512px;"/></a>
+<figcaption class="text-center">YouTube Asking for feedback: 4 Star</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/05/youtube-feedback-5.png"><img src="../images/2019/05/youtube-feedback-5.png" alt="A jellyfish" style="width: 512px;"/></a>
-    <figcaption class="text-center">YouTube Asking for feedback: 5 Star</figcaption>
+<a href="../images/2019/05/youtube-feedback-5.png"><img alt="A jellyfish" src="../images/2019/05/youtube-feedback-5.png" style="width: 512px;"/></a>
+<figcaption class="text-center">YouTube Asking for feedback: 5 Star</figcaption>
 </figure>
-
-<h2 id="typical-problems">Typical Problems</h2>
+<h2 id="typical-problems_1">Typical Problems</h2>
 <h3 id="cold-start-problem">Cold-Start Problem</h3>
 <p>The cold-start problem is central and only fixable by content-based
 recommendation. If there is a new product, not a single user has rated it. It
@@ -317,16 +312,15 @@ surrogate might have way bigger impact on our real goal than an improvement in
 achieving the surrogate goal.</p>
 <h1 id="vocabulary">Vocabulary</h1>
 <dl>
-    <dt>Top-N Recommendation</dt>
-    <dd>Recommend N items</dd>
-    <dt>mise en scène</dt>
-    <dd>The idea in content-based filtering for movies to extract properties
+<dt>Top-N Recommendation</dt>
+<dd>Recommend N items</dd>
+<dt>mise en sc&egrave;ne</dt>
+<dd>The idea in content-based filtering for movies to extract properties
         directly from the movie itself. It includes:
         Average shot length, color variance, mean motion average across all the
         frames, lightning, number of shots</dd>
 </dl>
-
-<h2 id="matrix-factorization">Matrix Factorization</h2>
+<h2 id="matrix-factorization_1">Matrix Factorization</h2>
 <p>Matrix Factorization is factorization in the same way as with natural numbers:
 Take a matrix <span class="math">\(R\)</span> and factorize it in <span class="math">\(U\)</span> and <span class="math">\(V\)</span> such that <span class="math">\(R = U \cdot V\)</span>. If
 the complete matrix <span class="math">\(R\)</span> is given, <span class="math">\(R\)</span> can be factorized with Singular Value
@@ -381,28 +375,28 @@ remainding ones.</p>
 </ul>
 <h2 id="papers">Papers</h2>
 <div class="footnote">
-<hr>
+<hr/>
 <ol>
 <li id="fn:1">
-<p>Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:2">
-<p>Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:3">
-<p>Ruslan Salakhutdinov and Andriy Mnih: <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Ruslan Salakhutdinov and Andriy Mnih: <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a>, 2008.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:4">
-<p>C. C. Aggarwal: Recommender systems, 2016. Springer International Publishing. Pages 1-28.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>C. C. Aggarwal: Recommender systems, 2016. Springer International Publishing. Pages 1-28.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 <li id="fn:5">
-<p>Xiangnan He, Hanwang Zhang, Min-Yen Kan, Tat-Seng Chua: <a href="https://arxiv.org/pdf/1708.05024.pdf">Fast Matrix Factorization for Online Recommendation with Implicit Feedback</a>, 2017.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Xiangnan He, Hanwang Zhang, Min-Yen Kan, Tat-Seng Chua: <a href="https://arxiv.org/pdf/1708.05024.pdf">Fast Matrix Factorization for Online Recommendation with Implicit Feedback</a>, 2017.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">↩</a></p>
 </li>
 <li id="fn:6">
-<p>Yifan Hu, Yehuda Koren, Chris Volinsky: <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>, 2008. (<a href="https://www.shortscience.org/paper?bibtexKey=koren:icdm08&amp;a=martinthoma">summary</a>)&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Yifan Hu, Yehuda Koren, Chris Volinsky: <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>, 2008. (<a href="https://www.shortscience.org/paper?bibtexKey=koren:icdm08&amp;a=martinthoma">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 <li id="fn:7">
-<p>Robert M. Bell, Yehuda Koren and Chris Volinsky: <a href="https://www.netflixprize.com/assets/ProgressPrize2007_KorBell.pdf">The BellKor solution to the Netflix Prize</a>, 2007.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Robert M. Bell, Yehuda Koren and Chris Volinsky: <a href="https://www.netflixprize.com/assets/ProgressPrize2007_KorBell.pdf">The BellKor solution to the Netflix Prize</a>, 2007.&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">↩</a></p>
 </li>
 </ol>
 </div>

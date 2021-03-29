@@ -102,12 +102,18 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="6 YAML Features most programmers don&rsquo;t know">6 YAML Features most programmers don&rsquo;t know</a><ul><li><a class="toc-href" href="#equivalent-notation" title="Equivalent Notation">Equivalent Notation</a></li><li><a class="toc-href" href="#long-strings" title="Long Strings">Long Strings</a></li><li><a class="toc-href" href="#multi-line-string" title="Multi-Line String">Multi-Line String</a></li><li><a class="toc-href" href="#anchor" title="Anchor">Anchor</a></li><li><a class="toc-href" href="#type-casting" title="Type Casting">Type Casting</a></li><li><a class="toc-href" href="#multiple-documents-in-one-yaml" title="Multiple Documents in one YAML">Multiple Documents in one YAML</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="" src="https://cdn-images-1.medium.com/max/3474/1*1zw7ZZTxnY5LiSnn9w6zlw.png"></p>
+            <p><img alt="" src="https://cdn-images-1.medium.com/max/3474/1*1zw7ZZTxnY5LiSnn9w6zlw.png"/></p>
 <p>YAML is a file format commonly used for data serialization. There are a plethora of projects using YAML files for configuration, such as <a href="https://docs.docker.com/compose/">Docker-compose</a>, <a href="https://pre-commit.com/#2-add-a-pre-commit-configuration">pre-commit</a>, <a href="https://docs.travis-ci.com/user/build-config-yaml">TravisCI</a>, <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html">AWS Cloudformation</a>, <a href="https://eslint.org/docs/user-guide/configuring">ESLint</a>, <a href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods">Kubernetes</a>, <a href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">Ansible</a>, and many more. Knowing the features of YAML helps you with all of them.</p>
-<p>Let’s cover the basics first: YAML is a superset of JSON (<a href="https://yaml.org/spec/1.2/spec.html#id2759572">source</a>). Every valid JSON file is also a valid YAML file. This means you have all of the types you expect: Integers, floats, strings, bool, null. Also sequences and maps. Depending on your programming language, you might say “array” or “list” instead of sequence and “dictionary” instead of map.</p>
+<p>Let&rsquo;s cover the basics first: YAML is a superset of JSON (<a href="https://yaml.org/spec/1.2/spec.html#id2759572">source</a>). Every valid JSON file is also a valid YAML file. This means you have all of the types you expect: Integers, floats, strings, bool, null. Also sequences and maps. Depending on your programming language, you might say &ldquo;array&rdquo; or &ldquo;list&rdquo; instead of sequence and &ldquo;dictionary&rdquo; instead of map.</p>
 <p>It typically looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">mysql</span><span class="p">:</span>
   <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
@@ -120,7 +126,6 @@ MathJax.Hub.Queue(function() {
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">preprocessing.dot_reduction</span>
 <span class="nt">use_anonymous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <h2 id="equivalent-notation">Equivalent Notation</h2>
 <p>YAML has a lot of equivalent ways to write stuff:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">list_by_dash</span><span class="p">:</span>
@@ -132,18 +137,16 @@ MathJax.Hub.Queue(function() {
   <span class="nt">bar</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">baz</span>
 <span class="nt">map_by_curly_braces</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">foo</span><span class="p">:</span> <span class="nv">bar</span><span class="p p-Indicator">,</span><span class="nt"> bar</span><span class="p">:</span> <span class="nv">baz</span><span class="p p-Indicator">}</span>
 <span class="nt">string_no_quotes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Monty Python</span>
-<span class="nt">string_double_quotes</span><span class="p">:</span> <span class="s">&quot;Monty</span><span class="nv"> </span><span class="s">Python&quot;</span>
-<span class="nt">string_single_quotes</span><span class="p">:</span> <span class="s">&#39;Monty</span><span class="nv"> </span><span class="s">Python&#39;</span>
+<span class="nt">string_double_quotes</span><span class="p">:</span> <span class="s">"Monty</span><span class="nv"> </span><span class="s">Python"</span>
+<span class="nt">string_single_quotes</span><span class="p">:</span> <span class="s">'Monty</span><span class="nv"> </span><span class="s">Python'</span>
 <span class="nt">bool_english</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
 <span class="nt">bool_english_no</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
 <span class="nt">bool_python</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
 <span class="nt">bool_json</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <p>Some words of caution here:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>  <span class="c1"># ISO 639-1 code for the Norwegian language</span>
 </code></pre></div>
-
 <p>This no is interpreted as false . You need to write "no" or 'no' .</p>
 <p>In general, I recommend using true and false just like JSON does for booleans,
 but <a href="https://yaml.org/type/bool.html">YAML supports 11 ways to write booleans</a>.
@@ -156,32 +159,26 @@ to YAML beginners.</p>
     <span class="no">In nec urna pellentesque, imperdiet urna vitae, hendrerit</span>
     <span class="no">odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla.</span>
 </code></pre></div>
-
 <p>This is equivalent to the following JSON (newlines are added for readability; please ignore them):</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;disclaimer&quot;</span><span class="p">:</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec urna pellentesque, imperdiet urna vitae, hendrerit odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla.&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"disclaimer"</span><span class="p">:</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec urna pellentesque, imperdiet urna vitae, hendrerit odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla."</span><span class="p">}</span>
 </code></pre></div>
-
 <h2 id="multi-line-string">Multi-Line String</h2>
 <div class="highlight"><pre><span></span><code><span class="nt">mail_signature</span><span class="p">:</span> <span class="p p-Indicator">|</span>
       <span class="no">Martin Thoma</span>
       <span class="no">Tel. +49 123 4567</span>
 </code></pre></div>
-
 <p>This is equivalent to the JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;mail_signature&quot;</span><span class="p">:</span> <span class="s2">&quot;Martin Thoma\nTel. +49 123 4567&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"mail_signature"</span><span class="p">:</span> <span class="s2">"Martin Thoma\nTel. +49 123 4567"</span><span class="p">}</span>
 </code></pre></div>
-
-<p>Note how the leading whitespace is ignored. The first line (“Martin Thoma”)
+<p>Note how the leading whitespace is ignored. The first line (&ldquo;Martin Thoma&rdquo;)
 determines the number of ignored leading whitespace.</p>
 <h2 id="anchor">Anchor</h2>
-<div class="highlight"><pre><span></span><code><span class="nt">email</span><span class="p">:</span> <span class="nl">&amp;emailAddress</span> <span class="s">&quot;info@example.de&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">email</span><span class="p">:</span> <span class="nl">&amp;emailAddress</span> <span class="s">"info@example.de"</span>
 <span class="nt">id</span><span class="p">:</span> <span class="nv">*emailAddress</span>
 </code></pre></div>
-
 <p>This is equivalent to the following JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;info@example.de&quot;</span><span class="p">,</span> <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;info@example.de&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"email"</span><span class="p">:</span> <span class="s2">"info@example.de"</span><span class="p">,</span> <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"info@example.de"</span><span class="p">}</span>
 </code></pre></div>
-
 <p>The <code>&amp;</code> defined a variable emailAddress with the value <code>"info@example.de</code>.
 The <code>*</code> then indicated that the name of a variable follows.</p>
 <p>You can do the same with mappings:</p>
@@ -195,23 +192,21 @@ The <code>*</code> then indicated that the name of a variable follows.</p>
 <span class="nt">prod</span><span class="p">:</span> <span class="nv">*default_settings</span>
 <span class="nt">dev</span><span class="p">:</span> <span class="nv">*default_settings</span>
 </code></pre></div>
-
 <p>which gives:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="nt">&quot;dev&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;host&quot;</span><span class="p">:</span>
-                  <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;main_db&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;[admin@example.com](mailto:admin@example.com)&quot;</span><span class="p">}},</span>
-  <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;main_db&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;[admin@example.com](mailto:admin@example.com)&quot;</span><span class="p">}},</span>
-  <span class="nt">&quot;prod&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;main_db&quot;</span><span class="p">,</span>
-                   <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;[admin@example.com](mailto:admin@example.com)&quot;</span><span class="p">}}}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="nt">"dev"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span>
+                  <span class="s2">"localhost"</span><span class="p">,</span>
+                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
+                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
+           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+  <span class="nt">"foo"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
+                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
+           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+  <span class="nt">"prod"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+                   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
+                   <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
+            <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}}}</span>
 </code></pre></div>
-
 <p>Now you might want to insert a password to the dev and prod settings. You can
 do that by using the <a href="https://yaml.org/type/merge.html">merge key</a> <code>&lt;&lt;</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span> <span class="nl">&amp;default_settings</span>
@@ -227,32 +222,29 @@ do that by using the <a href="https://yaml.org/type/merge.html">merge key</a> <c
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80**</span>
 <span class="nt">dev</span><span class="p">:</span> <span class="nv">*default_settings</span>
 </code></pre></div>
-
 <p>which is equivalent to this JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;main_db&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;[admin@example.com](mailto:admin@example.com)&quot;</span><span class="p">}},</span>
-  <span class="nt">&quot;prod&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;app&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
-            <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;main_db&quot;</span><span class="p">,</span>
-                   <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;[admin@example.com](mailto:admin@example.com)&quot;</span><span class="p">}},</span>
-  <span class="nt">&quot;dev&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;db&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;main_db&quot;</span><span class="p">,</span>
-                  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;[admin@example.com](mailto:admin@example.com)&quot;</span><span class="p">}},}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="nt">"foo"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
+                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
+           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+  <span class="nt">"prod"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"app"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"port"</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
+            <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+                   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
+                   <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
+            <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+  <span class="nt">"dev"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
+                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
+           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},}</span>
 </code></pre></div>
-
 <h2 id="type-casting">Type Casting</h2>
-<p>The double bang <code>!!</code> has a special meaning in YAML. It is called “secondary tag
-handle” and a shorthand for <code>!tag:yaml.org,2002:</code>
+<p>The double bang <code>!!</code> has a special meaning in YAML. It is called &ldquo;secondary tag
+handle&rdquo; and a shorthand for <code>!tag:yaml.org,2002:</code>
 (<a href="https://yaml.org/spec/1.2/spec.html#id2782457">source</a>).</p>
 <p>You can do simple conversions like that:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">price</span><span class="p">:</span> <span class="kt">!!float</span> <span class="l l-Scalar l-Scalar-Plain">42</span>
 <span class="nt">id</span><span class="p">:</span> <span class="kt">!!str</span> <span class="l l-Scalar l-Scalar-Plain">42</span>
 </code></pre></div>
-
 <p>Or more complex ones, e.g. map to default Python types that are not specified in YAML directly:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">tuple_example</span><span class="p">:</span> <span class="err">**</span><span class="kt">!!python/tuple**</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1337</span>
@@ -260,12 +252,11 @@ handle” and a shorthand for <code>!tag:yaml.org,2002:</code>
 <span class="nt">set_example</span><span class="p">:</span> <span class="err">**</span><span class="kt">!!set**</span> <span class="p p-Indicator">{</span><span class="nv">1337</span><span class="p p-Indicator">,</span> <span class="nv">42</span><span class="p p-Indicator">}</span>
 <span class="nt">date_example</span><span class="p">:</span> <span class="err">**</span><span class="kt">!!timestamp**</span> <span class="l l-Scalar l-Scalar-Plain">2020-12-31</span>
 </code></pre></div>
-
 <p>You can read it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"example.yaml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -273,15 +264,13 @@ handle” and a shorthand for <code>!tag:yaml.org,2002:</code>
 <span class="n">pased</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">unsafe_load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">pased</span><span class="p">)</span>
 </code></pre></div>
-
 <p>And you will get this:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">&quot;date_example&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
-    <span class="s2">&quot;set_example&quot;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1337</span><span class="p">,</span> <span class="mi">42</span><span class="p">},</span>
-    <span class="s2">&quot;tuple_example&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span>
+    <span class="s2">"date_example"</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+    <span class="s2">"set_example"</span><span class="p">:</span> <span class="p">{</span><span class="mi">1337</span><span class="p">,</span> <span class="mi">42</span><span class="p">},</span>
+    <span class="s2">"tuple_example"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>This example uses the Python-specific tag !!python/tuple and some standard YAML tags. <a href="https://pyyaml.org/wiki/PyYAMLDocumentation#yaml-tags-and-python-types">PyYaml has a nice overview</a>:</p>
 <div class="highlight"><pre><span></span><code>## Standard YAML tags
 YAML               Python 3
@@ -319,7 +308,6 @@ YAML               Python 3
 !!python/object/new:module.cls    module.cls instance
 !!python/object/apply:module.f    value of f(...)
 </code></pre></div>
-
 <p>Please note that loading non-standard tags is unsafe! It is possible to execute
 arbitrary code with <code>!!python/object/apply:module.f</code>. In PyYaml, you need
 <code>yaml.unsafe_load</code> to use it. Hence you should probably not use it!</p>
@@ -329,30 +317,27 @@ arbitrary code with <code>!!python/object/apply:module.f</code>. In PyYaml, you 
 <span class="nn">---</span>
 <span class="nt">fizz</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">buzz</span>
 </code></pre></div>
-
 <p>In Python, you can load it like this with <a href="https://pypi.org/project/PyYAML/">PyYAML</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"example.yaml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">parsed</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load_all</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># parsed is a generator</span>
 </code></pre></div>
-
 <p>If you converted parsed to a list and print it, you get:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;fizz&quot;</span><span class="p">:</span> <span class="s2">&quot;buzz&quot;</span><span class="p">}]</span>
+<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="s2">"foo"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"fizz"</span><span class="p">:</span> <span class="s2">"buzz"</span><span class="p">}]</span>
 </code></pre></div>
-
-<p>Please note that this is NOT an alternative notation to write lists. It’s
+<p>Please note that this is NOT an alternative notation to write lists. It&rsquo;s
 different documents.</p>
 <p>The static site generator
 <a href="https://github.com/getpelican-plugins/pelican-md-yaml#usage">Pelican</a> uses
-this to distinguish metadata from the content. I haven’t seen any other
+this to distinguish metadata from the content. I haven&rsquo;t seen any other
 application using this feature.</p>
-<h2 id="whats-next">What’s next?</h2>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>There are plenty of configuration file formats such as TOML, INI, JSON, XML,
 dotenv, and data serialization formats such as Pythons pickle, HDF5, Numpys
-NPZ, XML. Let me know if you’re interested in learning more about one of them!</p>
+NPZ, XML. Let me know if you&rsquo;re interested in learning more about one of them!</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

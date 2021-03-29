@@ -102,98 +102,95 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Informationsfusion">Informationsfusion</a><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" href="#wt" title="WT">WT</a></li><li><a class="toc-href" href="#dempster-shafer-theorie" title="Dempster-Shafer-Theorie">Dempster-Shafer-Theorie</a></li><li><a class="toc-href" href="#fuzzy-systeme" title="Fuzzy-Systeme">Fuzzy-Systeme</a></li><li><a class="toc-href" href="#neuronale-netze" title="Neuronale Netze">Neuronale Netze</a></li><li><a class="toc-href" href="#registrierung" title="Registrierung">Registrierung</a></li><li><a class="toc-href" href="#energiefunktionale" title="Energie&shy;funktionale">Energie&shy;funktionale</a></li></ul></li><li><a class="toc-href" href="#uberblick_1" title="&Uuml;berblick">&Uuml;berblick</a></li><li><a class="toc-href" href="#abkurzungen" title="Abk&uuml;rzungen">Abk&uuml;rzungen</a></li><li><a class="toc-href" href="#meine-fragen" title="Meine Fragen">Meine Fragen</a></li><li><a class="toc-href" href="#ubungsaufgaben" title="&Uuml;bungsaufgaben">&Uuml;bungsaufgaben</a><ul><li><a class="toc-href" href="#ub-1" title="&Uuml;B 1">&Uuml;B 1</a></li><li><a class="toc-href" href="#ub-2" title="&Uuml;B 2">&Uuml;B 2</a></li><li><a class="toc-href" href="#ub-3" title="&Uuml;B 3">&Uuml;B 3</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#kalman-filter" title="Kalman-Filter">Kalman-Filter</a></li></ul></li><li><a class="toc-href" href="#absprachen_1" title="Absprachen">Absprachen</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Informationsfusion&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen nicht gehört, aber die Folien von <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=heizmann">Herrn Prof. Dr.-Ing. Michael Heizmann</a> aus dem Wintersemester 2015/2016 gelesen.</div>
-
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Informationsfusion&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen nicht geh&ouml;rt, aber die Folien von <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=heizmann">Herrn Prof. Dr.-Ing. Michael Heizmann</a> aus dem Wintersemester 2015/2016 gelesen.</div>
 <p>In der Vorlesung 'Informationsfusion' ist der Kalman-Filter ein zentraler
 Inhalt.</p>
 <h2 id="behandelter-stoff">Behandelter Stoff</h2>
 <h3 id="grundlagen">Grundlagen</h3>
 <p>Slides: <code>IF-Kap1_151110.pdf</code></p>
 <p>Es wurden Grundbegriffe wie Daten, Information, Merkmal, Informationsfusion,
-Signal, usw. eingeführt.</p>
+Signal, usw. eingef&uuml;hrt.</p>
 <dl>
-    <dt><dfn id="information">Information</dfn></dt>
-    <dd>
+<dt><dfn id="information">Information</dfn></dt>
+<dd>
 
         Information ist alles was potentiell zur Verringerung von Ungewissheit
-        beiträgt.
+        beitr&auml;gt.
 
-        Sinnvolle Informationen besteht aus Fakten und zugehörigen
+        Sinnvolle Informationen besteht aus Fakten und zugeh&ouml;rigen
         Unsicherheiten.
 
     </dd>
-    <dt><dfn id="signal">Signal</dfn></dt>
-    <dd>Ein Signal ist eine Funktion oder Wertefolge welche Information trägt.</dd>
-    <dt><dfn id="daten">Daten</dfn></dt>
-    <dd>Daten sind maschinenlesbare Repräsentationen von Informationen. Sie
+<dt><dfn id="signal">Signal</dfn></dt>
+<dd>Ein Signal ist eine Funktion oder Wertefolge welche Information tr&auml;gt.</dd>
+<dt><dfn id="daten">Daten</dfn></dt>
+<dd>Daten sind maschinenlesbare Repr&auml;sentationen von Informationen. Sie
         werden als Zeichen oder Zeichenketten gespeichert.</dd>
-    <dt><dfn id="feature-dfn">Merkmal</dfn></dt>
-    <dd>Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.</dd>
-    <dt><dfn>Vorraussetzungen für Informationsfusion</dfn></dt>
-    <dd>
-
-        <ul>
-            <li>Gemeinsamer Sachverhalt
+<dt><dfn id="feature-dfn">Merkmal</dfn></dt>
+<dd>Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.</dd>
+<dt><dfn>Vorraussetzungen f&uuml;r Informationsfusion</dfn></dt>
+<dd>
+<ul>
+<li>Gemeinsamer Sachverhalt
             <ul>
-                <li>Kompatibler Definitionsbereich</li>
-                <li>Kompatibler Wertebereich</li>
-            </ul>
-            </li>
-            <li>Unsicherheiten: Die Informationen müssen ein Maß für ihre Unsicherheit tragen</li>
-        </ul>
-
-    </dd>
-    <dt><dfn id="informationsfusion-advantages">Vorteile von Informationsfusion</dfn></dt>
-    <dd>
-
-        <ul>
-            <li>Höhere Robustheit</li>
-            <li>Erweterung der Sensorabdeckung</li>
-            <li>Erhöhte Auflösung (z.B. Accelerometer + Kompas in Kamera)</li>
-            <li>Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)</li>
-            <li>Unsicherheit Verringern (z.B. FLIR + Radar)</li>
-            <li>Indirektes schließen auf Größen (z.B. Oberflächennormalen)</li>
-        </ul>
-    </dd>
-    <dt><dfn id="features-properties">Wünschenswerte Eigenschaften von Merkmalen</dfn></dt>
-    <dd>
-
-        <ul>
-            <li>Leicht gewinnbar</li>
-            <li>Interpretierbar</li>
-            <li>Hohe Relevanz: Merkmalsvektor ist gut für die Aufgabe geeignet (z.B. lineare separierbarkeit der Klassen bei Klassifikationsproblemen in Merkmalsraum)</li>
-            <li>Robustheit gegen Störungen</li>
-            <li>Invarianzen werden berücksichtigt (z.B. Drehung des Objekts)</li>
-            <li>Geringe Dimensionalität des Merkmalsvektors</li>
-            <li>Geringe Abhängigkeit zwischen Merkmalen</li>
-        </ul>
-
-    </dd>
-    <dt><dfn id="sensorsystem-properties">Eigenschaften von Sensorsystemen</dfn></dt>
-    <dd>
-
-        <ul>
-            <li>Homogenität / Heterogenität</li>
-            <li>Wirkmechanismus / Struktur</li>
-            <li>Zuverlässigkeit</li>
-            <li>Kommensurabilität (Gleichdimensionalität)</li>
-            <li>Kollokiertheit (Identische Ausschnitte der Szene): Falls nicht gegeben, ist Registrierung erforderlich</li>
-        </ul>
+<li>Kompatibler Definitionsbereich</li>
+<li>Kompatibler Wertebereich</li>
+</ul>
+</li>
+<li>Unsicherheiten: Die Informationen m&uuml;ssen ein Ma&szlig; f&uuml;r ihre Unsicherheit tragen</li>
+</ul>
+</dd>
+<dt><dfn id="informationsfusion-advantages">Vorteile von Informationsfusion</dfn></dt>
+<dd>
+<ul>
+<li>H&ouml;here Robustheit</li>
+<li>Erweterung der Sensorabdeckung</li>
+<li>Erh&ouml;hte Aufl&ouml;sung (z.B. Accelerometer + Kompas in Kamera)</li>
+<li>Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)</li>
+<li>Unsicherheit Verringern (z.B. FLIR + Radar)</li>
+<li>Indirektes schlie&szlig;en auf Gr&ouml;&szlig;en (z.B. Oberfl&auml;chennormalen)</li>
+</ul>
+</dd>
+<dt><dfn id="features-properties">W&uuml;nschenswerte Eigenschaften von Merkmalen</dfn></dt>
+<dd>
+<ul>
+<li>Leicht gewinnbar</li>
+<li>Interpretierbar</li>
+<li>Hohe Relevanz: Merkmalsvektor ist gut f&uuml;r die Aufgabe geeignet (z.B. lineare separierbarkeit der Klassen bei Klassifikationsproblemen in Merkmalsraum)</li>
+<li>Robustheit gegen St&ouml;rungen</li>
+<li>Invarianzen werden ber&uuml;cksichtigt (z.B. Drehung des Objekts)</li>
+<li>Geringe Dimensionalit&auml;t des Merkmalsvektors</li>
+<li>Geringe Abh&auml;ngigkeit zwischen Merkmalen</li>
+</ul>
+</dd>
+<dt><dfn id="sensorsystem-properties">Eigenschaften von Sensorsystemen</dfn></dt>
+<dd>
+<ul>
+<li>Homogenit&auml;t / Heterogenit&auml;t</li>
+<li>Wirkmechanismus / Struktur</li>
+<li>Zuverl&auml;ssigkeit</li>
+<li>Kommensurabilit&auml;t (Gleichdimensionalit&auml;t)</li>
+<li>Kollokiertheit (Identische Ausschnitte der Szene): Falls nicht gegeben, ist Registrierung erforderlich</li>
+</ul>
 
         Weitere:
 
         <ul>
-            <li>Aktive / passive Sensoren: z.B. Laser beeinflusst die Umwelt</li>
-            <li>Virtuelle Sensorsysteme: Gleiche Sensoren, aber unterschiedliche Parameter</li>
-            <li>Kosten, Material</li>
-        </ul>
-
-    </dd>
+<li>Aktive / passive Sensoren: z.B. Laser beeinflusst die Umwelt</li>
+<li>Virtuelle Sensorsysteme: Gleiche Sensoren, aber unterschiedliche Parameter</li>
+<li>Kosten, Material</li>
+</ul>
+</dd>
 </dl>
-
 <h3 id="wt">WT</h3>
 <p>Slides: <code>IF-Kap2_151215.pdf</code></p>
 <ul>
@@ -202,148 +199,145 @@ Signal, usw. eingeführt.</p>
 <li>Bayessche Methodik</li>
 </ul>
 <dl>
-    <dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/probabilistische-planung#probability-measure">Probabilistische Planung</a></dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)"><dfn>Kovarianz</dfn></a> (<dfn id="covariance">Covariance</dfn>)</dt>
-    <dd>Es seien $X, Y$ Zufallsvariablen. Dann heißt
+<dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
+<dd>Siehe <a href="https://martin-thoma.com/probabilistische-planung#probability-measure">Probabilistische Planung</a></dd>
+<dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)"><dfn>Kovarianz</dfn></a> (<dfn id="covariance">Covariance</dfn>)</dt>
+<dd>Es seien $X, Y$ Zufallsvariablen. Dann hei&szlig;t
         $$COV(X, Y) = \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y)))$$
         die Kovarianz von $X$ und $Y$.
     </dd>
-    <dt><dfn id="statistisches-modell">Statistisches Modell</dfn></dt>
-    <dd>Es sei $X$ eine Zufallsvariable. Dann heißt ein Tupel
+<dt><dfn id="statistisches-modell">Statistisches Modell</dfn></dt>
+<dd>Es sei $X$ eine Zufallsvariable. Dann hei&szlig;t ein Tupel
         $(X, (P_\theta)_{\theta \in \Theta})$
         ein statistisches Modell, wenn $(P_\theta)_{\theta \in \Theta}$ eine
         Familie von Wahrscheinlichkeitsverteilungen ist.
     </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Schätzer</dfn></a></dt>
-    <dd>
+<dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Sch&auml;tzer</dfn></a></dt>
+<dd>
         Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe und
-        $\theta$ ein Parameter. Dann heißt die Abbildung
+        $\theta$ ein Parameter. Dann hei&szlig;t die Abbildung
         $$T: \mathcal{X} \rightarrow \tilde{\Theta}$$
-        mit $\tilde{\Theta} \supseteq \Theta$ ein Schätzer für $\theta$.
+        mit $\tilde{\Theta} \supseteq \Theta$ ein Sch&auml;tzer f&uuml;r $\theta$.
     </dd>
-    <dt><dfn>Konsistenter Schätzer</dfn></dt>
-    <dd>
+<dt><dfn>Konsistenter Sch&auml;tzer</dfn></dt>
+<dd>
 
         Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe, $\theta$ ein Parameter und
-        $T(\mathcal{X}_n)$ ein Schätzer für $\theta$. $T(\mathcal{X}_n)$
-        heißt konsistent, wenn gilt:
+        $T(\mathcal{X}_n)$ ein Sch&auml;tzer f&uuml;r $\theta$. $T(\mathcal{X}_n)$
+        hei&szlig;t konsistent, wenn gilt:
 
         $$\lim_{n \rightarrow \infty} P_\theta (|T(\mathcal{X}_n) - \theta| \geq \varepsilon) = 0$$
 
     </dd>
-    <dt><dfn>Asymptotisch Erwartungstreuer Schätzer</dfn></dt>
-    <dd>
+<dt><dfn>Asymptotisch Erwartungstreuer Sch&auml;tzer</dfn></dt>
+<dd>
 
-        Ein Schätzer $\hat{\theta} = \hat{\theta}(X_1, \dots, X_n)$ heißt
-        asymptotisch erwartungstreu, wenn der Grenzwert der zu schätzenden
+        Ein Sch&auml;tzer $\hat{\theta} = \hat{\theta}(X_1, \dots, X_n)$ hei&szlig;t
+        asymptotisch erwartungstreu, wenn der Grenzwert der zu sch&auml;tzenden
         Folge unter Annahme von $\theta$ gleich $\theta$ ist:
 
         $$\lim_{n \rightarrow \infty} \mathbb{E}(\hat{\theta}) = \theta$$
 
     </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
-    <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
-    <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
-    <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd
-    <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
-    <dd>GUM ist eine internationale Norm welche das Ziel hat, die
+<dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
+<dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
+<dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
+<dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)
+<dd>GUM ist eine internationale Norm welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
-        wurden in der Norm Grundsätze und Vorgehensweisen zur Bestimmung der
+        wurden in der Norm Grunds&auml;tze und Vorgehensweisen zur Bestimmung der
         Messunsicherheit festgelegt.<br/>
-        <br/>
-        GUM ist auf metrische Merkmale beschränkt.<br/>
+<br/>
+        GUM ist auf metrische Merkmale beschr&auml;nkt.<br/>
         Vorgehen:
         <ol>
-            <li>Modellgleichung formulieren: $Y = f(X_1, \dots, X_n)$, wobei
-                $Y$ die Messgröße und $X_i$ die Eingangsgrößen sind.</li>
-            <li>Eingangsgrößen und Unsicherheiten bestimmen (entweder durch Messreihen oder durch Erfahrungswerte / Handbücher)</li>
-            <li>Schätzwert $\hat{y}$ für Messgröße $Y$ bestimmen</li>
-            <li>Ermittlung der kombinierten Unsicherheit</li>
-        </ol>
-        </dd>
-    <dt><dfn>Standardunsicherheit</dfn></dt>
-    <dd>Die Standardunsicherheit einer Messung ist
+<li>Modellgleichung formulieren: $Y = f(X_1, \dots, X_n)$, wobei
+                $Y$ die Messgr&ouml;&szlig;e und $X_i$ die Eingangsgr&ouml;&szlig;en sind.</li>
+<li>Eingangsgr&ouml;&szlig;en und Unsicherheiten bestimmen (entweder durch Messreihen oder durch Erfahrungswerte / Handb&uuml;cher)</li>
+<li>Sch&auml;tzwert $\hat{y}$ f&uuml;r Messgr&ouml;&szlig;e $Y$ bestimmen</li>
+<li>Ermittlung der kombinierten Unsicherheit</li>
+</ol>
+</dd>
+<dt><dfn>Standardunsicherheit</dfn></dt>
+<dd>Die Standardunsicherheit einer Messung ist
 
         $$u_i = s(\bar{x_i}) = \sqrt{\frac{s^2(x_i)}{n}}$$</dd>
 </dl>
-
 <h3 id="dempster-shafer-theorie">Dempster-Shafer-Theorie</h3>
 <p>Slides: <code>IF-Kap3_160125.pdf</code></p>
-<p>For this chapter, I highly recommend reading <a href="https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf">Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung</a>.</p>
+<p>For this chapter, I highly recommend reading <a href="https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf">Anwendung der Dempster-Shafer Evidenztheorie auf die Bonit&auml;tspr&uuml;fung</a>.</p>
 <dl>
-    <dt><dfn id="frame-of-discernment">Frame of discernment</dfn> (<dfn>Wahrnehmungsrahmen</dfn>)</dt>
-    <dd>
+<dt><dfn id="frame-of-discernment">Frame of discernment</dfn> (<dfn>Wahrnehmungsrahmen</dfn>)</dt>
+<dd>
 
         Der Wahrnehmungsrahmen ist eine Menge $\Omega$. Die Elemente dieser
-        Mengen heißen Alternativen oder Aussagen. Eine Hypothese ist eine
+        Mengen hei&szlig;en Alternativen oder Aussagen. Eine Hypothese ist eine
         Teilmenge $H \subseteq \Omega$ des Wahrnehmungsrahmens.
 
     </dd>
-    <dt><dfn>Basismaß</dfn> (<dfn id="basic-probability-mass">basic probability mass</dfn>)</dt>
-    <dd>
+<dt><dfn>Basisma&szlig;</dfn> (<dfn id="basic-probability-mass">basic probability mass</dfn>)</dt>
+<dd>
 
         Sei $\Omega$ ein Wahrnehmungsrahmen und
 
         $$m: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
 
         eine Abbildung von der Potenzmenge von $\Omega$ in das
-        Einheitsintervall. $m$ heißt <i>Basismaß</i>, wenn gilt:
+        Einheitsintervall. $m$ hei&szlig;t <i>Basisma&szlig;</i>, wenn gilt:
 
         <ul>
-            <li>$m(\emptyset) = 0$</li>
-            <li>$\sum_{X \subseteq \Omega} m(X) = 1$</li>
-        </ul>
+<li>$m(\emptyset) = 0$</li>
+<li>$\sum_{X \subseteq \Omega} m(X) = 1$</li>
+</ul>
+</dd>
+<dt><dfn id="belief-function">Belief function</dfn> (<dfn>Glaubensfunktion</dfn>)</dt>
+<dd>
 
-    </dd>
-    <dt><dfn id="belief-function">Belief function</dfn> (<dfn>Glaubensfunktion</dfn>)</dt>
-    <dd>
-
-        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basismaß und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basisma&szlig; und
         $$Bel: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
-        eine Funktion. $Bel$ heißt Glaubensfunktion, wenn gilt:
+        eine Funktion. $Bel$ hei&szlig;t Glaubensfunktion, wenn gilt:
 
         $$Bel(X) := \sum_{Y \subseteq X} m(Y)$$
 
-        Die Glaubensfunktion stellt also eine untere Grenze für eine unbekannte
+        Die Glaubensfunktion stellt also eine untere Grenze f&uuml;r eine unbekannte
         Wahrscheinlichkeitsfunktion dar.
 
     </dd>
-    <dt><dfn id="plausibility-function">Plausibility function</dfn> (<dfn>Plausibilitätsfunktion</dfn>)</dt>
-    <dd>
+<dt><dfn id="plausibility-function">Plausibility function</dfn> (<dfn>Plausibilit&auml;tsfunktion</dfn>)</dt>
+<dd>
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basismaß und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basisma&szlig; und
         $$Pl: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
-        eine Funktion. $Pl$ heißt Plausibilitätsfunktion, wenn gilt:
+        eine Funktion. $Pl$ hei&szlig;t Plausibilit&auml;tsfunktion, wenn gilt:
 
         $$Pl(X) := \sum_{Y \cap X \neq \emptyset} m(Y)$$
 
-        Die Plausibilitätsfunktion stellt also eine obere Grenze für eine unbekannte
+        Die Plausibilit&auml;tsfunktion stellt also eine obere Grenze f&uuml;r eine unbekannte
         Wahrscheinlichkeitsfunktion dar.
 
     </dd>
-    <dt><dfn>Fokale Ereignisse</dfn></dt>
-    <dd>
+<dt><dfn>Fokale Ereignisse</dfn></dt>
+<dd>
 
-        Ein Ereignis $A$ heißt fokal bzg. eines Basismaßes $m$, wenn $m(A) \neq 0$ gilt.
+        Ein Ereignis $A$ hei&szlig;t fokal bzg. eines Basisma&szlig;es $m$, wenn $m(A) \neq 0$ gilt.
 
     </dd>
-    <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn id="drc">DRC</dfn>)</dt>
-    <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
+<dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn id="drc">DRC</dfn>)</dt>
+<dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&amp;\text{for } A = \emptyset\\
                                              \frac{\sum_{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
-        für Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
-        Bei einem Konfliktgrad von $0 < K < 1$ spricht man von einem
+        f&uuml;r Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
+        Bei einem Konfliktgrad von $0 &lt; K &lt; 1$ spricht man von einem
         partiellen Konflikt. Ist der Konfliktgrad gleich $K=1$, so ist DRC
         nicht anwendbar.<br/>
-        <br/>
+<br/>
         DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
         Es gilt also im Allgemeinen nicht $m \oplus m = m$.<br/>
-        Bei der Berechnung des Konfliktgrades genügt es fokale Ereignisse zu
+        Bei der Berechnung des Konfliktgrades gen&uuml;gt es fokale Ereignisse zu
         betrachten.</dd>
-    <dt><dfn id="bayes-fusion">Bayessche Fusion</dfn></dt>
-    <dd>
+<dt><dfn id="bayes-fusion">Bayessche Fusion</dfn></dt>
+<dd>
 
-        Angenommen man hat eine Klassifikationsaufgabe. $z$ gehört einer der
+        Angenommen man hat eine Klassifikationsaufgabe. $z$ geh&ouml;rt einer der
         Klassen $A, B, C$ an. Nun liefert ein Klassifizierer $d_1$ die
         Wahrscheinlichkeitsverteilung
 
@@ -355,64 +349,63 @@ Signal, usw. eingeführt.</p>
 
         Gesucht ist eine Wahrscheinlichkeitsverteilung, welche die beiden
         Ergebnisse fusioniert.<br/>
-        <br/>
+<br/>
 
-        Da kein Vorwissen existiert, wird das Maximum-Entropie-Prinzip für die
+        Da kein Vorwissen existiert, wird das Maximum-Entropie-Prinzip f&uuml;r die
         a priori Wahrscheinlichkeitsverteilung verwendet. Man geht also a
         priori davon aus, dass jede Klasse gleich wahrscheinlich ist:
         $$P(z) = (\frac{1}{3}; \frac{1}{3}; \frac{1}{3})$$<br/>
-        <br/>
+<br/>
 
         Nun gilt:
 
 $$
 \begin{align}
-    P(z | d_1, d_2)&= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
-                   &= \frac{P(d_1 | z) \cdot P(d_2 | d_1, z) \cdot P(z)}{P(d_1, d_2)}\\
-                   &\overset{(1)}{=} \frac{P(d_1 | z) \cdot P(d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
-                   &= \frac{\begin{pmatrix}0.1\\0.99\\0\end{pmatrix} \cdot \begin{pmatrix}0.1\\0\\0.99\end{pmatrix} \cdot \begin{pmatrix}1/3\\1/3\\1/3\end{pmatrix}}{P(d_1, d_2)}\\
-                   &= \frac{\begin{pmatrix}1/300\\0\\0\end{pmatrix}}{P(d_1, d_2)}\\
-                   &\overset{(2)}{=} \begin{pmatrix}1\\0\\0\end{pmatrix}\\
+    P(z | d_1, d_2)&amp;= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;= \frac{P(d_1 | z) \cdot P(d_2 | d_1, z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;\overset{(1)}{=} \frac{P(d_1 | z) \cdot P(d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;= \frac{\begin{pmatrix}0.1\\0.99\\0\end{pmatrix} \cdot \begin{pmatrix}0.1\\0\\0.99\end{pmatrix} \cdot \begin{pmatrix}1/3\\1/3\\1/3\end{pmatrix}}{P(d_1, d_2)}\\
+                   &amp;= \frac{\begin{pmatrix}1/300\\0\\0\end{pmatrix}}{P(d_1, d_2)}\\
+                   &amp;\overset{(2)}{=} \begin{pmatrix}1\\0\\0\end{pmatrix}\\
 \end{align}
 $$
 
-        bei (1) wurde Unabhängigkeit vorausgesetzt, bei (2) wurde auf 1
+        bei (1) wurde Unabh&auml;ngigkeit vorausgesetzt, bei (2) wurde auf 1
         normiert, damit eine Wahrscheinlichkeitsverteilung herauskommt.
 
     </dd>
 </dl>
-
 <h3 id="fuzzy-systeme">Fuzzy-Systeme</h3>
 <p>Slides: <code>IF-Kap4_160125.pdf</code></p>
-<p>Zur Einführung:</p>
+<p>Zur Einf&uuml;hrung:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=r804UF8Ia4c">Fuzzy Logic - Computerphile</a></li>
 <li><a href="https://www.youtube.com/watch?v=P8wY6mi1vV8">Fuzzy Logic: An Introduction</a></li>
 <li><a href="https://www.youtube.com/watch?v=rln_kZbYaWc">An Introduction to Fuzzy Logic</a>: An example with breaks</li>
 </ul>
 <dl>
-    <dt><dfn>Zugehörigkeitsfunktion</dfn> (<dfn id="membership-function">membership function</dfn>)</dt>
-    <dd>Sei $\Omega$ ein Grundraum und $A$ eine unscharfe Menge, für die
-        $\mu_A: X \rightarrow [0, 1]$ den Grad der Zugehörigkeit definiert.
+<dt><dfn>Zugeh&ouml;rigkeitsfunktion</dfn> (<dfn id="membership-function">membership function</dfn>)</dt>
+<dd>Sei $\Omega$ ein Grundraum und $A$ eine unscharfe Menge, f&uuml;r die
+        $\mu_A: X \rightarrow [0, 1]$ den Grad der Zugeh&ouml;rigkeit definiert.
 
-        $\mu_A$ heißt Zugehörigkeitsfunktion, wenn gilt
+        $\mu_A$ hei&szlig;t Zugeh&ouml;rigkeitsfunktion, wenn gilt
         $$\mu_{\Omega \setminus A}(t) = 1 - \mu_{A}$$</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Satz_vom_ausgeschlossenen_Dritten"><dfn>Gesetz vom ausgeschlossenen Dritten</dfn></a></dt>
-    <dd>Für eine beliebige Aussage muss mindestens die Aussage selbst oder ihr Gegenteil gelten. Dies gilt in der klassischen Mengenlehre, jedoch nicht für unscharfe Mengen.</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Satz_vom_Widerspruch"><dfn>Gesetz vom ausgeschlossenen Widerspruch</dfn></a></dt>
-    <dd>
+<dt><a href="https://de.wikipedia.org/wiki/Satz_vom_ausgeschlossenen_Dritten"><dfn>Gesetz vom ausgeschlossenen Dritten</dfn></a></dt>
+<dd>F&uuml;r eine beliebige Aussage muss mindestens die Aussage selbst oder ihr Gegenteil gelten. Dies gilt in der klassischen Mengenlehre, jedoch nicht f&uuml;r unscharfe Mengen.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Satz_vom_Widerspruch"><dfn>Gesetz vom ausgeschlossenen Widerspruch</dfn></a></dt>
+<dd>
 
-        Zwei einander widersprechende Aussagen können nicht zugleich zutreffen.
+        Zwei einander widersprechende Aussagen k&ouml;nnen nicht zugleich zutreffen.
 
-        Dies gilt in der klassischen Mengenlehre, jedoch nicht für unscharfe Mengen.
+        Dies gilt in der klassischen Mengenlehre, jedoch nicht f&uuml;r unscharfe Mengen.
 
     </dd>
-    <dt><dfn>Fuzzy-Operationen</dfn></dt>
-    <dd>
+<dt><dfn>Fuzzy-Operationen</dfn></dt>
+<dd>
 
-        Es seien $\mu_A, \mu_B$ die Zugehörigkeitsfunktionen zweier unscharfer
-        Mengen $A, B$ über dem Grundraum $\Omega$. Dann gilt:<br/>
-        <br/>
+        Es seien $\mu_A, \mu_B$ die Zugeh&ouml;rigkeitsfunktionen zweier unscharfer
+        Mengen $A, B$ &uuml;ber dem Grundraum $\Omega$. Dann gilt:<br/>
+<br/>
         Not:
         $$\forall x \in \Omega: \mu_{\Omega \setminus A}(x) = 1 - \mu_A(x)$$
         <br/>
@@ -423,36 +416,32 @@ $$
         $$\forall x \in \Omega: \mu_{A \lor B}(x) = \max(\mu_A(x), \mu_B(x))$$
 
     </dd>
-    <dt><dfn>Defuzzifizierung</dfn> (<a href="https://en.wikipedia.org/wiki/Defuzzification"><dfn>Defuzzification</dfn></a>)</dt>
-    <dd>Unter Defuzzifizierung versteht man die Berechnung des scharfen
-        Wertes der Ausgangsgröße.<br/>
-        <br/>
+<dt><dfn>Defuzzifizierung</dfn> (<a href="https://en.wikipedia.org/wiki/Defuzzification"><dfn>Defuzzification</dfn></a>)</dt>
+<dd>Unter Defuzzifizierung versteht man die Berechnung des scharfen
+        Wertes der Ausgangsgr&ouml;&szlig;e.<br/>
+<br/>
         Methoden:
 
         <ul>
-            <li><a href="#center-of-gravity-defuzzification">Schwerpunktverfahren</a></li>
-            <li><a href="#mean-of-maxima-defuzzification">Maximum-Mittelwert-Methode</a></li>
-        </ul>
-
-    </dd>
-    <dt><dfn>Schwerpunktverfahren</dfn> (<dfn id="center-of-gravity-defuzzification">center of gravity</dfn>, <dfn>COG</dfn>)</dt>
-    <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
-    <dt><dfn>Maximum-Mittelwert-Methode</dfn> (<dfn id="mean-of-maxima-defuzzification">Mean of maxima</dfn>, <dfn>MOM</dfn>)</dt>
-    <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
-    <dt><dfn id="informationsfusion-fuzzy">Fuzzy-Fusion</dfn></dt>
-    <dd>
-
-        <ol>
-            <li>Definition linguistischer Variablen (z.B. Temperatur) und Terme (Werte der linguistischen Variablen, z.B. kalt, kühl, lau, warm, heiß)</li>
-            <li>Zugehörigkeitsfunktionen definieren</li>
-            <li>Fuzzifizierung: Transformation der vorliegenden Information mithilfe der Zugehörigkeitsfunktionen in Fuzzy-konforme Form. Zugehörigkeitsfunktionen bilden numerische Terme auf linguistische Variablen ab.</li>
-            <li>Kombination der Terme durch Anwendung von Fuzzy-Logik in der Regelbasis. Die Regeln haben die Form IF Prämisse THEN Konklusion.</li>
-            <li>Defuzzifizierung: Abbildung auf Ausgangsbasis (Schwerpunktregel, Maximummethode oder Maximum-Mittelwert Methode)</li>
-        </ol>
-
-    </dd>
+<li><a href="#center-of-gravity-defuzzification">Schwerpunktverfahren</a></li>
+<li><a href="#mean-of-maxima-defuzzification">Maximum-Mittelwert-Methode</a></li>
+</ul>
+</dd>
+<dt><dfn>Schwerpunktverfahren</dfn> (<dfn id="center-of-gravity-defuzzification">center of gravity</dfn>, <dfn>COG</dfn>)</dt>
+<dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
+<dt><dfn>Maximum-Mittelwert-Methode</dfn> (<dfn id="mean-of-maxima-defuzzification">Mean of maxima</dfn>, <dfn>MOM</dfn>)</dt>
+<dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
+<dt><dfn id="informationsfusion-fuzzy">Fuzzy-Fusion</dfn></dt>
+<dd>
+<ol>
+<li>Definition linguistischer Variablen (z.B. Temperatur) und Terme (Werte der linguistischen Variablen, z.B. kalt, k&uuml;hl, lau, warm, hei&szlig;)</li>
+<li>Zugeh&ouml;rigkeitsfunktionen definieren</li>
+<li>Fuzzifizierung: Transformation der vorliegenden Information mithilfe der Zugeh&ouml;rigkeitsfunktionen in Fuzzy-konforme Form. Zugeh&ouml;rigkeitsfunktionen bilden numerische Terme auf linguistische Variablen ab.</li>
+<li>Kombination der Terme durch Anwendung von Fuzzy-Logik in der Regelbasis. Die Regeln haben die Form IF Pr&auml;misse THEN Konklusion.</li>
+<li>Defuzzifizierung: Abbildung auf Ausgangsbasis (Schwerpunktregel, Maximummethode oder Maximum-Mittelwert Methode)</li>
+</ol>
+</dd>
 </dl>
-
 <h3 id="neuronale-netze">Neuronale Netze</h3>
 <p>Slides: <code>IF-Kap5_160125.pdf</code></p>
 <p>Siehe <a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Vorlesung Neuronale Netze</a></p>
@@ -462,88 +451,84 @@ $$
 <h3 id="energiefunktionale">Energie&shy;funktionale</h3>
 <p>Slides: <code>IF-Kap7_160125.pdf</code></p>
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Funktional"><dfn>Funktional</dfn></a></dt>
-    <dd>Ein <i>Funktional</i> ist eine Funktion aus einem Vektorraum $V$ in
-        den Körper, der dem Vektorraum zugrunde liegt. Oft ist $V$ ein
+<dt><a href="https://de.wikipedia.org/wiki/Funktional"><dfn>Funktional</dfn></a></dt>
+<dd>Ein <i>Funktional</i> ist eine Funktion aus einem Vektorraum $V$ in
+        den K&ouml;rper, der dem Vektorraum zugrunde liegt. Oft ist $V$ ein
         Funktionenraum, also ein Vektorraum, dessen Elemente reell- oder
         komplexwertige Funktionen sind. Ein Funktional ist somit eine Funktion
         auf Funktionen.</dd>
-    <dt><dfn id="energiefunktionale">Energiefunktionale</dfn></dt>
-    <dd>Durch die Einführung von Energietermen $E_k$ lassen sich
+<dt><dfn id="energiefunktionale">Energiefunktionale</dfn></dt>
+<dd>Durch die Einf&uuml;hrung von Energietermen $E_k$ lassen sich
         fusionsrelevante Informationen modellieren. Die Fusionsaufgabe wird
         dann durch das Energiefunktional
 
-        $$E = \sum_k \lambda_k E_k, \qquad \lambda_k > 0$$
+        $$E = \sum_k \lambda_k E_k, \qquad \lambda_k &gt; 0$$
 
-        repräsentiert. Die unterschiedliche Relevanz der Energieterme $E_k$
-        wird durch die Vorfaktoren $\lambda_k$ berücksichtigt.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Boltzmann_distribution"><dfn id="gibbs-distribution">Gibbs-Verteilung</dfn></a></dt>
-    <dd>Die Gibbs-Verteilung mit dem Energiefunktional $E$ ist
+        repr&auml;sentiert. Die unterschiedliche Relevanz der Energieterme $E_k$
+        wird durch die Vorfaktoren $\lambda_k$ ber&uuml;cksichtigt.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Boltzmann_distribution"><dfn id="gibbs-distribution">Gibbs-Verteilung</dfn></a></dt>
+<dd>Die Gibbs-Verteilung mit dem Energiefunktional $E$ ist
         $$\pi_{\beta, E}(x) = \frac{1}{Z} e^{- \beta E(x)},$$
         mit Normierungskonstante $Z$ und der inversen Temperatur
         $\beta = \frac{1}{T}$.<br/>
-        <br/>
-        <u>Interpretation</u>:
+<br/>
+<u>Interpretation</u>:
         Es sei $E: V \rightarrow \mathbb{R}$, $V$ endlich.
         <ul>
-            <li>$V$: Die Menge aller Konfigurationen eines physikalischen Systems.</li>
-            <li>$E(x)$: Energie des Systems, wenn es sich in der Konfiguration $x$ befindet.</li>
-            <li>$T$: Temperatur. Ist die Temperatur groß, so sind alle
+<li>$V$: Die Menge aller Konfigurationen eines physikalischen Systems.</li>
+<li>$E(x)$: Energie des Systems, wenn es sich in der Konfiguration $x$ befindet.</li>
+<li>$T$: Temperatur. Ist die Temperatur gro&szlig;, so sind alle
                 Konfigurationen etwa gleich wahrscheinlich. Bei niedriger
                 Temperatur werden Konfigurationen mit niedriger Energie
                 bevorzugt.</li>
-            <li>$\pi_{\beta, E}(x)$: Wahrscheinlichkeit, dass sich das System
+<li>$\pi_{\beta, E}(x)$: Wahrscheinlichkeit, dass sich das System
                 in der Konfiguration $x$ befindet.</li>
-        </ul>
+</ul>
 
-        Für $E$ kann dann eine Gibbsche Wahrscheinlichkeitsdichtefunktion WDF
+        F&uuml;r $E$ kann dann eine Gibbsche Wahrscheinlichkeitsdichtefunktion WDF
         $$WDF \propto e^{- \beta E} = \prod_k e^{-\frac{\lambda_k E_k}{T}}$$
         definiert werden.
         </dd>
-    <dt><dfn>Energieminimierung</dfn></dt>
-    <dd>
-
-        <ol>
-            <li>Lösung eines linearen Gleichungssystems (selten möglich)</li>
-            <li>Graph-Cuts-Verfahren</li>
-            <li>Approximative Lösung durch sukzessive Optimierung</li>
-            <li>Methode des steilsten abstiegs</li>
-            <li>Monte-Carlo-Methode</li>
-            <li>Simulated Annealing</li>
-            <li>Lineare Programme</li>
-            <li>Dynamische Programmierung</li>
-            <li>Mean Field Theorie (Betrachte Erwartungswerte)</li>
-        </ol>
-
-    </dd>
+<dt><dfn>Energieminimierung</dfn></dt>
+<dd>
+<ol>
+<li>L&ouml;sung eines linearen Gleichungssystems (selten m&ouml;glich)</li>
+<li>Graph-Cuts-Verfahren</li>
+<li>Approximative L&ouml;sung durch sukzessive Optimierung</li>
+<li>Methode des steilsten abstiegs</li>
+<li>Monte-Carlo-Methode</li>
+<li>Simulated Annealing</li>
+<li>Lineare Programme</li>
+<li>Dynamische Programmierung</li>
+<li>Mean Field Theorie (Betrachte Erwartungswerte)</li>
+</ol>
+</dd>
 </dl>
-
-<h2 id="uberblick">Überblick</h2>
+<h2 id="uberblick_1">&Uuml;berblick</h2>
 <table>
-    <tr>
-        <th>Unsicherheitsmodellierung</th>
-        <th>Wahrscheinlichkeiten</th>
-        <th>Verallgemeinerte W-Keiten</th>
-        <th>Linguistisch</th>
-        <th>Neuronale Netze</th>
-    </tr>
-    <tr>
-        <th>Fusion</th>
-        <td><a href="#bayes-fusion">Bayes-Fusion</a></td>
-        <td><a href="#drc">DRC</a></td>
-        <td><a href="#informationsfusion-fuzzy">Fuzzy-Fusion</a></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>Unsicherheiten</th>
-        <td>Wahrscheinlichkeit in [0, 1]</td>
-        <td>Basismaß in [0, 1]</td>
-        <td>Zugehörigkeit in [0, 1]</td>
-        <td></td>
-    </tr>
+<tr>
+<th>Unsicherheitsmodellierung</th>
+<th>Wahrscheinlichkeiten</th>
+<th>Verallgemeinerte W-Keiten</th>
+<th>Linguistisch</th>
+<th>Neuronale Netze</th>
+</tr>
+<tr>
+<th>Fusion</th>
+<td><a href="#bayes-fusion">Bayes-Fusion</a></td>
+<td><a href="#drc">DRC</a></td>
+<td><a href="#informationsfusion-fuzzy">Fuzzy-Fusion</a></td>
+<td></td>
+</tr>
+<tr>
+<th>Unsicherheiten</th>
+<td>Wahrscheinlichkeit in [0, 1]</td>
+<td>Basisma&szlig; in [0, 1]</td>
+<td>Zugeh&ouml;rigkeit in [0, 1]</td>
+<td></td>
+</tr>
 </table>
-
-<h2 id="abkurzungen">Abkürzungen</h2>
+<h2 id="abkurzungen">Abk&uuml;rzungen</h2>
 <ul>
 <li>EKF: Extended Kalman Filter</li>
 <li>GUM: Guide to the Expression of Uncertainty in Measurement</li>
@@ -555,17 +540,17 @@ $$
 <ul>
 <li>Kapitel 1, Folie 61: Was ist der Definitions / Wertebereich von Information?</li>
 <li>Kapitel 2, Folie 5: Alle Ereignisse paarweise disjunkt</li>
-<li>Kapitel 2, Folie 22: Man muss für wirksame Schätzer noch fordern, dass sie
+<li>Kapitel 2, Folie 22: Man muss f&uuml;r wirksame Sch&auml;tzer noch fordern, dass sie
                        erwartungstreu sind. Es gibt immer den konstanten
-                       Schätzer, welcher die Stichprobe ignoriert und somit
+                       Sch&auml;tzer, welcher die Stichprobe ignoriert und somit
                        eine Varianz von 0 hat.</li>
 <li>Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?</li>
-<li>Kapitel 2, Folie 44f: Fusion 2er Größen / Verteilungen</li>
-<li>Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Schätzwert und nicht um den wahren Wert linearisiert?</li>
+<li>Kapitel 2, Folie 44f: Fusion 2er Gr&ouml;&szlig;en / Verteilungen</li>
+<li>Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Sch&auml;tzwert und nicht um den wahren Wert linearisiert?</li>
 </ul>
-<h2 id="ubungsaufgaben">Übungsaufgaben</h2>
-<p>Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).</p>
-<h3 id="ub-1">ÜB 1</h3>
+<h2 id="ubungsaufgaben">&Uuml;bungsaufgaben</h2>
+<p>Die L&ouml;sungen sind auch online (ausf&uuml;hrlicher und besser als ich es hier habe).</p>
+<h3 id="ub-1">&Uuml;B 1</h3>
 <ul>
 <li>Aufgabe 1.1: http://math.stackexchange.com/q/1919394/6876</li>
 <li>Aufgabe 1.2: <span class="math">\(P(A) = 0.5 = P(B) = P(C)\)</span>,
@@ -577,7 +562,7 @@ $$
   \end{align}
   $$</div>
   Daher sind die Ereignisse <span class="math">\(A\)</span> und <span class="math">\(B\)</span>, die Ereignisse <span class="math">\(A, C\)</span>, die Ereignisse
-  <span class="math">\(B, C\)</span> unabhängig. Die Ereignisse <span class="math">\(A, B, C\)</span> sind jedoch nicht unabhängig.</li>
+  <span class="math">\(B, C\)</span> unabh&auml;ngig. Die Ereignisse <span class="math">\(A, B, C\)</span> sind jedoch nicht unabh&auml;ngig.</li>
 <li>Aufgabe 1.3a: <span class="math">\(5 \cdot (\frac{1}{6} \cdot \frac{1}{6}) = \frac{5}{36}\)</span></li>
 <li>Aufgabe 1.3b: <span class="math">\(\frac{\frac{2}{5} \cdot \frac{5}{36}}{1-0.25} = \frac{2}{27}\)</span></li>
 <li>Aufgabe 1.4:<ul>
@@ -594,20 +579,20 @@ $$
 <li>Aufgabe 1.5a: <span class="math">\(\int_0^\infty (\alpha \cdot \exp(-\alpha x)) \mathrm{d}x = \alpha \int_0^\infty \exp(-\alpha x) \mathrm{d}x = \alpha [-\frac{1}{\alpha} \exp(-\alpha x)]_0^\infty = 1\)</span></li>
 <li>Aufgabe 1.5b: Erwartungswert einer Zufallsvariable ist <span class="math">\(\int_{-\infty}^{+\infty} x f(x) \mathrm{d} x\)</span>.</li>
 <li>Aufgabe 1.6:<ul>
-<li><span class="math">\(G\)</span>: E-mail ist geschäftlich, <span class="math">\(\bar{G}\)</span> ist privat</li>
+<li><span class="math">\(G\)</span>: E-mail ist gesch&auml;ftlich, <span class="math">\(\bar{G}\)</span> ist privat</li>
 <li><span class="math">\(S\)</span>: E-mail ist spam, <span class="math">\(\bar{S}\)</span> ist ham</li>
-<li><span class="math">\(F\)</span>: E-mail enthält das Wort "Free"</li>
+<li><span class="math">\(F\)</span>: E-mail enth&auml;lt das Wort "Free"</li>
 <li><span class="math">\(P(S | F) = \frac{P(F | S) \cdot P(S)}{P(F)} = \frac{0.9 \cdot 0.7}{0.9 \cdot 0.7 + 0.01 \cdot 0.3} = \frac{210}{211}\)</span></li>
 </ul>
 </li>
 </ul>
-<h3 id="ub-2">ÜB 2</h3>
+<h3 id="ub-2">&Uuml;B 2</h3>
 <ul>
 <li>Aufgabe 1.1: Die kontinuierliche Entropie ist kein resultat immer feiner werdender Diskretisierungen der diskreten Entropie</li>
 <li>Aufgabe 1.2a: <span class="math">\(P(B \cap L) = P(B) \cdot P(L) = 1/3 \cdot 1/3 = 1/9\)</span></li>
 <li>Aufgabe 1.2b: 1/9</li>
-<li>Aufgabe 1.2c: Das Prinzip der maximalen Entropie für Zufallsvariablen führt zur Unabhängigkeitsannahme.</li>
-<li>Aufgabe 1.2d: Die Entropie wird im Erwartungswert reduziert, wenn eine Größe durch eine andere bedingt wird.</li>
+<li>Aufgabe 1.2c: Das Prinzip der maximalen Entropie f&uuml;r Zufallsvariablen f&uuml;hrt zur Unabh&auml;ngigkeitsannahme.</li>
+<li>Aufgabe 1.2d: Die Entropie wird im Erwartungswert reduziert, wenn eine Gr&ouml;&szlig;e durch eine andere bedingt wird.</li>
 <li>Aufgabe 1.3a: <span class="math">\(P(z=z_A| d_A) = 0.45\)</span>, <span class="math">\(P(z=z_B| d_A) = 0.45\)</span>, <span class="math">\(P(z=z_K| d_A) = 0.1\)</span></li>
 <li>Aufgabe 1.3b: Ist hier ein Zahlendreher passiert?</li>
 <li>Aufgabe 1.4a: Mit "Detektionsleistung" ist gemeint, wie wahrscheinlich der
@@ -620,87 +605,87 @@ $$
 <li>Aufgabe 1.5: Berechnung der Log-A-posteriori-Verteilung</li>
 <li>Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)</li>
 </ul>
-<h3 id="ub-3">ÜB 3</h3>
+<h3 id="ub-3">&Uuml;B 3</h3>
 <ul>
 <li>Aufgabe 1.1:<ul>
 <li><span class="math">\(Bel(A) = \sum_{B \subseteq A} m(B)\)</span></li>
 <li><span class="math">\(Pl(A) = 1 - Bel(\bar{A}) = \sum_{B \cap A \neq \emptyset} m(B)\)</span></li>
 </ul>
 </li>
-<li>Aufgabe 1.2a: Obwohl beide Basismaße dem Ereignis A eine sehr niedriges Maß
-  zuweisen, ist es durch DRC das Ereignis mit dem höchsten Wert. Das liegt
+<li>Aufgabe 1.2a: Obwohl beide Basisma&szlig;e dem Ereignis A eine sehr niedriges Ma&szlig;
+  zuweisen, ist es durch DRC das Ereignis mit dem h&ouml;chsten Wert. Das liegt
   daran, dass die anderen jeweils exakt 0 haben.</li>
 <li>Aufgabe 1.2b: Jeder einzelne Experte gab A nur geringen glauben. Dennoch wird A deutlich am meisten Glauben nach der Fusion geschenkt.</li>
 <li>Aufgabe 1.2c: Das gleiche Ergebnis.</li>
-<li>Aufgabe 1.3a: <span class="math">\(m_{123}(111) = 0.82\)</span>, das Ergebnis ist also zu 82% glaubwürdig. (Schönes beispiel, dass DRC nicht idempotent ist)</li>
-<li>Aufgabe 1.3b: Rechnen mit Basismaßen / DRC</li>
-<li>Aufgabe 1.3c: Rechnen mit Basismaßen / DRC</li>
+<li>Aufgabe 1.3a: <span class="math">\(m_{123}(111) = 0.82\)</span>, das Ergebnis ist also zu 82% glaubw&uuml;rdig. (Sch&ouml;nes beispiel, dass DRC nicht idempotent ist)</li>
+<li>Aufgabe 1.3b: Rechnen mit Basisma&szlig;en / DRC</li>
+<li>Aufgabe 1.3c: Rechnen mit Basisma&szlig;en / DRC</li>
 <li>Aufgabe 1.4: <span class="math">\(P(s=A | w=A) + P(s=B | w=B) = 0.6\)</span></li>
 <li>Aufgabe 2.1: Spielen mit Fuzzy-Mengen</li>
-<li>Aufgabe 2.2: XOR für Fuzzy-Mengen</li>
+<li>Aufgabe 2.2: XOR f&uuml;r Fuzzy-Mengen</li>
 </ul>
-<h2 id="prufungsfragen">Prüfungsfragen</h2>
+<h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
 <ul>
-<li>Welche Bedingungen müssen erfüllt sein, damit Informationen fusioniert werden
-  können?<br/>
-  → Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet</li>
+<li>Welche Bedingungen m&uuml;ssen erf&uuml;llt sein, damit Informationen fusioniert werden
+  k&ouml;nnen?<br/>
+  &rarr; Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet</li>
 <li>Welche Arten von Unsicherheit kennen Sie?<br/>
-  → Unsicherheit kann man mit Wahrscheinlichkeiten, Basismaße (Dempster-Shafer-Theorie)
-     und über unscharfe Mengen (Fuzzy-Systeme) sowie über unsicheres Erfahrungswissen
+  &rarr; Unsicherheit kann man mit Wahrscheinlichkeiten, Basisma&szlig;e (Dempster-Shafer-Theorie)
+     und &uuml;ber unscharfe Mengen (Fuzzy-Systeme) sowie &uuml;ber unsicheres Erfahrungswissen
      (Neuronale Netze) beschreiben.</li>
-<li>Was ist der Unterschied zwischen Wahrscheinlichkeiten und Basismaßen?<br/>
-  → Basismaße sind nicht monoton und nicht additiv.</li>
-<li>Wie lautet die Formel für verteilte Bayessche Fusion?<br/>
-  → Wie zentrale bayessche Fusion, nur dass die Likelihood-Funktionen vorab berechnet werden (zweimaliges Anwenden der Bayes-Rule mit Unabhängigkeitsannahme zwischendurch)</li>
+<li>Was ist der Unterschied zwischen Wahrscheinlichkeiten und Basisma&szlig;en?<br/>
+  &rarr; Basisma&szlig;e sind nicht monoton und nicht additiv.</li>
+<li>Wie lautet die Formel f&uuml;r verteilte Bayessche Fusion?<br/>
+  &rarr; Wie zentrale bayessche Fusion, nur dass die Likelihood-Funktionen vorab berechnet werden (zweimaliges Anwenden der Bayes-Rule mit Unabh&auml;ngigkeitsannahme zwischendurch)</li>
 <li>Wie lauten die Axiome von Kolmogorov?<br/>
-  → Siehe <a href="#kolmogorov-axioms">oben</a></li>
-<li>Was sind Zugehörigkeitsfunktionen?<br/>
-  → Siehe <a href="#membership-function">oben</a></li>
+  &rarr; Siehe <a href="#kolmogorov-axioms">oben</a></li>
+<li>Was sind Zugeh&ouml;rigkeitsfunktionen?<br/>
+  &rarr; Siehe <a href="#membership-function">oben</a></li>
 <li>Wie funktioniert Informationsfusion mit Fuzzy-Systemen?<br/>
-  → Siehe <a href="#informationsfusion-fuzzy">oben</a>.</li>
+  &rarr; Siehe <a href="#informationsfusion-fuzzy">oben</a>.</li>
 <li>Welche Vorteile bietet Informationsfusion?<br/>
-  → Siehe <a href="#informationsfusion-advantages">oben</a>.</li>
-<li>Welche Eigenschaften sind bei Merkmalen wünschenswert?<br/>
-  → Siehe <a href="#features-properties">oben</a>.</li>
-<li>Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Schätzern?<br/>
-  → TODO</li>
+  &rarr; Siehe <a href="#informationsfusion-advantages">oben</a>.</li>
+<li>Welche Eigenschaften sind bei Merkmalen w&uuml;nschenswert?<br/>
+  &rarr; Siehe <a href="#features-properties">oben</a>.</li>
+<li>Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Sch&auml;tzern?<br/>
+  &rarr; TODO</li>
 </ul>
 <h3 id="kalman-filter">Kalman-Filter</h3>
 <ul>
 <li>Aus welchen Schritten besteht der Kalman-Filter?<br/>
-  → Prädiktion, Innovation</li>
+  &rarr; Pr&auml;diktion, Innovation</li>
 <li>Welche Erweiterungen zum Kalman-Filter kennen Sie?<br/>
-  → Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)</li>
-<li>Für welche Systeme ist der Kalman-Filter geeignet?<br/>
-  → Lineare Zeitinvariante Systeme (LTI-Systeme)</li>
+  &rarr; Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)</li>
+<li>F&uuml;r welche Systeme ist der Kalman-Filter geeignet?<br/>
+  &rarr; Lineare Zeitinvariante Systeme (LTI-Systeme)</li>
 <li>Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?<br/>
-  → Bei der Prädiktion steigt die Unsicherheit, bei der Innovation sinkt sie.</li>
+  &rarr; Bei der Pr&auml;diktion steigt die Unsicherheit, bei der Innovation sinkt sie.</li>
 <li>Wie lautet das Systemmodell im Kalman-Filter?<br/>
-  → vgl. <a href="https://martin-thoma.com/kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a></li>
+  &rarr; vgl. <a href="https://martin-thoma.com/kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a></li>
 </ul>
-<h2 id="absprachen">Absprachen</h2>
+<h2 id="absprachen_1">Absprachen</h2>
 <ul>
 <li>Kapitel 5 (Neuronale Netze) und Kapitel 6 (Registrierung) kommen nicht dran.</li>
-<li>Übungsaufgaben sind auch Prüfungsrelevant.</li>
+<li>&Uuml;bungsaufgaben sind auch Pr&uuml;fungsrelevant.</li>
 </ul>
 <h2 id="material-und-links">Material und Links</h2>
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php">Vorlesungswebsite</a></li>
 <li><a href="./anki/Informationsfusion.apkg">Anki-Deck</a></li>
-<li><a href="https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf">Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung</a></li>
-<li><a href="https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/kit-muendlich-informationsfusion/muendlich-we-2013-martin-thoma.pdf">Mein Prüfungsprotokoll</a></li>
+<li><a href="https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf">Anwendung der Dempster-Shafer Evidenztheorie auf die Bonit&auml;tspr&uuml;fung</a></li>
+<li><a href="https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/kit-muendlich-informationsfusion/muendlich-we-2013-martin-thoma.pdf">Mein Pr&uuml;fungsprotokoll</a></li>
 </ul>
 <p>Literatur:</p>
 <ul>
 <li><strong>Bayes-Methoden</strong>: James O. Berger: Statistical Decision Theory and Bayesian Analysis. 2nd edition, Springer, 2006. ISBN 0-387-96098-8.</li>
 <li><strong>Anwendungen</strong>: Rick S. Blum, Zheng Liu (Hrsg.): Multi Sensor Image Fusion and Its Applications. Taylor &amp; Francis, 2006. ISBN 0849334179.</li>
 <li><strong>Energiefunktionale</strong>: James J. Clark, Alan L. Yuille: Data Fusion for Sensory Information Processing Systems. Kluwer Academic Publishers, 1990. ISBN 0792391209.</li>
-<li><strong>Fuzzy Logic</strong>: Jochen Heinsohn; Rolf Socher-Ambrosius: Wissensverarbeitung: eine Einführung. Spektrum Akademischer Verlag, 1999. ISBN 3827403081.</li>
+<li><strong>Fuzzy Logic</strong>: Jochen Heinsohn; Rolf Socher-Ambrosius: Wissensverarbeitung: eine Einf&uuml;hrung. Spektrum Akademischer Verlag, 1999. ISBN 3827403081.</li>
 </ul>
 <h2 id="vorlesungsempfehlungen">Vorlesungs&shy;empfehlungen</h2>
-<p>Folgende Vorlesungen sind ähnlich:</p>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
 <ul>
-<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken großer Datenbestände</a></li>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
 <li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
 <li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
 <li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
@@ -710,7 +695,7 @@ $$
 <li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
 </ul>
 <h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
-<p>Es ist eine mündliche Prüfung.</p>
+<p>Es ist eine m&uuml;ndliche Pr&uuml;fung.</p>
 <p>Ich habe meine am <b>Fraunhofer IOSB, Fraunhoferstr. 1, 76131 Karlsruhe</b>
 am <b>11.10.2016</b> um <b>15:30 Uhr</b> bei Herrn Dr. Heizmann.</p>
             

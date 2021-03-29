@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to write Flake8 plugins 😍">How to write Flake8 plugins 😍</a><ul><li><a class="toc-href" href="#about-flake8" title="About Flake8">About Flake8</a></li><li><a class="toc-href" href="#the-flake8-plugin-skeleton" title="The Flake8 Plugin Skeleton">The Flake8 Plugin Skeleton</a></li><li><a class="toc-href" href="#the-flake8-plugin-class" title="The Flake8 Plugin class">The Flake8 Plugin class</a></li><li><a class="toc-href" href="#understanding-pythons-ast" title="Understanding Pythons AST">Understanding Pythons AST</a></li><li><a class="toc-href" href="#a-flake8-visitor-class" title="A Flake8 visitor class">A Flake8 visitor class</a></li><li><a class="toc-href" href="#testing-flake8-plugins" title="Testing Flake8 plugins">Testing Flake8 plugins</a></li><li><a class="toc-href" href="#complete-example" title="Complete example">Complete example</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Really important parts of code reviews are almost impossible to automate:
@@ -119,13 +125,11 @@ we will create a plugin which recognizes the pattern</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
 <span class="ow">not</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
-
 <p>and thus can suggest using the following instead:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Good</span>
 <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
 </code></pre></div>
-
-<p><img alt="Cartoon by Geek-and-Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/5602/1*1QTVPrx8DtO14F7-_jnBBw.png"><em>Cartoon by <a href="http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices">Geek-and-Poke</a> (Oliver Widder)</em></p>
+<p><img alt="Cartoon by Geek-and-Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/5602/1*1QTVPrx8DtO14F7-_jnBBw.png"/><em>Cartoon by <a href="http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices">Geek-and-Poke</a> (Oliver Widder)</em></p>
 <h2 id="about-flake8">About Flake8</h2>
 <p>Flake8 is a linter which only checks rules. It does not change the code. Every rule has a message and a code. The built-in rule codes begin either with E (Error) or with W (Warning). After that, a 3-digit number follows:</p>
 <ul>
@@ -134,29 +138,25 @@ we will create a plugin which recognizes the pattern</p>
 <li>E112: expected an indented block</li>
 </ul>
 <p>One can select the rules which one wants to check on a prefix-basis:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check all rules beginning with &quot;E1&quot; and nothing else</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check all rules beginning with "E1" and nothing else</span>
 flake8 --select E1 .
 </code></pre></div>
-
 <p>Alternatively, one can blacklist rules:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check all rules except the ones beginning with E1 or W512</span>
 flake8 --ignore E1,W512 .
 </code></pre></div>
-
 <p>Plugins need a 3-character prefix. For my plugin <a href="https://pypi.org/project/flake8-simplify/0.1.0/">flake8-simplify</a>, I chose SIM as a prefix.</p>
 <blockquote>
 <p>The 3-character prefix should not start with E or W as people might want to completely block Flake8 W-rules.</p>
 </blockquote>
-<p><img alt="Comic by Geek and Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/8534/1*TX5RSfIk0XrEeSX0aXm4hg.jpeg"><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html">Geek and Poke</a> (Oliver Widder)</em></p>
+<p><img alt="Comic by Geek and Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/8534/1*TX5RSfIk0XrEeSX0aXm4hg.jpeg"/><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html">Geek and Poke</a> (Oliver Widder)</em></p>
 <h2 id="the-flake8-plugin-skeleton">The Flake8 Plugin Skeleton</h2>
 <p><a href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> is a command-line utility that allows you to create a project from scratch by using a template. Install it via</p>
 <div class="highlight"><pre><span></span><code>pip install cookiecutter
 </code></pre></div>
-
 <p>To create your Flake8 plugin template, use:</p>
 <div class="highlight"><pre><span></span><code>cookiecutter https://github.com/MartinThoma/cookiecutter-flake8-plugin
 </code></pre></div>
-
 <h2 id="the-flake8-plugin-class">The Flake8 Plugin class</h2>
 <p>You need to create a plugin class like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
@@ -184,22 +184,19 @@ flake8 --ignore E1,W512 .
         <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">visitor</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div>
-
 <p>You need to point to that class in the setup.cfg:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[options.entry_points]</span>
 <span class="na">flake8.extension</span> <span class="o">=</span>
     <span class="na">AWE</span><span class="o">=</span><span class="s">flake8_awesome:Plugin</span>
 </code></pre></div>
-
 <p>Just replace AWE by the 3-character code you want to have for your rules. We are, of course, not there jet. The visitor class still needs to be implemented. But to understand the visitor, we need to understand Pythons AST.</p>
 <h2 id="understanding-pythons-ast">Understanding Pythons AST</h2>
 <p>An <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a> (AST) is another representation of the code.</p>
-<p>Install <a href="https://pypi.org/project/astpretty/">astpretty</a> to understand how the AST looks like for a piece of code you’re interested in:</p>
+<p>Install <a href="https://pypi.org/project/astpretty/">astpretty</a> to understand how the AST looks like for a piece of code you&rsquo;re interested in:</p>
 <div class="highlight"><pre><span></span><code>pip install astpretty
 </code></pre></div>
-
 <p>Here is how you use it:</p>
-<div class="highlight"><pre><span></span><code>$ astpretty --no-show-offsets /dev/stdin <span class="o">&lt;&lt;&lt;</span> <span class="s2">&quot;not a == b&quot;</span>
+<div class="highlight"><pre><span></span><code>$ astpretty --no-show-offsets /dev/stdin <span class="o">&lt;&lt;&lt;</span> <span class="s2">"not a == b"</span>
 
 Module<span class="o">(</span>
     <span class="nv">body</span><span class="o">=[</span>
@@ -207,9 +204,9 @@ Module<span class="o">(</span>
             <span class="nv">value</span><span class="o">=</span>UnaryOp<span class="o">(</span>
                 <span class="nv">op</span><span class="o">=</span>Not<span class="o">()</span>,
                 <span class="nv">operand</span><span class="o">=</span>Compare<span class="o">(</span>
-                    <span class="nv">left</span><span class="o">=</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">&#39;a&#39;</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())</span>,
+                    <span class="nv">left</span><span class="o">=</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'a'</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())</span>,
                     <span class="nv">ops</span><span class="o">=[</span>Eq<span class="o">()]</span>,
-                    <span class="nv">comparators</span><span class="o">=[</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">&#39;b&#39;</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())]</span>,
+                    <span class="nv">comparators</span><span class="o">=[</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'b'</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())]</span>,
                 <span class="o">)</span>,
             <span class="o">)</span>,
         <span class="o">)</span>,
@@ -217,11 +214,10 @@ Module<span class="o">(</span>
     <span class="nv">type_ignores</span><span class="o">=[]</span>,
 <span class="o">)</span>
 </code></pre></div>
-
 <p>Next, we need to recognize that pattern.</p>
 <h2 id="a-flake8-visitor-class">A Flake8 visitor class</h2>
 <p>The logic of the linter is in the visitor class. The visitor gets called for every node in the AST. It has various methods which are based on the operations you see within astpretty, e.g. visit_UnaryOp . This method receives an ast.UnaryOp with which you can do whatever you want. More often than not, this will not be of the pattern you need. In this example, you need to look for the op == Not() and operand==Compare and ops=[Eq()] .</p>
-<p>This is how it’s done:</p>
+<p>This is how it&rsquo;s done:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">DefaultDict</span><span class="p">,</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span>
 
@@ -236,7 +232,7 @@ Module<span class="o">(</span>
 
 
 <span class="k">def</span> <span class="nf">_get_not_equal_calls</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">UnaryOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-    <span class="sd">&quot;&quot;&quot;Get a list of all calls where an unary &#39;not&#39; is used for an quality.&quot;&quot;&quot;</span>
+    <span class="sd">"""Get a list of all calls where an unary 'not' is used for an quality."""</span>
     <span class="n">errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Not</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Compare</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">errors</span>
@@ -249,11 +245,10 @@ Module<span class="o">(</span>
 
     <span class="k">return</span> <span class="n">errors</span>
 </code></pre></div>
-
 <p>I like <a href="https://pypi.org/project/astor/">astor</a>.to_source to get a string like it was in the source code back from the AST node.</p>
 <h2 id="testing-flake8-plugins">Testing Flake8 plugins</h2>
 <p>A big shoutout to Anthony Sottile. Before his video (linked below), I had no clue how to test Flake8 plugins. Thank you ❤️</p>
-<p>It’s trivial once you know it: You create a string that contains a line or multiple lines of code. You pass it to ast.parse to get the abstract syntax tree. That one can be passed to your plugin, which should generate some output. That output can then be checked:</p>
+<p>It&rsquo;s trivial once you know it: You create a string that contains a line or multiple lines of code. You pass it to ast.parse to get the abstract syntax tree. That one can be passed to your plugin, which should generate some output. That output can then be checked:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library</span>
 <span class="kn">import</span> <span class="nn">ast</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
@@ -263,30 +258,28 @@ Module<span class="o">(</span>
 
 
 <span class="k">def</span> <span class="nf">_results</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;Apply the plugin to the given code.&quot;&quot;&quot;</span>
+    <span class="sd">"""Apply the plugin to the given code."""</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
     <span class="n">plugin</span> <span class="o">=</span> <span class="n">Plugin</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">()}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">()}</span>
 
 
 <span class="k">def</span> <span class="nf">test_trivial_case</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Check the plugins output for no code.&quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="n">_results</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="sd">"""Check the plugins output for no code."""</span>
+    <span class="k">assert</span> <span class="n">_results</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
 </code></pre></div>
-
 <p>A non-trivial test looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_unary_not_equality</span><span class="p">():</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">_results</span><span class="p">(</span><span class="s2">&quot;not a == b&quot;</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">ret</span> <span class="o">==</span> <span class="p">{(</span><span class="s2">&quot;1:0 SIM201 Used &#39;not a == b&#39; instead of &#39;a != b&#39;&quot;</span><span class="p">)}</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">_results</span><span class="p">(</span><span class="s2">"not a == b"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">ret</span> <span class="o">==</span> <span class="p">{(</span><span class="s2">"1:0 SIM201 Used 'not a == b' instead of 'a != b'"</span><span class="p">)}</span>
 </code></pre></div>
-
 <h2 id="complete-example">Complete example</h2>
-<p>This is part of <a href="https://github.com/MartinThoma/flake8-simplify/tree/0.2.0">flake8-simplify 0.2.0</a>. I’ve pinned the version so that you can see the code in the simple form it has right now.</p>
-<p>Please make me proud and automate your reviews — make the following comics true for Flake8 plugins as well :-)</p>
-<p><img alt="Comic by geek-and-poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/2000/1*WYl8FGvNz-nvPpzuQd54-w.jpeg"><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html">geek-and-poke</a> (Oliver Widder)</em></p>
+<p>This is part of <a href="https://github.com/MartinThoma/flake8-simplify/tree/0.2.0">flake8-simplify 0.2.0</a>. I&rsquo;ve pinned the version so that you can see the code in the simple form it has right now.</p>
+<p>Please make me proud and automate your reviews &mdash; make the following comics true for Flake8 plugins as well :-)</p>
+<p><img alt="Comic by geek-and-poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/2000/1*WYl8FGvNz-nvPpzuQd54-w.jpeg"/><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html">geek-and-poke</a> (Oliver Widder)</em></p>
 <h2 id="see-also">See also</h2>
 <p>I can highly recommend the following video by <a href="undefined">Anthony Sottile</a> (<a href="https://www.linkedin.com/in/anthony-sottile-940008b1/">LinkedIn</a>, <a href="https://github.com/asottile">Github</a>). He is the awesome guy who develops <a href="https://github.com/asottile/pyupgrade">pyupgrade</a>, <a href="https://github.com/asottile/blacken-docs">blacken-docs</a>, and <a href="https://github.com/asottile/astpretty">astpretty</a>:</p>
-<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/ot5Z4KQPBL8" frameborder="0" allowfullscreen></iframe></center></p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ot5Z4KQPBL8" width="560"></iframe></center></p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Maximum Fixed-Length Contiguous Subarray">Maximum Fixed-Length Contiguous Subarray</a><ul><li><a class="toc-href" href="#small-example" title="Small Example">Small Example</a></li><li><a class="toc-href" href="#inefficient-solution" title="Inefficient Solution">Inefficient Solution</a></li><li><a class="toc-href" href="#efficient-solution" title="Efficient Solution">Efficient Solution</a></li><li><a class="toc-href" href="#comparison" title="Comparison">Comparison</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I recently taught a course about improving code for performance. An obvious
@@ -138,7 +144,6 @@ easy to read and mostly pretty efficient:</p>
 <span class="k">def</span> <span class="nf">find_biggest_subarray_slice</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">m</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Except that it has one flaw: It makes too many additions and accesses list
 elements way more often than necessary</p>
 <h2 id="efficient-solution">Efficient Solution</h2>
@@ -153,7 +158,6 @@ elements way more often than necessary</p>
         <span class="n">largest_sub_array</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">largest_sub_array</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">largest_sub_array</span>
 </code></pre></div>
-
 <h2 id="comparison">Comparison</h2>
 <p>The inefficient solution is in <span class="math">\(\mathcal{O}((n - m) \cdot m)\)</span>, the efficient
 one is in <span class="math">\(\mathcal{O}(n - m)\)</span>. So you will notice the difference clearly when
@@ -161,16 +165,14 @@ you compare the execution times with big <span class="math">\(m\)</span>.</p>
 <p>The inefficient solution changes its execution time like as shown in the image
 below for increasing m and contant n = 100,000:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/02/total-execution-time.png"><img src="../images/2020/02/total-execution-time.png" alt="Total execution time of find_biggest_subarray_slice" style="width: 512px;"/></a>
-    <figcaption class="text-center">Total execution time of find_biggest_subarray_slice</figcaption>
+<a href="../images/2020/02/total-execution-time.png"><img alt="Total execution time of find_biggest_subarray_slice" src="../images/2020/02/total-execution-time.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Total execution time of find_biggest_subarray_slice</figcaption>
 </figure>
-
 <p>In contrast, the efficient solution looks like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/02/find_biggest_subarray_iterative.png"><img src="../images/2020/02/find_biggest_subarray_iterative.png" alt="Total execution time of the efficient solution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Total execution time of the efficient solution</figcaption>
+<a href="../images/2020/02/find_biggest_subarray_iterative.png"><img alt="Total execution time of the efficient solution" src="../images/2020/02/find_biggest_subarray_iterative.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Total execution time of the efficient solution</figcaption>
 </figure>
-
 <p>Two things to notice:</p>
 <ul>
 <li><strong>Worst-Case</strong>: For the inefficient solution, it is <span class="math">\(m = n/2\)</span>. For the
@@ -179,7 +181,7 @@ below for increasing m and contant n = 100,000:</p>
   is only for the best-case scenario (<span class="math">\(n=m\)</span>) below that. And even then, the
   efficient solution is at 0.0008s whereas the inefficient one is at 0.001s.</li>
 <li><strong>Speed-ups</strong>: If you look at <span class="math">\(m = 60,000\)</span>, the more efficient solution gives
-  a 1000× speedup!</li>
+  a 1000&times; speedup!</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>

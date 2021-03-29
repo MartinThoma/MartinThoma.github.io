@@ -102,20 +102,26 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Password Hashing  😇">Password Hashing  😇</a><ul><li><a class="toc-href" href="#what-is-hashing" title="What is Hashing?">What is Hashing?</a></li><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#salt-because-hashing-is-not-enough" title="Salt &mdash; because hashing is not enough">Salt &mdash; because hashing is not enough</a></li><li><a class="toc-href" href="#how-can-i-hash-passwords" title="How can I hash passwords?">How can I hash passwords?</a></li><li><a class="toc-href" href="#common-mistakes" title="Common Mistakes">Common Mistakes</a></li><li><a class="toc-href" href="#what-can-i-do-as-a-user" title="What can I do as a user?">What can I do as a user?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Software gets hacked, data breaches happen, data is leaked. It’s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.</p>
+            <p>Software gets hacked, data breaches happen, data is leaked. It&rsquo;s not a rare exception but happens all the time. We need to acknowledge that software is not perfect. This is where the concept of defense in depth comes into play.</p>
 <blockquote>
-<h1 id="defense-in-depth-means-we-dont-rely-on-a-single-security-mechanism-but-have-multiple-layers-of-security-instead">Defense in depth means we don’t rely on a single security mechanism, but have multiple layers of security instead.</h1>
+<h1 id="defense-in-depth-means-we-dont-rely-on-a-single-security-mechanism-but-have-multiple-layers-of-security-instead">Defense in depth means we don&rsquo;t rely on a single security mechanism, but have multiple layers of security instead.</h1>
 </blockquote>
-<p>Password hashing is a prime example of defense in depth. If our database is secure, we don’t need password hashing. We hope it is the case and defend the database as well as possible, but we prepare for the worst case. We prepare for an attacker getting access to our users’ login credentials.</p>
-<p>A key idea of privacy comes into play: You don’t have to worry about data you don’t have. In the case of passwords, we don’t store the passwords. Not even an encrypted version. We store a hashed version.</p>
+<p>Password hashing is a prime example of defense in depth. If our database is secure, we don&rsquo;t need password hashing. We hope it is the case and defend the database as well as possible, but we prepare for the worst case. We prepare for an attacker getting access to our users&rsquo; login credentials.</p>
+<p>A key idea of privacy comes into play: You don&rsquo;t have to worry about data you don&rsquo;t have. In the case of passwords, we don&rsquo;t store the passwords. Not even an encrypted version. We store a hashed version.</p>
 <p>This way the effect is hopefully limited to our service. We need to tell the users that their accounts and data might have been exposed, but at least nobody will use the same username/password combination to log into their bank/Amazon/Social accounts.</p>
 <h2 id="what-is-hashing">What is Hashing?</h2>
 <p>Hashing is like cooking. Given the recipe (the hashing algorithm) and the ingredients (the password), you can always get the same result. Just given the result (the hash), it is virtually impossible to reverse the process (figure out the password).</p>
 <p>There are non-cryptographic hashing functions and cryptographic ones. The cryptographic ones are designed to be hard to compute. Meaning they take a lot of CPU power/time to apply. This is on purpose. If you need a few milliseconds to apply it on your (weak) server, the attacker hopefully also needs quite a while to apply it billions of times on huge dictionaries to crack the encrypted accounts with brute force.</p>
-<p><img alt="Photo by American Heritage Chocolate on Unsplash" src="https://cdn-images-1.medium.com/max/11800/0*JY7QzN4RasPmA7Nf"><em>Photo by <a href="https://unsplash.com/@americanheritagechocolate?utm_source=medium&amp;utm_medium=referral">American Heritage Chocolate</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by American Heritage Chocolate on Unsplash" src="https://cdn-images-1.medium.com/max/11800/0*JY7QzN4RasPmA7Nf"/><em>Photo by <a href="https://unsplash.com/@americanheritagechocolate?utm_source=medium&amp;utm_medium=referral">American Heritage Chocolate</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <h2 id="why-it-matters">Why it Matters</h2>
 <p>There are <a href="https://en.wikipedia.org/wiki/List_of_data_breaches">so many leaks</a>, it is hard to keep track of the leaks.</p>
 <ul>
@@ -127,7 +133,7 @@ MathJax.Hub.Queue(function() {
 <li><strong>2019</strong>: Zynga leaked 170 million passwords (<a href="https://www.theguardian.com/games/2019/dec/19/170m-passwords-stolen-in-zynga-words-with-friends-hack-monitor-says">source</a>). Zynga used hashing and salting.</li>
 </ul>
 <p>You can see if you might have been affected by <a href="https://haveibeenpwned.com/">haveibeenpwned.com</a>.</p>
-<h2 id="salt-because-hashing-is-not-enough">Salt — because hashing is not enough</h2>
+<h2 id="salt-because-hashing-is-not-enough">Salt &mdash; because hashing is not enough</h2>
 <p>When credentials are leaked, it essentially is a big table with usernames and
 the (hopefully) hashed passwords. If you applied the same algorithm to all
 passwords, you can see which users have the same passwords. Extra information
@@ -144,12 +150,12 @@ and sometimes even a number of rounds to hash. There is a lot of possibilities
 to get it wrong. Also, what do you do to migrate from one hashing function to
 another? What do you do to increase the number of rounds as hardware becomes
 better?</p>
-<p>You for sure don’t want to always force users to enter a new password. You want
+<p>You for sure don&rsquo;t want to always force users to enter a new password. You want
 to be able to let users migrate over time.</p>
 <p>A key derivation function as implemented in Pythons
 <a href="https://pypi.org/project/Werkzeug/">werkzeug</a> package with adjustable
 computational difficulty like <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a> is
-your friend. It’s a function that takes the password, the hashing function, the
+your friend. It&rsquo;s a function that takes the password, the hashing function, the
 salt, the number of rounds. It returns the key. In most programming languages
 you two functions:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">generate_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">hash_function</span><span class="p">,</span> <span class="n">salt_length</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">key</span><span class="p">:</span>
@@ -159,53 +165,51 @@ you two functions:</p>
 <span class="k">def</span> <span class="nf">check_key</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="o">...</span>
 </code></pre></div>
-
 <p>As an example:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; **from** werkzeug.security **import** generate_password_hash as gen_key
-&gt;&gt;&gt; key = **gen_key**(&quot;foobar&quot;, &quot;pbkdf2:sha512:1000&quot;, salt_length=8)
+&gt;&gt;&gt; key = **gen_key**("foobar", "pbkdf2:sha512:1000", salt_length=8)
 
 &gt;&gt;&gt; key
-&#39;pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77&#39;
+'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'
 
 &gt;&gt;&gt; **from** werkzeug.security **import** check_password_hash as check_key
-&gt;&gt;&gt; **check_key**(key, &quot;foobar&quot;)
+&gt;&gt;&gt; **check_key**(key, "foobar")
 True
 </code></pre></div>
-
 <p>You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the Dollar symbol) is the 8 characters of the salt. Then comes the password which is hashed with the given method and salt.</p>
 <p>There are other key derivate functions. Most notably <a href="https://en.wikipedia.org/wiki/Scrypt">scrypt</a>, which was not only designed to be demanding to the CPU but also requires much memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it seems not too wide-spread (<a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497">source</a>). Instead, you can create something similar on your own by using core Python functions such as <a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt">hashlib.scrypt</a> . A noteworthy key derivation function is <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a>.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
-<p>Let’s make a checklist. If you are a developer, I hope you can checkmark those:</p>
-<p>☑ I don’t store passwords in plain text.
-☑ I don’t use encryption for passwords.
-☑ I don’t use a non-cryptographic hashing function (e.g. CRC-32, )
-☑ I don’t use a weak cryptographic hashing function (e.g. MD5, SHA-1)
+<p>Let&rsquo;s make a checklist. If you are a developer, I hope you can checkmark those:</p>
+<p>☑ I don&rsquo;t store passwords in plain text.
+☑ I don&rsquo;t use encryption for passwords.
+☑ I don&rsquo;t use a non-cryptographic hashing function (e.g. CRC-32, )
+☑ I don&rsquo;t use a weak cryptographic hashing function (e.g. MD5, SHA-1)
 ☑ I use a different, randomly calculated salt for each user for calculating the hashes.</p>
 <p>As a user, I hope you can checkmark the following points:</p>
-<p>☑ I don’t re-use passwords. Ever.
-☑ I don’t share my passwords.
-☑ I don’t use weak passwords.
-☑ I make sure I don’t <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">leak my secrets</a>.
-☑ I am aware of phishing. (If you are not — a blog post will follow😀)</p>
-<p>As a developer, you can prevent some mistakes from the user by a password policy. For example, making it mandatory to have at least 8 characters and maybe run the password through a simple dictionary attack before you allow it. I wouldn’t put password rules up, though. <a href="https://xkcd.com/936/">XKCD 936</a> explains why.</p>
-<p><img alt="Image by Oliver Widder (Geek and Poke)" src="https://cdn-images-1.medium.com/max/2992/1*BYKHbPTILDYTxW2Xug8xPA.jpeg"><em>Image by Oliver Widder (<a href="https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html">Geek and Poke</a>)</em></p>
+<p>☑ I don&rsquo;t re-use passwords. Ever.
+☑ I don&rsquo;t share my passwords.
+☑ I don&rsquo;t use weak passwords.
+☑ I make sure I don&rsquo;t <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">leak my secrets</a>.
+☑ I am aware of phishing. (If you are not &mdash; a blog post will follow😀)</p>
+<p>As a developer, you can prevent some mistakes from the user by a password policy. For example, making it mandatory to have at least 8 characters and maybe run the password through a simple dictionary attack before you allow it. I wouldn&rsquo;t put password rules up, though. <a href="https://xkcd.com/936/">XKCD 936</a> explains why.</p>
+<p><img alt="Image by Oliver Widder (Geek and Poke)" src="https://cdn-images-1.medium.com/max/2992/1*BYKHbPTILDYTxW2Xug8xPA.jpeg"/><em>Image by Oliver Widder (<a href="https://geekandpoke.typepad.com/geekandpoke/2009/08/post20-security.html">Geek and Poke</a>)</em></p>
 <h2 id="what-can-i-do-as-a-user">What can I do as a user?</h2>
 <p>As a user, you should <strong>use different passwords for different services</strong>. The passwords should not be super weak as well (e.g. guessable). This combination makes it impossible for me to just memorize. I have only a handful of strong passwords I memorize. For the rest, I need to <strong>use a password manager</strong>. The password manager can then suggest strong passwords as well.</p>
 <p>A strong password has high entropy. This means:</p>
 <ul>
-<li>At least 8 characters. Let’s rather be safe and have at least 10 characters.</li>
+<li>At least 8 characters. Let&rsquo;s rather be safe and have at least 10 characters.</li>
 <li>A rich character set (e.g. upper- and lower-case letters, digits, special characters)</li>
 <li>Is not a combination of only two or three words in a dictionary</li>
 </ul>
 <p>You can also <strong>change your passwords regularly</strong>. This will make sure that people who had access for a while without being noticed will be blocked out again.</p>
 <h2 id="see-also">See also</h2>
 <p>It feels like <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> / <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> made a video about all the security topics I want to write about 😄</p>
-<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" frameborder="0" allowfullscreen></iframe></center></p>
-<h2 id="whats-next">What’s next?</h2>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" width="560"></iframe></center></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

@@ -102,92 +102,82 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Checkstyle">Checkstyle</a><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#resolve-warnings" title="Resolve warnings">Resolve warnings</a></li><li><a class="toc-href" href="#check-all-files-in-a-folder" title="Check all files in a folder">Check all files in a folder</a></li><li><a class="toc-href" href="#checkstyle-and-eclipse" title="Checkstyle and eclipse">Checkstyle and eclipse</a></li><li><a class="toc-href" href="#further-reading-and-resources" title="Further reading and resources ">Further reading and resources </a><ul><li><a class="toc-href" href="#kit" title="KIT">KIT</a></li></ul></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="highlight"><pre><span></span><code><span class="nt">&lt;li&gt;&lt;/li&gt;</span>
 </code></pre></div>
-
 <p>I have to go to a programming course at KIT at the moment where we are taught how to program with Java. They create exercises which get evaluated automatically. One part of the evaluation is checkstyle.</p>
 <p>So it is a good idea to test the files on my machine before uploading them.</p>
-<h2>Installation</h2>
+<h2 id="installation">Installation</h2>
 <p>You can install it on an Ubuntu system with this command:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install checkstyle
 </code></pre></div>
-
-<h2>Usage</h2>
+<h2 id="usage">Usage</h2>
 <p>You can call checkstyle with this command:</p>
 <div class="highlight"><pre><span></span><code>checkstyle -c /usr/share/checkstyle/sun_checks.xml YourCode.java
 </code></pre></div>
-
 <p>Another example would be:</p>
 <div class="highlight"><pre><span></span><code>checkstyle -c /path/to/config/Progr_WS11_Checkstyle1.xml KITBook.java
 </code></pre></div>
-
 <p>It will generate some output similar to this:</p>
 <div class="highlight"><pre><span></span><code>Starting audit...
-KITBook.java:173:64: <span class="s1">&#39;{&#39;</span> is not preceded with whitespace.
-KITBook.java:174:69: <span class="s1">&#39;-&#39;</span> is not preceded with whitespace.
-KITBook.java:174:70: <span class="s1">&#39;-&#39;</span> is not followed by whitespace.
+KITBook.java:173:64: <span class="s1">'{'</span> is not preceded with whitespace.
+KITBook.java:174:69: <span class="s1">'-'</span> is not preceded with whitespace.
+KITBook.java:174:70: <span class="s1">'-'</span> is not followed by whitespace.
 Audit <span class="k">done</span>.
 </code></pre></div>
-
-<h2>Resolve warnings</h2>
-
+<h2 id="resolve-warnings">Resolve warnings</h2>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>warning<span class="o">]</span> /usr/bin/checkstyle: No java runtime was found
 <span class="o">[</span>warning<span class="o">]</span> /usr/bin/checkstyle: No JAVA_CMD <span class="nb">set</span> <span class="k">for</span> run_java, falling back to <span class="nv">JAVA_CMD</span> <span class="o">=</span> java
 </code></pre></div>
-
 <p>You have to set the path:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">JAVA_CMD</span><span class="o">=</span>/usr/lib/jvm/java-6-sun/bin/java
 <span class="nb">export</span> JAVA_CMD
 </code></pre></div>
-
-<h2>Check all files in a folder</h2>
-
+<h2 id="check-all-files-in-a-folder">Check all files in a folder</h2>
 <div class="highlight"><pre><span></span><code>checkstyle -c /home/moose/Downloads/Progr_WS11_Checkstyle1.xml -r .
 </code></pre></div>
-
-<h2>Checkstyle and eclipse</h2>
+<h2 id="checkstyle-and-eclipse">Checkstyle and eclipse</h2>
 <p>Go to <code><u>H</u>elp &rarr; Install New <u>S</u>oftware ...</code></p>
 <figure class="aligncenter">
-            <a href="../images/2011/11/eclipse-path-updates-300x173.png"><img src="../images/2011/11/eclipse-path-updates-300x173.png" alt="Install new software or plugins in eclipse" style="max-width:300px;max-height:173px" class="size-medium wp-image-9671"/></a>
-            <figcaption class="text-center">Install new software or plugins in eclipse</figcaption>
-        </figure>
-
+<a href="../images/2011/11/eclipse-path-updates-300x173.png"><img alt="Install new software or plugins in eclipse" class="size-medium wp-image-9671" src="../images/2011/11/eclipse-path-updates-300x173.png" style="max-width:300px;max-height:173px"/></a>
+<figcaption class="text-center">Install new software or plugins in eclipse</figcaption>
+</figure>
 <p>Install <code>http://eclipse-cs.sf.net/update/</code> as a new "repository".</p>
 <p>After you have installed the plugin, you have to activate it for your project. To do so, you have to go to <code><u>P</u>roject &rarr; <u>P</u>roperties</code> and check <code>Checkstyle active for this project</code>. Then you have to change to the <code>Local Check Configurations</code> tab and load your personal checkstyle xml files.</p>
 <figure class="aligncenter">
-            <a href="../images/2011/11/eclipse-checkstyle-properties-300x104.png"><img src="../images/2011/11/eclipse-checkstyle-properties-300x104.png" alt="Checkstyle properties in eclipse" style="max-width:300px;max-height:104px" class="size-medium wp-image-9681"/></a>
-            <figcaption class="text-center">Checkstyle properties in eclipse</figcaption>
-        </figure>
-
+<a href="../images/2011/11/eclipse-checkstyle-properties-300x104.png"><img alt="Checkstyle properties in eclipse" class="size-medium wp-image-9681" src="../images/2011/11/eclipse-checkstyle-properties-300x104.png" style="max-width:300px;max-height:104px"/></a>
+<figcaption class="text-center">Checkstyle properties in eclipse</figcaption>
+</figure>
 <p>Click on <code>New</code>, give it a name and click on <code>import</code>. Go back to the main tab and use your personal checkstyle. You will have to rebuild the project.</p>
 <p>You might want to use more than one checkstyle file. You can do that if you uncheck <code>Use simple configuration</code>:</p>
 <figure class="aligncenter">
-            <a href="../images/2011/11/eclipse-checkstyle-multiple-files.png"><img src="../images/2011/11/eclipse-checkstyle-multiple-files.png" alt="Multiple Checkstyle files in Eclipse" style="max-width:598px;max-height:265px" class="size-full wp-image-9711"/></a>
-            <figcaption class="text-center">Multiple Checkstyle files in Eclipse</figcaption>
-        </figure>
-
+<a href="../images/2011/11/eclipse-checkstyle-multiple-files.png"><img alt="Multiple Checkstyle files in Eclipse" class="size-full wp-image-9711" src="../images/2011/11/eclipse-checkstyle-multiple-files.png" style="max-width:598px;max-height:265px"/></a>
+<figcaption class="text-center">Multiple Checkstyle files in Eclipse</figcaption>
+</figure>
 <p>Now you can set <code>File Set Configuration</code> to <code>All</code>, select your <code>Check Configuration</code>, click on <code>OK</code> and enable it in the <code>Main</code> tab.</p>
-<h2>Further reading and resources </h2>
+<h2 id="further-reading-and-resources">Further reading and resources </h2>
 <ul>
-    <li><a href="http://en.wikipedia.org/wiki/Checkstyle">Wikipedia</a></li>
-    <li><a href="http://checkstyle.sourceforge.net/index.html">Official Website</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Checkstyle">Wikipedia</a></li>
+<li><a href="http://checkstyle.sourceforge.net/index.html">Official Website</a></li>
 </ul>
-
-<h3>KIT</h3>
+<h3 id="kit">KIT</h3>
 <p>If you are a student at KIT and you can download the KIT checkstyle-files from <a href="http://zvi.ipd.kit.edu/lehre_programmieren_ws11.php#Zusaetzliches_Material">zvi.ipd.kit.edu</a>. If you can't do it from home via VPN, you could use SSH.</p>
 <p>These commands work fine on Ubuntu and I guess on every Linux machine. If you use Windows, you will have to install Putty or something similar.</p>
 <p>Login with your personal account that begins with u. I'll use uabcd in this example.</p>
 <div class="highlight"><pre><span></span><code>ssh uabcd@rzstud.stud.uni-karlsruhe.de
 </code></pre></div>
-
 <p>Then download the files with wget:</p>
 <div class="highlight"><pre><span></span><code>wget ftp://ftp.ira.uka.de/pub/ZVI/KIT/programmieren_ws11/material/Progr_WS11_Checkstyle1.xml
 wget ftp://ftp.ira.uka.de/pub/ZVI/KIT/programmieren_ws11/material/Progr_WS11_Checkstyle2.xml
 </code></pre></div>
-
 <p>Now you can exit the bash with <code>exit</code> and download the files from your account with <code>scp</code>:</p>
 <div class="highlight"><pre><span></span><code>scp uabcd@rzstud.stud.uni-karlsruhe.de:~/Progr_WS11_Checkstyle1.xml ~/Progr_WS11_Checkstyle1.xml
 scp uabcd@rzstud.stud.uni-karlsruhe.de:~/Progr_WS11_Checkstyle1.xml ~/Progr_WS11_Checkstyle1.xml

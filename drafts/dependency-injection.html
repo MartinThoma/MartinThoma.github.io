@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Dependency Injection">Dependency Injection</a><ul><li><a class="toc-href" href="#examples" title="Examples">Examples</a><ul><li><a class="toc-href" href="#time" title="Time">Time</a></li><li><a class="toc-href" href="#query-builder" title="Query Builder">Query Builder</a></li><li><a class="toc-href" href="#pytest-fixtures" title="Pytest Fixtures">Pytest Fixtures</a></li></ul></li><li><a class="toc-href" href="#why-is-it-used_1" title="Why is it used?">Why is it used?</a></li><li><a class="toc-href" href="#when-not-to-use-it" title="When not to use it">When not to use it</a></li><li><a class="toc-href" href="#inversion-of-control" title="Inversion of Control">Inversion of Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://en.wikipedia.org/wiki/Dependency_injection">Dependency injection</a> (DI)
@@ -121,11 +127,10 @@ we want to just get a filename. The simple solution is</p>
 
 
 <span class="k">def</span> <span class="nf">get_filename</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Get something like &#39;2020-06-10-13-06-31.txt&#39;.&quot;&quot;&quot;</span>
+    <span class="sd">"""Get something like '2020-06-10-13-06-31.txt'."""</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d-%H-%M-%S</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d-%H-%M-%S</span><span class="si">}</span><span class="s2">.txt"</span>
 </code></pre></div>
-
 <p>That is super straight forward, but maybe you want to test it. Then you
 suddenly have to use mocking for datetime.</p>
 <p>Or, you make the function a bit different:</p>
@@ -133,12 +138,11 @@ suddenly have to use mocking for datetime.</p>
 
 
 <span class="k">def</span> <span class="nf">get_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Get something like &#39;2020-06-10-13-06-31.txt&#39;.&quot;&quot;&quot;</span>
+    <span class="sd">"""Get something like '2020-06-10-13-06-31.txt'."""</span>
     <span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d-%H-%M-%S</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d-%H-%M-%S</span><span class="si">}</span><span class="s2">.txt"</span>
 </code></pre></div>
-
 <p>So you inject the dependency <code>now</code>. Due to Pythons handling of default
 parameters you cannot assign it as a default value, but that is a different
 topic.</p>
@@ -152,19 +156,18 @@ added.</p>
     <span class="n">connection</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
     <span class="n">connection</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Here, the dependency is the database object <code>db</code>. It is injected in the
 function.</p>
 <h3 id="pytest-fixtures">Pytest Fixtures</h3>
 <blockquote>
 <p>Fixtures allow test functions to easily receive and work against specific
 pre-initialized application objects without having to care about
-import/setup/cleanup details. It’s a prime example of dependency injection
+import/setup/cleanup details. It&rsquo;s a prime example of dependency injection
 where fixture functions take the role of the injector and test functions are
 the consumers of fixture objects.</p>
 </blockquote>
 <p>Source: <a href="https://docs.pytest.org/en/stable/fixture.html#fixtures-a-prime-example-of-dependency-injection">Fixtures: a prime example of dependency injection</a></p>
-<h2 id="why-is-it-used">Why is it used?</h2>
+<h2 id="why-is-it-used_1">Why is it used?</h2>
 <p>Dependency injection can be used instead of global state. The advantages of
 dependency injection compared to having global state are:</p>
 <ul>
@@ -182,12 +185,11 @@ dependency injection compared to having global state are:</p>
 
 
 <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">output_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">output_function</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">output_function</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 
-<span class="n">hello_world</span><span class="p">(</span><span class="n">output_function</span><span class="o">=</span><span class="nb">print</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="n">hello_world</span><span class="p">(</span><span class="n">output_function</span><span class="o">=</span><span class="nb">print</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"world"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Please don't do that. Only use it if you need it. <a href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it">YAGNI</a>,
 if you want to sound cool.</p>
 <p>In this example you don't make testing easier. You might have added
@@ -210,16 +212,16 @@ implement the thing from scratch.</p>
 <li>bagrat: <a href="https://stackoverflow.com/q/31678827/562769">What is a Pythonic way for Dependency Injection?</a>, 2015</li>
 </ul>
 </li>
-<li>Yeray Díaz: <a href="https://www.youtube.com/watch?v=qkGxy4c64Jg">Import as an antipattern - Demystifying Dependency Injection in modern Python</a> at PyCon UK, 2019. On YouTube (21 minutes).</li>
-<li>Ilya Pekelny: <a href="https://medium.com/@pekelny/inversion-of-control-python-anti-pattern-eff3943f64f">Inversion of Control — Python anti-pattern</a>, 2018.</li>
+<li>Yeray D&iacute;az: <a href="https://www.youtube.com/watch?v=qkGxy4c64Jg">Import as an antipattern - Demystifying Dependency Injection in modern Python</a> at PyCon UK, 2019. On YouTube (21 minutes).</li>
+<li>Ilya Pekelny: <a href="https://medium.com/@pekelny/inversion-of-control-python-anti-pattern-eff3943f64f">Inversion of Control &mdash; Python anti-pattern</a>, 2018.</li>
 <li>https://www.quora.com/unanswered/What-are-non-spring-examples-where-IoC-is-used-Python-examples-are-appreciated</li>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr>
+<hr/>
 <ol>
 <li id="fn:1">
-<p>Haki Benita: <a href="https://hakibenita.com/python-dependency-injection">Stop Using datetime.now!</a>, 2020.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Haki Benita: <a href="https://hakibenita.com/python-dependency-injection">Stop Using datetime.now!</a>, 2020.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

@@ -102,14 +102,19 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="SQL Connection Strings">SQL Connection Strings</a><ul><li><a class="toc-href" href="#sqlite" title="SQLite">SQLite</a></li><li><a class="toc-href" href="#mysql-and-mariadb" title="MySQL and MariaDB">MySQL and MariaDB</a></li><li><a class="toc-href" href="#others" title="Others">Others</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>When you want to connect to a database in SQLAlchemy, you need a connection
 string. It usually has the form</p>
 <div class="highlight"><pre><span></span><code>dialect[+driver]://user:password@host/dbname[?key=value..]
 </code></pre></div>
-
 <p>Quite often, the <code>user</code> is <code>root</code> and the <code>host</code> is <code>localhost</code>.</p>
 <p>Once you have the valid connection string, you can <strong>test if it works</strong> via this script:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlalchemy</span>
@@ -117,32 +122,27 @@ string. It usually has the form</p>
 <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">SQLALCHEMY_DATABASE_URI</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">table_names</span><span class="p">())</span>
 </code></pre></div>
-
 <h2 id="sqlite">SQLite</h2>
 <p><code>requirements.txt</code>: None</p>
 <p>Connection:</p>
-<div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///absolute_filepath&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"sqlite:///absolute_filepath"</span>
 
 <span class="c1"># Example:</span>
-<span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">&quot;sqlite:////tmp/test.db&quot;</span>
+<span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"sqlite:////tmp/test.db"</span>
 </code></pre></div>
-
 <p>The first two slashes come from the seperator of dialect and driver, the third
 one from the separation between credentials+host and dbname, the fourth one is
 the path which is kind of the name of the database.</p>
 <p>If you want an in-memory SQLite DB, just specify an empty URL (<a href="https://docs.sqlalchemy.org/en/13/core/engines.html#sqlite">source</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">&quot;sqlite://&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"sqlite://"</span>
 </code></pre></div>
-
 <h2 id="mysql-and-mariadb">MySQL and MariaDB</h2>
 <p><code>requirements.txt</code>:</p>
 <div class="highlight"><pre><span></span><code>PyMySQL
 </code></pre></div>
-
 <p>Connection:</p>
-<div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">&quot;mysql+pymysql://user:password@host/dbname&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"mysql+pymysql://user:password@host/dbname"</span>
 </code></pre></div>
-
 <p>There are a lot of <a href="https://docs.sqlalchemy.org/en/13/dialects/mysql.html">other MySQL drivers</a>:</p>
 <ul>
 <li><a href="https://pypi.org/project/MySQL-python/"><code>mysqldb</code></a>: C extension; does not work with Python 3 (<a href="https://stackoverflow.com/a/14076841/562769">reasons for pymysql</a>)</li>

@@ -102,26 +102,32 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Wie bildet man den Schnitt zweier Vektorr&auml;ume?">Wie bildet man den Schnitt zweier Vektorr&auml;ume?</a><ul><li><a class="toc-href" href="#angaben" title="Angaben">Angaben</a></li><li><a class="toc-href" href="#aufgabe" title="Aufgabe">Aufgabe</a></li><li><a class="toc-href" href="#basis-finden" title="Basis finden">Basis finden</a></li><li><a class="toc-href" href="#zassenhaus-algorithmus" title="Zassenhaus-Algorithmus">Zassenhaus-Algorithmus</a></li><li><a class="toc-href" href="#methode-2" title="Methode 2">Methode 2</a><ul><li><a class="toc-href" href="#angabe" title="Angabe">Angabe</a></li><li><a class="toc-href" href="#rechnung" title="Rechnung">Rechnung</a></li></ul></li><li><a class="toc-href" href="#siehe-auch_1" title="Siehe auch">Siehe auch</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>Angaben</h2>
-<p>Gegeben sind zwei Untervektorräume des <span class="math">\(\mathbb{R}^4\)</span>:
+            <h2 id="angaben">Angaben</h2>
+<p>Gegeben sind zwei Untervektorr&auml;ume des <span class="math">\(\mathbb{R}^4\)</span>:
 </p>
 <div class="math">$$U_1 := \left [\begin{pmatrix} 2 \\ 5 \\ 3 \\ 17 \end{pmatrix}, \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}, \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix}, \begin{pmatrix} -1 \\ 1 \\ -1 \\ 1 \end{pmatrix} \right ]$$</div>
 <div class="math">$$U_2 := \left [\begin{pmatrix} 0 \\ 0 \\ 4 \\ 2 \end{pmatrix}, \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix}, \begin{pmatrix} 36 \\ 126 \\ 8 \\ 139 \end{pmatrix} \right ]$$</div>
-<h2>Aufgabe</h2>
-<p>Finde eine Basis für <span class="math">\(U_1 \cap U_2\)</span>.</p>
-<p>Zusatzaufgabe: Finde eine Basis für <span class="math">\(U_1 + U_2\)</span>.</p>
-<h2>Basis finden</h2>
-<p>Will man eine möglichst einfache Basis, also ein minimales Erzeugendensystem mit möglichst kleinen Zahlen zu einem gegebenem Vektorraum finden, so kann man das <a href="http://de.wikipedia.org/wiki/Gau%C3%9Fsches_Eliminationsverfahren">Gaußsche Eliminationsverfahren</a> auf die erzeugenden Vektoren anwenden. Dazu transponiert man die Vektoren:</p>
+<h2 id="aufgabe">Aufgabe</h2>
+<p>Finde eine Basis f&uuml;r <span class="math">\(U_1 \cap U_2\)</span>.</p>
+<p>Zusatzaufgabe: Finde eine Basis f&uuml;r <span class="math">\(U_1 + U_2\)</span>.</p>
+<h2 id="basis-finden">Basis finden</h2>
+<p>Will man eine m&ouml;glichst einfache Basis, also ein minimales Erzeugendensystem mit m&ouml;glichst kleinen Zahlen zu einem gegebenem Vektorraum finden, so kann man das <a href="http://de.wikipedia.org/wiki/Gau%C3%9Fsches_Eliminationsverfahren">Gau&szlig;sche Eliminationsverfahren</a> auf die erzeugenden Vektoren anwenden. Dazu transponiert man die Vektoren:</p>
 <div class="math">$$\left( \begin{array}{c c c c | c}
   2 &amp; 5 &amp; 3 &amp; 17 &amp; 0\\
   1 &amp; 2 &amp; 3 &amp; 4 &amp; 0\\
   1 &amp; 3 &amp; 3 &amp; 7 &amp; 0\\
  -1 &amp; 1 &amp;-1 &amp; 1 &amp; 0
 \end{array} \right)$$</div>
-<p>Da im Gaußsche Eliminationsverfahren nur das Vertauschen von Zeilen, die Multiplikation einer Zeile mit einer Konstanten und die Addition von Zeilen zugelassen sind, bleibt die rechte Spalte immer Null. Sie kann also weggelassen werden:</p>
+<p>Da im Gau&szlig;sche Eliminationsverfahren nur das Vertauschen von Zeilen, die Multiplikation einer Zeile mit einer Konstanten und die Addition von Zeilen zugelassen sind, bleibt die rechte Spalte immer Null. Sie kann also weggelassen werden:</p>
 <div class="math">$$\left( \begin{array}{c c c c}
   2 &amp; 5 &amp; 3 &amp; 17\\
   1 &amp; 2 &amp; 3 &amp; 4\\
@@ -153,9 +159,9 @@ $$</div>
   0 &amp; 0 &amp; 1 &amp; -2\\
   0 &amp; 0 &amp; 0 &amp; 0
 \end{array} \right)$$</div>
-<p>Die Basis für <span class="math">\(U_1\)</span> ist also </p>
+<p>Die Basis f&uuml;r <span class="math">\(U_1\)</span> ist also </p>
 <div class="math">$$\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ 3 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ -2 \end{pmatrix} \right \}$$</div>
-<p>Ich habe gerade keine Lust, das ganze für <span class="math">\(U_2\)</span> noch vorzurechnen. Es kommt
+<p>Ich habe gerade keine Lust, das ganze f&uuml;r <span class="math">\(U_2\)</span> noch vorzurechnen. Es kommt
 </p>
 <div class="math">$$\left( \begin{array}{c c c c}
   1 &amp; 0 &amp; 0 &amp; -\frac{29}{38}\\
@@ -165,10 +171,10 @@ $$</div>
 \end{array} \right)$$</div>
 <p>
 heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%2C+7%2C+1%2C+8%7D%2C%7B3%2C+1%2C+4%2C+1%7D%2C%7B0%2C+0%2C+4%2C+2%7D%2C%7B36%2C+126%2C+8%2C+139%7D%7D%5D">Wolfram|Alpha</a>.</p>
-<p>Die Basis für <span class="math">\(U_2\)</span> ist also </p>
+<p>Die Basis f&uuml;r <span class="math">\(U_2\)</span> ist also </p>
 <div class="math">$$\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix} \right \}$$</div>
-<h2>Zassenhaus-Algorithmus</h2>
-<p>Bemerkung: Ich habe für den Zassenhaus-Algorithmus leiter die falsche Basis genommen. Der Rechenfehler zieht sich bis zum Ende durch. Wenn ich mal Zeit habe, werde ich es korrigieren (Alternativ: Wenn es jemand von euch macht, kann er den TeX-Code ja als Kommentar bereitstellen).</p>
+<h2 id="zassenhaus-algorithmus">Zassenhaus-Algorithmus</h2>
+<p>Bemerkung: Ich habe f&uuml;r den Zassenhaus-Algorithmus leiter die falsche Basis genommen. Der Rechenfehler zieht sich bis zum Ende durch. Wenn ich mal Zeit habe, werde ich es korrigieren (Alternativ: Wenn es jemand von euch macht, kann er den TeX-Code ja als Kommentar bereitstellen).</p>
 <p>Man transponiert die Basisvektoren von <span class="math">\(U_1\)</span> und <span class="math">\(U_2\)</span> und schreibt sie in eine Matrix:
 </p>
 <div class="math">$$\left( \begin{array}{c | c}
@@ -176,7 +182,7 @@ heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%
   \hline
   U_2^T &amp; 0
 \end{array} \right)$$</div>
-<p>Natürlich nimmt man für <span class="math">\(U_1\)</span> die einfachere der beiden Basen. Dann löst man das ganze wieder mit Gauß:</p>
+<p>Nat&uuml;rlich nimmt man f&uuml;r <span class="math">\(U_1\)</span> die einfachere der beiden Basen. Dann l&ouml;st man das ganze wieder mit Gau&szlig;:</p>
 <div class="math">$$\left( \begin{array}{c c c c | c c c c}
   1 &amp; 0 &amp; 0 &amp; 4 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
   0 &amp; 1 &amp; 0 &amp; 3 &amp; 0 &amp; 1 &amp; 0 &amp; 3 \\
@@ -213,17 +219,17 @@ heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%
   0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 181 &amp; 62 \\
   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp;  13 &amp; - 26
 \end{array} \right)$$</div>
-<p>Rechts unten steht nun die Basis für <span class="math">\(U_1 \cap U_2 = \left [ \left \{ <div class="math">\begin{pmatrix} -1 \\ 0 \\ 181 \\ 62 \end{pmatrix}</div>, <div class="math">\begin{pmatrix} 0 \\ 1 \\ 13 \\ -26 \end{pmatrix}</div>   \right \} \right ]\)</span>.
-Zusätzlich steht links oben die Basis für <span class="math">\(U_1 + U_2\)</span>. Wenn man das noch etwas umformt ist es die Standardbasis des <span class="math">\(\mathbb{R}^4\)</span>.</p>
-<h2>Methode 2</h2>
-<h3>Angabe</h3>
+<p>Rechts unten steht nun die Basis f&uuml;r <span class="math">\(U_1 \cap U_2 = \left [ \left \{ <div class="math">\begin{pmatrix} -1 \\ 0 \\ 181 \\ 62 \end{pmatrix}</div>, <div class="math">\begin{pmatrix} 0 \\ 1 \\ 13 \\ -26 \end{pmatrix}</div>   \right \} \right ]\)</span>.
+Zus&auml;tzlich steht links oben die Basis f&uuml;r <span class="math">\(U_1 + U_2\)</span>. Wenn man das noch etwas umformt ist es die Standardbasis des <span class="math">\(\mathbb{R}^4\)</span>.</p>
+<h2 id="methode-2">Methode 2</h2>
+<h3 id="angabe">Angabe</h3>
 <div class="math">$$U_1 = \left [
 \left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ 3 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ -2 \end{pmatrix} \right \}
 \right ]$$</div>
 <div class="math">$$U_2 = \left [
 \left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{38} \end{pmatrix} \right \}
 \right ]$$</div>
-<h3>Rechnung</h3>
+<h3 id="rechnung">Rechnung</h3>
 <p>Es gilt:
 <span class="math">\(x \in U_1 \cap U_2\)</span>
 <span class="math">\(\Leftrightarrow x \in U_1 \land x \in U_2\)</span>
@@ -255,13 +261,13 @@ Zusätzlich steht links oben die Basis für <span class="math">\(U_1 + U_2\)</sp
 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1\\
 0 &amp; 0 &amp; 0 &amp; 1 &amp; \frac{65}{181} &amp; \frac{75}{181}
 \end{pmatrix}$$</div>
-<p>Nun führt der <span class="math">\(-1\)</span> - Trick zu dieser Lösung:
+<p>Nun f&uuml;hrt der <span class="math">\(-1\)</span> - Trick zu dieser L&ouml;sung:
 </p>
 <div class="math">$$\mathcal{L} = \left [ \left \{ \begin{pmatrix} -\frac{65}{181} \\ 1 \\ 0 \\ \frac{65}{181} \\ -1 \\ 0\end{pmatrix}, \begin{pmatrix} -\frac{75}{181} \\ 0 \\ 1 \\ \frac{75}{181} \\ 0 \\ -1 \end{pmatrix}   \right \} \right ] =
 \left [ \left \{ \begin{pmatrix} -65 \\ 181 \\ 0 \\ 65 \\ -181 \\ 0\end{pmatrix}, \begin{pmatrix} -75 \\ 0 \\ 181 \\ 75 \\ 0 \\ -181 \end{pmatrix}   \right \} \right ]$$</div>
-<p>Das ist also die Lösung für Belegungen von a, b, c, d, e, f, sodass der resultierende Vektor sowohl in <span class="math">\(U_1\)</span>, als auch in <span class="math">\(U_2\)</span> ist.</p>
-<p>Allerdings sieht es so aus, als hätte ich mich irgendwo verrechnet… Sieht jemand den Fehler?</p>
-<h2>Siehe auch</h2>
+<p>Das ist also die L&ouml;sung f&uuml;r Belegungen von a, b, c, d, e, f, sodass der resultierende Vektor sowohl in <span class="math">\(U_1\)</span>, als auch in <span class="math">\(U_2\)</span> ist.</p>
+<p>Allerdings sieht es so aus, als h&auml;tte ich mich irgendwo verrechnet&hellip; Sieht jemand den Fehler?</p>
+<h2 id="siehe-auch_1">Siehe auch</h2>
 <p><a href="http://werkzeuge.wieschoo.com/zassenalgo.php">Interaktiver Zassenhaus-Algorithmus</a></p>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="LaTeX and tables">LaTeX and tables</a><ul><li><a class="toc-href" href="#how-to-make-tables" title="How to make tables">How to make tables</a><ul><li><a class="toc-href" href="#the-simple-way" title="The simple way">The simple way</a></li><li><a class="toc-href" href="#the-standard-way" title="The standard way">The standard way</a></li><li><a class="toc-href" href="#combining-cells" title="Combining cells">Combining cells</a></li><li><a class="toc-href" href="#line-breaks-in-cells" title="Line Breaks in Cells">Line Breaks in Cells</a></li><li><a class="toc-href" href="#page-breaking-tables" title="Page breaking tables">Page breaking tables</a></li></ul></li><li><a class="toc-href" href="#tools_1" title="Tools">Tools</a></li><li><a class="toc-href" href="#what-could-be-better" title="What could be better">What could be better</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>LaTeX is an awesome typesetting language: It is powerful enough to let you
@@ -152,13 +158,11 @@ felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque
 venenatis, vel tristique risus blandit.
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
 <p>It will look like this:</p>
 <figure class="aligncenter">
-            <a href="../images/2014/09/latex-standard-table.png"><img src="../images/2014/09/latex-standard-table.png" alt="Standard LaTeX table" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Standard LaTeX table</figcaption>
-        </figure>
-
+<a href="../images/2014/09/latex-standard-table.png"><img alt="Standard LaTeX table" class="" src="../images/2014/09/latex-standard-table.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Standard LaTeX table</figcaption>
+</figure>
 <p>You can see two environments: <code>table</code> and <code>tabular</code>. Let's focus on <code>tabular</code>
 first. It is always followed by a list of characters <code>l</code>, <code>c</code>, <code>r</code> which
 define if the column is left-aligned, centered or right-aligned. You can add <code>|</code>
@@ -218,13 +222,11 @@ felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque
 venenatis, vel tristique risus blandit.
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
 <p>which looks like this:</p>
 <figure class="aligncenter">
-            <a href="../images/2014/09/latex-table-booktabs.png"><img src="../images/2014/09/latex-table-booktabs.png" alt="LaTeX table with booktabs" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">LaTeX table with booktabs</figcaption>
-        </figure>
-
+<a href="../images/2014/09/latex-table-booktabs.png"><img alt="LaTeX table with booktabs" class="" src="../images/2014/09/latex-table-booktabs.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">LaTeX table with booktabs</figcaption>
+</figure>
 <h3 id="combining-cells">Combining cells</h3>
 <p>It is much nicer when you combine cells. To do so, you can use <code>\multicolumn</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
@@ -273,27 +275,24 @@ felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque
 venenatis, vel tristique risus blandit.
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
 <p>which looks like this:</p>
 <figure class="aligncenter">
-            <a href="../images/2014/09/latex-multicols.png"><img src="../images/2014/09/latex-multicols.png" alt="LaTeX table with multicols" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">LaTeX table with multicols</figcaption>
-        </figure>
-
+<a href="../images/2014/09/latex-multicols.png"><img alt="LaTeX table with multicols" class="" src="../images/2014/09/latex-multicols.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">LaTeX table with multicols</figcaption>
+</figure>
 <p>Note the <code>\cmidrule{2-4}</code> which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).</p>
 <p>If you want to combine multiple rows you need to use <code>\usepackage{multirow}</code>.</p>
 <h3 id="line-breaks-in-cells">Line Breaks in Cells</h3>
 <div class="highlight"><pre><span></span><code><span class="k">\parbox</span><span class="na">[t]</span><span class="nb">{</span>1cm<span class="nb">}{</span>This is the first <span class="k">\\</span> cell<span class="nb">}</span>
 </code></pre></div>
-
 <p>See also: <a href="http://tex.stackexchange.com/q/2441/5645">How to add a forced line break inside a table cell</a></p>
 <h3 id="page-breaking-tables">Page breaking tables</h3>
 <p>If you want your tables to be able to break over pages, you have to use
 <a href="ftp://ftp.tex.ac.uk/tex-archive/macros/latex/required/tools/longtable.pdf"><code>\usepackage{longtable}</code></a> which has <a href="http://users.sdsc.edu/~ssmallen/latex/longtable.html">an example</a>.</p>
 <p>Another option is <a href="http://ctan.org/pkg/supertabular">supertabular</a>.</p>
 <p>When you use them, you should add <code>\endhead</code> so that the head can get repeated.</p>
-<h2 id="tools">Tools</h2>
+<h2 id="tools_1">Tools</h2>
 <p><a href="http://truben.no/table/">truben.no/table</a> is an awesome page to create tables
 for different formats.</p>
 <h2 id="what-could-be-better">What could be better</h2>

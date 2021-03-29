@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="pydantic">pydantic</a><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#create-a-pydantic-model" title="Create a pydantic model">Create a pydantic model</a></li><li><a class="toc-href" href="#use-it-for-input-parsing" title="Use it for input parsing">Use it for input parsing</a></li><li><a class="toc-href" href="#constrained-types" title="Constrained Types">Constrained Types</a></li><li><a class="toc-href" href="#missing-data-use-default-values" title="Missing data: Use default values">Missing data: Use default values</a></li><li><a class="toc-href" href="#additional-data-ignore-allow-or-forbid" title="Additional data: Ignore, allow, or forbid">Additional data: Ignore, allow, or forbid</a></li><li><a class="toc-href" href="#rename-attributes" title="Rename attributes">Rename attributes</a></li><li><a class="toc-href" href="#validators" title="Validators">Validators</a></li><li><a class="toc-href" href="#property-based-testing-with-pydantic" title="Property-based Testing with Pydantic">Property-based Testing with Pydantic</a></li><li><a class="toc-href" href="#more-neat-stuff" title="More neat stuff">More neat stuff</a></li><li><a class="toc-href" href="#operational-safety" title="Operational Safety">Operational Safety</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although <a href="https://www.youtube.com/watch?v=npw4s1QTmPg">Python dictionaries are amazing</a>, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in the passed dictionary and (2) how do I prevent typos?</p>
@@ -112,16 +118,14 @@ MathJax.Hub.Queue(function() {
 <p>Install pydantic via</p>
 <div class="highlight"><pre><span></span><code>pip install pydantic
 </code></pre></div>
-
 <p>For this article, I assume that your data is a network of people in <a href="https://gist.github.com/MartinThoma/517d20998501afc4fff72be032782d41">people.json</a>. They have an ID, a name, a list of friends given by their ID, a birthdate, and the amount of money on their bank account.</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nt">&quot;birthdate&quot;</span><span class="p">:</span> <span class="s2">&quot;1992-01-15&quot;</span><span class="p">,</span> <span class="nt">&quot;bank_account&quot;</span><span class="p">:</span> <span class="mf">12.3</span><span class="p">},</span>
-<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="nt">&quot;birthdate&quot;</span><span class="p">:</span> <span class="s2">&quot;1962-12-31&quot;</span><span class="p">,</span> <span class="nt">&quot;bank_account&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
-<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nt">&quot;birthdate&quot;</span><span class="p">:</span> <span class="s2">&quot;1992-02-28&quot;</span><span class="p">,</span> <span class="nt">&quot;bank_account&quot;</span><span class="p">:</span> <span class="mf">9007199254740993.0</span><span class="p">},</span>
-<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Martin&quot;</span><span class="p">,</span> <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nt">&quot;birthdate&quot;</span><span class="p">:</span> <span class="s2">&quot;1990-04-28&quot;</span><span class="p">,</span> <span class="nt">&quot;bank_account&quot;</span><span class="p">:</span> <span class="mi">9007199254740993</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Anna"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1992-01-15"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mf">12.3</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1962-12-31"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Charlie"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1992-02-28"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mf">9007199254740993.0</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Martin"</span><span class="p">,</span> <span class="nt">"friends"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nt">"birthdate"</span><span class="p">:</span> <span class="s2">"1990-04-28"</span><span class="p">,</span> <span class="nt">"bank_account"</span><span class="p">:</span> <span class="mi">9007199254740993</span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
-
 <p>We want to calculate how much more everybody has than their median friend with this <a href="https://gist.github.com/MartinThoma/fe33638b8a6228dc656e37dcf7a9fb92">example.py</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -134,7 +138,7 @@ MathJax.Hub.Queue(function() {
     <span class="n">people</span> <span class="o">=</span> <span class="n">get_people</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
     <span class="n">friends_difference</span> <span class="o">=</span> <span class="n">get_account_difference</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">person_id</span><span class="p">,</span> <span class="n">diff</span> <span class="ow">in</span> <span class="n">friends_difference</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">person_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2"> EUR&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">person_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2"> EUR"</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">get_account_difference</span><span class="p">(</span>
@@ -142,18 +146,18 @@ MathJax.Hub.Queue(function() {
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;friends&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s2">"friends"</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">friends_account</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">people</span><span class="p">[</span><span class="n">friend</span><span class="p">][</span><span class="s2">&quot;bank_account&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;friends&quot;</span><span class="p">]</span>
+                <span class="n">people</span><span class="p">[</span><span class="n">friend</span><span class="p">][</span><span class="s2">"bank_account"</span><span class="p">]</span> <span class="k">for</span> <span class="n">friend</span> <span class="ow">in</span> <span class="n">person</span><span class="p">[</span><span class="s2">"friends"</span><span class="p">]</span>
             <span class="p">]</span>
             <span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">friends_account</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">median</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="n">median</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">result</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">result</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;bank_account&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">median</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">person</span><span class="p">[</span><span class="s2">"bank_account"</span><span class="p">]</span> <span class="o">-</span> <span class="n">median</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -162,22 +166,21 @@ MathJax.Hub.Queue(function() {
         <span class="n">people</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
     <span class="n">id2person</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
-        <span class="n">id2person</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">person</span>
+        <span class="n">id2person</span><span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">person</span>
     <span class="k">return</span> <span class="n">id2person</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;people.json&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"people.json"</span><span class="p">))</span>
 </code></pre></div>
-
 <p>The problems we want to approach are:</p>
 <ul>
-<li><strong>Ugly None</strong>: Having None as a value for friends is pretty ugly. In some cases, None is different from an empty list. In this case, let’s just assume it means the same. Replacing missing data with something else is called <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputation</a> and there are several techniques.</li>
+<li><strong>Ugly None</strong>: Having None as a value for friends is pretty ugly. In some cases, None is different from an empty list. In this case, let&rsquo;s just assume it means the same. Replacing missing data with something else is called <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputation</a> and there are several techniques.</li>
 <li><strong>Ugly Any</strong>: The type annotations have Dict[str, Any] , because it was considered too complicated or even impossible to know which values the dictionary representing a person can map too.</li>
-<li><strong>Ugly indexing</strong>: It’s just syntax, but ["id"] is 50% longer than .id . This is the reason why <a href="https://pypi.org/project/bunch/">bunch</a>/<a href="https://pypi.org/project/munch/">munch</a> exists.</li>
+<li><strong>Ugly indexing</strong>: It&rsquo;s just syntax, but ["id"] is 50% longer than .id . This is the reason why <a href="https://pypi.org/project/bunch/">bunch</a>/<a href="https://pypi.org/project/munch/">munch</a> exists.</li>
 <li><strong>Typos</strong>: If you make a typo in any of the string indices of a dictionary, no static code analysis tool can help you to detect them. No auto-completion will work properly.</li>
-<li><strong>Late Errors</strong>: Good software modularizes responsibilities. There is one module responsible for the business logic and one for input/output. When I write “module” I mean a unit of code — it could be a Python module, a class, a function, a method. It is bad to have simply one function to deal with those different types of complexity. Getting the business logic right is inherently different from making sure your input/output looks as expected. One is about defining and validating proper interfaces, the other one is about understanding the domain.</li>
-<li><strong>Documentation</strong>: New developers regularly have to read the code of bigger applications. Usually, there is no time to explain every single part in great detail by somebody who knows everything about the application. Most of the time, there isn’t even a single person who knows everything — even if the project was done by a single developer. I always forget parts of my code. Hence documenting is crucial. In Python, documenting expected parameter types and its return values is crucial. Having Dict[str, Any] is better than nothing, but way worse than Person .</li>
+<li><strong>Late Errors</strong>: Good software modularizes responsibilities. There is one module responsible for the business logic and one for input/output. When I write &ldquo;module&rdquo; I mean a unit of code &mdash; it could be a Python module, a class, a function, a method. It is bad to have simply one function to deal with those different types of complexity. Getting the business logic right is inherently different from making sure your input/output looks as expected. One is about defining and validating proper interfaces, the other one is about understanding the domain.</li>
+<li><strong>Documentation</strong>: New developers regularly have to read the code of bigger applications. Usually, there is no time to explain every single part in great detail by somebody who knows everything about the application. Most of the time, there isn&rsquo;t even a single person who knows everything &mdash; even if the project was done by a single developer. I always forget parts of my code. Hence documenting is crucial. In Python, documenting expected parameter types and its return values is crucial. Having Dict[str, Any] is better than nothing, but way worse than Person .</li>
 </ul>
 <h2 id="create-a-pydantic-model">Create a pydantic model</h2>
 <p>We create a new type for the ID of a person, simply because PersonId is so much more meaningful than just int . Then we subclass <a href="https://pydantic-docs.helpmanual.io/usage/models/#basic-model-usage">pydantic.BaseModel</a></p>
@@ -187,7 +190,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
 
-<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;PersonId&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"PersonId"</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
@@ -197,7 +200,6 @@ MathJax.Hub.Queue(function() {
     <span class="n">birthdate</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span>
     <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
-
 <h2 id="use-it-for-input-parsing">Use it for input parsing</h2>
 <p>Next, we use <a href="https://pydantic-docs.helpmanual.io/usage/models/#parsing-data-into-a-specified-type">parse_file_as</a> to read the JSON file:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -211,8 +213,7 @@ MathJax.Hub.Queue(function() {
     <span class="n">people</span> <span class="o">=</span> <span class="n">parse_file_as</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">Person</span><span class="p">],</span> <span class="n">filepath</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="n">person</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">person</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">}</span>
 </code></pre></div>
-
-<p>Please note that <a href="https://pydantic-docs.helpmanual.io/usage/types/#datetime-types">datetime</a> and Decimal are automatically parsed — you still should always look up how it is done. Doing data validation early is good so that errors also happen early and in a known place. This means pydantic nudges you into a good design. I love it 😍</p>
+<p>Please note that <a href="https://pydantic-docs.helpmanual.io/usage/types/#datetime-types">datetime</a> and Decimal are automatically parsed &mdash; you still should always look up how it is done. Doing data validation early is good so that errors also happen early and in a known place. This means pydantic nudges you into a good design. I love it 😍</p>
 <h2 id="constrained-types">Constrained Types</h2>
 <p><a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">Constrained types</a> are integers/floats in a certain value range or a string that matches a RegEx 😃</p>
 <h2 id="missing-data-use-default-values">Missing data: Use default values</h2>
@@ -224,10 +225,9 @@ MathJax.Hub.Queue(function() {
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">friends</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 </code></pre></div>
-
-<p>For immutable data types like strings, integers, floats, tuples, you can simply assign the value. For mutable ones, you need to use Field with the default_factory that generates a new list every time. <a href="https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments">Learn why mutable defaults are evil</a>, if you don’t know it already.</p>
+<p>For immutable data types like strings, integers, floats, tuples, you can simply assign the value. For mutable ones, you need to use Field with the default_factory that generates a new list every time. <a href="https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments">Learn why mutable defaults are evil</a>, if you don&rsquo;t know it already.</p>
 <h2 id="additional-data-ignore-allow-or-forbid">Additional data: Ignore, allow, or forbid</h2>
-<p>It’s sometimes impossible to know at development time which attributes a JSON object has. Still, you need to pass those around. This is super unfortunate and should be challenged, but it can happen.</p>
+<p>It&rsquo;s sometimes impossible to know at development time which attributes a JSON object has. Still, you need to pass those around. This is super unfortunate and should be challenged, but it can happen.</p>
 <p>Pydantic calls those <strong>extras</strong>. If you ignore them, the read pydantic model will not know them. <strong>Ignored extra arguments are dropped</strong>. Allowing them means to accept that this unfortunate design is necessary. <strong>Allowed extras will be part of the parsed object</strong>. Finally, to <strong>forbid</strong> extra arguments means an pydantic.ValidationError<strong> exception</strong> will be thrown if an extra argument occurs.</p>
 <p>This is configured by adding a subclass calledConfig to the pydantic model:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
@@ -238,9 +238,8 @@ MathJax.Hub.Queue(function() {
     <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
-        <span class="n">extra</span> <span class="o">=</span> <span class="s2">&quot;forbid&quot;</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
 </code></pre></div>
-
 <h2 id="rename-attributes">Rename attributes</h2>
 <p>Names are important. <a href="https://www.python.org/dev/peps/pep-0020/">Readability counts</a>. In Python, variables should follow a snake_case naming scheme, while in JavaScript variables should follow a camelCase naming scheme. To fulfill both, pydantic offers <a href="https://pydantic-docs.helpmanual.io/usage/model_config/">allow_population_by_field_name</a> as a config parameter.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
@@ -252,11 +251,10 @@ MathJax.Hub.Queue(function() {
 
     <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
         <span class="n">allow_population_by_field_name</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="c1"># We use the Python attribute &#39;bank_account&#39;,</span>
-        <span class="c1"># but read/write the JSON &#39;bankAccount&#39;</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;bank_account&quot;</span><span class="p">:</span> <span class="s2">&quot;bankAccount&quot;</span><span class="p">}</span>
+        <span class="c1"># We use the Python attribute 'bank_account',</span>
+        <span class="c1"># but read/write the JSON 'bankAccount'</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bank_account"</span><span class="p">:</span> <span class="s2">"bankAccount"</span><span class="p">}</span>
 </code></pre></div>
-
 <h2 id="validators">Validators</h2>
 <p>Sometimes, simple types are not enough. You want to check more complex stuff.</p>
 <p>The docs already give a pretty good example for such a scenario:</p>
@@ -269,30 +267,29 @@ MathJax.Hub.Queue(function() {
     <span class="n">password1</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">password2</span><span class="p">:</span> <span class="nb">str</span>
 
-    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">name_must_contain_space</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s2">&quot; &quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;must contain a space&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">" "</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"must contain a space"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 
-    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;password2&quot;</span><span class="p">)</span>
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">"password2"</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">passwords_match</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s2">&quot;password1&quot;</span> <span class="ow">in</span> <span class="n">values</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">values</span><span class="p">[</span><span class="s2">&quot;password1&quot;</span><span class="p">]:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;passwords do not match&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"password1"</span> <span class="ow">in</span> <span class="n">values</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">values</span><span class="p">[</span><span class="s2">"password1"</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"passwords do not match"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span>
 
-    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">username_alphanumeric</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">v</span><span class="o">.</span><span class="n">isalnum</span><span class="p">(),</span> <span class="s2">&quot;must be alphanumeric&quot;</span>
+        <span class="k">assert</span> <span class="n">v</span><span class="o">.</span><span class="n">isalnum</span><span class="p">(),</span> <span class="s2">"must be alphanumeric"</span>
         <span class="k">return</span> <span class="n">v</span>
 
 
 <span class="n">user</span> <span class="o">=</span> <span class="n">UserModel</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;samuel colvin&quot;</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">&quot;scolvin&quot;</span><span class="p">,</span> <span class="n">password1</span><span class="o">=</span><span class="s2">&quot;zxcvbns&quot;</span><span class="p">,</span> <span class="n">password2</span><span class="o">=</span><span class="s2">&quot;zxcvbn&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"samuel colvin"</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">"scolvin"</span><span class="p">,</span> <span class="n">password1</span><span class="o">=</span><span class="s2">"zxcvbns"</span><span class="p">,</span> <span class="n">password2</span><span class="o">=</span><span class="s2">"zxcvbn"</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
-
-<p>You can check pretty much anything as long as you just need the class itself. Please don’t run queries against a database to do consistency checks; e.g. if you want a username to be unique or something similar. Although you can likely make this run, it will be unexpected to trigger a database query by creating a “data container”.</p>
+<p>You can check pretty much anything as long as you just need the class itself. Please don&rsquo;t run queries against a database to do consistency checks; e.g. if you want a username to be unique or something similar. Although you can likely make this run, it will be unexpected to trigger a database query by creating a &ldquo;data container&rdquo;.</p>
 <p>In our case, we might want to prevent that people can be a friend of themselves:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
@@ -300,7 +297,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">root_validator</span>
 
-<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;PersonId&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"PersonId"</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
@@ -311,17 +308,16 @@ MathJax.Hub.Queue(function() {
     <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
-        <span class="n">extra</span> <span class="o">=</span> <span class="s2">&quot;forbid&quot;</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
 
     <span class="nd">@root_validator</span>
     <span class="k">def</span> <span class="nf">cannot_self_friend</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
-        <span class="n">friends</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;friends&quot;</span><span class="p">)</span>
-        <span class="n">self_id</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+        <span class="n">friends</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"friends"</span><span class="p">)</span>
+        <span class="n">self_id</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">friends</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">friend_id</span> <span class="o">==</span> <span class="n">self_id</span> <span class="k">for</span> <span class="n">friend_id</span> <span class="ow">in</span> <span class="n">friends</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You cannot be a friend of yourself&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"You cannot be a friend of yourself"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">values</span>
 </code></pre></div>
-
 <p>Instead of throwing an exception, we can also simply fix it:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
@@ -329,7 +325,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">root_validator</span>
 
-<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;PersonId&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">PersonId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"PersonId"</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
@@ -340,21 +336,20 @@ MathJax.Hub.Queue(function() {
     <span class="n">friends</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PersonId</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
-        <span class="n">extra</span> <span class="o">=</span> <span class="s2">&quot;forbid&quot;</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
 
     <span class="nd">@root_validator</span>
     <span class="k">def</span> <span class="nf">cannot_self_friend</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
-        <span class="n">friends</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;friends&quot;</span><span class="p">)</span>
-        <span class="n">self_id</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+        <span class="n">friends</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"friends"</span><span class="p">)</span>
+        <span class="n">self_id</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">friends</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">values</span><span class="p">[</span><span class="s2">&quot;friends&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">values</span><span class="p">[</span><span class="s2">"friends"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="n">friend_id</span> <span class="k">for</span> <span class="n">friend_id</span> <span class="ow">in</span> <span class="n">friends</span> <span class="k">if</span> <span class="n">friend_id</span> <span class="o">!=</span> <span class="n">self_id</span>
             <span class="p">]</span>
         <span class="k">return</span> <span class="n">values</span>
 </code></pre></div>
-
 <h2 id="property-based-testing-with-pydantic">Property-based Testing with Pydantic</h2>
-<p><img alt="Photo by Science in HD on Unsplash" src="https://cdn-images-1.medium.com/max/12032/0*lF5tdh_5CjjsGaJt"><em>Photo by <a href="https://unsplash.com/@scienceinhd?utm_source=medium&amp;utm_medium=referral">Science in HD</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Science in HD on Unsplash" src="https://cdn-images-1.medium.com/max/12032/0*lF5tdh_5CjjsGaJt"/><em>Photo by <a href="https://unsplash.com/@scienceinhd?utm_source=medium&amp;utm_medium=referral">Science in HD</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>Property-based tests auto-generate inputs for the function under test and make sure a certain property is fulfilled. In the simplest case, this property is that the function under test does not crash. If you want to learn more about this type of testing, read my article about <a href="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119">property-based testing with hypothesis</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
 <span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
@@ -379,14 +374,12 @@ MathJax.Hub.Queue(function() {
         <span class="k">assert</span> <span class="n">diff</span><span class="p">[</span><span class="n">person_a</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">==</span> <span class="n">diff</span><span class="p">[</span><span class="n">person_b</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 </code></pre></div>
-
 <p>By the way, this test actually pointed out a potential issue:</p>
 <div class="highlight"><pre><span></span><code>Falsifying example: test_two_people(
-    person_a=Person(id=0, name=&#39;&#39;, bank_account=Decimal(&#39;NaN&#39;), birthdate=datetime.date(2000, 1, 1), friends=[]),
-    person_b=Person(id=0, name=&#39;&#39;, bank_account=Decimal(&#39;NaN&#39;), birthdate=datetime.date(2000, 1, 1), friends=[]),
+    person_a=Person(id=0, name='', bank_account=Decimal('NaN'), birthdate=datetime.date(2000, 1, 1), friends=[]),
+    person_b=Person(id=0, name='', bank_account=Decimal('NaN'), birthdate=datetime.date(2000, 1, 1), friends=[]),
 )
 </code></pre></div>
-
 <h2 id="more-neat-stuff">More neat stuff</h2>
 <p>Pydantic is pretty awesome:</p>
 <ul>
@@ -396,7 +389,7 @@ MathJax.Hub.Queue(function() {
 <li><a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">Constrained types</a> allow</li>
 </ul>
 <h2 id="operational-safety">Operational Safety</h2>
-<p><img alt="Photo by ThisisEngineering RAEng on Unsplash" src="https://cdn-images-1.medium.com/max/10944/0*fdsabhkbM69RDDI2"><em>Photo by <a href="https://unsplash.com/@thisisengineering?utm_source=medium&amp;utm_medium=referral">ThisisEngineering RAEng</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by ThisisEngineering RAEng on Unsplash" src="https://cdn-images-1.medium.com/max/10944/0*fdsabhkbM69RDDI2"/><em>Photo by <a href="https://unsplash.com/@thisisengineering?utm_source=medium&amp;utm_medium=referral">ThisisEngineering RAEng</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>One part that usually worries me is general support. Here are some indicators that pydantic has a healthy community:</p>
 <ul>
 <li>

@@ -102,11 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Analyzing PyPI Data - 2">Analyzing PyPI Data - 2</a><ul><li><a class="toc-href" href="#most-common-single-dependency" title="Most common single dependency">Most common single dependency</a><ul><li><a class="toc-href" href="#non-weighted" title="Non-weighted">Non-weighted</a></li><li><a class="toc-href" href="#weighted" title="Weighted">Weighted</a></li></ul></li><li><a class="toc-href" href="#non-functional-packages_1" title="Non-functional packages">Non-functional packages</a></li><li><a class="toc-href" href="#names" title="Names">Names</a><ul><li><a class="toc-href" href="#prefixes" title="Prefixes">Prefixes</a></li></ul></li><li><a class="toc-href" href="#graph-analysis_1" title="Graph analysis">Graph analysis</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#what-could-come-next" title="What could come next">What could come next</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is part two of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
-
 <p>I've recently got a request to expand my analysis of the Python Package Index
 commonly known as PyPI. It is a repository of Python packages where everybody
 can upload packages; pretty much without any restriction. In the article
@@ -141,13 +146,11 @@ imports the package.</p>
     <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">20</span>
 </code></pre></div>
-
 <p>which gives</p>
 <figure class="aligncenter">
-            <a href="../images/2015/12/pypi-imported-packages-count.png"><img src="../images/2015/12/pypi-imported-packages-count.png" alt="This bar chart displays which Python modules get imported by most Python packages" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">This bar chart displays which Python modules get imported by most Python packages</figcaption>
-        </figure>
-
+<a href="../images/2015/12/pypi-imported-packages-count.png"><img alt="This bar chart displays which Python modules get imported by most Python packages" class="" src="../images/2015/12/pypi-imported-packages-count.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">This bar chart displays which Python modules get imported by most Python packages</figcaption>
+</figure>
 <p>and without the system packages:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
@@ -164,13 +167,11 @@ imports the package.</p>
     <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">20</span>
 </code></pre></div>
-
 <p>which gives</p>
-<figure style="width: 510px" class="wp-caption aligncenter">
-    <img src="../images/2015/12/pypi-imported-packages-excluding-system-count.png" alt="This bar chart displays which Python modules (excluding system modules) get imported by most Python packages" />
-    <figcaption>This bar chart displays which Python modules (excluding system modules) get imported by most Python packages</figcaption>
+<figure class="wp-caption aligncenter" style="width: 510px">
+<img alt="This bar chart displays which Python modules (excluding system modules) get imported by most Python packages" src="../images/2015/12/pypi-imported-packages-excluding-system-count.png"/>
+<figcaption>This bar chart displays which Python modules (excluding system modules) get imported by most Python packages</figcaption>
 </figure>
-
 <h3 id="weighted">Weighted</h3>
 <p>How often gets a single module included over all packages?</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
@@ -186,13 +187,11 @@ imports the package.</p>
     <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">20</span>
 </code></pre></div>
-
 <p>2&nbsp;seconds later I've got the result:</p>
 <figure class="aligncenter">
-            <a href="../images/2015/12/pypi-imported-packages.png"><img src="../images/2015/12/pypi-imported-packages.png" alt="Number of imports of Python packages" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Number of imports of Python packages</figcaption>
-        </figure>
-
+<a href="../images/2015/12/pypi-imported-packages.png"><img alt="Number of imports of Python packages" class="" src="../images/2015/12/pypi-imported-packages.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Number of imports of Python packages</figcaption>
+</figure>
 <p>If I'm only interested in the packages which are on PyPI, hence not system
 packages, I execute the following query:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
@@ -210,14 +209,12 @@ packages, I execute the following query:</p>
     <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">20</span>
 </code></pre></div>
-
 <p>which gives me about 2&nbsp;seconds later the following result:</p>
 <figure class="aligncenter">
-            <a href="../images/2015/12/pypi-imported-packages-excluding-system.png"><img src="../images/2015/12/pypi-imported-packages-excluding-system.png" alt="Number of imports of Python packages, excluding system packages" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Number of imports of Python packages, excluding system packages</figcaption>
-        </figure>
-
-<h2 id="non-functional-packages">Non-functional packages</h2>
+<a href="../images/2015/12/pypi-imported-packages-excluding-system.png"><img alt="Number of imports of Python packages, excluding system packages" class="" src="../images/2015/12/pypi-imported-packages-excluding-system.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Number of imports of Python packages, excluding system packages</figcaption>
+</figure>
+<h2 id="non-functional-packages_1">Non-functional packages</h2>
 <p>Although there are many packages for Python which are very useful, there are
 also quite a lot which are not usefull at all. One possibility to identify such
 packages is by checking which packages get neither used by others nor use
@@ -237,7 +234,6 @@ other packages</p>
         <span class="k">FROM</span>
             <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This leads to the result that 54&thinsp;900 packages of 67&thinsp;582
 packages are not obviously crap. Or to write it in another way: 11&nbsp;682
 packages are crap. That is 17.5&thinsp;%. Too much, in my opinion.
@@ -267,11 +263,10 @@ themselves:</p>
 <li>pym: 256</li>
 </ol>
 <p>One interesting thing I've learned is that you can use <code>pip</code> like this:</p>
-<div class="highlight"><pre><span></span><code>$ pip search <span class="s2">&quot;djan</span>$<span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>$ pip search <span class="s2">"djan</span>$<span class="s2">"</span>
 </code></pre></div>
-
 <p>... and I found a pip bug (<a href="https://github.com/pypa/pip/issues/3327">github.com/pypa/pip/issues/3327</a>)</p>
-<h2 id="graph-analysis">Graph analysis</h2>
+<h2 id="graph-analysis_1">Graph analysis</h2>
 <p>Analyzing the dependency graph is quite a challenge. Or at least that was what
 I initiallly thought. This graph has about 67&thinsp;582 nodes and
 436&thinsp;980 edges. Quite a bit. Definitely much larger than what I have
@@ -295,92 +290,91 @@ format on <a href="https://github.com/MartinThoma/pypi-dependencies">github.com/
 Please let me know when you do something interesting with the data.</p>
 <p>I've only got some crappy images with Gephi / GraphViz:</p>
 <ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered-circo-5000-x-small.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered-twopi.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-twopi.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-rendered-x.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-x.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/gephi-1.png" class="image">
-                  <img src="../images/2015/12/gephi-1.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/gephi-2.png" class="image">
-                  <img src="../images/2015/12/gephi-2.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2015/12/pypi-graph-small.png" class="image">
-                  <img src="../images/2015/12/pypi-graph-small.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext"></div>
-      </div>
-   </li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/pypi-rendered.png">
+<img alt="" src="../images/2015/12/pypi-rendered.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/pypi-rendered-circo-5000-x-small.png">
+<img alt="" src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/pypi-rendered-twopi.png">
+<img alt="" src="../images/2015/12/pypi-rendered-twopi.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/pypi-rendered-x.png">
+<img alt="" src="../images/2015/12/pypi-rendered-x.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/gephi-1.png">
+<img alt="" src="../images/2015/12/gephi-1.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/gephi-2.png">
+<img alt="" src="../images/2015/12/gephi-2.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2015/12/pypi-graph-small.png">
+<img alt="" src="../images/2015/12/pypi-graph-small.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext"></div>
+</div>
+</li>
 </ul>
-
 <h2 id="code">Code</h2>
 <p>See <a href="https://github.com/MartinThoma/algorithms/tree/master/PyPI">github.com/MartinThoma/algorithms</a>.</p>
 <h2 id="what-could-come-next">What could come next</h2>

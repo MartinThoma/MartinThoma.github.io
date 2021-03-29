@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Docker">Docker</a><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#context" title="Context">Context</a><ul><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></li><li><a class="toc-href" href="#using-docker_1" title="Using Docker">Using Docker</a><ul><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#using-a-dockerfile" title="Using a Dockerfile">Using a Dockerfile</a></li><li><a class="toc-href" href="#commands" title="Commands">Commands</a></li><li><a class="toc-href" href="#volumes" title="Volumes">Volumes</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Docker is a tool which allows developers to make deployment of their software
@@ -118,29 +124,28 @@ the software. Hence you have to write documentation about it.</p>
 <p>And you can create a (Docker) container.</p>
 <h2 id="glossary">Glossary</h2>
 <dl>
-    <dt>Image</dt>
-    <dd>An image is an immutable file which contains the application code, the
+<dt>Image</dt>
+<dd>An image is an immutable file which contains the application code, the
         operating system, the required software. They are created with
         <code>docker build</code>. Images can be stored in a registry
         such as <a href="https://hub.docker.com/">hub.docker.com</a>.
         An image is defined using a <code>Dockerfile</code>.
         Typically, an image is built on another image.<br/>
         You can list images on your machine with <code>docker images</code>.</dd>
-    <dt>Container</dt>
-    <dd>A virtual operating system. It is an instance of an image. A container
+<dt>Container</dt>
+<dd>A virtual operating system. It is an instance of an image. A container
         is created with <code>docker run</code>. A methaphor used by
         <a href="https://stackoverflow.com/questions/23735149/docker-image-vs-container/26960888#26960888">paislee</a>
         is that an image is a class and a container is an object. They
         encapsulate the environment in which the application runs.<br/>
-        <code>docker ps -a</code> lists all containers - running and stopped.</dd>
-    <dt>Docker Compose</dt>
-    <dd>A tool for defining and running multi-container applications.</dd>
-    <dt>Docker Swarm</dt>
-    <dd>A tool to deploy containers in a cluster. Similar to Kubernetes.</dd>
-    <dt>Kubernetes</dt>
-    <dd>A tool to deploy containers in a cluster. Similar to Docker Swarm.</dd>
+<code>docker ps -a</code> lists all containers - running and stopped.</dd>
+<dt>Docker Compose</dt>
+<dd>A tool for defining and running multi-container applications.</dd>
+<dt>Docker Swarm</dt>
+<dd>A tool to deploy containers in a cluster. Similar to Kubernetes.</dd>
+<dt>Kubernetes</dt>
+<dd>A tool to deploy containers in a cluster. Similar to Docker Swarm.</dd>
 </dl>
-
 <h2 id="context">Context</h2>
 <h3 id="containers-vs-virtual-machines">Containers vs Virtual Machines</h3>
 <ul>
@@ -165,13 +170,13 @@ alternatives:</p>
 <li><a href="https://en.wikipedia.org/wiki/VirtualBox">VirtualBox</a></li>
 <li><a href="https://en.wikipedia.org/wiki/VMware_Workstation">VMware Workstation</a></li>
 </ul>
-<h2 id="using-docker">Using Docker</h2>
+<h2 id="using-docker_1">Using Docker</h2>
 <p>First, <a href="https://askubuntu.com/q/938700/10425">install Docker</a>.</p>
 <h3 id="dockerfile">Dockerfile</h3>
 <p>A <code>Dockerfile</code> defines an image. It is a simple text file which could look
 as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">ubuntu:latest</span>
-<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&quot;info@martin-thoma.de&quot;</span>
+<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span>
 
 <span class="c"># Settings for the local user</span>
 <span class="k">ENV</span> APP_USER docker
@@ -197,10 +202,9 @@ as follows:</p>
 <span class="c"># Start app</span>
 <span class="k">USER</span><span class="s"> docker</span>
 <span class="k">RUN</span> mkdir -p /opt/app/uploads
-<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">]</span>
-<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
+<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">"python"</span><span class="p">]</span>
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">"app.py"</span><span class="p">]</span>
 </code></pre></div>
-
 <p>Let's go through it:</p>
 <ul>
 <li><code>FROM</code> defines on which base image we built our image. We add another layer
@@ -221,26 +225,21 @@ but <a href="https://github.com/moby/moby/issues/4032#issuecomment-34597177">the
 <p>Build the image:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker build -t a_tag_you_like .</span>
 </code></pre></div>
-
 <p>Run the image in a container:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker run a_tag_you_like</span>
 </code></pre></div>
-
 <h3 id="commands">Commands</h3>
 <p>Docker needs to be run in super-user mode. I indicate that with <code>#</code>. You can
 run <code>sudo su</code> in order to run all subsequent commands as a superuser.</p>
 <p>List all images:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker image ls</span>
 </code></pre></div>
-
 <p>List all running containers:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker container ls</span>
 </code></pre></div>
-
 <p>Go into an interactive (<code>-i</code>) bash in a pseudo-tty (<code>-t</code>) in a container with ID <code>4f7d3f0763ad</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker exec -it 4f7d3f0763ad bash</span>
 </code></pre></div>
-
 <h3 id="volumes">Volumes</h3>
 <p>If you copy the code directly into the image, you need to rebuild the image
 every time you make a change to the code. In order to prevent this, you can use
@@ -252,21 +251,19 @@ volumes. There are two types of volumes:</p>
 <p>List volumes:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker volume ls</span>
 </code></pre></div>
-
 <p>Remove volumes:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker volume rm &lt;volume name&gt;</span>
 </code></pre></div>
-
 <h3 id="docker-composeyml">docker-compose.yml</h3>
 <p>The <code>docker-compose.yml</code> is a <a href="https://en.wikipedia.org/wiki/YAML">YAML file</a>
 which defines multi-container applications. It looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3&#39;</span>  <span class="c1"># Version number of the docker-compose file format</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>  <span class="c1"># Version number of the docker-compose file format</span>
 <span class="nt">services</span><span class="p">:</span>
   <span class="nt">web</span><span class="p">:</span>
     <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
     <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app.py</span>
     <span class="nt">ports</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="s">&quot;8082:5000&quot;</span>
+     <span class="p p-Indicator">-</span> <span class="s">"8082:5000"</span>
     <span class="nt">volumes</span><span class="p">:</span>
      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">.:/opt/app</span>  <span class="c1"># enables hot code reloading</span>
      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">uploads:/opt/app/uploads</span>  <span class="c1"># for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)</span>
@@ -283,7 +280,7 @@ which defines multi-container applications. It looks like this:</p>
   <span class="nt">db</span><span class="p">:</span>
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
     <span class="nt">ports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="s">&quot;3307:3306&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="s">"3307:3306"</span>
     <span class="nt">environment</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
@@ -294,7 +291,6 @@ which defines multi-container applications. It looks like this:</p>
     <span class="nt">uploads</span><span class="p">:</span>
         <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
 </code></pre></div>
-
 <p>Start it with <code>docker-compose up</code>.</p>
 <p>The host name of each service is the name of the service itself.</p>
 <p>You can find the data persistance volume with:</p>
@@ -303,42 +299,36 @@ DRIVER              VOLUME NAME
 <span class="nb">local</span>               db6caef4eae28832f35af0951e95ae77d6c29189a793300f5aa9523cd25af362
 <span class="nb">local</span>               flaskmysqldockerized_uploads
 </code></pre></div>
-
 <p>And you can find the path on the host with</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker volume inspect flaskmysqldockerized_uploads</span>
 <span class="o">[</span>
     <span class="o">{</span>
-        <span class="s2">&quot;Driver&quot;</span>: <span class="s2">&quot;local&quot;</span>,
-        <span class="s2">&quot;Labels&quot;</span>: <span class="o">{</span>
-            <span class="s2">&quot;com.docker.compose.project&quot;</span>: <span class="s2">&quot;flaskmysqldockerized&quot;</span>,
-            <span class="s2">&quot;com.docker.compose.volume&quot;</span>: <span class="s2">&quot;uploads&quot;</span>
+        <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
+        <span class="s2">"Labels"</span>: <span class="o">{</span>
+            <span class="s2">"com.docker.compose.project"</span>: <span class="s2">"flaskmysqldockerized"</span>,
+            <span class="s2">"com.docker.compose.volume"</span>: <span class="s2">"uploads"</span>
         <span class="o">}</span>,
-        <span class="s2">&quot;Mountpoint&quot;</span>: <span class="s2">&quot;/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data&quot;</span>,
-        <span class="s2">&quot;Name&quot;</span>: <span class="s2">&quot;flaskmysqldockerized_uploads&quot;</span>,
-        <span class="s2">&quot;Options&quot;</span>: <span class="o">{}</span>,
-        <span class="s2">&quot;Scope&quot;</span>: <span class="s2">&quot;local&quot;</span>
+        <span class="s2">"Mountpoint"</span>: <span class="s2">"/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data"</span>,
+        <span class="s2">"Name"</span>: <span class="s2">"flaskmysqldockerized_uploads"</span>,
+        <span class="s2">"Options"</span>: <span class="o">{}</span>,
+        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>
     <span class="o">}</span>
 <span class="o">]</span>
 </code></pre></div>
-
 <h3 id="cleanup">Cleanup</h3>
 <p>Kill all running containers:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker kill $(docker ps -q)</span>
 </code></pre></div>
-
 <p>Delete all stopped containers</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker rm $(docker ps -a -q)</span>
 </code></pre></div>
-
 <p>Delete all images</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker rmi $(docker images -q)</span>
 </code></pre></div>
-
 <p>Remove unused data</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker system prune</span>
 </code></pre></div>
-
-<h2 id="see-also">See also</h2>
+<h2 id="see-also_1">See also</h2>
 <ul>
 <li>Docker.com<ul>
 <li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></li>

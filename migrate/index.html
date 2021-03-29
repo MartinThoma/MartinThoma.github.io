@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Migrate to Python 3">Migrate to Python 3</a><ul><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#structure" title="Structure">Structure</a></li><li><a class="toc-href" href="#general-cleanup" title="General Cleanup">General Cleanup</a></li><li><a class="toc-href" href="#2to3" title="2to3">2to3</a></li><li><a class="toc-href" href="#unit-tests" title="Unit Tests">Unit Tests</a></li><li><a class="toc-href" href="#sphinx-and-readthedocs" title="Sphinx and ReadTheDocs">Sphinx and ReadTheDocs</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>When I gave a Python Packaging Course, I advised my students to always use Python 3.
@@ -136,26 +142,24 @@ compatible version of propy.</p>
 <p>I want all my projects to have this structure:</p>
 <div class="highlight"><pre><span></span><code>propy3
 ├── docs
-│   ├── Makefile
-│   ├── requirements.txt
-│   └── source
+│&nbsp;&nbsp; ├── Makefile
+│&nbsp;&nbsp; ├── requirements.txt
+│&nbsp;&nbsp; └── source
 ├── Makefile
 ├── MANIFEST.in
 ├── propy
-│   └── __init__.py
+│&nbsp;&nbsp; └── __init__.py
 ├── README.md
 ├── setup.cfg
 ├── setup.py
 ├── tests
 └── tox.ini
 </code></pre></div>
-
 <p>with a setup.py like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">()</span>
 </code></pre></div>
-
 <p>and a setup.cfg like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[metadata]</span>
 <span class="c1"># https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files</span>
@@ -216,7 +220,6 @@ compatible version of propy.</p>
 <span class="na">follow_imports</span><span class="o">=</span><span class="s">skip</span>
 <span class="na">mypy_path</span><span class="o">=</span><span class="s">typeshed/pyi:typeshed/imports</span>
 </code></pre></div>
-
 <h2 id="general-cleanup">General Cleanup</h2>
 <ol>
 <li>Move documentation to <code>/docs</code></li>
@@ -248,7 +251,6 @@ directory of the project:</p>
     <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">black</span>
       <span class="nt">language_version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3.6</span>
 </code></pre></div>
-
 <p>And then executing <code>pre-commit run --all-files</code>.</p>
 <h2 id="2to3">2to3</h2>
 <p>The tool <a href="https://docs.python.org/3/library/2to3.html">2to3</a> can help to make

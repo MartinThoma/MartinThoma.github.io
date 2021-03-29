@@ -100,10 +100,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Linux Memory Consumption">Linux Memory Consumption</a><ul><li><a class="toc-href" href="#free" title="free">free</a></li><li><a class="toc-href" href="#top" title="top">top</a></li><li><a class="toc-href" href="#pmap" title="pmap">pmap</a></li><li><a class="toc-href" href="#vmstat" title="vmstat">vmstat</a></li><li><a class="toc-href" href="#sources" title="Sources">Sources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>free</h2>
+            <h2 id="free">free</h2>
 <p>I've you want to check your memory consumption on a Linux machine, you can use free.</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~$ free -m
              total       used       free     shared    buffers     cached
@@ -111,20 +117,17 @@ Mem:          <span class="m">3952</span>       <span class="m">2832</span>     
 -/+ buffers/cache:       <span class="m">1150</span>       <span class="m">2802</span>
 Swap:         <span class="m">8656</span>          <span class="m">0</span>       <span class="m">8656</span>
 </code></pre></div>
-
 <p>This means: I have a total of 3952 MB <a href="http://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, used and free should be clear, shared is memory which is shared between processes, e.g. shared libraries. The "buffers" entry tells you how much of your RAM is being used for disk buffering. Over 8 GB got swapped out.</p>
-<h2>top</h2>
+<h2 id="top">top</h2>
 <p>top will give you something like Windows' task manager in the command line. If you press "M" it gets sorted by memory utilization:</p>
 <figure class="aligncenter">
-            <a href="../images/2012/02/top-memory.png"><img src="../images/2012/02/top-memory.png" alt="top sorted by memory utilization" style="max-width:500px;max-height:497px" class="size-full wp-image-13591"/></a>
-            <figcaption class="text-center">top sorted by memory utilization</figcaption>
-        </figure>
-
-<h2>pmap</h2>
+<a href="../images/2012/02/top-memory.png"><img alt="top sorted by memory utilization" class="size-full wp-image-13591" src="../images/2012/02/top-memory.png" style="max-width:500px;max-height:497px"/></a>
+<figcaption class="text-center">top sorted by memory utilization</figcaption>
+</figure>
+<h2 id="pmap">pmap</h2>
 <p>pmap reports a memory map of a process. Lets make an example. Eclipse has the process ID (pid) 4526 at the moment.</p>
 <div class="highlight"><pre><span></span><code>pmap <span class="m">4526</span>
 </code></pre></div>
-
 <p>gives the following output:</p>
 <div class="highlight"><pre><span></span><code><span class="m">4526</span>:   /usr/lib/eclipse/eclipse
 Address   Kbytes Mode  Offset           Device    Mapping
@@ -223,9 +226,8 @@ bfa4d000     <span class="m">304</span> rwx-- <span class="m">0000000000000000</
 bfa99000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
 mapped: 927836K    writeable/private: 881752K    shared: 13572K
 </code></pre></div>
-
 <p>So at the moment eclipse is using 927MB of virtual memory. But it need "only" about 186 MB real, physical memory. According to <a href="http://virtualthreads.blogspot.com/2006/02/understanding-memory-usage-on-linux.html">virtualthreads.blogspot.com</a> all data segments have the access rights rw--- and all code segments have the rights r-x--.</p>
-<h2>vmstat</h2>
+<h2 id="vmstat">vmstat</h2>
 <p>Virtual memory statistics gives you the following information:</p>
 <p>Here is the example:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~$ vmstat
@@ -233,7 +235,6 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
  r  b   swpd   free   buff  cache   si   so    bi    bo   <span class="k">in</span>   cs us sy id wa
  <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">1120696</span> <span class="m">119948</span> <span class="m">1599112</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">21</span>    <span class="m">35</span>  <span class="m">416</span>  <span class="m">116</span> <span class="m">12</span>  <span class="m">5</span> <span class="m">82</span>  <span class="m">1</span>
 </code></pre></div>
-
 <p>--memory--
 <strong>swpd</strong>: sum of the used virtual memory.
 <strong>free</strong>: amount of unused physical memory.
@@ -253,10 +254,10 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
 <strong>sy</strong>: CPU time spent for kernel processes
 <strong>id</strong>: idle processor time
 <strong>wa</strong>: Waiting for input / output</p>
-<h2>Sources</h2>
+<h2 id="sources">Sources</h2>
 <ul>
-  <li><a href="http://linuxwiki.de/vmstat">LinuxWiki</a> (German)</li>
-  <li><a href="http://www.cyberciti.biz/faq/linux-check-memory-usage/">cyberciti.biz</a></li>
+<li><a href="http://linuxwiki.de/vmstat">LinuxWiki</a> (German)</li>
+<li><a href="http://www.cyberciti.biz/faq/linux-check-memory-usage/">cyberciti.biz</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

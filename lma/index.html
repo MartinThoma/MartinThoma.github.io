@@ -102,147 +102,147 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Lokalisierung Mobiler Agenten">Lokalisierung Mobiler Agenten</a><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#statische-lokalisierung" title="Statische Lokalisierung">Statische Lokalisierung</a></li></ul></li><li><a class="toc-href" href="#dynamische-lokalisierung_1" title="Dynamische Lokalisierung">Dynamische Lokalisierung</a></li><li><a class="toc-href" href="#slam" title="SLAM">SLAM</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Lokalisierung Mobiler Agenten&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isas.uka.de/User:Kurz/de?uselang=de">Herrn Dr.-Ing. Gerhard Kurz</a> im Sommersemester 2016 gehört.</div>
-
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Lokalisierung Mobiler Agenten&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isas.uka.de/User:Kurz/de?uselang=de">Herrn Dr.-Ing. Gerhard Kurz</a> im Sommersemester 2016 geh&ouml;rt.</div>
 <h2 id="behandelter-stoff">Behandelter Stoff</h2>
-<h3 id="ubersicht">Übersicht</h3>
+<h3 id="ubersicht">&Uuml;bersicht</h3>
 <table>
 <tr>
-    <th>Datum</th>
-    <th>Kapitel</th>
-    <th>Inhalt</th>
+<th>Datum</th>
+<th>Kapitel</th>
+<th>Inhalt</th>
 </tr>
 <tr>
-    <td>17.05.2016</td>
-    <td>5. Vorlesung</td>
-    <td>Hessische Normalform, Least Squares</td>
+<td>17.05.2016</td>
+<td>5. Vorlesung</td>
+<td>Hessische Normalform, Least Squares</td>
 </tr>
 <tr>
-    <td>24.05.2016</td>
-    <td>6. Vorlesung</td>
-    <td>Least Squares</td>
+<td>24.05.2016</td>
+<td>6. Vorlesung</td>
+<td>Least Squares</td>
 </tr>
 <tr>
-    <td>21.06.2016</td>
-    <td>10. Vorlesung</td>
-    <td>Optimalitätsbeweise (Erwartungstreue); Stochastische Kombination</td>
+<td>21.06.2016</td>
+<td>10. Vorlesung</td>
+<td>Optimalit&auml;tsbeweise (Erwartungstreue); Stochastische Kombination</td>
 </tr>
 <tr>
-    <td>28.06.2016</td>
-    <td>11. Vorlesung</td>
-    <td>Dynamische Lokalisierung (Kalman Filter: Prädiktions und Filterschritt)</td>
+<td>28.06.2016</td>
+<td>11. Vorlesung</td>
+<td>Dynamische Lokalisierung (Kalman Filter: Pr&auml;diktions und Filterschritt)</td>
 </tr>
 <tr>
-    <td>05.07.2016</td>
-    <td>12. Vorlesung</td>
-    <td>Kalman Filter: Filterschritt; SLAM</td>
+<td>05.07.2016</td>
+<td>12. Vorlesung</td>
+<td>Kalman Filter: Filterschritt; SLAM</td>
 </tr>
 <tr>
-    <td>12.07.2016</td>
-    <td>13. Vorlesung</td>
-    <td>Particle Filter, SLAM</td>
+<td>12.07.2016</td>
+<td>13. Vorlesung</td>
+<td>Particle Filter, SLAM</td>
 </tr>
 </table>
-
 <h3 id="statische-lokalisierung">Statische Lokalisierung</h3>
 <p>Slides: <code>20160517-lma-1</code></p>
 <dl>
-  <dt><dfn>Hessische Normalform</dfn> (<a href="https://en.wikipedia.org/wiki/Hesse_normal_form"><dfn>Hesse normal form</dfn></a>)</dt>
-  <dd>An equation describing a plane:
+<dt><dfn>Hessische Normalform</dfn> (<a href="https://en.wikipedia.org/wiki/Hesse_normal_form"><dfn>Hesse normal form</dfn></a>)</dt>
+<dd>An equation describing a plane:
 
       $$x \cdot n - d = 0$$
 
       where $x$ is a point, $n$ is the normal of the plane and $d$ is the
       distance of the plane to $0$.
   </dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate"><dfn>Methode der kleinsten Quadrate</dfn></a> (<dfn>Least Squares Methode</dfn>)</dt>
-  <dd>Bei der Lokalisierung mobiler Agenten in einem Raum mit 4&nbsp;Wänden
-      genügen zwei nicht-parallele Abstandsmessungen. Hat man mehr Messungen,
+<dt><a href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate"><dfn>Methode der kleinsten Quadrate</dfn></a> (<dfn>Least Squares Methode</dfn>)</dt>
+<dd>Bei der Lokalisierung mobiler Agenten in einem Raum mit 4&nbsp;W&auml;nden
+      gen&uuml;gen zwei nicht-parallele Abstandsmessungen. Hat man mehr Messungen,
       so kann man mit der Methode kleinster Quadrate die beste Position
       bestimmen.<br/>
-      <br/>
+<br/>
       Der Fehler ist dann $e = y - H x$.<br/>
-      <br/>
-      Damit definiert man das Gütemaß
+<br/>
+      Damit definiert man das G&uuml;tema&szlig;
 
       $$G(x) = (y- Hx)^T W^{-1} (y-Hx)$$
 
       wobei $W^{-1}$ eine symmetrisch positiv definite Gewichtungsmatrix ist.
       </dd>
-   <dt><dfn>Rekursive Methode kleinster Quadrate</dfn></dt>
-   <dd>Wenn bereits einmal die beste Ebene bestimmt wurde will man nicht wieder
+<dt><dfn>Rekursive Methode kleinster Quadrate</dfn></dt>
+<dd>Wenn bereits einmal die beste Ebene bestimmt wurde will man nicht wieder
        alles neu berechnen, wenn ein neues Sensorergebnis hinzukommt.
 
        Bei uns mit Vektorwertigen Sensoren, nicht wie im wie im Skript mit
        Skalaren.</dd>
 </dl>
-
 <p>Slides: <code>6. Vorlesung</code></p>
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Sherman-Morrison-Woodbury-Formel"><dfn>Sherman-Morrison-Woodbury Formel</dfn></a></dt>
-    <dd>Für zwei $n\times k$-Matrizen $U, V$ gilt:<br/>
-        Die $k\times k$-Matrix $E-V^T A^{-1}U$ sei regulär, dann gilt
+<dt><a href="https://de.wikipedia.org/wiki/Sherman-Morrison-Woodbury-Formel"><dfn>Sherman-Morrison-Woodbury Formel</dfn></a></dt>
+<dd>F&uuml;r zwei $n\times k$-Matrizen $U, V$ gilt:<br/>
+        Die $k\times k$-Matrix $E-V^T A^{-1}U$ sei regul&auml;r, dann gilt
         $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$
     </dd>
 </dl>
-
-<h2 id="dynamische-lokalisierung">Dynamische Lokalisierung</h2>
+<h2 id="dynamische-lokalisierung_1">Dynamische Lokalisierung</h2>
 <dl>
-    <dt><dfn id="kalman-filter">Kalman-Filter</dfn></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
+<dt><dfn id="kalman-filter">Kalman-Filter</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
 </dl>
-
 <h2 id="slam">SLAM</h2>
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Simultaneous_Localization_and_Mapping"><dfn id="slam">SLAM</dfn></a> (<dfn>Simultaneous Location and Mapping</dfn>)</dt>
-    <dd>SLAM ist ein Algorithmus, welcher zugleich eine Karte erstellt und
+<dt><a href="https://de.wikipedia.org/wiki/Simultaneous_Localization_and_Mapping"><dfn id="slam">SLAM</dfn></a> (<dfn>Simultaneous Location and Mapping</dfn>)</dt>
+<dd>SLAM ist ein Algorithmus, welcher zugleich eine Karte erstellt und
         einen mobilen Agenten auf der Karte lokalisiert. Eine Karte sind
         positionen von Landmarken.<br/>
-        <br/>
-        <u>Ansätze</u>:
+<br/>
+<u>Ans&auml;tze</u>:
 
         <ul>
-            <li>Filterung (rekursiv): z.B. Kalman-Filter;
+<li>Filterung (rekursiv): z.B. Kalman-Filter;
                 <abbr title="Extended Kalman Filter">EKF</abbr>,
-                <abbr title="Unscented Kalman Filter">UKF</abbr> (sigma-Punkte / samples; einfach zu implementieren und liefert häufig bessere Ergebnisse als EKF),
-                Partikelfilter (Wahrscheinlichkeitsdichten werden durch Partikel / samples repräsentiert)<br/>
-                $\Rightarrow$ Schätzen für Zeitschritt</li>
-            <li>Smoothing / Glättung (batch): Nachteile (Rechenaufwendig, erst nach batch ist Ergebnis da, man muss Daten speichern) und Vorteile (komplette Trajektorie, optimale Schätzung selbiger); z.B.
+                <abbr title="Unscented Kalman Filter">UKF</abbr> (sigma-Punkte / samples; einfach zu implementieren und liefert h&auml;ufig bessere Ergebnisse als EKF),
+                Partikelfilter (Wahrscheinlichkeitsdichten werden durch Partikel / samples repr&auml;sentiert)<br/>
+                $\Rightarrow$ Sch&auml;tzen f&uuml;r Zeitschritt</li>
+<li>Smoothing / Gl&auml;ttung (batch): Nachteile (Rechenaufwendig, erst nach batch ist Ergebnis da, man muss Daten speichern) und Vorteile (komplette Trajektorie, optimale Sch&auml;tzung selbiger); z.B.
                 Graph-based SLAM</li>
-        </ul>
-
-        <u>Loop Closure</u>: Wenn der Agent wieder an einen Punkt kommt, an dem
-        er bereits war, kann ein Kreis geschlossen werden. Daher können die
-        vorherigen Landmarken im Kreis neu geschätzt werden. Allerdings kann
-        ein falsches Loop Closure zur Divergenz des Filters führen.<br/>
-        <br/>
-        <u>Herausforderungen</u>:
+</ul>
+<u>Loop Closure</u>: Wenn der Agent wieder an einen Punkt kommt, an dem
+        er bereits war, kann ein Kreis geschlossen werden. Daher k&ouml;nnen die
+        vorherigen Landmarken im Kreis neu gesch&auml;tzt werden. Allerdings kann
+        ein falsches Loop Closure zur Divergenz des Filters f&uuml;hren.<br/>
+<br/>
+<u>Herausforderungen</u>:
         <ul>
-            <li>Datenassoziation: Erkennen ob Landmarken die gleichen sind.</li>
-            <li>Komplexität (große Karte)</li>
-            <li>Veränderung der Umgebung: z.B. Auto als Landmarke erkannt; neue Brücke kommt hinzu oder wurde abgerissen</li>
-            <li>Nichtlinearitäten des Prolems</li>
-        </ul>
-    </dd>
-    <dt><dfn>Landmarke</dfn></dt>
-    <dd>Ein gut sichtbares / wiedererkennbares Objekt, welches zur Abstandsmessung
+<li>Datenassoziation: Erkennen ob Landmarken die gleichen sind.</li>
+<li>Komplexit&auml;t (gro&szlig;e Karte)</li>
+<li>Ver&auml;nderung der Umgebung: z.B. Auto als Landmarke erkannt; neue Br&uuml;cke kommt hinzu oder wurde abgerissen</li>
+<li>Nichtlinearit&auml;ten des Prolems</li>
+</ul>
+</dd>
+<dt><dfn>Landmarke</dfn></dt>
+<dd>Ein gut sichtbares / wiedererkennbares Objekt, welches zur Abstandsmessung
         benutzt werden kann.</dd>
-    <dt><dfn>EKF SLAM</dfn></dt>
-    <dd>
+<dt><dfn>EKF SLAM</dfn></dt>
+<dd>
 
         EKF SLAM basiert auf dem Extended Kalman Filter.
 
         <u>Vereinfachungen</u>:
 
         <ul>
-            <li>Problem in 2D</li>
-            <li>Feste Zahl von punktförmigen Landmarken</li>
-            <li>Assoziationen bekannt: Landmarken werden zuverlässig erkannt
+<li>Problem in 2D</li>
+<li>Feste Zahl von punktf&ouml;rmigen Landmarken</li>
+<li>Assoziationen bekannt: Landmarken werden zuverl&auml;ssig erkannt
                 und nicht verwechselt.</li>
-        </ul>
+</ul>
 
         Zustand $\mathbf{x}_k = [\underbrace{x_k, y_k, \theta_k}_{\text{Pose des Roboters}}, \underbrace{m_{1, x}, m_{1, y}}_{\text{LM 1}}, \dots, \underbrace{m_{M, x}, m_{M, y}}_{\text{LM } M}]$
         <br/>
@@ -250,12 +250,12 @@ MathJax.Hub.Queue(function() {
         Dimension von $\mathbf{x}_k$: $3 + 2 M$.<br/>
         Kovarianz hat $(3+2M)^2$ Elemente, d.h. der Speicheraufwand ist
         quadratisch in der Zahl der Landmarken.<br/>
-        <br/>
+<br/>
         Systemgleichung: $x_{k+1} = a_k (x_k, M_k) + w_k$<br/>
         $x_{k+1} \approx A_k x_k + w_k,$
-        wobei $A_k$ Jaccobi-Matrix von $a_k(x_k, u_k)$ für festes $u_k$ an der
+        wobei $A_k$ Jaccobi-Matrix von $a_k(x_k, u_k)$ f&uuml;r festes $u_k$ an der
         Stelle $\hat{x}_k^e$.<br/>
-        <br/>
+<br/>
         Messgleichung: $y_k = h(x_k) + v_k$<br/>
         In der Regel sind nicht alle Landmarken zugleich sichtbar. In diesem
         Fall werden Zeilen in der Messabbildung weggelassen.
@@ -263,10 +263,10 @@ MathJax.Hub.Queue(function() {
         wobei $H_k$ die Jaccobi-Matrix von $h(x_k)$ an der Stelle $\hat{x}_k^P$
         ist.
     </dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Particle_filter"><dfn id="particle-filter">Particle Filter</dfn></a> (<dfn>Partikelfilter</dfn>, <dfn>Sequential Monte Carlo</dfn>, <dfn>SMC</dfn>)</dt>
-    <dd>
+<dt><a href="https://en.wikipedia.org/wiki/Particle_filter"><dfn id="particle-filter">Particle Filter</dfn></a> (<dfn>Partikelfilter</dfn>, <dfn>Sequential Monte Carlo</dfn>, <dfn>SMC</dfn>)</dt>
+<dd>
 
-        Idee: Schätze Zustand über Partikel.
+        Idee: Sch&auml;tze Zustand &uuml;ber Partikel.
 
         <u>Ansatz</u>: Sample aus Tranistionsdichte
         $$f(x_{k+1} | x_k = p_k^1, u_k$$
@@ -274,24 +274,22 @@ MathJax.Hub.Queue(function() {
         Implementierung:
 
         <ul>
-            <li>Rauschen $w_k$ samples $\rightarrow v_k^1, \dots, v_k^N$</li>
-            <li>Propagiere durch $x_{k+1} = a_N(x_N, u_N) + w_N$, d.h.
+<li>Rauschen $w_k$ samples $\rightarrow v_k^1, \dots, v_k^N$</li>
+<li>Propagiere durch $x_{k+1} = a_N(x_N, u_N) + w_N$, d.h.
                 $p^1_{k+1} = a_k (p_k^1, u_k) + v_k^1$</li>
-            <li>Gewichte bleiben gleich</li>
-        </ul>
-
-        <u>Problem</u>: Viele Partikel $p_k^i$ haben geringes Gewicht $w_k^i$<br/>
-        <u>Lösung</u>: Resampling mit sequential importance resampling (SIR:
+<li>Gewichte bleiben gleich</li>
+</ul>
+<u>Problem</u>: Viele Partikel $p_k^i$ haben geringes Gewicht $w_k^i$<br/>
+<u>L&ouml;sung</u>: Resampling mit sequential importance resampling (SIR:
                        ziehe $N$ neue Partikel mit Gewichten $\frac{1}{n}$ aus
                        Menge der alten Partikel,
                        wobei die Wahrscheinlichkeit das Partikel $p_k^i$ zu ziehen
                        gerade $w_k^i$ ist.)
     </dd>
 </dl>
-
 <h2 id="material-und-links">Material und Links</h2>
 <p>Die Vorlesung wurde gestreamt und ist unter
-<a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verfügbar.</p>
+<a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verf&uuml;gbar.</p>
 <ul>
 <li><a href="http://isas.uka.de/Lokalisierung_mobiler_Agenten_(SS_2016)/de?uselang=de">Vorlesungswebsite</a></li>
 </ul>
@@ -300,9 +298,9 @@ MathJax.Hub.Queue(function() {
 <li><a href="https://www.youtube.com/watch?v=U6vr3iNrwRA&amp;list=PLgnQpQtFTOGQrZ4O5QzbIHgl3b1JHimN_">SLAM-Vorlesung der Uni Freiburg</a> (<a href="http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/">Material</a>)</li>
 </ul>
 <h2 id="vorlesungsempfehlungen">Vorlesungsempfehlungen</h2>
-<p>Folgende Vorlesungen sind ähnlich:</p>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
 <ul>
-<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken großer Datenbestände</a></li>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
 <li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
 <li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
 <li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
@@ -312,7 +310,7 @@ MathJax.Hub.Queue(function() {
 <li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
 </ul>
 <h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
-<p>Es ist eine mündliche Prüfung.</p>
+<p>Es ist eine m&uuml;ndliche Pr&uuml;fung.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

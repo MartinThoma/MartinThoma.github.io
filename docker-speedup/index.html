@@ -102,13 +102,18 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to Speed up Docker">How to Speed up Docker</a><ul><li><a class="toc-href" href="#install-early-copy-late" title="Install Early, Copy Late">Install Early, Copy Late</a></li><li><a class="toc-href" href="#dockerignore" title=".dockerignore">.dockerignore</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Building a Docker container can take quite a while. However, there are some
 easy parts to speed them up.</p>
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
-
 <h2 id="install-early-copy-late">Install Early, Copy Late</h2>
 <p>Make sure you install dependencies early and copy code late during building
 the container. This helps to cache the dependencies.</p>
@@ -120,7 +125,6 @@ the container. This helps to cache the dependencies.</p>
 sudo docker run --entrypoint /usr/bin/find -it <span class="nb">test</span>
 sudo docker images <span class="p">|</span> grep ^test
 </code></pre></div>
-
 <p>When I started looking at the size of my Flask image, it was 357MB.
 Without copying any of the code, it was <code>349MB</code>.</p>
 <h2 id="see-also">See also</h2>

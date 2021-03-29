@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Word Vectors">Word Vectors</a><ul><li><a class="toc-href" href="#requirements" title="Requirements">Requirements</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>The idea behind word vectors is to represent natural language words like "king"
@@ -113,24 +119,21 @@ in <span class="math">\(\mathbb{R}^n\)</span> in such a way, that you can do ari
 <div class="highlight"><pre><span></span><code>pip install gensim --user
 pip install nltk --user
 </code></pre></div>
-
 <h2 id="example">Example</h2>
 <p>An easy to use example is</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">brown</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">sents</span><span class="p">())</span>
-<span class="n">model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;woman&quot;</span><span class="p">,</span> <span class="s2">&quot;king&quot;</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;man&quot;</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s2">"woman"</span><span class="p">,</span> <span class="s2">"king"</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s2">"man"</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-
 <p>which returns</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;scored&quot;</span><span class="p">,</span> <span class="mf">0.9442702531814575</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;calling&quot;</span><span class="p">,</span> <span class="mf">0.9424217939376831</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;native&quot;</span><span class="p">,</span> <span class="mf">0.9412217736244202</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"scored"</span><span class="p">,</span> <span class="mf">0.9442702531814575</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"calling"</span><span class="p">,</span> <span class="mf">0.9424217939376831</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"native"</span><span class="p">,</span> <span class="mf">0.9412217736244202</span><span class="p">),</span>
 <span class="p">]</span>
 </code></pre></div>
-
 <p>So the corpus is not that good, but it should work with a bigger one.</p>
 <h2 id="see-also">See also</h2>
 <ul>

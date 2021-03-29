@@ -102,22 +102,28 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" normalform?'="" sche="" title="Wie berechnet man die Jordan">Wie berechnet man die Jordan'sche Normalform?</a><ul><li><a class="toc-href" href="#berechnung-der-jordanschen-normalform" title="Berechnung der Jordanschen Normalform">Berechnung der Jordanschen Normalform</a><ul><li><a class="toc-href" href="#charakteristisches-polynom-bestimmen" title="Charakteristisches Polynom bestimmen">Charakteristisches Polynom bestimmen</a></li><li><a class="toc-href" href="#zerlegung-in-linearfaktoren" title="Zerlegung in Linearfaktoren">Zerlegung in Linearfaktoren</a></li><li><a class="toc-href" href="#anzahl-der-jordankastchen-bestimmen" title="Anzahl der Jordank&auml;stchen bestimmen">Anzahl der Jordank&auml;stchen bestimmen</a></li><li><a class="toc-href" href="#grosse-der-jordankastchen-bestimmen" title="Gr&ouml;&szlig;e der Jordank&auml;stchen bestimmen">Gr&ouml;&szlig;e der Jordank&auml;stchen bestimmen</a></li></ul></li><li><a class="toc-href" href="#berechnung-der-basiswechselmatrix_1" title="Berechnung der Basiswechselmatrix">Berechnung der Basiswechselmatrix</a><ul><li><a class="toc-href" href="#kerne-bestimmen" title="Kerne bestimmen">Kerne bestimmen</a></li><li><a class="toc-href" href="#zusammensetzen" title="Zusammensetzen">Zusammensetzen</a></li><li><a class="toc-href" href="#inverse-matrix-bestimmen" title="Inverse Matrix bestimmen">Inverse Matrix bestimmen</a></li></ul></li><li><a class="toc-href" href="#interessante-eigenschaften-der-jnf_1" title="Interessante Eigenschaften der JNF">Interessante Eigenschaften der JNF</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Dieser Artikel beschreibt, wie die Jordansche Normalform einer Matrix sowie die dazugehörige Basiswechselmatrix gefunden werden kann. Dabei wird hier eine Jordansche Normalform erzeugt, bei der die 1er auf der oberen Nebendiagonale sind und die größten Jordankästchen zuerst kommen.</p>
-<p>Ich werde hier nicht erklären, warum es so funktioniert.</p>
+            <p>Dieser Artikel beschreibt, wie die Jordansche Normalform einer Matrix sowie die dazugeh&ouml;rige Basiswechselmatrix gefunden werden kann. Dabei wird hier eine Jordansche Normalform erzeugt, bei der die 1er auf der oberen Nebendiagonale sind und die gr&ouml;&szlig;ten Jordank&auml;stchen zuerst kommen.</p>
+<p>Ich werde hier nicht erkl&auml;ren, warum es so funktioniert.</p>
 <p>Hier sind zwei <a href="../jordansche-normalform-2x2-matrizen/" title="Jordansche Normalform: 2&times;2 Matrizen">Beispiele mit 2x2-Matrizen</a> und <a href="../jordansche-normalform-4x4-matrizen/" title="Jordansche Normalform: 4&times;4 Matrizen">Beispiele mit 4x4-Matrizen</a>.</p>
 <p>Gegeben sei eine Matrix <span><span class="math">\(A \in \mathbb{C}^{n \times n}\)</span></span>.</p>
-<h2>Berechnung der Jordanschen Normalform</h2>
-<h3>Charakteristisches Polynom bestimmen</h3>
+<h2 id="berechnung-der-jordanschen-normalform">Berechnung der Jordanschen Normalform</h2>
+<h3 id="charakteristisches-polynom-bestimmen">Charakteristisches Polynom bestimmen</h3>
 <p>Als ersten Schritt muss man das charakteristische Polynom <span><span class="math">\(p_A(\lambda)\)</span></span> der Matrix <span><span class="math">\(A\)</span></span> bestimmen.</p>
 <p>&rarr; <a href="../wie-berechnet-man-das-charakteristische-polynom/" title="Wie berechnet man das charakteristische Polynom?">Wie berechnet man das charakteristische Polynom?</a></p>
-<h3>Zerlegung in Linearfaktoren</h3>
-<p>Die Zerlegung des charakteristischen Polynoms <span><span class="math">\(p_A(\lambda)\)</span></span> in Linearfaktoren kann ziemlich schwer sein. Dafür muss man unbedingt die Mitternachtsformel <span><span class="math">\(\lambda_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span></span> können und eventuell wissen, wie eine <a href="http://de.wikipedia.org/wiki/Polynomdivision#Manueller_Ablauf">Polynomdivision</a> funktioniert. Eventuell muss man dazu auch Nullstellen erraten. Wenn es ums raten geht, würde ich folgendes ausprobieren: 0, 1, -1, 2, -2, 3, -3.</p>
-<p>Sobald man diese Zerlegung hat, kann man die Eigenwerte und die algebraische Vielfachheit der Eigenwerte direkt ablesen. Die Eigenwerte stehen in der Jordanmatrix auf der Diagonalen. Die algebraische Vielfachheit entspricht der Seitenlänge des quadratischen Jordanblocks.</p>
-<h3>Anzahl der Jordankästchen bestimmen</h3>
-<p>Jeder Eigenwert hat genau einen Jordanblock. Jeder Jordanblock hat wiederum Jordankästchen. Das sieht so aus:</p>
+<h3 id="zerlegung-in-linearfaktoren">Zerlegung in Linearfaktoren</h3>
+<p>Die Zerlegung des charakteristischen Polynoms <span><span class="math">\(p_A(\lambda)\)</span></span> in Linearfaktoren kann ziemlich schwer sein. Daf&uuml;r muss man unbedingt die Mitternachtsformel <span><span class="math">\(\lambda_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span></span> k&ouml;nnen und eventuell wissen, wie eine <a href="http://de.wikipedia.org/wiki/Polynomdivision#Manueller_Ablauf">Polynomdivision</a> funktioniert. Eventuell muss man dazu auch Nullstellen erraten. Wenn es ums raten geht, w&uuml;rde ich folgendes ausprobieren: 0, 1, -1, 2, -2, 3, -3.</p>
+<p>Sobald man diese Zerlegung hat, kann man die Eigenwerte und die algebraische Vielfachheit der Eigenwerte direkt ablesen. Die Eigenwerte stehen in der Jordanmatrix auf der Diagonalen. Die algebraische Vielfachheit entspricht der Seitenl&auml;nge des quadratischen Jordanblocks.</p>
+<h3 id="anzahl-der-jordankastchen-bestimmen">Anzahl der Jordank&auml;stchen bestimmen</h3>
+<p>Jeder Eigenwert hat genau einen Jordanblock. Jeder Jordanblock hat wiederum Jordank&auml;stchen. Das sieht so aus:</p>
 <div class="math">$$J =
     \left(
       \begin{array}{*4{c}}
@@ -127,60 +133,58 @@ MathJax.Hub.Queue(function() {
            0          &amp;               &amp;        &amp; A_{\lambda_k}
       \end{array}
     \right)$$</div>
-<p><span><span class="math">\(A_{\lambda_i}\)</span></span> sind die Jordanblöcke zu den Eigenwerten <span><span class="math">\(\lambda_i\)</span></span>.</p>
-<p>Die Einzelnen Jordanblöcke schauen etwa so aus:</p>
+<p><span><span class="math">\(A_{\lambda_i}\)</span></span> sind die Jordanbl&ouml;cke zu den Eigenwerten <span><span class="math">\(\lambda_i\)</span></span>.</p>
+<p>Die Einzelnen Jordanbl&ouml;cke schauen etwa so aus:</p>
 <figure class="aligncenter">
-            <a href="../images/2012/08/jordan-normal-form-block.png"><img src="../images/2012/08/jordan-normal-form-block.png" alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen" style="max-width:500px;max-height:260px" class="size-full wp-image-40381"/></a>
-            <figcaption class="text-center">Einzelner Jordanblock mit zwei hervorgehobenen Jordankästchen</figcaption>
-        </figure>
-
-<p>Jedes Jordankästchen ist quadratisch, hat auf der Diagonalen den Eigenwert und auf der oberen Nebendiagonale 1er. Sonst sind nur 0er im Jordankästchen. Außerhalb der Jordankästchen sind im Jordanblock nur 0er. Insbesondere können also auf der oberen Nebendiagonalen des Jordanblocks 0er stehen!</p>
+<a href="../images/2012/08/jordan-normal-form-block.png"><img alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen" class="size-full wp-image-40381" src="../images/2012/08/jordan-normal-form-block.png" style="max-width:500px;max-height:260px"/></a>
+<figcaption class="text-center">Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen</figcaption>
+</figure>
+<p>Jedes Jordank&auml;stchen ist quadratisch, hat auf der Diagonalen den Eigenwert und auf der oberen Nebendiagonale 1er. Sonst sind nur 0er im Jordank&auml;stchen. Au&szlig;erhalb der Jordank&auml;stchen sind im Jordanblock nur 0er. Insbesondere k&ouml;nnen also auf der oberen Nebendiagonalen des Jordanblocks 0er stehen!</p>
 <p>Es gilt:
 <span><span class="math">\(\text{geometrische Vielfachheit des Eigenwertes } \lambda := \dim E_\lambda \leq \text{algebraische Vielfachheit des Eigenwertes } \lambda\)</span></span>
-<span><span class="math">\(\dim E_\lambda = \dim \text{Kern}(A - \lambda \cdot I) = \text{Anzahl der Jordankästchen im Jordanblock zu } \lambda\)</span></span></p>
+<span><span class="math">\(\dim E_\lambda = \dim \text{Kern}(A - \lambda \cdot I) = \text{Anzahl der Jordank&auml;stchen im Jordanblock zu } \lambda\)</span></span></p>
 <p>&rarr; <a href="../wie-bestimme-ich-den-kern-einer-linearen-abbildung/" title="Wie bestimme ich den Kern einer linearen Abbildung?">Wie bestimme ich den Kern einer linearen Abbildung?</a></p>
-<p>Außerdem gilt:
-Die Größe des größten Jordankästchens zum Eigenwert <span><span class="math">\(\lambda_i\)</span></span> ist gleich der Potenz, mit der der Linearfaktor <span><span class="math">\((x-\lambda_i)\)</span></span> im Minimalpolynom (leider NICHT das charakteristische Polynom ☹ ) vorkommt.</p>
-<p>Nun kann man häufig schon schlussfolgern, welche Größe die einzelnen Jordankästchen haben.
-Zusätzlich haben ähnliche Matrizen die gleiche Spur, die gleiche Determinante und den gleichen Rang. Das könnte helfen um "falsche" Jordanmatrizen auszuschließen.</p>
-<p>Damit ist die Jordansche Normalform der Matrix häufig schon bestimmt.</p>
-<h3>Größe der Jordankästchen bestimmen</h3>
+<p>Au&szlig;erdem gilt:
+Die Gr&ouml;&szlig;e des gr&ouml;&szlig;ten Jordank&auml;stchens zum Eigenwert <span><span class="math">\(\lambda_i\)</span></span> ist gleich der Potenz, mit der der Linearfaktor <span><span class="math">\((x-\lambda_i)\)</span></span> im Minimalpolynom (leider NICHT das charakteristische Polynom ☹ ) vorkommt.</p>
+<p>Nun kann man h&auml;ufig schon schlussfolgern, welche Gr&ouml;&szlig;e die einzelnen Jordank&auml;stchen haben.
+Zus&auml;tzlich haben &auml;hnliche Matrizen die gleiche Spur, die gleiche Determinante und den gleichen Rang. Das k&ouml;nnte helfen um "falsche" Jordanmatrizen auszuschlie&szlig;en.</p>
+<p>Damit ist die Jordansche Normalform der Matrix h&auml;ufig schon bestimmt.</p>
+<h3 id="grosse-der-jordankastchen-bestimmen">Gr&ouml;&szlig;e der Jordank&auml;stchen bestimmen</h3>
 <p>Sei <span><span class="math">\(\Omega = \Phi - \lambda \cdot id\)</span></span> und
 <span><span class="math">\(K_k = \text{Kern } ((\Omega)^k)\)</span></span></p>
-<p>Man wähle <span><span class="math">\(q \in N^+\)</span></span> so, dass <span><span class="math">\(\dim K_q = \dim K_{q+1} = \dim K_{q+2} = ... = \dim V\)</span></span> und q minimal.
+<p>Man w&auml;hle <span><span class="math">\(q \in N^+\)</span></span> so, dass <span><span class="math">\(\dim K_q = \dim K_{q+1} = \dim K_{q+2} = ... = \dim V\)</span></span> und q minimal.
 Dann gilt:
-q ist die länge des größten Jordankästchens in dem Jordanblock (und außerdem der Exponent im Minimalpolynom zum betrachteten Eigenwert <span><span class="math">\(\lambda\)</span></span>).</p>
+q ist die l&auml;nge des gr&ouml;&szlig;ten Jordank&auml;stchens in dem Jordanblock (und au&szlig;erdem der Exponent im Minimalpolynom zum betrachteten Eigenwert <span><span class="math">\(\lambda\)</span></span>).</p>
 <p>Es sei <span><span class="math">\(a_0 = \dim K_0 = 0, a_1 = \dim K_1, a_i = \dim K_i\)</span></span> mit <span><span class="math">\(i \in 0, ..., q\)</span></span>.</p>
 <p>Es gilt:</p>
 <ul>
-  <li>Anzahl der Kästchen der Größe <span>$1 \times 1$</span>: <span>$2 \cdot a_1 - a_0 - a_2$</span></li>
-  <li>Anzahl der Kästchen der Größe <span>$2 \times 2$</span>: <span>$2 \cdot a_2 - a_1 - a_3$</span></li>
-  <li>Anzahl der Kästchen der Größe <span>$3 \times 3$</span>: <span>$2 \cdot a_3 - a_2 - a_4$</span></li>
-  <li>Anzahl der Kästchen der Größe <span>$i \times i$</span>: <span>$2 \cdot a_i - a_{i-1} - a_{i+1}$</span></li>
+<li>Anzahl der K&auml;stchen der Gr&ouml;&szlig;e <span>$1 \times 1$</span>: <span>$2 \cdot a_1 - a_0 - a_2$</span></li>
+<li>Anzahl der K&auml;stchen der Gr&ouml;&szlig;e <span>$2 \times 2$</span>: <span>$2 \cdot a_2 - a_1 - a_3$</span></li>
+<li>Anzahl der K&auml;stchen der Gr&ouml;&szlig;e <span>$3 \times 3$</span>: <span>$2 \cdot a_3 - a_2 - a_4$</span></li>
+<li>Anzahl der K&auml;stchen der Gr&ouml;&szlig;e <span>$i \times i$</span>: <span>$2 \cdot a_i - a_{i-1} - a_{i+1}$</span></li>
 </ul>
-
-<h2>Berechnung der Basiswechselmatrix</h2>
-<p>Die Basiswechselmatrix wird manchmal auch Transformationsmatrix genannt. Es ist die invertierbare Matrix S, für die gilt:
+<h2 id="berechnung-der-basiswechselmatrix_1">Berechnung der Basiswechselmatrix</h2>
+<p>Die Basiswechselmatrix wird manchmal auch Transformationsmatrix genannt. Es ist die invertierbare Matrix S, f&uuml;r die gilt:
 <span><span class="math">\(A = S \cdot J \cdot S^{-1}\)</span></span></p>
-<h3>Kerne bestimmen</h3>
+<h3 id="kerne-bestimmen">Kerne bestimmen</h3>
 <p>Bestimme <span><span class="math">\(K_1, K_2, K_3, ... , K_q\)</span></span>, wobei
 <span><span class="math">\(\dim K_{q-1} &lt; \dim K_q = \dim K_{q+1} = \dim K_{q+2} ...\)</span></span>
-gilt. Man kann also bei <span><span class="math">\(K_q\)</span></span> aufhören.</p>
-<p>Für jedes <span><span class="math">\(K_k\)</span></span> mit <span><span class="math">\(k \in 1, ..., q\)</span></span> bestimmt man eine möglichst einfache Basis.</p>
-<h3>Zusammensetzen</h3>
-<p>An dieser Stelle sollte man wissen, wie groß die Jordankästchen sind.</p>
-<p>Für ein Jordankästchen der Größe <span><span class="math">\(i\)</span></span> wählt man einen Basisvektor <span><span class="math">\(v_i\)</span></span> aus <span><span class="math">\(K_i\)</span></span>, der jedoch nicht in <span><span class="math">\(K_{i-1}\)</span></span> liegt. Die restlichen <span><span class="math">\(i-1\)</span></span> Vektoren für dieses Kästchen erhält man, indem man die Abbildungsmatrix von <span><span class="math">\(\Omega^{j}\)</span></span>, mit <span><span class="math">\(j = 1, ..., i-1\)</span></span>, mit <span><span class="math">\(v_i\)</span></span> multipliziert.</p>
+gilt. Man kann also bei <span><span class="math">\(K_q\)</span></span> aufh&ouml;ren.</p>
+<p>F&uuml;r jedes <span><span class="math">\(K_k\)</span></span> mit <span><span class="math">\(k \in 1, ..., q\)</span></span> bestimmt man eine m&ouml;glichst einfache Basis.</p>
+<h3 id="zusammensetzen">Zusammensetzen</h3>
+<p>An dieser Stelle sollte man wissen, wie gro&szlig; die Jordank&auml;stchen sind.</p>
+<p>F&uuml;r ein Jordank&auml;stchen der Gr&ouml;&szlig;e <span><span class="math">\(i\)</span></span> w&auml;hlt man einen Basisvektor <span><span class="math">\(v_i\)</span></span> aus <span><span class="math">\(K_i\)</span></span>, der jedoch nicht in <span><span class="math">\(K_{i-1}\)</span></span> liegt. Die restlichen <span><span class="math">\(i-1\)</span></span> Vektoren f&uuml;r dieses K&auml;stchen erh&auml;lt man, indem man die Abbildungsmatrix von <span><span class="math">\(\Omega^{j}\)</span></span>, mit <span><span class="math">\(j = 1, ..., i-1\)</span></span>, mit <span><span class="math">\(v_i\)</span></span> multipliziert.</p>
 <p>Also:
 <span><span class="math">\(v_j = (A - \lambda \cdot E)^{i-j}\)</span></span> mit <span><span class="math">\(j = 1, ..., i\)</span></span></p>
 <p>Die Vektoren <span><span class="math">\(v_j\)</span></span> schreibt man mit aufsteigenden Indizes in die geordete Basis.
-Beachte: Man wählt nur den Vektor <span><span class="math">\(v_i\)</span></span>, alle anderen Vektoren für dieses Kästchen sind dadurch festgelegt! Außerdem schreibt man <span><span class="math">\(v_i\)</span></span> erst am Ende in die Basis!</p>
-<h3>Inverse Matrix bestimmen</h3>
+Beachte: Man w&auml;hlt nur den Vektor <span><span class="math">\(v_i\)</span></span>, alle anderen Vektoren f&uuml;r dieses K&auml;stchen sind dadurch festgelegt! Au&szlig;erdem schreibt man <span><span class="math">\(v_i\)</span></span> erst am Ende in die Basis!</p>
+<h3 id="inverse-matrix-bestimmen">Inverse Matrix bestimmen</h3>
 <p>Sobald man <span><span class="math">\(S\)</span></span> bestimmt hat, muss man nur noch das Inverse davon bestimmen:
 &rarr; <a href="../wie-bestimme-ich-das-inverse-einer-matrix/" title="Wie bestimme ich das Inverse einer Matrix?">Wie bestimme ich das Inverse einer Matrix?</a></p>
-<h2 id="interessante-eigenschaften-der-jnf">Interessante Eigenschaften der JNF</h2>
-<p>Im Zusammenhang mit der JNF (und einigen Klausuraufgaben) sind mir ein paar erwähnenswerte Eigenschaften aufgefallen:</p>
-<p><strong>Die Anzahl der Jordankästchen zum Eigenwert <span><span class="math">\(\lambda = 0\)</span></span> ist <span><span class="math">\(n - \text{Rang}(A)\)</span></span>.</strong><br/>
-<em>Begründung</em>: Die Anzahl der Jordankästchen zum Eigenwert <span><span class="math">\(\lambda\)</span></span> ist gleich der Dimension des Eigenraumes von <span><span class="math">\(\lambda\)</span></span>. Der Eigenraum zum Eigenwert 0 hat die besonderheit, dass es der Kern ist. Nach der Dimensionsformel gilt:
+<h2 id="interessante-eigenschaften-der-jnf_1">Interessante Eigenschaften der JNF</h2>
+<p>Im Zusammenhang mit der JNF (und einigen Klausuraufgaben) sind mir ein paar erw&auml;hnenswerte Eigenschaften aufgefallen:</p>
+<p><strong>Die Anzahl der Jordank&auml;stchen zum Eigenwert <span><span class="math">\(\lambda = 0\)</span></span> ist <span><span class="math">\(n - \text{Rang}(A)\)</span></span>.</strong><br/>
+<em>Begr&uuml;ndung</em>: Die Anzahl der Jordank&auml;stchen zum Eigenwert <span><span class="math">\(\lambda\)</span></span> ist gleich der Dimension des Eigenraumes von <span><span class="math">\(\lambda\)</span></span>. Der Eigenraum zum Eigenwert 0 hat die besonderheit, dass es der Kern ist. Nach der Dimensionsformel gilt:
 <span><span class="math">\(\dim \text{Kern}(\Phi) + \dim \text{Bild}(\Phi) = n = \dim \text{Kern} + \text{ Rang}(A_\Phi)\)</span></span>.</p>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Maximum Contiguous Subarray Sum">Maximum Contiguous Subarray Sum</a><ul><li><a class="toc-href" href="#edge-cases" title="Edge Cases">Edge Cases</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#brute-force" title="Brute-Force">Brute-Force</a></li><li><a class="toc-href" href="#cummulative-sum-brute-force" title="Cummulative Sum Brute-Force">Cummulative Sum Brute-Force</a></li><li><a algorithm'="" class="toc-href" href="#kadanes-algorithm" s="" title="Kadane">Kadane's Algorithm</a></li><li><a class="toc-href" href="#things-to-learn" title="Things to Learn">Things to Learn</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>The maximum contiguous subarray sum problem is one of the classics. Given an
@@ -130,7 +136,6 @@ solution.</p>
 &gt;&gt;&gt; max_contiguous_subarray_sum([3])
 3
 </code></pre></div>
-
 <h2 id="brute-force">Brute-Force</h2>
 <p>I like simple brute force solutions to make sure that more complex solutions
 are correct:</p>
@@ -146,7 +151,6 @@ are correct:</p>
             <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div>
-
 <p>Complexity analysis:</p>
 <ul>
 <li>Time Complexity: <span class="math">\(\mathcal{O}(n^3)\)</span></li>
@@ -201,7 +205,6 @@ loops</p>
             <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div>
-
 <p>Complexity analysis:</p>
 <ul>
 <li>Time Complexity: <span class="math">\(\mathcal{O}(n^2)\)</span></li>
@@ -212,14 +215,13 @@ loops</p>
 
 
 <span class="k">def</span> <span class="nf">max_contiguous_subarray_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">)</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
     <span class="n">current_sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
         <span class="n">current_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
         <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">current_sum</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div>
-
 <p>Complexity analysis:</p>
 <ul>
 <li>Time Complexity: <span class="math">\(\mathcal{O}(n)\)</span></li>

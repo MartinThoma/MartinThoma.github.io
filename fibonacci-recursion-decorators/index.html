@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Fibonacci, recursion and decorators">Fibonacci, recursion and decorators</a><ul><li><a class="toc-href" href="#memorization-with-decorators" title="Memorization with decorators">Memorization with decorators</a></li><li><a class="toc-href" href="#formula-of-moivre-binet" title="Formula of Moivre-Binet">Formula of Moivre-Binet</a></li><li><a class="toc-href" href="#very-high-numbers" title="Very high numbers">Very high numbers</a></li><li><a class="toc-href" href="#additional-ressources" title="Additional ressources">Additional ressources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I think everybody who learned something about recursion has seen the Fibonacci sequence:</p>
@@ -119,41 +125,39 @@ $$</div>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-
 <p>The problem is, of course, that the number of evaluations goes wild. Here is a table of the number of function calls</p>
 <table>
 <tr>
-  <th>n</th>
-  <td>0</td>
-  <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4</td>
-  <td>5</td>
-  <td>6</td>
-  <td>7</td>
-  <td>8</td>
-  <td>9</td>
-  <td>10</td>
-  <td>20</td>
+<th>n</th>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>20</td>
 </tr>
 <tr>
-  <th>calls</th>
-  <td>1</td>
-  <td>1</td>
-  <td>3</td>
-  <td>5</td>
-  <td>9</td>
-  <td>15</td>
-  <td>25</td>
-  <td>41</td>
-  <td>67</td>
-  <td>109</td>
-  <td>177</td>
-  <td>21891</td>
+<th>calls</th>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+<td>9</td>
+<td>15</td>
+<td>25</td>
+<td>41</td>
+<td>67</td>
+<td>109</td>
+<td>177</td>
+<td>21891</td>
 </tr>
 </table>
-
 <p>To be exact, the number of calls of the fib-function is:</p>
 <div class="math">$$
 f(n) := \begin{cases}
@@ -162,7 +166,7 @@ f(n-1) + f(n-2) + 1 &amp;\text{otherwise}
 \end{cases}
 $$</div>
 <p>This means the dumb function is in <span class="math">\(\mathcal{O}(2^n)\)</span>! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
-<h2>Memorization with decorators</h2>
+<h2 id="memorization-with-decorators">Memorization with decorators</h2>
 <p>One way to solve the problem much faster (in fact in <span class="math">\(\mathcal{O}(n)\)</span> time and space complexity) by storing values we already calculated.</p>
 <p>A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
@@ -183,12 +187,10 @@ $$</div>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺</p>
 <p>By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:</p>
 <div class="highlight"><pre><span></span><code>RuntimeError: maximum recursion depth exceeded in comparison
 </code></pre></div>
-
 <p>You can get around this limitation by successive calls of fib:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Call to fill array</span>
 <span class="n">fib</span><span class="p">(</span><span class="mi">332</span><span class="p">)</span>
@@ -196,9 +198,8 @@ $$</div>
 <span class="c1"># The number of recursive steps is now much smaller:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
 </code></pre></div>
-
 <p>That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.</p>
-<h2>Formula of Moivre-Binet</h2>
+<h2 id="formula-of-moivre-binet">Formula of Moivre-Binet</h2>
 <p>The formula of Moivre-Binet gives a closed form for calculating fibonacci numbers:</p>
 <p><span class="math">\(\varphi = \frac{\sqrt{5}+1}{2}\)</span>
 <span class="math">\(\psi = 1 - \varphi\)</span>
@@ -243,19 +244,17 @@ $$</div>
     <span class="k">if</span> <span class="n">exact</span> <span class="o">!=</span> <span class="n">constTime</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="p">(</span>
-                <span class="s2">&quot;The </span><span class="si">%i</span><span class="s2">-th fibonacci number is </span><span class="si">%i</span><span class="s2">. Moivre-Binet &quot;</span>
-                <span class="o">+</span> <span class="s2">&quot;gives due to precicion error </span><span class="si">%i</span><span class="s2"> (delta=</span><span class="si">%i</span><span class="s2">).&quot;</span>
+                <span class="s2">"The </span><span class="si">%i</span><span class="s2">-th fibonacci number is </span><span class="si">%i</span><span class="s2">. Moivre-Binet "</span>
+                <span class="o">+</span> <span class="s2">"gives due to precicion error </span><span class="si">%i</span><span class="s2"> (delta=</span><span class="si">%i</span><span class="s2">)."</span>
             <span class="p">)</span>
             <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">exact</span><span class="p">,</span> <span class="n">constTime</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exact</span> <span class="o">-</span> <span class="n">constTime</span><span class="p">))</span>
         <span class="p">)</span>
         <span class="k">break</span>
 </code></pre></div>
-
 <p>So the answer is:</p>
 <blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precicion error 498454011879265 (delta=1).</blockquote>
-
 <p>This is a reason to prefer the <span class="math">\(\mathcal{O}(n)\)</span> solution over the <span class="math">\(\mathcal{O}(1)\)</span> solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
-<h2>Very high numbers</h2>
+<h2 id="very-high-numbers">Very high numbers</h2>
 <p>The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
@@ -263,8 +262,7 @@ $$</div>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
     <span class="k">return</span> <span class="n">a</span>
 </code></pre></div>
-
-<h2>Additional ressources</h2>
+<h2 id="additional-ressources">Additional ressources</h2>
 <p>The article on <a href="http://en.literateprograms.org/Fibonacci_numbers_(Python)">literate programs</a> is worth reading. They show some very different programs that calculate Fibonacci numbers.</p>
             
             <div id="disqus_thread" class="no-print"></div>

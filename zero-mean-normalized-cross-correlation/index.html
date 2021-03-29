@@ -102,24 +102,29 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Zero Mean Normalized Cross-Correlation">Zero Mean Normalized Cross-Correlation</a><ul><li><a class="toc-href" href="#sum-of-squared-differences" title="Sum of squared differences">Sum of squared differences</a></li><li><a class="toc-href" href="#zero-mean-normalized-cross-correlation" title="Zero Mean Normalized Cross-Correlation">Zero Mean Normalized Cross-Correlation</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <figure class="alignright">
-            <a href="../images/2013/06/image-correlation.png"><img src="../images/2013/06/image-correlation.png" alt="Image correlation test image" style="max-width:128px;max-height:128px;" class="size-full wp-image-71931"/></a>
-            <figcaption class="text-center">An image from Tsukuba University. This is one of hundreds of images that you can use to test your algorithms. Link is below.</figcaption>
-        </figure>
-
+<a href="../images/2013/06/image-correlation.png"><img alt="Image correlation test image" class="size-full wp-image-71931" src="../images/2013/06/image-correlation.png" style="max-width:128px;max-height:128px;"/></a>
+<figcaption class="text-center">An image from Tsukuba University. This is one of hundreds of images that you can use to test your algorithms. Link is below.</figcaption>
+</figure>
 <p>Zero Mean Normalized Cross-Correlation or shorter ZNCC is an integer you can get when you compare two grayscale images.</p>
 <p>Lets say you have a webcam at a fixed position for security. It takes images all the time, but most of the time the room is empty. So quite a lot of images will not be interesting. They only waste space. So you want to get rid of those redundant images.</p>
 <p>BUT those images are not identical! Even if the scenery didn't change, your sensor will produce slightly different results. A human will not notice them, but you can't simply compare images bit by bit. Even if you could, the images will be different because the sun moved (and so do shadows) and perhaps you have a clock in the image.</p>
 <p>Now you can solve this problem with various techniques.</p>
 <p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size <span class="math">\((2n+1) \times (2n+1)\)</span>. The pixel in the center has coordinates <span class="math">\((u_1, v_1)\)</span> for the part of the first image and <span class="math">\((u_2, v_2)\)</span> for the second image.</p>
-<h2>Sum of squared differences</h2>
+<h2 id="sum-of-squared-differences">Sum of squared differences</h2>
 <p>Go through all pixels, get the difference of both and add up the squares:</p>
 <p><span class="math">\(\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2\)</span></p>
 <p>When SSD is small, both images are very similar. Wehn SSD is 0, the images are identical.</p>
-<h2>Zero Mean Normalized Cross-Correlation</h2>
+<h2 id="zero-mean-normalized-cross-correlation">Zero Mean Normalized Cross-Correlation</h2>
 <p>The average gray value is:
 <span class="math">\(\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum_{i=-n}^n \sum_{j=-n}^n Img(u+i, v+j)\)</span></p>
 <p>The standard deviation is:
@@ -134,7 +139,7 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">getAverage</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;img as a square matrix of numbers&quot;&quot;&quot;</span>
+    <span class="sd">"""img as a square matrix of numbers"""</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -164,20 +169,19 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">stdDeviation1</span> <span class="o">*</span> <span class="n">stdDeviation2</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
     <span class="n">B1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
     <span class="n">B2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">zncc</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">zncc</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="http://www.site.uottawa.ca/research/viva/projects/imagepairs/">Feature point image matching</a></li>
-  <li><a href="http://www.cvlab.cs.tsukuba.ac.jp/index.php?CVLAB%20Home%20Page">Tsukuba University stereo images</a>: Just in case you want to try those algorithms</li>
-  <li><a href="http://siddhantahuja.wordpress.com/tag/normalized-cross-correlation/">Correlation based similarity measures-Summary</a></li>
-  <li><a href="http://www.ti.uni-bielefeld.de/downloads/publications/diploma_theses/ba11_bboettcher_illuminationchange.pdf">Bachelorarbeit</a>: Bildvorverarbeitung und Bild&auml;hnlichkeitsfunktionen f&uuml;r beleuchtungstolerante visuelle Navigation (German)</li>
+<li><a href="http://www.site.uottawa.ca/research/viva/projects/imagepairs/">Feature point image matching</a></li>
+<li><a href="http://www.cvlab.cs.tsukuba.ac.jp/index.php?CVLAB%20Home%20Page">Tsukuba University stereo images</a>: Just in case you want to try those algorithms</li>
+<li><a href="http://siddhantahuja.wordpress.com/tag/normalized-cross-correlation/">Correlation based similarity measures-Summary</a></li>
+<li><a href="http://www.ti.uni-bielefeld.de/downloads/publications/diploma_theses/ba11_bboettcher_illuminationchange.pdf">Bachelorarbeit</a>: Bildvorverarbeitung und Bild&auml;hnlichkeitsfunktionen f&uuml;r beleuchtungstolerante visuelle Navigation (German)</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

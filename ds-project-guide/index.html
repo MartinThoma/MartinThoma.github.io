@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Data Science Project Guide">Data Science Project Guide</a><ul><li><a class="toc-href" href="#understanding-the-setting" title="Understanding the Setting">Understanding the Setting</a></li><li><a class="toc-href" href="#understanding-the-data" title="Understanding the Data">Understanding the Data</a></li><li><a class="toc-href" href="#software-projects" title="Software Projects">Software Projects</a><ul><li><a class="toc-href" href="#building-trust" title="Building Trust">Building Trust</a></li></ul></li><li><a class="toc-href" href="#story-telling_1" title="Story Telling">Story Telling</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Data Science projects are either pure analytics projects, or Software projects,
@@ -110,10 +116,9 @@ or both.</p>
 <p>Three typical data science project phases are understanding the data, creating
 a software component and then a story telling part:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/ds-flowchart.png" alt="Typical Data Science project phases" style="width: 512px;"/>
-    <figcaption class="text-center">Typical Data Science project phases</figcaption>
+<img alt="Typical Data Science project phases" src="../images/2018/06/ds-flowchart.png" style="width: 512px;"/>
+<figcaption class="text-center">Typical Data Science project phases</figcaption>
 </figure>
-
 <p>There are two other steps which I left out as I don't have any rules to follow
 or tools that simplify the job: Getting access to the data and data cleaning.</p>
 <p>Please also note that waterfall does not work: The project phases are likely
@@ -208,10 +213,9 @@ features and see the output of a model, they will either build more trust in
 your model or you will get some examples where your model fails. Either way, it
 is a win for the project.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/06/model-playground.png"><img src="../images/2018/06/model-playground.png" alt="Poking a model" style="width: 512px;"/></a>
-    <figcaption class="text-center">Poking a model</figcaption>
+<a href="../images/2018/06/model-playground.png"><img alt="Poking a model" src="../images/2018/06/model-playground.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Poking a model</figcaption>
 </figure>
-
 <p>This wireframe is an idea for a web service which allows data scientists to
 share models with stakeholders in a way that they can "poke" it. They see what
 the input of the model is, they can manipulate the input and see the output.
@@ -221,63 +225,62 @@ shared</strong>.</p>
 <p>Each model consists of a package with a <code>model.py</code> which contains an
 <code>infer(input_dict)</code> function and a <code>description.json</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Titanic Survival Model&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Titanic Survival Model"</span><span class="p">,</span>
+    <span class="nt">"parameters"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pclass&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Pclass&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;Passenger Class: 1 (First Class) is the most expensive one, 3 is the cheapest&quot;</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Pclass"</span><span class="p">,</span>
+            <span class="nt">"label"</span><span class="p">:</span> <span class="s2">"Pclass"</span><span class="p">,</span>
+            <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+            <span class="nt">"comment"</span><span class="p">:</span> <span class="s2">"Passenger Class: 1 (First Class) is the most expensive one, 3 is the cheapest"</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"age"</span><span class="p">,</span>
+            <span class="nt">"label"</span><span class="p">:</span> <span class="s2">"age"</span><span class="p">,</span>
+            <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"float"</span><span class="p">,</span>
+            <span class="nt">"comment"</span><span class="p">:</span> <span class="s2">""</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SibSp&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;SibSp&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;# of siblings / spouses aboard the Titanic&quot;</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"SibSp"</span><span class="p">,</span>
+            <span class="nt">"label"</span><span class="p">:</span> <span class="s2">"SibSp"</span><span class="p">,</span>
+            <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"float"</span><span class="p">,</span>
+            <span class="nt">"comment"</span><span class="p">:</span> <span class="s2">"# of siblings / spouses aboard the Titanic"</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Parch&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Parch&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;# of parents / children aboard the Titanic&quot;</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Parch"</span><span class="p">,</span>
+            <span class="nt">"label"</span><span class="p">:</span> <span class="s2">"Parch"</span><span class="p">,</span>
+            <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"float"</span><span class="p">,</span>
+            <span class="nt">"comment"</span><span class="p">:</span> <span class="s2">"# of parents / children aboard the Titanic"</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Fare&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Fare&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Fare"</span><span class="p">,</span>
+            <span class="nt">"label"</span><span class="p">:</span> <span class="s2">"Fare"</span><span class="p">,</span>
+            <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"float"</span><span class="p">,</span>
+            <span class="nt">"comment"</span><span class="p">:</span> <span class="s2">""</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">"output"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Survival Probability&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;Survival probability in [0, 1], where 0 means the model is certain that the passenger did not survive and 1 means it is certain that the passenger survived.&quot;</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Survival Probability"</span><span class="p">,</span>
+            <span class="nt">"comment"</span><span class="p">:</span> <span class="s2">"Survival probability in [0, 1], where 0 means the model is certain that the passenger did not survive and 1 means it is certain that the passenger survived."</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;archetypes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nt">"archetypes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;The mother&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;Pclass&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
-                <span class="nt">&quot;SibSp&quot;</span><span class="p">:</span> <span class="mf">12.34</span><span class="p">,</span>
-                <span class="nt">&quot;Parch&quot;</span><span class="p">:</span> <span class="mf">3.141</span><span class="p">,</span>
-                <span class="nt">&quot;Fare&quot;</span><span class="p">:</span> <span class="mf">2.141</span>
+            <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"The mother"</span><span class="p">,</span>
+            <span class="nt">"parameters"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">"Pclass"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">"age"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+                <span class="nt">"SibSp"</span><span class="p">:</span> <span class="mf">12.34</span><span class="p">,</span>
+                <span class="nt">"Parch"</span><span class="p">:</span> <span class="mf">3.141</span><span class="p">,</span>
+                <span class="nt">"Fare"</span><span class="p">:</span> <span class="mf">2.141</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;The model was trained on the values of 123 passangers of the titanic where it is known if the did / did not survive.\n\nThe model is an SVM with C = 1.234.&quot;</span>
+    <span class="nt">"info"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"text"</span><span class="p">:</span> <span class="s2">"The model was trained on the values of 123 passangers of the titanic where it is known if the did / did not survive.\n\nThe model is an SVM with C = 1.234."</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Types that should be supported:</p>
 <ul>
 <li><code>int</code></li>
@@ -286,7 +289,7 @@ shared</strong>.</p>
 <li><code>binary</code> (any file upload)</li>
 <li><code>ext:FOO</code> (files with the extension FOO)</li>
 </ul>
-<h2 id="story-telling">Story Telling</h2>
+<h2 id="story-telling_1">Story Telling</h2>
 <p>Story Telling is the part where you, as a data scientist, make your insights
 accessible, easy to understand and interpret in the correct way by your
 stakeholders. It can be about visualizations, but also about choosing the right

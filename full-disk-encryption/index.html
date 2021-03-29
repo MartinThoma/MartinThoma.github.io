@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Full Disk Encryption 😇">Full Disk Encryption 😇</a><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#fde-does-not-solve" title="FDE does not solve&hellip;">FDE does not solve&hellip;</a></li><li><a class="toc-href" href="#how-fde-works" title="How FDE Works">How FDE Works</a></li><li><a class="toc-href" href="#what-is-secure" title="What is Secure?">What is Secure?</a></li><li><a class="toc-href" href="#fde-solutions" title="FDE Solutions">FDE Solutions</a><ul><li><a class="toc-href" href="#windows-bitlocker" title="Windows: BitLocker">Windows: BitLocker</a></li><li><a class="toc-href" href="#linux-dm-crypt-using-luks2" title="Linux: dm-crypt using LUKS2">Linux: dm-crypt using LUKS2</a></li><li><a class="toc-href" href="#mac-filevault-2" title="Mac: FileVault 2">Mac: FileVault 2</a></li><li><a class="toc-href" href="#android" title="Android">Android</a></li><li><a class="toc-href" href="#honorable-mentions" title="Honorable Mentions">Honorable Mentions</a></li></ul></li><li><a class="toc-href" href="#lost-device-policy_1" title="Lost Device Policy">Lost Device Policy</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Having an attacker with physical access to your device is one of the worst
@@ -112,39 +118,39 @@ read the data. For this reason, encrypting your data is crucial.</p>
 <p>There are so many things you want to protect that it makes sense to just
 encrypt the complete hard drive. For example, you might have valuable data on
 your swap partition or within temporary files. So just encrypt the whole drive.
-This is called <strong>F</strong>ull <strong>D</strong>isk <strong>E</strong>ncryption, or <strong>FDE</strong> in short. Let’s
+This is called <strong>F</strong>ull <strong>D</strong>isk <strong>E</strong>ncryption, or <strong>FDE</strong> in short. Let&rsquo;s
 talk about how it works, different implementations of it, and the weaknesses.</p>
 <h2 id="why-it-matters">Why it Matters</h2>
 <ul>
-<li><strong>2009</strong>: According to “The Cost of a Lost Laptop” by Ponemon Institute, the
+<li><strong>2009</strong>: According to &ldquo;The Cost of a Lost Laptop&rdquo; by Ponemon Institute, the
   average damage organizations suffer due to lost laptops is <strong>$49,246</strong>.
   Please note that this includes the hardware, the damage done by leaked
   confidential data, and the damage done by lost work.</li>
-<li><strong>2015</strong>: “Nearly 41% of all data breach events from 2005 through 2015 were
-  caused by lost devices such as laptops, tablets, and smartphones.”
+<li><strong>2015</strong>: &ldquo;Nearly 41% of all data breach events from 2005 through 2015 were
+  caused by lost devices such as laptops, tablets, and smartphones.&rdquo;
   (<a href="https://www.forbes.com/sites/steveolenski/2017/12/08/is-the-data-on-your-business-digital-devices-safe/?sh=22fc1c014c6a">source</a>)</li>
 </ul>
-<h2 id="fde-does-not-solve">FDE does not solve…</h2>
+<h2 id="fde-does-not-solve">FDE does not solve&hellip;</h2>
 <ul>
-<li>… lost data: You need to make backups for that</li>
-<li>… leaking data through memory: FDE is about protecting data at rest. When
+<li>&hellip; lost data: You need to make backups for that</li>
+<li>&hellip; leaking data through memory: FDE is about protecting data at rest. When
   your computer is turned off. Not about protecting data in memory or in
   transit. <a href="undefined">Subash SN</a> shows this beautifully in his article
   <a href="https://blog.appsecco.com/breaking-full-disk-encryption-from-a-memory-dump-5a868c4fc81e">Breaking Full Disk Encryption from a Memory
   Dump</a>.</li>
-<li>… leaking data through the internet: If an attacker gets live access to your
+<li>&hellip; leaking data through the internet: If an attacker gets live access to your
   computer, e.g. by convincing you to install some software to make a remote
   fix on your machine (phishing), FDE does not help at all.</li>
-<li>… <a href="https://en.wikipedia.org/wiki/Rubber-hose_cryptanalysis">rubber-hose
+<li>&hellip; <a href="https://en.wikipedia.org/wiki/Rubber-hose_cryptanalysis">rubber-hose
   cryptanalysis</a>:
   Torturing you to give your password away.</li>
-<li>… <a href="https://en.wikipedia.org/wiki/Keystroke_logging">hardware keyloggers</a>: If
+<li>&hellip; <a href="https://en.wikipedia.org/wiki/Keystroke_logging">hardware keyloggers</a>: If
   the attacker can record all your keystrokes, they will also get the password
-  you’re using to decrypt the drive.</li>
+  you&rsquo;re using to decrypt the drive.</li>
 </ul>
 <h2 id="how-fde-works">How FDE Works</h2>
 <p>Full disk encryption (FDE) works on a very low level. It is below the file
-system which also means it’s compatible with every file system. It uses a
+system which also means it&rsquo;s compatible with every file system. It uses a
 symmetric encryption algorithm that operates on blocks of data, e.g. 128-bit.
 Those blocks are automatically encrypted when they are written and
 automatically decrypted when they are requested. The program typically keeps
@@ -152,7 +158,7 @@ the key in memory.</p>
 <p>A typical choice is a <strong>block size of 128-bit</strong>, the <strong>AES block cipher</strong> with
 a <strong>256-bit key </strong>and<strong> CBC operation mode</strong>. Block ciphers operate on blocks
 of an exact size (e.g. 128-bit). They get this size as input and give the same
-size in output. The operation mode — or short “mode” — is the rule that is
+size in output. The operation mode &mdash; or short &ldquo;mode&rdquo; &mdash; is the rule that is
 applied to deal with other block sizes. The simplest mode is ECB
 (<strong>e</strong>lectronic <strong>c</strong>ode<strong>b</strong>ook). That mode just splits the plain text into
 blocks of the desired size, pads the last message with zeros, and applies the
@@ -161,13 +167,13 @@ patterns clearly. XTS is a common mode explained by <a href="undefined">Prof Bil
 OBE</a> in his article <a href="https://medium.com/asecuritysite-when-bob-met-alice/who-needs-a-tweak-meet-full-disk-encryption-437e720879ac">Who Needs a Tweak? Meet Full Disk
 Encryption</a>.
 Computerphile has a nice explanation of the modes:</p>
-<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/Rk0NIQfEXBA" frameborder="0" allowfullscreen></iframe></center></p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Rk0NIQfEXBA" width="560"></iframe></center></p>
 <p>The key has to be stored on the device to encrypt the data. This means the key
 needs to be secure. Additionally, one may not store the key in plaintext on the
 machine and one needs to prevent brute-forcing of the key. What the user
 memorizes is the passphrase. This passphrase is run through a cryptographic
-hash function to generate the key. This “cryptographic” means that it is
-computationally heavy — you have to spend that computation every time you
+hash function to generate the key. This &ldquo;cryptographic&rdquo; means that it is
+computationally heavy &mdash; you have to spend that computation every time you
 unlock your computer. But the attacker also has to do it. Meaning if you need
 e.g. 1 second to run this, the attacker would need one second for every single
 attempt. A typical <strong>key derivation function</strong> is <strong>PBKDF2</strong> and a typical
@@ -188,13 +194,13 @@ essential parts of the software, namely the BIOS</p>
 <p>NIST is the US national institute of standards and technology. Their
 recommendations are widely followed. The German BSI is also interesting to look
 at.</p>
-<p><a href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904691">NIST 800–38E</a>
+<p><a href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904691">NIST 800&ndash;38E</a>
 (2010) approves the XTS-AES mode with either 256-bit keys (XTS-AES-128; 128 is
 the block size here) or <strong>512-bit keys</strong> for a <strong>256-bit block size</strong> using the
 <strong>AES cipher</strong> in <strong>XTS mode</strong>. Please note that AES-128 refers to a block size
 of 128-bit, not to the length of the key.</p>
 <p><a href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR02102/BSI-TR-02102.pdf?__blob=publicationFile">BSI
-TR-02102–1</a>
+TR-02102&ndash;1</a>
 (2020) recommends using one of those block-ciphers: AES-128, AES-192, AES-256.
 They say CCM, GCM, CBC, CTR are acceptable. Interestingly, they do not mention
 XTS here. In another part of the document, they mention potential issues of
@@ -209,7 +215,7 @@ the integrity of boot and system files before decrypting a protected volume.</p>
 <p>Here is a guide on how to set BitLocker up on Windows: <a href="https://www.windowscentral.com/how-use-bitlocker-encryption-windows-10"><strong>Setting up BitLocker
 Drive Encryption on Windows 10</strong> <em>When you store sensitive data on your
 computer, it's crucial that you take the necessary steps to protect that
-data…</em>www.windowscentral.com</a></p>
+data&hellip;</em>www.windowscentral.com</a></p>
 <h3 id="linux-dm-crypt-using-luks2">Linux: dm-crypt using LUKS2</h3>
 <p>dm-crypt using LUKS is the default way to do FDE on Linux since 2004. dm-crypt
 supports XTS, but the default cipher string specification is
@@ -219,12 +225,12 @@ You can use cryptsetup and cryptmount to manage your dm-crypt .</p>
 <p>You can use GRUBs cryptodisk feature to secure your boot path.</p>
 <p>Detailed instructions can be found here:
 <a href="https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019"><strong>Full_Disk_Encryption_Howto_2019</strong>
-<em>Further support may be available from Freenode IRC channel #ubuntu. This page is an up-to-date guide to comprehensive…</em>help.ubuntu.com</a></p>
+<em>Further support may be available from Freenode IRC channel #ubuntu. This page is an up-to-date guide to comprehensive&hellip;</em>help.ubuntu.com</a></p>
 <h3 id="mac-filevault-2">Mac: FileVault 2</h3>
 <p><a href="https://en.wikipedia.org/wiki/FileVault">FileVault</a> is the FDE program that was introduced for Mac in 2003. By default, it uses XTS-AES with 128-bit blocks and a 256-bit key.</p>
 <p>Here is a guide on how to turn on FileVault on Mac:
 <a href="https://support.apple.com/en-us/HT204837"><strong>Use FileVault to encrypt the startup disk on your Mac</strong>
-<em>FileVault 2 is available in OS X Lion or later. When FileVault is turned on, your Mac always requires that you log in…</em>support.apple.com</a></p>
+<em>FileVault 2 is available in OS X Lion or later. When FileVault is turned on, your Mac always requires that you log in&hellip;</em>support.apple.com</a></p>
 <h3 id="android">Android</h3>
 <p>Only Android 7.0 to 9 support FDE. Android 10 only supports file-based
 encryption
@@ -235,16 +241,16 @@ options in case of forgotten passwords
 As a phone is typically running all the time and rather easy to unlock, disk
 encryption is actually not enough. The memory needs to be protected as well.</p>
 <p>The supported Android versions used dm-crypt .</p>
-<p>In my Samsung S10, the setting to enable FDE on Android is called “Strong Protection”. You find a guide here:
+<p>In my Samsung S10, the setting to enable FDE on Android is called &ldquo;Strong Protection&rdquo;. You find a guide here:
 <a href="https://www.androidauthority.com/how-to-encrypt-android-device-326700/"><strong>How to encrypt your Android device</strong>
-<em>There's little doubt that keeping your personal data secure these days is pretty important, so it is fortunate that…</em>www.androidauthority.com</a></p>
+<em>There's little doubt that keeping your personal data secure these days is pretty important, so it is fortunate that&hellip;</em>www.androidauthority.com</a></p>
 <h3 id="honorable-mentions">Honorable Mentions</h3>
 <ul>
-<li>GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1995 which would be equivalent to 350k € or $427k USD in 2019.</li>
+<li>GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1995 which would be equivalent to 350k &euro; or $427k USD in 2019.</li>
 <li>PGP (Linux): Pretty Good Privacy (PGP) from Symantec (now NortonLifeLock) calls the concept <strong>W</strong>hole <strong>D</strong>isk <strong>E</strong>ncryption (<strong>WDE</strong>) instead of FDE. WDE was introduced in 2014 to PGP. It uses a password as authentication before the rest of the operating system can boot. This means you can use it for Windows and Linux.</li>
-<li>VeraCrypt (former TrueCrypt): If you’re interested in how to use it, have a look at <a href="undefined">Andrew Douma</a>s article <a href="https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61">Full Disk Encryption with VeraCrypt</a>.</li>
+<li>VeraCrypt (former TrueCrypt): If you&rsquo;re interested in how to use it, have a look at <a href="undefined">Andrew Douma</a>s article <a href="https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61">Full Disk Encryption with VeraCrypt</a>.</li>
 </ul>
-<h2 id="lost-device-policy">Lost Device Policy</h2>
+<h2 id="lost-device-policy_1">Lost Device Policy</h2>
 <p>Having FDE on all your devices is not enough. On the one hand, you need to make
 sure that the employees use strong passwords and that those passwords are not
 written on the device.</p>
@@ -260,13 +266,13 @@ lost devices. You need a Lost Device Policy. This can include:</p>
 <ul>
 <li>ArchLinux: <a href="https://wiki.archlinux.org/index.php/Data-at-rest_encryption">Data-at-rest encryption</a></li>
 <li>ArchLinux: <a href="https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system">dmcrypt/Encrypting an entire system</a></li>
-<li>Security.SE: <a href="https://security.stackexchange.com/questions/39306/how-secure-is-ubuntus-default-full-disk-encryption">How secure is Ubuntu’s default full-disk encryption?</a></li>
+<li>Security.SE: <a href="https://security.stackexchange.com/questions/39306/how-secure-is-ubuntus-default-full-disk-encryption">How secure is Ubuntu&rsquo;s default full-disk encryption?</a></li>
 </ul>
-<h2 id="whats-next">What’s next?</h2>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

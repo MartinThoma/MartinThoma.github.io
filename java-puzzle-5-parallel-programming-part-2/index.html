@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Java Puzzle #5: Parallel Programming, Part 2">Java Puzzle #5: Parallel Programming, Part 2</a><ul><li><a class="toc-href" href="#answer" title="Answer">Answer</a></li><li><a class="toc-href" href="#explanaition" title="Explanaition">Explanaition</a></li><li><a class="toc-href" href="#resolve-this-problem" title="Resolve this problem">Resolve this problem</a></li><li><a class="toc-href" href="#a-side-note" title="A side note">A side note</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>What is the output of the following script:</p>
@@ -122,7 +128,6 @@ MathJax.Hub.Queue(function() {
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Runnable</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -137,7 +142,6 @@ MathJax.Hub.Queue(function() {
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>.
 .
 .
@@ -155,9 +159,9 @@ MathJax.Hub.Queue(function() {
 .
 .
 .</p>
-<h2>Answer</h2>
+<h2 id="answer">Answer</h2>
 <p><code>0</code>, <code>1</code> or <code>-1</code>.</p>
-<h2>Explanaition</h2>
+<h2 id="explanaition">Explanaition</h2>
 <p>First the simple ones:
 <code>0</code> is the result you would expect. One thread executes and reduces <code>globalVar</code> to <code>0</code>, the other one does nothing and then <code>globalVar</code> gets printed.</p>
 <p>If the main program is faster than any of the two threads, it prints <code>1</code> before <code>globalVar</code> gets reduced.</p>
@@ -171,14 +175,14 @@ MathJax.Hub.Queue(function() {
 </tr>
 <tr>
 <td>```text
-checks if (globalVar > 0)
+checks if (globalVar &gt; 0)
 looping ...
 looping ...
 execute test.globalVar--;
 ```</td>
 <td>```text
 .
-checks if (globalVar > 0)
+checks if (globalVar &gt; 0)
 execute all four bytecode commands of "test.globalVar--;"
 .
 ```</td>
@@ -190,16 +194,14 @@ execute all four bytecode commands of "test.globalVar--;"
 ```</td>
 </tr>
 </table>
-
-<h2>Resolve this problem</h2>
+<h2 id="resolve-this-problem">Resolve this problem</h2>
 <ul>
-  <li>Use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a> if you don't want to get <code>1</code> as output.</li>
-  <li>If you don't want to get <code>-1</code>, you should take a look at the keyword <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html">synchronised</a>.</li>
+<li>Use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a> if you don't want to get <code>1</code> as output.</li>
+<li>If you don't want to get <code>-1</code>, you should take a look at the keyword <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html">synchronised</a>.</li>
 </ul>
-
-<h2>A side note</h2>
+<h2 id="a-side-note">A side note</h2>
 <p>With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a> of the class <code>MyParallelClass</code>. It looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Compiled</span> <span class="n">from</span> <span class="s">&quot;MyParallelClass.java&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">Compiled</span> <span class="n">from</span> <span class="s">"MyParallelClass.java"</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">extends</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span>
                         <span class="kd">implements</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Runnable</span><span class="p">{</span>
 <span class="kd">public</span> <span class="kt">int</span> <span class="n">counter</span><span class="p">;</span>
@@ -207,7 +209,7 @@ execute all four bytecode commands of "test.globalVar--;"
 <span class="kd">public</span> <span class="nf">MyParallelClass</span><span class="p">();</span>
   <span class="n">Code</span><span class="p">:</span>
    <span class="mi">0</span><span class="p">:</span>   <span class="n">aload_0</span>
-   <span class="mi">1</span><span class="p">:</span>   <span class="n">invokespecial</span>   <span class="err">#</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span>
+   <span class="mi">1</span><span class="p">:</span>   <span class="n">invokespecial</span>   <span class="err">#</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//Method java/lang/Object."&lt;init&gt;":()V</span>
    <span class="mi">4</span><span class="p">:</span>   <span class="n">aload_0</span>
    <span class="mi">5</span><span class="p">:</span>   <span class="n">iconst_0</span>
    <span class="mi">6</span><span class="p">:</span>   <span class="n">putfield</span>    <span class="err">#</span><span class="mi">2</span><span class="p">;</span> <span class="c1">//Field counter:I</span>
@@ -238,7 +240,6 @@ execute all four bytecode commands of "test.globalVar--;"
 
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Some links to the reference: <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--19.html">getstatic</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--21.html">iconst_1</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-_isub.html">isub</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-putstati.html">putstatic</a></p>
 <p>The interesting part of the bytecode is:</p>
 <div class="highlight"><pre><span></span><code>   <span class="mi">30</span><span class="p">:</span>  <span class="n">getstatic</span>   <span class="err">#</span><span class="mi">3</span><span class="p">;</span> <span class="c1">//Field test.globalVar:I</span>
@@ -246,14 +247,13 @@ execute all four bytecode commands of "test.globalVar--;"
    <span class="mi">34</span><span class="p">:</span>  <span class="n">isub</span>
    <span class="mi">35</span><span class="p">:</span>  <span class="n">putstatic</span>   <span class="err">#</span><span class="mi">3</span><span class="p">;</span> <span class="c1">//Field test.globalVar:I</span>
 </code></pre></div>
-
 <p>You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>.</p>
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html">Atomic Access</a> in Java</li>
-  <li><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/monitor/Monitor.html">Class Monitor</a></li>
-  <li><a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.monitorenter">monitorenter</a> and <a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.monitorexit">monitorexit</a></li>
-  <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html">Package java.util.concurrent</a></li>
+<li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html">Atomic Access</a> in Java</li>
+<li><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/monitor/Monitor.html">Class Monitor</a></li>
+<li><a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.monitorenter">monitorenter</a> and <a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.monitorexit">monitorexit</a></li>
+<li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html">Package java.util.concurrent</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

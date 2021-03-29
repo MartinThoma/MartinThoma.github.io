@@ -102,24 +102,29 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Programming Interviews: Fizz Buzz">Programming Interviews: Fizz Buzz</a><ul><li><a class="toc-href" href="#problem-statement" title="Problem Statement">Problem Statement</a></li><li><a class="toc-href" href="#solution" title="Solution">Solution</a></li><li><a class="toc-href" href="#unit-tests" title="Unit Tests">Unit Tests</a></li><li><a class="toc-href" href="#extensions" title="Extensions">Extensions</a></li><li><a class="toc-href" href="#typical-mistakes" title="Typical Mistakes">Typical Mistakes</a></li><li><a class="toc-href" href="#what-i-dont-learn-as-an-interviewer" title="What I (don&rsquo;t) learn as an Interviewer">What I (don&rsquo;t) learn as an Interviewer</a></li><li><a class="toc-href" href="#tldr-score-of-fizz-buzz-for-interviews" title="TL;DR: Score of &ldquo;Fizz Buzz&rdquo; for Interviews">TL;DR: Score of &ldquo;Fizz Buzz&rdquo; for Interviews</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>When companies interview potential new software developers, they typically also have a programming interview to make sure that the candidate can actually write very simple programs. Fizz Buzz is a very simple classical example. The problem is easy to describe and the solution is easy as well.</p>
 <h2 id="problem-statement">Problem Statement</h2>
-<p>Write a function that takes an integer and returns a string. If the number is divisible by 3, return “Fizz”. If the number is divisible by 5, return “Buzz”. If the number is divisible by 15, return “Fizz Buzz”. If the number is not divisible by 3 nor by 5, return the number itself.</p>
+<p>Write a function that takes an integer and returns a string. If the number is divisible by 3, return &ldquo;Fizz&rdquo;. If the number is divisible by 5, return &ldquo;Buzz&rdquo;. If the number is divisible by 15, return &ldquo;Fizz Buzz&rdquo;. If the number is not divisible by 3 nor by 5, return the number itself.</p>
 <h2 id="solution">Solution</h2>
 <p>In Python, a solution looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;Fizz Buzz&quot;</span>
+        <span class="k">return</span> <span class="s2">"Fizz Buzz"</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;Fizz&quot;</span>
+        <span class="k">return</span> <span class="s2">"Fizz"</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;Buzz&quot;</span>
+        <span class="k">return</span> <span class="s2">"Buzz"</span>
     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="unit-tests">Unit Tests</h2>
 <p>Seeing which cases people test gives a good indicator of how used they are to testing at all. There are two groups of tests I want to see:</p>
 <ul>
@@ -131,44 +136,43 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">test_3</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
 
 
 <span class="k">def</span> <span class="nf">test_5</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Buzz&quot;</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Buzz"</span>
 
 
 <span class="k">def</span> <span class="nf">test_15</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz Buzz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz Buzz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz Buzz&quot;</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
 
 
 <span class="k">def</span> <span class="nf">test_number</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"1"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"2"</span>
 
 
 <span class="k">def</span> <span class="nf">test_edge_cases</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;-1&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">20</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;Fizz&quot;</span>
-    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Fizz Buzz&quot;</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"-1"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">20</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"Fizz"</span>
+    <span class="k">assert</span> <span class="n">fizzbuzz</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Fizz Buzz"</span>
 </code></pre></div>
-
 <h2 id="extensions">Extensions</h2>
 <p>As an interviewer, I like to have follow-up questions or extensions to interview questions. Just in case the candidate is good or knows the task already.</p>
-<p>FizzBuzz can be adjusted by changing the task from “3, 5, and 15” to “a, b, and a·b”. Or adding 11 to the mix.</p>
+<p>FizzBuzz can be adjusted by changing the task from &ldquo;3, 5, and 15&rdquo; to &ldquo;a, b, and a&middot;b&rdquo;. Or adding 11 to the mix.</p>
 <h2 id="typical-mistakes">Typical Mistakes</h2>
 <p>A typical mistake is to check the properties in the order presented in the problem statement.</p>
 <p>Another typical mistake is trying to get smart by having fewer lines of code, but harder logic.</p>
-<h2 id="what-i-dont-learn-as-an-interviewer">What I (don’t) learn as an Interviewer</h2>
-<p>Fizz Buzz is an indicator if people have any programming skills at all. If people don’t manage to solve this relatively quickly, they cannot do anything.</p>
+<h2 id="what-i-dont-learn-as-an-interviewer">What I (don&rsquo;t) learn as an Interviewer</h2>
+<p>Fizz Buzz is an indicator if people have any programming skills at all. If people don&rsquo;t manage to solve this relatively quickly, they cannot do anything.</p>
 <p>You can see if they have reasonable unit test cases and how they make their code extensible. In the best case, people might use property-based testing for it:
 <a href="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119"><strong>Property-Based Testing with Python</strong>
 <em>Test parametrization on steroids</em>levelup.gitconnected.com</a></p>
@@ -178,12 +182,12 @@ MathJax.Hub.Queue(function() {
 <li><strong>Application Architecture</strong>: How well can the candidate structure code into packages and sub-packages (or modules/submodules; terminology differs in different languages)? How well can they create reasonable classes and use common design patterns? Does the candidate know how to make the application (horizontally/vertically) scalable and where the limits are?</li>
 <li><strong>System Architecture</strong>: Which architectural components does the candidate have in her/his toolbelt? Which concrete product choices for the components do they know?</li>
 <li><strong>Dev Workflow</strong>: Is the candidate familiar with git, Jira, Scrum, retros, sprint planning/grooming? Have they heard of branching models like git flow / Github flow / GitLab flow? How would they handle incidents and urgent requests from the outside?</li>
-<li><strong>Cultural fit</strong>: What is the candidates' behavior if they don’t know something? What will they do if they made a mistake? Do they rather like to take decisions or have somebody else decide? How do they communicate with the rest of the team? How do they communicate with other stakeholders?</li>
+<li><strong>Cultural fit</strong>: What is the candidates' behavior if they don&rsquo;t know something? What will they do if they made a mistake? Do they rather like to take decisions or have somebody else decide? How do they communicate with the rest of the team? How do they communicate with other stakeholders?</li>
 </ul>
 <p>Not all of those topics might be relevant to your organization or the specific position.</p>
-<h2 id="tldr-score-of-fizz-buzz-for-interviews">TL;DR: Score of “Fizz Buzz” for Interviews</h2>
+<h2 id="tldr-score-of-fizz-buzz-for-interviews">TL;DR: Score of &ldquo;Fizz Buzz&rdquo; for Interviews</h2>
 <p>Overall, I think fizz buzz is too <strong>well-known</strong> to lead to any interesting results. It is <strong>trivial to solve</strong> and leaves big knowledge gaps.</p>
-<h2 id="whats-next">What’s next?</h2>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>Let me know if you have interview questions you would like me to explore in a similar style 🙂</p>
 <p>Topics that might be interesting around interviewing:</p>
 <ul>

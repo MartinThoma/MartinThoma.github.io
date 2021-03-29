@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Type Systems">Type Systems</a><ul><li><a class="toc-href" href="#dynamic-vs-static-typing" title="Dynamic vs Static Typing">Dynamic vs Static Typing</a></li><li><a class="toc-href" href="#strong-vs-weak-typing" title="Strong vs Weak Typing">Strong vs Weak Typing</a></li><li><a class="toc-href" href="#explicit-vs-implicit-typing" title="Explicit vs Implicit Typing">Explicit vs Implicit Typing</a></li><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>The topic of type system keeps comming up when I hear people discuss
@@ -116,10 +122,9 @@ a type (at compile time, by means of a data declaration) and an object.</p>
 object.</p>
 </blockquote>
 <p>Something you can do in a dynamic language, but not in a static language:</p>
-<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">"bar"</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="mi">9</span>
 </code></pre></div>
-
 <p>So the model you have in mind is different. In statically typed languages you
 imagine variables as containers for specific types of information. In dynamically
 typed languages, you imagine variables as post-it notes.</p>
@@ -132,17 +137,15 @@ types, whereas in a strongly typed language they cannot, and an explicit
 conversion is required.</p>
 </blockquote>
 <p>What you can do in weakly typed languages, but not in strongly typed languages:</p>
-<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">"hello"</span>
 <span class="n">bar</span> <span class="o">=</span> <span class="mi">1337</span>
 <span class="n">foo</span> <span class="o">+</span> <span class="n">bar</span>
 </code></pre></div>
-
 <p>Instead, the strongly typed language needs something like that:</p>
-<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">"hello"</span>
 <span class="n">bar</span> <span class="o">=</span> <span class="mi">1337</span>
 <span class="n">foo</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Note that this is a spectrum, but the example from above is where I draw the
 line.</p>
 <p>I'd say strong is to be prefered, but not too strong. For example, if I add
@@ -156,57 +159,56 @@ to call that "duck typing": If it walks like a duck and quacks like a duck, it
 is a duck.</p>
 <h2 id="overview">Overview</h2>
 <table class="table">
-    <tr>
-        <th>Language</th>
-        <th>Static</th>
-        <th>Strength</th>
-        <th>Type Expression</th>
-    </tr>
-    <tr>
-        <td>Rust</td>
-        <td>static</td>
-        <td>strong</td>
-        <td><a href="https://doc.rust-lang.org/book/first-edition/variable-bindings.html">implicit</a></td>
-    </tr>
-    <tr>
-        <td>C++</td>
-        <td>static</td>
-        <td>strong</td>
-        <td>explicit</td>
-    </tr>
-    <tr>
-        <td>C</td>
-        <td>static</td>
-        <td>strong</td>
-        <td>explicit</td>
-    </tr>
-    <tr>
-        <td>Java</td>
-        <td>static</td>
-        <td>strong</td>
-        <td>explicit</td>
-    </tr>
-    <tr>
-        <td>Python</td>
-        <td>dynamic</td>
-        <td>strong</td>
-        <td>implicit<sup>&#x2606;</sup></td>
-    </tr>
-    <tr>
-        <td>JavaScript</td>
-        <td>dynamic</td>
-        <td>weak</td>
-        <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">implicit</a></td>
-    </tr>
-    <tr>
-        <td>PHP</td>
-        <td>dynamic</td>
-        <td>weak</td>
-        <td>implicit</td>
-    </tr>
+<tr>
+<th>Language</th>
+<th>Static</th>
+<th>Strength</th>
+<th>Type Expression</th>
+</tr>
+<tr>
+<td>Rust</td>
+<td>static</td>
+<td>strong</td>
+<td><a href="https://doc.rust-lang.org/book/first-edition/variable-bindings.html">implicit</a></td>
+</tr>
+<tr>
+<td>C++</td>
+<td>static</td>
+<td>strong</td>
+<td>explicit</td>
+</tr>
+<tr>
+<td>C</td>
+<td>static</td>
+<td>strong</td>
+<td>explicit</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>static</td>
+<td>strong</td>
+<td>explicit</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>dynamic</td>
+<td>strong</td>
+<td>implicit<sup>☆</sup></td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>dynamic</td>
+<td>weak</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">implicit</a></td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>dynamic</td>
+<td>weak</td>
+<td>implicit</td>
+</tr>
 </table>
-
-<p><sup>&#x2606;</sup> As of Python 3.5, explicit typing is possible</p>
+<p><sup>☆</sup> As of Python 3.5, explicit typing is possible</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages_by_type_system">Comparison of programming languages by type system</a></li>

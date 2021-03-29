@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to download ImageNet">How to download ImageNet</a><ul><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Machine Learning algorithms for computer vision need huge amounts of data.
@@ -115,11 +121,9 @@ Here are a few remarks on how to download them.</p>
 <p>Download the files like this:</p>
 <div class="highlight"><pre><span></span><code>$ aria2c -s <span class="m">16</span> <span class="o">[</span>URL<span class="o">]</span>
 </code></pre></div>
-
 <p>After downloading the file, use</p>
 <div class="highlight"><pre><span></span><code>$ md5sum <span class="o">[</span>Filename<span class="o">]</span>
 </code></pre></div>
-
 <p>and compare the hash with the provided hash. If it differs, download the file
 again.</p>
 <p>The ImageNet training data tar file contains 1000&nbsp;files of the form
@@ -128,16 +132,14 @@ again.</p>
 up with</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">wordnet</span> <span class="k">as</span> <span class="n">wn</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="mi">1440764</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="mi">1443537</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="mi">1440764</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="mi">1443537</span><span class="p">))</span>
 </code></pre></div>
-
 <p>which reveals</p>
 <ul>
-    <li>Synset('tench.n.01')</li>
-    <li>Synset('goldfish.n.01')</li>
+<li>Synset('tench.n.01')</li>
+<li>Synset('goldfish.n.01')</li>
 </ul>
-
 <p>If you extract all 1000 of those tar files into one directory, this takes about
 6 hours with a script like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -151,12 +153,11 @@ up with</p>
         <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">targetd_dir</span><span class="p">)</span>
 
 
-<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;ILSVRC2012_img_train/*.tar&quot;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"ILSVRC2012_img_train/*.tar"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-    <span class="n">untar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;extracted&quot;</span><span class="p">)</span>
+    <span class="n">untar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"extracted"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This gives 1281170 files in total.</p>
 <h2 id="datasets">Datasets</h2>
 <ul>

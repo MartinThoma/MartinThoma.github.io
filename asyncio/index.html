@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="asyncio">asyncio</a><ul><li><a class="toc-href" href="#concurrency-basics" title="Concurrency Basics">Concurrency Basics</a><ul><li><a class="toc-href" href="#parallel-vs-interleaved" title="Parallel vs Interleaved">Parallel vs Interleaved</a></li><li><a class="toc-href" href="#cpu-bound-vs-io-bound" title="CPU-bound vs I/O-bound">CPU-bound vs I/O-bound</a></li><li><a class="toc-href" href="#comparison" title="Comparison">Comparison</a></li></ul></li><li><a class="toc-href" href="#concurrency-in-python_1" title="Concurrency in Python">Concurrency in Python</a><ul><li><a class="toc-href" href="#multiprocessing-example" title="Multiprocessing Example">Multiprocessing Example</a></li><li><a class="toc-href" href="#threading-example" title="Threading Example">Threading Example</a></li><li><a class="toc-href" href="#asyncio-coroutines" title="Asyncio Coroutines">Asyncio Coroutines</a></li><li><a class="toc-href" href="#greenlet-coroutines" title="Greenlet Coroutines">Greenlet Coroutines</a></li></ul></li><li><a class="toc-href" href="#web-frameworks_1" title="Web Frameworks">Web Frameworks</a><ul><li><a class="toc-href" href="#flask" title="Flask">Flask</a></li><li><a class="toc-href" href="#quart" title="Quart">Quart</a></li><li><a class="toc-href" href="#sanic" title="Sanic">Sanic</a></li><li><a class="toc-href" href="#starlette" title="Starlette">Starlette</a></li><li><a class="toc-href" href="#others" title="Others">Others</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://docs.python.org/3/library/asyncio.html#module-asyncio">asyncio</a> is a
@@ -113,15 +119,13 @@ library to write concurrent code using the async/await syntax.</p>
 ways to run stuff concurrently: In parallel or interleaved.</p>
 <p>The following images show the difference for compute-bound two tasks:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/05/parallel-execution.svg"><img src="../images/2020/05/parallel-execution.svg" alt="Parallel Execution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Parallel Execution</figcaption>
+<a href="../images/2020/05/parallel-execution.svg"><img alt="Parallel Execution" src="../images/2020/05/parallel-execution.svg" style="width: 512px;"/></a>
+<figcaption class="text-center">Parallel Execution</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/05/interleaved-execution.svg"><img src="../images/2020/05/interleaved-execution.svg" alt="Interleaved Execution" style="width: 512px;"/></a>
-    <figcaption class="text-center">Interleaved Execution</figcaption>
+<a href="../images/2020/05/interleaved-execution.svg"><img alt="Interleaved Execution" src="../images/2020/05/interleaved-execution.svg" style="width: 512px;"/></a>
+<figcaption class="text-center">Interleaved Execution</figcaption>
 </figure>
-
 <p>Now you might wonder why on hell would you ever run things interleaved as it
 takes more time in total, right?</p>
 <h3 id="cpu-bound-vs-io-bound">CPU-bound vs I/O-bound</h3>
@@ -133,10 +137,9 @@ database to return the selected rows. Or simply reading files from disk.</p>
 <p>Let's take a file explorer application as an example. You open a folder and you
 want to see thumbnails of the images. They might be high-resolution images.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/05/file-explorer.png"><img src="../images/2020/05/file-explorer.png" alt="A file explorer" style="width: 512px;"/></a>
-    <figcaption class="text-center">A file explorer</figcaption>
+<a href="../images/2020/05/file-explorer.png"><img alt="A file explorer" src="../images/2020/05/file-explorer.png" style="width: 512px;"/></a>
+<figcaption class="text-center">A file explorer</figcaption>
 </figure>
-
 <p>Printing the names of the files and the file size is fast. But computing the
 thumbnail takes a lot of time. So you can do the thumbnail-calculation in
 parallel. My laptop has 4 CPUs and hence my laptop can calculate the thumbnails
@@ -152,72 +155,70 @@ CPU, but by the speed of reading from disk. Here interleaved execution helps:</p
 application, they have to compute stuff while I/O is running.</p>
 <h3 id="comparison">Comparison</h3>
 <table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Processes</th>
-            <th>Threads</th>
-            <th>Coroutines</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Speed-up IO-bound tasks</td>
-            <td style="color: green;">✔</td>
-            <td style="color: green;">✔</td>
-            <td style="color: green;">✔</td>
-        </tr>
-        <tr>
-            <td>Speed-up CPU-bound tasks</td>
-            <td style="color: green;">✔</td>
-            <td style="color: red;">✗</td>
-            <td style="color: red;">✗</td>
-        </tr>
-        <tr>
-            <td>Use multiple CPU cores</td>
-            <td style="color: green;">✔</td>
-            <td style="color: red;">✗</td>
-            <td style="color: red;">✗</td>
-        </tr>
-        <tr>
-            <td>Scheduling</td>
-            <td>preemptive</td>
-            <td>cooperative</td>
-            <td>cooperative</td>
-        </tr>
-        <tr>
-            <td>Scalability</td>
-            <td>~number of CPU cores</td>
-            <td>~number of CPU cores x number of threads per core</td>
-            <td>thousands</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th></th>
+<th>Processes</th>
+<th>Threads</th>
+<th>Coroutines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed-up IO-bound tasks</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
+</tr>
+<tr>
+<td>Speed-up CPU-bound tasks</td>
+<td style="color: green;">✔</td>
+<td style="color: red;">✗</td>
+<td style="color: red;">✗</td>
+</tr>
+<tr>
+<td>Use multiple CPU cores</td>
+<td style="color: green;">✔</td>
+<td style="color: red;">✗</td>
+<td style="color: red;">✗</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td>preemptive</td>
+<td>cooperative</td>
+<td>cooperative</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>~number of CPU cores</td>
+<td>~number of CPU cores x number of threads per core</td>
+<td>thousands</td>
+</tr>
+</tbody>
 </table>
-
-<h2 id="concurrency-in-python">Concurrency in Python</h2>
+<h2 id="concurrency-in-python_1">Concurrency in Python</h2>
 <table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Processes</th>
-            <th>Threads</th>
-            <th>Coroutines</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Packages</td>
-            <td><a href="https://docs.python.org/3/library/multiprocessing.html"><code>multiprocessing</code></a>, <a href="https://joblib.readthedocs.io/en/latest/parallel.html"><code>joblib</code></a></td>
-            <td><a href="https://docs.python.org/3/library/threading.html"><code>threading</code></a></td>
-            <td><a href="https://docs.python.org/3/library/asyncio.html"><code>asyncio</code></a>, <a href="https://greenlet.readthedocs.io/en/latest/"><code>greenlet</code></a></td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th></th>
+<th>Processes</th>
+<th>Threads</th>
+<th>Coroutines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Packages</td>
+<td><a href="https://docs.python.org/3/library/multiprocessing.html"><code>multiprocessing</code></a>, <a href="https://joblib.readthedocs.io/en/latest/parallel.html"><code>joblib</code></a></td>
+<td><a href="https://docs.python.org/3/library/threading.html"><code>threading</code></a></td>
+<td><a href="https://docs.python.org/3/library/asyncio.html"><code>asyncio</code></a>, <a href="https://greenlet.readthedocs.io/en/latest/"><code>greenlet</code></a></td>
+</tr>
+</tbody>
 </table>
-
 <p>There is also the <a href="https://docs.python.org/3.8/library/concurrent.futures.html#module-concurrent.futures"><code>concurrent.futures</code></a>
 package.</p>
 <h3 id="multiprocessing-example">Multiprocessing Example</h3>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;&#39;Hello Word&#39; example for multiprocessing in Python.&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""'Hello Word' example for multiprocessing in Python."""</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
@@ -236,7 +237,7 @@ package.</p>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">job</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chunk</span><span class="p">))</span>
         <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span><span class="si">}</span><span class="s2"> jobs.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span><span class="si">}</span><span class="s2"> jobs."</span><span class="p">)</span>
 
     <span class="c1"># Start execution</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
@@ -249,18 +250,17 @@ package.</p>
 
 <span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="n">job_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_slice</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_slice</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;job </span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"job </span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
     <span class="n">dispatch_jobs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nb_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-
 <p>A more exciting example would be matrix multiplication.</p>
 <h3 id="threading-example">Threading Example</h3>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;&#39;Hello Word&#39; example for multithreading in Python.&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""'Hello Word' example for multithreading in Python."""</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
@@ -279,7 +279,7 @@ package.</p>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">job</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chunk</span><span class="p">))</span>
         <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span><span class="si">}</span><span class="s2"> jobs.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span><span class="si">}</span><span class="s2"> jobs."</span><span class="p">)</span>
 
     <span class="c1"># Start execution</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
@@ -292,15 +292,14 @@ package.</p>
 
 <span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="n">job_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_slice</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_slice</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;job </span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"job </span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
     <span class="n">dispatch_jobs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nb_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-
 <p>A more exiting example would be downloading of many files (e.g. imagenet)
 or a link-checker.</p>
 <h3 id="asyncio-coroutines">Asyncio Coroutines</h3>
@@ -314,15 +313,14 @@ and looks like this:</p>
 
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello ...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello ..."</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;... World!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"... World!"</span><span class="p">)</span>
 
 
 <span class="c1"># Python 3.7+</span>
 <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
-
 <p>Note that with <code>await asyncio.sleep(0)</code> you can let other coroutines run.
 This might make sense if you have a compute-heavy coroutine.</p>
 <p>A more exiting example would be downloading of many files (e.g. imagenet)
@@ -332,7 +330,7 @@ or a link-checker.</p>
 you explicitly define functions as asynchronous and define when you want to
 let others run with await, greenlets do it implicitly by monkey-patching
 functions such as <code>sleep</code>.</p>
-<h2 id="web-frameworks">Web Frameworks</h2>
+<h2 id="web-frameworks_1">Web Frameworks</h2>
 <p>A lot of times (<a href="https://medium.com/@mihaigeorge.c/web-rest-api-benchmark-on-a-real-life-application-ebb743a5d7a3">1</a>, <a href="https://www.freecodecamp.org/news/million-requests-per-second-with-python-95c137af319/">2</a>, <a href="https://www.techempower.com/benchmarks/#section=data-r18&amp;hw=ph&amp;test=query&amp;b=4&amp;l=yyg41p-6&amp;w=zii097-z2bon3-6&amp;d=8&amp;o=8">3</a>) you might see benchmarks which show the number of requests per
 second you can do with Flask / Django and the way higher number of requests/second you
 can do with Node/Express.js or another web application framework.
@@ -371,7 +369,7 @@ FastAPI has a couple of nice features:</p>
 <li>Generates Swagger</li>
 <li>Uses pydantic</li>
 </ul>
-<p>Negative about FastAPI is the fact that it is only driven by Sebastián Ramírez.
+<p>Negative about FastAPI is the fact that it is only driven by Sebasti&aacute;n Ram&iacute;rez.
 The repository is in his private account and I don't see a project governance
 document like e.g. <a href="https://docs.scipy.org/doc/scipy/reference/dev/governance/governance.html">SciPy has</a>.
 <a href="https://palletsprojects.com/governance/">Flasks Governance document</a> misses
@@ -382,7 +380,7 @@ might suddenly stop. If I use this for my web services, I have to start
 maintaining this framework.</p>
 <p>There is also <a href="https://en.wikipedia.org/wiki/Twisted_(software)">Twisted</a> since 2002. I haven't used it,
 I don't know anybody who used it and I don't know what it is doing.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also_1">See also</h2>
 <ul>
 <li><a href="https://realpython.com/python-concurrency/#how-to-speed-up-an-io-bound-program">Speed Up Your Python Program With Concurrency</a></li>
 <li>StackExchange:<ul>

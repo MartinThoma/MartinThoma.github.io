@@ -100,40 +100,41 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Linux access rights and attributes">Linux access rights and attributes</a><ul><li><a class="toc-href" href="#rwx" title="RWX">RWX</a><ul><li><a class="toc-href" href="#files" title="Files">Files</a></li><li><a class="toc-href" href="#folders" title="Folders">Folders</a></li></ul></li><li><a class="toc-href" href="#user-group-others_1" title="User, Group, Others">User, Group, Others</a></li><li><a class="toc-href" href="#suid-sgid-sticky-bit" title="SUID, SGID, Sticky Bit">SUID, SGID, Sticky Bit</a><ul><li><a class="toc-href" href="#files_1" title="Files">Files</a></li><li><a class="toc-href" href="#folders_1" title="Folders">Folders</a></li></ul></li><li><a class="toc-href" href="#type_1" title="Type">Type</a></li><li><a class="toc-href" href="#stat" title="stat">stat</a></li><li><a class="toc-href" href="#attributes" title="Attributes">Attributes</a><ul><li><a class="toc-href" href="#version" title="Version">Version</a></li><li><a class="toc-href" href="#append-only" title="Append only">Append only</a></li><li><a class="toc-href" href="#immutable" title="Immutable">Immutable</a></li><li><a class="toc-href" href="#secure-deletion-and-undeletable" title="Secure deletion and undeletable">Secure deletion and undeletable</a></li><li><a class="toc-href" href="#synchronous-update" title="Synchronous update">Synchronous update</a></li></ul></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>RWX</h2>
-<h3>Files</h3>
+            <h2 id="rwx">RWX</h2>
+<h3 id="files">Files</h3>
 <p>Linux files have three important access rights for files:</p>
 <ul>
-  <li><strong>R</strong>ead</li>
-  <li><strong>W</strong>rite</li>
-  <li>E<strong>x</strong>ecute</li>
+<li><strong>R</strong>ead</li>
+<li><strong>W</strong>rite</li>
+<li>E<strong>x</strong>ecute</li>
 </ul>
-
 <p>If you want to mark a file as executable, you can add the x-right:</p>
 <div class="highlight"><pre><span></span><code>chmod +x
 </code></pre></div>
-
 <p>When you want to mark a file as readable, you can dd the r-right:</p>
 <div class="highlight"><pre><span></span><code>chmod +r
 </code></pre></div>
-
 <p>You can remove rights in a similar way:</p>
 <div class="highlight"><pre><span></span><code>chmod -x testfile
 </code></pre></div>
-
 <p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two?</p>
-<h3>Folders</h3>
+<h3 id="folders">Folders</h3>
 <p>rwx has a meaning for folders, too:</p>
 <ul>
-  <li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
-  <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
-  <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
+<li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
+<li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
+<li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
 </ul>
-
-<h2>User, Group, Others</h2>
+<h2 id="user-group-others_1">User, Group, Others</h2>
 <p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~/Downloads$ ls -l
 total <span class="m">29624</span>
@@ -158,11 +159,10 @@ drwxr-xr-x  <span class="m">2</span> moose moose     <span class="m">4096</span>
 drwxr-xr-x  <span class="m">8</span> moose moose     <span class="m">4096</span> <span class="m">2013</span>-02-27 <span class="m">18</span>:36 Team
 drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span> <span class="m">2013</span>-02-27 <span class="m">19</span>:17 ViMuDat
 </code></pre></div>
-
 <p>You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.</p>
 <p>Did you know that you can search for file permissions with <code>find /home/ -perm 777</code>?</p>
-<h2>SUID, SGID, Sticky Bit</h2>
-<h3>Files</h3>
+<h2 id="suid-sgid-sticky-bit">SUID, SGID, Sticky Bit</h2>
+<h3 id="files_1">Files</h3>
 <p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:/usr/bin$ ls -l <span class="p">|</span> grep passwd$
 -rwsr-xr-x <span class="m">1</span> root   root       <span class="m">53812</span> <span class="m">2011</span>-02-14 <span class="m">23</span>:11 gpasswd
@@ -172,43 +172,37 @@ drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span>
 -rwxr-xr-x <span class="m">1</span> root   root     <span class="m">5070304</span> <span class="m">2012</span>-04-24 <span class="m">23</span>:38 smbpasswd
 -rwxr-xr-x <span class="m">1</span> root   root        <span class="m">9688</span> <span class="m">2013</span>-01-18 <span class="m">17</span>:59 vino-passwd
 </code></pre></div>
-
 <p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:/etc$ ls -l <span class="p">|</span> grep shadow$
 -rw-r-----  <span class="m">1</span> root    shadow     <span class="m">813</span> <span class="m">2013</span>-01-24 <span class="m">06</span>:21 gshadow
 -rw-r-----  <span class="m">1</span> root    shadow    <span class="m">1274</span> <span class="m">2013</span>-01-24 <span class="m">06</span>:21 shadow
 </code></pre></div>
-
 <p>Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.</p>
 <p>The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.</p>
 <p>The sticky bit seems to be used for programs to stick in memory after it was finished.</p>
 <p>You can set the sticky bit like this:</p>
 <div class="highlight"><pre><span></span><code>chmod +t testfile
 </code></pre></div>
-
 <p>or like that:</p>
 <div class="highlight"><pre><span></span><code>chmod <span class="m">1777</span> testfile
 </code></pre></div>
-
-<h3>Folders</h3>
+<h3 id="folders_1">Folders</h3>
 <ul>
-  <li>suid: is ignored on UNIX and Linux systems</li>
-  <li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
-  <li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
+<li>suid: is ignored on UNIX and Linux systems</li>
+<li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
+<li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
 </ul>
-
-<h2>Type</h2>
+<h2 id="type_1">Type</h2>
 <p>The first column of <code>ls -l</code> tells you the type of the item:</p>
 <ul>
-  <li>-: a file</li>
-  <li>b: a block device</li>
-  <li>c: a character device</li>
-  <li>d: a directory</li>
-  <li>l: a symbolic link</li>
-  <li>p: pipe</li>
-  <li>s: a socket</li>
+<li>-: a file</li>
+<li>b: a block device</li>
+<li>c: a character device</li>
+<li>d: a directory</li>
+<li>l: a symbolic link</li>
+<li>p: pipe</li>
+<li>s: a socket</li>
 </ul>
-
 <div class="highlight"><pre><span></span><code>moose@pc07:/dev$ ls -l
 total <span class="m">0</span>
 crw-------  <span class="m">1</span> root video    <span class="m">10</span>, <span class="m">175</span> <span class="m">2013</span>-03-04 <span class="m">10</span>:01 agpgart
@@ -234,11 +228,10 @@ srw-rw-rw-  <span class="m">1</span> root root           <span class="m">0</span
 brw-rw----  <span class="m">1</span> root disk      <span class="m">7</span>,   <span class="m">0</span> <span class="m">2013</span>-03-04 <span class="m">10</span>:01 loop0
 <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div>
-
-<h2>stat</h2>
+<h2 id="stat">stat</h2>
 <p>You can display quite a lot of information of a file with stat:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~/Desktop/Test$ stat testfile
-  File: <span class="sb">`</span>testfile<span class="err">&#39;</span>
+  File: <span class="sb">`</span>testfile<span class="err">'</span>
   Size: <span class="m">13</span>          Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
 Device: 801h/2049d  Inode: <span class="m">923339</span>      Links: <span class="m">1</span>
 Access: <span class="o">(</span><span class="m">0777</span>/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> <span class="m">1000</span>/   moose<span class="o">)</span>   Gid: <span class="o">(</span> <span class="m">1000</span>/moose<span class="o">)</span>
@@ -246,31 +239,26 @@ Access: <span class="m">2013</span>-03-04 <span class="m">21</span>:31:52.154187
 Modify: <span class="m">2013</span>-03-04 <span class="m">21</span>:31:51.154184098 +0100
 Change: <span class="m">2013</span>-03-04 <span class="m">21</span>:31:51.154184098 +0100
 </code></pre></div>
-
 <p>The content of the file is "Hello World." (12 characters)</p>
-<h2>Attributes</h2>
+<h2 id="attributes">Attributes</h2>
 <p>According to the manpage of chattr:</p>
 <blockquote>The `c', 's',  and `u' attributes are not honored by the ext2 and ext3 filesystems as implemented in the current mainline Linux kernels. These attributes may be implemented in future versions of the ext2 and ext3 filesystems.</blockquote>
-
-<h3>Version</h3>
+<h3 id="version">Version</h3>
 <p>I've just learned that you can give files version-attributes:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~/Desktop/Test$ lsattr -v
  <span class="m">1338</span> -----------------e- ./testfile
 </code></pre></div>
-
 <p>You can set the version like this:</p>
 <div class="highlight"><pre><span></span><code>chattr -v <span class="m">1339</span> testfile
 </code></pre></div>
-
-<h3>Append only</h3>
+<h3 id="append-only">Append only</h3>
 <p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file.</p>
 <p>First of all, I had to use sudo to add this attribute:</p>
 <div class="highlight"><pre><span></span><code>sudo chattr +a testfile
 </code></pre></div>
-
 <p>Then, I had all permissions:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~/Desktop/Test$ stat testfile
-  File: <span class="sb">`</span>testfile<span class="err">&#39;</span>
+  File: <span class="sb">`</span>testfile<span class="err">'</span>
   Size: <span class="m">13</span>          Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
 Device: 801h/2049d  Inode: <span class="m">923339</span>      Links: <span class="m">1</span>
 Access: <span class="o">(</span><span class="m">0777</span>/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> <span class="m">1000</span>/   moose<span class="o">)</span>   Gid: <span class="o">(</span> <span class="m">1000</span>/moose<span class="o">)</span>
@@ -280,21 +268,19 @@ Change: <span class="m">2013</span>-03-04 <span class="m">21</span>:33:55.154184
 moose@pc07:~/Desktop/Test$ lsattr
 -----a-----------e- ./testfile
 </code></pre></div>
-
 <p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
-<div class="highlight"><pre><span></span><code>moose@pc07:~/Desktop/Test$ <span class="nb">echo</span> <span class="s2">&quot;One more line &quot;</span> &gt;&gt; testfile
+<div class="highlight"><pre><span></span><code>moose@pc07:~/Desktop/Test$ <span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile
 moose@pc07:~/Desktop/Test$ cat testfile
 Hello World.
 One more line
 </code></pre></div>
-
 <p>So I guess I found another bug in gEdit.</p>
-<h3>Immutable</h3>
+<h3 id="immutable">Immutable</h3>
 <p>You can mark a file as immutable with <code>sudo chattr +i testfile</code>. It's funny, you can't see that with <code>ls -l</code>, you have to use <code>lsattr</code>. I guess if you manage to get root privileges and want to troll somebody, you could set this bit. I think this might take quite a while until you recognize it.</p>
-<h3>Secure deletion and undeletable</h3>
+<h3 id="secure-deletion-and-undeletable">Secure deletion and undeletable</h3>
 <p>When secure deletion is set with <code>chattr +s testfile</code> the operating system overwrites the file with random data when it is deleted.</p>
 <p><code>chattr +u testfile</code> makes your file undeletable. This is strange. You can still delete the file with <code>rm</code>, but the system will not overwrite it. I've just <a href="http://unix.stackexchange.com/q/66870/4784">asked a question on SE</a>.</p>
-<h3>Synchronous update</h3>
+<h3 id="synchronous-update">Synchronous update</h3>
 <p>when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.</p>
             
             <div id="disqus_thread" class="no-print"></div>

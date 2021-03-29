@@ -107,9 +107,8 @@ MathJax.Hub.Queue(function() {
             
             <p>Once in a while, I want to get the total number of PDF pages of a document.
 You can do that with the command</p>
-<div class="highlight"><pre><span></span><code>$ pdfinfo document.pdf <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">&#39;:&#39;</span> <span class="s1">&#39;{gsub(/ /, &quot;&quot;, $0);print $2}&#39;</span>
+<div class="highlight"><pre><span></span><code>$ pdfinfo document.pdf <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span>
 </code></pre></div>
-
 <p>It works like this:</p>
 <ol>
 <li>Call <code>pdfinfo</code> to get a lot of information, including a line which begins
@@ -120,9 +119,8 @@ You can do that with the command</p>
 </ol>
 <p>Now we know how to get the number of pages of a PDF document for a single
 document. But what if you want to get it for all documents within a folder?</p>
-<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i <span class="k">in</span> *.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$i</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">&#39;:&#39;</span> <span class="s1">&#39;{gsub(/ /, &quot;&quot;, $0);print $2}&#39;</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> paste -sd+ - <span class="p">|</span> bc
+<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i <span class="k">in</span> *.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$i</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> paste -sd+ - <span class="p">|</span> bc
 </code></pre></div>
-
 <p>It works like this:</p>
 <ol>
 <li><code>for i in *.pdf; do ...; done</code> goes through all files ending with <code>.pdf</code> and

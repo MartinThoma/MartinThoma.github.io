@@ -102,14 +102,20 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Abschlussbericht der Studienstiftung">Abschlussbericht der Studienstiftung</a><ul><li><a class="toc-href" href="#vorlage" title="Vorlage">Vorlage</a></li><li><a class="toc-href" href="#faq" title="FAQ">FAQ</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Stipendiaten der Studienstiftung des deutschen Volkes müssen am Ende ihres
+            <p>Stipendiaten der Studienstiftung des deutschen Volkes m&uuml;ssen am Ende ihres
 Studiums einen Abschlussbericht schreiben.</p>
 <p>Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen
-müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr
-Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben
+m&uuml;ssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr
+Verbesserungsvorschl&auml;ge habt, k&ouml;nnt ihr mir gerne eine E-Mail schreiben
 (info@martin-thoma.de) oder einen Kommentar hinterlassen.</p>
 <h2 id="vorlage">Vorlage</h2>
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
@@ -125,7 +131,7 @@ Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben
 <span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
 
 <span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% Hier eigene Daten einfügen                                        %</span>
+<span class="c">% Hier eigene Daten einf&uuml;gen                                        %</span>
 <span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Name</span><span class="nb">}{</span>Martin Thoma<span class="nb">}</span>
 <span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Datum</span><span class="nb">}{</span><span class="k">\today</span><span class="nb">}</span>        <span class="c">% Wann wurde der Bericht erstellt?</span>
@@ -154,21 +160,21 @@ Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben
 <span class="k">\author</span><span class="nb">{</span><span class="k">\Name</span><span class="nb">}</span>
 <span class="k">\date</span><span class="nb">{</span><span class="k">\Datum</span><span class="nb">}</span>
 
-Was waren die wichtigsten Ereignisse in Ihrem Studium? Was hätten Sie im
-Rückblick lieber anders gemacht, was hat sich bewährt?
+Was waren die wichtigsten Ereignisse in Ihrem Studium? Was h&auml;tten Sie im
+R&uuml;ckblick lieber anders gemacht, was hat sich bew&auml;hrt?
 
-Welche Bedeutung hatte die Förderung durch die Studienstiftung für Ihr Studium
-und Ihre persönliche Entwicklung?
+Welche Bedeutung hatte die F&ouml;rderung durch die Studienstiftung f&uuml;r Ihr Studium
+und Ihre pers&ouml;nliche Entwicklung?
 
-Welche Angebote der Studienstiftung waren für Sie hilfreich, welche weniger?
+Welche Angebote der Studienstiftung waren f&uuml;r Sie hilfreich, welche weniger?
 Denken Sie dabei bitte neben den Veranstaltungen (Sommerakademie, Sprachkurs)
 auch an die Sprechstunden der Referenten, die Vertrauensdozentengruppe, das
-Intranet und die Auslandsförderung.
+Intranet und die Auslandsf&ouml;rderung.
 
 Was haben Sie unter den Angeboten der Studienstiftung vermisst? Wo sehen Sie
-Verbesserungsmöglichkeiten für unsere Förderung von Stipendiaten?
+Verbesserungsm&ouml;glichkeiten f&uuml;r unsere F&ouml;rderung von Stipendiaten?
 
-Wie sehen Ihre Zukunftspläne aus? In welche Richtung orientieren Sie sich
+Wie sehen Ihre Zukunftspl&auml;ne aus? In welche Richtung orientieren Sie sich
 zurzeit?
 <span class="k">\vspace</span><span class="nb">{</span>1cm<span class="nb">}</span><span class="k">\\</span>
 <span class="k">\Ort</span>, der <span class="k">\Datum\\</span>
@@ -178,7 +184,6 @@ Martin Thoma
 
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
 <p>und Makefile</p>
 <div class="highlight"><pre><span></span><code><span class="nv">DOKUMENT</span> <span class="o">=</span> abschlussbericht
 
@@ -190,29 +195,27 @@ Martin Thoma
 <span class="nf">clean</span><span class="o">:</span>
     rm -rf  <span class="k">$(</span>TARGET<span class="k">)</span> *.class *.html *.log *.aux *.out
 </code></pre></div>
-
 <h2 id="faq">FAQ</h2>
 <ul>
-    <li>Wozu dient der Bericht?<br/>
-        → "Ein Rückblick auf Ihr Studium hilft uns unter anderem bei der Beratung jüngerer Stipendiaten." (vgl. Daidalosnet, Abschlussbericht)</li>
-    <li>Welche Form soll der Bericht haben?<br/>
-        → Es gibt keine Vorgabe. 2 - 3 Seiten Umfang sind angemessen.</li>
-    <li>Was soll inhaltlich rein?<br/>
-        → vgl. Daidalosnet
+<li>Wozu dient der Bericht?<br/>
+        &rarr; "Ein R&uuml;ckblick auf Ihr Studium hilft uns unter anderem bei der Beratung j&uuml;ngerer Stipendiaten." (vgl. Daidalosnet, Abschlussbericht)</li>
+<li>Welche Form soll der Bericht haben?<br/>
+        &rarr; Es gibt keine Vorgabe. 2 - 3 Seiten Umfang sind angemessen.</li>
+<li>Was soll inhaltlich rein?<br/>
+        &rarr; vgl. Daidalosnet
     <ol>
-        <li>Was waren die wichtigsten Ereignisse in Ihrem Studium? Was hätten Sie im Rückblick lieber anders gemacht, was hat sich bewährt?</li>
-        <li>Welche Bedeutung hatte die Förderung durch die Studienstiftung für Ihr Studium und Ihre persönliche Entwicklung?</li>
-        <li>Welche Angebote der Studienstiftung waren für Sie hilfreich, welche weniger? Denken Sie dabei bitte neben den Veranstaltungen (Sommerakademie, Sprachkurs) auch an die Sprechstunden der Referenten, die Vertrauensdozentengruppe, das Intranet und die Auslandsförderung.</li>
-        <li>Was haben Sie unter den Angeboten der Studienstiftung vermisst? Wo sehen Sie Verbesserungsmöglichkeiten für unsere Förderung von Stipendiaten?</li>
-        <li>Wie sehen Ihre Zukunftspläne aus? In welche Richtung orientieren Sie sich zurzeit?</li>
-    </ol>
-
-    </li>
-    <li>Wer liest den Bericht?<br/>
-        → Nur der/die VertrauensdozentIn und ReferentIn. Die Berichte werden
+<li>Was waren die wichtigsten Ereignisse in Ihrem Studium? Was h&auml;tten Sie im R&uuml;ckblick lieber anders gemacht, was hat sich bew&auml;hrt?</li>
+<li>Welche Bedeutung hatte die F&ouml;rderung durch die Studienstiftung f&uuml;r Ihr Studium und Ihre pers&ouml;nliche Entwicklung?</li>
+<li>Welche Angebote der Studienstiftung waren f&uuml;r Sie hilfreich, welche weniger? Denken Sie dabei bitte neben den Veranstaltungen (Sommerakademie, Sprachkurs) auch an die Sprechstunden der Referenten, die Vertrauensdozentengruppe, das Intranet und die Auslandsf&ouml;rderung.</li>
+<li>Was haben Sie unter den Angeboten der Studienstiftung vermisst? Wo sehen Sie Verbesserungsm&ouml;glichkeiten f&uuml;r unsere F&ouml;rderung von Stipendiaten?</li>
+<li>Wie sehen Ihre Zukunftspl&auml;ne aus? In welche Richtung orientieren Sie sich zurzeit?</li>
+</ol>
+</li>
+<li>Wer liest den Bericht?<br/>
+        &rarr; Nur der/die VertrauensdozentIn und ReferentIn. Die Berichte werden
         wohl sehr vertraulich behandelt. Zum Beispiel hat die Studienstiftung
         auch die jeweiligen Berichte im Laufe der Ermittlungen gegen die
-        RAF-Mitglieder nicht rausgerückt.</li>
+        RAF-Mitglieder nicht rausger&uuml;ckt.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

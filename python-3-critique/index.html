@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Critique of Python 3">Critique of Python 3</a><ul><li><a class="toc-href" href="#naming" title="Naming">Naming</a><ul><li><a class="toc-href" href="#underscores-or-not" title="Underscores or not">Underscores or not</a></li><li><a class="toc-href" href="#snake_case-or-camelcase" title="snake_case or camelCase">snake_case or camelCase</a></li><li><a class="toc-href" href="#methods-properties-functions" title="Methods / Properties / Functions">Methods / Properties / Functions</a></li></ul></li><li><a class="toc-href" href="#datetime_1" title="Datetime">Datetime</a></li><li><a class="toc-href" href="#tutorial" title="Tutorial">Tutorial</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#pypi" title="PyPI">PyPI</a></li><li><a class="toc-href" href="#joining-lists" title="Joining lists">Joining lists</a></li><li><a class="toc-href" href="#module-specific" title="Module specific">Module specific</a><ul><li><a class="toc-href" href="#base64" title="Base64">Base64</a></li><li><a class="toc-href" href="#scipy-pil" title="Scipy - PIL">Scipy - PIL</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Consistency is an important quality property of a language. One of my main
@@ -120,34 +126,32 @@ However, some built-in functions do not follow this naming scheme:</p>
 </ul>
 <h3 id="snake_case-or-camelcase">snake_case or camelCase</h3>
 <table class="table">
-    <tr>
-        <th>Where</th>
-        <th>Is</th>
-        <th>Should be</th>
-    </tr>
-    <tr>
-        <td><a href="https://docs.python.org/3/library/logging.html">Logging module</a> (everywhere)</td>
-        <td>logging.getLogger</td>
-        <td>logging.get_logger</td>
-    </tr>
+<tr>
+<th>Where</th>
+<th>Is</th>
+<th>Should be</th>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3/library/logging.html">Logging module</a> (everywhere)</td>
+<td>logging.getLogger</td>
+<td>logging.get_logger</td>
+</tr>
 </table>
-
 <h3 id="methods-properties-functions">Methods / Properties / Functions</h3>
 <ul>
 <li><code>len</code>: Each container type should have a property <code>length</code>. One the one hand,
   this is done in many other languages. On the other hand, it indicates that
   getting the length is a constant-time operation.</li>
 </ul>
-<h2 id="datetime">Datetime</h2>
+<h2 id="datetime_1">Datetime</h2>
 <p>Have a look at the following code:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">01</span><span class="p">,</span> <span class="mi">01</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">00</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">01</span><span class="p">,</span> <span class="mi">02</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">00</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Seconds elapsed: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Seconds elapsed: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span><span class="p">))</span>
 </code></pre></div>
-
 <p>What would you expect the output to be? I expected <code>24 * 60 * 60</code>. But it is
 <code>0</code>. What you were looking for is <code>(y - x).total_seconds</code>.</p>
 <h2 id="tutorial">Tutorial</h2>
@@ -185,7 +189,6 @@ function should additionally have this:</p>
 &gt;&gt;&gt; len(other_list)
 2
 </code></pre></div>
-
 <p>I think the PHP documentation is awesome. Take a look at
 <a href="http://php.net/manual/en/function.strlen.php"><code>strlen</code></a>. It is immediately
 clear how to use it, which versions are supported, what types the parameters
@@ -202,14 +205,13 @@ That should not be possible. So there is an issue with namespaces.</p>
 <h2 id="joining-lists">Joining lists</h2>
 <p>Joining a list of strings works like this in Python 3:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nv">a</span> <span class="o">=</span> [<span class="nv">str</span><span class="ss">(</span><span class="nv">el</span><span class="ss">)</span> <span class="k">for</span> <span class="nv">el</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span>]
-<span class="o">&gt;&gt;&gt;</span> <span class="nv">a</span>.<span class="nv">join</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nv">a</span>.<span class="nv">join</span><span class="ss">(</span><span class="s2">"</span><span class="s"> </span><span class="s2">"</span><span class="ss">)</span>
 <span class="nv">Traceback</span> <span class="ss">(</span><span class="nv">most</span> <span class="nv">recent</span> <span class="k">call</span> <span class="nl">last</span><span class="ss">)</span>:
-  <span class="nv">File</span> <span class="s2">&quot;</span><span class="s">&lt;stdin&gt;</span><span class="s2">&quot;</span>, <span class="nv">line</span> <span class="mi">1</span>, <span class="nv">in</span> <span class="o">&lt;</span><span class="nv">module</span><span class="o">&gt;</span>
-<span class="nv">AttributeError</span>: <span class="s1">&#39;</span><span class="s">list</span><span class="s1">&#39;</span> <span class="nv">object</span> <span class="nv">has</span> <span class="nv">no</span> <span class="nv">attribute</span> <span class="s1">&#39;</span><span class="s">join</span><span class="s1">&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span>
-<span class="s1">&#39;</span><span class="s">0 1 2 3 4</span><span class="s1">&#39;</span>
+  <span class="nv">File</span> <span class="s2">"</span><span class="s">&lt;stdin&gt;</span><span class="s2">"</span>, <span class="nv">line</span> <span class="mi">1</span>, <span class="nv">in</span> <span class="o">&lt;</span><span class="nv">module</span><span class="o">&gt;</span>
+<span class="nv">AttributeError</span>: <span class="s1">'</span><span class="s">list</span><span class="s1">'</span> <span class="nv">object</span> <span class="nv">has</span> <span class="nv">no</span> <span class="nv">attribute</span> <span class="s1">'</span><span class="s">join</span><span class="s1">'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">"</span><span class="s"> </span><span class="s2">"</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span>
+<span class="s1">'</span><span class="s">0 1 2 3 4</span><span class="s1">'</span>
 </code></pre></div>
-
 <p>However, I think it is much more logical to apply a <code>join</code> method of a list
 with a string argument than a <code>join</code> method of a string with a list argument.
 This might be the case because I know
@@ -232,7 +234,7 @@ by now. <code>text_encoding</code>? That would have "encoding" in the name.</p>
 module.</p>
 <h3 id="scipy-pil">Scipy - PIL</h3>
 <p>PIL uses <code>(width, height)</code> (e.g. in <code>Image.new</code>) and SciPy uses <code>(height, width)</code>.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also_1">See also</h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=CpjUoYcaUu8">Critique of Python by Vladimir Keleshev</a></li>
 </ul>

@@ -102,14 +102,19 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Vertex coloring">Vertex coloring</a><ul><li><a class="toc-href" href="#the-problem" title="The problem">The problem</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#interesting-facts" title="Interesting facts">Interesting facts</a></li><li><a class="toc-href" href="#algorithms" title="Algorithms">Algorithms</a><ul><li><a class="toc-href" href="#first-wrong-try-fix-adjacent-vertices" title="First WRONG try: Fix adjacent vertices">First WRONG try: Fix adjacent vertices</a></li><li><a class="toc-href" href="#second-wrong-try-fix-current-vertex" title="Second WRONG try: Fix current vertex">Second WRONG try: Fix current vertex</a></li><li><a class="toc-href" href="#brute-force" title="Brute force">Brute force</a></li></ul></li><li><a class="toc-href" href="#zero-knowledge-protocol_1" title="Zero-knowledge protocol">Zero-knowledge protocol</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is a quick article I had for quite a while as a draft.
 It might not be finished or have other problems, but I still want to share
 it.</div>
-
-<h2>The problem</h2>
+<h2 id="the-problem">The problem</h2>
 <p>The <span style="font-variant: small-caps;">Vertex Coloring</span> problem can be described like this:</p>
 <div class="definition">
 <span style="font-variant: small-caps;">Vertex Coloring</span>
@@ -122,43 +127,41 @@ $\forall e=\{v_1, v_2\} \in E: f(v_1) \neq f(v_2)$.
 
 Minimize $n$.
 </div>
-
 <p>If <span class="math">\(n\)</span> is minimal for <span class="math">\(G\)</span>, it is called the chromatic number <span class="math">\(\chi(G)\)</span>.</p>
 <p>What does that mean?</p>
 <p>You have a graph. Then you take pencils and color the vertices such all vertices that are connected are not of the same color.</p>
-<h2>Example</h2>
+<h2 id="example">Example</h2>
 <p>All of the following graphs show valid thee colorings:</p>
-<p>[caption id="attachment_69831" align="aligncenter" width="500"]<a href="../images/2013/06/graph-with-three-colorings.png"><img src="../images/2013/06/graph-with-three-colorings.png" alt="Valid thee colorings of one graph" width="500" height="429" class="size-full wp-image-69831" /></a> Valid thee colorings of one graph<br />Source: <a href="http://commons.wikimedia.org/wiki/File:Graph_with_all_three-colourings_2.svg">Wikipedia</a>[/caption]</p>
-<h2>Interesting facts</h2>
+<p>[caption id="attachment_69831" align="aligncenter" width="500"]<a href="../images/2013/06/graph-with-three-colorings.png"><img alt="Valid thee colorings of one graph" class="size-full wp-image-69831" height="429" src="../images/2013/06/graph-with-three-colorings.png" width="500"/></a> Valid thee colorings of one graph<br/>Source: <a href="http://commons.wikimedia.org/wiki/File:Graph_with_all_three-colourings_2.svg">Wikipedia</a>[/caption]</p>
+<h2 id="interesting-facts">Interesting facts</h2>
 <ul>
-  <li>$1 \leq \chi(G) \leq |V|$: You need at least one color and you could color all vertices with a different color</li>
-  <li>$\chi(K_n) = n$: All <abbr title="all vertices are connected with all other vertices.">complete graphs</abbr> with $n$ vertices need exactly $n$ colors. One color for each vertex.</li>
-  <li>Every planar graph can be colored with 4 colors (see <a href="http://en.wikipedia.org/wiki/Four_color_theorem">four color theorem</a>).</li>
-  <li>Determining if a graph can be colored with 2 colors is equivalent to determining whether or not the graph is bipartite. This can be checked in polynomial time. You simply start with one vertex, give it color 1 and all adjacent vertices color 2. Then all adjacent vertices of color 2 have to have color 1, ...</li>
-  <li><span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$.</li>
-  <li>All triangle-free planar graphs can be 3-colored. You can get this coloring in linear time (<a href="http://en.wikipedia.org/wiki/Gr%C3%B6tzsch's_theorem#Computational_complexity">source</a>).</li>
+<li>$1 \leq \chi(G) \leq |V|$: You need at least one color and you could color all vertices with a different color</li>
+<li>$\chi(K_n) = n$: All <abbr title="all vertices are connected with all other vertices.">complete graphs</abbr> with $n$ vertices need exactly $n$ colors. One color for each vertex.</li>
+<li>Every planar graph can be colored with 4 colors (see <a href="http://en.wikipedia.org/wiki/Four_color_theorem">four color theorem</a>).</li>
+<li>Determining if a graph can be colored with 2 colors is equivalent to determining whether or not the graph is bipartite. This can be checked in polynomial time. You simply start with one vertex, give it color 1 and all adjacent vertices color 2. Then all adjacent vertices of color 2 have to have color 1, ...</li>
+<li><span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$.</li>
+<li>All triangle-free planar graphs can be 3-colored. You can get this coloring in linear time (<a href="http://en.wikipedia.org/wiki/Gr%C3%B6tzsch's_theorem#Computational_complexity">source</a>).</li>
 </ul>
-
-<h2>Algorithms</h2>
+<h2 id="algorithms">Algorithms</h2>
 <p>I think learning from errors is important. This is the reason why I share the following algorithm that do not work.</p>
-<h3>First WRONG try: Fix adjacent vertices</h3>
-<p>[caption id="attachment_69891" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring.png"><img src="../images/2013/06/Vertex-coloring.png" alt="A vertex coloring algorithm that does not work" width="512" height="281" class="size-full wp-image-69891" /></a> A vertex coloring algorithm that does not work[/caption]</p>
+<h3 id="first-wrong-try-fix-adjacent-vertices">First WRONG try: Fix adjacent vertices</h3>
+<p>[caption id="attachment_69891" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring.png"><img alt="A vertex coloring algorithm that does not work" class="size-full wp-image-69891" height="281" src="../images/2013/06/Vertex-coloring.png" width="512"/></a> A vertex coloring algorithm that does not work[/caption]</p>
 <p>The time complexity of this algorithm is in <span class="math">\(\mathcal{O}(|V|^2)\)</span>. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in <span class="math">\(\mathcal{NPC}\)</span>. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars.</p>
 <p>But an example why it doesn't work is better. Just try it for the following graph:</p>
-<p>[caption id="attachment_69921" align="aligncenter" width="512"]<a href="../images/2013/06/graph-v6-e8.png"><img src="../images/2013/06/graph-v6-e8.png" alt="Example that does not work with the provided algorithm" width="512" height="368" class="size-full wp-image-69921" /></a> Example that does not work with the provided algorithm[/caption]</p>
-<h3>Second WRONG try: Fix current vertex</h3>
-<p>[caption id="attachment_69971" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png"><img src="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png" alt="Another vertex coloring algorithm" width="512" height="315" class="size-full wp-image-69971" /></a> Another vertex coloring algorithm[/caption]</p>
+<p>[caption id="attachment_69921" align="aligncenter" width="512"]<a href="../images/2013/06/graph-v6-e8.png"><img alt="Example that does not work with the provided algorithm" class="size-full wp-image-69921" height="368" src="../images/2013/06/graph-v6-e8.png" width="512"/></a> Example that does not work with the provided algorithm[/caption]</p>
+<h3 id="second-wrong-try-fix-current-vertex">Second WRONG try: Fix current vertex</h3>
+<p>[caption id="attachment_69971" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png"><img alt="Another vertex coloring algorithm" class="size-full wp-image-69971" height="315" src="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png" width="512"/></a> Another vertex coloring algorithm[/caption]</p>
 <p>This algorithm gives a valid coloring, but the coloring is not minimal.</p>
 <p>Example:</p>
 <p>When you apply the algorithm the the graph below, you will get a coloring with four colors. But obviously, it is possible to color it with three colors.
-[caption id="attachment_69951" align="aligncenter" width="512"]<a href="../images/2013/06/graph-v6-e81.png"><img src="../images/2013/06/graph-v6-e81.png" alt="Graph that can be vertex-colored with 3 colors" width="512" height="368" class="size-full wp-image-69951" /></a> Graph that can be vertex-colored with 3 colors[/caption]</p>
-<h3>Brute force</h3>
+[caption id="attachment_69951" align="aligncenter" width="512"]<a href="../images/2013/06/graph-v6-e81.png"><img alt="Graph that can be vertex-colored with 3 colors" class="size-full wp-image-69951" height="368" src="../images/2013/06/graph-v6-e81.png" width="512"/></a> Graph that can be vertex-colored with 3 colors[/caption]</p>
+<h3 id="brute-force">Brute force</h3>
 <p>It's always a good idea to think about brute force algorithms. On the one hand, they are simple. So you can intuitively  understand why they are correct and see their time / space complexity. On the other hand, you can use them for sanity checks of better algorithms for small problem instances.</p>
 <p>Here is a brute force algorithm for the vertex coloring problem
-[caption id="attachment_70001" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring-brute-force.png"><img src="../images/2013/06/Vertex-coloring-brute-force.png" alt="Brute force a minimal vertex coloring" width="512" height="333" class="size-full wp-image-70001" /></a> Brute force a minimal vertex coloring[/caption]</p>
+[caption id="attachment_70001" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring-brute-force.png"><img alt="Brute force a minimal vertex coloring" class="size-full wp-image-70001" height="333" src="../images/2013/06/Vertex-coloring-brute-force.png" width="512"/></a> Brute force a minimal vertex coloring[/caption]</p>
 <p>You need <span class="math">\(\sum_{i=2}^n i^n\)</span> steps at maximum. Wow. This is MUCH. Even when you only want to check if <span class="math">\(i\)</span> colors are enough, you need <span class="math">\(i^n\)</span>.</p>
 <p>You could use the second algorithm to get a better upper bound and try the next smaller ones. As soon as you don't get valid colorings, you know that the number of colors you've used in the last valid coloring was the minimum number.</p>
-<h2>Zero-knowledge protocol</h2>
+<h2 id="zero-knowledge-protocol_1">Zero-knowledge protocol</h2>
 <p>Vertex coloring is relevant for so called "zero-knowledge protocols". This is a method by which one party (the prover) can prove to another party (the verifier) that a given statement is true, without conveying any additional information apart from the fact that the statement is indeed true.</p>
 <blockquote>A zero-knowledge proof must satisfy three properties:
 <ul>
@@ -180,9 +183,9 @@ If you and your friend repeat this "proof" $t$ times (for large $t$), your frien
 <p>Lets make this more concrete. Say you want to authenticate somebody. This person is identified as the "only" person who knows a three-coloring of a big graph. This makes him/her special.
 If you simply asked him "what's the three coloring for your graph?" he would no longer be the only person who knows the three coloring.</p>
 <p>So you want to get sure that he knows a three coloring without getting it.</p>
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="http://web.mit.edu/~ezyang/Public/graph/svg.html">Interactive zero knowledge 3-colorability demonstration</a></li>
+<li><a href="http://web.mit.edu/~ezyang/Public/graph/svg.html">Interactive zero knowledge 3-colorability demonstration</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

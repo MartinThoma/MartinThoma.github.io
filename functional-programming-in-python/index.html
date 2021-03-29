@@ -102,27 +102,30 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Functional Programming in Python">Functional Programming in Python</a><ul><li><a class="toc-href" href="#lambda" title="lambda">lambda</a></li><li><a class="toc-href" href="#mapfunction-sequence" title="map(function, sequence)">map(function, sequence)</a></li><li><a class="toc-href" href="#reducefunction-sequence" title="reduce(function, sequence)">reduce(function, sequence)</a></li><li><a class="toc-href" href="#filterfunction-sequence" title="filter(function, sequence)">filter(function, sequence)</a></li><li><a class="toc-href" href="#some-more-examples" title="Some more examples">Some more examples</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Python has a few functional programming tools: Lambda functions and the three higher-order functions map, filter and reduce. I'll explain them now and I'll give some usage examples.</p>
-<h2>lambda</h2>
+<h2 id="lambda">lambda</h2>
 <p>A lambda creates an <a href="http://en.wikipedia.org/wiki/Anonymous_function">anonymous function</a>, that means a function without a name. A lambda may have any number of arguments.</p>
 <p>Here are some examples for lambdas:</p>
 <div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Output: 49</p>
 <div class="highlight"><pre><span></span><code><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Output: (3, 3, 1, 56, 36)</p>
 <div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">myVar</span><span class="p">,</span> <span class="n">anotherVar</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="n">myVar</span><span class="p">,</span> <span class="n">anotherVar</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Output: (set([1, 2]), set(['a', 1]), set(['a']), set([1]))</p>
 <p>Sometimes you would like to get an if-statement in a lambda.
 So imagine you would like to make a lambda function like this:</p>
@@ -134,13 +137,11 @@ So imagine you would like to make a lambda function like this:</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 </code></pre></div>
-
 <p>This is the way you would do it:</p>
 <div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">42</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">1337</span> <span class="ow">or</span> <span class="mi">0</span>
 </code></pre></div>
-
 <p>(Thanks to <a href="http://eikke.com/python-ifelse-in-lambda/">Ikke's blog</a> for the hint!)</p>
-<h2>map(function, sequence)</h2>
+<h2 id="mapfunction-sequence">map(function, sequence)</h2>
 <p>Map is a function with two parameters. The first parameter is another function, the second is a sequence. Map returns a list. It only applies function to every item of the sequence.</p>
 <p>Here are some examples:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -149,25 +150,21 @@ So imagine you would like to make a lambda function like this:</p>
 
 <span class="n">l</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 </code></pre></div>
-
 <p>l = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
 <p>This is equivalent to:</p>
 <div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 </code></pre></div>
-
 <p>You can also use more than one list:</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">l</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Output: [0, -9, -16, -21, -24, -25, -24, -21, -16, -9, 0, 11, 24, 39, 56, 75, 96, 119, 144, 171]</p>
-<h2>reduce(function, sequence)</h2>
+<h2 id="reducefunction-sequence">reduce(function, sequence)</h2>
 <p>You can quite often reduce problems to an operation on two elements. Reduce takes two elements from sequence, uses function on them and saves the result. Then it takes the result and another element of the sequence and uses function...</p>
 <p>Example: Imagine you would like to get the sum of a list. Then you need to add two elements of the list, save the result and add another element, save the result, add another element, ...</p>
 <div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </code></pre></div>
-
 <p>r = 74</p>
 <p>You can calculate the factorial n! like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">fac</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
@@ -175,11 +172,10 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Output: 2
 6
 3628800</p>
-<h2>filter(function, sequence)</h2>
+<h2 id="filterfunction-sequence">filter(function, sequence)</h2>
 <p>filter gets all elements from sequence, where function returns true:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -196,9 +192,8 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
 <span class="n">r</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_prime</span><span class="p">,</span> <span class="n">my_list</span><span class="p">)</span>
 </code></pre></div>
-
 <p>r = [13, 2, 7, 11, 11]</p>
-<h2>Some more examples</h2>
+<h2 id="some-more-examples">Some more examples</h2>
 <p>Task: What is the sum of digits of <span class="math">\(2^n, n \in \mathbb{N}\)</span>?</p>
 <div class="highlight"><pre><span></span><code><span class="n">sumOfDigits</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">exp</span><span class="p">:</span> <span class="n">reduce</span><span class="p">(</span>
     <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">exp</span><span class="p">))</span>
@@ -208,7 +203,6 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">sumOfDigits</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sumOfDigits</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Output: 4
 8
 7
@@ -217,27 +211,26 @@ So imagine you would like to make a lambda function like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Thanks to lebenf: http://stackoverflow.com/a/3226719/562769</span>
 <span class="n">chunks</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">n</span><span class="p">)]</span>
 
-<span class="n">decodeWord</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mi">64</span><span class="p">),</span> <span class="n">chunks</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
-<span class="n">decode</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">decodeWord</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)))</span>
-<span class="n">encodeWord</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%.2X</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">64</span><span class="p">),</span> <span class="n">p</span><span class="p">))</span>
-<span class="n">encode</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">encodeWord</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)))</span>
+<span class="n">decodeWord</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mi">64</span><span class="p">),</span> <span class="n">chunks</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">decode</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">decodeWord</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)))</span>
+<span class="n">encodeWord</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"</span><span class="si">%.2X</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">64</span><span class="p">),</span> <span class="n">p</span><span class="p">))</span>
+<span class="n">encode</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">encodeWord</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)))</span>
 
-<span class="n">cipher</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="s2">&quot;HELLO WORLD&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cipher Text: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cipher</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plain Text: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">decode</span><span class="p">(</span><span class="n">cipher</span><span class="p">))</span>
+<span class="n">cipher</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="s2">"HELLO WORLD"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Cipher Text: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">cipher</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Plain Text: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">decode</span><span class="p">(</span><span class="n">cipher</span><span class="p">))</span>
 </code></pre></div>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li>Wikipedia:
+<li>Wikipedia:
     <ul>
-      <li><a href="http://en.wikipedia.org/wiki/Lambda_calculus">Lambda calculus</a></li>
-      <li><a href="http://en.wikipedia.org/wiki/Filter_(higher-order_function)">filter</a></li>
-      <li><a href="http://en.wikipedia.org/wiki/Map_(higher-order_function)">map</a></li>
-      <li><a href="http://en.wikipedia.org/wiki/Reduce_(higher-order_function)">reduce</a></li>
-    </ul>
-  </li>
-  <li><a href="http://www.python-kurs.eu/lambda.php">Python-Kurs: Lambda, filter, reduce und map</a> (German)</li>
+<li><a href="http://en.wikipedia.org/wiki/Lambda_calculus">Lambda calculus</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Filter_(higher-order_function)">filter</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Map_(higher-order_function)">map</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Reduce_(higher-order_function)">reduce</a></li>
+</ul>
+</li>
+<li><a href="http://www.python-kurs.eu/lambda.php">Python-Kurs: Lambda, filter, reduce und map</a> (German)</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

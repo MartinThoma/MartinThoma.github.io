@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Closures">Closures</a><ul><li><a class="toc-href" href="#pairs" title="Pairs">Pairs</a></li><li><a class="toc-href" href="#partial" title="partial">partial</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>A <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">closure</a> is a
@@ -138,7 +144,6 @@ and the nice answer by Martijn Pieters.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">cons_return</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cdr</span><span class="p">(</span><span class="n">cons_return</span><span class="p">))</span>
 </code></pre></div>
-
 <p>What is the output of the 3 print statements? Why?</p>
 <p>As there are not too many possible answers, you can easily guess it. But can
 you explain it?</p>
@@ -158,20 +163,20 @@ you explain it?</p>
 </ol>
 <p>Once you print some intermediate results you get a better understanding:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cons</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cons called with a=</span><span class="si">{}</span><span class="s2">, b=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"cons called with a=</span><span class="si">{}</span><span class="s2">, b=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">pair</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pair called with a=</span><span class="si">{}</span><span class="s2">, b=</span><span class="si">{}</span><span class="s2">, f=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"pair called with a=</span><span class="si">{}</span><span class="s2">, b=</span><span class="si">{}</span><span class="s2">, f=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">pair</span>
 
 
 <span class="k">def</span> <span class="nf">car</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;car called with pair=</span><span class="si">{}</span><span class="s2"> (a, b are undefined)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"car called with pair=</span><span class="si">{}</span><span class="s2"> (a, b are undefined)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">return_first</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;return_first called with x=</span><span class="si">{}</span><span class="s2">, y=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"return_first called with x=</span><span class="si">{}</span><span class="s2">, y=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">x</span>
 
     <span class="k">return</span> <span class="n">pair</span><span class="p">(</span><span class="n">return_first</span><span class="p">)</span>
@@ -189,7 +194,6 @@ you explain it?</p>
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">(</span><span class="n">cons_return</span><span class="p">))</span>
 </code></pre></div>
-
 <p>gives</p>
 <div class="highlight"><pre><span></span><code>cons called with a=42, b=1337
 &lt;function cons.&lt;locals&gt;.pair at 0x7fbb5fe7c840&gt;
@@ -199,7 +203,6 @@ pair called with a=42, b=1337, f=&lt;function car.&lt;locals&gt;.return_first at
 return_first called with x=42, y=1337
 42
 </code></pre></div>
-
 <p>I don't know about you, but this really gives me headaches. I'm don't know why,
 but closures are super popular in JavaScript.</p>
 <p>Let's see the one example I know they are super useful for.</p>
@@ -219,7 +222,6 @@ filled.</p>
     <span class="n">newfunc</span><span class="o">.</span><span class="n">keywords</span> <span class="o">=</span> <span class="n">keywords</span>
     <span class="k">return</span> <span class="n">newfunc</span>
 </code></pre></div>
-
 <p>And you can use it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
@@ -231,14 +233,12 @@ filled.</p>
 <span class="n">basetwo</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">basetwo</span><span class="p">(</span><span class="n">exponent</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># prints 1024</span>
 </code></pre></div>
-
 <p>Please note that the call <code>basetwo(10)</code> gives the error</p>
 <div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File &quot;/home/moose/foobar.py&quot;, line 8, in &lt;module&gt;
+  File "/home/moose/foobar.py", line 8, in &lt;module&gt;
     print(basetwo(10))  # prints 1024
-TypeError: power() got multiple values for argument &#39;base&#39;
+TypeError: power() got multiple values for argument 'base'
 </code></pre></div>
-
 <p>as you supply power both as a keyword-argument and as a position-based
 argument.</p>
             

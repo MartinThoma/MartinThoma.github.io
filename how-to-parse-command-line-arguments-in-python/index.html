@@ -102,15 +102,20 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to parse command line arguments in Python">How to parse command line arguments in Python</a><ul><li><a class="toc-href" href="#argparse" title="Argparse">Argparse</a><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#example-1-fibonacci" title="Example 1: Fibonacci">Example 1: Fibonacci</a></li><li><a class="toc-href" href="#example-2-less" title="Example 2: less">Example 2: less</a></li><li><a class="toc-href" href="#example-3-copy-paste-template" title="Example 3: copy-paste template">Example 3: copy-paste template</a></li></ul></li><li><a class="toc-href" href="#optparse_1" title="Optparse">Optparse</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>Argparse</h2>
+            <h2 id="argparse">Argparse</h2>
 <blockquote>The <a href="http://docs.python.org/library/argparse.html">argparse module</a> makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program invalid arguments.</blockquote>
-
-<h3>Installation</h3>
+<h3 id="installation">Installation</h3>
 <p>I had to install <code>python-argparse</code> on my old Ubuntu machine before I could use it.</p>
-<h3>Usage</h3>
+<h3 id="usage">Usage</h3>
 <p>As far as I've just tried it, you can use argparse very similar to optparse. See this <a href="https://github.com/MartinThoma/matrix-multiplication/commit/7af938c54fd2effee3efe74352b76f01d2e817e5#Python/ikjMultiplication.py">diff</a> for my switch from optparse to argparse for a simple script.</p>
 <p>It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I'll try to call them arguments from now on):</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -122,48 +127,46 @@ MathJax.Hub.Queue(function() {
 
 <span class="c1"># Add more options if you like</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-    <span class="s2">&quot;-f&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;--file&quot;</span><span class="p">,</span>
-    <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;myFilenameVariable&quot;</span><span class="p">,</span>
-    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;write report to FILE&quot;</span><span class="p">,</span>
-    <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
+    <span class="s2">"-f"</span><span class="p">,</span>
+    <span class="s2">"--file"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"myFilenameVariable"</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"write report to FILE"</span><span class="p">,</span>
+    <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-    <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span>
-    <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span>
+    <span class="s2">"-q"</span><span class="p">,</span>
+    <span class="s2">"--quiet"</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"store_false"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
     <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;don&#39;t print status messages to stdout&quot;</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"don't print status messages to stdout"</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">myFilenameVariable</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Every option has some values like:</p>
 <ul>
-  <li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
-  <li><a href="http://docs.python.org/library/argparse.html#help">help</a>: This text gets displayed whey someone uses <code>--help</code>.</li>
-  <li><a href="http://docs.python.org/library/argparse.html#default">default</a>: If the command line argument was not specified, it will get this default value.</li>
-  <li><a href="http://docs.python.org/library/argparse.html#action">action</a>: Actions tell optparse what to do when it encounters an option on the command line. <code>action</code> defaults to <code>store</code>. These actions are available:
+<li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
+<li><a href="http://docs.python.org/library/argparse.html#help">help</a>: This text gets displayed whey someone uses <code>--help</code>.</li>
+<li><a href="http://docs.python.org/library/argparse.html#default">default</a>: If the command line argument was not specified, it will get this default value.</li>
+<li><a href="http://docs.python.org/library/argparse.html#action">action</a>: Actions tell optparse what to do when it encounters an option on the command line. <code>action</code> defaults to <code>store</code>. These actions are available:
     <ul>
-      <li><strong>store</strong>: take the next argument (or the remainder of the current argument), ensure that it is of the correct type, and store it to your chosen destination dest.</li>
-      <li><strong>store_true</strong>: store <code>True</code> in dest if this flag was set.</li>
-      <li><strong>store_false</strong>: store <code>False</code> in dest if this flag was set.</li>
-      <li><strong>store_const</strong>: store a constant value</li>
-      <li><strong>append</strong>: append this option&rsquo;s argument to a list</li>
-      <li><strong>count</strong>: increment a counter by one</li>
-      <li><strong>callback</strong>: call a specified function</li>
-    </ul>
-  </li>
-  <li><a href="http://docs.python.org/library/argparse.html#nargs">nargs</a>: ArgumentParser objects usually associate a single command-line argument with a single action to be taken. The nargs keyword argument associates a different number of command-line arguments with a single action.</li>
-  <li><a href="http://docs.python.org/library/argparse.html#required">required</a>: Mark a command line argument as non-optional (required).</li>
-  <li><a href="http://docs.python.org/library/argparse.html#choices">choices</a>: Some command-line arguments should be selected from a restricted set of values. These can be handled by passing a container object as the choices keyword argument to add_argument(). When the command line is parsed, argument values will be checked, and an error message will be displayed if the argument was not one of the acceptable values.</li>
-  <li><a href="http://docs.python.org/library/argparse.html#type">type</a>: Use this command, if the argument is of another type (e.g. int or float).</li>
+<li><strong>store</strong>: take the next argument (or the remainder of the current argument), ensure that it is of the correct type, and store it to your chosen destination dest.</li>
+<li><strong>store_true</strong>: store <code>True</code> in dest if this flag was set.</li>
+<li><strong>store_false</strong>: store <code>False</code> in dest if this flag was set.</li>
+<li><strong>store_const</strong>: store a constant value</li>
+<li><strong>append</strong>: append this option&rsquo;s argument to a list</li>
+<li><strong>count</strong>: increment a counter by one</li>
+<li><strong>callback</strong>: call a specified function</li>
 </ul>
-
+</li>
+<li><a href="http://docs.python.org/library/argparse.html#nargs">nargs</a>: ArgumentParser objects usually associate a single command-line argument with a single action to be taken. The nargs keyword argument associates a different number of command-line arguments with a single action.</li>
+<li><a href="http://docs.python.org/library/argparse.html#required">required</a>: Mark a command line argument as non-optional (required).</li>
+<li><a href="http://docs.python.org/library/argparse.html#choices">choices</a>: Some command-line arguments should be selected from a restricted set of values. These can be handled by passing a container object as the choices keyword argument to add_argument(). When the command line is parsed, argument values will be checked, and an error message will be displayed if the argument was not one of the acceptable values.</li>
+<li><a href="http://docs.python.org/library/argparse.html#type">type</a>: Use this command, if the argument is of another type (e.g. int or float).</li>
+</ul>
 <p>argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:</p>
 <div class="highlight"><pre><span></span><code>usage: ikjMultiplication.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span>
 
@@ -173,8 +176,7 @@ optional arguments:
   -h, --help  show this <span class="nb">help</span> message and <span class="nb">exit</span>
   -i FILE     input file with two matrices
 </code></pre></div>
-
-<h3>Example 1: Fibonacci</h3>
+<h3 id="example-1-fibonacci">Example 1: Fibonacci</h3>
 <p>It is absolutely no problem to calculate the 100,000st Fibonacci number.</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -201,21 +203,19 @@ optional arguments:
     <span class="k">return</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fibonacci-Script&quot;</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Fibonacci-Script"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;print the N-th fibonacci number&quot;</span>
+        <span class="s2">"-n"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"N"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"print the N-th fibonacci number"</span>
     <span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.</p>
-<h3>Example 2: less</h3>
-
+<h3 id="example-2-less">Example 2: less</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -241,46 +241,45 @@ optional arguments:
     <span class="k">return</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;less script&quot;</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"less script"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;write report to FILE&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span>
+        <span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"write report to FILE"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;how many lines get printed&quot;</span>
+        <span class="s2">"-n"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"how many lines get printed"</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span>
+        <span class="s2">"-q"</span><span class="p">,</span>
+        <span class="s2">"--quiet"</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">"store_false"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;don&#39;t print status messages to stdout&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"don't print status messages to stdout"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Will open file now and print </span><span class="si">%i</span><span class="s2"> lines.&quot;</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Will open file now and print </span><span class="si">%i</span><span class="s2"> lines."</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
 </code></pre></div>
-
 <h3 id="example-3-copy-paste-template">Example 3: copy-paste template</h3>
 <p>This is how I use it most of the time. I want to show defaults in help:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">&quot;&quot;&quot;Example for a simple program with a command line parser.&quot;&quot;&quot;</span>
+<span class="sd">"""Example for a simple program with a command line parser."""</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 
 
 <span class="k">def</span> <span class="nf">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Check if arg is a valid file that already exists on the file system.</span>
 
 <span class="sd">    Parameters</span>
@@ -291,55 +290,53 @@ optional arguments:
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    arg</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">arg</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The file </span><span class="si">%s</span><span class="s2"> does not exist!&quot;</span> <span class="o">%</span> <span class="n">arg</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"The file </span><span class="si">%s</span><span class="s2"> does not exist!"</span> <span class="o">%</span> <span class="n">arg</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">arg</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Get parser object for script xy.py.&quot;&quot;&quot;</span>
+    <span class="sd">"""Get parser object for script xy.py."""</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-f&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;--file&quot;</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
+        <span class="s2">"-f"</span><span class="p">,</span>
+        <span class="s2">"--file"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;write report to FILE&quot;</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"write report to FILE"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;how many lines get printed&quot;</span>
+        <span class="s2">"-n"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"how many lines get printed"</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
-        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span>
+        <span class="s2">"-q"</span><span class="p">,</span>
+        <span class="s2">"--quiet"</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">"store_false"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;don&#39;t print status messages to stdout&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"don't print status messages to stdout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 </code></pre></div>
-
-<h2>Optparse</h2>
+<h2 id="optparse_1">Optparse</h2>
 <div class="info">Deprecated since version 2.7: The optparse module is deprecated and will not be developed further; development will continue with the argparse module.</div>
-
 <p>Parsing command line arguments with <a href="http://docs.python.org/library/optparse.html">optparse</a> was very easy, but as it is deprecated and argparse works almost the same way, I will not make any examples. Just use argparse.</p>
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="http://stackoverflow.com/q/3217673/562769">Why use argparse rather than optparse?</a></li>
-  <li><a href="http://stackoverflow.com/q/8387924/562769">Python argparse and bash completion</a></li>
+<li><a href="http://stackoverflow.com/q/3217673/562769">Why use argparse rather than optparse?</a></li>
+<li><a href="http://stackoverflow.com/q/8387924/562769">Python argparse and bash completion</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

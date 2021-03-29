@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Computer Temperature">Computer Temperature</a><ul><li><a class="toc-href" href="#my-system" title="My System">My System</a></li><li><a class="toc-href" href="#cpu-temperture" title="CPU Temperture">CPU Temperture</a></li><li><a class="toc-href" href="#hdd-temperature" title="HDD Temperature">HDD Temperature</a></li><li><a class="toc-href" href="#make-it-silent" title="Make it Silent">Make it Silent</a><ul><li><a class="toc-href" href="#intel-vs-nvidia" title="Intel vs Nvidia">Intel vs Nvidia</a></li></ul></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I just realized that my Thinkpad T460p gets really loud. I suspect that there
@@ -116,15 +122,15 @@ information I can get form the software.</p>
 <li>Running: Chrome (no videos playing; no Flash), Sublime Text - nothing fancy</li>
 </ul>
 <h2 id="cpu-temperture">CPU Temperture</h2>
-<p>My room temperature is 24°C, my CPU temperature is roughly 50°C:</p>
+<p>My room temperature is 24&deg;C, my CPU temperature is roughly 50&deg;C:</p>
 <div class="highlight"><pre><span></span><code>sensors
 coretemp-isa-0000
 Adapter: ISA adapter
-Package id 0:  +54.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 0:        +51.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 1:        +50.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 2:        +54.0°C  (high = +100.0°C, crit = +100.0°C)
-Core 3:        +49.0°C  (high = +100.0°C, crit = +100.0°C)
+Package id 0:  +54.0&deg;C  (high = +100.0&deg;C, crit = +100.0&deg;C)
+Core 0:        +51.0&deg;C  (high = +100.0&deg;C, crit = +100.0&deg;C)
+Core 1:        +50.0&deg;C  (high = +100.0&deg;C, crit = +100.0&deg;C)
+Core 2:        +54.0&deg;C  (high = +100.0&deg;C, crit = +100.0&deg;C)
+Core 3:        +49.0&deg;C  (high = +100.0&deg;C, crit = +100.0&deg;C)
 
 thinkpad-isa-0000
 Adapter: ISA adapter
@@ -132,37 +138,35 @@ fan1:        2506 RPM
 
 acpitz-virtual-0
 Adapter: Virtual device
-temp1:        +50.0°C  (crit = +128.0°C)
+temp1:        +50.0&deg;C  (crit = +128.0&deg;C)
 
 iwlwifi-virtual-0
 Adapter: Virtual device
-temp1:        +34.0°C
+temp1:        +34.0&deg;C
 
 pch_skylake-virtual-0
 Adapter: Virtual device
-temp1:        +47.0°C
+temp1:        +47.0&deg;C
 </code></pre></div>
-
 <h2 id="hdd-temperature">HDD Temperature</h2>
-<p>My HDD (a Samsung SSD) is roughly 40°C.</p>
+<p>My HDD (a Samsung SSD) is roughly 40&deg;C.</p>
 <div class="highlight"><pre><span></span><code>$ sudo hddtemp /dev/sda
-/dev/sda: SAMSUNG MZ7LN512HCHP-0001L              �: <span class="m">39</span>°C
+/dev/sda: SAMSUNG MZ7LN512HCHP-0001L              �: <span class="m">39</span>&deg;C
 </code></pre></div>
-
 <h2 id="make-it-silent">Make it Silent</h2>
 <p>I installed <code>thermald</code> and soon after that it got more silent. Could be
 coincidence, though.</p>
 <h3 id="intel-vs-nvidia">Intel vs Nvidia</h3>
-<p>Changing from Nvidia to Intel dropped the CPU temperature from roughly 50°C to
-roughly 40°C and the SSD to 38°C.</p>
+<p>Changing from Nvidia to Intel dropped the CPU temperature from roughly 50&deg;C to
+roughly 40&deg;C and the SSD to 38&deg;C.</p>
 <div class="highlight"><pre><span></span><code>$ sensors
 coretemp-isa-0000
 Adapter: ISA adapter
-Package id <span class="m">0</span>:  +42.0°C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0°C, <span class="nv">crit</span> <span class="o">=</span> +100.0°C<span class="o">)</span>
-Core <span class="m">0</span>:        +41.0°C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0°C, <span class="nv">crit</span> <span class="o">=</span> +100.0°C<span class="o">)</span>
-Core <span class="m">1</span>:        +41.0°C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0°C, <span class="nv">crit</span> <span class="o">=</span> +100.0°C<span class="o">)</span>
-Core <span class="m">2</span>:        +40.0°C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0°C, <span class="nv">crit</span> <span class="o">=</span> +100.0°C<span class="o">)</span>
-Core <span class="m">3</span>:        +40.0°C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0°C, <span class="nv">crit</span> <span class="o">=</span> +100.0°C<span class="o">)</span>
+Package id <span class="m">0</span>:  +42.0&deg;C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0&deg;C, <span class="nv">crit</span> <span class="o">=</span> +100.0&deg;C<span class="o">)</span>
+Core <span class="m">0</span>:        +41.0&deg;C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0&deg;C, <span class="nv">crit</span> <span class="o">=</span> +100.0&deg;C<span class="o">)</span>
+Core <span class="m">1</span>:        +41.0&deg;C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0&deg;C, <span class="nv">crit</span> <span class="o">=</span> +100.0&deg;C<span class="o">)</span>
+Core <span class="m">2</span>:        +40.0&deg;C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0&deg;C, <span class="nv">crit</span> <span class="o">=</span> +100.0&deg;C<span class="o">)</span>
+Core <span class="m">3</span>:        +40.0&deg;C  <span class="o">(</span><span class="nv">high</span> <span class="o">=</span> +100.0&deg;C, <span class="nv">crit</span> <span class="o">=</span> +100.0&deg;C<span class="o">)</span>
 
 thinkpad-isa-0000
 Adapter: ISA adapter
@@ -170,15 +174,15 @@ fan1:        <span class="m">2409</span> RPM
 
 acpitz-virtual-0
 Adapter: Virtual device
-temp1:        +42.0°C  <span class="o">(</span><span class="nv">crit</span> <span class="o">=</span> +128.0°C<span class="o">)</span>
+temp1:        +42.0&deg;C  <span class="o">(</span><span class="nv">crit</span> <span class="o">=</span> +128.0&deg;C<span class="o">)</span>
 
 iwlwifi-virtual-0
 Adapter: Virtual device
-temp1:        +33.0°C
+temp1:        +33.0&deg;C
 
 pch_skylake-virtual-0
 Adapter: Virtual device
-temp1:        +44.0°C
+temp1:        +44.0&deg;C
 </code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>

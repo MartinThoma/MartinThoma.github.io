@@ -102,11 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to use arXiv data">How to use arXiv data</a><ul><li><a class="toc-href" href="#why-parsing-latex-is-hard" title="Why parsing LaTeX is hard">Why parsing LaTeX is hard</a></li><li><a check'="" class="toc-href" href="#what-i-currently-dont-check" t="" title="What I currently don">What I currently don't check</a></li><li><a class="toc-href" href="#structure-of-arxiv" title="Structure of arXiv">Structure of arXiv</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">I've written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I've used.</div>
-
 <p>I've recently talked to my bachelors thesis advisers. <em>A short reminder:</em>
 I write a thesis about the recognition of handwritten mathematical symbols. As
 a practical part I implement everything on <a href="http://write-math.com">write-math.com</a>.</p>
@@ -166,59 +171,55 @@ ones:</p>
 </ul>
 <p>As some of these were quite common, <code>sed</code> and <code>find</code> saved me some work:</p>
 <div class="highlight"><pre><span></span><code>find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\newcommand{\\beq}{\\begin{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\newcommand{\\beq}{\\begin{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\newcommand\\eeq{\\end{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\newcommand\\eeq{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\newcommand{\\eeq}{\\end{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\newcommand{\\eeq}{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\newcommand{\\be}{\\begin{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\newcommand{\\be}{\\begin{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\newcommand{\\ee}{\\end{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\newcommand{\\ee}{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\def\\be{\\begin{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\def\\be{\\begin{equation}}/%%%%%%%%%%%%%%/g'</span>
 
 find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
-sed -i <span class="s1">&#39;s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g&#39;</span>
+sed -i <span class="s1">'s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
 </code></pre></div>
-
 <h2 id="what-i-currently-dont-check">What I currently don't check</h2>
 <p>Commands with parameters:</p>
 <div class="highlight"><pre><span></span><code><span class="k">\makeatletter</span>
 <span class="k">\def\imod</span>#1<span class="nb">{</span><span class="k">\allowbreak\mkern</span>10mu(<span class="nb">{</span><span class="k">\operator</span>@font mod<span class="nb">}</span><span class="k">\,\,</span>#1)<span class="nb">}</span>
 <span class="k">\makeatother</span>
 </code></pre></div>
-
 <h2 id="structure-of-arxiv">Structure of arXiv</h2>
 <p>arXiv uses Amazon S3 with the "requester pays" option. The storage containers
 of S3 are called "buckets" and they are adressed in an URI style:</p>
 <div class="highlight"><pre><span></span><code>s3://arxiv/pdf/arXiv_pdf_manifest.xml
 </code></pre></div>
-
 <p>A tool to get data from S3 under Linux is <code>s3cmd</code>. It can be used like this:</p>
-<div class="highlight"><pre><span></span><code>$ s3cmd ls --add-header<span class="o">=</span><span class="s2">&quot;x-amz-request-payer: requester&quot;</span> s3://arxiv/pdf/arXiv_pdf_manifest.xml
+<div class="highlight"><pre><span></span><code>$ s3cmd ls --add-header<span class="o">=</span><span class="s2">"x-amz-request-payer: requester"</span> s3://arxiv/pdf/arXiv_pdf_manifest.xml
 <span class="m">2011</span>-02-15 <span class="m">04</span>:12    <span class="m">246144</span>   s3://arxiv/pdf/arXiv_pdf_manifest.xml
 
-$ s3cmd get --add-header<span class="o">=</span><span class="s2">&quot;x-amz-request-payer: requester&quot;</span> s3://arxiv/pdf/arXiv_pdf_manifest.xml
+$ s3cmd get --add-header<span class="o">=</span><span class="s2">"x-amz-request-payer: requester"</span> s3://arxiv/pdf/arXiv_pdf_manifest.xml
 s3://arxiv/pdf/arXiv_pdf_manifest.xml -&gt; ./arXiv_pdf_manifest.xml  <span class="o">[</span><span class="m">1</span> of <span class="m">1</span><span class="o">]</span>
  <span class="m">246144</span> of <span class="m">246144</span>   <span class="m">100</span>% <span class="k">in</span>    0s   <span class="m">377</span>.85 kB/s  <span class="k">done</span>
 
-$ s3cmd ls --add-header<span class="o">=</span><span class="s2">&quot;x-amz-request-payer: requester&quot;</span> s3://arxiv/pdf/<span class="se">\*</span>
+$ s3cmd ls --add-header<span class="o">=</span><span class="s2">"x-amz-request-payer: requester"</span> s3://arxiv/pdf/<span class="se">\*</span>
 </code></pre></div>
-
 <p>The manifest contains all information about the real data. Remember, you have
-to pay for the downloads! According to arXiv, it's about &#36;0.12/GB transferred.
-This means for 150 GB I would have to pay at least &#36;18.</p>
+to pay for the downloads! According to arXiv, it's about $0.12/GB transferred.
+This means for 150 GB I would have to pay at least $18.</p>
 <p>The manifest is an XML file, which looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&#39;1.0&#39; standalone=&#39;yes&#39;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version='1.0' standalone='yes'?&gt;</span>
 <span class="nt">&lt;arXivSRC&gt;</span>
   <span class="nt">&lt;file&gt;</span>
     <span class="nt">&lt;content_md5sum&gt;</span>cacbfede21d5dfef26f367ec99384546<span class="nt">&lt;/content_md5sum&gt;</span>
@@ -258,7 +259,6 @@ This means for 150 GB I would have to pay at least &#36;18.</p>
   <span class="nt">&lt;/file&gt;</span>
   ...
 </code></pre></div>
-
 <p>The differrent files mean:</p>
 <ul>
 <li><code>content_md5sum</code>: MD5 sum of all the files in the tar package concatenated but not packaged. Use md5sum for the md5sum of the tar package which should match the S3 MD5 sum.</li>

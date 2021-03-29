@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Insecure Deserialization 😈🐝">Insecure Deserialization 😈🐝</a><ul><li><a class="toc-href" href="#why-you-should-care" title="Why you should care">Why you should care</a></li><li><a class="toc-href" href="#how-do-deserialization-attacks-work" title="How do Deserialization attacks work?">How do Deserialization attacks work?</a><ul><li><a class="toc-href" href="#attacking-a-yaml-deserializer" title="Attacking a YAML deserializer">Attacking a YAML deserializer</a></li><li><a class="toc-href" href="#attacking-xml-deserialization" title="Attacking XML Deserialization">Attacking XML Deserialization</a></li><li><a class="toc-href" href="#attacking-pickle-deserialization" title="Attacking Pickle Deserialization">Attacking Pickle Deserialization</a></li></ul></li><li><a class="toc-href" href="#how-can-i-defend-against-deserialization-attacks_1" title="How can I defend against deserialization attacks?">How can I defend against deserialization attacks?</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Serialization is the act of transforming objects from an internal
@@ -127,7 +133,7 @@ the same value(s) in multiple places.</p>
 case, this means that you want to include another file. For example, you could
 have a logging configuration that you want to use in multiple places. In more
 extreme cases, the external entities could be not in local files but only
-available over the internet. To be honest, I don’t know why you would want
+available over the internet. To be honest, I don&rsquo;t know why you would want
 that. Please leave a commend if you know!</p>
 <p>Most serialization formats are not powerful enough to represent arbitrary
 objects you can have. There are differences in how powerful those formats are.
@@ -138,30 +144,30 @@ potential side effect, they could allow <strong>arbitrary code execution</strong
 <li>Insecure deserialization was number 8 in the <strong>OWASP Top 10</strong>
   (<a href="https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization">source</a>) 🐝</li>
 <li>2013: The YAML node package
-  (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660">CVE-2013–4660</a>)
+  (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660">CVE-2013&ndash;4660</a>)
   allowed remote code execution. Remote code execution is as bad as it gets:
   People can take your data, install a backdoor, shut down your service,
   delete or encrypt your data, use your service for crypto-mining, potentially
   harm your hardware.</li>
 <li>2014: Android &lt; 5.0 an insecure deserialization can result in arbitrary code
-  execution (<a href="https://nvd.nist.gov/vuln/detail/CVE-2014-7911">CVE-2014–7911</a>)</li>
+  execution (<a href="https://nvd.nist.gov/vuln/detail/CVE-2014-7911">CVE-2014&ndash;7911</a>)</li>
 <li>2015: Android &lt; 5.1.1 allows arbitrary code execution
-  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015–3837</a>)</li>
+  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015&ndash;3837</a>)</li>
 <li>
 <p>2015: ArcGIS allowed arbitrary code execution
-  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2002">CVE-2015–2002</a>)</p>
+  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2002">CVE-2015&ndash;2002</a>)</p>
 </li>
 <li>
-<p>2015: <a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-peles.pdf">One Class to Rule Them All: 0-Day Deserialization Vulnerabilities in Android</a> by Or Peles, Roee Hay, referencing <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015–3837</a></p>
+<p>2015: <a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-peles.pdf">One Class to Rule Them All: 0-Day Deserialization Vulnerabilities in Android</a> by Or Peles, Roee Hay, referencing <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015&ndash;3837</a></p>
 </li>
 <li>
-<p>2019: Kubernetes was vulnerable to a billion laughs DOS attack (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019–11253</a>)</p>
+<p>2019: Kubernetes was vulnerable to a billion laughs DOS attack (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019&ndash;11253</a>)</p>
 </li>
 <li>
-<p>2020: TYPO3 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11067">CVE-2020–11067</a>), IBM QRadar (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4280">CVE-2020–4280</a> ) allowed remote code execution.</p>
+<p>2020: TYPO3 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11067">CVE-2020&ndash;11067</a>), IBM QRadar (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4280">CVE-2020&ndash;4280</a> ) allowed remote code execution.</p>
 </li>
 <li>
-<p>2020: Apache Tomcat allows remote code execution (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484">CVE-2020–9484</a>)</p>
+<p>2020: Apache Tomcat allows remote code execution (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484">CVE-2020&ndash;9484</a>)</p>
 </li>
 </ul>
 <h2 id="how-do-deserialization-attacks-work">How do Deserialization attacks work?</h2>
@@ -171,28 +177,26 @@ potential side effect, they could allow <strong>arbitrary code execution</strong
 <p>Take this example.yaml file:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">!!python/object/apply:os.system</span>
 
-<span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;cat</span><span class="nv"> </span><span class="s">/etc/passwd&#39;</span><span class="p p-Indicator">]</span>
+<span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'cat</span><span class="nv"> </span><span class="s">/etc/passwd'</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-
 <p>And execute this Python code:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># pip install pyyaml is required</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"example.yaml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">yaml</span><span class="o">.</span><span class="n">unsafe_load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This will print the contents of <code>/etc/passwd</code>. You could also delete any (or
 all) files on the system, send a web request (e.g. with the contents of that
 password file), download and execute software (e.g. a rootkit/backdoor). This
 is probably as bad as it can get.</p>
 <p>If you want to know more about YAML features, read this:
-<a href="https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3"><strong>6 YAML Features most programmers don’t know</strong>
+<a href="https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3"><strong>6 YAML Features most programmers don&rsquo;t know</strong>
 <em>Level-up your YAML knowledge to write cleaner YAML files</em>levelup.gitconnected.com</a></p>
 <h3 id="attacking-xml-deserialization">Attacking XML Deserialization</h3>
 <p>XML allows referencing external entities such as files (e.g. /etc/passwd ) or
 websites. If you want to learn more about why this is an issue, read my
-article about XXE attacks <a href="https://medium.com/faun/xxe-attacks-750e91448e8f"><strong>XXE attacks 😈</strong> <em>PDF, Excel, SVG, ebooks — all
+article about XXE attacks <a href="https://medium.com/faun/xxe-attacks-750e91448e8f"><strong>XXE attacks 😈</strong> <em>PDF, Excel, SVG, ebooks &mdash; all
 use XML. They can be
 vulnerable.</em>medium.com</a></p>
 <p>Another possible attack vector is to use the reference feature of XML in a
@@ -200,13 +204,12 @@ billion laughs attack: <a href="https://medium.com/bugbountywriteup/dos-via-a-bi
 RAM by repeated
 referencing</em>medium.com</a></p>
 <h3 id="attacking-pickle-deserialization">Attacking Pickle Deserialization</h3>
-<p>Marco Slaviero has shown that deserialization of pickle files allows arbitrary code execution in his paper “<a href="https://media.blackhat.com/bh-us-11/Slaviero/BH_US_11_Slaviero_Sour_Pickles_WP.pdf">Sour Pickles</a>”. It was summarized nicely by <a href="https://stackoverflow.com/a/10302328/562769">Charles Menguy</a> in an example similar to this:</p>
+<p>Marco Slaviero has shown that deserialization of pickle files allows arbitrary code execution in his paper &ldquo;<a href="https://media.blackhat.com/bh-us-11/Slaviero/BH_US_11_Slaviero_Sour_Pickles_WP.pdf">Sour Pickles</a>&rdquo;. It was summarized nicely by <a href="https://stackoverflow.com/a/10302328/562769">Charles Menguy</a> in an example similar to this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;cos</span><span class="se">\n</span><span class="s2">system</span><span class="se">\n</span><span class="s2">(S&#39;cat /etc/passwd&#39;</span><span class="se">\n</span><span class="s2">tR.&quot;</span><span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="sa">b</span><span class="s2">"cos</span><span class="se">\n</span><span class="s2">system</span><span class="se">\n</span><span class="s2">(S'cat /etc/passwd'</span><span class="se">\n</span><span class="s2">tR."</span><span class="p">)</span>
 </code></pre></div>
-
-<h2 id="how-can-i-defend-against-deserialization-attacks">How can I defend against deserialization attacks?</h2>
+<h2 id="how-can-i-defend-against-deserialization-attacks_1">How can I defend against deserialization attacks?</h2>
 <p>Two measures you can almost always do:</p>
 <ul>
 <li><strong>Principle of least privilege</strong>: Run your code with as few privileges as
@@ -221,7 +224,7 @@ referencing</em>medium.com</a></p>
 <ul>
 <li><strong>PyYAML</strong>: Use the yaml.safe_load function. At some point, they changed the
   interface so that yaml.load points to yaml.safe_load . You can still use
-  yaml.unsafe_load . I love that they included “unsafe” in the function call.
+  yaml.unsafe_load . I love that they included &ldquo;unsafe&rdquo; in the function call.
   This makes it obvious that something might be dangerous.</li>
 <li><strong>XML</strong>: For Python, there is
   <a href="https://pypi.org/project/defusedxml">defusedxml</a> which sets various XML
@@ -230,11 +233,11 @@ referencing</em>medium.com</a></p>
   attack, and quadratic blowup.</li>
 </ul>
 <p>For other formats like pickle, you just have to be sure that your input does not cause harm.</p>
-<h2 id="whats-next">What’s next?</h2>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

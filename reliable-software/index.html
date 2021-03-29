@@ -102,34 +102,39 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to build reliable Software">How to build reliable Software</a><ul><li><a class="toc-href" href="#issue-types" title="Issue Types">Issue Types</a><ul><li><a class="toc-href" href="#hardware-issues" title="Hardware Issues">Hardware Issues</a></li><li><a class="toc-href" href="#bugs" title="Bugs">Bugs</a></li><li><a class="toc-href" href="#scalability" title="Scalability">Scalability</a></li><li><a class="toc-href" href="#third-party-issues" title="Third-Party Issues">Third-Party Issues</a></li></ul></li><li><a class="toc-href" href="#issue-prevention_1" title="Issue Prevention">Issue Prevention</a><ul><li><a class="toc-href" href="#code-reviews" title="Code reviews">Code reviews</a></li><li><a class="toc-href" href="#type-checking" title="Type Checking">Type Checking</a></li><li><a class="toc-href" href="#input-checking" title="Input Checking">Input Checking</a></li><li><a class="toc-href" href="#finding-code-smells" title="Finding Code Smells">Finding Code Smells</a></li><li><a class="toc-href" href="#dependencies" title="Dependencies">Dependencies</a></li><li><a class="toc-href" href="#testing" title="Testing">Testing</a></li></ul></li><li><a class="toc-href" href="#fault-tolerance_1" title="Fault Tolerance">Fault Tolerance</a></li><li><a class="toc-href" href="#fault-detection" title="Fault Detection">Fault Detection</a></li><li><a class="toc-href" href="#incidence-management" title="Incidence Management">Incidence Management</a></li><li><a class="toc-href" href="#maintenance" title="Maintenance">Maintenance</a></li><li><a class="toc-href" href="#checklists" title="Checklists">Checklists</a><ul><li><a class="toc-href" href="#software-development-process" title="Software Development Process">Software Development Process</a></li><li><a class="toc-href" href="#web-services" title="Web Services">Web Services</a></li><li><a class="toc-href" href="#applications" title="Applications">Applications</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Reliability in software development is an ambiguous term. Without thinking much
 about it, most people would call a system reliable if <em>it just works</em>. When
 reading specifications, you might read some of the following terms:</p>
 <dl>
-    <dt><dfn>Availability</dfn></dt>
-    <dd>For (web) services, availability is the probability that at a random
+<dt><dfn>Availability</dfn></dt>
+<dd>For (web) services, availability is the probability that at a random
         time the service is working. It is usually calculated over a year as
         availability = uptime / (uptime + downtime). If a web service has an
         availability of 99.9% over a year, it means there were 57 minutes in
         total in which the service was not usable.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Robustness_(computer_science)"><dfn>Robustness</dfn></a></dt>
-    <dd>How much diversion from the specification can you take before things
+<dt><a href="https://en.wikipedia.org/wiki/Robustness_(computer_science)"><dfn>Robustness</dfn></a></dt>
+<dd>How much diversion from the specification can you take before things
         start to break? I connect this with validation of user input,
         used services not responding, parts of the hardware failing.</dd>
-    <dt><dfn>Stability</dfn></dt>
-    <dd>How long can you operate without failures? The connected measure is
+<dt><dfn>Stability</dfn></dt>
+<dd>How long can you operate without failures? The connected measure is
         <a href="https://en.wikipedia.org/wiki/Mean_time_between_failures">Mean Time Between Failures</a>
         (<abbr title="Mean Time Between Failures">MTBF</abbr>).</dd>
-    <dt><dfn>Resilience</dfn></dt>
-    <dd>How long does it take to recover? Resilience is the ability of software
+<dt><dfn>Resilience</dfn></dt>
+<dd>How long does it take to recover? Resilience is the ability of software
         to handle unexpected situations without the user noticing or at least
         with graceful degradation. When working on it, the <a href="https://en.wikipedia.org/wiki/Mean_time_to_recovery">Mean time to recovery</a> (MTTR)
         is reduced.</dd>
 </dl>
-
 <p>ANSI/IEEE 1991 defines reliability as "the probability of failure-free software
 operation for a specified period of time in a specified environment". That sounds
 pretty much like my definition of availability.</p>
@@ -250,41 +255,40 @@ as well.</p>
   I've had a look at the birth dates and found somebody being born in the year
   zero.</li>
 </ul>
-<h2 id="issue-prevention">Issue Prevention</h2>
+<h2 id="issue-prevention_1">Issue Prevention</h2>
 <p>It's nice if nothing goes wrong, right? So how can we avoid issues?</p>
 <p>There are so many things to write here, I guess I will move this to its own article.
 Here are some points:</p>
 <table class="table">
-    <thead>
-    <tr>
-        <th>Issue</th>
-        <th>Prevention / Mitigation</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Type missmatches</td>
-        <td>Use a typed language or type annotations and a type checker (mypy for Python, TypeScript for JavaScript)</td>
-    </tr>
-    <tr>
-        <td>Partial Change</td>
-        <td>Use constants instead of <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)">magic values</a> (typically numbers or strings)</td>
-    </tr>
-    <tr>
-        <td>Infinite Wait for Response</td>
-        <td>Timeout: If a synchronous call does not get an answer, don't keep asking forever.</td>
-    </tr>
-    <tr>
-        <td>Unnecessary repeats</td>
-        <td>Circuit Breaker: Don't repeat stuff infinitely. [Hystrix](https://github.com/Netflix/Hystrix) would be a Java solution for that.</td>
-    </tr>
-    <tr>
-        <td>Infinite Loop</td>
-        <td>Use foreach-loops over while / for loops</td>
-    </tr>
-    </tbody>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Prevention / Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type missmatches</td>
+<td>Use a typed language or type annotations and a type checker (mypy for Python, TypeScript for JavaScript)</td>
+</tr>
+<tr>
+<td>Partial Change</td>
+<td>Use constants instead of <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)">magic values</a> (typically numbers or strings)</td>
+</tr>
+<tr>
+<td>Infinite Wait for Response</td>
+<td>Timeout: If a synchronous call does not get an answer, don't keep asking forever.</td>
+</tr>
+<tr>
+<td>Unnecessary repeats</td>
+<td>Circuit Breaker: Don't repeat stuff infinitely. [Hystrix](https://github.com/Netflix/Hystrix) would be a Java solution for that.</td>
+</tr>
+<tr>
+<td>Infinite Loop</td>
+<td>Use foreach-loops over while / for loops</td>
+</tr>
+</tbody>
 </table>
-
 <ul>
 <li>Fault-prevention patterns</li>
 </ul>
@@ -332,7 +336,6 @@ code formatters like <a href="https://pypi.org/project/black/">black</a>.</p>
 <p>pylint, for example, can help you to detect duplicate code:</p>
 <div class="highlight"><pre><span></span><code>pylint --disable<span class="o">=</span>all --enable<span class="o">=</span>duplicate-code,similarities
 </code></pre></div>
-
 <h3 id="dependencies">Dependencies</h3>
 <p>Dependencies can break in two ways:</p>
 <ol>
@@ -358,31 +361,30 @@ tests doesn't only look at your code in isolation, but at the way your code work
 system.</p>
 <p>Testing is a huge topic. I covered a bit of it in <a href="https://martin-thoma.com/testing-python-code/">Testing in Python</a>,
 but there is certainly way more to write.</p>
-<h2 id="fault-tolerance">Fault Tolerance</h2>
+<h2 id="fault-tolerance_1">Fault Tolerance</h2>
 <p>There are some issues we cannot prevent, but we can design systems that can deal with them.</p>
 <table class="table">
-    <tr>
-        <th>Fault</th>
-        <th>Measure</th>
-    </tr>
-    <tr>
-        <td>Harware outage</td>
-        <td>Redundancy. In most cases, I would recommend to simply take a cloud provider so that you don't have to deal with those issues</td>
-    </tr>
-    <tr>
-        <td>Disk Failure</td>
-        <td>Replication (e.g. <a href="https://en.wikipedia.org/wiki/RAID">RAID</a>)</td>
-    </tr>
-    <tr>
-        <td>Network Transmission Errors</td>
-        <td>Error-correcting codes; checksums. Some protocols like <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> do this automatically. Others, like <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a>, don't do it.</td>
-    </tr>
-    <tr>
-        <td>Too high usage</td>
-        <td>Graceful Degradation: It might be that you get so many users, you have to shut things down. You might then, for example, just switch off the computationally expensive features. For example, if you have an interactive service you could instead serve a static version of it.</td>
-    </tr>
+<tr>
+<th>Fault</th>
+<th>Measure</th>
+</tr>
+<tr>
+<td>Harware outage</td>
+<td>Redundancy. In most cases, I would recommend to simply take a cloud provider so that you don't have to deal with those issues</td>
+</tr>
+<tr>
+<td>Disk Failure</td>
+<td>Replication (e.g. <a href="https://en.wikipedia.org/wiki/RAID">RAID</a>)</td>
+</tr>
+<tr>
+<td>Network Transmission Errors</td>
+<td>Error-correcting codes; checksums. Some protocols like <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> do this automatically. Others, like <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a>, don't do it.</td>
+</tr>
+<tr>
+<td>Too high usage</td>
+<td>Graceful Degradation: It might be that you get so many users, you have to shut things down. You might then, for example, just switch off the computationally expensive features. For example, if you have an interactive service you could instead serve a static version of it.</td>
+</tr>
 </table>
-
 <h2 id="fault-detection">Fault Detection</h2>
 <p>Some faults slip through your system and cause an issue which can be seen by the customer. You can't prevent or tolerate every fault.</p>
 <p>But at least you can make sure that you notice when things go wrong. You can add logging to your service / application.
@@ -510,7 +512,7 @@ an API.</p>
 <li>Did you run it on all platforms you want to support?</li>
 <li>Is it clear to the customer where and how they can get support / report issues?</li>
 </ol>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also_1">See also</h2>
 <ul>
 <li>Sazzad Hissain Khan: <a href="https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49">Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance</a> on Medium, May 2019.</li>
 <li>Wikipedia:<ul>
@@ -528,10 +530,10 @@ an API.</p>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr>
+<hr/>
 <ol>
 <li id="fn:1">
-<p>Avizienis, Algirdas, Jean-Claude Laprie, and Brian Randell: <a href="https://www.cs.rutgers.edu/~rmartin/teaching/spring03/cs553/readings/avizienis00.pdf">Fundamental Concepts of Dependability</a>, 2001.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Avizienis, Algirdas, Jean-Claude Laprie, and Brian Randell: <a href="https://www.cs.rutgers.edu/~rmartin/teaching/spring03/cs553/readings/avizienis00.pdf">Fundamental Concepts of Dependability</a>, 2001.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

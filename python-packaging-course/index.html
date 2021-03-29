@@ -102,16 +102,21 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Python Packaging Course">Python Packaging Course</a><ul><li><a class="toc-href" href="#application-types" title="Application Types">Application Types</a></li><li><a class="toc-href" href="#development-environment" title="Development Environment">Development Environment</a></li><li><a class="toc-href" href="#starting-a-project" title="Starting a Project">Starting a Project</a><ul><li><a class="toc-href" href="#formatting" title="Formatting">Formatting</a></li><li><a class="toc-href" href="#unit-testing" title="Unit Testing">Unit Testing</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#versions" title="Versions">Versions</a></li><li><a class="toc-href" href="#project-structure" title="Project Structure">Project Structure</a></li></ul></li><li><a class="toc-href" href="#setuptools-files_1" title="Setuptools Files">Setuptools Files</a><ul><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li><li><a class="toc-href" href="#setupcfg" title="setup.cfg">setup.cfg</a></li></ul></li><li><a class="toc-href" href="#creating-a-distribution_1" title="Creating a distribution">Creating a distribution</a></li><li><a class="toc-href" href="#share-the-package" title="Share the Package">Share the Package</a></li><li><a class="toc-href" href="#package-management-modules" title="Package Management Modules">Package Management Modules</a><ul><li><a class="toc-href" href="#distutils" title="distutils">distutils</a></li></ul></li><li><a class="toc-href" href="#distribute_1" title="distribute">distribute</a><ul><li><a class="toc-href" href="#setuptools" title="setuptools">setuptools</a></li></ul></li><li><a class="toc-href" href="#package-distribution-formats_1" title="Package Distribution Formats">Package Distribution Formats</a></li><li><a class="toc-href" href="#package-manager" title="Package manager">Package manager</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>The Python Environment is old. Python development started before the internet.
 Naturally, such a grown environment is messy:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://xkcd.com/1987/"><img src="https://imgs.xkcd.com/comics/python_environment.png" alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." style="width: 512px;"/></a>
-    <figcaption class="text-center">Python Environment</figcaption>
+<a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Python Environment</figcaption>
 </figure>
-
 <p>In this course, you will learn the details about Python packaging and how all
 of the tools related.</p>
 <h2 id="application-types">Application Types</h2>
@@ -156,14 +161,12 @@ Choose from <span class="m">1</span>, <span class="m">2</span>, <span class="m">
 $ <span class="nb">cd</span> awesome_project
 $ git init
 </code></pre></div>
-
 <p>To make sure that a failing hard drive does cause only little loss of work and
 to allow collaboration, we add a remote. <a href="https://github.com/">Github</a>
 and <a href="https://about.gitlab.com/">Gitlab</a> are excellent choices. Once you created
 an empty repository there, add it as a remote locally:</p>
 <div class="highlight"><pre><span></span><code>$ git remote add origin git@github.com:MartinThoma/awesome_project.git
 </code></pre></div>
-
 <p>Before starting development, it's a good idea to make sure that you don't get
 into trouble for having different versions of Python / packages.
 <a href="https://github.com/pypa/pipenv"><code>pipenv</code></a> is my tool of choice. At this point,
@@ -180,7 +183,6 @@ $ pipenv install --dev --pre -r requirements-dev.txt
 <span class="c1"># Make sure the repository stays that nice</span>
 $ pre-commit install
 </code></pre></div>
-
 <h3 id="formatting">Formatting</h3>
 <p>By the mentioned cookiecutter template, formatting is to a big extend already
 handled:</p>
@@ -235,20 +237,19 @@ I'm not too sure if I would use that.</p>
 <h3 id="project-structure">Project Structure</h3>
 <div class="highlight"><pre><span></span><code>awesome-project  # (git root)
 ├── awesome_project  # This is the package
-│   ├── cli.py
-│   ├── __init__.py  # Required until Python 3.3; I&#39;d still add it
-│   └── _version.py
+│&nbsp;&nbsp; ├── cli.py
+│&nbsp;&nbsp; ├── __init__.py  # Required until Python 3.3; I'd still add it
+│&nbsp;&nbsp; └── _version.py
 ├── README.md
 ├── requirements-dev.txt
 ├── requirements.txt
 ├── setup.cfg
 ├── setup.py
 ├── tests
-│   └── test_awesome_project.py
+│&nbsp;&nbsp; └── test_awesome_project.py
 └── tox.ini
 </code></pre></div>
-
-<h2 id="setuptools-files">Setuptools Files</h2>
+<h2 id="setuptools-files_1">Setuptools Files</h2>
 <p>If you have the described project structure, then packaging is not a big deal.</p>
 <h3 id="setuppy">setup.py</h3>
 <p>Make sure it has at least</p>
@@ -256,7 +257,6 @@ I'm not too sure if I would use that.</p>
 
 <span class="n">setup</span><span class="p">()</span>
 </code></pre></div>
-
 <h3 id="setupcfg">setup.cfg</h3>
 <p>The <code>setup.cfg</code> is read by <code>setuptools.setup()</code>. It can contain a lot of things,
 but a minimal one would look like this:</p>
@@ -279,16 +279,13 @@ but a minimal one would look like this:</p>
 <span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
 <span class="na">python_requires</span> <span class="o">=</span> <span class="s">&gt;= 3.0</span>
 </code></pre></div>
-
-<h2 id="creating-a-distribution">Creating a distribution</h2>
+<h2 id="creating-a-distribution_1">Creating a distribution</h2>
 <p>Create a source distribution file:</p>
 <div class="highlight"><pre><span></span><code>$ python setup.py sdist
 </code></pre></div>
-
 <p>Create a wheel distribution:</p>
 <div class="highlight"><pre><span></span><code>$ python setup.py bdist_wheel
 </code></pre></div>
-
 <h2 id="share-the-package">Share the Package</h2>
 <p>After creating it, upload it to PyPI with <a href="https://pypi.org/project/twine/">twine</a>.</p>
 <p>To do so, first setup your <code>~/.pypirc</code> file:</p>
@@ -306,31 +303,28 @@ but a minimal one would look like this:</p>
 <span class="na">username: YourUsername</span>
 <span class="na">password: plaintext whatever you had</span>
 </code></pre></div>
-
 <p>Now you can upload the distributions you've built before:</p>
 <div class="highlight"><pre><span></span><code>$ twine upload --repository pypitest dist/*
 
 <span class="c1"># Alternatively, if you want to sign it with GPG:</span>
 $ twine upload --repository pypitest -s dist/*
 </code></pre></div>
-
 <div class="info">There is <code>python setup.py upload</code> as well. It didn't use https for quite a while. While this changed, the de-facto standard is still twine. For <a href="https://pypi.org/project/twine/">reasons</a>.</div>
-
 <h2 id="package-management-modules">Package Management Modules</h2>
 <h3 id="distutils">distutils</h3>
 <p>Deprecated. Use setuptools.</p>
-<h2 id="distribute">distribute</h2>
+<h2 id="distribute_1">distribute</h2>
 <p>Was a fork of setuptools which got merged back. Use setuptools.</p>
 <h3 id="setuptools">setuptools</h3>
 <p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">Setuptools</a> is used in the <code>setup.py</code> and gives you a lot of commands:</p>
 <div class="highlight"><pre><span></span><code>$ python setup.py --help-commands
 Standard commands:
   build             build everything needed to install
-  build_py          <span class="s2">&quot;build&quot;</span> pure Python modules <span class="o">(</span>copy to build directory<span class="o">)</span>
+  build_py          <span class="s2">"build"</span> pure Python modules <span class="o">(</span>copy to build directory<span class="o">)</span>
   build_ext         build C/C++ extensions <span class="o">(</span>compile/link to build directory<span class="o">)</span>
   build_clib        build C/C++ libraries used by Python extensions
-  build_scripts     <span class="s2">&quot;build&quot;</span> scripts <span class="o">(</span>copy and fixup <span class="c1">#! line)</span>
-  clean             clean up temporary files from <span class="s1">&#39;build&#39;</span> <span class="nb">command</span>
+  build_scripts     <span class="s2">"build"</span> scripts <span class="o">(</span>copy and fixup <span class="c1">#! line)</span>
+  clean             clean up temporary files from <span class="s1">'build'</span> <span class="nb">command</span>
   install           install everything from build directory
   install_lib       install all Python modules <span class="o">(</span>extensions and pure Python<span class="o">)</span>
   install_headers   install C/C++ header files
@@ -339,7 +333,7 @@ Standard commands:
   sdist             create a <span class="nb">source</span> distribution <span class="o">(</span>tarball, zip file, etc.<span class="o">)</span>
   register          register the distribution with the Python package index
   bdist             create a built <span class="o">(</span>binary<span class="o">)</span> distribution
-  bdist_dumb        create a <span class="s2">&quot;dumb&quot;</span> built distribution
+  bdist_dumb        create a <span class="s2">"dumb"</span> built distribution
   bdist_rpm         create an RPM distribution
   bdist_wininst     create an executable installer <span class="k">for</span> MS Windows
   check             perform some checks on the package
@@ -348,11 +342,11 @@ Standard commands:
 Extra commands:
   bdist_wheel       create a wheel distribution
   <span class="nb">alias</span>             define a shortcut to invoke one or more commands
-  bdist_egg         create an <span class="s2">&quot;egg&quot;</span> distribution
-  develop           install package <span class="k">in</span> <span class="s1">&#39;development mode&#39;</span>
+  bdist_egg         create an <span class="s2">"egg"</span> distribution
+  develop           install package <span class="k">in</span> <span class="s1">'development mode'</span>
   dist_info         create a .dist-info directory
   easy_install      Find/get/install Python packages
-  egg_info          create a distribution<span class="err">&#39;</span>s .egg-info directory
+  egg_info          create a distribution<span class="err">'</span>s .egg-info directory
   install_egg_info  Install an .egg-info directory <span class="k">for</span> the package
   rotate            delete older distributions, keeping N newest files
   saveopts          save supplied options to setup.cfg or other config file
@@ -366,8 +360,7 @@ usage: setup.py <span class="o">[</span>global_opts<span class="o">]</span> cmd1
    or: setup.py --help-commands
    or: setup.py cmd --help
 </code></pre></div>
-
-<h2 id="package-distribution-formats">Package Distribution Formats</h2>
+<h2 id="package-distribution-formats_1">Package Distribution Formats</h2>
 <p>There are 3 common formats:</p>
 <ul>
 <li>Source distributions</li>
@@ -393,7 +386,6 @@ usage: setup.py <span class="o">[</span>global_opts<span class="o">]</span> cmd1
   debug         Show information useful for debugging.
   help          Show help for commands.
 </code></pre></div>
-
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Alexander VanTol: <a href="https://realpython.com/pipenv-guide/">Pipenv: A Guide to the New Python Packaging Tool</a>,</li>

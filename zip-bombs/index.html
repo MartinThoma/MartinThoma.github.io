@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="ZIP Bombs 💣😈">ZIP Bombs 💣😈</a><ul><li><a class="toc-href" href="#how-to-create-a-zip-bomb" title="How to create a ZIP bomb">How to create a ZIP bomb</a></li><li><a class="toc-href" href="#should-i-be-worried" title="Should I be worried?">Should I be worried?</a></li><li><a class="toc-href" href="#get-the-size-of-a-zip-file-without-extracting-data" title="Get the size of a ZIP file without extracting data">Get the size of a ZIP file without extracting data</a></li><li><a class="toc-href" href="#the-state-of-av-software" title="The State of AV Software">The State of AV Software</a><ul><li><a class="toc-href" href="#virustotal" title="Virustotal">Virustotal</a></li><li><a class="toc-href" href="#clamav" title="ClamAV">ClamAV</a></li><li><a class="toc-href" href="#commercial-av-software" title="Commercial AV Software">Commercial AV Software</a></li></ul></li><li><a class="toc-href" href="#whats-next_1" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>A <a href="https://en.wikipedia.org/wiki/Zip_bomb">zip bomb</a> is a zip file that is designed to take an enormous amount of space once it is unpacked. The best-known one is called 42.zip and has a size of <strong>42kB</strong>. It contains recursively nested zip-files. On the lowest level, there is a single file which decompresses to a size of 4.3GB . This file is added in total over a million times to the archive, leading to a total unpacked size of <strong>4.5PB</strong> . This is well over the size of any available storage system.</p>
@@ -118,53 +124,51 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">handle</span><span class="p">,</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;zip-txt-&quot;</span><span class="p">)</span>
+    <span class="n">handle</span><span class="p">,</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">".txt"</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"zip-txt-"</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;0&quot;</span> <span class="o">*</span> <span class="n">size_in_byte</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"0"</span> <span class="o">*</span> <span class="n">size_in_byte</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">filepath</span>
 
 
 <span class="k">def</span> <span class="nf">create_zipbomb</span><span class="p">(</span><span class="n">inner_file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span> <span class="n">nb_inner_files</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">filepath</span> <span class="o">=</span> <span class="n">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="o">=</span><span class="n">inner_file_size</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s2">&quot;zipbomb.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">ZIP_LZMA</span><span class="p">)</span> <span class="k">as</span> <span class="n">myzip</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s2">"zipbomb.zip"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">ZIP_LZMA</span><span class="p">)</span> <span class="k">as</span> <span class="n">myzip</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_inner_files</span><span class="p">):</span>
-            <span class="n">myzip</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">)</span>
+            <span class="n">myzip</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">create_zipbomb</span><span class="p">(</span><span class="n">inner_file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">9</span><span class="p">,</span> <span class="n">nb_inner_files</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-
-<p>David Fifield also proved that it’s possible to create a zip bomb with has 42MB and extracts to 4.5PB in a <strong>non-recursive</strong> way (<a href="https://www.bamsoftware.com/hacks/zipbomb/">source</a>).</p>
+<p>David Fifield also proved that it&rsquo;s possible to create a zip bomb with has 42MB and extracts to 4.5PB in a <strong>non-recursive</strong> way (<a href="https://www.bamsoftware.com/hacks/zipbomb/">source</a>).</p>
 <p>There are also quines for ZIP files. A quine is a program that produces its source code as output. A ZIP-quine contains itself when uncompressed. One well-known one is droste.zip (<a href="https://alf.nu/ZipQuine">source</a>), but there are more (<a href="https://research.swtch.com/zip">source</a>).</p>
 <p>You might also be able to create them manually by investigating the <a href="https://www.iso.org/standard/60101.html">ZIP standard</a> and crafting the file.</p>
 <h2 id="should-i-be-worried">Should I be worried?</h2>
-<p>I wouldn’t be worried. As <a href="https://en.wikipedia.org/wiki/Tavis_Ormandy">Travis Ormandy</a> pointed out, 21 out of 58 anti-virus programs could detect the zip bomb. 6 timed out, 11 could not process the files and 20 thought the file is fine.</p>
+<p>I wouldn&rsquo;t be worried. As <a href="https://en.wikipedia.org/wiki/Tavis_Ormandy">Travis Ormandy</a> pointed out, 21 out of 58 anti-virus programs could detect the zip bomb. 6 timed out, 11 could not process the files and 20 thought the file is fine.</p>
 <p>This article is more of a friendly reminder that this type of attack exists and that one should be careful when archives are unpacked.</p>
 <p>I found this topic in a couple of places:</p>
 <ul>
-<li>2005: bzip2 (<a href="https://nvd.nist.gov/vuln/detail/CVE-2005-1260">CVE-2005–1260</a>)</li>
+<li>2005: bzip2 (<a href="https://nvd.nist.gov/vuln/detail/CVE-2005-1260">CVE-2005&ndash;1260</a>)</li>
 <li>2009: Apache Tika (<a href="https://issues.apache.org/jira/browse/TIKA-259?attachmentSortBy=fileName">Safe parsing of droste.zip</a>)</li>
-<li>2018: Akka (<a href="https://nvd.nist.gov/vuln/detail/CVE-2018-16131">CVE-2018–16131</a>)</li>
-<li>2019: Python (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-9674">CVE-2019–9674</a>)</li>
-<li>2019: Info-ZIP (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-13232">CVE-2019–13232</a>)</li>
-<li>2019: ClamAV (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-12625">CVE-2019–12625</a>)</li>
-<li>2020: Wireshark (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25866">CVE-2020–25866</a>)</li>
+<li>2018: Akka (<a href="https://nvd.nist.gov/vuln/detail/CVE-2018-16131">CVE-2018&ndash;16131</a>)</li>
+<li>2019: Python (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-9674">CVE-2019&ndash;9674</a>)</li>
+<li>2019: Info-ZIP (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-13232">CVE-2019&ndash;13232</a>)</li>
+<li>2019: ClamAV (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-12625">CVE-2019&ndash;12625</a>)</li>
+<li>2020: Wireshark (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25866">CVE-2020&ndash;25866</a>)</li>
 </ul>
 <h2 id="get-the-size-of-a-zip-file-without-extracting-data">Get the size of a ZIP file without extracting data</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">zipfile</span>
 
 
 <span class="k">def</span> <span class="nf">get_extracted_size</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Get the extracted size in bytes.&quot;&quot;&quot;</span>
+    <span class="sd">"""Get the extracted size in bytes."""</span>
     <span class="n">zp</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">zinfo</span><span class="o">.</span><span class="n">file_size</span> <span class="k">for</span> <span class="n">zinfo</span> <span class="ow">in</span> <span class="n">zp</span><span class="o">.</span><span class="n">filelist</span><span class="p">])</span>
 </code></pre></div>
-
-<p>Simple enough, isn’t it?</p>
+<p>Simple enough, isn&rsquo;t it?</p>
 <p>The problem is that you can nest ZIP files. So the extracted files could again contain zipped files. If you apply recursion, you might want to have a maximum recursion depth and keep track of the used memory/disk space.</p>
 <h2 id="the-state-of-av-software">The State of AV Software</h2>
 <p>I was curious to know if anti-virus software can detect zip bombs. So I tested some and contacted some of the developers.</p>
@@ -176,26 +180,25 @@ MathJax.Hub.Queue(function() {
 <li><a href="https://www.virustotal.com/gui/file/725d25f1f5ecf498210c546d517e25f70ea07b48423de2a4648db80b56b81f56/detection">self-built.zip</a>: Antiy-AVL, Baidu, MAX detected it. 7 timed out. 11 were unable to process it.</li>
 </ul>
 <h3 id="clamav">ClamAV</h3>
-<p>The first release of <a href="https://en.wikipedia.org/wiki/Clam_AntiVirus">ClamAV</a> was in 2001, it was developed by Cisco and is open-source now. I’ve installed ClamAV 0.102.4/25962 . I try it with the <a href="https://pypi.org/project/clamd/">clamd</a> binding:</p>
+<p>The first release of <a href="https://en.wikipedia.org/wiki/Clam_AntiVirus">ClamAV</a> was in 2001, it was developed by Cisco and is open-source now. I&rsquo;ve installed ClamAV 0.102.4/25962 . I try it with the <a href="https://pypi.org/project/clamd/">clamd</a> binding:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">clamd</span>
 
 <span class="n">cd</span> <span class="o">=</span> <span class="n">clamd</span><span class="o">.</span><span class="n">ClamdUnixSocket</span><span class="p">()</span>
-<span class="n">cd</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s2">&quot;/home/martin-thoma/bomb.zip&quot;</span><span class="p">)</span>
+<span class="n">cd</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s2">"/home/martin-thoma/bomb.zip"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>It gave the same output fordroste.zip , 42.zip , and my self-built.zip . None of them were detected.</p>
 <h3 id="commercial-av-software">Commercial AV Software</h3>
-<p>I’ve contacted Avast, AVG, ESET, Sophos, and Trend Micro via private Twitter messages. I’ve explained that I’m writing a blog post and that their product — according to VirusTotal — does not recognize the ZIP bombs.</p>
-<p><strong>TrendMicro</strong> sent me to their <a href="https://helpcenter.trendmicro.com/en-US/contact-support/">support site</a>. I think I wrote them a support ticket, but due to the fact that this is just a web form and I don’t have any copy of that, I’m not sure. Those contact forms are super annoying and I gave up trying to ask the question.</p>
-<p><strong>Sophos</strong> redirected me to their <a href="https://support.sophos.com/support">support site</a>. I have opened a case and I’m waiting for a response.</p>
-<p><strong>Avast</strong> gave me a brief answer, but it was super unclear to me what they are actually doing. I’m still trying to clarify.</p>
+<p>I&rsquo;ve contacted Avast, AVG, ESET, Sophos, and Trend Micro via private Twitter messages. I&rsquo;ve explained that I&rsquo;m writing a blog post and that their product &mdash; according to VirusTotal &mdash; does not recognize the ZIP bombs.</p>
+<p><strong>TrendMicro</strong> sent me to their <a href="https://helpcenter.trendmicro.com/en-US/contact-support/">support site</a>. I think I wrote them a support ticket, but due to the fact that this is just a web form and I don&rsquo;t have any copy of that, I&rsquo;m not sure. Those contact forms are super annoying and I gave up trying to ask the question.</p>
+<p><strong>Sophos</strong> redirected me to their <a href="https://support.sophos.com/support">support site</a>. I have opened a case and I&rsquo;m waiting for a response.</p>
+<p><strong>Avast</strong> gave me a brief answer, but it was super unclear to me what they are actually doing. I&rsquo;m still trying to clarify.</p>
 <p><strong>AVG</strong> responded, but essentially told me that they try to find the answer to my question internally.</p>
-<p>In contrast, the experience with <strong>ESET</strong> was extremely positive. I’ve got in contact with <a href="https://www.linkedin.com/in/thomas-uhlemann-6661a382/">Thomas Uhlemann</a> who could directly tell me what ESET is doing: They check archives until a depth of 10, meaning they can limit the effect of recursive packing. Additionally, they put limitations on the file size, memory usage, and the maximum amount of time for a scan. Apparently, the users can also adjust those limits. This information is also <a href="https://help.eset.com/eis/14/en-US/idh_config_threat_sense.html">publicly documented</a>.</p>
-<h2 id="whats-next">What’s next?</h2>
+<p>In contrast, the experience with <strong>ESET</strong> was extremely positive. I&rsquo;ve got in contact with <a href="https://www.linkedin.com/in/thomas-uhlemann-6661a382/">Thomas Uhlemann</a> who could directly tell me what ESET is doing: They check archives until a depth of 10, meaning they can limit the effect of recursive packing. Additionally, they put limitations on the file size, memory usage, and the maximum amount of time for a scan. Apparently, the users can also adjust those limits. This information is also <a href="https://help.eset.com/eis/14/en-US/idh_config_threat_sense.html">publicly documented</a>.</p>
+<h2 id="whats-next_1">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

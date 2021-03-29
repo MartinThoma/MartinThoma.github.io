@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="jq">jq</a><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#usage-example" title="Usage Example">Usage Example</a></li><li><a class="toc-href" href="#workflows" title="Workflows">Workflows</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><code>jq</code> is a command line tool for processing JSON data. It is useful when
@@ -113,12 +119,10 @@ Getting an idea what you actually have.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu</span>
 $ sudo apt-get install jq
 </code></pre></div>
-
 <p>Check if it worked:</p>
 <div class="highlight"><pre><span></span><code>$ jq --version
 jq-1.5-1-a5b5cbe
 </code></pre></div>
-
 <h2 id="usage-example">Usage Example</h2>
 <p>There are <a href="https://github.com/jdorfman/awesome-json-datasets#movies">tons of JSON dataset examples</a>. Let's use <a href="https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json">American movies scraped from Wikipedia</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download the data</span>
@@ -130,105 +134,102 @@ $ wc movies.json
 
 <span class="c1"># Everything is in one super long line. Is it a dict or a list?</span>
 $ head -c <span class="m">80</span> movies.json
-<span class="o">[{</span><span class="s2">&quot;title&quot;</span>:<span class="s2">&quot;After Dark in Central Park&quot;</span>,<span class="s2">&quot;year&quot;</span>:1900,<span class="s2">&quot;cast&quot;</span>:<span class="o">[]</span>,<span class="s2">&quot;genres&quot;</span>:<span class="o">[]}</span>,<span class="o">{</span><span class="s2">&quot;titl%</span>
+<span class="o">[{</span><span class="s2">"title"</span>:<span class="s2">"After Dark in Central Park"</span>,<span class="s2">"year"</span>:1900,<span class="s2">"cast"</span>:<span class="o">[]</span>,<span class="s2">"genres"</span>:<span class="o">[]}</span>,<span class="o">{</span><span class="s2">"titl%</span>
 
 <span class="s2"># List. How many movies do we have?</span>
-$<span class="s2"> cat movies.json | jq &#39;. | length&#39;</span>
+$<span class="s2"> cat movies.json | jq '. | length'</span>
 <span class="s2">28795</span>
 
-<span class="s2"># Let&#39;s look at the first 5 examples to see which data fields we have:</span>
-$<span class="s2"> cat movies.json | jq &#39;.[:5]&#39;</span>
+<span class="s2"># Let's look at the first 5 examples to see which data fields we have:</span>
+$<span class="s2"> cat movies.json | jq '.[:5]'</span>
 <span class="s2">[</span>
 <span class="s2">  {</span>
-<span class="s2">    &quot;</span>title<span class="s2">&quot;: &quot;</span>After Dark <span class="k">in</span> Central Park<span class="s2">&quot;,</span>
-<span class="s2">    &quot;</span>year<span class="s2">&quot;: 1900,</span>
-<span class="s2">    &quot;</span>cast<span class="s2">&quot;: [],</span>
-<span class="s2">    &quot;</span>genres<span class="s2">&quot;: []</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>After Dark <span class="k">in</span> Central Park<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  },</span>
 <span class="s2">  {</span>
-<span class="s2">    &quot;</span>title<span class="s2">&quot;: &quot;</span>Boarding School Girls<span class="s1">&#39; Pajama Parade&quot;,</span>
-<span class="s1">    &quot;year&quot;: 1900,</span>
-<span class="s1">    &quot;cast&quot;: [],</span>
-<span class="s1">    &quot;genres&quot;: []</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Boarding School Girls<span class="s1">' Pajama Parade",</span>
+<span class="s1">    "year": 1900,</span>
+<span class="s1">    "cast": [],</span>
+<span class="s1">    "genres": []</span>
 <span class="s1">  },</span>
 <span class="s1">  {</span>
-<span class="s1">    &quot;title&quot;: &quot;Buffalo Bill&#39;</span>s Wild West Parad<span class="s2">&quot;,</span>
-<span class="s2">    &quot;</span>year<span class="s2">&quot;: 1900,</span>
-<span class="s2">    &quot;</span>cast<span class="s2">&quot;: [],</span>
-<span class="s2">    &quot;</span>genres<span class="s2">&quot;: []</span>
+<span class="s1">    "title": "Buffalo Bill'</span>s Wild West Parad<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  },</span>
 <span class="s2">  {</span>
-<span class="s2">    &quot;</span>title<span class="s2">&quot;: &quot;</span>Caught<span class="s2">&quot;,</span>
-<span class="s2">    &quot;</span>year<span class="s2">&quot;: 1900,</span>
-<span class="s2">    &quot;</span>cast<span class="s2">&quot;: [],</span>
-<span class="s2">    &quot;</span>genres<span class="s2">&quot;: []</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Caught<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  },</span>
 <span class="s2">  {</span>
-<span class="s2">    &quot;</span>title<span class="s2">&quot;: &quot;</span>Clowns Spinning Hats<span class="s2">&quot;,</span>
-<span class="s2">    &quot;</span>year<span class="s2">&quot;: 1900,</span>
-<span class="s2">    &quot;</span>cast<span class="s2">&quot;: [],</span>
-<span class="s2">    &quot;</span>genres<span class="s2">&quot;: []</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Clowns Spinning Hats<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  }</span>
 <span class="s2">]</span>
 </code></pre></div>
-
 <p>At this point, I would usually switch to Pandas. However, let's see how far
 we get with <code>jq</code>.</p>
 <p>I want to see the titles. To do so, I first extract each list element. Then
 I extract the <code>title</code> field from each of them. To allow me scolling through it,
 I apply <code>less</code>:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;.[] | .title&#39;</span> <span class="p">|</span> less
-<span class="s2">&quot;After Dark in Central Park&quot;</span>
-<span class="s2">&quot;Boarding School Girls&#39; Pajama Parade&quot;</span>
-<span class="s2">&quot;Buffalo Bill&#39;s Wild West Parad&quot;</span>
-<span class="s2">&quot;Caught&quot;</span>
-<span class="s2">&quot;Clowns Spinning Hats&quot;</span>
-<span class="s2">&quot;Capture of Boer Battery by British&quot;</span>
-<span class="s2">&quot;The Enchanted Drawing&quot;</span>
-<span class="s2">&quot;Feeding Sea Lions&quot;</span>
-<span class="s2">&quot;How to Make a Fat Wife Out of Two Lean Ones&quot;</span>
-<span class="s2">&quot;New Life Rescue&quot;</span>
-<span class="s2">&quot;New Morning Bath&quot;</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title'</span> <span class="p">|</span> less
+<span class="s2">"After Dark in Central Park"</span>
+<span class="s2">"Boarding School Girls' Pajama Parade"</span>
+<span class="s2">"Buffalo Bill's Wild West Parad"</span>
+<span class="s2">"Caught"</span>
+<span class="s2">"Clowns Spinning Hats"</span>
+<span class="s2">"Capture of Boer Battery by British"</span>
+<span class="s2">"The Enchanted Drawing"</span>
+<span class="s2">"Feeding Sea Lions"</span>
+<span class="s2">"How to Make a Fat Wife Out of Two Lean Ones"</span>
+<span class="s2">"New Life Rescue"</span>
+<span class="s2">"New Morning Bath"</span>
 ...
 </code></pre></div>
-
 <p>Now I want to find errors in the data:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;.[] | .title | select(length&lt;=2)&#39;</span>
-<span class="s2">&quot;It&quot;</span>
-<span class="s2">&quot;M&quot;</span>
-<span class="s2">&quot;W&quot;</span>
-<span class="s2">&quot;FM&quot;</span>
-<span class="s2">&quot;10&quot;</span>
-<span class="s2">&quot;Q&quot;</span>
-<span class="s2">&quot;Da&quot;</span>
-<span class="s2">&quot;It&quot;</span>
-<span class="s2">&quot;Ed&quot;</span>
-<span class="s2">&quot;54&quot;</span>
-<span class="s2">&quot;Pi&quot;</span>
-<span class="s2">&quot;Go&quot;</span>
-<span class="s2">&quot;CQ&quot;</span>
-<span class="s2">&quot;O&quot;</span>
-<span class="s2">&quot;RV&quot;</span>
-<span class="s2">&quot;P2&quot;</span>
-<span class="s2">&quot;21&quot;</span>
-<span class="s2">&quot;W.&quot;</span>
-<span class="s2">&quot;9&quot;</span>
-<span class="s2">&quot;Up&quot;</span>
-<span class="s2">&quot;42&quot;</span>
-<span class="s2">&quot;XX&quot;</span>
-<span class="s2">&quot;It&quot;</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&lt;=2)'</span>
+<span class="s2">"It"</span>
+<span class="s2">"M"</span>
+<span class="s2">"W"</span>
+<span class="s2">"FM"</span>
+<span class="s2">"10"</span>
+<span class="s2">"Q"</span>
+<span class="s2">"Da"</span>
+<span class="s2">"It"</span>
+<span class="s2">"Ed"</span>
+<span class="s2">"54"</span>
+<span class="s2">"Pi"</span>
+<span class="s2">"Go"</span>
+<span class="s2">"CQ"</span>
+<span class="s2">"O"</span>
+<span class="s2">"RV"</span>
+<span class="s2">"P2"</span>
+<span class="s2">"21"</span>
+<span class="s2">"W."</span>
+<span class="s2">"9"</span>
+<span class="s2">"Up"</span>
+<span class="s2">"42"</span>
+<span class="s2">"XX"</span>
+<span class="s2">"It"</span>
 
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .title | length] | max&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .title | length] | max'</span>
 <span class="m">110</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;.[] | .title | select(length&gt;=100)&#39;</span>
-<span class="s2">&quot;Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train&quot;</span>
-<span class="s2">&quot;The Green Goods Man; or, Josiah and Samanthy&#39;s Experience with the Original &#39;American Confidence Game&#39;&quot;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&gt;=100)'</span>
+<span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
+<span class="s2">"The Green Goods Man; or, Josiah and Samanthy's Experience with the Original 'American Confidence Game'"</span>
 
 <span class="c1"># Alternatively:</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;max_by(.title | length).title&#39;</span>
-<span class="s2">&quot;Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train&quot;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'max_by(.title | length).title'</span>
+<span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
 </code></pre></div>
-
 <p>WTF, <a href="https://www.imdb.com/title/tt0235439/">The Green Goods Man...</a> and
 <a href="https://www.imdb.com/title/tt0357570/">Cornell-Columbia-University ...</a> are
 actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_1?ref_=nv_sr_1">54</a>,
@@ -236,58 +237,55 @@ actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_
 <a href="https://www.imdb.com/title/tt0043766/?ref_=fn_al_tt_2">M</a> and
 <a href="https://www.imdb.com/title/tt3166542/?ref_=fn_al_tt_3">W</a> are actually titles!</p>
 <p>Ok, let's see which value range the year covers:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .year] | min&#39;</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | min'</span>
 <span class="m">1900</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .year] | max&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | max'</span>
 <span class="m">2018</span>
 </code></pre></div>
-
 <p>Let's see which ones were published in 1900:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;.[] | select(.year == 1900) | .title&#39;</span>
-<span class="s2">&quot;After Dark in Central Park&quot;</span>
-<span class="s2">&quot;Boarding School Girls&#39; Pajama Parade&quot;</span>
-<span class="s2">&quot;Buffalo Bill&#39;s Wild West Parad&quot;</span>
-<span class="s2">&quot;Caught&quot;</span>
-<span class="s2">&quot;Clowns Spinning Hats&quot;</span>
-<span class="s2">&quot;Capture of Boer Battery by British&quot;</span>
-<span class="s2">&quot;The Enchanted Drawing&quot;</span>
-<span class="s2">&quot;Feeding Sea Lions&quot;</span>
-<span class="s2">&quot;How to Make a Fat Wife Out of Two Lean Ones&quot;</span>
-<span class="s2">&quot;New Life Rescue&quot;</span>
-<span class="s2">&quot;New Morning Bath&quot;</span>
-<span class="s2">&quot;Searching Ruins on Broadway, Galveston, for Dead Bodies&quot;</span>
-<span class="s2">&quot;The Tribulations of an Amateur Photographer&quot;</span>
-<span class="s2">&quot;Trouble in Hogan&#39;s Alley&quot;</span>
-<span class="s2">&quot;Two Old Sparks&quot;</span>
-<span class="s2">&quot;The Wonder, Ching Ling Foo&quot;</span>
-<span class="s2">&quot;Watermelon Contest&quot;</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.year == 1900) | .title'</span>
+<span class="s2">"After Dark in Central Park"</span>
+<span class="s2">"Boarding School Girls' Pajama Parade"</span>
+<span class="s2">"Buffalo Bill's Wild West Parad"</span>
+<span class="s2">"Caught"</span>
+<span class="s2">"Clowns Spinning Hats"</span>
+<span class="s2">"Capture of Boer Battery by British"</span>
+<span class="s2">"The Enchanted Drawing"</span>
+<span class="s2">"Feeding Sea Lions"</span>
+<span class="s2">"How to Make a Fat Wife Out of Two Lean Ones"</span>
+<span class="s2">"New Life Rescue"</span>
+<span class="s2">"New Morning Bath"</span>
+<span class="s2">"Searching Ruins on Broadway, Galveston, for Dead Bodies"</span>
+<span class="s2">"The Tribulations of an Amateur Photographer"</span>
+<span class="s2">"Trouble in Hogan's Alley"</span>
+<span class="s2">"Two Old Sparks"</span>
+<span class="s2">"The Wonder, Ching Ling Foo"</span>
+<span class="s2">"Watermelon Contest"</span>
 </code></pre></div>
-
 <p>Now, what about the <code>cast</code> field? How often is there at least one value? What
 is the maximum number of cast members we have?</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | length] | max&#39;</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | length] | max'</span>
 <span class="m">35</span>
 
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | select(length&gt;=1)] | length&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=1)] | length'</span>
 <span class="m">27871</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | select(length&gt;=2)] | length&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=2)] | length'</span>
 <span class="m">26145</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | select(length&gt;=3)] | length&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=3)] | length'</span>
 <span class="m">13755</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | select(length&gt;=10)] | length&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=10)] | length'</span>
 <span class="m">394</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | select(length&gt;=20)] | length&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=20)] | length'</span>
 <span class="m">23</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;[.[] | .cast | select(length&gt;=30)] | length&#39;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=30)] | length'</span>
 <span class="m">3</span>
 
 <span class="c1"># Get the titles for which we have at least 30 actors:</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">&#39;.[] | select(.cast|length&gt;=30) | .title&#39;</span>
-<span class="s2">&quot;Cars 2&quot;</span>
-<span class="s2">&quot;The Twilight Saga: Breaking Dawn - Part 2&quot;</span>
-<span class="s2">&quot;Anchorman 2: The Legend Continues&quot;</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.cast|length&gt;=30) | .title'</span>
+<span class="s2">"Cars 2"</span>
+<span class="s2">"The Twilight Saga: Breaking Dawn - Part 2"</span>
+<span class="s2">"Anchorman 2: The Legend Continues"</span>
 </code></pre></div>
-
 <p>Now I would like to see for which actors we have most titles. Also, I would
 like to get a list of all actors in the dataset. However, I have no clue how to
 do this with <code>jq</code>.</p>

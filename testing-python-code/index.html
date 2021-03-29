@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Testing in Python">Testing in Python</a><ul><li><a class="toc-href" href="#why-you-should-test" title="Why you should test">Why you should test</a><ul><li><a class="toc-href" href="#reproducibility" title="Reproducibility">Reproducibility</a></li><li><a class="toc-href" href="#complexity" title="Complexity">Complexity</a></li></ul></li><li><a class="toc-href" href="#how-to-test_1" title="How to Test">How to Test</a><ul><li><a class="toc-href" href="#doctests" title="Doctests">Doctests</a></li><li><a class="toc-href" href="#unittests" title="unittests">unittests</a></li><li><a class="toc-href" href="#pytest" title="pytest">pytest</a></li><li><a class="toc-href" href="#radon" title="radon">radon</a></li><li><a class="toc-href" href="#tox" title="tox">tox</a></li></ul></li><li><a class="toc-href" href="#coverage-reports_1" title="Coverage Reports">Coverage Reports</a></li><li><a class="toc-href" href="#the-tricky-cases" title="The Tricky Cases">The Tricky Cases</a><ul><li><a class="toc-href" href="#file-system-interactions" title="File System Interactions">File System Interactions</a></li><li><a class="toc-href" href="#web-interactions" title="Web Interactions">Web Interactions</a></li><li><a class="toc-href" href="#credentials" title="Credentials">Credentials</a></li></ul></li><li><a class="toc-href" href="#mutation-testing_1" title="Mutation Testing">Mutation Testing</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Testing code is important for the following reasons:</p>
@@ -137,7 +143,6 @@ improved my code.</p>
     <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 </code></pre></div>
-
 <p>then you have a problem. The execution of this depends on the current state of
 the world. That is hard to test. While there is <a href="https://github.com/spulec/freezegun"><code>freezegun</code></a>,
 the simpler change is to add an argument:</p>
@@ -149,7 +154,6 @@ the simpler change is to add an argument:</p>
         <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Now the code is easy to test. As a side effect, the function is more flexible.
 You could generate the "today" datetime object before, log its value and rerun
 everything.</p>
@@ -161,32 +165,31 @@ code in multiple levels and for loops. It will be a mess to test everything.</p>
 <p>If, when describing the activity of the code to another programmer you use
 the word 'and', the method needs to be split into at least one more part.</p>
 </blockquote>
-<h2 id="how-to-test">How to Test</h2>
+<h2 id="how-to-test_1">How to Test</h2>
 <h3 id="doctests">Doctests</h3>
 <p>Python has a module called <a href="https://docs.python.org/3/library/doctest.html"><code>doctest</code></a>.
 It executes code which is after the promt <code>&gt;&gt;&gt;</code>.</p>
 <p>A simple example:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Calculate the n-th fibonacci number.</span>
 
 <span class="sd">    &gt;&gt;&gt; fibonacci(0)</span>
 <span class="sd">    0</span>
 <span class="sd">    &gt;&gt;&gt; fibonacci(6)</span>
 <span class="sd">    8</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </code></pre></div>
-
 <p>If you execute this, it will directly check if the documentation matches actual
 execution. Try it by changing <code>8</code> to something else.</p>
 <p>Why it is nice:</p>
@@ -215,16 +218,15 @@ rather cheap. If the test is not isolated, then it is an integration test. A
 typical integration test is when you interact with a database.</p>
 <p>There are four concepts which are supported by <code>unittest</code>:</p>
 <dl>
-    <dt>test case</dt>
-    <dd>A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.</dd>
-    <dt>test fixture</dt>
-    <dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
-    <dt>test suite</dt>
-    <dd>A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.</dd>
-    <dt>test runner</dt>
-    <dd>A test runner is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.</dd>
+<dt>test case</dt>
+<dd>A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.</dd>
+<dt>test fixture</dt>
+<dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
+<dt>test suite</dt>
+<dd>A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.</dd>
+<dt>test runner</dt>
+<dd>A test runner is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.</dd>
 </dl>
-
 <p>To put it into context:</p>
 <ul>
 <li>You write a test case.</li>
@@ -256,7 +258,6 @@ typical integration test is when you interact with a database.</p>
     ├── __init__.py
     └── test_utils.py
 </code></pre></div>
-
 <p>A simple unittest is usually stored in <code>tests/test_themodule_name.py</code> and might
 look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -266,24 +267,23 @@ look like this:</p>
 
 <span class="k">class</span> <span class="nc">ThemoduleNameTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Set things up for the test.&quot;&quot;&quot;</span>
+        <span class="sd">"""Set things up for the test."""</span>
         <span class="c1"># e.g. initialize database mock</span>
 
     <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Clean things up after the test.&quot;&quot;&quot;</span>
+        <span class="sd">"""Clean things up after the test."""</span>
         <span class="c1"># e.g. remove a file</span>
 
     <span class="c1"># test routine A</span>
     <span class="k">def</span> <span class="nf">test_abc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Test routine A&quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FooTest:testA&quot;</span><span class="p">)</span>
+        <span class="sd">"""Test routine A"""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"FooTest:testA"</span><span class="p">)</span>
 
     <span class="c1"># test routine B</span>
     <span class="k">def</span> <span class="nf">testB</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Test routine B&quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FooTest:testB&quot;</span><span class="p">)</span>
+        <span class="sd">"""Test routine B"""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"FooTest:testB"</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="pytest">pytest</h3>
 <p><a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> is a framework which makes
 testing with Python WAY easier. You can simply add files <code>test_&lt;modulename&gt;.py</code>
@@ -293,7 +293,6 @@ with <code>text_xyz()</code> functions and assert statements:</p>
 
     <span class="k">assert</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 </code></pre></div>
-
 <p>Then you execute <code>pytest</code> in the project folder (without any arguments) and
 it runs your tests!</p>
 <h4 id="pytest-plugins">pytest plugins</h4>
@@ -321,7 +320,6 @@ it runs your tests!</p>
 <span class="na">ignore</span> <span class="o">=</span> <span class="s">D104, D105, D107, D301, D413, D203, D212, D100</span>
 <span class="na">match_dir</span> <span class="o">=</span> <span class="s">mpu</span>
 </code></pre></div>
-
 <p>You might wonder how it relates to <code>nose</code>. The main thing you should remember
 is that <a href="https://nose.readthedocs.io/en/latest/#note-to-users">nose is no longer maintained</a>.</p>
 <h3 id="radon">radon</h3>
@@ -330,7 +328,6 @@ measures. The best one is the maintainability index. Here is how I use it
 for my <code>mpu</code> package:</p>
 <div class="highlight"><pre><span></span><code>$ radon mi mpu
 </code></pre></div>
-
 <h3 id="tox">tox</h3>
 <p><a href="https://en.wikipedia.org/wiki/Tox_(Python_testing_wrapper)"><code>tox</code></a> is a
 testing tool which helps you to discover if you forgot to add dependencies to
@@ -338,8 +335,7 @@ your <code>setup.py</code>.</p>
 <p>You can install <a href="https://pypi.org/project/tox/"><code>tox</code></a> via</p>
 <div class="highlight"><pre><span></span><code>$ pip install tox
 </code></pre></div>
-
-<h2 id="coverage-reports">Coverage Reports</h2>
+<h2 id="coverage-reports_1">Coverage Reports</h2>
 <p>The <a href="http://coverage.readthedocs.io/en/latest/"><code>coverage</code></a> package and its
 <a href="https://pytest-cov.readthedocs.io/en/latest/"><code>pytest-cov</code></a> plugin allow you
 to generate coverage reports.</p>
@@ -354,20 +350,19 @@ to generate coverage reports.</p>
     <span class="c1"># Have to re-enable the standard pragma</span>
     <span class="na">pragma: no cover</span>
 
-    <span class="c1"># Don&#39;t complain about missing debug-only code:</span>
+    <span class="c1"># Don't complain about missing debug-only code:</span>
     <span class="na">def __repr__</span>
     <span class="na">def __str__</span>
     <span class="na">if self\.debug</span>
 
-    <span class="c1"># Don&#39;t complain if tests don&#39;t hit defensive assertion code:</span>
+    <span class="c1"># Don't complain if tests don't hit defensive assertion code:</span>
     <span class="na">raise AssertionError</span>
     <span class="na">raise NotImplementedError</span>
 
-    <span class="c1"># Don&#39;t complain if non-runnable code isn&#39;t run:</span>
+    <span class="c1"># Don't complain if non-runnable code isn't run:</span>
     <span class="na">if 0:</span>
     <span class="na">if __name__</span> <span class="o">=</span><span class="s">= .__main__.:</span>
 </code></pre></div>
-
 <p>The <code>branch = True</code> enables the creation of branch coverage reports.</p>
 <h2 id="the-tricky-cases">The Tricky Cases</h2>
 <h3 id="file-system-interactions">File System Interactions</h3>
@@ -383,15 +378,14 @@ give later developers (including yourself) later a hint, you could create a
 <code>template.envrc</code> file which contains all relevant attributes, but not the
 values.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">AWS_USERNAME</span><span class="o">=</span><span class="s2">&quot;foobar&quot;</span>
-<span class="nb">export</span> <span class="nv">AWS_PASSWORD</span><span class="o">=</span><span class="s2">&quot;foobar&quot;</span>
-<span class="nb">export</span> <span class="nv">FOOBAR</span><span class="o">=</span><span class="s2">&quot;foobar&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">AWS_USERNAME</span><span class="o">=</span><span class="s2">"foobar"</span>
+<span class="nb">export</span> <span class="nv">AWS_PASSWORD</span><span class="o">=</span><span class="s2">"foobar"</span>
+<span class="nb">export</span> <span class="nv">FOOBAR</span><span class="o">=</span><span class="s2">"foobar"</span>
 </code></pre></div>
-
 <p>Of course, you should <em>not</em> add the <code>.envrc</code> file to your git repository.</p>
 <p>For AWS, there is <a href="https://aws.amazon.com/kms/">KMS</a> to store
 credentials.</p>
-<h2 id="mutation-testing">Mutation Testing</h2>
+<h2 id="mutation-testing_1">Mutation Testing</h2>
 <p>Mutation Testing is a nice idea how to test your tests. You "mutate" your code
 slightly and want at least one test to fail.</p>
 <p>So you change constants (off-by-one), you change the order of operations.</p>
@@ -402,7 +396,7 @@ tried that one.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://www.pythonsheets.com/notes/python-tests.html">Python test cheatsheet</a></li>
-<li>The Hitchhiker’s Guide to Python: <a href="http://docs.python-guide.org/en/latest/writing/tests/">Testing Your Code</a></li>
+<li>The Hitchhiker&rsquo;s Guide to Python: <a href="http://docs.python-guide.org/en/latest/writing/tests/">Testing Your Code</a></li>
 </ul>
 <!-- https://www.360logica.com/blog/sneak-peek-test-framework-test-pyramid-testing-pyramid/ -->
             

@@ -102,11 +102,17 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="XXE attacks 😈">XXE attacks 😈</a><ul><li><a class="toc-href" href="#why-you-should-care" title="Why you should care">Why you should care</a></li><li><a class="toc-href" href="#we-dont-use-xml" title="We don&rsquo;t use XML!">We don&rsquo;t use XML!</a></li><li><a class="toc-href" href="#types-of-xxes" title="Types of XXEs">Types of XXEs</a><ul><li><a class="toc-href" href="#inband-xxe" title="Inband XXE">Inband XXE</a></li><li><a class="toc-href" href="#out-of-band-xxe" title="Out-of-Band XXE">Out-of-Band XXE</a></li></ul></li><li><a class="toc-href" href="#mitigations_1" title="Mitigations">Mitigations</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>XML is probably the most commonly used markup language. It’s organized around tags <code>&lt;example&gt;foo&lt;/example&gt;</code> and allows pretty complicated structures</p>
-<p>One interesting property about XML is that you can reference external entities, e.g. you can include another file. That is where the name XXE comes from: <strong>X</strong>ML e<strong>x</strong>ternal <strong>e</strong>ntities. Let’s start!</p>
+            <p>XML is probably the most commonly used markup language. It&rsquo;s organized around tags <code>&lt;example&gt;foo&lt;/example&gt;</code> and allows pretty complicated structures</p>
+<p>One interesting property about XML is that you can reference external entities, e.g. you can include another file. That is where the name XXE comes from: <strong>X</strong>ML e<strong>x</strong>ternal <strong>e</strong>ntities. Let&rsquo;s start!</p>
 <h2 id="why-you-should-care">Why you should care</h2>
 <ul>
 <li>XXE vulnerabilities can allow attackers to <strong>steal your data</strong>, <strong>scan your internal network</strong>, and even allow <strong>remote code execution</strong> (RCE)</li>
@@ -118,14 +124,14 @@ MathJax.Hub.Queue(function() {
 <li>2015: Mohamed Ramadan discovered an XXE vulnerability in <strong>Facebooks</strong> resume upload (<a href="https://securityaffairs.co/wordpress/31677/hacking/hacking-facebook-word-document.html">source</a>)</li>
 <li>2020: <strong>IBM QRadar</strong> had an XXE vulnerability (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4510">source</a>)</li>
 </ul>
-<h2 id="we-dont-use-xml">We don’t use XML!</h2>
+<h2 id="we-dont-use-xml">We don&rsquo;t use XML!</h2>
 <p>Here are some indicators that you might need to care:</p>
 <ul>
-<li>You’re using <a href="https://en.wikipedia.org/wiki/SOAP">SOAP</a></li>
-<li>You’re using <a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language">SAML</a></li>
-<li>You’re reading office files, such as Word (docx) or <a href="https://en.wikipedia.org/wiki/Office_Open_XML">Excel files</a> (xlsx; <a href="https://github.com/StefanMichielse/generate_xxe_payloads">example</a>, <a href="https://github.com/jmcnamara/excel-reader-xlsx/issues/10">example</a>). Powerpoint (pptx) contains XML as well. All of them are essentially ZIP archives with lots of XML files inside. I don’t think that Word / Excel / Powerpoint are vulnerable, but maybe the smaller libraries around those files that are used to programmatically create or read them.</li>
-<li>You’re reading <a href="https://en.wikipedia.org/wiki/Extensible_Metadata_Platform">XMP meta data</a> from images such as JPG or GIF (<a href="https://www.youtube.com/watch?v=LZUlw8hHp44">presentation</a>, <a href="https://www.blackhat.com/docs/webcast/11192015-exploiting-xml-entity-vulnerabilities-in-file-parsing-functionality.pdf">slides</a>), meta data from audio and video files as well.</li>
-<li>You’re reading PDF files</li>
+<li>You&rsquo;re using <a href="https://en.wikipedia.org/wiki/SOAP">SOAP</a></li>
+<li>You&rsquo;re using <a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language">SAML</a></li>
+<li>You&rsquo;re reading office files, such as Word (docx) or <a href="https://en.wikipedia.org/wiki/Office_Open_XML">Excel files</a> (xlsx; <a href="https://github.com/StefanMichielse/generate_xxe_payloads">example</a>, <a href="https://github.com/jmcnamara/excel-reader-xlsx/issues/10">example</a>). Powerpoint (pptx) contains XML as well. All of them are essentially ZIP archives with lots of XML files inside. I don&rsquo;t think that Word / Excel / Powerpoint are vulnerable, but maybe the smaller libraries around those files that are used to programmatically create or read them.</li>
+<li>You&rsquo;re reading <a href="https://en.wikipedia.org/wiki/Extensible_Metadata_Platform">XMP meta data</a> from images such as JPG or GIF (<a href="https://www.youtube.com/watch?v=LZUlw8hHp44">presentation</a>, <a href="https://www.blackhat.com/docs/webcast/11192015-exploiting-xml-entity-vulnerabilities-in-file-parsing-functionality.pdf">slides</a>), meta data from audio and video files as well.</li>
+<li>You&rsquo;re reading PDF files</li>
 <li>SVGs are XML as well.</li>
 </ul>
 <p>The <a href="https://github.com/BuffaloWill/oxml_xxe">oxml_xxe tool</a> makes it pretty easy to generate such a malicious file.</p>
@@ -137,29 +143,27 @@ MathJax.Hub.Queue(function() {
 <h3 id="inband-xxe">Inband XXE</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 
-<span class="n">xml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;root&gt;Hello World!&lt;/root&gt;&quot;&quot;&quot;</span>
+<span class="n">xml</span> <span class="o">=</span> <span class="s2">"""&lt;root&gt;Hello World!&lt;/root&gt;"""</span>
 <span class="n">parser</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">XMLParser</span><span class="p">()</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">parser</span><span class="p">)</span>
-<span class="n">parsed_xml</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="n">parsed_xml</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf8"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">parsed_xml</span><span class="p">)</span>
 </code></pre></div>
-
-<p>Looks harmless, doesn’t it? It simply prints <root>Hello World!</root></p>
+<p>Looks harmless, doesn&rsquo;t it? It simply prints <root>Hello World!</root></p>
 <p>But if you change the xml string, then you can read the users passwords:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 
-<span class="n">xml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="n">xml</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">&lt;!DOCTYPE XML [</span>
-<span class="s2">&lt;!ENTITY ee SYSTEM &quot;file:///etc/passwd&quot; &gt;</span>
+<span class="s2">&lt;!ENTITY ee SYSTEM "file:///etc/passwd" &gt;</span>
 <span class="s2">]&gt;</span>
 <span class="s2">&lt;root&gt;&amp;ee;&lt;/root&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 <span class="n">parser</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">XMLParser</span><span class="p">()</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">parser</span><span class="p">)</span>
-<span class="n">parsed_xml</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="n">parsed_xml</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf8"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">parsed_xml</span><span class="p">)</span>
 </code></pre></div>
-
 <p>If this was part of a server, then the user could read arbitrary files on that
 server.</p>
 <h3 id="out-of-band-xxe">Out-of-Band XXE</h3>
@@ -175,9 +179,9 @@ explained here:</p>
 <li><a href="https://www.acunetix.com/blog/articles/band-xml-external-entity-oob-xxe/">Out-of-band XML External Entity (OOB-XXE)</a></li>
 <li><a href="https://portswigger.net/web-security/xxe/blind">What is a blind XXE attack? Tutorial &amp; Examples</a></li>
 </ul>
-<h2 id="mitigations">Mitigations</h2>
+<h2 id="mitigations_1">Mitigations</h2>
 <p>The simplest mitigation is to limit the capabilities of XML to a safe subset.
-Meaning that you need to limit the XML parser you’re using.</p>
+Meaning that you need to limit the XML parser you&rsquo;re using.</p>
 <p>Python has <a href="https://docs.python.org/3/library/xml.html#xml-vulnerabilities">5 XML
 parsers</a>:
 <a href="https://docs.python.org/3/library/xml.sax.reader.html#module-xml.sax.xmlreader">sax</a>,
@@ -190,17 +194,17 @@ access XML parsers with a secure default configuration.</p>
 <h2 id="see-also">See also</h2>
 <p>I would like to point you to this YouTube video by PwnFunction. It summarizes
 the topic very well.</p>
-<p>If you’re interested in a summary over different XML parsers, try <a href="https://www.usenix.org/system/files/conference/woot16/woot16-paper-spath.pdf">SoK: XML
+<p>If you&rsquo;re interested in a summary over different XML parsers, try <a href="https://www.usenix.org/system/files/conference/woot16/woot16-paper-spath.pdf">SoK: XML
 Parser
 Vulnerabilities</a>
-(2016) by Christopher Späth, Christian Mainka, Vladislav Mladenov, Jörg
+(2016) by Christopher Sp&auml;th, Christian Mainka, Vladislav Mladenov, J&ouml;rg
 Schwenk.</p>
-<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/gjm6VHZa_8s" frameborder="0" allowfullscreen></iframe></center></p>
-<h2 id="whats-next">What’s next?</h2>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/gjm6VHZa_8s" width="560"></iframe></center></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

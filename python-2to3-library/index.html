@@ -102,11 +102,17 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How I moved a library from Python 2 to 3">How I moved a library from Python 2 to 3</a><ul><li><a class="toc-href" href="#local-setup" title="Local Setup">Local Setup</a></li><li><a class="toc-href" href="#general-project-setup" title="General project setup">General project setup</a></li><li><a class="toc-href" href="#print-statements" title="Print statements">Print statements</a></li><li><a class="toc-href" href="#keeping-python-2-compatibility" title="Keeping Python 2 Compatibility">Keeping Python 2 Compatibility</a></li><li><a class="toc-href" href="#iterators" title="Iterators">Iterators</a></li><li><a class="toc-href" href="#input-and-raw_input" title="input and raw_input">input and raw_input</a></li><li><a class="toc-href" href="#division-and-rounding" title="Division and Rounding">Division and Rounding</a></li><li><a class="toc-href" href="#unicode-and-strings" title="Unicode and Strings">Unicode and Strings</a></li><li><a class="toc-href" href="#pure-python-and-universal-wheels" title="Pure Python and Universal Wheels">Pure Python and Universal Wheels</a></li><li><a class="toc-href" href="#create-a-version-support-policy" title="Create a version support policy">Create a version support policy</a></li><li><a class="toc-href" href="#remove-python-2-compatibility" title="Remove Python 2 Compatibility">Remove Python 2 Compatibility</a></li><li><a class="toc-href" href="#use-the-new-stuff" title="Use the new stuff!">Use the new stuff!</a></li><li><a class="toc-href" href="#forking-the-project" title="Forking the project">Forking the project</a></li><li><a class="toc-href" href="#metaclasses" title="Metaclasses">Metaclasses</a></li><li><a class="toc-href" href="#tldr-how-do-i-move-from-python-2-to-python-3" title="TL;DR: How do I move from Python 2 to Python 3?">TL;DR: How do I move from Python 2 to Python 3?</a></li><li><a class="toc-href" href="#related-resources" title="Related Resources">Related Resources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="Image by skylarvision from needpix.com" src="https://cdn-images-1.medium.com/max/2560/1*uvS55XJ3-uUny7j1cgye6g.jpeg"><em>Image by <a href="https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures">skylarvision from needpix.com</a></em></p>
-<p>Last year I’ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting and I’ll share here how I did it — or rather how I would do it if I had the same situation again.</p>
+            <p><img alt="Image by skylarvision from needpix.com" src="https://cdn-images-1.medium.com/max/2560/1*uvS55XJ3-uUny7j1cgye6g.jpeg"/><em>Image by <a href="https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures">skylarvision from needpix.com</a></em></p>
+<p>Last year I&rsquo;ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting and I&rsquo;ll share here how I did it &mdash; or rather how I would do it if I had the same situation again.</p>
 <h2 id="local-setup">Local Setup</h2>
 <p>Make sure you can execute Python 2 and Python 3 locally. I like <a href="https://github.com/pyenv/pyenv">pyenv</a> for that:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv install <span class="m">2</span>.7.18
@@ -114,7 +120,6 @@ $ pyenv install <span class="m">3</span>.8.5
 $ pyenv <span class="nb">local</span> <span class="m">3</span>.8.5
 $ pip --version
 </code></pre></div>
-
 <p>Alternatively, you can <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html#installing-a-different-version-of-python">use conda to switch between Python 2 and 3</a>.</p>
 <h2 id="general-project-setup">General project setup</h2>
 <p>The project should be under <strong>version control</strong> and you need to make sure that people can move back if they need to. You need to <strong>pin direct and transitive dependencies</strong>. You should have a <strong>reproducible environment</strong>, such as a <a href="https://makeitnew.io/docker-ab1a6bddf389">Docker container</a> with a fixed Python version like 2.7.18-slim-buster. Add a <strong>git tag</strong> for the current version, deploy the latest one to pypi, and support your users in pinning that version.</p>
@@ -122,34 +127,29 @@ $ pip --version
 <p>First make sure that you can execute the tests, that the test coverage is OK (see <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">unit testing series</a>) and that the general style is OK (see lining todo). Set up a <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI / CD pipeline</a>.</p>
 <h2 id="print-statements">Print statements</h2>
 <p>In Python 2, you could write print statements:</p>
-<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="s2">&quot;hello world&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="s2">"hello world"</span>
 </code></pre></div>
-
 <p>In Python 3, you have to write print functions:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Luckily, you can also have print functions in Python 2. And confusingly, it does not behave the same way:</p>
 <div class="highlight"><pre><span></span><code>py2&gt;&gt;&gt; print(1, 2, 3)
 (1, 2, 3)
 py3&gt;&gt;&gt; print(1, 2, 3)
 1 2 3
 </code></pre></div>
-
 <p>You need to import the backported print function to make the Python 2 function behave like the Python 3 function:</p>
 <div class="highlight"><pre><span></span><code>py2&gt;&gt;&gt; from __future__ import print_function
 py2&gt;&gt;&gt; print(1, 2, 3)
 1 2 3
 </code></pre></div>
-
-<p>Note that I didn’t use the print_function — I just imported it.</p>
+<p>Note that I didn&rsquo;t use the print_function &mdash; I just imported it.</p>
 <p>Applying this small change is tedious, but you can use <a href="https://docs.python.org/3.8/library/2to3.html">2to3</a> to do it for you:</p>
 <div class="highlight"><pre><span></span><code>$ pip install 2to3
 $ 2to3 --fix<span class="o">=</span>print .
 </code></pre></div>
-
 <h2 id="keeping-python-2-compatibility">Keeping Python 2 Compatibility</h2>
-<p>You should have a version that works for Python 2 and Python 3 in exactly the same way for a while. For bigger projects with lots of dependencies, it’s a big help if they can move gradually forward.</p>
+<p>You should have a version that works for Python 2 and Python 3 in exactly the same way for a while. For bigger projects with lots of dependencies, it&rsquo;s a big help if they can move gradually forward.</p>
 <p>Python 3 moved/renamed parts of the standard library. This breaks compatibility with Python 2. However, the workaround is simple:</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">urlencode</span>
@@ -159,18 +159,15 @@ $ 2to3 --fix<span class="o">=</span>print .
     <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
     <span class="kn">from</span> <span class="nn">urllib2</span> <span class="kn">import</span> <span class="n">urlopen</span>
 </code></pre></div>
-
 <p>Even nicer is the compatibility library six:</p>
 <div class="highlight"><pre><span></span><code>$ pip install six
 </code></pre></div>
-
 <p><code>six</code> can then be used like this in both, Python 2 and Python 3:</p>
 <div class="highlight"><pre><span></span><code>from six.moves.urllib.parse import urlparse, urlencode
 from six.moves.urllib.request import urlopen
 </code></pre></div>
-
 <p>When you write code only to keep the support for older versions, make sure you
-add a string that is easy to find. Something like “support for Python 2”</p>
+add a string that is easy to find. Something like &ldquo;support for Python 2&rdquo;</p>
 <h2 id="iterators">Iterators</h2>
 <p>Python 2 creates a list when you call <code>range(10)</code> whereas Python 3 creates a
 range object for the same code. In some rare cases, you actually need the list
@@ -182,7 +179,6 @@ and thus need to change it to <code>list(range(10))</code>.</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; 1 / 2
 # Python 2: 0 vs Python 3: 0.5
 </code></pre></div>
-
 <p>The rounding behavior at x.5 also changed:</p>
 <ul>
 <li><a href="https://docs.python.org/2/library/functions.html#round">Python 2</a>: if two multiples are equally close, rounding is done away from 0</li>
@@ -197,53 +193,50 @@ and thus need to change it to <code>list(range(10))</code>.</p>
 &gt;&gt;&gt; round(2.6)
 # Python 2: 3.0 vs Python 3: 3
 </code></pre></div>
-
 <p>There are ways to get the <a href="https://stackoverflow.com/q/21839140/562769">same rounding behavior in Python 2 and 3</a>.</p>
 <h2 id="unicode-and-strings">Unicode and Strings</h2>
 <p>Unicode was a big pain in Python 2 and got a lot simpler in Python 3. Unicode support was only added later to Python 2. In Python 2, there was a difference between a Unicode string and a string. Essentially, a string was a bytes object containing ASCII:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = u&quot;abc&quot;
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = u"abc"
 &gt;&gt;&gt; type(a)
-&lt;type &#39;unicode&#39;&gt;
+&lt;type 'unicode'&gt;
 
-&gt;&gt;&gt; b = &quot;abc&quot;
+&gt;&gt;&gt; b = "abc"
 &gt;&gt;&gt; type(b)
-&lt;type &#39;str&#39;&gt;
+&lt;type 'str'&gt;
 
-&gt;&gt;&gt; c = b&quot;abc&quot;
+&gt;&gt;&gt; c = b"abc"
 &gt;&gt;&gt; type(c)
-&lt;type &#39;str&#39;&gt;
+&lt;type 'str'&gt;
 
-&gt;&gt;&gt; ord(&#39;ö&#39;)
+&gt;&gt;&gt; ord('&ouml;')
 Traceback (most recent call last):
-  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
 TypeError: ord() expected a character, but string of length 2 found
 
-&gt;&gt;&gt; &#39;ü&#39;[0]
-&#39;\xc3&#39;
-&gt;&gt;&gt; &#39;ü&#39;[1]
-&#39;\xbc&#39;
+&gt;&gt;&gt; '&uuml;'[0]
+'\xc3'
+&gt;&gt;&gt; '&uuml;'[1]
+'\xbc'
 </code></pre></div>
-
-<p>In Python 3, it’s the same:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = u&quot;abc&quot;
+<p>In Python 3, it&rsquo;s the same:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = u"abc"
 &gt;&gt;&gt; type(a)
-&lt;class &#39;str&#39;&gt;
+&lt;class 'str'&gt;
 
-&gt;&gt;&gt; b = &quot;abc&quot;
+&gt;&gt;&gt; b = "abc"
 &gt;&gt;&gt; type(b)
-&lt;class &#39;str&#39;&gt;
+&lt;class 'str'&gt;
 
-&gt;&gt;&gt; c = b&quot;abc&quot;
+&gt;&gt;&gt; c = b"abc"
 &gt;&gt;&gt; type(c)
-&lt;class &#39;bytes&#39;&gt;
+&lt;class 'bytes'&gt;
 
-&gt;&gt;&gt; ord(&#39;ö&#39;)
+&gt;&gt;&gt; ord('&ouml;')
 246
 
-&gt;&gt;&gt; &#39;ü&#39;[0]
-&#39;ü&#39;
+&gt;&gt;&gt; '&uuml;'[0]
+'&uuml;'
 </code></pre></div>
-
 <p>I could write a lot about Unicode and string representations, but to keep it
 brief:</p>
 <ul>
@@ -263,38 +256,36 @@ It should work on every machine with every Python version.</p>
 <p>You should always distribute your code in form of a source distribution and a
 wheel distribution. If you can, try to create and publish one universal wheel.</p>
 <h2 id="create-a-version-support-policy">Create a version support policy</h2>
-<p><img alt="Photo by Sebastian Herrmann on Unsplash" src="https://cdn-images-1.medium.com/max/10162/0*npT3ah8HnHtz1Mq-"><em>Photo by <a href="https://unsplash.com/@officestock?utm_source=medium&amp;utm_medium=referral">Sebastian Herrmann</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Sebastian Herrmann on Unsplash" src="https://cdn-images-1.medium.com/max/10162/0*npT3ah8HnHtz1Mq-"/><em>Photo by <a href="https://unsplash.com/@officestock?utm_source=medium&amp;utm_medium=referral">Sebastian Herrmann</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>Library creators need to decide which Python versions they want to support.
 Newer versions of Python have killer features you want to have and supporting
 all versions takes a lot of time. Make it transparent which versions you want
-to support and when you want to drop the support. It’s best to link this to
+to support and when you want to drop the support. It&rsquo;s best to link this to
 bigger projects, e.g. the last 3 major Python versions.</p>
 <p>You should also know that the Python release cycle was changed in <a href="https://www.python.org/dev/peps/pep-0602/">PEP-602</a>.</p>
 <h2 id="remove-python-2-compatibility">Remove Python 2 Compatibility</h2>
-<p><img alt="Photo by JESHOOTS.COM on Unsplash" src="https://cdn-images-1.medium.com/max/8400/0*TnzggyB55C5IxhvW"><em>Photo by <a href="https://unsplash.com/@jeshoots?utm_source=medium&amp;utm_medium=referral">JESHOOTS.COM</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by JESHOOTS.COM on Unsplash" src="https://cdn-images-1.medium.com/max/8400/0*TnzggyB55C5IxhvW"/><em>Photo by <a href="https://unsplash.com/@jeshoots?utm_source=medium&amp;utm_medium=referral">JESHOOTS.COM</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>Supporting Python 2 means you need to add additional code and likely that you
 cannot use some of the killer features of newer Python versions.</p>
 <p>When you remove the support for a Python version, do it in one git commit so that the change is clear. Search for that string:</p>
-<div class="highlight"><pre><span></span><code>$ grep -rnI <span class="s2">&quot;support for Python 2&quot;</span>
+<div class="highlight"><pre><span></span><code>$ grep -rnI <span class="s2">"support for Python 2"</span>
 </code></pre></div>
-
 <h2 id="use-the-new-stuff">Use the new stuff!</h2>
 <p>Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: <a href="https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8">Killer Features by Python Version</a></p>
 <p><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> can help you to use new-style syntax, such as:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># -&gt; {a: b for a, b in y}</span>
-<span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># -&gt; &#39;{} {}&#39;.format(a, b)</span>
+<span class="s2">"</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># -&gt; '{} {}'.format(a, b)</span>
 </code></pre></div>
-
-<p>It’s not strictly necessary to do this, but it makes your code more modern and easier to read.</p>
+<p>It&rsquo;s not strictly necessary to do this, but it makes your code more modern and easier to read.</p>
 <h2 id="forking-the-project">Forking the project</h2>
-<p>I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers’ support. You can simply create a so-called <em>fork</em>: A copy of the original project which you control.</p>
-<p><img alt="Scipy has over 3000 forks. Screenshot of Github by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png"><em>Scipy has over 3000 forks. Screenshot of Github by Martin Thoma</em></p>
-<p>Forking happens all the time with free software. It’s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (Github calls this a pull request (PR)).</p>
+<p>I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers&rsquo; support. You can simply create a so-called <em>fork</em>: A copy of the original project which you control.</p>
+<p><img alt="Scipy has over 3000 forks. Screenshot of Github by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png"/><em>Scipy has over 3000 forks. Screenshot of Github by Martin Thoma</em></p>
+<p>Forking happens all the time with free software. It&rsquo;s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (Github calls this a pull request (PR)).</p>
 <p>You can also upload your fork to pypi, but please only do this if you want to maintain that fork and continue the independent development.</p>
 <h2 id="metaclasses">Metaclasses</h2>
-<p>There are topics like metaclasses and exception scopes which I haven’t covered. If you need that, I recommend this tutorial by Mike Müller:</p>
-<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/JgIgEjASOlk" frameborder="0" allowfullscreen></iframe></center></p>
-<p><a href="undefined">Anders Hovmöller</a> also wrote an interesting article about this topic. Check his “surprises in production” section:
+<p>There are topics like metaclasses and exception scopes which I haven&rsquo;t covered. If you need that, I recommend this tutorial by Mike M&uuml;ller:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/JgIgEjASOlk" width="560"></iframe></center></p>
+<p><a href="undefined">Anders Hovm&ouml;ller</a> also wrote an interesting article about this topic. Check his &ldquo;surprises in production&rdquo; section:
 <a href="https://medium.com/@boxed/moving-a-large-and-old-codebase-to-python3-33a5a13f8c99">Moving a large and old codebase to Python3</a></p>
 <h2 id="tldr-how-do-i-move-from-python-2-to-python-3">TL;DR: How do I move from Python 2 to Python 3?</h2>
 <ol>
@@ -305,7 +296,7 @@ cannot use some of the killer features of newer Python versions.</p>
 </ol>
 <h2 id="related-resources">Related Resources</h2>
 <ul>
-<li>Mike Müller: <a href="https://www.youtube.com/watch?v=JgIgEjASOlk">Migration from Python 2 to 3</a>, at PyCon US2020.</li>
+<li>Mike M&uuml;ller: <a href="https://www.youtube.com/watch?v=JgIgEjASOlk">Migration from Python 2 to 3</a>, at PyCon US2020.</li>
 <li><a href="https://code.google.com/archive/p/protpy/downloads">protpy</a> was the library I moved. I created <a href="https://github.com/MartinThoma/propy3">propy3</a>.</li>
 </ul>
             

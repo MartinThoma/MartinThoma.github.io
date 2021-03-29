@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to use Jekyll with GitHub">How to use Jekyll with GitHub</a><ul><li><a class="toc-href" href="#jekyll-compared-with-wordpress" title="Jekyll compared with WordPress">Jekyll compared with WordPress</a></li><li><a class="toc-href" href="#install-jekyll" title="Install Jekyll">Install Jekyll</a></li><li><a class="toc-href" href="#github" title="GitHub">GitHub</a><ul><li><a class="toc-href" href="#create-your-repository" title="Create your repository">Create your repository</a></li><li><a class="toc-href" href="#branches" title="Branches">Branches</a></li><li><a class="toc-href" href="#custom-domain" title="Custom Domain">Custom Domain</a></li></ul></li><li><a class="toc-href" href="#ftp-server_1" title="FTP Server">FTP Server</a></li><li><a class="toc-href" href="#markdown" title="Markdown">Markdown</a><ul><li><a class="toc-href" href="#linebreaks-and-newline" title="Linebreaks and newline">Linebreaks and newline</a></li></ul></li><li><a class="toc-href" href="#customization_1" title="Customization">Customization</a></li><li><a class="toc-href" href="#make-the-website-super-fast" title="Make the Website super-fast">Make the Website super-fast</a><ul><li><a class="toc-href" href="#css-minification" title="CSS Minification">CSS Minification</a></li><li><a class="toc-href" href="#images" title="Images">Images</a></li></ul></li><li><a class="toc-href" href="#site-search_1" title="Site Search">Site Search</a><ul><li><a class="toc-href" href="#phpsqlite" title="PHP+SQLite">PHP+SQLite</a></li><li><a class="toc-href" href="#javascript-solutions" title="JavaScript solutions">JavaScript solutions</a></li></ul></li><li><a class="toc-href" href="#templates_1" title="Templates">Templates</a></li><li><a class="toc-href" href="#some-tests" title="Some tests">Some tests</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>You've probably noticed that I didn't write any posts the last few
@@ -168,7 +174,6 @@ $ sudo gem install dimensions
 $ sudo gem install fileutils
 $ sudo mkdir -p /var/www/blog
 </code></pre></div>
-
 <h2 id="github">GitHub</h2>
 <h3 id="create-your-repository">Create your repository</h3>
 <ol>
@@ -183,21 +188,17 @@ _config.yml  favicon.ico  index.html  Makefile  Readme.md
 css          images       js          _plugins  _site
 _drafts      _includes    _layouts    _posts    thumbs
 </code></pre></div>
-
 <p>Now you should create a new branch that will contain your source files.
 The following command creates a branch <code>sources</code> that starts where
 the branch <code>master</code> currently is:</p>
 <div class="highlight"><pre><span></span><code>git checkout -b <span class="nb">source</span> master
 </code></pre></div>
-
 <p>Now update this branch to the server:</p>
 <div class="highlight"><pre><span></span><code>git push -u origin <span class="nb">source</span>
 </code></pre></div>
-
 <p>When you enter</p>
 <div class="highlight"><pre><span></span><code>git checkout . master
 </code></pre></div>
-
 <p>you will switch to the <code>master</code> brach. The same way you can switch
 to the <code>source</code> branch. After you've entered the command, you can
 look at the folder in your file system. There will only be the data
@@ -213,14 +214,13 @@ have to:</p>
    (yes, without <code>http://</code>) to the root of your directory</li>
 </ol>
 <p>GitHub also offers some help on <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">setting up a custom domain with Pages</a>.</p>
-<h2 id="ftp-server">FTP Server</h2>
+<h2 id="ftp-server_1">FTP Server</h2>
 <p>If you have your own FTP server, you probably want to use it.</p>
 <p>One tool that might now come to your mind is <code>rsync</code>. But rsync
 needs SSH (<a href="http://serverfault.com/a/24627/113899">source</a>). If you
 have SSH, then you can do something like this:</p>
 <div class="highlight"><pre><span></span><code>rsync -avz --delete _site/ user@host:/path/to/web/root
 </code></pre></div>
-
 <p>The <code>--delete</code> options "delete[s] extraneous files from dest dirs",
 <code>-a</code> means archive which preserves the owner, group, change date
 and some more of files, <code>-v</code> is verbose as always and <code>-z</code> is for
@@ -230,11 +230,9 @@ be interesting, especially for the first upload.</p>
 mount a FTP folder:</p>
 <div class="highlight"><pre><span></span><code>curlftpfs ftp.example.com/backups /mnt/ftpserver
 </code></pre></div>
-
 <p>and you can also umount it:</p>
 <div class="highlight"><pre><span></span><code>rsync --delete /var/backups /mnt/ftpserver
 </code></pre></div>
-
 <h2 id="markdown">Markdown</h2>
 <p>I've switched between <code>rdiscount</code> and <code>redcarpet</code>. The former is
 faster, the latter supports fenced code blocks. I finally stuck with
@@ -300,7 +298,7 @@ basically <a href="http://meta.stackoverflow.com/questions/26011/should-the-mark
 <p>Currently, I'm not satisfied with the situation. I never had that
 problem with WordPress. WordPress simply created paragraphs just at
 the right location.</p>
-<h2 id="customization">Customization</h2>
+<h2 id="customization_1">Customization</h2>
 <p>You can create <a href="http://jekyllrb.com/docs/plugins/">custom Liquid filters</a>,
 plugins and templates. Everything is quite easy. The Liquid templating
 language seems to be very similar to Django Templates (Python).</p>
@@ -310,10 +308,9 @@ language seems to be very similar to Django Templates (Python).</p>
 juicer install jslint
 juicer install yui_compressor
 </code></pre></div>
-
 <h3 id="images">Images</h3>
 <p>I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>). According to <a href="http://caniuse.com/datauri">caniuse</a> it's quite save to use.</p>
-<h2 id="site-search">Site Search</h2>
+<h2 id="site-search_1">Site Search</h2>
 <p>Site search is a real problem. I've seen three solutions so far:</p>
 <ol>
 <li><strong>Dynamic Search</strong>: You can add a dynamic part to your statically
@@ -339,7 +336,7 @@ until 2MB are downloaded. So this one does only work for smaller
 websites.</p>
 <p><a href="http://christian-fei.com/simple-jekyll-search-jquery-plugin/">Christan Fei's solution</a>
 does only search in the title and category.</p>
-<h2 id="templates">Templates</h2>
+<h2 id="templates_1">Templates</h2>
 <p>Jekyll uses Liquid as a templating language. It is similar to Django
 templates. <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Here</a>
 is a short introduction to Liquid.</p>
@@ -365,7 +362,6 @@ ${5:}
     &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
 &lt;/snippet&gt;
 </code></pre></div>
-
 <h2 id="some-tests">Some tests</h2>
 <ul>
 <li>Validation</li>

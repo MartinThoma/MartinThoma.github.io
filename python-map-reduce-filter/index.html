@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Pythons map, reduce and filter as list comprehensions">Pythons map, reduce and filter as list comprehensions</a><ul><li><a class="toc-href" href="#examples" title="Examples">Examples</a><ul><li><a class="toc-href" href="#map" title="map">map</a></li><li><a class="toc-href" href="#filter" title="filter">filter</a></li><li><a class="toc-href" href="#reduce" title="reduce">reduce</a></li></ul></li><li><a class="toc-href" href="#sequential-solution_1" title="Sequential solution">Sequential solution</a><ul><li><a class="toc-href" href="#map_1" title="map">map</a></li><li><a class="toc-href" href="#filter_1" title="filter">filter</a></li><li><a class="toc-href" href="#reduce_1" title="reduce">reduce</a></li></ul></li><li><a class="toc-href" href="#list-comprehensions_1" title="List comprehensions">List comprehensions</a><ul><li><a class="toc-href" href="#map_2" title="map">map</a></li><li><a class="toc-href" href="#filter_2" title="filter">filter</a></li><li><a class="toc-href" href="#reduce_2" title="reduce">reduce</a></li></ul></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I recently was challenged to re-write Pythons <code>map</code>, <code>reduce</code> and <code>filter</code> as
@@ -116,11 +122,9 @@ You might also want to have a look at my old article
 <span class="n">squares</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 </code></pre></div>
-
 <p>gives</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
 </code></pre></div>
-
 <h3 id="filter">filter</h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -138,17 +142,15 @@ You might also want to have a look at my old article
 <span class="n">r</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_prime</span><span class="p">,</span> <span class="n">myList</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </code></pre></div>
-
 <p>gives <code>[13, 2, 7, 11, 11]</code>.</p>
 <h3 id="reduce">reduce</h3>
 <div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">diff</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 </code></pre></div>
-
 <p>gives <code>-45</code>, because</p>
 <div class="math">$$((((((((0-1)-2)-3)-4)-5)-6)-7)-8)-9 = -45$$</div>
-<h2 id="sequential-solution">Sequential solution</h2>
+<h2 id="sequential-solution_1">Sequential solution</h2>
 <p>The standard way to do these tasks without <code>map</code>, <code>filter</code> and <code>reduce</code> is to
 use loops.</p>
 <h3 id="map_1">map</h3>
@@ -158,7 +160,6 @@ use loops.</p>
     <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="filter_1">filter</h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -179,7 +180,6 @@ use loops.</p>
         <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="reduce_1">reduce</h3>
 <div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -187,8 +187,7 @@ use loops.</p>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
-
-<h2 id="list-comprehensions">List comprehensions</h2>
+<h2 id="list-comprehensions_1">List comprehensions</h2>
 <p>List comprehensions are - according to Guido van Rossum - the way to go. So
 lets see how the code looks like without <code>map</code>, <code>reduce</code> and <code>filter</code>.</p>
 <h3 id="map_2">map</h3>
@@ -196,7 +195,6 @@ lets see how the code looks like without <code>map</code>, <code>reduce</code> a
 <span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 </code></pre></div>
-
 <p>I think that is much more readable than the map solution.</p>
 <h3 id="filter_2">filter</h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
@@ -215,7 +213,6 @@ lets see how the code looks like without <code>map</code>, <code>reduce</code> a
 <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </code></pre></div>
-
 <p>I also think this is more readable, as you can easily combine it with more
 transformations.</p>
 <h3 id="reduce_2">reduce</h3>
@@ -227,7 +224,6 @@ have to change the sign, except for the first one:</p>
 <span class="n">diff</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[</span><span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 </code></pre></div>
-
 <p>So, granted, the code using <code>reduce</code> looks much better. However, people argue
 that you should use the sequential solution because it is simpler to
 understand. By now, I understood every piece of code using <code>reduce</code>. But I

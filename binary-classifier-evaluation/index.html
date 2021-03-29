@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Evaluation of binary classifiers">Evaluation of binary classifiers</a><ul><li><a class="toc-href" href="#scenarios" title="Scenarios">Scenarios</a><ul><li><a class="toc-href" href="#spam" title="Spam">Spam</a></li><li><a class="toc-href" href="#fraudulent-transactions" title="Fraudulent Transactions">Fraudulent Transactions</a></li><li><a class="toc-href" href="#website-advertisement" title="Website Advertisement">Website Advertisement</a></li><li><a class="toc-href" href="#fire-alarm" title="Fire Alarm">Fire Alarm</a></li><li><a class="toc-href" href="#cats-vs-dogs" title="Cats vs Dogs">Cats vs Dogs</a></li><li><a class="toc-href" href="#rare-cancer-detection" title="Rare Cancer Detection">Rare Cancer Detection</a></li></ul></li><li><a class="toc-href" href="#confusion-matrix_1" title="Confusion matrix">Confusion matrix</a></li><li><a class="toc-href" href="#accuracy" title="Accuracy">Accuracy</a></li><li><a class="toc-href" href="#precision" title="Precision">Precision</a></li><li><a class="toc-href" href="#recall" title="Recall">Recall</a></li><li><a class="toc-href" href="#cost" title="Cost">Cost</a></li><li><a class="toc-href" href="#f1-score" title="F1-Score">F1-Score</a></li><li><a class="toc-href" href="#roc-curve" title="ROC Curve">ROC Curve</a></li><li><a class="toc-href" href="#final-notes" title="Final Notes">Final Notes</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Binary classification is likely the simplest task in machine learning. It is
@@ -117,28 +123,27 @@ measures are suitable or not.</p>
 <h3 id="spam">Spam</h3>
 <p>You want to detect if an E-Mail is spam.</p>
 <table class="table">
-    <thead>
-    <tr>
-        <th rowspan="2"></th>
-        <th colspan="2" style="text-align:center">Predicted</th>
-    </tr>
-    <tr>
-        <th>Spam</th>
-        <th>Ham</th>
-    </tr>
-        </thead>
-    <tr>
-        <th>Spam</th>
-        <td><span style="color:green">515</span></td>
-        <td><span style="color:red">50</span></td>
-    </tr>
-    <tr>
-        <th>Ham</th>
-        <td><span style="color:red">12</span></td>
-        <td><span style="color:green">20&thinsp;160</span></td>
-    </tr>
+<thead>
+<tr>
+<th rowspan="2"></th>
+<th colspan="2" style="text-align:center">Predicted</th>
+</tr>
+<tr>
+<th>Spam</th>
+<th>Ham</th>
+</tr>
+</thead>
+<tr>
+<th>Spam</th>
+<td><span style="color:green">515</span></td>
+<td><span style="color:red">50</span></td>
+</tr>
+<tr>
+<th>Ham</th>
+<td><span style="color:red">12</span></td>
+<td><span style="color:green">20&thinsp;160</span></td>
+</tr>
 </table>
-
 <h3 id="fraudulent-transactions">Fraudulent Transactions</h3>
 <p>We want to classify if a transaction is fraud. Let's say we have 99% non-fraud
 transactions and 1% fraud transactions. To keep things simple, let's say we
@@ -154,87 +159,84 @@ $$</div>
 about users and the website they are currently surfing. You have to decide if
 you want to show them advertisement.</p>
 <table class="table">
-    <thead>
-    <tr>
-        <th rowspan="2"></th>
-        <th colspan="2" style="text-align:center">Predicted</th>
-    </tr>
-    <tr>
-        <th>Worth it</th>
-        <th>Not worth</th>
-    </tr>
-        </thead>
-    <tr>
-        <td>User clicks ad</td>
-        <td><span style="color:green">990</span></td>
-        <td><span style="color:red">10</span></td>
-    </tr>
-    <tr>
-        <td>User doesn't click</td>
-        <td><span style="color:red">4000</span></td>
-        <td><span style="color:green">5000</span></td>
-    </tr>
+<thead>
+<tr>
+<th rowspan="2"></th>
+<th colspan="2" style="text-align:center">Predicted</th>
+</tr>
+<tr>
+<th>Worth it</th>
+<th>Not worth</th>
+</tr>
+</thead>
+<tr>
+<td>User clicks ad</td>
+<td><span style="color:green">990</span></td>
+<td><span style="color:red">10</span></td>
+</tr>
+<tr>
+<td>User doesn't click</td>
+<td><span style="color:red">4000</span></td>
+<td><span style="color:green">5000</span></td>
+</tr>
 </table>
-
 <h3 id="fire-alarm">Fire Alarm</h3>
 <p>Let's say a smoke detector makes one measurement every 10&nbsp;seconds and runs
 over 8&nbsp;years. Let's say it goes of 8&nbsp;times at random. This means you
 would have:</p>
 <table class="table">
-    <thead>
-    <tr>
-        <th rowspan="2"></th>
-        <th colspan="2" style="text-align:center">Predicted</th>
-    </tr>
-    <tr>
-        <th>Positive</th>
-        <th>Negative</th>
-    </tr>
-        </thead>
-    <tr>
-        <td>Positive</td>
-        <td><span style="color:green">0</span></td>
-        <td><span style="color:red">0</span></td>
-    </tr>
-    <tr>
-        <td>Negative</td>
-        <td><span style="color:red">8</span></td>
-        <td><span style="color:green">25&thinsp;228&thinsp;792</span></td>
-    </tr>
+<thead>
+<tr>
+<th rowspan="2"></th>
+<th colspan="2" style="text-align:center">Predicted</th>
+</tr>
+<tr>
+<th>Positive</th>
+<th>Negative</th>
+</tr>
+</thead>
+<tr>
+<td>Positive</td>
+<td><span style="color:green">0</span></td>
+<td><span style="color:red">0</span></td>
+</tr>
+<tr>
+<td>Negative</td>
+<td><span style="color:red">8</span></td>
+<td><span style="color:green">25&thinsp;228&thinsp;792</span></td>
+</tr>
 </table>
-
 <h3 id="cats-vs-dogs">Cats vs Dogs</h3>
 <p>You have 50 cat images and 50 dog images. Decide which one it is.</p>
 <table class="table">
-    <thead>
-        <tr>
-            <th rowspan="2"></th>
-            <th colspan="2" style="text-align:center">Predicted</th>
-        </tr>
-        <tr>
-            <th>Cat</th>
-            <th>Dog</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Cat</th>
-            <td><span style="color:green">47</span></td>
-            <td><span style="color:red">3</span></td>
-        </tr>
-        <tr>
-            <th>Dog</th>
-            <td><span style="color:red">15</span></td>
-            <td><span style="color:green">35</span></td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th rowspan="2"></th>
+<th colspan="2" style="text-align:center">Predicted</th>
+</tr>
+<tr>
+<th>Cat</th>
+<th>Dog</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Cat</th>
+<td><span style="color:green">47</span></td>
+<td><span style="color:red">3</span></td>
+</tr>
+<tr>
+<th>Dog</th>
+<td><span style="color:red">15</span></td>
+<td><span style="color:green">35</span></td>
+</tr>
+</tbody>
 </table>
-
 <h3 id="rare-cancer-detection">Rare Cancer Detection</h3>
 <p>You want to build a classifier for cancer. The cancer can be treated, but is
 deadly when undetected. The type of cancer is also super rare: Out of 100,000
 participants where you collected the data, only 10 had this type of cancer.</p>
-<h2 id="confusion-matrix">Confusion matrix</h2>
+<h2 id="confusion-matrix_1">Confusion matrix</h2>
 <p>The confusion matrix is not a metric, but a lot of metrics are based on it.
 TP, TN, FP, FN are all counts. Together, they sum up to the number of elements
 in the test set:</p>
@@ -244,29 +246,28 @@ in the test set:</p>
 of information that is hidden from the confusion matrix is the certainty of
 the classifier in its decision.</p>
 <table class="table">
-    <thead>
-    <tr>
-        <th rowspan="2" colspan="2"></th>
-        <th colspan="2" style="text-align:center">Predicted</th>
-    </tr>
-    <tr>
-        <th>Positive</th>
-        <th>Negative</th>
-    </tr>
-        </thead>
-    <tr>
-        <th rowspan="2" style="transform: rotate(-90deg);text-align: center;">Real</th>
-        <th>Positive</th>
-        <td><span style="color:green">TP</span></td>
-        <td><span style="color:red">FN</span></td>
-    </tr>
-    <tr>
-        <th>Negative</th>
-        <td><span style="color:red">FP</span></td>
-        <td><span style="color:green">TN</span></td>
-    </tr>
+<thead>
+<tr>
+<th colspan="2" rowspan="2"></th>
+<th colspan="2" style="text-align:center">Predicted</th>
+</tr>
+<tr>
+<th>Positive</th>
+<th>Negative</th>
+</tr>
+</thead>
+<tr>
+<th rowspan="2" style="transform: rotate(-90deg);text-align: center;">Real</th>
+<th>Positive</th>
+<td><span style="color:green">TP</span></td>
+<td><span style="color:red">FN</span></td>
+</tr>
+<tr>
+<th>Negative</th>
+<td><span style="color:red">FP</span></td>
+<td><span style="color:green">TN</span></td>
+</tr>
 </table>
-
 <p>To make it more concrete, think of a fire detector. The TP means there is a
 fire and the alarm rings. The FN is the worst case in this scenario: Although
 there is a fire, it is not detected.
@@ -274,10 +275,9 @@ The FP means we falsely say it is positive, although
 it isn't (the alarm rings, but there is no fire). And True Negative (TN) is
 most of the time the case: No fire, not alarm.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/confusion-matrix.jpg" alt="Confusion matrix for the smoke detector case" style="width: 512px;"/>
-    <figcaption class="text-center">Confusion matrix for the smoke detector case</figcaption>
+<img alt="Confusion matrix for the smoke detector case" src="../images/2018/06/confusion-matrix.jpg" style="width: 512px;"/>
+<figcaption class="text-center">Confusion matrix for the smoke detector case</figcaption>
 </figure>
-
 <h2 id="accuracy">Accuracy</h2>
 <p>The accuracy of a binary classifier <span class="math">\(C\)</span> is defined as</p>
 <div class="math">$$\text{accuracy}(C) := \frac{TP + TN}{FP + FN} \in [0, 1] \text{ (higher is better)}$$</div>
@@ -359,10 +359,9 @@ systems, I usually also want to have a bit of intuition what this means.</p>
 is a graphical plot that shows how a binary classifier changes when a threshold
 value is changed.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/06/roc-draft-xkcd-style.png" alt="ROC curve" style="width: 512px;"/>
-    <figcaption class="text-center">ROC curve</figcaption>
+<img alt="ROC curve" src="../images/2018/06/roc-draft-xkcd-style.png" style="width: 512px;"/>
+<figcaption class="text-center">ROC curve</figcaption>
 </figure>
-
 <h2 id="final-notes">Final Notes</h2>
 <p>Think about the smoke detector case. We don't have a positive example here, so
 we can't estimate the classifiers quality on it. Please note that there is

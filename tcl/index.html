@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="TCL">TCL</a><ul><li><a class="toc-href" href="#basic-syntax-by-example" title="Basic Syntax by Example">Basic Syntax by Example</a><ul><li><a class="toc-href" href="#hello-world" title="Hello World">Hello World</a></li><li><a class="toc-href" href="#loop-over-a-list" title="Loop over a list">Loop over a list</a></li><li><a class="toc-href" href="#fibonacci" title="Fibonacci">Fibonacci</a></li><li><a class="toc-href" href="#comments" title="Comments">Comments</a></li><li><a class="toc-href" href="#logical-operators" title="Logical operators">Logical operators</a></li><li><a class="toc-href" href="#99-bottles-of-beer" title="99 bottles of beer">99 bottles of beer</a></li><li><a class="toc-href" href="#argument-parsing" title="Argument parsing">Argument parsing</a></li></ul></li><li><a class="toc-href" href="#naming-schemes_1" title="Naming schemes">Naming schemes</a></li><li><a class="toc-href" href="#community" title="Community">Community</a></li><li><a class="toc-href" href="#execution-speed" title="Execution Speed">Execution Speed</a></li><li><a class="toc-href" href="#additional-information" title="Additional information">Additional information</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>TCL is an imperative, interpreted, dynamically typed programming language. The
@@ -112,16 +118,14 @@ described by the <a href="http://wiki.tcl.tk/10259">12 Rules for Tcl</a>.</p>
 <h2 id="basic-syntax-by-example">Basic Syntax by Example</h2>
 <p>Some nice comparisons of the syntax of many languages can be found at <a href="http://rigaux.org/language-study/syntax-across-languages.html">rigaux.org</a></p>
 <h3 id="hello-world">Hello World</h3>
-<div class="highlight"><pre><span></span><code><span class="k">set</span> myVariable <span class="s2">&quot;Hallo World!&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">set</span> myVariable <span class="s2">"Hallo World!"</span>
 <span class="nb">puts</span> <span class="nv">$myVariable</span>
 </code></pre></div>
-
 <h3 id="loop-over-a-list">Loop over a list</h3>
 <div class="highlight"><pre><span></span><code><span class="o">%</span> <span class="k">foreach</span> element <span class="k">{</span><span class="nv">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="k">}</span> <span class="k">{</span>
     <span class="nb">puts</span> <span class="nv">$element</span>
 <span class="k">}</span>
 </code></pre></div>
-
 <h3 id="fibonacci">Fibonacci</h3>
 <div class="highlight"><pre><span></span><code><span class="k">proc</span> fib <span class="k">{</span><span class="nv">n</span><span class="k">}</span> <span class="k">{</span>
     <span class="k">if</span> <span class="k">{</span><span class="nv">$n</span> <span class="o">&lt;</span> <span class="nv">2</span><span class="k">}</span> <span class="k">{</span>
@@ -135,17 +139,15 @@ described by the <a href="http://wiki.tcl.tk/10259">12 Rules for Tcl</a>.</p>
     <span class="nb">puts</span> <span class="k">[</span><span class="nv">fib</span> <span class="nv">$x</span><span class="k">]</span>
 <span class="k">}</span>
 </code></pre></div>
-
 <h3 id="comments">Comments</h3>
 <p>TCL uses <code>#</code> as a line comment and does not offer block comments. In fact, they
 recommend this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="mi">0</span> <span class="k">{</span>
     <span class="nv">Any</span> Tcl code to be commented out <span class="k">(</span><span class="nv">with</span> matching braces<span class="err">,</span> of course<span class="o">!</span><span class="k">)</span>
-    <span class="nv">or</span> any other kind of text<span class="err">,</span> will be ignored <span class="o">-</span> and even <span class="k">[</span><span class="nb">exit</span><span class="k">]</span> won<span class="err">&#39;</span>t fire
-    <span class="nv">because</span> it<span class="err">&#39;</span>s <span class="ow">in</span> braces<span class="err">,</span> so left unevaluated<span class="o">!</span>
+    <span class="nv">or</span> any other kind of text<span class="err">,</span> will be ignored <span class="o">-</span> and even <span class="k">[</span><span class="nb">exit</span><span class="k">]</span> won<span class="err">'</span>t fire
+    <span class="nv">because</span> it<span class="err">'</span>s <span class="ow">in</span> braces<span class="err">,</span> so left unevaluated<span class="o">!</span>
 <span class="k">}</span>
 </code></pre></div>
-
 <p>Source: <a href="http://wiki.tcl.tk/1669">wiki.tcl.tk/1669</a></p>
 <h3 id="logical-operators">Logical operators</h3>
 <table>
@@ -160,7 +162,7 @@ recommend this:</p>
 <tbody>
 <tr>
 <td>&amp;&amp;</td>
-<td>&#124;&#124;</td>
+<td>||</td>
 <td>1</td>
 <td>0</td>
 </tr>
@@ -185,30 +187,29 @@ recommend this:</p>
 
 <span class="k">proc</span> findBString <span class="k">{</span> <span class="nv">count</span> <span class="k">}</span> <span class="k">{</span>
   <span class="k">return</span> <span class="k">[switch</span> <span class="o">-</span>exact <span class="o">--</span> <span class="nv">$count</span> <span class="k">{</span>
-    <span class="nv">0</span>       <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">&quot;No more bottles&quot;</span><span class="k">}</span>  <span class="k">}</span>
-    <span class="nv">1</span>       <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">&quot;1 bottle&quot;</span><span class="k">}</span>         <span class="k">}</span>
-    <span class="nv">default</span> <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">&quot;$count bottles&quot;</span><span class="k">}</span>   <span class="k">}</span>
+    <span class="nv">0</span>       <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">"No more bottles"</span><span class="k">}</span>  <span class="k">}</span>
+    <span class="nv">1</span>       <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">"1 bottle"</span><span class="k">}</span>         <span class="k">}</span>
+    <span class="nv">default</span> <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">"$count bottles"</span><span class="k">}</span>   <span class="k">}</span>
   <span class="k">}]</span>
 <span class="k">}</span>
 
 <span class="k">set</span> bottles <span class="mi">99</span>
 <span class="k">set</span> bString <span class="k">[</span><span class="nv">findBString</span> <span class="nv">$bottles</span><span class="k">]</span>
 <span class="k">while</span> <span class="k">{</span><span class="nv">$bottles</span> <span class="o">+</span> <span class="nv">1</span><span class="k">}</span> <span class="k">{</span>
-  <span class="nb">puts</span> <span class="s2">&quot;$bString of beer on the wall.  $bString of beer.&quot;</span>
+  <span class="nb">puts</span> <span class="s2">"$bString of beer on the wall.  $bString of beer."</span>
   <span class="nb">incr</span> bottles <span class="o">-</span><span class="mi">1</span>
   <span class="k">if</span> <span class="k">{</span><span class="nv">$bottles</span> <span class="o">+</span> <span class="nv">1</span><span class="k">}</span> <span class="k">{</span>
     <span class="k">set</span> bString <span class="k">[</span><span class="nv">findBString</span> <span class="nv">$bottles</span><span class="k">]</span>
-    <span class="nb">puts</span> <span class="s2">&quot;Take one down, pass it round, $bString of beer on the wall.\n&quot;</span>
+    <span class="nb">puts</span> <span class="s2">"Take one down, pass it round, $bString of beer on the wall.\n"</span>
   <span class="k">}</span> <span class="k">else</span> <span class="k">{</span>
-    <span class="nb">puts</span> <span class="s2">&quot;Go to the store and buy some more...99 bottles of beer.&quot;</span>
+    <span class="nb">puts</span> <span class="s2">"Go to the store and buy some more...99 bottles of beer."</span>
   <span class="k">}</span>
 <span class="k">}</span>
 </code></pre></div>
-
 <p>Source: <a href="http://99-bottles-of-beer.net/language-tcl-797.html">99-bottles-of-beer.net</a></p>
 <h3 id="argument-parsing">Argument parsing</h3>
 <p>See <a href="http://www.cs.cmu.edu/~tanja/Lectures/JRTkDoc/OldDoc/interface/parseArgv.html"><code>itfParseArgv</code></a></p>
-<h2 id="naming-schemes">Naming schemes</h2>
+<h2 id="naming-schemes_1">Naming schemes</h2>
 <ul>
 <li>Variables have to fit to the pattern <code>[_a-zA-Z][_a-zA-Z0-9]*</code>.</li>
 <li>Functions have to fit to the pattern <code>[^ \t\n\r\f]+</code>.</li>
@@ -219,62 +220,60 @@ recommend this:</p>
 community will grow, when the language gets more popular.</p>
 <p>According to <a href="http://www.ohloh.net/languages/compare">Ohloh</a>, TCL is quite unpopular:</p>
 <ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/04/monthly-commits-ohloh.png" class="image">
-                  <img src="../images/2014/04/monthly-commits-ohloh.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Monthly Commits</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/04/monthly-contributors-ohloh.png" class="image">
-                  <img src="../images/2014/04/monthly-contributors-ohloh.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Monthly Contributors</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/04/monthly-loc-ohloh.png" class="image">
-                  <img src="../images/2014/04/monthly-loc-ohloh.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Monthly Lines of Code</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2014/04/monthly-projects-ohloh.png" class="image">
-                  <img src="../images/2014/04/monthly-projects-ohloh.png" alt="" style="max-width: 120px; max-height: 120px;">
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Monthly Projects</div>
-      </div>
-   </li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2014/04/monthly-commits-ohloh.png">
+<img alt="" src="../images/2014/04/monthly-commits-ohloh.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext">Monthly Commits</div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2014/04/monthly-contributors-ohloh.png">
+<img alt="" src="../images/2014/04/monthly-contributors-ohloh.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext">Monthly Contributors</div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2014/04/monthly-loc-ohloh.png">
+<img alt="" src="../images/2014/04/monthly-loc-ohloh.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext">Monthly Lines of Code</div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2014/04/monthly-projects-ohloh.png">
+<img alt="" src="../images/2014/04/monthly-projects-ohloh.png" style="max-width: 120px; max-height: 120px;"/>
+</a>
+</div>
+</div>
+<div class="gallerytext">Monthly Projects</div>
+</div>
+</li>
 </ul>
-
 <p>You can also take a look at <a href="http://www.google.com/trends/">Google Trends</a>:</p>
 <figure class="aligncenter">
-            <a href="../images/2014/04/google-trends-tcl.png"><img src="../images/2014/04/google-trends-tcl.png" alt="Google Trends" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Google Trends</figcaption>
-        </figure>
-
+<a href="../images/2014/04/google-trends-tcl.png"><img alt="Google Trends" class="" src="../images/2014/04/google-trends-tcl.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Google Trends</figcaption>
+</figure>
 <ul>
 <li>The <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE Index</a>
 ranked Tcl on place 43 in March 2014.</li>

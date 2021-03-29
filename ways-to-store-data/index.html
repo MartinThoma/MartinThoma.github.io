@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Ways to store Data">Ways to store Data</a><ul><li><a class="toc-href" href="#hardware" title="Hardware">Hardware</a></li><li><a class="toc-href" href="#file-formats" title="File formats">File formats</a><ul><li><a class="toc-href" href="#structured-data" title="Structured Data">Structured Data</a></li><li><a class="toc-href" href="#unstructured-data" title="Unstructured data">Unstructured data</a></li></ul></li><li><a class="toc-href" href="#databases_1" title="Databases">Databases</a></li><li><a class="toc-href" href="#data-warehouse" title="Data Warehouse">Data Warehouse</a></li><li><a class="toc-href" href="#data-lake" title="Data Lake">Data Lake</a></li><li><a class="toc-href" href="#frameworks" title="Frameworks">Frameworks</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
@@ -112,72 +118,70 @@ ways to store it. This post is inspired by some news of really big datasets bein
 <p>This post is not about hardware. Well, not mainly. The only thing I would
 like to mention are some rough scales:</p>
 <table class="table">
-    <tr>
-        <th>Size</th>
-        <th>Hardware</th>
-        <th>Backup</th>
-    </tr>
-    <tr>
-        <td>&lt; 250GB</td>
-        <td>SSD</td>
-        <td>Easy</td>
-    </tr>
-    <tr>
-        <td>250 GB - 10 TB</td>
-        <td>HDD</td>
-        <td>Ok</td>
-    </tr>
-    <tr>
-        <td>10 TB - 32 TB</td>
-        <td>HDD + RAID</td>
-        <td>Difficult</td>
-    </tr>
-    <tr>
-        <td>more than 32 TB</td>
-        <td>Tapes? SANs?</td>
-        <td>Extremely difficult</td>
-    </tr>
+<tr>
+<th>Size</th>
+<th>Hardware</th>
+<th>Backup</th>
+</tr>
+<tr>
+<td>&lt; 250GB</td>
+<td>SSD</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>250 GB - 10 TB</td>
+<td>HDD</td>
+<td>Ok</td>
+</tr>
+<tr>
+<td>10 TB - 32 TB</td>
+<td>HDD + RAID</td>
+<td>Difficult</td>
+</tr>
+<tr>
+<td>more than 32 TB</td>
+<td>Tapes? SANs?</td>
+<td>Extremely difficult</td>
+</tr>
 </table>
-
 <p>A short overview of some RAID levels:</p>
 <table class="table">
-    <tr>
-        <th>RAID</th>
-        <th>Stripes</th>
-        <th>Mirror</th>
-        <th>Parity</th>
-        <th>Comment</th>
-    </tr>
-    <tr>
-        <td>0</td>
-        <td>Blocks</td>
-        <td>No</td>
-        <td>No</td>
-        <td>Just chaining the disks. You can easily loose data</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>No</td>
-        <td>Blocks</td>
-        <td>No</td>
-        <td>You can only use half the storage</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>Blocks</td>
-        <td>No</td>
-        <td>Yes</td>
-        <td>(1/n)th of the storage is used for parity, where n is the number of disks</td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>Blocks</td>
-        <td>Blocks</td>
-        <td>No</td>
-        <td>Raid 1 and 0 combined</td>
-    </tr>
+<tr>
+<th>RAID</th>
+<th>Stripes</th>
+<th>Mirror</th>
+<th>Parity</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Blocks</td>
+<td>No</td>
+<td>No</td>
+<td>Just chaining the disks. You can easily loose data</td>
+</tr>
+<tr>
+<td>1</td>
+<td>No</td>
+<td>Blocks</td>
+<td>No</td>
+<td>You can only use half the storage</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blocks</td>
+<td>No</td>
+<td>Yes</td>
+<td>(1/n)th of the storage is used for parity, where n is the number of disks</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Blocks</td>
+<td>Blocks</td>
+<td>No</td>
+<td>Raid 1 and 0 combined</td>
+</tr>
 </table>
-
 <p>You might be interested in</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=uykMPICGeqw">Unboxing a PETABYTE of Storage - HOLY $H!T Ep. 16</a>.</li>
@@ -203,7 +207,7 @@ are a few examples:</p>
 <li>Documents: PDF, PS, ...</li>
 <li>Video, Audio, ...</li>
 </ul>
-<h2 id="databases">Databases</h2>
+<h2 id="databases_1">Databases</h2>
 <p>Databases are a nice way to store data. Types of databases are:</p>
 <ul>
 <li>SQL-based: MySQL / MariaDB, PostgreSQL, ...</li>

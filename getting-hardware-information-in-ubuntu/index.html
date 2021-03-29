@@ -102,15 +102,20 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Getting Hardware Information in Ubuntu">Getting Hardware Information in Ubuntu</a><ul><li><a class="toc-href" href="#cpu" title="CPU">CPU</a></li><li><a class="toc-href" href="#ram" title="RAM">RAM</a></li><li><a class="toc-href" href="#graphic-card" title="Graphic card">Graphic card</a></li><li><a class="toc-href" href="#audio-chipset" title="Audio Chipset">Audio Chipset</a></li><li><a class="toc-href" href="#network-chipset" title="Network Chipset">Network Chipset</a></li><li><a class="toc-href" href="#monitor" title="Monitor">Monitor</a></li><li><a class="toc-href" href="#hard-disk" title="Hard disk">Hard disk</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I'm using Ubuntu now for many years, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet.</p>
 <p>I guess most commands will work in every Linux distribution, but I tried it only in Ubuntu 10.04LTS.</p>
 <p>Maybe you need to install some packages.</p>
 <p>If you know more commands, please post a comment!</p>
-<h2>CPU</h2>
-
+<h2 id="cpu">CPU</h2>
 <div class="highlight"><pre><span></span><code>cat /proc/cpuinfo
 
 processor   : <span class="m">0</span>
@@ -171,9 +176,7 @@ cache_alignment : <span class="m">64</span>
 address sizes   : <span class="m">36</span> bits physical, <span class="m">48</span> bits virtual
 power management:
 </code></pre></div>
-
-<h2>RAM</h2>
-
+<h2 id="ram">RAM</h2>
 <div class="highlight"><pre><span></span><code>free
 
              total       used       free     shared    buffers     cached
@@ -181,14 +184,11 @@ Mem:       <span class="m">4047112</span>    <span class="m">1712724</span>    <
 -/+ buffers/cache:     <span class="m">873588</span>    <span class="m">3173524</span>
 Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <span class="m">8864760</span>
 </code></pre></div>
-
-<h2>Graphic card</h2>
-
+<h2 id="graphic-card">Graphic card</h2>
 <div class="highlight"><pre><span></span><code>lspci <span class="p">|</span> grep VGA
 
 <span class="m">00</span>:02.0 VGA compatible controller: Intel Corporation Mobile <span class="m">4</span> Series Chipset Integrated Graphics Controller <span class="o">(</span>rev <span class="m">07</span><span class="o">)</span>
 </code></pre></div>
-
 <p>And some more details:</p>
 <div class="highlight"><pre><span></span><code>lspci -s <span class="m">00</span>:02.0 -v
 <span class="m">00</span>:02.0 VGA compatible controller: Intel Corporation Mobile <span class="m">4</span> Series Chipset Integrated Graphics Controller <span class="o">(</span>rev <span class="m">07</span><span class="o">)</span>
@@ -201,14 +201,11 @@ Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <
     Kernel driver <span class="k">in</span> use: i915
     Kernel modules: i915
 </code></pre></div>
-
-<h2>Audio Chipset</h2>
-
+<h2 id="audio-chipset">Audio Chipset</h2>
 <div class="highlight"><pre><span></span><code>lspci <span class="p">|</span> grep Audio
 
 <span class="m">00</span>:1b.0 Audio device: Intel Corporation 82801I <span class="o">(</span>ICH9 Family<span class="o">)</span> HD Audio Controller <span class="o">(</span>rev <span class="m">03</span><span class="o">)</span>
 </code></pre></div>
-
 <p>And some more details:</p>
 <div class="highlight"><pre><span></span><code>lspci -s <span class="m">00</span>:1b.0 -v
 <span class="m">00</span>:1b.0 Audio device: Intel Corporation 82801I <span class="o">(</span>ICH9 Family<span class="o">)</span> HD Audio Controller <span class="o">(</span>rev <span class="m">03</span><span class="o">)</span>
@@ -219,14 +216,11 @@ Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <
     Kernel driver <span class="k">in</span> use: HDA Intel
     Kernel modules: snd-hda-intel
 </code></pre></div>
-
-<h2>Network Chipset</h2>
-
+<h2 id="network-chipset">Network Chipset</h2>
 <div class="highlight"><pre><span></span><code>lspci <span class="p">|</span> grep Network
 
 <span class="m">04</span>:00.0 Network controller: Atheros Communications Inc. AR9287 Wireless Network Adapter <span class="o">(</span>rev <span class="m">01</span><span class="o">)</span>
 </code></pre></div>
-
 <p>Then get some more information:</p>
 <div class="highlight"><pre><span></span><code>lspci -s <span class="m">04</span>:00 -v
 <span class="m">04</span>:00.0 Network controller: Atheros Communications Inc. AR9287 Wireless Network Adapter <span class="o">(</span>rev <span class="m">01</span><span class="o">)</span>
@@ -237,11 +231,9 @@ Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <
     Kernel driver <span class="k">in</span> use: ath9k
     Kernel modules: ath9k
 </code></pre></div>
-
-<h2>Monitor</h2>
+<h2 id="monitor">Monitor</h2>
 <p>The packages ddcprobe or xresprobe will help.</p>
-<h2>Hard disk</h2>
-
+<h2 id="hard-disk">Hard disk</h2>
 <div class="highlight"><pre><span></span><code>df -H
 
 Dateisystem             Gr<span class="p">&amp;</span>ouml<span class="p">;&amp;</span>szlig<span class="p">;</span>e   Benut  Verf Ben% Eingeh<span class="p">&amp;</span>auml<span class="p">;</span>ngt auf

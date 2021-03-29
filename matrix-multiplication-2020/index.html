@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Matrix Multiplication: 2020 Update">Matrix Multiplication: 2020 Update</a><ul><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#pypy" title="pypy">pypy</a></li></ul></li><li><a class="toc-href" href="#c_1" title="C++">C++</a></li><li><a class="toc-href" href="#using-c-from-python" title="Using C++ from Python">Using C++ from Python</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>In 2012 I wrote a series of articles about matrix
@@ -113,37 +119,36 @@ optimized. So let's update the results of my old articles 🙂</p>
 <p>All scripts are tested on my new Thinkpad T460p. For comparision, I've also
 added the laptop I had before when I wrote the 2012 matrix multiplication article:</p>
 <table class="table">
-    <thead>
-        <tr style="background-color:#cdcdcd">
-            <th>&nbsp;</th>
-            <th>Acer TravelMate 5735Z</th>
-            <th>Thinkpad T460p</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
-            <td>2x Pentium(R) Dual-Core CPU T4500 @2.30GHz</td>
-            <td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">RAM</td>
-            <td>4 GB</td>
-            <td>8 GB</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">Video Card</td>
-            <td>Intel GMA 4500MHD</td>
-            <td>Nvidia GeForce 940MX</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">System</td>
-            <td>Ubuntu 10.10.04 LTS</td>
-            <td>Ubuntu 18.04.3 LTS</td>
-        </tr>
-    </tbody>
+<thead>
+<tr style="background-color:#cdcdcd">
+<th>&nbsp;</th>
+<th>Acer TravelMate 5735Z</th>
+<th>Thinkpad T460p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+<td>2x Pentium(R) Dual-Core CPU T4500 @2.30GHz</td>
+<td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">RAM</td>
+<td>4 GB</td>
+<td>8 GB</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">Video Card</td>
+<td>Intel GMA 4500MHD</td>
+<td>Nvidia GeForce 940MX</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">System</td>
+<td>Ubuntu 10.10.04 LTS</td>
+<td>Ubuntu 18.04.3 LTS</td>
+</tr>
+</tbody>
 </table>
-
 <h2 id="python">Python</h2>
 <p>In the following table you can see the execution times for the different
 algorithms and different Python versions. As input, I took the
@@ -152,83 +157,82 @@ algorithms and different Python versions. As input, I took the
 of 2.6x means that you could run the code on the new machine 2.6x in the time
 the old machine needed.</p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Algorithm</th>
-            <th>Python 2.7.16</th>
-            <th>Python 3.8.1</th>
-            <th>pypy3.6-7.3.0</th>
-            <th>pypy-c-jit-latest</th>
-            <th>Python 3.8.1 + cython</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>ijk</th>
-            <td>1253 (<span style="color: green;">2.6x</span>)</td>
-            <td>1884</td>
-            <td>158</td>
-            <td>147</td>
-            <td>1088</td>
-        </tr>
-        <tr>
-            <th>ikj</th>
-            <td>901s (<span style="color: green;">2.9x</span>)</td>
-            <td>1072</td>
-            <td>52</td>
-            <td>50</td>
-            <td>441</td>
-        </tr>
-        <tr>
-            <th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy</a></th>
-            <td>20 (<span style="color: green;">~6x</span>)<br/>version: 1.14.4</td>
-            <td>20<br/>version: 1.18.1</td>
-            <td>42</td>
-            <td>36</td>
-            <td>22</td>
-        </tr>
-        <tr>
-            <th><a href="https://en.wikipedia.org/wiki/SciPy">SciPy</a></th>
-            <td>45 (<span style="color: green;">2.6x</span>)<br/>version: 1.1.0</td>
-            <td>20<br/>version: 1.4.1</td>
-            <td colspan="2"><a href="https://stackoverflow.com/q/60248443/562769">Installation problems</a></td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
-            <td>1709 (<span style="color: green;">1.7x</span>)</td>
-            <td>1780</td>
-            <td>190</td>
-            <td>125</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
-            <td>855 (<span style="color: green;">3.4x</span>)</td>
-            <td>1022</td>
-            <td>44</td>
-            <td>41</td>
-            <td>441</td>
-        </tr>
-        <tr>
-            <th>ikj (2 threads)</th>
-            <td>953</td>
-            <td>1611</td>
-            <td>37</td>
-            <td>32</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <th>ikj (4 threads)</th>
-            <td>459</td>
-            <td>762</td>
-            <td>19</td>
-            <td>17</td>
-            <td>-</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Python 2.7.16</th>
+<th>Python 3.8.1</th>
+<th>pypy3.6-7.3.0</th>
+<th>pypy-c-jit-latest</th>
+<th>Python 3.8.1 + cython</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>ijk</th>
+<td>1253 (<span style="color: green;">2.6x</span>)</td>
+<td>1884</td>
+<td>158</td>
+<td>147</td>
+<td>1088</td>
+</tr>
+<tr>
+<th>ikj</th>
+<td>901s (<span style="color: green;">2.9x</span>)</td>
+<td>1072</td>
+<td>52</td>
+<td>50</td>
+<td>441</td>
+</tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy</a></th>
+<td>20 (<span style="color: green;">~6x</span>)<br/>version: 1.14.4</td>
+<td>20<br/>version: 1.18.1</td>
+<td>42</td>
+<td>36</td>
+<td>22</td>
+</tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/SciPy">SciPy</a></th>
+<td>45 (<span style="color: green;">2.6x</span>)<br/>version: 1.1.0</td>
+<td>20<br/>version: 1.4.1</td>
+<td colspan="2"><a href="https://stackoverflow.com/q/60248443/562769">Installation problems</a></td>
+<td>-</td>
+</tr>
+<tr>
+<th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
+<td>1709 (<span style="color: green;">1.7x</span>)</td>
+<td>1780</td>
+<td>190</td>
+<td>125</td>
+<td>-</td>
+</tr>
+<tr>
+<th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
+<td>855 (<span style="color: green;">3.4x</span>)</td>
+<td>1022</td>
+<td>44</td>
+<td>41</td>
+<td>441</td>
+</tr>
+<tr>
+<th>ikj (2 threads)</th>
+<td>953</td>
+<td>1611</td>
+<td>37</td>
+<td>32</td>
+<td>-</td>
+</tr>
+<tr>
+<th>ikj (4 threads)</th>
+<td>459</td>
+<td>762</td>
+<td>19</td>
+<td>17</td>
+<td>-</td>
+</tr>
+</tbody>
 </table>
-
 <p>Things to note:</p>
 <ul>
 <li>pypy is crazy fast compared to CPython - up to a speedup of 34x 😲 So JIT is
@@ -252,89 +256,87 @@ the old machine needed.</p>
 <li>Libraries: Using numpy gave a <strong>94.2x speedup</strong>!</li>
 </ul>
 </li>
-<li>Numpy and scipy are the way to go, just as expected 🤷‍♂️</li>
+<li>Numpy and scipy are the way to go, just as expected 🤷&zwj;♂️</li>
 </ul>
 <p>I was interested in the influence of the machine, so I ran the algorithms with
 Python 3.8 on others as well:</p>
 <table class="table">
-    <thead>
-        <tr style="background-color:#cdcdcd">
-            <th>&nbsp;</th>
-            <th>Thinkpad T460p<br/>(Reference Machine)</th>
-            <th>EliteBook-1040</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
-            <td>8x Intel(R) Core(TM) i7-6700HQ<br/>CPU @ 2.60GHz</td>
-            <td>4x Intel(R) Core(TM) i5-6300U<br/>CPU @ 2.40GHz</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">RAM</td>
-            <td>8 GB</td>
-            <td>16 GB</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">Video Card</td>
-            <td>Nvidia GeForce 940MX</td>
-            <td>Intel HD Graphics 520</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">System</td>
-            <td>Ubuntu 18.04.3 LTS</td>
-            <td>Ubuntu 18.04.4 LTS</td>
-        </tr>
-    </tbody>
+<thead>
+<tr style="background-color:#cdcdcd">
+<th>&nbsp;</th>
+<th>Thinkpad T460p<br/>(Reference Machine)</th>
+<th>EliteBook-1040</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+<td>8x Intel(R) Core(TM) i7-6700HQ<br/>CPU @ 2.60GHz</td>
+<td>4x Intel(R) Core(TM) i5-6300U<br/>CPU @ 2.40GHz</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">RAM</td>
+<td>8 GB</td>
+<td>16 GB</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">Video Card</td>
+<td>Nvidia GeForce 940MX</td>
+<td>Intel HD Graphics 520</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">System</td>
+<td>Ubuntu 18.04.3 LTS</td>
+<td>Ubuntu 18.04.4 LTS</td>
+</tr>
+</tbody>
 </table>
-
 <table class="table">
-    <thead>
-        <tr>
-            <th>Algorithm</th>
-            <th>Thinkpad T460p</th>
-            <th>EliteBook-1040</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>ijk</th>
-            <td>1884</td>
-            <td>1891</td>
-        </tr>
-        <tr>
-            <th>ikj</th>
-            <td>1072</td>
-            <td>1455</td>
-        </tr>
-        <tr>
-            <th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy 1.18.1</a></th>
-            <td>20</td>
-            <td>21</td>
-        </tr>
-        <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
-            <td>1780</td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
-            <td>1022</td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <th>ikj (2 threads)</th>
-            <td>1611</td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <th>ikj (4 threads)</th>
-            <td>762</td>
-            <td>TODO</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Thinkpad T460p</th>
+<th>EliteBook-1040</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>ijk</th>
+<td>1884</td>
+<td>1891</td>
+</tr>
+<tr>
+<th>ikj</th>
+<td>1072</td>
+<td>1455</td>
+</tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy 1.18.1</a></th>
+<td>20</td>
+<td>21</td>
+</tr>
+<tr>
+<th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
+<td>1780</td>
+<td>TODO</td>
+</tr>
+<tr>
+<th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
+<td>1022</td>
+<td>TODO</td>
+</tr>
+<tr>
+<th>ikj (2 threads)</th>
+<td>1611</td>
+<td>TODO</td>
+</tr>
+<tr>
+<th>ikj (4 threads)</th>
+<td>762</td>
+<td>TODO</td>
+</tr>
+</tbody>
 </table>
-
 <p>The interesting thing to note here is that the EliteBook is about the same
 speed for the ikj-algorithm (even a tiny bit slower), but the EliteBook is way
 slower for the ikj algorithm.</p>
@@ -350,36 +352,35 @@ often beat CPython, ranging from being slightly slower, to speedups of up to
 <p>Another resource which states that PyPy is faster than CPython is <a href="https://pybenchmarks.org/u64q/pypy.php">pybenchmarks.org</a> (also <a href="https://pybenchmarks.org/u64q/pypy3.php">PyPy 3</a>).</p>
 <p>PyPy uses <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">Just-in-time compilation</a> (JIT)
 to get those speedups.</p>
-<p>Go to <a href="https://stackoverflow.com/q/2591879/562769">PyPy — How can it possibly beat CPython?</a>
+<p>Go to <a href="https://stackoverflow.com/q/2591879/562769">PyPy &mdash; How can it possibly beat CPython?</a>
 for more information why PyPy is that fast.</p>
-<h2 id="c">C++</h2>
+<h2 id="c_1">C++</h2>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Algorithm</th>
-            <th>g++-O0 -D _DEBUG -g</th>
-            <th>-O3 -D NDEBUG -DBOOST_UBLAS_NDEBUG</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>ijk</th>
-            <td>168.06</td>
-            <td>45.05</td>
-        </tr>
-        <tr>
-            <th>ikj</th>
-            <td>89.67</td>
-            <td>5.24</td>
-        </tr>
-        <tr>
-            <th>library-boost</th>
-            <td>1002.36</td>
-            <td>4.56</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>g++-O0 -D _DEBUG -g</th>
+<th>-O3 -D NDEBUG -DBOOST_UBLAS_NDEBUG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>ijk</th>
+<td>168.06</td>
+<td>45.05</td>
+</tr>
+<tr>
+<th>ikj</th>
+<td>89.67</td>
+<td>5.24</td>
+</tr>
+<tr>
+<th>library-boost</th>
+<td>1002.36</td>
+<td>4.56</td>
+</tr>
+</tbody>
 </table>
-
 <p>Things to note:</p>
 <ul>
 <li>Debug flags / Optimization settings while compiling make a huge difference</li>

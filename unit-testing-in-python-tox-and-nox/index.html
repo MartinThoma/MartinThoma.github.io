@@ -102,19 +102,24 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Unit Testing in Python  &mdash;  tox and nox">Unit Testing in Python  &mdash;  tox and nox</a><ul><li><a class="toc-href" href="#pyenv" title="pyenv">pyenv</a></li><li><a class="toc-href" href="#virtual-environment-basics" title="Virtual environment basics">Virtual environment basics</a></li><li><a class="toc-href" href="#testing-multiple-python-versions-without-tox" title="Testing multiple Python versions without tox">Testing multiple Python versions without tox</a></li><li><a class="toc-href" href="#how-to-use-tox" title="How to use tox">How to use tox</a></li><li><a class="toc-href" href="#now-what-is-nox" title="Now&hellip; what is nox?">Now&hellip; what is nox?</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img src="../images/2020/07/alice-full- Andrea-Caprotti.png" alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" style="width: 512px;"/></a>
-    <figcaption class="text-center">Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
+<a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" src="../images/2020/07/alice-full- Andrea-Caprotti.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
 </figure>
-
 <p>When I started developing Python packages, there was one mistake I did quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.</p>
 <p>After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for Continuous Integration tools like Travis. I assume you already know <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">the basics of unit testing in Python</a> and <a href="https://packaging.python.org/tutorials/packaging-projects/">how to package your code</a>.</p>
 <h2 id="pyenv">pyenv</h2>
-<p><a href="https://github.com/pyenv/pyenv">pyenv</a> is a tool which lets you easily install and switch Python environments on your system. Take a look at <a href="https://github.com/pyenv/pyenv#installation">the official installation instructions</a>; it’s not a Python package but hooks directly into your shell.</p>
-<p>Once it is installed, you can get a list of all available Python environments. In July 2020, there were 427 different versions! I’ve shortened them here to show you the ones I think are interesting:</p>
+<p><a href="https://github.com/pyenv/pyenv">pyenv</a> is a tool which lets you easily install and switch Python environments on your system. Take a look at <a href="https://github.com/pyenv/pyenv#installation">the official installation instructions</a>; it&rsquo;s not a Python package but hooks directly into your shell.</p>
+<p>Once it is installed, you can get a list of all available Python environments. In July 2020, there were 427 different versions! I&rsquo;ve shortened them here to show you the ones I think are interesting:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv install --list
 Available versions:
   <span class="o">[</span>...<span class="o">]</span>
@@ -137,7 +142,6 @@ Available versions:
   pypy3.6-7.3.1
   <span class="o">[</span>...<span class="o">]</span>
 </code></pre></div>
-
 <p>Install a Python version:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv install <span class="m">3</span>.8.4
 Downloading Python-3.8.4.tar.xz...
@@ -145,7 +149,6 @@ Downloading Python-3.8.4.tar.xz...
 Installing Python-3.8.4...
 Installed Python-3.8.4 to /home/moose/.pyenv/versions/3.8.4
 </code></pre></div>
-
 <p>And use it:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv <span class="nb">local</span> <span class="m">3</span>.8.4
 
@@ -155,17 +158,14 @@ Python <span class="m">3</span>.8.4
 $ pip --version
 pip <span class="m">20</span>.1.1 from /home/moose/.pyenv/versions/3.8.4/lib/python3.8/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
-
 <h2 id="virtual-environment-basics">Virtual environment basics</h2>
 <p>A virtual environment encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed c libraries and executables. The only difference is which packages are available.</p>
 <p>You can create a new virtual environment called venv-tutorial like this:</p>
 <div class="highlight"><pre><span></span><code>python -m venv venv-tutorial
 </code></pre></div>
-
 <p>It creates a folder which contains all installed packages and few other things. To use it, you need to activate it:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span> venv-tutorial/bin/activate
 </code></pre></div>
-
 <p>This will add the prefix (venv-tutorial) in front of your prompt. It will make sure that later calls to python and pip use this environment. If you want to stop it again, type deactivate in the shell. If you delete this folder, the virtual environment is gone.</p>
 <h2 id="testing-multiple-python-versions-without-tox">Testing multiple Python versions without tox</h2>
 <p>When you claim that your project supports Python 2.7 and 3.5 to 3.8, then you better test those versions. In order to make sure that you install the packages properly, you should create a virtual environment. You might end up with creating a shell script which creates those virtual environments, starts the tests and deletes the virtual environments again.</p>
@@ -180,9 +180,8 @@ pip <span class="m">20</span>.1.1 from /home/moose/.pyenv/versions/3.8.4/lib/pyt
 ├── tests/                       # Unit tests
 │   ├── test_a_module.py
 │   └── test_another_module.py
-└── tox.ini                      # Why you&#39;re reading this article
+└── tox.ini                      # Why you're reading this article
 </code></pre></div>
-
 <p>The <code>tox.ini</code> file to run the tests in an isolated Python environment for
 Python 3.6, Python 3.7 and Python 3.8 looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tox]</span>
@@ -197,14 +196,12 @@ Python 3.6, Python 3.7 and Python 3.8 looks like this:</p>
     <span class="na">pydocstyle</span>
     <span class="na">flake8</span>
 </code></pre></div>
-
 <p>Note that you need to have the different Python versions already installed. You
 can do this with pyenv and make them available with the following command:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv <span class="nb">local</span> <span class="m">3</span>.8.4 <span class="m">3</span>.7.8 <span class="m">3</span>.6.11
 </code></pre></div>
-
-<p>Run tox within the root folder — the same folder that contains your tox.ini file.</p>
-<p>The next thing you might want to do is to break a couple of things out of the pytest run. For example, it’s not necessary to run the linter flake8 and blackin every single environment. Instead, you can define a linter environment which is run once:</p>
+<p>Run tox within the root folder &mdash; the same folder that contains your tox.ini file.</p>
+<p>The next thing you might want to do is to break a couple of things out of the pytest run. For example, it&rsquo;s not necessary to run the linter flake8 and blackin every single environment. Instead, you can define a linter environment which is run once:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tox]</span>
 <span class="na">envlist</span> <span class="o">=</span> <span class="s">linter,py36,py37,py38</span>
 
@@ -229,54 +226,49 @@ can do this with pyenv and make them available with the following command:</p>
     <span class="na">black --check .</span>
     <span class="na">pydocstyle</span>
 </code></pre></div>
-
 <p>And finally, you want to run the different environments in parallel for speed:</p>
 <div class="highlight"><pre><span></span><code>tox -p
 </code></pre></div>
-
 <p>If one of them fails, you get this type of output:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/tox-parallel-run.png"><img src="../images/2020/07/tox-parallel-run.png" alt="Run tox in parallel, showing a linter issue. This output is way cleaner than
+<a href="../images/2020/07/tox-parallel-run.png"><img alt="Run tox in parallel, showing a linter issue. This output is way cleaner than
 if you had run flake8 and black via pytest. It might be a tiny bit faster, but
-that difference is not relevant." style="width: 512px;"/></a>
-    <figcaption class="text-center">Run tox in parallel, showing a linter issue. This output is way cleaner than
+that difference is not relevant." src="../images/2020/07/tox-parallel-run.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Run tox in parallel, showing a linter issue. This output is way cleaner than
 if you had run flake8 and black via pytest. It might be a tiny bit faster, but
 that difference is not relevant.</figcaption>
 </figure>
-
 <p>If you want to run just the linter, tox -e linter is your friend 🙂</p>
 <p>You can also create a matrix of different combinations of Python environments and dependencies you install. Thea Flowers showed this at PyCon 2019 (<a href="https://youtu.be/-BHverY7IwU?t=678">video</a>), but I never had the need to go down that rabbit hole.</p>
-<h2 id="now-what-is-nox">Now… what is nox?</h2>
-<p><a href="https://nox.thea.codes/en/stable/">nox</a> is a spin-off of tox. Instead of using a tox.ini configuration file, it uses a noxfile.py Python file. It’s pretty similar to tox, but more flexible as it uses Python code:</p>
+<h2 id="now-what-is-nox">Now&hellip; what is nox?</h2>
+<p><a href="https://nox.thea.codes/en/stable/">nox</a> is a spin-off of tox. Instead of using a tox.ini configuration file, it uses a noxfile.py Python file. It&rsquo;s pretty similar to tox, but more flexible as it uses Python code:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party</span>
 <span class="kn">import</span> <span class="nn">nox</span>
 
 
-<span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;3.6&quot;</span><span class="p">,</span> <span class="s2">&quot;3.7&quot;</span><span class="p">,</span> <span class="s2">&quot;3.8&quot;</span><span class="p">])</span>
+<span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="p">[</span><span class="s2">"3.6"</span><span class="p">,</span> <span class="s2">"3.7"</span><span class="p">,</span> <span class="s2">"3.8"</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;.[all]&quot;</span><span class="p">)</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="s2">&quot;requirements-dev.txt&quot;</span><span class="p">)</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;pytest&quot;</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">".[all]"</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"-r"</span><span class="p">,</span> <span class="s2">"requirements-dev.txt"</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"pytest"</span><span class="p">)</span>
 
 
-<span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="s2">&quot;3.8&quot;</span><span class="p">)</span>
+<span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="s2">"3.8"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">lint</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="s2">&quot;requirements-lint.txt&quot;</span><span class="p">)</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;--check&quot;</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"-r"</span><span class="p">,</span> <span class="s2">"requirements-lint.txt"</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"flake8"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"black"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">,</span> <span class="s2">"--check"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>You can run a single session of nox with <code>nox -s lint</code>:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/nox-single-session.png"><img src="../images/2020/07/nox-single-session.png" alt="A single nox session" style="width: 512px;"/></a>
-    <figcaption class="text-center">A single nox session</figcaption>
+<a href="../images/2020/07/nox-single-session.png"><img alt="A single nox session" src="../images/2020/07/nox-single-session.png" style="width: 512px;"/></a>
+<figcaption class="text-center">A single nox session</figcaption>
 </figure>
-
 <p>Overall, not a huge difference. The output of nox is way nicer and for people who get started, I think the Python code written with nox is a bit simpler to read and understand than the tox.ini configuration file.</p>
-<h2 id="whats-next">What’s next?</h2>
-<p>Awesome, you now know how to automate testing multiple environments on your machine. Next, I will show you how to set up various Continuous Integration pipelines. CI is a huge helper for open source as you don’t need to run the tests yourself anymore — a bot will do it for you and leave a comment if the PR looks fine.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>Awesome, you now know how to automate testing multiple environments on your machine. Next, I will show you how to set up various Continuous Integration pipelines. CI is a huge helper for open source as you don&rsquo;t need to run the tests yourself anymore &mdash; a bot will do it for you and leave a comment if the PR looks fine.</p>
 <p>Going in another direction, you might want to learn how to structure your tests.</p>
-<p>Is there anything else you’re interested in?
+<p>Is there anything else you&rsquo;re interested in?
 Let me know: info@martin-thoma.de</p>
             
             <div id="disqus_thread" class="no-print"></div>

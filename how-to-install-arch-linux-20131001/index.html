@@ -102,27 +102,30 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to install Arch Linux 2013.10.01">How to install Arch Linux 2013.10.01</a><ul><li><a class="toc-href" href="#keyboard-layout" title="Keyboard layout">Keyboard layout</a></li><li><a class="toc-href" href="#partitioning-and-mounting" title="Partitioning and mounting">Partitioning and mounting</a></li><li><a class="toc-href" href="#getting-internet" title="Getting internet">Getting internet</a></li><li><a class="toc-href" href="#install-base-system" title="Install base system">Install base system</a></li><li><a class="toc-href" href="#install-gnome" title="Install GNOME">Install GNOME</a></li><li><a class="toc-href" href="#mate" title="MATE">MATE</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I've watched the following video which explains pretty much everything there is to know:</p>
-<iframe width="512" height="288" src="//www.youtube.com/embed/BMgGUBDxCjo" frameborder="0" allowfullscreen></iframe>
-
+<iframe allowfullscreen="" frameborder="0" height="288" src="//www.youtube.com/embed/BMgGUBDxCjo" width="512"></iframe>
 <p>You might also want to read the <a href="https://wiki.archlinux.org/index.php/Installation_Guide">Arch Linux Installation Guide</a>. The <a href="https://wiki.archlinux.de/title/Anleitung_f&uuml;r_Einsteiger">German guide</a> is also very good.</p>
 <p>I just like to add some notes. They are primarily for myself, so you really should read the installation guide or watch the video.</p>
 <p>The Arch Linux installation setup is command line based.</p>
-<h2>Keyboard layout</h2>
+<h2 id="keyboard-layout">Keyboard layout</h2>
 <p>You can switch to a German keyboard layout with this command:</p>
 <div class="highlight"><pre><span></span><code>loadkeys de
 </code></pre></div>
-
-<h2>Partitioning and mounting</h2>
+<h2 id="partitioning-and-mounting">Partitioning and mounting</h2>
 <p>You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).</p>
 <p>Check the result with</p>
 <div class="highlight"><pre><span></span><code>parted /dev/sda print
 fdisk -l
 </code></pre></div>
-
 <p>Afterwards:</p>
 <div class="highlight"><pre><span></span><code>mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
@@ -132,27 +135,22 @@ mount /dev/sda1 /mnt
 mkdir /mnt/home
 mount /dev/sda3 /mnt/home/
 </code></pre></div>
-
-<h2>Getting internet</h2>
+<h2 id="getting-internet">Getting internet</h2>
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
-<div class="highlight"><pre><span></span><code>wpa_passphrase <span class="s2">&quot;SSID&quot;</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
+<div class="highlight"><pre><span></span><code>wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
 wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
 dhcpcd wlp4s0
 </code></pre></div>
-
 <p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
 <p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
-<h2>Install base system</h2>
-
+<h2 id="install-base-system">Install base system</h2>
 <div class="highlight"><pre><span></span><code>packstrap -i /mnt base base base-devel
 </code></pre></div>
-
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
-<div class="highlight"><pre><span></span><code>genfstab -U -p /mnt  :  sed <span class="s1">&#39;s/rw,realtime,data=ordered/defaults,realtime/&#39;</span> &gt;&gt; /mnt/etc/fstab
+<div class="highlight"><pre><span></span><code>genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
 arch-chroot /mnt
 nano /etc/locale.gen
 </code></pre></div>
-
 <p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
 <div class="highlight"><pre><span></span><code><span class="nv">locale</span><span class="o">=</span>gen
 <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
@@ -161,21 +159,17 @@ ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 systemctl <span class="nb">enable</span> dhcpcd.service
 </code></pre></div>
-
 <p>Now edit and uncomment multilib. Then:</p>
 <div class="highlight"><pre><span></span><code>mkinitcpio -p linux
 </code></pre></div>
-
 <p>Now set the password by entering <code>passwd</code>.
 Create your user:</p>
 <div class="highlight"><pre><span></span><code>useradd -m -g users -G wheel -s /bin/bash moose
 passwd moose
 </code></pre></div>
-
 <p>Synchronise caches:</p>
 <div class="highlight"><pre><span></span><code>pacman -Syy
 </code></pre></div>
-
 <p>Install grub:</p>
 <div class="highlight"><pre><span></span><code>pacman -S grub-bios
 pacman -S os-prober
@@ -184,31 +178,25 @@ grub-mkconfig -o /boot/grub/grub.cfg
 <span class="nb">exit</span>
 restart
 </code></pre></div>
-
 <p>Give yourself sudo:</p>
 <div class="highlight"><pre><span></span><code>pacman -S sudo
 nano /etc/sudoers
 </code></pre></div>
-
 <p>Add your user to the bottom section "User privilege specification"</p>
-<h2>Install GNOME</h2>
-
+<h2 id="install-gnome">Install GNOME</h2>
 <div class="highlight"><pre><span></span><code>pacman -S gnome xorg
 systemctl <span class="nb">enable</span> gdm.service
 </code></pre></div>
-
-<h2>MATE</h2>
+<h2 id="mate">MATE</h2>
 <p>Add the following to your /etc/pacman.conf:</p>
 <div class="highlight"><pre><span></span><code>[mate]
 SigLevel = Optional TrustAll
 Server = http://repo.mate-desktop.org/archlinux/$arch
 </code></pre></div>
-
 <p>Run</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pacman -Syy</span>
 <span class="c1"># pacman -S mate mate-extras</span>
 </code></pre></div>
-
 <p>Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.</p>
             
             <div id="disqus_thread" class="no-print"></div>

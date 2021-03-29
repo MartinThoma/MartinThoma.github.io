@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Python and Encodings">Python and Encodings</a><ul><li><a class="toc-href" href="#test-script" title="Test script">Test script</a></li><li><a class="toc-href" href="#source-code-encoding" title="Source code encoding">Source code encoding</a></li><li><a class="toc-href" href="#printing-encoding-problems" title="Printing encoding problems">Printing encoding problems</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Working with encodings different from ASCII or UTF-8 has always been work
@@ -111,23 +117,20 @@ read a file / print some output.</p>
 <p>In the following, I will describe some strategies which might help you.</p>
 <h2 id="test-script">Test script</h2>
 <p>Copy the following text to a text file <code>test.txt</code>:</p>
-<div class="highlight"><pre><span></span><code>Die süße, kleine, lärmende Überfliegerin lebt in der Haute-Côte-Nord.
-Dort hat es momemtan 32°C.
+<div class="highlight"><pre><span></span><code>Die s&uuml;&szlig;e, kleine, l&auml;rmende &Uuml;berfliegerin lebt in der Haute-C&ocirc;te-Nord.
+Dort hat es momemtan 32&deg;C.
 </code></pre></div>
-
 <p>On Debian based systems you will get the information which type of encoding it
 has like this:</p>
 <div class="highlight"><pre><span></span><code>$ file test.txt
 test.txt: UTF-8 Unicode text
 </code></pre></div>
-
 <p>This is probably the best result. But to make sure that we know how to deal
 with other encodings, you can change the encoding like this:</p>
 <div class="highlight"><pre><span></span><code>$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
 $ file test-iso-8859-1.txt
 test-iso-8859-1.txt: ISO-8859 text
 </code></pre></div>
-
 <h2 id="source-code-encoding">Source code encoding</h2>
 <p>A first important step is to define the source code encoding. This is done
 with a comment. The first lines of Python code should probably always look
@@ -135,19 +138,16 @@ like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 </code></pre></div>
-
 <p><a href="https://www.python.org/dev/peps/pep-0263/">PEP-0263</a> explains it.</p>
 <h2 id="printing-encoding-problems">Printing encoding problems</h2>
 <p>The following error occurs when you try to print non-UTF-8 stuff with Python
 via Sublime Text:</p>
 <div class="highlight"><pre><span></span><code>[Decode error - output not utf-8]
 </code></pre></div>
-
 <p>The same code, executed via ZSH, gives:</p>
 <div class="highlight"><pre><span></span><code>Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
 Dort hat es momemtan 32�C.
 </code></pre></div>
-
 <p>You can fix that by adjusting the code the following way:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
@@ -155,18 +155,17 @@ Dort hat es momemtan 32�C.
 <span class="c1"># Make it work with Python 2 and Python 3</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;</span> <span class="s2">&quot;3&quot;</span>
+<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;</span> <span class="s2">"3"</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">PY3</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">open</span>
 
 <span class="c1"># Specify the encoding while opening it</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test-iso-8859-1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test-iso-8859-1.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"ISO-8859-1"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"UTF-8"</span><span class="p">,</span> <span class="s2">"replace"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
-
 <p>The two important points are</p>
 <ol>
 <li>Specifying the encoding while opening the file</li>
@@ -176,7 +175,7 @@ Dort hat es momemtan 32�C.
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://docs.python.org/2/howto/unicode.html">Unicode HOWTO</a></li>
-<li><a href="https://docs.python.org/3/library/codecs.html">codecs — Codec registry and base classes</a></li>
+<li><a href="https://docs.python.org/3/library/codecs.html">codecs &mdash; Codec registry and base classes</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Comparing Classifiers">Comparing Classifiers</a><ul><li><a class="toc-href" href="#tutorial-example" title="Tutorial example">Tutorial example</a></li><li><a class="toc-href" href="#the-hardware" title="The hardware">The hardware</a></li><li><a class="toc-href" href="#mnist" title="MNIST">MNIST</a><ul><li><a class="toc-href" href="#neural-networks" title="Neural Networks">Neural Networks</a></li><li><a class="toc-href" href="#svm" title="SVM">SVM</a></li><li><a class="toc-href" href="#random-forest" title="Random Forest">Random Forest</a></li><li><a class="toc-href" href="#k-nearest-neightbors" title="k nearest neightbors">k nearest neightbors</a></li><li><a class="toc-href" href="#decision-tree" title="Decision Tree">Decision Tree</a></li><li><a class="toc-href" href="#adaboost" title="Adaboost">Adaboost</a></li><li><a class="toc-href" href="#gradient-boosting" title="Gradient Boosting">Gradient Boosting</a></li><li><a class="toc-href" href="#naive-bayes" title="Naive Bayes">Naive Bayes</a></li><li><a class="toc-href" href="#lda" title="LDA">LDA</a></li><li><a class="toc-href" href="#qda" title="QDA">QDA</a></li></ul></li><li><a class="toc-href" href="#mnist-summary_1" title="MNIST Summary">MNIST Summary</a></li><li><a class="toc-href" href="#iris-summary" title="IRIS summary">IRIS summary</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Classification problems occur quite often and many different classification
@@ -142,10 +148,9 @@ forget. As sklearn does not have neural networks, I've installed
 might be no way of classifying them correclty.</p>
 <p>Here are the results</p>
 <figure class="aligncenter">
-            <a href="../images/2016/01/ml-classifiers-1.png"><img src="../images/2016/01/ml-classifiers-1.png" alt="k nearest neighbors, linear and RBFSVM" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">k nearest neighbors, linear and RBFSVM</figcaption>
-        </figure>
-
+<a href="../images/2016/01/ml-classifiers-1.png"><img alt="k nearest neighbors, linear and RBFSVM" class="" src="../images/2016/01/ml-classifiers-1.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">k nearest neighbors, linear and RBFSVM</figcaption>
+</figure>
 <p>One can see that k nearest neighbors gives arbitrary decision boundaries.
 Overall, they look reasonable. However, there are often strange zig-zag
 patterns.</p>
@@ -155,18 +160,16 @@ would be right in 50% of the cases.</p>
 <p>The RBF SVM has very nice decision boundary. It is smooth, matches the pattern
 and is able to adjust to all three examles.</p>
 <figure class="aligncenter">
-            <a href="../images/2016/01/ml-classifiers-2.png"><img src="../images/2016/01/ml-classifiers-2.png" alt="Decision Tree, Random Forest, AdaBoost" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Decision Tree, Random Forest, AdaBoost</figcaption>
-        </figure>
-
+<a href="../images/2016/01/ml-classifiers-2.png"><img alt="Decision Tree, Random Forest, AdaBoost" class="" src="../images/2016/01/ml-classifiers-2.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Decision Tree, Random Forest, AdaBoost</figcaption>
+</figure>
 <p>Decision Trees, Decision Forests and AdaBoost all show very similar
 patterns. The boundaries change in parallel to the coordinate axes which looks
 very unnatural.</p>
 <figure class="aligncenter">
-            <a href="../images/2016/01/ml-classifiers-3.png"><img src="../images/2016/01/ml-classifiers-3.png" alt="Naive Bayes, LDA, QDA" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Naive Bayes, LDA, QDA</figcaption>
-        </figure>
-
+<a href="../images/2016/01/ml-classifiers-3.png"><img alt="Naive Bayes, LDA, QDA" class="" src="../images/2016/01/ml-classifiers-3.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Naive Bayes, LDA, QDA</figcaption>
+</figure>
 <p>Naive Bayes shows nice, smooth patterns. However, those patterns seem to be
 a bit too simple. LDA is again linear (see linear SVM). Comparing QDA to
 Naive Bayes is interesting. Although they get similar performance for the first
@@ -202,7 +205,6 @@ Confusion matrix:
  [   4    4    0    4   16    8    0    7    6 2340]]
 Accuracy: 0.9798
 </code></pre></div>
-
 <h4 id="dropout-network">Dropout Network</h4>
 <div class="highlight"><pre><span></span><code>Classifier: NN 500:200 dropout
 Training time: 118.2654s
@@ -220,7 +222,6 @@ Confusion matrix:
  [   3    3    1    3   13    2    0   19    8 2337]]
 Accuracy: 0.9780
 </code></pre></div>
-
 <h4 id="cnn">CNN</h4>
 <div class="highlight"><pre><span></span><code>Classifier: CNN
 Training time: 391.8810s
@@ -238,7 +239,6 @@ Confusion matrix:
  [   6    5    0   11   16    8    0   24   13 2306]]
 Accuracy: 0.9769
 </code></pre></div>
-
 <h3 id="svm">SVM</h3>
 <p>There is a ton of literature / papers about <abbr title="Support Vector Machines">SVMs</abbr>.
 I've summed up the basics on <a href="https://martin-thoma.com/svm-with-sklearn/">Using SVMs with sklearn</a>.</p>
@@ -264,7 +264,6 @@ Confusion matrix:
  [  11    9    9   24   64    8    0   61   14 2189]]
 Accuracy: 0.9416
 </code></pre></div>
-
 <h4 id="adjusted-svm">Adjusted SVM</h4>
 <div class="highlight"><pre><span></span><code>Classifier: adj. SVM
 Training time: 347.1539s
@@ -282,7 +281,6 @@ Confusion matrix:
  [   3    2    2    6   19    6    0   12   10 2329]]
 Accuracy: 0.9840
 </code></pre></div>
-
 <h3 id="random-forest">Random Forest</h3>
 <p>Data:</p>
 <ul>
@@ -305,7 +303,6 @@ Confusion matrix:
  [  10    6    6   24   27   13    3   20   18 2262]]
 Accuracy: 0.9641
 </code></pre></div>
-
 <p>Alternatively:</p>
 <ul>
 <li><code>max_depth=5</code></li>
@@ -328,7 +325,6 @@ Confusion matrix:
  [  71  338   11   43  579    2    8  632   24  681]]
 Accuracy: 0.5715
 </code></pre></div>
-
 <h3 id="k-nearest-neightbors">k nearest neightbors</h3>
 <div class="highlight"><pre><span></span><code>Classifier: k nn
 Training time: 4.6439s
@@ -346,7 +342,6 @@ Confusion matrix:
  [   6    8    4   14   26    4    0   19    5 2303]]
 Accuracy: 0.9695
 </code></pre></div>
-
 <h3 id="decision-tree">Decision Tree</h3>
 <p>Data:</p>
 <ul>
@@ -368,7 +363,6 @@ Confusion matrix:
  [   4    8   86   59  125   95   36   75  167 1734]]
 Accuracy: 0.6540
 </code></pre></div>
-
 <h3 id="adaboost">Adaboost</h3>
 <p>You should note that you can use arbitrary base classifiers with Adaboost.
 The default ones of <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html"><code>sklearn.ensemble.AdaBoostClassifier</code></a> is <a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html"><code>sklearn.tree.DecisionTreeClassifies</code></a></p>
@@ -388,7 +382,6 @@ Confusion matrix:
  [  13   29   68   66  356   74    1  171   78 1533]]
 Accuracy: 0.7367
 </code></pre></div>
-
 <h3 id="gradient-boosting">Gradient Boosting</h3>
 <p>Gradient boosting with <code>xgboost</code> has won in the Rossmann Store Sales prediction
 (<a href="http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/">source</a>).</p>
@@ -416,7 +409,6 @@ Confusion matrix:
  [   6   10    8   24   49   15    1   54   17 2205]]
 Accuracy: 0.9435
 </code></pre></div>
-
 <h3 id="naive-bayes">Naive Bayes</h3>
 <div class="highlight"><pre><span></span><code>Classifier: Naive Bayes
 Training time: 0.3814s
@@ -434,7 +426,6 @@ Confusion matrix:
  [  15   26    8    2   14    2    1   41   40 2240]]
 Accuracy: 0.5615
 </code></pre></div>
-
 <h3 id="lda">LDA</h3>
 <div class="highlight"><pre><span></span><code>Classifier: LDA
 Training time: 20.6464s
@@ -452,7 +443,6 @@ Confusion matrix:
  [  15   10    6   35  133   14    0  122   22 2032]]
 Accuracy: 0.8642
 </code></pre></div>
-
 <h3 id="qda">QDA</h3>
 <div class="highlight"><pre><span></span><code>Classifier: QDA
 Training time: 23.0527s
@@ -470,253 +460,250 @@ Confusion matrix:
  [  65   14   12    7   10    0    0   23   33 2225]]
 Accuracy: 0.5561
 </code></pre></div>
-
-<h2 id="mnist-summary">MNIST Summary</h2>
+<h2 id="mnist-summary_1">MNIST Summary</h2>
 <table class="table">
-  <thead>
-    <tr>
-        <th>Classifier</th>
-        <th>Accuracy</th>
-        <th>Training Time</th>
-        <th>Testing Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>MLP (500:200)</td>
-        <td style="text-align: right">97.98%</td>
-        <td style="text-align: right">79.5696s</td>
-        <td style="text-align: right">0.3480s</td>
-    </tr>
-    <tr>
-        <td>Dropout NN (500:200)</td>
-        <td style="text-align: right">97.80%</td>
-        <td style="text-align: right">118.2654s</td>
-        <td style="text-align: right">0.3918s</td>
-    </tr>
-    <tr>
-        <td>CNN<br/>(32 5&times;5 filters : 2&times;2 max pool : 64 5&times;5 filters : 2&times;2 max pool : 1024)</td>
-        <td style="text-align: right">97.69%</td>
-        <td style="text-align: right">391.8810s</td>
-        <td style="text-align: right">1.2035s</td>
-    </tr>
-    <tr>
-        <td>Adjusted SVM</td>
-        <td style="text-align: right"><b>98.40%</b></td>
-        <td style="text-align: right">347.1539s</td>
-        <td style="text-align: right" class="danger">234.5724s</td>
-    </tr>
-    <tr>
-        <td>Linear SVM</td>
-        <td style="text-align: right">94.16%</td>
-        <td style="text-align: right">168.6950s</td>
-        <td style="text-align: right" class="danger">158.0101s</td>
-    </tr>
-    <tr>
-        <td>Random Forest (n_estimators=50, n_jobs=10)</td>
-        <td style="text-align: right">96.41%</td>
-        <td style="text-align: right">2.1359s</td>
-        <td style="text-align: right" class="danger">26.0763s</td>
-    </tr>
-    <tr>
-        <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
-        <td style="text-align: right" class="danger">57.15%</td>
-        <td style="text-align: right"><b>0.2077s</b></td>
-        <td style="text-align: right" class="danger">22.2770s</td>
-    </tr>
-    <tr>
-        <td>k nearest neightbors (k=3)</td>
-        <td style="text-align: right">96.95%</td>
-        <td style="text-align: right">4.6439s</td>
-        <td style="text-align: right" class="danger">1261.7815s</td>
-    </tr>
-    <tr>
-        <td>Decision Tree(max_depth=5)</td>
-        <td style="text-align: right" class="danger">65.40%</td>
-        <td style="text-align: right">3.1346s</td>
-        <td style="text-align: right"><b>0.0313s</b></td>
-    </tr>
-    <tr>
-        <td>Adaboost</td>
-        <td style="text-align: right" class="danger">73.67%</td>
-        <td style="text-align: right">37.6443s</td>
-        <td style="text-align: right">1.5815s</td>
-    </tr>
-    <tr>
-        <td>Naive Bayes</td>
-        <td style="text-align: right" class="danger">56.15%</td>
-        <td style="text-align: right">0.3814s</td>
-        <td style="text-align: right">0.8863s</td>
-    </tr>
-    <tr>
-        <td>LDA</td>
-        <td style="text-align: right">86.42%</td>
-        <td style="text-align: right">20.6464s</td>
-        <td style="text-align: right">0.0910s</td>
-    </tr>
-    <tr>
-        <td>QDA</td>
-        <td style="text-align: right" class="danger">55.61%</td>
-        <td style="text-align: right">23.0527s</td>
-        <td style="text-align: right" class="danger">6.2259s</td>
-    </tr>
-    <tr>
-        <td>Gradient Boosting</td>
-        <td style="text-align: right">94.35%</td>
-        <td style="text-align: right">2409.8094s</td>
-        <td style="text-align: right">0.4159s</td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=1)</td>
-        <td style="text-align: right">91.47%</td>
-        <td style="text-align: right">272.1309s</td>
-        <td style="text-align: right">0.0531s</td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=10000)</td>
-        <td style="text-align: right">91.23%</td>
-        <td style="text-align: right">1807.0624s</td>
-        <td style="text-align: right">0.0529s</td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Accuracy</th>
+<th>Training Time</th>
+<th>Testing Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MLP (500:200)</td>
+<td style="text-align: right">97.98%</td>
+<td style="text-align: right">79.5696s</td>
+<td style="text-align: right">0.3480s</td>
+</tr>
+<tr>
+<td>Dropout NN (500:200)</td>
+<td style="text-align: right">97.80%</td>
+<td style="text-align: right">118.2654s</td>
+<td style="text-align: right">0.3918s</td>
+</tr>
+<tr>
+<td>CNN<br/>(32 5&times;5 filters : 2&times;2 max pool : 64 5&times;5 filters : 2&times;2 max pool : 1024)</td>
+<td style="text-align: right">97.69%</td>
+<td style="text-align: right">391.8810s</td>
+<td style="text-align: right">1.2035s</td>
+</tr>
+<tr>
+<td>Adjusted SVM</td>
+<td style="text-align: right"><b>98.40%</b></td>
+<td style="text-align: right">347.1539s</td>
+<td class="danger" style="text-align: right">234.5724s</td>
+</tr>
+<tr>
+<td>Linear SVM</td>
+<td style="text-align: right">94.16%</td>
+<td style="text-align: right">168.6950s</td>
+<td class="danger" style="text-align: right">158.0101s</td>
+</tr>
+<tr>
+<td>Random Forest (n_estimators=50, n_jobs=10)</td>
+<td style="text-align: right">96.41%</td>
+<td style="text-align: right">2.1359s</td>
+<td class="danger" style="text-align: right">26.0763s</td>
+</tr>
+<tr>
+<td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
+<td class="danger" style="text-align: right">57.15%</td>
+<td style="text-align: right"><b>0.2077s</b></td>
+<td class="danger" style="text-align: right">22.2770s</td>
+</tr>
+<tr>
+<td>k nearest neightbors (k=3)</td>
+<td style="text-align: right">96.95%</td>
+<td style="text-align: right">4.6439s</td>
+<td class="danger" style="text-align: right">1261.7815s</td>
+</tr>
+<tr>
+<td>Decision Tree(max_depth=5)</td>
+<td class="danger" style="text-align: right">65.40%</td>
+<td style="text-align: right">3.1346s</td>
+<td style="text-align: right"><b>0.0313s</b></td>
+</tr>
+<tr>
+<td>Adaboost</td>
+<td class="danger" style="text-align: right">73.67%</td>
+<td style="text-align: right">37.6443s</td>
+<td style="text-align: right">1.5815s</td>
+</tr>
+<tr>
+<td>Naive Bayes</td>
+<td class="danger" style="text-align: right">56.15%</td>
+<td style="text-align: right">0.3814s</td>
+<td style="text-align: right">0.8863s</td>
+</tr>
+<tr>
+<td>LDA</td>
+<td style="text-align: right">86.42%</td>
+<td style="text-align: right">20.6464s</td>
+<td style="text-align: right">0.0910s</td>
+</tr>
+<tr>
+<td>QDA</td>
+<td class="danger" style="text-align: right">55.61%</td>
+<td style="text-align: right">23.0527s</td>
+<td class="danger" style="text-align: right">6.2259s</td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td style="text-align: right">94.35%</td>
+<td style="text-align: right">2409.8094s</td>
+<td style="text-align: right">0.4159s</td>
+</tr>
+<tr>
+<td>Logistic Regression (C=1)</td>
+<td style="text-align: right">91.47%</td>
+<td style="text-align: right">272.1309s</td>
+<td style="text-align: right">0.0531s</td>
+</tr>
+<tr>
+<td>Logistic Regression (C=10000)</td>
+<td style="text-align: right">91.23%</td>
+<td style="text-align: right">1807.0624s</td>
+<td style="text-align: right">0.0529s</td>
+</tr>
+</tbody>
 </table>
-
 <h2 id="iris-summary">IRIS summary</h2>
 <p>Just for fun, I tried the script from above with very minor adjustments to the
 <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">IRIS flower dataset</a>:</p>
 <table class="table">
-  <thead>
-    <tr>
-        <th>Classifier</th>
-        <th>Accuracy</th>
-        <th>Training Time</th>
-        <th>Testing Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>AdaBoost</td>
-        <td style="text-align: right" >92.00%</td>
-        <td style="text-align: right">0.1203s</td>
-        <td style="text-align: right" >0.0101s</td>
-    </tr>
-    <tr>
-        <td>Decision Tree</td>
-        <td style="text-align: right" >92.00%</td>
-        <td style="text-align: right">0.0005s</td>
-        <td style="text-align: right" ><b>0.0001s</b></td>
-    </tr>
-    <tr>
-        <td>Gradient Boosting</td>
-        <td style="text-align: right" >92.00%</td>
-        <td style="text-align: right">0.2227s</td>
-        <td style="text-align: right" >0.0007s</td>
-    </tr>
-    <tr>
-        <td>LDA</td>
-        <td style="text-align: right" ><b>96.00%</b></td>
-        <td style="text-align: right">0.0027s</td>
-        <td style="text-align: right" >0.0002s</td>
-    </tr>
-    <tr>
-        <td>NN 20:5</td>
-        <td style="text-align: right" >90.00%</td>
-        <td style="text-align: right">1.6628s</td>
-        <td style="text-align: right" >0.0046s</td>
-    </tr>
-    <tr>
-        <td>Naive Bayes</td>
-        <td style="text-align: right" >90.00%</td>
-        <td style="text-align: right">0.0010s</td>
-        <td style="text-align: right" >0.0004s</td>
-    </tr>
-    <tr>
-        <td>QDA</td>
-        <td style="text-align: right" >94.00%</td>
-        <td style="text-align: right">0.0009s</td>
-        <td style="text-align: right" >0.0003s</td>
-    </tr>
-    <tr>
-        <td>Random Forest</td>
-        <td style="text-align: right" >90.00%</td>
-        <td style="text-align: right">0.2147s</td>
-        <td style="text-align: right" >0.1395s</td>
-    </tr>
-    <tr>
-        <td>Random Forest 2</td>
-        <td style="text-align: right" >90.00%</td>
-        <td style="text-align: right">0.1481s</td>
-        <td style="text-align: right" >0.1249s</td>
-    </tr>
-    <tr>
-        <td>SVM, adj.</td>
-        <td style="text-align: right" >90.00%</td>
-        <td style="text-align: right">0.0010s</td>
-        <td style="text-align: right" >0.0004s</td>
-    </tr>
-    <tr>
-        <td>SVM, linear</td>
-        <td style="text-align: right" class="danger">88.00%</td>
-        <td style="text-align: right">0.0006s</td>
-        <td style="text-align: right" >0.0002s</td>
-    </tr>
-    <tr>
-        <td>k nn</td>
-        <td style="text-align: right" >92.00%</td>
-        <td style="text-align: right">0.0007s</td>
-        <td style="text-align: right" >0.0009s</td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=1)</td>
-        <td style="text-align: right" class="danger">88.00%</td>
-        <td style="text-align: right" >0.0011s</td>
-        <td style="text-align: right" ><b>0.0001s</b></td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=1000)</td>
-        <td style="text-align: right" >92.00%</td>
-        <td style="text-align: right" >0.0010s</td>
-        <td style="text-align: right" >0.0002s</td>
-    </tr>
-    <tr>
-        <td>RBM 100</td>
-        <td style="text-align: right" class="danger">78.00%</td>
-        <td style="text-align: right" >0.0233s</td>
-        <td style="text-align: right" >0.0003s</td>
-    </tr>
-    <tr>
-        <td>RBM 100, n_iter=20</td>
-        <td style="text-align: right" class="danger">70.00%</td>
-        <td style="text-align: right" >0.0427s</td>
-        <td style="text-align: right" >0.0003s</td>
-    </tr>
-    <tr>
-        <td>RBM 200, n_iter=40, LR=0.01, Reg: C=1</td>
-        <td style="text-align: right" class="danger">88.00%</td>
-        <td style="text-align: right" >0.2463s</td>
-        <td style="text-align: right" >0.0005s</td>
-    </tr>
-    <tr>
-        <td>RBM 200, n_iter=40, LR=0.01, Reg: C=10000</td>
-        <td style="text-align: right" >90.00%</td>
-        <td style="text-align: right" >0.2437s</td>
-        <td style="text-align: right" >0.0005s</td>
-    </tr>
-    <tr>
-        <td>RBM 256</td>
-        <td style="text-align: right" class="danger">84.00%</td>
-        <td style="text-align: right" >0.0424s</td>
-        <td style="text-align: right" >0.0006s</td>
-    </tr>
-    <tr>
-        <td>RBM 512, n_iter=100</td>
-        <td style="text-align: right" class="danger">84.00%</td>
-        <td style="text-align: right" >0.0723s</td>
-        <td style="text-align: right" >0.0010s</td>
-    </tr>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Accuracy</th>
+<th>Training Time</th>
+<th>Testing Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AdaBoost</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.1203s</td>
+<td style="text-align: right">0.0101s</td>
+</tr>
+<tr>
+<td>Decision Tree</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.0005s</td>
+<td style="text-align: right"><b>0.0001s</b></td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.2227s</td>
+<td style="text-align: right">0.0007s</td>
+</tr>
+<tr>
+<td>LDA</td>
+<td style="text-align: right"><b>96.00%</b></td>
+<td style="text-align: right">0.0027s</td>
+<td style="text-align: right">0.0002s</td>
+</tr>
+<tr>
+<td>NN 20:5</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">1.6628s</td>
+<td style="text-align: right">0.0046s</td>
+</tr>
+<tr>
+<td>Naive Bayes</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.0010s</td>
+<td style="text-align: right">0.0004s</td>
+</tr>
+<tr>
+<td>QDA</td>
+<td style="text-align: right">94.00%</td>
+<td style="text-align: right">0.0009s</td>
+<td style="text-align: right">0.0003s</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.2147s</td>
+<td style="text-align: right">0.1395s</td>
+</tr>
+<tr>
+<td>Random Forest 2</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.1481s</td>
+<td style="text-align: right">0.1249s</td>
+</tr>
+<tr>
+<td>SVM, adj.</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.0010s</td>
+<td style="text-align: right">0.0004s</td>
+</tr>
+<tr>
+<td>SVM, linear</td>
+<td class="danger" style="text-align: right">88.00%</td>
+<td style="text-align: right">0.0006s</td>
+<td style="text-align: right">0.0002s</td>
+</tr>
+<tr>
+<td>k nn</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.0007s</td>
+<td style="text-align: right">0.0009s</td>
+</tr>
+<tr>
+<td>Logistic Regression (C=1)</td>
+<td class="danger" style="text-align: right">88.00%</td>
+<td style="text-align: right">0.0011s</td>
+<td style="text-align: right"><b>0.0001s</b></td>
+</tr>
+<tr>
+<td>Logistic Regression (C=1000)</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.0010s</td>
+<td style="text-align: right">0.0002s</td>
+</tr>
+<tr>
+<td>RBM 100</td>
+<td class="danger" style="text-align: right">78.00%</td>
+<td style="text-align: right">0.0233s</td>
+<td style="text-align: right">0.0003s</td>
+</tr>
+<tr>
+<td>RBM 100, n_iter=20</td>
+<td class="danger" style="text-align: right">70.00%</td>
+<td style="text-align: right">0.0427s</td>
+<td style="text-align: right">0.0003s</td>
+</tr>
+<tr>
+<td>RBM 200, n_iter=40, LR=0.01, Reg: C=1</td>
+<td class="danger" style="text-align: right">88.00%</td>
+<td style="text-align: right">0.2463s</td>
+<td style="text-align: right">0.0005s</td>
+</tr>
+<tr>
+<td>RBM 200, n_iter=40, LR=0.01, Reg: C=10000</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.2437s</td>
+<td style="text-align: right">0.0005s</td>
+</tr>
+<tr>
+<td>RBM 256</td>
+<td class="danger" style="text-align: right">84.00%</td>
+<td style="text-align: right">0.0424s</td>
+<td style="text-align: right">0.0006s</td>
+</tr>
+<tr>
+<td>RBM 512, n_iter=100</td>
+<td class="danger" style="text-align: right">84.00%</td>
+<td style="text-align: right">0.0723s</td>
+<td style="text-align: right">0.0010s</td>
+</tr>
 </tbody>
 </table>
-
 <h2 id="tldr">TL;DR</h2>
 <p>Neural networks take their time to train and a feeling for the topology, but
 their classification results are nice and the testing time is good as well.</p>

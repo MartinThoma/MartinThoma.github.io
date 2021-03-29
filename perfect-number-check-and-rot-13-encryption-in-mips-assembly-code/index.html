@@ -102,10 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Perfect number check and ROT-13 encryption in MIPS-assembly code">Perfect number check and ROT-13 encryption in MIPS-assembly code</a><ul><li><a class="toc-href" href="#perfect-number-check" title="Perfect number check">Perfect number check</a></li><li><a class="toc-href" href="#rot-13-encryption" title="ROT-13 encryption">ROT-13 encryption</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>Perfect number check</h2>
+            <h2 id="perfect-number-check">Perfect number check</h2>
 <p>The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode</p>
 <div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>  <span class="c1"># read a positive integer n from the user</span>
 <span class="n">sumOfDivisors</span> <span class="o">=</span> <span class="mi">0</span>
@@ -114,11 +120,10 @@ MathJax.Hub.Queue(function() {
         <span class="n">sumOfDivisors</span> <span class="o">+=</span> <span class="n">i</span>
 
 <span class="k">if</span> <span class="n">sumOfDivisors</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"1"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"0"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>And here is the MIPS-Code:</p>
 <div class="highlight"><pre><span></span><code>#####################################################################
 # Perfect number check                                              #
@@ -127,13 +132,13 @@ MathJax.Hub.Queue(function() {
 #####################################################################
 
 .data
-    prompt: .asciiz &quot;Positive integer you would like to check : &quot;
-    output: .asciiz &quot;Is a perfect number (1: Yes, 0: No): &quot;
+    prompt: .asciiz "Positive integer you would like to check : "
+    output: .asciiz "Is a perfect number (1: Yes, 0: No): "
 .text
 .globl main
 main: li $v0 , 4        # |
     la $a0 , prompt     # |
-    syscall             # |=&gt; Print string &quot;prompt&quot;
+    syscall             # |=&gt; Print string "prompt"
     li $v0 , 5          # |
     syscall             # |=&gt; Ask for integer A
 
@@ -152,15 +157,13 @@ w:  addi $s2, $s2, 1    # $s2++
 eval: seq $s0, $s0, $s1 # Compare the sum of divisors with A
     li $v0 , 4          # |
     la $a0 , output     # |
-    syscall             # |=&gt; Print string &quot;output&quot;
+    syscall             # |=&gt; Print string "output"
     la $v0 , 1          # |
     move $a0 , $s0      # |
     syscall             # |=&gt; Print $s0
     jr $ra
 </code></pre></div>
-
-<h2>ROT-13 encryption</h2>
-
+<h2 id="rot-13-encryption">ROT-13 encryption</h2>
 <p>The basic idea for encrypting a string with ROT-13 is to loop over all characters and use the ASCII-Table to shift them. Here is the ROT-13 MIPS-Code:</p>
 <div class="highlight"><pre><span></span><code>#####################################################################
 # @param string a &amp;#92;&amp;#48; terminated string                              #
@@ -168,15 +171,15 @@ eval: seq $s0, $s0, $s1 # Compare the sum of divisors with A
 #####################################################################
 
 .data
-    prompt: .asciiz &quot;Please enter string: &quot;
-    output: .asciiz &quot;ROT-13: &quot;
+    prompt: .asciiz "Please enter string: "
+    output: .asciiz "ROT-13: "
     plain:  .space 64
 .text
 .globl main
 main:
     li      $v0, 4      # |
     la      $a0, prompt # |
-    syscall             # |=&gt; Print string &quot;prompt&quot;
+    syscall             # |=&gt; Print string "prompt"
     li      $v0, 8      # |
     la      $a0, plain  # | =&gt; Ask for string plain
     li      $a1, 64     # |
@@ -187,7 +190,7 @@ main:
     la      $t1, ($a0)  #=&gt;$t1:the current adress that gets modified
 
 s:  lb      $t0, ($t1)  # =&gt; $t0: the current value (char)
-    beq $t0, $t2, out   # while $t1 != &#39;\n&#39;
+    beq $t0, $t2, out   # while $t1 != '\n'
     li $t3, 64
     bge $t3, $t0, w     # if $t0 &lt;= 64: jump to w
     li $t3, 123
@@ -217,21 +220,20 @@ big:
 out:
     li      $v0, 4      # |
     la      $a0, output # |
-    syscall             # |=&gt; Print string &quot;output&quot;
+    syscall             # |=&gt; Print string "output"
 
     la      $v0, 4      # |
     la      $a0, plain  # |
     syscall             # |=&gt; Print plain
     jr      $ra
 </code></pre></div>
-
-<p>A syntax-highlighted version of both code pieces is here: <a href='../images/2012/06/mips-rot-13-perfect-number.pdf'>MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.</p>
-<h2>See also</h2>
+<p>A syntax-highlighted version of both code pieces is here: <a href="../images/2012/06/mips-rot-13-perfect-number.pdf">MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.</p>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="https://sourceforge.net/projects/spimsimulator/files/">SPIM MIPS Simulator</a></li>
-  <li><a href="../how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a></li>
-  <li><a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
-  <li><a href='../images/2012/06/mips-archive.zip'>Archive with MIPS assembly Code and LaTeX file</a></li>
+<li><a href="https://sourceforge.net/projects/spimsimulator/files/">SPIM MIPS Simulator</a></li>
+<li><a href="../how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a></li>
+<li><a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
+<li><a href="../images/2012/06/mips-archive.zip">Archive with MIPS assembly Code and LaTeX file</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

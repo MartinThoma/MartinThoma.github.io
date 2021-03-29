@@ -102,26 +102,29 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="31. BwInf - Runde 1, Aufgabe 2">31. BwInf - Runde 1, Aufgabe 2</a><ul><li><a class="toc-href" href="#die-aufgabenstellung" title="Die Aufgabenstellung">Die Aufgabenstellung</a></li><li><a class="toc-href" href="#vollstandiger-pseudocode" title="Vollst&auml;ndiger Pseudocode">Vollst&auml;ndiger Pseudocode</a></li><li><a class="toc-href" href="#losung-mit-glpk" title="L&ouml;sung mit GLPK">L&ouml;sung mit GLPK</a></li><li><a class="toc-href" href="#weiteres" title="Weiteres">Weiteres</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>Die Aufgabenstellung</h2>
+            <h2 id="die-aufgabenstellung">Die Aufgabenstellung</h2>
 <blockquote>Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter k&ouml;nnen Koffer mit M&uuml;nzen transportiert werden. Die Koffer enthalten M&uuml;nzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert.
 
 Da kommt so einiges an Gewicht zusammen. Es ist daher notwendig, den Transporter gleichm&auml;&szlig;ig zu beladen, so dass er nicht zu einer Seite umkippen kann.
 
 Unser Transporter hat links und rechts je einen Kofferraum. F&uuml;r jeden Kofferraum lassen sich Gesamtwert und Gesamtgewicht der darin enthaltenen Koffer bestimmen. Damit der Transporter keine Schlagseite bekommt, m&uuml;ssen die Koffer so einger&auml;umt werden, dass die Differenz zwischen den beiden Gesamtgewichten minimal ist. Aus versicherungstechnischen Gr&uuml;nden d&uuml;rfen die beiden Gesamtwerte sich au&szlig;erdem um h&ouml;chstens 10.000 Euro unterscheiden.</blockquote>
-
 <blockquote>Schreibe ein Programm zur Verteilung der Geldkoffer auf die beiden Kofferr&auml;ume. &Uuml;berpr&uuml;fe dein Programm mit den auf <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=1168">www.bundeswettbewerb-informatik.de</a> abgelegten Beispielen mit Angaben zu Werten und Gewichten der einzelnen Koffer.</blockquote>
-
 <p>Quelle: <a href="http://www.bundeswettbewerb-informatik.de/fileadmin/templates/bwinf/aufgaben/bwinf31/Aufgabenblatt311_Aufgaben.pdf">www.bundeswettbewerb-informatik.de</a></p>
-<h2>Vollst&auml;ndiger Pseudocode</h2>
+<h2 id="vollstandiger-pseudocode">Vollst&auml;ndiger Pseudocode</h2>
 <figure class="aligncenter">
-            <a href="../images/2012/12/pseudocode-31.1.2-bwinf.png"><img src="../images/2012/12/pseudocode-31.1.2-bwinf.png" alt="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2" style="max-width:512px;max-height:412px" class="size-full wp-image-46861"/></a>
-            <figcaption class="text-center">Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2</figcaption>
-        </figure>
-
-<h2>L&ouml;sung mit GLPK</h2>
+<a href="../images/2012/12/pseudocode-31.1.2-bwinf.png"><img alt="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2" class="size-full wp-image-46861" src="../images/2012/12/pseudocode-31.1.2-bwinf.png" style="max-width:512px;max-height:412px"/></a>
+<figcaption class="text-center">Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2</figcaption>
+</figure>
+<h2 id="losung-mit-glpk">L&ouml;sung mit GLPK</h2>
 <p>Der folgende Code muss als partition.mod gespeichert werden:</p>
 <div class="highlight"><pre><span></span><code>/* PARTITION */
 
@@ -185,7 +188,7 @@ s.t. lim2{j in J}: (sum{i in I} v[i] * x[i,2]) - (sum{i in I} v[i] * x[i,1]) &lt
 s.t. lim3{j in J}: (sum{i in I} w[i] * x[i,1]) - (sum{i in I} w[i] * x[i,2]) &gt;= 0;
 
 minimize obj: (sum{i in I} w[i] * x[i,1]) - (sum{i in I} w[i] * x[i,2]);
-/* No abs because of linearity: http://old.nabble.com/How-to-get-a-variable&#39;s-absolute-value-with-GNU-mathprog-tt22241565.html*/
+/* No abs because of linearity: http://old.nabble.com/How-to-get-a-variable's-absolute-value-with-GNU-mathprog-tt22241565.html*/
 /* objective is to minimize the difference of weights */
 
 data;
@@ -213,11 +216,9 @@ param c := 10000;
 
 end;
 </code></pre></div>
-
 <p>Jetzt muss man folgendes ausf&uuml;hren:</p>
 <div class="highlight"><pre><span></span><code>glpsol --output example.out --log example.log --math partition.mod
 </code></pre></div>
-
 <p>Das ben&ouml;tigt f&uuml;r die gr&ouml;&szlig;te Eingabe etwa 18 Sekunden.</p>
 <p>Wenn man nun in die example.out schaut, sieht man unter anderem folgendes:</p>
 <div class="highlight"><pre><span></span><code>Problem:    partition
@@ -227,9 +228,8 @@ Non-zeros:  640
 Status:     INTEGER OPTIMAL
 Objective:  obj = 5 (MINimum)
 </code></pre></div>
-
 <p>Die interessante Zahl ist die 5. Das ist das Minimum, das in dieser Aufgabe gesucht war. Wie es zu erreichen ist, sieht  man in der Ausgabe darunter.</p>
-<h2>Weiteres</h2>
+<h2 id="weiteres">Weiteres</h2>
 <p>Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es f&uuml;r MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man f&uuml;r eine konstante Anzahl an Koffern die optimale aufteilung und verteilt den rest mittels LIST SCHEDULING.</p>
             
             <div id="disqus_thread" class="no-print"></div>

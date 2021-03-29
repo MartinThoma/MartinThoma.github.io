@@ -102,14 +102,20 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Fractions in C++">Fractions in C++</a><ul><li><a class="toc-href" href="#first-some-math" title="First some math">First some math</a><ul><li><a class="toc-href" href="#names" title="Names">Names</a></li><li><a class="toc-href" href="#operations" title="Operations">Operations</a></li><li><a class="toc-href" href="#euklids-algorithm" title="Euklids algorithm">Euklids algorithm</a></li></ul></li><li><a class="toc-href" href="#c-code_1" title="C++ Code">C++ Code</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Today, I thought I should try to implement a class in C++ that deals with fractions. This is actually quite easy as I'll show you.</p>
-<h2>First some math</h2>
-<h3>Names</h3>
+<h2 id="first-some-math">First some math</h2>
+<h3 id="names">Names</h3>
 <p>When you have a fraction <span class="math">\(\frac{a}{b}\)</span> then <span class="math">\(a\)</span> is called <em>numerator</em> and <span class="math">\(b\)</span> is called <em>denominator</em>.</p>
-<h3>Operations</h3>
+<h3 id="operations">Operations</h3>
 <p>The rules for basic operations are simple:</p>
 <p>Addition:
 <span class="math">\(\frac{a}{b}     + \frac{c}{d} = \frac{a \cdot d + c \cdot b}{b \cdot d}\)</span></p>
@@ -119,11 +125,10 @@ MathJax.Hub.Queue(function() {
 <span class="math">\(\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}\)</span></p>
 <p>Division:
 <span class="math">\(\frac{a}{b} : \frac{c}{d} = \frac{a \cdot d}{b \cdot c}\)</span></p>
-<h3>Euklids algorithm</h3>
+<h3 id="euklids-algorithm">Euklids algorithm</h3>
 <p>You can calculate the greatest common divisor with <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm">Euklids algorithm</a>. If you don't know it, please read the Wikipedia article.</p>
 <p>Knowing the greatest common divisor is important, because we want that our Faction class automatically cancels those factors so that the numerator and denominator are as small as possible.</p>
-<h2>C++ Code</h2>
-
+<h2 id="c-code_1">C++ Code</h2>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -131,7 +136,7 @@ MathJax.Hub.Queue(function() {
 <span class="k">class</span> <span class="nc">Fraction</span> <span class="p">{</span>
     <span class="k">private</span><span class="o">:</span>
         <span class="c1">// Calculates the greates common divisor with</span>
-        <span class="c1">// Euclid&#39;s algorithm</span>
+        <span class="c1">// Euclid's algorithm</span>
         <span class="c1">// both arguments have to be positive</span>
         <span class="kt">long</span> <span class="kt">long</span> <span class="n">gcd</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
@@ -154,7 +159,7 @@ MathJax.Hub.Queue(function() {
 
         <span class="n">Fraction</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Denominator may not be 0.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Denominator may not be 0."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
                 <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
             <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">numerator</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -244,7 +249,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">denominator</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">strm</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">numerator</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">strm</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">numerator</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">denominator</span><span class="p">;</span>
+        <span class="n">strm</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">numerator</span> <span class="o">&lt;&lt;</span> <span class="s">"/"</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">denominator</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">strm</span><span class="p">;</span>
 <span class="p">}</span>
@@ -255,36 +260,35 @@ MathJax.Hub.Queue(function() {
     <span class="n">Fraction</span> <span class="n">c</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be 37/84)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be 37/84)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be 19/84)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be 19/84)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be 1/28)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be 1/28)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be 28/9)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be 28/9)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="mi">-1</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be -3/28)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be -3/28)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be -3/28)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be -3/28)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">c</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">-100</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span>    <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be -33)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span>  <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be -33.3...)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be -33.3...)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span>    <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be -33)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span>  <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be -33.3...)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be -33.3...)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="n">a</span> <span class="o">-=</span> <span class="n">b</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">(should be 19/84)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">(should be 19/84)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <p>You might also be interested in my article about <a href="../cpp-operator-overloading/" title="C++ Operator overloading">operator overloading</a>.</p>
 <p>Does anybody know if there is an "official" Fraction class?</p>
             

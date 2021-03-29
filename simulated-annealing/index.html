@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Simulated Annealing">Simulated Annealing</a><ul><li><a class="toc-href" href="#confusion-matrix-ordering" title="Confusion Matrix Ordering">Confusion Matrix Ordering</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">This article is not quite finished, but I recently wanted to share some ideas.</div>
@@ -143,7 +149,6 @@ For example, a matrix can be scored with</p>
             <span class="n">best_permutation</span> <span class="o">=</span> <span class="n">permutation</span>
     <span class="k">return</span> <span class="n">best_permutation</span>
 </code></pre></div>
-
 <p>Now, this is super inefficient. The reason is that the matrix has
 sub-structures which you destroy all the time. Instead of creating complete new
 permutations, you could simply swap two elements of the best permutation so
@@ -167,7 +172,6 @@ far:</p>
             <span class="n">best_permutation</span> <span class="o">=</span> <span class="n">permutation</span>
     <span class="k">return</span> <span class="n">best_permutation</span>
 </code></pre></div>
-
 <p>But this is still not good. This problem is of a structure that can lead to
 local optima, where a single swap does not improve anything, but only two or
 more swaps can. To fix this, one should allow at least equal solutions to change
@@ -208,7 +212,6 @@ maybe only to 1250. And in the end it has to be strictly better.</p>
         <span class="n">temperature</span> <span class="o">*=</span> <span class="n">cooling_factor</span>
     <span class="k">return</span> <span class="n">best_permutation</span>
 </code></pre></div>
-
 <p>For this specific problem, I noticed that the temperature-trick was way less
 important than allowing to swap blocks. So once in a while, I don't swap single
 elements but move a whole range.</p>

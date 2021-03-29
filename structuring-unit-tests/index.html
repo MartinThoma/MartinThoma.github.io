@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Structuring Unit Tests">Structuring Unit Tests</a><ul><li><a class="toc-href" href="#directory-layout" title="Directory Layout">Directory Layout</a></li><li><a class="toc-href" href="#names-of-test-functions" title="Names of Test Functions">Names of Test Functions</a></li><li><a class="toc-href" href="#docstrings-of-test-functions" title="Docstrings of test functions">Docstrings of test functions</a></li><li><a class="toc-href" href="#pytest-markers" title="Pytest markers">Pytest markers</a></li><li><a class="toc-href" href="#shared-test-helpers" title="Shared test helpers">Shared test helpers</a></li><li><a class="toc-href" href="#pytest-configuration" title="Pytest configuration">Pytest configuration</a></li><li><a class="toc-href" href="#fixtures" title="fixtures">fixtures</a></li><li><a class="toc-href" href="#parametrizing-test-functions" title="Parametrizing test functions">Parametrizing test functions</a></li><li><a class="toc-href" href="#dependencies-between-tests" title="Dependencies between tests">Dependencies between tests</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Testing code is often pretty ugly: A lot of copy &amp; paste, the code is all over
@@ -136,56 +142,51 @@ structure unit testing code in Python.</p>
 │   └── test_main.py
 └── tox.ini
 </code></pre></div>
-
 <p>You should notice the following:</p>
 <ol>
 <li>
 <p>The tests/ are side-by-side to the mpu/ directory which contains the code. The two alternatives are (1) to have a tests/ directory within the mpu/ package so that the tests get shipped with the code or (2) to put the test of a module next to the module. I would discourage (2) as I have never seen it for Python, but (1) is also <a href="https://github.com/pandas-dev/pandas/tree/master/pandas">commonly</a> <a href="https://github.com/scipy/scipy/tree/master/scipy/sparse">done</a> and <a href="https://docs.pytest.org/en/latest/goodpractices.html#tests-as-part-of-application-code">mentioned by pytest</a>.</p>
 </li>
 <li>
-<p>Every test file starts with test_ . That makes it easy to recognize which files contain the tests. It’s the default of pytest and I don’t see a reason to change it.</p>
+<p>Every test file starts with test_ . That makes it easy to recognize which files contain the tests. It&rsquo;s the default of pytest and I don&rsquo;t see a reason to change it.</p>
 </li>
 </ol>
 <h2 id="names-of-test-functions">Names of Test Functions</h2>
-<p>When you have a fibonacci(n: int) -&gt; int function, you will likely have a test_fibonacci function. And when test suites grow, there might appear a test_fibonacci2 or something similar. Don’t do that. I know, naming things is hard.</p>
+<p>When you have a fibonacci(n: int) -&gt; int function, you will likely have a test_fibonacci function. And when test suites grow, there might appear a test_fibonacci2 or something similar. Don&rsquo;t do that. I know, naming things is hard.</p>
 <p>You will see the name of this function when the test fails. Which name will help you to quickly understand what was tested?</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/geek-and-poke-tdd.jpg"><img src="../images/2020/07/geek-and-poke-tdd.jpg" alt="Comic by Oliver Widder on geek-and-poke.com" style="width: 512px;"/></a>
-    <figcaption class="text-center">Comic by Oliver Widder on <a href="http://geek-and-poke.com/geekandpoke/2013/7/28/tdd">geek-and-poke.com</a></figcaption>
+<a href="../images/2020/07/geek-and-poke-tdd.jpg"><img alt="Comic by Oliver Widder on geek-and-poke.com" src="../images/2020/07/geek-and-poke-tdd.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Comic by Oliver Widder on <a href="http://geek-and-poke.com/geekandpoke/2013/7/28/tdd">geek-and-poke.com</a></figcaption>
 </figure>
-
 <h2 id="docstrings-of-test-functions">Docstrings of test functions</h2>
 <p>Docstrings can be super helpful. Especially if the thing you need to test is complex. You can add details on why this test exists and how the expected values were calculated.</p>
 <p>On module level, you can add a docstring to tell the reader what should be within this test module. Do you test a specific module of the code base? Is it some common types of test you want to apply for different modules? Are there common issues that should be tested?</p>
 <p>Test level docstrings are used in a good way in parts of
 <a href="https://github.com/sympy/sympy/blob/master/sympy/solvers/tests/test_recurr.py#L78">sympy</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">recurrence_term</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compute RHS of recurrence in f(n) with coefficients in c.&quot;&quot;&quot;</span>
+    <span class="sd">"""Compute RHS of recurrence in f(n) with coefficients in c."""</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
 </code></pre></div>
-
 <p>There are tons of negative examples like this from Flask, where the docstring
 adds no value:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_jsonify_basic_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_value</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Test jsonify with basic types.&quot;&quot;&quot;</span>
+    <span class="sd">"""Test jsonify with basic types."""</span>
 
 
 <span class="o">...</span>
 
 
 <span class="k">def</span> <span class="nf">test_scriptinfo</span><span class="p">(</span><span class="n">test_apps</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Test of ScriptInfo.&quot;&quot;&quot;</span>
+    <span class="sd">"""Test of ScriptInfo."""</span>
 </code></pre></div>
-
-<p>I’ve also checked my own code and I’ve mainly seen neutral or negative uses of test level docstrings 😱</p>
+<p>I&rsquo;ve also checked my own code and I&rsquo;ve mainly seen neutral or negative uses of test level docstrings 😱</p>
 <h2 id="pytest-markers">Pytest markers</h2>
 <p>Pytest gives you the option to decorate your code with <code>@pytest.mark.foo</code>,
 where <code>foo</code> can be any arbitrary string you like. I use <code>@pytest.mark.slow</code> quite
 often. Then you can execute all tests which are not slow like this:</p>
-<div class="highlight"><pre><span></span><code>pytest -v -m <span class="s2">&quot;not slow&quot;</span>
+<div class="highlight"><pre><span></span><code>pytest -v -m <span class="s2">"not slow"</span>
 </code></pre></div>
-
-<p>I’ve seen the marks high_memory and db in Pandas as well.</p>
+<p>I&rsquo;ve seen the marks high_memory and db in Pandas as well.</p>
 <h2 id="shared-test-helpers">Shared test helpers</h2>
 <p>Once in a while you need helper functions for your tests which appear in
 multiple tests. Now there are multiple ways how to deal with that:</p>
@@ -206,7 +207,7 @@ Besides that, I see no clear best option:</p>
 <li>You keep things DRY and you keep tests out of the production code. The
    disadvantage is that it feels like building a separate, potentially
    untested, code base.</li>
-<li>This way it’s clear that you should test the test helpers. You expose them
+<li>This way it&rsquo;s clear that you should test the test helpers. You expose them
    to others who might need them as well. The disadvantage is that you extend
    the production code you ship.</li>
 </ol>
@@ -219,9 +220,9 @@ in a <a href="https://docs.pytest.org/en/2.7.3/plugins.html">conftest.py</a> wit
 test. This might seem weird to you if you come from a Java / JUnit-influenced
 testing world. There you have a class with a setUp and tearDown method and
 various methods for the single tests.</p>
-<p>For a long time, I’ve used the old and uglyunittest.TestCase if I had a lot of
-tests which needed some common preparation — I thought there was no way around
-setUp and tearDown . I’ve been wrong.</p>
+<p>For a long time, I&rsquo;ve used the old and uglyunittest.TestCase if I had a lot of
+tests which needed some common preparation &mdash; I thought there was no way around
+setUp and tearDown . I&rsquo;ve been wrong.</p>
 <p>Pytest fixtures can do exactly that. Their structure looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
 
@@ -237,7 +238,6 @@ setUp and tearDown . I’ve been wrong.</p>
 <span class="k">def</span> <span class="nf">test_awesomeness</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
-
 <p>Note that the argument to test_awesomeness is called just like the fixture. That is no coincidence. It has to be the same name so that pytest passes the fixture.</p>
 <p>I usually define the fixtures in tests/conftest.py . Pytest will register them and supply them to your test automatically. No need to import the conftest.py anywhere.</p>
 <p>Here is an example to demonstrate that the tests are isolated:</p>
@@ -258,13 +258,11 @@ setUp and tearDown . I’ve been wrong.</p>
 <span class="k">def</span> <span class="nf">test_bar</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">show_isolation</span> <span class="o">==</span> <span class="mi">42</span>
 </code></pre></div>
-
 <p>If you want real examples, have a look at my tutorial <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">how to test Flask Applications</a>. There I show how to use fixtures to mock the database.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/geek-and-poke-good-coders.jpg"><img src="../images/2020/07/geek-and-poke-good-coders.jpg" alt="Comic by Oliver Widder from geek-and-poke.com" style="width: 512px;"/></a>
-    <figcaption class="text-center">Comic by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2011/7/24/good-coders.html">geek-and-poke.com</a></figcaption>
+<a href="../images/2020/07/geek-and-poke-good-coders.jpg"><img alt="Comic by Oliver Widder from geek-and-poke.com" src="../images/2020/07/geek-and-poke-good-coders.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Comic by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2011/7/24/good-coders.html">geek-and-poke.com</a></figcaption>
 </figure>
-
 <h2 id="parametrizing-test-functions">Parametrizing test functions</h2>
 <p>Have a look at the Fibonacci function:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -273,7 +271,6 @@ setUp and tearDown . I’ve been wrong.</p>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
     <span class="k">return</span> <span class="n">a</span>
 </code></pre></div>
-
 <p>Testing the first seven Fibonacci numbers seems like a good idea. You could create one test for each of them in <code>test_fib_many.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
 
@@ -305,7 +302,6 @@ setUp and tearDown . I’ve been wrong.</p>
 <span class="k">def</span> <span class="nf">test_fib_6</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
 </code></pre></div>
-
 <p>Or you could test them all in <code>test_fib_one.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
 
@@ -315,13 +311,12 @@ setUp and tearDown . I’ve been wrong.</p>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">n2expected</span><span class="p">:</span>
         <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
-
-<p>The <code>test_fib_one.py</code> will fail at the first example that fails. Assume you’re
+<p>The <code>test_fib_one.py</code> will fail at the first example that fails. Assume you&rsquo;re
 asking students to hand in an implementation of Fibonacci as homework and one
 of them just hard-codes the first three cases. Another student gets it almost
 right, but starts with <code>1,1,2,3,5,8</code> instead of <code>0,1,1,2,3,5,8</code>. For both
 students, you would see only one failing test. You would see one example which
-didn’t pass and why, but you wouldn’t have a clue in which way the other
+didn&rsquo;t pass and why, but you wouldn&rsquo;t have a clue in which way the other
 examples were wrong.</p>
 <p>The <code>test_fib_many.py</code> will show you all mistakes. However, it is super
 verbose.</p>
@@ -332,17 +327,16 @@ functions</a>:</p>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
-    <span class="s2">&quot;n,expected&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+    <span class="s2">"n,expected"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
 <span class="p">)</span>
 <span class="k">def</span> <span class="nf">test_route_status</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
-
 <p>The parametrization example looks similar to the <code>test_fib_one.py</code>, but it will
 fail for every single parameter which is wrong. As an example, I manipulated
 the Fibonacci function to return <code>42</code> for <code>n=2</code> and <code>n=3</code>. Here is how the
 error looks like with pytests parametrization:</p>
-<p><img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*U7bFojobikHFYkvmF0RK_g.png"><em>Screenshot taken by Martin Thoma</em></p>
+<p><img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*U7bFojobikHFYkvmF0RK_g.png"/><em>Screenshot taken by Martin Thoma</em></p>
 <p>Both, the test and the test output in case of failure are now more readable! I
 love this so much 😍</p>
 <h2 id="dependencies-between-tests">Dependencies between tests</h2>
@@ -351,7 +345,7 @@ already. You could model that with
 <a href="https://pypi.org/project/pytest-dependency/">pytest-dependency</a>. However, I
 encourage you to think carefully about this. Maybe you can <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">patch dependencies
 away</a>
-to make sure you’re only testing one thing in one unit test? Maybe the function
+to make sure you&rsquo;re only testing one thing in one unit test? Maybe the function
 you want to test can be split into multiple functions if it has too many
 dependencies?</p>
 <h2 id="see-also">See also</h2>

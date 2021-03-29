@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Interpreters and Shells">Interpreters and Shells</a><ul><li><a class="toc-href" href="#level-0-robustness" title="Level 0: Robustness">Level 0: Robustness</a></li><li><a class="toc-href" href="#level-1-speed" title="Level 1: Speed">Level 1: Speed</a></li><li><a class="toc-href" href="#level-2-left-right-arrow-keys" title="Level 2: Left / Right arrow keys">Level 2: Left / Right arrow keys</a></li><li><a class="toc-href" href="#level-3-history-with-up-down-arrow-keys" title="Level 3: History with up / down arrow keys">Level 3: History with up / down arrow keys</a></li><li><a class="toc-href" href="#level-4-customization" title="Level 4: Customization">Level 4: Customization</a></li><li><a class="toc-href" href="#level-5-path-autocompletion" title="Level 5: Path autocompletion">Level 5: Path autocompletion</a></li><li><a class="toc-href" href="#level-6-command-autocompletion" title="Level 6: Command autocompletion">Level 6: Command autocompletion</a></li><li><a class="toc-href" href="#level-7-fuzzy-autocompletion" title="Level 7: Fuzzy autocompletion">Level 7: Fuzzy autocompletion</a></li><li><a class="toc-href" href="#additional-stuff" title="Additional stuff">Additional stuff</a></li><li><a class="toc-href" href="#ranking" title="Ranking">Ranking</a></li><li><a class="toc-href" href="#additional-resources" title="Additional resources">Additional resources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Should you ever be in the position to write a shell or interpreter I hope you
@@ -184,18 +190,16 @@ does not work on my system.<br/>
 However, customizing the prompt is fairly easy:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s2">&quot;--&gt;&quot;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s2">"--&gt;"</span>
 </code></pre></div>
-
 <p><strong>Level 4</strong>: <code>GHCi</code>, a Haskell compiler, has mastered level 4. The prompt can be
 configured via <code>~/.ghci</code> by adding <code>:set prompt "ghci&gt; "</code>.</p>
 <p>If you want to show the current path, you can do it like this (<a href="http://stackoverflow.com/a/11263118/562769">source</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">&quot;:set prompt </span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">&quot; </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">:</span><span class="n">def</span> <span class="n">doprompt</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">cur</span> <span class="s">&quot;&gt;&quot;</span><span class="p">)</span>
-<span class="kt">:</span><span class="n">def</span> <span class="n">mycd</span> <span class="p">(</span><span class="nf">\</span><span class="n">dir</span> <span class="ow">-&gt;</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">setCurrentDirectory</span> <span class="n">dir</span> <span class="o">&gt;&gt;</span> <span class="n">cur</span> <span class="s">&quot;&gt;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">":set prompt </span><span class="se">\"</span><span class="s">"</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">" </span><span class="se">\"</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
+<span class="kt">:</span><span class="n">def</span> <span class="n">doprompt</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
+<span class="kt">:</span><span class="n">def</span> <span class="n">mycd</span> <span class="p">(</span><span class="nf">\</span><span class="n">dir</span> <span class="ow">-&gt;</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">setCurrentDirectory</span> <span class="n">dir</span> <span class="o">&gt;&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
 <span class="kt">:</span><span class="n">doprompt</span>
 </code></pre></div>
-
 <p><strong>Level 4.5</strong>: <code>bash</code> is robust, takes about 0.11 seconds to start, has a history of
 500 lines as you can verify with <code>echo $HISTSIZE</code>, is customizable with <code>.bashrc</code>.</p>
 <p><code>tcsh</code> takes about 0.02 seconds to start, has a default history size of 100 lines

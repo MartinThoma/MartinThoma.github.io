@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="skdata">skdata</a><ul><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#other-data-loading-projects" title="Other Data-Loading Projects">Other Data-Loading Projects</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I really like Machine Learning. I like reading papers, understanding and
@@ -119,7 +125,7 @@ last commit is from July 2015.</p>
 <p>One way to use <code>skdata</code> is the following:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">&quot;&quot;&quot;MNIST example with skdata.&quot;&quot;&quot;</span>
+<span class="sd">"""MNIST example with skdata."""</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">skdata.mnist.view</span> <span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
@@ -135,7 +141,7 @@ last commit is from July 2015.</p>
 <span class="n">test_idx</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">tst_idxs</span>  <span class="c1"># indices of test data</span>
 
 <span class="c1"># Fit a simple classifier</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start fitting DecisionTreeClassifier.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Start fitting DecisionTreeClassifier."</span><span class="p">)</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">all_vectors</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span>  <span class="c1"># select features of training data</span>
 <span class="n">targets</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">all_labels</span><span class="p">[</span><span class="n">train_idx</span><span class="p">]</span>  <span class="c1"># select labels of training data</span>
@@ -144,9 +150,8 @@ last commit is from July 2015.</p>
 <span class="c1"># Evaluate the classifier</span>
 <span class="n">predict</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">all_vectors</span><span class="p">[</span><span class="n">test_idx</span><span class="p">])</span>
 <span class="n">accuracy</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">predict</span> <span class="o">==</span> <span class="n">view</span><span class="o">.</span><span class="n">all_labels</span><span class="p">[</span><span class="n">test_idx</span><span class="p">])</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_idx</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitted DecisionTreeClassifier has test accuracy of </span><span class="si">%0.4f</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fitted DecisionTreeClassifier has test accuracy of </span><span class="si">%0.4f</span><span class="s2">."</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">)</span>
 </code></pre></div>
-
 <p>However, it is inteded to be used like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">skdata.mnist.view</span> <span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
@@ -162,9 +167,8 @@ last commit is from July 2015.</p>
 
 <span class="n">learning_algo</span> <span class="o">=</span> <span class="n">SklearnClassifier</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">)</span>
 <span class="n">mnist_view</span><span class="o">.</span><span class="n">protocol</span><span class="p">(</span><span class="n">learning_algo</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">learn_algo</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;task_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;tst&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">learn_algo</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">"loss"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"task_name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"tst"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>... but this doesn't work (for me)</p>
 <h2 id="other-data-loading-projects">Other Data-Loading Projects</h2>
 <p>You can access R data with <a href="https://rpy2.bitbucket.io/?"><code>rpy2</code></a>.</p>
@@ -176,10 +180,9 @@ last commit is from July 2015.</p>
     <span class="k">return</span> <span class="n">pandas2ri</span><span class="o">.</span><span class="n">ri2py</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
 
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s2">"iris"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </code></pre></div>
-
 <ul>
 <li><a href="https://www.quandl.com/tools/python">quandl</a></li>
 <li><a href="https://github.com/mila-udem/fuel">fuel</a></li>
@@ -189,7 +192,6 @@ last commit is from July 2015.</p>
 
 <span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </code></pre></div>
-
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://jaberg.github.io/skdata/">skdata documentation</a></li>

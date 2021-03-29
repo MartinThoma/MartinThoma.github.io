@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Bugs">Bugs</a><ul><li><a class="toc-href" href="#what-are-bugs" title="What are bugs">What are bugs</a></li><li><a class="toc-href" href="#types-of-bugs" title="Types of Bugs">Types of Bugs</a><ul><li><a class="toc-href" href="#functional-bugs" title="Functional Bugs">Functional Bugs</a></li><li><a class="toc-href" href="#non-functional-bugs" title="Non-Functional Bugs">Non-Functional Bugs</a></li></ul></li><li><a class="toc-href" href="#bug-reporting_1" title="Bug reporting">Bug reporting</a></li><li><a class="toc-href" href="#logging" title="Logging">Logging</a></li><li><a class="toc-href" href="#triaging-bugs" title="Triaging Bugs">Triaging Bugs</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Every software project which is not absolutely tiny likely has (or had) bugs,
@@ -114,12 +120,11 @@ studies. So let's summarize a few important things.</p>
 <p>A <em>software bug</em> is a fault in software that causes incorrect behaviour.</p>
 </blockquote>
 <p>An example would be this <code>sum.py</code> executed with Python 3:</p>
-<div class="highlight"><pre><span></span><code>print(&quot;Please enter two numbers you would like to add:&quot;)
+<div class="highlight"><pre><span></span><code>print("Please enter two numbers you would like to add:")
 n1 = input()
 n2 = input()
-print(&quot;The summ of those two numbers is {}&quot;.format(n1 + n2))
+print("The summ of those two numbers is {}".format(n1 + n2))
 </code></pre></div>
-
 <p>If you enter <code>42</code> and <code>1337</code> it will give <code>421337</code>. The reason for this
 behavior is that <code>input()</code> returns a string, not a number. So clearly neither
 the developer nor the user want this behaviour. But it is not always that easy.
@@ -150,84 +155,81 @@ another process P-out that handles outgoing transactions:</p>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">-</span> <span class="n">pay_amount</span>  <span class="c1"># L2</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L3</span>
 </code></pre></div>
-
 <p>P2:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L5</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">+</span> <span class="n">get_amount</span>  <span class="c1"># L6</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L7</span>
 </code></pre></div>
-
 <p>You have 3141 EUR on that account identified by 'FortKnox'. At midnight in the
 beginning of year 2018, you receive 42 EUR from your awesome company as a gift
 for the New Year and you have to pay 1337 EUR in rent. Both happen pretty much
 at the same time. They are not really in parallel, but interleaved:</p>
 <table class="table">
-    <tr>
-        <th>Step</th>
-        <th>Time</th>
-        <th>Code</th>
-        <th>Relevant Memory</th>
-        <th>Bank Account</th>
-    </tr>
-    <tr>
-        <td>S1</td>
-        <td>2018-01-01 00:00:00.000</td>
-        <td>L0</td>
-        <td>account = 'Martin', pay_amount = 1337</td>
-        <td>3141</td>
-    </tr>
-    <tr>
-        <td>S2</td>
-        <td>2018-01-01 00:00:00.022</td>
-        <td>L4</td>
-        <td>account = 'Martin', get_amount = 42</td>
-        <td>3141</td>
-    </tr>
-    <tr>
-        <td>S3</td>
-        <td>2018-01-01 00:00:00.030</td>
-        <td>L5</td>
-        <td>get_amount = 42, current_total = 3141</td>
-        <td>3141</td>
-    </tr>
-    <tr>
-        <td>S4</td>
-        <td>2018-01-01 00:00:00.051</td>
-        <td>L1</td>
-        <td>pay_amount = 1337, <span style="color: red">current_total = 3141</span></td>
-        <td>3141</td>
-    </tr>
-    <tr>
-        <td>S5</td>
-        <td>2018-01-01 00:00:00.072</td>
-        <td>L2</td>
-        <td>updated_total = 1804</td>
-        <td>3141</td>
-    </tr>
-    <tr>
-        <td>S6</td>
-        <td>2018-01-01 00:00:00.180</td>
-        <td>L3</td>
-        <td></td>
-        <td>1804</td>
-    </tr>
-    <tr>
-        <td>S7</td>
-        <td>2018-01-01 00:00:00.193</td>
-        <td>L6</td>
-        <td>updated_total = 3183</td>
-        <td>1804</td>
-    </tr>
-    <tr>
-        <td>S8</td>
-        <td>2018-01-01 00:00:00.237</td>
-        <td>L7</td>
-        <td></td>
-        <td style="background-color: #ffa9a9;">3183</td>
-    </tr>
+<tr>
+<th>Step</th>
+<th>Time</th>
+<th>Code</th>
+<th>Relevant Memory</th>
+<th>Bank Account</th>
+</tr>
+<tr>
+<td>S1</td>
+<td>2018-01-01 00:00:00.000</td>
+<td>L0</td>
+<td>account = 'Martin', pay_amount = 1337</td>
+<td>3141</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>2018-01-01 00:00:00.022</td>
+<td>L4</td>
+<td>account = 'Martin', get_amount = 42</td>
+<td>3141</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>2018-01-01 00:00:00.030</td>
+<td>L5</td>
+<td>get_amount = 42, current_total = 3141</td>
+<td>3141</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>2018-01-01 00:00:00.051</td>
+<td>L1</td>
+<td>pay_amount = 1337, <span style="color: red">current_total = 3141</span></td>
+<td>3141</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>2018-01-01 00:00:00.072</td>
+<td>L2</td>
+<td>updated_total = 1804</td>
+<td>3141</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>2018-01-01 00:00:00.180</td>
+<td>L3</td>
+<td></td>
+<td>1804</td>
+</tr>
+<tr>
+<td>S7</td>
+<td>2018-01-01 00:00:00.193</td>
+<td>L6</td>
+<td>updated_total = 3183</td>
+<td>1804</td>
+</tr>
+<tr>
+<td>S8</td>
+<td>2018-01-01 00:00:00.237</td>
+<td>L7</td>
+<td></td>
+<td style="background-color: #ffa9a9;">3183</td>
+</tr>
 </table>
-
 <p>Two resources access the same data - the current value of the bank account.
 This is problematic. You can prevent this by making both of the functions atomic, e.g. by locking
 or by using <a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)">atomic database operations</a>.
@@ -245,7 +247,7 @@ time on the machine.</p>
 <p>Another one I see often with browsers is that it is <strong>too memory intensive</strong>.
 I guess that is a problem for smartphones as well.</p>
 <p>Speaking of smartphones, <strong>too power intensive</strong> is certainly another one.</p>
-<h2 id="bug-reporting">Bug reporting</h2>
+<h2 id="bug-reporting_1">Bug reporting</h2>
 <p>When reporting bugs, please don't only say "it doesn't work" or "it's broken".
 That doesn't help. what does help, is answers to the following questions:</p>
 <ol>

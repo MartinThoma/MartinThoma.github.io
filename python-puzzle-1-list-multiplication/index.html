@@ -102,10 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Python Puzzle #1: List multiplication">Python Puzzle #1: List multiplication</a><ul><li><a class="toc-href" href="#basic-concepts" title="Basic concepts">Basic concepts</a></li><li><a class="toc-href" href="#question" title="Question">Question</a></li><li><a class="toc-href" href="#answer" title="Answer">Answer</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>Basic concepts</h2>
+            <h2 id="basic-concepts">Basic concepts</h2>
 <p>Image you had to multiply two small matrices in Python. You could just use the definition of a matrix product:</p>
 <p><span class="math">\(A, B \in \mathbb{R}^{n \times n}\)</span>:
 <span class="math">\(C = A \cdot B, C \in \mathbb{R}^{n \times n}\)</span> where the components of C are definied by
@@ -126,16 +132,14 @@ MathJax.Hub.Queue(function() {
 <p>You might also have heard of Pythons overloaded multiplication:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"abc"</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code>[0, 0, 0, 0]
 [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 abcabcabcabc
 </code></pre></div>
-
-<h2>Question</h2>
+<h2 id="question">Question</h2>
 <p>What do you think does the following piece of Python-Code print?</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -155,7 +159,6 @@ abcabcabcabc
 <span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">standardMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span>
 </code></pre></div>
-
 <p>.
 .
 .
@@ -200,11 +203,9 @@ abcabcabcabc
 .
 .
 .</p>
-<h2>Answer</h2>
-
+<h2 id="answer">Answer</h2>
 <div class="highlight"><pre><span></span><code>[[32, 32], [32, 32]]
 </code></pre></div>
-
 <p>Python creates only one list and makes pointers to it!</p>
 <p>So this is one that works:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">standardMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>

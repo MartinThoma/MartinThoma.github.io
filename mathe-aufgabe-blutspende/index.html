@@ -102,15 +102,21 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Mathe-Aufgabe: Blutspende">Mathe-Aufgabe: Blutspende</a><ul><li><a class="toc-href" href="#aufgabenstellung" title="Aufgabenstellung">Aufgabenstellung</a></li><li><a class="toc-href" href="#berechnung" title="Berechnung">Berechnung</a><ul><li><a class="toc-href" href="#die-ersten-werte" title="Die ersten Werte">Die ersten Werte</a></li><li><a class="toc-href" href="#eine-rekursive-formel" title="Eine rekursive Formel">Eine rekursive Formel</a></li><li><a class="toc-href" href="#auflosen-der-rekursion" title="Aufl&ouml;sen der Rekursion">Aufl&ouml;sen der Rekursion</a></li><li><a class="toc-href" href="#auflosen-des-summensymbols" title="Aufl&ouml;sen des Summensymbols">Aufl&ouml;sen des Summensymbols</a></li></ul></li><li><a class="toc-href" href="#losung_1" title="L&ouml;sung">L&ouml;sung</a></li><li><a class="toc-href" href="#antwort" title="Antwort">Antwort</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2>Aufgabenstellung</h2>
+            <h2 id="aufgabenstellung">Aufgabenstellung</h2>
 <p>Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet.</p>
 <p>Wie h&auml;ufig muss Blut gespendet werden, bis 95% des urspr&uuml;nglichen Blutes gespendet wurde?</p>
 <p>Die nat&uuml;rliche Neubildung von Blut auch ohne Blutspende wird vernachl&auml;ssigt.</p>
-<h2>Berechnung</h2>
-<h3>Die ersten Werte</h3>
+<h2 id="berechnung">Berechnung</h2>
+<h3 id="die-ersten-werte">Die ersten Werte</h3>
 <p><span class="math">\(f: \mathbb{N}_0 \rightarrow \mathbb{R}_0^+\)</span> sei die Menge des urspr&uuml;nglichen Blutes in Liter, das nach <span class="math">\(x\)</span> Spenden gespendet wurde:</p>
 <p><span class="math">\(f(0) = 0\)</span></p>
 <p>Beim ersten mal Blutspenden wird ein halber Liter des urspr&uuml;nglichen Blutes gespendet:</p>
@@ -119,7 +125,7 @@ MathJax.Hub.Queue(function() {
 <p><span class="math">\(f(2) = \frac{5-0{,}5}{5} \cdot 0{,}5 \text{ Liter} + f(1) + f(0) = 0{,}95 \text{ Liter}\)</span></p>
 <p>Beim dritten mal Blutspenden werden 0,405 Liter des urspr&uuml;nglichen Blutes gespendet:</p>
 <p><span class="math">\(f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}\)</span></p>
-<h3>Eine rekursive Formel</h3>
+<h3 id="eine-rekursive-formel">Eine rekursive Formel</h3>
 <div class="math">$$
         \begin{align}
             f(1) &amp;= 0{,}5 \\
@@ -130,11 +136,10 @@ MathJax.Hub.Queue(function() {
 $$</div>
 <p>Dabei gilt:</p>
 <ul>
-  <li>0,5 ist die gespendete Blutmenge in Liter einer Spende</li>
-  <li>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</li>
+<li>0,5 ist die gespendete Blutmenge in Liter einer Spende</li>
+<li>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</li>
 </ul>
-
-<h3>Aufl&ouml;sen der Rekursion</h3>
+<h3 id="auflosen-der-rekursion">Aufl&ouml;sen der Rekursion</h3>
 <div class="math">$$
         \begin{align}
              f(4) &amp;= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\\
@@ -144,7 +149,7 @@ $$</div>
               f(x)&amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i
         \end{align}
 $$</div>
-<h3>Aufl&ouml;sen des Summensymbols</h3>
+<h3 id="auflosen-des-summensymbols">Aufl&ouml;sen des Summensymbols</h3>
 <div class="math">$$
         \begin{align}
             f(x) &amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\\
@@ -154,7 +159,7 @@ $$</div>
                  &amp;= 5 \cdot (1 - 0{,}9^{x+1})
         \end{align}
 $$</div>
-<h2>L&ouml;sung</h2>
+<h2 id="losung_1">L&ouml;sung</h2>
 <div class="math">$$
         \begin{align}
             0{,}95 \cdot 5 &amp;= 5 \cdot (1- 0{,}9^{x+1})\\
@@ -165,7 +170,7 @@ $$</div>
                      x  &amp;= 27{,}43
         \end{align}
 $$</div>
-<h2>Antwort</h2>
+<h2 id="antwort">Antwort</h2>
 <p>Nach dem 28. mal Blutspenden wurden 95% des urspr&uuml;nglichen Blutes gespendet.</p>
             
             <div id="disqus_thread" class="no-print"></div>

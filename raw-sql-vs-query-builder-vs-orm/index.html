@@ -102,30 +102,34 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Raw SQL vs Query Builder vs ORM">Raw SQL vs Query Builder vs ORM</a><ul><li><a class="toc-href" href="#raw-sql" title="Raw SQL">Raw SQL</a><ul><li><a class="toc-href" href="#problem-1-sql-injections" title="Problem 1: SQL Injections">Problem 1: SQL Injections</a></li><li><a class="toc-href" href="#problem-2-typos-in-sql-commands" title="Problem 2: Typos in SQL Commands">Problem 2: Typos in SQL Commands</a></li><li><a class="toc-href" href="#problem-3-missing-editor-support" title="Problem 3: Missing Editor Support">Problem 3: Missing Editor Support</a></li><li><a class="toc-href" href="#problem-4-typos-in-table-or-column-names" title="Problem 4: Typos in Table or Column Names">Problem 4: Typos in Table or Column Names</a></li><li><a class="toc-href" href="#problem-5-change-management" title="Problem 5: Change management">Problem 5: Change management</a></li><li><a class="toc-href" href="#problem-6-query-extension" title="Problem 6: Query Extension">Problem 6: Query Extension</a></li></ul></li><li><a class="toc-href" href="#query-builder_1" title="Query Builder">Query Builder</a></li><li><a class="toc-href" href="#orm-object-relational-mapper" title="ORM: Object-Relational Mapper">ORM: Object-Relational Mapper</a><ul><li><a class="toc-href" href="#over-fetching-problem" title="Over-fetching Problem">Over-fetching Problem</a></li><li><a class="toc-href" href="#the-n1-problem-initial-under-fetching" title="The N+1 Problem: Initial Under-Fetching">The N+1 Problem: Initial Under-Fetching</a></li><li><a class="toc-href" href="#the-leaky-abstraction-problem" title="The Leaky Abstraction Problem">The Leaky Abstraction Problem</a></li></ul></li><li><a class="toc-href" href="#bonus-linq_1" title="Bonus: LINQ">Bonus: LINQ</a></li><li><a class="toc-href" href="#query-types-and-gradual-changes" title="Query Types and Gradual Changes">Query Types and Gradual Changes</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#credits" title="Credits">Credits</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/relational-database.png"><img src="../images/2020/07/relational-database.png" alt="Screenshot of phpmyadmin" style="width: 512px;"/></a>
-    <figcaption class="text-center">Screenshot of phpmyadmin</figcaption>
+<a href="../images/2020/07/relational-database.png"><img alt="Screenshot of phpmyadmin" src="../images/2020/07/relational-database.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Screenshot of phpmyadmin</figcaption>
 </figure>
-
 <p>Databases are the core of storing state for almost all web applications. For
 that reason taking care of the interactions with the database is crucial to
 make sure the application keeps running. The way to interact with most
-relational databases is SQL — the <strong><em>S</em>*tructured </strong>Q<strong>uery </strong>L<strong>anguage<em>. SQL
+relational databases is SQL &mdash; the <strong><em>S</em>*tructured </strong>Q<strong>uery </strong>L<strong>anguage<em>. SQL
 makes it incredibly simple to switch the actual database system or the client
-using that database. It’s just SQL everywhere. You need a </em>database driver* and
+using that database. It&rsquo;s just SQL everywhere. You need a </em>database driver* and
 then you can do the typical CRUD interactions: </strong>C<strong>reate, </strong>R<strong>ead, </strong>U<strong>pdate
 and </strong>D**elete data.</p>
 <p>After reading this article, you will know when to use raw SQL, a query builder
 and an ORM. You will also know how to use each of them in Python.</p>
 <p>All of the code in this article is runnable. You just need to <a href="https://gist.github.com/MartinThoma/95b603226f84f3be25f4eaf2393fba9e">initialize the database</a> and add environment variables. I use <a href="https://direnv.net/">direnv</a> to set environment variables:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># direnv needed; alternatively: &quot;source .envrc&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># direnv needed; alternatively: "source .envrc"</span>
 <span class="nb">export</span> <span class="nv">DB_USER</span><span class="o">=</span>root
 <span class="nb">export</span> <span class="nv">DB_PASSWORD</span><span class="o">=</span>idontthinkso
 </code></pre></div>
-
 <h2 id="raw-sql"><strong>Raw SQL</strong></h2>
 <p><em>Raw SQL, </em>sometimes also called <em>native SQL,</em> is the most basic, most
 low-level form of database interaction. You tell the database what to do in the
@@ -135,35 +139,34 @@ DELETE data. For more complex things like <a href="https://en.wikipedia.org/wiki
 procedures</a>, T-SQL, PL-SQL,
 in-depth knowledge about indices and their effect you will have a significantly
 harder time to find knowledgeable people. SQL is far more powerful than many
-developers think. I wouldn’t know <a href="http://wiki.postgresql.org/wiki/Mandelbrot_set">how to create the Mandelbrot set with
+developers think. I wouldn&rsquo;t know <a href="http://wiki.postgresql.org/wiki/Mandelbrot_set">how to create the Mandelbrot set with
 SQL</a>, for example.</p>
 <p>In order to illustrate the problems of raw SQL statements, take the example of a book portal. The users can see data about books, for example their title, original language and the author:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/books-authors.png"><img src="../images/2020/07/books-authors.png" alt="Every book has exactly one author, but every author might have an arbitrary number of books." style="width: 512px;"/></a>
-    <figcaption class="text-center">Every book has exactly one author, but every author might have an arbitrary number of books.</figcaption>
+<a href="../images/2020/07/books-authors.png"><img alt="Every book has exactly one author, but every author might have an arbitrary number of books." src="../images/2020/07/books-authors.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Every book has exactly one author, but every author might have an arbitrary number of books.</figcaption>
 </figure>
-
 <p>For an author page, we are given the <code>authors.id</code> and want to see a list of
 all <code>books.title</code> written by that author:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
-<span class="c1"># You need to install the driver pymysql via “pip install pymysql”</span>
+<span class="c1"># You need to install the driver pymysql via &ldquo;pip install pymysql&rdquo;</span>
 <span class="kn">import</span> <span class="nn">pymysql.cursors</span>
 
 
 <span class="k">def</span> <span class="nf">db_connection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Supply the decorated function with a database connection.</span>
 <span class="sd">    Commit/rollback and close the connection after the function call.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span> <span class="nf">with_connection_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">con</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-            <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-            <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">],</span>
-            <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">],</span>
-            <span class="n">db</span><span class="o">=</span><span class="s2">&quot;books&quot;</span><span class="p">,</span>
+            <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_USER"</span><span class="p">],</span>
+            <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_PASSWORD"</span><span class="p">],</span>
+            <span class="n">db</span><span class="o">=</span><span class="s2">"books"</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">rv</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -183,111 +186,98 @@ all <code>books.title</code> written by that author:</p>
 <span class="nd">@db_connection</span>
 <span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * FROM books WHERE author_id = %s&quot;</span><span class="p">,</span> <span class="n">author_id</span><span class="p">)</span>
-    <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SELECT * FROM books WHERE author_id = %s"</span><span class="p">,</span> <span class="n">author_id</span><span class="p">)</span>
+    <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
     <span class="k">return</span> <span class="n">titles</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_titles_by_author</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
 <p>The decorator is utility code that the project might use a lot.</p>
 <p>On the positive side, it is pretty clear what happens with raw SQL. You only need knowledge of Python and SQL. No need to be deep in third party software.</p>
 <p>However, there are six negative aspects about using raw SQL to be aware of.</p>
 <h3 id="problem-1-sql-injections">Problem 1: SQL Injections</h3>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/xkcd-327.png"><img src="../images/2020/07/xkcd-327.png" alt="xkcd 327" style="width: 512px;"/></a>
-    <figcaption class="text-center"><a href="https://xkcd.com/327/">xkcd 327</a></figcaption>
+<a href="../images/2020/07/xkcd-327.png"><img alt="xkcd 327" src="../images/2020/07/xkcd-327.png" style="width: 512px;"/></a>
+<figcaption class="text-center"><a href="https://xkcd.com/327/">xkcd 327</a></figcaption>
 </figure>
-
 <p>An SQL injection is an attack on services which have a placeholder in an SQL query which the attacker can fill in an unexpected way. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT user_id FROM users WHERE name=&#39;</span><span class="si">{name}</span><span class="s2">&#39; AND pw=&#39;</span><span class="si">{pw}</span><span class="s2">&#39;;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT user_id FROM users WHERE name='</span><span class="si">{name}</span><span class="s2">' AND pw='</span><span class="si">{pw}</span><span class="s2">';"</span>
 </code></pre></div>
-
 <p>Given such an approach, the attacker could fill in ' OR name='admin' AND '1'='1 for the pw and empty for the name. This would result in the query</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">user_id</span>
 <span class="k">FROM</span> <span class="n">users</span>
-<span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="k">AND</span> <span class="n">pw</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-<span class="k">OR</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span> <span class="k">AND</span> <span class="s1">&#39;1&#39;</span><span class="o">=</span><span class="s1">&#39;1&#39;</span>
+<span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">''</span> <span class="k">AND</span> <span class="n">pw</span><span class="o">=</span><span class="s1">''</span>
+<span class="k">OR</span> <span class="n">name</span><span class="o">=</span><span class="s1">'admin'</span> <span class="k">AND</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
 </code></pre></div>
-
 <p>This will basically tell the application that the user signed in as admin.</p>
 <p>Of course, escaping the quotes and not directly pasting in user input is what you should do. But developers make mistakes. Raw SQL queries make it easy to make this mistake.</p>
 <h3 id="problem-2-typos-in-sql-commands">Problem 2: Typos in SQL Commands</h3>
 <p>The first obvious problem of string-programming is that typos in the sub-language cannot be detected by the editor.</p>
-<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM books;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM books;"</span>
 </code></pre></div>
-
 <h3 id="problem-3-missing-editor-support">Problem 3: Missing Editor Support</h3>
 <p>This problem is quite dumb, but still an open issue for many languages / editors: When developers write their SQL just in a string within their language, how should the editor know that this string needs to be parsed? How should the editor know that they want syntax highlighting and auto-completion?</p>
 <p>You can see already in the example above that syntax highlighting is missing, but let me give you screenshots of well-known editors:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/sublime-raw-sql.png"><img src="../images/2020/07/sublime-raw-sql.png" alt="Sublime Text 3.2" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sublime Text 3.2</figcaption>
+<a href="../images/2020/07/sublime-raw-sql.png"><img alt="Sublime Text 3.2" src="../images/2020/07/sublime-raw-sql.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Sublime Text 3.2</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vs-code-1-47.png"><img src="../images/2020/07/vs-code-1-47.png" alt="VS Code 1.47" style="width: 512px;"/></a>
-    <figcaption class="text-center">VS Code 1.47</figcaption>
+<a href="../images/2020/07/vs-code-1-47.png"><img alt="VS Code 1.47" src="../images/2020/07/vs-code-1-47.png" style="width: 512px;"/></a>
+<figcaption class="text-center">VS Code 1.47</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vim.png"><img src="../images/2020/07/vim.png" alt="vim 8.1" style="width: 512px;"/></a>
-    <figcaption class="text-center">vim 8.1</figcaption>
+<a href="../images/2020/07/vim.png"><img alt="vim 8.1" src="../images/2020/07/vim.png" style="width: 512px;"/></a>
+<figcaption class="text-center">vim 8.1</figcaption>
 </figure>
-
 <p>In contrast, here is the same query in an query.sql file:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/sublime-query.png"><img src="../images/2020/07/sublime-query.png" alt="Sublime Text 3.2" style="width: 512px;"/></a>
-    <figcaption class="text-center">Sublime Text 3.2</figcaption>
+<a href="../images/2020/07/sublime-query.png"><img alt="Sublime Text 3.2" src="../images/2020/07/sublime-query.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Sublime Text 3.2</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vs-code-query.png"><img src="../images/2020/07/vs-code-query.png" alt="VS Code 1.47" style="width: 512px;"/></a>
-    <figcaption class="text-center">VS Code 1.47</figcaption>
+<a href="../images/2020/07/vs-code-query.png"><img alt="VS Code 1.47" src="../images/2020/07/vs-code-query.png" style="width: 512px;"/></a>
+<figcaption class="text-center">VS Code 1.47</figcaption>
 </figure>
-
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/vim-query.png"><img src="../images/2020/07/vim-query.png" alt="vim 8.1" style="width: 512px;"/></a>
-    <figcaption class="text-center">vim 8.1</figcaption>
+<a href="../images/2020/07/vim-query.png"><img alt="vim 8.1" src="../images/2020/07/vim-query.png" style="width: 512px;"/></a>
+<figcaption class="text-center">vim 8.1</figcaption>
 </figure>
-
-<p>I’ve tried PyCharm as well. Besides having another color for strings, it looks
+<p>I&rsquo;ve tried PyCharm as well. Besides having another color for strings, it looks
 the same. It does not recognize that the string contains SQL.</p>
 <p>If you really need raw queries and if you still want syntax highlighting, you
 can put each query in its own query.sql file. This way the editor knows to use
 SQL syntax highlighting.</p>
 <h3 id="problem-4-typos-in-table-or-column-names">Problem 4: Typos in Table or Column Names</h3>
-<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * from boks;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * from boks;"</span>
 </code></pre></div>
-
 <p>This group of errors is way harder to find. Now the checking code does not only
 have to know how SQL works, it also has to know your data. The database schema
 to be more precise.</p>
 <h3 id="problem-5-change-management">Problem 5: Change management</h3>
-<p>Databases change over time. With raw SQL, you typically don’t get any support
+<p>Databases change over time. With raw SQL, you typically don&rsquo;t get any support
 for that. You have to migrate the schema and all queries yourself.</p>
 <h3 id="problem-6-query-extension">Problem 6: Query Extension</h3>
 <p>If you have an analytical query, it is nice if you can apply slight
 modifications to it. For example, imagine tracking data where you want to know
-how many users clicked on a button. You might have a “base query” for that.
+how many users clicked on a button. You might have a &ldquo;base query&rdquo; for that.
 Depending on the use case you might want to filter for a certain time frame or
-characteristics of the user. It’s possible to extend a query when you have raw
-SQL, but it’s cumbersome. You need to touch the original query and add
+characteristics of the user. It&rsquo;s possible to extend a query when you have raw
+SQL, but it&rsquo;s cumbersome. You need to touch the original query and add
 placeholders.</p>
-<h2 id="query-builder"><strong>Query Builder</strong></h2>
+<h2 id="query-builder_1"><strong>Query Builder</strong></h2>
 <p>Libraries which are written in the programming language you use and use native
 classes and functions to build SQL queries are called <em>query builders</em>. Query
 builders typically have a <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent
 interface</a>. This means, that
 the queries are built by an object-oriented interface which uses method
 chaining:</p>
-<div class="highlight"><pre><span></span><code><span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">books</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">books</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">aid</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">query</span> <span class="o">=</span> <span class="n">Query</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">books</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">books</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">aid</span><span class="p">)</span>
 </code></pre></div>
-
 <p>There are also graphical tools which are sometimes also called query builders,
-but for this article I don’t mean them.</p>
+but for this article I don&rsquo;t mean them.</p>
 <p>JavaScript <a href="http://knexjs.org/">Knex</a>, PHP has
 <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/2.10/reference/query-builder.html#sql-query-builder">Doctrine</a>,
 Java has <a href="http://www.querydsl.com/">QueryDSL</a> and <a href="http://www.jooq.org/">JOOQ</a>.</p>
@@ -307,18 +297,17 @@ Python. The example query from above can be built and executed like this:</p>
 <span class="nd">@db_connection</span>
 <span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">books</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="n">Query</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">books</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">books</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">Query</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">books</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">books</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
     <span class="n">query</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">get_sql</span><span class="p">(</span><span class="n">quote_char</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-    <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
+    <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
     <span class="k">return</span> <span class="n">titles</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_titles_by_author</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Note that the resulting query is still the same as in the raw code. It was just built in another way. This means the database performance is still the same. And query building is not a complex task, so the application performance overall should stay the same.</p>
 <p>You can also see that the connection handling is still done as before. The
 total lines of code increased by 3 lines compared to the raw SQL example.
@@ -327,7 +316,7 @@ imagine that you have a set of complex joins and a lot of WHERE statements.
 With a normal SQL query, you will start to add options there. With a query
 builder, it is simpler to extend and reuse queries. To make it reusable you
 would expose the query&nbsp;<code>q</code> somewhere.</p>
-<p>The query builder prevents typos in the offered parts — <code>.select</code>, <code>.from_</code>,
+<p>The query builder prevents typos in the offered parts &mdash; <code>.select</code>, <code>.from_</code>,
 <code>.where</code> in the example above. It does not help with column names, as they are
 still only strings. In other words: A query builder solves problem&nbsp;1 and&nbsp;2,
 addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
@@ -349,16 +338,16 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 
 
 <span class="k">def</span> <span class="nf">db_connection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Supply the decorated function with a database connection.</span>
 <span class="sd">    Commit/rollback and close the connection after the function call.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span> <span class="nf">with_connection_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># https://martin-thoma.com/sql-connection-strings/</span>
-        <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">]</span>
-        <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">]</span>
-        <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mysql+pymysql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@localhost/books&quot;</span><span class="p">)</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_USER"</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_PASSWORD"</span><span class="p">]</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="s2">"mysql+pymysql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@localhost/books"</span><span class="p">)</span>
         <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
         <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>
@@ -377,7 +366,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 
 
 <span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
-    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;books&quot;</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"books"</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
     <span class="n">author_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
@@ -389,46 +378,44 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
     <span class="k">return</span> <span class="p">[</span><span class="n">book</span><span class="o">.</span><span class="n">title</span> <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">books</span><span class="p">]</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_titles_by_author</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
 <p>A cool point about ORMs is that they sometimes help with changes. In Python, there is <a href="https://alembic.sqlalchemy.org/en/latest/">Alembic</a> which can automatically detect when your models changed compared to the last known state of the database. Alembic can then create schema migration files for you. They look like that:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
 <span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">op</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy.dialects</span> <span class="kn">import</span> <span class="n">mysql</span>
 
 <span class="c1"># revision identifiers, used by Alembic.</span>
-<span class="n">revision</span> <span class="o">=</span> <span class="s2">&quot;1cdeb9f52797&quot;</span>
-<span class="n">down_revision</span> <span class="o">=</span> <span class="s2">&quot;057fccb0279d&quot;</span>
+<span class="n">revision</span> <span class="o">=</span> <span class="s2">"1cdeb9f52797"</span>
+<span class="n">down_revision</span> <span class="o">=</span> <span class="s2">"057fccb0279d"</span>
 <span class="n">branch_labels</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">depends_on</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="k">def</span> <span class="nf">upgrade</span><span class="p">():</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">&quot;confirmed_on&quot;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">&quot;registered_on&quot;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">"confirmed_on"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">"registered_on"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
     <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span>
-        <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+        <span class="s2">"users"</span><span class="p">,</span>
         <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span>
-            <span class="s2">&quot;status&quot;</span><span class="p">,</span>
-            <span class="n">sa</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;email_confirmation_missing&quot;</span><span class="p">,</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;userstatus&quot;</span><span class="p">),</span>
-            <span class="n">server_default</span><span class="o">=</span><span class="s2">&quot;email_confirmation_missing&quot;</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">,</span>
+            <span class="n">sa</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">"email_confirmation_missing"</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"userstatus"</span><span class="p">),</span>
+            <span class="n">server_default</span><span class="o">=</span><span class="s2">"email_confirmation_missing"</span><span class="p">,</span>
             <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="p">),</span>
     <span class="p">)</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="s2">&quot;email_confirmed_at&quot;</span><span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="s2">"email_confirmed_at"</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">downgrade</span><span class="p">():</span>
     <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span>
-        <span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">&quot;email_confirmed_at&quot;</span><span class="p">,</span> <span class="n">mysql</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="s2">"users"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">"email_confirmed_at"</span><span class="p">,</span> <span class="n">mysql</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
     <span class="p">)</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">)</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="s2">&quot;registered_on&quot;</span><span class="p">)</span>
-    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="s2">&quot;confirmed_on&quot;</span><span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="s2">"registered_on"</span><span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="s2">"confirmed_on"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>It requires initial effort to represent the database within the code so that there are objects which represent the tables of the database. After that initial effort you need to make sure that the database is in sync with the query builders code base. What you get from that effort is faster development when you just need to write new queries. As you can also get syntax highlighting and auto-formatting, it could also reduce maintenance by making the queries easier to read.</p>
 <h3 id="over-fetching-problem">Over-fetching Problem</h3>
 <p>When you fire Queries with ORMs, you tend to get more than you need. For example, if you wanted to use the ORM directly for the book query from above, you would define the foreign key like this:</p>
@@ -448,19 +435,19 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 
 
 <span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
-    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;authors&quot;</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"authors"</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">first_name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
     <span class="n">last_name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-    <span class="n">books</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">)</span>
+    <span class="n">books</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">"Book"</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
-    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;books&quot;</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"books"</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-    <span class="n">author_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;authors.id&quot;</span><span class="p">))</span>
-    <span class="n">author</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Author&quot;</span><span class="p">)</span>
+    <span class="n">author_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">"authors.id"</span><span class="p">))</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">"Author"</span><span class="p">)</span>
 
 
 <span class="nd">@db_connection</span>
@@ -469,10 +456,9 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
     <span class="k">return</span> <span class="p">[</span><span class="n">book</span><span class="o">.</span><span class="n">title</span> <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">author</span><span class="o">.</span><span class="n">books</span><span class="p">]</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_titles_by_author</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Then the database receives those two queries:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">authors</span><span class="p">.</span><span class="n">id</span>         <span class="k">AS</span> <span class="n">authors_id</span><span class="p">,</span>
        <span class="n">authors</span><span class="p">.</span><span class="n">first_name</span> <span class="k">AS</span> <span class="n">authors_first_name</span><span class="p">,</span>
@@ -486,20 +472,18 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 <span class="k">FROM</span>   <span class="n">books</span>
 <span class="k">WHERE</span>  <span class="mi">1</span> <span class="o">=</span> <span class="n">books</span><span class="p">.</span><span class="n">author_id</span>
 </code></pre></div>
-
 <p>This is inefficient for multiple reasons:</p>
 <ol>
-<li>I didn’t want author information at all.</li>
+<li>I didn&rsquo;t want author information at all.</li>
 <li>The database needs to execute two queries instead of one.</li>
-<li>I didn’t want the books ID or the authors ID. Of course, this is a tiny
-   example where it doesn’t matter. But imagine your query would return several
+<li>I didn&rsquo;t want the books ID or the authors ID. Of course, this is a tiny
+   example where it doesn&rsquo;t matter. But imagine your query would return several
    hundred rows and have also sever hundred columns. And maybe some would be
    filled with rather big content, e.g. a
    <a href="https://mariadb.com/kb/en/longblob/">LONGBLOB</a>.</li>
 </ol>
 <p>Of course, you can do something like that:</p>
-<iframe src="https://medium.com/media/799d89eead2c1d176e7343222a071c3b" frameborder=0></iframe>
-
+<iframe frameborder="0" src="https://medium.com/media/799d89eead2c1d176e7343222a071c3b"></iframe>
 <p>which results in this query:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">authors</span><span class="p">.</span><span class="n">id</span>         <span class="k">AS</span> <span class="n">authors_id</span><span class="p">,</span>
        <span class="n">authors</span><span class="p">.</span><span class="n">first_name</span> <span class="k">AS</span> <span class="n">authors_first_name</span><span class="p">,</span>
@@ -511,17 +495,14 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
                     <span class="k">ON</span> <span class="n">authors</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">books_1</span><span class="p">.</span><span class="n">author_id</span>
 <span class="k">WHERE</span>  <span class="n">authors</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div>
-
 <p>Now this is even worse. I first made this as a mistake, but I think this shows perfectly how you can get the right result but in a very complex way when using an ORM. The correct way, of course, would be:</p>
-<iframe src="https://medium.com/media/be65663477c66d9b44c0cfd8e329c327" frameborder=0></iframe>
-
+<iframe frameborder="0" src="https://medium.com/media/be65663477c66d9b44c0cfd8e329c327"></iframe>
 <p>Which results in this query:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">books</span><span class="p">.</span><span class="n">title</span> <span class="k">AS</span> <span class="n">books_title</span>
 <span class="k">FROM</span>   <span class="n">books</span><span class="p">,</span>
        <span class="n">authors</span>
 <span class="k">WHERE</span>  <span class="n">authors</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">1</span>
 </code></pre></div>
-
 <p>The point of this example is not that ORMs make it hard to do the right thing.
 The last example is certainly easy to understand. But they also make it easy to
 create queries which are wrong in a subtle way. Imagine you received the
@@ -529,7 +510,7 @@ orms2.py or orms3.py example to review. They do the right thing, the unit tests
 are not terrible slow either. Would you be certain to spot the unnecessary
 complexity? Also when the desired query gets way more complex?</p>
 <p>For raw SQL and query builders, you have to go out of your way to come up with
-similar complex queries. There it is hard to write a too complex query and it’s
+similar complex queries. There it is hard to write a too complex query and it&rsquo;s
 easy to spot them.</p>
 <h3 id="the-n1-problem-initial-under-fetching">The N+1 Problem: Initial Under-Fetching</h3>
 <p>Imagine you want to print a list of all books with the author names. In raw
@@ -542,13 +523,11 @@ SQL, you would execute this query:</p>
        <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">authors</span> <span class="k">AS</span> <span class="n">a</span>
               <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">author_id</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span>
 </code></pre></div>
-
 <p>With an ORM, you might be tempted to do this:</p>
-<iframe src="https://medium.com/media/b7b584fc3628ded28094f054aa6d5da4" frameborder=0></iframe>
-
-<p>It looks fine because you don’t see a session.query in the for-loop, but for
+<iframe frameborder="0" src="https://medium.com/media/b7b584fc3628ded28094f054aa6d5da4"></iframe>
+<p>It looks fine because you don&rsquo;t see a session.query in the for-loop, but for
 every element in there it fires one query. So if you have received n books in
-the first query, you will execute n queries you’re potentially not aware of.
+the first query, you will execute n queries you&rsquo;re potentially not aware of.
 You have n+1 queries instead of 1 .</p>
 <h3 id="the-leaky-abstraction-problem">The Leaky Abstraction Problem</h3>
 <p>Abstraction is a two-sided coin: On the one hand, it simplifies things. The
@@ -561,24 +540,21 @@ know that just in the next line of code a very similar query is fired which
 could be combined with the first one. For example, imagine that you have a book
 portal where people can give a list of authors and you return them the list of
 all books written by those. You might be tempted to do something like this:</p>
-<iframe src="https://medium.com/media/ab03bbf6e4c362fa609cd34e424c2bbf" frameborder=0></iframe>
-
+<iframe frameborder="0" src="https://medium.com/media/ab03bbf6e4c362fa609cd34e424c2bbf"></iframe>
 <p>Now you send a query once for each author. Of course, you can do that in a
 single query. And you should, because although the loop above does not seem to
 bad, you have a network connection in between. This is how you do it with a
 single query:</p>
-<iframe src="https://medium.com/media/3cd1bcc951866f18156a587f43f5bac4" frameborder=0></iframe>
-
-<h2 id="bonus-linq">Bonus: LINQ</h2>
+<iframe frameborder="0" src="https://medium.com/media/3cd1bcc951866f18156a587f43f5bac4"></iframe>
+<h2 id="bonus-linq_1">Bonus: LINQ</h2>
 <p>Language Integrated Queries (short: LINQ) are available in C# and might be a built-in solution for the problems query builders try to solve. Here is an <a href="https://en.wikipedia.org/wiki/Language_Integrated_Query#Language_extensions">example from Wikipedia</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">var</span> <span class="n">results</span> <span class="o">=</span>  <span class="n">from</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">SomeCollection</span>
                <span class="n">where</span> <span class="n">c</span><span class="o">.</span><span class="n">SomeProperty</span> <span class="o">&lt;</span> <span class="mi">10</span>
                <span class="n">select</span> <span class="n">new</span> <span class="p">{</span><span class="n">c</span><span class="o">.</span><span class="n">SomeProperty</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">OtherProperty</span><span class="p">};</span>
 </code></pre></div>
-
-<p>That’s extremely neat, isn’t it?</p>
+<p>That&rsquo;s extremely neat, isn&rsquo;t it?</p>
 <h2 id="query-types-and-gradual-changes">Query Types and Gradual Changes</h2>
-<p>I’ve used a very simple example query. Of course, queries can become way more
+<p>I&rsquo;ve used a very simple example query. Of course, queries can become way more
 complicated. I have written myself queries which have several hundred lines.
 There are two groups of workloads which are typically distinguished:
 <a href="https://en.wikipedia.org/wiki/Online_transaction_processing">OLTP</a> and
@@ -608,7 +584,7 @@ compared to raw SQL and prevent typos in the SQL keywords. They make extending
 queries easier and make SQL injections harder.</p>
 <p>ORMs provide the highest form of abstraction and prevent typos not only in SQL
 keywords, but also in the table and column names. They take longer to get
-started than query builders — both, from a learning curve perspective and from
+started than query builders &mdash; both, from a learning curve perspective and from
 the perspective of initial development overhead. As they abstract away a lot,
 there is a higher risk to execute expensive queries or too many queries.</p>
 <h2 id="credits">Credits</h2>

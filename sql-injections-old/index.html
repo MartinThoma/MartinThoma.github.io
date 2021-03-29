@@ -102,67 +102,68 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="SQL Injections">SQL Injections</a><ul><li><a class="toc-href" href="#example-imdb" title="Example: IMDb">Example: IMDb</a></li><li><a class="toc-href" href="#proof-of-concept" title="Proof of concept">Proof of concept</a></li><li><a class="toc-href" href="#history" title="History">History</a></li><li><a class="toc-href" href="#solutions" title="Solutions">Solutions</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables.</p>
-<h2>Example: IMDb</h2>
+<h2 id="example-imdb">Example: IMDb</h2>
 <p>Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/imdb-harry-potter-query.png"><img src="../images/2013/07/imdb-harry-potter-query.png" alt="IMDb: User Interface to search for a movie by title" style="max-width:300px;max-height:194px" class="size-medium"/></a>
-            <figcaption class="text-center">IMDb: User Interface to search for a movie by title</figcaption>
-        </figure>
-
+<a href="../images/2013/07/imdb-harry-potter-query.png"><img alt="IMDb: User Interface to search for a movie by title" class="size-medium" src="../images/2013/07/imdb-harry-potter-query.png" style="max-width:300px;max-height:194px"/></a>
+<figcaption class="text-center">IMDb: User Interface to search for a movie by title</figcaption>
+</figure>
 <p>When you search for "Harry Potter" for example, the following happens:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/imdb-search-query-300x156.png"><img src="../images/2013/07/imdb-search-query-300x156.png" alt="Search query within URL and results" style="max-width:300px;max-height:156px" class="size-medium wp-image-73921"/></a>
-            <figcaption class="text-center">Search query within URL and results</figcaption>
-        </figure>
-
+<a href="../images/2013/07/imdb-search-query-300x156.png"><img alt="Search query within URL and results" class="size-medium wp-image-73921" src="../images/2013/07/imdb-search-query-300x156.png" style="max-width:300px;max-height:156px"/></a>
+<figcaption class="text-center">Search query within URL and results</figcaption>
+</figure>
 <p>You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.</p>
 <p>The programmers might have created a query that looks like this</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="err">$</span><span class="n">_GET</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="err">$</span><span class="n">_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">]</span>
 </code></pre></div>
-
 <p>Where <code>$_GET['q']</code> is your query.</p>
-<h2>Proof of concept</h2>
+<h2 id="proof-of-concept">Proof of concept</h2>
 <p>You need:</p>
 <ul>
-  <li>Apache Web Server</li>
-  <li>PHP</li>
-  <li>MySQL</li>
-  <li>PhpMyAdmin (for convenience)</li>
+<li>Apache Web Server</li>
+<li>PHP</li>
+<li>MySQL</li>
+<li>PhpMyAdmin (for convenience)</li>
 </ul>
-
 <p>When you search for "LAMP" (for Linux users) or for "WAMP" (for Windows users) you find a lot of information how to install this.</p>
 <p>Place the following as <code>hack.php</code> in your web servers directory (might be <code>/var/www</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?</span>
-<span class="nv">$mysqlhost</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
-<span class="nv">$mysqluser</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span>
-<span class="nv">$mysqlpwd</span> <span class="o">=</span> <span class="s2">&quot;asdfasdf&quot;</span><span class="p">;</span>
+<span class="nv">$mysqlhost</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">;</span>
+<span class="nv">$mysqluser</span> <span class="o">=</span> <span class="s2">"root"</span><span class="p">;</span>
+<span class="nv">$mysqlpwd</span> <span class="o">=</span> <span class="s2">"asdfasdf"</span><span class="p">;</span>
 <span class="nv">$connection</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="nv">$mysqlhost</span><span class="p">,</span> <span class="nv">$mysqluser</span><span class="p">,</span> <span class="nv">$mysqlpwd</span><span class="p">)</span> <span class="k">or</span> <span class="k">die</span>
-<span class="p">(</span><span class="s2">&quot;Your connection string was wrong&quot;</span><span class="p">);</span>
-<span class="nv">$db_selected</span> <span class="o">=</span> <span class="nb">mysql_select_db</span><span class="p">(</span><span class="s1">&#39;imdb&#39;</span><span class="p">,</span> <span class="nv">$connection</span><span class="p">);</span>
+<span class="p">(</span><span class="s2">"Your connection string was wrong"</span><span class="p">);</span>
+<span class="nv">$db_selected</span> <span class="o">=</span> <span class="nb">mysql_select_db</span><span class="p">(</span><span class="s1">'imdb'</span><span class="p">,</span> <span class="nv">$connection</span><span class="p">);</span>
 
-<span class="nv">$q</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$q</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM `movies` WHERE title=&#39;</span><span class="si">$q</span><span class="s2">&#39;&quot;</span><span class="p">);</span>
+<span class="nv">$q</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$q</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="s2">"SELECT * FROM `movies` WHERE title='</span><span class="si">$q</span><span class="s2">'"</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">die</span><span class="p">(</span><span class="s1">&#39;MySQL query error: &#39;</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
+        <span class="k">die</span><span class="p">(</span><span class="s1">'MySQL query error: '</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
     <span class="p">}</span>
-    <span class="k">echo</span> <span class="s2">&quot;Found &quot;</span><span class="o">.</span><span class="nb">mysql_num_rows</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot; movies:&lt;br/&gt;&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">"Found "</span><span class="o">.</span><span class="nb">mysql_num_rows</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span><span class="o">.</span><span class="s2">" movies:&lt;br/&gt;"</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nb">mysql_fetch_assoc</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;: &quot;</span><span class="o">.</span><span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="o">.</span><span class="s2">": "</span><span class="o">.</span><span class="nv">$row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span><span class="o">.</span><span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 
-<span class="x">&lt;form method=&quot;get&quot; action=&quot;hack.php&quot;&gt;</span>
-<span class="x">  &lt;input type=&quot;text&quot; name=&quot;q&quot;/&gt;</span>
-<span class="x">  &lt;input type=&quot;submit&quot; /&gt;</span>
+<span class="x">&lt;form method="get" action="hack.php"&gt;</span>
+<span class="x">  &lt;input type="text" name="q"/&gt;</span>
+<span class="x">  &lt;input type="submit" /&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
-
 <p>Now create a database called <code>imdb</code> with PHPMyAdmin and execute the following SQL:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span>
   <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -171,9 +172,9 @@ MathJax.Hub.Queue(function() {
 <span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Harry Potter&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Lord of the Rings&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Rise of the Silver Surfer&#39;</span><span class="p">);</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Harry Potter'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Lord of the Rings'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Rise of the Silver Surfer'</span><span class="p">);</span>
 
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span>
   <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -184,80 +185,69 @@ MathJax.Hub.Queue(function() {
 <span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">3</span> <span class="p">;</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">password</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;qewrtqwert&#39;</span><span class="p">,</span> <span class="s1">&#39;admin@imdb.com&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="s1">&#39;mylittlepony@stupid.com&#39;</span><span class="p">);</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'admin'</span><span class="p">,</span> <span class="s1">'qewrtqwert'</span><span class="p">,</span> <span class="s1">'admin@imdb.com'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="s1">'mylittlepony@stupid.com'</span><span class="p">);</span>
 </code></pre></div>
-
 <p>Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/hack-screenshot.png"><img src="../images/2013/07/hack-screenshot.png" alt="Screenshot of my minimal example" style="max-width:300px;max-height:85px" class="size-medium wp-image-73971"/></a>
-            <figcaption class="text-center">Screenshot of my minimal example</figcaption>
-        </figure>
-
+<a href="../images/2013/07/hack-screenshot.png"><img alt="Screenshot of my minimal example" class="size-medium wp-image-73971" src="../images/2013/07/hack-screenshot.png" style="max-width:300px;max-height:85px"/></a>
+<figcaption class="text-center">Screenshot of my minimal example</figcaption>
+</figure>
 <p>When you search for "Harry Potter" it should show you "1: Harry Potter". Note that there could be a lot of information, but I wanted to keep this example as small as possible.</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/hack-normal-use.png"><img src="../images/2013/07/hack-normal-use.png" alt="Normal use of the web service" style="max-width:300px;max-height:77px" class="size-medium"/></a>
-            <figcaption class="text-center">Normal use of the web service</figcaption>
-        </figure>
-
+<a href="../images/2013/07/hack-normal-use.png"><img alt="Normal use of the web service" class="size-medium" src="../images/2013/07/hack-normal-use.png" style="max-width:300px;max-height:77px"/></a>
+<figcaption class="text-center">Normal use of the web service</figcaption>
+</figure>
 <p>This resulted in the following query:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Harry Potter&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Harry Potter'</span>
 </code></pre></div>
-
 <p>But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/hack-hacky-use.png"><img src="../images/2013/07/hack-hacky-use.png" alt="What a hacker could do" style="max-width:300px;max-height:94px" class="size-medium"/></a>
-            <figcaption class="text-center">What a hacker could do</figcaption>
-        </figure>
-
+<a href="../images/2013/07/hack-hacky-use.png"><img alt="What a hacker could do" class="size-medium" src="../images/2013/07/hack-hacky-use.png" style="max-width:300px;max-height:94px"/></a>
+<figcaption class="text-center">What a hacker could do</figcaption>
+</figure>
 <p>Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:</p>
-<div class="highlight"><pre><span></span><code><span class="s1">&#39; UNION SELECT table_name, table_type FROM information_schema.tables WHERE &#39;</span><span class="mi">1</span><span class="s1">&#39;=&#39;</span><span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="s1">' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '</span><span class="mi">1</span><span class="s1">'='</span><span class="mi">1</span>
 </code></pre></div>
-
 <p>which results in this query:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">table_name</span><span class="p">,</span> <span class="n">table_type</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">WHERE</span> <span class="s1">&#39;1&#39;</span><span class="o">=</span><span class="s1">&#39;1&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">table_name</span><span class="p">,</span> <span class="n">table_type</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">WHERE</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
 </code></pre></div>
-
 <p>which gives:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/sql-injection-example.png"><img src="../images/2013/07/sql-injection-example.png" alt="Attacker got all table names" style="max-width:268px;max-height:300px" class="size-medium"/></a>
-            <figcaption class="text-center">Attacker got all table names</figcaption>
-        </figure>
-
+<a href="../images/2013/07/sql-injection-example.png"><img alt="Attacker got all table names" class="size-medium" src="../images/2013/07/sql-injection-example.png" style="max-width:268px;max-height:300px"/></a>
+<figcaption class="text-center">Attacker got all table names</figcaption>
+</figure>
 <p>This way, the attacker gets all table names from all databases on this machine. So he essentially can get everything stored in your database. And, of course, after getting everything he could drop it:</p>
 <figure class="aligncenter">
-            <a href="../images/2013/07/exploits_of_a_mom.png"><img src="../images/2013/07/exploits_of_a_mom.png" alt="xkcd 327: Exploits of a mom" style="max-width:300px;max-height:92px" class="size-medium"/></a>
-            <figcaption class="text-center">xkcd 327: Exploits of a mom</figcaption>
-        </figure>
-
-<h2>History</h2>
+<a href="../images/2013/07/exploits_of_a_mom.png"><img alt="xkcd 327: Exploits of a mom" class="size-medium" src="../images/2013/07/exploits_of_a_mom.png" style="max-width:300px;max-height:92px"/></a>
+<figcaption class="text-center">xkcd 327: Exploits of a mom</figcaption>
+</figure>
+<h2 id="history">History</h2>
 <p>Just a few famous examples to show you that this happens all the time:</p>
 <ul>
-  <li>2005: USC admissions page (<a href="http://www.theregister.co.uk/2005/07/06/usc_site_cracked/">source</a>)</li>
-  <li>2006: 800,000 datasets of personal information of students of UCLA (<a href="http://www.schneier.com/blog/archives/2006/12/major_privacy_b_1.html">source</a>)</li>
-  <li>2008, 2009: Heartland Payment Systems; 130 million credit and debit cards (<a href="http://www.zdnet.com/blog/government/gonzales-just-tip-of-iceberg-in-heartland-attack/5252">source 1</a>, <a href="http://www.computerworld.com.au/article/315418/sql_injection_attacks_led_massive_data_breaches/">source 2</a>, see <a href="http://en.wikipedia.org/wiki/Albert_Gonzalez">Albert Gonzalez</a>)</li>
-  <li>2010: Royal Navy Website; Passwords and Usernames stolen (<a href="http://www.eweek.com/c/a/Security/Hacker-Hits-British-Navy-Website-With-SQL-Injection-Attack-108377/">source</a>)</li>
-  <li>2011: Sony:
+<li>2005: USC admissions page (<a href="http://www.theregister.co.uk/2005/07/06/usc_site_cracked/">source</a>)</li>
+<li>2006: 800,000 datasets of personal information of students of UCLA (<a href="http://www.schneier.com/blog/archives/2006/12/major_privacy_b_1.html">source</a>)</li>
+<li>2008, 2009: Heartland Payment Systems; 130 million credit and debit cards (<a href="http://www.zdnet.com/blog/government/gonzales-just-tip-of-iceberg-in-heartland-attack/5252">source 1</a>, <a href="http://www.computerworld.com.au/article/315418/sql_injection_attacks_led_massive_data_breaches/">source 2</a>, see <a href="http://en.wikipedia.org/wiki/Albert_Gonzalez">Albert Gonzalez</a>)</li>
+<li>2010: Royal Navy Website; Passwords and Usernames stolen (<a href="http://www.eweek.com/c/a/Security/Hacker-Hits-British-Navy-Website-With-SQL-Injection-Attack-108377/">source</a>)</li>
+<li>2011: Sony:
 
 <blockquote>LulzSec says it accessed the passwords, email addresses, home addresses and dates of birth of one million users. The group says it also stole all admin details of Sony Pictures, including passwords. 75,000 music codes and 3.5 million music coupons were also accessed, according to the press release.</blockquote>
 
 
 (<a href="http://www.thewhir.com/web-hosting-news/hackers-attack-sony-pictures-with-single-sql-injection">source</a>)</li>
-  <li>2011: Expedia (<a href="http://www.eweek.com/c/a/Security/Expedias-TripAdvisor-Member-Data-Stolen-in-Possible-SQL-Injection-Attack-522785/">source</a>)</li>
-  <li>2011: MySql - Usernames and passwords stolen (<a href="http://www.infoworld.com/d/security/mysql-website-falls-victim-sql-injection-attack-155886">source 1</a>, <a href="http://seclists.org/fulldisclosure/2011/Mar/309">source 2</a>)</li>
-  <li>2011: Comodo (<a href="http://www.infosecurity-magazine.com/view/18265/another-comodo-partner-attacked-using-sql-injection/">source 1</a>, <a href="http://www.heise.de/security/meldung/Erneut-Comodo-SSL-Registrar-gehackt-1250208.html">source 2</a>)</li>
+<li>2011: Expedia (<a href="http://www.eweek.com/c/a/Security/Expedias-TripAdvisor-Member-Data-Stolen-in-Possible-SQL-Injection-Attack-522785/">source</a>)</li>
+<li>2011: MySql - Usernames and passwords stolen (<a href="http://www.infoworld.com/d/security/mysql-website-falls-victim-sql-injection-attack-155886">source 1</a>, <a href="http://seclists.org/fulldisclosure/2011/Mar/309">source 2</a>)</li>
+<li>2011: Comodo (<a href="http://www.infosecurity-magazine.com/view/18265/another-comodo-partner-attacked-using-sql-injection/">source 1</a>, <a href="http://www.heise.de/security/meldung/Erneut-Comodo-SSL-Registrar-gehackt-1250208.html">source 2</a>)</li>
 </ul>
-
-<h2>Solutions</h2>
+<h2 id="solutions">Solutions</h2>
 <ul>
-  <li>Sanitize user input, e.g. with <a href="http://de2.php.net/mysql_real_escape_string">mysql_real_escape_string</a></li>
-  <li>Use <a href="http://php.net/manual/en/pdo.prepared-statements.php">prepared statements</a></li>
-  <li>Switch of <a href="http://php.net/manual/en/function.error-reporting.php">error reporting</a> (this makes attacks more difficult, but doesn't prevent them)</li>
+<li>Sanitize user input, e.g. with <a href="http://de2.php.net/mysql_real_escape_string">mysql_real_escape_string</a></li>
+<li>Use <a href="http://php.net/manual/en/pdo.prepared-statements.php">prepared statements</a></li>
+<li>Switch of <a href="http://php.net/manual/en/function.error-reporting.php">error reporting</a> (this makes attacks more difficult, but doesn't prevent them)</li>
 </ul>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="../challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself ☺</li>
+<li><a href="../challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself ☺</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

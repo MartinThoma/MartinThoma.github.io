@@ -102,32 +102,37 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Leaking Secrets 😇">Leaking Secrets 😇</a><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-leaking-of-secrets-happens" title="How leaking of secrets happens">How leaking of secrets happens</a></li><li><a class="toc-href" href="#how-can-i-prevent-leaking-secrets" title="How can I prevent leaking secrets?">How can I prevent leaking secrets?</a><ul><li><a class="toc-href" href="#logging" title="Logging">Logging</a></li><li><a class="toc-href" href="#storing-secrets-locally-direnv" title="Storing Secrets Locally: Direnv">Storing Secrets Locally: Direnv</a></li><li><a class="toc-href" href="#pre-commit-hooks" title="Pre-commit hooks">Pre-commit hooks</a></li><li><a class="toc-href" href="#storing-secrets-server-side-environment-variables" title="Storing Secrets Server-Side: Environment Variables">Storing Secrets Server-Side: Environment Variables</a></li><li><a class="toc-href" href="#storing-secrets-server-side-vaults" title="Storing Secrets Server-Side: Vaults">Storing Secrets Server-Side: Vaults</a></li><li><a class="toc-href" href="#source-hosting-secrets-detection" title="Source Hosting Secrets Detection">Source Hosting Secrets Detection</a></li></ul></li><li><a class="toc-href" href="#testing-the-past_1" title="Testing the Past">Testing the Past</a></li><li><a class="toc-href" href="#a-note-about-environment-variables" title="A note about environment Variables">A note about environment Variables</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>One of the worst mistakes one can make in application security is to publicly post secrets. That can be API keys, database credentials, service tokens, or private keys for asymmetric cryptography such as RSA as used for GPG.</p>
-<p>It’s best to prevent leaking credentials completely, but if it’s done you need to change them directly. You cannot hope that nobody has noticed it. People are scanning the public repositories for committed secrets.</p>
+<p>It&rsquo;s best to prevent leaking credentials completely, but if it&rsquo;s done you need to change them directly. You cannot hope that nobody has noticed it. People are scanning the public repositories for committed secrets.</p>
 <h2 id="why-it-matters">Why it Matters</h2>
-<p>Leaking secrets and credentials happens more often than one would think. I’m a bit astonished that we don’t see this more often in news articles, but there are certainly some hacks that could be traced back to leaked secrets:</p>
+<p>Leaking secrets and credentials happens more often than one would think. I&rsquo;m a bit astonished that we don&rsquo;t see this more often in news articles, but there are certainly some hacks that could be traced back to leaked secrets:</p>
 <ul>
 <li><strong>2017</strong>: Uber paid $100,000 to hackers who got personal data of 57 million customers.</li>
-<li><strong>2019</strong>: Researchers find over 200,000 unique secrets on GitHub. They describe their methodology and findings in “<a href="https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf">How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories</a>”</li>
-<li><strong>2020</strong>: Daimlers' internal Gitlab was open to the public (<a href="https://www.zdnet.com/article/mercedes-benz-onboard-logic-unit-olu-source-code-leaks-online/">source</a>). If there were any credentials in any of the repositories, they are now public as well. This is why <a href="https://en.wikipedia.org/wiki/Defence_in_depth">Defence in Depth</a> makes sense. Don’t store your secrets in a repository, even if the repository is private.</li>
+<li><strong>2019</strong>: Researchers find over 200,000 unique secrets on GitHub. They describe their methodology and findings in &ldquo;<a href="https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf">How Bad Can It Git? Characterizing Secret Leakage in Public GitHub Repositories</a>&rdquo;</li>
+<li><strong>2020</strong>: Daimlers' internal Gitlab was open to the public (<a href="https://www.zdnet.com/article/mercedes-benz-onboard-logic-unit-olu-source-code-leaks-online/">source</a>). If there were any credentials in any of the repositories, they are now public as well. This is why <a href="https://en.wikipedia.org/wiki/Defence_in_depth">Defence in Depth</a> makes sense. Don&rsquo;t store your secrets in a repository, even if the repository is private.</li>
 </ul>
 <h2 id="how-leaking-of-secrets-happens">How leaking of secrets happens</h2>
-<p>It’s a mixture of missing knowledge, laziness, and human error. If people don’t know how to store the secrets properly, they just store them in a way that they know of. Even if people know how to do it well, it’s just so much simpler to directly copy the secret in the repository. And, of course, adding stuff that was not intended to be added also happens.</p>
-<p><strong>Adding secrets to a public repository</strong> is the most obvious mistake one can do. <strong>Adding secrets to log messages</strong> is more indirect and should not cause an immediate issue. However, it can allow a multi-step attack. For this reason “defense in depth” makes sense and thus secrets should not be part of log messages. It’s not even necessary that an attacker gets direct access to the log files. Maybe a developer shares a part of the logs publicly to investigate an issue. The problem is that people don’t tend to think of logs as a security-critical part of the software landscape.</p>
+<p>It&rsquo;s a mixture of missing knowledge, laziness, and human error. If people don&rsquo;t know how to store the secrets properly, they just store them in a way that they know of. Even if people know how to do it well, it&rsquo;s just so much simpler to directly copy the secret in the repository. And, of course, adding stuff that was not intended to be added also happens.</p>
+<p><strong>Adding secrets to a public repository</strong> is the most obvious mistake one can do. <strong>Adding secrets to log messages</strong> is more indirect and should not cause an immediate issue. However, it can allow a multi-step attack. For this reason &ldquo;defense in depth&rdquo; makes sense and thus secrets should not be part of log messages. It&rsquo;s not even necessary that an attacker gets direct access to the log files. Maybe a developer shares a part of the logs publicly to investigate an issue. The problem is that people don&rsquo;t tend to think of logs as a security-critical part of the software landscape.</p>
 <h2 id="how-can-i-prevent-leaking-secrets">How can I prevent leaking secrets?</h2>
-<p>First, you need to make sure that people don’t see a need to use secrets in an unsafe way any longer. Then you can make it harder to commit secrets via <strong>pre-commit</strong> hooks. Finally, you <strong>check on the server-side</strong> when secrets were added.</p>
+<p>First, you need to make sure that people don&rsquo;t see a need to use secrets in an unsafe way any longer. Then you can make it harder to commit secrets via <strong>pre-commit</strong> hooks. Finally, you <strong>check on the server-side</strong> when secrets were added.</p>
 <h3 id="logging">Logging</h3>
-<p>Either don’t log environment variables at all or make REALLY sure that there are no secrets inside. You can also blacklist patterns as <a href="undefined">Joe Crobak</a> showed in his post “<a href="https://medium.com/@joecrobak/seven-best-practices-for-keeping-sensitive-data-out-of-logs-3d7bbd12904">Seven Best Practices for Keeping Sensitive Data Out of Logs</a>”.</p>
+<p>Either don&rsquo;t log environment variables at all or make REALLY sure that there are no secrets inside. You can also blacklist patterns as <a href="undefined">Joe Crobak</a> showed in his post &ldquo;<a href="https://medium.com/@joecrobak/seven-best-practices-for-keeping-sensitive-data-out-of-logs-3d7bbd12904">Seven Best Practices for Keeping Sensitive Data Out of Logs</a>&rdquo;.</p>
 <h3 id="storing-secrets-locally-direnv">Storing Secrets Locally: Direnv</h3>
 <p><a href="https://direnv.net/">direnv</a> is a shell extension that makes your shell execute an .envrc file if you are in the folder or a subfolder. Such a file can look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>AKIAIOSFODNN7EXAMPLE
 <span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>wJalrXUtnFEMI/K7MDENG/bPxRfYEXAMPLEKEY
 <span class="nb">export</span> <span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-west-2
 </code></pre></div>
-
 <p>Make sure the .envrc file is kept private by adding it to the .gitignore file.</p>
 <p>Wherever people would have used their secrets in the code, they now can use the environment variable instead.</p>
 <p>Storing secrets in environment variables is far from being optimal as every single process can easily access them. However, it is better than storing them in a file that is accessible even to other systems. In the worst case even to the public internet.</p>
@@ -144,11 +149,10 @@ MathJax.Hub.Queue(function() {
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.14.3</span>
     <span class="nt">hooks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">detect-secrets</span>
-        <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;--baseline&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;.secrets.baseline&#39;</span><span class="p p-Indicator">]</span>
+        <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'--baseline'</span><span class="p p-Indicator">,</span> <span class="s">'.secrets.baseline'</span><span class="p p-Indicator">]</span>
         <span class="nt">exclude</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.*/tests/.*</span>
 </code></pre></div>
-
-<p>Then execute pre-commit install and you’re done 🙂</p>
+<p>Then execute pre-commit install and you&rsquo;re done 🙂</p>
 <p>Yelps <a href="https://github.com/Yelp/detect-secrets"><strong>detect-secrets</strong></a> tries to find secrets in source code by finding high-entropy strings and the others look for common file formats/strings.</p>
 <p>There are <a href="https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e">many other cool things</a> you can do with pre-commit.</p>
 <h3 id="storing-secrets-server-side-environment-variables">Storing Secrets Server-Side: Environment Variables</h3>
@@ -162,21 +166,20 @@ MathJax.Hub.Queue(function() {
 </ul>
 <h3 id="storing-secrets-server-side-vaults">Storing Secrets Server-Side: Vaults</h3>
 <p>Supplying the secrets via environment variables has two major drawbacks: (1) Every process can access them (2) Developers might want to log environment variables and thus leak secrets into the logs.</p>
-<p>Having a dedicated store for secrets and only getting the secrets once it’s necessary is one solution to this problem.</p>
+<p>Having a dedicated store for secrets and only getting the secrets once it&rsquo;s necessary is one solution to this problem.</p>
 <p>AWS SSM is a very common solution. Here is how you use it with Python:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">boto3</span>
 
 
 <span class="k">def</span> <span class="nf">get_ssm_param</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;ssm&quot;</span><span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">"ssm"</span><span class="p">)</span>
     <span class="n">param</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="n">Name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">WithDecryption</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">param</span><span class="p">[</span><span class="s2">&quot;Parameter&quot;</span><span class="p">][</span><span class="s2">&quot;Value&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">param</span><span class="p">[</span><span class="s2">"Parameter"</span><span class="p">][</span><span class="s2">"Value"</span><span class="p">]</span>
 </code></pre></div>
-
 <h3 id="source-hosting-secrets-detection">Source Hosting Secrets Detection</h3>
-<p>Most source hosting services offer a possibility to check for leaked secrets. <a href="https://docs.gitlab.com/ee/user/application_security/secret_detection/">GitLab</a> calls it “secret detection”, <a href="https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning">GitHub</a> calls it “secret scanning” and <a href="https://www.gitguardian.com/">GitGuardian</a> offers secret detection &amp; remediation.</p>
+<p>Most source hosting services offer a possibility to check for leaked secrets. <a href="https://docs.gitlab.com/ee/user/application_security/secret_detection/">GitLab</a> calls it &ldquo;secret detection&rdquo;, <a href="https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning">GitHub</a> calls it &ldquo;secret scanning&rdquo; and <a href="https://www.gitguardian.com/">GitGuardian</a> offers secret detection &amp; remediation.</p>
 <p>One can integrate Yelps <a href="https://github.com/Yelp/detect-secrets">secret-detection</a> into the CI pipeline. For Python, the SAST tool bandit can also be integrated into the CI pipeline. It offers <a href="https://bandit.readthedocs.io/en/latest/plugins/b105_hardcoded_password_string.html">basic secret detection</a>. Just remember: If the CI pipeline fails because of a found secret, you have to change that secret.</p>
-<h2 id="testing-the-past">Testing the Past</h2>
+<h2 id="testing-the-past_1">Testing the Past</h2>
 <p>Making sure that new commits are safe is good, but you also need to know if there was an incident in the past, before the security improvements were introduced. There are two tools to help you:</p>
 <p><a href="https://github.com/zricethezav/gitleaks"><strong>GitLeaks</strong></a> scans your whole repository for leaked secrets. This includes credentials that were committed and removed but are still in the commit history.</p>
 <p>Here is how you install it on Linux:</p>
@@ -198,17 +201,16 @@ Compressing objects: <span class="m">100</span>% <span class="o">(</span><span c
 Total <span class="m">115</span> <span class="o">(</span>delta <span class="m">68</span><span class="o">)</span>, reused <span class="m">115</span> <span class="o">(</span>delta <span class="m">68</span><span class="o">)</span>
 INFO<span class="o">[</span><span class="m">2020</span>-10-13T17:38:49+02:00<span class="o">]</span> No leaks detected. <span class="m">29</span> commits scanned <span class="k">in</span> <span class="m">111</span> milliseconds <span class="m">984</span> microseconds
 </code></pre></div>
-
 <p><a href="https://github.com/streaak/keyhacks#AWS-Access-Key-ID-and-Secret"><strong>Keyhacks</strong></a> is a project which shows you if leaked keys are still valid and what an attacker could do with them.</p>
-<p><a href="https://haveibeenpwned.com/"><strong>HaveIbeenPwned</strong></a> is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: <strong>Don’t re-use passwords! A re-used password is a leaked password!</strong></p>
+<p><a href="https://haveibeenpwned.com/"><strong>HaveIbeenPwned</strong></a> is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: <strong>Don&rsquo;t re-use passwords! A re-used password is a leaked password!</strong></p>
 <h2 id="a-note-about-environment-variables">A note about environment Variables</h2>
 <p>Environment variables are by far not bullet-proof. Several malicious 3rd-party
 packages simply send the hostname with environment variables to a server (<a href="https://github.com/rsc-dev/pypi_malware#malware-packages">source</a>).</p>
-<h2 id="whats-next">What’s next?</h2>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

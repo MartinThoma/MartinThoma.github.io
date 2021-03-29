@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="CMS Page Versions">CMS Page Versions</a><ul><li><a class="toc-href" href="#wordpress-one-table" title="Wordpress: One Table">Wordpress: One Table</a></li><li><a class="toc-href" href="#joomla" title="Joomla">Joomla</a></li><li><a class="toc-href" href="#mediawiki-separate-data-from-metadata" title="MediaWiki: Separate data from metadata">MediaWiki: Separate data from metadata</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I'm currently building a service which contains a CMS. So I have pages of which
@@ -114,25 +120,22 @@ and to get a clearer picture about the different options.</p>
 <p>Wordpress seems to have only one table where all revisions are stored. They decided to make the <code>post_type</code> either "post" or "revision" - meaning they always duplicate the current version, but they store all revisions and have a super easy time going back.</p>
 <p>I wonder if backups would be more complicated if the amount of data reached the level Wikipedia has.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/wordpress-cms.png"><img src="../images/2019/06/wordpress-cms.png" alt="How Wordpress stores page versions" style="width: 512px;"/></a>
-    <figcaption class="text-center">How Wordpress stores page versions</figcaption>
+<a href="../images/2019/06/wordpress-cms.png"><img alt="How Wordpress stores page versions" src="../images/2019/06/wordpress-cms.png" style="width: 512px;"/></a>
+<figcaption class="text-center">How Wordpress stores page versions</figcaption>
 </figure>
-
 <h2 id="joomla">Joomla</h2>
 <p>Joomla seems to take an approach similar to Wordpress, but moving the versions
 in another table. The current revision is always in <code>joomla_content</code></p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/joomla-cms.png"><img src="../images/2019/06/joomla-cms.png" alt="How Joomla stores page versions" style="width: 512px;"/></a>
-    <figcaption class="text-center">How Joomla stores page versions</figcaption>
+<a href="../images/2019/06/joomla-cms.png"><img alt="How Joomla stores page versions" src="../images/2019/06/joomla-cms.png" style="width: 512px;"/></a>
+<figcaption class="text-center">How Joomla stores page versions</figcaption>
 </figure>
-
 <h2 id="mediawiki-separate-data-from-metadata">MediaWiki: Separate data from metadata</h2>
 <p>MediaWiki stores the bulk of information in a separate table called "text". The page-metadata is stored in "page", the revision metadata in "revision".</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/06/mediawiki-cms.png"><img src="../images/2019/06/mediawiki-cms.png" alt="How MediaWiki stores page versions" style="width: 512px;"/></a>
-    <figcaption class="text-center">How MediaWiki stores page versions</figcaption>
+<a href="../images/2019/06/mediawiki-cms.png"><img alt="How MediaWiki stores page versions" src="../images/2019/06/mediawiki-cms.png" style="width: 512px;"/></a>
+<figcaption class="text-center">How MediaWiki stores page versions</figcaption>
 </figure>
-
 <p>If they want to get the current text of a page, they have to do something like</p>
 <div class="highlight"><pre><span></span><code>SELECT *
 FROM revision
@@ -140,7 +143,6 @@ JOIN text ON text.old_id = revision.rev_text_id
 WHERE revision.rev_page = 1
 ORDER BY revision.rev_timestamp DESC LIMIT 1
 </code></pre></div>
-
 <p>If a page is edited, they have to insert to <code>revision</code> and to <code>text</code>. And there are some things like the title where changes are not tracked.</p>
 <p>If one wants to revert edits, one creates a new revision. The text does not have to be duplicated, though. So one text entry can belong to multiple revisions.</p>
 <p>Creating backups can be done separately for text and all other tables. This can be of advantage if the amount of data is huge. Also, the <a href="https://www.mediawiki.org/wiki/Manual:Text_table#old_flags"><code>text.old_flags</code></a> can contain compression flags - meaning old revisions can be compressed for more storage efficiency while the current one can be text for being able to show it quickly.</p>

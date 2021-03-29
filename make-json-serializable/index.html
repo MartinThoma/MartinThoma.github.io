@@ -116,9 +116,9 @@ by <a href="https://github.com/simplejson/simplejson/issues/52#issuecomment-2366
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyCustom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__json__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span>
-            <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span>
-            <span class="s2">&quot;__python__&quot;</span><span class="p">:</span> <span class="s2">&quot;mymodule.submodule:MyCustom.from_json&quot;</span><span class="p">,</span>
+            <span class="s2">"a"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span>
+            <span class="s2">"b"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span>
+            <span class="s2">"__python__"</span><span class="p">:</span> <span class="s2">"mymodule.submodule:MyCustom.from_json"</span><span class="p">,</span>
         <span class="p">}</span>
 
     <span class="n">for_json</span> <span class="o">=</span> <span class="n">__json__</span>  <span class="c1"># supported by simplejson</span>
@@ -126,11 +126,10 @@ by <a href="https://github.com/simplejson/simplejson/issues/52#issuecomment-2366
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">json</span><span class="p">):</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
-        <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">"b"</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">obj</span>
 </code></pre></div>
-
 <p>With that, the following workflow is possible:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">simplejson</span>
 
@@ -148,7 +147,6 @@ by <a href="https://github.com/simplejson/simplejson/issues/52#issuecomment-2366
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj2</span><span class="p">,</span> <span class="n">MyCustom</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">obj2</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span>
 </code></pre></div>
-
 <p>Note that we need two steps for loading. For now, the <code>__python__</code> property
 is not used.</p>
             

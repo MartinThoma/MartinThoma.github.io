@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Key-Value Stores">Key-Value Stores</a><ul><li><a class="toc-href" href="#database-properties" title="Database Properties">Database Properties</a></li><li><a class="toc-href" href="#database-features" title="Database Features">Database Features</a></li><li><a class="toc-href" href="#use-cases" title="Use Cases">Use Cases</a></li><li><a class="toc-href" href="#other-benchmarks" title="Other Benchmarks">Other Benchmarks</a></li><li><a class="toc-href" href="#features" title="Features">Features</a><ul><li><a class="toc-href" href="#serverless-databases" title="Serverless Databases">Serverless Databases</a></li></ul></li><li><a class="toc-href" href="#benchmark_1" title="Benchmark">Benchmark</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://en.wikipedia.org/wiki/Key-value_database">Key-value stores</a> are
@@ -177,74 +183,71 @@ $ sudo -u postgres psql
 $ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<span class="o">=</span>sbtest --pgsql-user<span class="o">=</span>example_user --pgsql-password<span class="o">=</span>example_password prepare
 $ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<span class="o">=</span>sbtest --threads<span class="o">=</span><span class="m">16</span> --events<span class="o">=</span><span class="m">100000</span> --pgsql-user<span class="o">=</span>example_user --pgsql-password<span class="o">=</span>example_password run
 </code></pre></div>
-
 <p>On my Thinkpad T460p I get the following numbers. However, I'm not certain how
 valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <table class="table">
-    <tr>
-        <th rowspan="2">Database</th>
-        <th rowspan="2">Transactions</th>
-        <th rowspan="2">Queries</th>
-        <th colspan="4">Latency</th>
-    </tr>
-    <tr>
-        <th>Min</th>
-        <th>AVG</th>
-        <th>Max</th>
-        <th>95th percentile</th>
-    </tr>
-    <tr>
-        <td>MariaDB 15.1</td>
-        <td>484.81&nbsp;/&nbsp;s</td>
-        <td>9701.13&nbsp;/&nbsp;s</td>
-        <td>14.25ms</td>
-        <td>32.61ms</td>
-        <td>137.37ms</td>
-        <td>53.85ms</td>
-    </tr>
-    <tr>
-        <td>Postgres 10.10</td>
-        <td>457.44&nbsp;/&nbsp;s</td>
-        <td>9644.38&nbsp;/&nbsp;s</td>
-        <td>5.44ms</td>
-        <td>34.90ms</td>
-        <td>2052.58ms</td>
-        <td>32.53ms</td>
-    </tr>
+<tr>
+<th rowspan="2">Database</th>
+<th rowspan="2">Transactions</th>
+<th rowspan="2">Queries</th>
+<th colspan="4">Latency</th>
+</tr>
+<tr>
+<th>Min</th>
+<th>AVG</th>
+<th>Max</th>
+<th>95th percentile</th>
+</tr>
+<tr>
+<td>MariaDB 15.1</td>
+<td>484.81&nbsp;/&nbsp;s</td>
+<td>9701.13&nbsp;/&nbsp;s</td>
+<td>14.25ms</td>
+<td>32.61ms</td>
+<td>137.37ms</td>
+<td>53.85ms</td>
+</tr>
+<tr>
+<td>Postgres 10.10</td>
+<td>457.44&nbsp;/&nbsp;s</td>
+<td>9644.38&nbsp;/&nbsp;s</td>
+<td>5.44ms</td>
+<td>34.90ms</td>
+<td>2052.58ms</td>
+<td>32.53ms</td>
+</tr>
 </table>
-
 <h2 id="features">Features</h2>
 <table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>SQLite</th>
-            <th>MariaDB</th>
-            <th>Postgresql</th>
-            <th>Redis</th>
-            <th>Memcached</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Server</th>
-            <td><span style="color:red;" title="No">✗</span></td>
-            <td><span style="color:green;" title="Yes">✔</span></td>
-            <td><span style="color:green;" title="Yes">✔</span></td>
-            <td><span style="color:green;" title="Yes">✔</span></td>
-            <td><span style="color:green;" title="Yes">✔</span></td>
-        </tr>
-        <tr>
-            <th>Users</th>
-            <td><span style="color:red;" title="No">✗</span></td>
-            <td><a href="https://mariadb.com/kb/en/library/create-user/"><span style="color:green;" title="Yes">✔</span></a></td>
-            <td><a href="https://www.postgresql.org/docs/9.1/sql-createuser.html"><span style="color:green;" title="Yes">✔</span></a></td>
-            <td><span style="color:red;" title="No">✗</span></td>
-            <td><span style="color:red;" title="No">✗</span></td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th></th>
+<th>SQLite</th>
+<th>MariaDB</th>
+<th>Postgresql</th>
+<th>Redis</th>
+<th>Memcached</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Server</th>
+<td><span style="color:red;" title="No">✗</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+</tr>
+<tr>
+<th>Users</th>
+<td><span style="color:red;" title="No">✗</span></td>
+<td><a href="https://mariadb.com/kb/en/library/create-user/"><span style="color:green;" title="Yes">✔</span></a></td>
+<td><a href="https://www.postgresql.org/docs/9.1/sql-createuser.html"><span style="color:green;" title="Yes">✔</span></a></td>
+<td><span style="color:red;" title="No">✗</span></td>
+<td><span style="color:red;" title="No">✗</span></td>
+</tr>
+</tbody>
 </table>
-
 <h3 id="serverless-databases">Serverless Databases</h3>
 <p>Serverless Database is a fancy name for a hosted database. It is also called
 DBaaS - database as a service. You don't have to worry about the underlying
@@ -264,123 +267,122 @@ machine; you pay for the usage. This usually means:</p>
 <li><a href="https://en.wikipedia.org/wiki/Amazon_DynamoDB">Amazon DynamoDB</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Amazon_Aurora">Amazon Aurora Serverless</a></li>
 </ul>
-<h2 id="benchmark">Benchmark</h2>
+<h2 id="benchmark_1">Benchmark</h2>
 <p>This is not finished. You can find the <a href="https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark">code on Github</a>.</p>
 <p>If you don't make the <code>key</code> column a primary key, MariaDB is quite a
 bit faster.</p>
 <table class="table">
-    <thead>
-        <tr>
-            <th rowspan="2">Database</th>
-            <th rowspan="2">Bulk Write</th>
-            <th rowspan="2">Batched Write</th>
-            <th rowspan="2">Bulk Read</th>
-            <th colspan="4">Read Latency - Percentile</th>
-        </tr>
-        <tr>
-            <th>25%</th>
-            <th>50%</th>
-            <th>95%</th>
-            <th>99%</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr style="border-bottom: 2px solid black">
-            <td><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dict</a></td>
-            <td style="background-color: #baf6ba;" class="text-right">2&#8239;639&#8239;859.62&nbsp;inserts/s</td>
-            <td class="text-right">-</td>
-            <td class="text-right">-</td>
-            <td style="background-color: #baf6ba;">0μs</td>
-            <td style="background-color: #baf6ba;">0μs</td>
-            <td style="background-color: #baf6ba;">1μs</td>
-            <td style="background-color: #baf6ba;">2μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a> (in-memory)</td>
-            <td style="background-color: #baf6ba;" class="text-right">259&#8239;834.14&nbsp;inserts/s</td>
-            <td class="text-right">27&#8239;151.94&nbsp;inserts/s</td>
-            <td style="background-color: #baf6ba;" class="text-right">69&#8239;163.37&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">32μs</td>
-            <td style="background-color: #baf6ba;">32μs</td>
-            <td style="background-color: #baf6ba;">36μs</td>
-            <td style="background-color: #baf6ba;">60μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a></td>
-            <td style="background-color: #baf6ba;" class="text-right">193&#8239;930.10&nbsp;inserts/s</td>
-            <td class="text-right">6181.23&nbsp;inserts/s</td>
-            <td style="background-color: #baf6ba;" class="text-right">61&#8239;012.26&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">34μs</td>
-            <td style="background-color: #baf6ba;">34μs</td>
-            <td style="background-color: #baf6ba;">38μs</td>
-            <td>62μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a></td>
-            <td style="background-color: #baf6ba;" class="text-right">131&#8239;635.98&nbsp;inserts/s</td>
-            <td style="background-color: #baf6ba;" class="text-right">123&#8239;937.91&nbsp;inserts/s</td>
-            <td style="background-color: #baf6ba;" class="text-right">57&#8239;191.03&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">25μs</td>
-            <td style="background-color: #baf6ba;">26μs</td>
-            <td style="background-color: #baf6ba;">38μs</td>
-            <td style="background-color: #baf6ba;">51μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Redis">Redis</a></td>
-            <td class="text-right">5103.39&nbsp;inserts/s</td>
-            <td class="text-right">40&#8239;494.49&nbsp;inserts/s</td>
-            <td class="text-right">TODO&nbsp;selects/s</td>
-            <td style="background-color: #ffbebe;">52μs</td>
-            <td style="background-color: #ffbebe;">54μs</td>
-            <td style="background-color: #ffbebe;">80μs</td>
-            <td style="background-color: #ffbebe;">97μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/MyISAM">MyISAM</a>)</td>
-            <td class="text-right">3412.18&nbsp;inserts/s,<br/>
-                                  30&#8239;266.34<sup title="LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE KeyValue FIELDS TERMINATED BY ',' ENCLOSED BY '"' IGNORE 1 LINES;">🌞</sup></td>
-            <td class="text-right">4&#8239;885.09&nbsp;inserts/s</td>
-            <td class="text-right">41&#8239;432.73&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">32μs</td>
-            <td style="background-color: #baf6ba;">33μs</td>
-            <td style="background-color: #baf6ba;">36μs</td>
-            <td style="background-color: #baf6ba;">60μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/Aria_(storage_engine)">Aria</a>)</td>
-            <td class="text-right">2546.49&nbsp;inserts/s,<br/>
-                                   19&#8239;708.31<sup title="LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE KeyValue FIELDS TERMINATED BY ',' ENCLOSED BY '"' IGNORE 1 LINES;">🌞</sup></td>
-            <td class="text-right">4309.30 inserts/s</td>
-            <td class="text-right">41&#8239;305.08&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">33μs</td>
-            <td style="background-color: #baf6ba;">33μs</td>
-            <td style="background-color: #baf6ba;">36μs</td>
-            <td style="background-color: #baf6ba;">57μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a></td>
-            <td class="text-right" style="background-color: #ffbebe;">1767.12&nbsp;inserts/s</td>
-            <td class="text-right">3529.08&nbsp;inserts/s</td>
-            <td class="text-right">37&#8239;732.27&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">32μs</td>
-            <td style="background-color: #baf6ba;">33μs</td>
-            <td style="background-color: #baf6ba;">36μs</td>
-            <td style="background-color: #baf6ba;">59μs</td>
-        </tr>
-        <tr>
-            <td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/InnoDB">InnoDB</a>)</td>
-            <td class="text-right">1152.20&nbsp;inserts/s <sup title="Tested only with 100k inserts">*</sup>,<br/>
-                                   14&#8239;679.97<sup title="LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE KeyValue FIELDS TERMINATED BY ',' ENCLOSED BY '"' IGNORE 1 LINES;">🌞</sup></td>
-            <td class="text-right" style="background-color: #ffbebe;">643.56&nbsp;inserts/s</td>
-            <td class="text-right">29&#8239;405.90&nbsp;selects/s</td>
-            <td style="background-color: #baf6ba;">33μs</td>
-            <td style="background-color: #baf6ba;">33μs</td>
-            <td style="background-color: #baf6ba;">36μs</td>
-            <td style="background-color: #baf6ba;">53μs</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th rowspan="2">Database</th>
+<th rowspan="2">Bulk Write</th>
+<th rowspan="2">Batched Write</th>
+<th rowspan="2">Bulk Read</th>
+<th colspan="4">Read Latency - Percentile</th>
+</tr>
+<tr>
+<th>25%</th>
+<th>50%</th>
+<th>95%</th>
+<th>99%</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 2px solid black">
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dict</a></td>
+<td class="text-right" style="background-color: #baf6ba;">2 639 859.62&nbsp;inserts/s</td>
+<td class="text-right">-</td>
+<td class="text-right">-</td>
+<td style="background-color: #baf6ba;">0&mu;s</td>
+<td style="background-color: #baf6ba;">0&mu;s</td>
+<td style="background-color: #baf6ba;">1&mu;s</td>
+<td style="background-color: #baf6ba;">2&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a> (in-memory)</td>
+<td class="text-right" style="background-color: #baf6ba;">259 834.14&nbsp;inserts/s</td>
+<td class="text-right">27 151.94&nbsp;inserts/s</td>
+<td class="text-right" style="background-color: #baf6ba;">69 163.37&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">32&mu;s</td>
+<td style="background-color: #baf6ba;">32&mu;s</td>
+<td style="background-color: #baf6ba;">36&mu;s</td>
+<td style="background-color: #baf6ba;">60&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a></td>
+<td class="text-right" style="background-color: #baf6ba;">193 930.10&nbsp;inserts/s</td>
+<td class="text-right">6181.23&nbsp;inserts/s</td>
+<td class="text-right" style="background-color: #baf6ba;">61 012.26&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">34&mu;s</td>
+<td style="background-color: #baf6ba;">34&mu;s</td>
+<td style="background-color: #baf6ba;">38&mu;s</td>
+<td>62&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a></td>
+<td class="text-right" style="background-color: #baf6ba;">131 635.98&nbsp;inserts/s</td>
+<td class="text-right" style="background-color: #baf6ba;">123 937.91&nbsp;inserts/s</td>
+<td class="text-right" style="background-color: #baf6ba;">57 191.03&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">25&mu;s</td>
+<td style="background-color: #baf6ba;">26&mu;s</td>
+<td style="background-color: #baf6ba;">38&mu;s</td>
+<td style="background-color: #baf6ba;">51&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Redis">Redis</a></td>
+<td class="text-right">5103.39&nbsp;inserts/s</td>
+<td class="text-right">40 494.49&nbsp;inserts/s</td>
+<td class="text-right">TODO&nbsp;selects/s</td>
+<td style="background-color: #ffbebe;">52&mu;s</td>
+<td style="background-color: #ffbebe;">54&mu;s</td>
+<td style="background-color: #ffbebe;">80&mu;s</td>
+<td style="background-color: #ffbebe;">97&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/MyISAM">MyISAM</a>)</td>
+<td class="text-right">3412.18&nbsp;inserts/s,<br/>
+                                  30 266.34<sup '="" 1="" ignore="" lines;"="" title="LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE KeyValue FIELDS TERMINATED BY ',' ENCLOSED BY '">🌞</sup></td>
+<td class="text-right">4 885.09&nbsp;inserts/s</td>
+<td class="text-right">41 432.73&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">32&mu;s</td>
+<td style="background-color: #baf6ba;">33&mu;s</td>
+<td style="background-color: #baf6ba;">36&mu;s</td>
+<td style="background-color: #baf6ba;">60&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/Aria_(storage_engine)">Aria</a>)</td>
+<td class="text-right">2546.49&nbsp;inserts/s,<br/>
+                                   19 708.31<sup '="" 1="" ignore="" lines;"="" title="LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE KeyValue FIELDS TERMINATED BY ',' ENCLOSED BY '">🌞</sup></td>
+<td class="text-right">4309.30 inserts/s</td>
+<td class="text-right">41 305.08&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">33&mu;s</td>
+<td style="background-color: #baf6ba;">33&mu;s</td>
+<td style="background-color: #baf6ba;">36&mu;s</td>
+<td style="background-color: #baf6ba;">57&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a></td>
+<td class="text-right" style="background-color: #ffbebe;">1767.12&nbsp;inserts/s</td>
+<td class="text-right">3529.08&nbsp;inserts/s</td>
+<td class="text-right">37 732.27&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">32&mu;s</td>
+<td style="background-color: #baf6ba;">33&mu;s</td>
+<td style="background-color: #baf6ba;">36&mu;s</td>
+<td style="background-color: #baf6ba;">59&mu;s</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/InnoDB">InnoDB</a>)</td>
+<td class="text-right">1152.20&nbsp;inserts/s <sup title="Tested only with 100k inserts">*</sup>,<br/>
+                                   14 679.97<sup '="" 1="" ignore="" lines;"="" title="LOAD DATA LOCAL INFILE 'data.csv' INTO TABLE KeyValue FIELDS TERMINATED BY ',' ENCLOSED BY '">🌞</sup></td>
+<td class="text-right" style="background-color: #ffbebe;">643.56&nbsp;inserts/s</td>
+<td class="text-right">29 405.90&nbsp;selects/s</td>
+<td style="background-color: #baf6ba;">33&mu;s</td>
+<td style="background-color: #baf6ba;">33&mu;s</td>
+<td style="background-color: #baf6ba;">36&mu;s</td>
+<td style="background-color: #baf6ba;">53&mu;s</td>
+</tr>
+</tbody>
 </table>
-
 <p>For some DBs, batching improved the bulk insert quite a bit. I guess this is
 because this way I can avoid swapping. Maybe changing the batch-size from 1000
 to higher numbers additionally increases the throughput.</p>
@@ -404,11 +406,11 @@ to higher numbers additionally increases the throughput.</p>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr>
+<hr/>
 <ol>
 <li id="fn:1">
 <p>Dictionaries are a fundamental data structure in Python. They are called
-  <em>associative arrays</em> in PHP and <em>hashtable</em> in Java.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+  <em>associative arrays</em> in PHP and <em>hashtable</em> in Java.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

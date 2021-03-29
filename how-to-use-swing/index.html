@@ -102,28 +102,33 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Swing I: How to use Swing">Swing I: How to use Swing</a><ul><li><a class="toc-href" href="#basic-examples" title="Basic examples">Basic examples</a><ul><li><a class="toc-href" href="#jframe" title="JFrame">JFrame</a></li><li><a class="toc-href" href="#jpanel" title="JPanel">JPanel</a></li></ul></li><li><a class="toc-href" href="#action-listeners_1" title="Action Listeners">Action Listeners</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><a href="http://en.wikipedia.org/wiki/Swing_(Java)">Swing</a> is a Java package for creating graphical user interfaces (GUI). I will give you complete, runnable examples how you could use Swing. All examples are done in <code>test.java</code></p>
-<h2>Basic examples</h2>
-<h3>JFrame</h3>
+<h2 id="basic-examples">Basic examples</h2>
+<h3 id="jframe">JFrame</h3>
 <p>The basic class is <a href="http://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html">JFrame</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;My title!&quot;</span><span class="p">);</span>
+        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">"My title!"</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>You will get:
-<a href="../images/2012/07/java-swing-JFrame.png"><img src="../images/2012/07/java-swing-JFrame.png" alt="Java Swing: JFrame" title="Java Swing: JFrame" width="300" height="201" class="size-full wp-image-33311" /></a></p>
-<h3>JPanel</h3>
+<a href="../images/2012/07/java-swing-JFrame.png"><img alt="Java Swing: JFrame" class="size-full wp-image-33311" height="201" src="../images/2012/07/java-swing-JFrame.png" title="Java Swing: JFrame" width="300"/></a></p>
+<h3 id="jpanel">JPanel</h3>
 <p>You add your elements to a JPanel:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.swing.JButton</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
@@ -132,7 +137,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;My title!&quot;</span><span class="p">);</span>
+        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">"My title!"</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
@@ -140,18 +145,17 @@ MathJax.Hub.Queue(function() {
         <span class="n">JPanel</span> <span class="n">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
 
-        <span class="n">JLabel</span> <span class="n">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;my label&quot;</span><span class="p">);</span>
+        <span class="n">JLabel</span> <span class="n">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">"my label"</span><span class="p">);</span>
         <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
 
-        <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;my button&quot;</span><span class="p">);</span>
+        <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">"my button"</span><span class="p">);</span>
         <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>It looks like this:
-<a href="../images/2012/07/java-swing-jpanel.png"><img src="../images/2012/07/java-swing-jpanel.png" alt="Java Swing: JPanel, JLabel and JButton" title="Java Swing: JPanel, JLabel and JButton" width="300" height="151" class="size-full wp-image-33341" /></a></p>
-<h2>Action Listeners</h2>
+<a href="../images/2012/07/java-swing-jpanel.png"><img alt="Java Swing: JPanel, JLabel and JButton" class="size-full wp-image-33341" height="151" src="../images/2012/07/java-swing-jpanel.png" title="Java Swing: JPanel, JLabel and JButton" width="300"/></a></p>
+<h2 id="action-listeners_1">Action Listeners</h2>
 <p>This is the most simple example of an <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/ActionListener.html">ActionListener</a>. When you click on the button, it creates a new JFrame.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="p">;</span>
@@ -163,7 +167,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;My title!&quot;</span><span class="p">);</span>
+        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">"My title!"</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
@@ -171,10 +175,10 @@ MathJax.Hub.Queue(function() {
         <span class="n">JPanel</span> <span class="n">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
         <span class="n">frame</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">panel</span><span class="p">);</span>
 
-        <span class="n">JLabel</span> <span class="n">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;my label&quot;</span><span class="p">);</span>
+        <span class="n">JLabel</span> <span class="n">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">"my label"</span><span class="p">);</span>
         <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
 
-        <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;my button&quot;</span><span class="p">);</span>
+        <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">"my button"</span><span class="p">);</span>
         <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
         <span class="n">button</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">new</span> <span class="n">MyAction</span><span class="p">());</span>
     <span class="p">}</span>
@@ -182,20 +186,18 @@ MathJax.Hub.Queue(function() {
     <span class="kd">static</span> <span class="kd">class</span> <span class="nc">MyAction</span> <span class="kd">implements</span> <span class="n">ActionListener</span> <span class="p">{</span>
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">JFrame</span> <span class="n">frame2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">&quot;clicked&quot;</span><span class="p">);</span>
+            <span class="n">JFrame</span> <span class="n">frame2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s">"clicked"</span><span class="p">);</span>
             <span class="n">frame2</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
             <span class="n">frame2</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="http://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html">Java 7 Swing Documentation</a></li>
-  <li><a href="http://docs.oracle.com/javase/tutorial/uiswing/">Trail: Creating a GUI With JFC/Swing</a></li>
+<li><a href="http://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html">Java 7 Swing Documentation</a></li>
+<li><a href="http://docs.oracle.com/javase/tutorial/uiswing/">Trail: Creating a GUI With JFC/Swing</a></li>
 </ul>
-
 <div class="info">Continue with part II: <a href="../swing-ii-how-to-arrange-objects/">How to arrange Objects with Swing</a></div>
             
             <div id="disqus_thread" class="no-print"></div>

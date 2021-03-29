@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Optimization Basics">Optimization Basics</a><ul><li><a class="toc-href" href="#simulated-annealing" title="Simulated Annealing">Simulated Annealing</a></li><li><a class="toc-href" href="#gradient-descent" title="Gradient descent">Gradient descent</a><ul><li><a class="toc-href" href="#iterative-descent" title="Iterative Descent">Iterative Descent</a></li></ul></li><li><a class="toc-href" href="#linear-regression-with-mse_1" title="Linear Regression with MSE">Linear Regression with MSE</a></li><li><a class="toc-href" href="#lagrange-multipliers" title="Lagrange multipliers">Lagrange multipliers</a></li><li><a class="toc-href" href="#optimization-problem-characteristics" title="Optimization Problem characteristics">Optimization Problem characteristics</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li><li><a class="toc-href" href="#references" title="References">References</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this:</p>
@@ -134,14 +140,13 @@ environment of <span class="math">\(x\)</span>:</p>
 <p>Otherwise, it might be overwritten with probability <span class="math">\(\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\)</span> where <span class="math">\(T: \mathbb{N}_0 \rightarrow \mathbb{R}_{&gt; 0}\)</span> is called the temperature at time <span class="math">\(t\)</span>.</p>
 <p>So the optimization algorithm is:</p>
 <ol>
-    <li>Take a random point $x \in \mathbb{R}^n$</li>
-    <li>Take a random point $y \in U(x)$</li>
-    <li>$$x \leftarrow \begin{cases}y &\text{if } f(y) \leq f(x)\\
-                          y &\text{if } \operatorname{rand}(0,1) < \exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\\
-                          x &\text{otherwise}\end{cases}$$</li>
-    <li>Go to step 2.</li>
+<li>Take a random point $x \in \mathbb{R}^n$</li>
+<li>Take a random point $y \in U(x)$</li>
+<li>$$x \leftarrow \begin{cases}y &amp;\text{if } f(y) \leq f(x)\\
+                          y &amp;\text{if } \operatorname{rand}(0,1) &lt; \exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\\
+                          x &amp;\text{otherwise}\end{cases}$$</li>
+<li>Go to step 2.</li>
 </ol>
-
 <p>See also my <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#simulated-annealing">German description</a>.</p>
 <h2 id="gradient-descent">Gradient descent</h2>
 <p>The gradient descent algorithm can easily be applied when the optimization problem has no constraints and the objective function <span class="math">\(f\)</span> is differentiable.
@@ -169,11 +174,10 @@ update the current guess of the minimum to</p>
 <p>is the direction of the descent. The direction depends on the Gradient
 <span class="math">\(\nabla f(x_k)\)</span>, but also on a matrix <span class="math">\(D_k\)</span>:</p>
 <ul>
-    <li>$D_k = I$: Gradient descent</li>
-    <li>$D_k = H_f^{-1}(x_k)$: Newtons method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
+<li>$D_k = I$: Gradient descent</li>
+<li>$D_k = H_f^{-1}(x_k)$: Newtons method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
 </ul>
-
-<h2 id="linear-regression-with-mse">Linear Regression with MSE</h2>
+<h2 id="linear-regression-with-mse_1">Linear Regression with MSE</h2>
 <p>In linear regression one is given a list of <span class="math">\(n\)</span> points <span class="math">\((x, y)\)</span> with <span class="math">\(x \in \mathbb{R}^m\)</span> and <span class="math">\(y \in \mathbb{R}\)</span>. The task is to find a matrix <span class="math">\(A \in \mathbb{1 \times m}\)</span> such that the predicted value <span class="math">\(\hat{y}\)</span> of the linear model</p>
 <div class="math">$$\hat{y}(x) = A \cdot x$$</div>
 <p>minimizes the term</p>
@@ -231,45 +235,43 @@ with the <em>Lagrange multipliers</em> <span class="math">\(\lambda_j \in \mathb
 <br/>
 Necessary conditions for a minimum <span class="math">\(x^*\)</span> is:</p>
 <ul>
-    <li>$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$</li>
-    <li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>
+<li>$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$</li>
+<li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>
 </ul>
-
 <p>See [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>] for many examples.</p>
 <h2 id="optimization-problem-characteristics">Optimization Problem characteristics</h2>
 <p>There are some properties of optimization problems which make it easier / harder
 to solve:</p>
 <table>
-    <tr>
-        <th>Property</th>
-        <th>Easy</th>
-        <th>Hard</th>
-    </tr>
-    <tr>
-        <td>Objective</td>
-        <td>linear</td>
-        <td>non-linear</td>
-    </tr>
-    <tr>
-        <td>Optimization Variable</td>
-        <td>small discrete, continuous</td>
-        <td>large discrete</td>
-    </tr>
-    <tr>
-        <td>Constraints</td>
-        <td>No Constraints</td>
-        <td>Constraints</td>
-    </tr>
+<tr>
+<th>Property</th>
+<th>Easy</th>
+<th>Hard</th>
+</tr>
+<tr>
+<td>Objective</td>
+<td>linear</td>
+<td>non-linear</td>
+</tr>
+<tr>
+<td>Optimization Variable</td>
+<td>small discrete, continuous</td>
+<td>large discrete</td>
+</tr>
+<tr>
+<td>Constraints</td>
+<td>No Constraints</td>
+<td>Constraints</td>
+</tr>
 </table>
-
 <h2 id="resources">Resources</h2>
 <ul>
 <li>Reddit: <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Overview of Optimization Algorithms</a></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
-<li>[<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, “Lagrange multipliers tutorial in the context of support
-  vector machines,” Memorial University of Newfoundland St. John’s,
+<li>[<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, &ldquo;Lagrange multipliers tutorial in the context of support
+  vector machines,&rdquo; Memorial University of Newfoundland St. John&rsquo;s,
   Newfoundland, Canada, Jun. 2004.</li>
 </ul>
             

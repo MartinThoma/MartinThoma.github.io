@@ -102,11 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Regression">Regression</a><ul><li><a class="toc-href" href="#scoring-functions" title="Scoring functions">Scoring functions</a></li><li><a class="toc-href" href="#regression-models" title="Regression Models">Regression Models</a><ul><li><a class="toc-href" href="#trivial-models" title="Trivial Models">Trivial Models</a></li><li><a class="toc-href" href="#linear-regression" title="Linear regression">Linear regression</a></li><li><a class="toc-href" href="#logistic-regression" title="Logistic regression">Logistic regression</a></li><li><a class="toc-href" href="#trees" title="Trees">Trees</a></li></ul></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <div class="info">A while ago, this link pointed to the content which is now in the <a href="https://martin-thoma.com/forecasting/">Forecasting article</a>.</div>
-
 <p>Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
 example, predicting the price of a house, estimating the <a href="http://www.u.arizona.edu/~kuchi/Courses/MAT167/Files/LH_LEC.0710.Models.Regression.pdf">age of the universe</a> or calculating the probability that an image shows a dog. The age of the universe
@@ -122,45 +127,44 @@ of scoring functions.</p>
 <p>In the following, <span class="math">\(y\)</span> is the ordered list of target, <span class="math">\(y^P\)</span> is the list
 of predictions in the same order and <span class="math">\(\bar{y}\)</span> is the mean of <span class="math">\(y\)</span>.</p>
 <table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>X is better</th>
-        <th>Definition and Usage</th>
-    </tr>
+<thead>
+<tr>
+<th>Name</th>
+<th>Image</th>
+<th>X is better</th>
+<th>Definition and Usage</th>
+</tr>
 </thead>
-    <tbody>
-    <tr>
-        <td>MAE</td>
-        <td>$[0, \infty)$</td>
-        <td>lower</td>
-        <td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} |y_i - y_i^P|$</td>
-    </tr>
-    <tr>
-        <td>MSE</td>
-        <td>$[0, \infty)$</td>
-        <td>lower</td>
-        <td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$</td>
-    </tr>
-    <tr>
-        <td>$R^2$</td>
-        <td>$[0, 1]$</td>
-        <td>higher</td>
-        <td>$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$</td>
-    </tr>
-    <tr>
-        <td>Explained Variance</td>
-        <td>$(-\infty, 1]$</td>
-        <td>higher</td>
-        <td>$f(y, y^P) = 1 - \frac{Var(y - y^P)}{Var(y)}$</td>
-    </tr>
+<tbody>
+<tr>
+<td>MAE</td>
+<td>$[0, \infty)$</td>
+<td>lower</td>
+<td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} |y_i - y_i^P|$</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>$[0, \infty)$</td>
+<td>lower</td>
+<td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$</td>
+</tr>
+<tr>
+<td>$R^2$</td>
+<td>$[0, 1]$</td>
+<td>higher</td>
+<td>$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$</td>
+</tr>
+<tr>
+<td>Explained Variance</td>
+<td>$(-\infty, 1]$</td>
+<td>higher</td>
+<td>$f(y, y^P) = 1 - \frac{Var(y - y^P)}{Var(y)}$</td>
+</tr>
 </tbody>
 </table>
-
 <p>See also:</p>
 <ul>
-<li><a href="https://stats.stackexchange.com/q/32596/25741">What is the difference between “coefficient of determination” and “mean squared error”?</a></li>
+<li><a href="https://stats.stackexchange.com/q/32596/25741">What is the difference between &ldquo;coefficient of determination&rdquo; and &ldquo;mean squared error&rdquo;?</a></li>
 </ul>
 <h2 id="regression-models">Regression Models</h2>
 <h3 id="trivial-models">Trivial Models</h3>

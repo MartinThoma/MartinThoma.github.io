@@ -102,13 +102,18 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="My LaTeX Tikz Template">My LaTeX Tikz Template</a><ul><li><a class="toc-href" href="#the-templates" title="The templates">The templates</a><ul><li><a class="toc-href" href="#latex-documenttex" title="latex-document.tex">latex-document.tex</a></li><li><a class="toc-href" href="#makefile" title="Makefile">Makefile</a></li></ul></li><li><a class="toc-href" href="#requirements_1" title="Requirements">Requirements</a></li><li><a class="toc-href" href="#test-if-you-meet-these-requirements" title="Test if you meet these requirements">Test if you meet these requirements</a></li><li><a class="toc-href" href="#how-to-use-it" title="How to use it">How to use it</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Sometimes I would like to create a single picture with Tikz for later usage on Wikipedia or my Blog. This is my LaTeX Tikz template I use in such a situation:</p>
-<h2>The templates</h2>
-<h3>latex-document.tex</h3>
-
+<h2 id="the-templates">The templates</h2>
+<h3 id="latex-documenttex">latex-document.tex</h3>
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[varwidth=true, border=2pt]</span><span class="nb">{</span>standalone<span class="nb">}</span>
 
 <span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
@@ -120,10 +125,8 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
 <h4>Standalone</h4>
 <h4>Preview-Environment</h4>
-
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="na">[pdftex,active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
 <span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>2mm<span class="nb">}</span>
@@ -139,9 +142,7 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>preview<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-
-<h3>Makefile</h3>
-
+<h3 id="makefile">Makefile</h3>
 <div class="highlight"><pre><span></span><code><span class="nv">SOURCE</span> <span class="o">=</span> latex-document.tex
 
 <span class="nv">DELAY</span> <span class="o">=</span> <span class="m">80</span>
@@ -170,16 +171,14 @@ MathJax.Hub.Queue(function() {
     <span class="c1"># Alternatively, only this one (produces worse results):</span>
     <span class="c1">#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg</span>
 </code></pre></div>
-
-<h2>Requirements</h2>
+<h2 id="requirements_1">Requirements</h2>
 <ul>
-    <li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
-    <li>make</li>
-    <li>Inkscape</li>
-    <li>pdf2svg</li>
+<li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
+<li>make</li>
+<li>Inkscape</li>
+<li>pdf2svg</li>
 </ul>
-
-<h2>Test if you meet these requirements</h2>
+<h2 id="test-if-you-meet-these-requirements">Test if you meet these requirements</h2>
 <p>Make sure that you have a valid LaTeX installation. <code>pdflatex --version</code> should output something like:</p>
 <div class="highlight"><pre><span></span><code>pdfTeX <span class="m">3</span>.1415926-2.3-1.40.12 <span class="o">(</span>TeX Live <span class="m">2011</span><span class="o">)</span>
 kpathsea version <span class="m">6</span>.0.1
@@ -194,7 +193,6 @@ Compiled with libpng <span class="m">1</span>.5.2<span class="p">;</span> using 
 Compiled with zlib <span class="m">1</span>.2.5<span class="p">;</span> using zlib <span class="m">1</span>.2.5
 Compiled with xpdf version <span class="m">3</span>.02pl5
 </code></pre></div>
-
 <p>Make sure you can execute Makefiles. <code>make --version</code> should output something like this:</p>
 <div class="highlight"><pre><span></span><code>GNU Make <span class="m">3</span>.81
 Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2006</span>  Free Software Foundation, Inc.
@@ -204,29 +202,25 @@ PARTICULAR PURPOSE.
 
 This program built <span class="k">for</span> i486-pc-linux-gnu
 </code></pre></div>
-
 <p>The command <code>inkscape --version</code> should return:</p>
 <div class="highlight"><pre><span></span><code>Inkscape <span class="m">0</span>.47 r22583 <span class="o">(</span>Apr  <span class="m">4</span> <span class="m">2010</span><span class="o">)</span>
 </code></pre></div>
-
 <p>And <code>pdf2svg --version</code> should return:</p>
 <div class="highlight"><pre><span></span><code>Usage: pdf2svg &lt;<span class="k">in</span> file.pdf&gt; &lt;out file.svg&gt; <span class="o">[</span>&lt;page no&gt;<span class="o">]</span>
 </code></pre></div>
-
-<h2>How to use it</h2>
+<h2 id="how-to-use-it">How to use it</h2>
 <p>You have to place the Makefile in the same folder as latex-document.tex. If you have done this and if you meet the requirements, you can execute:</p>
 <ul>
-  <li><code>make</code>: Generates a PDF file from latex-document.tex</li>
-  <li><code>make svg</code>: Generates a SVG file from the generated PDF file</li>
-  <li><code>make transparentGif</code>: Generates a transparent Gif from the PDF file</li>
-  <li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
+<li><code>make</code>: Generates a PDF file from latex-document.tex</li>
+<li><code>make svg</code>: Generates a SVG file from the generated PDF file</li>
+<li><code>make transparentGif</code>: Generates a transparent Gif from the PDF file</li>
+<li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
 </ul>
-
-<h2>See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
-  <li><a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
-  <li><a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
+<li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
+<li><a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
+<li><a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

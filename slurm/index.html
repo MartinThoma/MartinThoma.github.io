@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="SLURM">SLURM</a><ul><li><a class="toc-href" href="#slurm-basic-usage" title="SLURM basic usage">SLURM basic usage</a></li><li><a class="toc-href" href="#help-texts" title="Help texts">Help texts</a><ul><li><a class="toc-href" href="#sbatch" title="sbatch">sbatch</a></li><li><a class="toc-href" href="#squeue" title="squeue">squeue</a></li></ul></li><li><a class="toc-href" href="#more-information_1" title="More information">More information</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>SLURM is short for 'Simple Linux Utility for Resource Management'.
@@ -128,7 +134,6 @@ in parallel.</p>
 <p>A simple call could look like this:</p>
 <div class="highlight"><pre><span></span><code>srun python test.py -aflag -param value
 </code></pre></div>
-
 <p>Other notable commands are:</p>
 <ul>
 <li><code>squeue</code>: Gives a list of all running / pending jobs</li>
@@ -158,13 +163,13 @@ Parallel run options:
       --comment=name          arbitrary comment
   -d, --dependency=type:jobid defer job until condition on jobid is satisfied
   -D, --workdir=directory     set working directory for batch script
-  -e, --error=err             file for batch script&#39;s standard error
+  -e, --error=err             file for batch script's standard error
       --export[=names]        specify environment variables to export
       --get-user-env          load environment from local cluster
       --gid=group_id          group ID to run job as (user root only)
       --gres=list             required generic resources
   -H, --hold                  submit job in held state
-  -i, --input=in              file for batch script&#39;s standard input
+  -i, --input=in              file for batch script's standard input
   -I, --immediate             exit if resources are not immediately available
       --jobid=id              run under already allocated job
   -J, --job-name=jobname      name of job
@@ -174,7 +179,7 @@ Parallel run options:
                               (type = block|cyclic|arbitrary)
   -M, --clusters=names        Comma separated list of clusters to issue
                               commands to.  Default is current cluster.
-                              Name of &#39;all&#39; will submit to run on all clusters.
+                              Name of 'all' will submit to run on all clusters.
       --mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
       --mail-user=user        who to send email notification for job state
                               changes
@@ -183,7 +188,7 @@ Parallel run options:
       --no-requeue            if set, do not permit the job to be requeued
       --ntasks-per-node=n     number of tasks to invoke on each node
   -N, --nodes=N               number of nodes on which to run (N = min[-max])
-  -o, --output=out            file for batch script&#39;s standard output
+  -o, --output=out            file for batch script's standard output
   -O, --overcommit            overcommit resources
   -p, --partition=partition   partition requested
       --propagate[=rlimits]   propagate all [or specific list of] rlimits
@@ -194,7 +199,7 @@ Parallel run options:
       --time-min=minutes      minimum time limit (if distinct)
   -s, --share                 share nodes with other jobs
       --uid=user_id           user ID to run job as (user root only)
-  -v, --verbose               verbose mode (multiple -v&#39;s increase verbosity)
+  -v, --verbose               verbose mode (multiple -v's increase verbosity)
 
 Constraint options:
       --contiguous            demand a contiguous range of nodes
@@ -219,17 +224,17 @@ Affinity/Multi-core options: (when the task/affinity plugin is enabled)
        --sockets-per-node=S   number of sockets per node to allocate
        --cores-per-socket=C   number of cores per socket to allocate
        --threads-per-core=T   number of threads per core to allocate
-                              each field can be &#39;min&#39; or wildcard &#39;*&#39;
+                              each field can be 'min' or wildcard '*'
                               total cpus requested = (N x S x C x T)
 
       --ntasks-per-core=n     number of tasks to invoke on each core
       --ntasks-per-socket=n   number of tasks to invoke on each socket
       --cpu_bind=             Bind tasks to CPUs
-                              (see &quot;--cpu_bind=help&quot; for options)
+                              (see "--cpu_bind=help" for options)
       --hint=                 Bind tasks according to application hints
-                              (see &quot;--hint=help&quot; for options)
+                              (see "--hint=help" for options)
       --mem_bind=             Bind memory to locality domains (ldom)
-                              (see &quot;--mem_bind=help&quot; for options)
+                              (see "--mem_bind=help" for options)
 
 
 Help options:
@@ -239,7 +244,6 @@ Help options:
 Other options:
   -V, --version               output version information and exit
 </code></pre></div>
-
 <h3 id="squeue">squeue</h3>
 <div class="highlight"><pre><span></span><code>squeue --help
 Usage: squeue [OPTIONS]
@@ -260,15 +264,15 @@ Usage: squeue [OPTIONS]
   -o, --format=format             format specification
   -p, --partition=partition(s)    comma separated list of partitions
                   to view, default is all partitions
-  -q, --qos=qos(s)                comma separated list of qos&#39;s
-                  to view, default is all qos&#39;s
+  -q, --qos=qos(s)                comma separated list of qos's
+                  to view, default is all qos's
   -s, --step=step(s)              comma separated list of job steps
                   to view, default is all
   -S, --sort=fields               comma separated list of fields to sort on
       --start                     print expected start times of pending jobs
   -t, --states=states             comma separated list of states to view,
                   default is pending and running,
-                  &#39;--states=all&#39; reports all states
+                  '--states=all' reports all states
   -u, --user=user_name(s)         comma separated list of users to view
   -v, --verbose                   verbosity level
   -V, --version                   output version information and exit
@@ -277,8 +281,7 @@ Help options:
   --help                          show this help message
   --usage                         display a brief summary of squeue options
 </code></pre></div>
-
-<h2 id="more-information">More information</h2>
+<h2 id="more-information_1">More information</h2>
 <ul>
 <li>Manpages:</li>
 <li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/srun.txt">srun</a></li>

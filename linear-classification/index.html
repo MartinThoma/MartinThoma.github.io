@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Linear Classification">Linear Classification</a><ul><li><a class="toc-href" href="#one-hot-encoding" title="One-hot encoding">One-hot encoding</a><ul><li><a class="toc-href" href="#normalizing-the-output" title="Normalizing the output">Normalizing the output</a></li><li><a class="toc-href" href="#decision-boundary" title="Decision boundary">Decision boundary</a></li></ul></li><li><a class="toc-href" href="#-11-encoding_1" title="-1/+1 encoding">-1/+1 encoding</a></li><li><a class="toc-href" href="#differences-from-target-encoding" title="Differences from target encoding">Differences from target encoding</a></li><li><a class="toc-href" href="#implementation" title="Implementation">Implementation</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>In classification problems you have data points <span class="math">\(x \in \mathbb{R}^m\)</span> which you want to classify into one of <span class="math">\(k \in \mathbb{N}_{\geq 2}\)</span> classes. This is a supervised task. This means you have <span class="math">\(n\)</span> data points for training in a matrix <span class="math">\(X \in \mathbb{R}^{n \times m}\)</span> with their labels.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
@@ -180,7 +186,7 @@ $$</div>
 <p>For given <span class="math">\(W, x\)</span> it only divides both sides of the equation by the same constant. Hence it doesn't change the decision boundary.</p>
 <p>What does standardization with softmax change?</p>
 <p>Just like with normalization, softmax makes equation <span class="math">\((DB)\)</span> to be divided by a constant. This can be ignored. The exponentiation can also be ignored as we can simply take the logartihm of both sides of <span class="math">\((DB)\)</span>. Or in other words: <strong>A neural network with only one input layer and one softmax output layer also has a linear decision boundary!</strong></p>
-<h2 id="-11-encoding">-1/+1 encoding</h2>
+<h2 id="-11-encoding_1">-1/+1 encoding</h2>
 <p>In the 2-class case one might consider to use -1 for one class and +1 for the other class as targets. Then the classifcation is</p>
 <div class="math">$$
 \begin{cases}
@@ -208,7 +214,7 @@ $$</div>
 and a perceptron unit:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">&quot;&quot;&quot;Example for a linear classifier using a perceptron and the delta rule.&quot;&quot;&quot;</span>
+<span class="sd">"""Example for a linear classifier using a perceptron and the delta rule."""</span>
 
 <span class="kn">from</span> <span class="nn">sklearn.datasets.samples_generator</span> <span class="kn">import</span> <span class="n">make_blobs</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -218,13 +224,13 @@ and a perceptron unit:</p>
 
 <span class="k">class</span> <span class="nc">Perceptron</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+        <span class="sd">"""</span>
 <span class="sd">        Single perceptron unit.</span>
 
 <span class="sd">        Credit to Sebastian Raschka:</span>
 <span class="sd">        http://sebastianraschka.com/Articles/2015_singlelayer_neurons.html</span>
 <span class="sd">        This was slightly modified.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">epochs</span>
 
@@ -258,40 +264,38 @@ and a perceptron unit:</p>
 
 <span class="c1"># Plot decision boundary</span>
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">stop</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">],</span> <span class="s2">&quot;r--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">],</span> <span class="s2">"r--"</span><span class="p">)</span>
 
 <span class="c1"># Plot data</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-
 <p>which gives:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2016/06/perceptron-classification.png" alt="Classification with a Perceptron." />
-    <figcaption class="text-center">Classification with a Perceptron.</figcaption>
+<img alt="Classification with a Perceptron." src="../images/2016/06/perceptron-classification.png"/>
+<figcaption class="text-center">Classification with a Perceptron.</figcaption>
 </figure>
-
 <p>Looks about right. You can also see that this probably minimizes the MSE, but
 it does not maximize the margin between the classes. This would be done by
 SVMs.</p>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr>
+<hr/>
 <ol>
 <li id="fn:1">
 <p>A label and a class are two different things. The class is a set which
   contains all data points which belong to this class. The label is only
-  a pointer to this class.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+  a pointer to this class.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:2">
-<p>Classification problems with only two classes.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Classification problems with only two classes.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:3">
-<p>Also called "targets" sometimes, as we want our classifier to output those values.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:4">
-<p>The objective function defines what is to be done during fitting / training / learning.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 </ol>
 </div>

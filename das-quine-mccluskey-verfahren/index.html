@@ -102,25 +102,30 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Das Quine-McCluskey-Verfahren">Das Quine-McCluskey-Verfahren</a><ul><li><a class="toc-href" href="#verfahren" title="Verfahren">Verfahren</a></li><li><a class="toc-href" href="#beispiele" title="Beispiele">Beispiele</a></li><li><a class="toc-href" href="#quellen" title="Quellen">Quellen</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion minimieren will. Es muss also eine Schaltfunktion gegeben sein. Es sollte eigentlich zus&auml;tzlich Kostenfunktion gegeben sein, aber meist ist das nicht der Fall.</p>
-<h2>Verfahren</h2>
+<h2 id="verfahren">Verfahren</h2>
 <p><strong>Gegeben</strong>: Eine Schaltfunktion <span class="math">\(f:\{0,1\}^n \rightarrow \{0,1\}, \; n \in \mathbb{N}\)</span>
 <strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten</p>
 <ul>
-  <li>&bdquo;Nr.&ldquo;, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
-  <li>Eine Spalte pro Funktionsparameter (z.B. $a, b, c, ...$)</li>
-  <li>Eine Spalte f&uuml;r den Funktionswert $f(a,b,c,...)$</li>
+<li>&bdquo;Nr.&ldquo;, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
+<li>Eine Spalte pro Funktionsparameter (z.B. $a, b, c, ...$)</li>
+<li>Eine Spalte f&uuml;r den Funktionswert $f(a,b,c,...)$</li>
 </ul>
-
 <p><strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung.</p>
 <p>Sie hat die Spalten</p>
 <ul>
-  <li>&bdquo;Nr.&ldquo;</li>
-  <li>Eine Spalte pro Parameter</li>
-  <li>&bdquo;✓&ldquo; (H&auml;kchen)</li>
+<li>&bdquo;Nr.&ldquo;</li>
+<li>Eine Spalte pro Parameter</li>
+<li>&bdquo;✓&ldquo; (H&auml;kchen)</li>
 </ul>
 <p>In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert 1 ist. Das sind die sogenannten Minterme. Zus&auml;tzlich sind sie nach Anzahl der 1er geordnet.</p>
 <p><strong>Schritt 3</strong>: <span class="math">\(i\)</span>-tes Zusammenfassen</p>
@@ -128,63 +133,57 @@ MathJax.Hub.Queue(function() {
 Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das <span class="math">\(i\)</span> gibt dabei die Anzahl der &bdquo;don't care&ldquo; Stellen an, also der Stellen die sowohl 0 als auch 1 sein k&ouml;nnen.</p>
 <p>Um aus der ersten Quinesche Tabelle <span class="math">\((i-1)\)</span>-ter Ordnung die rsten Quinesche Tabelle <span class="math">\(i\)</span>-ter Ordnung zu erstellen, geht man wie folgt vor:</p>
 <ul>
-  <li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
+<li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
     <ul>
-      <li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle $i$ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist &bdquo;x, y&ldquo; und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
-      <li>Hake die Zeilen x und y in der Tabelle $(i-1)$-ter Ordnung ab</li>
-    </ul>
-  </li>
+<li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle $i$ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist &bdquo;x, y&ldquo; und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
+<li>Hake die Zeilen x und y in der Tabelle $(i-1)$-ter Ordnung ab</li>
 </ul>
-
+</li>
+</ul>
 <p>Es ist m&ouml;glich, das Zeilen nicht abgehakt werden, weil sie sich mit keiner Zeile zusammenfassen lassen. Das ist ok.
 Sobald in einem Schritt keine Zusammenfassung mehr m&ouml;glich ist, ist man hier fertig. Falls noch eine M&ouml;glich ist, geht man wieder in Schritt 3.</p>
 <p>Nun schreibt man alle Zeilen auf, die nicht abgehakt sind. Das sind die Primimplikanten.</p>
 <p><strong>Schritt 4</strong>: Aufstellen der zweiten Quineschen Tabelle</p>
 <p>Die zweite Quinesche Tabelle (auch &Uuml;berdeckungstabelle genannt) hat folgende Spalten:</p>
 <ul>
-  <li>Primimplikanten</li>
-  <li>Eine Spalte pro Minterm. Die Beschriftung ist dabei eine Nr.</li>
-  <li>Eine Spalte &bdquo;Kosten&ldquo;</li>
+<li>Primimplikanten</li>
+<li>Eine Spalte pro Minterm. Die Beschriftung ist dabei eine Nr.</li>
+<li>Eine Spalte &bdquo;Kosten&ldquo;</li>
 </ul>
-
 <p>Nun macht man in den Zellen ein Kreuz, in denen der Primimplikant den Minterm abdeckt (also wenn die Nr. im Namen des Minterms vorkommt). Die Kosten muss man pro Primimplikant berechnen.</p>
 <p><strong>Schritt 5</strong>: Vereinfachen der zweiten Quineschen Tabelle</p>
 <p>Dieser Schritt erinnert mich irgendwie an Sudoku.</p>
 <ul>
-  <li><em>Zeilendominanz</em>: Hat eine Zeile a nur x-e an Stellen, wo auch eine andere Zeile b x-e hat und ist Zeile b nicht teurer als a, so kann Zeile a gestrichen werden. Also: Es wird die Zeile mit weniger x gestrichen</li>
-  <li><em>Spaltendominanz</em>: &Uuml;berdeckt eine Spalte eine andere Spalte mit ihren x-en, so kann die Spalte mit <u>mehr</u> x-en gestrichen werden.</li>
+<li><em>Zeilendominanz</em>: Hat eine Zeile a nur x-e an Stellen, wo auch eine andere Zeile b x-e hat und ist Zeile b nicht teurer als a, so kann Zeile a gestrichen werden. Also: Es wird die Zeile mit weniger x gestrichen</li>
+<li><em>Spaltendominanz</em>: &Uuml;berdeckt eine Spalte eine andere Spalte mit ihren x-en, so kann die Spalte mit <u>mehr</u> x-en gestrichen werden.</li>
 </ul>
-
 <p><strong>Schritt 6</strong>: Identifizieren von Kernprimimplikanten.</p>
 <p>Wenn eine Zeile als einzige an einer bestimmten Spalte ein x hat, ist der zugeh&ouml;rige Primimplikant ein Kernprimimplikant. Er muss auf jeden Fall in der Minimalform vorkommen. Diesen schreibt man sich also auf, Streicht die Zeile und alle Spalten, an denen der Kernprimimplikant ein x hatte. Dann geht man zur&uuml;ck zu Schritt 5.</p>
 <p>Gab es keinen Kernprimimplikanten, geht man zu Schritt 7.</p>
 <p><strong>Schritt 7</strong>: Handarbeit</p>
 <p>Ich muss mal nach einem Beispiel suchen, aber ich glaube es ist m&ouml;glich, dass man die zweite Quinesche Tabelle ab einem gewissen Punkt nicht mehr vereinfachen kann, aber dennoch Zeilen und Spalten &uuml;brig sind. Dann muss man &bdquo;durch scharfes Hinsehen&ldquo; (also Brute-Force) die Minimalform finden, oder? Hier bin ich mir nicht ganz sicher.</p>
-<h2>Beispiele</h2>
+<h2 id="beispiele">Beispiele</h2>
 <p>Die folgende Aufgabe ist vom &Uuml;bungsblatt 7 (WS 2012/2013). Herr Terlemez hat mir freundlicherweise erlaubt, sie hier verwenden zu d&uuml;rfen.
 (Die <a href="http://ti.ira.uka.de/TI-1/Uebungen/Uebungen.php">offiziellen Aufgaben und L&ouml;sungen</a> sind passwortgesch&uuml;tzt.)</p>
 <p><strong>Aufgabe</strong>:
 Gegeben sei die Schaltfunktion</p>
 <p><span class="math">\(g(d,c,b,a) := dc \bar b a \lor d \bar c ba \lor d \bar c \bar b a \lor \bar d ca \lor dcb\)</span></p>
 <ol>
-  <li>Bestimmen Sie alle Primimplikanten von $g$ mit Hilfe der 1. Quineschen Tabelle des Quine-McCluskey-Verfahrens.</li>
-  <li>Geben Sie die &Uuml;berdeckungstabelle (2. Quinesche Tabelle) f&uuml;r die gefundenen Primimpikanten an (ohne Vereinfachung). Lesen Sie eine disjunktive Minimalform von $g$ ab.</li>
+<li>Bestimmen Sie alle Primimplikanten von $g$ mit Hilfe der 1. Quineschen Tabelle des Quine-McCluskey-Verfahrens.</li>
+<li>Geben Sie die &Uuml;berdeckungstabelle (2. Quinesche Tabelle) f&uuml;r die gefundenen Primimpikanten an (ohne Vereinfachung). Lesen Sie eine disjunktive Minimalform von $g$ ab.</li>
 </ol>
-
 <p><strong>L&ouml;sung</strong>:
 (Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)</p>
 <figure class="aligncenter">
-            <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg"><img src="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT" style="max-width:300px;max-height:236px" class="size-medium wp-image-56641"/></a>
-            <figcaption class="text-center">Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT</figcaption>
-        </figure>
-
+<a href="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg"><img alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT" class="size-medium wp-image-56641" src="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" style="max-width:300px;max-height:236px"/></a>
+<figcaption class="text-center">Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT</figcaption>
+</figure>
 <figure class="aligncenter">
-            <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg"><img src="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg" alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT" style="max-width:300px;max-height:253px" class="size-medium wp-image-56651"/></a>
-            <figcaption class="text-center">Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT</figcaption>
-        </figure>
-
-<h2>Quellen</h2>
-<p>Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw&list=PL025B377F9094FCB9&index=13">Vorlesung</a> und dem Tutorium erstellt.</p>
+<a href="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg"><img alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT" class="size-medium wp-image-56651" src="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg" style="max-width:300px;max-height:253px"/></a>
+<figcaption class="text-center">Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT</figcaption>
+</figure>
+<h2 id="quellen">Quellen</h2>
+<p>Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw&amp;list=PL025B377F9094FCB9&amp;index=13">Vorlesung</a> und dem Tutorium erstellt.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

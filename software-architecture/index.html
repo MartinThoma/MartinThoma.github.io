@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Software Architecture">Software Architecture</a><ul><li><a class="toc-href" href="#typical-components" title="Typical Components">Typical Components</a></li><li><a class="toc-href" href="#interfaces" title="Interfaces">Interfaces</a></li><li><a class="toc-href" href="#typical-patterns" title="Typical Patterns">Typical Patterns</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>My mentee recently asked me what software architecture is. How do you draw
@@ -115,43 +121,42 @@ an architecture diagram? What is a bad one and how do I learn to draw good ones?
 are to a large degree independent so that different teams can work on it. It
 also helps with Analysability, Modifiability and Testability.</p>
 <table class="table">
-    <tr>
-        <th>Image</th>
-        <th>Technology</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>Database<br/><img src="../images/2020/03/db.png" alt="Database" /></td>
-        <td>MySQL, PostgreSQL</td>
-        <td>Databases are a typical way to store data and state. One distinguishes relational databases from NoSQL Databases. <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> properties are important.</td>
-    </tr>
-    <tr>
-        <td>Queue / Kafka Topic<br/><img src="../images/2020/03/queue.png" alt="Queue" /></td>
-        <td><a href="http://www.celeryproject.org/">Celery</a></td>
-        <td>A job queue can be used to distribute computationally intensive tasks. Think about encoding a video on YouTube.</td>
-    </tr>
-    <tr>
-        <td>Object Storage<br/><img src="../images/2020/03/s3.png" alt="AWS S3" /></td>
-        <td>AWS S3 / Google Cloud Storage</td>
-        <td>Storing files is often useful for various parts of machine learning projects. In the YouTube example, storing an encoded file.</td>
-    </tr>
-    <tr>
-        <td>Front Ends<br/><span style="font-size: xx-large;">FEs</span></td>
-        <td>Android, IOS, Web</td>
-        <td>The front-ends typically can be seperated pretty well in different teams. They need to access the same backend services.</td>
-    </tr>
-    <tr>
-        <td>Cache<br/><img src="../images/2020/03/cache.png" alt="Cache" /></td>
-        <td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a>, <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a> for static files, Redis, Cassandra</td>
-        <td>Caches are important to make things fast and reduce load. There are many different ways to cache.</td>
-    </tr>
-    <tr>
-        <td>Load Balancer<br/><img src="../images/2020/03/load-balancer.png" alt="Load Balancer" /></td>
-        <td><a href="https://aws.amazon.com/de/elasticloadbalancing/">AWS ELB</a>, <a href="https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/">NGINX</a></td>
-        <td>If you built your service in a way to be horizontally scalable, load balancing is crucial. Round-robin or hashing on the IP address are possible choices.</td>
-    </tr>
+<tr>
+<th>Image</th>
+<th>Technology</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Database<br/><img alt="Database" src="../images/2020/03/db.png"/></td>
+<td>MySQL, PostgreSQL</td>
+<td>Databases are a typical way to store data and state. One distinguishes relational databases from NoSQL Databases. <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> properties are important.</td>
+</tr>
+<tr>
+<td>Queue / Kafka Topic<br/><img alt="Queue" src="../images/2020/03/queue.png"/></td>
+<td><a href="http://www.celeryproject.org/">Celery</a></td>
+<td>A job queue can be used to distribute computationally intensive tasks. Think about encoding a video on YouTube.</td>
+</tr>
+<tr>
+<td>Object Storage<br/><img alt="AWS S3" src="../images/2020/03/s3.png"/></td>
+<td>AWS S3 / Google Cloud Storage</td>
+<td>Storing files is often useful for various parts of machine learning projects. In the YouTube example, storing an encoded file.</td>
+</tr>
+<tr>
+<td>Front Ends<br/><span style="font-size: xx-large;">FEs</span></td>
+<td>Android, IOS, Web</td>
+<td>The front-ends typically can be seperated pretty well in different teams. They need to access the same backend services.</td>
+</tr>
+<tr>
+<td>Cache<br/><img alt="Cache" src="../images/2020/03/cache.png"/></td>
+<td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a>, <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a> for static files, Redis, Cassandra</td>
+<td>Caches are important to make things fast and reduce load. There are many different ways to cache.</td>
+</tr>
+<tr>
+<td>Load Balancer<br/><img alt="Load Balancer" src="../images/2020/03/load-balancer.png"/></td>
+<td><a href="https://aws.amazon.com/de/elasticloadbalancing/">AWS ELB</a>, <a href="https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/">NGINX</a></td>
+<td>If you built your service in a way to be horizontally scalable, load balancing is crucial. Round-robin or hashing on the IP address are possible choices.</td>
+</tr>
 </table>
-
 <h2 id="interfaces">Interfaces</h2>
 <p>When reading that there are different Front Ends, you might wonder how you
 define the interfaces between front ends and backend services.</p>
@@ -175,7 +180,7 @@ define the interfaces between front ends and backend services.</p>
 <ul>
 <li>Vijini Mallawaarachchi: <a href="https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013">10 Common Software Architectural Patterns in a nutshell</a>, 2017.</li>
 <li>Eberhard Wolff: <a href="https://www.youtube.com/watch?v=v_nhv6aY1Kg">How to Become a Great Software Architect</a> at GOTO 2019</li>
-<li>Clément Mihailescu: <a href="https://www.youtube.com/watch?v=q0KGYwNbf-0">Google Systems Design Interview With An Ex-Googler</a>, 2020.</li>
+<li>Cl&eacute;ment Mihailescu: <a href="https://www.youtube.com/watch?v=q0KGYwNbf-0">Google Systems Design Interview With An Ex-Googler</a>, 2020.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,13 +102,19 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to Test Flask Applications">How to Test Flask Applications</a><ul><li><a class="toc-href" href="#my-tiny-flask-app" title="My Tiny Flask App">My Tiny Flask App</a></li><li><a class="toc-href" href="#how-to-test-routes" title="How to test Routes">How to test Routes</a></li><li><a class="toc-href" href="#how-to-deal-with-the-database" title="How to deal with the Database">How to deal with the Database</a><ul><li><a class="toc-href" href="#wait-what-about-testing-the-sql-queries" title="Wait &hellip; what about testing the SQL Queries?">Wait &hellip; what about testing the SQL Queries?</a></li></ul></li><li><a class="toc-href" href="#protected-routes_1" title="Protected Routes">Protected Routes</a><ul><li><a class="toc-href" href="#basic-access-authentication" title="Basic Access Authentication">Basic Access Authentication</a></li><li><a class="toc-href" href="#flask-login" title="Flask Login">Flask Login</a></li></ul></li><li><a class="toc-href" href="#test-jinja2-templates_1" title="Test Jinja2 Templates">Test Jinja2 Templates</a><ul><li><a class="toc-href" href="#problem-1-empty-double-braces" title="Problem 1: Empty Double Braces">Problem 1: Empty Double Braces</a></li><li><a class="toc-href" href="#problem-2-data-structure-confusion" title="Problem 2: Data Structure confusion">Problem 2: Data Structure confusion</a></li><li><a class="toc-href" href="#problem-31-typo-in-variable" title="Problem 3.1: Typo in Variable">Problem 3.1: Typo in Variable</a></li><li><a class="toc-href" href="#problem-32-forgetting-to-pass-variable" title="Problem 3.2: Forgetting to pass Variable">Problem 3.2: Forgetting to pass Variable</a></li><li><a class="toc-href" href="#status-code-testing" title="Status Code Testing">Status Code Testing</a></li><li><a class="toc-href" href="#testing-the-template-context" title="Testing the Template Context">Testing the Template Context</a></li></ul></li><li><a class="toc-href" href="#pytest-recording_1" title="pytest-recording">pytest-recording</a><ul><li><a class="toc-href" href="#block-network-access" title="Block Network Access">Block Network Access</a></li><li><a class="toc-href" href="#record-network-interactions" title="Record Network Interactions">Record Network Interactions</a></li></ul></li><li><a class="toc-href" href="#load-testing_1" title="Load Testing">Load Testing</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>As a data scientist, I need to make my models accessible. I usually <a href="https://medium.com/analytics-vidhya/deploying-a-machine-learning-model-on-web-using-flask-and-python-54b86c44e14a">deploy models with Flask</a>. As a software engineer, I want to make sure things work as expected by unit testing them.</p>
 <p>Unit Testing websites or web services is hard for multiple reasons: You have Code-within-Code like HTML template engines and SQL. Additionally, you have Databases as dependencies which are pretty hard to mock. In this article you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">know the basics of unit testing in Python</a>.</p>
 <h2 id="my-tiny-flask-app">My Tiny Flask App</h2>
-<p>In order to make ensure correctness of the following parts, I’ve created a tiny Flask app. You can copy <a href="https://github.com/MartinThoma/algorithms/tree/master/medium/flask-testing/example-app">all files from GitHub</a>.</p>
+<p>In order to make ensure correctness of the following parts, I&rsquo;ve created a tiny Flask app. You can copy <a href="https://github.com/MartinThoma/algorithms/tree/master/medium/flask-testing/example-app">all files from GitHub</a>.</p>
 <p>The general structure is this:</p>
 <div class="highlight"><pre><span></span><code>example-app
 ├── mini_app
@@ -121,14 +127,12 @@ MathJax.Hub.Queue(function() {
     ├── conftest.py  # General Test configuration
     └── test_app.py  # The actual unit tests
 </code></pre></div>
-
-<p>The only file you don’t find in there is .envrc which is used with direnv to set environment variables. Its content looks like this:</p>
+<p>The only file you don&rsquo;t find in there is .envrc which is used with direnv to set environment variables. Its content looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DB_HOST</span><span class="o">=</span>localhost
 <span class="nb">export</span> <span class="nv">DB_DATABASE</span><span class="o">=</span>books
 <span class="nb">export</span> <span class="nv">DB_USER</span><span class="o">=</span>root
 <span class="nb">export</span> <span class="nv">DB_PASSWORD</span><span class="o">=</span>you_wish_i_forgot
 </code></pre></div>
-
 <h2 id="how-to-test-routes">How to test Routes</h2>
 <p>Routes typically look like this in Flask:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
@@ -143,19 +147,18 @@ MathJax.Hub.Queue(function() {
 
     <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
-    <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/square&quot;</span><span class="p">)</span>
+    <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/square"</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">square</span><span class="p">():</span>
-        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"number"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">app</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
-
 <p>The documentation of Flask contains <a href="https://flask.palletsprojects.com/en/1.1.x/testing/">Testing Flask Applications</a> which covers this topic. It especially contains an example how to create a pytest fixture. Imagine a fixture like a way to set things up before your tests and to clean up after the test run. In this simple example, we assume that your application is a proper Python package and called flaskr . You can download an example from Github <a href="https://github.com/pallets/flask/tree/1.1.2/examples/tutorial/flaskr">flask/examples/tutorial/flaskr</a> . The fixture in this simple case looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
 
@@ -163,15 +166,14 @@ MathJax.Hub.Queue(function() {
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
     <span class="c1"># Prepare before your test</span>
-    <span class="n">flaskr</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;TESTING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">flaskr</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">with</span> <span class="n">flaskr</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="c1"># Give control to your test</span>
         <span class="k">yield</span> <span class="n">client</span>
     <span class="c1"># Cleanup after the test run.</span>
     <span class="c1"># ... nothing here, for this simple example</span>
 </code></pre></div>
-
-<p>pytest fixtures are a bit magical. You can give them as a parameter to the test, but you don’t have to execute it. The fixture just has to be discoverable by pytest.</p>
+<p>pytest fixtures are a bit magical. You can give them as a parameter to the test, but you don&rsquo;t have to execute it. The fixture just has to be discoverable by pytest.</p>
 <p>The complete test then looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
@@ -183,19 +185,18 @@ MathJax.Hub.Queue(function() {
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;TESTING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">client</span>
 
 
 <span class="k">def</span> <span class="nf">test_square</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-    <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/square?number=8&quot;</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="sa">b</span><span class="s2">&quot;64&quot;</span> <span class="o">==</span> <span class="n">rv</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/square?number=8"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="sa">b</span><span class="s2">"64"</span> <span class="o">==</span> <span class="n">rv</span><span class="o">.</span><span class="n">data</span>
 </code></pre></div>
-
 <p>Instead of putting the fixture in the test directly, you can put them in <code>tests/conftest.py</code>. pytest will find them there and use in all tests. No need to import.</p>
 <h2 id="how-to-deal-with-the-database">How to deal with the Database</h2>
-<p>Most web applications have a database. When running tests, you want to be certain that the tests don’t hit the production database. At the same time, you want something like a database to be there.</p>
+<p>Most web applications have a database. When running tests, you want to be certain that the tests don&rsquo;t hit the production database. At the same time, you want something like a database to be there.</p>
 <p>I assume that you are using
 <a href="https://github.com/pallets/flask-sqlalchemy">flask-sqlalchemy</a>. It is part of
 the pallets project and thus an official part of the Flask ecosystem. With that
@@ -218,33 +219,31 @@ create and interact with (see
 <span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
 
-    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;TESTING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">app</span><span class="o">.</span><span class="n">testing</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="c1"># This creates an in-memory sqlite db</span>
     <span class="c1"># See https://martin-thoma.com/sql-connection-strings/</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;SQLALCHEMY_DATABASE_URI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sqlite://&quot;</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"SQLALCHEMY_DATABASE_URI"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"sqlite://"</span>
 
     <span class="n">client</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span>
     <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
         <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
-        <span class="n">author1</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+        <span class="n">author1</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">"foo"</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">author1</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">yield</span> <span class="n">client</span>
 </code></pre></div>
-
 <p>Now you can easily run your tests against the fake database:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_author</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/author/1&quot;</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">json</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/author/1"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">json</span> <span class="o">==</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"first_name"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"last_name"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">}</span>
 </code></pre></div>
-
 <p>Note that this will become harder the more complex your data becomes and the more data you need to properly test your views.</p>
-<h3 id="wait-what-about-testing-the-sql-queries">Wait … what about testing the SQL Queries?</h3>
+<h3 id="wait-what-about-testing-the-sql-queries">Wait &hellip; what about testing the SQL Queries?</h3>
 <p>You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend to use SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at Query Builders. Avoid using raw SQL. In most cases it should not be necessary.</p>
-<h2 id="protected-routes">Protected Routes</h2>
-<p>It’s pretty common that you have routes which are either protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a> or need a form of login. You can essentially also set up a test account in the client fixture and login manually. This requires some work and depends on what exactly you’re doing for authentication.</p>
+<h2 id="protected-routes_1">Protected Routes</h2>
+<p>It&rsquo;s pretty common that you have routes which are either protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Auth</a> or need a form of login. You can essentially also set up a test account in the client fixture and login manually. This requires some work and depends on what exactly you&rsquo;re doing for authentication.</p>
 <h3 id="basic-access-authentication">Basic Access Authentication</h3>
 <p>You can provide the necessary credentials in the header within the test:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
@@ -252,34 +251,31 @@ create and interact with (see
 
 
 <span class="k">def</span> <span class="nf">test_protected_route</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-    <span class="n">credentials</span> <span class="o">=</span> <span class="n">b64encode</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;user:password&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-    <span class="n">route</span> <span class="o">=</span> <span class="s2">&quot;protected/route&quot;</span>
-    <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Basic &quot;</span> <span class="o">+</span> <span class="n">credentials</span><span class="p">})</span>
+    <span class="n">credentials</span> <span class="o">=</span> <span class="n">b64encode</span><span class="p">(</span><span class="sa">b</span><span class="s2">"user:password"</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+    <span class="n">route</span> <span class="o">=</span> <span class="s2">"protected/route"</span>
+    <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Basic "</span> <span class="o">+</span> <span class="n">credentials</span><span class="p">})</span>
     <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 </code></pre></div>
-
 <h3 id="flask-login">Flask Login</h3>
 <p>Flask-login is a pretty widespread plugin to handle user session management.
 They have a <a href="https://flask-login.readthedocs.io/en/latest/#protecting-views">section about unit
 testing</a> in
 which they suggest do set the configuration variable <code>LOGIN_DISABLED</code> to
 <code>True</code>.</p>
-<h2 id="test-jinja2-templates">Test Jinja2 Templates</h2>
-<p>Before we dive into testing Jinja2 Templates, let’s first recap a couple of
+<h2 id="test-jinja2-templates_1">Test Jinja2 Templates</h2>
+<p>Before we dive into testing Jinja2 Templates, let&rsquo;s first recap a couple of
 things that can go wrong.</p>
 <h3 id="problem-1-empty-double-braces">Problem 1: Empty Double Braces</h3>
 <p>You wanted to write something, got interrupted and now your template has <code>{{}}</code>
 in it. When Jinja tries to render this, you will get</p>
-<div class="highlight"><pre><span></span><code>jinja2.exceptions.TemplateSyntaxError: Expected an expression, got &#39;end of print statement&#39;
+<div class="highlight"><pre><span></span><code>jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print statement'
 </code></pre></div>
-
 <h3 id="problem-2-data-structure-confusion">Problem 2: Data Structure confusion</h3>
 <p>You assume <code>number</code> is a string, but it actually is an integer:</p>
 <div class="highlight"><pre><span></span><code>{% for digit in number %}
     {{ digit }}
 {% endfor %}
 </code></pre></div>
-
 <p>You will get a <code>TypeError: 'int' object is not iterable</code>.</p>
 <h3 id="problem-31-typo-in-variable">Problem 3.1: Typo in Variable</h3>
 <p>Instead of <code>{{ numbers }}</code> you write <code>{{ number }}</code>. This is pretty bad as it
@@ -287,19 +283,18 @@ actually does nothing. It is as if the variable number existed and was the
 empty string.</p>
 <h3 id="problem-32-forgetting-to-pass-variable">Problem 3.2: Forgetting to pass Variable</h3>
 <p>You actually wanted to write <code>number</code>, but you forgot to pass it to the
-template. The effect is the same, but I think it’s an interesting different
+template. The effect is the same, but I think it&rsquo;s an interesting different
 cause. This is what happens most often to me.</p>
 <h3 id="status-code-testing">Status Code Testing</h3>
 <p>By calling a view and making sure that the <code>assert rv.status_code == 200</code> you
 can already capture Problem 1 and 2:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_main_route_status_code</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">route</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
+    <span class="n">route</span> <span class="o">=</span> <span class="s2">"/"</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 </code></pre></div>
-
 <p>For this reason, make sure that you call each route at least once.</p>
-<p>Up to my knowledge, there is not a lot more you can do without getting creative. Let’s hope <a href="https://stackoverflow.com/q/62970759/562769">StackOverflow knows more</a>.</p>
+<p>Up to my knowledge, there is not a lot more you can do without getting creative. Let&rsquo;s hope <a href="https://stackoverflow.com/q/62970759/562769">StackOverflow knows more</a>.</p>
 <h3 id="testing-the-template-context">Testing the Template Context</h3>
 <p>This one needed a lot of trail and error, but I finally managed to get some pytest fixtures with which you have a better control over the variables passed to the templates. I love it 😍</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
@@ -316,22 +311,22 @@ can already capture Problem 1 and 2:</p>
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">app</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Create application for the tests.&quot;&quot;&quot;</span>
+    <span class="sd">"""Create application for the tests."""</span>
     <span class="n">_app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
     <span class="n">_app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
     <span class="n">ctx</span> <span class="o">=</span> <span class="n">_app</span><span class="o">.</span><span class="n">test_request_context</span><span class="p">()</span>
     <span class="n">ctx</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
 
-    <span class="n">_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;TESTING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">_app</span><span class="o">.</span><span class="n">testing</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="c1"># This creates an in-memory sqlite db</span>
     <span class="c1"># See https://martin-thoma.com/sql-connection-strings/</span>
-    <span class="n">_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;SQLALCHEMY_DATABASE_URI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sqlite://&quot;</span>
+    <span class="n">_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"SQLALCHEMY_DATABASE_URI"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"sqlite://"</span>
 
     <span class="k">with</span> <span class="n">_app</span><span class="o">.</span><span class="n">app_context</span><span class="p">():</span>
         <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span>
-        <span class="n">author1</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+        <span class="n">author1</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">"foo"</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">author1</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 
@@ -358,24 +353,22 @@ can already capture Problem 1 and 2:</p>
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">template_rendered</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
 </code></pre></div>
-
 <p>And this is how you can use it:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_main_route_status_code_number3</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">captured_templates</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">route</span> <span class="o">=</span> <span class="s2">&quot;/?number=3&quot;</span>
+    <span class="n">route</span> <span class="o">=</span> <span class="s2">"/?number=3"</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
 
     <span class="c1"># Sanity checks - it would be a total surprise if this would not hold true</span>
     <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">captured_templates</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="n">template</span><span class="p">,</span> <span class="n">context</span> <span class="o">=</span> <span class="n">captured_templates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="n">template</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;base.html&quot;</span>
+    <span class="k">assert</span> <span class="n">template</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"base.html"</span>
 
     <span class="c1"># Here I test the two values which are passed to the template:</span>
-    <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
-    <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">&quot;square&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span>
+    <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">context</span><span class="p">[</span><span class="s2">"square"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span>
 </code></pre></div>
-
-<h2 id="pytest-recording">pytest-recording</h2>
+<h2 id="pytest-recording_1">pytest-recording</h2>
 <p><a href="https://github.com/kiwicom/pytest-recording">pytest-recording</a> is a pytest plugin which integrates <a href="https://pypi.org/project/vcrpy/">vcr.py</a> into pytest. There is also <a href="https://github.com/kiwicom/pytest-recording/issues/52">pytest-vcr</a> and both plugins are not wide-spread. I think pytest-recording is better maintained as <a href="https://github.com/kiwicom/pytest-recording/issues/52#issuecomment-660528322">the author answered within 2 hours</a>.</p>
 <h3 id="block-network-access">Block Network Access</h3>
 <p>This one is a potential live saver. Just decorate a test with
@@ -383,16 +376,15 @@ can already capture Problem 1 and 2:</p>
 locally. If something tries to make a network access, it is blocked and you get</p>
 <div class="highlight"><pre><span></span><code>RuntimeError: Network is disabled
 </code></pre></div>
-
 <p>You can also use <a href="https://github.com/miketheman/pytest-socket">pytest-socket</a> to disable network access.</p>
 <h3 id="record-network-interactions">Record Network Interactions</h3>
 <p>You can decorate a test with <code>@pytest.mark.vcr()</code>. Run <code>pytest
 --record-mode=rewrite</code></p>
-<h2 id="load-testing">Load Testing</h2>
+<h2 id="load-testing_1">Load Testing</h2>
 <p>Testing Flask apps is not only about testing the used functions and routes, but also about knowing your limits. You want to know what actually breaks and when it breaks when you get tons of users.</p>
 <p><a href="https://jmeter.apache.org/">Apache JMeter</a> is maybe one of the most well-known
 applications for load testing. Being a Python user, I prefer to stay in Python
-and for this reason I’ll briefly present <a href="https://locust.io/">Locust</a>. You can
+and for this reason I&rsquo;ll briefly present <a href="https://locust.io/">Locust</a>. You can
 create a <code>locustfile.py</code> with this content:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
 <span class="kn">from</span> <span class="nn">locust</span> <span class="kn">import</span> <span class="n">HttpUser</span><span class="p">,</span> <span class="n">between</span><span class="p">,</span> <span class="n">task</span>
@@ -403,24 +395,21 @@ create a <code>locustfile.py</code> with this content:</p>
 
     <span class="nd">@task</span>
     <span class="k">def</span> <span class="nf">load_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Then you run</p>
 <div class="highlight"><pre><span></span><code>pip install locust
 locust -f locustfile.py --host<span class="o">=[</span>https://your-website.com<span class="o">](</span>https://martin-thoma.com<span class="o">)</span>
 </code></pre></div>
-
 <p>It then gives output like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/locust.png"><img src="../images/2020/07/locust.png" alt="I've chosen to simulate 100 users" style="width: 512px;"/></a>
-    <figcaption class="text-center">I've chosen to simulate 100 users</figcaption>
+<a href="../images/2020/07/locust.png"><img alt="I've chosen to simulate 100 users" src="../images/2020/07/locust.png" style="width: 512px;"/></a>
+<figcaption class="text-center">I've chosen to simulate 100 users</figcaption>
 </figure>
-
-<p>There is a lot more to make this realistic than just calling a “static” endpoint. We want the users to interact in some way. So we can define a <a href="https://docs.locust.io/en/stable/writing-a-locustfile.html#sequentialtaskset-class">SequentialTaskSet</a>. At this point, I will leave it up to you to decide if you want to know more about load testing with Locust.</p>
-<p>Maybe it’s not necessary for you.</p>
-<p>If you have a web service live, you should have another service which regularly pings yours and checks if it is still alive. The latency of the answer can be measured and should be monitored. If you don’t expect a crazy amount of calls and if you have auto scaling enabled anyway, it’s perfectly reasonable not to run a load test. Just monitor your API behavior and act if you really need to.</p>
-<h2 id="whats-next">What’s next?</h2>
+<p>There is a lot more to make this realistic than just calling a &ldquo;static&rdquo; endpoint. We want the users to interact in some way. So we can define a <a href="https://docs.locust.io/en/stable/writing-a-locustfile.html#sequentialtaskset-class">SequentialTaskSet</a>. At this point, I will leave it up to you to decide if you want to know more about load testing with Locust.</p>
+<p>Maybe it&rsquo;s not necessary for you.</p>
+<p>If you have a web service live, you should have another service which regularly pings yours and checks if it is still alive. The latency of the answer can be measured and should be monitored. If you don&rsquo;t expect a crazy amount of calls and if you have auto scaling enabled anyway, it&rsquo;s perfectly reasonable not to run a load test. Just monitor your API behavior and act if you really need to.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
 <p>You already know <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">the basics of Unit Testing in Python</a> and <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">how to patch and create mocks</a>. In this parts you learned how to deal with the special challenges of Flask applications.</p>
 <p>In future articles, I will present:</p>
 <ul>

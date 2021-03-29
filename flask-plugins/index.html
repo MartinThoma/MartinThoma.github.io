@@ -102,14 +102,19 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Flask Plugins">Flask Plugins</a><ul><li><a class="toc-href" href="#databases" title="Databases">Databases</a></li><li><a class="toc-href" href="#rest-api" title="REST API">REST API</a></li><li><a class="toc-href" href="#forms" title="Forms">Forms</a></li><li><a class="toc-href" href="#e-mail" title="E-Mail">E-Mail</a></li><li><a class="toc-href" href="#role-management" title="Role Management">Role Management</a></li><li><a class="toc-href" href="#user-management" title="User management">User management</a></li><li><a class="toc-href" href="#socketio" title="SocketIO">SocketIO</a></li><li><a class="toc-href" href="#translations" title="Translations">Translations</a></li><li><a class="toc-href" href="#also" title="Also">Also</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>The Flask Ecosystem has <a href="http://flask.pocoo.org/extensions/">a lot of extensions</a>.
 I'll introduce a couple I've stumbled over. There is also an <a href="https://github.com/humiaozuzu/awesome-flask">awesome list</a>, but it contains too many extensions and too little
 explanation when to use what.</p>
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
-
 <h2 id="databases">Databases</h2>
 <p><a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/"><code>Flask-SQLAlchemy</code></a> and
 <a href="https://flask-migrate.readthedocs.io/en/latest/"><code>Flask-Migrate</code></a> (Alembic)
@@ -137,14 +142,14 @@ and scripts.</p>
 <h2 id="user-management">User management</h2>
 <p><a href="https://flask-login.readthedocs.io/en/latest/">Flask-Login</a> provides user
 session management for Flask. It handles the common tasks of logging in,
-logging out, and remembering your users’ sessions over extended periods of
+logging out, and remembering your users&rsquo; sessions over extended periods of
 time.</p>
 <p>Here is a usage example:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">LoginManager</span>
 <span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">current_user</span><span class="p">,</span> <span class="n">login_user</span><span class="p">,</span> <span class="n">login_required</span><span class="p">,</span> <span class="n">logout_user</span>
 
 <span class="n">login_manager</span> <span class="o">=</span> <span class="n">LoginManager</span><span class="p">()</span>
-<span class="n">login_manager</span><span class="o">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="s2">&quot;auth.login&quot;</span>
+<span class="n">login_manager</span><span class="o">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="s2">"auth.login"</span>
 
 
 <span class="nd">@login_manager</span><span class="o">.</span><span class="n">user_loader</span>
@@ -153,37 +158,37 @@ time.</p>
 
 
 <span class="nd">@login_required</span>
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/private&quot;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/private"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">some_private_view</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">&quot;You can only watch this if you&#39;re logged in&quot;</span>
+    <span class="k">return</span> <span class="s2">"You can only watch this if you're logged in"</span>
 
 
-<span class="nd">@auth</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@auth</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/login"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"POST"</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;main.index&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">"main.index"</span><span class="p">))</span>
     <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>  <span class="c1"># You have to create LoginForm on your own</span>
     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
-            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Invalid email or password&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;auth.login&quot;</span><span class="p">))</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s2">"Invalid email or password"</span><span class="p">,</span> <span class="s2">"error"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">"auth.login"</span><span class="p">))</span>
         <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">remember</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;some_private_view&quot;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">"some_private_view"</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">"login.html"</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
 
 
-<span class="nd">@auth</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/logout&quot;</span><span class="p">)</span>
+<span class="nd">@auth</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/logout"</span><span class="p">)</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
     <span class="n">logout_user</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;main.index&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">"main.index"</span><span class="p">))</span>
 
 
-<span class="nd">@auth</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/register&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@auth</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/register"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"POST"</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;main.index&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">"main.index"</span><span class="p">))</span>
     <span class="n">form</span> <span class="o">=</span> <span class="n">RegistrationForm</span><span class="p">()</span>  <span class="c1"># You have to write RegistrationForm on your own</span>
     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -191,13 +196,12 @@ time.</p>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_404</span><span class="p">()</span>
-        <span class="n">user</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="s2">&quot;user_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">user</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="s2">"user_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Congratulations, you are now a registered user!&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;auth.login&quot;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;register.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">"Congratulations, you are now a registered user!"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">"auth.login"</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">"register.html"</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
 </code></pre></div>
-
 <p>There is also <a href="https://flask-user.readthedocs.io/en/latest/">Flask-User</a> and Flask-Security which both offer you to give you
 the following:</p>
 <ul>

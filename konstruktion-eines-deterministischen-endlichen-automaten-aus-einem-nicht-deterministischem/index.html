@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem</a><ul><li><a class="toc-href" href="#material" title="Material">Material</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Der nicht-deterministische endliche Automat zu dem regul&auml;rem Ausdruck <span class="math">\((a \cup (ab(b)^\text{*}ba))^\text{*}\)</span> ist folgender:
@@ -112,118 +118,112 @@ MathJax.Hub.Queue(function() {
 <span class="math">\(F = \{S\}\)</span>
 <span class="math">\(NEA = \left( Q, \Sigma, \delta, S, F \right)\)</span></p>
 <figure class="aligncenter">
-            <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" style="max-width:365px;max-height:119px;" class="size-full wp-image-8141 "/></a>
-            <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
-        </figure>
-
+<a href="../images/2011/10/myFiniteStateMachine1.png"><img alt="Nondeterministic finite-state machine" class="size-full wp-image-8141" src="../images/2011/10/myFiniteStateMachine1.png" style="max-width:365px;max-height:119px;"/></a>
+<figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
+</figure>
 <p>Will man daraus nun den endlichen Automaten konstruieren, l&auml;uft das im Prinzip &uuml;ber eine Potenzmengenkonstruktion.</p>
 <p>Zuerst defnieren wir:
 <span class="math">\(\tilde{S} = E(S) = \{S\}\)</span></p>
 <p>Dann erstellen wir folgende Tabelle:</p>
 <table style="border:1px solid #000;">
-  <tr>
-    <th style="border:1px solid #000;">$\tilde{S}$</th>
-    <th style="border:1px solid #000;">{S}</th>
-  </tr>
-  <tr>
-    <th style="border:1px solid #000;">a</th>
-    <td style="border:1px solid #000;">&nbsp;</td>
-  </tr>
-  <tr>
-    <th style="border:1px solid #000;">b</th>
-    <td style="border:1px solid #000;">&nbsp;</td>
-  </tr>
+<tr>
+<th style="border:1px solid #000;">$\tilde{S}$</th>
+<th style="border:1px solid #000;">{S}</th>
+</tr>
+<tr>
+<th style="border:1px solid #000;">a</th>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
+<tr>
+<th style="border:1px solid #000;">b</th>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
 </table>
-
 <p>Dann &uuml;berpr&uuml;ft man, welche Zust&auml;nde erreicht werden k&ouml;nnen, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:</p>
 <table style="border:1px solid #000;">
-  <tr>
-    <th style="border:1px solid #000;">$\tilde{S}$</th>
-    <th style="border:1px solid #000;">{S}</th>
-    <th style="border:1px solid #000;">{q1, S}</th>
-  </tr>
-  <tr>
-    <th style="border:1px solid #000;">a</td>
-    <td style="border:1px solid #000;">{q1, S}</td>
-    <td style="border:1px solid #000;">&nbsp;</td>
-  </tr>
-  <tr>
-    <th style="border:1px solid #000;">b</th>
-    <td style="border:1px solid #000;">&nbsp;</td>
-    <td style="border:1px solid #000;">&nbsp;</td>
-  </tr>
+<tr>
+<th style="border:1px solid #000;">$\tilde{S}$</th>
+<th style="border:1px solid #000;">{S}</th>
+<th style="border:1px solid #000;">{q1, S}</th>
+</tr>
+<tr>
+<th style="border:1px solid #000;">a
+<td style="border:1px solid #000;">{q1, S}</td>
+<td style="border:1px solid #000;">&nbsp;</td>
+</th></tr>
+<tr>
+<th style="border:1px solid #000;">b</th>
+<td style="border:1px solid #000;">&nbsp;</td>
+<td style="border:1px solid #000;">&nbsp;</td>
+</tr>
 </table>
-
 <p>Nun geht man also jede Spalte, von links nach rechts durch. F&uuml;r jede Spalte wird jede Zeile, von oben nach unten, &uuml;berpr&uuml;ft. Mit jeder &Uuml;berpr&uuml;fung kann eine neue Zustandsmenge als Spalte hinzukommen.
 Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.</p>
 <p>Am Ende schaut die Tablle wie folgt aus:</p>
 <table style="border:1px solid #000;">
-  <tr>
-    <th style="border:1px solid #000;">$\tilde{S}$</th>
-    <th style="border:1px solid #000;">{S}</th>
-    <th style="border:1px solid #000;">{q1, S}</th>
-    <th style="border:1px solid #000;">$\emptyset$</th>
-    <th style="border:1px solid #000;">{q2}</th>
-    <th style="border:1px solid #000;">{q1, q2}</th>
-  </tr>
-  <tr>
-    <th style="border:1px solid #000;">a</td>
-    <td style="border:1px solid #000;">{q1, S}</td>
-    <td style="border:1px solid #000;">{q1, S}</td>
-    <td style="border:1px solid #000;">$\emptyset$</td>
-    <td style="border:1px solid #000;">$\emptyset$</td>
-    <td style="border:1px solid #000;">{S}</td>
-  </tr>
-  <tr>
-    <th style="border:1px solid #000;">b</th>
-    <td style="border:1px solid #000;">$\emptyset$</td>
-    <td style="border:1px solid #000;">{q2}</td>
-    <td style="border:1px solid #000;">$\emptyset$</td>
-    <td style="border:1px solid #000;">{q1, q2}</td>
-    <td style="border:1px solid #000;">{q1, q2}</td>
-  </tr>
+<tr>
+<th style="border:1px solid #000;">$\tilde{S}$</th>
+<th style="border:1px solid #000;">{S}</th>
+<th style="border:1px solid #000;">{q1, S}</th>
+<th style="border:1px solid #000;">$\emptyset$</th>
+<th style="border:1px solid #000;">{q2}</th>
+<th style="border:1px solid #000;">{q1, q2}</th>
+</tr>
+<tr>
+<th style="border:1px solid #000;">a
+<td style="border:1px solid #000;">{q1, S}</td>
+<td style="border:1px solid #000;">{q1, S}</td>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">{S}</td>
+</th></tr>
+<tr>
+<th style="border:1px solid #000;">b</th>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">{q2}</td>
+<td style="border:1px solid #000;">$\emptyset$</td>
+<td style="border:1px solid #000;">{q1, q2}</td>
+<td style="border:1px solid #000;">{q1, q2}</td>
+</tr>
 </table>
-
 <p><span class="math">\(\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}\)</span>
 <span class="math">\(\tilde{F} = \{\{S\}, \{q_1, S\}\}\)</span></p>
 <p>Die &Uuml;bergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:</p>
 <figure class="aligncenter">
-            <a href="../images/2011/10/deterministic-fsm.png"><img src="../images/2011/10/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" style="max-width:512px;max-height:196px" class="size-full wp-image-8421"/></a>
-            <figcaption class="text-center">Deterministic Finite State machine (create from a non-deterministic version)</figcaption>
-        </figure>
-
-<h2>Material</h2>
+<a href="../images/2011/10/deterministic-fsm.png"><img alt="Deterministic Finite State machine (create from a non-deterministic version)" class="size-full wp-image-8421" src="../images/2011/10/deterministic-fsm.png" style="max-width:512px;max-height:196px"/></a>
+<figcaption class="text-center">Deterministic Finite State machine (create from a non-deterministic version)</figcaption>
+</figure>
+<h2 id="material">Material</h2>
 <p>Die .gv sieht so aus:</p>
 <div class="highlight"><pre><span></span><code>digraph finite_state_machine {
     rankdir=LR;
-    size=&quot;8,5&quot;
+    size="8,5"
 
-    node [shape = doublecircle, label=&quot;{S}&quot;] S;
-    node [shape = doublecircle, label=&quot;{q1, S}&quot;] q1S;
+    node [shape = doublecircle, label="{S}"] S;
+    node [shape = doublecircle, label="{q1, S}"] q1S;
 
-    node [shape = circle, label=&quot;{q2}&quot;] q2;
-    node [shape = circle, label=&quot;{q1, q2}&quot;] q1q2;
-    node [shape = circle, label=&quot;{}&quot;] T;
+    node [shape = circle, label="{q2}"] q2;
+    node [shape = circle, label="{q1, q2}"] q1q2;
+    node [shape = circle, label="{}"] T;
 
     node [shape = point ]; qi
     qi -&gt; S;
 
-    S   -&gt; q1S   [ label = &quot;a&quot; ];
-    S   -&gt; T     [ label = &quot;b&quot; ];
+    S   -&gt; q1S   [ label = "a" ];
+    S   -&gt; T     [ label = "b" ];
 
-    q1S -&gt; q1S   [ label = &quot;a&quot;];
-    q1S -&gt; q2    [ label = &quot;b&quot;];
+    q1S -&gt; q1S   [ label = "a"];
+    q1S -&gt; q2    [ label = "b"];
 
-    q2  -&gt; T     [ label = &quot;a&quot;];
-    q2  -&gt; q1q2  [ label = &quot;b&quot;];
+    q2  -&gt; T     [ label = "a"];
+    q2  -&gt; q1q2  [ label = "b"];
 
-    q1q2 -&gt; S    [ label = &quot;a&quot;];
-    q1q2 -&gt; q1q2 [ label = &quot;b&quot;];
+    q1q2 -&gt; S    [ label = "a"];
+    q1q2 -&gt; q1q2 [ label = "b"];
 
-    T -&gt; T       [label = &quot;a, b&quot;];
+    T -&gt; T       [label = "a, b"];
 }
 </code></pre></div>
-
 <p>Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:</p>
 <div class="highlight"><pre><span></span><code>dot -Tpng graph.gv -o deterministic-fsm.png
 </code></pre></div>

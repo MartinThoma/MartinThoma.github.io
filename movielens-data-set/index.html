@@ -102,7 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Movielens Data Set">Movielens Data Set</a><ul><li><a class="toc-href" href="#the-data" title="The Data">The Data</a></li><li><a class="toc-href" href="#the-evaluation" title="The Evaluation">The Evaluation</a></li><li><a class="toc-href" href="#baselines" title="Baselines">Baselines</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#problems" title="Problems">Problems</a></li><li><a class="toc-href" href="#publications" title="Publications">Publications</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I'm recently thinking a lot about recommendations and about building the
@@ -129,7 +135,6 @@ and drawbacks as well as hard performance measures.</p>
 9         1      260     4.0  1112484826
 10        1      293     4.0  1112484703
 </code></pre></div>
-
 <p>There is genres and tags as well.</p>
 <h2 id="the-evaluation">The Evaluation</h2>
 <p>The task is to predict the ratings. To do so, the data gets sorted by
@@ -140,60 +145,58 @@ to be given with exactly three decimal places.</p>
 <p>All of the following evaluations took roughly 43s on my Thinkpad T460p. The
 memory consumption of all of them is not relevant.</p>
 <div class="warning">Most of the following recommenders are completely useless. The constant recommender does not order the movies at all, the median user rating does not order for a user. And the median movie rating recommender is not personalized, which indicates that a content-based approach might be better. Still, you can see the MAE / MSE score is vastly different. This is an indicator that the evaluating function should be changed.</div>
-
 <table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>MAE</th>
-        <th>MSE</th>
-        <th>Comment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td style="background-color: red">Constant 1</td>
-        <td style="background-color: red">2.422</td>
-        <td style="background-color: red">6.939</td>
-        <td>I don't expect this to be awesome, but it should be better than MAE of 5.</td>
-    </tr>
-    <tr>
-        <td style="background-color: red">Constant 5</td>
-        <td>1.603</td>
-        <td>3.761</td>
-        <td>Together with Constant 5, this gives the range in which all recommenders will be.</td>
-    </tr>
-    <tr>
-        <td style="background-color: red">Constant 2.5</td>
-        <td>1.217</td>
-        <td>1.996</td>
-        <td>Predicting the middle is the best if you have absolute no prior knowledge and MAE.</td>
-    </tr>
-    <tr>
-        <td style="background-color: red">Median User Rating</td>
-        <td>0.733</td>
-        <td>1.112</td>
-        <td>Every user in the test set was also in the training set!</td>
-    </tr>
-    <tr>
-        <td>Median Movie Rating</td>
-        <td style="background-color: green">0.723</td>
-        <td>1.061</td>
-        <td>For known movies, predict their median value. For unknown ones, predict the median of all medians of movie ratings.</td>
-    </tr>
-    <tr>
-        <td>User-adjusted movie rating</td>
-        <td>0.825</td>
-        <td style="background-color: green">1.042</td>
-        <td>Use the Median movie rating, but add user bias</td>
-    </tr>
-    </tbody>
+<thead>
+<tr>
+<th>Name</th>
+<th>MAE</th>
+<th>MSE</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="background-color: red">Constant 1</td>
+<td style="background-color: red">2.422</td>
+<td style="background-color: red">6.939</td>
+<td>I don't expect this to be awesome, but it should be better than MAE of 5.</td>
+</tr>
+<tr>
+<td style="background-color: red">Constant 5</td>
+<td>1.603</td>
+<td>3.761</td>
+<td>Together with Constant 5, this gives the range in which all recommenders will be.</td>
+</tr>
+<tr>
+<td style="background-color: red">Constant 2.5</td>
+<td>1.217</td>
+<td>1.996</td>
+<td>Predicting the middle is the best if you have absolute no prior knowledge and MAE.</td>
+</tr>
+<tr>
+<td style="background-color: red">Median User Rating</td>
+<td>0.733</td>
+<td>1.112</td>
+<td>Every user in the test set was also in the training set!</td>
+</tr>
+<tr>
+<td>Median Movie Rating</td>
+<td style="background-color: green">0.723</td>
+<td>1.061</td>
+<td>For known movies, predict their median value. For unknown ones, predict the median of all medians of movie ratings.</td>
+</tr>
+<tr>
+<td>User-adjusted movie rating</td>
+<td>0.825</td>
+<td style="background-color: green">1.042</td>
+<td>Use the Median movie rating, but add user bias</td>
+</tr>
+</tbody>
 </table>
-
 <h2 id="code">Code</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">&quot;&quot;&quot;Analyze the quality of recommendations.&quot;&quot;&quot;</span>
+<span class="sd">"""Analyze the quality of recommendations."""</span>
 
 <span class="c1"># 3rd party modules</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
@@ -202,61 +205,61 @@ memory consumption of all of them is not relevant.</p>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">rating_filepath</span><span class="o">=</span><span class="s2">&quot;ratings.csv&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Load extracted movie lense data.&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">rating_filepath</span><span class="o">=</span><span class="s2">"ratings.csv"</span><span class="p">):</span>
+    <span class="sd">"""Load extracted movie lense data."""</span>
     <span class="n">nrows</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">rating_filepath</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int16&quot;</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">)</span>
-    <span class="n">df_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;userId&quot;</span><span class="p">,</span> <span class="s2">&quot;movieId&quot;</span><span class="p">]]</span>
-    <span class="n">df_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;rating&quot;</span><span class="p">]]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"int16"</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"timestamp"</span><span class="p">)</span>
+    <span class="n">df_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"timestamp"</span><span class="p">,</span> <span class="s2">"userId"</span><span class="p">,</span> <span class="s2">"movieId"</span><span class="p">]]</span>
+    <span class="n">df_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"rating"</span><span class="p">]]</span>
     <span class="n">df_train_x</span><span class="p">,</span> <span class="n">df_test_x</span><span class="p">,</span> <span class="n">df_train_y</span><span class="p">,</span> <span class="n">df_test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_x</span><span class="p">,</span> <span class="n">df_y</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">df_train_x</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">df_train_y</span><span class="p">},</span>
-        <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">df_test_x</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">df_test_y</span><span class="p">},</span>
+        <span class="s2">"train"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">df_train_x</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">df_train_y</span><span class="p">},</span>
+        <span class="s2">"test"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">df_test_x</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">df_test_y</span><span class="p">},</span>
     <span class="p">}</span>
 
 
 <span class="k">class</span> <span class="nc">BaselineRecommender</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create a baseline recommender.&quot;&quot;&quot;</span>
+    <span class="sd">"""Create a baseline recommender."""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"constant"</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">strategy</span>
-        <span class="k">if</span> <span class="n">constant</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">strategy</span> <span class="o">!=</span> <span class="s2">&quot;constant&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">constant</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">strategy</span> <span class="o">!=</span> <span class="s2">"constant"</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="s2">&quot;constant is only meaningful in the constant &quot;</span> <span class="s2">&quot;strategy.&quot;</span>
+                <span class="s2">"constant is only meaningful in the constant "</span> <span class="s2">"strategy."</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="n">constant</span>
 
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df_x</span><span class="p">,</span> <span class="n">df_y</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fit the recommender on movielens data.&quot;&quot;&quot;</span>
+        <span class="sd">"""Fit the recommender on movielens data."""</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">df_x</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_y</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">median_by_user</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;userId&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span><span class="p">})[</span><span class="s2">&quot;rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"userId"</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s2">"rating"</span><span class="p">:</span> <span class="s2">"median"</span><span class="p">})[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">median_by_movie</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;movieId&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span><span class="p">})[</span><span class="s2">&quot;rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"movieId"</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s2">"rating"</span><span class="p">:</span> <span class="s2">"median"</span><span class="p">})[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">avg_movie</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">median_by_movie</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">median_by_movie</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">avg_user</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">median_by_user</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">median_by_user</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df_x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fit ratings for user/movie combinations.&quot;&quot;&quot;</span>
+        <span class="sd">"""Fit ratings for user/movie combinations."""</span>
         <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">df_x</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s2">&quot;records&quot;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">&quot;constant&quot;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">df_x</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s2">"records"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">"constant"</span><span class="p">:</span>
                 <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constant</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">&quot;movie_median&quot;</span><span class="p">:</span>
-                <span class="n">movie</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;movieId&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">"movie_median"</span><span class="p">:</span>
+                <span class="n">movie</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">"movieId"</span><span class="p">]</span>
                 <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_by_movie</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">movie</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_movie</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">&quot;user_median&quot;</span><span class="p">:</span>
-                <span class="n">user</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;userId&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">"user_median"</span><span class="p">:</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">"userId"</span><span class="p">]</span>
                 <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_by_user</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">&quot;user_ajdust_movie_median&quot;</span><span class="p">:</span>
-                <span class="n">movie</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;movieId&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">==</span> <span class="s2">"user_ajdust_movie_median"</span><span class="p">:</span>
+                <span class="n">movie</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">"movieId"</span><span class="p">]</span>
                 <span class="n">movie_median</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_by_movie</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">movie</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_movie</span><span class="p">)</span>
 
-                <span class="n">user</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;userId&quot;</span><span class="p">]</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">"userId"</span><span class="p">]</span>
                 <span class="n">user_bias</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_by_user</span><span class="p">[</span><span class="n">user</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">avg_user</span>
 
                 <span class="n">prediction</span> <span class="o">=</span> <span class="n">movie_median</span> <span class="o">+</span> <span class="n">user_bias</span>
@@ -266,16 +269,16 @@ memory consumption of all of them is not relevant.</p>
         <span class="k">return</span> <span class="n">results</span>
 
 
-<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s2">&quot;mae&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Evaluate the results of a rating prediction.&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s2">"mae"</span><span class="p">):</span>
+    <span class="sd">"""Evaluate the results of a rating prediction."""</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted_ratings</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">func</span> <span class="o">==</span> <span class="s2">&quot;mae&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="o">==</span> <span class="s2">"mae"</span><span class="p">:</span>
         <span class="n">absolute_errors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
             <span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="n">mae</span> <span class="o">=</span> <span class="n">absolute_errors</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span>
         <span class="n">val</span> <span class="o">=</span> <span class="n">mae</span>
-    <span class="k">elif</span> <span class="n">func</span> <span class="o">==</span> <span class="s2">&quot;mse&quot;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">func</span> <span class="o">==</span> <span class="s2">"mse"</span><span class="p">:</span>
         <span class="n">sq_errors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">))</span>
         <span class="n">val</span> <span class="o">=</span> <span class="n">sq_errors</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">val</span>
@@ -283,29 +286,28 @@ memory consumption of all of them is not relevant.</p>
 
 <span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
-    <span class="s2">&quot;--strategy&quot;</span><span class="p">,</span>
-    <span class="n">default</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="s2">"--strategy"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"constant"</span><span class="p">,</span>
     <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span>
-        <span class="p">[</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="s2">&quot;movie_median&quot;</span><span class="p">,</span> <span class="s2">&quot;user_median&quot;</span><span class="p">,</span> <span class="s2">&quot;user_ajdust_movie_median&quot;</span><span class="p">]</span>
+        <span class="p">[</span><span class="s2">"constant"</span><span class="p">,</span> <span class="s2">"movie_median"</span><span class="p">,</span> <span class="s2">"user_median"</span><span class="p">,</span> <span class="s2">"user_ajdust_movie_median"</span><span class="p">]</span>
     <span class="p">),</span>
 <span class="p">)</span>
-<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--constant&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">"--constant"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">strategy</span><span class="p">,</span> <span class="n">constant</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Analyze recommenders on the Movielens 20M dataset.&quot;&quot;&quot;</span>
+    <span class="sd">"""Analyze recommenders on the Movielens 20M dataset."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">BaselineRecommender</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="n">constant</span><span class="p">)</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
-    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
-    <span class="n">mae</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="s2">&quot;rating&quot;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s2">&quot;mae&quot;</span><span class="p">)</span>
-    <span class="n">mse</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="s2">&quot;rating&quot;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MAE of baseline: </span><span class="si">{:0.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mae</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE of baseline: </span><span class="si">{:0.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mse</span><span class="p">))</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">][</span><span class="s2">"rating"</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s2">"mae"</span><span class="p">)</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">][</span><span class="s2">"rating"</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s2">"mse"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"MAE of baseline: </span><span class="si">{:0.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mae</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"MSE of baseline: </span><span class="si">{:0.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mse</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-
 <h2 id="problems">Problems</h2>
 <ul>
 <li><strong>Ratings instead of Order</strong>: For applications, we are not interested in the
