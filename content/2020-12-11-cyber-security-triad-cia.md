@@ -3,6 +3,7 @@ layout: post
 title: The Cyber Security Triad
 subtitle: It’s the CIA 🕵 — but maybe not what you think
 slug: cyber-security-triad-cia
+URL: https://medium.com/plain-and-simple/the-cyber-security-triad-df9911f85955
 author: Martin Thoma
 date: 2020-12-11 20:00
 category: Security

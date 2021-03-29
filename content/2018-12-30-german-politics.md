@@ -81,6 +81,12 @@ know the details (and details are super important), though.
         <td><span style="color: red;">&#10071;</span></td>
         <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
     </tr>
+    <tr>
+        <td>11</td>
+        <td>Fighting Corruption</td>
+        <td><span style="color: red;">&#10071;&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
+    </tr>
 </table>
 
 
@@ -215,6 +221,17 @@ could give them 8.3× the income of the 10-percentil.
 See also:
 
 * 🇩🇪 [Einkommensverteilung in Deutschland](https://de.wikipedia.org/wiki/Einkommensverteilung_in_Deutschland)
+
+## Fighting Corruption
+
+There are some simple measures to fight corruption:
+
+* **Income Transparency**: Every member of parliament should have to make their
+  income public for their time in parliament plus the next 5 years. Failing to
+  do so or purposely wrong statements should be a crime which is punished by
+  having to pay back the money plus a fine, loosing pensions, and prison time.
+* **Loggy Register**: See details <a href="https://www.abgeordnetenwatch.de/lobbyregister-jetzt">here</a>.
+  This is blocked by CDU / CSU.
 
 
 ## Long-Term problems
