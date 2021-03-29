@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Cyberculture, " />
+
+<meta property="og:title" content="6 Alternatives to Classes in Python  - Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine "/>
+<meta property="og:url" content="https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377" />
+<meta property="og:description" content="Photo by the author. As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data. In the following article, I will use …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-03-04T20:00:00+01:00" />
+<meta name="twitter:title" content="6 Alternatives to Classes in Python  - Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine ">
+<meta name="twitter:description" content="Photo by the author. As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data. In the following article, I will use …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>6 Alternatives to Classes in Python  - Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377">6 Alternatives to Classes in Python <small>Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="Photo by the author." src="https://cdn-images-1.medium.com/max/3180/1*ESvqnwbq8Lj4VNkVMWI9JA.png"><em>Photo by the author.</em></p>
+<p>As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data.</p>
+<p>In the following article, I will use location as an example. It must have a longitude, latitude, and can have an address. In C, you would use a struct for this. In Java, you would simply create a class. In Python, there are six alternatives. Let’s explore each of their advantages and disadvantages!</p>
+<h2 id="plain-classes">Plain Classes</h2>
+<p>Plain classes are the default way provided by the standard library to organize data. You can (and should!) <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">use type annotations</a> as done in the following example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+
+<span class="k">class</span> <span class="nc">Position</span><span class="p">:</span>
+    <span class="n">MIN_LATITUDE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span>
+    <span class="n">MAX_LATITUDE</span> <span class="o">=</span> <span class="mi">90</span>
+    <span class="n">MIN_LONGITUDE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">180</span>
+    <span class="n">MAX_LONGITUDE</span> <span class="o">=</span> <span class="mi">180</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">longitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">latitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Getter for latitude.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_latitude</span>
+
+    <span class="nd">@latitude</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Setter for latitude.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">Position</span><span class="o">.</span><span class="n">MIN_LATITUDE</span> <span class="o">&lt;=</span> <span class="n">latitude</span> <span class="o">&lt;=</span> <span class="n">Position</span><span class="o">.</span><span class="n">MAX_LATITUDE</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;latitude was </span><span class="si">{</span><span class="n">latitude</span><span class="si">}</span><span class="s2">, but has to be in [-90, 90]&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latitude</span> <span class="o">=</span> <span class="n">latitude</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Getter for longitude.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span>
+
+    <span class="nd">@longitude</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Setter for longitude.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">Position</span><span class="o">.</span><span class="n">MIN_LONGITUDE</span> <span class="o">&lt;=</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="n">Position</span><span class="o">.</span><span class="n">MAX_LONGITUDE</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;longitude was </span><span class="si">{</span><span class="n">longitude</span><span class="si">}</span><span class="s2">, but has to be in [-180, 180]&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span> <span class="o">=</span> <span class="n">longitude</span>
+
+
+<span class="n">pos1</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">)</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>You can see how we needed to write a boilerplate constructor <strong>init</strong> . The code for the constructor does not necessarily always look that simple, but in a lot of cases, it is.</p>
+<p>You can see that it’s possible to use positional arguments or keyword arguments. If you define a default value in the constructor, you can also leave the values out when you create an object from the class. This happened for pos2, where the address was not given to the constructor.</p>
+<p>You can also see that the annotation for the get_distance function looks pretty clean. It is clear what is meant.</p>
+<p>The tooling support is as good as it gets because every editor has to support the plain classes and all of the important information is there.</p>
+<h2 id="1-tuples">1. Tuples</h2>
+<p>Tuples are a native data type. They have a very low memory overhead, so we can address the elements by index very quickly. The problem with tuples is that you have no names for member attributes. You have to remember what each index represents. Tuples are always immutable.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="n">pos1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">)</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                 <span class="n">p2</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>The annotation for get_distance looks messy. A human should be given the information that p1 represents a location — not that the location contains two floats and an optional string. That is work the editor should do for you.</p>
+<p>The editor's support depends on how thoroughly you annotate. In the example above, you could also just write Tuple without specifying what the tuple contains. As people are lazy, I’d say the editor support is not good. It’s no fault of the editor, but it’s often not possible to give good support.</p>
+<h2 id="2-dictionaries">2. Dictionaries</h2>
+<p>Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by index is <em>fast</em>. Dicts are always mutable, but there is the third-party package <a href="https://pypi.org/project/frozendict/">frozendict</a> to solve this.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="n">pos1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="mf">49.0127913</span><span class="p">,</span>
+        <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="mf">8.4231381</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">}</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="mf">42.1238762</span><span class="p">,</span>
+        <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="mf">9.1649964</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                 <span class="n">p2</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>The annotation in practice is really bad. It’s almost always Dict[str, Any] in the best case. Often, there is no annotation.</p>
+<p><a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">TypedDict</a> (<a href="https://www.python.org/dev/peps/pep-0589/">PEP 589</a>) has been around since Python 3.8, but I’ve never seen that in any bigger code base. <a href="https://python.plainenglish.io/killer-features-by-python-version-c84ca12dba8">TypedDict is a killer feature</a>, but it’s irrelevant, as we want to support legacy Python versions.</p>
+<p>For those reasons, the editor's support is even worse than for tuples.</p>
+<h2 id="3-named-tuples">3. Named Tuples</h2>
+<p><a href="https://docs.python.org/3/library/collections.html#collections.namedtuple">Named tuples</a> were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function collections.namedtuple to generate the named tuple class, but I prefer to inherit from typing.NamedTuple and use inheritance combined with type annotations:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Old style, before Python 3.7</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="n">attribute_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">]</span>
+<span class="n">Position</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Position&quot;</span><span class="p">,</span> <span class="n">attribute_names</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,))</span>
+
+<span class="c1"># Python 3.7 and later:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+
+<span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">address</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="c1"># Both are used in the same way</span>
+<span class="n">pos1</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">)</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>NamedTuples solve the issue of the annotations becoming hard to read. They thus also fix the issue of editor support that I mentioned earlier.</p>
+<p>Interestingly, NamedTuples are <em>not</em> type-aware:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Coordinates&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">BMI</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;BMI&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">BMI</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="n">Coordinates</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">170</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="n">BMI</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">170</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="kc">True</span>
+</code></pre></div>
+
+<h2 id="4-attrs">4. attrs</h2>
+<p><a href="https://pypi.org/project/attrs/">attrs</a> is a third-party library that reduces boilerplate code. Developers can use it by adding the @attrs.s decorator above the class. Attributes are assigned the attr.ib() function:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">import</span> <span class="nn">attr</span>
+
+
+<span class="nd">@attr</span><span class="o">.</span><span class="n">s</span>
+<span class="k">class</span> <span class="nc">Position</span><span class="p">:</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+    <span class="n">address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="nd">@longitude</span><span class="o">.</span><span class="n">validator</span>
+    <span class="k">def</span> <span class="nf">check_long</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitude was </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">, but must be in [-180, +180]&quot;</span><span class="p">)</span>
+
+    <span class="nd">@latitude</span><span class="o">.</span><span class="n">validator</span>
+    <span class="k">def</span> <span class="nf">check_lat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude was </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">, but must be in [-90, +90]&quot;</span><span class="p">)</span>
+
+
+<span class="n">pos1</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">)</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>You can make it immutable by changing the decorator to <a href="https://www.attrs.org/en/stable/api.html">@attr.s(frozen=True)</a>.</p>
+<p>You also can automatically run code on the input to the constructor. This is called a “converter,” and <a href="https://www.attrs.org/en/stable/examples.html#conversion">the docs</a> show a pretty nice example:</p>
+<div class="highlight"><pre><span></span><code><span class="o">**&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">@attr</span><span class="o">**</span><span class="p">.</span><span class="n">s</span><span class="w"></span>
+<span class="o">**</span><span class="p">...</span><span class="w"> </span><span class="k">class</span><span class="o">**</span><span class="w"> </span><span class="o">**</span><span class="n">C</span><span class="o">**</span><span class="p">(</span><span class="k">object</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="o">**</span><span class="p">...</span><span class="w"> </span><span class="o">**</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attr</span><span class="p">.</span><span class="n">ib</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="nc">int</span><span class="p">)</span><span class="w"></span>
+<span class="o">**&gt;&gt;&gt;</span><span class="w"> </span><span class="o">**</span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="ss">&quot;1&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">**&gt;&gt;&gt;</span><span class="w"> </span><span class="o">**</span><span class="n">o</span><span class="p">.</span><span class="n">x</span><span class="w"></span>
+</code></pre></div>
+
+<p><a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4">Visual Studio Code</a> does not like the type annotations.</p>
+<h2 id="5-dataclass">5. Dataclass</h2>
+<p>Dataclasses were added in Python 3.7 with <a href="https://www.python.org/dev/peps/pep-0557/">PEP 557</a>. They are similar to attrs, but in the standard library. It’s especially important to note that dataclasses are “just” normal classes that happen to have lots of data in them.</p>
+<p>In contrast to attrs, data classes use type annotations instead of the attr.ib() notation. I think this increases readability a lot. Also, the editor support is better because you now have to annotate the attributes.</p>
+<p>You can easily make it immutable by changing the decorator to @dataclass(frozen=True) — just like with attrs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Position</span><span class="p">:</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">pos1</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">)</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>One part that I’m lacking here is attribute validation. I can use <strong>post_init</strong>(self) to do it for the construction:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitude was </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">, but must be in [-180, +180]&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude was </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">, but must be in [-90, +90]&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can also combine dataclasses with properties:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Position</span><span class="p">:</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Getter for latitude.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_latitude</span>
+
+    <span class="nd">@latitude</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Setter for latitude.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="n">latitude</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;latitude was </span><span class="si">{</span><span class="n">latitude</span><span class="si">}</span><span class="s2">, but has to be in [-90, 90]&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latitude</span> <span class="o">=</span> <span class="n">latitude</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Getter for longitude.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span>
+
+    <span class="nd">@longitude</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Setter for longitude.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;longitude was </span><span class="si">{</span><span class="n">longitude</span><span class="si">}</span><span class="s2">, but has to be in [-180, 180]&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span> <span class="o">=</span> <span class="n">longitude</span>
+</code></pre></div>
+
+<p>However, I don’t like that so much. It is again super verbose and removes a lot of the charm of dataclasses. If you need validation that is not covered by the types, then go for Pydantic.</p>
+<h2 id="6-pydantic">6. Pydantic</h2>
+<p><a href="https://pydantic-docs.helpmanual.io/">Pydantic</a> is a third-party library that focuses on data validation and settings management. You can either inherit from pydantic.BaseModel or create a dataclass with Pydantic:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">validator</span>
+<span class="kn">from</span> <span class="nn">pydantic.dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Position</span><span class="p">:</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">longitude_value_range</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitude was </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">, but must be in [-180, +180]&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">latitude_value_range</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude was </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">, but must be in [-90, +90]&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span>
+
+
+<span class="n">pos1</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">&quot;Parkstraße 17&quot;</span><span class="p">)</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="mf">9.1649964</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>At first glance, this is identical to the standard @dataclass — except that you get the dataclass decorator from Pydantic.</p>
+<h2 id="mutability-and-hashability">Mutability and Hashability</h2>
+<p>I don’t tend to consciously think about mutability a lot, but in many cases, I want my classes to be immutable. The big exceptions are database models, but they are a complete story on their own.</p>
+<p>Having the option to mark classes as frozen to make their objects immutable is pretty nice.</p>
+<p>Implementing <strong>hash</strong> for a mutable object is problematic because the hash might change when the object is changed. This means if the object is in a dictionary, the dictionary would need to know that the hash of the object has changed and store it in a different location. For this reason, both dataclasses and Pydantic prevent the hashing of mutable classes by default. They have unsafe_hash, though.</p>
+<h2 id="default-string-representation">Default String Representation</h2>
+<p>Having a reasonable string representation is super helpful (e.g. for logging). And let’s be honest: A lot of people do print debugging.</p>
+<p>If we printed pos1 from the examples above, here is what we would get. The linebreaks and alignments were added to keep things nice to read. The original results are on one line:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(pos1)
+
+Plain class   : &lt;__main__.Position object at 0x7f1562750640&gt;
+# 1 Tuples    : (49.0127913, 8.4231381, &#39;Parkstraße 17&#39;)
+# 2 Dicts     : {&#39;longitude&#39;: 49.0127913,
+                 &#39;latitude&#39;: 8.4231381,
+                 &#39;address&#39;: &#39;Parkstraße 17&#39;}
+# 3 NamedTuple: Position(longitude=49.0127913,
+                         latitude=8.4231381,
+                         address=&#39;Parkstraße 17&#39;)
+# 4 attrs     : Position(longitude=49.0127913,
+                         latitude=8.4231381,
+                         address=&#39;Parkstraße 17&#39;)
+# 5 dataclass : Position(longitude=49.0127913,
+                         latitude=8.4231381,
+                         address=&#39;Parkstraße 17&#39;)
+</code></pre></div>
+
+<p>You can see that the string representation of an object created from a plain class is useless. Tuples are better, but they don’t indicate which index represents which attribute. All remaining representations are pretty awesome. They are easy to understand and can even be used to recreate the object!</p>
+<h2 id="data-validation">Data Validation</h2>
+<p>You have seen how data validation can be implemented for plain classes, attrs, dataclasses, and Pydantic. What you haven’t seen is what the error messages look like.</p>
+<p>For the following, I will attempt to create Position(1234, 567). So both the longitude and latitude are wrong. Here are the error messages this triggers:</p>
+<div class="highlight"><pre><span></span><code># <span class="nv">Plain</span> <span class="nv">Class</span>
+<span class="nv">ValueError</span>: <span class="nv">Longitude</span> <span class="nv">was</span> <span class="mi">11111</span>, <span class="nv">but</span> <span class="nv">has</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">180</span>, <span class="mi">180</span>]
+
+# <span class="mi">4</span>: <span class="nv">attr</span>
+<span class="nv">ValueError</span>: <span class="nv">Longitude</span> <span class="nv">was</span> <span class="mi">1234</span>, <span class="nv">but</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">180</span>, <span class="o">+</span><span class="mi">180</span>]
+
+# <span class="mi">5</span>: <span class="nv">dataclasses</span>
+<span class="ss">(</span><span class="nv">same</span> <span class="nv">as</span> <span class="nv">plain</span> <span class="nv">classes</span> <span class="nv">is</span> <span class="nv">possible</span><span class="ss">)</span>
+
+# <span class="mi">6</span>: <span class="nv">Pydantic</span>
+<span class="nv">pydantic</span>.<span class="nv">error_wrappers</span>.<span class="nv">ValidationError</span>: <span class="mi">2</span> <span class="nv">validation</span> <span class="nv">errors</span> <span class="k">for</span> <span class="nv">Position</span>
+<span class="nv">longitude</span>
+  <span class="nv">Longitude</span> <span class="nv">was</span> <span class="mi">1234</span>.<span class="mi">0</span>, <span class="nv">but</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">180</span>, <span class="o">+</span><span class="mi">180</span>] <span class="ss">(</span><span class="nv">type</span><span class="o">=</span><span class="nv">value_error</span><span class="ss">)</span>
+<span class="nv">latitude</span>
+  <span class="nv">Latitude</span> <span class="nv">was</span> <span class="mi">567</span>.<span class="mi">0</span>, <span class="nv">but</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">90</span>, <span class="o">+</span><span class="mi">90</span>] <span class="ss">(</span><span class="nv">type</span><span class="o">=</span><span class="nv">value_error</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>This is the point I want to make: Pydantic gives you all the errors in a very clear way. Plain classes and attrs just give you the first error.</p>
+<h2 id="serialize-to-json">Serialize to JSON</h2>
+<p>JSON is the way to exchange data on the web. The GitLab API is no exception. Let’s say we want to have Python objects that we can serialize to JSON to <a href="https://docs.gitlab.com/ee/api/merge_requests.html#get-single-mr">get a single MR</a>. In Pydantic, it is as simple as that (removing a lot of attributes for readability):</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">GitlabUser</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">GitlabMr</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">squash</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">web_url</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">author</span><span class="p">:</span> <span class="n">GitlabUser</span>
+
+
+<span class="n">mr</span> <span class="o">=</span> <span class="n">GitlabMr</span><span class="p">(</span>
+    <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">squash</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">web_url</span><span class="o">=</span><span class="s2">&quot;http://foo&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="n">GitlabUser</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">&quot;Joe&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">json_str</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This gives you:</p>
+<div class="highlight"><pre><span></span><code>{&quot;id&quot;: 1, &quot;squash&quot;: true, &quot;web_url&quot;: &quot;[http://foo](http://foo)&quot;, &quot;title&quot;: &quot;title&quot;, &quot;author&quot;: {&quot;id&quot;: 42, &quot;username&quot;: &quot;Joe&quot;}}
+</code></pre></div>
+
+<p>For dataclasses, <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.asdict">dataclasses.asdict</a> goes a long way. Then you might be able to directly serialize the dictionary to JSON. It becomes interesting with DateTime or <a href="https://docs.python.org/3/library/decimal.html">decimal</a> objects. <a href="https://www.attrs.org/en/stable/examples.html#converting-to-collections-types">Something similar</a> is possible with attrs.</p>
+<h2 id="unserialize-from-json">Unserialize From JSON</h2>
+<p>Userializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:</p>
+<div class="highlight"><pre><span></span><code>mr = GitlabMr.parse_raw(json_str)
+</code></pre></div>
+
+<p>There are very dirty hacks to do <a href="https://stackoverflow.com/a/53498623/562769">something similar with dataclasses</a>. The <a href="https://stackoverflow.com/q/44801927/562769">attrs way to deserialize</a> looks better, but I guess it also struggles with nested structures. And when it comes to DateTime or decimals, I’m pretty certain that both show more problems than Pydantic. Serialization, deserialization, and validation are where Pydantic shines.</p>
+<h2 id="memory">Memory</h2>
+<p>Using this <a href="https://stackoverflow.com/a/30316760/562769">getsize</a> implementation on pos1 , I get:</p>
+<div class="highlight"><pre><span></span><code>Raw float    :   8 B (&quot;double&quot;)
+Raw string   :   1 B per char =&gt; 13B
+Raw data     :  29 B = 8B + 8B + 13B
+
+Float object :  24 B
+Str object   :  86 B
+3 objects    : 134 B = 24B + 24B + 86B
+
+Native class : 286 B
+#1 Tuple     : 198 B
+#2 Dict      : 366 B
+#3 NamedTuple: 198 B
+#4 attrs     : 286 B
+#5 dataclass : 286 B
+#6 pydantic  : 442 B (the &quot;dataclass&quot; version)
+#6 pydantic  : 801 B (the &quot;BaseModel&quot; version)
+</code></pre></div>
+
+<p>The Pydantic base model has quite an overhead, but you always have to keep things in perspective. How many of those objects will you create? Let’s assume you have maybe 100 of those. Each of them might consume 500B more than a more efficient alternative. That would be 50kB. To quote <a href="https://www.azquotes.com/quote/721020">Donald Knuth</a>:</p>
+<blockquote>
+<h1 id="premature-optimization-is-the-root-of-all-evil">“Premature optimization is the root of all evil.”</h1>
+</blockquote>
+<p>If memory becomes problematic, then you will not switch from Pydantic to dataclasses or attrs. You will switch to something more structured like NumPy arrays or pandas DataFrames.</p>
+<h2 id="execution-time">Execution Time</h2>
+<p>There are multiple things you can mean by “execution time” in this context:</p>
+<ul>
+<li>
+<p>Object creation time with or without validation or conversion</p>
+</li>
+<li>
+<p>Parsing time from JSON</p>
+</li>
+<li>
+<p>Parsing time from a dictionary</p>
+</li>
+</ul>
+<p>I’m convinced that the parsing time for JSON dominates the rest. There are multiple JSON parsers available in Python:
+<a href="https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a"><strong>JSON encoding/decoding with Python</strong>
+<em>Comparing libraries by speed, maturity, and operational safety</em>levelup.gitconnected.com</a></p>
+<h2 id="so-when-do-i-use-what">So When Do I Use What?</h2>
+<p>Use what you need:</p>
+<ul>
+<li>
+<p>Dict when you don’t know ahead of time what will be added. Please note that you can mix all of the others with dict and vice versa. So if you know what a part of the data structure will look like, then use something different. I see dict as a last resort.</p>
+</li>
+<li>
+<p>NamedTuple when you need a quick way to group data and mutability is not needed. And when it’s OK for you to not be type-aware.</p>
+</li>
+<li>
+<p>Dataclasses when you need mutability, want to be type-aware, or want to have the possibility of inheriting from the created dataclass.</p>
+</li>
+<li>
+<p>Pydantic BaseModel when you need to deserialize data.</p>
+</li>
+</ul>
+<p>Please note that I didn’t mention tuple and attrs. I simply cannot find a valid use case where you would prefer them for new code over the other choices. Please let me know if I missed one.</p>
+<p>I also didn’t mention plain classes. I think I would only use plain classes if I want to overwrite <strong>init</strong>, <strong>eq</strong> , <strong>str</strong>, <strong>repr</strong> , and__hash__ anyway. Or if I have to support old Python versions.</p>
+<h2 id="resource">Resource</h2>
+<ul>
+<li>Raymond Hettinger: “<a href="https://www.youtube.com/watch?v=T-TwcmT6Rcw">Dataclasses: The code generator to end all code generators</a>” at PyCon 2018, on YouTube.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-03-04T20:00:00+01:00">Mär 4, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>139</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
