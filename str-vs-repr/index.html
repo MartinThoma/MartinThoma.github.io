@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Pythons str vs repr "/>
 <meta property="og:url" content="str-vs-repr/" />
-<meta property="og:description" content="The goal of __repr__ is to be unambiguous and the goal of __str__ is to be readable. Bonus points, if __repr__ returns what is needed to create the object. Some examples are: &gt;&gt;&gt; repr([42, 1337]) &#39;[42, 1337]&#39; &gt;&gt;&gt; repr({42, 1337}) &#39;{1337, 42}&#39; &gt;&gt;&gt; from collections import namedtuple &gt;&gt;&gt; Location = namedtuple(&#39;Location&#39;, [&#39;lon&#39; …" />
+<meta property="og:description" content="The goal of __repr__ is to be unambiguous and the goal of __str__ is to be readable. Bonus points, if __repr__ returns what is needed to create the object. Some examples are: &gt;&gt;&gt; repr([42, 1337]) &#39;[42, 1337]&#39; &gt;&gt;&gt; repr({42, 1337}) &#39;{1337, 42}&#39; &gt;&gt;&gt; from collections import namedtuple &gt;&gt;&gt; Location = namedtuple(&#39;Location&#39;, [&#39;lon …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-10-28T20:00:00+01:00" />
 <meta name="twitter:title" content="Pythons str vs repr ">
-<meta name="twitter:description" content="The goal of __repr__ is to be unambiguous and the goal of __str__ is to be readable. Bonus points, if __repr__ returns what is needed to create the object. Some examples are: &gt;&gt;&gt; repr([42, 1337]) &#39;[42, 1337]&#39; &gt;&gt;&gt; repr({42, 1337}) &#39;{1337, 42}&#39; &gt;&gt;&gt; from collections import namedtuple &gt;&gt;&gt; Location = namedtuple(&#39;Location&#39;, [&#39;lon&#39; …">
+<meta name="twitter:description" content="The goal of __repr__ is to be unambiguous and the goal of __str__ is to be readable. Bonus points, if __repr__ returns what is needed to create the object. Some examples are: &gt;&gt;&gt; repr([42, 1337]) &#39;[42, 1337]&#39; &gt;&gt;&gt; repr({42, 1337}) &#39;{1337, 42}&#39; &gt;&gt;&gt; from collections import namedtuple &gt;&gt;&gt; Location = namedtuple(&#39;Location&#39;, [&#39;lon …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -102,50 +102,46 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#where-its-used" s="" title="Where it" used'="">Where it's used</a></li><li><a class="toc-href" href="#3rd-party-libraries" title="3rd Party Libraries">3rd Party Libraries</a></li><li><a class="toc-href" href="#enums" title="Enums">Enums</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>The goal of <code>__repr__</code> is to be unambiguous and the goal of <code>__str__</code> is to be readable. Bonus points, if <code>__repr__</code> returns what is needed to create the object. Some examples are:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">repr</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="mi">1337</span><span class="p">])</span>
-<span class="s1">'[42, 1337]'</span>
+<span class="s1">&#39;[42, 1337]&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">repr</span><span class="p">({</span><span class="mi">42</span><span class="p">,</span> <span class="mi">1337</span><span class="p">})</span>
-<span class="s1">'{1337, 42}'</span>
+<span class="s1">&#39;{1337, 42}&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Location</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'Location'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'lon'</span><span class="p">,</span> <span class="s1">'lat'</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Location</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Location</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">repr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="s1">'Location(lon=12, lat=34)'</span>
+<span class="s1">&#39;Location(lon=12, lat=34)&#39;</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span><span class="p">;</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span><span class="p">;</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">repr</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
-<span class="s2">"re.compile('foo')"</span>
+<span class="s2">&quot;re.compile(&#39;foo&#39;)&quot;</span>
 </code></pre></div>
+
 <p>In all of those cases the unambiguous representation and the readable string
 are the same.</p>
 <h2 id="where-its-used">Where it's used</h2>
 <p>The following code sample shows how <code>__repr__</code> and <code>__str__</code> are used:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"__repr__"</span>
+        <span class="k">return</span> <span class="s2">&quot;__repr__&quot;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"__str__"</span>
+        <span class="k">return</span> <span class="s2">&quot;__str__&quot;</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">bar</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">bar</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">bar</span><span class="p">))</span>
 </code></pre></div>
+
 <p>Playing with this gives the following insights:</p>
 <ul>
 <li>If neither <code>__repr__</code> nor <code>__str__</code> is implemented, then <code>bar</code> is printed as
@@ -159,29 +155,32 @@ are the same.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="mi">1337</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="s1">'[  42 1337]'</span>
+<span class="s1">&#39;[  42 1337]&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">repr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="s1">'array([  42, 1337])'</span>
+<span class="s1">&#39;array([  42, 1337])&#39;</span>
 </code></pre></div>
+
 <p>Some - like Pandas Dataframes have a very different string representation.</p>
 <p>Others just don't care to implement somehting reasonable at all:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">repr</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<span class="s1">'&lt;keras.engine.sequential.Sequential object at 0x7f8d86b8eb70&gt;'</span>
+<span class="s1">&#39;&lt;keras.engine.sequential.Sequential object at 0x7f8d86b8eb70&gt;&#39;</span>
 </code></pre></div>
+
 <h2 id="enums">Enums</h2>
 <p>Also - sadly - it is not done well with Enums:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">ExistsStrategy</span><span class="p">(</span><span class="k">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="sd">"""Strategies what to do when a file already exists."""</span>
+    <span class="sd">&quot;&quot;&quot;Strategies what to do when a file already exists.&quot;&quot;&quot;</span>
 
-    <span class="n">RAISE</span> <span class="o">=</span> <span class="s1">'raise'</span>
-    <span class="n">REPLACE</span> <span class="o">=</span> <span class="s1">'replace'</span>
-    <span class="n">ABORT</span> <span class="o">=</span> <span class="s1">'abort'</span>
+    <span class="n">RAISE</span> <span class="o">=</span> <span class="s1">&#39;raise&#39;</span>
+    <span class="n">REPLACE</span> <span class="o">=</span> <span class="s1">&#39;replace&#39;</span>
+    <span class="n">ABORT</span> <span class="o">=</span> <span class="s1">&#39;abort&#39;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ExistsStrategy</span><span class="o">.</span><span class="n">RAISE</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">repr</span><span class="p">(</span><span class="n">ExistsStrategy</span><span class="o">.</span><span class="n">RAISE</span><span class="p">))</span>
 </code></pre></div>
+
 <p>The <code>str</code> gives <code>ExistsStrategy.RAISE</code> which is awesome. The <code>repr</code> gives
 <code>&lt;ExistsStrategy.RAISE: 'raise'&gt;</code>. I don't understand why it doesn't give
 the same result as the <code>str</code> representation.</p>

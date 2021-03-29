@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#which-problem-does-it-solve" title="Which problem does it solve?">Which problem does it solve?</a></li><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#vocabulary" title="Vocabulary">Vocabulary</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Ansible is a configuration management tool maintained by Red Hat. It has to be
@@ -150,40 +144,45 @@ install Docker. This is where Ansible helps.</p>
 might be via the Python Package installer <code>pip</code>:</p>
 <div class="highlight"><pre><span></span><code>$ pip install ansible
 </code></pre></div>
+
 <p>To test if it worked:</p>
 <div class="highlight"><pre><span></span><code>$ ansible --version
 ansible <span class="m">2</span>.9.0
   config <span class="nv">file</span> <span class="o">=</span> None
-  configured module search <span class="nv">path</span> <span class="o">=</span> <span class="o">[</span><span class="s1">'/home/moose/.ansible/plugins/modules'</span>, <span class="s1">'/usr/share/ansible/plugins/modules'</span><span class="o">]</span>
+  configured module search <span class="nv">path</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;/home/moose/.ansible/plugins/modules&#39;</span>, <span class="s1">&#39;/usr/share/ansible/plugins/modules&#39;</span><span class="o">]</span>
   ansible python module <span class="nv">location</span> <span class="o">=</span> /home/moose/.local/lib/python3.6/site-packages/ansible
   executable <span class="nv">location</span> <span class="o">=</span> /home/moose/.local/bin/ansible
   python <span class="nv">version</span> <span class="o">=</span> <span class="m">3</span>.6.8 <span class="o">(</span>default, Oct  <span class="m">7</span> <span class="m">2019</span>, <span class="m">12</span>:59:55<span class="o">)</span> <span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span>
 </code></pre></div>
+
 <h2 id="vocabulary">Vocabulary</h2>
 <dl>
-<dt>Task</dt>
-<dd>A task is a command executed on the target machine. A task is a call to an Ansible module.</dd>
-<dt>Role</dt>
-<dd>A list of tasks. Every role is a directory below <code>/roles</code> and contains a `main.yml` which defines the tasks.</dd>
-<dt><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html">Playbook</a></dt>
-<dd>Determines which task/role should be applied to which target machine. </dd>
-<dt><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variables-discovered-from-systems-facts">Facts</a></dt>
-<dd>Facts are information derived from speaking with your remote systems.</dd>
-<dt>Idempotency</dt>
-<dd>An idempotent operation can be applied multiple times without changing the result beyond the initial application. Basically, it means "repeatable".</dd>
-<dt>Convergence</dt>
-<dd>Bring resources to a desired state if they diverge</dd>
-<dt>Immutability</dt>
-<dd>Resources are never changed. They are only created and destroyed. (Terraform and CloudFormation work like this)</dd>
+    <dt>Task</dt>
+    <dd>A task is a command executed on the target machine. A task is a call to an Ansible module.</dd>
+    <dt>Role</dt>
+    <dd>A list of tasks. Every role is a directory below <code>/roles</code> and contains a `main.yml` which defines the tasks.</dd>
+    <dt><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html">Playbook</a></dt>
+    <dd>Determines which task/role should be applied to which target machine. </dd>
+    <dt><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variables-discovered-from-systems-facts">Facts</a></dt>
+    <dd>Facts are information derived from speaking with your remote systems.</dd>
+    <dt>Idempotency</dt>
+    <dd>An idempotent operation can be applied multiple times without changing the result beyond the initial application. Basically, it means "repeatable".</dd>
+    <dt>Convergence</dt>
+    <dd>Bring resources to a desired state if they diverge</dd>
+    <dt>Immutability</dt>
+    <dd>Resources are never changed. They are only created and destroyed. (Terraform and CloudFormation work like this)</dd>
 </dl>
+
 <h2 id="usage">Usage</h2>
 <p>Ad hoc command to check the connection:</p>
 <div class="highlight"><pre><span></span><code>$ ansible -m ping all
 </code></pre></div>
+
 <p>Ad hoc command to get the available disk space:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ansible -m [module] -a '[module options]' [target]</span>
-$ ansible -m shell -a <span class="s1">'df -h'</span> all
+<div class="highlight"><pre><span></span><code><span class="c1"># ansible -m [module] -a &#39;[module options]&#39; [target]</span>
+$ ansible -m shell -a <span class="s1">&#39;df -h&#39;</span> all
 </code></pre></div>
+
 <p>Ansible executes stuff with your account. If you need root, specify <code>-b</code> and
 <code>-k</code> to ask for a password.</p>
 <p>The default project structure is:</p>
@@ -191,14 +190,15 @@ $ ansible -m shell -a <span class="s1">'df -h'</span> all
 ├── playbook.yml
 └── roles
     ├── example-role
-    │&nbsp;&nbsp; ├── files
-    │&nbsp;&nbsp; │&nbsp;&nbsp; └── foo.txt
-    │&nbsp;&nbsp; └── tasks
-    │&nbsp;&nbsp;     └── main.yml
+    │   ├── files
+    │   │   └── foo.txt
+    │   └── tasks
+    │       └── main.yml
     └── foo-role
         └── tasks
             └── main.yml
 </code></pre></div>
+
 <p>The <code>main.yml</code> files have the following structure:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Choose a descriptive name for the task as ansible will print them when</span>
 <span class="c1"># executing</span>
@@ -212,13 +212,16 @@ $ ansible -m shell -a <span class="s1">'df -h'</span> all
     <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../files/foo.txt</span>
     <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/absolute/path/foo.txt</span>
 </code></pre></div>
+
 <p>The <code>playbook.yml</code> file has the following structure:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
   <span class="nt">become</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>  <span class="c1"># become another user; by default root</span>
 </code></pre></div>
+
 <p>You can then execute the playbook via</p>
 <div class="highlight"><pre><span></span><code>$ ansible-playbook playbook.yml
 </code></pre></div>
+
 <h2 id="alternatives">Alternatives</h2>
 <p><a href="https://en.wikipedia.org/wiki/Puppet_(company)#Puppet">Puppet</a> and <a href="https://en.wikipedia.org/wiki/Chef_(software)">Chef</a> are two other configuration management tools which are often used.</p>
 <p>Where Ansible is push-based, Puppet and Chef are pull-based. So the target

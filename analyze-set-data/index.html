@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#level-of-measurement" title="Level of measurement">Level of measurement</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a><ul><li><a class="toc-href" href="#dblp" title="dblp">dblp</a></li></ul></li><li><a class="toc-href" href="#movielens-20m_1" title="MovieLens 20M">MovieLens 20M</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Exploratory Data Analysis (EDA) is nice and easy, if the entities you look at
@@ -118,54 +112,55 @@ possibilities.</p>
 <h2 id="level-of-measurement">Level of measurement</h2>
 <p>If you have features of this <a href="https://en.wikipedia.org/wiki/Level_of_measurement">level of measurement</a>.</p>
 <table border="1">
-<tr>
-<th rowspan="3">&nbsp;</th>
-<th colspan="5">Scale</th>
-</tr>
-<tr>
-<th colspan="2">Qualitative (categorical)</th>
-<th colspan="3">Quantitative (metric)</th>
-</tr>
-<tr>
-<th>Nominal-</th>
-<th>Ordinal-</th>
-<th>Intervall-</th>
-<th>Ratio-</th>
-<th>Absolute</th>
-</tr>
-<tr>
-<th>Empirical relations</th>
-<td>Equivalence</td>
-<td>Equivalence<br/>order</td>
-<td>Equivalence<br/>order<br/>emp. addition</td>
-<td>Equivalence<br/>order<br/>emp. addition<br/>emp. multipliation</td>
-<td>Equivalence<br/>order<br/>emp. addition<br/>emp. multipliation</td>
-</tr>
-<tr>
-<th>Allowed transformationen</th>
-<td>m' = f(m)<br/>f bijektive</td>
-<td>m' = f(m)<br/>f strictly monotonous</td>
-<td>m' = am+b<br/>with a&gt;0</td>
-<td>m' = am<br/>with a&gt;0</td>
-<td>m' = m</td>
-</tr>
-<tr>
-<th>Examples of this scale</th>
-<td>Telephone numbers, license plates, types, postal codes, gender</td>
-<td>Grades, Degrees of hardness, wind force</td>
-<td>Temp. in &deg;C, &deg;F, calendar time, geographic height</td>
-<td>Mass, length, el. current</td>
-<td>Number of particles, number of errors</td>
-</tr>
-<tr>
-<th>Values of m</th>
-<td>numbers, names, symbols</td>
-<td>usually natural numbers</td>
-<td>usually real numbers</td>
-<td>usually real numbers &gt; 0</td>
-<td>usually natural numbers</td>
-</tr>
+    <tr>
+        <th rowspan="3">&nbsp;</th>
+        <th colspan="5">Scale</th>
+    </tr>
+    <tr>
+        <th colspan="2">Qualitative (categorical)</th>
+        <th colspan="3">Quantitative (metric)</th>
+    </tr>
+    <tr>
+        <th>Nominal-</th>
+        <th>Ordinal-</th>
+        <th>Intervall-</th>
+        <th>Ratio-</th>
+        <th>Absolute</th>
+    </tr>
+    <tr>
+        <th>Empirical relations</th>
+        <td>Equivalence</td>
+        <td>Equivalence<br/>order</td>
+        <td>Equivalence<br/>order<br/>emp. addition</td>
+        <td>Equivalence<br/>order<br/>emp. addition<br/>emp. multipliation</td>
+        <td>Equivalence<br/>order<br/>emp. addition<br/>emp. multipliation</td>
+    </tr>
+    <tr>
+        <th>Allowed transformationen</th>
+        <td>m' = f(m)<br/>f bijektive</td>
+        <td>m' = f(m)<br/>f strictly monotonous</td>
+        <td>m' = am+b<br/>with a&gt;0</td>
+        <td>m' = am<br/>with a&gt;0</td>
+        <td>m' = m</td>
+    </tr>
+    <tr>
+        <th>Examples of this scale</th>
+        <td>Telephone numbers, license plates, types, postal codes, gender</td>
+        <td>Grades, Degrees of hardness, wind force</td>
+        <td>Temp. in &deg;C, &deg;F, calendar time, geographic height</td>
+        <td>Mass, length, el. current</td>
+        <td>Number of particles, number of errors</td>
+    </tr>
+    <tr>
+        <th>Values of m</th>
+        <td>numbers, names, symbols</td>
+        <td>usually natural numbers</td>
+        <td>usually real numbers</td>
+        <td>usually real numbers &gt; 0</td>
+        <td>usually natural numbers</td>
+    </tr>
 </table>
+
 <h2 id="datasets">Datasets</h2>
 <h3 id="dblp">dblp</h3>
 <p><a href="https://en.wikipedia.org/wiki/DBLP">dblp</a> is a bibliography website which
@@ -183,20 +178,20 @@ file.</p>
 <span class="kn">import</span> <span class="nn">clana.visualize_cm</span>
 
 <span class="c1"># Load the data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"articles.csv"</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"::"</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;articles.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">)</span>
 
 <span class="c1"># Analyze the data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
-<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">]</span>
 <span class="n">author_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">authors</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Publications: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Unique elements: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">author_count</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Most common:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Publications: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Unique elements: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">author_count</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Most common:&quot;</span><span class="p">)</span>
 <span class="n">most_common</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">author_count</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">most_common</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"    </span><span class="si">{:&gt;4}</span><span class="s2">x </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    </span><span class="si">{:&gt;4}</span><span class="s2">x </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
 
 <span class="n">unique_authors</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">author_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
@@ -207,11 +202,11 @@ file.</p>
         <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">:</span>
             <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">author</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">progressbar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10_000</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">progressbar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10_000</span><span class="p">]):</span>
         <span class="k">for</span> <span class="n">author1</span><span class="p">,</span> <span class="n">author2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">authorset</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
             <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">author1</span><span class="p">,</span> <span class="n">author2</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Edges were added"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Edges were added&quot;</span><span class="p">)</span>
 
     <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">components</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
@@ -231,27 +226,28 @@ file.</p>
     <span class="k">return</span> <span class="n">mat</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 
 
-<span class="n">components</span> <span class="o">=</span> <span class="n">get_biggest_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Biggest clusters: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]))</span>
+<span class="n">components</span> <span class="o">=</span> <span class="n">get_biggest_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Biggest clusters: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]))</span>
 
 <span class="n">component_w_publications</span> <span class="o">=</span> <span class="p">[(</span><span class="n">author</span><span class="p">,</span> <span class="n">author_count</span><span class="p">[</span><span class="n">author</span><span class="p">])</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="n">component_w_publications</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
     <span class="n">component_w_publications</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 <span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">component_w_publications</span><span class="p">[:</span><span class="mi">1_00</span><span class="p">]]</span>
-<span class="n">mat</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">mat</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 
 <span class="n">clana</span><span class="o">.</span><span class="n">visualize_cm</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
-    <span class="s2">"coauthors.json"</span><span class="p">,</span>
-    <span class="n">perm_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+    <span class="s2">&quot;coauthors.json&quot;</span><span class="p">,</span>
+    <span class="n">perm_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="n">steps</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span>
-    <span class="n">labels_file</span><span class="o">=</span><span class="s2">"labels.json"</span><span class="p">,</span>
+    <span class="n">labels_file</span><span class="o">=</span><span class="s2">&quot;labels.json&quot;</span><span class="p">,</span>
     <span class="n">zero_diagonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">output</span><span class="o">=</span><span class="s2">"cm-ordered.pdf"</span><span class="p">,</span>
+    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;cm-ordered.pdf&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_cm</span><span class="p">(</span><span class="s2">"coauthors.json"</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
-<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="s2">"labels.json"</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_cm</span><span class="p">(</span><span class="s2">&quot;coauthors.json&quot;</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="s2">&quot;labels.json&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Results:</p>
 <div class="highlight"><pre><span></span><code>* Publications: 2,054,474
 * Unique elements: 1,475,717
@@ -268,17 +264,19 @@ file.</p>
      554x Wei Wang
 * Biggest clusters (under first 10^6 publications): [761987, 52, 45, 44, 32, 31, 29, 28, 28, 28]
 </code></pre></div>
+
 <p>Then you can apply confusion matrix ordering to find authors who often work
 together (click on it to see large version):</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../pdf/dblp-1000-cmo.pdf"><img alt="Similar Authors found with CMO" src="../images/2019/07/dblp-cmo.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Similar Authors found with CMO</figcaption>
+    <a href="../pdf/dblp-1000-cmo.pdf"><img src="../images/2019/07/dblp-cmo.png" alt="Similar Authors found with CMO" style="width: 512px;"/></a>
+    <figcaption class="text-center">Similar Authors found with CMO</figcaption>
 </figure>
+
 <p>The CMO technique is described in</p>
 <blockquote>
 <p>Thoma, Martin. "Analysis and optimization of convolutional neural network architectures." <a href="https://arxiv.org/pdf/1707.09725.pdf">arXiv preprint arXiv:1707.09725</a> (2017). Chapter 5.2.</p>
 </blockquote>
-<h2 id="movielens-20m_1">MovieLens 20M</h2>
+<h2 id="movielens-20m">MovieLens 20M</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -290,19 +288,19 @@ together (click on it to see large version):</p>
 <span class="kn">import</span> <span class="nn">clana.visualize_cm</span>
 
 <span class="c1"># Load the data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"movies.csv"</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;movies.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;genres&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;genres&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
 
 <span class="c1"># Analyze the data</span>
-<span class="n">list_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">valueset</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">valueset</span><span class="p">]</span>
+<span class="n">list_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">valueset</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;genres&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">valueset</span><span class="p">]</span>
 <span class="n">value_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">list_values</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Movies: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Unique genres: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">value_count</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Most common:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Movies: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Unique genres: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">value_count</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Most common:&quot;</span><span class="p">)</span>
 <span class="n">most_common</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">value_count</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">most_common</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"    </span><span class="si">{:&gt;4}</span><span class="s2">x </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    </span><span class="si">{:&gt;4}</span><span class="s2">x </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
 
 <span class="n">unique_genres</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">value_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
@@ -313,11 +311,11 @@ together (click on it to see large version):</p>
         <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">:</span>
             <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">author</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">progressbar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10_000</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">progressbar</span><span class="o">.</span><span class="n">progressbar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;genres&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="mi">10_000</span><span class="p">]):</span>
         <span class="k">for</span> <span class="n">author1</span><span class="p">,</span> <span class="n">author2</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">authorset</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
             <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">author1</span><span class="p">,</span> <span class="n">author2</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Edges were added"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Edges were added&quot;</span><span class="p">)</span>
 
     <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">components</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
@@ -337,27 +335,28 @@ together (click on it to see large version):</p>
     <span class="k">return</span> <span class="n">mat</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 
 
-<span class="n">components</span> <span class="o">=</span> <span class="n">get_biggest_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"* Biggest clusters: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]))</span>
+<span class="n">components</span> <span class="o">=</span> <span class="n">get_biggest_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;genres&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* Biggest clusters: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">components</span><span class="p">]))</span>
 
 <span class="n">component_w_publications</span> <span class="o">=</span> <span class="p">[(</span><span class="n">author</span><span class="p">,</span> <span class="n">value_count</span><span class="p">[</span><span class="n">author</span><span class="p">])</span> <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="n">component_w_publications</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
     <span class="n">component_w_publications</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 <span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="n">author</span> <span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">component_w_publications</span><span class="p">[:</span><span class="mi">1_00</span><span class="p">]]</span>
-<span class="n">mat</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">mat</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;genres&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 
-<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_cm</span><span class="p">(</span><span class="s2">"genre-combinations.json"</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
-<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="s2">"labels.json"</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_cm</span><span class="p">(</span><span class="s2">&quot;genre-combinations.json&quot;</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span>
+<span class="n">clana</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_labels</span><span class="p">(</span><span class="s2">&quot;labels.json&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">clana</span><span class="o">.</span><span class="n">visualize_cm</span><span class="o">.</span><span class="n">main</span><span class="p">(</span>
-    <span class="s2">"genre-combinations.json"</span><span class="p">,</span>
-    <span class="n">perm_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+    <span class="s2">&quot;genre-combinations.json&quot;</span><span class="p">,</span>
+    <span class="n">perm_file</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="n">steps</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">,</span>
-    <span class="n">labels_file</span><span class="o">=</span><span class="s2">"labels.json"</span><span class="p">,</span>
+    <span class="n">labels_file</span><span class="o">=</span><span class="s2">&quot;labels.json&quot;</span><span class="p">,</span>
     <span class="n">zero_diagonal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">output</span><span class="o">=</span><span class="s2">"cm-genre-combinations.pdf"</span><span class="p">,</span>
+    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;cm-genre-combinations.pdf&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+
 <p>Results:</p>
 <div class="highlight"><pre><span></span><code>* Movies: 27278
 * Unique genres: 20
@@ -373,11 +372,13 @@ together (click on it to see large version):</p>
      2329x Adventure
      1743x Sci-Fi
 </code></pre></div>
+
 <p>CMO:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/07/cmo-genre-combinations.png"><img alt="Genre-Combinations" src="../images/2019/07/cmo-genre-combinations.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Genre-Combinations</figcaption>
+    <a href="../images/2019/07/cmo-genre-combinations.png"><img src="../images/2019/07/cmo-genre-combinations.png" alt="Genre-Combinations" style="width: 512px;"/></a>
+    <figcaption class="text-center">Genre-Combinations</figcaption>
 </figure>
+
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://datascience.stackexchange.com/q/55181/8820">What is the level of measurement / name of the scale of list-features?</a></li>

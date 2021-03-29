@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#single-inheritance" title="Single Inheritance">Single Inheritance</a></li><li><a class="toc-href" href="#multiple-inheritance" title="Multiple Inheritance">Multiple Inheritance</a></li><li><a class="toc-href" href="#multiple-inheritance-linearization" title="Multiple Inheritance: Linearization">Multiple Inheritance: Linearization</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Python has a built-in function called <a href="https://docs.python.org/3/library/functions.html#super"><code>super()</code></a>.
@@ -117,76 +111,82 @@ It might behave different from what you thought.</p>
 <p>As a first simple example, consider this script:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="n">C</span><span class="p">()</span>
 </code></pre></div>
+
 <p>This prints:</p>
-<div class="highlight"><pre><span></span><code><span class="err">C</span>
-<span class="err">B</span>
-<span class="err">A</span>
+<div class="highlight"><pre><span></span><code>C
+B
+A
 </code></pre></div>
+
 <p>This is simple, because every class inherits from exactly one other class
 and the inheritance tree looks like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/06/inheritance-a-b-c.svg"><img alt="Inheritance tree where A is the parent of B and B is the parent of C." src="../images/2020/06/inheritance-a-b-c.svg" style="width: 512px;"/></a>
-<figcaption class="text-center">Inheritance tree where A is the parent of B and B is the parent of C.</figcaption>
+    <a href="../images/2020/06/inheritance-a-b-c.svg"><img src="../images/2020/06/inheritance-a-b-c.svg" alt="Inheritance tree where A is the parent of B and B is the parent of C." style="width: 512px;"/></a>
+    <figcaption class="text-center">Inheritance tree where A is the parent of B and B is the parent of C.</figcaption>
 </figure>
+
 <h2 id="multiple-inheritance">Multiple Inheritance</h2>
 <p>Python supports <a href="https://docs.python.org/3/tutorial/classes.html#multiple-inheritance">multiple inheritance</a>.
 This means classes can inherit from arbitrary many classes.</p>
 <p>Let's start with a simple example how super works here:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">B1</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"B1"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B1&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">B2</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"B2"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B2&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="n">B2</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="n">C</span><span class="p">()</span>
 </code></pre></div>
+
 <p>The inheritance tree looks like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/06/inheritance-a-b1-b2-c.svg"><img alt="Inharitance Tree where A is the parent of B1 and B2. They are the parents of C." src="../images/2020/06/inheritance-a-b1-b2-c.svg" style="width: 512px;"/></a>
-<figcaption class="text-center">Inharitance Tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
+    <a href="../images/2020/06/inheritance-a-b1-b2-c.svg"><img src="../images/2020/06/inheritance-a-b1-b2-c.svg" alt="Inharitance Tree where A is the parent of B1 and B2. They are the parents of C." style="width: 512px;"/></a>
+    <figcaption class="text-center">Inharitance Tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
 </figure>
+
 <p>The output of this script is:</p>
-<div class="highlight"><pre><span></span><code><span class="err">C</span>
-<span class="err">B1</span>
-<span class="err">B2</span>
-<span class="err">A</span>
+<div class="highlight"><pre><span></span><code>C
+B1
+B2
+A
 </code></pre></div>
+
 <p>Still expected, right? Basically going deeper and left to right.</p>
 <h2 id="multiple-inheritance-linearization">Multiple Inheritance: Linearization</h2>
 <p>Where the mental model might break is with the following example. The
@@ -194,39 +194,42 @@ inheritance tree is still the same. However, within B1 I don't call super
 anymore. Which output would you expect?</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">B1</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"B1"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B1&quot;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">B2</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"B2"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B2&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="n">B2</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
 
 <span class="n">C</span><span class="p">()</span>
 </code></pre></div>
+
 <p>The received output is</p>
-<div class="highlight"><pre><span></span><code><span class="err">C</span>
-<span class="err">B1</span>
+<div class="highlight"><pre><span></span><code>C
+B1
 </code></pre></div>
+
 <p>Now, why does it not print <code>B2</code> and not <code>A</code>? After all, C still inherits from
 <code>B2</code> and <code>B2</code> still calls <code>super</code> which would point to <code>A</code>, right?</p>
 <p>The reason is that the method resolution order is:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; print(C.__mro__)</span>
-<span class="err">(&lt;class '__main__.C'&gt;, &lt;class '__main__.B1'&gt;, &lt;class '__main__.B2'&gt;, &lt;class '__main__.A'&gt;, &lt;class 'object'&gt;)</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(C.__mro__)
+(&lt;class &#39;__main__.C&#39;&gt;, &lt;class &#39;__main__.B1&#39;&gt;, &lt;class &#39;__main__.B2&#39;&gt;, &lt;class &#39;__main__.A&#39;&gt;, &lt;class &#39;object&#39;&gt;)
 </code></pre></div>
+
 <p>This means that super searches first in B1, then B2, then A and then object for
 the <code>__init__</code> function. If it is found in one of them, it just executes that
 one. It does not continue searching.</p>
@@ -241,7 +244,7 @@ line ends.</p>
 </ul>
 </li>
 <li>Raymond Hettinger: <a href="https://www.youtube.com/watch?v=EiOglTERPEo">Super considered super!</a> at PyCon on YouTube, 2015.</li>
-<li>Raymond Hettinger: <a href="https://rhettinger.wordpress.com/2011/05/26/super-considered-super/">Python&rsquo;s super() considered super!</a>, 2011.</li>
+<li>Raymond Hettinger: <a href="https://rhettinger.wordpress.com/2011/05/26/super-considered-super/">Python’s super() considered super!</a>, 2011.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

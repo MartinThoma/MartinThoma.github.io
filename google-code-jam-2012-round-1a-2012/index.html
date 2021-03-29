@@ -100,57 +100,53 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#passwords" title="Passwords">Passwords</a></li><li><a class="toc-href" href="#kingdom rush" title="Kingdom Rush">Kingdom Rush</a></li><li><a class="toc-href" href="#cruise controll" title="Cruise Controll">Cruise Controll</a></li><li><a class="toc-href" href="#see also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.</p>
 <ul>
-<li>Problem 1 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p0">Password Problem</a>):
+  <li>Problem 1 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p0">Password Problem</a>):
   <ul>
-<li>Small Set: 3511/3851 users (91%)</li>
-<li>Large Set: 2329/3376 users (69%)</li>
-</ul>
-</li>
-<li>Problem 2 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p1">Kingdom Rush</a>):
+     <li>Small Set: 3511/3851 users (91%)</li>
+     <li>Large Set: 2329/3376 users (69%)</li>
+  </ul>
+  </li>
+  <li>Problem 2 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p1">Kingdom Rush</a>):
   <ul>
-<li>Small Set: 1912/3466 users (55%)</li>
-<li>Large Set: 1617/1848 users (88%)</li>
-</ul>
-</li>
-<li>Problem 3 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p2">Cruise Control</a>):
+     <li>Small Set: 1912/3466 users (55%)</li>
+     <li>Large Set: 1617/1848 users (88%)</li>
+  </ul>
+  </li>
+  <li>Problem 3 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p2">Cruise Control</a>):
   <ul>
-<li>Small Set: 65/312 users (21%)</li>
-<li>Large Set: 22/42 users (52%)</li>
+     <li>Small Set: 65/312 users (21%)</li>
+     <li>Large Set: 22/42 users (52%)</li>
+  </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Just as last time, you can execute these scripts by</p>
 <div class="highlight"><pre><span></span><code>python jam.py &lt; A-small-practice.in &gt; results.txt
 </code></pre></div>
+
 <p><a id="more"></a><a id="more-23361"></a></p>
-<h2 id="passwords">Passwords</h2>
+<h2>Passwords</h2>
 <p>This works only for the small input set:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="k">def</span> <span class="nf">line2floatlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert integers in one line, separated by space to a list of integers.</span>
-<span class="sd">    """</span>
-    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
     <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">numbers</span>
 
 
 <span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">):</span>
-    <span class="n">typesMin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+    <span class="n">typesMin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">probKorrect</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span><span class="p">)]:</span>
@@ -169,19 +165,20 @@ MathJax.Hub.Queue(function() {
     <span class="c1"># return typesMin</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
-        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
         <span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
         <span class="n">B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
         <span class="n">probabilities</span> <span class="o">=</span> <span class="n">line2floatlist</span><span class="p">(</span><span class="n">raw_input</span><span class="p">())</span>
         <span class="c1"># print ((A+1), B)</span>
         <span class="c1"># print probabilities</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%.6lf</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%.6lf</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)))</span>
 </code></pre></div>
-<h2 id="kingdom rush">Kingdom Rush</h2>
+
+<h2>Kingdom Rush</h2>
 <p>My solution works only for the small input set:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -190,17 +187,17 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">line2intlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert integers in one line, separated by space to a</span>
 <span class="sd">    list of integers.</span>
-<span class="sd">    """</span>
-    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
     <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">numbers</span>
 
 
 <span class="k">def</span> <span class="nf">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
-    <span class="sd">""" Is it possible to solve this one? """</span>
+    <span class="sd">&quot;&quot;&quot; Is it possible to solve this one? &quot;&quot;&quot;</span>
     <span class="n">intList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
         <span class="n">wasInFor</span> <span class="o">=</span> <span class="kc">True</span>
@@ -239,7 +236,7 @@ MathJax.Hub.Queue(function() {
                 <span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">2</span>
 
     <span class="k">if</span> <span class="n">starDict</span><span class="p">:</span>
-        <span class="n">minCompetes</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+        <span class="n">minCompetes</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
             <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">one</span> <span class="o">&lt;=</span> <span class="n">myLevel</span> <span class="ow">and</span> <span class="p">(</span><span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">):</span>
@@ -255,7 +252,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">myCompetes</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
@@ -272,11 +269,12 @@ MathJax.Hub.Queue(function() {
             <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: Too Bad"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: Too Bad&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">)))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">)))</span>
 </code></pre></div>
-<h2 id="cruise controll">Cruise Controll</h2>
+
+<h2>Cruise Controll</h2>
 <p>Only 22 people have a perfect solution for this one.</p>
 <p>This is the solution of royf:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">itertools</span>
@@ -300,11 +298,11 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">read_letters</span><span class="p">(</span><span class="n">f</span><span class="p">)]</span>
 
 
-<span class="k">def</span> <span class="nf">read_words</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">" "</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">read_words</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">read_word</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">read_ints</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">" "</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">read_ints</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">read_words</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="p">)]</span>
 
 
@@ -316,11 +314,11 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">out_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">in_fn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">+</span> <span class="s2">".in"</span>
+    <span class="n">in_fn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">+</span> <span class="s2">&quot;.in&quot;</span>
     <span class="k">if</span> <span class="n">out_fn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">out_fn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">+</span> <span class="s2">".out"</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">in_fn</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_fn</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+        <span class="n">out_fn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">+</span> <span class="s2">&quot;.out&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">in_fn</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_fn</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
             <span class="n">T</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
                 <span class="n">case</span> <span class="o">=</span> <span class="n">read_case</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
@@ -341,14 +339,14 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">def</span> <span class="nf">write_case</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%d</span><span class="s2">: "</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">res</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%d</span><span class="s2">: &quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">res</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="c1">################################################################################</span>
 
-<span class="n">INF</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+<span class="n">INF</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">heapq</span>
 
@@ -388,8 +386,8 @@ MathJax.Hub.Queue(function() {
             <span class="n">act</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
             <span class="n">act</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"L"</span>
-            <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"L"</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;L&quot;</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;L&quot;</span>
             <span class="k">continue</span>
         <span class="k">if</span> <span class="n">c</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -455,21 +453,22 @@ MathJax.Hub.Queue(function() {
                 <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">act</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
                 <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">return</span> <span class="s2">"Possible"</span>
+    <span class="k">return</span> <span class="s2">&quot;Possible&quot;</span>
 
 
 <span class="n">solve_large</span> <span class="o">=</span> <span class="n">solve_small</span>
 
 <span class="c1">##def solve_large(case):</span>
 
-<span class="n">DEBUG</span> <span class="o">=</span> <span class="s2">"i"</span>
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="s2">&quot;i&quot;</span>
 
 <span class="kn">from</span> <span class="nn">run</span> <span class="kn">import</span> <span class="o">*</span>
 </code></pre></div>
-<h2 id="see also">See also</h2>
+
+<h2>See also</h2>
 <ul>
-<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
-<li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
+  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
+  <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#arithmethic" title="Arithmethic">Arithmethic</a></li><li><a class="toc-href" href="#element-lookup" title="Element lookup">Element lookup</a></li><li><a class="toc-href" href="#algorithms" title="Algorithms">Algorithms</a><ul><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li></ul></li><li><a class="toc-href" href="#networks_1" title="Networks">Networks</a><ul><li><a class="toc-href" href="#latency" title="Latency">Latency</a></li><li><a class="toc-href" href="#throughput" title="Throughput">Throughput</a></li><li><a class="toc-href" href="#combinations" title="Combinations">Combinations</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I just wondered how fast some simple operations are (in Python). Like the lookup of an
@@ -120,153 +114,163 @@ speed of basic arithmetic operations. I expected them to be FAST; essentially</p
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
 </code></pre></div>
+
 <p>The disassembled cPython Byte-Code looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
-  <span class="mi">2</span>           <span class="mi">0</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">code</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">listcomp</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7feabba81300</span><span class="p">,</span> <span class="nb">file</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">)</span>
-              <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="s1">'add.&lt;locals&gt;.&lt;listcomp&gt;'</span><span class="p">)</span>
+  <span class="mi">2</span>           <span class="mi">0</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">code</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">listcomp</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7feabba81300</span><span class="p">,</span> <span class="n">file</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">)</span>
+              <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="s1">&#39;add.&lt;locals&gt;.&lt;listcomp&gt;&#39;</span><span class="p">)</span>
               <span class="mi">4</span> <span class="n">MAKE_FUNCTION</span>            <span class="mi">0</span>
               <span class="mi">6</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
               <span class="mi">8</span> <span class="n">GET_ITER</span>
              <span class="mi">10</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
              <span class="mi">12</span> <span class="n">RETURN_VALUE</span>
 </code></pre></div>
+
 <p>So you can see that it does more than <code>BINARY_ADD</code>. Still, the basic arithmetic
 operations are FAST. I think the tuple unpacking might actually have dominated
 the time here.</p>
 <p>Here are the results:</p>
-<div class="highlight"><pre><span></span><code>add                 : min: 177.3&mu;s, mean: 200.3&mu;s, max:  522.2&mu;s
-subtract            : min: 168.4&mu;s, mean: 190.9&mu;s, max:  538.8&mu;s
-multiply            : min: 165.4&mu;s, mean: 199.7&mu;s, max:  515.8&mu;s
-divide              : min: 176.3&mu;s, mean: 213.7&mu;s, max:  518.9&mu;s
+<div class="highlight"><pre><span></span><code>add                 : min: 177.3μs, mean: 200.3μs, max:  522.2μs
+subtract            : min: 168.4μs, mean: 190.9μs, max:  538.8μs
+multiply            : min: 165.4μs, mean: 199.7μs, max:  515.8μs
+divide              : min: 176.3μs, mean: 213.7μs, max:  518.9μs
 
-2**int (0..20)      : min: 546.4&mu;s, mean: 597.5&mu;s, max:  945.3&mu;s
-3**int (0..20)      : min: 591.4&mu;s, mean: 648.8&mu;s, max: 1091.0&mu;s &lt;- BigInt
-3.131**int (0..20)  : min: 295.0&mu;s, mean: 304.2&mu;s, max:  602.3&mu;s
-2**float            : min: 343.1&mu;s, mean: 371.9&mu;s, max:  769.7&mu;s
-3**float            : min: 347.3&mu;s, mean: 375.0&mu;s, max:  748.9&mu;s
-3.131**float        : min: 275.3&mu;s, mean: 299.3&mu;s, max:  586.4&mu;s
+2**int (0..20)      : min: 546.4μs, mean: 597.5μs, max:  945.3μs
+3**int (0..20)      : min: 591.4μs, mean: 648.8μs, max: 1091.0μs &lt;- BigInt
+3.131**int (0..20)  : min: 295.0μs, mean: 304.2μs, max:  602.3μs
+2**float            : min: 343.1μs, mean: 371.9μs, max:  769.7μs
+3**float            : min: 347.3μs, mean: 375.0μs, max:  748.9μs
+3.131**float        : min: 275.3μs, mean: 299.3μs, max:  586.4μs
 
-add_vectors         : min:   3.5&mu;s, mean:   4.0&mu;s, max:   34.8&mu;s
-subtract_vectors    : min:   3.4&mu;s, mean:   4.1&mu;s, max:   28.5&mu;s
-multiply_vectors    : min:   4.0&mu;s, mean:   4.3&mu;s, max:   30.7&mu;s
-divide_vectors      : min:  17.2&mu;s, mean:  18.2&mu;s, max:   71.9&mu;s
+add_vectors         : min:   3.5μs, mean:   4.0μs, max:   34.8μs
+subtract_vectors    : min:   3.4μs, mean:   4.1μs, max:   28.5μs
+multiply_vectors    : min:   4.0μs, mean:   4.3μs, max:   30.7μs
+divide_vectors      : min:  17.2μs, mean:  18.2μs, max:   71.9μs
 </code></pre></div>
+
 <p>You can see how bad this measure is with something like</p>
-<div class="highlight"><pre><span></span><code><span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"4+500000"</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;4+500000&quot;</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
+
 <p>which gives</p>
-<div class="highlight"><pre><span></span><code>add                 : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.38&mu;s
-subtract            : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.51&mu;s
-multiply            : min: 0.06&mu;s, mean: 0.14&mu;s, max:   1.77&mu;s
-divide              : min: 0.06&mu;s, mean: 0.13&mu;s, max:   1.36&mu;s
-modulo              : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.59&mu;s
+<div class="highlight"><pre><span></span><code>add                 : min: 0.08μs, mean: 0.15μs, max:   1.38μs
+subtract            : min: 0.08μs, mean: 0.15μs, max:   1.51μs
+multiply            : min: 0.06μs, mean: 0.14μs, max:   1.77μs
+divide              : min: 0.06μs, mean: 0.13μs, max:   1.36μs
+modulo              : min: 0.08μs, mean: 0.15μs, max:   1.59μs
 </code></pre></div>
+
 <p>I'm not sure if this test "suffers" from caching, especially as the max is way
 higher than the min and mean, but I guess it is save to say that all four
 basic arithmetic operations are about the same execution time and are less than
-2&mu;s. That would be about 5200 CPU cycles of my machine.</p>
+2μs. That would be about 5200 CPU cycles of my machine.</p>
 <h2 id="element-lookup">Element lookup</h2>
 <p>Timing how quickly one can retrieve the element from a <a href="https://en.wikipedia.org/wiki/Random_access">direct access</a>
 data structure by index. Not very surprisingly, lists are fastest. A bit surprising
 is that numpy arrays are quite a bit worse.</p>
-<div class="highlight"><pre><span></span><code>lookup(list)        : min: 134.0&mu;s, mean: 157.0&mu;s, max:  482.0&mu;s
-lookup(dict)        : min: 355.8&mu;s, mean: 407.3&mu;s, max: 1895.2&mu;s
-lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
+<div class="highlight"><pre><span></span><code>lookup(list)        : min: 134.0μs, mean: 157.0μs, max:  482.0μs
+lookup(dict)        : min: 355.8μs, mean: 407.3μs, max: 1895.2μs
+lookup(np array)    : min: 711.1μs, mean: 855.7μs, max: 1665.5μs
 </code></pre></div>
+
 <h2 id="algorithms">Algorithms</h2>
 <h3 id="sorting">Sorting</h3>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/04/sorting-speed.png"><img alt="Sorting speed in Python" src="../images/2019/04/sorting-speed.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Sorting speed in Python</figcaption>
+    <a href="../images/2019/04/sorting-speed.png"><img src="../images/2019/04/sorting-speed.png" alt="Sorting speed in Python" style="width: 512px;"/></a>
+    <figcaption class="text-center">Sorting speed in Python</figcaption>
 </figure>
+
 <table class="table">
-<tr>
-<th>Samples</th>
-<th>min</th>
-<th>median</th>
-<th>max</th>
-</tr>
-<tr>
-<td>10</td>
-<td>1.6&mu;s</td>
-<td>2.1&mu;s</td>
-<td>191.7&mu;s</td>
-</tr>
-<tr>
-<td>100</td>
-<td>16.6&mu;s</td>
-<td>24.9&mu;s</td>
-<td>121.7&mu;s</td>
-</tr>
-<tr>
-<td>500</td>
-<td>110.6&mu;s</td>
-<td>115.2&mu;s</td>
-<td>467.9&mu;s</td>
-</tr>
-<tr>
-<td>1000</td>
-<td>246.1&mu;s</td>
-<td>258.6&mu;s</td>
-<td>1133.4&mu;s</td>
-</tr>
-<tr>
-<td>2000</td>
-<td>543.1&mu;s</td>
-<td>562.6&mu;s</td>
-<td>934.5&mu;s</td>
-</tr>
-<tr>
-<td>3000</td>
-<td>859.8&mu;s</td>
-<td>913.8&mu;s</td>
-<td>2933.8&mu;s</td>
-</tr>
-<tr>
-<td>4000</td>
-<td>1188.0&mu;s</td>
-<td>1258.0&mu;s</td>
-<td>2859.0&mu;s</td>
-</tr>
-<tr>
-<td>5000</td>
-<td>1519.6&mu;s</td>
-<td>1631.4&mu;s</td>
-<td>2828.4&mu;s</td>
-</tr>
+    <tr>
+        <th>Samples</th>
+        <th>min</th>
+        <th>median</th>
+        <th>max</th>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>1.6μs</td>
+        <td>2.1μs</td>
+        <td>191.7μs</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>16.6μs</td>
+        <td>24.9μs</td>
+        <td>121.7μs</td>
+    </tr>
+    <tr>
+        <td>500</td>
+        <td>110.6μs</td>
+        <td>115.2μs</td>
+        <td>467.9μs</td>
+    </tr>
+    <tr>
+        <td>1000</td>
+        <td>246.1μs</td>
+        <td>258.6μs</td>
+        <td>1133.4μs</td>
+    </tr>
+    <tr>
+        <td>2000</td>
+        <td>543.1μs</td>
+        <td>562.6μs</td>
+        <td>934.5μs</td>
+    </tr>
+    <tr>
+        <td>3000</td>
+        <td>859.8μs</td>
+        <td>913.8μs</td>
+        <td>2933.8μs</td>
+    </tr>
+    <tr>
+        <td>4000</td>
+        <td>1188.0μs</td>
+        <td>1258.0μs</td>
+        <td>2859.0μs</td>
+    </tr>
+    <tr>
+        <td>5000</td>
+        <td>1519.6μs</td>
+        <td>1631.4μs</td>
+        <td>2828.4μs</td>
+    </tr>
 </table>
+
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">timeit</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
-        <span class="s2">"sorted(arr)"</span><span class="p">,</span>
-        <span class="n">setup</span><span class="o">=</span><span class="s2">"import numpy as np;arr = np.random.random(100_000)"</span><span class="p">,</span>
+        <span class="s2">&quot;sorted(arr)&quot;</span><span class="p">,</span>
+        <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;import numpy as np;arr = np.random.random(100_000)&quot;</span><span class="p">,</span>
         <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
         <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="p">)</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="s2">"min: </span><span class="si">{min:5.1f}</span><span class="s2">&mu;s, mean: </span><span class="si">{mean:5.1f}</span><span class="s2">&mu;s, max: </span><span class="si">{max:6.1f}</span><span class="s2">&mu;s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="s2">&quot;min: </span><span class="si">{min:5.1f}</span><span class="s2">μs, mean: </span><span class="si">{mean:5.1f}</span><span class="s2">μs, max: </span><span class="si">{max:6.1f}</span><span class="s2">μs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
         <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
         <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
     <span class="p">)</span>
 <span class="p">)</span>
 </code></pre></div>
-<h2 id="networks_1">Networks</h2>
+
+<h2 id="networks">Networks</h2>
 <p>When you talk about "speed" in a network context, there are two important values:</p>
 <dl>
-<dt><a href="https://en.wikipedia.org/wiki/Network_delay">Latency</a></dt>
-<dd>Latency is measured in milli-seconds (ms) and answers the question: How long does it take for the first bit to be transmitted?</dd>
-<dt><a href="https://en.wikipedia.org/wiki/Throughput">Throughput</a> (Bandwidth)</dt>
-<dd>Throughput is measured in kB/s and answers the question: If the first bit already arrived, how quickly will the rest be transfered?</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Network_delay">Latency</a></dt>
+    <dd>Latency is measured in milli-seconds (ms) and answers the question: How long does it take for the first bit to be transmitted?</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Throughput">Throughput</a> (Bandwidth)</dt>
+    <dd>Throughput is measured in kB/s and answers the question: If the first bit already arrived, how quickly will the rest be transfered?</dd>
 </dl>
+
 <h3 id="latency">Latency</h3>
 <p>Typical values:</p>
 <ul>
-<li>Ethernet Switch Latency: 50&mu;s - 125&mu;s</li>
+<li>Ethernet Switch Latency: 50μs - 125μs</li>
 <li>Cable: Essentially non-existant as the signal travels with the speed of light</li>
 </ul>
 <p>And some other corner stones:</p>
@@ -300,116 +304,119 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 <h3 id="throughput">Throughput</h3>
 <p>And some throughput values (partially measured, partially looked up / calculated):</p>
 <table class="table">
-<tr>
-<th rowspan="2">Connection</th>
-<th colspan="2">Throughput</th>
-</tr>
-<tr>
-<th>Download</th>
-<th>Upload</th>
-</tr>
-<tr>
-<td>Gigabit Ethernet</td>
-<td>1000 MBit/s</td>
-<td>1000 MBit/s</td>
-</tr>
-<tr>
-<td>My Internet Connection</td>
-<td>&nbsp;285 MBit/s</td>
-<td>&nbsp;25 MBit/s</td>
-</tr>
-<tr>
-<td>My Internet Connection (<a href="https://www.speedtest.net/result/9272895784">2020-04-12</a>)</td>
-<td>&nbsp;96 MBit/s</td>
-<td>&nbsp;7 MBit/s</td>
-</tr>
-<tr>
-<td>LTE (peak)</td>
-<td>&nbsp;37 MB/s</td>
-<td>&nbsp;&nbsp;9 MB/s</td>
-</tr>
-<tr>
-<td>LTE (measured)</td>
-<td>&nbsp;14 MB/s</td>
-<td>&nbsp;&nbsp;2 MB/s</td>
-</tr>
-<tr>
-<td>Audio Streaming (Low,&nbsp;96kbps)</td>
-<td colspan="2">&nbsp;&nbsp;0.012 MB/s</td>
-</tr>
-<tr>
-<td>Audio Streaming (Normal,&nbsp;160kbps)</td>
-<td colspan="2">&nbsp;&nbsp;0.020 MB/s</td>
-</tr>
-<tr>
-<td>Audio Streaming (High,&nbsp;320kbps)</td>
-<td colspan="2">&nbsp;&nbsp;0.040 MB/s</td>
-</tr>
-<tr>
-<td>Video Streaming (Low, 360)</td>
-<td colspan="2">0.083 MB/s</td>
-</tr>
-<tr>
-<td>Video Streaming (Normal, 720p)</td>
-<td colspan="2">0.250 MB/s (2.0 MBit/s)</td>
-</tr>
-<tr>
-<td>Video Streaming (High, 1080p)</td>
-<td colspan="2">0.417 MB/s (3.3 MBit/s)</td>
-</tr>
+    <tr>
+        <th rowspan="2">Connection</th>
+        <th colspan="2">Throughput</th>
+    </tr>
+    <tr>
+        <th>Download</th>
+        <th>Upload</th>
+    </tr>
+    <tr>
+        <td>Gigabit Ethernet</td>
+        <td>1000 MBit/s</td>
+        <td>1000 MBit/s</td>
+    </tr>
+    <tr>
+        <td>My Internet Connection</td>
+        <td>&nbsp;285 MBit/s</td>
+        <td>&nbsp;25 MBit/s</td>
+    </tr>
+    <tr>
+        <td>My Internet Connection (<a href="https://www.speedtest.net/result/9272895784">2020-04-12</a>)</td>
+        <td>&nbsp;96 MBit/s</td>
+        <td>&nbsp;7 MBit/s</td>
+    </tr>
+    <tr>
+        <td>LTE (peak)</td>
+        <td>&nbsp;37 MB/s</td>
+        <td>&nbsp;&nbsp;9 MB/s</td>
+    </tr>
+    <tr>
+        <td>LTE (measured)</td>
+        <td>&nbsp;14 MB/s</td>
+        <td>&nbsp;&nbsp;2 MB/s</td>
+    </tr>
+    <tr>
+        <td>Audio Streaming (Low,&nbsp;96kbps)</td>
+        <td colspan="2">&nbsp;&nbsp;0.012 MB/s</td>
+    </tr>
+    <tr>
+        <td>Audio Streaming (Normal,&nbsp;160kbps)</td>
+        <td colspan="2">&nbsp;&nbsp;0.020 MB/s</td>
+    </tr>
+    <tr>
+        <td>Audio Streaming (High,&nbsp;320kbps)</td>
+        <td colspan="2">&nbsp;&nbsp;0.040 MB/s</td>
+    </tr>
+    <tr>
+        <td>Video Streaming (Low, 360)</td>
+        <td colspan="2">0.083 MB/s</td>
+    </tr>
+    <tr>
+        <td>Video Streaming (Normal, 720p)</td>
+        <td colspan="2">0.250 MB/s (2.0 MBit/s)</td>
+    </tr>
+    <tr>
+        <td>Video Streaming (High, 1080p)</td>
+        <td colspan="2">0.417 MB/s (3.3 MBit/s)</td>
+    </tr>
 </table>
+
 <p>When you think about which internet contract to get, you might be wondering
 which speed is acceptable. The highest speed is probably necessary for video
 streaming:</p>
 <table class="table">
-<thead>
-<tr>
-<th>Speed</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.5 Mbit/s</td>
-<td>Minimum required for Netfix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
-</tr>
-<tr>
-<td>1.5 Mbit/s</td>
-<td>Recommended speed for Netflix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
-</tr>
-<tr>
-<td>3.0 Mbit/s</td>
-<td>Recommended speed for Netflix with standard resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
-</tr>
-<tr>
-<td>5.0 Mbit/s</td>
-<td>Recommended speed for Netflix with HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
-</tr>
-<tr>
-<td>25.0 Mbit/s</td>
-<td>Recommended speed for Netflix with Ultra-HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
-</tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>Speed</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>0.5 Mbit/s</td>
+        <td>Minimum required for Netfix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+    </tr>
+    <tr>
+        <td>1.5 Mbit/s</td>
+        <td>Recommended speed for Netflix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+    </tr>
+    <tr>
+        <td>3.0 Mbit/s</td>
+        <td>Recommended speed for Netflix with standard resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+    </tr>
+    <tr>
+        <td>5.0 Mbit/s</td>
+        <td>Recommended speed for Netflix with HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+    </tr>
+    <tr>
+        <td>25.0 Mbit/s</td>
+        <td>Recommended speed for Netflix with Ultra-HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+    </tr>
+    </tbody>
 </table>
+
 <h3 id="combinations">Combinations</h3>
 <p>Some measurements how quickly I get web pages:</p>
 <div class="highlight"><pre><span></span><code>get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
 get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
 get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
 </code></pre></div>
+
 <h3 id="see-also">See also</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Enhanced_Data_Rates_for_GSM_Evolution">Enhanced Data Rates for GSM Evolution</a></li>
 <li><a href="https://en.wikipedia.org/wiki/UMTS">UMTS</a></li>
 </ul>
-<h2 id="code_1">Code</h2>
+<h2 id="code">Code</h2>
 <p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/Python/timing/lookup.py">Github</a> for the snippet.</p>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
-<p>Netflix: <a href="https://help.netflix.com/en/node/306">Internet Connection Speed Recommendations</a>, read 2019-08-30.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Netflix: <a href="https://help.netflix.com/en/node/306">Internet Connection Speed Recommendations</a>, read 2019-08-30.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#matches" title="Matches">Matches</a></li><li><a class="toc-href" href="#search" title="Search">Search</a></li><li><a class="toc-href" href="#replacing-spaces" title="Replacing Spaces">Replacing Spaces</a></li><li><a class="toc-href" href="#unquoting" title="Unquoting">Unquoting</a></li><li><a class="toc-href" href="#all-paragraphs" title="All paragraphs">All paragraphs</a></li><li><a class="toc-href" href="#common-regexes" title="Common RegExes">Common RegExes</a><ul><li><a class="toc-href" href="#numbers" title="Numbers">Numbers</a></li><li><a class="toc-href" href="#email" title="Email">Email</a></li></ul></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Python supports regular expressions (RegEx) just as any other general purpose
@@ -119,36 +113,39 @@ programming language. This mini article shows two examples how to use them.</p>
 <p>The simplest applicataion of <code>re</code> is to check if a pattern matches a text:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
-<span class="n">pattern</span> <span class="o">=</span> <span class="s2">"ipsum"</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;ipsum&quot;</span>
 
 <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"The pattern matches the text"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The pattern matches the text&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"The pattern doesn't match the text"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The pattern doesn&#39;t match the text&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Please note that this does NOT match. If you want to match the complete text,
 you need <code>pattern = ".+ipsum.+"</code>... or use <code>search</code></p>
 <h2 id="search">Search</h2>
 <p>Check if a pattern is within a text:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
-<span class="n">pattern</span> <span class="o">=</span> <span class="s2">"ipsum"</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;ipsum&quot;</span>
 
 <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Found match"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found match&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"No match found"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No match found&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="replacing-spaces">Replacing Spaces</h2>
 <p>Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a
 single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
-<span class="n">replaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The   fox jumped   over    the log.&quot;</span>
+<span class="n">replaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\s\s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </code></pre></div>
+
 <p>To speed things up you can also
 <a href="https://docs.python.org/3/library/re.html#re.compile"><code>compile</code></a> the pattern.
 This has also the advantage that you can specify that you want to match newline
@@ -156,34 +153,36 @@ characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
 <a href="https://docs.python.org/3/library/re.html#re.DOTALL"><code>re.DOTALL</code></a> flag.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
-<span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;\s\s+&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The   fox jumped   over    the log.&quot;</span>
+<span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="unquoting">Unquoting</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
 
 <span class="k">def</span> <span class="nf">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">"""Remove 'test'."""</span>
+    <span class="sd">&quot;&quot;&quot;Remove &#39;test&#39;.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">unquote</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">" </span><span class="si">%s</span><span class="s2"> "</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot; </span><span class="si">%s</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 
-    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">" '([^ ]+?.*[^ ]+?)' "</span><span class="p">)</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot; &#39;([^ ]+?.*[^ ]+?)&#39; &quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">unquote</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"The quoted 'text piece' will get unquoted."</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The quoted &#39;text piece&#39; will get unquoted.&quot;</span>
 <span class="n">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="all-paragraphs">All paragraphs</h2>
 <p>If you want to get the content within all paragraph tags (<code>&lt;p&gt; ... &lt;/p&gt;</code> in
 arbitrary spacing) you can use:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"&lt;p&gt;(.*?)&lt;/p&gt;"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;(.*?)&lt;/p&gt;&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat</span>
 <span class="s2">turpis vitae malesuada tempor. Fusce cursus condimentum leo, ut bibendum justo</span>
 <span class="s2">varius sit amet. In accumsan interdum nibh at fermentum. Nulla commodo, mi vel</span>
@@ -215,22 +214,24 @@ arbitrary spacing) you can use:</p>
 <span class="s2">Suspendisse quis quam tortor. Nullam consequat tempus orci eget scelerisque. Ut</span>
 <span class="s2">auctor lorem enim, id rutrum eros congue varius. In justo lacus, molestie vitae</span>
 <span class="s2">nibh eu, venenatis auctor ex.</span>
-<span class="s2">"""</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
 <span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Matches is the following list (breaked at some points for easier reading):</p>
-<div class="highlight"><pre><span></span><code>['Suspendisse porttitor risus et est consequat condimentum.\n
+<div class="highlight"><pre><span></span><code>[&#39;Suspendisse porttitor risus et est consequat condimentum.\n
   In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.\n
-  Phasellus vel arcu convallis, semper quam eu, convallis velit.\n\n',
- 'Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non\n
-  dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.',
- 'Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,\n
+  Phasellus vel arcu convallis, semper quam eu, convallis velit.\n\n&#39;,
+ &#39;Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non\n
+  dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.&#39;,
+ &#39;Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,\n
   fermentum mi nec, viverra dolor.
   Quisque posuere ultricies leo et efficitur.\n
-  Aliquam venenatis quis mi ac tempus.',
- 'congue vel']
+  Aliquam venenatis quis mi ac tempus.&#39;,
+ &#39;congue vel&#39;]
 </code></pre></div>
+
 <h2 id="common-regexes">Common RegExes</h2>
 <h3 id="numbers">Numbers</h3>
 <h4 id="non-negative-even-numbers">non-negative even numbers</h4>

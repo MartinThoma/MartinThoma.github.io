@@ -102,22 +102,17 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#first thought: brute-force" title="First thought: Brute-force">First thought: Brute-force</a></li><li><a class="toc-href" href="#apply some math" title="Apply some math">Apply some math</a></li><li><a class="toc-href" href="#material" title="Material">Material</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><a href="http://en.wikipedia.org/wiki/Project_Euler">Project Euler</a> is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.</p>
 <p>The motivation for starting Project Euler, and its continuation, is to provide a platform for the inquiring mind to delve into unfamiliar areas and learn new concepts in a fun and recreational context.</p>
 <p>Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself.</p>
-<p>The task is:
-<blockquote>Find the smallest x + y + z with integers <span class="math">\(x &gt; y &gt; z &gt; 0\)</span> such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote></p>
+<p>The task is:</p>
+<blockquote>Find the smallest x + y + z with integers $x > y > z > 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
+
 <p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
-<h2 id="first thought: brute-force">First thought: Brute-force</h2>
+<h2>First thought: Brute-force</h2>
 <p><a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -147,29 +142,32 @@ MathJax.Hub.Queue(function() {
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
                 <span class="p">):</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
                     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </code></pre></div>
+
 <p>This is quite fast until you reach about 500. So this is not a good way to solve it.</p>
-<h2 id="apply some math">Apply some math</h2>
+<h2>Apply some math</h2>
 <p>You can formalize the task like this:
-Find the smallest <span class="math">\(x, y, z \in \mathbb{N}\)</span>, so that:
+Find the smallest <span class="math">\(x, y, z \in \mathbb{N}\)</span>, so that:</p>
 <ol>
-<li><span class="math">\(x &gt; y &gt; z &gt; 0\)</span></li>
-<li><span class="math">\(a = x + y\)</span></li>
-<li><span class="math">\(b = x - y\)</span></li>
-<li><span class="math">\(c = x + z\)</span></li>
-<li><span class="math">\(d = x - z\)</span></li>
-<li><span class="math">\(e = y + z\)</span></li>
-<li><span class="math">\(f = y - z\)</span></li>
-</ol></p>
+  <li>$x > y > z > 0$</li>
+  <li>$a = x + y$</li>
+  <li>$b = x - y$</li>
+  <li>$c = x + z$</li>
+  <li>$d = x - z$</li>
+  <li>$e = y + z$</li>
+  <li>$f = y - z$</li>
+</ol>
+
 <p>With <span class="math">\(a, b, c, d, e, f \in Squares\)</span>.</p>
-<p>Now you can make the following conclusions:
+<p>Now you can make the following conclusions:</p>
 <ol>
-<li><span class="math">\(\overset{A.1, A.2, A.3}{\implies} a &gt; b\)</span></li>
-<li><span class="math">\(\overset{A.1, A.4, A.5}{\implies} c &gt; d\)</span></li>
-<li><span class="math">\(\overset{A.1, A.6, A.7}{\implies} e &gt; f\)</span></li>
-</ol></p>
+  <li>$\overset{A.1, A.2, A.3}{\implies} a > b$</li>
+  <li>$\overset{A.1, A.4, A.5}{\implies} c > d$</li>
+  <li>$\overset{A.1, A.6, A.7}{\implies} e > f$</li>
+</ol>
+
 <ol>
 <li>
 <p><span class="math">\(a &gt; c\)</span>:
@@ -209,26 +207,28 @@ Find the smallest <span class="math">\(x, y, z \in \mathbb{N}\)</span>, so that:
 <span class="math">\(d &gt; f\)</span></p>
 </li>
 <li>
-<p>I can't tell anything about the relationship between:
-<ul>
-<li>d and e</li>
-<li>b and f</li>
-<li>b and e</li>
-</ul></p>
+<p>I can't tell anything about the relationship between:</p>
 </li>
 </ol>
-<p>Lets conclude:
+<ul>
+  <li>d and e</li>
+  <li>b and f</li>
+  <li>b and e</li>
+</ul>
+
+<p>Lets conclude:</p>
 <figure class="aligncenter">
-<a href="../images/2012/04/euler-142-graph.png"><img alt="Graph that visualizes the situation of the squares of Euler 142" class="size-full wp-image-21421" src="../images/2012/04/euler-142-graph.png" style="max-width:298px;max-height:400px"/></a>
-<figcaption class="text-center">Graph that visualizes the situation of the squares of Euler 142</figcaption>
-</figure></p>
+            <a href="../images/2012/04/euler-142-graph.png"><img src="../images/2012/04/euler-142-graph.png" alt="Graph that visualizes the situation of the squares of Euler 142" style="max-width:298px;max-height:400px" class="size-full wp-image-21421"/></a>
+            <figcaption class="text-center">Graph that visualizes the situation of the squares of Euler 142</figcaption>
+        </figure>
+
 <p>You also know:</p>
 <p><span class="math">\(x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}\)</span>
 The same argumentation can be used for (c, d) and (e, f).</p>
 <p><span class="math">\(x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5\)</span>.</p>
 <p>With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
-<h2 id="material">Material</h2>
-<p>Some material like the LaTeX-file can be found in the <a href="../images/2012/04/euler-142.zip">Project Euler 142 Archive</a>.</p>
+<h2>Material</h2>
+<p>Some material like the LaTeX-file can be found in the <a href='../images/2012/04/euler-142.zip'>Project Euler 142 Archive</a>.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

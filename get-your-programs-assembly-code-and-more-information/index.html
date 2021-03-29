@@ -102,74 +102,74 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#general information" title="General Information">General Information</a><ul><li><a class="toc-href" href="#pointers" title="Pointers">Pointers</a></li><li><a class="toc-href" href="#$ dollar and % percentage signs" title="$ Dollar and % Percentage signs">$ Dollar and % Percentage signs</a></li><li><a class="toc-href" href="#instruction" title="Instruction">Instruction</a></li></ul></li><li><a class="toc-href" href="#simple example_1" title="Simple example">Simple example</a><ul><li><a class="toc-href" href="#c-code" title="C-Code">C-Code</a></li><li><a class="toc-href" href="#assembly" title="Assembly">Assembly</a></li><li><a class="toc-href" href="#further information" title="Further information">Further information</a></li></ul></li><li><a class="toc-href" href="#fibonacci_1" title="Fibonacci">Fibonacci</a><ul><li><a class="toc-href" href="#c-code_1" title="C-Code">C-Code</a></li><li><a class="toc-href" href="#assembly_1" title="Assembly">Assembly</a></li></ul></li><li><a class="toc-href" href="#references_1" title="References">References</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I've talked today with a fellow student about some system internals and we weren't sure what actually happens. So I needed the assembly code of some example programs.</p>
-<h2 id="general information">General Information</h2>
+<h2>General Information</h2>
 <p>It is important to know that I will use <strong>AT&amp;T syntax</strong> in this article!
 This is AT&amp;T Syntax:</p>
 <div class="highlight"><pre><span></span><code>movl %esp, %ebp
 </code></pre></div>
+
 <p>And this is Intel Syntax:</p>
 <div class="highlight"><pre><span></span><code>MOVL EBP, ESP
 </code></pre></div>
-<h3 id="pointers">Pointers</h3>
+
+<h3>Pointers</h3>
 <ul>
-<li><strong>%esp</strong>: Stack pointer for top address of the stack.</li>
-<li><strong>%ebp</strong>: Stack base pointer for holding the address of the current stack frame.</li>
-<li><strong>%eax</strong>: Accumulator</li>
+  <li><strong>%esp</strong>: Stack pointer for top address of the stack.</li>
+  <li><strong>%ebp</strong>: Stack base pointer for holding the address of the current stack frame.</li>
+  <li><strong>%eax</strong>: Accumulator</li>
 </ul>
+
 <p>The size of the eax register will always be 32 bit, regardless of the system's register size.<small><sup><a href="#ref6">[6]</a></sup></small></p>
-<h3 id="$ dollar and % percentage signs">$ Dollar and % Percentage signs</h3>
+<h3>$ Dollar and % Percentage signs</h3>
 <p><span class="math">\(i, with $i \in mathbb{N}\)</span>, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11">[11]</a></sup></small></p>
-<h3 id="instruction">Instruction</h3>
-<p><strong>pushl <register></register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
-<strong>movl <from>, <to></to></from></strong>: moves a long<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
-<strong>call <function></function></strong>: Calls function (which might be printf, putchar, ...)
+<h3>Instruction</h3>
+<p><strong>pushl <register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
+<strong>movl <from>, <to></strong>: moves a long<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
+<strong>call <function></strong>: Calls function (which might be printf, putchar, ...)
 <strong>subl $16, %esp</strong>: allocate a local variable<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
 <strong>ret</strong>: transfers control back to the place where the current function was called.<small><sup><a href="#ref3">[3]</a></sup></small>
 <strong>leave</strong>: sets the stack pointer to the base frame address, effectively releasing the whole frame<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
 <strong>andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small>
-<strong>jmp <target></target></strong>: Jump to target label.
-<strong>jbe <target></target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
-<strong>leal <command-address> <store></store></command-address></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>
+<strong>jmp <target></strong>: Jump to target label.
+<strong>jbe <target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
+<strong>leal <command-address> <store></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>
 <h4>Suffixes</h4>
-<p>Many instructions have suffixes. This is what they mean<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>:
+<p>Many instructions have suffixes. This is what they mean<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>:</p>
 <ul>
-<li>b: byte (8 bit)</li>
-<li>s: short (16 bit integer) or single (32-bit floating point)</li>
-<li>w: word (16 bit)</li>
-<li>l: long (32 bit integer or 64-bit floating point)</li>
-<li>q: quad (64 bit)</li>
-<li>t: ten bytes (80-bit floating point)</li>
-</ul></p>
-<h2 id="simple example_1">Simple example</h2>
-<h3 id="c-code">C-Code</h3>
+  <li>b: byte (8 bit)</li>
+  <li>s: short (16 bit integer) or single (32-bit floating point)</li>
+  <li>w: word (16 bit)</li>
+  <li>l: long (32 bit integer or 64-bit floating point)</li>
+  <li>q: quad (64 bit)</li>
+  <li>t: ten bytes (80-bit floating point)</li>
+</ul>
+
+<h2>Simple example</h2>
+<h3>C-Code</h3>
 <p>This program simply outputs</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="mi">1337</span><span class="o">*</span><span class="mi">42</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i&quot;</span><span class="p">,</span> <span class="mi">1337</span><span class="o">*</span><span class="mi">42</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="assembly">Assembly</h3>
+
+<h3>Assembly</h3>
 <p>Now I compile it and I save the assembly code:</p>
 <div class="highlight"><pre><span></span><code>gcc -S test.c<span class="p">;</span> gcc test.c -o <span class="nb">test</span>
 </code></pre></div>
+
 <p>This gives me test.s (the assembly code) and an executable called "test".</p>
-<div class="highlight"><pre><span></span><code>    .file   "test.c"
+<div class="highlight"><pre><span></span><code>    .file   &quot;test.c&quot;
     .section    .rodata
 .LC0:
-    .string "%i"
+    .string &quot;%i&quot;
     .text
 .globl main
     .type   main, @function
@@ -186,9 +186,10 @@ main:
     leave
     ret
     .size   main, .-main
-    .ident  "GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
-    .section    .note.GNU-stack,"",@progbits
+    .ident  &quot;GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3&quot;
+    .section    .note.GNU-stack,&quot;&quot;,@progbits
 </code></pre></div>
+
 <p>This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?</p>
 <p>The first and most important thing you might notice is that neither "1337" nor "42" appear in the assembly code, but 56154 which is 1337*42. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (esp, ebp) begin with a percent sign.</p>
 <p>The following ones are called assembly directives. They tell the assembler what to do next.
@@ -196,18 +197,20 @@ main:
 .LC0 is a label for the immediately following string.
 .globl indicates that the following label (in this case "main") is a global symbol.</p>
 <p>Line 14: I'm not quite sure why you need the 4. I thought the integer size could be the reason (see <a href="http://www.cplusplus.com/doc/tutorial/variables/">variable sizes in C</a>), but as I used a string it still worked. As I used a character, it disappeared.</p>
-<h3 id="further information">Further information</h3>
+<h3>Further information</h3>
 <p><code>objdump</code> gives even more information!</p>
 <p>Archive header information: objdump -a test</p>
 <div class="highlight"><pre><span></span><code>test:     file format elf32-i386
 test
 </code></pre></div>
+
 <p>File header information: objdump -f test</p>
 <div class="highlight"><pre><span></span><code>test:     file format elf32-i386
 architecture: i386, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
 start address 0x08048330
 </code></pre></div>
+
 <p>Object specific file header contents: objdump -p test</p>
 <div class="highlight"><pre><span></span><code>test:     file format elf32-i386
 
@@ -255,6 +258,7 @@ Version References:
   required from libc.so.6:
     0x0d696910 0x00 02 GLIBC_2.0
 </code></pre></div>
+
 <p>Display the contents of the section headers: objdump -h test</p>
 <div class="highlight"><pre><span></span><code>test:     file format elf32-i386
 
@@ -313,6 +317,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
  25 .comment      00000023  00000000  00000000  00001014  2**0
                   CONTENTS, READONLY
 </code></pre></div>
+
 <p>Display DWARF info in the file: objdump --dwarf test</p>
 <div class="highlight"><pre><span></span><code>test:     file format elf32-i386
 
@@ -320,9 +325,10 @@ Contents of the .eh_frame section:
 
 00000000 ZERO terminator
 </code></pre></div>
+
 <p>By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.</p>
-<h2 id="fibonacci_1">Fibonacci</h2>
-<h3 id="c-code_1">C-Code</h3>
+<h2>Fibonacci</h2>
+<h3>C-Code</h3>
 <p>This is the most simple version of Fibonacci I could find:<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -333,12 +339,14 @@ Contents of the .eh_frame section:
 
 <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">13</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i&quot;</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">13</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="assembly_1">Assembly</h3>
-<div class="highlight"><pre><span></span><code>    .file   "test.c"
+
+<h3>Assembly</h3>
+
+<div class="highlight"><pre><span></span><code>    .file   &quot;test.c&quot;
     .text
 .globl fib
     .type   fib, @function
@@ -370,7 +378,7 @@ fib:
     .size   fib, .-fib
     .section    .rodata
 .LC0:
-    .string "%i"
+    .string &quot;%i&quot;
     .text
 .globl main
     .type   main, @function
@@ -389,23 +397,24 @@ main:
     leave
     ret
     .size   main, .-main
-    .ident  "GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
-    .section    .note.GNU-stack,"",@progbits
+    .ident  &quot;GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3&quot;
+    .section    .note.GNU-stack,&quot;&quot;,@progbits
 </code></pre></div>
-<h2 id="references_1">References</h2>
+
+<h2>References</h2>
 <ol>
-<li><a href="#anchor1" name="ref1">&uarr;</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
-<li><a href="#anchor2" name="ref2">&uarr;</a>: <a href="http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html">IA-32 Assembly for Compiler Writers</a>. Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.</li>
-<li><a href="#anchor3" name="ref3">&uarr;</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
-<li><a href="#anchor4" name="ref4">&uarr;</a>: <a href="http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly">About leave in x86 assembly</a>. zneak, Stackoverflow.</li>
-<li><a href="#anchor5" name="ref5">&uarr;</a>: <a href="http://stackoverflow.com/a/1317324/562769">GCC's assembly output of an empty program on x86, win32</a>. nos, Stackoverflow.</li>
-<li><a href="#anchor6" name="ref6">&uarr;</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use &ldquo;movl $1, %eax&rdquo; as opposed to, say, &ldquo;movb $1, %eax&rdquo;</a>. Jason, Stackoverflow.</li>
-<li><a href="#anchor7" name="ref7">&uarr;</a>: <a href="http://en.literateprograms.org/Fibonacci_numbers_%28C%29#Recursive">Fibonacci numbers (C)</a>. Literate Programs.</li>
-<li><a href="#anchor8" name="ref8">&uarr;</a>: <a href="http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf">
+  <li><a name="ref1" href="#anchor1">&uarr;</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
+  <li><a name="ref2" href="#anchor2">&uarr;</a>: <a href="http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html">IA-32 Assembly for Compiler Writers</a>. Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.</li>
+  <li><a name="ref3" href="#anchor3">&uarr;</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
+  <li><a name="ref4" href="#anchor4">&uarr;</a>: <a href="http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly">About leave in x86 assembly</a>. zneak, Stackoverflow.</li>
+  <li><a name="ref5" href="#anchor5">&uarr;</a>: <a href="http://stackoverflow.com/a/1317324/562769">GCC's assembly output of an empty program on x86, win32</a>. nos, Stackoverflow.</li>
+  <li><a name="ref6" href="#anchor6">&uarr;</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use &ldquo;movl $1, %eax&rdquo; as opposed to, say, &ldquo;movb $1, %eax&rdquo;</a>. Jason, Stackoverflow.</li>
+  <li><a name="ref7" href="#anchor7">&uarr;</a>: <a href="http://en.literateprograms.org/Fibonacci_numbers_%28C%29#Recursive">Fibonacci numbers (C)</a>. Literate Programs.</li>
+  <li><a name="ref8" href="#anchor8">&uarr;</a>: <a href="http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf">
 The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
-<li><a href="#anchor9" name="ref9">&uarr;</a>: <a href="http://stackoverflow.com/questions/4003894/leal-assembler-instruction">LEAL Assembler instruction</a>. Nils Pipenbrinck, Stackoverflow</li>
-<li><a href="#anchor10" name="ref10">&uarr;</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
-<li><a href="#anchor11" name="ref11">&uarr;</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
+  <li><a name="ref9" href="#anchor9">&uarr;</a>: <a href="http://stackoverflow.com/questions/4003894/leal-assembler-instruction">LEAL Assembler instruction</a>. Nils Pipenbrinck, Stackoverflow</li>
+  <li><a name="ref10" href="#anchor10">&uarr;</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
+  <li><a name="ref11" href="#anchor11">&uarr;</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
 </ol>
             
             <div id="disqus_thread" class="no-print"></div>

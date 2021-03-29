@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-mnist-format" title="The MNIST format">The MNIST format</a></li><li><a class="toc-href" href="#reading-the-dataset" title="Reading the dataset">Reading the dataset</a></li><li><a class="toc-href" href="#viewing-data" title="Viewing data">Viewing data</a></li><li><a class="toc-href" href="#classify-data" title="Classify data">Classify data</a></li><li><a class="toc-href" href="#final-steps" title="Final steps">Final steps</a></li><li><a class="toc-href" href="#final-complete-code" title="Final complete code">Final complete code</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr>
@@ -134,6 +128,7 @@ Every instance is a 28 &times; 28 pixel grayscale image.</p>
 xxxx     unsigned byte   ??               label
 The labels values are 0 to 9.
 </code></pre></div>
+
 <p>and both image containers are like that:</p>
 <div class="highlight"><pre><span></span><code>[offset] [type]          [value]          [description]
 0000     32 bit integer  0x00000803(2051) magic number
@@ -145,6 +140,7 @@ The labels values are 0 to 9.
 ........
 xxxx     unsigned byte   ??               pixel
 </code></pre></div>
+
 <p>And they are, of course, compressed.</p>
 <h2 id="reading-the-dataset">Reading the dataset</h2>
 <p>Python brings all necessary tools to make it easy to read the dataset:</p>
@@ -162,88 +158,91 @@ create a method thad retrives the data for both files.</p>
 
 
 <span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">):</span>
-    <span class="sd">"""Read input-vector (image) and target class (label, 0-9) and return</span>
+    <span class="sd">&quot;&quot;&quot;Read input-vector (image) and target class (label, 0-9) and return</span>
 <span class="sd">       it as list of tuples.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Open the images with gzip in read binary mode</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 
     <span class="c1"># Read the binary data</span>
 
-    <span class="c1"># We have to get big endian unsigned int. So we need '&gt;I'</span>
+    <span class="c1"># We have to get big endian unsigned int. So we need &#39;&gt;I&#39;</span>
 
     <span class="c1"># Get metadata for images</span>
     <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
     <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Get metadata for labels</span>
     <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"number of labels did not match the number of images"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;number of labels did not match the number of images&quot;</span><span class="p">)</span>
 
     <span class="c1"># Get the data</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># Initialize numpy array</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c1"># Initialize numpy array</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"i: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
                 <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Just a single byte</span>
-                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;B&quot;</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_pixel</span>
         <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;B&quot;</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="viewing-data">Viewing data</h2>
 <p>You might want to take a look at an image. This is easily possible with
 <a href="http://wiki.scipy.org/PyLab">PyLab</a> (which is a part of Matplotlib):</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
 
 
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-    <span class="sd">"""View a single image."""</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;View a single image.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Label: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
     <span class="n">show</span><span class="p">()</span>
 </code></pre></div>
+
 <p>It tooks like this:</p>
 <ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2014/06/mnist-1.png">
-<img alt="" src="../images/2014/06/mnist-1.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">7</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2014/06/mnist-2.png">
-<img alt="" src="../images/2014/06/mnist-2.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">2</div>
-</div>
-</li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/06/mnist-1.png" class="image">
+                  <img src="../images/2014/06/mnist-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">7</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/06/mnist-2.png" class="image">
+                  <img src="../images/2014/06/mnist-2.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">2</div>
+      </div>
+   </li>
 </ul>
+
 <h2 id="classify-data">Classify data</h2>
 <p>Now we can use <a href="http://pybrain.org/">PyBrain</a> to classify data.</p>
 <p>The following code will first build the PyBrain datastructure for the training
@@ -277,11 +276,11 @@ simply flattens a list.</p>
     <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">)):</span>
-        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trndata</span><span class="p">)):</span>
-        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">trndata</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">trndata</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
 
-    <span class="c1"># This is necessary, but I don't know why</span>
+    <span class="c1"># This is necessary, but I don&#39;t know why</span>
     <span class="c1"># See http://stackoverflow.com/q/8154674/562769</span>
     <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
     <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
@@ -301,18 +300,19 @@ simply flattens a list.</p>
     <span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
         <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span> <span class="n">trndata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">])</span>
+        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span> <span class="n">trndata</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
         <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span>
-            <span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
         <span class="p">)</span>
 
         <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">"epoch: </span><span class="si">%4d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-            <span class="s2">"  train error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-            <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">,</span>
+            <span class="s2">&quot;epoch: </span><span class="si">%4d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
+            <span class="s2">&quot;  train error: </span><span class="si">%5.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
+            <span class="s2">&quot;  test error: </span><span class="si">%5.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">fnn</span>
 </code></pre></div>
+
 <h2 id="final-steps">Final steps</h2>
 <p>You might want to add <a href="//martin-thoma.com/how-to-parse-command-line-arguments-in-python/">command line parameters</a>, <a href="https://docs.python.org/2/library/logging.html">logging</a> and
 probably <a href="https://docs.python.org/2/library/pickle.html#module-cPickle">pickle</a>
@@ -320,7 +320,7 @@ the data.</p>
 <h2 id="final-complete-code">Final complete code</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""Train NN with PyBrain."""</span>
+<span class="sd">&quot;&quot;&quot;Train NN with PyBrain.&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
 <span class="kn">import</span> <span class="nn">gzip</span>
@@ -340,41 +340,41 @@ the data.</p>
 
 
 <span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">,</span> <span class="n">picklename</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read input-vector (image) and target class (label, 0-9).</span>
 
 <span class="sd">    Return</span>
 <span class="sd">    ------</span>
 <span class="sd">    dict</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.pickle&quot;</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.pickle&quot;</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Open the images with gzip in read binary mode</span>
-        <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
-        <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 
         <span class="c1"># Read the binary data</span>
 
-        <span class="c1"># We have to get big endian unsigned int. So we need '&gt;I'</span>
+        <span class="c1"># We have to get big endian unsigned int. So we need &#39;&gt;I&#39;</span>
 
         <span class="c1"># Get metadata for images</span>
         <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
         <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># Get metadata for labels</span>
         <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
         <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-                <span class="s2">"The number of labels did not match "</span> <span class="s2">"the number of images."</span>
+                <span class="s2">&quot;The number of labels did not match &quot;</span> <span class="s2">&quot;the number of images.&quot;</span>
             <span class="p">)</span>
 
         <span class="c1"># Get the data</span>
@@ -382,22 +382,22 @@ the data.</p>
         <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c1"># Initialize numpy array</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"i: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
                     <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Just a single byte</span>
-                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;B&quot;</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
             <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s2">"rows"</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s2">"cols"</span><span class="p">:</span> <span class="n">cols</span><span class="p">}</span>
-        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">))</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;B&quot;</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s2">&quot;cols&quot;</span><span class="p">:</span> <span class="n">cols</span><span class="p">}</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.pickle&quot;</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">data</span>
 
 
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-    <span class="sd">"""View a single image."""</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;View a single image.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Label: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
     <span class="n">show</span><span class="p">()</span>
 
@@ -412,18 +412,18 @@ the data.</p>
     <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span>
     <span class="n">EPOCHS</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="n">testing</span><span class="p">[</span><span class="s2">"rows"</span><span class="p">]</span> <span class="o">*</span> <span class="n">testing</span><span class="p">[</span><span class="s2">"cols"</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Input features: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">INPUT_FEATURES</span><span class="p">)</span>
+    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="n">testing</span><span class="p">[</span><span class="s2">&quot;rows&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">testing</span><span class="p">[</span><span class="s2">&quot;cols&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input features: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">INPUT_FEATURES</span><span class="p">)</span>
     <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
     <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">])):</span>
-        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">"x"</span><span class="p">])):</span>
-        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">training</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])):</span>
+        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])):</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">training</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
 
-    <span class="c1"># This is necessary, but I don't know why</span>
+    <span class="c1"># This is necessary, but I don&#39;t know why</span>
     <span class="c1"># See http://stackoverflow.com/q/8154674/562769</span>
     <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
     <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
@@ -441,81 +441,81 @@ the data.</p>
         <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
         <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Start training"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start training&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
         <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span> <span class="n">trndata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">])</span>
+        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span> <span class="n">trndata</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
         <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span>
-            <span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
         <span class="p">)</span>
 
         <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">"epoch: </span><span class="si">%4d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-            <span class="s2">"  train error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-            <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">,</span>
+            <span class="s2">&quot;epoch: </span><span class="si">%4d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
+            <span class="s2">&quot;  train error: </span><span class="si">%5.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
+            <span class="s2">&quot;  test error: </span><span class="si">%5.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">fnn</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
 
     <span class="c1"># Add more options if you like</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-H"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"H"</span><span class="p">,</span>
+        <span class="s2">&quot;-H&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;H&quot;</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"hidden_neurons"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;hidden_neurons&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"number of neurons in the hidden layer"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;number of neurons in the hidden layer&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-e"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"EPOCHS"</span><span class="p">,</span>
+        <span class="s2">&quot;-e&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;EPOCHS&quot;</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"epochs"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;epochs&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"number of epochs to learn"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;number of epochs to learn&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-d"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"W"</span><span class="p">,</span>
+        <span class="s2">&quot;-d&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;W&quot;</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"weightdecay"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;weightdecay&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"weightdecay"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;weightdecay&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"momentum"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"momentum"</span>
+        <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;momentum&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;momentum&quot;</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-l"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"ETA"</span><span class="p">,</span>
+        <span class="s2">&quot;-l&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;ETA&quot;</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"learning_rate"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;learning_rate&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"learning rate"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;learning rate&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-ld"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"ALPHA"</span><span class="p">,</span>
+        <span class="s2">&quot;-ld&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;ALPHA&quot;</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"lrdecay"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;lrdecay&quot;</span><span class="p">,</span>
         <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"learning rate decay"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;learning rate decay&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Get testset"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Get testset&quot;</span><span class="p">)</span>
     <span class="n">testing</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span>
-        <span class="s2">"t10k-images-idx3-ubyte.gz"</span><span class="p">,</span> <span class="s2">"t10k-labels-idx1-ubyte.gz"</span><span class="p">,</span> <span class="s2">"testing"</span>
+        <span class="s2">&quot;t10k-images-idx3-ubyte.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;t10k-labels-idx1-ubyte.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;testing&quot;</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Get trainingset"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got </span><span class="si">%i</span><span class="s2"> testing datasets.&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Get trainingset&quot;</span><span class="p">)</span>
     <span class="n">training</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span>
-        <span class="s2">"train-images-idx3-ubyte.gz"</span><span class="p">,</span> <span class="s2">"train-labels-idx1-ubyte.gz"</span><span class="p">,</span> <span class="s2">"training"</span>
+        <span class="s2">&quot;train-images-idx3-ubyte.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;train-labels-idx1-ubyte.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;training&quot;</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> training datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got </span><span class="si">%i</span><span class="s2"> training datasets.&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]))</span>
     <span class="n">classify</span><span class="p">(</span>
         <span class="n">training</span><span class="p">,</span>
         <span class="n">testing</span><span class="p">,</span>
@@ -527,6 +527,7 @@ the data.</p>
         <span class="n">args</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre></div>
+
 <h2 id="results">Results</h2>
 <p>I'll update that tomorrow:</p>
 <div class="highlight"><pre><span></span><code>python pybrainmnist.py
@@ -537,45 +538,45 @@ Got <span class="m">60000</span> training datasets.
 Input features: <span class="m">784</span>
 Start training
 Total error: <span class="m">0</span>.0132789873631
-<span class="o">(</span><span class="s1">'epoch:    1'</span>, <span class="s1">'  train error: 14.97%'</span>, <span class="s1">'  test error: 14.28%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    1&#39;</span>, <span class="s1">&#39;  train error: 14.97%&#39;</span>, <span class="s1">&#39;  test error: 14.28%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0122669294279
-<span class="o">(</span><span class="s1">'epoch:    2'</span>, <span class="s1">'  train error: 11.54%'</span>, <span class="s1">'  test error: 11.18%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    2&#39;</span>, <span class="s1">&#39;  train error: 11.54%&#39;</span>, <span class="s1">&#39;  test error: 11.18%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0121586496637
-<span class="o">(</span><span class="s1">'epoch:    3'</span>, <span class="s1">'  train error: 12.21%'</span>, <span class="s1">'  test error: 11.71%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    3&#39;</span>, <span class="s1">&#39;  train error: 12.21%&#39;</span>, <span class="s1">&#39;  test error: 11.71%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0121439024528
-<span class="o">(</span><span class="s1">'epoch:    4'</span>, <span class="s1">'  train error: 13.91%'</span>, <span class="s1">'  test error: 13.01%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    4&#39;</span>, <span class="s1">&#39;  train error: 13.91%&#39;</span>, <span class="s1">&#39;  test error: 13.01%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0121144144187
-<span class="o">(</span><span class="s1">'epoch:    5'</span>, <span class="s1">'  train error: 12.51%'</span>, <span class="s1">'  test error: 11.95%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    5&#39;</span>, <span class="s1">&#39;  train error: 12.51%&#39;</span>, <span class="s1">&#39;  test error: 11.95%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0121177344402
-<span class="o">(</span><span class="s1">'epoch:    6'</span>, <span class="s1">'  train error: 12.14%'</span>, <span class="s1">'  test error: 11.35%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    6&#39;</span>, <span class="s1">&#39;  train error: 12.14%&#39;</span>, <span class="s1">&#39;  test error: 11.35%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0121240818924
-<span class="o">(</span><span class="s1">'epoch:    7'</span>, <span class="s1">'  train error: 15.82%'</span>, <span class="s1">'  test error: 15.38%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    7&#39;</span>, <span class="s1">&#39;  train error: 15.82%&#39;</span>, <span class="s1">&#39;  test error: 15.38%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120871124447
-<span class="o">(</span><span class="s1">'epoch:    8'</span>, <span class="s1">'  train error: 13.00%'</span>, <span class="s1">'  test error: 12.32%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    8&#39;</span>, <span class="s1">&#39;  train error: 13.00%&#39;</span>, <span class="s1">&#39;  test error: 12.32%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120638692784
-<span class="o">(</span><span class="s1">'epoch:    9'</span>, <span class="s1">'  train error: 14.02%'</span>, <span class="s1">'  test error: 13.06%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:    9&#39;</span>, <span class="s1">&#39;  train error: 14.02%&#39;</span>, <span class="s1">&#39;  test error: 13.06%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120865053396
-<span class="o">(</span><span class="s1">'epoch:   10'</span>, <span class="s1">'  train error: 13.42%'</span>, <span class="s1">'  test error: 12.79%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   10&#39;</span>, <span class="s1">&#39;  train error: 13.42%&#39;</span>, <span class="s1">&#39;  test error: 12.79%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120843528845
-<span class="o">(</span><span class="s1">'epoch:   11'</span>, <span class="s1">'  train error: 13.42%'</span>, <span class="s1">'  test error: 13.02%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   11&#39;</span>, <span class="s1">&#39;  train error: 13.42%&#39;</span>, <span class="s1">&#39;  test error: 13.02%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120598288441
-<span class="o">(</span><span class="s1">'epoch:   12'</span>, <span class="s1">'  train error: 13.08%'</span>, <span class="s1">'  test error: 12.33%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   12&#39;</span>, <span class="s1">&#39;  train error: 13.08%&#39;</span>, <span class="s1">&#39;  test error: 12.33%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120947755501
-<span class="o">(</span><span class="s1">'epoch:   13'</span>, <span class="s1">'  train error: 12.86%'</span>, <span class="s1">'  test error: 12.36%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   13&#39;</span>, <span class="s1">&#39;  train error: 12.86%&#39;</span>, <span class="s1">&#39;  test error: 12.36%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120686450925
-<span class="o">(</span><span class="s1">'epoch:   14'</span>, <span class="s1">'  train error: 13.21%'</span>, <span class="s1">'  test error: 12.34%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   14&#39;</span>, <span class="s1">&#39;  train error: 13.21%&#39;</span>, <span class="s1">&#39;  test error: 12.34%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120948253309
-<span class="o">(</span><span class="s1">'epoch:   15'</span>, <span class="s1">'  train error: 12.53%'</span>, <span class="s1">'  test error: 11.64%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   15&#39;</span>, <span class="s1">&#39;  train error: 12.53%&#39;</span>, <span class="s1">&#39;  test error: 11.64%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120471256247
-<span class="o">(</span><span class="s1">'epoch:   16'</span>, <span class="s1">'  train error: 13.71%'</span>, <span class="s1">'  test error: 12.88%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   16&#39;</span>, <span class="s1">&#39;  train error: 13.71%&#39;</span>, <span class="s1">&#39;  test error: 12.88%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120735887868
-<span class="o">(</span><span class="s1">'epoch:   17'</span>, <span class="s1">'  train error: 12.78%'</span>, <span class="s1">'  test error: 11.81%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   17&#39;</span>, <span class="s1">&#39;  train error: 12.78%&#39;</span>, <span class="s1">&#39;  test error: 11.81%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120712301982
-<span class="o">(</span><span class="s1">'epoch:   18'</span>, <span class="s1">'  train error: 13.66%'</span>, <span class="s1">'  test error: 13.13%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   18&#39;</span>, <span class="s1">&#39;  train error: 13.66%&#39;</span>, <span class="s1">&#39;  test error: 13.13%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120947124816
-<span class="o">(</span><span class="s1">'epoch:   19'</span>, <span class="s1">'  train error: 12.48%'</span>, <span class="s1">'  test error: 11.79%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   19&#39;</span>, <span class="s1">&#39;  train error: 12.48%&#39;</span>, <span class="s1">&#39;  test error: 11.79%&#39;</span><span class="o">)</span>
 Total error: <span class="m">0</span>.0120736808357
-<span class="o">(</span><span class="s1">'epoch:   20'</span>, <span class="s1">'  train error: 14.52%'</span>, <span class="s1">'  test error: 13.95%'</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;epoch:   20&#39;</span>, <span class="s1">&#39;  train error: 14.52%&#39;</span>, <span class="s1">&#39;  test error: 13.95%&#39;</span><span class="o">)</span>
 
 real    <span class="m">3745</span>,91s
 user    <span class="m">7336</span>,48s

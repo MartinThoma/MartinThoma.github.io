@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Blockchain</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/blockchain.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-02-17T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>The UTXO model</title><link href="https://martin-thoma.com/https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853" rel="alternate"></link><published>2021-02-17T20:00:00+01:00</published><updated>2021-02-17T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-02-17:/https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853</id><summary type="html">&lt;p&gt;&lt;img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"/&gt;&lt;em&gt;Visualization of a transaction. Image by Satoshi Nakamoto (&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Blockchain</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/blockchain.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-02-17T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>The UTXO model</title><link href="https://martin-thoma.com/https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853" rel="alternate"></link><published>2021-02-17T20:00:00+01:00</published><updated>2021-02-17T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-02-17:/https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853</id><summary type="html">&lt;p&gt;&lt;img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"&gt;&lt;em&gt;Visualization of a transaction. Image by Satoshi Nakamoto (&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Bitcoin is based on the UTXO (unspent transaction output) model to ensure that
-nobody is able to spend money they don&amp;rsquo;t have and prevent money from being
-spent twice &amp;mdash; so-called double-spending. In this article, you …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"/&gt;&lt;em&gt;Visualization of a transaction. Image by Satoshi Nakamoto (&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+nobody is able to spend money they don’t have and prevent money from being
+spent twice — so-called double-spending. In this article, you …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"&gt;&lt;em&gt;Visualization of a transaction. Image by Satoshi Nakamoto (&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Bitcoin is based on the UTXO (unspent transaction output) model to ensure that
-nobody is able to spend money they don&amp;rsquo;t have and prevent money from being
-spent twice &amp;mdash; so-called double-spending. In this article, you will learn how
-that works. Let&amp;rsquo;s go!&lt;/p&gt;
+nobody is able to spend money they don’t have and prevent money from being
+spent twice — so-called double-spending. In this article, you will learn how
+that works. Let’s go!&lt;/p&gt;
 &lt;h2 id="the-context"&gt;The Context&lt;/h2&gt;
 &lt;p&gt;Bitcoin transactions are stored in blocks. Verifying the transactions is a
 crucial part of the security of Bitcoin. Another element of security is to
 make it computationally hard to add new blocks by adding a mathematical
 puzzle. In this article, you will learn how the transactions are actually
 validated.&lt;/p&gt;
-&lt;p&gt;If you want a longer introduction to Bitcoin / Blockchain, I&amp;rsquo;ve got you:
+&lt;p&gt;If you want a longer introduction to Bitcoin / Blockchain, I’ve got you:
 &lt;a href="https://medium.com/coinmonks/the-blockchain-473aac352e5"&gt;&lt;strong&gt;The Blockchain&lt;/strong&gt;
 &lt;em&gt;An Introduction to Blockchain, Bitcoin ₿, and related concepts&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="how-bitcoins-are-created"&gt;How Bitcoins are created&lt;/h2&gt;
 &lt;p&gt;The first block of the blockchain is just defined in the code. All other
-blocks in bitcoin need to have a &amp;ldquo;proof of work&amp;rdquo;. This is a solution to an
+blocks in bitcoin need to have a “proof of work”. This is a solution to an
 automatically generated mathematical puzzle that makes &lt;a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d"&gt;clever use of hash
 functions&lt;/a&gt;.
 Solving this hash puzzle is computationally intensive. This means you need to
 have good hardware and invest a lot of time and electricity to solve it.
-People wouldn&amp;rsquo;t do that just for fun on the current scale. They do it, because
+People wouldn’t do that just for fun on the current scale. They do it, because
 of the &lt;strong&gt;mining reward&lt;/strong&gt;. This reward is given to every solved hash puzzle.&lt;/p&gt;
 &lt;h2 id="halving"&gt;Halving&lt;/h2&gt;
 &lt;p&gt;When Bitcoin started in 2009, the mining reward was 50 Bitcoin (BTC). In 2012,
@@ -32,11 +32,11 @@ the reward was halved to 25 Bitcoin. In 2016 the mining reward was halved to
 &lt;p&gt;Halving happens after 210,000 mined bitcoins. It is a mechanism to keep the
 total supply of bitcoins in check. The maximum possible amount of Bitcoins is
 21 million. Then, miners will not receive a reward anymore. They will need to
-use transaction fees then &amp;mdash; which they already do.&lt;/p&gt;
+use transaction fees then — which they already do.&lt;/p&gt;
 &lt;h2 id="keys-and-addresses"&gt;Keys and Addresses&lt;/h2&gt;
 &lt;p&gt;Bitcoin makes use of ECDSA. &lt;a href="undefined"&gt;Blair Marshall&lt;/a&gt; has written a nice article about it:
 &lt;a href="https://medium.com/@blairlmarshall/how-does-ecdsa-work-in-bitcoin-7819d201a3ec"&gt;&lt;strong&gt;How does ECDSA work in Bitcoin&lt;/strong&gt;
-&lt;em&gt;ECDSA (&amp;lsquo;Elliptical Curve Digital Signature Algorithm&amp;rsquo;) is the cryptography behind private and public keys used in&amp;hellip;&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
+&lt;em&gt;ECDSA (‘Elliptical Curve Digital Signature Algorithm’) is the cryptography behind private and public keys used in…&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The gist of it is that people have a private and a public key. The public key
 can be known to everybody, but the private key must be kept private. The owner
 of the private key can approve a transaction by a digital signature. This
@@ -57,16 +57,18 @@ happen around the same time.&lt;/p&gt;
 explorer&lt;/a&gt;
 and actually have a look at any block. Taking the linked example, you might
 see many lines like this:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Screenshot taken from blockchain.com" src="https://cdn-images-1.medium.com/max/3910/1*TqhazXZx3fsNzkNlnVSevg.png"/&gt;&lt;em&gt;Screenshot taken &lt;a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09"&gt;from blockchain.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot taken from blockchain.com" src="https://cdn-images-1.medium.com/max/3910/1*TqhazXZx3fsNzkNlnVSevg.png"&gt;&lt;em&gt;Screenshot taken &lt;a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09"&gt;from blockchain.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;In this example, you see two input addresses and over 228 output addresses.
 When you scroll down a bit, you can see the inputs:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Screenshot taken from blockchain.com" src="https://cdn-images-1.medium.com/max/3628/1*HGptTWiFcMW-iFXDGZd7WA.png"/&gt;&lt;em&gt;Screenshot taken &lt;a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09"&gt;from blockchain.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot taken from blockchain.com" src="https://cdn-images-1.medium.com/max/3628/1*HGptTWiFcMW-iFXDGZd7WA.png"&gt;&lt;em&gt;Screenshot taken &lt;a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09"&gt;from blockchain.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Here you can see the ECDSA signature of input 1:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;3044022059f56d87541691ff224e4c9941435dfb8780522d043f823a8ced...a01
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;p&gt;And the public key of input 1:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;038836175234670ee4c53943900615248f4a007b002b3c91c84c3edae009b9af3b
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;p&gt;The same goes for input 2.&lt;/p&gt;
 &lt;h2 id="inputs-and-outputs"&gt;Inputs and Outputs&lt;/h2&gt;
 &lt;p&gt;It sounds crazy but imagine real coins. In a transaction with real coins, the
@@ -75,21 +77,22 @@ coin is lost. Coins are created during &lt;strong&gt;mining&lt;/strong&gt; in a 
 limited amount. After that, they are assigned to a Bitcoin address.&lt;/p&gt;
 &lt;p&gt;This is the core of the UTXO model. You have a bunch of input Bitcoin
 addresses and a bunch of output Bitcoin addresses.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"/&gt;&lt;em&gt;Visualization of a transaction. Image by Satoshi Nakamoto (&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"&gt;&lt;em&gt;Visualization of a transaction. Image by Satoshi Nakamoto (&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Everybody can verify which address has how many Bitcoins in it by getting the
-whole blockchain. It is possible to track every bitcoin since the beginning.&lt;/p&gt;</content><category term="Blockchain"></category><category term="Blockchain"></category><category term="Bitcoin"></category><category term="Cryptocurrency"></category><category term="UTXO"></category></entry><entry><title>The Blockchain</title><link href="https://martin-thoma.com/https://medium.com/coinmonks/the-blockchain-473aac352e5" rel="alternate"></link><published>2021-01-13T20:00:00+01:00</published><updated>2021-01-13T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-01-13:/https://medium.com/coinmonks/the-blockchain-473aac352e5</id><summary type="html">&lt;p&gt;&lt;img alt="An example of a blockchain. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*PnKV_yIgbdLZMehrIlM1ZQ.png"/&gt;&lt;em&gt;An example of a blockchain. Image by Martin Thoma.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Bitcoin crossed $40,000 USD for the first time recently, so it&amp;rsquo;s again in the news. Bitcoin is just the most-known &lt;strong&gt;cryptocurrency&lt;/strong&gt;. It is one application using a &lt;strong&gt;blockchain&lt;/strong&gt;. In this article, I will walk you through some core concepts …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="An example of a blockchain. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*PnKV_yIgbdLZMehrIlM1ZQ.png"/&gt;&lt;em&gt;An example of a blockchain. Image by Martin Thoma.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Bitcoin crossed $40,000 USD for the first time recently, so it&amp;rsquo;s again in the news. Bitcoin is just the most-known &lt;strong&gt;cryptocurrency&lt;/strong&gt;. It is one application using a &lt;strong&gt;blockchain&lt;/strong&gt;. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let&amp;rsquo;s start!&lt;/p&gt;
+whole blockchain. It is possible to track every bitcoin since the beginning.&lt;/p&gt;</content><category term="Blockchain"></category><category term="Blockchain"></category><category term="Bitcoin"></category><category term="Cryptocurrency"></category><category term="UTXO"></category></entry><entry><title>The Blockchain</title><link href="https://martin-thoma.com/https://medium.com/coinmonks/the-blockchain-473aac352e5" rel="alternate"></link><published>2021-01-13T20:00:00+01:00</published><updated>2021-01-13T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-01-13:/https://medium.com/coinmonks/the-blockchain-473aac352e5</id><summary type="html">&lt;p&gt;&lt;img alt="An example of a blockchain. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*PnKV_yIgbdLZMehrIlM1ZQ.png"&gt;&lt;em&gt;An example of a blockchain. Image by Martin Thoma.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the most-known &lt;strong&gt;cryptocurrency&lt;/strong&gt;. It is one application using a &lt;strong&gt;blockchain&lt;/strong&gt;. In this article, I will walk you through some core concepts …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="An example of a blockchain. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/3606/1*PnKV_yIgbdLZMehrIlM1ZQ.png"&gt;&lt;em&gt;An example of a blockchain. Image by Martin Thoma.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the most-known &lt;strong&gt;cryptocurrency&lt;/strong&gt;. It is one application using a &lt;strong&gt;blockchain&lt;/strong&gt;. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let’s start!&lt;/p&gt;
 &lt;h2 id="the-idea-of-a-ledger"&gt;The Idea of a Ledger&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="German Ledger from 1828 (Source: RaphaelQS)" src="https://cdn-images-1.medium.com/max/3412/1*FTMD4L4J-UYMwVAjGP65UQ.png"/&gt;&lt;em&gt;German Ledger from 1828 (Source: &lt;a href="https://commons.wikimedia.org/wiki/File:Ledger.png"&gt;RaphaelQS&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let&amp;rsquo;s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put $100 USD in their bank account:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="German Ledger from 1828 (Source: RaphaelQS)" src="https://cdn-images-1.medium.com/max/3412/1*FTMD4L4J-UYMwVAjGP65UQ.png"&gt;&lt;em&gt;German Ledger from 1828 (Source: &lt;a href="https://commons.wikimedia.org/wiki/File:Ledger.png"&gt;RaphaelQS&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let’s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put $100 USD in their bank account:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Date             | Sender    | Receiver |  Amount
 -------------------------------------------------
 2021-01-01 06:00 | (Deposit) | Anna     |    $100
 2021-01-01 06:01 | (Deposit) | Bob      |    $100
 2021-01-01 06:08 | (Deposit) | Charlie  |    $100
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now they make a few transactions. Before the bank's system accepts any transaction, it checks if the account balance would still be non-negative. To get the account balance, they can sum up all previous transactions. To make it a bit easier to follow, I will shorten the &amp;ldquo;Date&amp;rdquo; to just a number counting up and add the balance after the transaction is executed for &lt;strong&gt;A&lt;/strong&gt;nna, &lt;strong&gt;B&lt;/strong&gt;ob, and &lt;strong&gt;C&lt;/strong&gt;harlie to the table. The ABC columns are just for you to keep track of; they are not necessary:&lt;/p&gt;
+
+&lt;p&gt;Now they make a few transactions. Before the bank's system accepts any transaction, it checks if the account balance would still be non-negative. To get the account balance, they can sum up all previous transactions. To make it a bit easier to follow, I will shorten the “Date” to just a number counting up and add the balance after the transaction is executed for &lt;strong&gt;A&lt;/strong&gt;nna, &lt;strong&gt;B&lt;/strong&gt;ob, and &lt;strong&gt;C&lt;/strong&gt;harlie to the table. The ABC columns are just for you to keep track of; they are not necessary:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Date | Sender   | Receiver | Amount |       A  |  B   |  C
 ------------------------------------|     ------------------
 1    | (Deposit)| Anna     | $100   |     $100 |   $0 |   $0
@@ -99,16 +102,17 @@ whole blockchain. It is possible to track every bitcoin since the beginning.&lt;
 5    | Bob      | Anna     |  $30   |     $130 |  $50 | $120
 6    | Anna     | Bob      | $130   |     $0   | $180 | $120
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;p&gt;Hence the ledger is just a database of all transactions.&lt;/p&gt;
-&lt;p&gt;(I&amp;rsquo;m simplifying a lot here. If you&amp;rsquo;re interested in &lt;a href="https://www.youtube.com/channel/UCYJLdSmyKoXCbnd-pklMn5Q"&gt;Accounting Stuff&lt;/a&gt;, James Hearle summarized those ideas and more, including double-entry accounting in the linked channel.)&lt;/p&gt;
+&lt;p&gt;(I’m simplifying a lot here. If you’re interested in &lt;a href="https://www.youtube.com/channel/UCYJLdSmyKoXCbnd-pklMn5Q"&gt;Accounting Stuff&lt;/a&gt;, James Hearle summarized those ideas and more, including double-entry accounting in the linked channel.)&lt;/p&gt;
 &lt;h2 id="how-to-get-rid-of-the-bank"&gt;How to get rid of the Bank&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by the blowup on Unsplash" src="https://cdn-images-1.medium.com/max/9832/0*CpxtEZdU4BBJgDa8"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@theblowup?utm_source=medium&amp;amp;utm_medium=referral"&gt;the blowup&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Anna, Bob, and Charlie are unhappy with their bank. They don&amp;rsquo;t like that it takes typically two working days until the booked transaction actually takes place. They are unhappy with paying fees. They wonder what would happen if their bank suddenly closed or maybe even manipulated the numbers.&lt;/p&gt;
-&lt;p&gt;As Anna, Bob, and Charlie live in the same apartment and they spent their money on stuff for the apartment (soap, toilet paper, dishwasher tabs, &amp;hellip;), they put a list on the fridge. They simply make it public who made which transaction. They don&amp;rsquo;t have complete trust in each other, though.&lt;/p&gt;
-&lt;p&gt;For example, Bob might write in the ledger that he got $20 from Charlie &amp;mdash; although Charlie never approved that. To make sure &lt;strong&gt;only the account owners can send money&lt;/strong&gt; from their accounts, every new transaction needs the &lt;strong&gt;signature&lt;/strong&gt; of the sender. To make sure that &lt;strong&gt;everybody only sends money they have&lt;/strong&gt;, the &lt;strong&gt;remaining participants check the balance of the sender&lt;/strong&gt;. If an invalid balance is seen, the transaction is rejected.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Photo by the blowup on Unsplash" src="https://cdn-images-1.medium.com/max/9832/0*CpxtEZdU4BBJgDa8"&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@theblowup?utm_source=medium&amp;amp;utm_medium=referral"&gt;the blowup&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Anna, Bob, and Charlie are unhappy with their bank. They don’t like that it takes typically two working days until the booked transaction actually takes place. They are unhappy with paying fees. They wonder what would happen if their bank suddenly closed or maybe even manipulated the numbers.&lt;/p&gt;
+&lt;p&gt;As Anna, Bob, and Charlie live in the same apartment and they spent their money on stuff for the apartment (soap, toilet paper, dishwasher tabs, …), they put a list on the fridge. They simply make it public who made which transaction. They don’t have complete trust in each other, though.&lt;/p&gt;
+&lt;p&gt;For example, Bob might write in the ledger that he got $20 from Charlie — although Charlie never approved that. To make sure &lt;strong&gt;only the account owners can send money&lt;/strong&gt; from their accounts, every new transaction needs the &lt;strong&gt;signature&lt;/strong&gt; of the sender. To make sure that &lt;strong&gt;everybody only sends money they have&lt;/strong&gt;, the &lt;strong&gt;remaining participants check the balance of the sender&lt;/strong&gt;. If an invalid balance is seen, the transaction is rejected.&lt;/p&gt;
 &lt;p&gt;They also want to make sure that &lt;strong&gt;nobody can erase any transaction&lt;/strong&gt;. The solution is simple: Every transaction gets an incrementing transaction number.&lt;/p&gt;
-&lt;h2 id="lets-make-it-digital"&gt;Let&amp;rsquo;s make it digital!&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Joshua Sortino on Unsplash" src="https://cdn-images-1.medium.com/max/8390/0*KWahhiN2IJx8UXSR"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@sortino?utm_source=medium&amp;amp;utm_medium=referral"&gt;Joshua Sortino&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="lets-make-it-digital"&gt;Let’s make it digital!&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Joshua Sortino on Unsplash" src="https://cdn-images-1.medium.com/max/8390/0*KWahhiN2IJx8UXSR"&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@sortino?utm_source=medium&amp;amp;utm_medium=referral"&gt;Joshua Sortino&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Anna, Bob, and Charlie want to be certain they will never lose their ledger. Instead of having a single central ledger, they decide to &lt;strong&gt;distribute&lt;/strong&gt; it. They all want to have a copy of it.&lt;/p&gt;
 &lt;p&gt;Being young students, all of them happen to have a website. So they come up with this protocol which they all want to follow:&lt;/p&gt;
 &lt;ol&gt;
@@ -123,17 +127,17 @@ whole blockchain. It is possible to track every bitcoin since the beginning.&lt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Then they notice two problems. The first one is the signature. Luckily, one of them heard of Public-Key Cryptography and digital signatures. They quickly realized that for any transaction, they can easily make a digital version of a signature that cannot be forged. The &lt;strong&gt;digital signature&lt;/strong&gt; does not only prove who made the transaction but also makes sure that the content of the transaction is not modified. As the content of the transaction contains the transaction number it is also not possible to delete a single transaction. As the longest list of transactions is shared, one cannot simply crop a whole lot of transactions off at the end.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but bob discarded the blue blocks in which he sent money to charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3786/1*l_g-X3q0xEVBskHQQsrSQA.png"/&gt;&lt;em&gt;Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but bob discarded the blue blocks in which he sent money to charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;What happens if Anna sees a new transaction from Bob and a new transaction from Charlie? Let&amp;rsquo;s say Anna has already confirmed that both, Bob and Charlie, have the same indices up to #42. Bob and Charlie had a lot of transactions after that and the correct latest transaction #60. But Bob doesn&amp;rsquo;t like that he had to send quite a bit of money to Charlie in transactions #43 to #60, so he simply writes 10 transactions after #42. Charlie still receives some money, but less than he should. Anna sees that Charlie has already transaction number #70 and ignores what Charlie has.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but bob discarded the blue blocks in which he sent money to charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3786/1*l_g-X3q0xEVBskHQQsrSQA.png"&gt;&lt;em&gt;Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but bob discarded the blue blocks in which he sent money to charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;What happens if Anna sees a new transaction from Bob and a new transaction from Charlie? Let’s say Anna has already confirmed that both, Bob and Charlie, have the same indices up to #42. Bob and Charlie had a lot of transactions after that and the correct latest transaction #60. But Bob doesn’t like that he had to send quite a bit of money to Charlie in transactions #43 to #60, so he simply writes 10 transactions after #42. Charlie still receives some money, but less than he should. Anna sees that Charlie has already transaction number #70 and ignores what Charlie has.&lt;/p&gt;
 &lt;p&gt;To prevent this, they make it more difficult to create a transaction. They have heard of &lt;a href="https://en.wikipedia.org/wiki/Hashcash"&gt;Hashcash&lt;/a&gt; to prevent spammers from sending too many emails. The idea is to make the Email sender (the potential spammer) execute a computationally heavy function. The result of that function is easy to verify, but there is no way to speed the execution of the function up in the first place. The result is then called &lt;strong&gt;Proof of Work&lt;/strong&gt;. The specific kind of proof of work that is typically used is called a &lt;strong&gt;nonce&lt;/strong&gt;: Number only used once. Finding such a nonce is intentionally computationally intensive. This is what &lt;strong&gt;mining&lt;/strong&gt; is. Alice, Bob, and Charlie agree to add the proof of work to each transaction. Thus re-calculating a lot of transactions is just not worth it anymore.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3066/1*y7lcxfcKXW5GMUf8lq-aFw.png"/&gt;&lt;em&gt;Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3066/1*y7lcxfcKXW5GMUf8lq-aFw.png"&gt;&lt;em&gt;Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;However, there is one big flaw: If they just store the transaction number, one could replace transactions in the middle. If Bob is unhappy that he has sent $100 to Charlie in transaction #43, he could just craft another transaction #43. So instead of storing the transaction number, they agree to store an identifier that is unique to the content of the previous transaction. A so-called &lt;strong&gt;hash value&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s summarize:&lt;/p&gt;
+&lt;p&gt;Let’s summarize:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Digital signatures&lt;/strong&gt; prevent &lt;strong&gt;transaction forgery.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Storing the previous transactions' &lt;strong&gt;hash value&lt;/strong&gt; prevents &lt;strong&gt;dropping existing transactions&lt;/strong&gt; by the sender. It also prevents &lt;strong&gt;duplication attacks&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Storing a &lt;strong&gt;proof of work&lt;/strong&gt; per transaction prevents &lt;strong&gt;re-computation of many transactions&lt;/strong&gt; at the end of the ledger.&lt;/li&gt;
-&lt;li&gt;Having the chain of transactions, the ledger, &lt;strong&gt;distributed&lt;/strong&gt; among all participants makes the current state &lt;strong&gt;transparent&lt;/strong&gt;. It&amp;rsquo;s a pre-requisite of preventing the re-computation.&lt;/li&gt;
+&lt;li&gt;Having the chain of transactions, the ledger, &lt;strong&gt;distributed&lt;/strong&gt; among all participants makes the current state &lt;strong&gt;transparent&lt;/strong&gt;. It’s a pre-requisite of preventing the re-computation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You might already have guessed it: A transaction in this example is pretty close to a block in the blockchain. In our example, a transaction contains:&lt;/p&gt;
 &lt;ul&gt;
@@ -147,26 +151,26 @@ whole blockchain. It is possible to track every bitcoin since the beginning.&lt;
 and thus there cannot be a hash value of a previous block. The first block is
 called the &lt;strong&gt;genesis block&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id="example-vs-bitcoin"&gt;Example vs Bitcoin&lt;/h2&gt;
-&lt;p&gt;One part I haven&amp;rsquo;t addressed at all is how the users of Bitcoin interact. We
-didn&amp;rsquo;t talk about the network at all. Just to be clear: It&amp;rsquo;s NOT the case that
+&lt;p&gt;One part I haven’t addressed at all is how the users of Bitcoin interact. We
+didn’t talk about the network at all. Just to be clear: It’s NOT the case that
 everybody adds their own website and everybody else has to know and check. That
 was just a simplification. There is a
 &lt;a href="https://en.wikipedia.org/wiki/Peer-to-peer"&gt;Peer-To-Peer&lt;/a&gt; protocol in place.&lt;/p&gt;
 &lt;p&gt;An important element of Bitcoin is the &lt;strong&gt;consensus algorithm&lt;/strong&gt; which decides
-what the latest block is. The network members check new data before it&amp;rsquo;s added
+what the latest block is. The network members check new data before it’s added
 with a consensus mechanism. The consensus algorithm has two elements. One
 consensus mechanism is &lt;strong&gt;proof of work&lt;/strong&gt;. The proof of work mechanism uses the
 computing capacity of the members to validate work. In the example, I made it
-constant. It&amp;rsquo;s more complicated. The other element of the consensus algorithm
+constant. It’s more complicated. The other element of the consensus algorithm
 is that in the case of a draw, if multiple parties have created a new block at
 exactly the same time, one waits until one of the chains gets longer. &lt;strong&gt;The
 longer chain wins&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Bitcoin also does not store the account balance. &lt;a href="https://bitcoin.stackexchange.com/q/29780/6721"&gt;It&amp;rsquo;s more
+&lt;p&gt;Bitcoin also does not store the account balance. &lt;a href="https://bitcoin.stackexchange.com/q/29780/6721"&gt;It’s more
 complicated&lt;/a&gt;. It stores a
 sequence of transactions. A transaction consists of inputs and outputs. The sum
 of inputs must be greater than or equal to the sum of outputs. This way, the
 double-spending problem is solved. The inputs must be associated with the
-signature of the transaction &amp;mdash; only the owner is allowed to send money. This
+signature of the transaction — only the owner is allowed to send money. This
 structure is the reason why you typically have two outputs: The receiver of the
 money and your own address for the change. You can imagine every input as a
 coin. Coins can only be split by having multiple outputs in a transaction, not
@@ -175,12 +179,12 @@ output.&lt;/p&gt;
 &lt;p&gt;It took me quite a while and the help of &lt;a href="https://www.rene-pickhardt.de/"&gt;Rene
 Pickhardt&lt;/a&gt; to understand that Bitcoin is
 actually NOT account-based, but everything that really matters is the
-transactions. It&amp;rsquo;s not verified that the account is a non-negative balance, but
+transactions. It’s not verified that the account is a non-negative balance, but
 that a transaction spends only available money. That is a crucial difference!
 Rene is an awesome educator; check out his &lt;a href="https://www.youtube.com/watch?v=TrF9RmfyLbw"&gt;introductory video about electronic
 cash&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="bitcoin-vs-blockchain"&gt;Bitcoin vs Blockchain&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Photo by Thought Catalog on Unsplash" src="https://cdn-images-1.medium.com/max/14934/0*IN19QU1F182EeISq"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@thoughtcatalog?utm_source=medium&amp;amp;utm_medium=referral"&gt;Thought Catalog&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Photo by Thought Catalog on Unsplash" src="https://cdn-images-1.medium.com/max/14934/0*IN19QU1F182EeISq"&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@thoughtcatalog?utm_source=medium&amp;amp;utm_medium=referral"&gt;Thought Catalog&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Bitcoin is an application that uses the blockchain. As an analogy, think of
 email. Email is an application that uses the internet.&lt;/p&gt;
 &lt;p&gt;Blockchain Technology combines 4 concepts:&lt;/p&gt;
@@ -203,7 +207,7 @@ email. Email is an application that uses the internet.&lt;/p&gt;
 &lt;p&gt;As with every hype, people want to apply it everywhere. But where does it
 actually make sense?&lt;/p&gt;
 &lt;p&gt;You can see the blockchain as a very special database. It only supports
-insertions, but no deletions or edits. It&amp;rsquo;s &lt;strong&gt;managed by the network&lt;/strong&gt;.
+insertions, but no deletions or edits. It’s &lt;strong&gt;managed by the network&lt;/strong&gt;.
 Depending on the protocol, this can mean that the data in the blockchain is
 &lt;strong&gt;immutable&lt;/strong&gt;. The data is &lt;strong&gt;distributed&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;There are some properties where blockchain will never be able to compete with well-known database systems:&lt;/p&gt;
@@ -221,24 +225,24 @@ Depending on the protocol, this can mean that the data in the blockchain is
 &lt;li&gt;&lt;strong&gt;Queries&lt;/strong&gt;: We have lots of database types. Especially relational databases
   allow very complex queries. You will not have that with the blockchain.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Those alone already show that you want traditional database systems for a lot of problems. So let&amp;rsquo;s see where the Blockchain shines:&lt;/p&gt;
+&lt;p&gt;Those alone already show that you want traditional database systems for a lot of problems. So let’s see where the Blockchain shines:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Cryptocurrencies &lt;/strong&gt;are probably the best-known examples of Blockchain
   technology as Bitcoin made the whole topic famous. The idea here is that you
-  have a digital asset that cannot be forged. It&amp;rsquo;s impossible to create fake
+  have a digital asset that cannot be forged. It’s impossible to create fake
   bitcoins. The government cannot decide to print new Bitcoins. The process is
   transparent and open to everybody: Every person and every organization.
-  Privacy here is an interesting topic; if you&amp;rsquo;re interested I would write an
-  own article about that. It also has challenges. For example, it&amp;rsquo;s impossible
+  Privacy here is an interesting topic; if you’re interested I would write an
+  own article about that. It also has challenges. For example, it’s impossible
   to get Bitcoin back if you lose your wallet. They are gone. For everybody.
   Forever. Or if somebody steals your computer and transfers them. If you get
   hacked. There is no court that can undo it.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Supply Chain Management&lt;/strong&gt;: Many brands nowadays want to make their supply
   chain more transparent. They want to prove to the customers where their
-  product came from; &amp;ldquo;traceability&amp;rdquo; is the buzzword. They also want to make
+  product came from; “traceability” is the buzzword. They also want to make
   sure that counterfeits can be identified. So they upload data and about the
   origin of their products at every step. Those steps have timestamps and are
-  very fine-granular. One problem the blockchain doesn&amp;rsquo;t solve is that all of
+  very fine-granular. One problem the blockchain doesn’t solve is that all of
   the uploaded data could be faked. If you want to know more, get in touch with
   my friend &lt;a href="https://www.linkedin.com/in/petermerkert/"&gt;Peter Merkert&lt;/a&gt;. He
   built &lt;a href="https://retraced.co/"&gt;retraced&lt;/a&gt;, a company that supports the clothing
@@ -246,12 +250,12 @@ Depending on the protocol, this can mean that the data in the blockchain is
   proof-reading this article 🤗&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Real Estate&lt;/strong&gt;: I know that in Germany we have pretty good maps of the
   country, of ownership of every single piece of land. The process of buying
-  and selling land includes a trusted party &amp;mdash; a
+  and selling land includes a trusted party — a
   &lt;a href="https://en.wikipedia.org/wiki/Notary"&gt;notary&lt;/a&gt;. The notary gets 1.5% of the
   amount you pay for the land. A square meter of land costs about 4000 EUR in
-  Munich. A small house has about 300m&amp;sup2; &amp;mdash; so you would pay 1.2 million EUR for
+  Munich. A small house has about 300m² — so you would pay 1.2 million EUR for
   the land and thus 18k for the notary. This is a pretty good incentive to get
-  rid of the notary, isn&amp;rsquo;t it? The other case is that you might not have such a
+  rid of the notary, isn’t it? The other case is that you might not have such a
   process in all countries.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Capital Markets&lt;/strong&gt;: Blockchain-based digital securities provide cost
   advantages because they can be issued and exchanged without middlemen
@@ -265,14 +269,14 @@ Depending on the protocol, this can mean that the data in the blockchain is
 &lt;/ul&gt;
 &lt;p&gt;A good sign that you might have a valid use case if there is &lt;strong&gt;no trusted
 middleman&lt;/strong&gt; or if you want to get rid of the middleman. Just look at the supply
-chain case. If there is an organization that people trust, then you don&amp;rsquo;t need
+chain case. If there is an organization that people trust, then you don’t need
 to store the data in the blockchain. That organization just stores it in a
 traditional database they control.&lt;/p&gt;
-&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next&lt;/h2&gt;
+&lt;h2 id="whats-next"&gt;What’s next&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Hashing: What it is, what cryptographic hashing is, what SHA / MD5 is&lt;/li&gt;
 &lt;li&gt;Merkle Trees: What they are, how they work, and how they are used in Bitcoin&lt;/li&gt;
-&lt;li&gt;Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it&amp;rsquo;s so important&lt;/li&gt;
+&lt;li&gt;Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it’s so important&lt;/li&gt;
 &lt;li&gt;Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.&lt;/li&gt;
 &lt;li&gt;Smart contracts: What they are and how they work; e.g. with Etherium as an example&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Initial_coin_offering"&gt;Initial Coin Offering&lt;/a&gt; (ICO)&lt;/li&gt;
@@ -281,19 +285,19 @@ traditional database they control.&lt;/p&gt;
 &lt;li&gt;Bitcoin Wallets&lt;/li&gt;
 &lt;li&gt;Peer-To-Peer Stuff: How Gossip Protocols work&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know what you&amp;rsquo;re interested in!&lt;/p&gt;
+&lt;p&gt;Let me know what you’re interested in!&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;h3 id="literature"&gt;Literature&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Satoshi Nakamoto: &amp;ldquo;&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;&amp;rdquo;, 2008.&lt;/li&gt;
-&lt;li&gt;Gavin Wood: &amp;ldquo;&lt;a href="http://gavwood.com/Paper.pdf"&gt;Ethereum: A secure decentralised generalised transaction ledger&lt;/a&gt;&amp;rdquo;, 2014&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.der-bank-blog.de/author/patrick-schueffel/"&gt;Patrick Schueffel&lt;/a&gt;: &amp;ldquo;&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3144241"&gt;Alternative Distributed Ledger Technologies Blockchain vs. Tangle vs. Hashgraph &amp;mdash; A High-Level Overview and Comparison&lt;/a&gt;&amp;rdquo;, 2017.&lt;/li&gt;
+&lt;li&gt;Satoshi Nakamoto: “&lt;a href="https://bitcoin.org/bitcoin.pdf"&gt;Bitcoin: A Peer-to-Peer Electronic Cash System&lt;/a&gt;”, 2008.&lt;/li&gt;
+&lt;li&gt;Gavin Wood: “&lt;a href="http://gavwood.com/Paper.pdf"&gt;Ethereum: A secure decentralised generalised transaction ledger&lt;/a&gt;”, 2014&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.der-bank-blog.de/author/patrick-schueffel/"&gt;Patrick Schueffel&lt;/a&gt;: “&lt;a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3144241"&gt;Alternative Distributed Ledger Technologies Blockchain vs. Tangle vs. Hashgraph — A High-Level Overview and Comparison&lt;/a&gt;”, 2017.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="videos"&gt;Videos&lt;/h3&gt;
 &lt;p&gt;Bosch created an awesome introductory video:&lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/NKAanYdic9Q" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/NKAanYdic9Q" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
 &lt;p&gt;And also 3Blue1Brown:&lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/bBC-nXj3Ng4" width="560"&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/bBC-nXj3Ng4" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h1 id="join-coinmonks-telegram-group-and-learn-about-crypto-trading-and-investing"&gt;Join Coinmonks &lt;a href="https://t.me/joinchat/EPmjKpNYwRMsBI4p"&gt;Telegram group&lt;/a&gt; and learn about crypto trading and investing&lt;/h1&gt;
 &lt;/blockquote&gt;</content><category term="Blockchain"></category><category term="Blockchain"></category></entry></feed>

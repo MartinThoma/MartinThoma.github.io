@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#how-can-access-control-be-broken" title="How can access control be broken?">How can access control be broken?</a><ul><li><a class="toc-href" href="#hiding-a-system-isnt-secure" title="Hiding a system isn&rsquo;t secure">Hiding a system isn&rsquo;t secure</a></li><li><a class="toc-href" href="#forgetting-to-apply-access-control" title="Forgetting to apply access control">Forgetting to apply access control</a></li><li><a class="toc-href" href="#client-side-access-control" title="Client-side access control">Client-side access control</a></li><li><a class="toc-href" href="#trusting-the-client" title="Trusting the client">Trusting the client</a></li><li><a class="toc-href" href="#missing-expiration-date" title="Missing Expiration Date">Missing Expiration Date</a></li><li><a class="toc-href" href="#broken-authentication-control" title="Broken Authentication Control">Broken Authentication Control</a></li></ul></li><li><a class="toc-href" href="#access-control-policies_1" title="Access Control Policies">Access Control Policies</a><ul><li><a class="toc-href" href="#discretionary-access-control-dac" title="Discretionary Access Control (DAC)">Discretionary Access Control (DAC)</a></li><li><a class="toc-href" href="#mandatory-access-control-mac" title="Mandatory Access Control (MAC)">Mandatory Access Control (MAC)</a></li><li><a class="toc-href" href="#role-based-access-control-rbac" title="Role-based Access Control (RBAC)">Role-based Access Control (RBAC)</a></li><li><a class="toc-href" href="#attribute-based-access-control-abac" title="Attribute-based Access Control (ABAC)">Attribute-based Access Control (ABAC)</a></li><li><a class="toc-href" href="#why-rbacabac-with-decorators-is-great" title="Why RBAC/ABAC with Decorators is great">Why RBAC/ABAC with Decorators is great</a></li></ul></li><li><a class="toc-href" href="#tricks-to-make-access-control-effective_1" title="Tricks to make Access Control Effective">Tricks to make Access Control Effective</a></li><li><a class="toc-href" href="#credits" title="Credits">Credits</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.</p>
@@ -117,29 +111,29 @@ MathJax.Hub.Queue(function() {
 <ul>
 <li><strong>Subjects</strong>: People like my girlfriend/Obama/my neighbor; organizations like
   the NSA; companies like Github/Google/Facebook; software like bots</li>
-<li><strong>Objects</strong>: Partitions, files, databases, database schemas, database tables, &hellip;</li>
-<li><strong>Rights</strong>: Read, write, modify/alter, delete, add/insert, append, enter, execute, &hellip;</li>
+<li><strong>Objects</strong>: Partitions, files, databases, database schemas, database tables, …</li>
+<li><strong>Rights</strong>: Read, write, modify/alter, delete, add/insert, append, enter, execute, …</li>
 </ul>
 <p>For example, my girlfriend has permission to enter my house. In this case, my
-girlfriend is the subject, the object is &ldquo;house&rdquo; and the right is &ldquo;enter&rdquo;.</p>
+girlfriend is the subject, the object is “house” and the right is “enter”.</p>
 <p>In this article, you will get to know how access control can be broken,
 different types of access control, and finally some tricks for effective access
-control. Let&rsquo;s start!</p>
+control. Let’s start!</p>
 <h2 id="how-can-access-control-be-broken">How can access control be broken?</h2>
 <p>Many things can go wrong in access control and some of them are very hard to
 automatically check. This is the reason why broken access Control (BAC) is
 <a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">number 4 in OWASP TOP-10
 2017</a>.</p>
-<h3 id="hiding-a-system-isnt-secure">Hiding a system isn&rsquo;t secure</h3>
-<p>The (implicit) assumption that some systems or data don&rsquo;t need access control,
+<h3 id="hiding-a-system-isnt-secure">Hiding a system isn’t secure</h3>
+<p>The (implicit) assumption that some systems or data don’t need access control,
 because they are never (purposely) exposed to the public is a common mistake.
-I&rsquo;m thinking here of AWS S3 buckets where people let just everybody upload. The
+I’m thinking here of AWS S3 buckets where people let just everybody upload. The
 thought here is that people need to know the name of the bucket and no one
 would just try <code>s3://company-data</code> or similar.</p>
 <p>Another attack that goes in this direction is called <strong>insecure direct object
 reference (IDOR)</strong>. Imagine you wanted to download an invoice from Amazon and
 found that it downloaded it fromhttps://amazon.com/invoice/1234/invoice.pdf .
-Wouldn&rsquo;t you be curious about what
+Wouldn’t you be curious about what
 <a href="https://amazon.com/invoice/1234/invoice.pdf">https://amazon.com/invoice/1233/invoice.pdf</a>
 contained? It could very well be that this would be an invoice of a different
 person. And it could be that there is no more access control performed.</p>
@@ -150,12 +144,12 @@ could be that you need to add code to every route which is not public. This
 makes it easy to forget. And to miss it in a code review that it was forgotten.
 Even if all people agree that the route needs access control.</p>
 <h3 id="client-side-access-control">Client-side access control</h3>
-<p><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." src="https://cdn-images-1.medium.com/max/2400/1*vtfvTaqe3QLcjA2v0Mh0vQ.png"/><em>Age verification for adult content is a typical example of client-side access control. Image by the author.</em></p>
-<p>I haven&rsquo;t seen client-side access control in a long time, but please don&rsquo;t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.</p>
+<p><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." src="https://cdn-images-1.medium.com/max/2400/1*vtfvTaqe3QLcjA2v0Mh0vQ.png"><em>Age verification for adult content is a typical example of client-side access control. Image by the author.</em></p>
+<p>I haven’t seen client-side access control in a long time, but please don’t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.</p>
 <h3 id="trusting-the-client">Trusting the client</h3>
 <p>Authentication typically means that the user needs to enter a username/email
 and a password. Then the server creates either a session or a token to remember
-that user. We don&rsquo;t want the user to have to authenticate again and again.</p>
+that user. We don’t want the user to have to authenticate again and again.</p>
 <p>Typically, there are at least 3 levels of users:</p>
 <ul>
 <li>Anonymous users</li>
@@ -166,8 +160,8 @@ that user. We don&rsquo;t want the user to have to authenticate again and again.
 The system needs a way to distinguish the admin from normal users.</p>
 <p>Sometimes, this is done with an unsigned cookie. Hence we store the information
 if the user is an admin at the client. Non-malicious users will not tamper with
-that information and thus the browser tells us with every request &ldquo;I&rsquo;m not an
-admin&rdquo;. But malicious users can change that cookie. By changing the is_admin
+that information and thus the browser tells us with every request “I’m not an
+admin”. But malicious users can change that cookie. By changing the is_admin
 cookie from <code>is_admin=false</code> to <code>is_admin=true</code> they perform a <strong>privilege
 escalation</strong>.</p>
 <p>There are two typical ways around it:</p>
@@ -194,17 +188,17 @@ source. The cryptographic signature is right and thus the token is trustworthy.
 And it was. Until the contained information changed.</p>
 <h3 id="broken-authentication-control">Broken Authentication Control</h3>
 <p>If you can authenticate as another user, you will get all rights of that user.
-It&rsquo;s not really broken access control but has the same effect. I&rsquo;ll write a
+It’s not really broken access control but has the same effect. I’ll write a
 couple of articles about authentication:</p>
 <ul>
 <li><a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
-<li>Multi-factor authentication &mdash; yet to be written!</li>
-<li>Single-sign on &mdash; it&rsquo;s on my list, buddy 🤞</li>
-<li>OAuth and OpenID &mdash; you guessed it&hellip; it&rsquo;s on the way 😅</li>
+<li>Multi-factor authentication — yet to be written!</li>
+<li>Single-sign on — it’s on my list, buddy 🤞</li>
+<li>OAuth and OpenID — you guessed it… it’s on the way 😅</li>
 </ul>
-<h2 id="access-control-policies_1">Access Control Policies</h2>
+<h2 id="access-control-policies">Access Control Policies</h2>
 <p>The following access control policies deal with slightly different problems.
-I&rsquo;m not talking about specific technologies here, but the abstract concepts
+I’m not talking about specific technologies here, but the abstract concepts
 which many implementations use.</p>
 <h3 id="discretionary-access-control-dac"><strong>Discretionary Access Control (DAC)</strong></h3>
 <p>You can formally store all rights as tuples (Subject, Object, Right). You can
@@ -213,47 +207,49 @@ object-centric and store a list of all subjects with their rights. For example,
 for the file foobar.txt you could store <code>Alice:read,write; Bob:read</code>. This is
 called an <strong>Access Control List (ACL)</strong>. You can also store that information
 subject-centric: For each user, store what the user can do. That is called a
-<strong>Capability List (C-List)</strong>. It&rsquo;s still the same information, but another data
+<strong>Capability List (C-List)</strong>. It’s still the same information, but another data
 structure.</p>
-<p>The &ldquo;discretionary&rdquo; part is that the users are allowed to change the
+<p>The “discretionary” part is that the users are allowed to change the
 permissions of an object.</p>
 <h3 id="mandatory-access-control-mac"><strong>Mandatory Access Control (MAC)</strong></h3>
 <p>In the case of DAC, the rights did not have any relation to each other. This is
 different in MAC. For MAC, the rights are ordered: <code>Public &lt; confidential &lt;
 secret &lt;top secret</code>. Users have a clearance and objects have a classification.
-If Bob has a &ldquo;secret&rdquo; clearance, he is allowed to read documents that are
-classified as &ldquo;secret&rdquo;, &ldquo;confidential&rdquo;, or &ldquo;public&rdquo;. MAC is used by SELinux and
+If Bob has a “secret” clearance, he is allowed to read documents that are
+classified as “secret”, “confidential”, or “public”. MAC is used by SELinux and
 AppArmor.</p>
 <p>In contrast to DAC, in the MAC case users are not allowed to change the
 permissions. The permissions are set by the system administrator.</p>
 <h3 id="role-based-access-control-rbac"><strong>Role-based Access Control (RBAC)</strong></h3>
 <p>Assigning permissions to subjects directly might be a lot of administrative
-work. Instead, you can create a role, e.g. &ldquo;team lead&rdquo;, &ldquo;quality assurance&rdquo;,
-&ldquo;developer&rdquo;, &ldquo;accounting&rdquo;, &ldquo;CTO&rdquo;. Every subject can have an arbitrary amount of
-roles. Roles have rights for objects. For example, for the &ldquo;others salary&rdquo; the
-role &ldquo;CTO&rdquo; might have the right to &ldquo;read&rdquo; and &ldquo;edit&rdquo; it. For a given object,
+work. Instead, you can create a role, e.g. “team lead”, “quality assurance”,
+“developer”, “accounting”, “CTO”. Every subject can have an arbitrary amount of
+roles. Roles have rights for objects. For example, for the “others salary” the
+role “CTO” might have the right to “read” and “edit” it. For a given object,
 the rights of a subject are the set of all rights of all roles that the user
 has. RBAC is used by all content management systems (CMS) I know. Famous
 examples are Wikipedia, Reddit, and StackExchange.</p>
 <p>To apply RBAC, you need a role table (could also be called group ) and a table
 that connects users with groups:</p>
-<p><img alt="Image by author" src="https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png"/><em>Image by author</em></p>
+<p><img alt="Image by author" src="https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png"><em>Image by author</em></p>
 <p>Then you need to get all roles a user has:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">role_id</span> <span class="k">FROM</span> <span class="n">role_user</span> <span class="k">WHERE</span> <span class="n">user_id</span> <span class="o">=</span> <span class="p">:</span><span class="k">current_user</span>
 </code></pre></div>
+
 <p>You might want to cache this query as you will execute it a lot and the roles
 might not change that quickly.</p>
 <p>The last ingredient is to store an access control list per route. In Flask, it
 could look like this with <a href="https://pypi.org/project/Flask-User/">Flask-User</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/analytics"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"GET"</span><span class="p">])</span>
-<span class="nd">@roles_required</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/analytics&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="nd">@roles_required</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">analytics_route</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"some"</span><span class="p">:</span> <span class="s2">"analytics_data"</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;some&quot;</span><span class="p">:</span> <span class="s2">&quot;analytics_data&quot;</span><span class="p">}</span>
 </code></pre></div>
+
 <p>When this route is called, the <code>@roles_required</code> decorator first executes the
-access control code. If the user doesn&rsquo;t have access, the rest is ignored and
+access control code. If the user doesn’t have access, the rest is ignored and
 an exception is thrown or an error response is returned.</p>
-<p>RBAC can be combined with either DAC or MAC. For web applications, it&rsquo;s typical
+<p>RBAC can be combined with either DAC or MAC. For web applications, it’s typical
 that the objects (the routes) have some fixed roles they require. Only the
 developers can change them. They are fixed in the code, not in a database. The
 decorator <code>@roles_required("admin")</code> here is an ACL.</p>
@@ -263,51 +259,54 @@ between the subject and the object, e.g. if the subject is the creator of that
 object it might automatically grant the subject some rights. Or depending on
 the time or location, the rights might change. For example, normal employees
 might not be allowed to access the office between 11 pm and 5 am.</p>
-<p>We don&rsquo;t want to fire too many requests against our database, give meaningful
+<p>We don’t want to fire too many requests against our database, give meaningful
 error responses, and not repeat code. A good compromise could be this pattern:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/article/&lt;article_id&gt;"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"PATCH"</span><span class="p">])</span>  <span class="c1"># execute (1)</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/article/&lt;article_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PATCH&quot;</span><span class="p">])</span>  <span class="c1"># execute (1)</span>
 <span class="nd">@get_article</span>  <span class="c1"># execute (2)</span>
 <span class="nd">@attribute_required</span><span class="p">(</span><span class="n">is_author</span><span class="p">)</span>  <span class="c1"># execute (3)</span>
 <span class="k">def</span> <span class="nf">edit_article</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">):</span>  <span class="c1"># execute (4)</span>
     <span class="o">...</span>  <span class="c1"># update the article</span>
 </code></pre></div>
+
 <p>The get_article decorator simply uses the ORM:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 
 <span class="k">def</span> <span class="nf">get_article</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Make the variable "article" available.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make the variable &quot;article&quot; available.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    func : Callable</span>
-<span class="sd">        Needs to have an 'article' keyword parameter.</span>
+<span class="sd">        Needs to have an &#39;article&#39; keyword parameter.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    modified_func : Callable</span>
-<span class="sd">        A function where the parameter 'article' is added to</span>
+<span class="sd">        A function where the parameter &#39;article&#39; is added to</span>
 <span class="sd">        the signature</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="n">article_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">"article_id"</span><span class="p">]</span>
+        <span class="n">article_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;article_id&quot;</span><span class="p">]</span>
         <span class="n">article</span> <span class="o">=</span> <span class="n">get_article_from_db</span><span class="p">(</span><span class="n">article_id</span><span class="p">)</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">"article"</span><span class="p">]</span> <span class="o">=</span> <span class="n">article</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;article&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">article</span>
         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">wrapper</span>
 </code></pre></div>
+
 <p>The is_author function then is pretty straight forward:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_author</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">article</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
 </code></pre></div>
+
 <p>More complicated is the design of attribute_required , but in principle, it works similarly to the decorator above.</p>
 <h3 id="why-rbacabac-with-decorators-is-great">Why RBAC/ABAC with Decorators is great</h3>
-<p>Let&rsquo;s say you build the e-commerce website eBay. One entity is an auction. It has various attributes:</p>
+<p>Let’s say you build the e-commerce website eBay. One entity is an auction. It has various attributes:</p>
 <ul>
 <li><strong>Auction ID</strong>: Set by the system, immutable</li>
 <li><strong>Seller ID</strong>: Set by the system, immutable</li>
@@ -318,16 +317,18 @@ error responses, and not repeat code. A good compromise could be this pattern:</
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">auction</span><span class="o">.</span><span class="n">seller_id</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">"Only the seller may edit"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">&quot;Only the seller may edit&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Then you realize that admins should always be able to change it:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
     <span class="n">is_seller</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">auction</span><span class="o">.</span><span class="n">seller_id</span>
     <span class="n">is_admin</span> <span class="o">=</span> <span class="n">is_admin</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_seller</span> <span class="ow">or</span> <span class="n">is_admin</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">"Only the seller may edit"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">&quot;Only the seller may edit&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>And you might realize that you also should check for moderators. And maybe you
 allow companies to sell as well. So not only the person who put it in the shop
 but also moderators of that company should be able to adjust description texts.
@@ -340,63 +341,64 @@ can be context-dependent.</p>
 <span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="tricks-to-make-access-control-effective_1">Tricks to make Access Control Effective</h2>
-<p><img alt="Photo by Jaimie Harmsen on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*qLPyfhzI9rq7ObkR"/><em>Photo by <a href="https://unsplash.com/@jaimie_96?utm_source=medium&amp;utm_medium=referral">Jaimie Harmsen</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+
+<h2 id="tricks-to-make-access-control-effective">Tricks to make Access Control Effective</h2>
+<p><img alt="Photo by Jaimie Harmsen on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*qLPyfhzI9rq7ObkR"><em>Photo by <a href="https://unsplash.com/@jaimie_96?utm_source=medium&amp;utm_medium=referral">Jaimie Harmsen</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>The case of creating web services is certainly most interesting to most
-readers, so let&rsquo;s focus on that. Access control is enforced in the backend and
-hence typically on the API level. It&rsquo;s most of the time about which users can
+readers, so let’s focus on that. Access control is enforced in the backend and
+hence typically on the API level. It’s most of the time about which users can
 call which API endpoints, but sometimes it can be more complicated. For
 example, in a social network, every user might be allowed to get the list of
 friends of another user. But you might only see the birthday if you are a
 friend of that user yourself. Hence some endpoints might be callable but
 deliver different data depending on the caller.</p>
-<p>For now, let&rsquo;s just focus on the simple case with a REST API. If you have the
+<p>For now, let’s just focus on the simple case with a REST API. If you have the
 permission to call an endpoint with a given set of parameters, then you will
 always get the same result. No matter who you are / which role you have. The
-only right we care about for now is &ldquo;can call&rdquo;. Our subjects are &ldquo;users&rdquo; and
+only right we care about for now is “can call”. Our subjects are “users” and
 our objects are the combination (route, parameter).</p>
 <p>In such a scenario, you will typically want to make a role-based system. There are some simple principles that can help:</p>
 <ul>
-<li><strong>Deny by default</strong>: It&rsquo;s easy to add a new route somewhere. Make sure that
-  people don&rsquo;t leak data by not allowing any access whatsoever by default. Make
+<li><strong>Deny by default</strong>: It’s easy to add a new route somewhere. Make sure that
+  people don’t leak data by not allowing any access whatsoever by default. Make
   them write down which roles are allowed.</li>
-<li><strong>DRY</strong>: Don&rsquo;t repeat yourself. Implement the access control code once and
+<li><strong>DRY</strong>: Don’t repeat yourself. Implement the access control code once and
   make it simple to check without copy-pasting the implementation. In Python /
   Flask, you typically want a decorator over your function to denote the
   allowed roles.</li>
-<li><strong>Least privilege</strong>: Don&rsquo;t give people roles they don&rsquo;t need. Don&rsquo;t give
-  roles permissions they don&rsquo;t need. Remove roles from people if they leave &mdash;
+<li><strong>Least privilege</strong>: Don’t give people roles they don’t need. Don’t give
+  roles permissions they don’t need. Remove roles from people if they leave —
   no matter if they leave the job or just that role. The fewer people have
   access, the less potential for issues.</li>
 <li><strong>YAGNI</strong>: Designing good software is hard. Some software engineers tend to
   think 10 steps ahead and build the system for potential future use cases. Of
   course, sometimes you already know that topics are on the table. Otherwise,
-  <strong>y</strong>ou <strong>a</strong>in&rsquo;t <strong>g</strong>onna <strong>n</strong>eed <strong>i</strong>t (YAGNI). Build stuff when you
+  <strong>y</strong>ou <strong>a</strong>in’t <strong>g</strong>onna <strong>n</strong>eed <strong>i</strong>t (YAGNI). Build stuff when you
   need it. That might mean a bit more work and refactoring parts of the
-  software. That&rsquo;s ok.</li>
+  software. That’s ok.</li>
 <li><strong>Minimize attack surface</strong>: Whenever you can, try to remove features and
-  outdated code. Code you delete doesn&rsquo;t need to get maintained. It cannot have
+  outdated code. Code you delete doesn’t need to get maintained. It cannot have
   security issues.</li>
 <li><strong>Clustering objects around Rights</strong>: If you have a few types of
   rights/roles, you could group your objects around that. For example, if your
-  objects are files, your roles are &ldquo;owner&rdquo;, &ldquo;group&rdquo;, &ldquo;other&rdquo; and the rights
-  are &ldquo;read&rdquo; / &ldquo;write&rdquo; / &ldquo;execute&rdquo;, then this grouping is a directory with
-  Unix-style permissions. If you&rsquo;re thinking about web services, your objects
-  could be routes, the rights would be &ldquo;call&rdquo; and the roles would be
-  &ldquo;anonymous&rdquo;, &ldquo;registered&rdquo;, &ldquo;admin&rdquo;. Then you can organize your code in such a
+  objects are files, your roles are “owner”, “group”, “other” and the rights
+  are “read” / “write” / “execute”, then this grouping is a directory with
+  Unix-style permissions. If you’re thinking about web services, your objects
+  could be routes, the rights would be “call” and the roles would be
+  “anonymous”, “registered”, “admin”. Then you can organize your code in such a
   way that no file contains routes for anonymous users AND admin users. If you
   do that, then human errors become way easier to exclude. In a review, if
-  suddenly an admin-type route appears in a &ldquo;normal user&rdquo; file, this is easy to
+  suddenly an admin-type route appears in a “normal user” file, this is easy to
   spot.</li>
 </ul>
 <h2 id="credits">Credits</h2>
 <p>Steven Gorden summarized parts of the terminology really well:</p>
-<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" width="560"></iframe></center></p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
+<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" frameborder="0" allowfullscreen></iframe></center></p>
+<h2 id="whats-next">What’s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

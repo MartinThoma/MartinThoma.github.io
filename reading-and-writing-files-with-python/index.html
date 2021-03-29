@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#reading" title="Reading">Reading</a><ul><li><a class="toc-href" href="#completely" title="Completely">Completely</a></li><li><a class="toc-href" href="#line-by-line" title="Line by line">Line by line</a></li></ul></li><li><a class="toc-href" href="#writing_1" title="Writing">Writing</a></li><li><a class="toc-href" href="#python-3" title="Python 3">Python 3</a></li><li><a class="toc-href" href="#with" title="with">with</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Reading (and writing) files with Python is very easy. Here are some
@@ -126,6 +120,7 @@ reading a file takes (all times are in seconds, reading is executed 100 times):<
 10 MiB         0.0041    0.0079    0.0047    0.0049
 100 MiB        0.0627    0.0778    0.0655    0.0663
 </code></pre></div>
+
 <p>As you can see, reading files is quite fast. However, I would recommend the
 start thinking if reading the complete file is appropriate when the file
 size exceeds 100 MiB as you might get different problems then. For example,
@@ -135,39 +130,45 @@ computer has).</p>
 <p>See <a href="https://gist.github.com/MartinThoma/eb1e56405009839804e7">source code</a>
 for details how I measured it.</p>
 <h3 id="completely">Completely</h3>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filename.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filename.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </code></pre></div>
+
 <p>is all you need to read a text file completely in a Python string variable
 <code>content</code>. You could, for example, split the whole string to a list of lines:</p>
-<div class="highlight"><pre><span></span><code><span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <h3 id="line-by-line">Line by line</h3>
 <p>You can read a text file line by line, but keep in mind that this will still
 have the endline character <code>\n</code> in each <code>line</code>!</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filename.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filename.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="writing_1">Writing</h2>
+
+<h2 id="writing">Writing</h2>
 <p>To open files, you have to specify a mode. This is either reading, writing or
 appending (binary or text data). If you don't specify it, the default value
 is reading. So for writing you have to specify it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filename.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Hello world!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filename.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="python-3">Python 3</h2>
 <p>Python 3 has some new features which are very nice to have. To get them in
 Python 2, you have to add</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 </code></pre></div>
+
 <p>at the beginning of your code before other imports happen. Now you can print to
 files:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"file.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
+
 <p>The <a href="https://docs.python.org/3.0/library/functions.html#print"><code>print</code></a>
 function has also a "end" parameter which defaults to <code>\n</code>. This means it adds
 <code>\n</code> automatically at the end of each printed line. You might not want that

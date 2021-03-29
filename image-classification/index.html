@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#how-to-use" title="How to use">How to use</a></li><li><a class="toc-href" href="#alternative-models" title="Alternative Models">Alternative Models</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Image classification is the following task: You have an image and you want to
@@ -116,9 +110,10 @@ assign it one label. The set of possible labels is finite and typically not
 bigger than 1000.</p>
 <p>So for example, you might ask: What can you see in this image?</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="A jellyfish" src="../images/2017/03/moon-jelly.jpg" style="width: 512px;"/>
-<figcaption class="text-center">A jellyfish</figcaption>
+    <img src="../images/2017/03/moon-jelly.jpg" alt="A jellyfish" style="width: 512px;"/>
+    <figcaption class="text-center">A jellyfish</figcaption>
 </figure>
+
 <p>It is one of the most common and probably simplest tasks in the intersection of
 machine learning and computer vision. A commonly used dataset is <a href="https://en.wikipedia.org/wiki/ImageNet">ImageNet</a>,
 which consists of exactly 1000&nbsp;classes and has more than 1&thinsp;000&thinsp;000
@@ -134,13 +129,13 @@ training samples. To be exact, it is the ImageNet Large Scale Visual Recognition
 <li><a href="https://keras.io/#installation">Keras</a></li>
 </ul>
 <h2 id="code">Code</h2>
-<p>The following code is taken from <a href="https://github.com/fchollet/keras/blob/master/keras/applications/resnet50.py">Keras</a> / <a href="https://github.com/fchollet/deep-learning-models">Fran&ccedil;ois Chollet</a>. Full credit to him for doing the difficult work.</p>
+<p>The following code is taken from <a href="https://github.com/fchollet/keras/blob/master/keras/applications/resnet50.py">Keras</a> / <a href="https://github.com/fchollet/deep-learning-models">François Chollet</a>. Full credit to him for doing the difficult work.</p>
 <p>The code defines one of the state of the art
 models, a so called ResNet. See <a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a> for details. Then it downloads the weights, stores them for
 subsequent uses and applies it to the data.</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">"""ResNet50 model for Keras."""</span>
+<span class="sd">&quot;&quot;&quot;ResNet50 model for Keras.&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -155,13 +150,13 @@ subsequent uses and applies it to the data.</p>
 
 <span class="n">CLASS_INDEX</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">CLASS_INDEX_PATH</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">"https://s3.amazonaws.com/deep-learning-models/"</span>
-    <span class="s2">"image-models/imagenet_class_index.json"</span>
+    <span class="s2">&quot;https://s3.amazonaws.com/deep-learning-models/&quot;</span>
+    <span class="s2">&quot;image-models/imagenet_class_index.json&quot;</span>
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim_ordering</span><span class="o">=</span><span class="s2">"default"</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="k">def</span> <span class="nf">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim_ordering</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Standard preprocessing of image data.</span>
 
 <span class="sd">    1. Make sure the order of the channels is correct (RGB, BGR, depending on</span>
@@ -172,35 +167,35 @@ subsequent uses and applies it to the data.</p>
 <span class="sd">    ----------</span>
 <span class="sd">    x : numpy array</span>
 <span class="sd">        The image</span>
-<span class="sd">    dim_ordering : string, optional (default: 'default')</span>
-<span class="sd">        Either 'th' for Theano or 'tf' for Tensorflow</span>
+<span class="sd">    dim_ordering : string, optional (default: &#39;default&#39;)</span>
+<span class="sd">        Either &#39;th&#39; for Theano or &#39;tf&#39; for Tensorflow</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    numpy array</span>
 <span class="sd">        The preprocessed image</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">dim_ordering</span> <span class="o">==</span> <span class="s2">"default"</span><span class="p">:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">dim_ordering</span> <span class="o">==</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span>
         <span class="n">dim_ordering</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">image_dim_ordering</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">dim_ordering</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"tf"</span><span class="p">,</span> <span class="s2">"th"</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">dim_ordering</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;tf&quot;</span><span class="p">,</span> <span class="s2">&quot;th&quot;</span><span class="p">}</span>
 
-    <span class="k">if</span> <span class="n">dim_ordering</span> <span class="o">==</span> <span class="s2">"th"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dim_ordering</span> <span class="o">==</span> <span class="s2">&quot;th&quot;</span><span class="p">:</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="mf">103.939</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="mf">116.779</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="mf">123.68</span>
-        <span class="c1"># 'RGB'-&gt;'BGR'</span>
+        <span class="c1"># &#39;RGB&#39;-&gt;&#39;BGR&#39;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">103.939</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">116.779</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">123.68</span>
-        <span class="c1"># 'RGB'-&gt;'BGR'</span>
+        <span class="c1"># &#39;RGB&#39;-&gt;&#39;BGR&#39;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">x</span>
 
 
 <span class="k">def</span> <span class="nf">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Decode the predictionso of the ImageNet trained network.</span>
 
 <span class="sd">    Parameters</span>
@@ -212,20 +207,20 @@ subsequent uses and applies it to the data.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    list of tuples</span>
-<span class="sd">        e.g. (u'n02206856', u'bee', 0.71072823) for the WordNet identifier,</span>
+<span class="sd">        e.g. (u&#39;n02206856&#39;, u&#39;bee&#39;, 0.71072823) for the WordNet identifier,</span>
 <span class="sd">        the class name and the probability.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">CLASS_INDEX</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1000</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">"`decode_predictions` expects "</span>
-            <span class="s2">"a batch of predictions "</span>
-            <span class="s2">"(i.e. a 2D array of shape (samples, 1000)). "</span>
-            <span class="s2">"Found array with shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="s2">&quot;`decode_predictions` expects &quot;</span>
+            <span class="s2">&quot;a batch of predictions &quot;</span>
+            <span class="s2">&quot;(i.e. a 2D array of shape (samples, 1000)). &quot;</span>
+            <span class="s2">&quot;Found array with shape: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">CLASS_INDEX</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">fpath</span> <span class="o">=</span> <span class="n">get_file</span><span class="p">(</span>
-            <span class="s2">"imagenet_class_index.json"</span><span class="p">,</span> <span class="n">CLASS_INDEX_PATH</span><span class="p">,</span> <span class="n">cache_subdir</span><span class="o">=</span><span class="s2">"models"</span>
+            <span class="s2">&quot;imagenet_class_index.json&quot;</span><span class="p">,</span> <span class="n">CLASS_INDEX_PATH</span><span class="p">,</span> <span class="n">cache_subdir</span><span class="o">=</span><span class="s2">&quot;models&quot;</span>
         <span class="p">)</span>
         <span class="n">CLASS_INDEX</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">))</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
@@ -237,7 +232,7 @@ subsequent uses and applies it to the data.</p>
 
 
 <span class="k">def</span> <span class="nf">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check if arg is a valid file that already exists on the file system.</span>
 
 <span class="sd">    Parameters</span>
@@ -248,64 +243,67 @@ subsequent uses and applies it to the data.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    arg</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">arg</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"The file </span><span class="si">%s</span><span class="s2"> does not exist!"</span> <span class="o">%</span> <span class="n">arg</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The file </span><span class="si">%s</span><span class="s2"> does not exist!&quot;</span> <span class="o">%</span> <span class="n">arg</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">arg</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
-    <span class="sd">"""Get parser object."""</span>
+    <span class="sd">&quot;&quot;&quot;Get parser object.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-f"</span><span class="p">,</span>
-        <span class="s2">"--file"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="s2">&quot;-f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--file&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"Classify image"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"IMAGE"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Classify image&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;IMAGE&quot;</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="c1"># Load model</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="p">(</span><span class="n">include_top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">"imagenet"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="p">(</span><span class="n">include_top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;imagenet&quot;</span><span class="p">)</span>
 
     <span class="n">img_path</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Input image shape:"</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input image shape:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Prediction time: </span><span class="si">{:0.3f}</span><span class="s2">s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediction time: </span><span class="si">{:0.3f}</span><span class="s2">s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">wordnet_id</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">"</span><span class="si">{wid}</span><span class="se">\t</span><span class="si">{prob:&gt;6}</span><span class="s2">%</span><span class="se">\t</span><span class="si">{name}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">wid</span><span class="o">=</span><span class="n">wordnet_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="s2">"</span><span class="si">%0.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">prob</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="s2">&quot;</span><span class="si">{wid}</span><span class="se">\t</span><span class="si">{prob:&gt;6}</span><span class="s2">%</span><span class="se">\t</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">wid</span><span class="o">=</span><span class="n">wordnet_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%0.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prob</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="p">)</span>
 </code></pre></div>
+
 <p>Store it as <code>resnet50.py</code> and make it executable.</p>
 <p>(In case the JSON becomes unavailable: <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/ImageNet-classification/imagenet_class_index.json">Here you are</a>)</p>
 <h2 id="how-to-use">How to use</h2>
 <div class="highlight"><pre><span></span><code>$ ./resnet50.py -f honey-bee.jpg
 </code></pre></div>
+
 <p>alternatively, if you have a GPU but not that much memory:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">""</span> ./resnet50.py -f honey-bee.jpg
+<div class="highlight"><pre><span></span><code>$ <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">&quot;&quot;</span> ./resnet50.py -f honey-bee.jpg
 </code></pre></div>
+
 <p>If you apply this to the jellyfish image from above, you get:</p>
 <div class="highlight"><pre><span></span><code>Input image shape: (1, 224, 224, 3)
 n01910747    100.00%    jellyfish
@@ -314,52 +312,55 @@ n10565667      0.00%    scuba_diver
 n01914609      0.00%    sea_anemone
 n02607072      0.00%    anemone_fish
 </code></pre></div>
+
 <p>This takes about 6&nbsp;seconds on CPU on my laptop.</p>
 <h2 id="alternative-models">Alternative Models</h2>
 <p>If you are building an application, you might want to look into alternatives:</p>
 <table class="table">
-<tr>
-<th>Modelname</th>
-<th>Model size</th>
-<th>Input Size</th>
-<th>Top1-Accuracy</th>
-<th>Top5-Accuracy</th>
-<th>Time</th>
-</tr>
-<tr>
-<td><a href="https://arxiv.org/abs/1512.03385">ResNet50</a></td>
-<td>102.9 MB</td>
-<td>224 &times; 224</td>
-<td>77.15%</td>
-<td>93.29%</td>
-<td>0.495s</td>
-</tr>
-<tr>
-<td><a href="https://arxiv.org/abs/1409.1556">VGG16</a></td>
-<td>553.5 MB</td>
-<td>224 &times; 224</td>
-<td>73.0%</td>
-<td>91.2%</td>
-<td>0.488s</td>
-</tr>
-<tr>
-<td><a href="http://arxiv.org/abs/1512.00567">InceptionV3</a></td>
-<td>95.1 MB</td>
-<td>299 &times; 299</td>
-<td>78.8%</td>
-<td>94.4%</td>
-<td>0.681s</td>
-</tr>
-<tr>
-<td><a href="https://arxiv.org/abs/1610.02357">Xception</a></td>
-<td>91.9 MB</td>
-<td>299 &times; 299</td>
-<td>79.0%</td>
-<td>94.5%</td>
-<td>0.761s</td>
-</tr>
+    <tr>
+        <th>Modelname</th>
+        <th>Model size</th>
+        <th>Input Size</th>
+        <th>Top1-Accuracy</th>
+        <th>Top5-Accuracy</th>
+        <th>Time</th>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1512.03385">ResNet50</a></td>
+        <td>102.9 MB</td>
+        <td>224 × 224</td>
+        <td>77.15%</td>
+        <td>93.29%</td>
+        <td>0.495s</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1409.1556">VGG16</a></td>
+        <td>553.5 MB</td>
+        <td>224 × 224</td>
+        <td>73.0%</td>
+        <td>91.2%</td>
+        <td>0.488s</td>
+    </tr>
+    <tr>
+        <td><a href="http://arxiv.org/abs/1512.00567">InceptionV3</a></td>
+        <td>95.1 MB</td>
+        <td>299 × 299</td>
+        <td>78.8%</td>
+        <td>94.4%</td>
+        <td>0.681s</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1610.02357">Xception</a></td>
+        <td>91.9 MB</td>
+        <td>299 × 299</td>
+        <td>79.0%</td>
+        <td>94.5%</td>
+        <td>0.761s</td>
+    </tr>
 </table>
+
 <div class="important">The speed only for the prediction. The model size is several 100&nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.</div>
+
 <p>More models:</p>
 <ul>
 <li><a href="https://github.com/titu1994/Inception-v4">titu1994/Inception-v4</a></li>

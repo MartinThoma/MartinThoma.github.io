@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#motivation" title="Motivation">Motivation</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#what-happens" title="What happens">What happens</a></li><li><a class="toc-href" href="#caveats" title="Caveats">Caveats</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>One pseudo-problem people often mention when talking about Python is that
@@ -122,17 +116,18 @@ when it is too slow.</p>
 <p>As a very simple example, I prepared a dumb Fibonacci implementation written in
 Python:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">"""Calculate the n-th Fibonacci number."""</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the n-th Fibonacci number.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">37</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"The </span><span class="si">%i</span><span class="s2">th Fibonacci number is </span><span class="si">%i</span><span class="s2">."</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The </span><span class="si">%i</span><span class="s2">th Fibonacci number is </span><span class="si">%i</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
 </code></pre></div>
+
 <p>and exactly the same for Rust</p>
 <div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span>: <span class="kt">u32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">u32</span> <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -144,17 +139,18 @@ Python:</p>
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">"The {0}th Fibonacci number is {1}."</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;The {0}th Fibonacci number is {1}.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+
 <p>The execution times are quite different. Rust needs 0.40 seconds while Python 3
-needs 15.7 seconds. That is almost 40&times; the time of Rust!</p>
+needs 15.7 seconds. That is almost 40× the time of Rust!</p>
 <p>Wouldn't it be great if we could call the Rust function from Python?</p>
 <h2 id="example">Example</h2>
 <p>I'll explain in the next chapters what is done, but at first you should see
 that there are only minor changes / overhead:</p>
 <p><strong>fibonacci.rt</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#![crate_type = </span><span class="s">"dylib"</span><span class="cp">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#![crate_type = </span><span class="s">&quot;dylib&quot;</span><span class="cp">]</span><span class="w"></span>
 
 <span class="cp">#[no_mangle]</span><span class="w"></span>
 <span class="k">pub</span><span class="w"> </span><span class="k">extern</span><span class="w"> </span><span class="k">fn</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span>: <span class="kt">u32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">u32</span> <span class="p">{</span><span class="w"></span>
@@ -165,17 +161,19 @@ that there are only minor changes / overhead:</p>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+
 <p>Call <code>rustc -O fibonacci.rt</code> to generate the library.</p>
 <p>Python:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#!/usr/bin/env python</span><span class="w"></span>
 
 <span class="n">import</span><span class="w"> </span><span class="n">ctypes</span><span class="w"></span>
 
-<span class="n">fiblib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">"./libfibonacci.so"</span><span class="p">)</span><span class="w"></span>
+<span class="n">fiblib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">&quot;./libfibonacci.so&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="n">fib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiblib</span><span class="p">.</span><span class="n">fib</span><span class="w"></span>
 <span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span><span class="w"></span>
-<span class="n">print</span><span class="p">(</span><span class="s">"The %ith Fibonacci number is %i."</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span><span class="w"></span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;The %ith Fibonacci number is %i.&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span><span class="w"></span>
 </code></pre></div>
+
 <p>Now, taking the Python code, it takes only 0.44 seconds!</p>
 <h2 id="what-happens">What happens</h2>
 <p>The line <code>#![crate_type = "dylib"]</code> tells <code>rustc</code> that it has to create a

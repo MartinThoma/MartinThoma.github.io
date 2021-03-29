@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-problem" title="The Problem">The Problem</a></li><li><a class="toc-href" href="#solution-1-conversion-server" title="Solution 1: Conversion Server">Solution 1: Conversion Server</a></li><li><a class="toc-href" href="#solution-2-message-queue" title="Solution 2: Message Queue">Solution 2: Message Queue</a></li><li><a class="toc-href" href="#celery" title="Celery">Celery</a><ul><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#configpy" title="config.py">config.py</a></li><li><a class="toc-href" href="#apppy" title="app.py">app.py</a></li><li><a class="toc-href" href="#celery_workerpy" title="celery_worker.py">celery_worker.py</a></li><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#tasks" title="Tasks">Tasks</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://en.wikipedia.org/wiki/Celery_(software)">Celery</a> is a task queue. I
@@ -133,9 +127,10 @@ approaches to this:</p>
 <p><em>Synchronous call</em>: We could make a small REST API, but then we would again
 have the problem that the conversion can take arbitrary long.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-server-sync.png"><img alt="Communication by a synchronous request with a conversion server" src="../images/2019/06/conversion-server-sync.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Communication by a synchronous request with a conversion server</figcaption>
+    <a href="../images/2019/06/conversion-server-sync.png"><img src="../images/2019/06/conversion-server-sync.png" alt="Communication by a synchronous request with a conversion server" style="width: 512px;"/></a>
+    <figcaption class="text-center">Communication by a synchronous request with a conversion server</figcaption>
 </figure>
+
 <p><em>Polling</em>: We could make the web app poll, hence give the conversion server
 <code>/videos/&lt;id&gt;</code> and let it return <code>{"status": 0.0}</code>, <code>{"status": 0.5}</code>, ...,
 <code>{"status": 1.0, "result_uri": "s3://bucket/42.mpg"}</code>. The disadvantage of
@@ -146,16 +141,18 @@ peak times the number of videos in the conversion queue might get longer and
 thus we might end up polling a lot of videos, putting unnecessary load on the
 (internal) API of the conversion server.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-server-polling.png"><img alt="Communication by polling" src="../images/2019/06/conversion-server-polling.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Communication by polling</figcaption>
+    <a href="../images/2019/06/conversion-server-polling.png"><img src="../images/2019/06/conversion-server-polling.png" alt="Communication by polling" style="width: 512px;"/></a>
+    <figcaption class="text-center">Communication by polling</figcaption>
 </figure>
+
 <p><em>Callback</em>: Instead of having to ask again and again if the conversion is done,
 we could give the conversion server a callback URL. Once it is done, it calls
 the callback back. Hence callback. It works like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-server-callback.png"><img alt="Communication by a callback" src="../images/2019/06/conversion-server-callback.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Communication by a callback</figcaption>
+    <a href="../images/2019/06/conversion-server-callback.png"><img src="../images/2019/06/conversion-server-callback.png" alt="Communication by a callback" style="width: 512px;"/></a>
+    <figcaption class="text-center">Communication by a callback</figcaption>
 </figure>
+
 <h2 id="solution-2-message-queue">Solution 2: Message Queue</h2>
 <p>All three variants of the first solution have one fundamental problem: They
 don't scale well. Assume suddenly you get from several dozend users to tens of
@@ -165,9 +162,10 @@ do double the work with double the amount of machines.</p>
 <p>How would you do that, starting with a single conversion server?</p>
 <p>You would probably create a conversion service:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/06/conversion-service-callback-api.png"><img alt="A file conversion service based on callbacks" src="../images/2019/06/conversion-service-callback-api.png" style="width: 512px;"/></a>
-<figcaption class="text-center">A file conversion service based on callbacks</figcaption>
+    <a href="../images/2019/06/conversion-service-callback-api.png"><img src="../images/2019/06/conversion-service-callback-api.png" alt="A file conversion service based on callbacks" style="width: 512px;"/></a>
+    <figcaption class="text-center">A file conversion service based on callbacks</figcaption>
 </figure>
+
 <p>Here the API and the load balancer are overhead. And it is not clear how the
 "load balancer" would actually work.</p>
 <p>Just store the kind of work you want to do somewhere and let "workers" pick up
@@ -194,44 +192,46 @@ flexibility to change the message broker.</p>
 └── web
     ├── Dockerfile
     ├── my_project
-    │&nbsp;&nbsp; ├── app.py
-    │&nbsp;&nbsp; ├── config.py
-    │&nbsp;&nbsp; ├── __init__.py
-    │&nbsp;&nbsp; ├── main (other flask Blueprints look similar)
-    │&nbsp;&nbsp; │&nbsp;&nbsp; ├── __init__.py
-    │&nbsp;&nbsp; │&nbsp;&nbsp; ├── routes.py
-    │&nbsp;&nbsp; │&nbsp;&nbsp; ├── static
-    │&nbsp;&nbsp; │&nbsp;&nbsp; └── templates
-    │&nbsp;&nbsp; ├── models.py
-    │&nbsp;&nbsp; ├── static
-    │&nbsp;&nbsp; ├── templates
-    │&nbsp;&nbsp; └── wsgi.py
+    │   ├── app.py
+    │   ├── config.py
+    │   ├── __init__.py
+    │   ├── main (other flask Blueprints look similar)
+    │   │   ├── __init__.py
+    │   │   ├── routes.py
+    │   │   ├── static
+    │   │   └── templates
+    │   ├── models.py
+    │   ├── static
+    │   ├── templates
+    │   └── wsgi.py
     ├── Makefile
     ├── setup.cfg
     └── setup.py
 </code></pre></div>
+
 <p>And I ran it either with <code>docker-compose up</code> or via</p>
 <div class="highlight"><pre><span></span><code>celery -A celery_worker.py worker --loglevel<span class="o">=</span>debug
 </code></pre></div>
+
 <p>In the following, I give some details about how I adjusted the listed files.</p>
 <h3 id="setuppy">setup.py</h3>
 <p>Add the new requirement: <code>celery==4.3.0</code></p>
 <h3 id="docker-composeyml">docker-compose.yml</h3>
 <p>I've added the following lines:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">"3"</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
 <span class="nt">services</span><span class="p">:</span>
   <span class="nt">broker</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="s">"rabbitmq:3-management"</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;rabbitmq:3-management&quot;</span>
     <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">broker</span>
     <span class="nt">ports</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">"5672:5672"</span>
-      <span class="p p-Indicator">-</span> <span class="s">"15672:15672"</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;5672:5672&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;15672:15672&quot;</span>
     <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">'rabbitmq_data:/data'</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;rabbitmq_data:/data&#39;</span>
   <span class="nt">flower</span><span class="p">:</span>
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mher/flower</span>
     <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">flower</span>
-    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">"flower"</span><span class="p p-Indicator">,</span> <span class="s">"--broker=amqp://guest:guest@broker:5672//"</span><span class="p p-Indicator">,</span> <span class="s">"--port=8888"</span><span class="p p-Indicator">]</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;flower&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;--broker=amqp://guest:guest@broker:5672//&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;--port=8888&quot;</span><span class="p p-Indicator">]</span>
     <span class="nt">ports</span><span class="p">:</span>
        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8888:8888</span>
   <span class="nt">worker</span><span class="p">:</span>
@@ -250,15 +250,17 @@ flexibility to change the message broker.</p>
 <span class="nt">volumes</span><span class="p">:</span>
   <span class="nt">rabbitmq_data</span><span class="p">:</span>
 </code></pre></div>
+
 <p>Of course, there is also the "web" service which I cropped out here for keeping
 it simple.</p>
 <h3 id="configpy">config.py</h3>
 <p>I've added the following:</p>
-<div class="highlight"><pre><span></span><code><span class="n">CELERY_HOST</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"CELERY_HOST"</span><span class="p">,</span> <span class="s2">"localhost"</span><span class="p">)</span>
-<span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">"amqp://guest:guest@</span><span class="si">{host}</span><span class="s2">:5672//"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">CELERY_HOST</span><span class="p">)</span>
-<span class="n">CELERY_BACKEND</span> <span class="o">=</span> <span class="s2">"sqlalchemy"</span>
-<span class="n">CELERY_RESULT_DBURI</span> <span class="o">=</span> <span class="s2">"sqla+"</span> <span class="o">+</span> <span class="n">SQLALCHEMY_DATABASE_URI</span>
+<div class="highlight"><pre><span></span><code><span class="n">CELERY_HOST</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;CELERY_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
+<span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;amqp://guest:guest@</span><span class="si">{host}</span><span class="s2">:5672//&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">CELERY_HOST</span><span class="p">)</span>
+<span class="n">CELERY_BACKEND</span> <span class="o">=</span> <span class="s2">&quot;sqlalchemy&quot;</span>
+<span class="n">CELERY_RESULT_DBURI</span> <span class="o">=</span> <span class="s2">&quot;sqla+&quot;</span> <span class="o">+</span> <span class="n">SQLALCHEMY_DATABASE_URI</span>
 </code></pre></div>
+
 <h3 id="apppy">app.py</h3>
 <p>I followed the application factory pattern (<code>create_app</code>). On the global level
 of <code>app.py</code> (not hidden in a function), I've added:</p>
@@ -266,13 +268,15 @@ of <code>app.py</code> (not hidden in a function), I've added:</p>
 
 <span class="n">celery</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">broker</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">CELERY_BROKER_URL</span><span class="p">)</span>
 </code></pre></div>
+
 <p>and within the <code>create_app</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># some stuff ...</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">template_folder</span><span class="o">=</span><span class="s2">"templates"</span><span class="p">,</span> <span class="n">static_folder</span><span class="o">=</span><span class="s2">"static"</span><span class="p">)</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">template_folder</span><span class="o">=</span><span class="s2">&quot;templates&quot;</span><span class="p">,</span> <span class="n">static_folder</span><span class="o">=</span><span class="s2">&quot;static&quot;</span><span class="p">)</span>
     <span class="c1"># some stuff ...</span>
     <span class="n">celery</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
 </code></pre></div>
+
 <h3 id="celery_workerpy">celery_worker.py</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">my_project.app</span> <span class="kn">import</span> <span class="n">celery</span><span class="p">,</span> <span class="n">create_app</span>
@@ -280,10 +284,11 @@ of <code>app.py</code> (not hidden in a function), I've added:</p>
 <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">()</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
 </code></pre></div>
+
 <h3 id="dockerfile">Dockerfile</h3>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">python:3.7-slim</span>
-<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span>
-<span class="k">LABEL</span> <span class="nv">description</span><span class="o">=</span><span class="s2">"This is for executing a celery worker"</span>
+<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&quot;info@martin-thoma.de&quot;</span>
+<span class="k">LABEL</span> <span class="nv">description</span><span class="o">=</span><span class="s2">&quot;This is for executing a celery worker&quot;</span>
 
 <span class="c"># Copy projects code</span>
 <span class="k">COPY</span> web/ /opt/app
@@ -292,29 +297,31 @@ of <code>app.py</code> (not hidden in a function), I've added:</p>
 <span class="k">RUN</span> pip install -e . --no-cache-dir
 
 <span class="c"># Start worker</span>
-<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">"sh"</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">]</span>
-<span class="k">CMD</span> <span class="p">[</span><span class="s2">"celery -A celery_worker.celery worker --loglevel=debug"</span><span class="p">]</span>
+<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&quot;sh&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">]</span>
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;celery -A celery_worker.celery worker --loglevel=debug&quot;</span><span class="p">]</span>
 </code></pre></div>
+
 <h3 id="tasks">Tasks</h3>
 <p>In one of the <code>routes.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">my_project.app</span> <span class="kn">import</span> <span class="n">celery</span>
 
 
-<span class="nd">@backup</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/videos/&lt;vid&gt;/convert"</span><span class="p">)</span>
+<span class="nd">@backup</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/videos/&lt;vid&gt;/convert&quot;</span><span class="p">)</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">vid</span><span class="p">):</span>
-    <span class="sd">"""Convert a video. This can take time"""</span>
-    <span class="n">flash</span><span class="p">(</span><span class="s2">"Started converting video"</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">)</span>
+    <span class="sd">&quot;&quot;&quot;Convert a video. This can take time&quot;&quot;&quot;</span>
+    <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Started converting video&quot;</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">)</span>
     <span class="n">convert_video</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="n">vid</span><span class="p">)</span>  <span class="c1"># returns almost instantly</span>
 
 
-<span class="nd">@celery</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"convert_video"</span><span class="p">)</span>
+<span class="nd">@celery</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;convert_video&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">convert_video</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
     <span class="c1"># Executing this is what takes long</span>
     <span class="c1"># ... put the file conversion in here!</span>
     <span class="k">return</span> <span class="mi">42</span>
 </code></pre></div>
-<h2 id="see-also_1">See also</h2>
+
+<h2 id="see-also">See also</h2>
 <ul>
 <li>Flask: <a href="http://flask.pocoo.org/docs/1.0/patterns/celery/">Celery Background Tasks</a></li>
 <li>The Flask Mega-Tutorial Part XXII: <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxii-background-jobs">Background Jobs</a> by Miguel Grinberg</li>

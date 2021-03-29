@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#scoping" title="Scoping">Scoping</a></li><li><a class="toc-href" href="#recursive lists" title="Recursive Lists">Recursive Lists</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>This article is about Python lists. I just want to show you some examples of the unexpected behavior (for non-python-programmers) of lists in Python.</p>
@@ -130,22 +124,26 @@ MathJax.Hub.Queue(function() {
 <span class="nb">print</span><span class="p">(</span><span class="n">example3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">example4</span><span class="p">)</span>
 </code></pre></div>
+
 <p>How should the output look like? Think about it a second, then scroll down.</p>
 <div class="highlight"><pre><span></span><code><span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">0</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]</span>,1<span class="o">]</span>
 <span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">0</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]]</span>
 <span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">0</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]]</span>
 <span class="o">[[</span><span class="m">1</span>,5,7<span class="o">]</span>,<span class="o">[</span><span class="m">3</span>,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span><span class="m">8</span>,1,6<span class="o">]]</span>
 </code></pre></div>
+
 <p>The reason for this strange behavior is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.</p>
-<h2 id="scoping">Scoping</h2>
+<h2>Scoping</h2>
 <p>phimuemue added this example in my old blog:</p>
 <p>Another issue I ran into concerns the scoping of Python:</p>
 <div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># yields 3</span>
 </code></pre></div>
+
 <p>That means, python doesn't create a new variable for the list comprehension but uses the outer i.</p>
-<h2 id="recursive lists">Recursive Lists</h2>
+<h2>Recursive Lists</h2>
+
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -157,6 +155,7 @@ MathJax.Hub.Queue(function() {
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]]]</span>
 </code></pre></div>
+
 <p>Do you know more examples of unexpected behavior of python lists? Please share them in the comments!</p>
             
             <div id="disqus_thread" class="no-print"></div>

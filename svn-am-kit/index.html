@@ -100,54 +100,59 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#import" title="Import">Import</a></li><li><a class="toc-href" href="#checkout" title="Checkout">Checkout</a></li><li><a class="toc-href" href="#copy, move, delete" title="Copy, Move, Delete">Copy, Move, Delete</a></li><li><a class="toc-href" href="#status" title="status">status</a></li><li><a class="toc-href" href="#commit" title="commit">commit</a></li><li><a class="toc-href" href="#siehe auch" title="Siehe auch">Siehe auch</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is a quick article I had for quite a while as a draft.
 It might not be finished or have other problems, but I still want to share
 it.</div>
-<p>Jeder Student mit einem <a href="http://www.atis.uka.de/">ATIS-Account</a> kann <a href="http://www.atis.uka.de/1422.php">hier</a> einen SVN-Zugang beantragen. Ich werde nun kurz erkl&auml;ren, wie man ihn mit der Konsole benutzt.</p>
-<h2 id="import">Import</h2>
+
+<p>Jeder Student mit einem <a href="http://www.atis.uka.de/">ATIS-Account</a> kann <a href="http://www.atis.uka.de/1422.php">hier</a> einen SVN-Zugang beantragen. Ich werde nun kurz erklären, wie man ihn mit der Konsole benutzt.</p>
+<h2>Import</h2>
 <p>Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.import.html">Hilfe</a>):</p>
 <div class="highlight"><pre><span></span><code>svn import <span class="o">[</span>PATH<span class="o">]</span> URL
 </code></pre></div>
+
 <p>Beispiel:</p>
-<div class="highlight"><pre><span></span><code>svn import -m <span class="s2">"Initial import of the BankAccountReader project."</span> /home/swt-user/BankAccountReader https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk/BankAccountReader
+<div class="highlight"><pre><span></span><code>svn import -m <span class="s2">&quot;Initial import of the BankAccountReader project.&quot;</span> /home/swt-user/BankAccountReader https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk/BankAccountReader
 </code></pre></div>
-<h2 id="checkout">Checkout</h2>
+
+<h2>Checkout</h2>
 <p>Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.checkout.html">Hilfe</a>):</p>
 <div class="highlight"><pre><span></span><code>svn checkout URL<span class="o">[</span>@REV<span class="o">]</span>... <span class="o">[</span>PATH<span class="o">]</span>
 </code></pre></div>
+
 <p>Beispiel:</p>
 <div class="highlight"><pre><span></span><code>svn co https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk --username s_thoma
 </code></pre></div>
-<h2 id="copy, move, delete">Copy, Move, Delete</h2>
+
+<h2>Copy, Move, Delete</h2>
 <p><strong>Copy</strong> (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.copy.html">Hilfe</a>):</p>
 <div class="highlight"><pre><span></span><code>svn copy SRC<span class="o">[</span>@REV<span class="o">]</span>... DST
 </code></pre></div>
+
 <p>Beispiel:</p>
 <div class="highlight"><pre><span></span><code>svn copy mySoureFile.java folder/myDestFile.java
 </code></pre></div>
+
 <p><strong>Move</strong> (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.move.html">Hilfe</a>):</p>
 <div class="highlight"><pre><span></span><code>svn move SRC... DST
 </code></pre></div>
+
 <p><strong>Delete</strong> (<a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.delete.html">Help</a>):</p>
 <div class="highlight"><pre><span></span><code>svn delete PATH...
 </code></pre></div>
-<p>F&uuml;r delete gibt es einige synonyme Befehle:</p>
+
+<p>Für delete gibt es einige synonyme Befehle:</p>
 <div class="highlight"><pre><span></span><code>svn rm myFile.java
 </code></pre></div>
+
 <p>Anders als der standard Linux <a href="http://linux.die.net/man/1/rm">rm-Befehl</a> ist der von SVN rekursiv!</p>
-<h2 id="status">status</h2>
+<h2>status</h2>
 <p>Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.status.html">Hilfe</a>):</p>
 <div class="highlight"><pre><span></span><code>svn status <span class="o">[</span>PATH...<span class="o">]</span>
 </code></pre></div>
+
 <p>Beispiel:</p>
 <div class="highlight"><pre><span></span><code>svn status
 
@@ -163,19 +168,22 @@ D       src/svn-commit.tmp
 A  +    BankAccountReader
 D       BankAccountReader/svn-commit.tmp
 </code></pre></div>
-<h2 id="commit">commit</h2>
+
+<h2>commit</h2>
 <p>Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.commit.html">Hilfe</a>):</p>
 <div class="highlight"><pre><span></span><code>svn commit <span class="o">[</span>PATH...<span class="o">]</span>
 </code></pre></div>
+
 <p>Beispiel:</p>
-<div class="highlight"><pre><span></span><code>svn commit -m <span class="s2">"restructuring directory structure"</span>
+<div class="highlight"><pre><span></span><code>svn commit -m <span class="s2">&quot;restructuring directory structure&quot;</span>
 Adding         BankAccountReader
 Deleting       BankAccountReader/svn-commit.tmp
 Deleting       src
 
 Committed revision <span class="m">3</span>.
 </code></pre></div>
-<h2 id="siehe auch">Siehe auch</h2>
+
+<h2>Siehe auch</h2>
 <p><a href="http://svnbook.red-bean.com/en/1.6/svn.ref.html">Subversion complete reference</a></p>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,50 +102,45 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-you-should-care" title="Why you should care">Why you should care</a></li><li><a class="toc-href" href="#how-it-works" title="How it works">How it works</a></li><li><a class="toc-href" href="#how-can-i-defend-against-a-billion-laughs" title="How can I defend against a billion laughs?">How can I defend against a billion laughs?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"/><em>Image by the author</em></p>
-<p>The billion laughs attack is known since 2003 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564">source</a>). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It&rsquo;s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.</p>
+            <p><img alt="Image by the author" src="https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png"><em>Image by the author</em></p>
+<p>The billion laughs attack is known since 2003 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564">source</a>). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.</p>
 <h2 id="why-you-should-care">Why you should care</h2>
 <p>This is a bit too specific to be visible in many news articles. However, there are several big projects which were vulnerable over the years:</p>
 <ul>
-<li>2003: libxml2 was vulnerable (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564">CVE-2003&ndash;1564</a>)</li>
-<li>2015: MediaWiki was vulnerable (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2942">CVE-2015&ndash;2942</a>)</li>
-<li>2016: <a href="https://en.wikipedia.org/wiki/Libxml2">libxml2</a> was vulnerable &hellip; again (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3705">CVE-2016&ndash;3705</a>)</li>
-<li>2016: HTTP/2 header compression was used to build an HPACK bomb (<a href="https://nvd.nist.gov/vuln/detail/CVE-2016-6581">CVE-2016&ndash;6581</a>)</li>
-<li>2019: Kubernetes was vulnerable (<a href="https://github.com/kubernetes/kubernetes/issues/83253">source</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019&ndash;11253</a>)</li>
-<li>2019: <a href="https://www.mchange.com/projects/c3p0/">c3p0</a> (JDBC database drivers) was vulnerable (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-5427">CVE-2019&ndash;5427</a>)</li>
+<li>2003: libxml2 was vulnerable (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564">CVE-2003–1564</a>)</li>
+<li>2015: MediaWiki was vulnerable (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2942">CVE-2015–2942</a>)</li>
+<li>2016: <a href="https://en.wikipedia.org/wiki/Libxml2">libxml2</a> was vulnerable … again (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3705">CVE-2016–3705</a>)</li>
+<li>2016: HTTP/2 header compression was used to build an HPACK bomb (<a href="https://nvd.nist.gov/vuln/detail/CVE-2016-6581">CVE-2016–6581</a>)</li>
+<li>2019: Kubernetes was vulnerable (<a href="https://github.com/kubernetes/kubernetes/issues/83253">source</a>, <a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019–11253</a>)</li>
+<li>2019: <a href="https://www.mchange.com/projects/c3p0/">c3p0</a> (JDBC database drivers) was vulnerable (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-5427">CVE-2019–5427</a>)</li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
-<p>The following XML defines an entity laugh , then an entity ha2 which contains laugh twice. This pattern is repeated. This means ha5 contains laugh indirectly 16 times. You can see the exponential growth, can&rsquo;t you?</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<p>The following XML defines an entity laugh , then an entity ha2 which contains laugh twice. This pattern is repeated. This means ha5 contains laugh indirectly 16 times. You can see the exponential growth, can’t you?</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 
 <span class="cp">&lt;!DOCTYPE root [</span>
-<span class="cp">&lt;!ENTITY laugh "😆"&gt;</span>
-<span class="cp">&lt;!ENTITY ha2 "&amp;ha; &amp;ha;"&gt;</span>
-<span class="cp">&lt;!ENTITY ha3 "&amp;ha2; &amp;ha2;"&gt;</span>
-<span class="cp">&lt;!ENTITY ha4 "&amp;ha3; &amp;ha3;"&gt;</span>
-<span class="cp">&lt;!ENTITY ha5 "&amp;ha4; &amp;ha4;"&gt;</span>
+<span class="cp">&lt;!ENTITY laugh &quot;😆&quot;&gt;</span>
+<span class="cp">&lt;!ENTITY ha2 &quot;&amp;ha; &amp;ha;&quot;&gt;</span>
+<span class="cp">&lt;!ENTITY ha3 &quot;&amp;ha2; &amp;ha2;&quot;&gt;</span>
+<span class="cp">&lt;!ENTITY ha4 &quot;&amp;ha3; &amp;ha3;&quot;&gt;</span>
+<span class="cp">&lt;!ENTITY ha5 &quot;&amp;ha4; &amp;ha4;&quot;&gt;</span>
 ]&gt;
 
 <span class="nt">&lt;root&gt;</span><span class="ni">&amp;ha5;</span><span class="nt">&lt;/root&gt;</span>
 </code></pre></div>
-<p>With ha31, we would have 2&sup3;⁰ times 😆 . That is a billion laughs. Please note how asymmetric this is: With a document that is less than 1kB big the attacker can make the parser consume about Gigabytes of memory. This can easily consume all memory of a machine and thus render it unusable until the parser is killed or the machine is restarted.</p>
+
+<p>With ha31, we would have 2³⁰ times 😆 . That is a billion laughs. Please note how asymmetric this is: With a document that is less than 1kB big the attacker can make the parser consume about Gigabytes of memory. This can easily consume all memory of a machine and thus render it unusable until the parser is killed or the machine is restarted.</p>
 <p>A slight variation of the <strong>billion laughs attack</strong> is called <strong>quadratic blowup</strong>.</p>
 <p>Please notice that similar attacks are possible in other file formats such as YAML. The key point here is that those formats have references.</p>
 <h2 id="how-can-i-defend-against-a-billion-laughs">How can I defend against a billion laughs?</h2>
 <p>Assuming that you cannot control the input directly and prevent XMLs with attacks from reaching you at all, I can think of 4 measures:</p>
 <ul>
 <li><strong>Lazy evaluation of references</strong>: Instead of evaluating the whole document at once, the references are only resolved when necessary. It might solve some issues.</li>
-<li><strong>No evaluation of references</strong>: Throwing the dangerous feature out of the window for sure means that you&rsquo;re not vulnerable to the attack anymore. You need to make sure it doesn&rsquo;t affect your users, though. Communicating this might be hard.</li>
-<li><strong>Reference recursion depth limit</strong>: The parser itself could be aware of this issue and have a threshold when it stops evaluating references. However, this might also lead to false-positives &mdash; documents that get not parsed, because the parser thinks it&rsquo;s an attack.</li>
+<li><strong>No evaluation of references</strong>: Throwing the dangerous feature out of the window for sure means that you’re not vulnerable to the attack anymore. You need to make sure it doesn’t affect your users, though. Communicating this might be hard.</li>
+<li><strong>Reference recursion depth limit</strong>: The parser itself could be aware of this issue and have a threshold when it stops evaluating references. However, this might also lead to false-positives — documents that get not parsed, because the parser thinks it’s an attack.</li>
 <li><strong>RAM restriction</strong>: You can run the code that might execute the billion laughs attack under resource restrictions. This means the execution thread/process receives a (catchable) exception and can continue execution normally. It might especially mean that even if the exception is not thrown, the rest of your system might be fine. Only that thread/process might be killed.</li>
 </ul>
 <p>So, how do you do this with Python?</p>
@@ -156,7 +151,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
 <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
-    <span class="sd">"""Temporarily limit a resource."""</span>
+    <span class="sd">&quot;&quot;&quot;Temporarily limit a resource.&quot;&quot;&quot;</span>
     <span class="n">soft_limit</span><span class="p">,</span> <span class="n">hard_limit</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">getrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">)</span>
     <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="n">hard_limit</span><span class="p">))</span>  <span class="c1"># set soft limit</span>
     <span class="k">try</span><span class="p">:</span>
@@ -173,23 +168,24 @@ MathJax.Hub.Queue(function() {
     <span class="k">with</span> <span class="n">limit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_AS</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">24</span><span class="p">):</span>
         <span class="n">dangerous_call</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">MemoryError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Your call consumed too much memory!"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your call consumed too much memory!&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Restricting the parser is sometimes possible, sometimes not. It depends on your
 parser. Some have parameters like resolve_entities
 (<a href="https://lxml.de/api/lxml.etree.XMLParser-class.html">lxml</a>).</p>
-<p>Limiting the maximum decompression size was done against the HTTP/2 &ldquo;HPACK&rdquo;
+<p>Limiting the maximum decompression size was done against the HTTP/2 “HPACK”
 bomb
 (<a href="https://python-hyper.org/projects/hpack/en/latest/security/CVE-2016-6581.html#the-solution">source</a>).</p>
 <h2 id="see-also">See also</h2>
 <p>Kate Murphey wrote an awesome article about git bombs, check it out!
 <a href="https://kate.io/blog/git-bomb/"><strong>Exploding Git Repositories</strong>
-<em>If you are an adventurous sort (and can handle a potential reboot) I invite you to clone this tiny repo: $ git clone&hellip;</em>kate.io</a></p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
+<em>If you are an adventurous sort (and can handle a potential reboot) I invite you to clone this tiny repo: $ git clone…</em>kate.io</a></p>
+<h2 id="whats-next">What’s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

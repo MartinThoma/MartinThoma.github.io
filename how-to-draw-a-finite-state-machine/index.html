@@ -102,76 +102,76 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#nondeterministic finite-state machine" title="Nondeterministic finite-state machine">Nondeterministic finite-state machine</a></li><li><a class="toc-href" href="#deterministic finite-state machine" title="Deterministic finite-state machine">Deterministic finite-state machine</a></li><li><a class="toc-href" href="#latex" title="LaTeX">LaTeX</a><ul><li><a class="toc-href" href="#markov models" title="Markov models">Markov models</a></li></ul></li><li><a class="toc-href" href="#further reading_1" title="Further Reading">Further Reading</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).</p>
-<p>As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
-<h2 id="nondeterministic finite-state machine">Nondeterministic finite-state machine</h2>
+<p>As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.</p>
+<h2>Nondeterministic finite-state machine</h2>
 <figure class="aligncenter">
-<a href="../images/2011/10/myFiniteStateMachine1.png"><img alt="Nondeterministic finite-state machine" class="size-full wp-image-8141" src="../images/2011/10/myFiniteStateMachine1.png" style="max-width:365px;max-height:119px;"/></a>
-<figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
-</figure></p>
+            <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" style="max-width:365px;max-height:119px;" class="size-full wp-image-8141 "/></a>
+            <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
+        </figure>
+
 <p>This image is created from a gv-file. I saved it as fsm.gv:</p>
 <div class="highlight"><pre><span></span><code>digraph finite<span class="nb">_</span>state<span class="nb">_</span>machine <span class="nb">{</span>
     rankdir=LR;
-    size="8,5"
+    size=&quot;8,5&quot;
 
     node [shape = doublecircle]; S;
     node [shape = point ]; qi
 
     node [shape = circle];
     qi -&gt; S;
-    S  -&gt; q1 [ label = "a" ];
-    S  -&gt; S  [ label = "a" ];
-    q1 -&gt; S  [ label = "a" ];
-    q1 -&gt; q2 [ label = "b" ];
-    q2 -&gt; q1 [ label = "b" ];
-    q2 -&gt; q2 [ label = "b" ];
+    S  -&gt; q1 [ label = &quot;a&quot; ];
+    S  -&gt; S  [ label = &quot;a&quot; ];
+    q1 -&gt; S  [ label = &quot;a&quot; ];
+    q1 -&gt; q2 [ label = &quot;b&quot; ];
+    q2 -&gt; q1 [ label = &quot;b&quot; ];
+    q2 -&gt; q2 [ label = &quot;b&quot; ];
 <span class="nb">}</span>
 </code></pre></div>
+
 <p>To create a graph (or the picture of the nondeterministic finite-state machine) you have to enter the following command in Ubuntu Linux:</p>
 <div class="highlight"><pre><span></span><code>dot -Tpng fsm.gv -o myFiniteStateMachine.png
 </code></pre></div>
-<h2 id="deterministic finite-state machine">Deterministic finite-state machine</h2>
+
+<h2>Deterministic finite-state machine</h2>
+
 <figure class="aligncenter">
-<a href="../images/2011/10/deterministic-finite-state-machine.png"><img alt="Deterministic finite-state machine" class="size-full wp-image-8171" src="../images/2011/10/deterministic-finite-state-machine.png" style="max-width:528px;max-height:248px"/></a>
-<figcaption class="text-center">Deterministic finite-state machine</figcaption>
-</figure>
+            <a href="../images/2011/10/deterministic-finite-state-machine.png"><img src="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" style="max-width:528px;max-height:248px" class="size-full wp-image-8171"/></a>
+            <figcaption class="text-center">Deterministic finite-state machine</figcaption>
+        </figure>
+
 <div class="highlight"><pre><span></span><code>digraph finite<span class="nb">_</span>state<span class="nb">_</span>machine <span class="nb">{</span>
     rankdir=LR;
-    size="8,5"
+    size=&quot;8,5&quot;
 
-    node [shape = doublecircle, label="<span class="nb">{</span>f<span class="nb">}</span>", fontsize=12] f;
-    node [shape = doublecircle, label="<span class="nb">{</span>q2, f<span class="nb">}</span>", fontsize=10] q2f;
+    node [shape = doublecircle, label=&quot;<span class="nb">{</span>f<span class="nb">}</span>&quot;, fontsize=12] f;
+    node [shape = doublecircle, label=&quot;<span class="nb">{</span>q2, f<span class="nb">}</span>&quot;, fontsize=10] q2f;
 
-    node [shape = circle, label="S", fontsize=14] S;
-    node [shape = circle, label="<span class="nb">{</span>q1<span class="nb">}</span>", fontsize=12] q1;
-    node [shape = circle, label="<span class="nb">{</span>q2<span class="nb">}</span>", fontsize=12] q2;
+    node [shape = circle, label=&quot;S&quot;, fontsize=14] S;
+    node [shape = circle, label=&quot;<span class="nb">{</span>q1<span class="nb">}</span>&quot;, fontsize=12] q1;
+    node [shape = circle, label=&quot;<span class="nb">{</span>q2<span class="nb">}</span>&quot;, fontsize=12] q2;
 
     node [shape = point ]; qi
     qi -&gt; S;
 
-    S   -&gt; q1  [ label = "a" ];
-    S   -&gt; q2f [ label = "b" ];
-    S   -&gt; q2  [ label = "c" ];
+    S   -&gt; q1  [ label = &quot;a&quot; ];
+    S   -&gt; q2f [ label = &quot;b&quot; ];
+    S   -&gt; q2  [ label = &quot;c&quot; ];
 
-    q1  -&gt; q2  [ label = "b" ];
+    q1  -&gt; q2  [ label = &quot;b&quot; ];
 
-    q2f -&gt; f   [ label = "b" ];
-    q2f -&gt; q2  [ label = "c" ];
+    q2f -&gt; f   [ label = &quot;b&quot; ];
+    q2f -&gt; q2  [ label = &quot;c&quot; ];
 
-    q2  -&gt; f   [ label = "b" ];
-    q2  -&gt; q2  [ label = "c" ];
+    q2  -&gt; f   [ label = &quot;b&quot; ];
+    q2  -&gt; q2  [ label = &quot;c&quot; ];
 <span class="nb">}</span>
 </code></pre></div>
-<h2 id="latex">LaTeX</h2>
+
+<h2>LaTeX</h2>
 <p>If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.</p>
 <p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:</p>
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
@@ -179,7 +179,7 @@ MathJax.Hub.Queue(function() {
 <span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;,shorten &gt;=1pt,auto,node distance=2cm]
   <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
@@ -194,20 +194,23 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
+
 <p>This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:</p>
 <div class="highlight"><pre><span></span><code>pdflatex latexsheet.tex -output-format<span class="o">=</span>pdf
 </code></pre></div>
+
 <p>If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:</p>
 <figure class="aligncenter">
-<a href="../images/2011/10/latex-finite-state-machine.png"><img alt="Finite-state-machine with LaTeX" class="size-full wp-image-13421" src="../images/2011/10/latex-finite-state-machine.png" style="max-width:400px;max-height:147px"/></a>
-<figcaption class="text-center">Finite-state-machine with LaTeX</figcaption>
-</figure>
+            <a href="../images/2011/10/latex-finite-state-machine.png"><img src="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" style="max-width:400px;max-height:147px" class="size-full wp-image-13421"/></a>
+            <figcaption class="text-center">Finite-state-machine with LaTeX</figcaption>
+        </figure>
+
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
 <span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;,shorten &gt;=1pt,auto,node distance=2cm]
   <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
@@ -221,13 +224,15 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-<h3 id="markov models">Markov models</h3>
+
+<h3>Markov models</h3>
+
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
 <span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,&gt;=stealth',shorten &gt;=1pt,node distance=2.8cm]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,&gt;=stealth&#39;,shorten &gt;=1pt,node distance=2.8cm]
     <span class="c">% When you want to use // inside of nodes, you have to algin</span>
     <span class="k">\tikzstyle</span><span class="nb">{</span>every state<span class="nb">}</span>=[align=center]
     <span class="k">\node</span><span class="na">[state,initial,label=below:Start]</span> (Start)
@@ -244,11 +249,12 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-<h2 id="further reading_1">Further Reading</h2>
+
+<h2>Further Reading</h2>
 <ul>
-<li><a href="http://www.graphviz.org/doc/info/shapes.html">DOT Node Shape reference</a></li>
-<li><a href="http://wiki.ubuntuusers.de/Graphviz">ubuntuusers.de</a> (German): Installation on Ubuntu</li>
-<li><a href="http://www.wikischool.de/wiki/WikiSchool:Graphviz">Wikischool.de</a> (German): Many examples</li>
+    <li><a href="http://www.graphviz.org/doc/info/shapes.html">DOT Node Shape reference</a></li>
+    <li><a href="http://wiki.ubuntuusers.de/Graphviz">ubuntuusers.de</a> (German): Installation on Ubuntu</li>
+    <li><a href="http://www.wikischool.de/wiki/WikiSchool:Graphviz">Wikischool.de</a> (German): Many examples</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

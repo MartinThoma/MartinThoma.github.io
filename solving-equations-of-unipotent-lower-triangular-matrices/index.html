@@ -102,17 +102,11 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#example" title="Example">Example</a><ul><li><a class="toc-href" href="#first step: solve for \(x_1\)" title="First step: Solve for \(x_1\)">First step: Solve for \(x_1\)</a></li><li><a class="toc-href" href="#second step: update" title="Second step: update">Second step: update</a></li></ul></li><li><a class="toc-href" href="#python straightforward algorithm_1" title="Python straightforward algorithm">Python straightforward algorithm</a></li><li><a class="toc-href" href="#even better algorithm" title="Even better algorithm">Even better algorithm</a></li><li><a class="toc-href" href="#time complexity" title="Time complexity">Time complexity</a></li><li><a class="toc-href" href="#space complexity" title="Space complexity">Space complexity</a></li><li><a class="toc-href" href="#more improvements" title="More improvements">More improvements</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Suppose you have an equation like <span class="math">\(L \cdot x = b\)</span> with <span class="math">\(L \in \mathbb{R}^{n \times n}\)</span> and <span class="math">\(x,b \in \mathbb{R}^n\)</span>. <span class="math">\(b\)</span> and <span class="math">\(L\)</span> are given and you want to solve for <span class="math">\(x\)</span>.</p>
-<h2 id="example">Example</h2>
+<h2>Example</h2>
 <p>With <span class="math">\(n=5\)</span>, the problem could look like this:</p>
 <div class="math">$$\begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
@@ -132,9 +126,9 @@ MathJax.Hub.Queue(function() {
 &amp;8 \cdot x_1 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\\
 &amp;1 \cdot x_1 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
 \end{align}</div>
-<p>This is easy to solve, isn't it?
-<h3 id="first step: solve for \(x_1\)">First step: Solve for <span class="math">\(x_1\)</span></h3>
-First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every occurence of <span class="math">\(x_1\)</span> in the system of equations above:</p>
+<p>This is easy to solve, isn't it?</p>
+<h3>First step: Solve for $x_1$</h3>
+<p>First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every occurence of <span class="math">\(x_1\)</span> in the system of equations above:</p>
 <div class="math">\begin{align}
 &amp;1 \cdot 3 &amp;= 3 \\
 &amp;2 \cdot 3 + 1 \cdot x_2 &amp;= 1\\
@@ -149,7 +143,7 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
 &amp;24 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\\
 &amp;3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
 \end{align}</div>
-<h3 id="second step: update">Second step: update</h3>
+<h3>Second step: update</h3>
 <p>Get the constant factors to the right side of the equations:</p>
 <div class="math">\begin{align}
 &amp;1 \cdot x_2 &amp;= 1-6=-5\\
@@ -159,7 +153,8 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
 \end{align}</div>
 <p>You can now easily see that you're in the same situation as in the first step! Next you will solve for <span class="math">\(x_2\)</span>, then for <span class="math">\(x_3, x_4\)</span> and finally for <span class="math">\(x_5\)</span>.</p>
 <p>This is the reason why solving such a system of equations is sometimes called "forward substitution".</p>
-<h2 id="python straightforward algorithm_1">Python straightforward algorithm</h2>
+<h2>Python straightforward algorithm</h2>
+
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -173,7 +168,7 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">L</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -185,8 +180,9 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
 
     <span class="nb">print</span><span class="p">(</span><span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 </code></pre></div>
+
 <p>Pretty easy, isn't it? But can we even do better?</p>
-<h2 id="even better algorithm">Even better algorithm</h2>
+<h2>Even better algorithm</h2>
 <p>Yes, we can!</p>
 <p>Take a look at what's happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -199,7 +195,7 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
             <span class="n">b</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">-=</span> <span class="n">L</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">step</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">step</span><span class="p">]</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">L</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -212,10 +208,11 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Now it looks super clean, doesn't it ☺</p>
 <p>Keep in mind that you have to store b if you need the values after you've applied this algorithm.
 This is the reason why there here. This algorithm "returns" its value by manipulating b.</p>
-<h2 id="time complexity">Time complexity</h2>
+<h2>Time complexity</h2>
 <p>I'll analyze the second algorithm.</p>
 <p>Let's assume that line 7 takes <span class="math">\(c\)</span> operations and <span class="math">\(n\)</span> is the size of <span class="math">\(L \in \mathbb{R}^{n \times n}\)</span>.</p>
 <p>Then we would have a total of</p>
@@ -228,10 +225,10 @@ This is the reason why there here. This algorithm "returns" its value by manipul
 &amp;= \frac{c}{2} (n^2 - n)
 \end{align}</div>
 <p>So the algorithms time complexity is in <span class="math">\(\Theta(n^2) \subsetneq \mathcal{O}(n^2)\)</span>.</p>
-<h2 id="space complexity">Space complexity</h2>
+<h2>Space complexity</h2>
 <p>Well, thats simple: <span class="math">\(\mathcal{O}(1)\)</span>!</p>
 <p>I do ignore the size of the input. So <span class="math">\(\mathcal{O}(1)\)</span> means: For variable sized input data I do need a constant amount of additional space.</p>
-<h2 id="more improvements">More improvements</h2>
+<h2>More improvements</h2>
 <p>In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal.
 This means, the following two function calls do give the same b:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -245,7 +242,7 @@ This means, the following two function calls do give the same b:</p>
     <span class="k">return</span> <span class="n">L</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">L</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
         <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -268,6 +265,7 @@ This means, the following two function calls do give the same b:</p>
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
+
 <p>So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.</p>
             
             <div id="disqus_thread" class="no-print"></div>

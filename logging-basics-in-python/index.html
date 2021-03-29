@@ -102,17 +102,11 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#hello-sweet-logging-world" title="Hello, Sweet logging World!">Hello, Sweet logging World!</a></li><li><a class="toc-href" href="#the-4-logging-classes" title="The 4 Logging Classes">The 4 Logging Classes</a><ul><li><a class="toc-href" href="#loggers" title="Loggers">Loggers</a></li><li><a class="toc-href" href="#log-handlers" title="Log Handlers">Log Handlers</a></li><li><a class="toc-href" href="#log-formatters" title="Log Formatters">Log Formatters</a></li><li><a class="toc-href" href="#log-filters" title="Log Filters">Log Filters</a></li></ul></li><li><a class="toc-href" href="#logging-vs-print-vs-exception_1" title="Logging vs print vs exception">Logging vs print vs exception</a></li><li><a class="toc-href" href="#warningswarn-vs-loggingwarning" title="Warnings.warn vs logging.warning">Warnings.warn vs logging.warning</a></li><li><a class="toc-href" href="#what-should-i-log" title="What should I log?">What should I log?</a></li><li><a class="toc-href" href="#best-practices" title="Best practices">Best practices</a></li><li><a class="toc-href" href="#silencing-loggers" title="Silencing loggers">Silencing loggers</a></li><li><a class="toc-href" href="#should-i-always-use-pythons-logging-library" title="Should I always use Pythons&rsquo; logging library?">Should I always use Pythons&rsquo; logging library?</a></li><li><a class="toc-href" href="#more-information" title="More information">More information</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="The dmesg output. Screenshot taken by Martin Thoma." src="https://cdn-images-1.medium.com/max/3760/1*7bpeZdDGtnxRIFE0iYp7OQ.png"/><em>The <a href="https://en.wikipedia.org/wiki/Dmesg">dmesg</a> output. Screenshot taken by Martin Thoma.</em></p>
-<p>Logging is the act of recording information about the current state of execution. It&rsquo;s typically done for two purposes:</p>
+            <p><img alt="The dmesg output. Screenshot taken by Martin Thoma." src="https://cdn-images-1.medium.com/max/3760/1*7bpeZdDGtnxRIFE0iYp7OQ.png"><em>The <a href="https://en.wikipedia.org/wiki/Dmesg">dmesg</a> output. Screenshot taken by Martin Thoma.</em></p>
+<p>Logging is the act of recording information about the current state of execution. It’s typically done for two purposes:</p>
 <ol>
 <li><strong>Debugging</strong>: To enable the developer to narrow down the cause of a system failure</li>
 <li><strong>Monitoring</strong>: To enable people on operations to know what is currently happening</li>
@@ -123,19 +117,21 @@ MathJax.Hub.Queue(function() {
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">"</span><span class="p">,</span>
-    <span class="n">style</span><span class="o">=</span><span class="s2">"{"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;{&quot;</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>It gives output like this:</p>
 <div class="highlight"><pre><span></span><code>2020-09-07 22:40:32,101 INFO     Hello World!
 </code></pre></div>
-<p><strong>BasicConfig should probably not be used</strong>. Please continue reading &ldquo;the 4 logging classes&rdquo; to learn why 😁</p>
-<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="https://cdn-images-1.medium.com/max/4960/1*g34WT6mRV4_UKC06OnUNeg.jpeg"/><em>Image by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important">geek-and-poke.com</a></em></p>
+
+<p><strong>BasicConfig should probably not be used</strong>. Please continue reading “the 4 logging classes” to learn why 😁</p>
+<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="https://cdn-images-1.medium.com/max/4960/1*g34WT6mRV4_UKC06OnUNeg.jpeg"><em>Image by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important">geek-and-poke.com</a></em></p>
 <h2 id="the-4-logging-classes">The 4 Logging Classes</h2>
 <p>Python has a logger hierarchy in a tree structure. This means you can apply a log configuration for a single logger and make all child loggers behave the same way. This is useful if you want to configure a package. logging.basicConfig acts on the root logger. For this reason, it should only be used within application code, but not in library or framework code.</p>
 <p>Python distinguishes 4 main components that you can adjust to your needs: Loggers, handlers, filters, and formatters. They act on log records that are created when you pass your log message to the logger.</p>
@@ -145,6 +141,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </code></pre></div>
+
 <p>You can emit 5 levels of log messages :</p>
 <ul>
 <li><strong>Debug</strong>: extremely detailed, you can use this if you have no clue at a certain part of the code what is happening. Remember to remove it again.</li>
@@ -154,26 +151,30 @@ MathJax.Hub.Queue(function() {
 <li><strong>Critical</strong>: a problem that requires the app to restart happened. For example, a kill signal was received.</li>
 </ul>
 <p>You use it like this :</p>
-<div class="highlight"><pre><span></span><code><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"My first log message"</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"The specified file could not be opened."</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;My first log message&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;The specified file could not be opened.&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <h3 id="log-handlers">Log Handlers</h3>
 <p>File handlers store stuff to files, stream handlers write logs to a stream:</p>
 <div class="highlight"><pre><span></span><code><span class="n">sh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">"spam.log"</span><span class="p">)</span>
+<span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;spam.log&quot;</span><span class="p">)</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span>
 </code></pre></div>
-<p>If you&rsquo;re using a file handler, consider using a <a href="https://docs.python.org/3/howto/logging-cookbook.html#using-file-rotation">RotatingFileHandler</a>. It will create a new file once the log file becomes too big. You can specify how many files there might be. When the maximum is reached, the oldest file is deleted.</p>
+
+<p>If you’re using a file handler, consider using a <a href="https://docs.python.org/3/howto/logging-cookbook.html#using-file-rotation">RotatingFileHandler</a>. It will create a new file once the log file becomes too big. You can specify how many files there might be. When the maximum is reached, the oldest file is deleted.</p>
 <p>The <a href="https://docs.python.org/3/library/logging.handlers.html#httphandler">HTTPHandler</a> is also noteworthy because it allows you to integrate into other systems such as Slack.</p>
 <p>Commonly, you also want to set the log level to either the logger or the log handler:</p>
 <div class="highlight"><pre><span></span><code><span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="https://cdn-images-1.medium.com/max/2000/1*QR-5wpqk0J2X3O1vlYSrqQ.jpeg"/><em>Image by Oliver Widder from g<a href="https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html">eek-and-poke.com</a></em></p>
+
+<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="https://cdn-images-1.medium.com/max/2000/1*QR-5wpqk0J2X3O1vlYSrqQ.jpeg"><em>Image by Oliver Widder from g<a href="https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html">eek-and-poke.com</a></em></p>
 <h3 id="log-formatters">Log Formatters</h3>
 <p>The log formatter changes the log message string. A formatter is attached to a log handler:</p>
-<div class="highlight"><pre><span></span><code><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"{"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;{&quot;</span><span class="p">)</span>
 <span class="n">sh</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
 </code></pre></div>
+
 <p>The style attribute is interesting. The default is % which means the format string then needs to be (asctime)s (levelname)-8s (message)s . I never really learned how the percentage style formatting works. I like to stick to the curly braces.</p>
 <p>There are way more <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">log record attributes</a> which you can use.</p>
 <h3 id="log-filters">Log Filters</h3>
@@ -196,14 +197,15 @@ MathJax.Hub.Queue(function() {
 <span class="n">stdout_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">OnWeekendOnlyErrorsFilter</span><span class="p">())</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stdout_handler</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="Photo by Nigel Tadyanehondo on Unsplash" src="https://cdn-images-1.medium.com/max/7872/0*LdnHX9sPcoVbJMbF"/><em>Photo by <a href="https://unsplash.com/@nxvision?utm_source=medium&amp;utm_medium=referral">Nigel Tadyanehondo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
-<h2 id="logging-vs-print-vs-exception_1">Logging vs print vs exception</h2>
-<p>I&rsquo;ve been very confused about when I should simply print out information and when I should log out or when I should throw an exception.</p>
+
+<p><img alt="Photo by Nigel Tadyanehondo on Unsplash" src="https://cdn-images-1.medium.com/max/7872/0*LdnHX9sPcoVbJMbF"><em>Photo by <a href="https://unsplash.com/@nxvision?utm_source=medium&amp;utm_medium=referral">Nigel Tadyanehondo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<h2 id="logging-vs-print-vs-exception">Logging vs print vs exception</h2>
+<p>I’ve been very confused about when I should simply print out information and when I should log out or when I should throw an exception.</p>
 <blockquote>
 <p>You throw an exception in a library function so that the user of that function can catch the exception and show the end-user a meaningful error message. The end-user should never see a traceback.</p>
 </blockquote>
-<p><strong>Logging is meant for other systems or developers</strong> who try to understand what happened to a system, whereas <strong>print is for the user</strong>. The confusing part is that print messages go by default to the standard error. You can easily do the same with print. I&rsquo;ve used it in the past to give the user feedback of what is currently happening, simply because logging had an easy way to include time stamps.</p>
-<p><img alt="Photo by Esteban Lopez on Unsplash" src="https://cdn-images-1.medium.com/max/7744/0*nCSTE1Mg5o-lyMj1"/><em>Photo by <a href="https://unsplash.com/@exxteban?utm_source=medium&amp;utm_medium=referral">Esteban Lopez</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><strong>Logging is meant for other systems or developers</strong> who try to understand what happened to a system, whereas <strong>print is for the user</strong>. The confusing part is that print messages go by default to the standard error. You can easily do the same with print. I’ve used it in the past to give the user feedback of what is currently happening, simply because logging had an easy way to include time stamps.</p>
+<p><img alt="Photo by Esteban Lopez on Unsplash" src="https://cdn-images-1.medium.com/max/7744/0*nCSTE1Mg5o-lyMj1"><em>Photo by <a href="https://unsplash.com/@exxteban?utm_source=medium&amp;utm_medium=referral">Esteban Lopez</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <h2 id="warningswarn-vs-loggingwarning">Warnings.warn vs logging.warning</h2>
 <p>According to <a href="https://docs.python.org/3/howto/logging.html#when-to-use-logging">the official docs</a>, you have two options when you want to issue a warning regarding a particular runtime event:</p>
 <ul>
@@ -211,28 +213,31 @@ MathJax.Hub.Queue(function() {
 <li><a href="https://docs.python.org/3/library/logging.html#logging.warning">logging.warning()</a> if there is nothing the client application can do about the situation, but the event should still be noted</li>
 </ul>
 <p>A typical use-case for warnings is <a href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning">DeprecationWarning</a> with which a library can tell its users to remove a certain type of usage. Or Scipy warning you that no BLAS library was found.</p>
-<p><img alt="Too few log messages are bad, but too many can be problematic as well. Photo by Christa Dodoo on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*OmKMed1DyMeALh3k"/><em>Too few log messages are bad, but too many can be problematic as well. Photo by <a href="https://unsplash.com/@krystagrusseck?utm_source=medium&amp;utm_medium=referral">Christa Dodoo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Too few log messages are bad, but too many can be problematic as well. Photo by Christa Dodoo on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*OmKMed1DyMeALh3k"><em>Too few log messages are bad, but too many can be problematic as well. Photo by <a href="https://unsplash.com/@krystagrusseck?utm_source=medium&amp;utm_medium=referral">Christa Dodoo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <h2 id="what-should-i-log">What should I log?</h2>
-<p>I typically log code that takes long to execute pretty well, whereas I don&rsquo;t add much logging to functions which are called super often and are fast. Most of the time there are initialization functions which load configuration. I always log the complete configuration but strip away credentials.</p>
+<p>I typically log code that takes long to execute pretty well, whereas I don’t add much logging to functions which are called super often and are fast. Most of the time there are initialization functions which load configuration. I always log the complete configuration but strip away credentials.</p>
 <p>I also log errors and rare exceptions.</p>
-<p>It&rsquo;s hard to find the right balance. Too many log messages make it hard to find relevant information. To few messages might mean that you didn&rsquo;t log the important information at all.</p>
+<p>It’s hard to find the right balance. Too many log messages make it hard to find relevant information. To few messages might mean that you didn’t log the important information at all.</p>
 <h2 id="best-practices">Best practices</h2>
-<p>It&rsquo;s a common practice for applications to create a log.py or a logger.py file in which the logger is initiated, log handler, and formatters are added. <a href="https://github.com/OpenShot/openshot-qt">OpenShot</a> is doing it.</p>
-<p><img alt="Photo by Kristina Flour on Unsplash" src="https://cdn-images-1.medium.com/max/9640/0*-2fIUT_dAjXX0-2q"/><em>Photo by <a href="https://unsplash.com/@tinaflour?utm_source=medium&amp;utm_medium=referral">Kristina Flour</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>It’s a common practice for applications to create a log.py or a logger.py file in which the logger is initiated, log handler, and formatters are added. <a href="https://github.com/OpenShot/openshot-qt">OpenShot</a> is doing it.</p>
+<p><img alt="Photo by Kristina Flour on Unsplash" src="https://cdn-images-1.medium.com/max/9640/0*-2fIUT_dAjXX0-2q"><em>Photo by <a href="https://unsplash.com/@tinaflour?utm_source=medium&amp;utm_medium=referral">Kristina Flour</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <h2 id="silencing-loggers">Silencing loggers</h2>
 <p>A common cause of frustration is log messages from 3rd party software which spam your application. If they behave well, it is easy to silence them: Get the logger and set the level to something high:</p>
-<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;urllib3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
 </code></pre></div>
-<p>If you don&rsquo;t even want critical log records, you can set</p>
-<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<p>If you don’t even want critical log records, you can set</p>
+<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;urllib3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
+
 <p>To disable the child loggers as well:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Disable all child loggers of urllib3, e.g. urllib3.connectionpool</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;urllib3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
+
 <p>You can also remove all handlers / add the <a href="https://docs.python.org/3/library/logging.handlers.html#nullhandler">NullHandler</a>.</p>
-<h2 id="should-i-always-use-pythons-logging-library">Should I always use Pythons&rsquo; logging library?</h2>
-<p>For sure not! Some scripts are so short that logging isn&rsquo;t reasonable. Others, <a href="https://github.com/pirate/ArchiveBox/issues/468#issuecomment-688489159">like ArchiveBox</a>, implement their own specialized logging. And there are other logging libraries like <a href="https://pypi.org/project/structlog">structlog</a>.</p>
+<h2 id="should-i-always-use-pythons-logging-library">Should I always use Pythons’ logging library?</h2>
+<p>For sure not! Some scripts are so short that logging isn’t reasonable. Others, <a href="https://github.com/pirate/ArchiveBox/issues/468#issuecomment-688489159">like ArchiveBox</a>, implement their own specialized logging. And there are other logging libraries like <a href="https://pypi.org/project/structlog">structlog</a>.</p>
 <h2 id="more-information">More information</h2>
 <p>Similar information is available in an amazing PyCon talk by <a href="undefined">Curtis Maloney</a>:</p>
 <p>You can directly read the <a href="https://docs.python.org/3/library/logging.html">documentation</a> or the official <a href="https://docs.python.org/3/howto/logging.html">logging howto</a>. To me, <a href="https://stackoverflow.com/questions/tagged/logging+python">reading StackOverflow</a> is also often helpful.</p>

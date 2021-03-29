@@ -102,60 +102,61 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#allgemeines" title="Allgemeines">Allgemeines</a></li><li><a class="toc-href" href="#tests" title="Tests">Tests</a></li><li><a class="toc-href" href="#abschlussaufgabe 1" title="Abschlussaufgabe 1">Abschlussaufgabe 1</a></li><li><a class="toc-href" href="#abschlussaufgabe 2" title="Abschlussaufgabe 2">Abschlussaufgabe 2</a></li><li><a class="toc-href" href="#daten" title="Daten">Daten</a></li><li><a class="toc-href" href="#ergebnisse" title="Ergebnisse">Ergebnisse</a></li><li><a class="toc-href" href="#meine abgabe" title="Meine Abgabe">Meine Abgabe</a><ul><li><a class="toc-href" href="#fehlerquellen" title="Fehlerquellen">Fehlerquellen</a></li></ul></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur f&uuml;r Informatik-Studenten am KIT im WS 2011 / 2012 interessant!</p>
 <p>Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich die Antworten von jgraf, mmohr und praktomat genommen.</p>
-<h2 id="allgemeines">Allgemeines</h2>
+<h2>Allgemeines</h2>
 <ul>
-<li>Was wir absolut nicht sehen wollen sind grosse Methoden, die verstreut &uuml;ber den ganzen Code diverse returns enth&auml;lt. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
-<li>Parameter: Die Anzahl der Parameter muss exakt stimmen. Sind zu &uuml;berz&auml;hlige Parameter vorhanden, muss ein Fehler ausgegeben werden.</li>
-<li>toString/equals: Sollte nur f&uuml;r Klassen geschrieben werden, bei denen es Sinn macht. Vor allem auf eins aufpassen: Wenn man equals &uuml;berschreibt, dann sollte man auch hashCode &uuml;berschreiben (siehe <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html#equals(java.lang.Object">docs.oracle.com</a>) bzw, beliebige suche nach "equals hashCode"). Mir fallen spontan wenige F&auml;lle ein, wo es keinen Sinn macht, equals()/hashCode() oder toString() zu &uuml;berschreiben. Die Shell ist vielleicht so ein Fall, oder auch Utility-Klassen. </li>
-<li>Verbergt die tats&auml;chlichen Typen, woimmer es m&ouml;glich ist! Also z.B. <code>private Map meineMap = new HashMap<integer, blub="">();</integer,></code></li>
+  <li>Was wir absolut nicht sehen wollen sind grosse Methoden, die verstreut &uuml;ber den ganzen Code diverse returns enth&auml;lt. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
+  <li>Parameter: Die Anzahl der Parameter muss exakt stimmen. Sind zu &uuml;berz&auml;hlige Parameter vorhanden, muss ein Fehler ausgegeben werden.</li>
+  <li>toString/equals: Sollte nur f&uuml;r Klassen geschrieben werden, bei denen es Sinn macht. Vor allem auf eins aufpassen: Wenn man equals &uuml;berschreibt, dann sollte man auch hashCode &uuml;berschreiben (siehe <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html#equals(java.lang.Object">docs.oracle.com</a>) bzw, beliebige suche nach "equals hashCode"). Mir fallen spontan wenige F&auml;lle ein, wo es keinen Sinn macht, equals()/hashCode() oder toString() zu &uuml;berschreiben. Die Shell ist vielleicht so ein Fall, oder auch Utility-Klassen. </li>
+  <li>Verbergt die tats&auml;chlichen Typen, woimmer es m&ouml;glich ist! Also z.B. <code>private Map meineMap = new HashMap<Integer, Blub>();</code></li>
 </ul>
+
 <blockquote>Frage: D&uuml;rfen Strings direkt im Programmcode stehen, oder sollten diese gesammelt am Beginn einer Klasse stehen?</blockquote>
+
 <p>Antwort: Kommt darauf an, wenn Sie mehr als eimal verwendet werden, dann sollte man Konstanten daraus machen.</p>
 <blockquote>Frage: Soll die Shell nur korrekte Werte an den eigentlichen LittlePraktomat &uuml;bergeben, also alle Fehlerquellen bereits in der Shell-Klasse abgefangen werden oder soll der LittlePraktomat Exceptions werfen, die in der Shell dann gefangen werden? Oder soll beides gemacht werden?</blockquote>
+
 <p>Antwort: Die &ouml;ffentlichen Methoden einer Klasse sind deren Schnittstelle. In den Javadoc Kommentaren sollte stehen, wie diese Schnittstelle zu verwenden ist. Also welcher Art die Eingaben sein m&uuml;ssen und wie die Ausgaben aussehen. Wenn sich ein Aufrufer nicht and diese Vereinbarung h&auml;lt, dann sollte die Methode der Schnittstelle eine Exception werfen (IllegalArgument, NullPointer, ...). Diese Exceptions sollten normalerweise nie vom Aufrufer gefangen werden. Sie sollen das Program kontrolliert zum Absturz bringen. Die Logik dahinter ist folgende: Wenn eine IllegalArgumentException (oder &auml;hnliches) fliegt, dann wurde eine Schnittstelle falsch verwendet. Der Aufrufer der Schnittstelle hat aber vor dem Aufruf sicher zu stellen, dass alle Forderungen der Schnittstelle eingehalten werden. D.h. wenn eine solche Exception auftritt liegt ein Programmierfehler vor. Mit Hilfe des Exceptionstacktrace kann der Entwickler diesen realtiv bequem finden und beheben.</p>
 <p>Es ist also beides zu machen, die Shell (der Aufrufer) hat vor dem Verwenden der Praktomat-Schnittstelle sicher zu stellen, dass alle Eingaben korrekt sind. Sind die Eingaben falsch, dann wird eine Fehlermeldung ausgegeben. Die Praktomat-Schnittstelle sch&uuml;tzt sich vor falscher Verwendung mit Hilfe von Exceptions.</p>
-<h2 id="tests">Tests</h2>
+<h2>Tests</h2>
 <p>Ihr <strong>m&uuml;sst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beispiel aufgebaut und sollt wichtige Eingaben / Ausgaben enthalten, die eventuell zu Fehlern f&uuml;hren k&ouml;nnten.</p>
-<p>Da ihr sie ja sowieso schreibt, k&ouml;nnt ihr euer Programm auch auf eure Tests.txt &uuml;berpr&uuml;fen. Ich habe mir dazu folgendes kleines <a href="../images/2012/03/programmieren-abschlussaufgabe.zip">Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.</p>
+<p>Da ihr sie ja sowieso schreibt, k&ouml;nnt ihr euer Programm auch auf eure Tests.txt &uuml;berpr&uuml;fen. Ich habe mir dazu folgendes kleines <a href='../images/2012/03/programmieren-abschlussaufgabe.zip'>Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.</p>
 <p>Also folgendes in der Bash:</p>
 <div class="highlight"><pre><span></span><code>python checkTests.py
 meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt
 </code></pre></div>
+
 <p>Ihr m&uuml;sst halt noch die Pfade anpassen.</p>
-<h2 id="abschlussaufgabe 1">Abschlussaufgabe 1</h2>
-<p>Folgendes zum LittlePraktomat:
+<h2>Abschlussaufgabe 1</h2>
+<p>Folgendes zum LittlePraktomat:</p>
 <ul>
-<li>Falls die Namen von Personen etwas anderes als Kleinbuchstaben haben (also z.B. Gro&szlig;buchstaben!) soll ein Fehler ausgegeben werden. &auml;&ouml;&uuml; m&uuml;ssen nicht als Kleinbuchstaben erkannt werden, a-z reicht.</li>
-</ul></p>
-<h2 id="abschlussaufgabe 2">Abschlussaufgabe 2</h2>
-<p>Folgendes zu <a href="http://de.wikipedia.org/wiki/Othello_(Spiel)">Othello</a>:
+  <li>Falls die Namen von Personen etwas anderes als Kleinbuchstaben haben (also z.B. Gro&szlig;buchstaben!) soll ein Fehler ausgegeben werden. &auml;&ouml;&uuml; m&uuml;ssen nicht als Kleinbuchstaben erkannt werden, a-z reicht.</li>
+</ul>
+
+<h2>Abschlussaufgabe 2</h2>
+<p>Folgendes zu <a href="http://de.wikipedia.org/wiki/Othello_(Spiel)">Othello</a>:</p>
 <ul>
 <li>Wer sehr schnell die Aufgabe erledigt hatte (also noch am ersten Tag), dem fehlen hier eventuell ein paar Sachen. Habt ihr den hole-Befehl? Falls ja, ist alles ok. Sonst solltet ihr nochmals rein schauen und eure L&ouml;sung nochmals hochladen, weil eine veraltete Aufgabenstellung zu beginn hochgeladen wurde.</li>
 <li>Eine g&uuml;ltige Spielfeldgr&ouml;&szlig;e MUSS gerade breite / h&ouml;he haben, gr&ouml;&szlig;er als 0x0 sein und kleiner gleich 26x98 sein.</li>
 <li>Ein g&uuml;ltiges Rechteck MUSS die erste Koordinate links oben und die zweite rechts unten haben!</li>
-</ul></p>
-<p>Es gibt folgende Befehle:
+</ul>
+
+<p>Es gibt folgende Befehle:</p>
 <ul>
-<li>newGame <breite> <h&ouml;he> [<stellung>]</stellung></h&ouml;he></breite></li>
-<li>hole <rechteck></rechteck></li>
-<li>move <position></position></li>
-<li>print</li>
-<li>abort</li>
-<li>possibleMoves</li>
-<li>quit</li>
-</ul></p>
-<h2 id="daten">Daten</h2>
+  <li>newGame <Breite> <H&ouml;he> [<Stellung>]</li>
+  <li>hole <Rechteck></li>
+  <li>move <Position></li>
+  <li>print</li>
+  <li>abort</li>
+  <li>possibleMoves</li>
+  <li>quit</li>
+</ul>
+
+<h2>Daten</h2>
 <p><strong>Abschlussaufgabe 1</strong>: 01.02.2012 - 12.03.2012
 Funktionalit&auml;t: 0 - 7 Punkte
 Programmiermethodik: 0 - 7 Punkte
@@ -164,7 +165,7 @@ Endnote = (2 &middot; Funktionalit&auml;t + Programmiermethodik)</p>
 Funktionalit&auml;t: 0 - 7 Punkte
 Programmiermethodik: 0 - 7 Punkte
 Endnote = (2 &middot; Funktionalit&auml;t + Programmiermethodik)</p>
-<h2 id="ergebnisse">Ergebnisse</h2>
+<h2>Ergebnisse</h2>
 <p>Mir wird, wenn ich im Abschlussaufgaben-Praktomat auf "Home" klicke, bereits angezeigt, dass es anscheinend maximal 24 Punkte auf die "Abschlu&szlig;aufgabe 1: Little Praktomat" gibt. Bin ja mal gespannt, wann es Ergebnisse gibt.</p>
 <p>Es gab jeweils auf Funktionalit&auml;t und Programmiermethodik 14 Punkte, wobei die Punktzahl der Funktionalit&auml;t verdoppelt wurde. Damit kommen wir insgesamt auf 2 * (14*2 + 14)= 84 Punkte. Der Notenschl&uuml;ssel ist wie folgt:</p>
 <table>
@@ -181,12 +182,14 @@ Endnote = (2 &middot; Funktionalit&auml;t + Programmiermethodik)</p>
 <tr><td>46,0 - 49,5</td><td>4,0</td></tr>
 <tr><td>0 - 45,5</td><td>5,0 - nicht bestanden</td></tr>
 </table>
-<h2 id="meine abgabe">Meine Abgabe</h2>
+
+<h2>Meine Abgabe</h2>
 <ul>
-<li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href="../images/2012/03/little-praktomat.zip">Java Source Code</a></li>
-<li>Othello: <a href="http://www.martin-thoma.de/programmieren-othello/">JavaDoc</a> + <a href="../images/2012/03/othello.zip">Java Source Code</a></li>
+  <li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href='../images/2012/03/little-praktomat.zip'>Java Source Code</a></li>
+  <li>Othello: <a href="http://www.martin-thoma.de/programmieren-othello/">JavaDoc</a> + <a href='../images/2012/03/othello.zip'>Java Source Code</a></li>
 </ul>
-<h3 id="fehlerquellen">Fehlerquellen</h3>
+
+<h3>Fehlerquellen</h3>
 <p>Es wurde bem&auml;ngelt, dass ich wenig Kommentare hab. Ich finde, ich habe wahnsinnig viele ...</p>
 <h4>LittlePraktomat</h4>
 <p><strong>Test 4</strong>:

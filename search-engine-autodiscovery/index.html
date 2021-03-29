@@ -102,93 +102,98 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#opensearch" title="OpenSearch">OpenSearch</a></li><li><a class="toc-href" href="#google chrome autodiscovery" title="Google Chrome Autodiscovery">Google Chrome Autodiscovery</a></li><li><a class="toc-href" href="#drawbacks" title="Drawbacks">Drawbacks</a></li><li><a class="toc-href" href="#this article in a nutshell" title="This article in a nutshell">This article in a nutshell</a></li><li><a class="toc-href" href="#further reading" title="Further reading">Further reading</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically?
-Firefox gives you the possibility to add such a search engine to your browser:
+Firefox gives you the possibility to add such a search engine to your browser:</p>
 <figure class="aligncenter">
-<a href="../images/2011/10/firefox-add-search-engine.png"><img alt="Firefox: Add search engine detected via autodiscovery" class="size-full wp-image-6921" src="../images/2011/10/firefox-add-search-engine.png" style="max-width:294px;max-height:236px"/></a>
-<figcaption class="text-center">Firefox: Add search engine detected via autodiscovery</figcaption>
-</figure></p>
-<h2 id="opensearch">OpenSearch</h2>
+            <a href="../images/2011/10/firefox-add-search-engine.png"><img src="../images/2011/10/firefox-add-search-engine.png" alt="Firefox: Add search engine detected via autodiscovery" style="max-width:294px;max-height:236px" class="size-full wp-image-6921"/></a>
+            <figcaption class="text-center">Firefox: Add search engine detected via autodiscovery</figcaption>
+        </figure>
+
+<h2>OpenSearch</h2>
 <p><a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...</p>
 <p>A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;OpenSearchDescription</span> <span class="na">xmlns=</span><span class="s">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;OpenSearchDescription</span> <span class="na">xmlns=</span><span class="s">&quot;http://a9.com/-/spec/opensearch/1.1/&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ShortName&gt;</span>Example<span class="nt">&lt;/ShortName&gt;</span>
     <span class="nt">&lt;Description&gt;</span>My example search engine<span class="nt">&lt;/Description&gt;</span>
     <span class="nt">&lt;InputEncoding&gt;</span>UTF-8<span class="nt">&lt;/InputEncoding&gt;</span>
-    <span class="nt">&lt;Image</span> <span class="na">height=</span><span class="s">"16"</span> <span class="na">width=</span><span class="s">"16"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Image</span> <span class="na">height=</span><span class="s">&quot;16&quot;</span> <span class="na">width=</span><span class="s">&quot;16&quot;</span> <span class="na">type=</span><span class="s">&quot;image/x-icon&quot;</span><span class="nt">&gt;</span>
         http://example.org/favicon.ico
     <span class="nt">&lt;/Image&gt;</span>
-    <span class="nt">&lt;Url</span> <span class="na">type=</span><span class="s">"text/html"</span>
-         <span class="na">template=</span><span class="s">"http://example.org/index.html#search={searchTerms}"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Url</span> <span class="na">type=</span><span class="s">&quot;text/html&quot;</span>
+         <span class="na">template=</span><span class="s">&quot;http://example.org/index.html#search={searchTerms}&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/OpenSearchDescription&gt;</span>
 </code></pre></div>
+
 <p>The browser needs a hint where it can find the OSSD. So you have to add the following tag to your website:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;link</span> <span class="na">title =</span> <span class="s">"Example"</span>
-      <span class="na">type  =</span> <span class="s">"application/opensearchdescription+xml"</span>
-      <span class="na">rel   =</span> <span class="s">"search"</span>
-      <span class="na">href  =</span> <span class="s">"http://example.org/opensearch.xml"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;link</span> <span class="na">title =</span> <span class="s">&quot;Example&quot;</span>
+      <span class="na">type  =</span> <span class="s">&quot;application/opensearchdescription+xml&quot;</span>
+      <span class="na">rel   =</span> <span class="s">&quot;search&quot;</span>
+      <span class="na">href  =</span> <span class="s">&quot;http://example.org/opensearch.xml&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
+
 <p>Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+.</p>
 <p>Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and Internet Explorer 7+ that your site supports OpenSearch:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">AddSearchProvider</span><span class="p">(</span><span class="s2">"http://exampl.org/opensearch.xml"</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">AddSearchProvider</span><span class="p">(</span><span class="s2">&quot;http://exampl.org/opensearch.xml&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="google chrome autodiscovery">Google Chrome Autodiscovery</h2>
+
+<h2>Google Chrome Autodiscovery</h2>
 <p>Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an internal search engine. Instead, you can add it via Settings:</p>
 <figure class="aligncenter">
-<a href="../images/2011/10/google-chrome-add-search-300x206.png"><img alt="Add Search Engines via Settings in Google Chrome" class="size-medium wp-image-6891" src="../images/2011/10/google-chrome-add-search-300x206.png" style="max-width:300px;max-height:206px"/></a>
-<figcaption class="text-center">Add Search Engines via Settings in Google Chrome</figcaption>
-</figure>
+            <a href="../images/2011/10/google-chrome-add-search-300x206.png"><img src="../images/2011/10/google-chrome-add-search-300x206.png" alt="Add Search Engines via Settings in Google Chrome" style="max-width:300px;max-height:206px" class="size-medium wp-image-6891"/></a>
+            <figcaption class="text-center">Add Search Engines via Settings in Google Chrome</figcaption>
+        </figure>
+
 <p>Chrome also adds the sites internal search engine automatically. Did you ever notice this? Here are some screenshots:</p>
 <figure class="aligncenter">
-<a href="../images/2011/10/google-chrome-search-1.png"><img alt="Google Chrome Search - Hit tab to search this site" class="size-full wp-image-6841" src="../images/2011/10/google-chrome-search-1.png" style="max-width:659px;max-height:31px"/></a>
-<figcaption class="text-center">Google Chrome Search - Hit tab to search this site</figcaption>
-</figure>
+            <a href="../images/2011/10/google-chrome-search-1.png"><img src="../images/2011/10/google-chrome-search-1.png" alt="Google Chrome Search - Hit tab to search this site" style="max-width:659px;max-height:31px" class="size-full wp-image-6841"/></a>
+            <figcaption class="text-center">Google Chrome Search - Hit tab to search this site</figcaption>
+        </figure>
+
 <figure class="aligncenter">
-<a href="../images/2011/10/google-chrome-search-2.png"><img alt="Google Chrome Search - Search with the websites internal search engine" class="size-full wp-image-6851" src="../images/2011/10/google-chrome-search-2.png" style="max-width:656px;max-height:30px"/></a>
-<figcaption class="text-center">Google Chrome Search - Search with the websites internal search engine</figcaption>
-</figure>
+            <a href="../images/2011/10/google-chrome-search-2.png"><img src="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine" style="max-width:656px;max-height:30px" class="size-full wp-image-6851"/></a>
+            <figcaption class="text-center">Google Chrome Search - Search with the websites internal search engine</figcaption>
+        </figure>
+
 <p>Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type <code>search</code> or of the type <code>text</code> with the name <code>s</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"search"</span> <span class="na">name</span><span class="o">=</span><span class="s">"s"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;search&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;s&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
+
 <p>or</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"s"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;s&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
-<h2 id="drawbacks">Drawbacks</h2>
+
+<h2>Drawbacks</h2>
 <ul>
-<li>It seems as if Safari didn't support OSSD natively. (14.04.2011)</li>
-<li>Internet Explorer 9 seems not to support OSSD.</li>
-<li>No support by Opera.</li>
+  <li>It seems as if Safari didn't support OSSD natively. (14.04.2011)</li>
+  <li>Internet Explorer 9 seems not to support OSSD.</li>
+  <li>No support by Opera.</li>
 </ul>
-<h2 id="this article in a nutshell">This article in a nutshell</h2>
+
+<h2>This article in a nutshell</h2>
 <ul>
-<li>opensearch.xml gives meta information about your websites internal search engine</li>
-<li>For Chromes autodiscovery you will need to add an input fild with "type=search" or "name=s"</li>
-<li>It is not necessary for Chrome that the user can see the form (display:none with CSS) nor that it the site start page is loaded long (meta redirect after 0 seconds).</li>
-<li>Adding the search engine manually is possible in almost all browsers</li>
-<li>With OSSD you can manage more than one internal search engine.</li>
+  <li>opensearch.xml gives meta information about your websites internal search engine</li>
+  <li>For Chromes autodiscovery you will need to add an input fild with "type=search" or "name=s"</li>
+  <li>It is not necessary for Chrome that the user can see the form (display:none with CSS) nor that it the site start page is loaded long (meta redirect after 0 seconds).</li>
+  <li>Adding the search engine manually is possible in almost all browsers</li>
+  <li>With OSSD you can manage more than one internal search engine.</li>
 </ul>
-<h2 id="further reading">Further reading</h2>
+
+<h2>Further reading</h2>
 <ul>
-<li>OpenSearch.org:
+  <li>OpenSearch.org:
     <ul>
-<li><a href="http://www.opensearch.org/Community/OpenSearch_search_clients">OpenSearch search clients</a></li>
-<li><a href="http://www.opensearch.org/Documentation/Developer_best_practices_guide">Developer best practices guide</a></li>
-</ul>
-</li>
-<li>David Walsh: <a href="http://davidwalsh.name/open-search">Add Your Website to Firefox&rsquo;s Search Bar Using OpenSearch XML</a>.</li>
+      <li><a href="http://www.opensearch.org/Community/OpenSearch_search_clients">OpenSearch search clients</a></li>
+  <li><a href="http://www.opensearch.org/Documentation/Developer_best_practices_guide">Developer best practices guide</a></li>
+    </ul>
+  </li>
+  <li>David Walsh: <a href="http://davidwalsh.name/open-search">Add Your Website to Firefox&rsquo;s Search Bar Using OpenSearch XML</a>.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

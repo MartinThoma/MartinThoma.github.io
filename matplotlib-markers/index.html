@@ -102,20 +102,15 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#simple-plots" title="Simple plots">Simple plots</a></li><li><a class="toc-href" href="#markers" title="Markers">Markers</a></li><li><a class="toc-href" href="#line-types" title="Line Types">Line Types</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Matplotlib is a simple Python library to create plots like this one:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Validation curve of one model with ReLU and one with PReLU" src="../images/2017/02/validation-curve.png" style="width: 512px;"/>
-<figcaption class="text-center">Validation curve of one model with ReLU and one with PReLU</figcaption>
+    <img src="../images/2017/02/validation-curve.png" alt="Validation curve of one model with ReLU and one with PReLU" style="width: 512px;"/>
+    <figcaption class="text-center">Validation curve of one model with ReLU and one with PReLU</figcaption>
 </figure>
+
 <p>As I always have to look up different styles of markers / lines, here is a
 little summary.</p>
 <h2 id="simple-plots">Simple plots</h2>
@@ -123,18 +118,18 @@ little summary.</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">"""Visualize matplotlib marker styles."""</span>
+<span class="sd">&quot;&quot;&quot;Visualize matplotlib marker styles.&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
 
 <span class="c1"># Get colors / markers / functions</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"g"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">)</span>
 <span class="n">markers</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">Line2D</span><span class="o">.</span><span class="n">markers</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">!=</span> <span class="s2">" "</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
             <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
         <span class="k">pass</span>
@@ -150,9 +145,9 @@ little summary.</p>
 
 <span class="c1"># Define the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Example for matplotlib markers"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"""x-axis label"""</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"""y-axis label"""</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Example for matplotlib markers&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;x-axis label&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;y-axis label&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="c1"># Define at which x positions to evaluate the functions f_i(x)</span>
 <span class="n">xmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -162,14 +157,15 @@ little summary.</p>
 
 <span class="c1"># Plot the functions</span>
 <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">marker</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">functions</span><span class="p">):</span>
-    <span class="n">format_str</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{color}{marker}</span><span class="s2">-"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">)</span>
+    <span class="n">format_str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{color}{marker}</span><span class="s2">-&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">format_str</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">format_str</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"matplotlib-marker-styles.png"</span><span class="p">)</span>  <span class="c1"># or plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;matplotlib-marker-styles.png&quot;</span><span class="p">)</span>  <span class="c1"># or plt.show()</span>
 </code></pre></div>
+
 <h2 id="markers">Markers</h2>
 <p>Basically, the matplotlib tries to have identifiers for the markers which look
 similar to the marker:</p>
@@ -179,26 +175,31 @@ similar to the marker:</p>
 <li>Circle-like: <code>o</code>, <code>.</code>, <code>h</code>, <code>p</code>, <code>H</code>, <code>8</code></li>
 </ul>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Markers 1" src="../images/2017/02/matplotlib-markers-1.png" style="width: 512px;"/>
-<figcaption class="text-center">Markers 1</figcaption>
+    <img src="../images/2017/02/matplotlib-markers-1.png" alt="Markers 1" style="width: 512px;"/>
+    <figcaption class="text-center">Markers 1</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Markers 2" src="../images/2017/02/matplotlib-markers-2.png" style="width: 512px;"/>
-<figcaption class="text-center">Markers 2</figcaption>
+    <img src="../images/2017/02/matplotlib-markers-2.png" alt="Markers 2" style="width: 512px;"/>
+    <figcaption class="text-center">Markers 2</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Markers 3" src="../images/2017/02/matplotlib-markers-3.png" style="width: 512px;"/>
-<figcaption class="text-center">Markers 3</figcaption>
+    <img src="../images/2017/02/matplotlib-markers-3.png" alt="Markers 3" style="width: 512px;"/>
+    <figcaption class="text-center">Markers 3</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Markers 4" src="../images/2017/02/matplotlib-markers-4.png" style="width: 512px;"/>
-<figcaption class="text-center">Markers 4</figcaption>
+    <img src="../images/2017/02/matplotlib-markers-4.png" alt="Markers 4" style="width: 512px;"/>
+    <figcaption class="text-center">Markers 4</figcaption>
 </figure>
+
 <h2 id="line-types">Line Types</h2>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Matplotlib line styles" src="../images/2017/02/matplotlib-line-styles.png"/>
-<figcaption class="text-center">Matplotlib line styles</figcaption>
+    <img src="../images/2017/02/matplotlib-line-styles.png" alt="Matplotlib line styles" />
+    <figcaption class="text-center">Matplotlib line styles</figcaption>
 </figure>
+
 <h2 id="documentation">Documentation</h2>
 <ul>
 <li><a href="http://matplotlib.org/api/markers_api.html">matplotlib.markers</a></li>

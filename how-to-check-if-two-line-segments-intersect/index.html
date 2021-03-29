@@ -100,194 +100,190 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#test cases" title="Test cases">Test cases</a></li><li><a class="toc-href" href="#bounding boxes" title="Bounding boxes">Bounding boxes</a></li><li><a class="toc-href" href="#the algorithm" title="The algorithm">The algorithm</a><ul><li><a class="toc-href" href="#cross product" title="Cross product">Cross product</a></li></ul></li><li><a class="toc-href" href="#where do two line segments intersect?_1" title="Where do two line segments intersect?">Where do two line segments intersect?</a></li><li><a class="toc-href" href="#tl;dr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#addendum" title="Addendum">Addendum</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>You have to line segments and you want to know if they intersect. I'll give you an algorithm how to do it.</p>
-<h2 id="test cases">Test cases</h2>
+<h2>Test cases</h2>
 <p>First of all, we should think about how lines can be arranged:</p>
 <ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-t1.png">
-<img alt="T1: One line is horizontal, one vertical and they cross" src="../images/2013/02/line-segments-t1.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase T1</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-t2.png">
-<img alt="T2: An endpoint of one line segment is on the other line segment" src="../images/2013/02/line-segments-t2.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase T2</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-t3.png">
-<img alt="T3: Similar to T4, but with negative coordiantes" src="../images/2013/02/line-segments-t3.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase T3</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-t4.png">
-<img alt="T4: One line is horizontal, one vertical and an end point is on one line" src="../images/2013/02/line-segments-t4.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase T4</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-t5.png">
-<img alt="T5: One line is on the other line" src="../images/2013/02/line-segments-t5.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase T5</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-t6.png">
-<img alt="T6: Line segements are identical" src="../images/2013/02/line-segments-t6.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase T6</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f1.png">
-<img alt="F1: In parallel, close together, one line is completely inside the bounding box of the other line" src="../images/2013/02/line-segments-f1.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F1</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f2.png">
-<img alt="F2: Both lines are parallel." src="../images/2013/02/line-segments-f2.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F2</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f3.png">
-<img alt="F3: Both lines are horizontal." src="../images/2013/02/line-segments-f3.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F3</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f4.png">
-<img alt="F4: One line is horizontal, one vertical. They don't cross." src="../images/2013/02/line-segments-f4.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F4</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f5.png">
-<img alt="F5: Both line segments are on one line, but they don't intersect" src="../images/2013/02/line-segments-f5.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F5</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f6.png">
-<img alt="F6: Both line segments are close together" src="../images/2013/02/line-segments-f6.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F6</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f7.png">
-<img alt="F7: Both lines are horizontal" src="../images/2013/02/line-segments-f7.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F7</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/02/line-segments-f8.png">
-<img alt="F8: Like F6" src="../images/2013/02/line-segments-f8.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Testcase F8</div>
-</div>
-</li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-t1.png" class="image">
+                  <img src="../images/2013/02/line-segments-t1.png" alt="T1: One line is horizontal, one vertical and they cross" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase T1</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-t2.png" class="image">
+                  <img src="../images/2013/02/line-segments-t2.png" alt="T2: An endpoint of one line segment is on the other line segment" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase T2</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-t3.png" class="image">
+                  <img src="../images/2013/02/line-segments-t3.png" alt="T3: Similar to T4, but with negative coordiantes" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase T3</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-t4.png" class="image">
+                  <img src="../images/2013/02/line-segments-t4.png" alt="T4: One line is horizontal, one vertical and an end point is on one line" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase T4</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-t5.png" class="image">
+                  <img src="../images/2013/02/line-segments-t5.png" alt="T5: One line is on the other line" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase T5</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-t6.png" class="image">
+                  <img src="../images/2013/02/line-segments-t6.png" alt="T6: Line segements are identical" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase T6</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f1.png" class="image">
+                  <img src="../images/2013/02/line-segments-f1.png" alt="F1: In parallel, close together, one line is completely inside the bounding box of the other line" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F1</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f2.png" class="image">
+                  <img src="../images/2013/02/line-segments-f2.png" alt="F2: Both lines are parallel." style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F2</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f3.png" class="image">
+                  <img src="../images/2013/02/line-segments-f3.png" alt="F3: Both lines are horizontal." style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F3</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f4.png" class="image">
+                  <img src="../images/2013/02/line-segments-f4.png" alt="F4: One line is horizontal, one vertical. They don't cross." style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F4</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f5.png" class="image">
+                  <img src="../images/2013/02/line-segments-f5.png" alt="F5: Both line segments are on one line, but they don't intersect" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F5</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f6.png" class="image">
+                  <img src="../images/2013/02/line-segments-f6.png" alt="F6: Both line segments are close together" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F6</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f7.png" class="image">
+                  <img src="../images/2013/02/line-segments-f7.png" alt="F7: Both lines are horizontal" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F7</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/02/line-segments-f8.png" class="image">
+                  <img src="../images/2013/02/line-segments-f8.png" alt="F8: Like F6" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Testcase F8</div>
+      </div>
+   </li>
 </ul>
-<h2 id="bounding boxes">Bounding boxes</h2>
+
+<h2>Bounding boxes</h2>
 <p>You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:</p>
 <figure class="aligncenter">
-<a href="../images/2013/02/line-segments-bounding-box-250x300.png"><img alt="Two line segments with their bounding boxes" caption="Two line segments with their bounding boxes" class="size-medium wp-image-57731" src="../images/2013/02/line-segments-bounding-box-250x300.png" style="max-width:250px;max-height:300px"/></a>
-<figcaption class="text-center">Two line segments with their bounding boxes</figcaption>
-</figure>
+            <a href="../images/2013/02/line-segments-bounding-box-250x300.png"><img src="../images/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" caption="Two line segments with their bounding boxes" style="max-width:250px;max-height:300px" class="size-medium wp-image-57731"/></a>
+            <figcaption class="text-center">Two line segments with their bounding boxes</figcaption>
+        </figure>
+
 <p>With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.</p>
 <p>It is much easier to check if two bounding boxes intersect. It's simply:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
@@ -305,14 +301,16 @@ MathJax.Hub.Queue(function() {
         <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.</p>
-<h2 id="the algorithm">The algorithm</h2>
+<h2>The algorithm</h2>
 <figure class="aligncenter">
-<a href="../images/2013/02/flowchart.png"><img alt="Flowchart how to check if two lines intersect" class="size-full wp-image-57771" src="../images/2013/02/flowchart.png" style="max-width:500px;max-height:228px"/></a>
-<figcaption class="text-center">Flowchart how to check if two lines intersect</figcaption>
-</figure>
+            <a href="../images/2013/02/flowchart.png"><img src="../images/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect" style="max-width:500px;max-height:228px" class="size-full wp-image-57771"/></a>
+            <figcaption class="text-center">Flowchart how to check if two lines intersect</figcaption>
+        </figure>
+
 <p>Looks quite simple, doesn't it?</p>
-<h3 id="cross product">Cross product</h3>
+<h3>Cross product</h3>
 <p>Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:</p>
 <p>You can definie a cross product for points:</p>
 <div class="math">\begin{align}
@@ -348,6 +346,7 @@ $$</div>
     <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Checks if a point is right of a line. If the point is on the</span>
@@ -365,6 +364,7 @@ $$</div>
     <span class="k">return</span> <span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span> <span class="n">bTmp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>When we have one line <span class="math">\(a\)</span> through the origin and one line segment <span class="math">\(b\)</span>, you can check if <span class="math">\(b\)</span> crosses <span class="math">\(a\)</span> by checking if the end points of <span class="math">\(b\)</span> are on different sides of <span class="math">\(a\)</span>:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Check if line segment first touches or crosses the line that is</span>
@@ -384,6 +384,7 @@ $$</div>
                 <span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Now you have everything you need:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Check if line segments intersect</span>
@@ -400,14 +401,16 @@ $$</div>
             <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.</p>
-<h2 id="where do two line segments intersect?_1">Where do two line segments intersect?</h2>
+<h2>Where do two line segments intersect?</h2>
 <p>When you know that two line segments intersect, you can also calculate the intersection.
 The intersection could be a line or only a point.</p>
 <p>I did this with JavaScript:</p>
-<iframe height="600" src="../html5/line-segment-intersection/" width="800">
-<p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="../html5/line-segment-intersection/">hier</a>.</p>
+<iframe src="../html5/line-segment-intersection/" width="800" height="600">
+  <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="../html5/line-segment-intersection/">hier</a>.</p>
 </iframe>
+
 <p>This is the code that checks for line segments:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/** You know that lines a and b have an intersection and now you</span>
 <span class="cm">    want to get it!</span>
@@ -418,29 +421,29 @@ The intersection could be a line or only a point.</p>
 <span class="cm">       then x1 = x2 and y1 = y2.  */</span>
     <span class="kd">var</span> <span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">;</span>
 
-   <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">==</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="p">{</span>
         <span class="c1">// Case (A)</span>
         <span class="c1">// As a is a perfect vertical line, it cannot be represented</span>
         <span class="c1">// nicely in a mathematical way. But we directly know that</span>
         <span class="c1">//</span>
-        <span class="nx">x1</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">x1</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
         <span class="nx">x2</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">==</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="p">{</span>
             <span class="c1">// Case (AA): all x are the same!</span>
             <span class="c1">// Normalize</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span> <span class="p">{</span>
-                <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">],</span> <span class="s2">&quot;second&quot;</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">]};</span>
             <span class="p">}</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span> <span class="p">{</span>
-                <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">],</span> <span class="s2">&quot;second&quot;</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">]};</span>
             <span class="p">}</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span> <span class="p">{</span>
                 <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
                 <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
                 <span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
             <span class="p">}</span>
 
-            <span class="c1">// Now we know that the y-value of a["first"] is the</span>
+            <span class="c1">// Now we know that the y-value of a[&quot;first&quot;] is the</span>
             <span class="c1">// lowest of all 4 y values</span>
             <span class="c1">// this means, we are either in case (AAA):</span>
             <span class="c1">//   a: x--------------x</span>
@@ -450,25 +453,25 @@ The intersection could be a line or only a point.</p>
             <span class="c1">//   b:    x-------x</span>
             <span class="c1">// in both cases:</span>
             <span class="c1">// get the relavant y intervall</span>
-            <span class="nx">y1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">];</span>
-            <span class="nx">y2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]);</span>
+            <span class="nx">y1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">];</span>
+            <span class="nx">y2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="c1">// Case (AB)</span>
             <span class="c1">// we can mathematically represent line b as</span>
             <span class="c1">//     y = m*x + t &lt;=&gt; t = y - m*x</span>
             <span class="c1">// m = (y1-y2)/(x1-x2)</span>
             <span class="kd">var</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
-            <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
-                <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
-            <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+            <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">/</span>
+                <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]);</span>
+            <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
             <span class="nx">y1</span> <span class="o">=</span> <span class="nx">m</span><span class="o">*</span><span class="nx">x1</span> <span class="o">+</span> <span class="nx">t</span><span class="p">;</span>
             <span class="nx">y2</span> <span class="o">=</span> <span class="nx">y1</span>
         <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">==</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="p">{</span>
         <span class="c1">// Case (B)</span>
         <span class="c1">// essentially the same as Case (AB), but with</span>
         <span class="c1">// a and b switched</span>
-        <span class="nx">x1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">x1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
         <span class="nx">x2</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">;</span>
 
         <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
@@ -476,21 +479,21 @@ The intersection could be a line or only a point.</p>
         <span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
 
         <span class="kd">var</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
-        <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
-            <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
-        <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">/</span>
+            <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]);</span>
+        <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
         <span class="nx">y1</span> <span class="o">=</span> <span class="nx">m</span><span class="o">*</span><span class="nx">x1</span> <span class="o">+</span> <span class="nx">t</span><span class="p">;</span>
         <span class="nx">y2</span> <span class="o">=</span> <span class="nx">y1</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="c1">// Case (C)</span>
         <span class="c1">// Both lines can be represented mathematically</span>
         <span class="kd">var</span> <span class="nx">ma</span><span class="p">,</span> <span class="nx">mb</span><span class="p">,</span> <span class="nx">ta</span><span class="p">,</span> <span class="nx">tb</span><span class="p">;</span>
-        <span class="nx">ma</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
-             <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
-        <span class="nx">mb</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
-             <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
-        <span class="nx">ta</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
-        <span class="nx">tb</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">mb</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">ma</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">/</span>
+             <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]);</span>
+        <span class="nx">mb</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">/</span>
+             <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]);</span>
+        <span class="nx">ta</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
+        <span class="nx">tb</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="nx">mb</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">ma</span> <span class="o">==</span> <span class="nx">mb</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// Case (CA)</span>
             <span class="c1">// both lines are in parallel. As we know that they</span>
@@ -499,21 +502,21 @@ The intersection could be a line or only a point.</p>
             <span class="c1">// as in case (AA)</span>
 
             <span class="c1">// Normalize</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
-                <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">],</span> <span class="s2">&quot;second&quot;</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">]};</span>
             <span class="p">}</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
-                <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">],</span> <span class="s2">&quot;second&quot;</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">]};</span>
             <span class="p">}</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="p">{</span>
                 <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
                 <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
                 <span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
             <span class="p">}</span>
 
             <span class="c1">// get the relavant x intervall</span>
-            <span class="nx">x1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
-            <span class="nx">x2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">],</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+            <span class="nx">x1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">];</span>
+            <span class="nx">x2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="nx">b</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">][</span><span class="s2">&quot;x&quot;</span><span class="p">]);</span>
             <span class="nx">y1</span> <span class="o">=</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">x1</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
             <span class="nx">y2</span> <span class="o">=</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">x2</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -530,10 +533,11 @@ The intersection could be a line or only a point.</p>
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x1</span><span class="p">,</span> <span class="s2">"y"</span><span class="o">:</span><span class="nx">y1</span><span class="p">},</span> <span class="s2">"second"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x2</span><span class="p">,</span> <span class="s2">"y"</span><span class="o">:</span><span class="nx">y2</span><span class="p">}};</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="nx">x1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="nx">y1</span><span class="p">},</span> <span class="s2">&quot;second&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="nx">x2</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="nx">y2</span><span class="p">}};</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="tl;dr">TL;DR</h2>
+
+<h2>TL;DR</h2>
 <p>The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Geometry</span> <span class="p">{</span>
 
@@ -629,13 +633,15 @@ The intersection could be a line or only a point.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="addendum">Addendum</h2>
-<p>Some notes for me:
+
+<h2>Addendum</h2>
+<p>Some notes for me:</p>
 <ul>
-<li>Writing Tests first is worth the effort. I guess it finally saved me some time and it gives me some confidence that my code works.</li>
-<li>I should update my system. I'm still using Ubuntu 10.04.4 LTS. Especially, I have Eclipse 3.5.2. This means I could not try <a href="http://www.eclemma.org/">EclEmma</a> to test my code coverage ☹</li>
-<li>LaTeX is great. I've created all images with LaTeX and it was quite fast after I got the first one. Here is the <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/tikz/line-segments">LaTeX source</a>.</li>
-</ul></p>
+  <li>Writing Tests first is worth the effort. I guess it finally saved me some time and it gives me some confidence that my code works.</li>
+  <li>I should update my system. I'm still using Ubuntu 10.04.4 LTS. Especially, I have Eclipse 3.5.2. This means I could not try <a href="http://www.eclemma.org/">EclEmma</a> to test my code coverage ☹</li>
+  <li>LaTeX is great. I've created all images with LaTeX and it was quite fast after I got the first one. Here is the <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/tikz/line-segments">LaTeX source</a>.</li>
+</ul>
+
 <p>edit:
 I now have a more modern system. So I was able to use EclEmma, which works fine. And I have 100% branch code coverage for this part of code ☺</p>
 <h2 id="see-also">See also</h2>

@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#concepts" title="Concepts">Concepts</a></li><li><a class="toc-href" href="#db-installation" title="DB Installation">DB Installation</a></li><li><a class="toc-href" href="#db-cli-tools" title="DB CLI Tools">DB CLI Tools</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#professional-setup" title="Professional Setup">Professional Setup</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://en.wikipedia.org/wiki/MongoDB">MongoDB</a> is a document-oriented
@@ -119,17 +113,19 @@ a schema, use a SQL database like MySQL/MariaDB or Posgres. If you just need to
 store key/value pairs, use a <a href="https://martin-thoma.com/key-value-stores/">Key-Value Store</a>.</p>
 <h2 id="concepts">Concepts</h2>
 <dl>
-<dt><dfn>Document</dfn></dt>
-<dd>The basic unit of MongoDB, similar to a row in SQL databases. Documents are analogous to JSON objects but exist in the database in a more type-rich format known as BSON.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></dd>
-<dt><dfn>Collection</dfn></dt>
-<dd>A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection have a similar or related purpose.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></dd>
-<dt><dfn>Database</dfn></dt>
-<dd>A physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.<sup id="fnref:3"><a class="footnote-ref" href="#fn:1">3</a></sup></dd>
+    <dt><dfn>Document</dfn></dt>
+    <dd>The basic unit of MongoDB, similar to a row in SQL databases. Documents are analogous to JSON objects but exist in the database in a more type-rich format known as BSON.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></dd>
+    <dt><dfn>Collection</dfn></dt>
+    <dd>A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection have a similar or related purpose.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></dd>
+    <dt><dfn>Database</dfn></dt>
+    <dd>A physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.<sup id="fnref:3"><a class="footnote-ref" href="#fn:1">3</a></sup></dd>
 </dl>
+
 <h2 id="db-installation">DB Installation</h2>
 <p>On Ubuntu, you can simply run</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install mongodb
 </code></pre></div>
+
 <h2 id="db-cli-tools">DB CLI Tools</h2>
 <p>Start the mongo shell and show help:</p>
 <div class="highlight"><pre><span></span><code>$ mongo
@@ -137,7 +133,7 @@ MongoDB shell version v3.6.3
 connecting to: mongodb://127.0.0.1:27017
 MongoDB server version: <span class="m">3</span>.6.3
 Welcome to the MongoDB shell.
-For interactive help, <span class="nb">type</span> <span class="s2">"help"</span>.
+For interactive help, <span class="nb">type</span> <span class="s2">&quot;help&quot;</span>.
 For more comprehensive documentation, see
     http://docs.mongodb.org/
 Questions? Try the support group
@@ -162,79 +158,89 @@ Server has startup warnings:
     <span class="nb">help</span> mr                      mapreduce
 
     show dbs                     show database names
-    show collections             show collections in current database
-    show users                   show users in current database
+    show collections             show collections <span class="k">in</span> current database
+    show users                   show users <span class="k">in</span> current database
     show profile                 show most recent system.profile entries with <span class="nb">time</span> &gt;<span class="o">=</span> 1ms
     show logs                    show the accessible logger names
-    show log <span class="o">[</span>name<span class="o">]</span>              prints out the last segment of log in memory, <span class="s1">'global'</span> is default
+    show log <span class="o">[</span>name<span class="o">]</span>              prints out the last segment of log <span class="k">in</span> memory, <span class="s1">&#39;global&#39;</span> is default
     use &lt;db_name&gt;                <span class="nb">set</span> current database
-    db.foo.find<span class="o">()</span>                list objects in collection foo
-    db.foo.find<span class="o">(</span> <span class="o">{</span> a : <span class="m">1</span> <span class="o">}</span> <span class="o">)</span>     list objects in foo where <span class="nv">a</span> <span class="o">==</span> <span class="m">1</span>
+    db.foo.find<span class="o">()</span>                list objects <span class="k">in</span> collection foo
+    db.foo.find<span class="o">(</span> <span class="o">{</span> a : <span class="m">1</span> <span class="o">}</span> <span class="o">)</span>     list objects <span class="k">in</span> foo where <span class="nv">a</span> <span class="o">==</span> <span class="m">1</span>
     it                           result of the last line evaluated<span class="p">;</span> use to further iterate
     DBQuery.shellBatchSize <span class="o">=</span> x   <span class="nb">set</span> default number of items to display on shell
     <span class="nb">exit</span>                         quit the mongo shell
 </code></pre></div>
+
 <p>List all databases:</p>
 <div class="highlight"><pre><span></span><code>&gt; show dbs
 admin  <span class="m">0</span>.000GB
 <span class="nb">local</span>  <span class="m">0</span>.000GB
 </code></pre></div>
+
 <p>Use a db:</p>
 <div class="highlight"><pre><span></span><code>&gt; use admin
 switched to db admin
 </code></pre></div>
+
 <p>Create a new collection:</p>
-<div class="highlight"><pre><span></span><code>&gt; db.createCollection<span class="o">(</span><span class="s2">"examplecollection"</span><span class="o">)</span>
-<span class="o">{</span> <span class="s2">"ok"</span> : <span class="m">1</span> <span class="o">}</span>
+<div class="highlight"><pre><span></span><code>&gt; db.createCollection<span class="o">(</span><span class="s2">&quot;examplecollection&quot;</span><span class="o">)</span>
+<span class="o">{</span> <span class="s2">&quot;ok&quot;</span> : <span class="m">1</span> <span class="o">}</span>
 </code></pre></div>
+
 <p>Show collections:</p>
 <div class="highlight"><pre><span></span><code>&gt; show collections
 examplecollection
 system.version
 </code></pre></div>
+
 <p>Insert document into a collection:</p>
-<div class="highlight"><pre><span></span><code>&gt; db.examplecollection.insertOne<span class="o">({</span><span class="s1">'username'</span>: <span class="s1">'moose'</span>, <span class="s1">'status'</span>: <span class="o">[</span><span class="s1">'admin'</span>, <span class="s1">'active'</span><span class="o">]})</span>
+<div class="highlight"><pre><span></span><code>&gt; db.examplecollection.insertOne<span class="o">({</span><span class="s1">&#39;username&#39;</span>: <span class="s1">&#39;moose&#39;</span>, <span class="s1">&#39;status&#39;</span>: <span class="o">[</span><span class="s1">&#39;admin&#39;</span>, <span class="s1">&#39;active&#39;</span><span class="o">]})</span>
 <span class="o">{</span>
-    <span class="s2">"acknowledged"</span> : true,
-    <span class="s2">"insertedId"</span> : ObjectId<span class="o">(</span><span class="s2">"5eb9146abea1517a1e9e8245"</span><span class="o">)</span>
+    <span class="s2">&quot;acknowledged&quot;</span> : true,
+    <span class="s2">&quot;insertedId&quot;</span> : ObjectId<span class="o">(</span><span class="s2">&quot;5eb9146abea1517a1e9e8245&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 
-&gt; db.examplecollection.insertOne<span class="o">({</span><span class="s1">'username'</span>: <span class="s1">'test'</span>, <span class="s1">'status'</span>: <span class="o">[</span><span class="s1">'active'</span><span class="o">]</span>, <span class="s1">'foo'</span>: <span class="s1">'bar'</span><span class="o">})</span>
+&gt; db.examplecollection.insertOne<span class="o">({</span><span class="s1">&#39;username&#39;</span>: <span class="s1">&#39;test&#39;</span>, <span class="s1">&#39;status&#39;</span>: <span class="o">[</span><span class="s1">&#39;active&#39;</span><span class="o">]</span>, <span class="s1">&#39;foo&#39;</span>: <span class="s1">&#39;bar&#39;</span><span class="o">})</span>
 <span class="o">{</span>
-    <span class="s2">"acknowledged"</span> : true,
-    <span class="s2">"insertedId"</span> : ObjectId<span class="o">(</span><span class="s2">"5eb914a6bea1517a1e9e8246"</span><span class="o">)</span>
+    <span class="s2">&quot;acknowledged&quot;</span> : true,
+    <span class="s2">&quot;insertedId&quot;</span> : ObjectId<span class="o">(</span><span class="s2">&quot;5eb914a6bea1517a1e9e8246&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div>
+
 <p>Show existing documents of a collection:</p>
 <div class="highlight"><pre><span></span><code>&gt; db.examplecollection.find<span class="o">({})</span>
-<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5eb9146abea1517a1e9e8245"</span><span class="o">)</span>, <span class="s2">"username"</span> : <span class="s2">"moose"</span>, <span class="s2">"status"</span> : <span class="o">[</span> <span class="s2">"admin"</span>, <span class="s2">"active"</span> <span class="o">]</span> <span class="o">}</span>
-<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5eb914a6bea1517a1e9e8246"</span><span class="o">)</span>, <span class="s2">"username"</span> : <span class="s2">"test"</span>, <span class="s2">"status"</span> : <span class="o">[</span> <span class="s2">"active"</span> <span class="o">]</span>, <span class="s2">"foo"</span> : <span class="s2">"bar"</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s2">&quot;_id&quot;</span> : ObjectId<span class="o">(</span><span class="s2">&quot;5eb9146abea1517a1e9e8245&quot;</span><span class="o">)</span>, <span class="s2">&quot;username&quot;</span> : <span class="s2">&quot;moose&quot;</span>, <span class="s2">&quot;status&quot;</span> : <span class="o">[</span> <span class="s2">&quot;admin&quot;</span>, <span class="s2">&quot;active&quot;</span> <span class="o">]</span> <span class="o">}</span>
+<span class="o">{</span> <span class="s2">&quot;_id&quot;</span> : ObjectId<span class="o">(</span><span class="s2">&quot;5eb914a6bea1517a1e9e8246&quot;</span><span class="o">)</span>, <span class="s2">&quot;username&quot;</span> : <span class="s2">&quot;test&quot;</span>, <span class="s2">&quot;status&quot;</span> : <span class="o">[</span> <span class="s2">&quot;active&quot;</span> <span class="o">]</span>, <span class="s2">&quot;foo&quot;</span> : <span class="s2">&quot;bar&quot;</span> <span class="o">}</span>
 </code></pre></div>
+
 <p>Find document with exact matches:</p>
-<div class="highlight"><pre><span></span><code>&gt; db.examplecollection.find<span class="o">({</span><span class="s1">'username'</span>: <span class="s1">'moose'</span><span class="o">})</span>
-<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5eb9146abea1517a1e9e8245"</span><span class="o">)</span>, <span class="s2">"username"</span> : <span class="s2">"moose"</span>, <span class="s2">"status"</span> : <span class="o">[</span> <span class="s2">"admin"</span>, <span class="s2">"active"</span> <span class="o">]</span> <span class="o">}</span>
+<div class="highlight"><pre><span></span><code>&gt; db.examplecollection.find<span class="o">({</span><span class="s1">&#39;username&#39;</span>: <span class="s1">&#39;moose&#39;</span><span class="o">})</span>
+<span class="o">{</span> <span class="s2">&quot;_id&quot;</span> : ObjectId<span class="o">(</span><span class="s2">&quot;5eb9146abea1517a1e9e8245&quot;</span><span class="o">)</span>, <span class="s2">&quot;username&quot;</span> : <span class="s2">&quot;moose&quot;</span>, <span class="s2">&quot;status&quot;</span> : <span class="o">[</span> <span class="s2">&quot;admin&quot;</span>, <span class="s2">&quot;active&quot;</span> <span class="o">]</span> <span class="o">}</span>
 </code></pre></div>
+
 <p>Fuzzy regex search:</p>
-<div class="highlight"><pre><span></span><code>&gt; db.examplecollection.find<span class="o">({</span><span class="s1">'username'</span>: /oose$/<span class="o">})</span>
-<span class="o">{</span> <span class="s2">"_id"</span> : ObjectId<span class="o">(</span><span class="s2">"5eb9146abea1517a1e9e8245"</span><span class="o">)</span>, <span class="s2">"username"</span> : <span class="s2">"moose"</span>, <span class="s2">"status"</span> : <span class="o">[</span> <span class="s2">"admin"</span>, <span class="s2">"active"</span> <span class="o">]</span> <span class="o">}</span>
+<div class="highlight"><pre><span></span><code>&gt; db.examplecollection.find<span class="o">({</span><span class="s1">&#39;username&#39;</span>: /oose$/<span class="o">})</span>
+<span class="o">{</span> <span class="s2">&quot;_id&quot;</span> : ObjectId<span class="o">(</span><span class="s2">&quot;5eb9146abea1517a1e9e8245&quot;</span><span class="o">)</span>, <span class="s2">&quot;username&quot;</span> : <span class="s2">&quot;moose&quot;</span>, <span class="s2">&quot;status&quot;</span> : <span class="o">[</span> <span class="s2">&quot;admin&quot;</span>, <span class="s2">&quot;active&quot;</span> <span class="o">]</span> <span class="o">}</span>
 </code></pre></div>
+
 <p>Before we continue, we need to create a user</p>
-<div class="highlight"><pre><span></span><code>&gt; db.createUser<span class="o">({</span>user: <span class="s2">"testuser"</span>, pwd: <span class="s2">"abc123"</span>, roles: <span class="o">[{</span>role: <span class="s2">"userAdminAnyDatabase"</span>, db: <span class="s2">"admin"</span><span class="o">}]})</span>
+<div class="highlight"><pre><span></span><code>&gt; db.createUser<span class="o">({</span>user: <span class="s2">&quot;testuser&quot;</span>, pwd: <span class="s2">&quot;abc123&quot;</span>, roles: <span class="o">[{</span>role: <span class="s2">&quot;userAdminAnyDatabase&quot;</span>, db: <span class="s2">&quot;admin&quot;</span><span class="o">}]})</span>
 Successfully added user: <span class="o">{</span>
-    <span class="s2">"user"</span> : <span class="s2">"testuser"</span>,
-    <span class="s2">"roles"</span> : <span class="o">[</span>
+    <span class="s2">&quot;user&quot;</span> : <span class="s2">&quot;testuser&quot;</span>,
+    <span class="s2">&quot;roles&quot;</span> : <span class="o">[</span>
         <span class="o">{</span>
-            <span class="s2">"role"</span> : <span class="s2">"userAdminAnyDatabase"</span>,
-            <span class="s2">"db"</span> : <span class="s2">"admin"</span>
+            <span class="s2">&quot;role&quot;</span> : <span class="s2">&quot;userAdminAnyDatabase&quot;</span>,
+            <span class="s2">&quot;db&quot;</span> : <span class="s2">&quot;admin&quot;</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div>
+
 <h2 id="python">Python</h2>
 <p>Install the database driver <a href="https://pypi.org/project/pymongo/"><code>pymongo</code></a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">"mongodb://localhost:27017/"</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">&quot;mongodb://localhost:27017/&quot;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">client</span><span class="p">:</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">admin</span>
@@ -245,8 +251,9 @@ Successfully added user: <span class="o">{</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
 
     <span class="c1"># Delete the test user</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">examplecollection</span><span class="o">.</span><span class="n">delete_many</span><span class="p">({</span><span class="s2">"username"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">})</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">examplecollection</span><span class="o">.</span><span class="n">delete_many</span><span class="p">({</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">})</span>
 </code></pre></div>
+
 <p>There is of course a lot more to write about MongoDB, but those are the very basics.</p>
 <h2 id="professional-setup">Professional Setup</h2>
 <p>You might want to run MongoDB at a trusted provider like <a href="https://aws.amazon.com/de/quickstart/architecture/mongodb/">AWS</a>,
@@ -268,16 +275,16 @@ speed, load balancing, scalability, data loss / inconsistencies.</p>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
-<p>MongoDB Glossary: <a href="https://docs.mongodb.com/manual/reference/glossary/#term-document">document</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>MongoDB Glossary: <a href="https://docs.mongodb.com/manual/reference/glossary/#term-document">document</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>MongoDB Glossary: <a href="https://docs.mongodb.com/manual/reference/glossary/#term-collection">collection</a>&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>MongoDB Glossary: <a href="https://docs.mongodb.com/manual/reference/glossary/#term-collection">collection</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>MongoDB Glossary: <a href="https://docs.mongodb.com/manual/reference/glossary/#term-database">database</a>&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>MongoDB Glossary: <a href="https://docs.mongodb.com/manual/reference/glossary/#term-database">database</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

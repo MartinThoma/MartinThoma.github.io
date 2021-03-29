@@ -100,54 +100,54 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#weak typing" title="Weak typing">Weak typing</a></li><li><a class="toc-href" href="#weak typing and string concatenation" title="Weak typing and string concatenation">Weak typing and string concatenation</a></li><li><a class="toc-href" href="#automatic semicolons" title="Automatic semicolons">Automatic semicolons</a></li><li><a class="toc-href" href="#truth table" title="Truth table">Truth table</a></li><li><a class="toc-href" href="#the truth" title="The truth">The truth</a></li><li><a class="toc-href" href="#date" title="Date">Date</a></li><li><a class="toc-href" href="#integer overflow" title="Integer overflow">Integer overflow</a></li><li><a class="toc-href" href="#function parameters" title="Function parameters">Function parameters</a></li><li><a class="toc-href" href="#global variables" title="Global variables">Global variables</a></li><li><a class="toc-href" href="#see also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action.</p>
 <p>But JavaScript has a lot of "features" which are ... well, I don't have words for those. Just continue reading.</p>
 <p>Most of the following content is from a StackOverflow question <a href="http://stackoverflow.com/q/1995113/562769">Strangest language feature</a></p>
-<h2 id="weak typing">Weak typing</h2>
+<h2>Weak typing</h2>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">3.</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><code><span class="s1">'3'</span>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;3&#39;</span>
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 <strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives</p>
 <div class="highlight"><pre><span></span><code>SyntaxError: Unexpected token ILLEGAL
 </code></pre></div>
-<h2 id="weak typing and string concatenation">Weak typing and string concatenation</h2>
+
+<h2>Weak typing and string concatenation</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">+</span> <span class="mf">3</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">-</span> <span class="mf">3</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mf">3</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;5&#39;</span> <span class="o">-</span> <span class="mf">3</span><span class="p">);</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><code><span class="s1">'53'</span>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;53&#39;</span>
 <span class="m">2</span>
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 JavaScript automatically converts datatypes and <code>+</code> is used for string concatenation and for addition.</p>
 <p>In the first case, as the first datatype is a string and <code>+</code> is defined for strings as concatenation, JS converts <code>3</code> to <code>'3'</code> which results in the string <code>'53'</code>.</p>
 <p>In the second case, <code>-</code> is only defined for subtraction so <code>'5'</code> gets converted to a number (int? float? I don't know. I guess int.)</p>
-<h2 id="automatic semicolons">Automatic semicolons</h2>
+<h2>Automatic semicolons</h2>
 <p><strong>Example 1</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span>
     <span class="p">{</span>
         <span class="nx">id</span> <span class="o">:</span> <span class="mf">1338</span><span class="p">,</span>
-        <span class="nx">title</span> <span class="o">:</span> <span class="s1">'This is a test'</span>
+        <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;This is a test&#39;</span>
     <span class="p">};</span>
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
 </code></pre></div>
+
 <p><strong>Example 2</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span>
@@ -156,257 +156,270 @@ JavaScript automatically converts datatypes and <code>+</code> is used for strin
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
 </code></pre></div>
+
 <p><strong>Output 1</strong></p>
 <div class="highlight"><pre><span></span><code>Uncaught SyntaxError: Unexpected token :
 </code></pre></div>
+
 <p><strong>Output 2</strong></p>
 <div class="highlight"><pre><span></span><code>undefined
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 JS adds a <code>;</code> at every line end. Automatically. You can't prevent it.</p>
 <p>Please note that the second output is no error! It has a (valid) return value of <code>undefined</code>.</p>
-<h2 id="truth table">Truth table</h2>
+<h2>Truth table</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 0 == XYZ ---------"</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- 0 == XYZ ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- false == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- false == XYZ ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- '' == XYZ ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- null == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- &#39;&#39; == XYZ ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- null == XYZ ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- undefined == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- undefined == XYZ ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  \t\r\n == XYZ ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- '0' == XYZ ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 'false' == XYZ ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"--------------------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == 0 ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  \t\r\n == XYZ ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- &#39;0&#39; == XYZ ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------- &#39;false&#39; == XYZ ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;--------------------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == 0 ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == false ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="mf">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == false ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == '' ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == null ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == &#39;&#39; ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == null ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == undefined ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == undefined ---------&quot;</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == \t\r\n ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == '0' ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == 'false' ---------"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == \t\r\n ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot; \t\r\n&quot;</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="s2">&quot; \t\r\n&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == &#39;0&#39; ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;0&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------  XYZ == &#39;false&#39; ---------&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;false&#39;</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">);</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
 <table>
 <tr>
-<th>==</th>
-<th>0</th>
-<th>false</th>
-<th>''</th>
-<th>null</th>
-<th>undefined</th>
-<th>" \t\r\n"</th>
-<th>'0'</th>
-<th>'false'</th>
+    <th>==</th>
+    <th>0</th>
+    <th>false</th>
+    <th>''</th>
+    <th>null</th>
+    <th>undefined</th>
+    <th>" \t\r\n"</th>
+    <th>'0'</th>
+    <th>'false'</th>
 </tr>
 <tr>
-<th>0</th>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
+    <th>0</th>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>false</th>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
+    <th>false</th>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>''</th>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
+    <th>''</th>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>null</th>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
+    <th>null</th>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>undefined</th>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
+    <th>undefined</th>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>" \t\r\n"</th>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
+    <th>" \t\r\n"</th>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>'0'</th>
-<td style="background-color: lime;">true</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
-<td style="background-color: red;">false</td>
+    <th>'0'</th>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
+    <td style="background-color: red;">false</td>
 </tr>
 <tr>
-<th>'false'</th>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: red;">false</td>
-<td style="background-color: lime;">true</td>
+    <th>'false'</th>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: red;">false</td>
+    <td style="background-color: lime;">true</td>
 </tr>
 </table>
+
 <p><strong>Explanation</strong>
 Wow. This is fucked up. I've expected that strings compared to anything that is not the string itself evaluates to false.</p>
 <p>At least the table is symmetric and the diagonal is true. Please also note that JavaScript has a <code>===</code> operator.</p>
-<h2 id="the truth">The truth</h2>
+<h2>The truth</h2>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">2</span> <span class="o">==</span> <span class="p">[</span><span class="mf">2</span><span class="p">]);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">2</span> <span class="o">==</span> <span class="p">[[</span><span class="mf">2</span><span class="p">]]);</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nb">true</span>
 <span class="nb">true</span>
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 At <a href="http://stackoverflow.com/a/1724551/562769">StackOverflow</a></p>
-<h2 id="date">Date</h2>
+<h2>Date</h2>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">futureDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">2010</span><span class="p">,</span><span class="mf">77</span><span class="p">,</span><span class="mf">154</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">.</span><span class="nx">getYear</span><span class="p">());</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
 <div class="highlight"><pre><span></span><code>Tue Nov <span class="m">01</span> <span class="m">2016</span> <span class="m">00</span>:00:00 GMT+0100 <span class="o">(</span>CET<span class="o">)</span>
 <span class="m">116</span>
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 77 months and 154 days from the 0th day of 0th month of 2010</p>
 <p>You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as the later one returns <code>year - 1900</code> (Why? When is this useful?)</p>
-<h2 id="integer overflow">Integer overflow</h2>
+<h2>Integer overflow</h2>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">111111111111111111111</span><span class="p">);</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
 <div class="highlight"><pre><span></span><code><span class="m">111111111111111110000</span>
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 It's ok that JavaScript fails at handling this integer. I think it converts this to a float, but I'm not sure about that. But no matter what it does here, it doesn't throw an error. That's bad. How is a developer supposed to know in a big application know when something went wrong?</p>
-<h2 id="function parameters">Function parameters</h2>
+<h2>Function parameters</h2>
 <blockquote>In Javascript, declaring the parameters a function accepts is only a convenience to the programmer. All variables passed through the function call are accessible by the keyword <code>arguments</code>. So the following would alert "world":
 
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">blah</span><span class="p">(){</span>
     <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mf">1</span><span class="p">]);</span>
 <span class="p">}</span>
 
-<span class="nx">blah</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">);</span>
+<span class="nx">blah</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">);</span>
 </code></pre></div>
+
+
 </blockquote>
 <p><a href="http://stackoverflow.com/a/2023908/562769">Source</a> on StackOverflow</p>
-<h2 id="global variables">Global variables</h2>
+<h2>Global variables</h2>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">12</span><span class="p">;</span>
 
@@ -416,12 +429,14 @@ It's ok that JavaScript fails at handling this integer. I think it converts this
 <span class="nx">test</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
 </code></pre></div>
+
 <p><strong>Output</strong></p>
 <div class="highlight"><pre><span></span><code><span class="m">1337</span>
 </code></pre></div>
+
 <p><strong>Explanation</strong>
 When you forget to use <code>var</code> inside of <code>test()</code> you might accidentally use a global variable.</p>
-<h2 id="see also">See also</h2>
+<h2>See also</h2>
 <p>Do you know some more JavaScript WTFs?</p>
 <p>You might also be interested in <a href="../php-a-strange-language/" title="PHP: A strange language">PHP: A strange language</a></p>
             

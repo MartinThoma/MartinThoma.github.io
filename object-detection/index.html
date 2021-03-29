@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Object detection is the following task: You have an image and you want
@@ -130,12 +124,12 @@ than 1000.</p>
 <h2 id="code">Code</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Run object detection with VOC classes.</span>
 
 <span class="sd">This is just a minor modification of code from</span>
 <span class="sd">https://github.com/rykov8/ssd_keras</span>
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">keras.applications.imagenet_utils</span> <span class="kn">import</span> <span class="n">preprocess_input</span>
 <span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
@@ -149,7 +143,7 @@ than 1000.</p>
 
 
 <span class="k">def</span> <span class="nf">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="n">plt_fname</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a visualization of the found objects in img.</span>
 
 <span class="sd">    Paramters</span>
@@ -162,7 +156,7 @@ than 1000.</p>
 <span class="sd">        Names of the classes in Pascal VOC.</span>
 <span class="sd">    plt_fname : string</span>
 <span class="sd">        Path where the visualization gets stored.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
     <span class="c1"># Parse the outputs.</span>
     <span class="n">det_label</span> <span class="o">=</span> <span class="n">results</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
@@ -185,7 +179,7 @@ than 1000.</p>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
     <span class="n">currentAxis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-    <span class="n">currentAxis</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+    <span class="n">currentAxis</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">top_conf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="n">xmin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">top_xmin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
@@ -195,53 +189,53 @@ than 1000.</p>
         <span class="n">score</span> <span class="o">=</span> <span class="n">top_conf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_label_indices</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="n">label_name</span> <span class="o">=</span> <span class="n">voc_classes</span><span class="p">[</span><span class="n">label</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="n">display_txt</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{:0.2f}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span>
+        <span class="n">display_txt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:0.2f}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">),</span> <span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
         <span class="n">currentAxis</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="n">currentAxis</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-            <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">display_txt</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">"facecolor"</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+            <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">display_txt</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;facecolor&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
         <span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plt_fname</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">img_paths</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Detect objects in images.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    img_paths : list of strings</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Load the model</span>
     <span class="n">voc_classes</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">"Aeroplane"</span><span class="p">,</span>
-        <span class="s2">"Bicycle"</span><span class="p">,</span>
-        <span class="s2">"Bird"</span><span class="p">,</span>
-        <span class="s2">"Boat"</span><span class="p">,</span>
-        <span class="s2">"Bottle"</span><span class="p">,</span>
-        <span class="s2">"Bus"</span><span class="p">,</span>
-        <span class="s2">"Car"</span><span class="p">,</span>
-        <span class="s2">"Cat"</span><span class="p">,</span>
-        <span class="s2">"Chair"</span><span class="p">,</span>
-        <span class="s2">"Cow"</span><span class="p">,</span>
-        <span class="s2">"Diningtable"</span><span class="p">,</span>
-        <span class="s2">"Dog"</span><span class="p">,</span>
-        <span class="s2">"Horse"</span><span class="p">,</span>
-        <span class="s2">"Motorbike"</span><span class="p">,</span>
-        <span class="s2">"Person"</span><span class="p">,</span>
-        <span class="s2">"Pottedplant"</span><span class="p">,</span>
-        <span class="s2">"Sheep"</span><span class="p">,</span>
-        <span class="s2">"Sofa"</span><span class="p">,</span>
-        <span class="s2">"Train"</span><span class="p">,</span>
-        <span class="s2">"Tvmonitor"</span><span class="p">,</span>
+        <span class="s2">&quot;Aeroplane&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bicycle&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bird&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Boat&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bottle&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bus&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Car&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Cat&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Chair&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Cow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Diningtable&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Dog&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Horse&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Motorbike&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Person&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Pottedplant&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Sheep&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Sofa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Train&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Tvmonitor&quot;</span><span class="p">,</span>
     <span class="p">]</span>
     <span class="n">NUM_CLASSES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">voc_classes</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">SSD300</span><span class="p">(</span><span class="n">input_shape</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">NUM_CLASSES</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">"weights_SSD300.hdf5"</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">&quot;weights_SSD300.hdf5&quot;</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">bbox_util</span> <span class="o">=</span> <span class="n">BBoxUtility</span><span class="p">(</span><span class="n">NUM_CLASSES</span><span class="p">)</span>
 
     <span class="c1"># Load the inputs</span>
@@ -260,34 +254,34 @@ than 1000.</p>
 
     <span class="c1"># Visualize</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
-        <span class="n">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">-det.png"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_paths</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-det.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_paths</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
-    <span class="sd">"""Get parser object."""</span>
+    <span class="sd">&quot;&quot;&quot;Get parser object.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Detect objects in image"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"IMAGE"</span>
+        <span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Detect objects in image&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;IMAGE&quot;</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"--folder"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"folder"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"Detect objects in JPG images in folder"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FOLDER"</span><span class="p">,</span>
+        <span class="s2">&quot;--folder&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;folder&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Detect objects in JPG images in folder&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FOLDER&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">glob</span>
 
-        <span class="n">images</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">/*.jpg"</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/*.jpg&quot;</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
@@ -295,47 +289,58 @@ than 1000.</p>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">main</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="examples">Examples</h2>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="St Josep La Boqueria" src="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png" style="width:512px;"/>
-<figcaption class="text-center">St Josep La Boqueria</figcaption>
+    <img src="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png" alt="St Josep La Boqueria" style="width:512px;"/>
+    <figcaption class="text-center">St Josep La Boqueria</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Sagrada Familia" src="../images/2017/03/053-Sagrada-Familia-det.png"/>
-<figcaption class="text-center">Sagrada Familia</figcaption>
+    <img src="../images/2017/03/053-Sagrada-Familia-det.png" alt="Sagrada Familia" />
+    <figcaption class="text-center">Sagrada Familia</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Cat" src="../images/2017/03/065-Barcelona-Cat-1-det.png"/>
-<figcaption class="text-center">Cat</figcaption>
+    <img src="../images/2017/03/065-Barcelona-Cat-1-det.png" alt="Cat" />
+    <figcaption class="text-center">Cat</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Barcelona" src="../images/2017/03/069-Barcelona-det.png"/>
-<figcaption class="text-center">Barcelona</figcaption>
+    <img src="../images/2017/03/069-Barcelona-det.png" alt="Barcelona" />
+    <figcaption class="text-center">Barcelona</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="EmiMa-079" src="../images/2017/03/EmiMa-079-det.png"/>
-<figcaption class="text-center">EmiMa-079</figcaption>
+    <img src="../images/2017/03/EmiMa-079-det.png" alt="EmiMa-079" />
+    <figcaption class="text-center">EmiMa-079</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="EmiMa-100" src="../images/2017/03/EmiMa-100-det.png"/>
-<figcaption class="text-center">EmiMa-100</figcaption>
+    <img src="../images/2017/03/EmiMa-100-det.png" alt="EmiMa-100" />
+    <figcaption class="text-center">EmiMa-100</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="EmiMa-103" src="../images/2017/03/EmiMa-103-det.png"/>
-<figcaption class="text-center">EmiMa-103</figcaption>
+    <img src="../images/2017/03/EmiMa-103-det.png" alt="EmiMa-103" />
+    <figcaption class="text-center">EmiMa-103</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="EmiMa-105" src="../images/2017/03/EmiMa-105-det.png"/>
-<figcaption class="text-center">EmiMa-105</figcaption>
+    <img src="../images/2017/03/EmiMa-105-det.png" alt="EmiMa-105" />
+    <figcaption class="text-center">EmiMa-105</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Ryck" src="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png"/>
-<figcaption class="text-center">Ryck</figcaption>
+    <img src="../images/2017/03/Greifswald-Ryck-2016-08-27-det.png" alt="Ryck" />
+    <figcaption class="text-center">Ryck</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Pittsburgh" src="../images/2017/03/Pittsburgh-13-det.png"/>
-<figcaption class="text-center">Pittsburgh</figcaption>
+    <img src="../images/2017/03/Pittsburgh-13-det.png" alt="Pittsburgh" />
+    <figcaption class="text-center">Pittsburgh</figcaption>
 </figure>
+
 <h2 id="conclusion">Conclusion</h2>
 <p>The person detector is somewhat useful out-of-the-box, but for the rest you
 will need to adjust the algorithm. Having only the 20&nbsp;classes from Pascal

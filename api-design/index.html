@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#general-thoughts" title="General Thoughts">General Thoughts</a><ul><li><a class="toc-href" href="#character-sets" title="Character Sets">Character Sets</a></li><li><a class="toc-href" href="#monitoring" title="Monitoring">Monitoring</a></li><li><a class="toc-href" href="#server-time" title="Server Time">Server Time</a></li></ul></li><li><a class="toc-href" href="#naming_1" title="Naming">Naming</a></li><li><a class="toc-href" href="#versioning" title="Versioning">Versioning</a></li><li><a class="toc-href" href="#list-returning-endpoints" title="List-returning Endpoints">List-returning Endpoints</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#errors" title="Errors">Errors</a></li><li><a class="toc-href" href="#security" title="Security">Security</a><ul><li><a class="toc-href" href="#https" title="HTTPS">HTTPS</a></li><li><a class="toc-href" href="#authentication" title="Authentication">Authentication</a></li><li><a class="toc-href" href="#input-validation" title="Input Validation">Input Validation</a></li></ul></li><li><a class="toc-href" href="#other-stuff_1" title="Other Stuff">Other Stuff</a><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#http-response-status-codes" title="HTTP Response Status codes">HTTP Response Status codes</a></li></ul></li><li><a class="toc-href" href="#graphql_1" title="GraphQL">GraphQL</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Today, I gave API design a little bit of thought. Web APIs to be more specific.
@@ -159,7 +153,8 @@ to sync the time.</p>
 +88.159.1.196    <span class="m">193</span>.190.230.66   <span class="m">2</span> u   <span class="m">47</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">29</span>.346    <span class="m">0</span>.564   <span class="m">1</span>.828
 -192.33.96.102   .PPS.            <span class="m">1</span> u  <span class="m">113</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">40</span>.525    <span class="m">3</span>.008   <span class="m">2</span>.11
 </code></pre></div>
-<h2 id="naming_1">Naming</h2>
+
+<h2 id="naming">Naming</h2>
 <p>Suppose we would have an API which lets us create / delete / receive users. I
 would expect the following:</p>
 <ul>
@@ -186,8 +181,9 @@ authentication.</p>
 <p>Always when you return lists, make it paginated. Add a <strong>default sorting</strong>
 and an <strong>offset parameter</strong>. You could also add an <strong>order</strong> and a <strong>limit</strong> parameter.</p>
 <p>The endpoint should return</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">"continue"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="n">FOOBAR</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">&quot;continue&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">FOOBAR</span><span class="p">}</span>
 </code></pre></div>
+
 <p>where the value of <code>continue</code> is the next index to continue. So in case you
 decide that an limit of 100 returned elements is enough / reasonable, the
 the first query that has more than 100 elements would return the <code>continue</code> of
@@ -212,23 +208,24 @@ you can return documentation and/or a formatted response.</p>
 <div class="highlight"><pre><span></span><code>HTTP Status 400
 
 {
-    "errors": [
+    &quot;errors&quot;: [
         {
-            "status": 400,
-            "error": "FIELDS_VALIDATION_ERROR",
-            "detail": "Invalid country 'German'.",
-            "fields": {
-                "country": "Invalid country. See ISO 3166 ALPHA-3 for valid values."
+            &quot;status&quot;: 400,
+            &quot;error&quot;: &quot;FIELDS_VALIDATION_ERROR&quot;,
+            &quot;detail&quot;: &quot;Invalid country &#39;German&#39;.&quot;,
+            &quot;fields&quot;: {
+                &quot;country&quot;: &quot;Invalid country. See ISO 3166 ALPHA-3 for valid values.&quot;
             },
-            "code": 1337,
-            "links": {
-                "docs": "http://domain.io/docs",
-                "errors": "http://domain.io/docs/errors#1337"
+            &quot;code&quot;: 1337,
+            &quot;links&quot;: {
+                &quot;docs&quot;: &quot;http://domain.io/docs&quot;,
+                &quot;errors&quot;: &quot;http://domain.io/docs/errors#1337&quot;
             }
         }
     ]
 }
 </code></pre></div>
+
 <h2 id="security">Security</h2>
 <h3 id="https">HTTPS</h3>
 <p>Use HTTPS.</p>
@@ -246,7 +243,7 @@ only have one active token.</p>
 <h3 id="input-validation">Input Validation</h3>
 <p>Don't let users input go directly to the database / be part of the execution.</p>
 <p>See <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a></p>
-<h2 id="other-stuff_1">Other Stuff</h2>
+<h2 id="other-stuff">Other Stuff</h2>
 <p>There are a couple of other rules, but I'm not sure how important they actually
 are:</p>
 <h3 id="http-methods">HTTP Methods</h3>
@@ -281,7 +278,7 @@ are:</p>
 <li>500 Internal Server Error</li>
 <li>503 Service Unavailable: Maintenance</li>
 </ul>
-<h2 id="graphql_1">GraphQL</h2>
+<h2 id="graphql">GraphQL</h2>
 <p>This article was mainly about REST-like APIs. <a href="http://graphql.org/learn/">GraphQL</a> is a data query language developed internally by Facebook which is an alternative to REST, see <a href="https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/">GraphQL vs REST</a>.</p>
 <p>My impression is that GraphQL is nice because you need less documentation. You
 buy that advantage with overhead in writing <a href="http://graphql.org/learn/execution/#root-fields-resolvers">the resolver</a>.</p>

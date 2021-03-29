@@ -102,20 +102,15 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#data-generation" title="Data Generation">Data Generation</a><ul><li><a class="toc-href" href="#disk-space" title="Disk Space">Disk Space</a></li><li><a class="toc-href" href="#generate-it" title="Generate it!">Generate it!</a></li></ul></li><li><a class="toc-href" href="#bash-sorting_1" title="Bash Sorting">Bash Sorting</a></li><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#merge-sort" title="Merge Sort">Merge Sort</a></li><li><a class="toc-href" href="#heap-sort" title="Heap Sort">Heap Sort</a></li><li><a class="toc-href" href="#trivial-radix-sort" title="Trivial Radix Sort">Trivial Radix Sort</a></li><li><a class="toc-href" href="#multi-process-radix-sort" title="Multi-process Radix Sort">Multi-process Radix Sort</a></li><li><a class="toc-href" href="#dask" title="Dask">Dask</a></li><li><a class="toc-href" href="#sqlite" title="SQLite">SQLite</a></li></ul></li><li><a class="toc-href" href="#c_1" title="C++">C++</a><ul><li><a class="toc-href" href="#single-core-radix-sort" title="Single-Core Radix-Sort">Single-Core Radix-Sort</a></li><li><a class="toc-href" href="#multi-core-radix-sort" title="Multi-Core Radix-Sort">Multi-Core Radix-Sort</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://en.wikipedia.org/wiki/Big_data">Big Data</a> was a common buzzword in
 industry in 2012 until 2017. It is still common, but hopefully less of a
 buzzword. Now other buzzwords are more common:</p>
-<script src="https://ssl.gstatic.com/trends_nrtr/2152_RC03/embed_loader.js" type="text/javascript"></script>
-<p><script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0bs2j8q","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/01hyh_","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/0138n0j1","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/0wkcjgj","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/02_7vm","geo":"","time":"2008-01-01 2020-03-24"}],"category":0,"property":""}, {"exploreQuery":"date=2008-01-01%202020-03-24&amp;q=%2Fm%2F0bs2j8q,%2Fm%2F01hyh_,%2Fm%2F0138n0j1,%2Fm%2F0wkcjgj,%2Fm%2F02_7vm","guestPath":"https://trends.google.de:443/trends/embed/"}); </script></p>
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2152_RC03/embed_loader.js"></script>
+<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0bs2j8q","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/01hyh_","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/0138n0j1","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/0wkcjgj","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/02_7vm","geo":"","time":"2008-01-01 2020-03-24"}],"category":0,"property":""}, {"exploreQuery":"date=2008-01-01%202020-03-24&q=%2Fm%2F0bs2j8q,%2Fm%2F01hyh_,%2Fm%2F0138n0j1,%2Fm%2F0wkcjgj,%2Fm%2F02_7vm","guestPath":"https://trends.google.de:443/trends/embed/"}); </script>
+
 <p>By the way, I didn't include "artificial intelligence" because it dominates all
 of the others.</p>
 <p>For me, a big-data solution means that I can't fit the critical part into
@@ -186,9 +181,10 @@ generate data which is sorted.</p>
 <p>I can imagine two ways to generate data to sort: Random numbers and UUIDs.
 Let's see which is faster (<a href="https://github.com/MartinThoma/algorithms/blob/master/sorting/timing.py">code on GitHub</a>):</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/03/number-generation-speed.png"><img alt="Time for generating 10k random elements" src="../images/2020/03/number-generation-speed.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Time for generating 10k random elements</figcaption>
+    <a href="../images/2020/03/number-generation-speed.png"><img src="../images/2020/03/number-generation-speed.png" alt="Time for generating 10k random elements" style="width: 512px;"/></a>
+    <figcaption class="text-center">Time for generating 10k random elements</figcaption>
 </figure>
+
 <p>As you can see, numpy is the fastest and UUIDv4 generation is by far the
 slowest. But numpy cannot generate random integers which are that big and the
 time difference is not that huge. Everything as expected.</p>
@@ -198,7 +194,7 @@ Lets say 550 million numbers. My machine needed about 0.05s to generate 10k, so
 I expect it to take <code>540540541 / 10_000  * 0.05 / 60 = 45 min</code>. A good time to
 get some food 🙂</p>
 <p>Done after 32&nbsp;minutes. The file size is 20.4&thinsp;GB.</p>
-<h2 id="bash-sorting_1">Bash Sorting</h2>
+<h2 id="bash-sorting">Bash Sorting</h2>
 <p>Sorting with standard unix tools - namely <code>split</code> and <code>sort</code> - is the simplest
 solution that popped to my mind which should also be pretty fast. I will
 wrap all commands in <code>time (the actual command)</code> so that you can see how
@@ -210,13 +206,15 @@ real    <span class="m">89</span>,00s
 user    <span class="m">5</span>,16s
 sys    <span class="m">25</span>,29s
 </code></pre></div>
+
 <p>Sort the chunks:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> X in chunk-*<span class="p">;</span> <span class="k">do</span> sort -n &lt; <span class="nv">$X</span> &gt; sorted-<span class="nv">$X</span><span class="p">;</span> <span class="k">done</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> X <span class="k">in</span> chunk-*<span class="p">;</span> <span class="k">do</span> sort -n &lt; <span class="nv">$X</span> &gt; sorted-<span class="nv">$X</span><span class="p">;</span> <span class="k">done</span><span class="o">)</span>
 
 real    <span class="m">625</span>,44s
 user    <span class="m">2768</span>,27s
 sys    <span class="m">85</span>,40s
 </code></pre></div>
+
 <p>Merge:</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span>sort -n -m sorted-chunk* &gt; sorted.txt<span class="o">)</span>
 
@@ -224,11 +222,13 @@ real    <span class="m">531</span>,50s
 user    <span class="m">470</span>,09s
 sys    <span class="m">52</span>,20s
 </code></pre></div>
+
 <p>In total, this approach needed <strong>20 min and 46 seconds</strong>.</p>
 <p>I will check other solutions for correctnes by the following command. It takes
 91s just to check if the two files are identical!</p>
 <div class="highlight"><pre><span></span><code>$ cmp -l shell-sort/sorted.txt other-solution.txt
 </code></pre></div>
+
 <h2 id="python">Python</h2>
 <p>Let's see how quick I can do it with Python!</p>
 <h3 id="merge-sort">Merge Sort</h3>
@@ -252,15 +252,16 @@ processes:</p>
 
 
 <span class="k">def</span> <span class="nf">merge_files</span><span class="p">(</span><span class="n">filepath1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">filepath2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">outpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Using heapq to merge two files.</span>
 
 <span class="sd">    See https://docs.python.org/2/library/heapq.html#heapq.merge</span>
-<span class="sd">    """</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath1</span><span class="p">)</span> <span class="k">as</span> <span class="n">f1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath2</span><span class="p">)</span> <span class="k">as</span> <span class="n">f2</span><span class="p">:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outpath</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath1</span><span class="p">)</span> <span class="k">as</span> <span class="n">f1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath2</span><span class="p">)</span> <span class="k">as</span> <span class="n">f2</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">heapq</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">):</span>
             <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </code></pre></div>
+
 <p>This takes 10420s (2h 53min 40s) to execute.</p>
 <h3 id="trivial-radix-sort">Trivial Radix Sort</h3>
 <p>Again, same idea as with the mergesort and the heapsort approach:</p>
@@ -288,56 +289,58 @@ improve the wall-clock execution time by running on multiple cores!</p>
     <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 
     <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-    <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sort_chunk</span><span class="p">,</span> <span class="n">state</span><span class="p">[</span><span class="s2">"chunks_to_sort"</span><span class="p">])</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sort_chunk</span><span class="p">,</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;chunks_to_sort&quot;</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">state</span>
 </code></pre></div>
+
 <p>Timing:</p>
 <table class="table">
-<thead>
-<tr>
-<th>Task</th>
-<th>2.7.18</th>
-<th>3.6.10</th>
-<th>3.7.7</th>
-<th>3.8.3</th>
-<th>3.9.0a</th>
-</tr>
-</thead>
-<tr>
-<td>Chunking</td>
-<td>192.2s</td>
-<td>302.5s</td>
-<td>308.5s</td>
-<td>279.8s</td>
-<td>292.6s</td>
-</tr>
-<tr>
-<td>Chunk Sorting</td>
-<td>262.4s</td>
-<td>301.0s</td>
-<td>253.3s</td>
-<td>248.6s</td>
-<td>252.0s</td>
-</tr>
-<tr>
-<td>Combining Chunks</td>
-<td>137.3s</td>
-<td>212.1s</td>
-<td>221.5s</td>
-<td>187.2s</td>
-<td>195.5s</td>
-</tr>
-<tfoot>
-<tr>
-<th>Total</th>
-<th>592.1s</th>
-<th>815.8s</th>
-<th>783.6s</th>
-<th>715.7s</th>
-<th>740.2s</th>
-</tr>
-</tfoot>
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>2.7.18</th>
+            <th>3.6.10</th>
+            <th>3.7.7</th>
+            <th>3.8.3</th>
+            <th>3.9.0a</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>Chunking</td>
+        <td>192.2s</td>
+        <td>302.5s</td>
+        <td>308.5s</td>
+        <td>279.8s</td>
+        <td>292.6s</td>
+    </tr>
+    <tr>
+        <td>Chunk Sorting</td>
+        <td>262.4s</td>
+        <td>301.0s</td>
+        <td>253.3s</td>
+        <td>248.6s</td>
+        <td>252.0s</td>
+    </tr>
+    <tr>
+        <td>Combining Chunks</td>
+        <td>137.3s</td>
+        <td>212.1s</td>
+        <td>221.5s</td>
+        <td>187.2s</td>
+        <td>195.5s</td>
+    </tr>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th>592.1s</th>
+            <th>815.8s</th>
+            <th>783.6s</th>
+            <th>715.7s</th>
+            <th>740.2s</th>
+        </tr>
+    </tfoot>
 </table>
+
 <p>In total, the Python parallel Radix-Sort is at <strong>12 min and 45 seconds</strong>.</p>
 <p>The speed-up is 3.1x.</p>
 <p>It's quite weird that Python 2.7 is way faster than Python 3.6+. I've asked
@@ -349,26 +352,27 @@ execution of the following solution after 5 hours:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dask</span>
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
 
-<span class="n">input_file</span> <span class="o">=</span> <span class="s2">"numbers-large.txt"</span>
-<span class="n">output_file</span> <span class="o">=</span> <span class="s2">"numbers-large-sorted-dask.txt"</span>
+<span class="n">input_file</span> <span class="o">=</span> <span class="s2">&quot;numbers-large.txt&quot;</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s2">&quot;numbers-large-sorted-dask.txt&quot;</span>
 <span class="n">blocksize</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Create ddf"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Create ddf&quot;</span><span class="p">)</span>
 <span class="n">ddf</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">blocksize</span><span class="o">=</span><span class="n">blocksize</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Sort"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sort&quot;</span><span class="p">)</span>
 <span class="n">ddf_sorted</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Write"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Write&quot;</span><span class="p">)</span>
 <span class="n">fut</span> <span class="o">=</span> <span class="n">ddf_sorted</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">compute</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">single_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">fut</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Stop"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stop&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <h3 id="sqlite">SQLite</h3>
 <p>Databases should be able to deal with large amounts of data, right? So let's
 create a database with a single table and a single column, insert the data
 and use SQL to sort:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">"""Sort a huge amount of data by inserting it into SQLite."""</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Sort a huge amount of data by inserting it into SQLite.&quot;&quot;&quot;</span>
 
 <span class="c1"># Core Library modules</span>
 <span class="kn">import</span> <span class="nn">logging</span>
@@ -377,7 +381,7 @@ and use SQL to sort:</p>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -386,26 +390,26 @@ and use SQL to sort:</p>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">db_filepath</span> <span class="o">=</span> <span class="s2">"numbers-large.sqlite"</span>
-    <span class="n">output_filepath</span> <span class="o">=</span> <span class="s2">"sqlite-sorted-numbers.txt"</span>
+    <span class="n">db_filepath</span> <span class="o">=</span> <span class="s2">&quot;numbers-large.sqlite&quot;</span>
+    <span class="n">output_filepath</span> <span class="o">=</span> <span class="s2">&quot;sqlite-sorted-numbers.txt&quot;</span>
 
     <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">create_db</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">,</span> <span class="n">db_filepath</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">7</span><span class="p">)</span>
         <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"create_db finished in </span><span class="si">{</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;create_db finished in </span><span class="si">{</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">read_sort_write</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">,</span> <span class="n">output_filepath</span><span class="p">)</span>
         <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sorting and writing with sqlite finished in </span><span class="si">{</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sorting and writing with sqlite finished in </span><span class="si">{</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">create_db</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">db_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">):</span>
     <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">)</span>
 
     <span class="c1"># Create the table</span>
-    <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"CREATE TABLE numbers(i)"</span><span class="p">)</span>
+    <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE numbers(i)&quot;</span><span class="p">)</span>
 
     <span class="n">batch_count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
@@ -413,32 +417,33 @@ and use SQL to sort:</p>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
             <span class="n">batch</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">line</span><span class="p">,))</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">batch_size</span><span class="p">:</span>
-                <span class="n">con</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">"INSERT INTO numbers(i) VALUES (?)"</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+                <span class="n">con</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;INSERT INTO numbers(i) VALUES (?)&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
                 <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
                 <span class="n">batch</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">batch_count</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Finished batch </span><span class="si">{</span><span class="n">batch_count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="n">con</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">"insert into numbers(i) values (?)"</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished batch </span><span class="si">{</span><span class="n">batch_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">con</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;insert into numbers(i) values (?)&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
         <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Make index"</span><span class="p">)</span>
-        <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"CREATE INDEX fooindex ON numbers(i)"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Make index&quot;</span><span class="p">)</span>
+        <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE INDEX fooindex ON numbers(i)&quot;</span><span class="p">)</span>
         <span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Finished making index."</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Finished making index.&quot;</span><span class="p">)</span>
         <span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Finished creation of SQLiteDB"</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Finished creation of SQLiteDB&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">read_sort_write</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT i FROM numbers ORDER BY i ASC"</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT i FROM numbers ORDER BY i ASC&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_filepath</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
             <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">el</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">(</span><span class="s2">"numbers-large.txt"</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="s2">&quot;numbers-large.txt&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Timing it:</p>
 <ul>
 <li>create_db: 850s</li>
@@ -450,7 +455,7 @@ and use SQL to sort:</p>
 <li>create_db: 1980s (index-making added 1130s)</li>
 <li>sorting and writing with sqlite: 432s (index made it faster by 752s)</li>
 </ul>
-<h2 id="c_1">C++</h2>
+<h2 id="c">C++</h2>
 <h3 id="single-core-radix-sort">Single-Core Radix-Sort</h3>
 <p>For implementing it, the following was important:</p>
 <ul>
@@ -472,21 +477,21 @@ and use SQL to sort:</p>
 <span class="p">{</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">chunks_to_sort</span><span class="p">;</span>
     <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">ofstream</span><span class="o">*</span> <span class="o">&gt;</span> <span class="n">prefix2file</span><span class="p">;</span>
-    <span class="n">system</span><span class="p">(</span><span class="s">"mkdir cpp-radix"</span><span class="p">);</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&quot;mkdir cpp-radix&quot;</span><span class="p">);</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">string</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">to_string</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="n">prefix2file</span><span class="p">[</span><span class="n">prefix</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ofstream</span><span class="p">(</span><span class="s">"cpp-radix/"</span> <span class="o">+</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">);</span>
-        <span class="n">chunks_to_sort</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">"cpp-radix/"</span> <span class="o">+</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">);</span>
+        <span class="n">prefix2file</span><span class="p">[</span><span class="n">prefix</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ofstream</span><span class="p">(</span><span class="s">&quot;cpp-radix/&quot;</span> <span class="o">+</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;.txt&quot;</span><span class="p">);</span>
+        <span class="n">chunks_to_sort</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;cpp-radix/&quot;</span> <span class="o">+</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s">&quot;.txt&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="c1">// Read and split the file</span>
     <span class="n">ifstream</span> <span class="n">infile</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">);</span>
     <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"start chunking"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;start chunking&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">*</span><span class="n">prefix2file</span><span class="p">[</span><span class="n">line</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">prefix2file</span><span class="p">[</span><span class="n">line</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"chunking done"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;chunking done&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="c1">// Close files</span>
     <span class="k">for</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="n">ofstream</span><span class="o">*&gt;::</span><span class="n">iterator</span> <span class="n">it</span><span class="o">=</span><span class="n">prefix2file</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
@@ -512,27 +517,27 @@ and use SQL to sort:</p>
     <span class="n">sort</span><span class="p">(</span><span class="n">lines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">lines</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 
     <span class="c1">// write</span>
-    <span class="n">ofstream</span> <span class="nf">output_file</span><span class="p">(</span><span class="s">"filepath"</span><span class="p">);</span>
-    <span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">output_iterator</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">ofstream</span> <span class="nf">output_file</span><span class="p">(</span><span class="s">&quot;filepath&quot;</span><span class="p">);</span>
+    <span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">output_iterator</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
     <span class="n">copy</span><span class="p">(</span><span class="n">lines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">lines</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">output_iterator</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">chunks</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">ofstream</span> <span class="nf">output_file</span><span class="p">(</span><span class="s">"cpp-sorted.txt"</span><span class="p">);</span>
-    <span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">output_iterator</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">ofstream</span> <span class="nf">output_file</span><span class="p">(</span><span class="s">&quot;cpp-sorted.txt&quot;</span><span class="p">);</span>
+    <span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">output_iterator</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
     <span class="c1">// iterate over the vector</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it_chunk</span><span class="p">;</span>
     <span class="cp">#pragma omp parallel for</span>
     <span class="k">for</span><span class="p">(</span><span class="n">it_chunk</span><span class="o">=</span><span class="n">chunks</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it_chunk</span> <span class="o">!=</span> <span class="n">chunks</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it_chunk</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sort "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it_chunk</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Sort &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it_chunk</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
         <span class="c1">// Read file</span>
         <span class="n">ifstream</span> <span class="nf">infile</span><span class="p">(</span><span class="o">*</span><span class="n">it_chunk</span><span class="p">);</span>
         <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
         <span class="k">while</span> <span class="p">(</span><span class="n">infile</span> <span class="o">&gt;&gt;</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">output_file</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+            <span class="n">output_file</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
     <span class="p">}</span>
@@ -543,30 +548,32 @@ and use SQL to sort:</p>
 
 <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">chunks_to_sort</span> <span class="o">=</span> <span class="n">chunk_data</span><span class="p">(</span><span class="s">"numbers-large.txt"</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">chunks_to_sort</span> <span class="o">=</span> <span class="n">chunk_data</span><span class="p">(</span><span class="s">&quot;numbers-large.txt&quot;</span><span class="p">);</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it_chunk</span><span class="p">;</span>
     <span class="k">for</span><span class="p">(</span><span class="n">it_chunk</span><span class="o">=</span><span class="n">chunks_to_sort</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it_chunk</span> <span class="o">!=</span> <span class="n">chunks_to_sort</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it_chunk</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sort "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it_chunk</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Sort &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it_chunk</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
         <span class="n">sort_chunk</span><span class="p">(</span><span class="o">*</span><span class="n">it_chunk</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Merge"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Merge&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="n">merge</span><span class="p">(</span><span class="n">chunks_to_sort</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"done"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;done&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>In total, it took 18min 50s.</p>
 <h3 id="multi-core-radix-sort">Multi-Core Radix-Sort</h3>
 <p>Add <code>#pragma omp parallel for</code>, compile with the following flags and off it goes!</p>
 <div class="highlight"><pre><span></span><code>g++ radixsort.cpp -O3 -std<span class="o">=</span>c++11 -Wall -pedantic -fopenmp
 </code></pre></div>
+
 <p>In total, 715s (11min 55s)</p>
-<h2 id="see-also_1">See also</h2>
+<h2 id="see-also">See also</h2>
 <p>StackExchange</p>
 <ul>
 <li><a href="https://stackoverflow.com/q/34090744/562769">How can I sort a 10GB file?</a>, 2015.</li>
-<li><a href="https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/">&Uuml;bersicht &uuml;ber Sortieralgorithmen</a> (German)</li>
+<li><a href="https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/">Übersicht über Sortieralgorithmen</a> (German)</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

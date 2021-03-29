@@ -102,18 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#unix-time" title="Unix Time">Unix Time</a></li><li><a class="toc-href" href="#calendar-systems" title="Calendar systems">Calendar systems</a></li><li><a class="toc-href" href="#falsehood-programmer-beliefies" title="Falsehood Programmer beliefies">Falsehood Programmer beliefies</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#javascript" title="JavaScript">JavaScript</a></li><li><a class="toc-href" href="#php5" title="PHP5">PHP5</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Specifying a point in time is a pretty common task. And it is extraordinary
 difficult. Lets have a look at the different ways to specify a point in time.</p>
 <div>If you want to learn more about time, read my summary <a href="https://zenodo.org/record/1443533">What every developer should know about time</a>.</div>
+
 <p>Imagine the following scenario: We record some events, e.g. actions of a credit
 card user. In case of potential fraud, an automatic system locks the card and a
 human has a look at the actions and times. The human monitoring system requests
@@ -129,9 +124,9 @@ Coordinated Universal Time (UTC), Thursday, 1 January 1970, minus the number
 of leap seconds that have taken place since then.</p>
 <p>Problems:</p>
 <ul>
-<li><span style="color: red;">⊝</span> Not human-readable</li>
-<li><span style="color: red;">⊝</span> <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Year 2038 problem</a> for 32-bit systems.</li>
-<li><span style="color: red;">⊝</span> Everything before the 1st of January in 1970 is not representable</li>
+<li><span style="color: red;">&#8861;</span> Not human-readable</li>
+<li><span style="color: red;">&#8861;</span> <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Year 2038 problem</a> for 32-bit systems.</li>
+<li><span style="color: red;">&#8861;</span> Everything before the 1st of January in 1970 is not representable</li>
 </ul>
 <p>Especially the last point is a killer criterium against Unix time in many
 applications.</p>
@@ -145,22 +140,23 @@ human-readable, unabiguous format that looks like this:</p>
 2018-01-27T16:45:01+00:00
 1990-12-31T23:59:59+00:00
 </code></pre></div>
+
 <p>But due to leap seconds / days and due to changes in timezones I'm pretty sure
 there is one point in time which has two different ISO 8601 time stamps. Please
 let me know in the comments if you see one (best if it can be shown with some
 programming languages).</p>
 <p>So the TL;DR about ISO 8601:</p>
 <ul>
-<li><span style="color: green;">&oplus;</span> Lexicographical ordering is also
+<li><span style="color: green;">&#8853;</span> Lexicographical ordering is also
   the ordering by time.</li>
-<li><span style="color: green;">&oplus;</span> It is human readable</li>
-<li><span style="color: red;">⊝</span> ISO 8601 does not only have
+<li><span style="color: green;">&#8853;</span> It is human readable</li>
+<li><span style="color: red;">&#8861;</span> ISO 8601 does not only have
   <code>2018-01-27T16:45:01+00:00</code> but also <code>2018-01-27T16:45:01Z</code> and
   <code>20180127T164501Z</code> were Z means Zero offset for UTC. So there are multiple
   representations for the same point in time.</li>
-<li><span style="color: red;">⊝</span> Anything before
+<li><span style="color: red;">&#8861;</span> Anything before
   <code>0000-01-01T00:00:00+00:00</code> is not representable.<sup>[<a href="#ref-2" name="ref-2-anchor">2</a>]</sup></li>
-<li><span style="color: red;">⊝</span> <a href="https://en.wikipedia.org/wiki/Year_zero">Year zero doesn't exist</a></li>
+<li><span style="color: red;">&#8861;</span> <a href="https://en.wikipedia.org/wiki/Year_zero">Year zero doesn't exist</a></li>
 </ul>
 <h2 id="falsehood-programmer-beliefies">Falsehood Programmer beliefies</h2>
 <ul>
@@ -184,47 +180,49 @@ programming languages).</p>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">ValueError</span><span class="p">:</span> <span class="n">year</span> <span class="ow">is</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="s1">'0001-11-01T00:00:00'</span>
+<span class="s1">&#39;0001-11-01T00:00:00&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="s1">'9999-11-01T00:00:00'</span>
+<span class="s1">&#39;9999-11-01T00:00:00&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">99999</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">ValueError</span><span class="p">:</span> <span class="n">year</span> <span class="ow">is</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="s1">'2017-12-24T00:00:00'</span>
+<span class="s1">&#39;2017-12-24T00:00:00&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-<span class="s1">'2017-12-24T00:00:00+00:00'</span>
+<span class="s1">&#39;2017-12-24T00:00:00+00:00&#39;</span>
 
     <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
     <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
     <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
     <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-      <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span><span class="s1">'t subtract offset-naive and offset-aware datetimes</span>
+      <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span><span class="s1">&#39;t subtract offset-naive and offset-aware datetimes</span>
 
 <span class="c1">## Parsing stuff</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">'0020-11-01T00:00:00'</span><span class="p">,</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;0020-11-01T00:00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S&#39;</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
+
 <p>By now, <a href="https://stackoverflow.com/questions/tagged/datetime-parsing+python">Datetime parsing with Python</a> is usually done like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">dateparser</span>
 
-<span class="n">date_obj</span> <span class="o">=</span> <span class="n">dateparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">"Tue May 08 15:14:45 +0800 2012"</span><span class="p">)</span>
+<span class="n">date_obj</span> <span class="o">=</span> <span class="n">dateparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;Tue May 08 15:14:45 +0800 2012&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Things that are unintuitive for me:</p>
 <ul>
-<li><span style="color: red;">⊝</span> Why don't all datetime objects have
+<li><span style="color: red;">&#8861;</span> Why don't all datetime objects have
   timezone information? (See <a href="https://stackoverflow.com/q/48478879/562769">SO question</a>)</li>
-<li><span style="color: red;">⊝</span> Python can create a format it can't consume again.</li>
+<li><span style="color: red;">&#8861;</span> Python can create a format it can't consume again.</li>
 </ul>
 <p>See also:</p>
 <ul>
@@ -239,6 +237,7 @@ programming languages).</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
 </code></pre></div>
+
 <p>gives <code>2018-01-27T22:51:17.691Z</code>. So it is a ISO 8601 datetime with miliseconds
 and zero offset. Nice!</p>
 <p>You can also find this in the <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15">ECMA specification</a>:</p>
@@ -255,6 +254,7 @@ php &gt; <span class="nv">$dt</span> <span class="o">=</span> new DateTime<span 
 php &gt; <span class="nb">echo</span> <span class="nv">$dt</span>-&gt;format<span class="o">(</span>DateTime::ATOM<span class="o">)</span><span class="p">;</span>
 <span class="m">2018</span>-01-27T23:58:12+01:00
 </code></pre></div>
+
 <p>You can see that PHP gives you the ISO 8601 string with the zone offset, but
 not the milliseconds.</p>
 <h2 id="footnotes">Footnotes</h2>

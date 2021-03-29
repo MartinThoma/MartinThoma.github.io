@@ -102,19 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-sql-injection-attacks-executed" title="How are SQL injection attacks executed?">How are SQL injection attacks executed?</a></li><li><a class="toc-href" href="#how-can-i-prevent-sql-injections" title="How can I prevent SQL injections?">How can I prevent SQL injections?</a></li><li><a class="toc-href" href="#creative-sql-injections" title="Creative SQL Injections">Creative SQL Injections</a><ul><li><a class="toc-href" href="#simplifying-queries" title="Simplifying Queries">Simplifying Queries</a></li><li><a class="toc-href" href="#information-gathering" title="Information Gathering">Information Gathering</a></li><li><a class="toc-href" href="#order-by" title="Order By">Order By</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p>An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don&rsquo;t worry, I&rsquo;ll explain that later in detail.</p>
-<p>After reading this article you will understand what the effect of being vulnerable to SQL injections can be, how to execute SQL injections yourself, and how to prevent them. Let&rsquo;s get started!</p>
+            <p>An SQL injection is an attack on a web system with a database. The attack is done by injecting unexpected commands into parameters. Don’t worry, I’ll explain that later in detail.</p>
+<p>After reading this article you will understand what the effect of being vulnerable to SQL injections can be, how to execute SQL injections yourself, and how to prevent them. Let’s get started!</p>
 <h2 id="why-it-matters">Why it Matters</h2>
-<p>SQL Injection attacks are so common nowadays that I just give you this list with some of the biggest known attacks. Please note that SQL injections don&rsquo;t necessarily break anything and thus they might not always be noticed. Most of the time, the attacker steals data.</p>
+<p>SQL Injection attacks are so common nowadays that I just give you this list with some of the biggest known attacks. Please note that SQL injections don’t necessarily break anything and thus they might not always be noticed. Most of the time, the attacker steals data.</p>
 <ul>
 <li>Injection flaws are part of the <a href="https://owasp.org/www-project-top-ten/">OWASP Top-10</a>, meaning it's recognized as a common vulnerability</li>
 <li><strong>1998</strong>: Jeff Forristal explains the issue (<a href="https://www.esecurityplanet.com/network-security/how-was-sql-injection-discovered.html">source</a>, <a href="http://phrack.org/issues/54/8.html#article">original</a>).</li>
@@ -125,20 +119,22 @@ MathJax.Hub.Queue(function() {
 <li><strong>2016</strong>: The data of 200,000 voters in Illinois were stolen (<a href="https://www.theregister.com/2016/08/29/fbi_warns_attacks_on_election_systems/">source</a>).</li>
 <li><strong>2020</strong>: 8.3 million user names and password hashes were stolen from FreePik (<a href="https://www.zdnet.com/article/free-photos-graphics-site-freepik-discloses-data-breach-impacting-8-3m-users/">source</a>)</li>
 </ul>
-<p>In the worst case, the attacker steals the data and sells it. After that, they corrupt your data in a way that you don&rsquo;t fix it / use the backups.</p>
+<p>In the worst case, the attacker steals the data and sells it. After that, they corrupt your data in a way that you don’t fix it / use the backups.</p>
 <h2 id="how-are-sql-injection-attacks-executed">How are SQL injection attacks executed?</h2>
 <p>Imagine you have a website with a login form. Leaving some important bells and whistles away, something like this happens:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span>   <span class="n">users</span>
-<span class="k">WHERE</span>  <span class="k">USER</span> <span class="o">=</span> <span class="s1">'**[username]**'</span>
-       <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">'**[password]**'</span>
+<span class="k">WHERE</span>  <span class="k">USER</span> <span class="o">=</span> <span class="s1">&#39;**[username]**&#39;</span>
+       <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;**[password]**&#39;</span>
 </code></pre></div>
+
 <p>The attacker can change the username to admin' OR '1'='1 which then gives the query:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span>   <span class="n">users</span>
-<span class="k">WHERE</span>  <span class="k">USER</span> <span class="o">=</span> <span class="s1">'**admin'</span> <span class="k">OR</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1**'</span>
-       <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">'secret'</span>
+<span class="k">WHERE</span>  <span class="k">USER</span> <span class="o">=</span> <span class="s1">&#39;**admin&#39;</span> <span class="k">OR</span> <span class="s1">&#39;1&#39;</span><span class="o">=</span><span class="s1">&#39;1**&#39;</span>
+       <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;secret&#39;</span>
 </code></pre></div>
+
 <p>This means the query will look for two conditions:</p>
 <ul>
 <li>The username is equal to admin</li>
@@ -147,18 +143,19 @@ MathJax.Hub.Queue(function() {
 <p>Instead, it should have been looking for the combination (username is admin AND the password is equal to secret).</p>
 <p>What happened here is that the attacker injected SQL into the query. This changed the logic of access control and thus let the attacker login as admin.</p>
 <h2 id="how-can-i-prevent-sql-injections">How can I prevent SQL injections?</h2>
-<p>Input validation and proper escaping are the keys to prevent SQL injections. Preventing SQL injections in this case also helps the poor users who actually wanted to have a ' within their username/password. Never blindly trust user input. Don&rsquo;t use simple string concatenation to build SQL queries with parameters supplied by the user.</p>
-<p>You might be tempted to think that removing the quotes is enough. This, however, might cause problems within your application. Then you could escape the quotes. This is certainly a good step, but you have to watch out that the escaping isn&rsquo;t broken and that you don&rsquo;t forget anything.</p>
+<p>Input validation and proper escaping are the keys to prevent SQL injections. Preventing SQL injections in this case also helps the poor users who actually wanted to have a ' within their username/password. Never blindly trust user input. Don’t use simple string concatenation to build SQL queries with parameters supplied by the user.</p>
+<p>You might be tempted to think that removing the quotes is enough. This, however, might cause problems within your application. Then you could escape the quotes. This is certainly a good step, but you have to watch out that the escaping isn’t broken and that you don’t forget anything.</p>
 <p>Instead of doing this manually, you should use <a href="https://docs.sqlalchemy.org/en/13/core/tutorial.html#bind-parameter-objects">parameter binding</a>. In Python, it looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="kn">import</span> <span class="n">text</span>
 
 <span class="c1"># Create a connection conn</span>
 <span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span>
-    <span class="sd">"""SELECT * FROM users</span>
-<span class="sd">               WHERE user = :username AND password = :password"""</span>
+    <span class="sd">&quot;&quot;&quot;SELECT * FROM users</span>
+<span class="sd">               WHERE user = :username AND password = :password&quot;&quot;&quot;</span>
 <span class="p">)</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">prams</span><span class="o">=</span><span class="p">{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">})</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">prams</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">})</span>
 </code></pre></div>
+
 <p>Another way to prevent SQL injections is to use an ORM which does the input sanitation for you:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
@@ -168,22 +165,23 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
-    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"users"</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">password</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
 
 
-<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">"sqlite://"</span><span class="p">)</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;sqlite://&quot;</span><span class="p">)</span>
 <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 
 <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
 
-<span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"foo"</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </code></pre></div>
+
 <p>Here we pass the name and password parameters to the ORM (SQL Alchemy). It takes care of sanitizing the name and the password.</p>
 <p>The third option is to create a <a href="https://en.wikipedia.org/wiki/Prepared_statement">prepared statement</a>. This is also using parameter binding but on the side of the SQL server. I think those are typically harder to use from a developers' perspective.</p>
-<p>Doing any of those three options is nice, but it is not enough. You want to be sure that you or anybody else doesn&rsquo;t accidentally add code that is vulnerable to SQL injections. For this reason, static application security testing tools (SAST) like <a href="https://pypi.org/project/bandit/">bandit</a> check for potential SQL injection vulnerabilities (<a href="https://bandit.readthedocs.io/en/latest/plugins/b608_hardcoded_sql_expressions.html">source</a>). Insert that in your CI pipeline and stay safe!</p>
+<p>Doing any of those three options is nice, but it is not enough. You want to be sure that you or anybody else doesn’t accidentally add code that is vulnerable to SQL injections. For this reason, static application security testing tools (SAST) like <a href="https://pypi.org/project/bandit/">bandit</a> check for potential SQL injection vulnerabilities (<a href="https://bandit.readthedocs.io/en/latest/plugins/b608_hardcoded_sql_expressions.html">source</a>). Insert that in your CI pipeline and stay safe!</p>
 <p>The principles are the same for any programming language, but you might be interested in seeing more concrete advice in the language that is relevant to you. Have a look at <a href="https://bobby-tables.com/">bobby-tables.com</a>.</p>
 <h2 id="creative-sql-injections">Creative SQL Injections</h2>
 <p>There are some SQL Injections that are less trivial than the before mentioned examples.</p>
@@ -194,7 +192,7 @@ inserts <code>--</code> at the end to make the rest of the query a comment.</p>
 <p>An attacker might not know the structure of the database. However, many
 databases have a special table that contains the information. For MySQL,
 MariaDB, and Postgres it is called <code>information_schema</code>.</p>
-<p>It&rsquo;s possible to restrict access to that table
+<p>It’s possible to restrict access to that table
 (<a href="https://dba.stackexchange.com/a/25668/25983">example</a>). You should do it from
 a defense-in-depth perspective.</p>
 <h3 id="order-by">Order By</h3>
@@ -202,27 +200,29 @@ a defense-in-depth perspective.</p>
 the user input is just in the ORDER BY clause:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">book_title</span> <span class="k">FROM</span> <span class="n">books</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">{</span><span class="n">user_input</span><span class="err">}</span>
 </code></pre></div>
+
 <p>where the developer expects <code>user_input</code> to be either <code>sales</code> or
 <code>average_review</code>. However, an attacker could change <code>user_input</code> to this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CASE</span> <span class="k">WHEN</span>
     <span class="p">(</span><span class="k">SELECT</span> <span class="mi">1</span> <span class="k">FROM</span> <span class="n">users</span>
-     <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="ss">"admin"</span>
-         <span class="k">AND</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="ss">"a"</span>
+     <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="ss">&quot;admin&quot;</span>
+         <span class="k">AND</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="ss">&quot;a&quot;</span>
      <span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
      <span class="k">THEN</span> <span class="n">sales</span>
      <span class="k">ELSE</span> <span class="n">average_review</span>
 <span class="k">END</span> <span class="k">ASC</span>
 </code></pre></div>
+
 <p>This way the attacker can get the password hash of the admin user. Character by
 character. Just by looking at how the sorting changes.</p>
-<h2 id="see-also_1">See also</h2>
+<h2 id="see-also">See also</h2>
 <p>I love <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> and <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> and they made a video about the topic!</p>
-<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_jKylhJtPmI" width="560"></iframe></center></p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
+<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/_jKylhJtPmI" frameborder="0" allowfullscreen></iframe></center></p>
+<h2 id="whats-next">What’s next?</h2>
 <p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don’t leak Secrets</a> 😇</li>
 <li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
 <li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
 <li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>

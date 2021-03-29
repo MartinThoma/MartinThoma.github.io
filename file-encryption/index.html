@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="File Encryption "/>
 <meta property="og:url" content="file-encryption/" />
-<meta property="og:description" content="I recently wondered how difficult it is to encrypt a file. In this article I will show you two ways to do it. I use a text file content.txt with the content This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG or …" />
+<meta property="og:description" content="I recently wondered how difficult it is to encrypt a file. In this article I will show you two ways to do it. I use a text file content.txt with the content This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-05-10T20:00:00+02:00" />
 <meta name="twitter:title" content="File Encryption ">
-<meta name="twitter:description" content="I recently wondered how difficult it is to encrypt a file. In this article I will show you two ways to do it. I use a text file content.txt with the content This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG or …">
+<meta name="twitter:description" content="I recently wondered how difficult it is to encrypt a file. In this article I will show you two ways to do it. I use a text file content.txt with the content This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -102,21 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#applications" title="Applications">Applications</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#attack-scenarios" title="Attack Scenarios">Attack Scenarios</a><ul><li><a class="toc-href" href="#lost-device" title="Lost Device">Lost Device</a></li><li><a class="toc-href" href="#root-access" title="Root Access">Root Access</a></li><li><a class="toc-href" href="#user-access" title="User Access">User Access</a></li><li><a class="toc-href" href="#man-in-the-middle-e-mail" title="Man in the Middle: E-Mail">Man in the Middle: E-Mail</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I recently wondered how difficult it is to encrypt a file. In this article I
 will show you two ways to do it. I use a text file <code>content.txt</code> with the
 content</p>
 <div class="highlight"><pre><span></span><code>This is a top secret message!
-Don't show it to others!
+Don&#39;t show it to others!
 </code></pre></div>
+
 <h2 id="applications">Applications</h2>
 <blockquote>
 <p><a href="https://en.wikipedia.org/wiki/GNU_Privacy_Guard">GNU Privacy Guard</a> (GnuPG
@@ -125,14 +120,17 @@ software suite, and is compliant with RFC 4880, the IETF standards-track
 specification of OpenPGP.</p>
 </blockquote>
 <p>Check with <code>gpg --list-secret-keys</code> if you already have keys. If not, run</p>
-<div class="highlight"><pre><span></span><code>gpg &ndash;-gen-key
+<div class="highlight"><pre><span></span><code>gpg –-gen-key
 </code></pre></div>
+
 <p>Encrypt file:</p>
 <div class="highlight"><pre><span></span><code>gpg -e -r info@martin-thoma.de content.txt
 </code></pre></div>
+
 <p>Decrypt file:</p>
 <div class="highlight"><pre><span></span><code>gpg -d -o out.decrypted.txt content.txt.gpg
 </code></pre></div>
+
 <h2 id="python">Python</h2>
 <p>In order to generate an encrypted file with Python, I use the <a href="https://cryptography.io/en/latest/fernet/">fernet</a> module of <a href="https://pypi.org/project/cryptography/">cryptography</a>.
 It's not part of the standard library (<a href="https://docs.python.org/3/library/crypto.html">source</a>), but
@@ -142,11 +140,11 @@ it is super wide spread.</p>
 
 <span class="c1"># Generate a key</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"keyfile"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;keyfile&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
 <span class="c1"># Get bytes to encrypt</span>
-<span class="n">message</span> <span class="o">=</span> <span class="s2">"This is secret!"</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;This is secret!&quot;</span>
 <span class="n">encoded</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 <span class="c1"># Encrypt the bytes</span>
@@ -154,7 +152,7 @@ it is super wide spread.</p>
 <span class="n">encrypted</span> <span class="o">=</span> <span class="n">fernet</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
 
 <span class="c1"># Write encrypted file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"encrypted-file"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;encrypted-file&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
 
 <span class="c1"># Decrypt the bytes</span>
@@ -162,18 +160,19 @@ it is super wide spread.</p>
 <span class="n">decrypted</span> <span class="o">=</span> <span class="n">fernet</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">decrypted</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
 </code></pre></div>
+
 <p>You can also generate the key from a password like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.backends</span> <span class="kn">import</span> <span class="n">default_backend</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives</span> <span class="kn">import</span> <span class="n">hashes</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives.kdf.pbkdf2</span> <span class="kn">import</span> <span class="n">PBKDF2HMAC</span>
 
-<span class="n">password</span> <span class="o">=</span> <span class="s2">"something I can remember"</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;something I can remember&quot;</span>
 
 <span class="c1"># Set this in the application as a constant</span>
 <span class="c1"># Generate one for yourself with</span>
 <span class="c1"># &gt;&gt;&gt; import os; os.urandom(16)</span>
-<span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xd8\x85\xd3</span><span class="s2">`|</span><span class="se">\xa2\x82</span><span class="s2">w</span><span class="se">\x11</span><span class="s2">!</span><span class="se">\xcc\x8d\xa4\x8a</span><span class="s2">:</span><span class="se">\xb4</span><span class="s2">"</span>
+<span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xd8\x85\xd3</span><span class="s2">`|</span><span class="se">\xa2\x82</span><span class="s2">w</span><span class="se">\x11</span><span class="s2">!</span><span class="se">\xcc\x8d\xa4\x8a</span><span class="s2">:</span><span class="se">\xb4</span><span class="s2">&quot;</span>
 
 <span class="n">kdf</span> <span class="o">=</span> <span class="n">PBKDF2HMAC</span><span class="p">(</span>
     <span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">(),</span>
@@ -184,6 +183,7 @@ it is super wide spread.</p>
 <span class="p">)</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">kdf</span><span class="o">.</span><span class="n">derive</span><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">()))</span>
 </code></pre></div>
+
 <h2 id="attack-scenarios">Attack Scenarios</h2>
 <p>For many attack scenarios there are better solutions than file encryption. But
 file encryption might provide additional security in case there is a breach
@@ -218,7 +218,7 @@ transmitted.</p>
 and makes a Man in the Middle (MitM) attack.</p>
 <p><strong>Assessment</strong>: The encryption of the e-mail would have helped. Using TLS would
 be preferable, though.</p>
-<h2 id="see-also_1">See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
 <li>PyTutorials: <a href="https://www.youtube.com/watch?v=H8t4DJ3Tdrg">How to Encrypt Strings and Files in Python</a>, 2018.</li>
 <li>Isuru Perera: <a href="https://medium.com/@chrishantha/encrypting-disks-on-ubuntu-19-04-b50bfc65182a">Encrypting disks on Ubuntu 19.04</a> on Medium, 2019.</li>

@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#answer" title="Answer">Answer</a></li><li><a class="toc-href" href="#explanation" title="Explanation">Explanation</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>You have to following source code:</p>
@@ -118,17 +112,19 @@ MathJax.Hub.Queue(function() {
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">methodB</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p><strong>B.java</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">B</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">methodB</span><span class="p">();</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodC</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p><strong>test.java</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="kd">implements</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">test</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">methodA</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="sc">'3'</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">methodA</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;3&#39;</span><span class="p">));</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">methodB</span><span class="p">());</span>
         <span class="n">t</span><span class="p">.</span><span class="na">methodC</span><span class="p">();</span>
     <span class="p">}</span>
@@ -145,10 +141,11 @@ MathJax.Hub.Queue(function() {
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodC</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"methodC executed."</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;methodC executed.&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>What is the output? Does it compile? Is there a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html">RuntimeException</a>?</p>
 <p>.
 .
@@ -167,13 +164,14 @@ MathJax.Hub.Queue(function() {
 .
 .
 .</p>
-<h2 id="answer">Answer</h2>
+<h2>Answer</h2>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="m">42</span>
 <span class="m">1337</span>
 methodC executed.
 </code></pre></div>
-<h2 id="explanation">Explanation</h2>
+
+<h2>Explanation</h2>
 <p>If you use an Interface, it simply means you have to implement some methods. If more than one Interface forces you to implement the method, you still have to implement it only once. It just works fine.</p>
             
             <div id="disqus_thread" class="no-print"></div>

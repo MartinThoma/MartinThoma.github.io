@@ -100,38 +100,36 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#compile time vs. runtime" title="Compile time vs. runtime">Compile time vs. runtime</a></li><li><a class="toc-href" href="#gdb" title="gdb">gdb</a></li><li><a class="toc-href" href="#valgrind" title="valgrind">valgrind</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn't even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I <strike>didn't</strike> don't know any good online resource for C, so I've always searched with Google for answers to questions that I couldn't properly formulate. One question that is important for beginners is <a href="http://stackoverflow.com/q/12949290/562769">How do I find missing C header files (without Internet)?</a> and another one might be: How can I debug my programs?</p>
-<h2 id="compile time vs. runtime">Compile time vs. runtime</h2>
-<p>A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.
+<h2>Compile time vs. runtime</h2>
+<p>A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.</p>
 <figure class="aligncenter">
-<a href="../images/2012/11/c-workflow.png"><img alt="C workflow" class="size-full wp-image-49641" src="../images/2012/11/c-workflow.png" style="max-width:512px;max-height:229px"/></a>
-<figcaption class="text-center">C workflow</figcaption>
-</figure></p>
+            <a href="../images/2012/11/c-workflow.png"><img src="../images/2012/11/c-workflow.png" alt="C workflow" style="max-width:512px;max-height:229px" class="size-full wp-image-49641"/></a>
+            <figcaption class="text-center">C workflow</figcaption>
+        </figure>
+
 <p>You might make multiple errors. Simple typos or syntax errors are almost always detected at compile time. They are called "compile time errors". Others, like the access of an array-index that isn't in the array might only occur sometimes at runtime, depending on the input. Those are runtime errors and they are much more difficult to detect. Additionally, they can not be reproduced that easily as compile time errors can.</p>
-<h2 id="gdb">gdb</h2>
+<h2>gdb</h2>
 <p>If you want to find runtime errors, you should deactivate all optimization flags and add debugging symbols. A gcc call might look like this:</p>
 <div class="highlight"><pre><span></span><code>gcc mySourceFile.c -g
 </code></pre></div>
+
 <p>This produces a binary file called "a.out".</p>
 <p>Now should run gdb - GNU debug:</p>
 <div class="highlight"><pre><span></span><code>gdb ./a.out
 </code></pre></div>
+
 <p>Within the command line program GNU debug you have to enter:</p>
 <div class="highlight"><pre><span></span><code>run ./a.out
 </code></pre></div>
+
 <p>You should now be able to see the line in which the runtime-error occurs.</p>
-<h2 id="valgrind">valgrind</h2>
+<h2>valgrind</h2>
 <p>You might want to give valgrind a try.</p>
-<p><em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes&lt;/code and run valgrind again.</code></p>
+<p><em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes&lt;/code and run valgrind again.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

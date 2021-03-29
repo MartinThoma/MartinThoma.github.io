@@ -102,17 +102,12 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#mailinglisten-beitrag" title="Mailinglisten-Beitrag">Mailinglisten-Beitrag</a></li><li><a class="toc-href" href="#video" title="Video">Video</a></li><li><a class="toc-href" href="#referenzen" title="Referenzen">Referenzen</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung ge&auml;ndert.</div>
-<h2 id="mailinglisten-beitrag">Mailinglisten-Beitrag</h2>
+
+<h2>Mailinglisten-Beitrag</h2>
 <p>Der in der Vorlesung vorgestellte <span class="math">\(\mathcal{O}(1)\)</span> Scheduler<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> wurde vom 2.6er Linux Kernel bis Version 2.6.23 verwendet und dann durch den sogenannten Completely Fair Scheduler (CFS)<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small> abgel&ouml;st, der Rot-Schwarz-B&auml;ume verwendet, und daher in <span class="math">\(\mathcal{O}(\log(n))\)</span> l&auml;uft -- daf&uuml;r aber komplett fair ist 😉 Beide Scheduler wurden von Ingo Moln&aacute;r entworfen und gr&ouml;&szlig;tenteils implementiert. Abgesehen von den Wikipedia Artikeln fand ich auch Ingos eigene Beschreibung<small><sup><a href="#ref3" name="anchor1">[3]</a></sup></small> sehr interessant.  In der pr&auml;-2.6-&Auml;ra des Linux Kernels wurde ein Scheduler verwendet, zu dessen Effizienz ich keine Angaben gefunden habe.  Anhand der (ziemlich detaillierten) Beschreibung in Kapitel 10 von &bdquo;Understanding the Linux Kernel&ldquo;<small><sup><a href="#ref4" name="anchor4">[1]</a></sup></small> gehe ich jedoch davon aus, dass es <span class="math">\(\mathcal{O}(n)\)</span> gewesen sein muss.  Auch wenn die dort beschriebenen Algorithmen inzwischen mehrfach &uuml;berholt sind, fand ich das Kapitel sehr lesenswert.</p>
 <p>Wie in der Vorlesung vermutet wurde, kann man den Scheduler nat&uuml;rlich konfigurieren.  Dazu ist es aber nicht notwendig, neu zu kompilieren -- noch nicht einmal neu zu booten. Stattdessen kann man (beim CFS) einfach &uuml;ber das /proc Dateisystem in die verschiedenen Dateien in</p>
 <p><code>/proc/sys/kernel/...</code></p>
@@ -122,14 +117,15 @@ MathJax.Hub.Queue(function() {
 <p>Leider l&auml;sst der Kernel keine v&ouml;llig unsinnigen Werte zu.  Man kann also nur bedingt ausprobieren, welchen Einfluss extreme Einstellungen haben / h&auml;tten.  Wie in Referenz 4 beschrieben, &bdquo;friert&ldquo; die grafische Oberfl&auml;che &uuml;brigens auch nicht ein, wenn man gr&ouml;&szlig;ere Scheduling Intervalle w&auml;hlt, da jeder Tastendruck einen Interrupt ausl&ouml;st, der -- egal wie geschedulet wird -- immer die Kontrolle an jenen Prozess &uuml;bergibt, der gerade das Keyboard &bdquo;gegrabbt&ldquo; hat.</p>
 <p>Gr&uuml;&szlig;e</p>
 <p>Moritz</p>
-<h2 id="video">Video</h2>
-<p>Ich habe mal ein Video von Moritz' Programm gemacht:
-<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube.com/embed/DOOrbrcM3YU" width="420"></iframe></p>
-<h2 id="referenzen">Referenzen</h2>
-<p>[1] <a href="#anchor1" name="ref1">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia.  Abgerufen am 13.&nbsp;November 2012.
-[2] <a href="#anchor2" name="ref2">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Completely Fair Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia. Abgerufen am 13. November 2012.
-[3] <a href="#anchor3" name="ref3">&uarr;</a>: Ingo Moln&aacute;r, &bdquo;<a href="http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt">This is the CFS scheduler</a>&ldquo;.  Abgerufen am 13. November 2012.
-[4] <a href="#anchor4" name="ref4">&uarr;</a>: Daniel P. Bovet und Marco Cesati, &bdquo;<a href="http://oreilly.com/catalog/linuxkernel/chapter/ch10.html">Understanding the Linux Kernel</a>&ldquo;. O'Reilly, 2000, abgerufen am 13. November 2012.</p>
+<h2>Video</h2>
+<p>Ich habe mal ein Video von Moritz' Programm gemacht:</p>
+<iframe width="420" height="315" src="//www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen></iframe>
+
+<h2>Referenzen</h2>
+<p>[1] <a name="ref1" href="#anchor1">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia.  Abgerufen am 13.&nbsp;November 2012.
+[2] <a name="ref2" href="#anchor2">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Completely Fair Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia. Abgerufen am 13. November 2012.
+[3] <a name="ref3" href="#anchor3">&uarr;</a>: Ingo Moln&aacute;r, &bdquo;<a href="http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt">This is the CFS scheduler</a>&ldquo;.  Abgerufen am 13. November 2012.
+[4] <a name="ref4" href="#anchor4">&uarr;</a>: Daniel P. Bovet und Marco Cesati, &bdquo;<a href="http://oreilly.com/catalog/linuxkernel/chapter/ch10.html">Understanding the Linux Kernel</a>&ldquo;. O'Reilly, 2000, abgerufen am 13. November 2012.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

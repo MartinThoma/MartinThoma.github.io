@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#how to solve" title="How to solve">How to solve</a></li><li><a class="toc-href" href="#my solution" title="My solution">My solution</a></li><li><a class="toc-href" href="#solving it without programming" title="Solving it without programming">Solving it without programming</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>The task in <a href="http://projecteuler.net/problem=33">Problem 33</a> of Project Euler is:</p>
@@ -119,10 +113,12 @@ We shall consider fractions like, $\frac{30}{50} = \frac{3}{5}$, to be trivial e
 There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.
 
 If the product of these four fractions is given in its lowest common terms, find the value of the denominator.</blockquote>
-<h2 id="how to solve">How to solve</h2>
+
+<h2>How to solve</h2>
 <p>The solution to this task is pretty straight forward. As the nominator has to have two digits and the denominator also has to be in [10, 99], we only have about <span class="math">\(100 \cdot 100 = 10000\)</span> that we have to check.</p>
 <p>How do we check a given nominator / denominator pair? Well, we can go through each digit of the nominator and check if it is also in the denominator. If it is there, we have to check if the resulting fraction has the same value as before. If it has, we can print it.</p>
-<h2 id="my solution">My solution</h2>
+<h2>My solution</h2>
+
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -140,7 +136,7 @@ If the product of these four fractions is given in its lowest common terms, find
                     <span class="n">divided</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">numerator</span><span class="p">)</span> <span class="o">/</span> <span class="n">denomiator</span>
                     <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">canceled</span> <span class="o">-</span> <span class="n">divided</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0001</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span>
-                            <span class="s2">"</span><span class="si">%i</span><span class="s2">/</span><span class="si">%i</span><span class="s2"> = </span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">"</span>
+                            <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">/</span><span class="si">%i</span><span class="s2"> = </span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&quot;</span>
                             <span class="o">%</span> <span class="p">(</span>
                                 <span class="n">numerator</span><span class="p">,</span>
                                 <span class="n">denomiator</span><span class="p">,</span>
@@ -151,14 +147,15 @@ If the product of these four fractions is given in its lowest common terms, find
                         <span class="k">return</span> <span class="kc">True</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># those are not interesting</span>
             <span class="k">continue</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
             <span class="n">isCuriousFraction</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="solving it without programming">Solving it without programming</h2>
+
+<h2>Solving it without programming</h2>
 <p>You can also solve this without programming at all: See <a href="http://projecteuler.net/thread=33;page=8#86864">post</a>.</p>
             
             <div id="disqus_thread" class="no-print"></div>

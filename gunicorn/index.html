@@ -102,58 +102,53 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#performance" title="Performance">Performance</a><ul><li><a class="toc-href" href="#constant-response" title="Constant Response">Constant Response</a></li><li><a class="toc-href" href="#io-bound" title="I/O Bound">I/O Bound</a></li><li><a class="toc-href" href="#cpu-bound" title="CPU Bound">CPU Bound</a></li></ul></li><li><a class="toc-href" href="#alternatives_1" title="Alternatives">Alternatives</a></li><li><a class="toc-href" href="#notes" title="Notes">Notes</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#sources" title="Sources">Sources</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <table>
-<tr>
-<th></th>
-<th rowspan="2">sync</th>
-<th colspan="2">Async Workers</th>
-<th rowspan="2">tornado</th>
-<th colspan="2">AsyncIO Workers</th>
-</tr>
-<tr>
-<td>worker</td>
-<td>gevent</td>
-<td>eventlet</td>
-<td>gaiohttp</td>
-<td>gthread</td>
-</tr>
-<tr>
-<td>core characteristic</td>
-<td>* Per request a process<br/>* Blocks other requests until it is finished</td>
-<td>*&nbsp;based on the Greenlet library<br/>* Program-level threads</td>
-<td>*&nbsp;based on the Greenlet library<br/>* Program-level threads</td>
-<td>*provides async I/O non-blocking design model<br/>*&nbsp;ideal for handling long requests</td>
-<td></td>
-<td>* Per request a thread</td>
-</tr>
-<tr>
-<td>workload</td>
-<td>* No long I/O<br/>* No heavy CPU<br/>* No requests to external pages</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>URL</td>
-<td></td>
-<td>http://www.gevent.org/</td>
-<td>https://eventlet.net/</td>
-<td></td>
-<td>https://aiohttp.readthedocs.io/en/stable/</td>
-<td></td>
-</tr>
+    <tr>
+        <th></th>
+        <th rowspan="2">sync</th>
+        <th colspan="2">Async Workers</th>
+        <th rowspan="2">tornado</th>
+        <th colspan="2">AsyncIO Workers</th>
+    </tr>
+    <tr>
+        <td>worker</td>
+        <td>gevent</td>
+        <td>eventlet</td>
+        <td>gaiohttp</td>
+        <td>gthread</td>
+    </tr>
+    <tr>
+        <td>core characteristic</td>
+        <td>* Per request a process<br/>* Blocks other requests until it is finished</td>
+        <td>*&nbsp;based on the Greenlet library<br/>* Program-level threads</td>
+        <td>*&nbsp;based on the Greenlet library<br/>* Program-level threads</td>
+        <td>*provides async I/O non-blocking design model<br/>*&nbsp;ideal for handling long requests</td>
+        <td></td>
+        <td>* Per request a thread</td>
+    </tr>
+    <tr>
+        <td>workload</td>
+        <td>* No long I/O<br/>* No heavy CPU<br/>* No requests to external pages</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>URL</td>
+        <td></td>
+        <td>http://www.gevent.org/</td>
+        <td>https://eventlet.net/</td>
+        <td></td>
+        <td>https://aiohttp.readthedocs.io/en/stable/</td>
+        <td></td>
+    </tr>
 </table>
+
 <h2 id="performance">Performance</h2>
 <p>Performance can be measured in at least three ways:</p>
 <ul>
@@ -169,7 +164,7 @@ numbers. I use the following <code>locustfile.py</code>:</p>
 <span class="k">class</span> <span class="nc">WebsiteTasks</span><span class="p">(</span><span class="n">TaskSet</span><span class="p">):</span>
     <span class="nd">@task</span>
     <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">WebsiteUser</span><span class="p">(</span><span class="n">HttpLocust</span><span class="p">):</span>
@@ -177,6 +172,7 @@ numbers. I use the following <code>locustfile.py</code>:</p>
     <span class="n">min_wait</span> <span class="o">=</span> <span class="mi">5000</span>
     <span class="n">max_wait</span> <span class="o">=</span> <span class="mi">15000</span>
 </code></pre></div>
+
 <p>I had to execute <code>ulimit -S -n 10240</code> in order to test the 10,000 users. Otherwise
 I got</p>
 <div class="highlight"><pre><span></span><code>[2019-05-26 12:25:03,499] pc07/ERROR/stderr: OSError: [Errno 16] Device or resource busy
@@ -185,6 +181,7 @@ I got</p>
 [2019-05-26 12:25:03,499] pc07/ERROR/stderr:
 [2019-05-26 12:25:03,499] pc07/ERROR/stderr: (&lt;ThreadPool at 0x7fc2e275d4a8 0/10/10 hub=&lt;Hub at 0x7fc2e7c84780 thread_ident=0x140475181328192&gt;&gt;, &lt;built-in function getaddrinfo&gt;) failed with OSError
 </code></pre></div>
+
 <h3 id="constant-response">Constant Response</h3>
 <p>The following <code>app.py</code> is probably the simplest one possible.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
@@ -192,58 +189,60 @@ I got</p>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">"hello world!"</span>
+    <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span>
 </code></pre></div>
+
 <p>Let's first have a look at the median response time by the number of users:</p>
 <table class="table">
-<tr>
-<th>Users</th>
-<th>Development Server</th>
-<th>gevent (1 worker, 1000 connections)</th>
-<th>gevent (4 workers, 1000 connections)</th>
-<th>gevent (12 workers, 1000 connections)</th>
-<th>sync (4 workers)</th>
-<th>gthread (4 workers)</th>
-</tr>
-<tr>
-<td>10</td>
-<td>8ms - 9ms; 1 Req/ s</td>
-<td>8ms - 9ms; 1 Req/ s</td>
-<td>8ms - 11ms; 1 Req/ s</td>
-<td>6ms - 10ms; 1 Req/ s</td>
-<td>7ms - 9ms; 1 Req/s</td>
-<td>6ms - 12ms; 1 Req/s</td>
-</tr>
-<tr>
-<td>100</td>
-<td>10ms; 10 Req/s</td>
-<td>8ms - 9ms; 10 Req/s</td>
-<td>8ms - 9ms; 10 Req/s</td>
-<td>8ms - 9ms; 10 Req/s</td>
-<td>7ms - 9ms; 10 Req/s</td>
-<td>8ms - 12ms; 10 Req/s</td>
-</tr>
-<tr>
-<td>1000</td>
-<td>12ms - 30ms; 100 Req/s</td>
-<td>8ms - 12ms; 100 Req/s</td>
-<td>7ms - 10ms; 100 Req/s</td>
-<td>5ms - 12ms; 100 Req/s</td>
-<td>6ms - 8ms; 100 Req/s</td>
-<td>8ms - 11ms; 100 Req/s</td>
-</tr>
-<tr>
-<td>10&thinsp;000</td>
-<td>150ms - 34000ms; 170 - 270 Req/s</td>
-<td>8100ms - 41000ms; 220 - 440 Req/s</td>
-<td>340ms - 11000ms; 200 - 625 Req/s</td>
-<td>150ms - 96000ms; 130 - 410 Req/s</td>
-<td>81ms - 101000ms; 220 - 750 Req/s</td>
-<td>350ms - 93000ms; 270 - 533 Req/s</td>
-</tr>
+    <tr>
+        <th>Users</th>
+        <th>Development Server</th>
+        <th>gevent (1 worker, 1000 connections)</th>
+        <th>gevent (4 workers, 1000 connections)</th>
+        <th>gevent (12 workers, 1000 connections)</th>
+        <th>sync (4 workers)</th>
+        <th>gthread (4 workers)</th>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>8ms - 9ms; 1 Req/ s</td>
+        <td>8ms - 9ms; 1 Req/ s</td>
+        <td>8ms - 11ms; 1 Req/ s</td>
+        <td>6ms - 10ms; 1 Req/ s</td>
+        <td>7ms - 9ms; 1 Req/s</td>
+        <td>6ms - 12ms; 1 Req/s</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>10ms; 10 Req/s</td>
+        <td>8ms - 9ms; 10 Req/s</td>
+        <td>8ms - 9ms; 10 Req/s</td>
+        <td>8ms - 9ms; 10 Req/s</td>
+        <td>7ms - 9ms; 10 Req/s</td>
+        <td>8ms - 12ms; 10 Req/s</td>
+    </tr>
+    <tr>
+        <td>1000</td>
+        <td>12ms - 30ms; 100 Req/s</td>
+        <td>8ms - 12ms; 100 Req/s</td>
+        <td>7ms - 10ms; 100 Req/s</td>
+        <td>5ms - 12ms; 100 Req/s</td>
+        <td>6ms - 8ms; 100 Req/s</td>
+        <td>8ms - 11ms; 100 Req/s</td>
+    </tr>
+    <tr>
+        <td>10&thinsp;000</td>
+        <td>150ms - 34000ms; 170 - 270 Req/s</td>
+        <td>8100ms - 41000ms; 220 - 440 Req/s</td>
+        <td>340ms - 11000ms; 200 - 625 Req/s</td>
+        <td>150ms - 96000ms; 130 - 410 Req/s</td>
+        <td>81ms - 101000ms; 220 - 750 Req/s</td>
+        <td>350ms - 93000ms; 270 - 533 Req/s</td>
+    </tr>
 </table>
+
 <p>You can clearly see that there is no real difference up to 100 users. At 1000
 users, the development server gets slow. gevent does not care about it. At
 10,000 users, gevent gets slow. But the real difference was the 95-percentile
@@ -259,40 +258,42 @@ it answers:</p>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s2">"hello world!"</span>
+    <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span>
 </code></pre></div>
+
 <table>
-<tr>
-<th></th>
-<th>Development Server</th>
-<th>gevent (1 worker, 1000 connections)</th>
-<th>gevent (4 workers, 1000 connections)</th>
-<th>gevent (12 workers, 1000 connections)</th>
-<th>sync (4 workers)</th>
-<th>gthread (4 workers)</th>
-</tr>
-<tr>
-<td>1000</td>
-<td>1000ms; 1000-1200ms</td>
-<td>1000ms; 1000-1100ms</td>
-<td>1000ms; 1000ms</td>
-<td>1000ms; 1s-1.1ms</td>
-<td>32s-37s;35s-97s</td>
-<td>Fails</td>
-</tr>
-<tr>
-<td>10,000</td>
-<td>3.2s-8.4ms;5.2ms-76s</td>
-<td>2.4s-8.5s; 28s - 132s</td>
-<td>2.8s-9.7s; 16s-290s</td>
-<td>1.8s - 11s; 6.7s - 150s</td>
-<td>29s - 131s;45s-183s</td>
-<td>Fails</td>
-</tr>
+    <tr>
+        <th></th>
+        <th>Development Server</th>
+        <th>gevent (1 worker, 1000 connections)</th>
+        <th>gevent (4 workers, 1000 connections)</th>
+        <th>gevent (12 workers, 1000 connections)</th>
+        <th>sync (4 workers)</th>
+        <th>gthread (4 workers)</th>
+    </tr>
+    <tr>
+        <td>1000</td>
+        <td>1000ms; 1000-1200ms</td>
+        <td>1000ms; 1000-1100ms</td>
+        <td>1000ms; 1000ms</td>
+        <td>1000ms; 1s-1.1ms</td>
+        <td>32s-37s;35s-97s</td>
+        <td>Fails</td>
+    </tr>
+    <tr>
+        <td>10,000</td>
+        <td>3.2s-8.4ms;5.2ms-76s</td>
+        <td>2.4s-8.5s; 28s - 132s</td>
+        <td>2.8s-9.7s; 16s-290s</td>
+        <td>1.8s - 11s; 6.7s - 150s</td>
+        <td>29s - 131s;45s-183s</td>
+        <td>Fails</td>
+    </tr>
 </table>
+
 <h3 id="cpu-bound">CPU Bound</h3>
 <p>Let's say our workload was CPU bound:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
@@ -302,12 +303,13 @@ it answers:</p>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s2">"hello world!"</span>
+    <span class="k">return</span> <span class="s2">&quot;hello world!&quot;</span>
 </code></pre></div>
-<h2 id="alternatives_1">Alternatives</h2>
+
+<h2 id="alternatives">Alternatives</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/UWSGI">uWSGI</a> (<a href="https://uwsgi-docs.readthedocs.io/en/latest/">docs</a> )is both a protocol and an application server; the application server can serve uWSGI, FastCGI, and HTTP protocols. Seems to be used together with gevent.</li>
 <li><a href="https://en.wikipedia.org/wiki/Tornado_(web_server)">Tornado</a>: a scalable, non-blocking web server and web application framework</li>
@@ -339,10 +341,10 @@ it answers:</p>
 </ul>
 <h2 id="sources">Sources</h2>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
-<p>Randall Leeds: <a href="https://github.com/benoitc/gunicorn/issues/305#issuecomment-469345296">Github, 2019-03-04</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Randall Leeds: <a href="https://github.com/benoitc/gunicorn/issues/305#issuecomment-469345296">Github, 2019-03-04</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

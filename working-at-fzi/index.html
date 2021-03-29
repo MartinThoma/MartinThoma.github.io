@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#openvpn" title="OpenVPN">OpenVPN</a></li><li><a class="toc-href" href="#wlan" title="WLAN">WLAN</a></li><li><a class="toc-href" href="#python-virtalenv" title="Python Virtalenv">Python Virtalenv</a></li><li><a class="toc-href" href="#cudnn" title="cuDNN">cuDNN</a></li><li><a class="toc-href" href="#blame-users" title="Blame users">Blame users</a></li><li><a class="toc-href" href="#send-files" title="Send files">Send files</a></li><li><a class="toc-href" href="#disk-usage" title="Disk usage">Disk usage</a></li><li><a class="toc-href" href="#ssh-screen" title="SSH / screen">SSH / screen</a></li><li><a class="toc-href" href="#misc" title="Misc">Misc</a></li><li><a class="toc-href" href="#personalabteilung" title="Personalabteilung">Personalabteilung</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>If you are writing your Bachelors or Masters thesis or if you're a HiWi at <a href="https://en.wikipedia.org/wiki/Forschungszentrum_Informatik">FZI</a>, you might find the following useful.</p>
@@ -135,6 +129,7 @@ $ <span class="nb">cd</span> ~/ml-venv
 $ virtualenv ml
 $ <span class="nb">source</span> ml/bin/activate
 </code></pre></div>
+
 <p>Add the <code>source ml/bin/activate</code> (with the absolute path) to your <code>~/.bashrc</code>.
 Now you can use <code>pip install ...</code> to install whatever you need in which version
 you need.</p>
@@ -142,6 +137,7 @@ you need.</p>
 <p>Add</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/fzi/ids/thoma/nobackup/cuda/lib64/
 </code></pre></div>
+
 <p>to your <code>~/.bashrc</code>. If that doesn't exist anymore, just download cuDNN and
 adjust the path to the <code>lib64</code> folder.</p>
 <h2 id="blame-users">Blame users</h2>
@@ -165,10 +161,12 @@ adjust the path to the <code>lib64</code> folder.</p>
 |    0     32756    C   ./caffe                                       5591MiB |
 +-----------------------------------------------------------------------------+
 </code></pre></div>
+
 <p>But it doesn't tell you how long the process is already running and which user
 started it. With</p>
 <div class="highlight"><pre><span></span><code>$ ps -p <span class="m">32756</span> -o user -o <span class="nb">time</span>
 </code></pre></div>
+
 <p>(replace 32756 by the process ID, of course) you can find the user name and how
 long the process is running.</p>
 <h2 id="send-files">Send files</h2>
@@ -177,11 +175,13 @@ and <a href="https://unix.stackexchange.com/a/106482/4784">How to copy files fro
 <p>Copy <code>foo.txt</code> from localhost to a remote host:</p>
 <div class="highlight"><pre><span></span><code>$ scp foo.txt yourusername@remotehost.com:/home/remote/dir
 </code></pre></div>
+
 <h2 id="disk-usage">Disk usage</h2>
 <div class="highlight"><pre><span></span><code>$ quota -s -u user1
 $ df -h .
 $ du -h .
 </code></pre></div>
+
 <h2 id="ssh-screen">SSH / screen</h2>
 <ul>
 <li><a href="http://stackoverflow.com/q/20807696/562769">How do I force detach Screen from another SSH session?</a></li>
@@ -197,8 +197,8 @@ $ du -h .
 <p>If you want to get your money back from the code card, you have to go to the
 "Personalabteilung". They have very limited opening times:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Opening times of FZI" src="../images/2017/06/fzi-opening-times.jpg" style="width: 512px;"/>
-<figcaption class="text-center">Opening times of FZI</figcaption>
+    <img src="../images/2017/06/fzi-opening-times.jpg" alt="Opening times of FZI" style="width: 512px;"/>
+    <figcaption class="text-center">Opening times of FZI</figcaption>
 </figure>
             
             <div id="disqus_thread" class="no-print"></div>

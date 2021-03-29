@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#sklearn" title="sklearn">sklearn</a></li><li><a class="toc-href" href="#graphics-drivers-and-cuda" title="Graphics drivers and CUDA">Graphics drivers and CUDA</a></li><li><a class="toc-href" href="#theano" title="Theano">Theano</a></li><li><a class="toc-href" href="#lasagne" title="Lasagne">Lasagne</a></li><li><a class="toc-href" href="#nolearn" title="nolearn">nolearn</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Lasagne is a Python package for training neural networks. The nice thing about
@@ -122,6 +116,7 @@ process.</p>
 pip. You can get it with</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install python-pip
 </code></pre></div>
+
 <p>Make sure you have Python and <code>pip</code>, the standard Python package installer.
 Type the following commands to check if you have both:</p>
 <div class="highlight"><pre><span></span><code>$ python --version
@@ -130,11 +125,13 @@ Python <span class="m">2</span>.7.8
 $ pip --version
 pip <span class="m">6</span>.1.1 from /usr/local/lib/python2.7/dist-packages <span class="o">(</span>python <span class="m">2</span>.7<span class="o">)</span>
 </code></pre></div>
+
 <h2 id="sklearn">sklearn</h2>
 <p><a href="http://scikit-learn.org/stable/">sklearn</a> is a nice package for machine
 learning. You can install it with</p>
 <div class="highlight"><pre><span></span><code>$ pip install scikit-learn
 </code></pre></div>
+
 <p>(When I write commands like this you either have to execute
 <code>sudo pip install scikit-learn</code> or <code>pip install scikit-learn --user</code>).</p>
 <p>This should work without problems.</p>
@@ -289,16 +286,19 @@ GPU <span class="m">0000</span>:01:00.0
         Memory                      : N/A
     Compute Processes               : N/A
 </code></pre></div>
+
 <p>to see if CUDA was installed correctly.</p>
 <h2 id="theano">Theano</h2>
 <p>The installation of Theano is a bit tricky (see <a href="http://deeplearning.net/software/theano/install.html">official page</a>). I don't remember if I installed additional packages, but try</p>
 <div class="highlight"><pre><span></span><code>$ sudo -H pip install theano
 </code></pre></div>
+
 <p>Make sure that your <code>~/.theanorc</code> exists and looks like this:</p>
 <div class="highlight"><pre><span></span><code>[global]
 device=gpu
 floatX=float32
 </code></pre></div>
+
 <p>Note that <code>float32</code> is required, even if you have a 64bit system.</p>
 <p>To test your installation, save the following as <code>theanotest.py</code> and execute
 it with <code>python theanotest.py</code>:</p>
@@ -319,13 +319,14 @@ it with <code>python theanotest.py</code>:</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Looping </span><span class="si">%d</span><span class="s2"> times took"</span> <span class="o">%</span> <span class="n">iters</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Result is"</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Looping </span><span class="si">%d</span><span class="s2"> times took&quot;</span> <span class="o">%</span> <span class="n">iters</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s2">&quot;seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result is&quot;</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Elemwise</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">maker</span><span class="o">.</span><span class="n">fgraph</span><span class="o">.</span><span class="n">toposort</span><span class="p">()]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Used the cpu"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Used the cpu&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Used the gpu"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Used the gpu&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>It should print the following (well, something similar):</p>
 <div class="highlight"><pre><span></span><code>Using gpu device 0: GeForce GTX TITAN Black
 [GpuElemwise{exp,no_inplace}(&lt;CudaNdarrayType(float32, vector)&gt;), HostFromGpu(GpuElemwise{exp,no_inplace}.0)]
@@ -334,6 +335,7 @@ Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
   1.62323296]
 Used the gpu
 </code></pre></div>
+
 <p>Especially "used the gpu" is important. Theano code work on both, CPU and GPU.
 If you have a GPU and it does not currently work on a task and it is configured
 correctly, then Theano should automatically use the GPU.</p>
@@ -346,6 +348,7 @@ correctly, then Theano should automatically use the GPU.</p>
 $ <span class="nb">cd</span> Lasagne
 Lasagne$ sudo -H python setup.py install
 </code></pre></div>
+
 <p>Now you can test if it worked by executing the MNIST example in Lasagne
 (<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> is a huge digit dataset). This
 might first take some time to download, but should then run quite fast. If
@@ -355,16 +358,17 @@ about a minute for one epoch)</p>
 Loading data...
 Downloading MNIST dataset
 Building model and compiling functions...
-/usr/local/lib/python2.7/dist-packages/Lasagne-0.1dev-py2.7.egg/lasagne/init.py:30: UserWarning: The uniform initializer no longer uses Glorot et al.'s approach to determine the bounds, but defaults to the range (-0.01, 0.01) instead. Please use the new GlorotUniform initializer to get the old behavior. GlorotUniform is now the default for all layers.
-  warnings.warn("The uniform initializer no longer uses Glorot et al.'s "
-/usr/local/lib/python2.7/dist-packages/Lasagne-0.1dev-py2.7.egg/lasagne/layers/helper.py:55: UserWarning: get_all_layers() has been changed to return layers in topological order. The former implementation is still available as get_all_layers_old(), but will be removed before the first release of Lasagne. To ignore this warning, use `warnings.filterwarnings('ignore', '.*topo.*')`.
-  warnings.warn("get_all_layers() has been changed to return layers in "
+/usr/local/lib/python2.7/dist-packages/Lasagne-0.1dev-py2.7.egg/lasagne/init.py:30: UserWarning: The uniform initializer no longer uses Glorot et al.&#39;s approach to determine the bounds, but defaults to the range (-0.01, 0.01) instead. Please use the new GlorotUniform initializer to get the old behavior. GlorotUniform is now the default for all layers.
+  warnings.warn(&quot;The uniform initializer no longer uses Glorot et al.&#39;s &quot;
+/usr/local/lib/python2.7/dist-packages/Lasagne-0.1dev-py2.7.egg/lasagne/layers/helper.py:55: UserWarning: get_all_layers() has been changed to return layers in topological order. The former implementation is still available as get_all_layers_old(), but will be removed before the first release of Lasagne. To ignore this warning, use `warnings.filterwarnings(&#39;ignore&#39;, &#39;.*topo.*&#39;)`.
+  warnings.warn(&quot;get_all_layers() has been changed to return layers in &quot;
 Starting training...
 Epoch 1 of 500 took 72.593s
   training loss:        1.330231
   validation loss:        0.470251
   validation accuracy:        87.54 %%
 </code></pre></div>
+
 <h2 id="nolearn">nolearn</h2>
 <p><a href="https://github.com/dnouri/nolearn">nolearn</a> is another Python package. It was
 created to make using Lasagne even simpler.</p>
@@ -373,6 +377,7 @@ created to make using Lasagne even simpler.</p>
 $ <span class="nb">cd</span> nolearn
 $ python setup.py install --user
 </code></pre></div>
+
 <p>For example, the following code downloads the MNIST dataset, trains a model on
 it and evaluates the result for a single image:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -405,22 +410,22 @@ it and evaluates the result for a single image:</p>
         <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
 
 
-<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">"http://deeplearning.net/data/mnist/mnist.pkl.gz"</span>
-<span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s2">"mnist.pkl.gz"</span>
+<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;http://deeplearning.net/data/mnist/mnist.pkl.gz&quot;</span>
+<span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;mnist.pkl.gz&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">_load_data</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">DATA_FILENAME</span><span class="p">):</span>
-    <span class="sd">"""Load data from `url` and store the result in `filename`."""</span>
+    <span class="sd">&quot;&quot;&quot;Load data from `url` and store the result in `filename`.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Downloading MNIST dataset"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading MNIST dataset&quot;</span><span class="p">)</span>
         <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"latin-1"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin-1&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
-    <span class="sd">"""Get data with labels, split into training, validation and test set."""</span>
+    <span class="sd">&quot;&quot;&quot;Get data with labels, split into training, validation and test set.&quot;&quot;&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">_load_data</span><span class="p">()</span>
     <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -447,13 +452,13 @@ it and evaluates the result for a single image:</p>
 <span class="k">def</span> <span class="nf">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">net1</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">(</span>
         <span class="n">layers</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">(</span><span class="s2">"input"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">"hidden"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
-            <span class="p">(</span><span class="s2">"output"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;hidden&quot;</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
         <span class="p">],</span>
         <span class="c1"># layer parameters:</span>
         <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">),</span>
-        <span class="n">hidden_num_units</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># number of units in 'hidden' layer</span>
+        <span class="n">hidden_num_units</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># number of units in &#39;hidden&#39; layer</span>
         <span class="n">output_nonlinearity</span><span class="o">=</span><span class="n">lasagne</span><span class="o">.</span><span class="n">nonlinearities</span><span class="o">.</span><span class="n">softmax</span><span class="p">,</span>
         <span class="n">output_num_units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># 10 target values for the digits 0, 1, 2, ..., 9</span>
         <span class="c1"># optimization method:</span>
@@ -465,23 +470,24 @@ it and evaluates the result for a single image:</p>
     <span class="p">)</span>
 
     <span class="c1"># Train the network</span>
-    <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_train"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"y_train"</span><span class="p">])</span>
+    <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;X_train&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_train&quot;</span><span class="p">])</span>
 
     <span class="c1"># Try the network on new data</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Feature vector (100-110): </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s2">"X_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"y_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Predicted: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature vector (100-110): </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;X_test&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Label: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_test&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicted: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;X_test&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_train"</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got </span><span class="si">%i</span><span class="s2"> testing datasets.&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;X_train&quot;</span><span class="p">]))</span>
     <span class="n">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
+
 <p>The output is</p>
 <div class="highlight"><pre><span></span><code># Neural Network with 79510 learnable parameters
 
@@ -509,6 +515,7 @@ Feature vector (100-110): [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
 Label: 7
 Predicted: [7]
 </code></pre></div>
+
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/">Getting Started with Deep Learning and Python</a></li>

@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#pseudocode" title="Pseudocode">Pseudocode</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#links" title="Links">Links</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>When you have a system of linear congruences like:</p>
@@ -121,25 +115,27 @@ x &amp;\equiv 14 \mod 43
 $$</div>
 <p>you can solve it quite easily.
 Johannes Schickling has written a very nice <a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">JavaScript Application</a> that applies the following algorithm online. I've used his source code to write the following Python code.</p>
-<h2 id="pseudocode">Pseudocode</h2>
+<h2>Pseudocode</h2>
 <figure class="aligncenter">
-<a href="../images/2013/09/SolveLinearCongruences.png"><img alt="Solve a system of linear congruences" class="size-full wp-image-76382" src="../images/2013/09/SolveLinearCongruences.png" style="max-width:500px;max-height:247px"/></a>
-<figcaption class="text-center">Solve a system of linear congruences</figcaption>
-</figure>
-<h2 id="python">Python</h2>
+            <a href="../images/2013/09/SolveLinearCongruences.png"><img src="../images/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences" style="max-width:500px;max-height:247px" class="size-full wp-image-76382"/></a>
+            <figcaption class="text-center">Solve a system of linear congruences</figcaption>
+        </figure>
+
+<h2>Python</h2>
+
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="k">def</span> <span class="nf">ExtendedEuclideanAlgorithm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates gcd(a,b) and a linear combination such that</span>
 <span class="sd">        gcd(a,b) = a*x + b*y</span>
 
 <span class="sd">        As a side effect:</span>
 <span class="sd">        If gcd(a,b) = 1 = a*x + b*y</span>
 <span class="sd">        Then x is multiplicative inverse of a modulo b.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">aO</span><span class="p">,</span> <span class="n">bO</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">lasty</span> <span class="o">=</span> <span class="mi">0</span>
@@ -150,37 +146,38 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
         <span class="n">x</span><span class="p">,</span> <span class="n">lastx</span> <span class="o">=</span> <span class="n">lastx</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span>
         <span class="n">y</span><span class="p">,</span> <span class="n">lasty</span> <span class="o">=</span> <span class="n">lasty</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span>
 
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">lastx</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">lasty</span><span class="p">,</span> <span class="s2">"gcd"</span><span class="p">:</span> <span class="n">aO</span> <span class="o">*</span> <span class="n">lastx</span> <span class="o">+</span> <span class="n">bO</span> <span class="o">*</span> <span class="n">lasty</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">lastx</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">lasty</span><span class="p">,</span> <span class="s2">&quot;gcd&quot;</span><span class="p">:</span> <span class="n">aO</span> <span class="o">*</span> <span class="n">lastx</span> <span class="o">+</span> <span class="n">bO</span> <span class="o">*</span> <span class="n">lasty</span><span class="p">}</span>
 
 
 <span class="k">def</span> <span class="nf">solveLinearCongruenceEquations</span><span class="p">(</span><span class="n">rests</span><span class="p">,</span> <span class="n">modulos</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Solve a system of linear congruences.</span>
 
 <span class="sd">    &gt;&gt;&gt; solveLinearCongruenceEquations([4, 12, 14], [19, 37, 43])</span>
-<span class="sd">    {'congruence class': 22804, 'modulo': 30229}</span>
-<span class="sd">    """</span>
+<span class="sd">    {&#39;congruence class&#39;: 22804, &#39;modulo&#39;: 30229}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">rests</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">modulos</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">M</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">modulos</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">resti</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">modulos</span><span class="p">,</span> <span class="n">rests</span><span class="p">):</span>
         <span class="n">Mi</span> <span class="o">=</span> <span class="n">M</span> <span class="o">/</span> <span class="n">mi</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">ExtendedEuclideanAlgorithm</span><span class="p">(</span><span class="n">Mi</span><span class="p">,</span> <span class="n">mi</span><span class="p">)[</span><span class="s2">"x"</span><span class="p">]</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">ExtendedEuclideanAlgorithm</span><span class="p">(</span><span class="n">Mi</span><span class="p">,</span> <span class="n">mi</span><span class="p">)[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
         <span class="n">e</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">Mi</span>
         <span class="n">x</span> <span class="o">+=</span> <span class="n">resti</span> <span class="o">*</span> <span class="n">e</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"congruence class"</span><span class="p">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span><span class="p">,</span> <span class="s2">"modulo"</span><span class="p">:</span> <span class="n">M</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;congruence class&quot;</span><span class="p">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span><span class="p">,</span> <span class="s2">&quot;modulo&quot;</span><span class="p">:</span> <span class="n">M</span><span class="p">}</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="links">Links</h2>
+
+<h2>Links</h2>
 <ul>
-<li><a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">Try it online</a></li>
-<li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/SolveLinearCongruences">Sources</a></li>
+  <li><a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">Try it online</a></li>
+  <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/SolveLinearCongruences">Sources</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

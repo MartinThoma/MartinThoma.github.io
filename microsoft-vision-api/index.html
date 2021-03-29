@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Microsoft just released a Computer Vision API. I tried it with a couple of
@@ -117,29 +111,29 @@ of Wikipedia and was not really impressed.</p>
 <p>Here is how to use it:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""Example how to use the Microsoft Vision API."""</span>
+<span class="sd">&quot;&quot;&quot;Example how to use the Microsoft Vision API.&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">httplib</span>
 <span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Content-type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
 
 <span class="n">params</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="c1"># Specify your subscription key</span>
-        <span class="s2">"subscription-key"</span><span class="p">:</span> <span class="s2">"yourhexadecimalone11111111111111"</span><span class="p">,</span>
+        <span class="s2">&quot;subscription-key&quot;</span><span class="p">:</span> <span class="s2">&quot;yourhexadecimalone11111111111111&quot;</span><span class="p">,</span>
         <span class="c1"># Specify values for optional parameters, as needed</span>
-        <span class="s2">"visualFeatures"</span><span class="p">:</span> <span class="s2">"All"</span><span class="p">,</span>
+        <span class="s2">&quot;visualFeatures&quot;</span><span class="p">:</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">image_url</span> <span class="o">=</span> <span class="s2">"http://www.martin-thoma.de/bilder/Martin_Thoma_web_thumb.jpg"</span>
+    <span class="n">image_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.martin-thoma.de/bilder/Martin_Thoma_web_thumb.jpg&quot;</span>
 
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s2">"api.projectoxford.ai"</span><span class="p">)</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s2">&quot;api.projectoxford.ai&quot;</span><span class="p">)</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
-        <span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"/vision/v1/analyses?</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">params</span><span class="p">,</span> <span class="s2">"{'Url': '</span><span class="si">%s</span><span class="s2">'}"</span> <span class="o">%</span> <span class="n">image_url</span><span class="p">,</span> <span class="n">headers</span>
+        <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;/vision/v1/analyses?</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">params</span><span class="p">,</span> <span class="s2">&quot;{&#39;Url&#39;: &#39;</span><span class="si">%s</span><span class="s2">&#39;}&quot;</span> <span class="o">%</span> <span class="n">image_url</span><span class="p">,</span> <span class="n">headers</span>
     <span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -147,55 +141,57 @@ of Wikipedia and was not really impressed.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"[Errno </span><span class="si">{0}</span><span class="s2">] </span><span class="si">{1}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Errno </span><span class="si">{0}</span><span class="s2">] </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">))</span>
 </code></pre></div>
+
 <p>which gives</p>
 <div class="highlight"><pre><span></span><code>{
-  "adult": {
-    "adultScore": 0.01073759701102972,
-    "isAdultContent": false,
-    "isRacyContent": false,
-    "racyScore": 0.015348214656114578
+  &quot;adult&quot;: {
+    &quot;adultScore&quot;: 0.01073759701102972,
+    &quot;isAdultContent&quot;: false,
+    &quot;isRacyContent&quot;: false,
+    &quot;racyScore&quot;: 0.015348214656114578
   },
-  "categories": [
+  &quot;categories&quot;: [
     {
-      "name": "people_",
-      "score": 0.8359375
+      &quot;name&quot;: &quot;people_&quot;,
+      &quot;score&quot;: 0.8359375
     }
   ],
-  "color": {
-    "accentColor": "4C5F37",
-    "dominantColorBackground": "Green",
-    "dominantColorForeground": "Green",
-    "dominantColors": [
-      "Green"
+  &quot;color&quot;: {
+    &quot;accentColor&quot;: &quot;4C5F37&quot;,
+    &quot;dominantColorBackground&quot;: &quot;Green&quot;,
+    &quot;dominantColorForeground&quot;: &quot;Green&quot;,
+    &quot;dominantColors&quot;: [
+      &quot;Green&quot;
     ],
-    "isBWImg": false
+    &quot;isBWImg&quot;: false
   },
-  "faces": [
+  &quot;faces&quot;: [
     {
-      "age": 28,
-      "faceRectangle": {
-        "height": 49,
-        "left": 53,
-        "top": 42,
-        "width": 49
+      &quot;age&quot;: 28,
+      &quot;faceRectangle&quot;: {
+        &quot;height&quot;: 49,
+        &quot;left&quot;: 53,
+        &quot;top&quot;: 42,
+        &quot;width&quot;: 49
       },
-      "gender": "Male"
+      &quot;gender&quot;: &quot;Male&quot;
     }
   ],
-  "imageType": {
-    "clipArtType": 0,
-    "lineDrawingType": 0
+  &quot;imageType&quot;: {
+    &quot;clipArtType&quot;: 0,
+    &quot;lineDrawingType&quot;: 0
   },
-  "metadata": {
-    "format": "Jpeg",
-    "height": 200,
-    "width": 134
+  &quot;metadata&quot;: {
+    &quot;format&quot;: &quot;Jpeg&quot;,
+    &quot;height&quot;: 200,
+    &quot;width&quot;: 134
   },
-  "requestId": "7f0af611-1750-4fa2-aa47-a03db286f6a7"
+  &quot;requestId&quot;: &quot;7f0af611-1750-4fa2-aa47-a03db286f6a7&quot;
 }
 </code></pre></div>
+
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">Cognitive Services</a>: You have to apply there. 5,000 transactions per month, 20 per minute is for free.</li>

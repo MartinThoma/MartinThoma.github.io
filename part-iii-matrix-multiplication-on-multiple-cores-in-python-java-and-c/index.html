@@ -102,30 +102,25 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#java" title="Java">Java</a><ul><li><a class="toc-href" href="#information for parallelism" title="Information for parallelism">Information for parallelism</a></li></ul></li><li><a class="toc-href" href="#c++_1" title="C++">C++</a><ul><li><a class="toc-href" href="#more information" title="More Information">More Information</a></li></ul></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is Part III of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 <p>We got some pretty interesting results for matrix multiplication so far. Now, I would like to get to know in how far performance increases (or decreases) if I make use of multiple cores. I only have two cores, so I hope somebody with a better computer will also run the ikj single core algorithm form part I and the parallel version from this article and post the results as a comment.</p>
-<h2 id="the implementations">The implementations</h2>
+<h2>The implementations</h2>
 <p>As last time, I&rsquo;ve added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>. So you can test it on your machine.</p>
 <p>Before we start implementing code for multiple processors, we have to get an algorithm that is actually parallelisable. You could use <a href="https://en.wikipedia.org/wiki/Cannon%27s_algorithm">Cannon's algorithm</a>, a algorithm that makes use of <a href="http://en.wikipedia.org/wiki/Systolic_array">systolic arrays</a> or try to find a solution by your own. The <a href="http://www.netlib.org/lapack/lawnspdf/lawn96.pdf">Scalable Universal Matrix Multiplication Algorithm</a> (short: SUMMA) could also work. The paper that I've linked is well-written and easy to understand. You should definitively read it, if you're interested in matrix multiplication.</p>
 <p>I will not use any advanced algorithm in this article. I will make the outer most for loop of the ikj-algorithm (see part I) execute in parallel.</p>
-<p>More about parallel matrix multiplication:
+<p>More about parallel matrix multiplication:</p>
 <ul>
-<li><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node45.html">Case Study: Matrix Multiplication</a></li>
-<li><a href="http://berrendorf.inf.fh-bonn-rhein-sieg.de/Parallel/index.html">berrendorf</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication">Algorithms for efficient matrix multiplication</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm">Coppersmith-Winograd algorith</a></li>
-</ul></p>
-<h2 id="python">Python</h2>
+  <li><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node45.html">Case Study: Matrix Multiplication</a></li>
+  <li><a href="http://berrendorf.inf.fh-bonn-rhein-sieg.de/Parallel/index.html">berrendorf</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication">Algorithms for efficient matrix multiplication</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm">Coppersmith-Winograd algorith</a></li>
+</ul>
+
+<h2>Python</h2>
 <p>Because of global interpreter lock (GIL), you need to start new processes in Python (<a href="http://stackoverflow.com/a/9786225/562769">source</a>).</p>
 <p>The ikj single core algorithm implemented in Python needs:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-nonparallel.out
@@ -134,6 +129,7 @@ real    36m0.699s
 user    35m53.463s
 sys 0m2.356s
 </code></pre></div>
+
 <p>The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel.out
 
@@ -141,6 +137,7 @@ real    20m47.693s
 user    40m34.460s
 sys 0m2.092s
 </code></pre></div>
+
 <p>When we share memory, the code looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -149,13 +146,13 @@ sys 0m2.092s
 
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
-            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
     <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
@@ -163,7 +160,7 @@ sys 0m2.092s
 
 <span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">lineMult</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
@@ -190,36 +187,36 @@ sys 0m2.092s
 
 
 <span class="k">def</span> <span class="nf">extant_file</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    'Type' for argparse - checks that file exists but does not open.</span>
-<span class="sd">    """</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &#39;Type&#39; for argparse - checks that file exists but does not open.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span><span class="s2">"</span><span class="si">{0}</span><span class="s2"> does not exist"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> does not exist&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">sys</span>
     <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"ikjMatrix multiplication"</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;ikjMatrix multiplication&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-i"</span><span class="p">,</span>
-        <span class="s2">"--input"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="s2">&quot;-i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--input&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="n">extant_file</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"input file with two matrices"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;input file with two matrices&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-o"</span><span class="p">,</span>
-        <span class="s2">"--output"</span><span class="p">,</span>
-        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">),</span>
+        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--output&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">),</span>
         <span class="n">default</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"output"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"file to write output to (default=stdout)"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file to write output to (default=stdout)&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
@@ -236,6 +233,7 @@ sys 0m2.092s
     <span class="n">C</span> <span class="o">=</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">)</span>
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </code></pre></div>
+
 <p>and it needs MUCH more time:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication-shared.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel-2threads.out
 
@@ -243,6 +241,7 @@ real    131m35.433s
 user    250m36.820s
 sys 0m9.533s
 </code></pre></div>
+
 <p>When we don't use shared memory, things run faster:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -251,13 +250,13 @@ sys 0m9.533s
 
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
-            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
     <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
@@ -265,7 +264,7 @@ sys 0m9.533s
 
 <span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">lineMult</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
@@ -286,36 +285,36 @@ sys 0m9.533s
 
 
 <span class="k">def</span> <span class="nf">extant_file</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    'Type' for argparse - checks that file exists but does not open.</span>
-<span class="sd">    """</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &#39;Type&#39; for argparse - checks that file exists but does not open.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span><span class="s2">"</span><span class="si">{0}</span><span class="s2"> does not exist"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> does not exist&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">sys</span>
     <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"ikjMatrix multiplication"</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;ikjMatrix multiplication&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-i"</span><span class="p">,</span>
-        <span class="s2">"--input"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="s2">&quot;-i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--input&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
         <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="nb">type</span><span class="o">=</span><span class="n">extant_file</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"input file with two matrices"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;input file with two matrices&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-o"</span><span class="p">,</span>
-        <span class="s2">"--output"</span><span class="p">,</span>
-        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">),</span>
+        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--output&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">),</span>
         <span class="n">default</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"output"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"file to write output to (default=stdout)"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;file to write output to (default=stdout)&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
@@ -331,13 +330,15 @@ sys 0m9.533s
     <span class="n">C</span> <span class="o">=</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">)</span>
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel-4threads.out
 
 real    22m46.066s
 user    41m42.396s
 sys 0m2.324s
 </code></pre></div>
-<h2 id="java">Java</h2>
+
+<h2>Java</h2>
 <p>Shell.java:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="p">;</span>
@@ -362,11 +363,11 @@ sys 0m2.324s
             <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
             <span class="c1">// Begin reading A</span>
             <span class="k">while</span> <span class="p">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">thisLine</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">""</span><span class="p">))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">thisLine</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">))</span> <span class="p">{</span>
                     <span class="k">break</span><span class="p">;</span>
                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
                     <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-                    <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
+                    <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\t&quot;</span><span class="p">);</span>
                     <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">number</span> <span class="p">:</span> <span class="n">lineArray</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">line</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
                     <span class="p">}</span>
@@ -377,7 +378,7 @@ sys 0m2.324s
             <span class="c1">// Begin reading B</span>
             <span class="k">while</span> <span class="p">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-                <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
+                <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\t&quot;</span><span class="p">);</span>
                 <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">number</span> <span class="p">:</span> <span class="n">lineArray</span><span class="p">)</span> <span class="p">{</span>
                     <span class="n">line</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
                 <span class="p">}</span>
@@ -385,7 +386,7 @@ sys 0m2.324s
             <span class="p">}</span>
             <span class="n">br</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error: "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
@@ -400,7 +401,7 @@ sys 0m2.324s
             <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">(</span><span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
             <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
+                    <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;\t&quot;</span><span class="p">);</span>
                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
                     <span class="n">i</span><span class="o">++</span><span class="p">;</span>
                 <span class="p">}</span>
@@ -451,11 +452,11 @@ sys 0m2.324s
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">String</span> <span class="n">filename</span><span class="p">;</span>
         <span class="kt">int</span> <span class="n">cores</span> <span class="o">=</span> <span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">availableProcessors</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of cores:\t"</span> <span class="o">+</span> <span class="n">cores</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Number of cores:\t&quot;</span> <span class="o">+</span> <span class="n">cores</span><span class="p">);</span>
 
         <span class="kt">int</span> <span class="n">threads</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="s">"3.in"</span><span class="p">;</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;3.in&quot;</span><span class="p">;</span>
             <span class="n">threads</span> <span class="o">=</span> <span class="n">cores</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
@@ -470,6 +471,7 @@ sys 0m2.324s
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>LineMultiplier.java:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.concurrent.Callable</span><span class="p">;</span>
@@ -503,6 +505,7 @@ sys 0m2.324s
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Execute it with only one thread:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> java Shell -i <span class="m">2000</span>.in <span class="m">1</span> &gt; <span class="m">2000</span>-paralllel.out
 Number of cores:    <span class="m">2</span>
@@ -512,6 +515,7 @@ real    0m40.571s
 user    0m42.259s
 sys 0m0.388s
 </code></pre></div>
+
 <p>Execute it with two threads:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">time</span> java Shell -i <span class="m">2000</span>.in <span class="m">2</span> &gt; <span class="m">2000</span>-paralllel.out
 Number of cores:    <span class="m">2</span>
@@ -522,15 +526,17 @@ real    0m30.188s
 user    0m54.999s
 sys 0m0.512s
 </code></pre></div>
+
 <p>Note that real time is lower than user time. The reason is simply that the execution time on each processor is added. So user time might be double as high as real time!</p>
 <p>We got from 40.571s down to 0m30.188s!</p>
-<h3 id="information for parallelism">Information for parallelism</h3>
+<h3>Information for parallelism</h3>
 <ul>
 <li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html">Thread pools</a></li>
 <li><a href="http://www.ibm.com/developerworks/library/j-jtp0730/index.html">Java theory and practice: Thread pools and work queues</a></li>
 <li><a href="http://stackoverflow.com/questions/tagged/java+parallel-processing">StackOverflow</a></li>
 </ul>
-<h2 id="c++_1">C++</h2>
+
+<h2>C++</h2>
 <p>Making the ikj-algorithm parallel is trivial with C++. You only need to add <code>#pragma omp parallel for</code> before the outer most for loop and add <code>-fopenmp</code> as a compile flag!
 (If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> ./ikj-algorithm.out <span class="m">2</span> <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel.out
@@ -539,10 +545,11 @@ real    0m12.563s
 user    0m20.569s
 sys 0m0.156s
 </code></pre></div>
+
 <p>So we got from 20.407 seconds down to 12.563 seconds by adding only one line!</p>
-<h3 id="more information">More Information</h3>
+<h3>More Information</h3>
 <ul>
-<li><a href="http://bisqwit.iki.fi/story/howto/openmp/">Guide into OpenMP: Easy multithreading programming for C++</a></li>
+  <li><a href="http://bisqwit.iki.fi/story/howto/openmp/">Guide into OpenMP: Easy multithreading programming for C++</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

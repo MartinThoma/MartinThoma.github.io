@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#task" title="Task">Task</a></li><li><a class="toc-href" href="#tests" title="Tests">Tests</a></li><li><a class="toc-href" href="#solutions" title="Solutions">Solutions</a><ul><li><a class="toc-href" href="#python-solution" title="Python Solution">Python Solution</a></li></ul></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Calculating the age of a person in a web service is harder than one might think
@@ -132,24 +126,25 @@ or wherever you solved the task.</p>
 </ol>
 <p>and prints the age in years (a single integer).</p>
 <h2 id="tests">Tests</h2>
-<div class="highlight"><pre><span></span><code><span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">"1996-02-29T15:45:54;Europe/Berlin;2018-10-03T09:47:50"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">22</span>
-<span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">"2008-04-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
-<span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">"2008-11-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
-<span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">"2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">&quot;1996-02-29T15:45:54;Europe/Berlin;2018-10-03T09:47:50&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">22</span>
+<span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">&quot;2008-04-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">&quot;2008-11-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
+<span class="k">assert</span> <span class="n">get_age</span><span class="p">(</span><span class="s2">&quot;2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 </code></pre></div>
+
 <h2 id="solutions">Solutions</h2>
 <p>I hope to see many solutions in different programming languages.</p>
 <h3 id="python-solution">Python Solution</h3>
 <p>Author: Martin Thoma</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="n">input_</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the age of a person</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
     <span class="kn">import</span> <span class="nn">pytz</span>
 
     <span class="c1"># parse input</span>
-    <span class="n">born</span><span class="p">,</span> <span class="n">born_tz</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">input_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span>
+    <span class="n">born</span><span class="p">,</span> <span class="n">born_tz</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">input_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
     <span class="n">tz</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">born_tz</span><span class="p">)</span>
     <span class="n">born</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">born</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>

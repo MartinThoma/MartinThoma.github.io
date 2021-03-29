@@ -100,53 +100,49 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#tests and setting" title="Tests and Setting">Tests and Setting</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#c++" title="C++">C++</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
+
 <p>The usual matrix multiplication of two <span class="math">\(n \times n\)</span> matrices has a time-complexity of <span class="math">\(\mathcal{O}(n^3)\)</span>. This means, if <span class="math">\(n\)</span> doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of <span class="math">\(\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})\)</span>. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two <span class="math">\(2000 \times 2000\)</span> matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.</p>
-<h2 id="the implementations">The implementations</h2>
+<h2>The implementations</h2>
 <p>As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times ☺
 If you know other languages, you could create a script for these. I focus on Python, Java and C++.</p>
 <p>I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four <span class="math">\(\frac{n}{2} \times \frac{n}{2}\)</span> matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those <span class="math">\(\frac{n}{2} \times \frac{n}{2}\)</span> matrices. You can do this until you have <span class="math">\(1 \times 1\)</span> matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="../matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.</p>
-<p>If you post a solution, please consider these restrictions:
+<p>If you post a solution, please consider these restrictions:</p>
 <ul>
-<li><strong>Input</strong>:
+    <li><strong>Input</strong>:
     <ul>
-<li>The input file should get passed with the parameter <code>-i</code>, e.g.:
+      <li>The input file should get passed with the parameter <code>-i</code>, e.g.:
     <code>python -i bigMatrix.in</code> or <code>java Shell -i bigMatrix.in</code></li>
-<li>The leaf-size should get passed with <code>-l</code>, e.g.:
+      <li>The leaf-size should get passed with <code>-l</code>, e.g.:
     <code>python -i bigMatrix.in -l 32</code></li>
-</ul>
-</li>
-<li>The standard value for the command line parameter -i should be "bigMatrix.in"</li>
-<li>The user should <em>not</em> have to give the size of the matrix!</li>
-<li>The two square-matrices that should get multiplied are ...
+    </ul>
+    </li>
+    <li>The standard value for the command line parameter -i should be "bigMatrix.in"</li>
+    <li>The user should <em>not</em> have to give the size of the matrix!</li>
+    <li>The two square-matrices that should get multiplied are ...
     <ul>
-<li>... read from a text-file.</li>
-<li>... represented like this:
+    <li>... read from a text-file.</li>
+    <li>... represented like this:
         <ul>
-<li>Every line of one matrix is one line in the text-file.</li>
-<li>Newlines are only "\n".</li>
-<li>Every number is separated by "\t".</li>
-<li>The both matrices are separated by one newline.</li>
+        <li>Every line of one matrix is one line in the text-file.</li>
+        <li>Newlines are only "\n".</li>
+        <li>Every number is separated by "\t".</li>
+        <li>The both matrices are separated by one newline.</li>
+        </ul>
+    </li>
+    </ul>
+    </li>
+    <li><strong>Output</strong>: The result has to get printed to standard output.</li>
+    <li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><strong>Output</strong>: The result has to get printed to standard output.</li>
-<li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
-</ul></p>
-<h2 id="tests and setting">Tests and Setting</h2>
+
+<h2>Tests and Setting</h2>
 <p><a href="../matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.</p>
-<h2 id="python">Python</h2>
+<h2>Python</h2>
 <p>I&rsquo;ve used Python 2.6.5.</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -156,13 +152,13 @@ If you know other languages, you could create a script for these. I focus on Pyt
 
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
-            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
     <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
@@ -170,7 +166,7 @@ If you know other languages, you could create a script for these. I focus on Pyt
 
 <span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
 
 
 <span class="k">def</span> <span class="nf">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
@@ -202,9 +198,9 @@ If you know other languages, you could create a script for these. I focus on Pyt
 
 
 <span class="k">def</span> <span class="nf">strassenR</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Implementation of the strassen algorithm.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">LEAF_SIZE</span><span class="p">:</span>
@@ -310,21 +306,21 @@ If you know other languages, you could create a script for these. I focus on Pyt
     <span class="k">return</span> <span class="n">C</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
-        <span class="s2">"-i"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="s2">"2000.in"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"input file with two matrices"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+        <span class="s2">&quot;-i&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;2000.in&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;input file with two matrices&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
-        <span class="s2">"-l"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"LEAF_SIZE"</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="s2">"8"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"when do you start using ikj"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"LEAF_SIZE"</span><span class="p">,</span>
+        <span class="s2">&quot;-l&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;LEAF_SIZE&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;8&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;when do you start using ikj&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;LEAF_SIZE&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
@@ -334,6 +330,7 @@ If you know other languages, you could create a script for these. I focus on Pyt
     <span class="n">C</span> <span class="o">=</span> <span class="n">strassen</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 </code></pre></div>
+
 <p>The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:</p>
 <div class="highlight"><pre><span></span><code>ikj-algorithm   44m13.458s
 LEAF_SIZE   Time
@@ -343,7 +340,8 @@ LEAF_SIZE   Time
 <span class="m">32</span>  48m5.624s
 <span class="m">64</span>  47m55.076s
 </code></pre></div>
-<h2 id="java">Java</h2>
+
+<h2>Java</h2>
 <p>The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">ikjAlgorithm</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">B</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
@@ -509,12 +507,15 @@ LEAF_SIZE   Time
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Here are the results for different leaf-sizes:
+
+<p>Here are the results for different leaf-sizes:</p>
 <figure class="aligncenter">
-<a href="../images/2013/01/bchart-simple.png"><img alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" class="size-full wp-image-54901" src="../images/2013/01/bchart-simple.png" style="max-width:500px;max-height:349px"/></a>
-<figcaption class="text-center">Matrix multiplication with Java: Execution time in seconds for different leafsizes</figcaption>
-</figure></p>
-<h2 id="c++">C++</h2>
+            <a href="../images/2013/01/bchart-simple.png"><img src="../images/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" style="max-width:500px;max-height:349px" class="size-full wp-image-54901"/></a>
+            <figcaption class="text-center">Matrix multiplication with Java: Execution time in seconds for different leafsizes</figcaption>
+        </figure>
+
+<h2>C++</h2>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
@@ -709,15 +710,15 @@ LEAF_SIZE   Time
     <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span>
     <span class="n">infile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
     <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nf">count</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">line</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="sc">'\t'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nf">count</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">line</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="sc">&#39;\t&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="n">read</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">B</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
-    <span class="kt">FILE</span><span class="o">*</span> <span class="n">matrixfile</span> <span class="o">=</span> <span class="n">freopen</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="s">"r"</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
+    <span class="kt">FILE</span><span class="o">*</span> <span class="n">matrixfile</span> <span class="o">=</span> <span class="n">freopen</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">matrixfile</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Could not read file "</span> <span class="o">&lt;&lt;</span> <span class="n">filename</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Could not read file &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">filename</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -750,7 +751,7 @@ LEAF_SIZE   Time
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
         <span class="p">}</span>
@@ -761,7 +762,7 @@ LEAF_SIZE   Time
 <span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="n">string</span> <span class="n">filename</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="s">"2000.in"</span><span class="p">;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;2000.in&quot;</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
     <span class="p">}</span>
@@ -781,12 +782,14 @@ LEAF_SIZE   Time
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For C++, you get those user-times for the different leaf-sizes:
+
+<p>For C++, you get those user-times for the different leaf-sizes:</p>
 <figure class="aligncenter">
-<a href="../images/2013/01/cpp-leaf-size-times.png"><img alt="Execution times in seconds with differen leafsizes with C++" class="size-full wp-image-54921" src="../images/2013/01/cpp-leaf-size-times.png" style="max-width:500px;max-height:333px"/></a>
-<figcaption class="text-center">Execution times in seconds with differen leafsizes with C++</figcaption>
-</figure></p>
-<h2 id="conclusion">Conclusion</h2>
+            <a href="../images/2013/01/cpp-leaf-size-times.png"><img src="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with differen leafsizes with C++" style="max-width:500px;max-height:333px" class="size-full wp-image-54921"/></a>
+            <figcaption class="text-center">Execution times in seconds with differen leafsizes with C++</figcaption>
+        </figure>
+
+<h2>Conclusion</h2>
 <p>As always, C++ is the fastest solution.</p>
 <p>I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF_SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.</p>
 <p>For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)</p>

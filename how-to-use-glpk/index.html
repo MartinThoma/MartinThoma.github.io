@@ -102,19 +102,14 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#assignment-problem" title="Assignment problem">Assignment problem</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>GLPK, the GNU Linear Programming Kit, is a piece of software which solves linear optimization problems. You only have to modell the problem.</p>
 <h2 id="installation">Installation</h2>
 <div class="highlight"><pre><span></span><code>sudo apt-get install glpk-utils libglpk-dev glpk-doc python-glpk
 </code></pre></div>
+
 <h2 id="assignment-problem">Assignment problem</h2>
 <p>The <a href="http://en.wikipedia.org/wiki/Assignment_problem">assignment problem</a></p>
 <p>The following file is in the examples of GLPK. Save it as <code>problem.mod</code>:</p>
@@ -149,13 +144,13 @@ MathJax.Hub.Queue(function() {
 
 <span class="n">solve</span><span class="p">;</span>
 
-<span class="n">printf</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-<span class="n">printf</span> <span class="s">"Agent  Task       Cost</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">{</span><span class="n">i</span> <span class="n">in</span> <span class="n">I</span><span class="p">}</span> <span class="s">"%5d %5d %10g</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">sum</span><span class="p">{</span><span class="n">j</span> <span class="n">in</span> <span class="n">J</span><span class="p">}</span> <span class="n">j</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span>
+<span class="n">printf</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">printf</span> <span class="s">&quot;Agent  Task       Cost</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">{</span><span class="n">i</span> <span class="n">in</span> <span class="n">I</span><span class="p">}</span> <span class="s">&quot;%5d %5d %10g</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">sum</span><span class="p">{</span><span class="n">j</span> <span class="n">in</span> <span class="n">J</span><span class="p">}</span> <span class="n">j</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span>
    <span class="n">sum</span><span class="p">{</span><span class="n">j</span> <span class="n">in</span> <span class="n">J</span><span class="p">}</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">];</span>
-<span class="n">printf</span> <span class="s">"----------------------</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
-<span class="n">printf</span> <span class="s">"     Total: %10g</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sum</span><span class="p">{</span><span class="n">i</span> <span class="n">in</span> <span class="n">I</span><span class="p">,</span> <span class="n">j</span> <span class="n">in</span> <span class="n">J</span><span class="p">}</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">];</span>
-<span class="n">printf</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="n">printf</span> <span class="s">&quot;----------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">printf</span> <span class="s">&quot;     Total: %10g</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sum</span><span class="p">{</span><span class="n">i</span> <span class="n">in</span> <span class="n">I</span><span class="p">,</span> <span class="n">j</span> <span class="n">in</span> <span class="n">J</span><span class="p">}</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">];</span>
+<span class="n">printf</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 
 <span class="n">data</span><span class="p">;</span>
 
@@ -179,9 +174,11 @@ MathJax.Hub.Queue(function() {
 
 <span class="n">end</span><span class="p">;</span>
 </code></pre></div>
+
 <p>Now run it with</p>
 <div class="highlight"><pre><span></span><code>glpsol --model assignment.mod
 </code></pre></div>
+
 <p>You will see</p>
 <div class="highlight"><pre><span></span><code>GLPSOL: GLPK LP/MIP Solver, v4.57
 Parameter(s) specified in the command line:
@@ -224,13 +221,14 @@ Agent  Task       Cost
 
 Model has been successfully processed
 </code></pre></div>
+
 <h2 id="see-also">See also</h2>
-<p><ul>
-<li><a href="http://www.gnu.org/software/glpk/">GLPK Documentation</a></li>
-<li><a href="https://martin-thoma.com/31-bwinf-runde-1-aufgabe-2/#losung-mit-glpk">BwInf 31.1, A2</a></li>
-<li>IBM: <a href="http://www.ibm.com/developerworks/linux/library/l-glpk1/">Introduction to linear optimization</a>, <a href="http://www.ibm.com/developerworks/linux/library/l-glpk2/">Intermediate problems in linear programming</a>, <a href="http://www.ibm.com/developerworks/linux/library/l-glpk3/">Advanced problems and elegant solutions</a></li>
-<li><a href="https://en.wikibooks.org/wiki/GLPK">WikiBook</a></li>
-</ul></p>
+<ul>
+  <li><a href="http://www.gnu.org/software/glpk/">GLPK Documentation</a></li>
+  <li><a href="https://martin-thoma.com/31-bwinf-runde-1-aufgabe-2/#losung-mit-glpk">BwInf 31.1, A2</a></li>
+  <li>IBM: <a href="http://www.ibm.com/developerworks/linux/library/l-glpk1/">Introduction to linear optimization</a>, <a href="http://www.ibm.com/developerworks/linux/library/l-glpk2/">Intermediate problems in linear programming</a>, <a href="http://www.ibm.com/developerworks/linux/library/l-glpk3/">Advanced problems and elegant solutions</a></li>
+  <li><a href="https://en.wikibooks.org/wiki/GLPK">WikiBook</a></li>
+</ul>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

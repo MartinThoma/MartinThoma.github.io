@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#how-to-measure" title="How to measure">How to measure</a></li><li><a class="toc-href" href="#results" title="Results">Results</a><ul><li><a class="toc-href" href="#general" title="General">General</a></li><li><a class="toc-href" href="#watching-news" title="Watching News">Watching News</a></li><li><a class="toc-href" href="#publishing-blog-articles" title="Publishing Blog articles">Publishing Blog articles</a></li></ul></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Do you have any idea how much internet traffic (volume) you need? How much do
@@ -124,6 +118,7 @@ recording it with <code>vnstat</code>.</p>
 <p>Install <code>vnstat</code> and <code>vnstati</code>:</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install vnstat vnstati
 </code></pre></div>
+
 <p>Then execute</p>
 <div class="highlight"><pre><span></span><code>$ ip link
 <span class="m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span class="m">1</span>
@@ -133,6 +128,7 @@ recording it with <code>vnstat</code>.</p>
 <span class="m">3</span>: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc mq state UP mode DORMANT group default qlen <span class="m">1000</span>
     link/ether <span class="m">12</span>:34:56:78:90:ab brd ff:ff:ff:ff:ff:ff
 </code></pre></div>
+
 <p>to find your network interface. In my case, it is <code>wlp3s0</code>. In most cases, it
 will be <code>wlan0</code> or <code>eth0</code> if you use a cable.</p>
 <p>I was mainly interested in WLAN. In my case, this is the interface <code>wlp3s0</code>.
@@ -140,14 +136,17 @@ Now I have to enable monitoring of that interface. You might need super user
 (root) for that:</p>
 <div class="highlight"><pre><span></span><code>$ vnstat -u -i wlp3s0
 </code></pre></div>
+
 <p>To get the nice images, you have to execute the following code (with your
 network interface). It will create a <code>summary.png</code> image:</p>
 <div class="highlight"><pre><span></span><code>$ vnstati -vs -i wlp3s0 -o ~/summary.png
 </code></pre></div>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Internet traffic of August" src="../images/2016/09/vnstati-august.png"/>
-<figcaption class="text-center">Internet traffic of August</figcaption>
+    <img src="../images/2016/09/vnstati-august.png" alt="Internet traffic of August" />
+    <figcaption class="text-center">Internet traffic of August</figcaption>
 </figure>
+
 <h2 id="results">Results</h2>
 <p>To interpret the following, you should know that <code>rx</code> is the received traffic
 and <code>tx</code> is the transferred traffic.</p>
@@ -156,10 +155,12 @@ and <code>tx</code> is the transferred traffic.</p>
 might be different than usually. So lets get a summary for this year:</p>
 <div class="highlight"><pre><span></span><code>$ vnstati -vs -m -i wlp3s0 -o ~/summary.png
 </code></pre></div>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Internet traffic of May, June, July, August" src="../images/2016/09/vnstati-2016.png"/>
-<figcaption class="text-center">Internet traffic of May, June, July, August</figcaption>
+    <img src="../images/2016/09/vnstati-2016.png" alt="Internet traffic of May, June, July, August" />
+    <figcaption class="text-center">Internet traffic of May, June, July, August</figcaption>
 </figure>
+
 <p>Now you have to realize that I am only recording my notebook. I have a tablet
 and a smartphone, too. I also only recorded WLAN, but I use the cable when I
 want to download / upload a lot. Also, my connection is not so fast. This means

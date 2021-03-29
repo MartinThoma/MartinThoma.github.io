@@ -102,18 +102,12 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#package-types" title="Package Types">Package Types</a></li><li><a class="toc-href" href="#the-basics-pip-site-packages-and-the-prompt" title="The Basics: pip, site-packages, and the prompt">The Basics: pip, site-packages, and the prompt</a></li><li><a class="toc-href" href="#problem-1-different-python-version-required" title="Problem 1: Different Python Version Required">Problem 1: Different Python Version Required</a></li><li><a class="toc-href" href="#solution-pyenv" title="Solution: pyenv">Solution: pyenv</a></li><li><a class="toc-href" href="#problem-2-package-and-distribution-building" title="Problem 2: Package and Distribution building">Problem 2: Package and Distribution building</a></li><li><a class="toc-href" href="#solution-source-distributions" title="Solution: Source Distributions">Solution: Source Distributions</a></li><li><a class="toc-href" href="#problem-3-secure-uploads" title="Problem 3: Secure Uploads">Problem 3: Secure Uploads</a></li><li><a class="toc-href" href="#solution-twine" title="Solution: twine">Solution: twine</a></li><li><a class="toc-href" href="#problem-4-dependency-conflicts" title="Problem 4: Dependency Conflicts">Problem 4: Dependency Conflicts</a></li><li><a class="toc-href" href="#solution-venv" title="Solution: venv">Solution: venv</a></li><li><a class="toc-href" href="#problem-5-inconvenience" title="Problem 5: Inconvenience">Problem 5: Inconvenience</a></li><li><a class="toc-href" href="#solution-pipx" title="Solution: pipx">Solution: pipx</a></li><li><a class="toc-href" href="#problem-6-changing-third-party-code" title="Problem 6: Changing third-party code">Problem 6: Changing third-party code</a></li><li><a class="toc-href" href="#solution-dependency-pinning" title="Solution: Dependency pinning">Solution: Dependency pinning</a></li><li><a class="toc-href" href="#problem-7-changing-transitive-dependencies" title="Problem 7: Changing Transitive Dependencies">Problem 7: Changing Transitive Dependencies</a></li><li><a class="toc-href" href="#solution-pinning-transitive-dependencies" title="Solution: Pinning Transitive Dependencies">Solution: Pinning Transitive Dependencies</a></li><li><a class="toc-href" href="#problem-8-non-python-code" title="Problem 8: Non-Python Code">Problem 8: Non-Python Code</a></li><li><a class="toc-href" href="#solution-built-distributions-wheels" title="Solution: Built Distributions (Wheels)">Solution: Built Distributions (Wheels)</a></li><li><a class="toc-href" href="#problem-9-specification-of-build-system" title="Problem 9: Specification of build-system">Problem 9: Specification of build-system</a></li><li><a class="toc-href" href="#solution-pyprojecttoml" title="Solution: pyproject.toml">Solution: pyproject.toml</a></li><li><a class="toc-href" href="#honorable-mentions" title="Honorable mentions">Honorable mentions</a><ul><li><a class="toc-href" href="#virtualenv-and-virtualenvwrapper" title="virtualenv and virtualenvwrapper">virtualenv and virtualenvwrapper</a></li><li><a class="toc-href" href="#pipenv" title="pipenv">pipenv</a></li><li><a class="toc-href" href="#poetry" title="poetry">poetry</a></li><li><a class="toc-href" href="#hatch" title="hatch">hatch</a></li><li><a class="toc-href" href="#flit" title="Flit">Flit</a></li><li><a class="toc-href" href="#conda" title="Conda">Conda</a></li></ul></li><li><a class="toc-href" href="#red-herrings_1" title="Red Herrings">Red Herrings</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p>A virtual environment is an isolated Python environment. It has it&rsquo;s own
+            <p>A virtual environment is an isolated Python environment. It has it’s own
 installed site-packages which can be different from the systems site-packages.
-Don&rsquo;t worry, we will go into more detail later.</p>
+Don’t worry, we will go into more detail later.</p>
 <p>After reading this article, you will understand what the following tools are
 and which problems they solve: pip, pyenv, venv, virtualenv, pipx, pipenv,
 pip-tools, setup.py, requirements.txt, requirementst.in, Pipfile, Pipfile.lock,
@@ -130,31 +124,35 @@ twine, poetry, flint, and hatch.</p>
 <p>Python has pip as a default package manager. You use it like this:</p>
 <div class="highlight"><pre><span></span><code>pip install mpu
 </code></pre></div>
+
 <p>When you run it, you should see this message:</p>
 <div class="highlight"><pre><span></span><code>Collecting mpu
   Using cached [https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl](https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl)
 Installing collected packages: mpu
 Successfully installed mpu-0.23.1
 </code></pre></div>
-<p>In order to be able to show you both, the output and what I&rsquo;ve inserted, I start the line which contains the command I&rsquo;ve entered with $ :</p>
+
+<p>In order to be able to show you both, the output and what I’ve inserted, I start the line which contains the command I’ve entered with $ :</p>
 <div class="highlight"><pre><span></span><code>$ pip install mpu
 Collecting mpu
   Using cached <span class="o">[</span>https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl<span class="o">](</span>https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl<span class="o">)</span>
 Installing collected packages: mpu
 Successfully installed mpu-0.23.1
 </code></pre></div>
+
 <p>This $ is called the <strong>prompt</strong>. Within Python, the prompt is &gt;&gt;&gt; :</p>
 <div class="highlight"><pre><span></span><code>$ python
 &gt;&gt;&gt; import mpu
 &gt;&gt;&gt; mpu.__file__
-<span class="s1">'/home/moose/venv/lib/python3.7/site-packages/mpu/__init__.py'</span>
+<span class="s1">&#39;/home/moose/venv/lib/python3.7/site-packages/mpu/__init__.py&#39;</span>
 </code></pre></div>
+
 <p>This command shows you where the package mpu was installed to. By default, this
 is the systems Python location. This means that all Python packages share the
 same set of installed libraries.</p>
 <h2 id="problem-1-different-python-version-required">Problem 1: Different Python Version Required</h2>
 <p>We have Python 3.6 installed, but the application requires Python 3.8. We
-cannot upgrade our systems Python version, e.g. because we&rsquo;re missing
+cannot upgrade our systems Python version, e.g. because we’re missing
 administrator privileges or because other things would break.</p>
 <h2 id="solution-pyenv">Solution: pyenv</h2>
 <p><a href="https://github.com/pyenv/pyenv">Pyenv</a> allows you to install any Python
@@ -171,14 +169,15 @@ Python <span class="m">3</span>.8.6
 $ pip --version
 pip <span class="m">20</span>.2.1 from /home/math/.pyenv/versions/3.8.6/lib/python3.8/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
-<p>For more information, read my article <a href="https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483">A Beginner&rsquo;s Guide to Python Development</a>. For detailed installation instructions, go directly to <a href="https://github.com/pyenv/pyenv">the official pyenv website</a>.</p>
+
+<p>For more information, read my article <a href="https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483">A Beginner’s Guide to Python Development</a>. For detailed installation instructions, go directly to <a href="https://github.com/pyenv/pyenv">the official pyenv website</a>.</p>
 <h2 id="problem-2-package-and-distribution-building">Problem 2: Package and Distribution building</h2>
-<p>You typically don&rsquo;t only use bare Python. As developers, we stand on the
-shoulders of giants &mdash; the whole ecosystem of freely available software. In the
+<p>You typically don’t only use bare Python. As developers, we stand on the
+shoulders of giants — the whole ecosystem of freely available software. In the
 beginning of Python, people just copied files. A Python file, when imported, is
 also called a <strong>module</strong>. If we have multiple Python files in one folder with
 an <strong>init</strong>.py , they can import each other. This folder is then called a
-<strong>package</strong>. Packages can contain other packages &mdash; subfolders which also have
+<strong>package</strong>. Packages can contain other packages — subfolders which also have
 an <strong>init</strong>.py and are then called <strong>sub-packages</strong>.</p>
 <p>Copying files and folders is inconvenient. If the author of that code makes an
 update, I might need to update dozens of files. I need to know that there is an
@@ -190,30 +189,34 @@ well. Doing that by copy-and-paste would be hell.</p>
 <ul>
 <li><strong>Package Format</strong>: The simplest format in Python is called a <em>source distribution</em>. It is essentially a ZIP file that has a certain structure. One essential part of this file is the possibility to specify dependencies of the package. It should also contain other metadata, such as the name of the package, the author, and license information.</li>
 <li><strong>Package manager</strong>: A program that installs packages. pip installs packages in Python.</li>
-<li><strong>Software repository</strong>: A central place where package managers can look for packages. In the Python ecosystem, <a href="https://pypi.org/">pypi.org</a> is THE public one. I&rsquo;m not even aware of other public ones. You can create private ones, of course.</li>
+<li><strong>Software repository</strong>: A central place where package managers can look for packages. In the Python ecosystem, <a href="https://pypi.org/">pypi.org</a> is THE public one. I’m not even aware of other public ones. You can create private ones, of course.</li>
 </ul>
 <p>As mentioned, we need a way to specify metadata and dependencies. This is done with the setup.py file. It typically looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"my_awesome_package"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.1.0"</span><span class="p">,</span> <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">"requests"</span><span class="p">,</span> <span class="s2">"click"</span><span class="p">]</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_awesome_package&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span> <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;requests&quot;</span><span class="p">,</span> <span class="s2">&quot;click&quot;</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
+
 <p>There are many more <a href="https://www.python.org/dev/peps/pep-0440/#version-specifiers">version specifiers</a> you can use, for example:</p>
 <div class="highlight"><pre><span></span><code>numpy&gt;3.0.0  # 3.0.1 is acceptable, but not 3.0.0
 numpy~=3.1   # 3.1 or later, but not version 4.0 or later.
 numpy~=3.1.2 # 3.1.2 or later, but not version 3.2.0 or later.
 </code></pre></div>
+
 <p>In order to create the source distribution, we run</p>
 <div class="highlight"><pre><span></span><code>$ python setup.py sdist
 </code></pre></div>
-<p>I don&rsquo;t like the setup.py file so much, because it is code. For metadata, I
+
+<p>I don’t like the setup.py file so much, because it is code. For metadata, I
 prefer to use a configuration file. Setuptools allows to use a setup.cfg file.
 You still need a setup.py, but it can be reduced to:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">()</span>
 </code></pre></div>
+
 <p>And then you have the setup.cfg file as follows. There is documentation about
 <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files">the setup.cfg format</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">[metadata]</span>
@@ -237,26 +240,26 @@ You still need a setup.py, but it can be reduced to:</p>
 <span class="na">license</span> <span class="o">=</span> <span class="s">MIT</span>
 
 <span class="c1"># https://pypi.org/pypi?%3Aaction=list_classifiers</span>
-<span class="na">classifiers</span> <span class="o">=</span><span class="s"></span>
-<span class="s">    Development Status :: 3 - Alpha</span>
-<span class="s">    Environment :: Console</span>
-<span class="s">    Intended Audience :: Developers</span>
-<span class="s">    Intended Audience :: Information Technology</span>
-<span class="s">    License :: OSI Approved :: MIT License</span>
-<span class="s">    Natural Language :: English</span>
-<span class="s">    Operating System :: OS Independent</span>
-<span class="s">    Programming Language :: Python :: 3.7</span>
-<span class="s">    Programming Language :: Python :: 3.8</span>
-<span class="s">    Programming Language :: Python :: 3.9</span>
-<span class="s">    Topic :: Software Development</span>
-<span class="s">    Topic :: Utilities</span>
+<span class="na">classifiers</span> <span class="o">=</span>
+    <span class="na">Development Status :: 3 - Alpha</span>
+    <span class="na">Environment :: Console</span>
+    <span class="na">Intended Audience :: Developers</span>
+    <span class="na">Intended Audience :: Information Technology</span>
+    <span class="na">License :: OSI Approved :: MIT License</span>
+    <span class="na">Natural Language :: English</span>
+    <span class="na">Operating System :: OS Independent</span>
+    <span class="na">Programming Language :: Python :: 3.7</span>
+    <span class="na">Programming Language :: Python :: 3.8</span>
+    <span class="na">Programming Language :: Python :: 3.9</span>
+    <span class="na">Topic :: Software Development</span>
+    <span class="na">Topic :: Utilities</span>
 
 <span class="k">[options]</span>
 <span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
 <span class="na">python_requires</span> <span class="o">=</span> <span class="s">&gt;=3.7</span>
-<span class="na">install_requires</span> <span class="o">=</span><span class="s"></span>
-<span class="s">    requests</span>
-<span class="s">    click</span>
+<span class="na">install_requires</span> <span class="o">=</span>
+    <span class="na">requests</span>
+    <span class="na">click</span>
 
 <span class="k">[tool:pytest]</span>
 <span class="na">addopts</span> <span class="o">=</span> <span class="s">--doctest-modules --ignore=docs/ --durations=3 --timeout=30</span>
@@ -280,6 +283,7 @@ You still need a setup.py, but it can be reduced to:</p>
 <span class="k">[mypy]</span>
 <span class="na">ignore_missing_imports</span> <span class="o">=</span> <span class="s">True</span>
 </code></pre></div>
+
 <h2 id="problem-3-secure-uploads">Problem 3: Secure Uploads</h2>
 <p>You want to upload packages securely to PyPI. You need to authenticate and you
 want to be certain that nobody tampers with your package.</p>
@@ -288,10 +292,11 @@ want to be certain that nobody tampers with your package.</p>
 can upload your distribution files:</p>
 <div class="highlight"><pre><span></span><code>$ twine upload dist/*
 </code></pre></div>
+
 <h2 id="problem-4-dependency-conflicts">Problem 4: Dependency Conflicts</h2>
 <p>You want to install youtube-downloader which needs the library requests in version 1.2.3 and vimeo-downloader which needs the library requests in version 3.2.1 . Hence the library requests is a dependency of both applications. Both applications need to be executed with Python 3.8. That is a problem as both applications store requests in the same site-packages directory. Once you install one version, the other one is gone. You need two different environments to run those two applications.</p>
 <blockquote>
-<h1 id="a-python-environment-is-the-python-executable-pip-and-the-set-of-installed-packages-different-environments-are-isolated-from-each-other-and-thus-dont-influence-each-other">A Python environment is the python executable, pip, and the set of installed packages. Different environments are isolated from each other and thus don&rsquo;t influence each other.</h1>
+<h1 id="a-python-environment-is-the-python-executable-pip-and-the-set-of-installed-packages-different-environments-are-isolated-from-each-other-and-thus-dont-influence-each-other">A Python environment is the python executable, pip, and the set of installed packages. Different environments are isolated from each other and thus don’t influence each other.</h1>
 </blockquote>
 <p>We solve this dependency conflict by creating a virtual environment. We call it <em>virtual</em> because they actually share the Python executable and other things like the shells' environment variables.</p>
 <h2 id="solution-venv">Solution: venv</h2>
@@ -302,7 +307,8 @@ $ <span class="nb">source</span> my-fresh-venv/bin/activate
 <span class="o">(</span>my-fresh-venv<span class="o">)</span>$ pip --version
 pip <span class="m">20</span>.1.1 from /home/moose/my-fresh-venv/lib/python3.8/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
-<p>The environment is called &ldquo;fresh&rdquo; because there is nothing in it. Everything
+
+<p>The environment is called “fresh” because there is nothing in it. Everything
 you install after source-ing the activate script will be installed in this
 local directory. This means when you install youtube-downloader in one such
 virtual environment and vimeo-downloader in another, you can have both. You can
@@ -316,7 +322,7 @@ which is inconvenient.</p>
 into their own virtual environment. It also automatically executes the
 applications within that environment 😍</p>
 <p><strong>Note</strong>: This only makes sense for applications! You need libraries within the
-same environment as your application. So don&rsquo;t ever install libraries with
+same environment as your application. So don’t ever install libraries with
 pipx. Install applications (and indirectly the libraries) with pipx.</p>
 <h2 id="problem-6-changing-third-party-code">Problem 6: Changing third-party code</h2>
 <p>As an application developer, I want to be certain that my application keeps
@@ -332,11 +338,12 @@ youtube-downloader was stopped, but requests kept changing.</p>
 scipy==1.2.3
 pandas==4.5.6
 </code></pre></div>
+
 <p>However, this has a problem of its own if you do it in setup.py . You will
 force this version upon other packages in the same environment. Python is
 pretty messy here: Once another package installs one of your dependencies in
-another version in the same environment, it&rsquo;s simply overwritten. Your
-dependencies might still work, but you don&rsquo;t get the expected version.</p>
+another version in the same environment, it’s simply overwritten. Your
+dependencies might still work, but you don’t get the expected version.</p>
 <p>For applications, you can pin the dependencies like this in the setup.py and
 tell your users to use pipx to install them. This way you and your users can be
 happy 💕</p>
@@ -345,17 +352,19 @@ other code. Code that potentially includes a lot of libraries. If all of them
 pinned their dependencies, it would be very likely to get a dependency
 conflict. This makes library development hard if the developed library itself
 has several dependencies.</p>
-<p>It&rsquo;s common practice to NOT pin dependencies in the setup.py file, but instead create a flat text file with pinned dependencies. <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a> defined the format or requirements files in 2013. It&rsquo;s usually called requirements.txt or requirements-dev.txt and typically looks like this:</p>
+<p>It’s common practice to NOT pin dependencies in the setup.py file, but instead create a flat text file with pinned dependencies. <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a> defined the format or requirements files in 2013. It’s usually called requirements.txt or requirements-dev.txt and typically looks like this:</p>
 <div class="highlight"><pre><span></span><code>numpy==3.2.1
 scipy==1.2.3
 pandas==4.5.6
 </code></pre></div>
+
 <p>You can also specify locations where the packages can be downloaded (e.g. not
 only the name but a git repository) according to PEP 440.</p>
 <p>Packages within a requirements.txt (including their dependencies) can be
 installed with</p>
 <div class="highlight"><pre><span></span><code>$ pip install -r requirements.txt
 </code></pre></div>
+
 <h2 id="problem-7-changing-transitive-dependencies">Problem 7: Changing Transitive Dependencies</h2>
 <p>Imagine you write code which depends on the packages foo and bar . Those two
 packages might themselves have dependencies as well. Those dependencies are
@@ -378,16 +387,17 @@ fizz 2.0.0 is available
 fizz 2.0.1 is available
 fizz 3.0.0 is available
 </code></pre></div>
-<p>You might be tempted to just say &ldquo;I need foo==2.0.0 and bar==1.0.0 . There are
+
+<p>You might be tempted to just say “I need foo==2.0.0 and bar==1.0.0 . There are
 two problems:</p>
 <ol>
 <li><strong>Dependency satisfaction can be hard</strong>: The client needs to figure out that those two requirements can (only) be satisfied by fizz==2.0.0 orfizz==2.0.1 . This can be time-consuming as Python source distributions are not well designed and do not expose this information well (<a href="https://github.com/python-poetry/poetry/issues/2094">example discussion</a>). The dependency resolver actually needs to download the package to find the dependencies.</li>
-<li><strong>Breaking transitive change</strong>: The packages foo and bar could not state their dependencies. You install them and things work, because you happen to have foo==2.0.0 , bar==1.0.0 , fizz==2.0.1 . But after a while, fizz==3.0.0 is released. Without telling pip what to install, it will install the latest version of fizz . Nobody tested that before as it didn&rsquo;t exist. Your user is the first one and it breaks for them 😢</li>
+<li><strong>Breaking transitive change</strong>: The packages foo and bar could not state their dependencies. You install them and things work, because you happen to have foo==2.0.0 , bar==1.0.0 , fizz==2.0.1 . But after a while, fizz==3.0.0 is released. Without telling pip what to install, it will install the latest version of fizz . Nobody tested that before as it didn’t exist. Your user is the first one and it breaks for them 😢</li>
 </ol>
 <h2 id="solution-pinning-transitive-dependencies">Solution: Pinning Transitive Dependencies</h2>
 <p>You need to figure out the transitive dependencies as well and tell pip exactly
 what to install. To do so, I start either with a setup.py or a requirements.in
-file. The requirements.in file contains what I know must be fulfilled &mdash; it&rsquo;s
+file. The requirements.in file contains what I know must be fulfilled — it’s
 pretty similar to the setup.py file. In contrast to the setup.py file it is a
 flat text file.</p>
 <p>Then I use pip-compile from <a href="https://pypi.org/project/pip-tools/">pip-tools</a> to
@@ -403,6 +413,7 @@ foo==2.0.0   # via setup.py
 bar==1.0.0   # via setup.py
 fizz==2.0.1  # via foo, bar
 </code></pre></div>
+
 <p>Typically, I have the following:</p>
 <ul>
 <li><strong>setup.py</strong>: Defining abstract dependencies and known minimum versions /
@@ -412,7 +423,7 @@ fizz==2.0.1  # via foo, bar
   For web services where I control the installation, this is also used to
   install the dependencies via pip install -r requirements.txt</li>
 <li><strong>requirements-dev.in</strong>: Development tools I use. Things like pytest, flake8,
-  flake8 plugins, mypy, black &hellip; see my <a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287">static code analysis
+  flake8 plugins, mypy, black … see my <a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287">static code analysis
   post</a>.</li>
 <li><strong>requirements-dev.txt</strong>: The exact version of the tools I use + their
   transitive dependencies. Those are also installed in the <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI
@@ -426,7 +437,7 @@ fizz==2.0.1  # via foo, bar
   the dev tools. Hence I create one combined file via <code>pip-compile
   --output-file requirements-dev.txt requirements.txt</code></li>
 </ul>
-<p>You can also add <code>--generate-hashes</code> if you want to be certain it&rsquo;s exactly the
+<p>You can also add <code>--generate-hashes</code> if you want to be certain it’s exactly the
 same.</p>
 <h2 id="problem-8-non-python-code">Problem 8: Non-Python Code</h2>
 <p>Packages like <a href="https://pypi.org/project/cryptography/">cryptography</a> have code
@@ -439,31 +450,33 @@ This prevents you from having to compile stuff yourself. It is done like this:</
 <div class="highlight"><pre><span></span><code>$ pip install wheels
 $ python setup.py bdist_wheel
 </code></pre></div>
+
 <p>For example, <a href="https://pypi.org/project/numpy/#files">NumPy</a> does this:</p>
-<p><img alt="The screenshot of pypi.org was taken by the author." src="https://cdn-images-1.medium.com/max/2000/1*YE4EWu3Ld-iUdbaZ3aNRlQ.png"/><em>The screenshot of pypi.org was taken by the author.</em></p>
+<p><img alt="The screenshot of pypi.org was taken by the author." src="https://cdn-images-1.medium.com/max/2000/1*YE4EWu3Ld-iUdbaZ3aNRlQ.png"><em>The screenshot of pypi.org was taken by the author.</em></p>
 <h2 id="problem-9-specification-of-build-system">Problem 9: Specification of build-system</h2>
 <p>The Python ecosystem is very strongly attached to setuptools. No matter how
 good setuptools are, there will always be features people are missing. But we
-couldn&rsquo;t change the build system for quite a while.</p>
+couldn’t change the build system for quite a while.</p>
 <h2 id="solution-pyprojecttoml">Solution: pyproject.toml</h2>
 <p><a href="https://www.python.org/dev/peps/pep-0517/">PEP 517</a> and <a href="https://www.python.org/dev/peps/pep-0518">PEP 518</a> specified thepyproject.toml file format. It looks like this:</p>
 <div class="highlight"><pre><span></span><code>[build-system]
-requires = ["poetry-core&gt;=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = [&quot;poetry-core&gt;=1.0.0&quot;]
+build-backend = &quot;poetry.core.masonry.api&quot;
 </code></pre></div>
-<p>Yes, it&rsquo;s not much. It tells pip what is necessary to build your package. But
+
+<p>Yes, it’s not much. It tells pip what is necessary to build your package. But
 it was a good step towards more flexibility.</p>
 <p>Other tools, like poetry and black, used this file for their configuration to
 the <code>pyproject.toml</code>, similar as <code>flake8</code>, <code>pytest</code>, <code>pylint</code> and many more
 allow you to add configuration to the <code>setup.cfg</code>.</p>
 <h2 id="honorable-mentions">Honorable mentions</h2>
 <p>The tools in this section are relatively wide-spread, but as of today, they
-don&rsquo;t really solve any issue that one of the tools from above doesn&rsquo;t solve.
+don’t really solve any issue that one of the tools from above doesn’t solve.
 They might be more convenient to use than others.</p>
 <h3 id="virtualenv-and-virtualenvwrapper">virtualenv and virtualenvwrapper</h3>
 <p>The 3rd party tool <a href="https://pypi.org/project/virtualenv/">virtualenv</a> existed
 before the core module <a href="https://docs.python.org/3/library/venv.html">venv</a>.
-They are not completely identical, but for me venv was always good enough. I&rsquo;m
+They are not completely identical, but for me venv was always good enough. I’m
 happy if somebody can show me a problem to which virtualenv (and not venv) is
 the solution 🙂</p>
 <p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper</a> extends virtualenv.</p>
@@ -480,10 +493,10 @@ and packaging. It introduces <a href="https://github.com/pypa/pipfile">two new f
 <p>Essentially, it wraps <code>venv</code>.</p>
 <h3 id="poetry">poetry</h3>
 <p><a href="https://pypi.org/project/poetry/">Poetry</a> is a tool for dependency management
-and packaging. It combines a lot of tools, but it&rsquo;s core functionality is
+and packaging. It combines a lot of tools, but it’s core functionality is
 identical to pipenv. The main difference is that it uses pyproject.toml and
 poetry.lock instead of <code>Pipfile</code> and <code>Pipfile.lock</code>. A <a href="https://frostming.com/2019/01-04/pipenv-poetry">detailed comparison
-between poetry and pipenv</a> can be found in Frosts&rsquo; blog.</p>
+between poetry and pipenv</a> can be found in Frosts’ blog.</p>
 <p>The projects poetry wraps or replaces are:</p>
 <ul>
 <li><strong>Scaffolding</strong>: poetry new project-name vs
@@ -502,28 +515,29 @@ between poetry and pipenv</a> can be found in Frosts&rsquo; blog.</p>
   Although poetry generates an <strong>init</strong>.py in the scaffolding which contains a
   version, poetry version does not change that!</li>
 </ul>
-<p>It goes away from the de-facto standard setup.py / setup.cfg for specifying dependencies. Instead, poetry expects dependencies to be within it&rsquo;s configuration:</p>
+<p>It goes away from the de-facto standard setup.py / setup.cfg for specifying dependencies. Instead, poetry expects dependencies to be within it’s configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tool.poetry]</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s">"mpu"</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s">"0.1.0"</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s">""</span>
-<span class="n">authors</span> <span class="o">=</span> <span class="k">["Martin Thoma &lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&gt;"]</span>
-<span class="n">license</span> <span class="o">=</span> <span class="s">"MIT"</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;mpu&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="k">[&quot;Martin Thoma &lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&gt;&quot;]</span>
+<span class="n">license</span> <span class="o">=</span> <span class="s">&quot;MIT&quot;</span>
 
 <span class="k">[tool.poetry.dependencies]</span>
-<span class="n">python</span> <span class="o">=</span> <span class="s">"^3.8"</span>
-<span class="n">awscli</span> <span class="o">=</span> <span class="s">"^1.18.172"</span>
-<span class="n">pydantic</span> <span class="o">=</span> <span class="s">"^1.7.2"</span>
-<span class="n">click</span> <span class="o">=</span> <span class="s">"^7.1.2"</span>
+<span class="n">python</span> <span class="o">=</span> <span class="s">&quot;^3.8&quot;</span>
+<span class="n">awscli</span> <span class="o">=</span> <span class="s">&quot;^1.18.172&quot;</span>
+<span class="n">pydantic</span> <span class="o">=</span> <span class="s">&quot;^1.7.2&quot;</span>
+<span class="n">click</span> <span class="o">=</span> <span class="s">&quot;^7.1.2&quot;</span>
 
 <span class="k">[tool.poetry.dev-dependencies]</span>
 </code></pre></div>
-<p>I hope that they will also implement <a href="https://www.python.org/dev/peps/pep-0621/">PEP 621</a> and <a href="https://www.python.org/dev/peps/pep-0631/">PEP 631</a> which gives metadata and dependencies an official place under the [project] section. Let&rsquo;s see, <a href="https://github.com/python-poetry/poetry/issues/3332">maybe they change that</a>.</p>
+
+<p>I hope that they will also implement <a href="https://www.python.org/dev/peps/pep-0621/">PEP 621</a> and <a href="https://www.python.org/dev/peps/pep-0631/">PEP 631</a> which gives metadata and dependencies an official place under the [project] section. Let’s see, <a href="https://github.com/python-poetry/poetry/issues/3332">maybe they change that</a>.</p>
 <p>Some people like to have one tool which does everything. I rather go with the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a>:</p>
 <blockquote>
-<p>Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new &ldquo;features&rdquo;.</p>
+<p>Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new “features”.</p>
 </blockquote>
-<p>As poetry combines a lot of tools, it&rsquo;s also important what it doesn&rsquo;t do:</p>
+<p>As poetry combines a lot of tools, it’s also important what it doesn’t do:</p>
 <ul>
 <li><strong>Package management</strong>: You still need pip. And pip supports <a href="https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support">pyproject.toml</a>.</li>
 <li><strong>Scaffolding</strong>: Cookiecutter has a lot of templates. I created two myself: one for <a href="https://github.com/MartinThoma/cookiecutter-python-package">typical Python projects</a> and one for <a href="https://github.com/MartinThoma/cookiecutter-flake8-plugin">Flake8 plugins</a>.</li>
@@ -542,17 +556,17 @@ between poetry and pipenv</a> can be found in Frosts&rsquo; blog.</p>
 <p>I had a couple of errors when I tried hatch.</p>
 <h3 id="flit">Flit</h3>
 <p>Flit is a way to put Python packages and modules on PyPI. It is a 3rd party
-replacement for setuptools. In that sense it&rsquo;s similar to setuptools + twine or
+replacement for setuptools. In that sense it’s similar to setuptools + twine or
 a part of poetry.</p>
 <h3 id="conda">Conda</h3>
 <p>Conda is the package manager of Anaconda. It is way more powerful than pip and
 can build/install code of arbitrary languages. With the pyproject.toml , I
 wonder if conda will be necessary in future 🤔</p>
-<h2 id="red-herrings_1">Red Herrings</h2>
+<h2 id="red-herrings">Red Herrings</h2>
 <ul>
 <li>easy_install : That is the oldest way to install stuff in Python. It is similar to pip , but you cannot (easily) uninstall things that were installed with easy_install</li>
-<li>distutils : Although it&rsquo;s core Python, it&rsquo;s not used anymore. setuptools is more powerful and installed everywhere.</li>
-<li>distribute : I&rsquo;m not sure if that ever was a thing?</li>
+<li>distutils : Although it’s core Python, it’s not used anymore. setuptools is more powerful and installed everywhere.</li>
+<li>distribute : I’m not sure if that ever was a thing?</li>
 <li>pyvenv : Deprecated in favor of venv .</li>
 </ul>
 <h2 id="summary">Summary</h2>
@@ -567,7 +581,7 @@ wonder if conda will be necessary in future 🤔</p>
 <li><strong>Uploading packages</strong> is done with twine or poetry.</li>
 <li><strong>Virtual environments</strong> are created with venv or with poetry / pipenv /
   hatch / conda</li>
-<li><strong>pipx</strong> is cool if you want to install applications. Don&rsquo;t use it for
+<li><strong>pipx</strong> is cool if you want to install applications. Don’t use it for
   libraries.</li>
 </ul>
             

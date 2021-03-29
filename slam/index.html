@@ -102,16 +102,11 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#slam-algorithm-parts" title="SLAM algorithm parts">SLAM algorithm parts</a><ul><li><a class="toc-href" href="#motion-model" title="Motion model">Motion model</a></li><li><a class="toc-href" href="#observation-model" title="Observation model">Observation model</a></li><li><a class="toc-href" href="#map-representations" title="Map Representations">Map Representations</a></li><li><a class="toc-href" href="#data-association" title="Data Association">Data Association</a></li></ul></li><li><a class="toc-href" href="#slam-algorithms_1" title="SLAM algorithms">SLAM algorithms</a><ul><li><a class="toc-href" href="#ekf-slam" title="EKF-SLAM">EKF-SLAM</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+
 <p>SLAM is short of simultaneous localization and mapping. It is a term used to
 describe the problem of creating a map and locating the mobile agent within the
 map at the same time.</p>
@@ -140,7 +135,7 @@ distances don't matter, only the ordering / number of branches.</p>
 <h3 id="data-association">Data Association</h3>
 <p>Data association means that we want to identify landmarks. The two-frame
 matching problem is called (Correspondence Problem).</p>
-<h2 id="slam-algorithms_1">SLAM algorithms</h2>
+<h2 id="slam-algorithms">SLAM algorithms</h2>
 <ul>
 <li>Graph SLAM</li>
 <li>EKF-SLAM (Extended Kalman filter)</li>
@@ -157,7 +152,7 @@ matching problem is called (Correspondence Problem).</p>
 </ul>
 <p>Pseudocode:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">filter_step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -167,7 +162,7 @@ matching problem is called (Correspondence Problem).</p>
 <span class="sd">    C : ndarray</span>
 <span class="sd">        Covariance matrix</span>
 <span class="sd">        spahe: n x n</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x_pred</span> <span class="o">=</span> <span class="n">predict_state</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># odometry</span>
     <span class="n">z_pred</span> <span class="o">=</span> <span class="n">predict_measurement</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">measure</span><span class="p">()</span>
@@ -175,19 +170,20 @@ matching problem is called (Correspondence Problem).</p>
     <span class="c1"># Kalman filter update</span>
     <span class="c1"># Integration of new landmarks by extending x and C</span>
 </code></pre></div>
+
 <p>Complexity:</p>
 <ul>
 <li>Cost per step: <span class="math">\(O(n^2)\)</span> where <span class="math">\(n\)</span> is the number of landmarks</li>
 <li>Total cost to build a map: O(n^3)</li>
 <li>Memory consumption: O(n^2)</li>
 </ul>
-<h2 id="see-also_1">See also</h2>
+<h2 id="see-also">See also</h2>
 <p>Other blogposts:
 * <a href="https://martin-thoma.com/kalman-filter/">Kalman Filter</a></p>
 <p>Papers and Slides:
 * Uni Freiburg: <a href="http://ais.informatik.uni-freiburg.de/teaching/ss12/robotics/slides/12-slam.pdf">Slides</a> and <a href="https://www.youtube.com/watch?v=U6vr3iNrwRA&amp;list=PLgnQpQtFTOGQrZ4O5QzbIHgl3b1JHimN_">YouTube playlist</a>
 * Hugh Durrant-Whyte, Tim Bailey: Simultaneous Localisation and Mapping (SLAM): Part I The Essential Algorithms
-* Ziegler et. al: Making Bertha Drive &mdash; An Autonomous Journey on a Historic Route
+* Ziegler et. al: Making Bertha Drive — An Autonomous Journey on a Historic Route
 * Grisetti, Kummerle, Stachniss, Burgard: A Tutorial on Graph-Based SLAM</p>
 <p>Datasets:
 * <a href="http://www-personal.acfr.usyd.edu.au/nebot/victoria_park.htm">Victoria Park</a></p>

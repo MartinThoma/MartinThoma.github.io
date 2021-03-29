@@ -102,59 +102,59 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#general structure" title="General structure">General structure</a></li><li><a class="toc-href" href="#pythons special structure" title="Pythons special structure">Pythons special structure</a></li><li><a class="toc-href" href="#scoping" title="Scoping">Scoping</a></li><li><a class="toc-href" href="#copy or reference" title="Copy or reference">Copy or reference</a></li><li><a class="toc-href" href="#last value of i" title="Last value of i">Last value of i</a></li><li><a class="toc-href" href="#foreach" title="foreach">foreach</a><ul><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#javascript" title="JavaScript">JavaScript</a></li><li><a class="toc-href" href="#php" title="PHP">PHP</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li></ul></li><li><a class="toc-href" href="#more information_1" title="More information">More information</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>If you have to learn a new programming language it is most of the time quite easy. You know the structures and the way you have to think if you want to solve a problem. The first time it might be hard, but the more languages you learn the more similarities you'll recognize.</p>
 <p>I also have to learn a special variant of <a href="http://en.wikipedia.org/wiki/Pseudocode">pseudocode</a> at the moment. It is quite hard to know what pseudocode does if it isn't unambiguously defined. I had problems with for loops for example.</p>
-<p>For loops have some properties you simply have to define:
+<p>For loops have some properties you simply have to define:</p>
 <ul>
-<li><strong>Scoping</strong>: Does the loop counter still exist after the loop was executed?</li>
-<li><strong>Copy or reference</strong>: Does the loop statement work with a copy or with a reference of the variables in the loop body?</li>
-<li><strong>Last value of i</strong>: What is the last value of i?</li>
-</ul></p>
-<h2 id="general structure">General structure</h2>
+  <li><strong>Scoping</strong>: Does the loop counter still exist after the loop was executed?</li>
+  <li><strong>Copy or reference</strong>: Does the loop statement work with a copy or with a reference of the variables in the loop body?</li>
+  <li><strong>Last value of i</strong>: What is the last value of i?</li>
+</ul>
+
+<h2>General structure</h2>
 <p>A for loop usually consists of an initialization part, a condition and an iteration step:</p>
 <figure class="aligncenter">
-<a href="../images/2011/11/for-loop-structure1.png"><img alt="for loop structure" class="size-full wp-image-9251" src="../images/2011/11/for-loop-structure1.png" style="max-width:285px;max-height:176px"/></a>
-<figcaption class="text-center">The structure of a for loop.</figcaption>
-</figure>
-<h2 id="pythons special structure">Pythons special structure</h2>
+            <a href="../images/2011/11/for-loop-structure1.png"><img src="../images/2011/11/for-loop-structure1.png" alt="for loop structure" style="max-width:285px;max-height:176px" class="size-full wp-image-9251"/></a>
+            <figcaption class="text-center">The structure of a for loop.</figcaption>
+        </figure>
+
+<h2>Pythons special structure</h2>
 <p>Python uses a generator or lists to loop:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"In loop: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In loop: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Out of loop: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Out of loop: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="scoping">Scoping</h2>
-<p>Does the loop counter still exist after the loop was executed?
+
+<h2>Scoping</h2>
+<p>Does the loop counter still exist after the loop was executed?</p>
 <ul>
-<li><strong>Yes</strong>: JavaScript, PHP, Python</li>
-<li><strong>No</strong>: C, C++, Java</li>
-</ul></p>
-<h2 id="copy or reference">Copy or reference</h2>
-<p>Does the loop statement work with a copy or with a reference of the variables in the loop body? Does the programming language use the same variable as in the for condition (reference) or does it use another one (copy)? You can test this if you add something to i in the body.
+    <li><strong>Yes</strong>: JavaScript, PHP, Python</li>
+    <li><strong>No</strong>: C, C++, Java</li>
+</ul>
+
+<h2>Copy or reference</h2>
+<p>Does the loop statement work with a copy or with a reference of the variables in the loop body? Does the programming language use the same variable as in the for condition (reference) or does it use another one (copy)? You can test this if you add something to i in the body.</p>
 <ul>
-<li><strong>Copy</strong>: Python</li>
-<li><strong>Reference</strong>: C, C++, Java, JavaScript, PHP</li>
-</ul></p>
+    <li><strong>Copy</strong>: Python</li>
+    <li><strong>Reference</strong>: C, C++, Java, JavaScript, PHP</li>
+</ul>
+
 <p>Python iterates over a generator. This means that you can't really compare Pythons for-loop to other programming languages' for loops.</p>
-<h2 id="last value of i">Last value of i</h2>
+<h2>Last value of i</h2>
 <p>What is the last value of i?</p>
 <p><strong>9</strong>: C, C++, Java (Inside the loop), Python (Outside of the loop)
 <strong>10</strong>: JavaScript, PHP (Outside of the loop)</p>
-<h2 id="foreach">foreach</h2>
+<h2>foreach</h2>
 <p>Many languages provide a special for loop. This special for loop is sometimes called "foreach" as you iterate over each element in a collection (e.g. an array).</p>
-<h3 id="java">Java</h3>
+<h3>Java</h3>
+
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
 <span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -163,31 +163,38 @@ MathJax.Hub.Queue(function() {
 <span class="n">array</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">item</span><span class="p">:</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Foreach: "</span> <span class="o">+</span> <span class="n">item</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Foreach: &quot;</span> <span class="o">+</span> <span class="n">item</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="javascript">JavaScript</h3>
+
+<h3>JavaScript</h3>
+
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">);</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">value</span> <span class="k">in</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'Foreach: '</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s1">'&lt;br/&gt;'</span> <span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;Foreach: &#39;</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39;&lt;br/&gt;&#39;</span> <span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="php">PHP</h3>
+
+<h3>PHP</h3>
+
 <div class="highlight"><pre><span></span><code><span class="x">$array = array(0, 1, 2, 3, 4);</span>
 
 <span class="x">foreach ($array as $key=&gt;$value) {</span>
-<span class="x">    echo "Foreach: $value&lt;br/&gt;";</span>
+<span class="x">    echo &quot;Foreach: $value&lt;br/&gt;&quot;;</span>
 <span class="x">}</span>
 </code></pre></div>
-<h3 id="python">Python</h3>
+
+<h3>Python</h3>
+
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Foreach: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Foreach: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="more information_1">More information</h2>
-<p>If you want to see the code, you can download this <a href="../images/2011/12/for-loops.zip">zip archive</a>.</p>
+
+<h2>More information</h2>
+<p>If you want to see the code, you can download this <a href='../images/2011/12/for-loops.zip'>zip archive</a>.</p>
 <p>It is quite astonishing, but Wikipedia has a very long <a href="http://en.wikipedia.org/wiki/For_loop">article about for loops</a>.</p>
             
             <div id="disqus_thread" class="no-print"></div>

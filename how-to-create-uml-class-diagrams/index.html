@@ -102,79 +102,80 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#dia" title="Dia">Dia</a></li><li><a class="toc-href" href="#latex" title="LaTeX">LaTeX</a><ul><li><a class="toc-href" href="#metauml" title="MetaUML">MetaUML</a></li></ul></li><li><a class="toc-href" href="#see also_1" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <h2 id="dia">Dia</h2>
+            <h2>Dia</h2>
 <p>Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool.</p>
-<p>Take a look at these screenshots:
+<p>Take a look at these screenshots:</p>
 <figure class="aligncenter">
-<a href="../images/2012/05/dia-create-class.png"><img alt="Create a class for a class diagram in Dia" class="size-full wp-image-24211" src="../images/2012/05/dia-create-class.png" style="max-width:231px;max-height:611px"/></a>
-<figcaption class="text-center">Create a class for a class diagram in Dia</figcaption>
-</figure></p>
+            <a href="../images/2012/05/dia-create-class.png"><img src="../images/2012/05/dia-create-class.png" alt="Create a class for a class diagram in Dia" style="max-width:231px;max-height:611px" class="size-full wp-image-24211"/></a>
+            <figcaption class="text-center">Create a class for a class diagram in Dia</figcaption>
+        </figure>
+
 <figure class="aligncenter">
-<a href="../images/2012/05/dia-class-properties.png"><img alt="Edit class properties in Dia" class="size-full wp-image-24221" src="../images/2012/05/dia-class-properties.png" style="max-width:676px;max-height:589px"/></a>
-<figcaption class="text-center">Edit class properties in Dia</figcaption>
-</figure>
+            <a href="../images/2012/05/dia-class-properties.png"><img src="../images/2012/05/dia-class-properties.png" alt="Edit class properties in Dia" style="max-width:676px;max-height:589px" class="size-full wp-image-24221"/></a>
+            <figcaption class="text-center">Edit class properties in Dia</figcaption>
+        </figure>
+
 <figure class="aligncenter">
-<a href="../images/2012/05/dia-association.png"><img alt="Customizing associations in Dia" class="size-full wp-image-24231" src="../images/2012/05/dia-association.png" style="max-width:454px;max-height:447px"/></a>
-<figcaption class="text-center">Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
-</figure>
+            <a href="../images/2012/05/dia-association.png"><img src="../images/2012/05/dia-association.png" alt="Customizing associations in Dia" style="max-width:454px;max-height:447px" class="size-full wp-image-24231"/></a>
+            <figcaption class="text-center">Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!</figcaption>
+        </figure>
+
 <figure class="aligncenter">
-<a href="../images/2012/05/Dia-ClassDiagram.png"><img alt="A quick example for a class diagram created with Dia" class="size-full wp-image-24251" src="../images/2012/05/Dia-ClassDiagram.png" style="max-width:519px;max-height:104px"/></a>
-<figcaption class="text-center">A quick example for a class diagram created with Dia</figcaption>
-</figure>
-<h2 id="latex">LaTeX</h2>
+            <a href="../images/2012/05/Dia-ClassDiagram.png"><img src="../images/2012/05/Dia-ClassDiagram.png" alt="A quick example for a class diagram created with Dia" style="max-width:519px;max-height:104px" class="size-full wp-image-24251"/></a>
+            <figcaption class="text-center">A quick example for a class diagram created with Dia</figcaption>
+        </figure>
+
+<h2>LaTeX</h2>
 <p>I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different?</p>
-<p>Of course, you can include a diagram created with Dia:
+<p>Of course, you can include a diagram created with Dia:</p>
 <ol>
-<li>Export the diagram as PNG (antialized)</li>
-<li>Add something like that to your tex-file: \includegraphics[width=180mm]{myDiagramm.png}</li>
-</ol></p>
-<h3 id="metauml">MetaUML</h3>
+  <li>Export the diagram as PNG (antialized)</li>
+  <li>Add something like that to your tex-file: \includegraphics[width=180mm]{myDiagramm.png}</li>
+</ol>
+
+<h3>MetaUML</h3>
 <p>A MetaUML class diagram looks like that in code (saved as myMetaDiagram.mp):</p>
 <div class="highlight"><pre><span></span><code>input metauml;
 beginfig(1);
-    Class.World("World")
-           ("-age: int",
-            "#ressources: List")
-           ("+sayHello(): void");
+    Class.World(&quot;World&quot;)
+           (&quot;-age: int&quot;,
+            &quot;#ressources: List&quot;)
+           (&quot;+sayHello(): void&quot;);
 
-    Class.NoHuman("Human")
-           ("-birthday: Date",
-            "-nickname: String",
-            "-secret: String")
-           ("+code(language: Language): Program");
+    Class.NoHuman(&quot;Human&quot;)
+           (&quot;-birthday: Date&quot;,
+            &quot;-nickname: String&quot;,
+            &quot;-secret: String&quot;)
+           (&quot;+code(language: Language): Program&quot;);
 
     leftToRight(50)(World, NoHuman);
     drawObjects(World, NoHuman);
 
     link(aggregation)(NoHuman.w -- World.e);
-    item(iAssoc)("1")(obj.n     = .2[World.e,NoHuman.w]);
-    item(iAssoc)("has &gt;")(obj.n = .5[World.e,NoHuman.w]);
-    item(iAssoc)("0..*")(obj.n  = .8[World.e,NoHuman.w]);
+    item(iAssoc)(&quot;1&quot;)(obj.n     = .2[World.e,NoHuman.w]);
+    item(iAssoc)(&quot;has &gt;&quot;)(obj.n = .5[World.e,NoHuman.w]);
+    item(iAssoc)(&quot;0..*&quot;)(obj.n  = .8[World.e,NoHuman.w]);
 
 endfig;
 end
 </code></pre></div>
-<p>You have to execute mpost before you can compile LaTeX. A working example is in this <a href="../images/2012/05/UML.zip">UML Archive</a>.</p>
-<p>It looks like that in your generated PDF file:
+
+<p>You have to execute mpost before you can compile LaTeX. A working example is in this <a href='../images/2012/05/UML.zip'>UML Archive</a>.</p>
+<p>It looks like that in your generated PDF file:</p>
 <figure class="aligncenter">
-<a href="../images/2012/05/MetaUML-class-diagram.png"><img alt="MetaUML class diagram" class="size-full wp-image-24271" src="../images/2012/05/MetaUML-class-diagram.png" style="max-width:676px;max-height:161px"/></a>
-<figcaption class="text-center">MetaUML class diagram</figcaption>
-</figure></p>
-<h2 id="see also_1">See also</h2>
+            <a href="../images/2012/05/MetaUML-class-diagram.png"><img src="../images/2012/05/MetaUML-class-diagram.png" alt="MetaUML class diagram" style="max-width:676px;max-height:161px" class="size-full wp-image-24271"/></a>
+            <figcaption class="text-center">MetaUML class diagram</figcaption>
+        </figure>
+
+<h2>See also</h2>
 <ul>
-<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Class_diagram">Class diagram</a>, <a href="http://en.wikipedia.org/wiki/Dia_(software)">Dia</a></li>
-<li>Dia:  <a href="http://www.wspiegel.de/infogk12/oops/dia_einf.html#py16_2">Dia und UML</a></li>
-<li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/graphics/metapost/contrib/macros/metauml/doc/metauml_manual_0.2.5.pdf">MetaUML: Tutorial, Reference and Test Suite</a></li>
-<li>Freies Magazin, Mai 2012: <a href="http://www.freiesmagazin.de/freiesMagazin-2012-05">Astah &ndash; Kurzvorstellung des UML-Programms</a> (German)</li>
+  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Class_diagram">Class diagram</a>, <a href="http://en.wikipedia.org/wiki/Dia_(software)">Dia</a></li>
+  <li>Dia:  <a href="http://www.wspiegel.de/infogk12/oops/dia_einf.html#py16_2">Dia und UML</a></li>
+  <li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/graphics/metapost/contrib/macros/metauml/doc/metauml_manual_0.2.5.pdf">MetaUML: Tutorial, Reference and Test Suite</a></li>
+  <li>Freies Magazin, Mai 2012: <a href="http://www.freiesmagazin.de/freiesMagazin-2012-05">Astah &ndash; Kurzvorstellung des UML-Programms</a> (German)</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

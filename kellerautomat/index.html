@@ -100,46 +100,42 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#definitionen" title="Definitionen">Definitionen</a></li><li><a class="toc-href" href="#anschaulich" title="Anschaulich">Anschaulich</a></li><li><a class="toc-href" href="#beispiele" title="Beispiele">Beispiele</a></li><li><a class="toc-href" href="#umformungen" title="Umformungen">Umformungen</a><ul><li><a class="toc-href" href="#akzeptierender endzustand - leerer stack" title="Akzeptierender Endzustand &rarr; leerer STACK">Akzeptierender Endzustand &rarr; leerer STACK</a></li><li><a class="toc-href" href="#leerer stack - akzeptierender endzustand" title="Leerer STACK &rarr; akzeptierender Endzustand">Leerer STACK &rarr; akzeptierender Endzustand</a></li></ul></li><li><a class="toc-href" href="#dies und das_1" title="Dies und das">Dies und das</a></li><li><a class="toc-href" href="#siehe auch" title="Siehe auch">Siehe auch</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Ein Kellerautomat ist ein Endlicher Automat mit einem Stack ("Kellerspeicher"). Er wird mit PDA (pushdown automaton) bzw. NPDA (nondeterministic pushdown automaton) abgek&uuml;rzt.</p>
 <p>Laut Wikipedia verwendet die Gleitkommaeinheit einen PDA. Dazu habe ich allerdings keine Quelle, das ist also mit Vorsicht zu genie&szlig;en.</p>
 <p>Ein weiterer Einsatzzweck ist die Syntaxanalyse einer Tokenfolge. Das kann f&uuml;r Compiler oder Interpreter von Interesse sein.</p>
-<h2 id="definitionen">Definitionen</h2>
+<h2>Definitionen</h2>
 <p>Der <strong>Kellerautomat</strong> ist als 7-Tupel definiert:</p>
-<p><span class="math">\((Q, \Sigma, \Gamma, q_0, Z_0, \delta, F)\)</span>, wobei
+<p><span class="math">\((Q, \Sigma, \Gamma, q_0, Z_0, \delta, F)\)</span>, wobei</p>
 <ul>
-<li>Q: endliche Zustandsmenge</li>
-<li><span class="math">\(\Sigma\)</span>: endliches Eingabealphabet</li>
-<li><span class="math">\(\Gamma\)</span>: endliches STACK-Alphabet</li>
-<li><span class="math">\(q_0 \in Q\)</span>: Anfangszustand</li>
-<li><span class="math">\(Z_0 \in \Gamma\)</span>: Initialisierung des STACK</li>
-<li><span class="math">\(\delta: Q \times (\Sigma \cup \{\varepsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma^*}\)</span>.</li>
-<li><span class="math">\(F \subseteq Q\)</span>: Menge der akzeptierenden Endzust&auml;nde.</li>
-</ul></p>
+    <li>Q: endliche Zustandsmenge</li>
+    <li>$\Sigma$: endliches Eingabealphabet</li>
+    <li>$\Gamma$: endliches STACK-Alphabet</li>
+    <li>$q_0 \in Q$: Anfangszustand</li>
+    <li>$Z_0 \in \Gamma$: Initialisierung des STACK</li>
+    <li>$\delta: Q \times (\Sigma \cup \{\varepsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma^*}$.</li>
+    <li>$F \subseteq Q$: Menge der akzeptierenden Endzust&auml;nde.</li>
+</ul>
+
 <p>Bemerkenswert ist hierbei, dass F leer sein kann. Dies ist m&ouml;glich, da ein PDA auch durch leeren Stack akzeptieren kann.</p>
 <p>Die Zustands&uuml;berf&uuml;hrungsfunktion ist etwas umst&auml;ndlich beschrieben. Dort steht, dass jede Regel folgende Form hat:
 <span class="math">\(\delta(\text{Zustand}, \text{Eingabesymbol}, \text{Stacksymbol}) = (\text{Neuer Zustand}, \text{Neuer Stack})\)</span></p>
-<p>Die <strong>Konfiguration eines PDA</strong> ist ein Tripel <span class="math">\((q, w, \alpha)\)</span>, wobei
+<p>Die <strong>Konfiguration eines PDA</strong> ist ein Tripel <span class="math">\((q, w, \alpha)\)</span>, wobei</p>
 <ul>
-<li><span class="math">\(q \in Q\)</span>: aktueller Zustand</li>
-<li><span class="math">\(w \in \Sigma^*\)</span>: der Teil der Eingabe, der noch nicht gelesen wurde</li>
-<li><span class="math">\(\alpha \in \Gamma^*\)</span>: der STACK-Inhalt</li>
-</ul></p>
+    <li>$q \in Q$: aktueller Zustand</li>
+    <li>$w \in \Sigma^*$: der Teil der Eingabe, der noch nicht gelesen wurde</li>
+    <li>$\alpha \in \Gamma^*$: der STACK-Inhalt</li>
+</ul>
+
 <p>Ein PDA ist <strong>deterministisch</strong> <span class="math">\(: \Leftrightarrow |\delta(q, a, Z)| + |\delta(q, \varepsilon, Z)| \leq 1 ~~~ \forall_{q \in Q, a \in \Sigma, Z \in \Gamma}\)</span>.</p>
-<h2 id="anschaulich">Anschaulich</h2>
+<h2>Anschaulich</h2>
 <p>Du hast einen Kartenstapel (deine Eingabe, auf der du immer nur ein Zeichen lesen darfst),
 einen Stapel f&uuml;r Notizzettel, wobei am Anfang nur ein Notizzettel dort liegt und immer nur ein Symbol auf dem Zettel steht (dein Stack, der mit <span class="math">\(Z_0 \in \Gamma\)</span> initialisiert ist),
 einen Zustand und eine Menge Regeln (<span class="math">\(\delta\)</span>).</p>
 <p>Nun schaust du dir in jedem Schritt die oberste Karte auf dem Kartenstapel an und legst sie weg. Des Weiteren schaust du dir deine oberste Notiz an und legst sie weg und &uuml;berpr&uuml;fst deinen Zustand. Aus diesen Informationen schlussfolgerst du, was du als n&auml;chstes machst. Du kannst dir aussuchen in welchen Zustand du gehen willst und was du noch auf deinen Notiz-Stapel tun willst. Du kannst auch einfach nichts auf den Notiz-Stapel legen.</p>
-<h2 id="beispiele">Beispiele</h2>
+<h2>Beispiele</h2>
 <p>Sei <span class="math">\(L = \{w \in \{0,1,2\}^* | w = 0^i1^j2^j ~~~ i, j \in \mathbb{N}\}\)</span></p>
 <p><span class="math">\((\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)\)</span> mit</p>
 <p>$\delta(q_0, 0, #) = {(q_0, #), (q_1, #)}, $
@@ -149,8 +145,8 @@ $\delta(q_1, 2, 1) = {(q_2, \varepsilon)}, $
 $\delta(p, a, Z) = \emptyset $ sonst.</p>
 <p>Der Kellerautomat akzeptiert durch leeren STACK. Aus diesem Grund legen wir am Anfang auch immer wieder # auf den Stack. Sonst w&uuml;rde der PDA zu fr&uuml;h akzeptieren.</p>
 <p>Da <span class="math">\(|\delta(q_0, 0, \#) = 2 &gt; 1|\)</span> ist dieser Kellerautomat Nicht-Deterministisch.</p>
-<h2 id="umformungen">Umformungen</h2>
-<h3 id="akzeptierender endzustand - leerer stack">Akzeptierender Endzustand &rarr; leerer STACK</h3>
+<h2>Umformungen</h2>
+<h3>Akzeptierender Endzustand &rarr; leerer STACK</h3>
 <p>Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.</p>
 <p>Gegeben sei ein Kellerautomat <span class="math">\({\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)\)</span> der durch akzeptierenden Endzustand akzeptiert.
 Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)\)</span> der durch leeren STACK akzeptiert.</p>
@@ -167,7 +163,7 @@ Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \
 <span class="math">\(\delta_2(q, \varepsilon, Z) = \delta_1(q, \varepsilon, Z) \cup \{(q_E, \varepsilon)\} \text{f&uuml;r } q \in F_1, Z \in \Gamma_2\)</span></p>
 <p>Diese Regel leert den STACK:
 <span class="math">\(\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ f&uuml;r } Z \in \Gamma_2\)</span></p>
-<h3 id="leerer stack - akzeptierender endzustand">Leerer STACK &rarr; akzeptierender Endzustand</h3>
+<h3>Leerer STACK &rarr; akzeptierender Endzustand</h3>
 <p>Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.</p>
 <p>Gegeben sei ein Kellerautomat <span class="math">\({\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)\)</span> der durch leeren STACK akzeptiert.
 Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)\)</span> der durch akzeptierenden Endzustand akzeptiert.</p>
@@ -186,19 +182,22 @@ Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \
 <span class="math">\(\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{, falls } q \in Q_1, a \in \Sigma \cup \{\varepsilon\} \text{ und } Z \in \Gamma_1\)</span></p>
 <p>Und am Schluss auch akzeptieren:
 <span class="math">\(\delta_2(q, \varepsilon, Z_0^2) = \{(q_F, \varepsilon)\} \text{ f&uuml;r } q \in Q_1\)</span>.</p>
-<h2 id="dies und das_1">Dies und das</h2>
+<h2>Dies und das</h2>
 <ul>
-<li>Ein Kellerautomat mit zwei STACKs ist Turingm&auml;chtig. (&rarr; <a href="http://de.wikipedia.org/wiki/Zweikellerautomat" title="Zweikellerautomat">Zweikellerautomat</a>)</li>
-<li>Ein NPDA erkennt genau die kontextfreien Sprachen.</li>
-<li>Ein PDA erkennt manche kontextfreie Sprachen, aber nicht alle. (Genauer: <a href="http://de.wikipedia.org/wiki/Deterministisch_kontextfreie_Sprache">Deterministisch kontextfreie Sprache</a>)</li>
-<li>Zu jedem PDA, der eine Sprache L durch einen akzeptierenden Endzustand akzeptiert, kann ein PDA konstruiert werden, der L mit leerem STACK akzeptiert (und umgekehrt).</li>
-<li>F&uuml;r jede Grammatik G in Greibach-Normalform gibt es einen PDA.</li>
+    <li>Ein Kellerautomat mit zwei STACKs ist Turingm&auml;chtig. (&rarr; <a href="http://de.wikipedia.org/wiki/Zweikellerautomat" title="Zweikellerautomat">Zweikellerautomat</a>)</li>
+    <li>Ein NPDA erkennt genau die kontextfreien Sprachen.</li>
+    <li>Ein PDA erkennt manche kontextfreie Sprachen, aber nicht alle. (Genauer: <a href="http://de.wikipedia.org/wiki/Deterministisch_kontextfreie_Sprache">Deterministisch kontextfreie Sprache</a>)</li>
+    <li>Zu jedem PDA, der eine Sprache L durch einen akzeptierenden Endzustand akzeptiert, kann ein PDA konstruiert werden, der L mit leerem STACK akzeptiert (und umgekehrt).</li>
+    <li>F&uuml;r jede Grammatik G in Greibach-Normalform gibt es einen PDA.</li>
+
 </ul>
-<h2 id="siehe auch">Siehe auch</h2>
+
+<h2>Siehe auch</h2>
 <ul>
-<li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Kellerautomat">Kellerautomat</a></li>
-<li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi_skript_ws11.pdf">Theoretische Grundlagen der Informatik</a>: Skript von Prof. Dr. Dorothea Wagner, ab S. 105</li>
-<li><a href="../sprachen-automaten-und-grammatiken/" title="Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick">Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick</a></li>
+    <li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Kellerautomat">Kellerautomat</a></li>
+    <li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi_skript_ws11.pdf">Theoretische Grundlagen der Informatik</a>: Skript von Prof. Dr. Dorothea Wagner, ab S. 105</li>
+    <li><a href="../sprachen-automaten-und-grammatiken/" title="Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick">Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick</a></li>
+
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

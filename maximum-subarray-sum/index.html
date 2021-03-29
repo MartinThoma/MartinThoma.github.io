@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#edge-cases" title="Edge Cases">Edge Cases</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#brute-force" title="Brute-Force">Brute-Force</a></li><li><a class="toc-href" href="#cummulative-sum-brute-force" title="Cummulative Sum Brute-Force">Cummulative Sum Brute-Force</a></li><li><a algorithm'="" class="toc-href" href="#kadanes-algorithm" s="" title="Kadane">Kadane's Algorithm</a></li><li><a class="toc-href" href="#things-to-learn" title="Things to Learn">Things to Learn</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>The maximum contiguous subarray sum problem is one of the classics. Given an
@@ -121,21 +115,22 @@ that there is at least one element in the list.</p>
 <h2 id="examples">Examples</h2>
 <p>For any array without negative numbers, the sum of the whole array would be the
 solution.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="mi">15</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; max_contiguous_subarray_sum([11, -5, -5, -2, 1, 2, 3, 4, 5, 0, 1])
+15
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="mi">11</span>
+&gt;&gt;&gt; max_contiguous_subarray_sum([9, -5, -5, -2, 1, 2, -1, 4, 5, 0, 1])
+11
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
-<span class="o">-</span><span class="mi">1</span>
+&gt;&gt;&gt; max_contiguous_subarray_sum([-1, -2, -3, -4, -5])
+-1
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
-<span class="o">-</span><span class="mi">2</span>
+&gt;&gt;&gt; max_contiguous_subarray_sum([-2])
+-2
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="mi">3</span><span class="p">])</span>
-<span class="mi">3</span>
+&gt;&gt;&gt; max_contiguous_subarray_sum([3])
+3
 </code></pre></div>
+
 <h2 id="brute-force">Brute-Force</h2>
 <p>I like simple brute force solutions to make sure that more complex solutions
 are correct:</p>
@@ -151,6 +146,7 @@ are correct:</p>
             <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div>
+
 <p>Complexity analysis:</p>
 <ul>
 <li>Time Complexity: <span class="math">\(\mathcal{O}(n^3)\)</span></li>
@@ -205,6 +201,7 @@ loops</p>
             <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div>
+
 <p>Complexity analysis:</p>
 <ul>
 <li>Time Complexity: <span class="math">\(\mathcal{O}(n^2)\)</span></li>
@@ -215,13 +212,14 @@ loops</p>
 
 
 <span class="k">def</span> <span class="nf">max_contiguous_subarray_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">)</span>
     <span class="n">current_sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
         <span class="n">current_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
         <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">current_sum</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
 </code></pre></div>
+
 <p>Complexity analysis:</p>
 <ul>
 <li>Time Complexity: <span class="math">\(\mathcal{O}(n)\)</span></li>

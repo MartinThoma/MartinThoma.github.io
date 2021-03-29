@@ -102,18 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#point" title="Point">Point</a><ul><li><a class="toc-href" href="#basic example" title="Basic example">Basic example</a></li><li><a class="toc-href" href="#functions" title="Functions">Functions</a></li></ul></li><li><a class="toc-href" href="#more stuff_1" title="More stuff">More stuff</a><ul><li><a class="toc-href" href="#initialization" title="Initialization">Initialization</a></li><li><a class="toc-href" href="#constructors" title="Constructors">Constructors</a></li><li><a class="toc-href" href="#functions in structs" title="Functions in structs">Functions in structs</a></li></ul></li><li><a class="toc-href" href="#read also_1" title="Read also">Read also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I guess this article isn't very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).</p>
-<h2 id="point">Point</h2>
-<h3 id="basic example">Basic example</h3>
+<h2>Point</h2>
+<h3>Basic example</h3>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -125,11 +120,13 @@ MathJax.Hub.Queue(function() {
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">Point</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="mi">34</span><span class="p">};</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="functions">Functions</h3>
+
+<h3>Functions</h3>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#define ABS(a) (a &lt; 0 ? -(a) : a)</span>
 
@@ -147,16 +144,17 @@ MathJax.Hub.Queue(function() {
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">Point</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
     <span class="n">Point</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">-4</span><span class="p">};</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Distance: %.2f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getManhattanDistance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Distance: %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">getManhattanDistance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="more stuff_1">More stuff</h2>
-<h3 id="initialization">Initialization</h3>
+
+<h2>More stuff</h2>
+<h3>Initialization</h3>
 <p><code>Point a = {}</code> initializes all values of point to 0.</p>
-<h3 id="constructors">Constructors</h3>
+<h3>Constructors</h3>
 <p>You can write constructors for structs:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#define ABS(a) (a &lt; 0 ? -(a) : a)</span>
@@ -179,13 +177,14 @@ MathJax.Hub.Queue(function() {
     <span class="n">Point</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{};</span>
     <span class="n">Point</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">-4</span><span class="p">};</span>
     <span class="n">Point</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Distance: %.2f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">getManhattanDistance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Distance: %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">getManhattanDistance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Which gives:</p>
 <div class="highlight"><pre><span></span><code>./struct-example.out
 <span class="o">(</span><span class="m">2</span>.00<span class="p">|</span><span class="m">5</span>.00<span class="o">)</span>
@@ -193,7 +192,8 @@ MathJax.Hub.Queue(function() {
 <span class="o">(</span><span class="m">2</span>.00<span class="p">|</span><span class="m">5</span>.00<span class="o">)</span>
 Distance: <span class="m">10</span>.00
 </code></pre></div>
-<h3 id="functions in structs">Functions in structs</h3>
+
+<h3>Functions in structs</h3>
 <p>You can also add functions to structs:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#define ABS(a) (a &lt; 0 ? -(a) : a)</span>
@@ -218,23 +218,26 @@ Distance: <span class="m">10</span>.00
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">Point</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">-10</span><span class="p">};</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"(%.2f|%.2f)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Distance: %.2f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">getZeroDist</span><span class="p">());</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%.2f|%.2f)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Distance: %.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">getZeroDist</span><span class="p">());</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Result:</p>
 <div class="highlight"><pre><span></span><code>./struct-example.out
 <span class="o">(</span><span class="m">3</span>.00<span class="p">|</span>-10.00<span class="o">)</span>
 Distance: <span class="m">13</span>.00
 </code></pre></div>
-<h2 id="read also_1">Read also</h2>
+
+<h2>Read also</h2>
 <ul>
-<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Struct_(C_programming_language)">struct (C programming language)</a></li>
-<li><a href="../cpp-operator-overloading/" title="C++ Operator overloading">Operator overloading</a></li>
-<li><a href="../a-practical-approach-to-floats/">A practical approach to floats</a>: An example for union</li>
-<li><a href="../how-do-hash-functions-work/">Connect four</a>: One usage example for structs</li>
+  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Struct_(C_programming_language)">struct (C programming language)</a></li>
+  <li><a href="../cpp-operator-overloading/" title="C++ Operator overloading">Operator overloading</a></li>
+  <li><a href="../a-practical-approach-to-floats/">A practical approach to floats</a>: An example for union</li>
+  <li><a href="../how-do-hash-functions-work/">Connect four</a>: One usage example for structs</li>
 </ul>
+
 <p>Is there anything interesting to say about structs?</p>
             
             <div id="disqus_thread" class="no-print"></div>

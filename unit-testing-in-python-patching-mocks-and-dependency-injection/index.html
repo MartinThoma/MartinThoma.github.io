@@ -102,20 +102,14 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-abstract-pattern-of-the-problem" title="The Abstract Pattern of the Problem">The Abstract Pattern of the Problem</a></li><li><a class="toc-href" href="#the-problem-simple-examples" title="The Problem &mdash; Simple Examples">The Problem &mdash; Simple Examples</a></li><li><a class="toc-href" href="#examples-for-external-dependencies" title="Examples for External Dependencies">Examples for External Dependencies</a></li><li><a class="toc-href" href="#the-solution-patching" title="The solution: Patching!">The solution: Patching!</a></li><li><a class="toc-href" href="#direct-replacement-dont-do-this" title="Direct replacement: Don&rsquo;t do this!">Direct replacement: Don&rsquo;t do this!</a></li><li><a class="toc-href" href="#mock-and-magicmock" title="Mock and MagicMock">Mock and MagicMock</a></li><li><a class="toc-href" href="#spec-autospec-spec_set" title="spec, autospec &amp; spec_set">spec, autospec &amp; spec_set</a></li><li><a class="toc-href" href="#pytests-monkeypatch" title="pytests monkeypatch">pytests monkeypatch</a></li><li><a class="toc-href" href="#external-packages" title="External Packages">External Packages</a></li><li><a class="toc-href" href="#dependency-injection" title="Dependency Injection">Dependency Injection</a></li><li><a class="toc-href" href="#temporary-files-are-mocks-a-code-smell" title="Temporary files: Are Mocks a Code Smell?">Temporary files: Are Mocks a Code Smell?</a></li><li><a class="toc-href" href="#dependency-injection-randomness" title="Dependency Injection: Randomness">Dependency Injection: Randomness</a></li><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a></li><li><a class="toc-href" href="#a-note-about-architecture" title="A note about Architecture">A note about Architecture</a></li><li><a class="toc-href" href="#what-else-is-there" title="What else is there?">What else is there?</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Unit Testing in general is trivial with Python and pytest, but a lot of
 developers get frustrated when they have to patch dependencies away to make
 code testable. In this article, you will learn how to patch and create mocks.
 If you want to refresh basics about unit testing in Python first, have a look
-at the first part of this series: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0#0e28">Unit Testing in Python &mdash; The Basics</a>.</p>
+at the first part of this series: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0#0e28">Unit Testing in Python — The Basics</a>.</p>
 <h2 id="the-abstract-pattern-of-the-problem">The Abstract Pattern of the Problem</h2>
 <p>A dependency of the function we want to test can have an effect in three different ways: By side-effects, return values or exceptions.</p>
 <p>Problem 1: A dependencies side-effect</p>
@@ -124,12 +118,14 @@ at the first part of this series: <a href="https://medium.com/swlh/unit-testing-
     <span class="n">a_dependency</span><span class="p">()</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
 </code></pre></div>
+
 <p>Problem 2: A dependencies return value</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">a_function</span><span class="p">():</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
     <span class="n">foo</span> <span class="o">=</span> <span class="n">a_dependency</span><span class="p">()</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested; it might use foo</span>
 </code></pre></div>
+
 <p>Problem 3: A dependency throws an Exception</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">a_function</span><span class="p">():</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
@@ -140,32 +136,35 @@ at the first part of this series: <a href="https://medium.com/swlh/unit-testing-
         <span class="o">...</span>  <span class="c1"># this might depend on the type of Exception</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
 </code></pre></div>
-<h2 id="the-problem-simple-examples">The Problem &mdash; Simple Examples</h2>
+
+<h2 id="the-problem-simple-examples">The Problem — Simple Examples</h2>
 <p>Most examples in the wild are way more complex and usually they also need some
 refactoring to make the code easier to maintain. So I created three examples
 which are a bit closer to real applications while still keeping the bloat of
 real applications away.</p>
 <p>Example 1: We want to add a user to a database. You can see that db does not
 return anything, but we change the state of our system. And we want to be sure
-that we don&rsquo;t actually change our production system when the unit tests are
+that we don’t actually change our production system when the unit tests are
 running!</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bcrypt</span>
 <span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">db</span><span class="p">,</span> <span class="n">User</span>
 
 
 <span class="k">def</span> <span class="nf">insert_user_into_db</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-    <span class="n">password_hash</span> <span class="o">=</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">hashpw</span><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">gensalt</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+    <span class="n">password_hash</span> <span class="o">=</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">hashpw</span><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">gensalt</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">password_hash</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div>
+
 <p>Example 2: Generate a file name based on the current date. You can see that the dependency datetime returns a value:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
 
 <span class="k">def</span> <span class="nf">generate_filename</span><span class="p">():</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">.png"</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">.png&quot;</span>
 </code></pre></div>
+
 <p>Similarly, you could imagine a function which returns the weather in an English sentence and uses an API to get the actual weather (<a href="https://gist.github.com/MartinThoma/5c7224ceae47e74645e0145d26dc03ec">example</a>).</p>
 <p>Example 3: In my project <a href="https://github.com/MartinThoma/edapy">edapy</a> I looked at metadata from PDF files. I use the dependency PdfFileReader and have the file itself as an dependency. As the PDF file could be broken, PyPDF2 might throw an exception. So you can imagine code like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">PyPDF2.utils</span>
@@ -177,12 +176,13 @@ running!</p>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">pdf_toread</span> <span class="o">=</span> <span class="n">PdfFileReader</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">PdfReadError</span><span class="p">:</span>
-        <span class="n">info</span><span class="p">[</span><span class="s2">"is_errornous"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">info</span><span class="p">[</span><span class="s2">&quot;is_errornous&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="n">info</span>
 
     <span class="c1"># a lot more</span>
     <span class="k">return</span> <span class="n">info</span>
 </code></pre></div>
+
 <p>When you want to test such functions, you have the problem that the expected output is not only dependent on the function itself, but also on something external. In the cases above, the system time, an external service, and the file system.</p>
 <h2 id="examples-for-external-dependencies">Examples for External Dependencies</h2>
 <p>There are lots of external dependencies your tests might have:</p>
@@ -195,8 +195,8 @@ running!</p>
 </ul>
 <p>Just like the example above, they make isolated unit testing hard or even impossible.</p>
 <h2 id="the-solution-patching">The solution: Patching!</h2>
-<p>The overall strategy to test this is always the same: Replace the external dependency that is causing headaches by something in your control. The act of replacing the dependency is called <strong><em>patching</em></strong>, the replacement is called a <strong><em>mock</em></strong>. Depending on what exactly the mock does, you might also hear this being called a Test Double, Test Stub, Test Spy or a Fake Object. In practice in Python, the distinction does not matter. If you&rsquo;re interested, I recommend <a href="https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs#TheDifferenceBetweenMocksAndStubs">Martin Fowler: The Difference Between Mocks and Stubs</a>. I will call all of them just mocks.</p>
-<p>Let&rsquo;s make a tiny example how to use patch!</p>
+<p>The overall strategy to test this is always the same: Replace the external dependency that is causing headaches by something in your control. The act of replacing the dependency is called <strong><em>patching</em></strong>, the replacement is called a <strong><em>mock</em></strong>. Depending on what exactly the mock does, you might also hear this being called a Test Double, Test Stub, Test Spy or a Fake Object. In practice in Python, the distinction does not matter. If you’re interested, I recommend <a href="https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs#TheDifferenceBetweenMocksAndStubs">Martin Fowler: The Difference Between Mocks and Stubs</a>. I will call all of them just mocks.</p>
+<p>Let’s make a tiny example how to use patch!</p>
 <p><code>fraud_example.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">external_dependency</span> <span class="kn">import</span> <span class="n">dark_magic</span>
 
@@ -208,10 +208,12 @@ running!</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
+
 <p><code>external_dependency.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dark_magic</span><span class="p">(</span><span class="n">transaction</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
 </code></pre></div>
+
 <p>No matter which transaction you would use, the function is_credit_card_fraud would throw a ValueError.</p>
 <p>This is how you patch that dependency away with a decorator <code>@patch</code>:</p>
 <p><code>test_fraud_example.py</code>:</p>
@@ -222,26 +224,28 @@ running!</p>
     <span class="k">return</span> <span class="mf">0.999</span>
 
 
-<span class="nd">@patch</span><span class="p">(</span><span class="s2">"fraud_example.dark_magic"</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">)</span>
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;fraud_example.dark_magic&quot;</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">test_is_credit_card_fraud</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">fraud_example</span>
 
-    <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"amount_usd"</span><span class="p">:</span> <span class="s2">"9999.99"</span><span class="p">,</span> <span class="s2">"overnight_shipping"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+    <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;amount_usd&quot;</span><span class="p">:</span> <span class="s2">&quot;9999.99&quot;</span><span class="p">,</span> <span class="s2">&quot;overnight_shipping&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
     <span class="n">is_fraud</span> <span class="o">=</span> <span class="n">fraud_example</span><span class="o">.</span><span class="n">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">is_fraud</span> <span class="o">==</span> <span class="kc">True</span>
 </code></pre></div>
+
 <p>And this is how you patch the dependency fraud_example.dark_magic away with a context handler ( with ... ):</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_is_credit_card_fraud_context_handler</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">fraud_example</span>
 
-    <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"amount_usd"</span><span class="p">:</span> <span class="s2">"9999.99"</span><span class="p">,</span> <span class="s2">"overnight_shipping"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"fraud_example.dark_magic"</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">):</span>
+    <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;amount_usd&quot;</span><span class="p">:</span> <span class="s2">&quot;9999.99&quot;</span><span class="p">,</span> <span class="s2">&quot;overnight_shipping&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">&quot;fraud_example.dark_magic&quot;</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">):</span>
         <span class="n">is_fraud</span> <span class="o">=</span> <span class="n">fraud_example</span><span class="o">.</span><span class="n">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">is_fraud</span> <span class="o">==</span> <span class="kc">True</span>
 </code></pre></div>
+
 <p>When you now execute pytest , the test will succeed. You will always get 0.999 as a return value of dark_magic 🎉</p>
-<p>A part that might be surprising in this example is the first parameter of the patch decorator: It&rsquo;s "fraud_example.dark_magic" and NOT "external_dependency.dark_magic" ! The target of your replacement is always what was loaded within the file you want to test, not where it was loaded from. Lisa Roach has pointed this out elegantly in her talk <a href="https://www.youtube.com/watch?v=ww1UsGZV8fQ">Demystifying the Patch Function</a>.</p>
-<h2 id="direct-replacement-dont-do-this">Direct replacement: Don&rsquo;t do this!</h2>
+<p>A part that might be surprising in this example is the first parameter of the patch decorator: It’s "fraud_example.dark_magic" and NOT "external_dependency.dark_magic" ! The target of your replacement is always what was loaded within the file you want to test, not where it was loaded from. Lisa Roach has pointed this out elegantly in her talk <a href="https://www.youtube.com/watch?v=ww1UsGZV8fQ">Demystifying the Patch Function</a>.</p>
+<h2 id="direct-replacement-dont-do-this">Direct replacement: Don’t do this!</h2>
 <p>The following is an example which does not use patch and seems to work, but it has a big flaw. If you directly replace datetime.datetime instead of patching it, it will be overwritten in all other contexts after that as well! ⚠️</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -259,17 +263,19 @@ running!</p>
 
 <span class="k">def</span> <span class="nf">test_generate_filename</span><span class="p">():</span>
     <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">NewDate</span>
-    <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"1990-04-28.png"</span>
+    <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;1990-04-28.png&quot;</span>
 </code></pre></div>
+
 <h2 id="mock-and-magicmock">Mock and MagicMock</h2>
 <p>You now know how to replace a dependency, hence it is time to talk about what to replace it with. This is where unittest.mock.Mock and unittest.mock.MagicMock come into play.</p>
 <p>Everything you do with Mock will return a Mock. Call a function? Get a Mock as a return value. Access an attribute? Get a Mock as a value.</p>
-<p>Python has so called &ldquo;magic&rdquo; methods. I like the term &ldquo;dunder&rdquo; methods better &mdash; it just means all methods which start and end with a <strong>d</strong>ouble <strong>under</strong>score. Examples are <strong>iter</strong> or <strong>contains</strong> . MagicMock has those defined, Mock doesn&rsquo;t. I would use MagicMock everywhere, except if the mocked object doesn&rsquo;t define any of the magic functions.</p>
+<p>Python has so called “magic” methods. I like the term “dunder” methods better — it just means all methods which start and end with a <strong>d</strong>ouble <strong>under</strong>score. Examples are <strong>iter</strong> or <strong>contains</strong> . MagicMock has those defined, Mock doesn’t. I would use MagicMock everywhere, except if the mocked object doesn’t define any of the magic functions.</p>
 <p>A core feature of mock classes is that they allow you to not only remove a dependency which is hard to test, but also to assert on the way the mock was interacted with. Typical methods are <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_called">assert_called</a>(), <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_called_with">assert_called_with</a>(), <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_not_called">assert_not_called</a>().</p>
 <h2 id="spec-autospec-spec_set">spec, autospec &amp; spec_set</h2>
-<p>A part that is really bad about MagicMock is that you can do anything with it &mdash; including accessing non-existing attributes, calling non-existing methods or calling existing methods with the wrong count of parameters. The mock object is missing a <strong>spec</strong>ification. If you don&rsquo;t like that, use autospec=True when patching the object:</p>
-<div class="highlight"><pre><span></span><code><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="n">autospec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<p>A part that is really bad about MagicMock is that you can do anything with it — including accessing non-existing attributes, calling non-existing methods or calling existing methods with the wrong count of parameters. The mock object is missing a <strong>spec</strong>ification. If you don’t like that, use autospec=True when patching the object:</p>
+<div class="highlight"><pre><span></span><code><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">autospec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Or you can create a Mock like this:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">Mock</span>
@@ -278,30 +284,32 @@ running!</p>
 <span class="c1"># Not Ok!</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">foo</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s2">"/home/moose/.pyenv/versions/3.8.1/lib/python3.8/unittest/mock.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">635</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__getattr__</span>
-    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">"Mock object has no attribute </span><span class="si">%r</span><span class="s2">"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="n">Mock</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'foo'</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;/home/moose/.pyenv/versions/3.8.1/lib/python3.8/unittest/mock.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">635</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__getattr__</span>
+    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Mock object has no attribute </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="n">Mock</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;foo&#39;</span>
 
 <span class="c1"># That is ok:</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">datetime</span>
-<span class="o">&lt;</span><span class="n">Mock</span> <span class="n">name</span><span class="o">=</span><span class="s1">'mock.datetime'</span> <span class="nb">id</span><span class="o">=</span><span class="s1">'139883597784544'</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Mock</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mock.datetime&#39;</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;139883597784544&#39;</span><span class="o">&gt;</span>
 </code></pre></div>
-<p>The next parameter of patchis autospec. Where spec looks at the mocked object, autospec also looks at the attributes of that object (and their attributes and those attributes, &hellip;).</p>
-<p>Finally, there is spec_set . That one prevents you from setting attributes that don&rsquo;t exist.</p>
-<p>Usually, I would use autospec=True and spec_set=True everywhere. Code which uses introspection might be an example where you don&rsquo;t want that.</p>
+
+<p>The next parameter of patchis autospec. Where spec looks at the mocked object, autospec also looks at the attributes of that object (and their attributes and those attributes, …).</p>
+<p>Finally, there is spec_set . That one prevents you from setting attributes that don’t exist.</p>
+<p>Usually, I would use autospec=True and spec_set=True everywhere. Code which uses introspection might be an example where you don’t want that.</p>
 <h2 id="pytests-monkeypatch">pytests monkeypatch</h2>
-<p>monkeypatch is a fixture from pytest. I will explain what a fixture is in the next article. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don&rsquo;t even need to import anything.</p>
+<p>monkeypatch is a fixture from pytest. I will explain what a fixture is in the next article. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don’t even need to import anything.</p>
 <p>For the credit card fraud example, it looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_is_credit_card_fraud_monkeypatch</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
-    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">"fraud_example.dark_magic"</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">)</span>
+    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&quot;fraud_example.dark_magic&quot;</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">)</span>
     <span class="kn">import</span> <span class="nn">fraud_example</span>
 
-    <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"amount_usd"</span><span class="p">:</span> <span class="s2">"9999.99"</span><span class="p">,</span> <span class="s2">"overnight_shipping"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+    <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;amount_usd&quot;</span><span class="p">:</span> <span class="s2">&quot;9999.99&quot;</span><span class="p">,</span> <span class="s2">&quot;overnight_shipping&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
     <span class="n">is_fraud</span> <span class="o">=</span> <span class="n">fraud_example</span><span class="o">.</span><span class="n">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">is_fraud</span> <span class="o">==</span> <span class="kc">True</span>
 </code></pre></div>
-<p>The question when you should use unittest.mock.patch and &mdash; if necessary &mdash; unittest.mock.Mock or pytests monkeypatch boils pretty much down to personal taste nowadays. The core Pythons patch / Mock only exist since Python 3.3 which, I guess, is a big part of the reason why monkeypatch exists in the first place.</p>
+
+<p>The question when you should use unittest.mock.patch and — if necessary — unittest.mock.Mock or pytests monkeypatch boils pretty much down to personal taste nowadays. The core Pythons patch / Mock only exist since Python 3.3 which, I guess, is a big part of the reason why monkeypatch exists in the first place.</p>
 <h2 id="external-packages">External Packages</h2>
 <p>There are a couple of packages designed for simplifying the patching and giving better mocks for well-known dependencies.</p>
 <p>For example, you can use <a href="https://pypi.org/project/freezegun/">freezegun</a> for mocking the system time:</p>
@@ -310,9 +318,10 @@ running!</p>
 
 
 <span class="k">def</span> <span class="nf">test_generate_filename</span><span class="p">():</span>
-    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s2">"1990-04-28"</span><span class="p">):</span>
-        <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"1990-04-28"</span>
+    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s2">&quot;1990-04-28&quot;</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;1990-04-28&quot;</span>
 </code></pre></div>
+
 <p>For boto3 / botocore (Cloud-stuff), there is <a href="https://pypi.org/project/moto/">moto</a>.</p>
 <p>For <a href="https://pypi.org/project/requests/">requests</a> , there is <a href="https://pypi.org/project/responses/">responses</a> :</p>
 <p><code>requests_example.py</code>:</p>
@@ -320,13 +329,14 @@ running!</p>
 
 
 <span class="k">def</span> <span class="nf">get_ip</span><span class="p">():</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://ip.jsontest.com/"</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://ip.jsontest.com/&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_ip</span><span class="p">())</span>
 </code></pre></div>
+
 <p><code>test_requests_example.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">requests_example</span> <span class="kn">import</span> <span class="n">get_ip</span>
 <span class="kn">import</span> <span class="nn">responses</span>
@@ -336,12 +346,13 @@ running!</p>
 <span class="k">def</span> <span class="nf">test_get_ip</span><span class="p">():</span>
     <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
         <span class="n">responses</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
-        <span class="s2">"http://ip.jsontest.com/"</span><span class="p">,</span>
-        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"ip"</span><span class="p">:</span> <span class="s2">"123.456.789.0"</span><span class="p">},</span>
+        <span class="s2">&quot;http://ip.jsontest.com/&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="s2">&quot;123.456.789.0&quot;</span><span class="p">},</span>
         <span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">assert</span> <span class="n">get_ip</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s2">"ip"</span><span class="p">:</span> <span class="s2">"123.456.789.0"</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">get_ip</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="s2">&quot;123.456.789.0&quot;</span><span class="p">}</span>
 </code></pre></div>
+
 <h2 id="dependency-injection">Dependency Injection</h2>
 <p>If the above sounded complicated, there is a simpler alternative: Dependency Injection. Essentially adding the external state explicitly as a parameter which makes it easy to adjust in tests. For example, the code from above could be:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
@@ -350,8 +361,9 @@ running!</p>
 <span class="k">def</span> <span class="nf">generate_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">.png"</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">.png&quot;</span>
 </code></pre></div>
+
 <p>Now testing is trivial:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">mock_example</span> <span class="kn">import</span> <span class="n">generate_filename</span>
@@ -359,19 +371,20 @@ running!</p>
 
 <span class="k">def</span> <span class="nf">test_generate_filename</span><span class="p">():</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">(</span><span class="n">now</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"1990-04-28.png"</span>
+    <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">(</span><span class="n">now</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;1990-04-28.png&quot;</span>
 </code></pre></div>
+
 <p>In some cases it feels very natural to apply such a pattern, in others it
-doesn&rsquo;t. Do this only when it feels natural. For example, it&rsquo;s very unlikely
-that I would ever pass a module as a parameter although it&rsquo;s possible. That
+doesn’t. Do this only when it feels natural. For example, it’s very unlikely
+that I would ever pass a module as a parameter although it’s possible. That
 would just feel very weird.</p>
 <h2 id="temporary-files-are-mocks-a-code-smell">Temporary files: Are Mocks a Code Smell?</h2>
 <p>It depends very much on the details, but I like to mock as little as possible.
 Simply for the reason that not mocking means that you test more of your system.
-Strictly speaking you can&rsquo;t call the test a <em>unit test</em> anymore if you test
-more than one unit. It would be an integration test then &mdash; but that is also
-essential, right? You wouldn&rsquo;t be happy with BMW selling you a motor, some
-seats and a steering wheel and claiming &ldquo;all units work&rdquo;. They need work
+Strictly speaking you can’t call the test a <em>unit test</em> anymore if you test
+more than one unit. It would be an integration test then — but that is also
+essential, right? You wouldn’t be happy with BMW selling you a motor, some
+seats and a steering wheel and claiming “all units work”. They need work
 together. Extensive mocks might prevent you from testing how things work
 together.</p>
 <p>In an ideal world, you would have both: Unit tests which are very controlled
@@ -384,7 +397,7 @@ Harry Percival gave the talk <a href="https://www.youtube.com/watch?v=rk-f3B-eMk
 while)</a> at PyCon 2020 and pointed
 out that testing code which is using mocks tends to be brittle as it is tightly
 coupled to implementation details.</p>
-<p>A good example where I usually don&rsquo;t mock anything are file system
+<p>A good example where I usually don’t mock anything are file system
 interactions. If possible, I write the file just like it would be in the real
 application. When the test is finished, the test needs to clean up as well. I
 use the <a href="https://docs.python.org/3/library/tempfile.html">tempfile</a> module for
@@ -406,16 +419,17 @@ that.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">random_state</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.5488135039273248</span>
 </code></pre></div>
+
 <p>Setting a random state / seed is also very helpful for debugging. If you
-haven&rsquo;t heard of the Heisenbug or the Higgs-Bugson, you missed some
+haven’t heard of the Heisenbug or the Higgs-Bugson, you missed some
 <a href="https://blog.codinghorror.com/new-programming-jargon/">programming jargon</a>.
 And if your interested in research, reproducibility matters.</p>
 <h2 id="terminology">Terminology</h2>
 <ul>
-<li><strong>Patching vs Mocking</strong>: Patching a function is adjusting it&rsquo;s functionality. In the context of unit testing we patch a dependency away; so we replace the dependency. Mocking is imitating. Usually we patch a function to use a mock we control instead of a dependency we don&rsquo;t control.</li>
+<li><strong>Patching vs Mocking</strong>: Patching a function is adjusting it’s functionality. In the context of unit testing we patch a dependency away; so we replace the dependency. Mocking is imitating. Usually we patch a function to use a mock we control instead of a dependency we don’t control.</li>
 <li><strong>Monkey patching vs Mocking</strong>: Within a development context, mocking is pretty clearly about unit testing (<a href="https://stackoverflow.com/a/2666006/562769">example</a>). However, monkey patching has several applications besides unit testing. For example, you can patch third party code during runtime if there is a small functionality missing or a part of the code is broken. You just extend the code. Monkey patching is used in the PyCharm debugger (<a href="https://youtu.be/ZpJxwpyJpq4?t=367">source</a>).</li>
 <li><strong>Monkey patching vs pytest.monkeypatch</strong>: The first one is a general concept, the second one is a concrete function within pytest which applies monkey patching for unit tests.</li>
-<li><strong>unittest.mock.patch vs pytest.monkeypatch</strong>: This is personal preference. I prefer to stick with built-ins whenever the third-party option does not have big advantages. In this case, I even think that the core Python unittest.mock.patch is cleaner. For this reason I didn&rsquo;t explain pytest.monkeypatch so far. If you like to see the differences, there is a nice <a href="https://krzysztofzuraw.com/blog/2016/mocks-monkeypatching-in-python.html">blog post</a> about it.</li>
+<li><strong>unittest.mock.patch vs pytest.monkeypatch</strong>: This is personal preference. I prefer to stick with built-ins whenever the third-party option does not have big advantages. In this case, I even think that the core Python unittest.mock.patch is cleaner. For this reason I didn’t explain pytest.monkeypatch so far. If you like to see the differences, there is a nice <a href="https://krzysztofzuraw.com/blog/2016/mocks-monkeypatching-in-python.html">blog post</a> about it.</li>
 </ul>
 <h2 id="a-note-about-architecture">A note about Architecture</h2>
 <p>To keep your code clean, it is often a good idea to wrap third party
@@ -429,12 +443,12 @@ pattern</a>.</p>
 <h2 id="what-else-is-there">What else is there?</h2>
 <ul>
 <li>Other types of Mocks, such as <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.PropertyMock">PropertyMock</a> or</li>
-<li><a href="https://pypi.org/project/pytest-mock/">pytest-mock</a> which provides the mocker fixture; I&rsquo;m not really sure though if this is mainly a left-over from the time before Python 3.3 or if it actually makes things easier.</li>
+<li><a href="https://pypi.org/project/pytest-mock/">pytest-mock</a> which provides the mocker fixture; I’m not really sure though if this is mainly a left-over from the time before Python 3.3 or if it actually makes things easier.</li>
 <li>The 3rd party package <a href="https://pypi.org/project/mock/">mock</a>, which should not be installed with Python 3.3+ as it was put in the standard library.</li>
 </ul>
 <p>If you want to learn more about the default mocks, have a look at the awesome
-article by Yeray Diaz: <a href="https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832">What the mock? &mdash; A cheatsheet for mocking in Python</a>.</p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
+article by Yeray Diaz: <a href="https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832">What the mock? — A cheatsheet for mocking in Python</a>.</p>
+<h2 id="whats-next">What’s next?</h2>
 <p>In part 1, you learned <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">the basics of Unit Testing in Python</a>. In this parts you learned how to patch dependencies to make code testable and what the standard mocks are.</p>
 <p>In future articles, I will present:</p>
 <ul>

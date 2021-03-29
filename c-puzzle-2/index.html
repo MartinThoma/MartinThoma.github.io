@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#answer" title="Answer">Answer</a></li><li><a class="toc-href" href="#expected output" title="Expected output">Expected output</a></li><li><a class="toc-href" href="#explanation" title="Explanation">Explanation</a></li><li><a class="toc-href" href="#how to fix it" title="How to fix it">How to fix it</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>What is the output of the following script? Why? How can it be fixed to get the expected output?</p>
@@ -120,14 +114,15 @@ MathJax.Hub.Queue(function() {
     <span class="kt">uint64_t</span> <span class="n">testvar</span><span class="p">;</span>
 
     <span class="n">testvar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^30 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;2^30 = %&quot;</span> <span class="n">PRIu64</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
 
     <span class="n">testvar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^31 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;2^31 = %&quot;</span> <span class="n">PRIu64</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>.
 .
 .
@@ -145,17 +140,21 @@ MathJax.Hub.Queue(function() {
 .
 .
 .</p>
-<h2 id="answer">Answer</h2>
+<h2>Answer</h2>
+
 <div class="highlight"><pre><span></span><code>2^30 = 1073741824
 2^31 = 18446744071562067968
 </code></pre></div>
-<h2 id="expected output">Expected output</h2>
+
+<h2>Expected output</h2>
+
 <div class="highlight"><pre><span></span><code>2^30 = 1073741824
 2^31 = 2147483648
 </code></pre></div>
-<h2 id="explanation">Explanation</h2>
+
+<h2>Explanation</h2>
 <p><code>1&lt;&lt;30</code> does a bitshift for <code>int</code>, not for <code>uint64_t</code></p>
-<h2 id="how to fix it">How to fix it</h2>
+<h2>How to fix it</h2>
 <p>Add a typecast:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define __STDC_FORMAT_MACROS</span>
 <span class="cp">#include</span> <span class="cpf">&lt;inttypes.h&gt;</span><span class="cp"></span>
@@ -165,10 +164,10 @@ MathJax.Hub.Queue(function() {
     <span class="kt">uint64_t</span> <span class="n">testvar</span><span class="p">;</span>
 
     <span class="n">testvar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^30 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;2^30 = %&quot;</span> <span class="n">PRIu64</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
 
     <span class="n">testvar</span> <span class="o">=</span> <span class="p">((</span><span class="kt">uint64_t</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^31 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;2^31 = %&quot;</span> <span class="n">PRIu64</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>

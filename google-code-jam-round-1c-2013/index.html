@@ -102,43 +102,38 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#consonants" title="Consonants">Consonants</a></li><li><a class="toc-href" href="#pogo" title="Pogo">Pogo</a></li><li><a class="toc-href" href="#the-great-wall" title="The Great Wall">The Great Wall</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2437488/dashboard#s=p0">Consonants</a>):
   <ul>
-<li>Small Set: 4305/4834 users (89%)</li>
-<li>Large Set: 1551/3778 users (41%)</li>
-</ul>
+    <li>Small Set: 4305/4834 users (89%)</li>
+    <li>Large Set: 1551/3778 users (41%)</li>
+  </ul>
 <li>Problem B (<a href="https://code.google.com/codejam/contest/2437488/dashboard#s=p1">Pogo</a>):
   <ul>
-<li>Small Set: 2537/3129 users (81%)</li>
-<li>Large Set: 121/638 users (19%)</li>
-</ul>
+    <li>Small Set: 2537/3129 users (81%)</li>
+    <li>Large Set: 121/638 users (19%)</li>
+  </ul>
 </li>
 <li>Problem C (<a href="https://code.google.com/codejam/contest/2437488/dashboard#s=p2">The Great Wall</a>):
   <ul>
-<li>Small Set: 934/1260 users (74%)</li>
-<li>Large Set: 74/330 users (22%)</li>
-</ul>
+    <li>Small Set: 934/1260 users (74%)</li>
+    <li>Large Set: 74/330 users (22%)</li>
+  </ul>
 </li>
-</li></ul>
+</ul>
+
 <p>More information is on <a href="http://www.go-hero.net/jam/13/round/3">go-hero.net</a>.</p>
-<h2 id="consonants">Consonants</h2>
+<h2>Consonants</h2>
 <p>A solution from <a href="http://www.go-hero.net/jam/13/name/nip">nip</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
 <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">vowels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"e"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"o"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">}</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">}</span>
     <span class="n">nvalue</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># how many consecutive consonants</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># position of the last substring of n consonants</span>
@@ -154,14 +149,15 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">nvalue</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">name</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
 </code></pre></div>
-<h2 id="pogo">Pogo</h2>
+
+<h2>Pogo</h2>
 <p>This is a very clever solution from xiaowuc1 (translated from Java to Python).</p>
 <p>The idea is to calculate at first the maximum number of steps you need and then
 go from your target destination to the origin.</p>
@@ -187,37 +183,38 @@ origin.</p>
 
 
 <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">""" starting at (0|0) and going i steps,</span>
-<span class="sd">        how can you reach (x|y)? """</span>
+    <span class="sd">&quot;&quot;&quot; starting at (0|0) and going i steps,</span>
+<span class="sd">        how can you reach (x|y)? &quot;&quot;&quot;</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">calculateSteps</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-    <span class="n">solution</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">"E"</span>
+                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">&quot;E&quot;</span>
                 <span class="n">x</span> <span class="o">-=</span> <span class="n">i</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">"W"</span>
+                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">&quot;W&quot;</span>
                 <span class="n">x</span> <span class="o">+=</span> <span class="n">i</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">"N"</span>
+                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">&quot;N&quot;</span>
                 <span class="n">y</span> <span class="o">-=</span> <span class="n">i</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">"S"</span>
+                <span class="n">solution</span> <span class="o">+=</span> <span class="s2">&quot;S&quot;</span>
                 <span class="n">y</span> <span class="o">+=</span> <span class="n">i</span>
     <span class="k">return</span> <span class="n">solution</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
 </code></pre></div>
+
 <h2 id="the-great-wall">The Great Wall</h2>
 <p>The following solution is not applicable for the large input set, but it works
 fine for the small one:</p>
@@ -230,23 +227,23 @@ fine for the small one:</p>
 <span class="k">def</span> <span class="nf">prepareTribes</span><span class="p">(</span><span class="n">tribes</span><span class="p">):</span>
     <span class="n">tribeStack</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">tribe</span> <span class="ow">in</span> <span class="n">tribes</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">attackNumber</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"ni"</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">attackNumber</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;ni&quot;</span><span class="p">]):</span>
             <span class="n">tribeStack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="p">{</span>
-                    <span class="s2">"day"</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"di"</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"delta_di"</span><span class="p">],</span>
-                    <span class="s2">"west"</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">tribe</span><span class="p">[</span><span class="s2">"wi"</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"delta_pi"</span><span class="p">]),</span>
-                    <span class="s2">"east"</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">tribe</span><span class="p">[</span><span class="s2">"ei"</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"delta_pi"</span><span class="p">]),</span>
-                    <span class="s2">"height"</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"si"</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"delta_si"</span><span class="p">],</span>
+                    <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;di&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;delta_di&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;west&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;wi&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;delta_pi&quot;</span><span class="p">]),</span>
+                    <span class="s2">&quot;east&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;ei&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;delta_pi&quot;</span><span class="p">]),</span>
+                    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;si&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">attackNumber</span> <span class="o">*</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;delta_si&quot;</span><span class="p">],</span>
                 <span class="p">}</span>
             <span class="p">)</span>
-    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tribeStack</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tribe</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"day"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tribeStack</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tribe</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">])</span>
 
 
 <span class="k">def</span> <span class="nf">runAttack</span><span class="p">(</span><span class="n">wall</span><span class="p">,</span> <span class="n">tribe</span><span class="p">):</span>
     <span class="n">increase</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tribe</span><span class="p">[</span><span class="s2">"west"</span><span class="p">],</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"east"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">wall</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"height"</span><span class="p">]:</span>  <span class="c1"># wall-ee</span>
-            <span class="n">increase</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"wallPos"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"height"</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"height"</span><span class="p">]})</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;west&quot;</span><span class="p">],</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;east&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wall</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]:</span>  <span class="c1"># wall-ee</span>
+            <span class="n">increase</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;wallPos&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]})</span>
 
     <span class="k">return</span> <span class="n">increase</span>
 
@@ -255,7 +252,7 @@ fine for the small one:</p>
     <span class="n">wall</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
     <span class="n">tribeStack</span> <span class="o">=</span> <span class="n">prepareTribes</span><span class="p">(</span><span class="n">tribes</span><span class="p">)</span>
     <span class="c1"># for tribe in tribeStack:</span>
-    <span class="c1">#    print tribe["day"], "[" + str(tribe["west"]) + "," + str(tribe["east"])+"]", tribe["height"]</span>
+    <span class="c1">#    print tribe[&quot;day&quot;], &quot;[&quot; + str(tribe[&quot;west&quot;]) + &quot;,&quot; + str(tribe[&quot;east&quot;])+&quot;]&quot;, tribe[&quot;height&quot;]</span>
     <span class="n">successes</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">increase</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tribe</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tribeStack</span><span class="p">):</span>
@@ -267,43 +264,44 @@ fine for the small one:</p>
 
         <span class="n">increase</span> <span class="o">+=</span> <span class="n">increaseTmp</span>
 
-        <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tribeStack</span><span class="p">)</span> <span class="ow">or</span> <span class="n">tribeStack</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="s2">"day"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">"day"</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tribeStack</span><span class="p">)</span> <span class="ow">or</span> <span class="n">tribeStack</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;day&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tribe</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">increase</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">wall</span><span class="p">[</span><span class="n">el</span><span class="p">[</span><span class="s2">"wallPos"</span><span class="p">]]</span> <span class="o">&lt;</span> <span class="n">el</span><span class="p">[</span><span class="s2">"height"</span><span class="p">]:</span>
-                    <span class="n">wall</span><span class="p">[</span><span class="n">el</span><span class="p">[</span><span class="s2">"wallPos"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">el</span><span class="p">[</span><span class="s2">"height"</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">wall</span><span class="p">[</span><span class="n">el</span><span class="p">[</span><span class="s2">&quot;wallPos&quot;</span><span class="p">]]</span> <span class="o">&lt;</span> <span class="n">el</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]:</span>
+                    <span class="n">wall</span><span class="p">[</span><span class="n">el</span><span class="p">[</span><span class="s2">&quot;wallPos&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">el</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">successes</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">N</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>  <span class="c1"># Number of tribes attacking the wall</span>
         <span class="n">tribes</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">tribe</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-            <span class="n">di</span><span class="p">,</span> <span class="n">ni</span><span class="p">,</span> <span class="n">wi</span><span class="p">,</span> <span class="n">ei</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">delta_di</span><span class="p">,</span> <span class="n">delta_pi</span><span class="p">,</span> <span class="n">delta_si</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+            <span class="n">di</span><span class="p">,</span> <span class="n">ni</span><span class="p">,</span> <span class="n">wi</span><span class="p">,</span> <span class="n">ei</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">delta_di</span><span class="p">,</span> <span class="n">delta_pi</span><span class="p">,</span> <span class="n">delta_si</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
             <span class="n">tribes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="p">{</span>
-                    <span class="s2">"di"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">di</span><span class="p">),</span>  <span class="c1"># the day of the tribe's first attack</span>
-                    <span class="s2">"ni"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ni</span><span class="p">),</span>  <span class="c1"># the number of attacks from this tribe</span>
-                    <span class="s2">"wi"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">wi</span><span class="p">),</span>  <span class="c1"># the westmost</span>
-                    <span class="s2">"ei"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="s2">&quot;di&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">di</span><span class="p">),</span>  <span class="c1"># the day of the tribe&#39;s first attack</span>
+                    <span class="s2">&quot;ni&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ni</span><span class="p">),</span>  <span class="c1"># the number of attacks from this tribe</span>
+                    <span class="s2">&quot;wi&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">wi</span><span class="p">),</span>  <span class="c1"># the westmost</span>
+                    <span class="s2">&quot;ei&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
                         <span class="n">ei</span>
                     <span class="p">),</span>  <span class="c1"># and eastmost points respectively of the Wall attacked on the first attack</span>
-                    <span class="s2">"si"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">si</span><span class="p">),</span>  <span class="c1"># the strength of the first attack</span>
-                    <span class="s2">"delta_di"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="s2">&quot;si&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">si</span><span class="p">),</span>  <span class="c1"># the strength of the first attack</span>
+                    <span class="s2">&quot;delta_di&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
                         <span class="n">delta_di</span>
                     <span class="p">),</span>  <span class="c1"># the number of days between subsequent attacks by this tribe</span>
-                    <span class="s2">"delta_pi"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="s2">&quot;delta_pi&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
                         <span class="n">delta_pi</span>
                     <span class="p">),</span>  <span class="c1"># the distance this tribe travels to the east between subsequent attacks (if this is negative, the tribe travels to the west)</span>
-                    <span class="s2">"delta_si"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
+                    <span class="s2">&quot;delta_si&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
                         <span class="n">delta_si</span>
                     <span class="p">),</span>  <span class="c1"># the change in strength between subsequent attacks</span>
                 <span class="p">}</span>
             <span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">tribes</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">tribes</span><span class="p">)))</span>
 </code></pre></div>
+
 <p>By the way, nobody has solved the large input set of this one with Python! But
 here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java
 solution</a>.</p>

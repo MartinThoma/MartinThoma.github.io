@@ -102,21 +102,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#key-idea" title="Key Idea">Key Idea</a></li><li><a class="toc-href" href="#applications" title="Applications">Applications</a></li><li><a class="toc-href" href="#application-landmark-distances" title="Application: Landmark Distances">Application: Landmark Distances</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Siamese Networks are feature extractors trained to learn an embedding in <span class="math">\(\mathbb{R}^n\)</span>
 where not the absolute output is important, but the relative one.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2019/04/siamese-networks.png"><img alt="Schema of a Siamese Network" src="../images/2019/04/siamese-networks.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Schema of a Siamese Network $m_1$.</figcaption>
+    <a href="../images/2019/04/siamese-networks.png"><img src="../images/2019/04/siamese-networks.png" alt="Schema of a Siamese Network" style="width: 512px;"/></a>
+    <figcaption class="text-center">Schema of a Siamese Network $m_1$.</figcaption>
 </figure>
+
 <p>The original paper<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> was about signature verification. You have one original
 signature and one that might be the same or might be a different one. Instead
 of having one output that directly says "same" or "different", they decided to
@@ -136,7 +131,7 @@ of <span class="math">\(m_2\)</span>.</p>
 <li>Signature Verification: Given two signatures, do they belong to the same person?</li>
 <li>Face Verification: Given two faces, are they the same person?</li>
 <li>Koch, G., Zemel, R., &amp; Salakhutdinov, R. (2015, July). <a href="https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf">Siamese neural networks for one-shot image recognition</a>. In ICML deep learning workshop (Vol. 2).</li>
-<li>Leal-Taix&eacute;, L., Canton-Ferrer, C., &amp; Schindler, K. (2016). <a href="https://www.ethz.ch/content/dam/ethz/special-interest/baug/igp/photogrammetry-remote-sensing-dam/documents/pdf/learning-tracking-siamese.pdf">Learning by tracking: Siamese CNN for robust target association</a>. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops (pp. 33-40).</li>
+<li>Leal-Taixé, L., Canton-Ferrer, C., &amp; Schindler, K. (2016). <a href="https://www.ethz.ch/content/dam/ethz/special-interest/baug/igp/photogrammetry-remote-sensing-dam/documents/pdf/learning-tracking-siamese.pdf">Learning by tracking: Siamese CNN for robust target association</a>. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops (pp. 33-40).</li>
 </ul>
 <h2 id="application-landmark-distances">Application: Landmark Distances</h2>
 <p>Think of autonomous cars. They might know some landmarks and be able to
@@ -148,13 +143,13 @@ how well a simple neural network would do. The answer was ... underwhelming.
 I guess I made an error, but at the moment I can't find it:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Train a neural network on distances and see how well it figures out coordinates.</span>
 
 <span class="sd">Roughly siamese networks.</span>
 
-<span class="sd">The "reference points" are landmarks</span>
-<span class="sd">"""</span>
+<span class="sd">The &quot;reference points&quot; are landmarks</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># core modules</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
@@ -193,7 +188,7 @@ I guess I made an error, but at the moment I can't find it:</p>
     <span class="n">point2_out</span> <span class="o">=</span> <span class="n">nn</span><span class="p">(</span><span class="n">dists2_in</span><span class="p">)</span>
     <span class="n">merged_vector</span> <span class="o">=</span> <span class="n">Concatenate</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)([</span><span class="n">point1_out</span><span class="p">,</span> <span class="n">point2_out</span><span class="p">])</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">dists1_in</span><span class="p">,</span> <span class="n">dists2_in</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="n">merged_vector</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">dual_loss</span><span class="p">,</span> <span class="n">n_dim</span><span class="o">=</span><span class="n">n_dim</span><span class="p">),</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">"adam"</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">dual_loss</span><span class="p">,</span> <span class="n">n_dim</span><span class="o">=</span><span class="n">n_dim</span><span class="p">),</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">)</span>
 
     <span class="c1"># Generate Data</span>
     <span class="n">points</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="n">n_points</span><span class="o">=</span><span class="n">n_points</span><span class="p">,</span> <span class="n">n_dim</span><span class="o">=</span><span class="n">n_dim</span><span class="p">)</span>
@@ -211,35 +206,35 @@ I guess I made an error, but at the moment I can't find it:</p>
     <span class="p">)</span>
     <span class="n">predicted_points</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_distances</span><span class="p">)</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">measure_error</span><span class="p">(</span><span class="n">test_points</span><span class="p">,</span> <span class="n">predicted_points</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: </span><span class="si">{:0.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: </span><span class="si">{:0.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">measure_error</span><span class="p">(</span><span class="n">test_points</span><span class="p">,</span> <span class="n">generate_random</span><span class="p">(</span><span class="n">predicted_points</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error (random): </span><span class="si">{:0.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error (random): </span><span class="si">{:0.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">n_dim</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate n_points of dimension n_dim.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; generate_data(1, 2).tolist()</span>
 <span class="sd">    [[0.5488135039273248, 0.7151893663724195]]</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">n_points</span><span class="p">,</span> <span class="n">n_dim</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">points</span>
 
 
 <span class="k">def</span> <span class="nf">generate_random</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
-    <span class="sd">"""Generate a random point coordinate prediction."""</span>
+    <span class="sd">&quot;&quot;&quot;Generate a random point coordinate prediction.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">get_distances</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">n_reference_points</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the distance of points to the n reference points.</span>
 
 <span class="sd">    This includes the pair-wise distance between the reference points.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">ref_points</span> <span class="o">=</span> <span class="n">points</span><span class="p">[:</span><span class="n">n_reference_points</span><span class="p">]</span>
     <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
@@ -252,15 +247,15 @@ I guess I made an error, but at the moment I can't find it:</p>
 <span class="k">def</span> <span class="nf">create_network</span><span class="p">(</span><span class="n">n_reference_points</span><span class="p">,</span> <span class="n">n_dim</span><span class="p">):</span>
     <span class="n">input_</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_reference_points</span><span class="p">,))</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">input_</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">n_dim</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"sigmoid"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">n_dim</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span>
 
 
 <span class="k">def</span> <span class="nf">dual_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">n_dim</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Define the loss function based on two points.</span>
 
 <span class="sd">    Parameters</span>
@@ -270,7 +265,7 @@ I guess I made an error, but at the moment I can't find it:</p>
 <span class="sd">    y_pred : ndarray</span>
 <span class="sd">        The first n_dim elements are the first points coordinates,</span>
 <span class="sd">        the seoncd n_dim elements are the second points coordinates</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">point1</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n_dim</span><span class="p">]</span>
     <span class="n">point2</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="n">n_dim</span><span class="p">:]</span>
 
@@ -283,7 +278,7 @@ I guess I made an error, but at the moment I can't find it:</p>
 
 
 <span class="k">def</span> <span class="nf">get_train_data</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">distances</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create training data.</span>
 
 <span class="sd">    Parameters</span>
@@ -299,7 +294,7 @@ I guess I made an error, but at the moment I can't find it:</p>
 
 <span class="sd">        pair_distances : The i-th entry contains the distance between</span>
 <span class="sd">         distance_pairs[i][0] and distance_pairs[i][1]</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">distances_p1</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">distances_p2</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">pair_distances</span> <span class="o">=</span> <span class="p">[]</span>
@@ -313,32 +308,33 @@ I guess I made an error, but at the moment I can't find it:</p>
 
 
 <span class="k">def</span> <span class="nf">measure_error</span><span class="p">(</span><span class="n">real_points</span><span class="p">,</span> <span class="n">predicted_points</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Measure an error between the real points and the predicted points.</span>
 
 <span class="sd">    This does not punish the points being shifted / rotated.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">real_distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">euclidean_distances</span><span class="p">(</span><span class="n">real_points</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">pred_point_distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">euclidean_distances</span><span class="p">(</span><span class="n">predicted_points</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">diff</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(((</span><span class="n">real_distances</span> <span class="o">-</span> <span class="n">pred_point_distances</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">diff</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">real_points</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
+
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
-<p>Bromley, Jane, et al. "Signature verification using a" siamese" time delay neural network." Advances in neural information processing systems. 1994.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Bromley, Jane, et al. "Signature verification using a" siamese" time delay neural network." Advances in neural information processing systems. 1994.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>I'm actually not sure which metric they used to calculate the distance between to signature feature matrices. Please ping me if you know more.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>I'm actually not sure which metric they used to calculate the distance between to signature feature matrices. Please ping me if you know more.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Taigman, Yaniv, et al. "<a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deepface: Closing the gap to human-level performance in face verification.</a>" Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. (<a href="https://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Taigman, Yaniv, et al. "<a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deepface: Closing the gap to human-level performance in face verification.</a>" Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. (<a href="https://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14">summary</a>)&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

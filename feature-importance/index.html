@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#feature-selection" title="Feature Selection">Feature Selection</a><ul><li><a class="toc-href" href="#feature-construction" title="Feature Construction">Feature Construction</a></li><li><a class="toc-href" href="#feature-elimination" title="Feature Elimination">Feature Elimination</a></li></ul></li><li><a class="toc-href" href="#xor-example_1" title="XOR-Example">XOR-Example</a><ul><li><a class="toc-href" href="#2-features" title="2 Features">2 Features</a></li><li><a class="toc-href" href="#3-features" title="3 Features">3 Features</a></li><li><a class="toc-href" href="#n-features" title="n Features">n Features</a></li><li><a class="toc-href" href="#soft-xor" title="Soft-XOR">Soft-XOR</a></li></ul></li><li><a class="toc-href" href="#what-are-alternatives_1" title="What are alternatives?">What are alternatives?</a></li><li><a class="toc-href" href="#when-can-we-use-feature-importance" title="When can we use feature importance?">When can we use feature importance?</a></li><li><a class="toc-href" href="#todos" title="TODOs">TODOs</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Trust is important for a Data Scientist. If you are in a position where you can
@@ -136,7 +130,7 @@ different feature. You select the feature of the best model and repeat the
 process. Stop once your improvement is below a threshold.</p>
 <p>In pythonic Pseudocode:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">construct_features</span><span class="p">(</span><span class="n">feature_list</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructive feature selection algorithm</span>
 
 <span class="sd">    Parameters</span>
@@ -151,7 +145,7 @@ process. Stop once your improvement is below a threshold.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    features : list</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">trained_models</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Set of current best features</span>
     <span class="n">nb_features</span> <span class="o">=</span> <span class="mi">1</span>
@@ -169,11 +163,12 @@ process. Stop once your improvement is below a threshold.</p>
         <span class="n">last_score</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">features</span>
 </code></pre></div>
+
 <h3 id="feature-elimination">Feature Elimination</h3>
 <p>The same as construction, but the other way around: You start with the complete
 feature set and remove one feature at a time, trying to keep the score as high
 as possible.</p>
-<h2 id="xor-example_1">XOR-Example</h2>
+<h2 id="xor-example">XOR-Example</h2>
 <h3 id="2-features">2 Features</h3>
 <p>Let's start simple: We have 2 binary features and one target:</p>
 <div class="highlight"><pre><span></span><code>x1  x2    y
@@ -183,6 +178,7 @@ as possible.</p>
 1   0     1
 1   1     0
 </code></pre></div>
+
 <p>Now, what is the most important feature in this case? x1 or x2?</p>
 <p>You can easily see that having only one feature cannot be better than
 random in this case!
@@ -201,6 +197,7 @@ of them:</p>
 1   1   0     0
 1   1   1     1
 </code></pre></div>
+
 <p>Things to note here:</p>
 <ul>
 <li>If you take only one feature, then the target <span class="math">\(y\)</span> is exatly 50% of the time
@@ -225,7 +222,7 @@ less artificial.</p>
 <p>Now, you might argue that XOR-like feature behaviour is artificial. That might
 be true as well, but especially business data could also simply count as
 artificial.</p>
-<h2 id="what-are-alternatives_1">What are alternatives?</h2>
+<h2 id="what-are-alternatives">What are alternatives?</h2>
 <p>Now that I've explained why feature importance is misleading and needs to be
 taken with big caution, what are alternatives to explain what the model does?</p>
 <ul>

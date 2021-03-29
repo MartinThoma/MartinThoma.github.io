@@ -102,85 +102,94 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#empty printf" title="Empty printf">Empty printf</a></li><li><a class="toc-href" href="#macros" title="Macros">Macros</a></li><li><a class="toc-href" href="#single and double quotes" title="Single and Double quotes">Single and Double quotes</a></li><li><a class="toc-href" href="#pointers" title="Pointers">Pointers</a></li><li><a class="toc-href" href="#loops" title="Loops">Loops</a></li><li><a class="toc-href" href="#null terminator of strings" title="Null terminator of Strings">Null terminator of Strings</a></li><li><a class="toc-href" href="#further reading" title="Further reading">Further reading</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Those errors might be surprising and a good exercise for C beginners:</p>
-<h2 id="empty printf">Empty printf</h2>
+<h2>Empty printf</h2>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>error: zero-length gnu_printf format string
 </code></pre></div>
-<h2 id="macros">Macros</h2>
+
+<h2>Macros</h2>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#define MY_MACRO printf("Hello World\n");</span>
+<span class="cp">#define MY_MACRO printf(&quot;Hello World\n&quot;);</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">MY_MACRO</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Crazy, huh?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Crazy, huh?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:8: error: <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="k">else</span><span class="p">&amp;</span>rsquo<span class="p">;</span> without a previous <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="k">if</span><span class="p">&amp;</span>rsquo<span class="p">;</span>
 </code></pre></div>
-<h2 id="single and double quotes">Single and Double quotes</h2>
+
+<h2>Single and Double quotes</h2>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="err">'</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="err">\</span><span class="n">n</span><span class="err">'</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="err">&#39;</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="err">\</span><span class="n">n</span><span class="err">&#39;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>macro.c:5:9: warning: character constant too long <span class="k">for</span> its <span class="nb">type</span>
 macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:5: warning: passing argument <span class="m">1</span> of <span class="p">&amp;</span>lsquo<span class="p">;</span>printf<span class="p">&amp;</span>rsquo<span class="p">;</span> makes pointer from integer without a cast
 /usr/include/stdio.h:339: note: expected <span class="p">&amp;</span>lsquo<span class="p">;</span>const char * __restrict__<span class="p">&amp;</span>rsquo<span class="p">;</span> but argument is of <span class="nb">type</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>int<span class="p">&amp;</span>rsquo<span class="p">;</span>
 macro.c:5: warning: format not a string literal and no format arguments
 </code></pre></div>
+
 <p>Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpaulcarter.com</a> for this example:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">myPointer</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">myPointer</span> <span class="o">=</span> <span class="sc">&#39;A&#39;</span><span class="p">;</span>
     <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">myPointer</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:3: warning: initialization makes pointer from integer without a cast
 </code></pre></div>
-<h2 id="pointers">Pointers</h2>
+
+<h2>Pointers</h2>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">char</span> <span class="o">*</span> <span class="n">myPointer</span><span class="p">;</span>
 
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">myPointer</span><span class="p">,</span> <span class="s">"Hello World!"</span><span class="p">);</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myPointer</span><span class="p">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
-macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myPointer<span class="p">&amp;</span>rsquo<span class="p">;</span> is used uninitialized in this <span class="k">function</span>
+macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myPointer<span class="p">&amp;</span>rsquo<span class="p">;</span> is used uninitialized <span class="k">in</span> this <span class="k">function</span>
 </code></pre></div>
-<h2 id="loops">Loops</h2>
+
+<h2>Loops</h2>
+
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
@@ -189,8 +198,10 @@ macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myP
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>No compiler error, but an infinite loop.</p>
-<h2 id="null terminator of strings">Null terminator of Strings</h2>
+<h2>Null terminator of Strings</h2>
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -198,29 +209,30 @@ macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myP
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">char</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s">"Hello World!"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"String: -%s-</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">myArray</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Size: %i Byte</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Characters: %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s">&quot;abc&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Characters: %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Characters: %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;String: -%s-</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">myArray</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Size: %i Byte</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
 
     <span class="kt">char</span> <span class="o">*</span> <span class="n">myString</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
     <span class="n">strcpy</span><span class="p">(</span><span class="n">myString</span><span class="p">,</span> <span class="n">myArray</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"String: -%s-</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Size: %i Byte</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;String: -%s-</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Size: %i Byte</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Characters: %i</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
 
     <span class="kt">char</span> <span class="o">*</span> <span class="n">breakIt</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
     <span class="n">strcpy</span><span class="p">(</span><span class="n">breakIt</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"String: -%s-</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">breakIt</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Size: %i Byte</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">breakIt</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">breakIt</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;String: -%s-</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">breakIt</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Size: %i Byte</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">breakIt</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Characters: %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">breakIt</span><span class="p">));</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Again, you don't get a compiler error, but some strange results:</p>
 <div class="highlight"><pre><span></span><code>Characters: <span class="m">0</span>
 Characters: <span class="m">3</span>
@@ -236,11 +248,12 @@ String: -Hello World!-
 Size: <span class="m">4</span> Byte
 Characters: <span class="m">13</span>
 </code></pre></div>
-<h2 id="further reading">Further reading</h2>
+
+<h2>Further reading</h2>
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/C_preprocessor">C Preprocessor</a> and <a href="http://en.wikipedia.org/wiki/C_preprocessor#Macro_definition_and_expansion">macros</a></li>
-<li><a href="http://www.drpaulcarter.com/cs/common-c-errors.php#2.8">Pointer initialisation</a></li>
-<li><a href="http://linux.die.net/man/3/strcpy">strcpy</a>, <a href="http://linux.die.net/man/3/strlen">strlen</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/C_preprocessor">C Preprocessor</a> and <a href="http://en.wikipedia.org/wiki/C_preprocessor#Macro_definition_and_expansion">macros</a></li>
+  <li><a href="http://www.drpaulcarter.com/cs/common-c-errors.php#2.8">Pointer initialisation</a></li>
+  <li><a href="http://linux.die.net/man/3/strcpy">strcpy</a>, <a href="http://linux.die.net/man/3/strlen">strlen</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

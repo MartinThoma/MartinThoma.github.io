@@ -102,31 +102,25 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#conceptual-phase-planning-and-design" title="Conceptual Phase: Planning and Design">Conceptual Phase: Planning and Design</a></li><li><a class="toc-href" href="#implementation-phase-your-editor" title="Implementation Phase: Your Editor">Implementation Phase: Your Editor</a></li><li><a class="toc-href" href="#implementation-commit" title="Implementation: Commit">Implementation: Commit</a></li><li><a class="toc-href" href="#implementation-ci-pipeline" title="Implementation: CI-Pipeline">Implementation: CI-Pipeline</a></li><li><a class="toc-href" href="#testing-code-review" title="Testing: Code Review">Testing: Code Review</a></li><li><a class="toc-href" href="#testing-non-prod-environments" title="Testing: Non-Prod Environments">Testing: Non-Prod Environments</a></li><li><a class="toc-href" href="#testing-production" title="Testing: Production">Testing: Production</a></li><li><a class="toc-href" href="#now-what-do-others-say" title="Now &hellip; what do others say?">Now &hellip; what do others say?</a></li><li><a class="toc-href" href="#what-you-have-learned" title="What you have learned">What you have learned</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2820/1*AKoifR7QR7wABlw7rm4XKQ.png"/><em>Image by Martin Thoma</em></p>
+            <p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2820/1*AKoifR7QR7wABlw7rm4XKQ.png"><em>Image by Martin Thoma</em></p>
 <p>The quicker you spot mistakes, the easier it is to fix them. This is the whole
-idea of &ldquo;shift left&rdquo;. When you are getting a call from your boss or the
-support team that &ldquo;it doesn&rsquo;t work&rdquo;, you know that this will take a while to
+idea of “shift left”. When you are getting a call from your boss or the
+support team that “it doesn’t work”, you know that this will take a while to
 even identify where the problem is. Most non-developers have a hard time
-communicating issues to developers. And we should make sure that they don&rsquo;t
+communicating issues to developers. And we should make sure that they don’t
 have to bother to learn this skill.</p>
-<p>In this article, you&rsquo;ll learn strategies to catch errors in different
-development phases. At the very end, I&rsquo;ll also point out what others typically
-mean with &ldquo;shift left&rdquo;. Let&rsquo;s start!</p>
+<p>In this article, you’ll learn strategies to catch errors in different
+development phases. At the very end, I’ll also point out what others typically
+mean with “shift left”. Let’s start!</p>
 <h2 id="conceptual-phase-planning-and-design">Conceptual Phase: Planning and Design</h2>
-<p><img alt="Photo by Kelly Sikkema on Unsplash" src="https://cdn-images-1.medium.com/max/11136/0*RfuOsCI7LMtuV4ft"/><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=medium&amp;utm_medium=referral">Kelly Sikkema</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Kelly Sikkema on Unsplash" src="https://cdn-images-1.medium.com/max/11136/0*RfuOsCI7LMtuV4ft"><em>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=medium&amp;utm_medium=referral">Kelly Sikkema</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>Before developers start implementing a difficult feature, people typically
 need to discuss the feature. The people to approach could be product owners or
 product managers, the client, different development teams (front end, back
-end, Android, iOS, &hellip;), operational teams, marketing, &hellip;</p>
+end, Android, iOS, …), operational teams, marketing, …</p>
 <p>In order to communicate the idea, you can create two types of documents:</p>
 <ul>
 <li><strong>Product design document</strong>: Which problem of the user those the new feature
@@ -144,45 +138,46 @@ techniques:</p>
 <li><strong>Wireframes</strong>: I love wireframes. <a href="https://balsamiq.com/">Balsamiq</a> is my
   tool of choice here, but there are certainly many more. The point of it is
   not to have a finished design. The point is to give a rough idea of which
-  elements might be necessary. It&rsquo;s an advantage if they clearly look like
+  elements might be necessary. It’s an advantage if they clearly look like
   mocks.</li>
 <li><strong>User stories</strong>: To make sure that you look at it from a user's
   perspective, you can create personas and tell a story of how that persona
-  uses the software or the feature you&rsquo;re developing.</li>
+  uses the software or the feature you’re developing.</li>
 <li><strong>Sequence diagrams</strong>: What happens when? Who communicates in which way? A
   sequence diagram can in some cases be super helpful. I like
   <a href="https://www.websequencediagrams.com/">websequencediagrams.com</a> to create
   them.</li>
 <li><strong>Architecture diagrams</strong>: Showing which microservices you use, which
   databases or caches are in place, which kinds of devices access the
-  software, if you have a task queue &mdash; all of this helps a lot to get a first
+  software, if you have a task queue — all of this helps a lot to get a first
   overview. I typically use <a href="https://app.diagrams.net/">draw.io</a> for it.</li>
 <li><strong>Database schema diagrams</strong>: Showing the tables of a relational database
   tells me a lot about how a system works. When I create smaller web services,
-  I typically create a database schema diagram with the &ldquo;Designer&rdquo; feature of
-  phpMyAdmin &mdash; even if I don&rsquo;t use MySQL. I just like the designer 😅 Please
+  I typically create a database schema diagram with the “Designer” feature of
+  phpMyAdmin — even if I don’t use MySQL. I just like the designer 😅 Please
   let me know if you have an easier tool for that.</li>
 </ul>
 <p>Now, how does this prevent you from making mistakes?</p>
-<p>The image search with &ldquo;architecture fail&rdquo; gives you some ideas
+<p>The image search with “architecture fail” gives you some ideas
 (<a href="https://www.pinterest.de/pin/550213279445067754/">1</a>,
 <a href="https://www.pinterest.de/pin/AU1UDUS-wlPeLaIwDqQdtpWHVSMzk3Tw3_aYUHhiJfHMC4uxjB-MZs4/">2</a>,
 <a href="https://www.demilked.com/funny-architectural-nightmares/">3</a>):</p>
-<iframe frameborder="0" src="https://medium.com/media/0dc33aabfe51cbcd601aa6d10c988c29"></iframe>
+<iframe src="https://medium.com/media/0dc33aabfe51cbcd601aa6d10c988c29" frameborder=0></iframe>
+
 <p>The mistakes now seem blatantly obvious, but in between nobody noticed them.
 So either there was nobody checking or there was no good concept to actually
 see that there is an issue. The two design documents help you to make the
 mistakes obvious.</p>
 <h2 id="implementation-phase-your-editor">Implementation Phase: Your Editor</h2>
-<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2146/1*p-Wvxp7p8LTrlb5B3wH07Q.png"/><em>Image by Martin Thoma</em></p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2146/1*p-Wvxp7p8LTrlb5B3wH07Q.png"><em>Image by Martin Thoma</em></p>
 <p>I am a software developer for more than 15 years now. I still make stupid
-mistakes like forgetting that it&rsquo;s os.path.isfile and not os.isfile . Luckily,
-we don&rsquo;t need to remember all of the nitty-gritty details. Editors and IDEs do
-a lot for us. They can warn us if we use a variable we didn&rsquo;t declare in that
-scope. They can tell us that we created a variable we didn&rsquo;t use. They can
+mistakes like forgetting that it’s os.path.isfile and not os.isfile . Luckily,
+we don’t need to remember all of the nitty-gritty details. Editors and IDEs do
+a lot for us. They can warn us if we use a variable we didn’t declare in that
+scope. They can tell us that we created a variable we didn’t use. They can
 show us type-checking errors while we write.</p>
 <p>I absolutely love Visual Studio Code for Python development:
-<a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4"><strong>Visual Studio Code &mdash; Python Editors in Review</strong>
+<a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4"><strong>Visual Studio Code — Python Editors in Review</strong>
 <em>I think I fell in love</em>towardsdatascience.com</a></p>
 <p>But there are many other excellent editors for Python like
 <a href="https://medium.com/python-in-plain-english/pycharm-professional-python-editors-in-review-b978f0e5c4ba">PyCharm</a>
@@ -193,7 +188,7 @@ support you in exactly the same way.</p>
 <p>The point here is not to take a specific editor. The point is to make sure
 that you have one that works well for you. And hopefully captures the types of
 mistakes you typically make.</p>
-<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3406/1*LF8JxiMjqMaDm5sHOfBJFg.png"/><em>Image by Martin Thoma</em></p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/3406/1*LF8JxiMjqMaDm5sHOfBJFg.png"><em>Image by Martin Thoma</em></p>
 <h2 id="implementation-commit">Implementation: Commit</h2>
 <p>I sometimes do commits in a different editor, sometimes I miss an editor
 warning. Luckily, there is another safety line: pre-commit hooks.</p>
@@ -201,8 +196,8 @@ warning. Luckily, there is another safety line: pre-commit hooks.</p>
 They can do arbitrary changes and they can abort a commit. In combination with
 the Python package <a href="https://pre-commit.com/">pre-commit</a> they are
 extraordinarily convenient. You can pick from a large range of tools to be
-executed &mdash; and it doesn&rsquo;t even have to be Python. I&rsquo;ve created some on my own.
-If you want to learn more about pre-commit, I&rsquo;ve got you covered:
+executed — and it doesn’t even have to be Python. I’ve created some on my own.
+If you want to learn more about pre-commit, I’ve got you covered:
 <a href="https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e"><strong>Pre-commit hooks you must know</strong> <em>Boost your productivity and code quality
 in 5
 minutes</em>towardsdatascience.com</a></p>
@@ -221,19 +216,19 @@ it?</em>levelup.gitconnected.com</a></p>
 <h2 id="testing-code-review">Testing: Code Review</h2>
 <p>Code Reviews, peer reviews, and the <a href="https://en.wikipedia.org/wiki/Two-man_rule">two-man
 rule</a> all follow the same idea: A
-single person might miss something that another person sees. Sometimes you&rsquo;re
+single person might miss something that another person sees. Sometimes you’re
 so deep into a topic that you don't see obvious flaws. Peer reviews are a way
 to share knowledge and they can also work if a less-experienced developer
 reviews something of a senior developer. A good merge request (or pull
 request) does exactly one thing and contains some context why it is proposed.</p>
 <p>On Github, it looks <a href="https://github.com/OpenShot/openshot-qt/pull/3738">like this</a>:</p>
-<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2966/1*NgfyhQZVFRj1JZlLVGX2xQ.png"/><em>Image by Martin Thoma</em></p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2966/1*NgfyhQZVFRj1JZlLVGX2xQ.png"><em>Image by Martin Thoma</em></p>
 <p>You can see how many commits were done, talk with the person who proposed the
 change, ask questions, see the automatic checks of the CI pipeline, inspect
 every single change.</p>
 <h2 id="testing-non-prod-environments">Testing: Non-Prod Environments</h2>
 <p>The more complex your software becomes, the more services need to speak with
-each other, the more you REALLY don&rsquo;t want to deploy changes directly to your
+each other, the more you REALLY don’t want to deploy changes directly to your
 production environment. You want to have an environment that is almost
 identical to the production system, but no customer is affected if you break
 something. Those environments are typically called DEV or INTEGRATION or
@@ -246,20 +241,20 @@ are hard and expensive to test without releasing the software to real users.
 At some point, you have to release the change. But you can be smart about it.
 You can first release it to a group that is not so important to you. Maybe you
 first activate the change for your own employees. Or maybe there is a complete
-country that is less relevant to your business. I&rsquo;ve heard that Facebook first
+country that is less relevant to your business. I’ve heard that Facebook first
 deploys new features to Brazil to test if they are working before they go live
 in the US. I might mix up something as I cannot find a reference, though.</p>
-<p>This procedure is called &ldquo;canary release&rdquo; or &ldquo;canary testing&rdquo;. To quote <a href="https://martinfowler.com/bliki/CanaryRelease.html">Danilo Sato</a>:</p>
+<p>This procedure is called “canary release” or “canary testing”. To quote <a href="https://martinfowler.com/bliki/CanaryRelease.html">Danilo Sato</a>:</p>
 <blockquote>
 <h1 id="canary-release-is-a-technique-to-reduce-the-risk-of-introducing-a-new-software-version-in-production-by-slowly-rolling-out-the-change-to-a-small-subset-of-users-before-rolling-it-out-to-the-entire-infrastructure-and-making-it-available-to-everybody"><strong>Canary release</strong> is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.</h1>
 </blockquote>
 <p>Of course, that only works if you have a certain scale. But releasing often
 and releasing smaller changes is a good idea.</p>
-<h2 id="now-what-do-others-say">Now &hellip; what do others say?</h2>
+<h2 id="now-what-do-others-say">Now … what do others say?</h2>
 <p>When I read about shift-left and the different phases you have (from
 right-to-left) it sounded very much like a waterfall approach. The authors
-probably didn&rsquo;t intend that, but that is what I read when I only see &ldquo;project
-phases&rdquo; like (1) Requirements (2) Design (3) Code (4) Test (5) Acceptance (6)
+probably didn’t intend that, but that is what I read when I only see “project
+phases” like (1) Requirements (2) Design (3) Code (4) Test (5) Acceptance (6)
 Production (7) Maintenance. Most documents focus on where the error appears,
 but I focused on how you can prevent it. Most articles seem to take a
 management perspective, but I have a developer's perspective.</p>
@@ -268,11 +263,11 @@ management perspective, but I have a developer's perspective.</p>
 <ol>
 <li>Strategies to communicate ideas internally</li>
 <li>How the editor can prevent typos and other stupid mistakes</li>
-<li>Pre-commit hooks &mdash; might prevent you from <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">leaking secrets</a></li>
+<li>Pre-commit hooks — might prevent you from <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">leaking secrets</a></li>
 <li>Enforcing code quality with a CI pipeline</li>
 <li>Value your peers; support them by thorough reviews</li>
 <li>Non-Prod environments are necessary if you have many interacting services</li>
-<li>Canary releases are pretty cool if you&rsquo;re big enough</li>
+<li>Canary releases are pretty cool if you’re big enough</li>
 </ol>
 <p>Now write some high-quality awesome stuff!</p>
             

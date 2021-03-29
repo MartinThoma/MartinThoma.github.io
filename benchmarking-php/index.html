@@ -107,11 +107,12 @@ MathJax.Hub.Queue(function() {
             
             <p>I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in.</p>
 <p>If you like to view some more, go to <a href="http://www.phpbench.com/" rel="nofollow">www.phpbench.com</a>.</p>
-<p>The most important options are:
+<p>The most important options are:</p>
 <ul>
-<li>-n: Number of requests to perform</li>
-<li>-c: Number of multiple requests to make</li>
-</ul></p>
+    <li>-n: Number of requests to perform</li>
+    <li>-c: Number of multiple requests to make</li>
+</ul>
+
 <p>An empty file:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07:~$ ab localhost/empty.php
 This is ApacheBench, Version <span class="m">2</span>.3 <span class="p">&amp;</span>amp<span class="p">;</span>lt<span class="p">;</span><span class="nv">$Revision</span>: <span class="m">655654</span> $<span class="p">&amp;</span>amp<span class="p">;</span>gt<span class="p">;</span>
@@ -147,9 +148,11 @@ Processing:     <span class="m">2</span>    <span class="m">2</span>   <span cla
 Waiting:        <span class="m">0</span>    <span class="m">0</span>   <span class="m">0</span>.0      <span class="m">0</span>       <span class="m">0</span>
 Total:          <span class="m">2</span>    <span class="m">2</span>   <span class="m">0</span>.0      <span class="m">2</span>       <span class="m">2</span>
 </code></pre></div>
+
 <p>Now I make 1000 requests to this empty file:</p>
 <div class="highlight"><pre><span></span><code>ab -n <span class="m">1000</span> -c <span class="m">1</span> localhost/empty.php
 </code></pre></div>
+
 <p>Time per request:       1.158 [ms] (mean)</p>
 <p>With a document of two bytes, I get 1.324 ms. A HTML-Document with 300 kB has 4.287 ms.</p>
 <p>Now I'll begin the test I'm interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I'll make 10000 requests per Benchmark:</p>
@@ -163,17 +166,19 @@ Total:          <span class="m">2</span>    <span class="m">2</span>   <span cla
 <span class="x">                    @count($MyArray[$i*7+5]),</span>
 <span class="x">                    @count($MyArray[$i*7+6])</span>
 <span class="x">                   );</span>
-<span class="x">    echo $maximum.' ';</span>
+<span class="x">    echo $maximum.&#39; &#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
+
 <p>1.817 ms</p>
 <div class="highlight"><pre><span></span><code><span class="x">for($i=0; $i&lt;5; $i++) {</span>
 <span class="x">    $chunk = array_intersect_key($MyArray, array($i*7=&gt;1, $i*7+1=&gt;2, $i*7+2=&gt;3, $i*7+3=&gt;4, $i*7+4=&gt;5, $i*7+5=&gt;6));</span>
-<span class="x">    if(count($chunk) &gt; 0){$maximum = max(array_map('count', $chunk));}</span>
+<span class="x">    if(count($chunk) &gt; 0){$maximum = max(array_map(&#39;count&#39;, $chunk));}</span>
 <span class="x">    else {$maximum = 0;}</span>
-<span class="x">    echo $maximum.' ';</span>
+<span class="x">    echo $maximum.&#39; &#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
+
 <p>1.801 ms</p>
 <div class="highlight"><pre><span></span><code><span class="x">for($i=0;$i&lt;5;$i++){</span>
 <span class="x">    $arr = array();</span>
@@ -182,9 +187,10 @@ Total:          <span class="m">2</span>    <span class="m">2</span>   <span cla
 <span class="x">        else {$arr[] = 0;}</span>
 <span class="x">    }</span>
 <span class="x">    $maximum = max($arr);</span>
-<span class="x">    echo $maximum.' ';</span>
+<span class="x">    echo $maximum.&#39; &#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
+
 <p>1.742 ms</p>
             
             <div id="disqus_thread" class="no-print"></div>

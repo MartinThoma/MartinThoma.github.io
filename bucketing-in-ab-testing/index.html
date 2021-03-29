@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Bucketing users in two groups is a key part in A/B testing. We need to randomly
@@ -128,12 +122,12 @@ the variation as value.</p>
     <span class="n">variation</span> <span class="o">=</span> <span class="n">key_value_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">variation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># The user_id was not in the key_value_store</span>
-        <span class="n">variation</span> <span class="o">=</span> <span class="n">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="p">{</span><span class="s2">"A"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">})</span>
+        <span class="n">variation</span> <span class="o">=</span> <span class="n">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">variation</span>
 
 
 <span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Assign the user_id to a variant.</span>
 
 <span class="sd">    Parameters</span>
@@ -145,7 +139,7 @@ the variation as value.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    variant : str</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
     <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
     <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -155,6 +149,7 @@ the variation as value.</p>
         <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
     <span class="k">return</span> <span class="n">variant</span>
 </code></pre></div>
+
 <p>In case the <code>user_id</code> is not an integer, you have two ways to assign one:</p>
 <ol>
 <li>Have another table mapping the strings to the numbers, counting up from 0.</li>
@@ -172,7 +167,7 @@ the random number generator while still having (pseudo) random numbers.</p>
 
 
 <span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Assign the user_id to a variant.</span>
 
 <span class="sd">    Parameters</span>
@@ -184,7 +179,7 @@ the random number generator while still having (pseudo) random numbers.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    variant : str</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
     <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
     <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
@@ -195,6 +190,7 @@ the random number generator while still having (pseudo) random numbers.</p>
         <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
     <span class="k">return</span> <span class="n">variant</span>
 </code></pre></div>
+
 <p>Please note that this has another nice property: If you change the distribution
 slightly, then as many users as possible keep what they have.</p>
 <p>A potential problematic property: Always the same users get to be in the "A"
@@ -211,7 +207,7 @@ brittle or have flaws.</p>
 <span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span>
     <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">test_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Assign the user_id to a variant.</span>
 
 <span class="sd">    Parameters</span>
@@ -224,7 +220,7 @@ brittle or have flaws.</p>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    variant : str</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
     <span class="n">seed</span> <span class="o">=</span> <span class="n">mmh3</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">user_id</span> <span class="o">+</span> <span class="n">test_name</span><span class="p">)</span>
     <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
@@ -236,6 +232,7 @@ brittle or have flaws.</p>
         <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
     <span class="k">return</span> <span class="n">variant</span>
 </code></pre></div>
+
 <h2 id="random-number-generators">Random Number Generators</h2>
 <p>We might want to generate the variations across multiple systems. Most of the
 code above is trivial to execute in any programming language. However, the
@@ -245,59 +242,60 @@ differences in the random number generators.</p>
 <p>A Pseudo-Random Number Generator (RNG) is a key component for the described
 solution. In the following is a list of the components:</p>
 <table class="table">
-<thead>
-<tr>
-<th>Name</th>
-<th>Seed</th>
-<th>Neighboring Seeds</th>
-<th>Used By</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
-<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
-<td style="background-color: #ccffcc">Different results</td>
-<td><a href="https://docs.python.org/3/library/random.html">Python 2.3 to 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
-</tr>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
-<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
-<td style="background-color: #ffd3d3">Similar results</td>
-<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
-</tr>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
-<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
-<td class="text-center">?</td>
-<td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
-</tr>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a></td>
-<td class="text-center">?</td>
-<td class="text-center">?</td>
-<td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
-</tr>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Xorshift">xorshift128+</a></td>
-<td class="text-center">?</td>
-<td class="text-center">?</td>
-<td><a href="https://v8.dev/blog/math-random">JavaScript (V8)</a></td>
-</tr>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Xoroshiro128%2B">Xoroshiro128+</a></td>
-<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
-<td style="background-color: #ccffcc">Different results</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://en.wikipedia.org/wiki/Counter-based_random_number_generator_(CBRNG)">Threefry / Philox</a></td>
-<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
-<td style="background-color: #ccffcc">Different results</td>
-<td></td>
-</tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Seed</th>
+            <th>Neighboring Seeds</th>
+            <th>Used By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ccffcc">Different results</td>
+            <td><a href="https://docs.python.org/3/library/random.html">Python 2.3 to 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ffd3d3">Similar results</td>
+            <td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td class="text-center">?</td>
+            <td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a></td>
+            <td class="text-center">?</td>
+            <td class="text-center">?</td>
+            <td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Xorshift">xorshift128+</a></td>
+            <td class="text-center">?</td>
+            <td class="text-center">?</td>
+            <td><a href="https://v8.dev/blog/math-random">JavaScript (V8)</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Xoroshiro128%2B">Xoroshiro128+</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ccffcc">Different results</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Counter-based_random_number_generator_(CBRNG)">Threefry / Philox</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ccffcc">Different results</td>
+            <td></td>
+        </tr>
+    </tbody>
 </table>
+
 <p>I cannot properly judge the statistical quality of those, but I recommend
 reading <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> and <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p>However, I tried <a href="https://pypi.org/project/java-random/"><code>java-random</code></a> and
@@ -306,43 +304,44 @@ What you see is 1000 random numbers generated. The colum is the seed, the row
 are 1000 consecutive random numbers. Clearly, the numpy and the Python version
 look better:</p>
 <table class="table">
-<thead>
-<tr>
-<th>Java</th>
-<th>Python</th>
-<th>Numpy (PCG64)</th>
-</tr>
-</thead>
-<tr>
-<td><a href="../images/2019/11/1000-random-numbers-java.png"><img alt="Java Pseudo-Random Number Generator" height="300" src="../images/2019/11/1000-random-numbers-java.png" width="300"/></a></td>
-<td><a href="../images/2019/11/1000-random-numbers-python.png"><img alt="Python Pseudo-Random Number Generator" height="300" src="../images/2019/11/1000-random-numbers-python.png" width="300"/></a></td>
-<td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img alt="Numpy Pseudo-Random Number Generator" height="300" src="../images/2019/11/1000-random-numbers-numpy.png" width="300"/></a></td>
-</tr>
-<tr>
-<td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
-<td colspan="2">This is how it should look like - no pattern to be seen.</td>
-</tr>
-<tr>
-<th>MT19937</th>
-<th>Philox</th>
-<th>Xoroshiro128</th>
-</tr>
-<tr>
-<td><a href="../images/2019/11/1000-random-numbers-MT19937.png"><img alt="MT19937 PRNG" height="300" src="../images/2019/11/1000-random-numbers-MT19937.png" width="300"/></a></td>
-<td><a href="../images/2019/11/1000-random-numbers-Philox.png"><img alt="Philox PRNG" height="300" src="../images/2019/11/1000-random-numbers-Philox.png" width="300"/></a></td>
-<td><a href="../images/2019/11/1000-random-numbers-Xoroshiro128.png"><img alt="Xoroshiro128 PRNG" height="300" src="../images/2019/11/1000-random-numbers-Xoroshiro128.png" width="300"/></a></td>
-</tr>
-<tr>
-<th>SFC64</th>
-<th>Xorshift1024</th>
-<th>ThreeFry</th>
-</tr>
-<tr>
-<td><a href="../images/2019/11/1000-random-numbers-SFC64.png"><img alt="SFC64 PRNG" height="300" src="../images/2019/11/1000-random-numbers-SFC64.png" width="300"/></a></td>
-<td><a href="../images/2019/11/1000-random-numbers-Xorshift1024.png"><img alt="Xorshift1024 PRNG" height="300" src="../images/2019/11/1000-random-numbers-Xorshift1024.png" width="300"/></a></td>
-<td><a href="../images/2019/11/1000-random-numbers-ThreeFry.png"><img alt="ThreeFry PRNG" height="300" src="../images/2019/11/1000-random-numbers-ThreeFry.png" width="300"/></a></td>
-</tr>
+    <thead>
+    <tr>
+        <th>Java</th>
+        <th>Python</th>
+        <th>Numpy (PCG64)</th>
+    </tr>
+    </thead>
+    <tr>
+        <td><a href="../images/2019/11/1000-random-numbers-java.png"><img src="../images/2019/11/1000-random-numbers-java.png" alt="Java Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-python.png"><img src="../images/2019/11/1000-random-numbers-python.png" alt="Python Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img src="../images/2019/11/1000-random-numbers-numpy.png" alt="Numpy Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+    </tr>
+    <tr>
+        <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
+        <td colspan="2">This is how it should look like - no pattern to be seen.</td>
+    </tr>
+    <tr>
+        <th>MT19937</th>
+        <th>Philox</th>
+        <th>Xoroshiro128</th>
+    </tr>
+    <tr>
+        <td><a href="../images/2019/11/1000-random-numbers-MT19937.png"><img src="../images/2019/11/1000-random-numbers-MT19937.png" alt="MT19937 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Philox.png"><img src="../images/2019/11/1000-random-numbers-Philox.png" alt="Philox PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Xoroshiro128.png"><img src="../images/2019/11/1000-random-numbers-Xoroshiro128.png" alt="Xoroshiro128 PRNG" width="300" height="300"/></a></td>
+    </tr>
+    <tr>
+        <th>SFC64</th>
+        <th>Xorshift1024</th>
+        <th>ThreeFry</th>
+    </tr>
+    <tr>
+        <td><a href="../images/2019/11/1000-random-numbers-SFC64.png"><img src="../images/2019/11/1000-random-numbers-SFC64.png" alt="SFC64 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Xorshift1024.png"><img src="../images/2019/11/1000-random-numbers-Xorshift1024.png" alt="Xorshift1024 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-ThreeFry.png"><img src="../images/2019/11/1000-random-numbers-ThreeFry.png" alt="ThreeFry PRNG" width="300" height="300"/></a></td>
+    </tr>
 </table>
+
 <p>Security in the sense of predictability of the sequence is also an important
 property in many contexts. In the context of A/B-Testing, however, it does not
 matter. State size is also interesting.</p>
@@ -354,31 +353,31 @@ library) where you execute the bucketing. Once you have more, you need to take
 care of how <code>random.random()</code> actually works</p>
 <h2 id="see-also">See also</h2>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
-<p><a href="http://www.pcg-random.org/">Random Number Generator Overview</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p><a href="http://www.pcg-random.org/">Random Number Generator Overview</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Melissa E. O'Neill: <a href="https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a>, 2014.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>Melissa E. O'Neill: <a href="https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Babu, Thomas: <a href="https://arxiv.org/abs/1802.03201">Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks</a>, 2018.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Babu, Thomas: <a href="https://arxiv.org/abs/1802.03201">Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+<p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Dario Gieselaar: <a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">The Engineering Problem of A/B Testing</a>, 2019. - Just a nice post about A/B Testing in general.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">↩</a></p>
+<p>Dario Gieselaar: <a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">The Engineering Problem of A/B Testing</a>, 2019. - Just a nice post about A/B Testing in general.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/">Bit Generators</a>&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">↩</a></p>
+<p><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/">Bit Generators</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>PyPI: <a href="https://pypi.org/project/randomgen/">randomgen</a>&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">↩</a></p>
+<p>PyPI: <a href="https://pypi.org/project/randomgen/">randomgen</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:8">
-<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">List of random number generators</a>&nbsp;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">↩</a></p>
+<p>Wikipedia: <a href="https://en.wikipedia.org/wiki/List_of_random_number_generators">List of random number generators</a>&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

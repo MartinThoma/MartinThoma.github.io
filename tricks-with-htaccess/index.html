@@ -102,65 +102,56 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#enable htaccess-files" title="
-Enable htaccess-files">
-Enable htaccess-files</a></li><li><a class="toc-href" href="#enable expireson / mod_rewrite" title="
-Enable ExpiresOn / mod_rewrite">
-Enable ExpiresOn / mod_rewrite</a></li><li><a class="toc-href" href="#prevent or allow directory listing" title="
-Prevent or allow directory listing">
-Prevent or allow directory listing</a></li><li><a class="toc-href" href="#prevent hot linking" title="
-Prevent Hot Linking">
-Prevent Hot Linking</a></li><li><a class="toc-href" href="#prevent direct access" title="
-Prevent Direct Access">
-Prevent Direct Access</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>If your Website is running on an Apache2 Webserver, you can change the behavior of this server with .htaccess-files.</p>
 <p>Here are some examples:</p>
-<h2 id="enable htaccess-files">
+<h2>
 Enable htaccess-files</h2>
 <p>Set <a href="http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride" rel="nofollow">AllowOverride</a> to "All":</p>
 <div class="highlight"><pre><span></span><code>sudo gedit /etc/apache2/sites-available/default
 </code></pre></div>
+
 <p>Restart Apache:</p>
 <div class="highlight"><pre><span></span><code>sudo /etc/init.d/apache2 reload
 </code></pre></div>
-<h2 id="enable expireson / mod_rewrite">
+
+<h2>
 Enable ExpiresOn / mod_rewrite</h2>
 <p>This is for Ubuntu:</p>
 <div class="highlight"><pre><span></span><code>sudo a2enmod
 rewrite expires
 sudo /etc/init.d/apache2 restart
 </code></pre></div>
-<h2 id="prevent or allow directory listing">
+
+<h2>
 Prevent or allow directory listing</h2>
 <p>Add the following line to your .htaccess-file to allow directory listing:</p>
 <div class="highlight"><pre><span></span><code>Options +Indexes
 </code></pre></div>
+
 <p>Add the following line to your .htaccess-file to prevent directory listing:</p>
 <div class="highlight"><pre><span></span><code>Options -Indexes
 </code></pre></div>
-<h2 id="prevent hot linking">
+
+<h2>
 Prevent Hot Linking</h2>
+
 <div class="highlight"><pre><span></span><code>RewriteEngine on
 RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^$
 RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^http://<span class="o">(</span>www.<span class="o">)</span>?your-domain.com/.*$ <span class="o">[</span>NC<span class="o">]</span>
 RewriteRule <span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpe?g<span class="p">|</span>png<span class="o">)</span>$ - <span class="o">[</span>F<span class="o">]</span>
 </code></pre></div>
-<h2 id="prevent direct access">
+
+<h2>
 Prevent Direct Access</h2>
 <p>If you include some files with PHP, you might want that others can't access this file directly. So add the following to your .htaccess-file:</p>
-<div class="highlight"><pre><span></span><code>&lt;FilesMatch <span class="s2">"\.(inc)\.(php)</span>$<span class="s2">"</span>&gt;
+<div class="highlight"><pre><span></span><code>&lt;FilesMatch <span class="s2">&quot;\.(inc)\.(php)</span>$<span class="s2">&quot;</span>&gt;
     Order deny,allow
     Deny from all
 &lt;/FilesMatch&gt;
-&lt;FilesMatch <span class="s2">"\.(tpl)</span>$<span class="s2">"</span>&gt;
+&lt;FilesMatch <span class="s2">&quot;\.(tpl)</span>$<span class="s2">&quot;</span>&gt;
     Order deny,allow
     Deny from all
 &lt;/FilesMatch&gt;

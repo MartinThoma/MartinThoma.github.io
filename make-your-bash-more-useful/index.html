@@ -102,37 +102,34 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#change the prompt" title="Change the prompt">Change the prompt</a></li><li><a class="toc-href" href="#aliases" title="Aliases">Aliases</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I just had the problem, that the bash prompt of my universities
 computer I've connected to via SSH looked like this:
 <code>bash-4.0$</code></p>
-<h2 id="change the prompt">Change the prompt</h2>
+<h2>Change the prompt</h2>
 <p>I think it's much more useful to see the path you're currently using.
 To get the current path in your bash promt, you have to add the
 following snippet to your <code>.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This will limit the path to 30 characters.</span>
-<span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">'if [ ${#PWD} -gt 30 ]; then</span>
+<span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">&#39;if [ ${#PWD} -gt 30 ]; then</span>
 <span class="s1">myPWD=${PWD:0:12}...</span>
-<span class="s1">${PWD:${#PWD}-15}; else myPWD=$PWD; fi'</span>
-<span class="nv">PS1</span><span class="o">=</span><span class="s2">"\u@\h \$myPWD</span>$<span class="s2"> "</span>
+<span class="s1">${PWD:${#PWD}-15}; else myPWD=$PWD; fi&#39;</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\u@\h \$myPWD</span>$<span class="s2"> &quot;</span>
 </code></pre></div>
+
 <p>(Source: <a href="http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">cyberciti.biz</a>)</p>
 <p>Reload your bash config with <code>source .bashrc</code> and you should
 instantly see the changes.</p>
-<h2 id="aliases">Aliases</h2>
+<h2>Aliases</h2>
+
 <div class="highlight"><pre><span></span><code><span class="c1"># Add color to ls</span>
-<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s2">"ls --color"</span>
+<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s2">&quot;ls --color&quot;</span>
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code><span class="c1"># simply update an svn-repository</span>
-<span class="nb">alias</span> <span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
+<span class="nb">alias</span> <span class="nv">swt</span><span class="o">=</span><span class="s1">&#39;svn up /home/moose/Studium/SWT&#39;</span>
 </code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>

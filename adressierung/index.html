@@ -100,27 +100,23 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#allgemeines" title="Allgemeines">Allgemeines</a></li><li><a class="toc-href" href="#physical address and virtual address" title="Physical address and virtual address">Physical address and virtual address</a></li><li><a class="toc-href" href="#cache-modelle" title="Cache-Modelle">Cache-Modelle</a><ul><li><a class="toc-href" href="#physically-indexed-physically-tagged" title="Physically Indexed, Physically Tagged">Physically Indexed, Physically Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-physically-tagged" title="Virtually indexed, physically tagged">Virtually indexed, physically tagged</a></li><li><a class="toc-href" href="#physically-indexed-virtually-tagged" title="Physically Indexed / Virtually Tagged">Physically Indexed / Virtually Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-virtually-tagged" title="Virtually Indexed / Virtually Tagged">Virtually Indexed / Virtually Tagged</a></li></ul></li><li><a class="toc-href" href="#quellen_1" title="Quellen">Quellen</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
+
 <h2 id="allgemeines">Allgemeines</h2>
 <p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
 <p>Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped
 cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tlich noch
 schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man
-gedanklich die Hauptspeicheradressen in 3 Teile:
+gedanklich die Hauptspeicheradressen in 3 Teile:</p>
 <ul>
-<li>Tag</li>
-<li>Index</li>
-<li>Block-Offset</li>
-</ul></p>
+    <li>Tag</li>
+    <li>Index</li>
+    <li>Block-Offset</li>
+</ul>
+
 <p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer
 Hauptspeicheradresse landen werden. Es w&auml;re also z.B. m&ouml;glich, die
 Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu
@@ -128,12 +124,13 @@ legen, der die entsprechende Cache-Zeile durchschaltet.</p>
 <p>Es gilt also: Index-L&auml;nge in Bit = <span class="math">\(\log_2(\text{Cache-Zeilen})\)</span></p>
 <p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile
 landen. Um diese unterscheiden zu k&ouml;nnen, speichert man folgendes in einer
-Cache-Zeile:
+Cache-Zeile:</p>
 <ul>
-<li>Tag</li>
-<li>Datenblock</li>
-<li>Flags</li>
-</ul></p>
+    <li>Tag</li>
+    <li>Datenblock</li>
+    <li>Flags</li>
+</ul>
+
 <p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.
 Ben&ouml;tigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
 der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.
@@ -141,7 +138,7 @@ Wenn dann die Tags &uuml;bereinstimmen, ist es die richtige Adresse und man
 kann die Daten aus dem Cache entnehmen.</p>
 <p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen
 zusammenfasst, muss gelten:</p>
-<p>Gr&ouml;&szlig;e der Cache-Zeile <span class="math">\(= 2^{\text{L&auml;nge des Block-offsets}} \cdot\)</span>
+<p>Gr&ouml;&szlig;e der Cache-Zeile <span class="math">\(= 2^{\text{Länge des Block-offsets}} \cdot\)</span>
 Gr&ouml;&szlig;e des Inhalts einer Hauptspeicheradresse</p>
 <p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
 <p>Der Tag muss aktiv im Cache gespeichert werden und die L&auml;nge des Tags im
@@ -153,22 +150,24 @@ Hauptspeicher-Adresse w&uuml;rde dann nur in Tag und Block-Offset geteilt
 werden.</p>
 <p>Bei einem <span class="math">\(n\)</span>-fach Satzassoziativem Cache gibt es <span class="math">\(\frac{\text{Cachzeilen}}{n}\)</span> S&auml;tze mit jeweils <span class="math">\(n\)</span> Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
 <ol>
-<li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird ben&ouml;tigt</li>
-<li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br/>
+    <li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird ben&ouml;tigt</li>
+    <li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br/>
     Dieser Satz wird zu den $n$ Vergleichern durchgeschaltet</li>
-<li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
-<li>Wird die Adresse gefunden &rarr; Cache Hit<br/>
+    <li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
+    <li>Wird die Adresse gefunden &rarr; Cache Hit<br/>
     Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
 </ol>
-<h2 id="physical address and virtual address">Physical address and virtual address</h2>
+
+<h2>Physical address and virtual address</h2>
 <p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es m&ouml;glich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verf&uuml;gung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space k&ouml;nnen sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Au&szlig;erdem will man Speicherschutz herstellen.
 Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum ist sehr gro&szlig;. Der virtuelle Adressraum ist in Bl&ouml;cke (Pages) unterteilt und die Pages werden von langsamen, aber gro&szlig;en auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
-<p>Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, sollte man sich folgendes anschauen:
+<p>Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, sollte man sich folgendes anschauen:</p>
 <ul>
-<li>/proc/swaps</li>
-<li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erkl&auml;rungen zu meminfo</a></li>
-<li><code>vmstat -s</code></li>
-</ul></p>
+  <li>/proc/swaps</li>
+  <li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erkl&auml;rungen zu meminfo</a></li>
+  <li><code>vmstat -s</code></li>
+</ul>
+
 <h2 id="cache-modelle">Cache-Modelle</h2>
 <p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:</p>
 <h3 id="physically-indexed-physically-tagged">Physically Indexed, Physically Tagged</h3>
@@ -176,24 +175,26 @@ Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum i
 <h3 id="virtually-indexed-physically-tagged">Virtually indexed, physically tagged</h3>
 <p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag &uuml;berpr&uuml;fen kann.</p>
 <div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+
 <h3 id="physically-indexed-virtually-tagged">Physically Indexed / Virtually Tagged</h3>
 <p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
 <h3 id="virtually-indexed-virtually-tagged">Virtually Indexed / Virtually Tagged</h3>
 <p>Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)</p>
-<h2 id="quellen_1">Quellen</h2>
+<h2 id="quellen">Quellen</h2>
 <ul>
-<li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
-<li><a href="http://de.wikipedia.org/wiki/Virtuelle_Adresse#Motivation">Virtuelle Adresse</a></li>
-<li><a href="http://en.wikipedia.org/wiki/CPU_cache">CPU cache</a></li>
-<li><a href="http://lwn.net/Articles/106177/">Four-level page tables</a></li>
-<li><a href="http://bottomupcs.sourceforge.net/csbu/x2816.htm">Linux Specifics: Address Space Layout</a></li>
-<li><a href="http://www.ecst.csuchico.edu/~hilzer/csci152/htm/EAT-TLB.htm">Some example assignments</a> (Memory access times, With and without TLBs)</li>
+  <li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
+  <li><a href="http://de.wikipedia.org/wiki/Virtuelle_Adresse#Motivation">Virtuelle Adresse</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/CPU_cache">CPU cache</a></li>
+  <li><a href="http://lwn.net/Articles/106177/">Four-level page tables</a></li>
+  <li><a href="http://bottomupcs.sourceforge.net/csbu/x2816.htm">Linux Specifics: Address Space Layout</a></li>
+  <li><a href="http://www.ecst.csuchico.edu/~hilzer/csci152/htm/EAT-TLB.htm">Some example assignments</a> (Memory access times, With and without TLBs)</li>
 </ul>
+
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
-<p><a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p><a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

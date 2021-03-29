@@ -102,30 +102,24 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-do-we-need-mutation-testing" title="Why do we need mutation testing?">Why do we need mutation testing?</a></li><li><a class="toc-href" href="#which-mutation-testing-tools-are-there" title="Which mutation testing tools are there?">Which mutation testing tools are there?</a></li><li><a class="toc-href" href="#why-isnt-branch-and-line-coverage-enough" title="Why isn&rsquo;t branch and line coverage enough?">Why isn&rsquo;t branch and line coverage enough?</a></li><li><a class="toc-href" href="#create-the-mutants" title="Create the mutants!">Create the mutants!</a></li><li><a class="toc-href" href="#which-mutations-are-applied" title="Which mutations are applied?">Which mutations are applied?</a></li><li><a class="toc-href" href="#how-can-i-get-a-html-report-with-mutmut" title="How can I get a HTML report with mutmut?">How can I get a HTML report with mutmut?</a></li><li><a class="toc-href" href="#mutation-testing-for-machine-learning-systems" title="Mutation Testing for Machine Learning Systems">Mutation Testing for Machine Learning Systems</a></li><li><a class="toc-href" href="#want-to-know-more-about-unit-testing" title="Want to know more about unit testing?">Want to know more about unit testing?</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="Based on the Monster Character set by macrovector" src="https://cdn-images-1.medium.com/max/2400/1*WjcywqTPozcMSvrLYsQBJQ.png"/><em>Based on the <a href="https://www.freepik.com/free-vector/monster-character-set_1538770.htm">Monster Character set</a> by <a href="https://www.freepik.com/macrovector">macrovector</a></em></p>
-<p>We need to kill the mutants &mdash; no, I&rsquo;m not a villain from the X-Men comics. I&rsquo;m
+            <p><img alt="Based on the Monster Character set by macrovector" src="https://cdn-images-1.medium.com/max/2400/1*WjcywqTPozcMSvrLYsQBJQ.png"><em>Based on the <a href="https://www.freepik.com/free-vector/monster-character-set_1538770.htm">Monster Character set</a> by <a href="https://www.freepik.com/macrovector">macrovector</a></em></p>
+<p>We need to kill the mutants — no, I’m not a villain from the X-Men comics. I’m
 a software engineer who wants to improve unit tests.</p>
 <p>In this article you will learn what mutation testing is and how it can help you
 to write better tests. The examples are for Python, but the concepts hold in
 general and in the end I have a list of tools in other languages.</p>
 <h2 id="why-do-we-need-mutation-testing">Why do we need mutation testing?</h2>
-<p>Unit tests have the issue that it&rsquo;s unclear when your tests are good enough. Do
+<p>Unit tests have the issue that it’s unclear when your tests are good enough. Do
 you cover the important edge cases? How do you test the quality of your unit
 tests?</p>
 <p>Typical mistakes are slight confusions. Accessing <code>list[i]</code> instead of
 <code>list[i-1]</code>, letting the loop run for <code>i &lt; n</code> instead of <code>i &lt;= n</code>, initializing
 a variable with None instead of the empty string. There are a lot of those
-slight changes which are usually just called &ldquo;<strong>typos</strong>&rdquo; or &ldquo;<strong>off-by-one</strong>&rdquo;
-mistakes. When I make them, I often didn&rsquo;t think about the part thoroughly
+slight changes which are usually just called “<strong>typos</strong>” or “<strong>off-by-one</strong>”
+mistakes. When I make them, I often didn’t think about the part thoroughly
 enough.</p>
 <p><strong>Mutation testing tests your unit tests</strong>. The key idea is to apply those
 minor changes and run the unit tests that could fail. If a unit test fails, the
@@ -136,10 +130,11 @@ mutation test as an alternative to test coverage. In contrast to test coverage,
 the mutation testing toolkit can directly show you places and types of mistakes
 you would not cover right now.</p>
 <h2 id="which-mutation-testing-tools-are-there">Which mutation testing tools are there?</h2>
-<p>There are a couple of tools like cosmic-ray, but <a href="undefined">Anders Hovm&ouml;ller</a> did a pretty amazing job by creating mutmut. As of August 2020, mutmut is the best library for Python to do mutation testing.</p>
+<p>There are a couple of tools like cosmic-ray, but <a href="undefined">Anders Hovmöller</a> did a pretty amazing job by creating mutmut. As of August 2020, mutmut is the best library for Python to do mutation testing.</p>
 <p>To run the examples in this article, you have to install <a href="https://pypi.org/project/mutmut/">mutmut</a>:</p>
 <div class="highlight"><pre><span></span><code>pip install mutmut
 </code></pre></div>
+
 <p>In other languages, you might want to try these:</p>
 <ul>
 <li>C / C++: <a href="https://github.com/mull-project/mull">mull</a></li>
@@ -150,11 +145,11 @@ you would not cover right now.</p>
 <li>Rust: <a href="https://github.com/llogiq/mutagen">mutagen</a></li>
 <li>Swift: <a href="https://github.com/muter-mutation-testing/muter">muter</a></li>
 </ul>
-<h2 id="why-isnt-branch-and-line-coverage-enough">Why isn&rsquo;t branch and line coverage enough?</h2>
+<h2 id="why-isnt-branch-and-line-coverage-enough">Why isn’t branch and line coverage enough?</h2>
 <p>It is pretty easy to get to a high line coverage by creating bad tests. For
 example, take this code:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sd">"""Get the n-th Fibonacci number, starting with 0 and 1."""</span>
+    <span class="sd">&quot;&quot;&quot;Get the n-th Fibonacci number, starting with 0 and 1.&quot;&quot;&quot;</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -164,6 +159,7 @@ example, take this code:</p>
 <span class="k">def</span> <span class="nf">test_fibonacci</span><span class="p">():</span>
     <span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
+
 <p>This smoke test already adds some value as it makes sure that things are not
 crashing for a single input. However, it would not find any logic bug. There is
 an assert statement missing. This pattern can quickly drive up the line
@@ -173,6 +169,7 @@ example, initialize b with 0 instead of 1:</p>
 <div class="highlight"><pre><span></span><code>- a, b = 0, 1
 + a, b = 0, 0
 </code></pre></div>
+
 <p>The test would still succeed and thus the mutant would survive. Which means the
 mutation testing framework would complain that this line was not properly
 tested. In other words:</p>
@@ -208,18 +205,21 @@ Legend for output:
 2. Checking mutants
 ⠸ 1818/1818  🎉 1303  ⏰ 1  🤔 6  🙁 508  🔇 0
 </code></pre></div>
+
 <p>This takes over 1.5 hours for mpu. mpu is a small project, with only about 2000
 lines of code:</p>
 <div class="highlight"><pre><span></span><code>Language     files          blank        comment        code
 ---------------------------------------------------------------
 Python       22            681           1399           2046
 </code></pre></div>
+
 <p>One pytest run of the mpu example project takes roughly 9 seconds and the
 slowest 3 tests are:</p>
 <div class="highlight"><pre><span></span><code>1.03s call     tests/test_main.py::test_parallel_for
 0.80s call     tests/test_string.py::test_is_email
 0.41s call     tests/test_io.py::test_download_without_path
 </code></pre></div>
+
 <p>In the end, you will see how many mutants were successfully killed (🎉), how
 many received a timeout (⏰) and which ones survived (😕). Especially the timeout
 ones are annoying as they make the mutmut runs slower, but the code and the
@@ -235,30 +235,33 @@ tests might still be fine.</p>
   number mutations try to capture mistakes in this area.</li>
 <li><strong>Name mutations</strong>: The name mutations capture copy vs deepcopy and "" vs None .</li>
 <li><strong>Argument mutations</strong>: Replaces keyword arguments one by one from dict(a=b) to dict(aXXX=b).</li>
-<li><strong>or_test and and_test</strong>: and &harr; or</li>
+<li><strong>or_test and and_test</strong>: and ↔ or</li>
 <li><strong>String mutation</strong>: Adding XX to the string.</li>
 </ul>
 <p>Those can be grouped into three very different kinds of mutations: <strong>value
 mutations</strong> (string mutation, number mutation), <strong>decision mutations</strong> (switch
 if-else blocks, e.g. the or_test / and_test and the keyword mutations) and
 statement mutations (removing or changing a line of code).</p>
-<p>The value mutations are most often false-positive for me. I&rsquo;m not certain if I
-could write my code or my tests in another way to fix this. I&rsquo;ve briefly
+<p>The value mutations are most often false-positive for me. I’m not certain if I
+could write my code or my tests in another way to fix this. I’ve briefly
 discussed it with the library author, but apparently he does not have the same
-issue. If you&rsquo;re interested in that discussion,
+issue. If you’re interested in that discussion,
 see <a href="https://github.com/boxed/mutmut/issues/175">issue #175</a>.</p>
 <h2 id="how-can-i-get-a-html-report-with-mutmut">How can I get a HTML report with mutmut?</h2>
 <div class="highlight"><pre><span></span><code>$ mutmut html
 </code></pre></div>
+
 <p>gives you</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/08/mutmut-html-report.png"><img alt="Index page of the mutmut HTML report" src="../images/2020/08/mutmut-html-report.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Index page of the mutmut HTML report</figcaption>
+    <a href="../images/2020/08/mutmut-html-report.png"><img src="../images/2020/08/mutmut-html-report.png" alt="Index page of the mutmut HTML report" style="width: 512px;"/></a>
+    <figcaption class="text-center">Index page of the mutmut HTML report</figcaption>
 </figure>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/08/mutmut-html-pd.png"><img alt="The complete pd.py report" src="../images/2020/08/mutmut-html-pd.png" style="width: 512px;"/></a>
-<figcaption class="text-center">The complete pd.py report</figcaption>
+    <a href="../images/2020/08/mutmut-html-pd.png"><img src="../images/2020/08/mutmut-html-pd.png" alt="The complete pd.py report" style="width: 512px;"/></a>
+    <figcaption class="text-center">The complete pd.py report</figcaption>
 </figure>
+
 <p>As you can see, the index claims that 108 mutants survived and the HTML report
 only shows one. That one is also a false-positive as a change in the logging
 message does not cause any issue.</p>
@@ -267,20 +270,23 @@ message does not cause any issue.</p>
 $ mutmut junitxml &gt; mutmut-results.xml
 $ junit2html mutmut-results.xml mutmut-report.html
 </code></pre></div>
+
 <p>The report shows this index page:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/08/mutmut-report.png"><img alt="Test report generated from JUnit XML" src="../images/2020/08/mutmut-report.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Test report generated from JUnit XML</figcaption>
+    <a href="../images/2020/08/mutmut-report.png"><img src="../images/2020/08/mutmut-report.png" alt="Test report generated from JUnit XML" style="width: 512px;"/></a>
+    <figcaption class="text-center">Test report generated from JUnit XML</figcaption>
 </figure>
+
 <p>Clicking on one mutant, you gets this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/08/mutmut-result-2.png"><img alt="Mutant #3 was killed, but mutant #4 survived. I did not use the global variable &ldquo;countries&rdquo; anywhere in the tests" src="../images/2020/08/mutmut-result-2.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Mutant #3 was killed, but mutant #4 survived. I did not use the global variable &ldquo;countries&rdquo; anywhere in the tests</figcaption>
+    <a href="../images/2020/08/mutmut-result-2.png"><img src="../images/2020/08/mutmut-result-2.png" alt="Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests" style="width: 512px;"/></a>
+    <figcaption class="text-center">Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests</figcaption>
 </figure>
+
 <p>The issue with this generated HTML report is that it shows many results for a single line of code and no grouping. If the failures were grouped by file and if one could see the code in which lines with surviving mutants would be highlighted, it would be way more useful.</p>
 <h2 id="mutation-testing-for-machine-learning-systems">Mutation Testing for Machine Learning Systems</h2>
-<p>I&rsquo;ve searched for cool applications of machine learning to generate mutants in
-code, but I&rsquo;ve only found &ldquo;Machine Learning Approach in Mutation Testing&rdquo; from
+<p>I’ve searched for cool applications of machine learning to generate mutants in
+code, but I’ve only found “Machine Learning Approach in Mutation Testing” from
 2012 (12 citations).</p>
 <p>I was hoping to find data-based code mutant generation techniques. For example,
 one could search for git commits which are bug fixes by examining the commit
@@ -288,7 +294,7 @@ message. If the fix is rather short, this is a kind of mutation one could test
 for. Instead of generating all possible mutants, one could sample from the
 mutants in a way to first take the most promising ones; the ones that are most
 likely not perceived as a false-positive.</p>
-<p>Other work was more focused on making machine learning systems more robust (<a href="https://arxiv.org/pdf/1805.05206.pdf">DeepMutation</a>, <a href="https://arxiv.org/pdf/1803.07519.pdf">DeepGauge</a>, an <a href="https://www.pre-crime.eu/techreps/TR-Precrime-2019-03.pdf">Evaluation</a>). I don&rsquo;t know this stream of work well enough to write about it. But it sounds similar to techniques I know:</p>
+<p>Other work was more focused on making machine learning systems more robust (<a href="https://arxiv.org/pdf/1805.05206.pdf">DeepMutation</a>, <a href="https://arxiv.org/pdf/1803.07519.pdf">DeepGauge</a>, an <a href="https://www.pre-crime.eu/techreps/TR-Precrime-2019-03.pdf">Evaluation</a>). I don’t know this stream of work well enough to write about it. But it sounds similar to techniques I know:</p>
 <ul>
 <li>To overcome scarcity in training data, various <strong>data</strong> <strong>augmentation
   techniques </strong>such as rotations, flips, or color adjustments are applied. You
@@ -319,7 +325,7 @@ likely not perceived as a false-positive.</p>
 <ul>
 <li>Static Code Analysis: Linters, Type Checking, and Code Complexity</li>
 </ul>
-<p>Let me know if you&rsquo;re interested in other topics around testing with Python.</p>
+<p>Let me know if you’re interested in other topics around testing with Python.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

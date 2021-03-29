@@ -102,16 +102,11 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#exploring-the-data" title="Exploring the data">Exploring the data</a><ul><li><a class="toc-href" href="#most-active-authors" title="Most active authors">Most active authors</a></li><li><a class="toc-href" href="#maximum-length" title="Maximum Length">Maximum Length</a></li></ul></li><li><a class="toc-href" href="#what-people-dont-use_1" t="" title="What people don" use'="">What people don't use</a><ul><li><a class="toc-href" href="#maintainer" title="Maintainer">Maintainer</a></li><li><a class="toc-href" href="#platform" title="Platform">Platform</a></li><li><a class="toc-href" href="#bugtracker" title="Bugtracker">Bugtracker</a></li><li><a class="toc-href" href="#license" title="License">License</a></li></ul></li><li><a class="toc-href" href="#classifiers_1" title="Classifiers">Classifiers</a></li><li><a class="toc-href" href="#package-type" title="Package type">Package type</a></li><li><a class="toc-href" href="#downloads" title="Downloads">Downloads</a></li><li><a class="toc-href" href="#size" title="Size">Size</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#related" title="Related">Related</a></li><li><a class="toc-href" href="#further-ideas" title="Further Ideas">Further Ideas</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="info">This is part one of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
+
 <p>PyPI, the Python Package Index, gives a very crappy but simple interface to
 query metadata about its packages. I scrapped all of the packages metadata.
 53,533 packages were scrapped (date: 2015-01-18), because I wanted to
@@ -119,9 +114,10 @@ see if there is malware on PyPI (related to
 <a href="http://security.stackexchange.com/q/79326/3286">this question on security.SE</a>).</p>
 <p>The database looks like this:</p>
 <figure class="aligncenter">
-<a href="../images/2015/01/pypi-metadata-db.png"><img alt="PyPI metadata database schema" class="" src="../images/2015/01/pypi-metadata-db.png" style="max-width:500px;"/></a>
-<figcaption class="text-center">PyPI metadata</figcaption>
-</figure>
+            <a href="../images/2015/01/pypi-metadata-db.png"><img src="../images/2015/01/pypi-metadata-db.png" alt="PyPI metadata database schema" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">PyPI metadata</figcaption>
+        </figure>
+
 <h2 id="exploring-the-data">Exploring the data</h2>
 <p>When I scapped the data from PyPI, I made all database fields "varchar 255" as
 there seems to be no information about the possible values. Then I explored
@@ -129,14 +125,14 @@ the data</p>
 <ul>
 <li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest packages have only one
 character.</li>
-<li><code>author</code>: 911&times; "UNKOWN", 741&times; empty, 195&times; "None", 151&times; "Zope Foundation and
+<li><code>author</code>: 911× "UNKOWN", 741× empty, 195× "None", 151× "Zope Foundation and
   Contributors". There are about 22,000 different authors. There are 595
   authors who wrote more than 10 packages.</li>
-<li><code>author_email</code>: 2059&times; "UNKOWN", 932&times; empty, 323&times; "zope-dev@zope.org", 216&times;
-  "None" and 204&times; "TODO".</li>
-<li><code>maintainer</code>: 46879&times; "None", 5507&times; empty, 17&times; <a href="http://www.boddie.org.uk/paul/CV.html">Paul Boddie</a>.</li>
-<li><code>requires_python</code>: 53467&times; "None", 3&times; "UNKNOWN", 2&times; "&gt;=2.7,!=3.0,!=3.1", 2&times;
-  "&gt;=2.5", 1&times; "2.6", 1&times; "&gt;= 3.3", 1&times; "&gt;=2.4", 1&times; "&gt;= 2.7" - that's it. No other
+<li><code>author_email</code>: 2059× "UNKOWN", 932× empty, 323× "zope-dev@zope.org", 216×
+  "None" and 204× "TODO".</li>
+<li><code>maintainer</code>: 46879× "None", 5507× empty, 17× <a href="http://www.boddie.org.uk/paul/CV.html">Paul Boddie</a>.</li>
+<li><code>requires_python</code>: 53467× "None", 3× "UNKNOWN", 2× "&gt;=2.7,!=3.0,!=3.1", 2×
+  "&gt;=2.5", 1× "2.6", 1× "&gt;= 3.3", 1× "&gt;=2.4", 1× "&gt;= 2.7" - that's it. No other
   values. Seems as if this is pretty much useless.</li>
 <li><code>docs_url</code>: Either begins with <code>http://pythonhosted.org</code> or is empty.</li>
 </ul>
@@ -152,6 +148,7 @@ character.</li>
 <span class="k">LIMIT</span>
     <span class="mi">50</span>
 </code></pre></div>
+
 <p>gives</p>
 <table>
 <thead>
@@ -242,134 +239,137 @@ character.</li>
 <p>The total number of authors is 28&thinsp;183 (06.12.2015):</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">)</span> <span class="k">AS</span> <span class="o">`</span><span class="n">total_authors</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
 </code></pre></div>
+
 <h3 id="maximum-length">Maximum Length</h3>
 <p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might
 have missed some values, I checked which entry was the longest one for all
 columns. I did this with</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 </code></pre></div>
+
 <table>
-<tr>
-<th>Column</th>
-<th>Maximum Length</th>
-<th>Entry</th>
-</tr>
-<tr>
-<td>name</td>
-<td>80</td>
-<td>Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</td>
-</tr>
-<tr>
-<td>author</td>
-<td>248</td>
-<td>Michael R. Crusoe, Greg Edvenson, Jordan Fish, Adina Howe, Luiz Irber, Eric McDonald, Joshua Nahum, Kaben Nanlohy, Humberto Ortiz-Zuazaga, Jason Pell, Jared Simpson, Camille Scott, Ramakrishnan Rajaram Srinivasan, Qingpeng Zhang, and C. Titus Brown</td>
-</tr>
-<tr>
-<td>author_email</td>
-<td>215</td>
-<td>ongsp@ucsd.edu, anubhavj@mit.edu, mpkocher@lbnl.gov, geoffroy.hautier@uclouvain.be, wrichard@mit.edu, sdacek@mit.edu, dkgunter@lbl.gov, scholia@lbl.gov, gmatteo@gmail.com, vincentchevrier@gmail.com, armiento@mit.edu</td>
-</tr>
-<tr>
-<td>maintainer</td>
-<td>63</td>
-<td>Panagiotis Liakos, Katia Papakonstantinopoulou, Michael Sioutis</td>
-</tr>
-<tr>
-<td>maintainer_email</td>
-<td>67</td>
-<td>maxistedeams@gmail.com, p_riendeau@live.ca, rheault.etccy@gmail.com</td>
-</tr>
-<tr>
-<td>requires_python</td>
-<td>17</td>
-<td>&gt;=2.7,!=3.0,!=3.1</td>
-</tr>
-<tr>
-<td>platform</td>
-<td>231</td>
-<td>Natural Language :: English<br/>License :: OSI Approved :: Apache Software License<br/>Environment :: Console<br/>Development Status :: 2 - Pre-Alpha<br/>Intended Audience :: Developers<br/>Programming Language :: Python :: 2.7<br/>Topic :: Database</td>
-</tr>
-<tr>
-<td>version</td>
-<td>73</td>
-<td>[In Progress] Python middle layer for interacting with Redis data easily.</td>
-</tr>
-<tr>
-<td>license</td>
-<td>466</td>
-<td>Copyright &copy; 2014 ЗАО &ldquo;БАРС Груп&rdquo;<br/><br/>Данная лицензия разрешает лицам, получившим копию данного программного обеспечения и сопутствующей документации (в дальнейшем<br/>именуемыми &laquo;Программное Обеспечение&raquo;), безвозмездно использовать Программное Обеспечение без ог</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>655</td>
-<td>ArcLink,array,array analysis,ASC,beachball,beamforming,cross correlation,database,dataless,Dataless SEED,datamark,earthquakes,Earthworm,EIDA,envelope,events,FDSN,features,filter,focal mechanism,GSE1,GSE2,hob,iapsei-tau,imaging,instrument correction,instrument simulation,IRIS,magnitude,MiniSEED,misfit,mopad,MSEED,NERA,NERIES,observatory,ORFEUS,picker,processing,PQLX,Q,real time,realtime,RESP,response file,RT,SAC,SEED,SeedLink,SEG-2,SEG Y,SEISAN,SeisHub,Seismic Handler,seismology,seismogram,seismograms,signal,slink,spectrogram,StationXML,taper,taup,travel time,trigger,VERCE,WAV,waveform,WaveServer,WaveServerV,WebDC,web service,Winston,XML-SEED,XSEED</td>
-</tr>
-<tr>
-<td>description</td>
-<td>65535</td>
-<td>[id don't want to put that here - there were 22 with this length]</td>
-</tr>
-<tr>
-<td>summary</td>
-<td>278</td>
-<td>Splits one vcard file (*.vcf) to many vcard files &nbsp; &nbsp; &nbsp; &nbsp;with one vcard per file. Useful for import contacts to phones, &nbsp; &nbsp; &nbsp; &nbsp; thats do not support multiple vcard in one file. &nbsp; &nbsp; &nbsp; &nbsp; Supprt unicode cyrillic characters. &nbsp; &nbsp; &nbsp; &nbsp; Консольная программа для р</td>
-</tr>
-<tr>
-<td>stable_version</td>
-<td>4</td>
-<td>None</td>
-</tr>
-<tr>
-<td>home_page</td>
-<td>134</td>
-<td>http://127.0.0.1:8888/USK@9X7bw5HD2ufYvJuL3qAVsYZb3KbI9~FyRu68zsw5HVg,lhHkYYluqHi7BcW1UHoVAMcRX7E5FaZjWCOruTspwQQ,AQACAAE/pyfcp-api/0/</td>
-</tr>
-<tr>
-<td>release_url</td>
-<td>130</td>
-<td>http://pypi.python.org/pypi/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5</td>
-</tr>
-<tr>
-<td>bugtrack_url</td>
-<td>104</td>
-<td>https://bugzilla.redhat.com/buglist.cgi?submit&amp;component=python-nss&amp;product=Fedora&amp;classification=Fedora</td>
-</tr>
-<tr>
-<td>download_url</td>
-<td>183</td>
-<td>http://pypi.python.org/packages/source/s/softwarefabrica.django.appserver/softwarefabrica.django.appserver-1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5.tar.gz</td>
-</tr>
-<tr>
-<td>package_url</td>
-<td>108</td>
-<td>http://pypi.python.org/pypi/Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</td>
-</tr>
-<tr>
-<td>_pypi_hidden</td>
-<td>-</td>
-<td>True or False</td>
-</tr>
-<tr>
-<td>_pypi_ordering</td>
-<td>-</td>
-<td>Integers from 0 to 464</td>
-</tr>
-<tr>
-<td>cheesecake_code_kwalitee_id</td>
-<td>-</td>
-<td>Integers from 183 to 6513 and None values</td>
-</tr>
-<tr>
-<td>cheesecake_documentation_id</td>
-<td>-</td>
-<td>Integers from 182 to 6512 and None values</td>
-</tr>
-<tr>
-<td>cheesecake_installability_id</td>
-<td>-</td>
-<td>Integers from 181 to 6511 and None values</td>
-</tr>
+    <tr>
+        <th>Column</th>
+        <th>Maximum Length</th>
+        <th>Entry</th>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>80</td>
+        <td>Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</td>
+    </tr>
+    <tr>
+        <td>author</td>
+        <td>248</td>
+        <td>Michael R. Crusoe, Greg Edvenson, Jordan Fish, Adina Howe, Luiz Irber, Eric McDonald, Joshua Nahum, Kaben Nanlohy, Humberto Ortiz-Zuazaga, Jason Pell, Jared Simpson, Camille Scott, Ramakrishnan Rajaram Srinivasan, Qingpeng Zhang, and C. Titus Brown</td>
+    </tr>
+    <tr>
+        <td>author_email</td>
+        <td>215</td>
+        <td>ongsp@ucsd.edu, anubhavj@mit.edu, mpkocher@lbnl.gov, geoffroy.hautier@uclouvain.be, wrichard@mit.edu, sdacek@mit.edu, dkgunter@lbl.gov, scholia@lbl.gov, gmatteo@gmail.com, vincentchevrier@gmail.com, armiento@mit.edu</td>
+    </tr>
+    <tr>
+        <td>maintainer</td>
+        <td>63</td>
+        <td>Panagiotis Liakos, Katia Papakonstantinopoulou, Michael Sioutis</td>
+    </tr>
+    <tr>
+        <td>maintainer_email</td>
+        <td>67</td>
+        <td>maxistedeams@gmail.com, p_riendeau@live.ca, rheault.etccy@gmail.com</td>
+    </tr>
+    <tr>
+        <td>requires_python</td>
+        <td>17</td>
+        <td>&gt;=2.7,!=3.0,!=3.1</td>
+    </tr>
+    <tr>
+        <td>platform</td>
+        <td>231</td>
+        <td>Natural Language :: English<br/>License :: OSI Approved :: Apache Software License<br/>Environment :: Console<br/>Development Status :: 2 - Pre-Alpha<br/>Intended Audience :: Developers<br/>Programming Language :: Python :: 2.7<br/>Topic :: Database</td>
+    </tr>
+    <tr>
+        <td>version</td>
+        <td>73</td>
+        <td>[In Progress] Python middle layer for interacting with Redis data easily.</td>
+    </tr>
+    <tr>
+        <td>license</td>
+        <td>466</td>
+        <td>Copyright &copy; 2014 &#1047;&#1040;&#1054; &ldquo;&#1041;&#1040;&#1056;&#1057; &#1043;&#1088;&#1091;&#1087;&rdquo;<br/><br/>&#1044;&#1072;&#1085;&#1085;&#1072;&#1103; &#1083;&#1080;&#1094;&#1077;&#1085;&#1079;&#1080;&#1103; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1072;&#1077;&#1090; &#1083;&#1080;&#1094;&#1072;&#1084;, &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1074;&#1096;&#1080;&#1084; &#1082;&#1086;&#1087;&#1080;&#1102; &#1076;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1085;&#1086;&#1075;&#1086; &#1086;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1077;&#1085;&#1080;&#1103; &#1080; &#1089;&#1086;&#1087;&#1091;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1077;&#1081; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; (&#1074; &#1076;&#1072;&#1083;&#1100;&#1085;&#1077;&#1081;&#1096;&#1077;&#1084;<br/>&#1080;&#1084;&#1077;&#1085;&#1091;&#1077;&#1084;&#1099;&#1084;&#1080; &laquo;&#1055;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1085;&#1086;&#1077; &#1054;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1077;&#1085;&#1080;&#1077;&raquo;), &#1073;&#1077;&#1079;&#1074;&#1086;&#1079;&#1084;&#1077;&#1079;&#1076;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1055;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1085;&#1086;&#1077; &#1054;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1077;&#1085;&#1080;&#1077; &#1073;&#1077;&#1079; &#1086;&#1075;</td>
+    </tr>
+    <tr>
+        <td>keywords</td>
+        <td>655</td>
+        <td>ArcLink,array,array analysis,ASC,beachball,beamforming,cross correlation,database,dataless,Dataless SEED,datamark,earthquakes,Earthworm,EIDA,envelope,events,FDSN,features,filter,focal mechanism,GSE1,GSE2,hob,iapsei-tau,imaging,instrument correction,instrument simulation,IRIS,magnitude,MiniSEED,misfit,mopad,MSEED,NERA,NERIES,observatory,ORFEUS,picker,processing,PQLX,Q,real time,realtime,RESP,response file,RT,SAC,SEED,SeedLink,SEG-2,SEG Y,SEISAN,SeisHub,Seismic Handler,seismology,seismogram,seismograms,signal,slink,spectrogram,StationXML,taper,taup,travel time,trigger,VERCE,WAV,waveform,WaveServer,WaveServerV,WebDC,web service,Winston,XML-SEED,XSEED</td>
+    </tr>
+    <tr>
+        <td>description</td>
+        <td>65535</td>
+        <td>[id don't want to put that here - there were 22 with this length]</td>
+    </tr>
+    <tr>
+        <td>summary</td>
+        <td>278</td>
+        <td>Splits one vcard file (*.vcf) to many vcard files &nbsp; &nbsp; &nbsp; &nbsp;with one vcard per file. Useful for import contacts to phones, &nbsp; &nbsp; &nbsp; &nbsp; thats do not support multiple vcard in one file. &nbsp; &nbsp; &nbsp; &nbsp; Supprt unicode cyrillic characters. &nbsp; &nbsp; &nbsp; &nbsp; &#1050;&#1086;&#1085;&#1089;&#1086;&#1083;&#1100;&#1085;&#1072;&#1103; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1072; &#1076;&#1083;&#1103; &#1088;</td>
+    </tr>
+    <tr>
+        <td>stable_version</td>
+        <td>4</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>home_page</td>
+        <td>134</td>
+        <td>http://127.0.0.1:8888/USK@9X7bw5HD2ufYvJuL3qAVsYZb3KbI9~FyRu68zsw5HVg,lhHkYYluqHi7BcW1UHoVAMcRX7E5FaZjWCOruTspwQQ,AQACAAE/pyfcp-api/0/</td>
+    </tr>
+    <tr>
+        <td>release_url</td>
+        <td>130</td>
+        <td>http://pypi.python.org/pypi/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5</td>
+    </tr>
+    <tr>
+        <td>bugtrack_url</td>
+        <td>104</td>
+        <td>https://bugzilla.redhat.com/buglist.cgi?submit&amp;component=python-nss&amp;product=Fedora&amp;classification=Fedora</td>
+    </tr>
+    <tr>
+        <td>download_url</td>
+        <td>183</td>
+        <td>http://pypi.python.org/packages/source/s/softwarefabrica.django.appserver/softwarefabrica.django.appserver-1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5.tar.gz</td>
+    </tr>
+    <tr>
+        <td>package_url</td>
+        <td>108</td>
+        <td>http://pypi.python.org/pypi/Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</td>
+    </tr>
+    <tr>
+        <td>_pypi_hidden</td>
+        <td>-</td>
+        <td>True or False</td>
+    </tr>
+    <tr>
+        <td>_pypi_ordering</td>
+        <td>-</td>
+        <td>Integers from 0 to 464</td>
+    </tr>
+    <tr>
+        <td>cheesecake_code_kwalitee_id</td>
+        <td>-</td>
+        <td>Integers from 183 to 6513 and None values</td>
+    </tr>
+    <tr>
+        <td>cheesecake_documentation_id</td>
+        <td>-</td>
+        <td>Integers from 182 to 6512 and None values</td>
+    </tr>
+    <tr>
+        <td>cheesecake_installability_id</td>
+        <td>-</td>
+        <td>Integers from 181 to 6511 and None values</td>
+    </tr>
 </table>
+
 <p>We can see multiple problems here:</p>
 <ul>
 <li>URLs: localhost / 127.0.0.1 is almost certainly not desired</li>
@@ -380,7 +380,7 @@ columns. I did this with</p>
 <li><code>_pypi_hidden</code> should be boolean</li>
 </ul>
 <p>So I changed the types in the database. Let's continue.</p>
-<h2 id="what-people-dont-use_1">What people don't use</h2>
+<h2 id="what-people-dont-use">What people don't use</h2>
 <p>All metadata is provided by the authors of the packages. Some fields, like the
 package name or the description, are used very often, but some fields are only
 rarely used:</p>
@@ -397,6 +397,7 @@ bug reports. If this is empty, I would guess the package is dead.</p>
 <span class="k">ORDER</span> <span class="k">BY</span>
     <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 </code></pre></div>
+
 <p>gives 759 different results. The TOP-10 were</p>
 <table>
 <thead>
@@ -463,17 +464,20 @@ gives a little bit more information</p>
 bugs. So please help them by added your bug tracker URL wherever it makes
 sense. Here is how you add it on PyPI:</p>
 <figure class="aligncenter">
-<a href="../images/2015/01/pypi-bugtrack-url.png"><img alt="Go to your packages PyPI page" class="" src="../images/2015/01/pypi-bugtrack-url.png" style="max-width:500px;"/></a>
-<figcaption class="text-center">Go to your packages PyPI page</figcaption>
-</figure>
+            <a href="../images/2015/01/pypi-bugtrack-url.png"><img src="../images/2015/01/pypi-bugtrack-url.png" alt="Go to your packages PyPI page" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Go to your packages PyPI page</figcaption>
+        </figure>
+
 <figure class="aligncenter">
-<a href="../images/2015/01/pypi-add-bugtrack-url.png"><img alt="Add your bugtracker / issue tracker url" class="" src="../images/2015/01/pypi-add-bugtrack-url.png" style="max-width:500px;"/></a>
-<figcaption class="text-center">Add your bugtracker / issue tracker url</figcaption>
-</figure>
+            <a href="../images/2015/01/pypi-add-bugtrack-url.png"><img src="../images/2015/01/pypi-add-bugtrack-url.png" alt="Add your bugtracker / issue tracker url" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Add your bugtracker / issue tracker url</figcaption>
+        </figure>
+
 <figure class="aligncenter">
-<a href="../images/2015/01/pypi-added-bugtracker.png"><img alt="Check if you really added it" class="" src="../images/2015/01/pypi-added-bugtracker.png" style="max-width:500px;"/></a>
-<figcaption class="text-center">Check if you really added it</figcaption>
-</figure>
+            <a href="../images/2015/01/pypi-added-bugtracker.png"><img src="../images/2015/01/pypi-added-bugtracker.png" alt="Check if you really added it" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Check if you really added it</figcaption>
+        </figure>
+
 <h3 id="license">License</h3>
 <p>Another important one. Add a license to your software!</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
@@ -485,6 +489,7 @@ sense. Here is how you add it on PyPI:</p>
 <span class="k">ORDER</span> <span class="k">BY</span>
     <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 </code></pre></div>
+
 <p>gives</p>
 <table>
 <thead>
@@ -594,7 +599,7 @@ Many are invalid values, like</p>
 <a href="https://tldrlegal.com/">tldrlegal.com</a> might help in that case. I think the
 Python community should try to eliminate variants in writing license names as
 it makes finding, filtering and analyzing packages more difficult.</p>
-<h2 id="classifiers_1">Classifiers</h2>
+<h2 id="classifiers">Classifiers</h2>
 <p>Python makes use of so called trove classifiers. They are defined in
 <a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a>
 and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">here</a>.</p>
@@ -656,12 +661,13 @@ image:</p>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">package_classifiers</span><span class="o">`</span>
 <span class="k">WHERE</span>
-    <span class="o">`</span><span class="n">classifier</span><span class="o">`</span> <span class="k">LIKE</span> <span class="ss">"License%"</span>
+    <span class="o">`</span><span class="n">classifier</span><span class="o">`</span> <span class="k">LIKE</span> <span class="ss">&quot;License%&quot;</span>
 <span class="k">GROUP</span> <span class="k">BY</span>
     <span class="o">`</span><span class="n">classifier</span><span class="o">`</span>
 <span class="k">ORDER</span> <span class="k">BY</span>
     <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 </code></pre></div>
+
 <table>
 <thead>
 <tr>
@@ -704,6 +710,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <span class="k">ORDER</span> <span class="k">BY</span>
     <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 </code></pre></div>
+
 <p>gives</p>
 <table>
 <thead>
@@ -759,6 +766,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
     <span class="o">`</span><span class="n">urls</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">downloads</span><span class="o">`</span>  <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">10</span>
 </code></pre></div>
+
 <p>gives</p>
 <table>
 <thead>
@@ -823,6 +831,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
     <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">downloads</span><span class="o">`</span><span class="p">)</span>  <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">10</span>
 </code></pre></div>
+
 <table>
 <thead>
 <tr>
@@ -885,6 +894,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
     <span class="o">`</span><span class="n">releases</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="k">size</span><span class="o">`</span> <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">30</span>
 </code></pre></div>
+
 <table>
 <thead>
 <tr>

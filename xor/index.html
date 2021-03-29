@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#multi-bit-example" title="Multi-Bit Example">Multi-Bit Example</a></li><li><a class="toc-href" href="#simple-tasks" title="Simple Tasks">Simple Tasks</a><ul><li><a class="toc-href" href="#leetcode-136" title="Leetcode 136">Leetcode 136</a></li><li><a class="toc-href" href="#missing-number" title="Missing Number">Missing Number</a></li></ul></li><li><a class="toc-href" href="#fault-tolerance_1" title="Fault Tolerance">Fault Tolerance</a></li><li><a class="toc-href" href="#xor-problem" title="XOR Problem">XOR Problem</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>XOR is a simple bit-wise defined function:</p>
@@ -127,6 +121,7 @@ bit-wise XOR(a, b) with <code>a ^ b</code>.</p>
         b = 0110
 XOR(a, b) = 0101
 </code></pre></div>
+
 <h2 id="simple-tasks">Simple Tasks</h2>
 <p>There are some simple coding competition tasks where you can apply this trick.</p>
 <h3 id="leetcode-136">Leetcode 136</h3>
@@ -145,6 +140,7 @@ and running in <span class="math">\(\mathcal{O}(n)\)</span>:</p>
         <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span> <span class="o">^</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
+
 <p>Pretty cool, isn't it?</p>
 <h3 id="missing-number">Missing Number</h3>
 <blockquote>
@@ -173,6 +169,7 @@ the problem descriptions is wrong 😕</p>
         <span class="n">missing</span> <span class="o">^=</span> <span class="n">num</span>
     <span class="k">return</span> <span class="n">missing</span>
 </code></pre></div>
+
 <p>This already has the optimal space complexity of <span class="math">\(\mathcal{O}(1)\)</span> and
 the optimal time complexity of <span class="math">\(\mathcal{O}(n)\)</span>. However, I don't like that
 the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
@@ -180,71 +177,72 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 <div class="math">$$\text{ALL_XOR}(n) := \begin{cases}0 &amp;\text{if } n =0\\\text{XOR}(n , \text{ALL_XOR(n-1)}) &amp;\text{otherwise}\end{cases}$$</div>
 <p>The XOR of 1 to n for some numbers can be seen here:</p>
 <table class="table">
-<thead>
-<tr>
-<th>n</th>
-<th>$\text{ALL_XOR}(n)$</th>
-<th>n % 4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0</td>
-<td>3</td>
-</tr>
-<tr>
-<td>4</td>
-<td>4</td>
-<td>0</td>
-</tr>
-<tr>
-<td>5</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>6</td>
-<td>7</td>
-<td>2</td>
-</tr>
-<tr>
-<td>7</td>
-<td>0</td>
-<td>3</td>
-</tr>
-<tr>
-<td>8</td>
-<td>8</td>
-<td>0</td>
-</tr>
-<tr>
-<td>9</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>10</td>
-<td>11</td>
-<td>2</td>
-</tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>n</th>
+            <th>$\text{ALL_XOR}(n)$</th>
+            <th>n % 4</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>3</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>0</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>0</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>8</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>11</td>
+        <td>2</td>
+    </tr>
+    </tbody>
 </table>
+
 <h4 id="hypothesis-1-if-n-4-0-then-textall_xorn-n">Hypothesis 1: If n % 4 == 0, then <span class="math">\(\text{ALL_XOR}(n) = n\)</span></h4>
 <p>A <a href="https://en.wikipedia.org/wiki/Mathematical_induction">proof by induction</a> follows:</p>
 <p><strong>Base Case</strong> (BC): For <span class="math">\(n = 0\)</span> we have <span class="math">\(n\)</span> % 4 == 0 and <span class="math">\(\text{ALL_XOR}(n) = n = 0\)</span>.</p>
@@ -317,7 +315,8 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
         <span class="n">missing</span> <span class="o">^=</span> <span class="n">num</span>
     <span class="k">return</span> <span class="n">missing</span>
 </code></pre></div>
-<h2 id="fault-tolerance_1">Fault Tolerance</h2>
+
+<h2 id="fault-tolerance">Fault Tolerance</h2>
 <p>In order to be fault-tolerant, one can calculate the XOR. Please note that this
 is the same idea as in both toy questions from above. The <a href="https://en.wikipedia.org/wiki/Parity_drive">parity drive</a>
 in RAID 3 uses this.</p>
@@ -328,8 +327,8 @@ points with two features. The training set and the test set are exactly the
 same in this problem. So the interesting question is only if the model is able
 to find a decision boundary which classifies all four points correctly:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2016/07/xor-problem.png"><img alt="The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features." src="../images/2016/07/xor-problem.png" style="width: 512px;"/></a>
-<figcaption class="text-center">The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features.</figcaption>
+    <a href="../images/2016/07/xor-problem.png"><img src="../images/2016/07/xor-problem.png" alt="The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features." style="width: 512px;"/></a>
+    <figcaption class="text-center">The XOR classification problem. 4 datapoints and two classes. All datapoints have 2 features.</figcaption>
 </figure>
             
             <div id="disqus_thread" class="no-print"></div>

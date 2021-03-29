@@ -102,23 +102,18 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#basics" title="Basics">Basics</a><ul><li><a class="toc-href" href="#html5" title="HTML5">HTML5</a></li><li><a class="toc-href" href="#javascript" title="JavaScript">JavaScript</a></li></ul></li><li><a class="toc-href" href="#interactive example_1" title="Interactive example">Interactive example</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I begin to fall in love with JavaScript and HTML5. You can access your Webcam with JS! As an example, I've implemented some graphic filters.</p>
-<h2 id="basics">Basics</h2>
-<h3 id="html5">HTML5</h3>
-<p>You need:
+<h2>Basics</h2>
+<h3>HTML5</h3>
+<p>You need:</p>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a></li>
-</ul></p>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a></li>
+</ul>
+
 <p>This is the bare minimum HTML code you need for valid HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -126,29 +121,31 @@ MathJax.Hub.Queue(function() {
         <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Some title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">video</span> <span class="na">autoplay</span> <span class="na">id</span><span class="o">=</span><span class="s">"vid"</span> <span class="na">style</span><span class="o">=</span><span class="s">"display:none;"</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">"canvas"</span> <span class="na">width</span><span class="o">=</span><span class="s">"640"</span> <span class="na">height</span><span class="o">=</span><span class="s">"480"</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span> <span class="na">src</span><span class="o">=</span><span class="s">"graphic-filter.js"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">video</span> <span class="na">autoplay</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;vid&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;canvas&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;640&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;480&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;graphic-filter.js&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-<h3 id="javascript">JavaScript</h3>
-<p>Important functions / datastructures are:
-<ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/WebRTC/navigator.getUserMedia">getUserMedia</a>: see <a href="http://caniuse.com/stream">support by browsers</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a>: WTF? The image is a ONE dimensional array of integers in 0, ..., 255. So the first 4 array elements describe the pixel (0|0) with its RGBA value</li>
-</ul></p>
-<p>A starting point for your code might be:</p>
-<div class="highlight"><pre><span></span><code><span class="s1">'use strict'</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#vid"</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#canvas'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+<h3>JavaScript</h3>
+<p>Important functions / datastructures are:</p>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/WebRTC/navigator.getUserMedia">getUserMedia</a>: see <a href="http://caniuse.com/stream">support by browsers</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a>: WTF? The image is a ONE dimensional array of integers in 0, ..., 255. So the first 4 array elements describe the pixel (0|0) with its RGBA value</li>
+</ul>
+
+<p>A starting point for your code might be:</p>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#vid&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#canvas&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">localMediaStream</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">onCameraFail</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Camera did not work.'</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Camera did not work.&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="nx">snapshot</span><span class="p">()</span> <span class="p">{</span>
@@ -182,65 +179,70 @@ MathJax.Hub.Queue(function() {
 <span class="p">},</span> <span class="nx">onCameraFail</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localMediaStream</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="interactive example_1">Interactive example</h2>
+
+<h2>Interactive example</h2>
 <div class="info">
 You need a webcam for this:
 <a href="../html5/graphic-filters/graphic-filters.htm" target="_blank">Open demonstration in new window</a>
 </div>
-<p>This is what it should look like:
+
+<p>This is what it should look like:</p>
 <figure class="aligncenter">
-<a href="../images/2013/07/graphic-webcam-html5-js-example.png"><img alt="Webcam example" class="size-full wp-image-72801" src="../images/2013/07/graphic-webcam-html5-js-example.png" style="max-width:664px;max-height:395px"/></a>
-<figcaption class="text-center">Webcam example</figcaption>
-</figure></p>
+            <a href="../images/2013/07/graphic-webcam-html5-js-example.png"><img src="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" style="max-width:664px;max-height:395px" class="size-full wp-image-72801"/></a>
+            <figcaption class="text-center">Webcam example</figcaption>
+        </figure>
+
 <p>And it gives these results:</p>
 <ul class="gallery mw-gallery-traditional">
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/07/prewitt-x-filter-example.png">
-<img alt="" src="../images/2013/07/prewitt-x-filter-example.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Prewitt x-filter example</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/07/prewitt-y-filter-example.png">
-<img alt="" src="../images/2013/07/prewitt-y-filter-example.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Prewitt y-filter example</div>
-</div>
-</li>
-<li class="gallerybox" style="width: 155px">
-<div style="width: 155px">
-<div class="thumb" style="width: 150px;">
-<div style="margin:21px auto;height: 113px;line-height: 150px;">
-<a class="image" href="../images/2013/07/laplace-filter-example.png">
-<img alt="" src="../images/2013/07/laplace-filter-example.png" style="max-width: 120px; max-height: 120px;"/>
-</a>
-</div>
-</div>
-<div class="gallerytext">Laplace filter example</div>
-</div>
-</li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/prewitt-x-filter-example.png" class="image">
+                  <img src="../images/2013/07/prewitt-x-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Prewitt x-filter example</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/prewitt-y-filter-example.png" class="image">
+                  <img src="../images/2013/07/prewitt-y-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Prewitt y-filter example</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/laplace-filter-example.png" class="image">
+                  <img src="../images/2013/07/laplace-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Laplace filter example</div>
+      </div>
+   </li>
 </ul>
+
 <p>By the way, you can check if a website is currently accessing your webcam (with Google Chrome):</p>
 <figure class="aligncenter">
-<a href="../images/2013/07/webcam-red-dot.png"><img alt="Webcam indicator on tab in Google Chrome" class="size-full wp-image-72811" src="../images/2013/07/webcam-red-dot.png" style="max-width:370px;max-height:125px"/></a>
-<figcaption class="text-center">Webcam indicator on tab in Google Chrome</figcaption>
-</figure>
-<p>If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
+            <a href="../images/2013/07/webcam-red-dot.png"><img src="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" style="max-width:370px;max-height:125px" class="size-full wp-image-72811"/></a>
+            <figcaption class="text-center">Webcam indicator on tab in Google Chrome</figcaption>
+        </figure>
+
+<p>If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":</p>
 <figure class="aligncenter">
-<a href="../images/2013/07/enable-webrtc-180x300.png"><img alt="Enamble Web-RTC in Chrome for Android" class="size-medium wp-image-73191" src="../images/2013/07/enable-webrtc-180x300.png" style="max-width:180px;max-height:300px"/></a>
-<figcaption class="text-center">Enamble Web-RTC in Chrome for Android</figcaption>
-</figure></p>
+            <a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" style="max-width:180px;max-height:300px" class="size-medium wp-image-73191"/></a>
+            <figcaption class="text-center">Enamble Web-RTC in Chrome for Android</figcaption>
+        </figure>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

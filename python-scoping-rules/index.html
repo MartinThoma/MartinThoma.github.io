@@ -102,20 +102,14 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-3-scopes-of-python" title="The 3 Scopes of Python">The 3 Scopes of Python</a></li><li><a class="toc-href" href="#the-global-statement" title="The &ldquo;global&rdquo; statement">The &ldquo;global&rdquo; statement</a></li><li><a class="toc-href" href="#the-nonlocal-statement" title="The &ldquo;nonlocal&rdquo; statement">The &ldquo;nonlocal&rdquo; statement</a></li><li><a class="toc-href" href="#confusing-examples" title="Confusing Examples">Confusing Examples</a><ul><li><a class="toc-href" href="#append-element-vs-element" title="Append element vs &lsquo;+= [element]&rsquo;">Append element vs &lsquo;+= [element]&rsquo;</a></li><li><a class="toc-href" href="#global-scope-does-fall-back-to-built-ins" title="Global scope DOES fall back to built-ins">Global scope DOES fall back to built-ins</a></li><li><a class="toc-href" href="#assignment" title="Assignment">Assignment</a></li><li><a class="toc-href" href="#mypy" title="mypy">mypy</a></li></ul></li><li><a class="toc-href" href="#summary_1" title="Summary">Summary</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <p>It&rsquo;s obvious that you cannot access a variable before it was declared. But if
+            <p>It’s obvious that you cannot access a variable before it was declared. But if
 it was declared inside a loop, can you access it outside a loop? If it was
 declared in a function, can you access the variable outside of the function?</p>
-<p>This kind of &ldquo;variable lifetime&rdquo; is known as scoping. After reading this
-article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
+<p>This kind of “variable lifetime” is known as scoping. After reading this
+article, you will know the scoping rules of Python. Let’s start!</p>
 <h2 id="the-3-scopes-of-python">The 3 Scopes of Python</h2>
 <p>Python has 3 scopes:</p>
 <ul>
@@ -130,26 +124,27 @@ article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
 
 
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"enclosing"</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">&quot;enclosing&quot;</span>
 
     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
-        <span class="sd">"""Bar is enclosed by 'foo'"""</span>
+        <span class="sd">&quot;&quot;&quot;Bar is enclosed by &#39;foo&#39;&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
     <span class="k">def</span> <span class="nf">baz</span><span class="p">():</span>
-        <span class="sd">"""Baz is also enclosed by 'foo'"""</span>
-        <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+        <span class="sd">&quot;&quot;&quot;Baz is also enclosed by &#39;foo&#39;&quot;&quot;&quot;</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
     <span class="n">bar</span><span class="p">()</span>
     <span class="n">baz</span><span class="p">()</span>
 
 
-<span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"global"</span>
+<span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
+
 <p>There is a crucial point here:</p>
 <blockquote>
 <h1 id="the-scope-of-a-variable-is-defined-at-compile-time">The scope of a variable is defined at compile-time!</h1>
@@ -157,66 +152,71 @@ article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
 <p>For this reason, the following code throws an exception:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
-    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
 
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
+
 <p>throws the exception:</p>
 <div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File "example.py", line 5, in &lt;module&gt;
+  File &quot;example.py&quot;, line 5, in &lt;module&gt;
     foo()
-  File "example.py", line 2, in foo
+  File &quot;example.py&quot;, line 2, in foo
     print(min([1, 2, 3]))
-UnboundLocalError: local variable 'min' referenced before assignment
+UnboundLocalError: local variable &#39;min&#39; referenced before assignment
 </code></pre></div>
-<h2 id="the-global-statement">The &ldquo;global&rdquo; statement</h2>
+
+<h2 id="the-global-statement">The “global” statement</h2>
 <p>You can assign a value to a global variable in a function with the global
 statement:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
 
 
 <span class="n">foo</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives &quot;local&quot;</span>
 </code></pre></div>
-<p>I need this very rarely. To make sure that I don&rsquo;t confuse anything, I like to
+
+<p>I need this very rarely. To make sure that I don’t confuse anything, I like to
 use the globals() dictionary. In this case, I would rather use:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-    <span class="nb">globals</span><span class="p">()[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"local"</span>
+    <span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
 
 
 <span class="n">foo</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives &quot;local&quot;</span>
 </code></pre></div>
-<h2 id="the-nonlocal-statement">The &ldquo;nonlocal&rdquo; statement</h2>
+
+<h2 id="the-nonlocal-statement">The “nonlocal” statement</h2>
 <p>You can assign a value to an enclosed variable with the nonlocal statement:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="s2">"enclosed"</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;enclosed&quot;</span>
 
     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
         <span class="k">nonlocal</span> <span class="n">x</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
 
     <span class="n">bar</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives &quot;local&quot;</span>
 
 
 <span class="n">foo</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives "local"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># gives &quot;local&quot;</span>
 </code></pre></div>
+
 <h2 id="confusing-examples">Confusing Examples</h2>
-<h3 id="append-element-vs-element">Append element vs &lsquo;+= [element]&rsquo;</h3>
+<h3 id="append-element-vs-element">Append element vs ‘+= [element]’</h3>
 <div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
 
 
@@ -226,17 +226,19 @@ use the globals() dictionary. In this case, I would rather use:</p>
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
+
 <p>vs</p>
 <div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
 
 
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-    <span class="n">xs</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>  <span class="c1"># UnboundLocalError: local variable 'xs'</span>
+    <span class="n">xs</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>  <span class="c1"># UnboundLocalError: local variable &#39;xs&#39;</span>
     <span class="c1"># referenced before assignment</span>
 
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
+
 <p>The reason why the first works but not the second is that the first one calls a
 function of <code>xs</code>. It never assigns a value to <code>xs</code>. The second one is equal to</p>
 <div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -248,25 +250,28 @@ function of <code>xs</code>. It never assigns a value to <code>xs</code>. The se
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
+
 <p>When Python parses the assignment <code>xs = ...</code>, the xs is assigned the local
 scope. But in the local scope, <code>xs</code> does not exist before <code>xs = xs + [42]</code> is
 executed. Hence the error.</p>
 <p>In the first example with <code>xs.append(42)</code>, the global scope of xs is used.
-Hence we don&rsquo;t face any issue, because it is defined in the global scope.</p>
+Hence we don’t face any issue, because it is defined in the global scope.</p>
 <h3 id="global-scope-does-fall-back-to-built-ins">Global scope DOES fall back to built-ins</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># prints 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
-<span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+<span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
 </code></pre></div>
+
 <p>but the same does not work in a local scope</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># UnboundLocalError: local variable 'min' referenced before assignment</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># UnboundLocalError: local variable &#39;min&#39; referenced before assignment</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
-    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
 
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
+
 <p>The reason is that <code>locals() == globals()</code> within the global scope. Although built-ins are a bit special, they kind of live in the global scope.</p>
 <h3 id="assignment">Assignment</h3>
 <p>This one is confusing to people with a Java, C, or C++ background. This is
@@ -275,6 +280,7 @@ valid Python code:</p>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># prints 12</span>
 </code></pre></div>
+
 <p>But in Java you need to declare it upfront to be able to use the variable after
 the loop:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span>
@@ -288,56 +294,62 @@ the loop:</p>
  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <h3 id="mypy">mypy</h3>
 <p>mypy is a wide-spread <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type-checker for Python</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
-    <span class="c1"># error: Incompatible types in assignment (expression has type "str", variable has type "int")</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+    <span class="c1"># error: Incompatible types in assignment (expression has type &quot;str&quot;, variable has type &quot;int&quot;)</span>
 </code></pre></div>
-<p>So mypy doesn&rsquo;t like that you assign the string &ldquo;foo&rdquo; to y , because it first
+
+<p>So mypy doesn’t like that you assign the string “foo” to y , because it first
 read took the <code>bool(external_service()) == True</code> path and assumed that y would
 be an integer.</p>
 <p>Then you might want to do this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
     <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"foo"</span>
-    <span class="c1"># error: Name 'y' already defined on line 2</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+    <span class="c1"># error: Name &#39;y&#39; already defined on line 2</span>
 </code></pre></div>
-<p>You can see that mypy assumes the y should be the same type in both cases. It&rsquo;s
+
+<p>You can see that mypy assumes the y should be the same type in both cases. It’s
 reasonable because otherwise the following analysis might get extremely
 complicated.</p>
 <p>The next try might be:</p>
 <div class="highlight"><pre><span></span><code><span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="c1"># error: Incompatible types in assignment</span>
-<span class="c1"># (expression has type "None", variable has type "Union[str, int]")</span>
+<span class="c1"># (expression has type &quot;None&quot;, variable has type &quot;Union[str, int]&quot;)</span>
 
 <span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
 </code></pre></div>
+
 <p>That should have been expected. Assigning None is not possible to a type which
-does not include None &mdash; and adding None to that type might cause many more
+does not include None — and adding None to that type might cause many more
 issues down the road.</p>
 <p>You can do this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
 </code></pre></div>
+
 <p>But I can also see when this feels strange. What might be cleaner is this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 <span class="k">if</span> <span class="n">external_service</span><span class="p">():</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s2">"foo"</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
 </code></pre></div>
-<h2 id="summary_1">Summary</h2>
+
+<h2 id="summary">Summary</h2>
 <p>We have seen the three types of scopes in Python: Local, Enclosed, and global.
-We&rsquo;ve seen that you can access globals with the global keyword or over the
+We’ve seen that you can access globals with the global keyword or over the
 globals() dictionary. Locals can be accessed with the locals() dictionary and
 enclosed variables with the nonlocal keyword. Keep that in mind and Python
 scoping should make sense 🙂</p>

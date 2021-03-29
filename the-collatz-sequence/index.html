@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#collatz conjecture" title="Collatz conjecture">Collatz conjecture</a></li><li><a class="toc-href" href="#small $n$" title="Small $n$">Small $n$</a></li><li><a class="toc-href" href="#$n=27$" title="$n=27$">$n=27$</a></li><li><a class="toc-href" href="#how long are collatz sequences?" title="How long are Collatz sequences?">How long are Collatz sequences?</a></li><li><a class="toc-href" href="#maximum in sequence" title="Maximum in sequence">Maximum in sequence</a></li><li><a class="toc-href" href="#execution times" title="Execution times">Execution times</a></li><li><a class="toc-href" href="#maximum in sequence and steps" title="Maximum in sequence and steps">Maximum in sequence and steps</a></li><li><a class="toc-href" href="#read more" title="Read more">Read more</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.</p>
@@ -125,18 +119,20 @@ f(c^n_i) &amp; \text{otherwise}
 <p>You can define a directed graph <span class="math">\(G=(V, E)\)</span> like this:</p>
 <p><span class="math">\(V = \mathbb{N}_{&gt;0}, \;\;\; E = \{(n, f(n)) | n \in V\}\)</span></p>
 <p>I will call this the <em>Collatz graph</em>.</p>
-<h2 id="collatz conjecture">Collatz conjecture</h2>
+<h2>Collatz conjecture</h2>
 <div class="important">
-$\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 1$
+$\forall_{n \in \mathbb{N}_{>0}} \exists_{i \in \mathbb{N}_{>0}}: c^n_i = 1$
 </div>
+
 <p>The Collatz conjecture was not (dis)proved by now. This is astonishing, as it was proposed in 1937 and I think it is very easy to understand.</p>
 <p>We also don't know if the Collatz graph is connected. When it is not connected, it could be that one sequence <span class="math">\((c^n_i)\)</span> goes to infinity or that there is another circle (<span class="math">\(4,2,1,4\)</span> is a circle in the Collatz graph).</p>
-<h2 id="small $n$">Small $n$</h2>
+<h2>Small $n$</h2>
 <p>When you go through all possible Collatz sequences with <span class="math">\(n \in 1, \dots, 15\)</span>, this is what you get:</p>
 <figure class="aligncenter">
-<a href="../images/2013/05/collatz-graph.png"><img alt="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$" class="size-full wp-image-66201" src="../images/2013/05/collatz-graph.png" style="max-width:512px;max-height:410px"/></a>
-<figcaption class="text-center">A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$</figcaption>
-</figure>
+            <a href="../images/2013/05/collatz-graph.png"><img src="../images/2013/05/collatz-graph.png" alt="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$" style="max-width:512px;max-height:410px" class="size-full wp-image-66201"/></a>
+            <figcaption class="text-center">A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$</figcaption>
+        </figure>
+
 <p>This image was created with the following Python script:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -152,56 +148,56 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 
 
 <span class="k">def</span> <span class="nf">writeDotfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">explored</span><span class="p">):</span>
-    <span class="n">dotfile</span> <span class="o">=</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+    <span class="n">dotfile</span> <span class="o">=</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
 
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"digraph {</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'node[style=filled,color=".7 .3 1.0"];</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"1</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'node[style=filled,color=".95 .1 1"];</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="c1"># dotfile.write('size="15,8";\n')</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;digraph {</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;node[style=filled,color=&quot;.7 .3 1.0&quot;];</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;1</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;node[style=filled,color=&quot;.95 .1 1&quot;];</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1"># dotfile.write(&#39;size=&quot;15,8&quot;;\n&#39;)</span>
 
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
         <span class="k">while</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">explored</span><span class="p">:</span>
-            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" -&gt; "</span><span class="p">)</span>
+            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; -&gt; &quot;</span><span class="p">)</span>
             <span class="n">explored</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">";</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">createPng</span><span class="p">(</span><span class="n">dotfile</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">os</span>
 
-    <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s2">" -Tsvg "</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s2">" -o "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".svg"</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s2">&quot; -Tsvg &quot;</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s2">&quot; -o &quot;</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.svg&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execute command: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
-    <span class="n">command</span> <span class="o">=</span> <span class="s2">"inkscape "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".svg"</span> <span class="o">+</span> <span class="s2">" -w 512 --export-png="</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".png"</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;inkscape &quot;</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.svg&quot;</span> <span class="o">+</span> <span class="s2">&quot; -w 512 --export-png=&quot;</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execute command: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Graph for small Collatz sequences"</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Graph for small Collatz sequences&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-f"</span><span class="p">,</span>
-        <span class="s2">"--file"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="s2">"collatz-graph.gv"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"write dot-FILE"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+        <span class="s2">&quot;-f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--file&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;collatz-graph.gv&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;write dot-FILE&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;FILE&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-p"</span><span class="p">,</span>
-        <span class="s2">"--program"</span><span class="p">,</span>
-        <span class="n">dest</span><span class="o">=</span><span class="s2">"program"</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">"dot, neato, twopi, circo, fdp, sfdp, osage"</span><span class="p">,</span>
-        <span class="n">metavar</span><span class="o">=</span><span class="s2">"PROGRAM"</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="s2">"dot"</span><span class="p">,</span>
+        <span class="s2">&quot;-p&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--program&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;program&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;dot, neato, twopi, circo, fdp, sfdp, osage&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;PROGRAM&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;limit&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;limit&quot;</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="n">writeDotfile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
@@ -209,15 +205,18 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 
     <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
 </code></pre></div>
+
 <p>called like this:</p>
 <div class="highlight"><pre><span></span><code>python small-numbers.py -n <span class="m">15</span> -p fdp
 </code></pre></div>
-<h2 id="$n=27$">$n=27$</h2>
+
+<h2>$n=27$</h2>
 <p><span class="math">\(n=27\)</span> is an enourmously long sequence:</p>
 <figure class="aligncenter">
-<a href="../images/2013/05/collatz-27.png"><img alt="Collatz sequence $c^{27}_i$" class="size-full wp-image-66351" src="../images/2013/05/collatz-27.png" style="max-width:512px;max-height:227px"/></a>
-<figcaption class="text-center">Collatz sequence $c^{27}_i$</figcaption>
-</figure>
+            <a href="../images/2013/05/collatz-27.png"><img src="../images/2013/05/collatz-27.png" alt="Collatz sequence $c^{27}_i$" style="max-width:512px;max-height:227px" class="size-full wp-image-66351"/></a>
+            <figcaption class="text-center">Collatz sequence $c^{27}_i$</figcaption>
+        </figure>
+
 <p>It was created with pgfplots:</p>
 <div class="highlight"><pre><span></span><code>\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage[margin=2.5cm]{geometry} %layout
@@ -243,13 +242,15 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 \end{tikzpicture}
 \end{document}
 </code></pre></div>
-<h2 id="how long are collatz sequences?">How long are Collatz sequences?</h2>
+
+<h2>How long are Collatz sequences?</h2>
 <p>I've been interested in the question how long Collatz sequences are. Of course, they will be longer when <span class="math">\(n\)</span> is bigger. But how does the choice of <span class="math">\(n\)</span> influence the number of steps it takes until you reach <span class="math">\(c^n_i = 1\)</span>?</p>
 <p>I've tested all Collatz sequences with <span class="math">\(n \leq 10,000,000\)</span>. This is the result:</p>
 <figure class="aligncenter">
-<a href="../images/2013/05/collatz-sequence-steps.png"><img alt="Collatz sequence steps" class="size-full wp-image-66231" src="../images/2013/05/collatz-sequence-steps.png" style="max-width:512px;max-height:512px"/></a>
-<figcaption class="text-center">Collatz sequence steps</figcaption>
-</figure>
+            <a href="../images/2013/05/collatz-sequence-steps.png"><img src="../images/2013/05/collatz-sequence-steps.png" alt="Collatz sequence steps" style="max-width:512px;max-height:512px" class="size-full wp-image-66231"/></a>
+            <figcaption class="text-center">Collatz sequence steps</figcaption>
+        </figure>
+
 <p>For every hexagon, you check how many datapoints <span class="math">\((n,steps)\)</span> you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
 <p>The data was created as a 116.9 MB csv file with this C++ code:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -287,9 +288,9 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
         <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="n">CRITICAL_VALUE</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Critical value is: "</span> <span class="o">&lt;&lt;</span> <span class="n">CRITICAL_VALUE</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"n is: "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"saveULong is: "</span> <span class="o">&lt;&lt;</span> <span class="n">saveULong</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Critical value is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">CRITICAL_VALUE</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;n is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;saveULong is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">saveULong</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
             <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
@@ -299,7 +300,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <span class="kt">void</span> <span class="n">insertCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="p">){</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">collatz</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" is not in collatz:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; is not in collatz:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
         <span class="p">}</span>
 
         <span class="c1">// i is not in collatz</span>
@@ -334,13 +335,13 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
             <span class="n">current</span> <span class="o">=</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
 
             <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">inserted "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">"-&gt;"</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="p">.</span><span class="n">next</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">inserted &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-&gt;&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="p">.</span><span class="n">next</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" was already in collatz."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; was already in collatz.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -349,7 +350,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
         <span class="n">it</span><span class="o">!=</span><span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">).</span><span class="n">first</span><span class="p">;</span>
         <span class="k">while</span><span class="p">(</span><span class="n">next</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">next</span> <span class="o">&lt;&lt;</span> <span class="s">"-&gt;"</span><span class="p">;</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">next</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;-&gt;&quot;</span><span class="p">;</span>
             <span class="n">next</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">[</span><span class="n">next</span><span class="p">].</span><span class="n">next</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
@@ -357,9 +358,9 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="n">printSteps</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n,steps"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;n,steps&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">max</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">","</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">steps</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;,&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">steps</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -379,10 +380,10 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxAddFromOneEntry: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxAddFromOneEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxStepsToOne: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxStepsToOne</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxEntry: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"entries: "</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;maxAddFromOneEntry: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">maxAddFromOneEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;maxStepsToOne: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">maxStepsToOne</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;maxEntry: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">maxEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;entries: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 
     <span class="c1">//printCollatz();</span>
     <span class="n">printSteps</span><span class="p">(</span><span class="n">maxCollatz</span><span class="p">);</span>
@@ -390,48 +391,54 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Then I've processed it with R:</p>
 <div class="highlight"><pre><span></span><code>R -f analyze.R
 </code></pre></div>
+
 <p>analyze.R:</p>
 <div class="highlight"><pre><span></span><code>library(ggplot2)
 memory.limit(4000)
 
-mydata = read.csv("/home/moose/Downloads/algorithms/collatz/steps.csv")
+mydata = read.csv(&quot;/home/moose/Downloads/algorithms/collatz/steps.csv&quot;)
 
 # Prepare data
 p&lt;-ggplot(mydata, aes ( x=n,y=steps ))
 
 p&lt;-p + geom_hex(bins=30)
-p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
+p&lt;-p + opts(panel.background = theme_rect(fill=&#39;white&#39;, colour=&#39;white&#39;))
 
 # This will save the result in a pdf file called Rplots.pdf
 p
 </code></pre></div>
+
 <p>And finally, I've converted it to png:</p>
 <div class="highlight"><pre><span></span><code>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png
 </code></pre></div>
+
 <p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
-<h2 id="maximum in sequence">Maximum in sequence</h2>
+<h2>Maximum in sequence</h2>
 <p>In the following plot you can see <span class="math">\(n \in 1, \dots, 10,000,000\)</span> on the <span class="math">\(x\)</span>-axis and the maximum <span class="math">\(y = \max(\{a^n_i | i \in \mathbb{N}_{&gt; 0}\})\)</span>:</p>
 <figure class="aligncenter">
-<a href="../images/2013/05/maxInSequence.png"><img alt="Hexagonal binpacking plot for maximum in sequence" class="size-full wp-image-66391" src="../images/2013/05/maxInSequence.png" style="max-width:512px;max-height:512px"/></a>
-<figcaption class="text-center">Hexagonal binpacking plot for maximum in sequence</figcaption>
-</figure>
+            <a href="../images/2013/05/maxInSequence.png"><img src="../images/2013/05/maxInSequence.png" alt="Hexagonal binpacking plot for maximum in sequence" style="max-width:512px;max-height:512px" class="size-full wp-image-66391"/></a>
+            <figcaption class="text-center">Hexagonal binpacking plot for maximum in sequence</figcaption>
+        </figure>
+
 <div class="highlight"><pre><span></span><code>library(ggplot2)
 
-mydata = read.csv("../collatz-maxNumber.csv")
+mydata = read.csv(&quot;../collatz-maxNumber.csv&quot;)
 
 # Prepare data
 p&lt;-ggplot(mydata, aes(x=n, y=maximum)) + scale_y_log10()
 
 p&lt;-p + geom_hex(bins=50)
-p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
+p&lt;-p + opts(panel.background = theme_rect(fill=&#39;white&#39;, colour=&#39;white&#39;))
 
 # This will save the result in a pdf file called Rplots.pdf
 p
 </code></pre></div>
-<h2 id="execution times">Execution times</h2>
+
+<h2>Execution times</h2>
 <p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
 <p>Inkscape didn't like the heavy plot:</p>
 <div class="highlight"><pre><span></span><code>moose@pc07$ inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
@@ -439,17 +446,20 @@ p
 <span class="o">(</span>inkscape:26733<span class="o">)</span>: GLib-ERROR **: /build/buildd/glib2.0-2.34.1/./glib/gmem.c:165: failed to allocate <span class="m">3440640</span> bytes
 ^CTrace/breakpoint <span class="nb">trap</span> <span class="o">(</span>core dumped<span class="o">)</span>
 </code></pre></div>
-<h2 id="maximum in sequence and steps">Maximum in sequence and steps</h2>
+
+<h2>Maximum in sequence and steps</h2>
+
 <figure class="aligncenter">
-<a href="../images/2013/05/collatz-sequence-and-steps-for-n.png"><img alt="Maximum value and number of steps for n up to 10,000" class="size-full wp-image-66481" src="../images/2013/05/collatz-sequence-and-steps-for-n.png" style="max-width:512px;max-height:512px"/></a>
-<figcaption class="text-center">Maximum value and number of steps for n up to 10,000</figcaption>
-</figure>
-<h2 id="read more">Read more</h2>
+            <a href="../images/2013/05/collatz-sequence-and-steps-for-n.png"><img src="../images/2013/05/collatz-sequence-and-steps-for-n.png" alt="Maximum value and number of steps for n up to 10,000" style="max-width:512px;max-height:512px" class="size-full wp-image-66481"/></a>
+            <figcaption class="text-center">Maximum value and number of steps for n up to 10,000</figcaption>
+        </figure>
+
+<h2>Read more</h2>
 <ul>
-<li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
-<li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
-<li><a href="http://wiki.ubuntuusers.de/R">R on UbuntuUsers</a> (German)</li>
-<li><a href="http://projecteuler.net/problem=14">Project Euler 14</a></li>
+  <li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
+  <li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
+  <li><a href="http://wiki.ubuntuusers.de/R">R on UbuntuUsers</a> (German)</li>
+  <li><a href="http://projecteuler.net/problem=14">Project Euler 14</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

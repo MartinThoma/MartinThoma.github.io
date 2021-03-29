@@ -102,19 +102,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#pyenv" title="pyenv">pyenv</a></li><li><a class="toc-href" href="#python-35" title="Python 3.5">Python 3.5</a></li><li><a class="toc-href" href="#python-36" title="Python 3.6">Python 3.6</a></li><li><a class="toc-href" href="#python-37" title="Python 3.7">Python 3.7</a></li><li><a class="toc-href" href="#python-38" title="Python 3.8">Python 3.8</a></li><li><a class="toc-href" href="#python-39" title="Python 3.9">Python 3.9</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Are you wondering why you should switch from Python 3.6 to Python 3.7 or any other version combination? Or are you thinking about supporting Python 3.5 and want to know which features you have to avoid? Then this is your article.</p>
 <p>There are, of course, way more features. But those are the ones I stumble over most of the time.</p>
 <h2 id="pyenv">pyenv</h2>
-<p>Before we start going into details, you must know about pyenv. It&rsquo;s a super handy tool which let&rsquo;s you easily switch the Python version. It downloads them automatically for you. Here is how you use it:</p>
+<p>Before we start going into details, you must know about pyenv. It’s a super handy tool which let’s you easily switch the Python version. It downloads them automatically for you. Here is how you use it:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># See which Python versions are available:</span>
 $ pyenv install --list
 
@@ -124,20 +118,22 @@ $ pyenv install <span class="m">3</span>.5.9
 <span class="c1"># Use one:</span>
 $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
 </code></pre></div>
-<p>It&rsquo;s pretty neat that it switches also the tools you install with it. For example, when you switch to 3.5.9, you also have pip for that version.</p>
+
+<p>It’s pretty neat that it switches also the tools you install with it. For example, when you switch to 3.5.9, you also have pip for that version.</p>
 <h2 id="python-35">Python 3.5</h2>
 <p>I really hope nobody is using Python versions below 3.3 anymore. Or, god forbid, even Python 2.7 😨.</p>
 <p>There are so many new features and improvements in Python 3 compared to 2.7:</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">python2</span> <span class="n">thinks</span> <span class="n">this</span> <span class="k">is</span> <span class="n">fine</span><span class="p">,</span> <span class="n">python3</span> <span class="n">throws</span> <span class="n">an</span> <span class="k">Exception</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">True</span> <span class="o">=</span> <span class="k">False</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">max</span><span class="p">([</span><span class="s1">'foo'</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="s1">'foo'</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">'foo'</span> <span class="o">&gt;</span> <span class="mi">2</span>
-<span class="k">True</span>
+<div class="highlight"><pre><span></span><code># python2 thinks this is fine, python3 throws an Exception
+&gt;&gt;&gt; True = False
+&gt;&gt;&gt; max([&#39;foo&#39;, 2])
+&#39;foo&#39;
+&gt;&gt;&gt; &#39;foo&#39; &gt; 2
+True
 
-<span class="o">#</span> <span class="n">Advanced</span> <span class="n">iterable</span> <span class="n">unpacking</span><span class="p">:</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+# Advanced iterable unpacking:
+a, b, *rest = range(10)
 </code></pre></div>
+
 <p>And there is more:</p>
 <ul>
 <li><a href="https://docs.python.org/3/howto/unicode.html#python-s-unicode-support">Better unicode handling</a> 🎉🎉🎉</li>
@@ -155,12 +151,13 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
 
 <span class="c1"># f-string!</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s2">"foo {bar}"</span>
-<span class="s1">'foo 3'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;foo </span><span class="si">{</span><span class="n">bar</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s1">&#39;foo 3&#39;</span>
 
 <span class="c1"># PEP 515: Underscores in Numeric Literals</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span><span class="n">_000_000</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 </code></pre></div>
+
 <p>The list of <a href="https://docs.python.org/3/whatsnew/3.6.html">new features in Python 3.6</a> is way longer. One improvement to point out is that the internal representation of dictionaries became way more efficient, leading to a 20% size reduction in memory.</p>
 <h2 id="python-37">Python 3.7</h2>
 <p>The <strong>future annotations</strong> are super handy when you want to properly annotate your classes.</p>
@@ -175,6 +172,7 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
         <span class="bp">self</span><span class="o">.</span><span class="n">bar</span> <span class="o">=</span> <span class="n">bar</span> <span class="o">+</span> <span class="n">bar</span>
         <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div>
+
 <ul>
 <li>Dictionaries have insertion order (<a href="https://docs.python.org/3/whatsnew/3.7.html#whatsnew37-">source</a>)</li>
 <li>async and await are reserved keywords (<a href="https://docs.python.org/3/whatsnew/3.7.html">source</a>)</li>
@@ -182,21 +180,22 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
 <li><a href="https://www.python.org/dev/peps/pep-0589/">PEP-589</a>: TypedDict 🎉</li>
 </ul>
 <h2 id="python-38">Python 3.8</h2>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">f</span><span class="o">-</span><span class="n">strings</span> <span class="k">for</span> <span class="n">debugging</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span> <span class="o">=</span> <span class="ss">"Hello World"</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="ss">"{foo=}, {bar=}"</span>
-<span class="ss">"foo='Hello World', bar=3"</span>
+<div class="highlight"><pre><span></span><code># <span class="nv">f</span><span class="o">-</span><span class="nv">strings</span> <span class="k">for</span> <span class="nv">debugging</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nv">bar</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Hello World</span><span class="s2">&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nv">f</span><span class="s2">&quot;</span><span class="s">{foo=}, {bar=}</span><span class="s2">&quot;</span>
+<span class="s2">&quot;</span><span class="s">foo=&#39;Hello World&#39;, bar=3</span><span class="s2">&quot;</span>
 
-<span class="o">#</span> <span class="k">Assignment</span> <span class="n">expressions</span> <span class="p">(</span><span class="n">aka</span><span class="p">:</span> <span class="n">The</span> <span class="n">Walrus</span> <span class="k">Operator</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">is_positive</span> <span class="p">:</span><span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="p">...</span>     <span class="n">print</span><span class="p">(</span><span class="ss">"It's positive!"</span><span class="p">)</span>
-<span class="p">...</span> <span class="k">else</span><span class="p">:</span>
-<span class="p">...</span>     <span class="n">print</span><span class="p">(</span><span class="ss">"It's negative"</span><span class="p">)</span>
-<span class="p">...</span>
-<span class="n">It</span><span class="err">'</span><span class="n">s</span> <span class="n">positive</span><span class="o">!</span>
+# <span class="nv">Assignment</span> <span class="nv">expressions</span> <span class="ss">(</span><span class="nv">aka</span>: <span class="nv">The</span> <span class="nv">Walrus</span> <span class="nv">Operator</span><span class="ss">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nv">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="nv">is_positive</span> :<span class="o">=</span> <span class="nv">a</span> <span class="o">&gt;</span> <span class="mi">0</span>:
+...     <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">It&#39;s positive!</span><span class="s2">&quot;</span><span class="ss">)</span>
+... <span class="k">else</span>:
+...     <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">It&#39;s negative</span><span class="s2">&quot;</span><span class="ss">)</span>
+...
+<span class="nv">It</span><span class="s1">&#39;</span><span class="s">s positive!</span>
 </code></pre></div>
+
 <p>TypedDict is also pretty cool (example taken from <a href="https://www.python.org/dev/peps/pep-0589/">PEP-589</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -206,16 +205,17 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
     <span class="n">year</span><span class="p">:</span> <span class="nb">int</span>
 
 
-<span class="n">movie</span><span class="p">:</span> <span class="n">Movie</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Blade Runner"</span><span class="p">,</span> <span class="s2">"year"</span><span class="p">:</span> <span class="mi">1982</span><span class="p">}</span>
+<span class="n">movie</span><span class="p">:</span> <span class="n">Movie</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Blade Runner&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1982</span><span class="p">}</span>
 </code></pre></div>
+
 <h2 id="python-39">Python 3.9</h2>
 <p>Dictionary Union:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; a = {'foo': 'bar', 42: 1337}</span>
-<span class="err">&gt;&gt;&gt; b = {'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'foo'}</span>
-<span class="err">&gt;&gt;&gt; a | b</span>
-<span class="err">{'foo': 'foo', 42: 1337, 'x': 'y', 'a': 'b', 'c': 'd'}</span>
-<span class="err">&gt;&gt;&gt; b | a</span>
-<span class="err">{'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'bar', 42: 1337}</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = {&#39;foo&#39;: &#39;bar&#39;, 42: 1337}
+&gt;&gt;&gt; b = {&#39;x&#39;: &#39;y&#39;, &#39;a&#39;: &#39;b&#39;, &#39;c&#39;: &#39;d&#39;, &#39;foo&#39;: &#39;foo&#39;}
+&gt;&gt;&gt; a | b
+{&#39;foo&#39;: &#39;foo&#39;, 42: 1337, &#39;x&#39;: &#39;y&#39;, &#39;a&#39;: &#39;b&#39;, &#39;c&#39;: &#39;d&#39;}
+&gt;&gt;&gt; b | a
+{&#39;x&#39;: &#39;y&#39;, &#39;a&#39;: &#39;b&#39;, &#39;c&#39;: &#39;d&#39;, &#39;foo&#39;: &#39;bar&#39;, 42: 1337}
 </code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,52 +102,49 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#der algorithmus" title="Der Algorithmus">Der Algorithmus</a></li><li><a class="toc-href" href="#beispiel" title="Beispiel">Beispiel</a></li><li><a class="toc-href" href="#latex" title="LaTeX">LaTeX</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von &Auml;quivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zust&auml;nden gefunden werden. Daf&uuml;r ben&ouml;tigt man im Wesentlichen sogar nur drei Schritte.</p>
-<h2 id="der algorithmus">Der Algorithmus</h2>
+<h2>Der Algorithmus</h2>
 <ol>
-<li><strong>&Uuml;berfl&uuml;ssige Zust&auml;nde streichen</strong>: Manche Zust&auml;nde sind nicht erreichbar. Diese k&ouml;nnen offensichtlich gestrichen werden.</li>
-<li><strong>Akzeptierende von nichtakzeptierenden Zust&auml;nden trennen</strong>: Alle akzeptierenden Zust&auml;nde werden in eine &Auml;quivalenzklasse gepackt, alle Zust&auml;nde die nicht akzeptieren kommen in eine andere Klasse.</li>
-<li><strong>Zust&auml;nde trennen</strong>: F&uuml;r jedes Zeichen des Eingabealphabets $\Sigma$ schreibt man sich auf, in welchen Zustand der Zustand f&uuml;hrt. Wenn zwei Zust&auml;nde in verschiedene Klassen f&uuml;hren, werden diese getrennt. Dies wiederholt man so lange, bis man ein mal alle Zeichen aus $\Sigma$ durchgegangen ist, ohne dass Zust&auml;nde getrennt wurden.</li>
+  <li><strong>&Uuml;berfl&uuml;ssige Zust&auml;nde streichen</strong>: Manche Zust&auml;nde sind nicht erreichbar. Diese k&ouml;nnen offensichtlich gestrichen werden.</li>
+  <li><strong>Akzeptierende von nichtakzeptierenden Zust&auml;nden trennen</strong>: Alle akzeptierenden Zust&auml;nde werden in eine &Auml;quivalenzklasse gepackt, alle Zust&auml;nde die nicht akzeptieren kommen in eine andere Klasse.</li>
+  <li><strong>Zust&auml;nde trennen</strong>: F&uuml;r jedes Zeichen des Eingabealphabets $\Sigma$ schreibt man sich auf, in welchen Zustand der Zustand f&uuml;hrt. Wenn zwei Zust&auml;nde in verschiedene Klassen f&uuml;hren, werden diese getrennt. Dies wiederholt man so lange, bis man ein mal alle Zeichen aus $\Sigma$ durchgegangen ist, ohne dass Zust&auml;nde getrennt wurden.</li>
 </ol>
-<h2 id="beispiel">Beispiel</h2>
+
+<h2>Beispiel</h2>
 <p>Gegeben sei folgender Endlicher Automat A:
-<span class="math">\(A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})\)</span> mit folgender &Uuml;bergangsfunktion <span class="math">\(\sigma\)</span>:
+<span class="math">\(A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})\)</span> mit folgender &Uuml;bergangsfunktion <span class="math">\(\sigma\)</span>:</p>
 <figure class="aligncenter">
-<a href="../images/2012/02/endlicher-automat-gross.png"><img alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" class="size-full wp-image-13451" src="../images/2012/02/endlicher-automat-gross.png" style="max-width:392px;max-height:389px"/></a>
-<figcaption class="text-center">Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden</figcaption>
-</figure></p>
+            <a href="../images/2012/02/endlicher-automat-gross.png"><img src="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" style="max-width:392px;max-height:389px" class="size-full wp-image-13451"/></a>
+            <figcaption class="text-center">Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden</figcaption>
+        </figure>
+
 <p>Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden k&ouml;nnen. Algorithmisch kann man diese Zust&auml;nde durch eine Tiefensuche bestimmen.</p>
 <p>Nach Schritt 1 haben wir also den Automaten
-<span class="math">\(A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})\)</span>:
+<span class="math">\(A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})\)</span>:</p>
 <figure class="aligncenter">
-<a href="../images/2012/02/endlicher-automat-kleiner.png"><img alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" class="size-full wp-image-13471" src="../images/2012/02/endlicher-automat-kleiner.png" style="max-width:340px;max-height:381px"/></a>
-<figcaption class="text-center">Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten</figcaption>
-</figure></p>
+            <a href="../images/2012/02/endlicher-automat-kleiner.png"><img src="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" style="max-width:340px;max-height:381px" class="size-full wp-image-13471"/></a>
+            <figcaption class="text-center">Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten</figcaption>
+        </figure>
+
 <p>In Schritt 2 erstellen wir also zuerst eine &Auml;quivalenzklasse der Zust&auml;nde:
 <span class="math">\(\{S, A, B, C, D, E, F\}\)</span>.</p>
 <p>Die akzeptierenden Zust&auml;nde werden von den nicht akzeptierenden getrennt: <span class="math">\(\{D\}, \{S, A, B, C, E, F\}\)</span></p>
 <p>In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus <span class="math">\(\Sigma\)</span> durch:
 In welche Klassen f&uuml;hrt "0"?
-<a href="../images/2012/02/aequivalenzklassen-1.png"><img alt="&Auml;quivalenzklassen - Schritt 1" class="aligncenter size-full wp-image-13631" height="71" src="../images/2012/02/aequivalenzklassen-1.png" title="&Auml;quivalenzklassen - Schritt 1" width="220"/></a></p>
+<a href="../images/2012/02/aequivalenzklassen-1.png"><img src="../images/2012/02/aequivalenzklassen-1.png" alt="&Auml;quivalenzklassen - Schritt 1" title="&Auml;quivalenzklassen - Schritt 1" width="220" height="71" class="aligncenter size-full wp-image-13631" /></a></p>
 <p>C wird also von <span class="math">\(\{S, A, B, E, F\}\)</span> getrennt. Wir haben folgende Klassen:
 <span class="math">\(\{C\}, \{D\}, \{S, A, B, E, F\}\)</span></p>
 <p>"1" trennt nun "A" von <span class="math">\(\{S, B, E, F\}\)</span>:
-<a href="../images/2012/02/aequivalenzklasse-2.png"><img alt="&Auml;quivalenzklassen - Schritt 2" class="aligncenter size-full wp-image-13661" height="66" src="../images/2012/02/aequivalenzklasse-2.png" title="&Auml;quivalenzklassen - Schritt 2" width="246"/></a></p>
+<a href="../images/2012/02/aequivalenzklasse-2.png"><img src="../images/2012/02/aequivalenzklasse-2.png" alt="&Auml;quivalenzklassen - Schritt 2" title="&Auml;quivalenzklassen - Schritt 2" width="246" height="66" class="aligncenter size-full wp-image-13661" /></a></p>
 <p>"0" trennt nun "S" von <span class="math">\(\{B, E, F\}\)</span>:
-<a href="../images/2012/02/aequivalenzklasse-3.png"><img alt="&Auml;quivalenzklassen - Schritt 3" class="aligncenter size-full wp-image-13681" height="65" src="../images/2012/02/aequivalenzklasse-3.png" title="&Auml;quivalenzklassen - Schritt 3" width="267"/></a></p>
+<a href="../images/2012/02/aequivalenzklasse-3.png"><img src="../images/2012/02/aequivalenzklasse-3.png" alt="&Auml;quivalenzklassen - Schritt 3" title="&Auml;quivalenzklassen - Schritt 3" width="267" height="65" class="aligncenter size-full wp-image-13681" /></a></p>
 <p>Wir haben nun die &Auml;quivalenzklassen <span class="math">\(\{S\}, \{A\}, \{C\}, \{D\}, \{B, E, F\}\)</span>.</p>
 <p>Im n&auml;chsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nicht nochmals etwas trennt. Wir sind also fertig. Die Zust&auml;nde B, E und F k&ouml;nnen zu einem zusammengefasst werden. Ich nenne ihn mal T (f&uuml;r Trash, da man in diesem Zustand niemals mehr akzeptieren kann). Damit ist unser minimaler Endlicher Automat folgender:</p>
-<p><a href="../images/2012/02/endlicher-automat-minimal.png"><img alt="Minimaler Endlicher Automat" class="aligncenter size-full wp-image-13711" height="278" src="../images/2012/02/endlicher-automat-minimal.png" title="Minimaler Endlicher Automat" width="346"/></a></p>
-<h2 id="latex">LaTeX</h2>
+<p><a href="../images/2012/02/endlicher-automat-minimal.png"><img src="../images/2012/02/endlicher-automat-minimal.png" alt="Minimaler Endlicher Automat" title="Minimaler Endlicher Automat" width="346" height="278" class="aligncenter size-full wp-image-13711" /></a></p>
+<h2>LaTeX</h2>
 <p>Das ist der LaTeX-Code f&uuml;r die Automaten:</p>
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
@@ -157,7 +154,7 @@ In welche Klassen f&uuml;hrt "0"?
 
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;,shorten &gt;=1pt,auto,node distance=2cm]
   <span class="k">\node</span><span class="na">[initial,state]</span>   (S)                          <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>           (A) [below of=S, left of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">A</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>           (B) [below of=A]             <span class="nb">{</span><span class="s">$</span><span class="nb">B</span><span class="s">$</span><span class="nb">}</span>;
@@ -186,7 +183,7 @@ In welche Klassen f&uuml;hrt "0"?
 
 Ueberfluessige weg:
 
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;,shorten &gt;=1pt,auto,node distance=2cm]
   <span class="k">\node</span><span class="na">[initial,state]</span>   (S)                          <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>           (A) [below of=S, left of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">A</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>           (B) [below of=A]             <span class="nb">{</span><span class="s">$</span><span class="nb">B</span><span class="s">$</span><span class="nb">}</span>;
@@ -208,7 +205,7 @@ Ueberfluessige weg:
 
 Minimal:
 
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth&#39;,shorten &gt;=1pt,auto,node distance=2cm]
   <span class="k">\node</span><span class="na">[initial,state]</span>   (S)                          <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>           (A) [below of=S, left of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">A</span><span class="s">$</span><span class="nb">}</span>;
   <span class="k">\node</span><span class="na">[state]</span>           (B) [below of=A]             <span class="nb">{</span><span class="s">$</span><span class="nb">T</span><span class="s">$</span><span class="nb">}</span>;
@@ -227,6 +224,7 @@ Minimal:
 
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
+
 <p>Und hier die Bilder mit den Pfeilchen:</p>
 <div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>

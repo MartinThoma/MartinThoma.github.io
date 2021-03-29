@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#python-configuration-file" title="Python Configuration File">Python Configuration File</a></li><li><a class="toc-href" href="#json" title="JSON">JSON</a></li><li><a class="toc-href" href="#yaml" title="YAML">YAML</a></li><li><a class="toc-href" href="#ini" title="INI">INI</a><ul><li><a class="toc-href" href="#configparser" title="ConfigParser">ConfigParser</a></li></ul></li><li><a class="toc-href" href="#xml_1" title="XML">XML</a></li><li><a class="toc-href" href="#file-endings" title="File Endings">File Endings</a></li><li><a class="toc-href" href="#resources_1" title="Resources">Resources</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Most interesting programs need some kind of configuration:</p>
@@ -125,6 +119,7 @@ directly into the source code. But this is a bad idea when you upload the code
 to GitHub.</p>
 <p>I will explain some alternatives I got to know for Python.</p>
 <div class="info">I've created a module for configuration handling: <a href="https://github.com/MartinThoma/cfg_load"><code>cfg_load</code></a></div>
+
 <h2 id="python-configuration-file">Python Configuration File</h2>
 <p>The simplest way to write configuration files is to simply write a separate file
 that contains Python code. You might want to call it something like
@@ -135,10 +130,10 @@ that contains Python code. You might want to call it something like
 <span class="kn">import</span> <span class="nn">preprocessing</span>
 
 <span class="n">mysql</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-    <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"root"</span><span class="p">,</span>
-    <span class="s2">"passwd"</span><span class="p">:</span> <span class="s2">"my secret password"</span><span class="p">,</span>
-    <span class="s2">"db"</span><span class="p">:</span> <span class="s2">"write-math"</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;passwd&quot;</span><span class="p">:</span> <span class="s2">&quot;my secret password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="s2">&quot;write-math&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">preprocessing_queue</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale_and_center</span><span class="p">,</span>
@@ -147,12 +142,14 @@ that contains Python code. You might want to call it something like
 <span class="p">]</span>
 <span class="n">use_anonymous</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div>
+
 <p>Within the actual code, you can use it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">databaseconfig</span> <span class="k">as</span> <span class="nn">cfg</span>
 
-<span class="n">connect</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"user"</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"password"</span><span class="p">])</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">])</span>
 </code></pre></div>
+
 <p>The way you include the configuration might feel very convenient at a first
 glance, but imagine what happens when you get more configuration variables.
 You definitely need to provide an example configuration file. And it is hard
@@ -163,53 +160,57 @@ Notation. It is widespread and thus has good support for many programming
 languages.</p>
 <p>The configuration might look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">"mysql"</span><span class="p">:{</span>
-        <span class="nt">"host"</span><span class="p">:</span><span class="s2">"localhost"</span><span class="p">,</span>
-        <span class="nt">"user"</span><span class="p">:</span><span class="s2">"root"</span><span class="p">,</span>
-        <span class="nt">"passwd"</span><span class="p">:</span><span class="s2">"my secret password"</span><span class="p">,</span>
-        <span class="nt">"db"</span><span class="p">:</span><span class="s2">"write-math"</span>
+    <span class="nt">&quot;mysql&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;passwd&quot;</span><span class="p">:</span><span class="s2">&quot;my secret password&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;db&quot;</span><span class="p">:</span><span class="s2">&quot;write-math&quot;</span>
     <span class="p">},</span>
-    <span class="nt">"other"</span><span class="p">:{</span>
-        <span class="nt">"preprocessing_queue"</span><span class="p">:[</span>
-            <span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
-            <span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
-            <span class="s2">"preprocessing.connect_lines"</span>
+    <span class="nt">&quot;other&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;preprocessing_queue&quot;</span><span class="p">:[</span>
+            <span class="s2">&quot;preprocessing.scale_and_center&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.dot_reduction&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.connect_lines&quot;</span>
             <span class="p">],</span>
-        <span class="nt">"use_anonymous"</span><span class="p">:</span><span class="kc">true</span>
+        <span class="nt">&quot;use_anonymous&quot;</span><span class="p">:</span><span class="kc">true</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>You can read it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_data_file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_data_file</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_data_file</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
+
 <p>which outputs</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="s2">"mysql"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"db"</span><span class="p">:</span> <span class="s2">"write-math"</span><span class="p">,</span>
-        <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-        <span class="s2">"passwd"</span><span class="p">:</span> <span class="s2">"my secret password"</span><span class="p">,</span>
-        <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"root"</span><span class="p">,</span>
+    <span class="s2">&quot;mysql&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="s2">&quot;write-math&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;passwd&quot;</span><span class="p">:</span> <span class="s2">&quot;my secret password&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s2">"other"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"preprocessing_queue"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
-            <span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
-            <span class="s2">"preprocessing.connect_lines"</span><span class="p">,</span>
+    <span class="s2">&quot;other&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;preprocessing_queue&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;preprocessing.scale_and_center&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.dot_reduction&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.connect_lines&quot;</span><span class="p">,</span>
         <span class="p">],</span>
-        <span class="s2">"use_anonymous"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;use_anonymous&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">},</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Writing JSON files is also easy. Just build up the dictionary and use</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="yaml">YAML</h2>
 <p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a configuration file format.
 Wikipedia says:</p>
@@ -218,7 +219,7 @@ Wikipedia says:</p>
 takes concepts from programming languages such as C, Perl, and Python, and
 ideas from XML and the data format of electronic mail (RFC 2822). YAML was
 first proposed by Clark Evans in 2001, who designed it together with
-Ingy d&ouml;t Net and Oren Ben-Kiki.
+Ingy döt Net and Oren Ben-Kiki.
 It is available for several programming languages.</p>
 </blockquote>
 <p>The file itself might look like this:</p>
@@ -234,35 +235,38 @@ It is available for several programming languages.</p>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">preprocessing.connect_lines</span>
     <span class="nt">use_anonymous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
 </code></pre></div>
+
 <p>You can read it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.yml"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">ymlfile</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.yml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ymlfile</span><span class="p">:</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ymlfile</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">cfg</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"mysql"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"other"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;mysql&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;other&quot;</span><span class="p">])</span>
 </code></pre></div>
+
 <p>It outputs:</p>
 <div class="highlight"><pre><span></span><code><span class="n">other</span>
 <span class="n">mysql</span>
 <span class="p">{</span>
-    <span class="s2">"passwd"</span><span class="p">:</span> <span class="s2">"my secret password"</span><span class="p">,</span>
-    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-    <span class="s2">"db"</span><span class="p">:</span> <span class="s2">"write-math"</span><span class="p">,</span>
-    <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"root"</span><span class="p">,</span>
+    <span class="s2">&quot;passwd&quot;</span><span class="p">:</span> <span class="s2">&quot;my secret password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="s2">&quot;write-math&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="p">{</span>
-    <span class="s2">"preprocessing_queue"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
-        <span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
-        <span class="s2">"preprocessing.connect_lines"</span><span class="p">,</span>
+    <span class="s2">&quot;preprocessing_queue&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;preprocessing.scale_and_center&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preprocessing.dot_reduction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preprocessing.connect_lines&quot;</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="s2">"use_anonymous"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;use_anonymous&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>There is a <code>yaml.dump</code> method, so you can write the configuration the same way.
 Just build up a dictionary.</p>
 <p>YAML is used by the Blender project.</p>
@@ -279,11 +283,12 @@ Just build up a dictionary.</p>
 <span class="na">db</span><span class="o">=</span><span class="s">write-math</span>
 
 <span class="k">[other]</span>
-<span class="na">preprocessing_queue</span><span class="o">=</span><span class="s">["preprocessing.scale_and_center",</span>
-<span class="s">                     "preprocessing.dot_reduction",</span>
-<span class="s">                     "preprocessing.connect_lines"]</span>
+<span class="na">preprocessing_queue</span><span class="o">=</span><span class="s">[&quot;preprocessing.scale_and_center&quot;,</span>
+                     <span class="na">&quot;preprocessing.dot_reduction&quot;,</span>
+                     <span class="na">&quot;preprocessing.connect_lines&quot;]</span>
 <span class="na">use_anonymous</span><span class="o">=</span><span class="s">yes</span>
 </code></pre></div>
+
 <h3 id="configparser">ConfigParser</h3>
 <h4 id="basic-example">Basic example</h4>
 <p>The file can be loaded and used like this:</p>
@@ -293,77 +298,80 @@ Just build up a dictionary.</p>
 <span class="kn">import</span> <span class="nn">io</span>
 
 <span class="c1"># Load the configuration file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.ini"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.ini&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">sample_config</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">(</span><span class="n">allow_no_value</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">readfp</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">sample_config</span><span class="p">))</span>
 
 <span class="c1"># List all contents</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"List all contents"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List all contents&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">sections</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Section: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">section</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Section: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">section</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">"x </span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">"</span>
+            <span class="s2">&quot;x </span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">&quot;</span>
             <span class="o">%</span> <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">options</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">options</span><span class="p">)))</span>
         <span class="p">)</span>
 
 <span class="c1"># Print some contents</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Print some contents"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"other"</span><span class="p">,</span> <span class="s2">"use_anonymous"</span><span class="p">))</span>  <span class="c1"># Just get the value</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s2">"other"</span><span class="p">,</span> <span class="s2">"use_anonymous"</span><span class="p">))</span>  <span class="c1"># You know the datatype?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Print some contents&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;use_anonymous&quot;</span><span class="p">))</span>  <span class="c1"># Just get the value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;use_anonymous&quot;</span><span class="p">))</span>  <span class="c1"># You know the datatype?</span>
 </code></pre></div>
+
 <p>which outputs</p>
 <div class="highlight"><pre><span></span><code>List all contents
 Section: mysql
-x host:::localhost:::&lt;type 'str'&gt;
-x user:::root:::&lt;type 'str'&gt;
-x passwd:::my secret password:::&lt;type 'str'&gt;
-x db:::write-math:::&lt;type 'str'&gt;
+x host:::localhost:::&lt;type &#39;str&#39;&gt;
+x user:::root:::&lt;type &#39;str&#39;&gt;
+x passwd:::my secret password:::&lt;type &#39;str&#39;&gt;
+x db:::write-math:::&lt;type &#39;str&#39;&gt;
 Section: other
-x preprocessing_queue:::["preprocessing.scale_and_center",
-"preprocessing.dot_reduction",
-"preprocessing.connect_lines"]:::&lt;type 'str'&gt;
-x use_anonymous:::yes:::&lt;type 'str'&gt;
+x preprocessing_queue:::[&quot;preprocessing.scale_and_center&quot;,
+&quot;preprocessing.dot_reduction&quot;,
+&quot;preprocessing.connect_lines&quot;]:::&lt;type &#39;str&#39;&gt;
+x use_anonymous:::yes:::&lt;type &#39;str&#39;&gt;
 
 Print some contents
 yes
 True
 </code></pre></div>
+
 <p>As you can see, you can use a standard data format that is easy to read and
 write. Methods like <code>getboolean</code> and <code>getint</code> allow you to get the datatype
 instead of a simple string.</p>
 <h4 id="writing-configuration">Writing configuration</h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">configfile_name</span> <span class="o">=</span> <span class="s2">"config.ini"</span>
+<span class="n">configfile_name</span> <span class="o">=</span> <span class="s2">&quot;config.ini&quot;</span>
 
 <span class="c1"># Check if there is already a configurtion file</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">):</span>
-    <span class="c1"># Create the configuration file as it doesn't exist yet</span>
-    <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+    <span class="c1"># Create the configuration file as it doesn&#39;t exist yet</span>
+    <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
 
     <span class="c1"># Add content to the file</span>
     <span class="n">Config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"host"</span><span class="p">,</span> <span class="s2">"localhost"</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"root"</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"passwd"</span><span class="p">,</span> <span class="s2">"my secret password"</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"db"</span><span class="p">,</span> <span class="s2">"write-math"</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">"other"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;root&quot;</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;passwd&quot;</span><span class="p">,</span> <span class="s2">&quot;my secret password&quot;</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span> <span class="s2">&quot;write-math&quot;</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">)</span>
     <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-        <span class="s2">"other"</span><span class="p">,</span>
-        <span class="s2">"preprocessing_queue"</span><span class="p">,</span>
+        <span class="s2">&quot;other&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preprocessing_queue&quot;</span><span class="p">,</span>
         <span class="p">[</span>
-            <span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
-            <span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
-            <span class="s2">"preprocessing.connect_lines"</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.scale_and_center&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.dot_reduction&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;preprocessing.connect_lines&quot;</span><span class="p">,</span>
         <span class="p">],</span>
     <span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"other"</span><span class="p">,</span> <span class="s2">"use_anonymous"</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;use_anonymous&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="n">Config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cfgfile</span><span class="p">)</span>
     <span class="n">cfgfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
+
 <p>results in</p>
 <div class="highlight"><pre><span></span><code><span class="k">[mysql]</span>
 <span class="na">host</span> <span class="o">=</span> <span class="s">localhost</span>
@@ -372,16 +380,17 @@ instead of a simple string.</p>
 <span class="na">db</span> <span class="o">=</span> <span class="s">write-math</span>
 
 <span class="k">[other]</span>
-<span class="na">preprocessing_queue</span> <span class="o">=</span> <span class="s">['preprocessing.scale_and_center', 'preprocessing.dot_reduction', 'preprocessing.connect_lines']</span>
+<span class="na">preprocessing_queue</span> <span class="o">=</span> <span class="s">[&#39;preprocessing.scale_and_center&#39;, &#39;preprocessing.dot_reduction&#39;, &#39;preprocessing.connect_lines&#39;]</span>
 <span class="na">use_anonymous</span> <span class="o">=</span> <span class="s">True</span>
 </code></pre></div>
-<h2 id="xml_1">XML</h2>
+
+<h2 id="xml">XML</h2>
 <p>Seems not to be used at all for configuration files by the Python community.
 However, parsing / writing XML is easy and there are plenty of possibilities to
 do so with Python. One is BeautifulSoup:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.xml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.xml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
@@ -389,6 +398,7 @@ do so with Python. One is BeautifulSoup:</p>
 <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">y</span><span class="o">.</span><span class="n">other</span><span class="o">.</span><span class="n">preprocessing_queue</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
 </code></pre></div>
+
 <p>where the config.xml might look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;config&gt;</span>
     <span class="nt">&lt;mysql&gt;</span>
@@ -403,10 +413,11 @@ do so with Python. One is BeautifulSoup:</p>
             <span class="nt">&lt;li&gt;</span>preprocessing.dot_reduction<span class="nt">&lt;/li&gt;</span>
             <span class="nt">&lt;li&gt;</span>preprocessing.connect_lines<span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;/preprocessing_queue&gt;</span>
-        <span class="nt">&lt;use_anonymous</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;use_anonymous</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/other&gt;</span>
 <span class="nt">&lt;/config&gt;</span>
 </code></pre></div>
+
 <h2 id="file-endings">File Endings</h2>
 <p>File Endings give the user and the system an indicator about the content of a
 file. Reasonable file endings for configuration files are</p>

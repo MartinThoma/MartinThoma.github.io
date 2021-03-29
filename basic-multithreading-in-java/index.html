@@ -102,27 +102,23 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#java basics for multithreading" title="Java Basics for Multithreading">Java Basics for Multithreading</a></li><li><a class="toc-href" href="#sum" title="Sum">Sum</a></li><li><a class="toc-href" href="#main" title="Main">Main</a></li><li><a class="toc-href" href="#race conditions" title="Race Conditions">Race Conditions</a></li><li><a class="toc-href" href="#playing with bash" title="Playing with BASH">Playing with BASH</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.</p>
-<p>There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference?
+<p>There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference?</p>
 <ul>
-<li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
-<li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
-</ul></p>
+  <li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
+  <li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
+</ul>
+
 <p>In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes wiht <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.</p>
-<h2 id="java basics for multithreading">Java Basics for Multithreading</h2>
+<h2>Java Basics for Multithreading</h2>
 <p>All important lessons you need to learn are covered in <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">Java Concurrency Tutorial</a>. If you're really interested in multithreading, you should read this.</p>
 <p>You can put the part that can get executed concurrently in a separate class that implements the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnable</a>. This class has a method called run(). You can create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#Thread(java.lang.Runnable)">Thread(Runnable)</a> by calling <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#start()">start()</a>.</p>
 <p>Here is an example:</p>
-<h2 id="sum">Sum</h2>
+<h2>Sum</h2>
+
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sum</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">UpperEnd</span><span class="p">;</span>
 
@@ -138,7 +134,9 @@ MathJax.Hub.Queue(function() {
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="main">Main</h2>
+
+<h2>Main</h2>
+
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
 
@@ -149,12 +147,12 @@ MathJax.Hub.Queue(function() {
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"You should specify the number "</span>
-                    <span class="o">+</span> <span class="s">"of threads and BIG_NR. Call me like this:\n"</span>
-                    <span class="o">+</span> <span class="s">"java -jar RaceCondition.jar 5 20000\n"</span>
-                    <span class="o">+</span> <span class="s">"This will create 5 Threads which try to count"</span>
-                    <span class="o">+</span> <span class="s">"up to 2000000.\n"</span> <span class="o">+</span> <span class="s">"-v will show status "</span>
-                    <span class="o">+</span> <span class="s">"information "</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;You should specify the number &quot;</span>
+                    <span class="o">+</span> <span class="s">&quot;of threads and BIG_NR. Call me like this:\n&quot;</span>
+                    <span class="o">+</span> <span class="s">&quot;java -jar RaceCondition.jar 5 20000\n&quot;</span>
+                    <span class="o">+</span> <span class="s">&quot;This will create 5 Threads which try to count&quot;</span>
+                    <span class="o">+</span> <span class="s">&quot;up to 2000000.\n&quot;</span> <span class="o">+</span> <span class="s">&quot;-v will show status &quot;</span>
+                    <span class="o">+</span> <span class="s">&quot;information &quot;</span><span class="p">);</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
 
@@ -185,7 +183,7 @@ MathJax.Hub.Queue(function() {
             <span class="p">}</span>
 
             <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Remaining threads: "</span> <span class="o">+</span> <span class="n">running</span><span class="p">);</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Remaining threads: &quot;</span> <span class="o">+</span> <span class="n">running</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">running</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
 
@@ -194,45 +192,51 @@ MathJax.Hub.Queue(function() {
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Call it like this:</p>
 <div class="highlight"><pre><span></span><code>java Main <span class="m">5</span> <span class="m">2000</span>
 </code></pre></div>
-<h2 id="race conditions">Race Conditions</h2>
+
+<h2>Race Conditions</h2>
 <p>When you execute the code above, the output will vary. Why is this the case?</p>
 <p>In short: The execution order is not defined and <code>RaceCondition.bigSum++</code> is not atomic.</p>
 <p>Let's imagine that you call this with two threads only:
 <code>java Main 2 2000</code></p>
-<p>Now you could get this execution order:
+<p>Now you could get this execution order:</p>
 <ul>
-<li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
-<li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
-<li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
-<li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
-</ul></p>
+  <li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
+  <li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
+  <li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
+  <li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
+</ul>
+
 <p>Ok, we can obviously get values in <span class="math">\([\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>.</p>
 <p>Can we get smaller values? Yes, we can!</p>
 <p>Execute:</p>
 <div class="highlight"><pre><span></span><code>java Main <span class="m">50</span> <span class="m">20000</span>
 </code></pre></div>
+
 <ul>
-<li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
-<li>Thread 2 loads <code>bigSum</code>. It's 0.</li>
-<li>Thread 3 - 50 execute completely.</li>
-<li>Thread 2 executes until it is at the latest <code>bigSum++</code>. The latest doesn't execute.</li>
-<li>Thread 1 increases the loaded value from 0 to 1 and writes 1 back</li>
-<li>Thread 2 loads <code>bigSum</code> = 1</li>
-<li>Thread 1 executes and finishes.</li>
-<li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
+  <li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
+  <li>Thread 2 loads <code>bigSum</code>. It's 0.</li>
+  <li>Thread 3 - 50 execute completely.</li>
+  <li>Thread 2 executes until it is at the latest <code>bigSum++</code>. The latest doesn't execute.</li>
+  <li>Thread 1 increases the loaded value from 0 to 1 and writes 1 back</li>
+  <li>Thread 2 loads <code>bigSum</code> = 1</li>
+  <li>Thread 1 executes and finishes.</li>
+  <li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
 </ul>
+
 <p>You can get all values in <span class="math">\([2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>!</p>
 <p>Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.</p>
-<h2 id="playing with bash">Playing with BASH</h2>
-<p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:
+<h2>Playing with BASH</h2>
+<p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:</p>
 <ul>
-<li><span class="math">\(1: The number of times you execute a the program with a fixed number of THREADS&lt;/li&gt;
-  &lt;li&gt;\)</span>2: The maximum number of THREADS you would like to use</li>
-<li>$3: BIG_NR</li>
-</ul></p>
+  <li>$1: The number of times you execute a the program with a fixed number of THREADS</li>
+  <li>$2: The maximum number of THREADS you would like to use</li>
+  <li>$3: BIG_NR</li>
+</ul>
+
 <p>The script executes the program <span class="math">\($1 \cdot $2\)</span> times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
 <div class="highlight"><pre><span></span><code>rm raceCondition.tmp
 touch raceCondition.tmp
@@ -245,8 +249,8 @@ touch raceCondition.tmp
         <span class="c1"># $threads threads, count up to $3 in each thread</span>
         <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar <span class="nv">$threads</span> <span class="nv">$3</span><span class="sb">`</span>
         <span class="c1"># Normalize: thisExecutionSum / number of threads</span>
-        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$thisExecutionSum</span> -vtotal<span class="o">=</span><span class="nv">$threads</span> <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
-        <span class="nb">echo</span> -e <span class="nv">$threads</span><span class="s2">"\t"</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
+        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$thisExecutionSum</span> -vtotal<span class="o">=</span><span class="nv">$threads</span> <span class="s1">&#39;BEGIN { printf(&quot;%d\n&quot;, some/total); exit } &#39;</span><span class="sb">`</span>
+        <span class="nb">echo</span> -e <span class="nv">$threads</span><span class="s2">&quot;\t&quot;</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
     <span class="k">done</span>
 <span class="k">done</span>
 </code></pre></div>

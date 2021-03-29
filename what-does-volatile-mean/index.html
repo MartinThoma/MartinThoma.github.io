@@ -102,23 +102,17 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#c programming language" title="C Programming Language">C Programming Language</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#when do you need it volatile?" title="When do you need it volatile?">When do you need it volatile?</a><ul><li><a class="toc-href" href="#thermometer" title="Thermometer">Thermometer</a></li><li><a class="toc-href" href="#i / o" title="I / O">I / O</a></li></ul></li><li><a class="toc-href" href="#further reading_1" title="Further reading">Further reading</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>You might have read the variable modifier <code>volatile</code> in C, C++ or in Java. But do you know what it means?</p>
-<h2 id="c programming language">C Programming Language</h2>
-<p>The C Programming language by Kerninghan and Ritchie (second edition) contains this keyword only 13 times. Here are the most important ones:
+<h2>C Programming Language</h2>
+<p>The C Programming language by Kerninghan and Ritchie (second edition) contains this keyword only 13 times. Here are the most important ones:</p>
 <blockquote>[...] declaring it volatile announces that it has special properties relevant to optimization. Neither qualifier affects the range of values or arithmetic properties of the object. Qualifiers are discussed in Par.A.8.2.</blockquote>
-Page 158</p>
+<p>Page 158</p>
 <blockquote>The purpose of volatile is to force an implementation to suppress optimization that could otherwise occur. For example, for a machine with memory-mapped input/output, a pointer to a device register might be declared as a pointer to volatile, in order to prevent the compiler from removing apparently redundant references through the pointer. Except that it should diagnose explicit attempts to change const objects, a compiler may ignore these qualifiers.</blockquote>
 <p>Page 172</p>
-<h2 id="java">Java</h2>
+<h2>Java</h2>
 <p>Java Language Specification actually covers this quite good:</p>
 <blockquote>The Java programming language allows threads to access shared variables (&sect;17.1).
 As a rule, to ensure that shared variables are consistently and reliably updated, a thread should ensure that it has exclusive use of such variables by obtaining a lock that, conventionally, enforces mutual exclusion for those shared variables.
@@ -126,13 +120,17 @@ As a rule, to ensure that shared variables are consistently and reliably updated
 The Java programming language provides a second mechanism, volatile fields, that is more convenient than locking for some purposes.
 
 A field may be declared volatile, in which case the Java Memory Model ensures that all threads see a consistent value for the variable (&sect;17.4).</blockquote>
+
 <p>Ok, so in Java it is important for multithreading. The example 8.3.1.4-1 of the <a href="http://docs.oracle.com/javase/specs/">JLS 7.0</a> is also very interesting.</p>
 <blockquote>A write to a volatile field (&sect;8.3.1.4) happens-before every subsequent read of
 that field.</blockquote>
+
 <blockquote>For the purposes of the Java programming language memory model, a single write to a non-volatile long or double value is treated as two separate writes: one to each 32-bit half. This can result in a situation where a thread sees the first 32 bits of a 64-bit value from one write, and the second 32 bits from another write. Writes and reads of volatile long and double values are always atomic.</blockquote>
-<h2 id="when do you need it volatile?">When do you need it volatile?</h2>
+
+<h2>When do you need it volatile?</h2>
 <div class="warning">I'm not sure if it is correct what I write here. It makes sense, but please leave a note in comments when I'm wrong.</div>
-<h3 id="thermometer">Thermometer</h3>
+
+<h3>Thermometer</h3>
 <p>Imagine you want to build your own thermometer. So you have to access hardware. Now you only want to print the temperature periodically. Something like this:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
@@ -145,15 +143,16 @@ that field.</blockquote>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
                 <span class="kt">int</span> <span class="n">temperature</span> <span class="o">=</span> <span class="n">getTemperature</span><span class="p">();</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Temperature: %i &amp;deg;C</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">temperature</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Temperature: %i &amp;deg;C</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">);</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Now, as you always access the same register and you don't change it, the CPU could cache the result. That would be bad, because another source (the hardware) changes the value. So you don't want to cache it. This is - if I understand it correctly - what volatile is good for. It makes sure that you really access memory and not some registers, because it got optimized or cached.</p>
-<h3 id="i / o">I / O</h3>
+<h3>I / O</h3>
 <p>Imagine you write an application that want to transfer data from a disk to another disk. You might have one producer and one consumer. The producer tries to get data from the disk. Lets say the disk has a buffer and a register that indicates how many blocks are in the buffer. So your producer might poll at some point:</p>
 <p><code>int register = 0;
 while(register == 0);</code></p>
@@ -161,10 +160,10 @@ while(register == 0);</code></p>
 <p><code>while(TRUE);</code></p>
 <p>Now, with this "optimization" that the compiler might make, you will never notice when you can read from the disk. So you would mark register as volatile to tell the compiler that he should not optimize it.</p>
 <p>Do you know some better examples? Perhaps short C examples with real code where you can actually see the difference?</p>
-<h2 id="further reading_1">Further reading</h2>
+<h2>Further reading</h2>
 <ul>
-<li><a href="http://stackoverflow.com/q/3488703/562769">When exactly do you use the volatile keyword in Java?</a></li>
-<li><a href="http://stackoverflow.com/a/3430809/562769">Different meaning in Java and C#</a></li>
+  <li><a href="http://stackoverflow.com/q/3488703/562769">When exactly do you use the volatile keyword in Java?</a></li>
+  <li><a href="http://stackoverflow.com/a/3430809/562769">Different meaning in Java and C#</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

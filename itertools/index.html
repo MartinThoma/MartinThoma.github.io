@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#product" title="product">product</a></li><li><a class="toc-href" href="#permutations" title="permutations">permutations</a></li><li><a class="toc-href" href="#combinations" title="combinations">combinations</a></li><li><a class="toc-href" href="#combinations_with_replacement" title="combinations_with_replacement">combinations_with_replacement</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://docs.python.org/3/library/itertools.html">Itertools</a> is a tiny Python
@@ -121,22 +115,26 @@ simply beautiful.</p>
 the product of the length of all iterables.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">itertools</span>
 
-<span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]))</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]))</span>
 </code></pre></div>
+
 <p>results in</p>
-<div class="highlight"><pre><span></span><code><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)]</span>
 </code></pre></div>
+
 <p><strong>Ben Blanks Explanation</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">itertools</span>
 
 <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
 </code></pre></div>
+
 <p>results in</p>
 <div class="highlight"><pre><span></span><code>1,1  1,2  1,3  1,4
 2,1  2,2  2,3  2,4
 3,1  3,2  3,3  3,4
 4,1  4,2  4,3  4,4
 </code></pre></div>
+
 <h2 id="permutations">permutations</h2>
 <p><a href="https://docs.python.org/3/library/itertools.html#itertools.permutations"><code>permutations(iterable, r=None)</code></a>
 generates all unique orderings of unique elements. If <code>r</code> is not specified, all
@@ -147,12 +145,14 @@ this means taking <code>r</code> balls without replacement.</p>
 
 <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
+
 <p>results in</p>
 <div class="highlight"><pre><span></span><code> .   1,2  1,3  1,4
 2,1   .   2,3  2,4
 3,1  3,2   .   3,4
 4,1  4,2  4,3   .
 </code></pre></div>
+
 <h2 id="combinations">combinations</h2>
 <p><a href="https://docs.python.org/3/library/itertools.html#itertools.combinations"><code>combinations(iterable, r)</code></a>
 generates each unique pair of elements in lexicographical order.</p>
@@ -161,12 +161,14 @@ generates each unique pair of elements in lexicographical order.</p>
 
 <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
+
 <p>results in</p>
 <div class="highlight"><pre><span></span><code> .   1,2  1,3  1,4
  .    .   2,3  2,4
  .    .    .   3,4
  .    .    .    .
 </code></pre></div>
+
 <h2 id="combinations_with_replacement">combinations_with_replacement</h2>
 <p><a href="https://docs.python.org/3/library/itertools.html#itertools.combinations_with_replacement"><code>combinations_with_replacement(iterable, r)</code></a>
 is identical to combinations, except that one has duplicate elements.</p>
@@ -174,6 +176,7 @@ is identical to combinations, except that one has duplicate elements.</p>
 
 <span class="nb">list</span><span class="p">(</span><span class="n">combinations_with_replacement</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
+
 <p>results in</p>
 <div class="highlight"><pre><span></span><code> 1,1  1,2  1,3  1,4
   .   2,2  2,3  2,4

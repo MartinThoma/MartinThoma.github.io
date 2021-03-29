@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#project-and-app" title="Project and App">Project and App</a></li><li><a class="toc-href" href="#views" title="Views">Views</a></li><li><a class="toc-href" href="#orm" title="ORM">ORM</a></li><li><a class="toc-href" href="#other-commands" title="Other commands">Other commands</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>In the development of a bigger web service you have several key components:</p>
@@ -117,27 +111,28 @@ MathJax.Hub.Queue(function() {
 <li>Routing: Map URLs to views (<code>urls.py</code>)</li>
 </ul>
 <table class="table">
-<tr>
-<th>Standard</th>
-<th>Django</th>
-<th>Description</th>
-</tr>
-<tr>
-<td>Model</td>
-<td>Model</td>
-<td>application's dynamic data structure; receives input from controller</td>
-</tr>
-<tr>
-<td>View</td>
-<td>Template</td>
-<td>How the content gets presented to the user</td>
-</tr>
-<tr>
-<td>Controller</td>
-<td>View</td>
-<td>data that gets presented to the user (content)</td>
-</tr>
+    <tr>
+        <th>Standard</th>
+        <th>Django</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Model</td>
+        <td>Model</td>
+        <td>application's dynamic data structure; receives input from controller</td>
+    </tr>
+    <tr>
+        <td>View</td>
+        <td>Template</td>
+        <td>How the content gets presented to the user</td>
+    </tr>
+    <tr>
+        <td>Controller</td>
+        <td>View</td>
+        <td>data that gets presented to the user (content)</td>
+    </tr>
 </table>
+
 <h2 id="project-and-app">Project and App</h2>
 <p>Create a project:</p>
 <div class="highlight"><pre><span></span><code>$ django-admin startproject mysite
@@ -150,6 +145,7 @@ mysite
     ├── urls.py
     └── wsgi.py
 </code></pre></div>
+
 <p>Create an app:</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> mysite
 $ python manage.py startapp polls
@@ -157,20 +153,21 @@ $ tree .
 .
 ├── manage.py
 ├── mysite
-│&nbsp;&nbsp; ├── __init__.py
-│&nbsp;&nbsp; ├── settings.py
-│&nbsp;&nbsp; ├── urls.py
-│&nbsp;&nbsp; └── wsgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 └── polls
     ├── admin.py
     ├── apps.py
     ├── __init__.py
     ├── migrations
-    │&nbsp;&nbsp; └── __init__.py
+    │   └── __init__.py
     ├── models.py
     ├── tests.py
     └── views.py
 </code></pre></div>
+
 <p>Create DB:</p>
 <div class="highlight"><pre><span></span><code>$ python manage.py migrate
 Operations to perform:
@@ -192,37 +189,43 @@ Running migrations:
   Applying auth.0009_alter_user_last_name_max_length... OK
   Applying sessions.0001_initial... OK
 </code></pre></div>
+
 <p>Make migrations - files that tell Django that the model changed and how it
 changed:</p>
 <div class="highlight"><pre><span></span><code>$ python manage.py makemigrations polls
-Migrations <span class="k">for</span> <span class="s1">'polls'</span>:
+Migrations <span class="k">for</span> <span class="s1">&#39;polls&#39;</span>:
   polls/migrations/0001_initial.py
     - Create model Choice
     - Create model Question
     - Add field question to choice
 </code></pre></div>
+
 <h2 id="views">Views</h2>
 <p>Content is delivered by views. A simple view looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
 
 
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">"Hello, world. You're at the polls index."</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">&quot;Hello, world. You&#39;re at the polls index.&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="orm">ORM</h2>
 <div class="highlight"><pre><span></span><code>$ python manage.py shell
 In <span class="o">[</span><span class="m">2</span><span class="o">]</span>: Question.objects.all<span class="o">()</span>
-Out<span class="o">[</span><span class="m">2</span><span class="o">]</span>: &lt;QuerySet <span class="o">[</span>&lt;Question: What<span class="s1">'s new?&gt;]</span>
-<span class="s1">&gt;&gt;&gt; Question.objects.filter(question_text__startswith='</span>What<span class="s1">')</span>
-<span class="s1">&lt;QuerySet [&lt;Question: What'</span>s up?&gt;<span class="o">]</span>&gt;
+Out<span class="o">[</span><span class="m">2</span><span class="o">]</span>: &lt;QuerySet <span class="o">[</span>&lt;Question: What<span class="s1">&#39;s new?&gt;]</span>
+<span class="s1">&gt;&gt;&gt; Question.objects.filter(question_text__startswith=&#39;</span>What<span class="s1">&#39;)</span>
+<span class="s1">&lt;QuerySet [&lt;Question: What&#39;</span>s up?&gt;<span class="o">]</span>&gt;
 </code></pre></div>
+
 <h2 id="other-commands">Other commands</h2>
 <p>Interactive shell</p>
 <div class="highlight"><pre><span></span><code>$ python manage.py shell
 </code></pre></div>
+
 <p>Create an admin (superuser):</p>
 <div class="highlight"><pre><span></span><code>$ python manage.py createsuperuser
 </code></pre></div>
+
 <h2 id="see-also">See also</h2>
 <ul>
 <li>https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django</li>

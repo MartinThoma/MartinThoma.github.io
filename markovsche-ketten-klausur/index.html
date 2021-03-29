@@ -102,64 +102,61 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#vorlesung" title="Vorlesung">Vorlesung</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a><ul><li><a class="toc-href" href="#kit" title="KIT">KIT</a></li><li><a class="toc-href" href="#sonstiges" title="Sonstiges">Sonstiges</a></li><li><a class="toc-href" href="#wichtigster-stoff" title="Wichtigster Stoff">Wichtigster Stoff</a></li></ul></li><li><a class="toc-href" href="#ubungsbetrieb_1" title="&Uuml;bungsbetrieb">&Uuml;bungsbetrieb</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Markovsche Ketten&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.math.kit.edu/stoch/~klar/de">Dr. Bernhard Klar</a> im Sommersemester 2015 geh&ouml;rt. Aufgrund des sehr guten Skripts wurde dieser Artikel nie richtig begonnen.</div>
+            <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Markovsche Ketten&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.math.kit.edu/stoch/~klar/de">Dr. Bernhard Klar</a> im Sommersemester 2015 gehört. Aufgrund des sehr guten Skripts wurde dieser Artikel nie richtig begonnen.</div>
+
 <h2 id="behandelter-stoff">Behandelter Stoff</h2>
-<p>Es w&auml;re toll, wenn ich von jeder Vorlesung einen Mitschrieb hochladen k&ouml;nnte.
-Gibt es Leute, die mir ihren Mitschrieb schicken w&uuml;rden? Einfach an info@martin-thoma.de schicken.</p>
+<p>Es wäre toll, wenn ich von jeder Vorlesung einen Mitschrieb hochladen könnte.
+Gibt es Leute, die mir ihren Mitschrieb schicken würden? Einfach an info@martin-thoma.de schicken.</p>
 <dl>
-<dt><dfn>Stochastische Matrix</dfn></dt>
-<dd>Sei $S$ eine Menge und $P = (p_{ij})_{i,j \in S}$ eine Matrix. $P$ hei&szlig;t <i>stochastische Matrix</i>, falls $\forall i,j \in S: p_{i,j} \geq 0$ gilt und $\forall i \in S: \sum_{j \in S} p_{ij} = 1$ gilt.</dd>
-<dt><dfn>Markov-Kette</dfn></dt>
-<dd>Seit $P$ eine stochastische Matrix. Eine Folge $X_0, X_1, X_2, \dots$ von $S$-wertigen Zufallsvariablen hei&szlig;t homogene Markov-Kette mit <dfn>&Uuml;bergangsmatrix</dfn> $P$, falls f&uuml;r alle $n \in \mathbb{N}$ und alle Zust&auml;nde $i_k \in S$ mit $\mathbb{P}(X_0 = i_0, \dots, X_n = i_n) &gt; 0$ gilt
+    <dt><dfn>Stochastische Matrix</dfn></dt>
+    <dd>Sei $S$ eine Menge und $P = (p_{ij})_{i,j \in S}$ eine Matrix. $P$ heißt <i>stochastische Matrix</i>, falls $\forall i,j \in S: p_{i,j} \geq 0$ gilt und $\forall i \in S: \sum_{j \in S} p_{ij} = 1$ gilt.</dd>
+    <dt><dfn>Markov-Kette</dfn></dt>
+    <dd>Seit $P$ eine stochastische Matrix. Eine Folge $X_0, X_1, X_2, \dots$ von $S$-wertigen Zufallsvariablen heißt homogene Markov-Kette mit <dfn>Übergangsmatrix</dfn> $P$, falls für alle $n \in \mathbb{N}$ und alle Zustände $i_k \in S$ mit $\mathbb{P}(X_0 = i_0, \dots, X_n = i_n) > 0$ gilt
     $$\mathbb{P}(X_{n+1} = i_{n+1} | X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_{n+1} = i_{n+1} | X_n = i_n) = p_{i_n, i_{n+1}}$$
-    Die $p_{ij}$ hei&szlig;en <dfn>&Uuml;bergangswahrscheinlichkeiten</dfn> und die <dfn>Startverteilung</dfn> $\nu$ der Kette ist definiert durch $\nu(i) = \mathbb{P}(X_0 = i)$ mit $i \in S$.</dd>
-<dt><dfn>Irreduzible Markov-Kette</dfn></dt>
-<dd>Eine Markov-Kette $(X_n)$ beziehungsweise die &Uuml;bergangsmatrix $P$ hei&szlig;en irreduziebel, falls $S$ nur aus einer Klasse besteht.</dd>
-<dt><dfn>Recurrenter Zustand</dfn></dt>
-<dd>Ein Zustand $i \in S$ hei&szlig;t rekurrent, falls $f_{ii}^* = 1$.</dd>
-<dt><dfn>Transienter Zustand</dfn></dt>
-<dd>Ein Zustand $i \in S$ hei&szlig;t rekurrent, falls $f_{ii}^* \neq 1$.</dd>
+    Die $p_{ij}$ heißen <dfn>Übergangswahrscheinlichkeiten</dfn> und die <dfn>Startverteilung</dfn> $\nu$ der Kette ist definiert durch $\nu(i) = \mathbb{P}(X_0 = i)$ mit $i \in S$.</dd>
+    <dt><dfn>Irreduzible Markov-Kette</dfn></dt>
+    <dd>Eine Markov-Kette $(X_n)$ beziehungsweise die Übergangsmatrix $P$ heißen irreduziebel, falls $S$ nur aus einer Klasse besteht.</dd>
+    <dt><dfn>Recurrenter Zustand</dfn></dt>
+    <dd>Ein Zustand $i \in S$ heißt rekurrent, falls $f_{ii}^* = 1$.</dd>
+    <dt><dfn>Transienter Zustand</dfn></dt>
+    <dd>Ein Zustand $i \in S$ heißt rekurrent, falls $f_{ii}^* \neq 1$.</dd>
 </dl>
+
 <h3 id="vorlesung">Vorlesung</h3>
-<p>Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. B&auml;uerle.
+<p>Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 (Ich habe eine Version von 2012).</p>
 <table>
 <tr>
-<th>Datum</th>
-<th>Kapitel</th>
-<th>Inhalt</th>
+    <th>Datum</th>
+    <th>Kapitel</th>
+    <th>Inhalt</th>
 </tr>
 <tr>
 <td>13.04.2015</td>
 <td>0. Beispiele (<a href="//martin-thoma.com/pdf/markovketten-2015-04-13.pdf">Mitschrieb</a>)</td>
-<td>Einf&uuml;hrung in Markovketten mit vielen Beispielen (Weg des Betrunkenen, Ehrenfest-Modell, Irrfahrt, Vererbung); absorbierende Zust&auml;nde; stochastische Matrix</td>
+<td>Einführung in Markovketten mit vielen Beispielen (Weg des Betrunkenen, Ehrenfest-Modell, Irrfahrt, Vererbung); absorbierende Zustände; stochastische Matrix</td>
 </tr>
 <tr>
-<td>16.04.2015</td>
-<td>1. </td>
-<td>Konstruktion von Markov-Ketten</td>
+  <td>16.04.2015</td>
+  <td>1. </td>
+  <td>Konstruktion von Markov-Ketten</td>
 </tr>
 <tr>
-<td>20.04.2015</td>
-<td></td>
-<td></td>
+  <td>20.04.2015</td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
-<td>21.04.2015</td>
-<td>3.10 - 4.6 (<a href="//martin-thoma.com/pdf/markovketten-2015-05-21.pdf">Mitschrieb</a>)</td>
-<td>Total-Variationsabstand, $d(\mu, \nu) = \frac{1}{2} \sum_{i \in S} |\mu(i)- \nu(i)|$, Periode, aperiodisch, ein Konvergenzsatz, Kopplungsargument</td>
+  <td>21.04.2015</td>
+  <td>3.10 - 4.6 (<a href="//martin-thoma.com/pdf/markovketten-2015-05-21.pdf">Mitschrieb</a>)</td>
+  <td>Total-Variationsabstand, $d(\mu, \nu) = \frac{1}{2} \sum_{i \in S} |\mu(i)- \nu(i)|$, Periode, aperiodisch, ein Konvergenzsatz, Kopplungsargument</td>
 </tr>
 </table>
-<h2 id="material-und-links_1">Material und Links</h2>
+
+<h2 id="material-und-links">Material und Links</h2>
 <h3 id="kit">KIT</h3>
 <ul>
 <li><a href="http://www.math.kit.edu/stoch/lehre/mk2015s/de">Vorlesungswebsite</a></li>
@@ -170,40 +167,40 @@ Gibt es Leute, die mir ihren Mitschrieb schicken w&uuml;rden? Einfach an info@ma
 <li><a href="http://setosa.io/blog/2014/07/26/markov-chains/">Markov Chains</a>: A very short introduction to markov chains with beautiful visualizations</li>
 <li><a href="https://martin-thoma.com/wt-klausur/">Wahrscheinlichkeitstheorie - Klausur (Info)</a></li>
 <li><a href="https://martin-thoma.com/statistik-vorlesung/">Statistik - Klausur</a></li>
-<li><a href="https://martin-thoma.com/einfuhrung-in-die-stochastik/">Einf&uuml;hrung in die Stochastik</a></li>
+<li><a href="https://martin-thoma.com/einfuhrung-in-die-stochastik/">Einführung in die Stochastik</a></li>
 </ul>
 <h3 id="wichtigster-stoff">Wichtigster Stoff</h3>
 <p>Wie immer Definitionen (Markovkette, transient, rekurrent, Klasse, irreduzibel)</p>
-<p>Wenn man die Matrix so umsortiert, dass rechts unten die rekurrenten Zust&auml;nde
-sind (das ist nicht immer eine Einheitsmatrix!), Dann hei&szlig;t die Matrix links
+<p>Wenn man die Matrix so umsortiert, dass rechts unten die rekurrenten Zustände
+sind (das ist nicht immer eine Einheitsmatrix!), Dann heißt die Matrix links
 oben <span class="math">\(Q\)</span> und rechts oben <span class="math">\(R\)</span>. Dann gilt:</p>
 <ul>
 <li><span class="math">\((E-Q)^{-1} \cdot R\)</span>: Absorptionszeit</li>
 <li>
 <div class="math">$$(E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}$$</div>: Schritte bis zur Absorption.</li>
-<li>Invariantes Ma&szlig; finden: <span class="math">\(\pi P = \pi\)</span> bzw. <span class="math">\(\pi Q = 0\)</span> im zeitkontinuierlichen Fall</li>
+<li>Invariantes Maß finden: <span class="math">\(\pi P = \pi\)</span> bzw. <span class="math">\(\pi Q = 0\)</span> im zeitkontinuierlichen Fall</li>
 </ul>
-<h2 id="ubungsbetrieb_1">&Uuml;bungsbetrieb</h2>
+<h2 id="ubungsbetrieb">Übungsbetrieb</h2>
 <p>Es gibt Dienstags und Mittwochs Tutorien.</p>
 <ul>
-<li>Wo sind die &Uuml;bungsbl&auml;tter: <a href="https://ilias.studium.kit.edu/goto_produktiv_fold_411044.html">Ilias</a></li>
+<li>Wo sind die Übungsblätter: <a href="https://ilias.studium.kit.edu/goto_produktiv_fold_411044.html">Ilias</a></li>
 <li>Abgabeform: Handgeschrieben (?)</li>
 <li>Abgabe: ?</li>
-<li>R&uuml;cknahme: ?</li>
-<li>Turnus: W&ouml;chentlich</li>
-<li>&Uuml;bungsschein verpflichtend: Nein</li>
-<li>Bonus durch &Uuml;bungsschein: Nein</li>
+<li>Rücknahme: ?</li>
+<li>Turnus: Wöchentlich</li>
+<li>Übungsschein verpflichtend: Nein</li>
+<li>Bonus durch Übungsschein: Nein</li>
 </ul>
 <h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
 <p><strong>Datum</strong>: Montag, der 03.08.2015 von 11:00 bis 13:00 Uhr (<a href="http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/">Quelle</a>)<br/>
-<strong>Ort</strong>: <a href="http://www.kithub.de/map/2086">Daimler-H&ouml;rsaal</a> (Geb. 10.11, <a href="http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/">Quelle</a>)<br/>
+<strong>Ort</strong>: <a href="http://www.kithub.de/map/2086">Daimler-Hörsaal</a> (Geb. 10.11, <a href="http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/">Quelle</a>)<br/>
 <strong>Punkte</strong>: 60<br/>
 <strong>Punkteverteilung</strong>: 6 Aufgaben mit 9-13 Punkten<br/>
 <strong>Bestehensgrenze</strong>: ?<br/>
-<strong>&Uuml;bungsschein</strong>: ?<br/>
+<strong>Übungsschein</strong>: ?<br/>
 <strong>Bonuspunkte</strong>: ?<br/>
 <strong>Ergebnisse</strong>: ?<br/>
-<strong>Einsicht</strong>: Montag, 19.10.2015, 13:00 Uhr - 13:30 Uhr, Im Raum 2.071, <a href="https://www.kithub.de/map/2133">Mathematikgeb&auml;ude</a><br/>
+<strong>Einsicht</strong>: Montag, 19.10.2015, 13:00 Uhr - 13:30 Uhr, Im Raum 2.071, <a href="https://www.kithub.de/map/2133">Mathematikgebäude</a><br/>
 <strong>Erlaubte Hilfsmittel</strong>: ?</p>
             
             <div id="disqus_thread" class="no-print"></div>

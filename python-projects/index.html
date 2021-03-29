@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#logging" title="Logging">Logging</a></li><li><a class="toc-href" href="#tests" title="Tests">Tests</a></li><li><a class="toc-href" href="#anti-patterns" title="Anti-Patterns">Anti-Patterns</a><ul><li><a class="toc-href" href="#print-vs-logging" title="Print vs Logging">Print vs Logging</a></li><li><a class="toc-href" href="#assert-vs-exception" title="assert vs Exception">assert vs Exception</a></li><li><a class="toc-href" href="#setuppy-vs-requirementstxt" title="setup.py vs requirements.txt">setup.py vs requirements.txt</a></li><li><a class="toc-href" href="#multiple-main" title="Multiple main">Multiple main</a></li><li><a class="toc-href" href="#comments" title="Comments">Comments</a></li><li><a class="toc-href" href="#outdated-dependencies" title="Outdated dependencies">Outdated dependencies</a></li><li><a class="toc-href" href="#bad-package-structure" title="Bad package structure">Bad package structure</a></li></ul></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I recently thought a bit about what makes software good. Not from a functional
@@ -155,6 +149,7 @@ things, and off-by-1 errors.</p>
     ├── __init__.py
     └── test_utils.py
 </code></pre></div>
+
 <ul>
 <li>Having a <code>Dockerfile</code> and a <code>docker-compose.yml</code> might be nice if you have
   not purely Python dependencies. See <a href="https://martin-thoma.com/docker/">my Docker article</a>.</li>
@@ -163,37 +158,39 @@ things, and off-by-1 errors.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">"lidtk"</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;lidtk&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="n">__version__</span> <span class="o">=</span> <span class="s2">"Not installed"</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;Not installed&quot;</span>
 </code></pre></div>
+
 <p>The <code>setup.py</code> should look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span>
 <span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"install_requires"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"click&gt;=6.7"</span><span class="p">,</span> <span class="s2">"numpy&gt;=1.14.0"</span><span class="p">,</span> <span class="s2">"scipy&gt;=1.0.0"</span><span class="p">],</span>
-    <span class="s2">"tests_require"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"pytest&gt;=3.3.2"</span><span class="p">,</span> <span class="s2">"pytest-cov&gt;=2.5.1"</span><span class="p">,</span> <span class="s2">"pytest-pep8&gt;=1.0.6"</span><span class="p">],</span>
-    <span class="s2">"keywords"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Machine Learning"</span><span class="p">,</span> <span class="s2">"Data Science"</span><span class="p">],</span>
-    <span class="s2">"download_url"</span><span class="p">:</span> <span class="s2">"https://github.com/MartinThoma/language-identification"</span><span class="p">,</span>
-    <span class="s2">"classifiers"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"Development Status :: 1 - Planning"</span><span class="p">,</span>
-        <span class="s2">"Environment :: Console"</span><span class="p">,</span>
-        <span class="s2">"Intended Audience :: Developers"</span><span class="p">,</span>
-        <span class="s2">"Intended Audience :: Science/Research"</span><span class="p">,</span>
-        <span class="s2">"Intended Audience :: Information Technology"</span><span class="p">,</span>
-        <span class="s2">"License :: OSI Approved :: MIT License"</span><span class="p">,</span>
-        <span class="s2">"Natural Language :: English"</span><span class="p">,</span>
-        <span class="s2">"Programming Language :: Python :: 3.5"</span><span class="p">,</span>
-        <span class="s2">"Topic :: Scientific/Engineering :: Information Analysis"</span><span class="p">,</span>
-        <span class="s2">"Topic :: Software Development"</span><span class="p">,</span>
-        <span class="s2">"Topic :: Utilities"</span><span class="p">,</span>
+    <span class="s2">&quot;install_requires&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;click&gt;=6.7&quot;</span><span class="p">,</span> <span class="s2">&quot;numpy&gt;=1.14.0&quot;</span><span class="p">,</span> <span class="s2">&quot;scipy&gt;=1.0.0&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;tests_require&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pytest&gt;=3.3.2&quot;</span><span class="p">,</span> <span class="s2">&quot;pytest-cov&gt;=2.5.1&quot;</span><span class="p">,</span> <span class="s2">&quot;pytest-pep8&gt;=1.0.6&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Machine Learning&quot;</span><span class="p">,</span> <span class="s2">&quot;Data Science&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;download_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/MartinThoma/language-identification&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;classifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Development Status :: 1 - Planning&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Environment :: Console&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Intended Audience :: Developers&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Intended Audience :: Science/Research&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Intended Audience :: Information Technology&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Natural Language :: English&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Programming Language :: Python :: 3.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Topic :: Scientific/Engineering :: Information Analysis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Topic :: Software Development&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Topic :: Utilities&quot;</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="s2">"zip_safe"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;zip_safe&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
 </code></pre></div>
+
 <p>The <code>cli.py</code> could look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -207,8 +204,9 @@ things, and off-by-1 errors.</p>
 <span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">foo_module</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">entry_point</span><span class="p">():</span>
-    <span class="sd">"""Awesomeproject spreads pure awesomeness."""</span>
+    <span class="sd">&quot;&quot;&quot;Awesomeproject spreads pure awesomeness.&quot;&quot;&quot;</span>
 </code></pre></div>
+
 <p>The setup.cfg should look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[metadata]</span>
 <span class="na">name</span> <span class="o">=</span> <span class="s">foo_module</span>
@@ -231,8 +229,8 @@ things, and off-by-1 errors.</p>
 <span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
 
 <span class="k">[options.entry_points]</span>
-<span class="na">console_scripts</span> <span class="o">=</span><span class="s"></span>
-<span class="s">    foo_module = foo_module.cli:entry_point</span>
+<span class="na">console_scripts</span> <span class="o">=</span>
+    <span class="na">foo_module</span> <span class="o">=</span> <span class="s">foo_module.cli:entry_point</span>
 
 <span class="k">[tool:pytest]</span>
 <span class="na">addopts</span> <span class="o">=</span> <span class="s">./tests/ --doctest-modules --cov=./foo_module --cov-report html:tests/reports/coverage-html --pep8</span>
@@ -242,6 +240,7 @@ things, and off-by-1 errors.</p>
 <span class="na">ignore</span> <span class="o">=</span> <span class="s">D104, D413, D212, D100</span>
 <span class="na">match_dir</span> <span class="o">=</span> <span class="s">foo_module</span>
 </code></pre></div>
+
 <h2 id="documentation">Documentation</h2>
 <p>Documentation is important as Python does not have type information directly
 visible in the code. So you want all functions to <strong>have a Docstring</strong> which
@@ -267,7 +266,7 @@ Stick to that.</p>
   <span class="nt">disable_existing_loggers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
   <span class="nt">formatters</span><span class="p">:</span>
       <span class="nt">simple</span><span class="p">:</span>
-          <span class="nt">format</span><span class="p">:</span> <span class="s">"%(asctime)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(name)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(levelname)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s"</span>
+          <span class="nt">format</span><span class="p">:</span> <span class="s">&quot;%(asctime)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(name)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(levelname)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s&quot;</span>
 
   <span class="nt">handlers</span><span class="p">:</span>
       <span class="nt">console</span><span class="p">:</span>
@@ -304,17 +303,19 @@ Stick to that.</p>
       <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
       <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">,</span> <span class="nv">info_file_handler</span><span class="p p-Indicator">,</span> <span class="nv">error_file_handler</span><span class="p p-Indicator">]</span>
 </code></pre></div>
+
 <p>In your main script <code>bin/foo_module</code>, you should load this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># core modules</span>
 <span class="kn">import</span> <span class="nn">logging.config</span>
 <span class="kn">import</span> <span class="nn">pkg_resources</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="n">filepath</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">"foo_module"</span><span class="p">,</span> <span class="s2">"configs/module.yaml"</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;foo_module&quot;</span><span class="p">,</span> <span class="s2">&quot;configs/module.yaml&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"LOGGING"</span><span class="p">])</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;LOGGING&quot;</span><span class="p">])</span>
 </code></pre></div>
+
 <h2 id="tests">Tests</h2>
 <p>Tests are written for three purposes:</p>
 <ol>
@@ -335,16 +336,17 @@ The <code>tox.ini</code> should look like this:</p>
 <span class="na">skip_missing_interpreters</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="k">[testenv]</span>
-<span class="na">deps</span> <span class="o">=</span><span class="s"></span>
-<span class="s">    pytest</span>
-<span class="s">    pytest-cov</span>
-<span class="s">    pytest-pep8</span>
-<span class="s">    pydocstyle</span>
-<span class="na">commands</span> <span class="o">=</span><span class="s"></span>
-<span class="s">    pip install -e .</span>
-<span class="s">    pytest .</span>
-<span class="s">    pydocstyle</span>
+<span class="na">deps</span> <span class="o">=</span>
+    <span class="na">pytest</span>
+    <span class="na">pytest-cov</span>
+    <span class="na">pytest-pep8</span>
+    <span class="na">pydocstyle</span>
+<span class="na">commands</span> <span class="o">=</span>
+    <span class="na">pip install -e .</span>
+    <span class="na">pytest .</span>
+    <span class="na">pydocstyle</span>
 </code></pre></div>
+
 <h2 id="anti-patterns">Anti-Patterns</h2>
 <h3 id="print-vs-logging">Print vs Logging</h3>
 <ul>
@@ -377,6 +379,7 @@ those and try to install them, if some are missing.</p>
 
 -e .
 </code></pre></div>
+
 <p>See <a href="https://caremad.io/posts/2013/07/setup-vs-requirement/">this blogpost</a> for
 details.</p>
 <h3 id="multiple-main">Multiple <strong>main</strong></h3>

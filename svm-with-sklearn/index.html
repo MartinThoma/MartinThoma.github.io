@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#svm-theory" title="SVM theory">SVM theory</a></li><li><a class="toc-href" href="#sklearn" title="sklearn">sklearn</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li><li><a class="toc-href" href="#references" title="References">References</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Support Vector Machines (SVMs) is a group of powerful classifiers. In this
@@ -118,17 +112,17 @@ with an example how to use SVMs with sklearn.</p>
 <p><abbr title="Support Vector Machines">SVMs</abbr> can be described with
 5&nbsp;ideas in mind:</p>
 <ol>
-<li><b>Linear, binary classifiers</b>: If data is linearly separable, it
+    <li><b>Linear, binary classifiers</b>: If data is linearly separable, it
         can be separated by a hyperplane. There is one hyperplane which
         maximizes the distance to the next datapoints (support vectors). This
         hyperplane should be taken:<br/>
-<div>
+        <div>
           $$
           \begin{aligned}
-              \text{minimize}_{\mathbf{w}, b}\,&amp;\frac{1}{2} \|\mathbf{w}\|^2\\
-              \text{s.t. }&amp; \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\text{Classification}} \geq 1
+              \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
+              \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\text{Classification}} \geq 1
           \end{aligned}$$</div></li>
-<li><b>Slack variables</b>: Even if the underlying process which generates
+    <li><b>Slack variables</b>: Even if the underlying process which generates
           the features for the two classes is linearly separable, noise can
           make the data not separable. The introduction of <i>slack&nbsp;variables</i>
           to relax the requirement of linear separability solves
@@ -138,14 +132,14 @@ with an example how to use SVMs with sklearn.</p>
           problem is:
           $$
           \begin{aligned}
-              \text{minimize}_{\mathbf{w}, b}\,&amp;\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
-              \text{s.t. }&amp; \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
+              \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
+              \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
           \end{aligned}$$
 
           Note that $0 \le \xi_i \le 1$ means that the data point is within
           the margin, whereas $\xi_i \ge 1$ means it is misclassified. An
-          SVM with $C &gt; 0$ is also called a <i>soft-margin SVM</i>.</li>
-<li><b>Dual Problem</b>: The primal problem is to find the normal vector $\mathbf{w}$ and the
+          SVM with $C > 0$ is also called a <i>soft-margin SVM</i>.</li>
+    <li><b>Dual Problem</b>: The primal problem is to find the normal vector $\mathbf{w}$ and the
           bias $b$. The dual problem is to express $\mathbf{w}$ as a linear
           combination of the training data $\mathbf{x}_i$:
           $$\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i$$
@@ -161,11 +155,11 @@ with an example how to use SVMs with sklearn.</p>
           The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>] (a great read; if you really want to understand it I can recommend it!):
           $$
           \begin{aligned}
-              \text{maximize}_{\alpha_i}\,&amp; \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
-              \text{s.t. } &amp; \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
-              \text{s.t. } &amp; \sum_{i=1}^m \alpha_i y_i = 0
+              \text{maximize}_{\alpha_i}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
+              \text{s.t. } & \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
+              \text{s.t. } & \sum_{i=1}^m \alpha_i y_i = 0
           \end{aligned}$$</li>
-<li><b>Kernel-Trick</b>: Not every dataset is linearly separable. This problem is approached
+    <li><b>Kernel-Trick</b>: Not every dataset is linearly separable. This problem is approached
           by transforming the feature vectors $\mathbf{x}$ with a non-linear
           mapping $\Phi$ into a higher dimensional (probably
           $\infty$-dimensional) space. As the feature vectors $\mathbf{x}$
@@ -185,10 +179,11 @@ with an example how to use SVMs with sklearn.</p>
           $$K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)$$
           where the parameter $\gamma$ determines how much influence single
           training examples have.</li>
-<li><b>Multiple Classes</b>: By using the <i>one-vs-all</i> or the
+    <li><b>Multiple Classes</b>: By using the <i>one-vs-all</i> or the
         <i>one-vs-one</i> strategy it is possible to get a classifying system
         which can distinguish many classes.</li>
 </ol>
+
 <p>A nice visualization of the transformation of the data in a higher-dimensional
 space was done by</p>
 <p>TeamGrizzly's channel: <a href="https://youtu.be/9NrALgHFwTo">Performing nonlinear classification via linear separation in higher dimensional space</a> on YouTube. 22.11.2010.</p>
@@ -210,61 +205,61 @@ the MNIST dataset.</p>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).</span>
-<span class="sd">"""</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="sd">"""Orchestrate the retrival of data, training and testing."""</span>
+    <span class="sd">&quot;&quot;&quot;Orchestrate the retrival of data, training and testing.&quot;&quot;&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
 
     <span class="c1"># Get classifier</span>
     <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 
-    <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0073</span><span class="p">)</span>  <span class="c1"># cache_size=200,</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0073</span><span class="p">)</span>  <span class="c1"># cache_size=200,</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Start fitting. This may take a while"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start fitting. This may take a while&quot;</span><span class="p">)</span>
 
     <span class="c1"># take all of it - make that number lower for experiments</span>
-    <span class="n">examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">])</span>
-    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][:</span><span class="n">examples</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">][:</span><span class="n">examples</span><span class="p">])</span>
+    <span class="n">examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">][:</span><span class="n">examples</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">][:</span><span class="n">examples</span><span class="p">])</span>
 
     <span class="n">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Analyze how well a classifier performs on data.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    clf : classifier object</span>
 <span class="sd">    data : dict</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Get confusion matrix</span>
     <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 
-    <span class="n">predicted</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">])</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span>
-        <span class="s2">"Confusion matrix:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">predicted</span><span class="p">)</span>
+        <span class="s2">&quot;Confusion matrix:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">predicted</span><span class="p">)</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Accuracy: </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">predicted</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: </span><span class="si">%0.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">predicted</span><span class="p">))</span>
 
     <span class="c1"># Print example</span>
     <span class="n">try_id</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span>  <span class="c1"># clf.predict_proba</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"out: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">out</span><span class="p">)</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span>  <span class="c1"># clf.predict_proba</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;out: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">out</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
     <span class="n">view_image</span><span class="p">(</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)),</span> <span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span>
     <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    View a single image.</span>
 
 <span class="sd">    Parameters</span>
@@ -272,22 +267,22 @@ the MNIST dataset.</p>
 <span class="sd">    image : numpy array</span>
 <span class="sd">        Make sure this is of the shape you want.</span>
 <span class="sd">    label : str</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">cm</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Label: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
     <span class="n">show</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
-    <span class="sd">"""</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get data ready to learn with.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">simple</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">simple</span><span class="p">:</span>  <span class="c1"># Load the simple, but similar digits dataset</span>
         <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
@@ -312,14 +307,14 @@ the MNIST dataset.</p>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
         <span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"train"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"X"</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y_train</span><span class="p">},</span>
-            <span class="s2">"test"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"X"</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y_test</span><span class="p">},</span>
+            <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y_train</span><span class="p">},</span>
+            <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">},</span>
         <span class="p">}</span>
     <span class="k">else</span><span class="p">:</span>  <span class="c1"># Load the original dataset</span>
         <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_mldata</span>
         <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
 
-        <span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_mldata</span><span class="p">(</span><span class="s2">"MNIST original"</span><span class="p">)</span>
+        <span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_mldata</span><span class="p">(</span><span class="s2">&quot;MNIST original&quot;</span><span class="p">)</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span>
@@ -335,167 +330,169 @@ the MNIST dataset.</p>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
         <span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"train"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"X"</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y_train</span><span class="p">},</span>
-            <span class="s2">"test"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"X"</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y_test</span><span class="p">},</span>
+            <span class="s2">&quot;train&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y_train</span><span class="p">},</span>
+            <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">},</span>
         <span class="p">}</span>
     <span class="k">return</span> <span class="n">data</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
+
 <h2 id="results">Results</h2>
 <p>The script from above gives the following results:</p>
 <table>
-<caption>Confusion matrix for an SVM classifier on the MNIST dataset</caption>
-<thead>
-<tr>
-<th></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>2258</td>
-<td>1</td>
-<td>4</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>2</td>
-</tr>
-<tr>
-<th>1</th>
-<td>1</td>
-<td>2566</td>
-<td>9</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>7</td>
-<td>3</td>
-<td>0</td>
-</tr>
-<tr>
-<th>2</th>
-<td>4</td>
-<td>1</td>
-<td>2280</td>
-<td>5</td>
-<td>4</td>
-<td>0</td>
-<td>1</td>
-<td>9</td>
-<td>8</td>
-<td>2</td>
-</tr>
-<tr>
-<th>3</th>
-<td>0</td>
-<td>0</td>
-<td>14</td>
-<td>2304</td>
-<td>1</td>
-<td>13</td>
-<td>0</td>
-<td>6</td>
-<td>8</td>
-<td>2</td>
-</tr>
-<tr>
-<th>4</th>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>0</td>
-<td>2183</td>
-<td>0</td>
-<td>7</td>
-<td>5</td>
-<td>0</td>
-<td>10</td>
-</tr>
-<tr>
-<th>5</th>
-<td>4</td>
-<td>0</td>
-<td>0</td>
-<td>16</td>
-<td>3</td>
-<td>2026</td>
-<td>12</td>
-<td>1</td>
-<td>4</td>
-<td>3</td>
-</tr>
-<tr>
-<th>6</th>
-<td>7</td>
-<td>5</td>
-<td>3</td>
-<td>0</td>
-<td>5</td>
-<td>2</td>
-<td>2245</td>
-<td>0</td>
-<td>4</td>
-<td>0</td>
-</tr>
-<tr>
-<th>7</th>
-<td>1</td>
-<td>6</td>
-<td>11</td>
-<td>2</td>
-<td>5</td>
-<td>1</td>
-<td>0</td>
-<td>2373</td>
-<td>5</td>
-<td>13</td>
-</tr>
-<tr>
-<th>8</th>
-<td>3</td>
-<td>9</td>
-<td>4</td>
-<td>9</td>
-<td>4</td>
-<td>10</td>
-<td>2</td>
-<td>3</td>
-<td>2166</td>
-<td>5</td>
-</tr>
-<tr>
-<th>9</th>
-<td>3</td>
-<td>2</td>
-<td>2</td>
-<td>6</td>
-<td>19</td>
-<td>6</td>
-<td>0</td>
-<td>12</td>
-<td>10</td>
-<td>2329</td>
-</tr>
-</tbody>
+    <caption>Confusion matrix for an SVM classifier on the MNIST dataset</caption>
+    <thead>
+    <tr>
+        <th></th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>0</th>
+        <td>2258</td>
+        <td>1</td>
+        <td>4</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2</td>
+        <td>3</td>
+        <td>1</td>
+        <td>4</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <th>1</th>
+        <td>1</td>
+        <td>2566</td>
+        <td>9</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>7</td>
+        <td>3</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <th>2</th>
+        <td>4</td>
+        <td>1</td>
+        <td>2280</td>
+        <td>5</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1</td>
+        <td>9</td>
+        <td>8</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <th>3</th>
+        <td>0</td>
+        <td>0</td>
+        <td>14</td>
+        <td>2304</td>
+        <td>1</td>
+        <td>13</td>
+        <td>0</td>
+        <td>6</td>
+        <td>8</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <th>4</th>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>2183</td>
+        <td>0</td>
+        <td>7</td>
+        <td>5</td>
+        <td>0</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <th>5</th>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td>16</td>
+        <td>3</td>
+        <td>2026</td>
+        <td>12</td>
+        <td>1</td>
+        <td>4</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <th>6</th>
+        <td>7</td>
+        <td>5</td>
+        <td>3</td>
+        <td>0</td>
+        <td>5</td>
+        <td>2</td>
+        <td>2245</td>
+        <td>0</td>
+        <td>4</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <th>7</th>
+        <td>1</td>
+        <td>6</td>
+        <td>11</td>
+        <td>2</td>
+        <td>5</td>
+        <td>1</td>
+        <td>0</td>
+        <td>2373</td>
+        <td>5</td>
+        <td>13</td>
+    </tr>
+    <tr>
+        <th>8</th>
+        <td>3</td>
+        <td>9</td>
+        <td>4</td>
+        <td>9</td>
+        <td>4</td>
+        <td>10</td>
+        <td>2</td>
+        <td>3</td>
+        <td>2166</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <th>9</th>
+        <td>3</td>
+        <td>2</td>
+        <td>2</td>
+        <td>6</td>
+        <td>19</td>
+        <td>6</td>
+        <td>0</td>
+        <td>12</td>
+        <td>10</td>
+        <td>2329</td>
+    </tr>
+    </tbody>
 </table>
+
 <ul>
 <li>Accuracy: 98.40%</li>
 <li>Error: 1.60%</li>
@@ -507,11 +504,11 @@ error of 0.23% and is a committee of 35 convolutional neural networks.</p>
 of degree&nbsp;9 as well as some preprocessing.</p>
 <h2 id="references">References</h2>
 <ul>
-<li>[<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, &ldquo;Lagrange multipliers tutorial in the context of support
-  vector machines,&rdquo; Memorial University of Newfoundland St. John&rsquo;s,
+<li>[<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, “Lagrange multipliers tutorial in the context of support
+  vector machines,” Memorial University of Newfoundland St. John’s,
   Newfoundland, Canada, Jun. 2004.</li>
-<li>[<a href="#ref-bur98-anchor" name="ref-bur98">Bur98</a>] C. J. Burges, &ldquo;<a href="http://research.microsoft.com/pubs/67119/svmtutorial.pdf">A tutorial on support vector machines for pattern recognition</a>&rdquo;, Data&nbsp;mining and knowledge discovery, vol. 2, no. 2, pp.
-  121&ndash;167, 1998.</li>
+<li>[<a href="#ref-bur98-anchor" name="ref-bur98">Bur98</a>] C. J. Burges, “<a href="http://research.microsoft.com/pubs/67119/svmtutorial.pdf">A tutorial on support vector machines for pattern recognition</a>”, Data&nbsp;mining and knowledge discovery, vol. 2, no. 2, pp.
+  121–167, 1998.</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>

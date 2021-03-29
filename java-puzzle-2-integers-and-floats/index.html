@@ -102,16 +102,10 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#basics" title="Basics">Basics</a></li><li><a class="toc-href" href="#the puzzle" title="The puzzle">The puzzle</a></li><li><a class="toc-href" href="#answer" title="Answer">Answer</a></li><li><a class="toc-href" href="#explanation" title="Explanation">Explanation</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
-            <h2 id="basics">Basics</h2>
+            <h2>Basics</h2>
 <p>As you might know, Americans measure the temperature in <a href="http://en.wikipedia.org/wiki/Fahrenheit">Fahrenheit</a>. I'm not quite sure, but I guess the rest of the world uses <a href="http://en.wikipedia.org/wiki/Celsius">Celsius</a>.</p>
 <p>0&deg; C is the temperature when water freezes.
 100&deg; C is the temperature when water boils.</p>
@@ -119,7 +113,7 @@ MathJax.Hub.Queue(function() {
 32&deg; F is the temperature when water boils.</p>
 <p>If you want to calculate the temperature <span class="math">\(T_C\)</span> in &deg;C from <span class="math">\(T_F\)</span> in &deg;F you can use this formula:
 <span class="math">\(T_C = (T_F &minus; 32) &middot; \frac{5}{9}\)</span></p>
-<h2 id="the puzzle">The puzzle</h2>
+<h2>The puzzle</h2>
 <p>What is the output of the following script?</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="kt">double</span> <span class="nf">fahrenheitToCelsius</span><span class="p">(</span><span class="kt">double</span> <span class="n">fahrenheit</span><span class="p">)</span> <span class="p">{</span>
@@ -129,16 +123,17 @@ MathJax.Hub.Queue(function() {
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">double</span> <span class="n">fahrenheit</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
         <span class="kt">double</span> <span class="n">celsius</span> <span class="o">=</span> <span class="n">fahrenheitToCelsius</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%.2f&amp;deg; Fahrenheit is %.2f&amp;deg; C\n"</span><span class="p">,</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&amp;deg; Fahrenheit is %.2f&amp;deg; C\n&quot;</span><span class="p">,</span>
                 <span class="n">fahrenheit</span><span class="p">,</span> <span class="n">celsius</span><span class="p">);</span>
 
         <span class="n">fahrenheit</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
         <span class="n">celsius</span> <span class="o">=</span> <span class="n">fahrenheitToCelsius</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"%.2f&amp;deg; Fahrenheit is %.2f&amp;deg; C\n"</span><span class="p">,</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&amp;deg; Fahrenheit is %.2f&amp;deg; C\n&quot;</span><span class="p">,</span>
                 <span class="n">fahrenheit</span><span class="p">,</span> <span class="n">celsius</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>.
 .
 .
@@ -164,21 +159,25 @@ MathJax.Hub.Queue(function() {
 .
 .
 .</p>
-<h2 id="answer">Answer</h2>
+<h2>Answer</h2>
+
 <div class="highlight"><pre><span></span><code><span class="m">100</span>.00<span class="p">&amp;</span>deg<span class="p">;</span> Fahrenheit is <span class="m">0</span>.00<span class="p">&amp;</span>deg<span class="p">;</span> C
 <span class="m">30</span>.00<span class="p">&amp;</span>deg<span class="p">;</span> Fahrenheit is -0.00<span class="p">&amp;</span>deg<span class="p">;</span> C
 </code></pre></div>
-<h2 id="explanation">Explanation</h2>
+
+<h2>Explanation</h2>
 <p>The problem is integer division.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">"5 / 9 = %.2f\n"</span><span class="p">,</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;5 / 9 = %.2f\n&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>This outputs:</p>
 <div class="highlight"><pre><span></span><code><span class="m">5</span> / <span class="nv">9</span> <span class="o">=</span> <span class="m">0</span>.00
 </code></pre></div>
+
 <p>So you are multiplying with <span class="math">\(\pm 0\)</span> instead of <span class="math">\(0.55555\)</span>.</p>
             
             <div id="disqus_thread" class="no-print"></div>

@@ -102,13 +102,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-manual-approach" title="The Manual Approach">The Manual Approach</a></li><li><a class="toc-href" href="#version-python-file" title="Version Python File">Version Python File</a></li><li><a class="toc-href" href="#version-text-file" title="Version Text File">Version Text File</a></li><li><a class="toc-href" href="#reading-setuppy" title="Reading setup.py">Reading setup.py</a></li><li><a class="toc-href" href="#external-build-tools" title="External Build Tools">External Build Tools</a></li><li><a class="toc-href" href="#package-import" title="Package import">Package import</a></li><li><a class="toc-href" href="#version-control-integration" title="Version Control Integration">Version Control Integration</a></li><li><a class="toc-href" href="#what-others-do" title="What others do">What others do</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>Python packages should (must?) have a version. It would be best if that
@@ -122,6 +116,7 @@ in <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"><code>git tag</co
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
 </code></pre></div>
+
 <p>Having this makes sure that the correct version is on PyPI and you can work
 with that version via pip (e.g. <code>pip freeze</code>). But if you import the package
 via <code>import [yourpackage]</code> and execute <code>[yourpackage].__version__</code> it might not
@@ -135,11 +130,13 @@ solutions. I only wrap them up here.</p>
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">"0.1.2"</span><span class="p">)</span>
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.2&quot;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.2&quot;</span>
 </code></pre></div>
+
 <p>Positive:</p>
 <ul>
 <li>No new dependencies</li>
@@ -153,16 +150,19 @@ solutions. I only wrap them up here.</p>
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"[yourpackage]/_version.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;[yourpackage]/_version.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
 </code></pre></div>
+
 <p>[yourpackage]/<strong>init</strong>.py:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
 </code></pre></div>
+
 <p>[yourpackage]/_version.py:</p>
-<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.2&quot;</span>
 </code></pre></div>
+
 <p>Positive:</p>
 <ul>
 <li>No new dependencies</li>
@@ -184,21 +184,24 @@ version string.</p>
 
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-    <span class="sd">"""Read a text file and return the content as a string."""</span>
+    <span class="sd">&quot;&quot;&quot;Read a text file and return the content as a string.&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>
     <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 
-<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">"[yourpackage]/version.txt"</span><span class="p">))</span>
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;[yourpackage]/version.txt&quot;</span><span class="p">))</span>
 </code></pre></div>
+
 <p>[yourpackage]/<strong>init</strong>.py:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
 </code></pre></div>
+
 <p>[yourpackage]/_version.py:</p>
-<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.2&quot;</span>
 </code></pre></div>
+
 <h2 id="reading-setuppy">Reading setup.py</h2>
 <p>This approach is so bad that I don't want to post an example here. The idea
 is that you can have the version in the <code>setup(version='fooversion')</code> and read
@@ -225,9 +228,11 @@ don't think they the first two look reliable enough to give them a try. And
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">yourpackage</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </code></pre></div>
+
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><code><span class="n">yourpackage</span><span class="o">.</span><span class="n">_version</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+<div class="highlight"><pre><span></span><code><span class="n">yourpackage</span><span class="o">.</span><span class="n">_version</span> <span class="o">=</span> <span class="s2">&quot;0.1.2&quot;</span>
 </code></pre></div>
+
 <p>Positive:</p>
 <ul>
 <li>No new dependencies</li>
@@ -244,8 +249,9 @@ and do the following:</p>
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="n">setup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_scm_version</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">"setuptools_scm"</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">setup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_scm_version</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;setuptools_scm&quot;</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
 </code></pre></div>
+
 <p>[yourpackage]/<strong>init</strong>.py:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
 
@@ -255,6 +261,7 @@ and do the following:</p>
     <span class="c1"># package is not installed</span>
     <span class="k">pass</span>
 </code></pre></div>
+
 <p>Positive:</p>
 <ul>
 <li>git tags: You might have to / be able to use git tags to keep consistent
@@ -269,7 +276,7 @@ and do the following:</p>
 <p>Reading <a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/">Version String Management in Python: Introducing python-versioneer</a>, I want to highlight some parts:</p>
 <blockquote>
 <p>Thinking about how I use git these days, I realized that I want my release
-process to have one step: &ldquo;git tag&rdquo; (well, and a &ldquo;git push&rdquo; to tell the world
+process to have one step: “git tag” (well, and a “git push” to tell the world
 about it). Everything else should be automated: building tarballs, uploading
 them to a release server, updating a web page, sending an announcement email,
 pypi registration, etc. What really matters is the release manager making the
@@ -278,103 +285,104 @@ sort.</p>
 </blockquote>
 <h2 id="what-others-do">What others do</h2>
 <table>
-<tr>
-<th>Package</th>
-<th>setup.py</th>
-<th>package</th>
-<th>Versioning Scheme</th>
-</tr>
-<tr>
-<td>Scipy</td>
-<td>Manual</td>
-<td>?</td>
-<td>Semantic</td>
-</tr>
-<tr>
-<td>Numpy</td>
-<td>Manual</td>
-<td>?</td>
-<td>Semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/python-pillow/Pillow">Pillow</a></td>
-<td>exec py</td>
-<td>manual</td>
-<td>Semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/boto/boto3">boto3</a></td>
-<td>regex `__init__.py`</td>
-<td>manual</td>
-<td>Semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/SethMMorton/natsort">natsort</a></td>
-<td>manual</td>
-<td>manual</td>
-<td>semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/matplotlib/matplotlib">mantplotlib</a></td>
-<td>versioneer</td>
-<td>?</td>
-<td>?</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pandas-dev/pandas">Pandas</a></td>
-<td>versioneer</td>
-<td>?</td>
-<td>?</td>
-</tr>
-<tr>
-<td><a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a></td>
-<td>import of sklearn.__version__</td>
-<td>manual</td>
-<td>semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/tensorflow/tensorflow">tensorflow</a></td>
-<td>?</td>
-<td>?</td>
-<td>?</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pytorch/pytorch">pytorch</a></td>
-<td>manual</td>
-<td>?</td>
-<td>?</td>
-</tr>
-<tr>
-<td>seaborn</td>
-<td>manual</td>
-<td>manual</td>
-<td>semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pallets/flask">Flask</a></td>
-<td>regex `__init__.py`</td>
-<td>manual</td>
-<td>semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/django/django">Django</a></td>
-<td>import of django.__version__</td>
-<td>manual</td>
-<td>semantic</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pytest-dev/pytest">pytest</a></td>
-<td>`use_scm_version`</td>
-<td>?</td>
-<td>?</td>
-</tr>
-<tr>
-<td><a href="https://github.com/tox-dev/tox">tox</a></td>
-<td>`use_scm_version`</td>
-<td>pluggy</td>
-<td></td>
-</tr>
+    <tr>
+        <th>Package</th>
+        <th>setup.py</th>
+        <th>package</th>
+        <th>Versioning Scheme</th>
+    </tr>
+    <tr>
+        <td>Scipy</td>
+        <td>Manual</td>
+        <td>?</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td>Numpy</td>
+        <td>Manual</td>
+        <td>?</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/python-pillow/Pillow">Pillow</a></td>
+        <td>exec py</td>
+        <td>manual</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/boto/boto3">boto3</a></td>
+        <td>regex `__init__.py`</td>
+        <td>manual</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SethMMorton/natsort">natsort</a></td>
+        <td>manual</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/matplotlib/matplotlib">mantplotlib</a></td>
+        <td>versioneer</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pandas-dev/pandas">Pandas</a></td>
+        <td>versioneer</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a></td>
+        <td>import of sklearn.__version__</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/tensorflow/tensorflow">tensorflow</a></td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pytorch/pytorch">pytorch</a></td>
+        <td>manual</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>seaborn</td>
+        <td>manual</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pallets/flask">Flask</a></td>
+        <td>regex `__init__.py`</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/django/django">Django</a></td>
+        <td>import of django.__version__</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pytest-dev/pytest">pytest</a></td>
+        <td>`use_scm_version`</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/tox-dev/tox">tox</a></td>
+        <td>`use_scm_version`</td>
+        <td>pluggy</td>
+        <td></td>
+    </tr>
 </table>
+
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://github.com/warner">Brian Warner</a>: <a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/">Version String Management in Python: Introducing python-versioneer</a></li>

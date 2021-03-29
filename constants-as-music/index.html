@@ -102,23 +102,19 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#create-mp3" title="Create MP3">Create MP3</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#ideas" title="Ideas">Ideas</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>I've just seen the following video</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/wK7tq7L0N8E?rel=0" width="512"></iframe>
+<iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/wK7tq7L0N8E?rel=0" frameborder="0" allowfullscreen></iframe>
+
 <p>and I wondered how hard it was to automatically generate this myself only with
 software. Turns out, it is super easy.</p>
 <h2 id="python">Python</h2>
 <p>You have to install <code>MIDIUtil</code>:</p>
 <div class="highlight"><pre><span></span><code>$ sudo pip install MIDIUtil
 </code></pre></div>
+
 <p>and then you can execute the following code:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
@@ -145,7 +141,7 @@ software. Turns out, it is super easy.</p>
 <span class="n">duration</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">volume</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">digit</span> <span class="o">==</span> <span class="s2">"."</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">digit</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
         <span class="k">continue</span>
     <span class="n">MyMIDI</span><span class="o">.</span><span class="n">addNote</span><span class="p">(</span><span class="n">track</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">pitch</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">),</span> <span class="n">time</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
     <span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -153,10 +149,11 @@ software. Turns out, it is super easy.</p>
         <span class="k">break</span>
 
 <span class="c1"># And write it to disk.</span>
-<span class="n">binfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.mid"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span>
+<span class="n">binfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.mid&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
 <span class="n">MyMIDI</span><span class="o">.</span><span class="n">writeFile</span><span class="p">(</span><span class="n">binfile</span><span class="p">)</span>
 <span class="n">binfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
+
 <p>This will make the first 180 digits of <span class="math">\(\pi\)</span> to a MIDI file.</p>
 <p>See <a href="http://midiutil.readthedocs.io/en/latest/">MIDIUtil docs</a> for more
 information.</p>
@@ -165,33 +162,40 @@ information.</p>
 <div class="highlight"><pre><span></span><code>$ timidity -Ow -o output.wav output.mid
 $ lame output.wav pi.mp3
 </code></pre></div>
+
 <p>For YouTube, I had to convert it to avi:</p>
 <div class="highlight"><pre><span></span><code>$ ffmpeg -loop <span class="m">1</span> -r <span class="m">1</span> -i pi.jpg -i pi.mp3 -c:a copy -shortest pi.avi
 </code></pre></div>
+
 <h2 id="examples">Examples</h2>
 <p><span class="math">\(\pi\)</span>:</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/FQOcFjFdFWc?rel=0" width="512"></iframe>
+<iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/FQOcFjFdFWc?rel=0" frameborder="0" allowfullscreen></iframe>
+
 <p>It sounds much more intersting if you play two versions of it simultaneously, starting at different points:</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/-rRIg95QJHc?rel=0" width="512"></iframe>
+<iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/-rRIg95QJHc?rel=0" frameborder="0" allowfullscreen></iframe>
+
 <p><span class="math">\(e\)</span>:</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/URnjSCYupu4?rel=0" width="512"></iframe>
+<iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/URnjSCYupu4?rel=0" frameborder="0" allowfullscreen></iframe>
+
 <p><span class="math">\(\sqrt{2}\)</span></p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/DKPSRozxUHA?rel=0" width="512"></iframe>
+<iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/DKPSRozxUHA?rel=0" frameborder="0" allowfullscreen></iframe>
+
 <h2 id="ideas">Ideas</h2>
 <p>You could reserve one digit for meta-choices, e.g. making 0 a control character.
 If 0 is followed by...</p>
 <ul>
-<li>... 0, all modifiers are reset</li>
-<li>... 1, the pitch is doubled all the time</li>
-<li>... 2, the pitch is doubled for 10 notes</li>
-<li>... 3, `time = time - 5.5`</li>
-<li>... 4, `tempo = tempo*2`</li>
-<li>... 5, `tempo = tempo*4</li>
-<li>... 6, `tempo = tempo - 10</li>
-<li>... 7, volume increases in as many beats as the next two digits indicate</li>
-<li>... 8, volume decreases by 10 in the next 2 seconds</li>
-<li>... 9, duration is doubled</li>
-</ul>
+     <li>... 0, all modifiers are reset</li>
+     <li>... 1, the pitch is doubled all the time</li>
+     <li>... 2, the pitch is doubled for 10 notes</li>
+     <li>... 3, `time = time - 5.5`</li>
+     <li>... 4, `tempo = tempo*2`</li>
+     <li>... 5, `tempo = tempo*4</li>
+     <li>... 6, `tempo = tempo - 10</li>
+     <li>... 7, volume increases in as many beats as the next two digits indicate</li>
+     <li>... 8, volume decreases by 10 in the next 2 seconds</li>
+     <li>... 9, duration is doubled</li>
+ </ul>
+
 <p>Let me know if you made something that sounds interesting 🙂</p>
             
             <div id="disqus_thread" class="no-print"></div>

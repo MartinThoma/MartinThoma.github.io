@@ -100,42 +100,37 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#die chomsky-normalform" title="Die Chomsky-Normalform">Die Chomsky-Normalform</a></li><li><a class="toc-href" href="#konstruktion der cnf" title="Konstruktion der CNF">Konstruktion der CNF</a><ul><li><a class="toc-href" href="#schritt 1" title="Schritt 1">Schritt 1</a></li><li><a class="toc-href" href="#schritt 2" title="Schritt 2">Schritt 2</a></li><li><a class="toc-href" href="#schritt 3" title="Schritt 3">Schritt 3</a></li><li><a class="toc-href" href="#schritt 4" title="Schritt 4">Schritt 4</a></li></ul></li><li><a class="toc-href" href="#beispiele_1" title="Beispiele">Beispiele</a><ul><li><a class="toc-href" href="#die sprache der palindrome" title="Die Sprache der Palindrome">Die Sprache der Palindrome</a></li></ul></li><li><a class="toc-href" href="#weiterfuhrende links und quellen_1" title="Weiterf&uuml;hrende Links und Quellen">Weiterf&uuml;hrende Links und Quellen</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <div class="warning">Dieser Artikel k&ouml;nnte inhaltliche Fehler beinhalten. Bitte lest euch die Kommentare durch.</div>
+
 <p>Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu formulieren. Dabei haben nur die Produktionsregeln eine festgelegte Form, alles andere ist wie immer. Die Chomsky-Normalform kommt bei dem CYK-Algorithmus, der das Wortproblem f&uuml;r kontextfreie Grammatiken l&ouml;st, zum Einsatz. Jede kontextfreie Grammatik kann in Chomsky-Normalform gebracht werden.</p>
-<h2 id="die chomsky-normalform">Die Chomsky-Normalform</h2>
+<h2>Die Chomsky-Normalform</h2>
 <p>Das Besondere an der Chomsky-Normalform ist, dass alle Regeln der Grammatik <span class="math">\(G (V, \Sigma, P, S)\)</span> folgende Form haben:
 <span class="math">\(A \rightarrow BC\)</span> oder
 <span class="math">\(A \rightarrow a\)</span>.
 Dabei sind <span class="math">\(A, B, C \in V\)</span> und <span class="math">\(a \in \Sigma\)</span>.</p>
 <p>Falls die Grammatik in der Lage ist, das Leere Wort <span class="math">\(\varepsilon\)</span> zu erzeugen, dann f&uuml;gt man folgende Sonderregel hinzu: <span class="math">\(S' \rightarrow S | \varepsilon\)</span>. Dabei darf S' niemals auf der rechten Seite einer Produktion stehen.</p>
 <p>Eine Eigenschaft der Chomsky-Normalform ist, dass jedes Wort aus <span class="math">\(2 \cdot |w| - 1\)</span> Ableitungen gebildet werden kann. (Falls das leere Wort gebildet werden kann sind es <span class="math">\(2 \cdot |w|\)</span> Ableitungen f&uuml;r jedes nicht-leere Wort und eine Ableitung f&uuml;r das leere Wort) In jedem Ableitungsschritt erh&auml;lt man entweder ein Terminal, oder ein weiteres Nicht-Terminal.</p>
-<h2 id="konstruktion der cnf">Konstruktion der CNF</h2>
+<h2>Konstruktion der CNF</h2>
 <p>Aus einer Grammatik <span class="math">\(G (V, \Sigma, P, S)\)</span> kann mit folgenden vier Schritten eine Grammatik <span class="math">\(G' (V', \Sigma, P', S)\)</span> in Chomsky-Normalform (CNF) erstellt werden:</p>
-<h3 id="schritt 1">Schritt 1</h3>
+<h3>Schritt 1</h3>
 <p>Immer wenn ein Symbol aus <span class="math">\(\Sigma\)</span> in einer Produktion steht, wird dieses durch <span class="math">\(Y_a\)</span> ersetzt und eine neue Produktion <span class="math">\(Y_a \rightarrow a\)</span> zu P' hinzugef&uuml;gt.</p>
 <p>Es ist somit sichergestellt, dass alle Regeln entweder nur Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder <span class="math">\(\varepsilon\)</span> oder dass dort ein einzelnes Terminal steht.</p>
-<h3 id="schritt 2">Schritt 2</h3>
+<h3>Schritt 2</h3>
 <p>Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann f&uuml;hrt man m - 2 neue Variablen ein, f&uuml;gt diese zu V' hinzu, und macht aus einer Regel <span class="math">\(A \rightarrow B_1 B_2 ... B_m\)</span> die Regeln <span class="math">\(A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C_{i+1} \rightarrow B_i C_i ... C_{m-2} \rightarrow B_{m-3} C_{m-3}\)</span>.</p>
 <p>An dieser Stelle ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder <span class="math">\(\varepsilon\)</span> oder dass dort ein einzelnes Terminal steht.</p>
-<h3 id="schritt 3">Schritt 3</h3>
+<h3>Schritt 3</h3>
 <p>Nun wollen wir alle <span class="math">\(\varepsilon\)</span>-&Uuml;berg&auml;nge entfernen.</p>
 <p>Um dies zu erreichen, suchen wir alle Regeln, die nach <span class="math">\(\varepsilon\)</span> abbilden, also von der Form <span class="math">\(A \rightarrow \varepsilon\)</span> sind. Dabei streichen wir die Regeln <span class="math">\(A \rightarrow \varepsilon\)</span>. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es &uuml;berall aus der rechten Seite. Falls dabei eine Regel zu <span class="math">\(B \rightarrow \varepsilon\)</span> wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine <span class="math">\(\varepsilon\)</span>-&Uuml;berg&auml;nge mehr vorhanden sind.
 Am Ende f&uuml;gen wir die Regel <span class="math">\(S' \rightarrow S | \varepsilon\)</span> hinzu, falls die Grammatik auf das leere Wort abbilden konnte.</p>
 <p>Nun ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder dass dort ein einzelnes Terminal steht. Allerdings kann es noch Kreise in der Ableitung geben, die man entfernen kann.</p>
-<h3 id="schritt 4">Schritt 4</h3>
+<h3>Schritt 4</h3>
 <p>In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form <span class="math">\(A_1 \rightarrow A_2 \rightarrow A_3 \rightarrow A_u \rightarrow A_1\)</span>. Diese findet man mit einer Tiefensuche.
 Dann ersetzt man alle <span class="math">\(A_2, ..., A_u\)</span> durch <span class="math">\(A_1\)</span>. Die Regel <span class="math">\(A_1 \rightarrow A_1\)</span> kann entfernt werden, da sie ja nichts &auml;ndert.</p>
-<h2 id="beispiele_1">Beispiele</h2>
-<h3 id="die sprache der palindrome">Die Sprache der Palindrome</h3>
+<h2>Beispiele</h2>
+<h3>Die Sprache der Palindrome</h3>
 <p>Gegeben sei folgende Grammatik:
 <span class="math">\(G(\underbrace{\{S\}}_{V}, \underbrace{\{a,b\}}_{\Sigma}, S, P)\)</span> mit
 <span class="math">\(P = \{S \rightarrow \varepsilon | a | b | aSa | bSb \}\)</span>.</p>
@@ -169,11 +164,11 @@ Dann ersetzt man alle <span class="math">\(A_2, ..., A_u\)</span> durch <span cl
 <span class="math">\(~ Y_b \rightarrow b,\)</span>
 <span class="math">\(~ S' \rightarrow S | \varepsilon\}\)</span></p>
 <p>Sie ist also nicht sch&ouml;ner oder einfacher geworden, hat aber eine bestimmte Struktur erhalten.</p>
-<h2 id="weiterfuhrende links und quellen_1">Weiterf&uuml;hrende Links und Quellen</h2>
+<h2>Weiterf&uuml;hrende Links und Quellen</h2>
 <ul>
-<li><a href="http://de.wikipedia.org/wiki/Chomsky-Normalform">Wikipedia</a></li>
-<li>Uwe Sch&ouml;ning: <i>Theoretische Informatik- kurz gefasst</i>. 5.&nbsp;Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, S.&nbsp;44, <span class="plainlinks-print"><a class="external text" href="http://d-nb.info/986529222" rel="nofollow">DNB 986529222</a></span>.</li>
-<li>KIT:
+    <li><a href="http://de.wikipedia.org/wiki/Chomsky-Normalform">Wikipedia</a></li>
+    <li>Uwe Sch&ouml;ning: <i>Theoretische Informatik- kurz gefasst</i>. 5.&nbsp;Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, S.&nbsp;44, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>
+    <li>KIT:
 <ul>
 <li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi_skript_ws11.pdf">Skript</a> von Prof. Dr. Dorothea Wagner, S. 98</li>
 <li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/uebung7.pdf">&Uuml;bung</a> vom 02.02.2012 - Hier ist ein sehr gutes, detailliertes Beispiel! </li>

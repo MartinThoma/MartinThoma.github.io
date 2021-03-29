@@ -102,27 +102,22 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#pre-commit-basics" title="pre-commit basics">pre-commit basics</a></li><li><a class="toc-href" href="#file-formatting" title="File formatting">File formatting</a></li><li><a class="toc-href" href="#code-style" title="Code style">Code style</a><ul><li><a class="toc-href" href="#code-autoformatter" title="Code Autoformatter">Code Autoformatter</a></li><li><a class="toc-href" href="#modern-python" title="Modern Python">Modern Python</a></li></ul></li><li><a class="toc-href" href="#testing-your-code_1" title="Testing your Code">Testing your Code</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#miscellaneous-pre-commit-hooks" title="Miscellaneous pre-commit hooks">Miscellaneous pre-commit hooks</a></li><li><a class="toc-href" href="#working-in-a-team" title="Working in a Team">Working in a Team</a></li><li><a class="toc-href" href="#all-the-hooks" title="All the hooks!">All the hooks!</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
 
             
             <p>pre-commit hooks are a mechanism of the version control system git. They let
 you execute code right before the commit. Confusingly, there is also a Python
 package called pre-commit which allows you to create and use pre-commit hooks
 with a way simpler interface. The Python package has a plugin-system to create
-git pre-commit hooks automatically. It&rsquo;s not only for Python projects but for
+git pre-commit hooks automatically. It’s not only for Python projects but for
 any project.</p>
 <p>After reading this article, you will know my favorite plugins for professional
-software development. Let&rsquo;s get started!</p>
+software development. Let’s get started!</p>
 <h2 id="pre-commit-basics">pre-commit basics</h2>
 <p>Install pre-commit via</p>
 <div class="highlight"><pre><span></span><code>pip install pre-commit
 </code></pre></div>
+
 <p>Create a .pre-commit-config.yaml file within your project. This file contains the pre-commit hooks you want to run every time before you commit. It looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">repos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/pre-commit/pre-commit-hooks</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/pre-commit/pre-commit-hooks)</span>
@@ -136,21 +131,24 @@ software development. Let&rsquo;s get started!</p>
     <span class="nt">hooks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">black</span>
 </code></pre></div>
+
 <p>pre-commit will look in those two repositories with the specified git tags for a file called .pre-commit-hooks.yaml. Within that file can be arbitrary many hooks defined. They all need an id so that you can choose which ones you want to use. The above git-commit config would use 3 hooks.</p>
 <p>Finally, you need to run pre-commit install to tell pre-commit to always run for this repository.</p>
 <p>Before I used it, I was worried about losing control. I want to know exactly which changes I commit. pre-commit will abort the commit if it changes anything. So you can still have a look at the code and check if the changes are reasonable. You can also choose not to run pre-commit by</p>
 <div class="highlight"><pre><span></span><code>git commit --no-verify
 </code></pre></div>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/09/geek-and-poke-code-review.jpg"><img alt="Image by geek-and-poke under CC-BY-3.0" src="../images/2020/09/geek-and-poke-code-review.jpg" style="width: 512px;"/></a>
-<figcaption class="text-center">Image by <a href="http://geek-and-poke.com/geekandpoke/2010/11/1/how-to-make-a-good-code-review.html">geek-and-poke</a> under CC-BY-3.0</figcaption>
+    <a href="../images/2020/09/geek-and-poke-code-review.jpg"><img src="../images/2020/09/geek-and-poke-code-review.jpg" alt="Image by geek-and-poke under CC-BY-3.0" style="width: 512px;"/></a>
+    <figcaption class="text-center">Image by <a href="http://geek-and-poke.com/geekandpoke/2010/11/1/how-to-make-a-good-code-review.html">geek-and-poke</a> under CC-BY-3.0</figcaption>
 </figure>
+
 <h2 id="file-formatting">File formatting</h2>
 <p>Formatting files in a similar way helps readability by improving consistency
-and keeps git commits clean. For example, you usually don&rsquo;t want trailing
+and keeps git commits clean. For example, you usually don’t want trailing
 spaces. You want the text files to end with exactly one newline character so
 that some of the Linux command-line tools behave well. You want consistent
-newline characters between Linux (<code>\n</code>), Mac (<code>\r</code> &mdash; <a href="https://superuser.com/questions/439440/did-mac-os-lion-switch-to-using-line-feeds-lf-n-for-line-breaks-instead-of">Mac
+newline characters between Linux (<code>\n</code>), Mac (<code>\r</code> — <a href="https://superuser.com/questions/439440/did-mac-os-lion-switch-to-using-line-feeds-lf-n-for-line-breaks-instead-of">Mac
 changed</a>
 to <code>\n</code> 🎉) and windows (<code>\r\n</code>). My configuration for that is</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pre-commit run --all-files</span>
@@ -168,18 +166,21 @@ to <code>\n</code> 🎉) and windows (<code>\r\n</code>). My configuration for t
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mixed-line-ending</span>
 </code></pre></div>
+
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/09/pre-commit-batman-slap.jpg"><img alt="Created via imgflip.com by Martin Thoma" src="../images/2020/09/pre-commit-batman-slap.jpg" style="width: 512px;"/></a>
-<figcaption class="text-center">Created via <a href="https://imgflip.com/i/4dqpwf">imgflip.com</a> by Martin Thoma</figcaption>
+    <a href="../images/2020/09/pre-commit-batman-slap.jpg"><img src="../images/2020/09/pre-commit-batman-slap.jpg" alt="Created via imgflip.com by Martin Thoma" style="width: 512px;"/></a>
+    <figcaption class="text-center">Created via <a href="https://imgflip.com/i/4dqpwf">imgflip.com</a> by Martin Thoma</figcaption>
 </figure>
+
 <h2 id="code-style">Code style</h2>
 <p>We can write code in a lot of different ways. Many of them show almost no
 difference in runtime, but there are differences in readability.</p>
 <h3 id="code-autoformatter">Code Autoformatter</h3>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/09/xkcd-code_quality_2x.png"><img alt="When your code looks ugly, don&rsquo;t waste your time with learning style guides and applying it by hand. Run a code formatter. Image by Randall Munroe (xkcd)" src="../images/2020/09/xkcd-code_quality_2x.png" style="width: 512px;"/></a>
-<figcaption class="text-center">When your code looks ugly, don&rsquo;t waste your time with learning style guides and applying it by hand. Run a code formatter. Image by Randall Munroe (<a href="https://xkcd.com/1513/">xkcd</a>)</figcaption>
+    <a href="../images/2020/09/xkcd-code_quality_2x.png"><img src="../images/2020/09/xkcd-code_quality_2x.png" alt="When your code looks ugly, don’t waste your time with learning style guides and applying it by hand. Run a code formatter. Image by Randall Munroe (xkcd)" style="width: 512px;"/></a>
+    <figcaption class="text-center">When your code looks ugly, don’t waste your time with learning style guides and applying it by hand. Run a code formatter. Image by Randall Munroe (<a href="https://xkcd.com/1513/">xkcd</a>)</figcaption>
 </figure>
+
 <p>Automatic code formatting has the same advantages as the file formatting.
 Additionally, it prevents meaningless discussions. Thus it lets you and your
 team focus on the important and complicated parts.</p>
@@ -194,6 +195,7 @@ team focus on the important and complicated parts.</p>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">blacken-docs</span>
         <span class="nt">additional_dependencies</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">black==20.8b1</span><span class="p p-Indicator">]</span>
 </code></pre></div>
+
 <p>The first one is black itself, the second one is a project which applies the
 black formatting to code-strings within docstrings.</p>
 <p>Additionally, I want my imports to be sorted:</p>
@@ -206,6 +208,7 @@ black formatting to code-strings within docstrings.</p>
     <span class="nt">hooks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">isort</span>
 </code></pre></div>
+
 <p>There are autoformatters with pre-commit hooks for many languages:</p>
 <ul>
 <li><a href="https://prettier.io/docs/en/precommit.html#option-3-pre-commithttpsgithubcompre-commitpre-commit">Prettier</a>: HTML, CSS, JavaScript, GraphQL, and many more.</li>
@@ -223,6 +226,7 @@ black formatting to code-strings within docstrings.</p>
 
 <span class="kn">from</span> <span class="nn">mock</span> <span class="kn">import</span> <span class="n">patch</span>  <span class="c1"># -&gt; from unittest.mock import patch</span>
 </code></pre></div>
+
 <p>Do you want it? Here you are:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/asottile/pyupgrade</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/asottile/pyupgrade)</span>
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v2.7.2</span>
@@ -230,7 +234,8 @@ black formatting to code-strings within docstrings.</p>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pyupgrade</span>
         <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">--py36-plus</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<h2 id="testing-your-code_1">Testing your Code</h2>
+
+<h2 id="testing-your-code">Testing your Code</h2>
 <p>I thought about running the unit tests automatically by pre-commit. I decided not to do that as this might take quite a while. However, there are some quick tests which are good to run automatically and every time:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/pre-commit/pre-commit-hooks</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/pre-commit/pre-commit-hooks)</span>
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v3.2.0</span>
@@ -247,10 +252,11 @@ black formatting to code-strings within docstrings.</p>
         <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">--ignore-missing-imports</span><span class="p p-Indicator">]</span>
 
 <span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//gitlab.com/pycqa/flake8</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://gitlab.com/pycqa/flake8)</span>
-    <span class="nt">rev</span><span class="p">:</span> <span class="s">'3.8.3'</span>
+    <span class="nt">rev</span><span class="p">:</span> <span class="s">&#39;3.8.3&#39;</span>
     <span class="nt">hooks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">flake8</span>
 </code></pre></div>
+
 <h2 id="security">Security</h2>
 <p>Checking in credentials is a pretty common mistake. Here is how you prevent it:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/pre-commit/pre-commit-hooks</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/pre-commit/pre-commit-hooks)</span>
@@ -259,20 +265,22 @@ black formatting to code-strings within docstrings.</p>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">detect-aws-credentials</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">detect-private-key</span>
 </code></pre></div>
+
 <h2 id="miscellaneous-pre-commit-hooks">Miscellaneous pre-commit hooks</h2>
-<p>Some hooks don&rsquo;t fit in the above categories but are still useful. For example, this one prevents big files from being committed:</p>
+<p>Some hooks don’t fit in the above categories but are still useful. For example, this one prevents big files from being committed:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/pre-commit/pre-commit-hooks</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/pre-commit/pre-commit-hooks)</span>
     <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v3.2.0</span>
     <span class="nt">hooks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-added-large-files</span>
 </code></pre></div>
+
 <h2 id="working-in-a-team">Working in a Team</h2>
 <p>The pre-commit hooks are installed locally and thus every developer could
 decide on their own if they want pre-commit hooks and which ones. However, I
 think it is helpful to provide a .pre-commit-config.yaml with plugins you
 recommend to execute.</p>
 <h2 id="all-the-hooks">All the hooks!</h2>
-<p>If you&rsquo;re looking for a complete .pre-commit-config.yaml ready to use, here it is:</p>
+<p>If you’re looking for a complete .pre-commit-config.yaml ready to use, here it is:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Apply to all files without commiting:</span>
 <span class="c1">#   pre-commit run --all-files</span>
 <span class="c1"># Update this file:</span>
@@ -322,11 +330,12 @@ recommend to execute.</p>
     <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">blacken-docs</span>
         <span class="nt">additional_dependencies</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">black==20.8b1</span><span class="p p-Indicator">]</span>
 </code></pre></div>
+
 <h2 id="summary">Summary</h2>
 <p>I love pre-commit as it fits so well in my workflow. I just commit as usual and
 pre-commit does all the checks which I sometimes forget. It speeds up
 development because the CI/CD pipeline is just way slower than executing the
-same steps locally. Especially for linting, it&rsquo;s an enormous time-saver to
+same steps locally. Especially for linting, it’s an enormous time-saver to
 quickly run black over the code instead of committing, waiting for the CI/CD
 pipeline, finding an error, fixing that error locally, pushing, and waiting
 again for the CI/CD pipeline.</p>
