@@ -171,10 +171,14 @@ MathJax.Hub.Queue(function() {
 <h2 id="1-tuples">1. Tuples</h2>
 <p>Tuples are a native data type. They have a very low memory overhead, so we can address the elements by index very quickly. The problem with tuples is that you have no names for member attributes. You have to remember what each index represents. Tuples are always immutable.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+
 <span class="n">pos1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">"Parkstra&szlig;e 17"</span><span class="p">)</span>
 <span class="n">pos2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
-                 <span class="n">p2</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span>
+    <span class="n">p1</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div>
 <p>The annotation for get_distance looks messy. A human should be given the information that p1 represents a location &mdash; not that the location contains two floats and an optional string. That is work the editor should do for you.</p>
@@ -182,14 +186,12 @@ MathJax.Hub.Queue(function() {
 <h2 id="2-dictionaries">2. Dictionaries</h2>
 <p>Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by index is <em>fast</em>. Dicts are always mutable, but there is the third-party package <a href="https://pypi.org/project/frozendict/">frozendict</a> to solve this.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
-<span class="n">pos1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">49.0127913</span><span class="p">,</span>
-        <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">8.4231381</span><span class="p">,</span>
-        <span class="s2">"address"</span><span class="p">:</span> <span class="s2">"Parkstra&szlig;e 17"</span><span class="p">}</span>
-<span class="n">pos2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">42.1238762</span><span class="p">,</span>
-        <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">9.1649964</span><span class="p">,</span>
-        <span class="s2">"address"</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
-<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-                 <span class="n">p2</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+
+<span class="n">pos1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">49.0127913</span><span class="p">,</span> <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">"address"</span><span class="p">:</span> <span class="s2">"Parkstra&szlig;e 17"</span><span class="p">}</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">42.1238762</span><span class="p">,</span> <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">9.1649964</span><span class="p">,</span> <span class="s2">"address"</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div>
 <p>The annotation in practice is really bad. It&rsquo;s almost always Dict[str, Any] in the best case. Often, there is no annotation.</p>
@@ -199,37 +201,41 @@ MathJax.Hub.Queue(function() {
 <p><a href="https://docs.python.org/3/library/collections.html#collections.namedtuple">Named tuples</a> were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function collections.namedtuple to generate the named tuple class, but I prefer to inherit from typing.NamedTuple and use inheritance combined with type annotations:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Old style, before Python 3.7</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
 <span class="n">attribute_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"longitude"</span><span class="p">,</span> <span class="s2">"latitude"</span><span class="p">,</span> <span class="s2">"address"</span><span class="p">]</span>
 <span class="n">Position</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Position"</span><span class="p">,</span> <span class="n">attribute_names</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,))</span>
 
 <span class="c1"># Python 3.7 and later:</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
 
+
 <span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
     <span class="n">longitude</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">latitude</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">address</span><span class="p">:</span> <span class="nb">int</span>
 
+
 <span class="c1"># Both are used in the same way</span>
 <span class="n">pos1</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">49.0127913</span><span class="p">,</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">"Parkstra&szlig;e 17"</span><span class="p">)</span>
 <span class="n">pos2</span> <span class="o">=</span> <span class="n">Position</span><span class="p">(</span><span class="mf">42.1238762</span><span class="p">,</span> <span class="mf">9.1649964</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div>
 <p>NamedTuples solve the issue of the annotations becoming hard to read. They thus also fix the issue of editor support that I mentioned earlier.</p>
 <p>Interestingly, NamedTuples are <em>not</em> type-aware:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Coordinates"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">BMI</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"BMI"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"weight"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">BMI</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
-<span class="n">Coordinates</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">170</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
-<span class="n">BMI</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">170</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
-<span class="kc">True</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; from collections import namedtuple
+&gt;&gt;&gt; Coordinates = namedtuple("Coordinates", ["x", "y"])
+&gt;&gt;&gt; BMI = namedtuple("BMI", ["weight", "size"])
+&gt;&gt;&gt; a = Coordinates(60, 170)
+&gt;&gt;&gt; b = BMI(60, 170)
+&gt;&gt;&gt; a
+Coordinates(x=60, y=170)
+&gt;&gt;&gt; b
+BMI(weight=60, size=170)
+&gt;&gt;&gt; a == b
+True
 </code></pre></div>
 <h2 id="4-attrs">4. attrs</h2>
 <p><a href="https://pypi.org/project/attrs/">attrs</a> is a third-party library that reduces boilerplate code. Developers can use it by adding the @attrs.s decorator above the class. Attributes are assigned the attr.ib() function:</p>
@@ -263,11 +269,11 @@ MathJax.Hub.Queue(function() {
 </code></pre></div>
 <p>You can make it immutable by changing the decorator to <a href="https://www.attrs.org/en/stable/api.html">@attr.s(frozen=True)</a>.</p>
 <p>You also can automatically run code on the input to the constructor. This is called a &ldquo;converter,&rdquo; and <a href="https://www.attrs.org/en/stable/examples.html#conversion">the docs</a> show a pretty nice example:</p>
-<div class="highlight"><pre><span></span><code><span class="o">**&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">@attr</span><span class="o">**</span><span class="p">.</span><span class="n">s</span><span class="w"></span>
-<span class="o">**</span><span class="p">...</span><span class="w"> </span><span class="k">class</span><span class="o">**</span><span class="w"> </span><span class="o">**</span><span class="n">C</span><span class="o">**</span><span class="p">(</span><span class="k">object</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="o">**</span><span class="p">...</span><span class="w"> </span><span class="o">**</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">attr</span><span class="p">.</span><span class="n">ib</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="nc">int</span><span class="p">)</span><span class="w"></span>
-<span class="o">**&gt;&gt;&gt;</span><span class="w"> </span><span class="o">**</span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="ss">"1"</span><span class="p">)</span><span class="w"></span>
-<span class="o">**&gt;&gt;&gt;</span><span class="w"> </span><span class="o">**</span><span class="n">o</span><span class="p">.</span><span class="n">x</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; @attr.s
+... class C(object):
+...     x = attr.ib(converter=int)
+&gt;&gt;&gt; o = C("1")
+&gt;&gt;&gt; o.x
 </code></pre></div>
 <p><a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4">Visual Studio Code</a> does not like the type annotations.</p>
 <h2 id="5-dataclass">5. Dataclass</h2>
@@ -395,21 +401,21 @@ Plain class   : &lt;__main__.Position object at 0x7f1562750640&gt;
 <h2 id="data-validation">Data Validation</h2>
 <p>You have seen how data validation can be implemented for plain classes, attrs, dataclasses, and Pydantic. What you haven&rsquo;t seen is what the error messages look like.</p>
 <p>For the following, I will attempt to create Position(1234, 567). So both the longitude and latitude are wrong. Here are the error messages this triggers:</p>
-<div class="highlight"><pre><span></span><code># <span class="nv">Plain</span> <span class="nv">Class</span>
-<span class="nv">ValueError</span>: <span class="nv">Longitude</span> <span class="nv">was</span> <span class="mi">11111</span>, <span class="nv">but</span> <span class="nv">has</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">180</span>, <span class="mi">180</span>]
+<div class="highlight"><pre><span></span><code># Plain Class
+ValueError: Longitude was 11111, but has to be in [-180, 180]
 
-# <span class="mi">4</span>: <span class="nv">attr</span>
-<span class="nv">ValueError</span>: <span class="nv">Longitude</span> <span class="nv">was</span> <span class="mi">1234</span>, <span class="nv">but</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">180</span>, <span class="o">+</span><span class="mi">180</span>]
+# 4: attr
+ValueError: Longitude was 1234, but must be in [-180, +180]
 
-# <span class="mi">5</span>: <span class="nv">dataclasses</span>
-<span class="ss">(</span><span class="nv">same</span> <span class="nv">as</span> <span class="nv">plain</span> <span class="nv">classes</span> <span class="nv">is</span> <span class="nv">possible</span><span class="ss">)</span>
+# 5: dataclasses
+(same as plain classes is possible)
 
-# <span class="mi">6</span>: <span class="nv">Pydantic</span>
-<span class="nv">pydantic</span>.<span class="nv">error_wrappers</span>.<span class="nv">ValidationError</span>: <span class="mi">2</span> <span class="nv">validation</span> <span class="nv">errors</span> <span class="k">for</span> <span class="nv">Position</span>
-<span class="nv">longitude</span>
-  <span class="nv">Longitude</span> <span class="nv">was</span> <span class="mi">1234</span>.<span class="mi">0</span>, <span class="nv">but</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">180</span>, <span class="o">+</span><span class="mi">180</span>] <span class="ss">(</span><span class="nv">type</span><span class="o">=</span><span class="nv">value_error</span><span class="ss">)</span>
-<span class="nv">latitude</span>
-  <span class="nv">Latitude</span> <span class="nv">was</span> <span class="mi">567</span>.<span class="mi">0</span>, <span class="nv">but</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">in</span> [<span class="o">-</span><span class="mi">90</span>, <span class="o">+</span><span class="mi">90</span>] <span class="ss">(</span><span class="nv">type</span><span class="o">=</span><span class="nv">value_error</span><span class="ss">)</span>
+# 6: Pydantic
+pydantic.error_wrappers.ValidationError: 2 validation errors for Position
+longitude
+  Longitude was 1234.0, but must be in [-180, +180] (type=value_error)
+latitude
+  Latitude was 567.0, but must be in [-90, +90] (type=value_error)
 </code></pre></div>
 <p>This is the point I want to make: Pydantic gives you all the errors in a very clear way. Plain classes and attrs just give you the first error.</p>
 <h2 id="serialize-to-json">Serialize to JSON</h2>
@@ -441,12 +447,12 @@ Plain class   : &lt;__main__.Position object at 0x7f1562750640&gt;
 <span class="nb">print</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
 </code></pre></div>
 <p>This gives you:</p>
-<div class="highlight"><pre><span></span><code>{"id": 1, "squash": true, "web_url": "[http://foo](http://foo)", "title": "title", "author": {"id": 42, "username": "Joe"}}
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">"squash"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nt">"web_url"</span><span class="p">:</span> <span class="s2">"[http://foo](http://foo)"</span><span class="p">,</span> <span class="nt">"title"</span><span class="p">:</span> <span class="s2">"title"</span><span class="p">,</span> <span class="nt">"author"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"id"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"Joe"</span><span class="p">}}</span>
 </code></pre></div>
 <p>For dataclasses, <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.asdict">dataclasses.asdict</a> goes a long way. Then you might be able to directly serialize the dictionary to JSON. It becomes interesting with DateTime or <a href="https://docs.python.org/3/library/decimal.html">decimal</a> objects. <a href="https://www.attrs.org/en/stable/examples.html#converting-to-collections-types">Something similar</a> is possible with attrs.</p>
 <h2 id="unserialize-from-json">Unserialize From JSON</h2>
 <p>Userializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:</p>
-<div class="highlight"><pre><span></span><code>mr = GitlabMr.parse_raw(json_str)
+<div class="highlight"><pre><span></span><code><span class="n">mr</span> <span class="o">=</span> <span class="n">GitlabMr</span><span class="o">.</span><span class="n">parse_raw</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
 </code></pre></div>
 <p>There are very dirty hacks to do <a href="https://stackoverflow.com/a/53498623/562769">something similar with dataclasses</a>. The <a href="https://stackoverflow.com/q/44801927/562769">attrs way to deserialize</a> looks better, but I guess it also struggles with nested structures. And when it comes to DateTime or decimals, I&rsquo;m pretty certain that both show more problems than Pydantic. Serialization, deserialization, and validation are where Pydantic shines.</p>
 <h2 id="memory">Memory</h2>
@@ -476,15 +482,9 @@ Native class : 286 B
 <h2 id="execution-time">Execution Time</h2>
 <p>There are multiple things you can mean by &ldquo;execution time&rdquo; in this context:</p>
 <ul>
-<li>
-<p>Object creation time with or without validation or conversion</p>
-</li>
-<li>
-<p>Parsing time from JSON</p>
-</li>
-<li>
-<p>Parsing time from a dictionary</p>
-</li>
+<li>Object creation time with or without validation or conversion</li>
+<li>Parsing time from JSON</li>
+<li>Parsing time from a dictionary</li>
 </ul>
 <p>I&rsquo;m convinced that the parsing time for JSON dominates the rest. There are multiple JSON parsers available in Python:
 <a href="https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a"><strong>JSON encoding/decoding with Python</strong>
@@ -492,18 +492,10 @@ Native class : 286 B
 <h2 id="so-when-do-i-use-what">So When Do I Use What?</h2>
 <p>Use what you need:</p>
 <ul>
-<li>
-<p>Dict when you don&rsquo;t know ahead of time what will be added. Please note that you can mix all of the others with dict and vice versa. So if you know what a part of the data structure will look like, then use something different. I see dict as a last resort.</p>
-</li>
-<li>
-<p>NamedTuple when you need a quick way to group data and mutability is not needed. And when it&rsquo;s OK for you to not be type-aware.</p>
-</li>
-<li>
-<p>Dataclasses when you need mutability, want to be type-aware, or want to have the possibility of inheriting from the created dataclass.</p>
-</li>
-<li>
-<p>Pydantic BaseModel when you need to deserialize data.</p>
-</li>
+<li>Dict when you don&rsquo;t know ahead of time what will be added. Please note that you can mix all of the others with dict and vice versa. So if you know what a part of the data structure will look like, then use something different. I see dict as a last resort.</li>
+<li>NamedTuple when you need a quick way to group data and mutability is not needed. And when it&rsquo;s OK for you to not be type-aware.</li>
+<li>Dataclasses when you need mutability, want to be type-aware, or want to have the possibility of inheriting from the created dataclass.</li>
+<li>Pydantic BaseModel when you need to deserialize data.</li>
 </ul>
 <p>Please note that I didn&rsquo;t mention tuple and attrs. I simply cannot find a valid use case where you would prefer them for new code over the other choices. Please let me know if I missed one.</p>
 <p>I also didn&rsquo;t mention plain classes. I think I would only use plain classes if I want to overwrite <strong>init</strong>, <strong>eq</strong> , <strong>str</strong>, <strong>repr</strong> , and__hash__ anyway. Or if I have to support old Python versions.</p>

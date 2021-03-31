@@ -61,10 +61,14 @@
 &lt;h2 id="1-tuples"&gt;1. Tuples&lt;/h2&gt;
 &lt;p&gt;Tuples are a native data type. They have a very low memory overhead, so we can address the elements by index very quickly. The problem with tuples is that you have no names for member attributes. You have to remember what each index represents. Tuples are always immutable.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;
+
 &lt;span class="n"&gt;pos1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;49.0127913&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;8.4231381&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Parkstra&amp;szlig;e 17"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;pos2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;42.1238762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;9.1649964&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt;
-                 &lt;span class="n"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="n"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The annotation for get_distance looks messy. A human should be given the information that p1 represents a location &amp;mdash; not that the location contains two floats and an optional string. That is work the editor should do for you.&lt;/p&gt;
@@ -72,14 +76,12 @@
 &lt;h2 id="2-dictionaries"&gt;2. Dictionaries&lt;/h2&gt;
 &lt;p&gt;Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by index is &lt;em&gt;fast&lt;/em&gt;. Dicts are always mutable, but there is the third-party package &lt;a href="https://pypi.org/project/frozendict/"&gt;frozendict&lt;/a&gt; to solve this.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Any&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Dict&lt;/span&gt;
-&lt;span class="n"&gt;pos1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"longitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;49.0127913&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s2"&gt;"latitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;8.4231381&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s2"&gt;"address"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Parkstra&amp;szlig;e 17"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="n"&gt;pos2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"longitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;42.1238762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s2"&gt;"latitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;9.1649964&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s2"&gt;"address"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Any&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-                 &lt;span class="n"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Any&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="n"&gt;pos1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"longitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;49.0127913&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"latitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;8.4231381&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"address"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Parkstra&amp;szlig;e 17"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;pos2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"longitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;42.1238762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"latitude"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;9.1649964&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"address"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Any&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Dict&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Any&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The annotation in practice is really bad. It&amp;rsquo;s almost always Dict[str, Any] in the best case. Often, there is no annotation.&lt;/p&gt;
@@ -89,37 +91,41 @@
 &lt;p&gt;&lt;a href="https://docs.python.org/3/library/collections.html#collections.namedtuple"&gt;Named tuples&lt;/a&gt; were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function collections.namedtuple to generate the named tuple class, but I prefer to inherit from typing.NamedTuple and use inheritance combined with type annotations:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Old style, before Python 3.7&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;
+
 &lt;span class="n"&gt;attribute_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"longitude"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"latitude"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"address"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;Position&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Position"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attribute_names&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;defaults&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,))&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Python 3.7 and later:&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NamedTuple&lt;/span&gt;
 
+
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NamedTuple&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;longitude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
     &lt;span class="n"&gt;latitude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
     &lt;span class="n"&gt;address&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
 
+
 &lt;span class="c1"&gt;# Both are used in the same way&lt;/span&gt;
 &lt;span class="n"&gt;pos1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;49.0127913&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;8.4231381&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Parkstra&amp;szlig;e 17"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;pos2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;42.1238762&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;9.1649964&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Position&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;NamedTuples solve the issue of the annotations becoming hard to read. They thus also fix the issue of editor support that I mentioned earlier.&lt;/p&gt;
 &lt;p&gt;Interestingly, NamedTuples are &lt;em&gt;not&lt;/em&gt; type-aware:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Coordinates&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Coordinates"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"y"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;BMI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"BMI"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"weight"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"size"&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Coordinates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;170&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BMI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;170&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-&lt;span class="n"&gt;Coordinates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;170&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
-&lt;span class="n"&gt;BMI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;170&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
-&lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from collections import namedtuple
+&amp;gt;&amp;gt;&amp;gt; Coordinates = namedtuple("Coordinates", ["x", "y"])
+&amp;gt;&amp;gt;&amp;gt; BMI = namedtuple("BMI", ["weight", "size"])
+&amp;gt;&amp;gt;&amp;gt; a = Coordinates(60, 170)
+&amp;gt;&amp;gt;&amp;gt; b = BMI(60, 170)
+&amp;gt;&amp;gt;&amp;gt; a
+Coordinates(x=60, y=170)
+&amp;gt;&amp;gt;&amp;gt; b
+BMI(weight=60, size=170)
+&amp;gt;&amp;gt;&amp;gt; a == b
+True
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="4-attrs"&gt;4. attrs&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://pypi.org/project/attrs/"&gt;attrs&lt;/a&gt; is a third-party library that reduces boilerplate code. Developers can use it by adding the @attrs.s decorator above the class. Attributes are assigned the attr.ib() function:&lt;/p&gt;
@@ -153,11 +159,11 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can make it immutable by changing the decorator to &lt;a href="https://www.attrs.org/en/stable/api.html"&gt;@attr.s(frozen=True)&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You also can automatically run code on the input to the constructor. This is called a &amp;ldquo;converter,&amp;rdquo; and &lt;a href="https://www.attrs.org/en/stable/examples.html#conversion"&gt;the docs&lt;/a&gt; show a pretty nice example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;**&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@attr&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;attr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;converter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nc"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;**&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;"1"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;**&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; @attr.s
+... class C(object):
+...     x = attr.ib(converter=int)
+&amp;gt;&amp;gt;&amp;gt; o = C("1")
+&amp;gt;&amp;gt;&amp;gt; o.x
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4"&gt;Visual Studio Code&lt;/a&gt; does not like the type annotations.&lt;/p&gt;
 &lt;h2 id="5-dataclass"&gt;5. Dataclass&lt;/h2&gt;
@@ -285,21 +291,21 @@ Plain class   : &amp;lt;__main__.Position object at 0x7f1562750640&amp;gt;
 &lt;h2 id="data-validation"&gt;Data Validation&lt;/h2&gt;
 &lt;p&gt;You have seen how data validation can be implemented for plain classes, attrs, dataclasses, and Pydantic. What you haven&amp;rsquo;t seen is what the error messages look like.&lt;/p&gt;
 &lt;p&gt;For the following, I will attempt to create Position(1234, 567). So both the longitude and latitude are wrong. Here are the error messages this triggers:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# &lt;span class="nv"&gt;Plain&lt;/span&gt; &lt;span class="nv"&gt;Class&lt;/span&gt;
-&lt;span class="nv"&gt;ValueError&lt;/span&gt;: &lt;span class="nv"&gt;Longitude&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="mi"&gt;11111&lt;/span&gt;, &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; [&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;, &lt;span class="mi"&gt;180&lt;/span&gt;]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# Plain Class
+ValueError: Longitude was 11111, but has to be in [-180, 180]
 
-# &lt;span class="mi"&gt;4&lt;/span&gt;: &lt;span class="nv"&gt;attr&lt;/span&gt;
-&lt;span class="nv"&gt;ValueError&lt;/span&gt;: &lt;span class="nv"&gt;Longitude&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="mi"&gt;1234&lt;/span&gt;, &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;must&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; [&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;, &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;]
+# 4: attr
+ValueError: Longitude was 1234, but must be in [-180, +180]
 
-# &lt;span class="mi"&gt;5&lt;/span&gt;: &lt;span class="nv"&gt;dataclasses&lt;/span&gt;
-&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;same&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;plain&lt;/span&gt; &lt;span class="nv"&gt;classes&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;possible&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+# 5: dataclasses
+(same as plain classes is possible)
 
-# &lt;span class="mi"&gt;6&lt;/span&gt;: &lt;span class="nv"&gt;Pydantic&lt;/span&gt;
-&lt;span class="nv"&gt;pydantic&lt;/span&gt;.&lt;span class="nv"&gt;error_wrappers&lt;/span&gt;.&lt;span class="nv"&gt;ValidationError&lt;/span&gt;: &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;validation&lt;/span&gt; &lt;span class="nv"&gt;errors&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;Position&lt;/span&gt;
-&lt;span class="nv"&gt;longitude&lt;/span&gt;
-  &lt;span class="nv"&gt;Longitude&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="mi"&gt;1234&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;, &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;must&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; [&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;, &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;] &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;value_error&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="nv"&gt;latitude&lt;/span&gt;
-  &lt;span class="nv"&gt;Latitude&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="mi"&gt;567&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;, &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;must&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; [&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;, &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;] &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;value_error&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+# 6: Pydantic
+pydantic.error_wrappers.ValidationError: 2 validation errors for Position
+longitude
+  Longitude was 1234.0, but must be in [-180, +180] (type=value_error)
+latitude
+  Latitude was 567.0, but must be in [-90, +90] (type=value_error)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is the point I want to make: Pydantic gives you all the errors in a very clear way. Plain classes and attrs just give you the first error.&lt;/p&gt;
 &lt;h2 id="serialize-to-json"&gt;Serialize to JSON&lt;/h2&gt;
@@ -331,12 +337,12 @@ Plain class   : &amp;lt;__main__.Position object at 0x7f1562750640&amp;gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This gives you:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;{"id": 1, "squash": true, "web_url": "[http://foo](http://foo)", "title": "title", "author": {"id": 42, "username": "Joe"}}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;"id"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;"squash"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;"web_url"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"[http://foo](http://foo)"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;"title"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"title"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;"author"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;"id"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;"username"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"Joe"&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;For dataclasses, &lt;a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.asdict"&gt;dataclasses.asdict&lt;/a&gt; goes a long way. Then you might be able to directly serialize the dictionary to JSON. It becomes interesting with DateTime or &lt;a href="https://docs.python.org/3/library/decimal.html"&gt;decimal&lt;/a&gt; objects. &lt;a href="https://www.attrs.org/en/stable/examples.html#converting-to-collections-types"&gt;Something similar&lt;/a&gt; is possible with attrs.&lt;/p&gt;
 &lt;h2 id="unserialize-from-json"&gt;Unserialize From JSON&lt;/h2&gt;
 &lt;p&gt;Userializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mr = GitlabMr.parse_raw(json_str)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;mr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GitlabMr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_raw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There are very dirty hacks to do &lt;a href="https://stackoverflow.com/a/53498623/562769"&gt;something similar with dataclasses&lt;/a&gt;. The &lt;a href="https://stackoverflow.com/q/44801927/562769"&gt;attrs way to deserialize&lt;/a&gt; looks better, but I guess it also struggles with nested structures. And when it comes to DateTime or decimals, I&amp;rsquo;m pretty certain that both show more problems than Pydantic. Serialization, deserialization, and validation are where Pydantic shines.&lt;/p&gt;
 &lt;h2 id="memory"&gt;Memory&lt;/h2&gt;
@@ -366,15 +372,9 @@ Native class : 286 B
 &lt;h2 id="execution-time"&gt;Execution Time&lt;/h2&gt;
 &lt;p&gt;There are multiple things you can mean by &amp;ldquo;execution time&amp;rdquo; in this context:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Object creation time with or without validation or conversion&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Parsing time from JSON&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Parsing time from a dictionary&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Object creation time with or without validation or conversion&lt;/li&gt;
+&lt;li&gt;Parsing time from JSON&lt;/li&gt;
+&lt;li&gt;Parsing time from a dictionary&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I&amp;rsquo;m convinced that the parsing time for JSON dominates the rest. There are multiple JSON parsers available in Python:
 &lt;a href="https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a"&gt;&lt;strong&gt;JSON encoding/decoding with Python&lt;/strong&gt;
@@ -382,18 +382,10 @@ Native class : 286 B
 &lt;h2 id="so-when-do-i-use-what"&gt;So When Do I Use What?&lt;/h2&gt;
 &lt;p&gt;Use what you need:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Dict when you don&amp;rsquo;t know ahead of time what will be added. Please note that you can mix all of the others with dict and vice versa. So if you know what a part of the data structure will look like, then use something different. I see dict as a last resort.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;NamedTuple when you need a quick way to group data and mutability is not needed. And when it&amp;rsquo;s OK for you to not be type-aware.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Dataclasses when you need mutability, want to be type-aware, or want to have the possibility of inheriting from the created dataclass.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pydantic BaseModel when you need to deserialize data.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Dict when you don&amp;rsquo;t know ahead of time what will be added. Please note that you can mix all of the others with dict and vice versa. So if you know what a part of the data structure will look like, then use something different. I see dict as a last resort.&lt;/li&gt;
+&lt;li&gt;NamedTuple when you need a quick way to group data and mutability is not needed. And when it&amp;rsquo;s OK for you to not be type-aware.&lt;/li&gt;
+&lt;li&gt;Dataclasses when you need mutability, want to be type-aware, or want to have the possibility of inheriting from the created dataclass.&lt;/li&gt;
+&lt;li&gt;Pydantic BaseModel when you need to deserialize data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Please note that I didn&amp;rsquo;t mention tuple and attrs. I simply cannot find a valid use case where you would prefer them for new code over the other choices. Please let me know if I missed one.&lt;/p&gt;
 &lt;p&gt;I also didn&amp;rsquo;t mention plain classes. I think I would only use plain classes if I want to overwrite &lt;strong&gt;init&lt;/strong&gt;, &lt;strong&gt;eq&lt;/strong&gt; , &lt;strong&gt;str&lt;/strong&gt;, &lt;strong&gt;repr&lt;/strong&gt; , and__hash__ anyway. Or if I have to support old Python versions.&lt;/p&gt;
