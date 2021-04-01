@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Database, Code, " />
+
+<meta property="og:title" content="8 Techniques To Speed up Your Database  - “If everything seems under control, you’re not going fast enough” "/>
+<meta property="og:url" content="https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739" />
+<meta property="og:description" content="Photo by Christina Morillo (original). Thank you! Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-04-01T20:00:00+02:00" />
+<meta name="twitter:title" content="8 Techniques To Speed up Your Database  - “If everything seems under control, you’re not going fast enough” ">
+<meta name="twitter:description" content="Photo by Christina Morillo (original). Thank you! Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can …">
+<meta property="og:image" content="logos/db.png" />
+<meta name="twitter:image" content="logos/db.png" >
+
+        <title>8 Techniques To Speed up Your Database  - “If everything seems under control, you’re not going fast enough”  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739">8 Techniques To Speed up Your Database <small>“If everything seems under control, you’re not going fast enough”</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="8 Techniques To Speed up Your Database">8 Techniques To Speed up Your Database</a><ul><li><a class="toc-href" href="#what-do-we-care-about" title="What Do We Care About?">What Do We Care About?</a></li><li><a class="toc-href" href="#algorithmic-improvements" title="Algorithmic Improvements">Algorithmic Improvements</a></li><li><a class="toc-href" href="#1-indices" title="1. Indices">1. Indices</a></li><li><a class="toc-href" href="#2-query-optimization" title="2. Query Optimization">2. Query Optimization</a></li><li><a class="toc-href" href="#3-business-changes-and-partitioning" title="3. Business Changes and Partitioning">3. Business Changes and Partitioning</a></li><li><a class="toc-href" href="#4-replication" title="4. Replication">4. Replication</a></li><li><a class="toc-href" href="#5-horizontal-partitioning" title="5. Horizontal Partitioning">5. Horizontal Partitioning</a></li><li><a class="toc-href" href="#6-vertical-partitioning" title="6. Vertical Partitioning">6. Vertical Partitioning</a></li><li><a class="toc-href" href="#7-sharding-taking-partitioning-to-the-next-level" title="7. Sharding &mdash; Taking Partitioning To the Next Level">7. Sharding &mdash; Taking Partitioning To the Next Level</a></li><li><a class="toc-href" href="#8-database-clustering" title="8. Database Clustering">8. Database Clustering</a></li><li><a class="toc-href" href="#bonus-query-caching" title="Bonus: Query Caching">Bonus: Query Caching</a></li><li><a class="toc-href" href="#lets-summarize" title="Let&rsquo;s Summarize!">Let&rsquo;s Summarize!</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="Photo by Christina Morillo (original). Thank you!" src="https://cdn-images-1.medium.com/max/10000/1*28TMGhQwjgRqkBU7mXcZcw.jpeg"/><em>Photo by Christina Morillo (<a href="https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/">original</a>). Thank you!</em></p>
+<p>Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can forget about them. They just handle the data persistence for you&hellip; until they get slow.</p>
+<p>In this article, you will learn the difference between vertical and horizontal partitioning, sharding, replication, and a few other ways to speed up your database. Let&rsquo;s go!</p>
+<h2 id="what-do-we-care-about">What Do We Care About?</h2>
+<p>For database systems, we care a lot about <strong>consistency</strong> and <strong>availability</strong>. We also need a working solution for exchanging broken equipment and continuous <strong>backups</strong>.</p>
+<p>Once the minimum requirements are fulfilled, we might have several performance metrics:</p>
+<ul>
+<li>Read performance for simple queries</li>
+<li>Read performance for complex queries</li>
+<li>Insert / update performance</li>
+</ul>
+<p>The workloads of different applications differ in important ways. Many web applications only use <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> and, once in a while, very simple JOINs. They need fast reads and relatively fast writes. They have a big amount of small transactions. They have an <a href="https://en.wikipedia.org/wiki/Online_transaction_processing">OLTP</a>-style workload.</p>
+<p>Analytics teams in contrast need far more complex queries. It is also acceptable if those queries take more time. They have a small amount of complex select queries. They have an <a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP</a>-style workload.</p>
+<p>One tool to find single slow queries is logging slow queries (<a href="https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html">MySQL</a>, <a href="https://www.postgresql.org/docs/current/runtime-config-logging.html">PostgreSQL</a>, <a href="https://serverfault.com/a/182686/113899">MSSQL</a>).</p>
+<h2 id="algorithmic-improvements">Algorithmic Improvements</h2>
+<p>The code that runs in production is, in many cases, just the first thing that happened to work. For non-developers, think about the last few emails you&rsquo;ve written. Very likely, there was at least one where you didn&rsquo;t spend too much time to improve the way you communicate. It&rsquo;s the same story with code. In good companies, at least a second person had a quick glance at the code. But when it looks reasonable, we developers will not go into detail over every single line. This means there will always be room for improvement.</p>
+<p>For databases, there are two common ways to improve: Adding reasonable indices and query optimization.</p>
+<h2 id="1-indices">1. Indices</h2>
+<p>Indices allow the database to find relevant rows quicker by maintaining an efficient search data structure (e.g., a <a href="https://en.wikipedia.org/wiki/B-tree">B-Tree</a>). This is done per table. Adding an index can be computationally expensive and has to be executed on the production system, so it&rsquo;s typically done infrequently.</p>
+<p>Creating an index is easy via SQL (<a href="https://dev.mysql.com/doc/refman/8.0/en/create-index.html">MySQL</a>, <a href="https://www.postgresql.org/docs/9.1/sql-createindex.html">PostgreSQL</a>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">arbitrary_index_name</span>
+<span class="k">ON</span> <span class="n">your_table_name</span>
+<span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">);</span>
+</code></pre></div>
+<p>Adding an index can speed up searches in the database, but slows down UPDATE / INSERT / DELETE statements, except if the &ldquo;WHERE&rdquo; part is costing a lot of time.</p>
+<h2 id="2-query-optimization">2. Query Optimization</h2>
+<p>Query optimization is done by the database user per query. Queries can be written in several different ways, and some of them can be more efficient than others. You might want to try different query versions on your data and <a href="https://www.youtube.com/watch?v=5y8G72q-IpE">use the explain statement</a>. A nice article about query optimization can be found here:
+<a href="https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/"><strong>Query optimization techniques in SQL Server: tips and tricks</strong>
+<em>June 19, 2018 by Fixing bad queries and resolving performance problems can involve hours (or days) of research and&hellip;</em>www.sqlshack.com</a></p>
+<p>One tool to mention is <a href="https://github.com/jarulraj/sqlcheck">sqlcheck</a> (<a href="https://www.youtube.com/watch?v=5vHhuuPy3FI">video</a>). It checks for common SQL query antipatterns like having multiple values in one column instead of using an intersection table or wildcard selects.</p>
+<p>A slightly different sub-category of the query optimization topic is <a href="https://levelup.gitconnected.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8">the n+1 problem</a> / writing a loop to send multiple queries instead of having one query for the data.</p>
+<h2 id="3-business-changes-and-partitioning">3. Business Changes and Partitioning</h2>
+<p>When you&rsquo;re growing a business, you want to please your clients. If they ask for a small new feature, you try to include it. This can lead to feature-creep. The UNIX philosophy indicates that this was a problem already quite a while ago:</p>
+<blockquote>
+<h1 id="write-programs-that-do-one-thing-and-do-it-well-doug-mcilroy">&ldquo;Write programs that do one thing and do it well.&rdquo; &mdash; Doug McIlroy</h1>
+</blockquote>
+<p>Similarly, it might be OK to split your web services data by user groups. Maybe it makes sense to split them into regions? I&rsquo;ve seen that at <a href="https://aws.amazon.com/">AWS</a> and <a href="https://www.securecodewarrior.com/">Secure Code Warrior</a>. Maybe you can split it into &ldquo;Private clients,&rdquo; &ldquo;Small business clients,&rdquo; or &ldquo;Large Business clients&rdquo;? Maybe one part of the application can actually be its own service with its own database?</p>
+<h2 id="4-replication">4. Replication</h2>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*7uNbgHaB-3dSFOfMToqpig.png"/><em>Image by Martin Thoma</em></p>
+<p>Replication is an easy solution if reads are your problem and if a bit of time-delay of updates is not a big deal. Replication continuously copies the database to another machine. It speeds up reads and acts as a failover mechanism.</p>
+<p>The idea is to have one primary server and multiple replication servers, which were formerly known under other names. The primary server handles any changes of data, while the replication servers just duplicate the primary server. There are <a href="https://mariadb.com/kb/en/replication-overview/#common-replication-setups">other topologies</a>, e.g., a ring or a star setup.</p>
+<p>See also: <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-solutions-switch.html">MySQL docs</a>, <a href="https://www.postgresql.org/docs/9.2/runtime-config-replication.html">PostgreSQL docs</a>, <a href="https://docs.microsoft.com/en-US/sql/relational-databases/replication/sql-server-replication?view=sql-server-ver15">MSSQL docs</a></p>
+<h2 id="5-horizontal-partitioning">5. Horizontal Partitioning</h2>
+<p>Given a huge table, we could store some rows on one machine and others on another machine. The idea to split the data by row is called <em>horizontal partitioning</em>.</p>
+<p>An image explains more than many words:</p>
+<p><img alt="Conceptual example for horizontal partitioning. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/5166/1*silDKsFQO0fkjPUV2Vr4Cg.png"/><em>Conceptual example for horizontal partitioning. Image by Martin Thoma.</em></p>
+<p>Partitioning simply by id works like this in <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-range.html">MySQL</a> / <a href="https://mariadb.com/kb/en/range-partitioning-type">MariaDB</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span> <span class="k">TABLE</span>
+    <span class="n">shopping_carts</span>
+<span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">RANGE</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">(</span>
+    <span class="n">Partition</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">1234</span><span class="p">),</span>
+    <span class="n">Partition</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4567</span><span class="p">),</span>
+    <span class="n">Partition</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>You want the user of the database system to still be able to query the database with the typical queries, perhaps using the following:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shopping_carts</span> <span class="k">WHERE</span> <span class="n">cart_id</span> <span class="o">=</span> <span class="mi">3</span>
+</code></pre></div>
+<p>One important thing to note here: Horizontal partitioning is completely unrelated to <a href="https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925">scaling horizontally</a>!</p>
+<h2 id="6-vertical-partitioning">6. Vertical Partitioning</h2>
+<p>Instead of dividing the big database based on rows, we can divide it by columns. This might give you an uneasy feeling because you&rsquo;ve learned at university that normalizing a database is a good idea. The important thing to notice here is that we are talking about different stages in the database design. The <a href="https://en.wikipedia.org/wiki/Database_normalization">various database normal forms</a> are related to the logical design. At this stage, we take care of the physical design.</p>
+<p>Different parts of the application might not need most columns of a row. For this reason, it can be OK to split them away. Hence <em>vertical partitioning</em> is also called <em>row splitting</em>.</p>
+<p>One commonly done practice is to split metadata from the content. Here&rsquo;s an image:</p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2646/1*f6PVSSxrlrr0P_v9FG3OqQ.png"/><em>Image by Martin Thoma</em></p>
+<p>One important thing to note here: Vertical partitioning is completely unrelated to scaling vertically!</p>
+<p>Vertical partitioning can be useful when you avoid privacy or regulatory issues with it. Think of credit card information. That could logically fit well with other information, but most of the application does not need it. You might even put it in a completely different database and hide it behind a private microservice.</p>
+<h2 id="7-sharding-taking-partitioning-to-the-next-level">7. Sharding &mdash; Taking Partitioning To the Next Level</h2>
+<p>You have seen that the data can be grouped in two different ways. It might already make sense to partition the data on the same machine to help the database execute common queries faster. But if the database is maxing out the CPU or RAM, it might make sense to use different machines.</p>
+<p><em>Sharding</em> is partitioning a single logical dataset and distributing it over different machines.</p>
+<p>As you might guess, this comes with a huge amount of issues &mdash; and thus should only be your last way out. For example, Foursquare was down for 11 hours due to a sharding issue in October 2010 (<a href="http://highscalability.com/blog/2010/10/15/troubles-with-sharding-what-can-we-learn-from-the-foursquare.html">source</a>). I&rsquo;ve been lucky so far that I didn&rsquo;t have to deal with sharding.</p>
+<p>The first obvious issue is that your application needs to know which shard contains the data you&rsquo;re looking for. Hence your application logic is affected, potentially in all places.</p>
+<p>A second big problem is JOINs across shards.</p>
+<p>The third problem is how shards are defined. To be truly scalable, you want to make a dynamic definition of the shards. Having a hierarchical structure can help to achieve this.</p>
+<p>If you still want to read more about sharding, I recommend the awesome article by <a href="undefined">Jeeyoung Kim</a>:
+<a href="https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6"><strong>How Sharding Works</strong>
+<em>This is a continuation of the last blog post, why I love databases.</em>medium.com</a></p>
+<p>This article by Digital Ocean is also very nice:
+<a href="https://www.digitalocean.com/community/tutorials/understanding-database-sharding"><strong>Understanding Database Sharding | DigitalOcean</strong>
+<em>Sharded databases have been receiving lots of attention in recent years, but many don't have a clear understanding of&hellip;</em>www.digitalocean.com</a></p>
+<h2 id="8-database-clustering">8. Database Clustering</h2>
+<p>I only came across this term when looking at <a href="https://vitess.io/">Vitess</a>. The idea seems to hide the issues of sharding by, also, using replication under the hood:</p>
+<iframe frameborder="0" src="https://medium.com/media/1a53ea0ff3903084cb945c350fe1d8e1"></iframe>
+<p>There is <a href="https://www.postgresql.org/docs/9.5/creating-cluster.html">documentation for PostgreSQL</a> as well and <a href="https://www.mysql.com/de/products/cluster/">MySQL Cluster</a> is another product.</p>
+<h2 id="bonus-query-caching">Bonus: Query Caching</h2>
+<p>If you have some heavy queries which act on data that rarely changes, you could try to cache the query. I&rsquo;m uncertain what databases offer by default, but you could simply put a Key-Value Store in place for that query. Instead of sending your query to the database directly, you send it to a microservice that looks for it in the Key-Value store. If it&rsquo;s not there or it&rsquo;s invalid, it queries the real database.</p>
+<p>The drawback is that you don&rsquo;t know if the data you get is the most recent one.</p>
+<h2 id="lets-summarize">Let&rsquo;s Summarize!</h2>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/3678/1*MirP_rcEMVxBigZnLwciLA.png"/></p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>Some topics are crucial for development, but not part of day-to-day work or computer science curriculum. In our professional software development series, you can learn about more topics.</p>
+<p>I am thinking about adding articles of these kind, so please let me know what you&rsquo;re interested in:</p>
+<ul>
+<li>Team Building</li>
+<li>Code Reviews</li>
+<li>Code Deployment: A <a href="https://makeitnew.io/docker-ab1a6bddf389">basic Docker article</a> already exists, but there is way more to write about this topic</li>
+<li>Infrastructure as Code (IaC)</li>
+<li>Monitoring and Alerting</li>
+</ul>
+<p>Thank you for reading!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-04-01T20:00:00+02:00">Apr 1, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#database-ref">Database
+                    <span>6</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
