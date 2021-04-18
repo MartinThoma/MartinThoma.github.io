@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Money, Cyberculture, " />
+
+<meta property="og:title" content="Analyzing what I spend money on in 2020  - A data scientists yearly review "/>
+<meta property="og:url" content="https://martinthoma.medium.com/analyzing-what-i-spend-money-on-in-2020-c88431c02581" />
+<meta property="og:description" content="Many banks allow you to get a CSV dump of your transactions. I’ve downloaded my transaction data for this year and I will walk you through my analysis. I will only look at what I spend money on. I will not look at my income and I will not …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-12-29T20:00:00+01:00" />
+<meta name="twitter:title" content="Analyzing what I spend money on in 2020  - A data scientists yearly review ">
+<meta name="twitter:description" content="Many banks allow you to get a CSV dump of your transactions. I’ve downloaded my transaction data for this year and I will walk you through my analysis. I will only look at what I spend money on. I will not look at my income and I will not …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>Analyzing what I spend money on in 2020  - A data scientists yearly review  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://martinthoma.medium.com/analyzing-what-i-spend-money-on-in-2020-c88431c02581">Analyzing what I spend money on in 2020 <small>A data scientists yearly review</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Analyzing what I spend money on in 2020">Analyzing what I spend money on in 2020</a><ul><li><a class="toc-href" href="#about-me-the-data-generating-process" title="About me: The Data Generating Process">About me: The Data Generating Process</a></li><li><a class="toc-href" href="#data-cleaning" title="Data Cleaning">Data Cleaning</a></li><li><a class="toc-href" href="#univariate-analysis" title="Univariate Analysis">Univariate Analysis</a></li><li><a class="toc-href" href="#multivariate-analysis" title="Multivariate Analysis">Multivariate Analysis</a><ul><li><a class="toc-href" href="#top-5-companies-i-gave-my-money-to" title="Top-5 Companies I gave my money to">Top-5 Companies I gave my money to</a></li><li><a class="toc-href" href="#top-5-most-expensive-stuff" title="Top-5 Most Expensive Stuff">Top-5 Most Expensive Stuff</a></li><li><a class="toc-href" href="#how-often-did-i-return-bought-stuff" title="How often did I return bought stuff?">How often did I return bought stuff?</a></li></ul></li><li><a class="toc-href" href="#what-i-learned-looking-at-transactions_1" title="What I learned looking at transactions">What I learned looking at transactions</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Many banks allow you to get a CSV dump of your transactions. I&rsquo;ve downloaded my transaction data for this year and I will walk you through my analysis. I will only look at what I spend money on. I will not look at my income and I will not write about my savings plan/investments.</p>
+<p>All code can be found on Github (<a href="https://github.com/MartinThoma/algorithms/tree/master/Python/bank-analysis">link</a>), in case you&rsquo;re interested in Streamlit / Pydantic.</p>
+<h2 id="about-me-the-data-generating-process">About me: The Data Generating Process</h2>
+<p><img alt="Photo by Ruthson Zimmerman on Unsplash" src="https://cdn-images-1.medium.com/max/10368/0*hATFrybxwUUR0hDs"/><em>Photo by <a href="https://unsplash.com/@ruthson_zimmerman?utm_source=medium&amp;utm_medium=referral">Ruthson Zimmerman</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>I&rsquo;m Martin, an IT Consultant working in Munich (Germany). I&rsquo;m 30 years old, in a long-term relationship. In my leisure time, I like to go bouldering (climbing), programming/data analysis, and playing board games. And blogging, of course. At the end of 2019, I&rsquo;ve decided that I will thoroughly track my spending in 2020. I wrote down every single receipt and thus tracked what I spend money on. For this article, I will only have a look at what my bank tracked. I tried only to pay digitally this year, but some things are cash-only in Germany.</p>
+<p>I live in a shared apartment and my girlfriend visits me a lot, meaning that some of the expenses are divided by multiple people (e.g. a new dishwasher) and for others, I pay more than I would for my own (e.g. food).</p>
+<p>One reason why I live in a shared apartment is to save money to buy a house at some time. For this reason, I also try not to spend too much money on other stuff as well.</p>
+<p>The transaction data export of my bank contains the following columns:</p>
+<ul>
+<li><strong>Date</strong> when the transaction was executed</li>
+<li><strong>Payee:</strong> Who received the money?</li>
+<li><strong>Transaction Type</strong>: e.g. <a href="https://en.wikipedia.org/wiki/Direct_debit">Direct Debit</a>, Master Card / Maestro Payment, <a href="https://n26.com/en-us/blog/introducing-moneybeam-send-and-receive-money">MoneyBeam</a>, Income, <a href="https://en.wikipedia.org/wiki/Giro">Giro Transfer</a></li>
+<li><strong>Payment reference:</strong> A message which helps me to understand what this is about.</li>
+<li><strong>Category</strong>: My bank has a fixed set of categories such as &ldquo;Leisure &amp; Entertainment&rdquo; or &ldquo;Transport &amp; Car&rdquo;. It typically gets the category correct automatically, but in some cases, I adjust it.</li>
+<li><strong>Amount</strong>: I live in Germany, so most of this is in EUR. If you&rsquo;re interested in how much this is in another currency at the moment, try &ldquo;123 EUR in USD&rdquo; or similar.</li>
+</ul>
+<h2 id="data-cleaning">Data Cleaning</h2>
+<p><img alt="Photo by Clay Banks on Unsplash" src="https://cdn-images-1.medium.com/max/9000/0*wzEtipA08ZzL4Ro1"/><em>Photo by <a href="https://unsplash.com/@claybanks?utm_source=medium&amp;utm_medium=referral">Clay Banks</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>I remove all non-EUR transactions (3 in total; in sum less than 30 EUR). I also remove my salary and failed transactions. Failed transactions sometimes showed up as transfers of some amount of money from my account and immediately back to my account.</p>
+<p>I&rsquo;ve removed ATM usage as it interferes with other analyses. I&rsquo;ve used ATMs 16&times; and withdrew a total of 1330 EUR. Out of that, I withdrew 2&times; 200 EUR for a present, about 70 EUR were for business lunches where I had to pay cash. The remaining 860 EUR were probably most of the time food/groceries and a few times for leisure time activities such as private restaurant visits.</p>
+<p>The next harder thing was to remove the expenses I paid first, but my employer reimbursed.</p>
+<p>Lastly, I removed all other income. This is mostly friends or family who paid back the money I have borrowed them. This fell into 3 categories: (1) We ordered stuff together to prevent larger shipping costs (2) I paid for public transportation tickets/hotel room bookings with my girlfriend (3) I bought food for my girlfriend.</p>
+<h2 id="univariate-analysis">Univariate Analysis</h2>
+<p><img alt="Photo by Christina Victoria Craft on Unsplash" src="https://cdn-images-1.medium.com/max/14720/0*h81T6Vs559D2GYos"/><em>Photo by <a href="https://unsplash.com/@victoriabcphotographer?utm_source=medium&amp;utm_medium=referral">Christina Victoria Craft</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>In this section, I look at each column independently of the others. We want to get a feeling for the data.</p>
+<ul>
+<li><strong>510 transactions</strong> are left after cleaning.</li>
+<li>The 30th of April had 7 transactions and thus is the &ldquo;transaction heaviest&rdquo; day.</li>
+<li>I had <strong>72 transactions with Lidl</strong>, 71 with Amazon, 59 with Penny, 47 with Aldi, and 33 with my flatmate.</li>
+<li>I paid <strong>241&times; with Master Card</strong>, 92<strong>&times;</strong> with Maestro, 92<strong>&times;</strong> with Direct Debit, 50 outgoing transfers, and 32 incoming transfers.</li>
+<li>The highest amount I&rsquo;ve paid is 419 EUR (one part of my rent). The lowest is 0.19 EUR. The median is 9.99 EUR, the mean is 27.87 EUR, the 25-percentile is 4.94 EUR and the 75-percentile is 20.95 EUR. In other words: Most of my transactions are over a very low amount, but there are some which are way higher. Typically when I use my account, it's about 5 EUR to 21 EUR.</li>
+<li>333 transactions did not have a reference.</li>
+<li>208 transactions have the category &ldquo;Food&rdquo;, 63 have &ldquo;Amazon&rdquo;, 44 have &ldquo;Rent/Electricty/Water&rdquo;, 26 have &ldquo;Household&rdquo;, and 21 &ldquo;Transport&rdquo;.</li>
+</ul>
+<h2 id="multivariate-analysis">Multivariate Analysis</h2>
+<p>Let&rsquo;s have a look at multiple variables at the same time!</p>
+<h3 id="top-5-companies-i-gave-my-money-to">Top-5 Companies I gave my money to</h3>
+<p>This is only about my consumer behavior, not about my investments</p>
+<ul>
+<li>6160.43 EUR: My landlord + flatmates</li>
+<li>1384 EUR: Amazon</li>
+<li>535 EUR: Penny</li>
+<li>530 EUR: Lidl</li>
+<li>375 EUR: Aldi</li>
+</ul>
+<h3 id="top-5-most-expensive-stuff">Top-5 Most Expensive Stuff</h3>
+<ul>
+<li>127 EUR: <a href="https://shop.westerndigital.com/de-de/products/portable-drives/wd-my-passport-usb-3-0-hdd#WDBYVG0010BBK-WESN">Western Digital My Passport</a> (5 TB)</li>
+<li>116 EUR: <a href="https://en.avm.de/products/fritzbox/fritzbox-7530/">AVM FRITZ! Box 7530</a></li>
+<li>60 EUR: The <a href="https://fifinemicrophone.com/products/usb-microphone-for-mac-and-windows-k670">FIFINE K670</a> microphone + a USB C hub. I wanted to have a better audio quality when I have calls. Didn&rsquo;t quite work. The issue is less the mic but more the analog connection.</li>
+<li>32 EUR: A <a href="https://www.schwalbe.com/en/tour-reader/marathon-plus">Schwalbe Marathon Plus</a> bicycle tire</li>
+<li>30 EUR: A USB daylight lamp with 10,000 Lumen. As I&rsquo;m now very often working from home, I needed it a bit brighter.</li>
+</ul>
+<h3 id="how-often-did-i-return-bought-stuff">How often did I return bought stuff?</h3>
+<p>I bought 62 times something from Amazon and returned 6 times.</p>
+<h2 id="what-i-learned-looking-at-transactions_1">What I learned looking at transactions</h2>
+<p>Most transaction data is pretty boring, but it becomes interesting when you look at income and where the bulk of the money goes. Some parts are a bit hidden. For example, when I paid with PayPal it was pretty hard to tell what I spent the money for. It&rsquo;s a similar story with Amazon or stuff that my company reimbursed.</p>
+<p>Some parts of the data are also super weird. For example, quite a lot of transactions don&rsquo;t have a reference. Or the fact that some failed transactions still show up as two transactions (-x, then +x). As a software engineer, I wonder if it could happen that one of those transactions gets lost.</p>
+<p>And, of course, cash withdrawals were really hard. I didn&rsquo;t remember most of them.</p>
+<p>Lastly, I wish the transactions had a single identifier.</p>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li><strong>Monthly spending in Munich 2020</strong>: <strong>500 EUR/month</strong> for my 12.5m&sup2; <strong>room</strong> in Munich, Germany (including electricity, warm water, wastewater, internet). <strong>166 EUR/month</strong> for <strong>leisure time</strong> activities (including clothes, books, Amazon, Netflix); <strong>140 EUR/month</strong> for <strong>food</strong>; <strong>36 EUR/month</strong> for <strong>public transportation</strong>; <strong>26 EUR/month</strong> for <strong>bars &amp; restaurants</strong>; <strong>26 EUR/month</strong> for <strong>travel and holiday; 35 EUR/month</strong> for <strong>family</strong> and friends; <strong>12 EUR/month</strong> for <strong>health</strong> and insurances; <strong>11 EUR/month</strong> for <strong>cleaning</strong> stuff (body+house). <strong>28 EUR/month</strong> for other stuff. In total, I spend about <strong>980 EUR/month</strong>. The rest goes into my investment. To me, this means that I also need to get roughly 1000 EUR/month when I&rsquo;m retiring. And very likely way more as inflation happens all the time. Comparing this with <a href="https://www.numbeo.com/cost-of-living/in/Munich">numbeo.com</a> shows that I spent very little money.</li>
+<li><strong>Supermarket visits</strong>: I went in total 176&times; to supermarkets (Aldi, Lidl, Penny). Maybe I can reduce that and thus have more time for other stuff? Maybe I can buy more or use a delivery service? I should also make sure that those are close by when I look for an apartment.</li>
+<li><strong>ATM usage</strong>: I needed an ATM only 16&times; &mdash; this means although ATM fees are annoying, they probably don&rsquo;t matter that much to me. Most often I needed cash for restaurants or hiking.</li>
+<li><strong>Amazon usage</strong>: I spent 115 EUR/month on Amazon. That is 76% of my total money spent on stuff that Amazon offers. Excluded are things that are not offered by Amazon such as hotels, restaurants, local activities like swimming/bouldering. Also excluded are areas where Amazon is not active in Germany (food, postal services, internet providers). Looking at my consumer behavior, the main competitors in various segments are <a href="https://en.wikipedia.org/wiki/Dm-drogerie_markt">dm</a>+<a href="https://en.wikipedia.org/wiki/Rossmann_(company)">Rossmann</a> (drug stores), Ikea, <a href="https://en.wikipedia.org/wiki/Thalia_(bookstore)">Thalia</a>+<a href="https://en.wikipedia.org/wiki/Hugendubel">Hugendubel</a> (books+games), Netflix, Toom (home improvement/gardening).</li>
+</ul>
+<p>The reasons for Amazon's dominance are simple: It works and we had an infectious disease going through the world. The price often is good or at least acceptable, the shipping works, I already have an account. If something is broken or I just switched my mind, I can easily send it back.
+If Germany or maybe even Europe decided to build another platform with similar benefits, I&rsquo;d happily use it.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-12-29T20:00:00+01:00">Dez 29, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#money-ref">Money
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>

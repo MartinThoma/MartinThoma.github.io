@@ -1,5 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-03-04T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>6 Alternatives to Classes in Python</title><link href="https://martin-thoma.com/https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377" rel="alternate"></link><published>2021-03-04T20:00:00+01:00</published><updated>2021-03-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-03-04:/https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by the author." src="https://cdn-images-1.medium.com/max/3180/1*ESvqnwbq8Lj4VNkVMWI9JA.png"/&gt;&lt;em&gt;Photo by the author.&lt;/em&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-04-18T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>5 Applications of Digital Signatures</title><link href="https://martin-thoma.com/https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439" rel="alternate"></link><published>2021-04-18T20:00:00+02:00</published><updated>2021-04-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-04-18:/https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439</id><summary type="html">&lt;p&gt;We use signatures to show that we have read a contract and want to do our part
+of fulfilling it. They serve two purposes: Expressing an intend and being able
+to prove to the authorities that this intend was expressed in case one of the
+parties does not follow the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;We use signatures to show that we have read a contract and want to do our part
+of fulfilling it. They serve two purposes: Expressing an intend and being able
+to prove to the authorities that this intend was expressed in case one of the
+parties does not follow the contract. For example, if you sign a rental
+agreement, your landlord has proof that you wanted to pay the stated rent each
+month. And you have the proof that you actually can use the apartment.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s learn about the problems of this approach and the digital equivalent!&lt;/p&gt;
+&lt;h2 id="why-handwritten-signatures-are-problematic"&gt;Why handwritten signatures are problematic&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s first explore the issues of traditional signatures.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Photo by Cytonn Photography on Unsplash" src="https://cdn-images-1.medium.com/max/12032/0*XHiqYSRWExz7ppiU"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@cytonn_photography?utm_source=medium&amp;amp;utm_medium=referral"&gt;Cytonn Photography&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id="problem-1-connecting-the-signature-with-your-identity"&gt;Problem #1: Connecting the signature with your identity&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s assume that you want to fool a landlord. You sign, but you use a different signature. To be able to tell that this is a fake signature, your landlord needs an identity document. The signature itself is not enough. And the identity document needs to have a signature on it!&lt;/p&gt;
+&lt;p&gt;Now the landlord needs to check (1) if the identity document is valid and (2) if the signature is the same.&lt;/p&gt;
+&lt;h3 id="problem-2-accepting-valid-signatures"&gt;Problem #2: Accepting valid signatures&lt;/h3&gt;
+&lt;p&gt;If you write your signature twice, it will look different. This is sometimes
+an issue if your identity document expires and you need a new one. If the
+issuing authority allows changes, then they need to track your changes.&lt;/p&gt;
+&lt;p&gt;If you getting sick you might not be able to write that signature in the same way any longer.&lt;/p&gt;
+&lt;p&gt;Another issue here is that you cannot just exchange the pencil and the medium
+on which you write. Even the table and the seat can influence how your
+handwriting looks like. Case in point: Signature pads when you accept packages
+and confirm that you have received them.&lt;/p&gt;
+&lt;h3 id="problem-3-declining-invalid-signatures"&gt;Problem #3: Declining invalid signatures&lt;/h3&gt;
+&lt;p&gt;If somebody else knows your signature, they can probably create a very similar
+one after a few hours of practicing.&lt;/p&gt;
+&lt;h3 id="problem-4-prevent-the-signed-document-from-tampering"&gt;Problem #4: Prevent the signed document from tampering&lt;/h3&gt;
+&lt;p&gt;If you have multiple pages where you sign only the last one: How do you
+prevent people from changing the first pages?&lt;/p&gt;
+&lt;h3 id="problem-5-repudiation"&gt;Problem #5: Repudiation&lt;/h3&gt;
+&lt;p&gt;You might have signed a contract with a company, but realized a bit later that
+it was a bad decision. You changed your mind. So you just claim that you never
+signed it. If this is possible, it&amp;rsquo;s bad. We want non-repudiation for
+contracts.&lt;/p&gt;
+&lt;h2 id="how-do-digital-signatures-work_1"&gt;How do digital signatures work?&lt;/h2&gt;
+&lt;p&gt;Asymmetric cryptography is a set of algorithms that has the property that
+encryption and decryption do NOT use the same key!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Symmetric cryptography:
+  encrypt(plain text, key) = ciphertext
+  decrypt(ciphertext, key) = plain text
+
+Asymmetric cryptography:
+  encrypt(plain text, key A) = ciphertext
+  decrypt(ciphertext, key B) = plain text
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is amazing because it allows you to share key B publicly and the other
+one &amp;mdash; key A &amp;mdash; private. Then you can &lt;strong&gt;encrypt&lt;/strong&gt; any text &lt;strong&gt;using your&lt;/strong&gt;
+&lt;strong&gt;private key&lt;/strong&gt; and people will know that the message was encrypted by you
+because the &lt;strong&gt;public key&lt;/strong&gt;, key B, &lt;strong&gt;can decrypt it&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Thus a digital signature is an asymmetrically encrypted file, where the
+decryption key is public. Everybody can decrypt it, but only the keyholder can
+encrypt a file such that the specific public key can decrypt it.&lt;/p&gt;
+&lt;p&gt;The awesome part is that you can now proof clearly and securely that the
+holder of key A did sign the document. You just solved problems #2, #3, #4,
+and #5!&lt;/p&gt;
+&lt;p&gt;Please note that &lt;strong&gt;problem #1 remains&lt;/strong&gt;: You still need to make sure that the
+holder of key A is actually the person you think it is.&lt;/p&gt;
+&lt;p&gt;There are several concrete algorithms that fit in this category. The RSA cryptosystem is for sure the best-known one, closely followed by DSA (see &lt;a href="https://security.stackexchange.com/a/5100/3286"&gt;differences&lt;/a&gt;). ECDSA is also pretty widespread.&lt;/p&gt;
+&lt;p&gt;Please also note that if the file is signed by encrypting it with the private key, you actually need the public key to read it at all. This might not be desired. Instead, you can &lt;a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d"&gt;calculate the shorter hash value&lt;/a&gt; of the file and sign that hash value. The scheme is then:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/4392/1*xHOofavG2v1iBddAvsDUeA.png"/&gt;&lt;em&gt;Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="application-1-communication-e-mail-sms"&gt;Application #1: Communication (E-Mail, SMS)&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by freestocks on Unsplash" src="https://cdn-images-1.medium.com/max/10944/0*hYahHEUibiQx4K36"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@freestocks?utm_source=medium&amp;amp;utm_medium=referral"&gt;freestocks&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;When you write e-mails, you don&amp;rsquo;t need to trust your email provider in terms
+of privacy and tampering. You can encrypt the mail with the recipient&amp;rsquo;s public
+key and sign it on your side. This way the sender knows for sure that there
+was no tampering and that the message comes from you. It could only happen
+that your provider does not deliver the message at all.&lt;/p&gt;
+&lt;h2 id="application-2-code-contributions"&gt;Application #2: Code Contributions&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Yancy Min on Unsplash" src="https://cdn-images-1.medium.com/max/10000/0*RZzglA2b92NVca_-"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@yancymin?utm_source=medium&amp;amp;utm_medium=referral"&gt;Yancy Min&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Lots of code is written as open-source by plenty of individuals. They might be
+volunteers who just have fun coding or they might be paid for those
+contributions. The maintainers of the projects need to ensure that all
+contributions are helpful, but they might lack the time to check each and
+every contribution. They need to be able to trust some people. Typically the
+first ones get checked thoroughly, but with time you might even become a
+contributor. People start to trust you. But they need to be sure that it&amp;rsquo;s the
+same person. They need to be sure that your contribution was not changed. For
+this reason, you sign every contribution.&lt;/p&gt;
+&lt;h2 id="application-3-software-updates"&gt;Application #3: Software Updates&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Markus Winkler on Unsplash" src="https://cdn-images-1.medium.com/max/7998/0*9MqDMV1izb2tf5Yr"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@markuswinkler?utm_source=medium&amp;amp;utm_medium=referral"&gt;Markus Winkler&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Think of your Smart TV / Alexa / FritzBox. All of those devices need updates.
+Let&amp;rsquo;s say that you can plug a USB stick with the update file in the device. As
+the manufacturer, you want to make sure that the update was not changed. You
+want to guarantee that the device will continue to work. So you share the
+public key of the company within the device. When the device finds an update,
+it verifies that the company is the origin by checking the signature of the
+update.&lt;/p&gt;
+&lt;h2 id="application-4-digital-diplomas"&gt;Application #4: Digital Diplomas&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Marjan Blan | @marjanblan on Unsplash" src="https://cdn-images-1.medium.com/max/11520/0*4g-wRSEttmaezDvN"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@marjan_blan?utm_source=medium&amp;amp;utm_medium=referral"&gt;Marjan Blan | @marjanblan&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;When you apply for a job, your potential new employer might want to see
+reference letters and your diploma. Especially since the coronavirus is raging
+around the world, those documents get handed in digitally. How do the
+employers check if the diploma is actually valid?&lt;/p&gt;
+&lt;p&gt;A digital signature could help. You would need to have a digitally signed
+version of your diploma and be able to share the public key in a way that is
+trustworthy with your employer. For example, your university could simply put
+that key on their website. The future employer would then need to download
+your universities signature and run gpg --verify against your CV.&lt;/p&gt;
+&lt;p&gt;If you want to experiment with signing files, first install the Gnu Privacy Guard (short: GnuPG, even shorter: GPG) and create your own gpg key:
+&lt;a href="https://www.gnupg.org/documentation/guides.html"&gt;&lt;strong&gt;GnuPG - User guides&lt;/strong&gt;
+&lt;em&gt;This page collects documents available as user guides for GnuPG. Thanks to the DocBook system, John Michael Ashley's&amp;hellip;&lt;/em&gt;www.gnupg.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then you can run those commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Create a my-cv.pdf.gpg file - a signed version of my-cv.pdf:&lt;/span&gt;
+gpg --sign my-cv.pdf
+
+&lt;span class="c1"&gt;# Verify the signature:&lt;/span&gt;
+gpg --verify cv-curriculum-vitae.pdf.gpg
+&lt;span class="c1"&gt;# Prints:&lt;/span&gt;
+&lt;span class="c1"&gt;# gpg: Signature made Fr 16 Apr 2021 19:22:38 CEST&lt;/span&gt;
+&lt;span class="c1"&gt;# gpg:                using RSA key&lt;/span&gt;
+&lt;span class="c1"&gt;# D1E632346B642680EF360D696901E782EF663EC4&lt;/span&gt;
+&lt;span class="c1"&gt;# gpg: Good signature from "Martin Thoma (Generated on&lt;/span&gt;
+&lt;span class="c1"&gt;# 2021-01-15 for private use) &amp;lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&amp;gt;" [ultimate]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Get the contained document:&lt;/span&gt;
+gpg --output original.pdf --decrypt cv-curriculum-vitae.pdf.gpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="application-5-cryptocurrencies"&gt;Application #5: Cryptocurrencies&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Dmitry Demidko on Unsplash" src="https://cdn-images-1.medium.com/max/12000/0*SNZ1RdNKcnY6xt8t"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@wildbook?utm_source=medium&amp;amp;utm_medium=referral"&gt;Dmitry Demidko&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In order to prove that you are the holder of a Bitcoin, the system uses
+asymmetric cryptography. At the very beginning, somebody is guaranteed to be
+the valid owner of the coin. After that, the valid owner is defined to be the
+owner of a private key, matching to a given public key.&lt;/p&gt;
+&lt;p&gt;Please note that digital signatures only prove the ownership at a specific
+point in time. They do not solve the problem that an owner might just spent
+the coin twice &amp;mdash; the double-spending problem.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Coin&amp;rdquo; is actually a misnomer. See my article about UTXO for more details:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853"&gt;&lt;strong&gt;The UTXO model&lt;/strong&gt;
+&lt;em&gt;A technical cornerstone of Bitcoin&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Digital signatures prove that the signed document was signed by the key holder.&lt;/li&gt;
+&lt;li&gt;The keyholder is not necessarily the person you think it is &amp;mdash; you still need to initially verify the identity.&lt;/li&gt;
+&lt;li&gt;The public key has to be shared and obtained by the verifying party.&lt;/li&gt;
+&lt;li&gt;The private key still has to be kept private and must not get lost.&lt;/li&gt;
+&lt;li&gt;RSA, DSA, ECDSA are currently good algorithms for cryptographic signatures. Use a well-tested library to apply them &amp;mdash; cryptography is hard and it&amp;rsquo;s easy to get something wrong.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope that this article has given you another tool for your software development toolbelt!&lt;/p&gt;</content><category term="Cyberculture"></category><category term="crypto"></category></entry><entry><title>6 Alternatives to Classes in Python</title><link href="https://martin-thoma.com/https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377" rel="alternate"></link><published>2021-03-04T20:00:00+01:00</published><updated>2021-03-04T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-03-04:/https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by the author." src="https://cdn-images-1.medium.com/max/3180/1*ESvqnwbq8Lj4VNkVMWI9JA.png"/&gt;&lt;em&gt;Photo by the author.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data.&lt;/p&gt;
 &lt;p&gt;In the following article, I will use …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Photo by the author." src="https://cdn-images-1.medium.com/max/3180/1*ESvqnwbq8Lj4VNkVMWI9JA.png"/&gt;&lt;em&gt;Photo by the author.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data.&lt;/p&gt;
@@ -765,7 +904,75 @@ char_xor             466,422           993.9 ns/value    7 bit
 &lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
 &lt;p&gt;I thought about writing a series about developer fundamentals. I could imagine
 an article about floats, one about date/time, architecture, networks. Let me
-know what you&amp;rsquo;re interested in!&lt;/p&gt;</content><category term="Cyberculture"></category><category term="hash"></category><category term="Software Development"></category></entry><entry><title>New Year 2020</title><link href="https://martin-thoma.com/new-year-2020/" rel="alternate"></link><published>2019-12-31T23:00:00+01:00</published><updated>2019-12-31T23:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-31:/new-year-2020/</id><summary type="html">&lt;p&gt;It's new years eve and - as always - I try to finish some things and have some
+know what you&amp;rsquo;re interested in!&lt;/p&gt;</content><category term="Cyberculture"></category><category term="hash"></category><category term="Software Development"></category></entry><entry><title>Analyzing what I spend money on in 2020</title><link href="https://martin-thoma.com/https://martinthoma.medium.com/analyzing-what-i-spend-money-on-in-2020-c88431c02581" rel="alternate"></link><published>2020-12-29T20:00:00+01:00</published><updated>2020-12-29T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-29:/https://martinthoma.medium.com/analyzing-what-i-spend-money-on-in-2020-c88431c02581</id><summary type="html">&lt;p&gt;Many banks allow you to get a CSV dump of your transactions. I&amp;rsquo;ve downloaded my transaction data for this year and I will walk you through my analysis. I will only look at what I spend money on. I will not look at my income and I will not …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Many banks allow you to get a CSV dump of your transactions. I&amp;rsquo;ve downloaded my transaction data for this year and I will walk you through my analysis. I will only look at what I spend money on. I will not look at my income and I will not write about my savings plan/investments.&lt;/p&gt;
+&lt;p&gt;All code can be found on Github (&lt;a href="https://github.com/MartinThoma/algorithms/tree/master/Python/bank-analysis"&gt;link&lt;/a&gt;), in case you&amp;rsquo;re interested in Streamlit / Pydantic.&lt;/p&gt;
+&lt;h2 id="about-me-the-data-generating-process"&gt;About me: The Data Generating Process&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Ruthson Zimmerman on Unsplash" src="https://cdn-images-1.medium.com/max/10368/0*hATFrybxwUUR0hDs"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@ruthson_zimmerman?utm_source=medium&amp;amp;utm_medium=referral"&gt;Ruthson Zimmerman&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m Martin, an IT Consultant working in Munich (Germany). I&amp;rsquo;m 30 years old, in a long-term relationship. In my leisure time, I like to go bouldering (climbing), programming/data analysis, and playing board games. And blogging, of course. At the end of 2019, I&amp;rsquo;ve decided that I will thoroughly track my spending in 2020. I wrote down every single receipt and thus tracked what I spend money on. For this article, I will only have a look at what my bank tracked. I tried only to pay digitally this year, but some things are cash-only in Germany.&lt;/p&gt;
+&lt;p&gt;I live in a shared apartment and my girlfriend visits me a lot, meaning that some of the expenses are divided by multiple people (e.g. a new dishwasher) and for others, I pay more than I would for my own (e.g. food).&lt;/p&gt;
+&lt;p&gt;One reason why I live in a shared apartment is to save money to buy a house at some time. For this reason, I also try not to spend too much money on other stuff as well.&lt;/p&gt;
+&lt;p&gt;The transaction data export of my bank contains the following columns:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Date&lt;/strong&gt; when the transaction was executed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Payee:&lt;/strong&gt; Who received the money?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transaction Type&lt;/strong&gt;: e.g. &lt;a href="https://en.wikipedia.org/wiki/Direct_debit"&gt;Direct Debit&lt;/a&gt;, Master Card / Maestro Payment, &lt;a href="https://n26.com/en-us/blog/introducing-moneybeam-send-and-receive-money"&gt;MoneyBeam&lt;/a&gt;, Income, &lt;a href="https://en.wikipedia.org/wiki/Giro"&gt;Giro Transfer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Payment reference:&lt;/strong&gt; A message which helps me to understand what this is about.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Category&lt;/strong&gt;: My bank has a fixed set of categories such as &amp;ldquo;Leisure &amp;amp; Entertainment&amp;rdquo; or &amp;ldquo;Transport &amp;amp; Car&amp;rdquo;. It typically gets the category correct automatically, but in some cases, I adjust it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amount&lt;/strong&gt;: I live in Germany, so most of this is in EUR. If you&amp;rsquo;re interested in how much this is in another currency at the moment, try &amp;ldquo;123 EUR in USD&amp;rdquo; or similar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="data-cleaning"&gt;Data Cleaning&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Clay Banks on Unsplash" src="https://cdn-images-1.medium.com/max/9000/0*wzEtipA08ZzL4Ro1"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@claybanks?utm_source=medium&amp;amp;utm_medium=referral"&gt;Clay Banks&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I remove all non-EUR transactions (3 in total; in sum less than 30 EUR). I also remove my salary and failed transactions. Failed transactions sometimes showed up as transfers of some amount of money from my account and immediately back to my account.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve removed ATM usage as it interferes with other analyses. I&amp;rsquo;ve used ATMs 16&amp;times; and withdrew a total of 1330 EUR. Out of that, I withdrew 2&amp;times; 200 EUR for a present, about 70 EUR were for business lunches where I had to pay cash. The remaining 860 EUR were probably most of the time food/groceries and a few times for leisure time activities such as private restaurant visits.&lt;/p&gt;
+&lt;p&gt;The next harder thing was to remove the expenses I paid first, but my employer reimbursed.&lt;/p&gt;
+&lt;p&gt;Lastly, I removed all other income. This is mostly friends or family who paid back the money I have borrowed them. This fell into 3 categories: (1) We ordered stuff together to prevent larger shipping costs (2) I paid for public transportation tickets/hotel room bookings with my girlfriend (3) I bought food for my girlfriend.&lt;/p&gt;
+&lt;h2 id="univariate-analysis"&gt;Univariate Analysis&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo by Christina Victoria Craft on Unsplash" src="https://cdn-images-1.medium.com/max/14720/0*h81T6Vs559D2GYos"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@victoriabcphotographer?utm_source=medium&amp;amp;utm_medium=referral"&gt;Christina Victoria Craft&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this section, I look at each column independently of the others. We want to get a feeling for the data.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;510 transactions&lt;/strong&gt; are left after cleaning.&lt;/li&gt;
+&lt;li&gt;The 30th of April had 7 transactions and thus is the &amp;ldquo;transaction heaviest&amp;rdquo; day.&lt;/li&gt;
+&lt;li&gt;I had &lt;strong&gt;72 transactions with Lidl&lt;/strong&gt;, 71 with Amazon, 59 with Penny, 47 with Aldi, and 33 with my flatmate.&lt;/li&gt;
+&lt;li&gt;I paid &lt;strong&gt;241&amp;times; with Master Card&lt;/strong&gt;, 92&lt;strong&gt;&amp;times;&lt;/strong&gt; with Maestro, 92&lt;strong&gt;&amp;times;&lt;/strong&gt; with Direct Debit, 50 outgoing transfers, and 32 incoming transfers.&lt;/li&gt;
+&lt;li&gt;The highest amount I&amp;rsquo;ve paid is 419 EUR (one part of my rent). The lowest is 0.19 EUR. The median is 9.99 EUR, the mean is 27.87 EUR, the 25-percentile is 4.94 EUR and the 75-percentile is 20.95 EUR. In other words: Most of my transactions are over a very low amount, but there are some which are way higher. Typically when I use my account, it's about 5 EUR to 21 EUR.&lt;/li&gt;
+&lt;li&gt;333 transactions did not have a reference.&lt;/li&gt;
+&lt;li&gt;208 transactions have the category &amp;ldquo;Food&amp;rdquo;, 63 have &amp;ldquo;Amazon&amp;rdquo;, 44 have &amp;ldquo;Rent/Electricty/Water&amp;rdquo;, 26 have &amp;ldquo;Household&amp;rdquo;, and 21 &amp;ldquo;Transport&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="multivariate-analysis"&gt;Multivariate Analysis&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s have a look at multiple variables at the same time!&lt;/p&gt;
+&lt;h3 id="top-5-companies-i-gave-my-money-to"&gt;Top-5 Companies I gave my money to&lt;/h3&gt;
+&lt;p&gt;This is only about my consumer behavior, not about my investments&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;6160.43 EUR: My landlord + flatmates&lt;/li&gt;
+&lt;li&gt;1384 EUR: Amazon&lt;/li&gt;
+&lt;li&gt;535 EUR: Penny&lt;/li&gt;
+&lt;li&gt;530 EUR: Lidl&lt;/li&gt;
+&lt;li&gt;375 EUR: Aldi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="top-5-most-expensive-stuff"&gt;Top-5 Most Expensive Stuff&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;127 EUR: &lt;a href="https://shop.westerndigital.com/de-de/products/portable-drives/wd-my-passport-usb-3-0-hdd#WDBYVG0010BBK-WESN"&gt;Western Digital My Passport&lt;/a&gt; (5 TB)&lt;/li&gt;
+&lt;li&gt;116 EUR: &lt;a href="https://en.avm.de/products/fritzbox/fritzbox-7530/"&gt;AVM FRITZ! Box 7530&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;60 EUR: The &lt;a href="https://fifinemicrophone.com/products/usb-microphone-for-mac-and-windows-k670"&gt;FIFINE K670&lt;/a&gt; microphone + a USB C hub. I wanted to have a better audio quality when I have calls. Didn&amp;rsquo;t quite work. The issue is less the mic but more the analog connection.&lt;/li&gt;
+&lt;li&gt;32 EUR: A &lt;a href="https://www.schwalbe.com/en/tour-reader/marathon-plus"&gt;Schwalbe Marathon Plus&lt;/a&gt; bicycle tire&lt;/li&gt;
+&lt;li&gt;30 EUR: A USB daylight lamp with 10,000 Lumen. As I&amp;rsquo;m now very often working from home, I needed it a bit brighter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="how-often-did-i-return-bought-stuff"&gt;How often did I return bought stuff?&lt;/h3&gt;
+&lt;p&gt;I bought 62 times something from Amazon and returned 6 times.&lt;/p&gt;
+&lt;h2 id="what-i-learned-looking-at-transactions_1"&gt;What I learned looking at transactions&lt;/h2&gt;
+&lt;p&gt;Most transaction data is pretty boring, but it becomes interesting when you look at income and where the bulk of the money goes. Some parts are a bit hidden. For example, when I paid with PayPal it was pretty hard to tell what I spent the money for. It&amp;rsquo;s a similar story with Amazon or stuff that my company reimbursed.&lt;/p&gt;
+&lt;p&gt;Some parts of the data are also super weird. For example, quite a lot of transactions don&amp;rsquo;t have a reference. Or the fact that some failed transactions still show up as two transactions (-x, then +x). As a software engineer, I wonder if it could happen that one of those transactions gets lost.&lt;/p&gt;
+&lt;p&gt;And, of course, cash withdrawals were really hard. I didn&amp;rsquo;t remember most of them.&lt;/p&gt;
+&lt;p&gt;Lastly, I wish the transactions had a single identifier.&lt;/p&gt;
+&lt;h2 id="tldr"&gt;TL;DR&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Monthly spending in Munich 2020&lt;/strong&gt;: &lt;strong&gt;500 EUR/month&lt;/strong&gt; for my 12.5m&amp;sup2; &lt;strong&gt;room&lt;/strong&gt; in Munich, Germany (including electricity, warm water, wastewater, internet). &lt;strong&gt;166 EUR/month&lt;/strong&gt; for &lt;strong&gt;leisure time&lt;/strong&gt; activities (including clothes, books, Amazon, Netflix); &lt;strong&gt;140 EUR/month&lt;/strong&gt; for &lt;strong&gt;food&lt;/strong&gt;; &lt;strong&gt;36 EUR/month&lt;/strong&gt; for &lt;strong&gt;public transportation&lt;/strong&gt;; &lt;strong&gt;26 EUR/month&lt;/strong&gt; for &lt;strong&gt;bars &amp;amp; restaurants&lt;/strong&gt;; &lt;strong&gt;26 EUR/month&lt;/strong&gt; for &lt;strong&gt;travel and holiday; 35 EUR/month&lt;/strong&gt; for &lt;strong&gt;family&lt;/strong&gt; and friends; &lt;strong&gt;12 EUR/month&lt;/strong&gt; for &lt;strong&gt;health&lt;/strong&gt; and insurances; &lt;strong&gt;11 EUR/month&lt;/strong&gt; for &lt;strong&gt;cleaning&lt;/strong&gt; stuff (body+house). &lt;strong&gt;28 EUR/month&lt;/strong&gt; for other stuff. In total, I spend about &lt;strong&gt;980 EUR/month&lt;/strong&gt;. The rest goes into my investment. To me, this means that I also need to get roughly 1000 EUR/month when I&amp;rsquo;m retiring. And very likely way more as inflation happens all the time. Comparing this with &lt;a href="https://www.numbeo.com/cost-of-living/in/Munich"&gt;numbeo.com&lt;/a&gt; shows that I spent very little money.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supermarket visits&lt;/strong&gt;: I went in total 176&amp;times; to supermarkets (Aldi, Lidl, Penny). Maybe I can reduce that and thus have more time for other stuff? Maybe I can buy more or use a delivery service? I should also make sure that those are close by when I look for an apartment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ATM usage&lt;/strong&gt;: I needed an ATM only 16&amp;times; &amp;mdash; this means although ATM fees are annoying, they probably don&amp;rsquo;t matter that much to me. Most often I needed cash for restaurants or hiking.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon usage&lt;/strong&gt;: I spent 115 EUR/month on Amazon. That is 76% of my total money spent on stuff that Amazon offers. Excluded are things that are not offered by Amazon such as hotels, restaurants, local activities like swimming/bouldering. Also excluded are areas where Amazon is not active in Germany (food, postal services, internet providers). Looking at my consumer behavior, the main competitors in various segments are &lt;a href="https://en.wikipedia.org/wiki/Dm-drogerie_markt"&gt;dm&lt;/a&gt;+&lt;a href="https://en.wikipedia.org/wiki/Rossmann_(company)"&gt;Rossmann&lt;/a&gt; (drug stores), Ikea, &lt;a href="https://en.wikipedia.org/wiki/Thalia_(bookstore)"&gt;Thalia&lt;/a&gt;+&lt;a href="https://en.wikipedia.org/wiki/Hugendubel"&gt;Hugendubel&lt;/a&gt; (books+games), Netflix, Toom (home improvement/gardening).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The reasons for Amazon's dominance are simple: It works and we had an infectious disease going through the world. The price often is good or at least acceptable, the shipping works, I already have an account. If something is broken or I just switched my mind, I can easily send it back.
+If Germany or maybe even Europe decided to build another platform with similar benefits, I&amp;rsquo;d happily use it.&lt;/p&gt;</content><category term="Cyberculture"></category><category term="Money"></category></entry><entry><title>New Year 2020</title><link href="https://martin-thoma.com/new-year-2020/" rel="alternate"></link><published>2019-12-31T23:00:00+01:00</published><updated>2019-12-31T23:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-31:/new-year-2020/</id><summary type="html">&lt;p&gt;It's new years eve and - as always - I try to finish some things and have some
 plans for next year.&lt;/p&gt;
 &lt;h2 id="review-of-2019"&gt;Review of 2019&lt;/h2&gt;
 &lt;p&gt;Not a lot happened about which I want to write publicly, so here are some other
