@@ -1,6 +1,6 @@
 ---
 layout: post
-title: German Politics 2018
+title: German Politics
 slug: german-politics-2018
 author: Martin Thoma
 date: 2018-12-30 20:00
@@ -84,6 +84,12 @@ know the details (and details are super important), though.
     <tr>
         <td>11</td>
         <td>Fighting Corruption</td>
+        <td><span style="color: red;">&#10071;&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Consumer Protection: Homeopathy</td>
         <td><span style="color: red;">&#10071;&#10071;</span></td>
         <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
     </tr>
@@ -233,6 +239,26 @@ There are some simple measures to fight corruption:
 * **Loggy Register**: See details <a href="https://www.abgeordnetenwatch.de/lobbyregister-jetzt">here</a>.
   This is blocked by CDU / CSU.
 
+## Consumer Protection: Homeopathy
+
+Homeopathy is perceived as medicine. However, it does not have to follow the rules
+of medicine. Normal medicine has to prove that it provides value in a study.
+Homeopathy only has to prove that it doesn't do harm. It's not medicine. Typically,
+it's 100% sugar. It's a scam.
+
+The main problem is not the scam. The main problem is when people stop using
+effective treatment and use the sam instead ([example](https://twitter.com/drluebbers/status/1388037368033255425)).
+
+It shouldn't be forbidden, but it should be transparent. It should contain a
+clear list of ingredients with the amount of it and the common names (e.g. "sugar" instead of "glucose").
+If possible, it should not be sold in pharmacies so that people don't even start
+thinking it's medicine. Or maybe the monetary incentive of pharmacies could be
+taken away: Homeopathy can only be sold with a 1% margin (or similar).
+
+We could also add warnings to the packages like we have it on cigarettes:
+
+* This product is NOT tested according to the medical standards.
+* This product did not prove effectivenes.
 
 ## Long-Term problems
 
