@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="GPG, security, Cyberculture, " />
+
+<meta property="og:title" content="How to use GPG  - Send and receive encrypted messages "/>
+<meta property="og:url" content="gpg/" />
+<meta property="og:description" content="Having full control over encrypted messages is sometimes just nice and crucial in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is a commonly used tool to encrypt, decrypt, and sign secrets. After reading this article, you will know how to use GPG. Let’s …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-05-17T20:00:00+02:00" />
+<meta name="twitter:title" content="How to use GPG  - Send and receive encrypted messages ">
+<meta name="twitter:description" content="Having full control over encrypted messages is sometimes just nice and crucial in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is a commonly used tool to encrypt, decrypt, and sign secrets. After reading this article, you will know how to use GPG. Let’s …">
+<meta property="og:image" content="logos/security.png" />
+<meta name="twitter:image" content="logos/security.png" >
+
+        <title>How to use GPG  - Send and receive encrypted messages  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../gpg/">How to use GPG <small>Send and receive encrypted messages</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="How to use GPG">How to use GPG</a><ul><li><a class="toc-href" href="#asymmetric-cryptography-a-conceptual-overview" title="Asymmetric Cryptography: A conceptual overview">Asymmetric Cryptography: A conceptual overview</a></li><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a><ul><li><a class="toc-href" href="#ubuntu" title="Ubuntu">Ubuntu</a></li><li><a class="toc-href" href="#windows" title="Windows">Windows</a></li><li><a class="toc-href" href="#mac" title="Mac">Mac</a></li></ul></li><li><a class="toc-href" href="#generate-gpg-keys_1" title="Generate GPG keys">Generate GPG keys</a></li><li><a class="toc-href" href="#create-a-backup" title="Create a Backup!">Create a Backup!</a></li><li><a class="toc-href" href="#share-the-public-key" title="Share the Public Key">Share the Public Key</a><ul><li><a class="toc-href" href="#share-public-key-via-copy-paste" title="Share public key via copy-paste">Share public key via copy-paste</a></li><li><a class="toc-href" href="#share-public-key-via-key-server" title="Share public key via key server">Share public key via key server</a></li></ul></li><li><a class="toc-href" href="#encrypt-a-file_1" title="Encrypt a file">Encrypt a file</a></li><li><a class="toc-href" href="#decrypt-a-file" title="Decrypt a file">Decrypt a file</a></li><li><a class="toc-href" href="#sign-a-file" title="Sign a file">Sign a file</a><ul><li><a class="toc-href" href="#clearsign" title="Clearsign">Clearsign</a></li></ul></li><li><a class="toc-href" href="#dealing-with-breaches-revocation-certificates_1" title="Dealing with Breaches: Revocation Certificates">Dealing with Breaches: Revocation Certificates</a></li><li><a class="toc-href" href="#limitations" title="Limitations">Limitations</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Having full control over encrypted messages is sometimes just nice and crucial
+in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is
+a commonly used tool to encrypt, decrypt, and sign secrets.</p>
+<p>After reading this article, you will know how to use GPG. Let&rsquo;s go!</p>
+<h2 id="asymmetric-cryptography-a-conceptual-overview">Asymmetric Cryptography: A conceptual overview</h2>
+<p>Symmetric cryptography is easy to understand. You have two functions, encrypt
+and decrypt. Both use a key to generate the output:</p>
+<div class="highlight"><pre><span></span><code>encrypt(clear text, key) = cipher text
+decrypt(cipher text, key) = clear text
+</code></pre></div>
+<p>The issue with this concept is that you need to exchange the key in a secure way.</p>
+<p>Asymmetric cryptography on the other hand makes use of a public/private key pair:</p>
+<div class="highlight"><pre><span></span><code>encrypt(clear text, receiver public key) = cipher text
+decrypt(cipher text, receiver private key) = clear text
+</code></pre></div>
+<p>An attacker cannot derive the private key from the public key. This means you
+can share the public key with everybody. The security of the system does not
+rely on the public key. Only the private key needs to stay secret.</p>
+<p>If you want to understand how asymmetric cryptography can be used for signing
+documents, I recommend reading this article:</p>
+<p><a href="https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439"><strong>5 Applications of Digital Signatures</strong>
+<em>Learn what they are and how they are used</em>levelup.gitconnected.com</a></p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need to install the command line application GPG, also called GnuPG. Don&rsquo;t
+confuse it with Pretty Good Privacy (PGP in short). The first release of PGP
+was in 1991, GPG had its debut in 1999. This means there are over 20 years of
+security expertise in GPG.</p>
+<h3 id="ubuntu">Ubuntu</h3>
+<p>Please note that the leading $ only indicates that you should enter the
+following command into the console. You should not enter $ in the beginning.
+All leading/trailing spaces are ignored; they do not matter.</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install gpg
+</code></pre></div>
+<h3 id="windows">Windows</h3>
+<p><a href="https://gnupg.org/download/">Download GPG here</a>.</p>
+<h3 id="mac">Mac</h3>
+<div class="highlight"><pre><span></span><code>$ brew install gnupg
+</code></pre></div>
+<h2 id="generate-gpg-keys_1">Generate GPG keys</h2>
+<div class="highlight"><pre><span></span><code>$ gpg --full-generate-key
+</code></pre></div>
+<p>A couple of questions follow. They all suggest reasonable defaults. If you
+don&rsquo;t know what to take, just go with the default.</p>
+<p>In the end, you should see a message like this:</p>
+<div class="highlight"><pre><span></span><code>pub   rsa4096 2021-05-16 [SC]
+      20E4E524CA0B5402260F01EB62EE7851D92F3ECE
+uid                      John Smith &lt;[johnsmith@gmail.com](mailto:megaselviana05@gmail.com)&gt;
+sub   rsa4096 2021-05-16 [E]
+</code></pre></div>
+<p>You can verify that it worked by listing your keys:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --list-keys
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+/home/johnsmith/.gnupg/pubring.kbx
+-----------------------------
+pub   rsa4096 2021-05-16 [SC]
+      20E4E524CA0B5402260F01EB62EE7851D92F3ECE
+uid           [ultimate] John Smith &lt;[johnsmith@gmail.com](mailto:megaselviana05@gmail.com)&gt;
+sub   rsa4096 2021-05-16 [E]
+</code></pre></div>
+<p>The 20E4E524CA0B5402260F01EB62EE7851D92F3ECE is the ID of the keypair. To make
+the following simpler, we store it in a variable:</p>
+<div class="highlight"><pre><span></span><code>$ export GPGKEY=20E4E524CA0B5402260F01EB62EE7851D92F3ECE
+$ echo $GPGKEY
+20E4E524CA0B5402260F01EB62EE7851D92F3ECE
+</code></pre></div>
+<h2 id="create-a-backup">Create a Backup!</h2>
+<p>Losing your private key is a shame. Now you need to share it in a secure
+manner with all your contacts again. To prevent it, create a backup.</p>
+<p>The Bitcoin community has figured out a way to create a 12-word combination
+that generates the seed for generating the key pairs
+(<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>).
+This is pretty amazing as you can now write down those 12 (up to 24) words and
+recreate the key files! GPG is working on this feature
+(<a href="https://dev.gnupg.org/T169">T169</a>). Until this is done, you need to store
+the private key in a secure way. Maybe two USB sticks that you deposit in
+secure locations.</p>
+<div class="highlight"><pre><span></span><code>$ gpg -ao my-private.key --export-secret-keys $GPGKEY
+</code></pre></div>
+<p>The file my-private.key looks like this:</p>
+<div class="highlight"><pre><span></span><code>-----BEGIN PGP PRIVATE KEY BLOCK-----
+olGdwDBQAAzBeETABsuGf/ALnExpZDlNpG9kJ4oCfJg+QEDVpMjytNOGGyj/A5h0
+...
+...
+-----END PGP PRIVATE KEY BLOCK-----
+</code></pre></div>
+<h2 id="share-the-public-key">Share the Public Key</h2>
+<p>You can share your public key in two ways. ASCII-armored or via key server.</p>
+<h3 id="share-public-key-via-copy-paste">Share public key via copy-paste</h3>
+<p>You can directly share an ASCII version of the binary data:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --export -a $GPGKEY
+</code></pre></div>
+<p>This will print a long section starting with</p>
+<div class="highlight"><pre><span></span><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+...
+...
+-----END PGP PUBLIC KEY BLOCK-----
+</code></pre></div>
+<p>You can also pipe that block directly into a file:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --export -a $GPGKEY &gt; public_key.asc
+</code></pre></div>
+<p>This pure text can easily be shared in a web form, e.g. Github uses this.</p>
+<h3 id="share-public-key-via-key-server">Share public key via key server</h3>
+<div class="highlight"><pre><span></span><code>$ gpg --send-keys --keyserver keyserver.ubuntu.com $GPGKEY
+</code></pre></div>
+<p>Others can then search for a public key via</p>
+<div class="highlight"><pre><span></span><code>$ gpg --auto-key-locate keyserver --locate-keys [j](mailto:user@example.net)ohn@smith.com
+</code></pre></div>
+<p>Please note that the keyserver does not validate that the user who generated
+the GPG key ever had access to john@smith.com !</p>
+<h2 id="encrypt-a-file_1">Encrypt a file</h2>
+<div class="highlight"><pre><span></span><code>$ gpg --output doc.gpg \
+      --encrypt \
+      --recipient receiver@example.com \
+      plain-text.pdf
+</code></pre></div>
+<p>Now you can share doc.gpg and only the holder of the key behind
+receiver@example.com will be able to decrypt the message.</p>
+<p>⚠️ You need to make sure that the public key you use for receiver@example.com
+actually belongs to the person you want to communicate with. This can be done
+in person, e.g. at a <a href="https://en.wikipedia.org/wiki/Key_signing_party">key signing
+party</a>.</p>
+<h2 id="decrypt-a-file">Decrypt a file</h2>
+<div class="highlight"><pre><span></span><code>$ gpg --output decrypted.pdf \
+      --encrypt \
+      --recipient receiver@example.com \
+      message.txt
+</code></pre></div>
+<p>⚠️ The decrypted file can still be malware. Don&rsquo;t execute fishy stuff.</p>
+<h2 id="sign-a-file">Sign a file</h2>
+<p>By signing a file, you essentially encrypt it with your private key. This way,
+everybody can decrypt it with your public key. And everybody knows that only
+you can possibly have encrypted it.</p>
+<div class="highlight"><pre><span></span><code>$ gpg --output signed-message.sig --sign message.txt
+</code></pre></div>
+<p>This produces a binary file called signed-message.sig . This is a binary file
+that is not readable without using your public key to decrypt and verify it:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --output destination.path.txt --decrypt doc.sig
+gpg: Signature made So 16 Mai 2021 17:26:56 CEST
+gpg:                using RSA key D1E632346B642680EF360D696901E782EF663EC4
+gpg: Good signature from "Martin Thoma (Generated on 2021-01-15 for private use) &lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&gt;" [ultimate]
+</code></pre></div>
+<h3 id="clearsign">Clearsign</h3>
+<p>If you have a text file, you can &ldquo;clearsign&rdquo; it. That means the message is
+readable in plain text and the signature is in the same file:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --clearsing my-special-message.txt
+</code></pre></div>
+<p>It produces the following:</p>
+<div class="highlight"><pre><span></span><code>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Dear reader,
+
+This is a simple example message.
+
+Best, Martin
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE0eYyNGtkJoDvNg1paQHngu9mPsQFAmChOooACgkQaQHngu9m
+PsQ6GBAAqRgP7dsD8isQk2U+K+6Ocl4T5G+DavgmxtKcjzaJQyuTY7gfjDTzLg0m
+6VUzGzSZeq3A7XyJHEN4tn8LCi9Yapw/rwajNdEoeI3Vuag9/hMYo01mOuJMkbq8
+5wCcb9qwoHg+4WHCDo0oSBmXsbZl8wVkIWPvjC7EnqduNkMOEnARGqdgzKeqL+XM
+iKhP78rK+j1enrWDdnmMmNWz1xZcBEvtF0R8RZhwtKs4JxJFDC51y1HXBJwej8iY
+oYvcT5Hov6oP4CwTgkAeMUJdQpePUPSFi8YMc2cTruaanP5hgYud9ZrJ2jURU17i
+KXTmgOwX20BHiqQGY4PnnZKX9cjrIfKlMKcXd/owqkXx/iXOs3CkiXyg3yV4xpxf
+72s9r32PE4dCZllomKarEGyNTqLmTJsfDpfxZLVeUE05e5El2HcUrn44eD4EL1+/
+0wxUrkxUeNYNnbT51A65NLYHZ44GDBhOhXGqJd8/k2DcMgAtL1ifrMSL4XxSa2nP
+fAdykEh/Dph/QXlybuJpdq/Up6qacGulY3AjqwzdrwQl++0oh4uvFqCHHKTccWWN
+ClUDCfVhmlaEFDf88MLcoRZ57uQbCXYNnkOpMx3FGqTlawZz/lbaisFV3UfNHgr8
+jpCE1lYIpqkwrpvKJ8VE8XeGcTz8oHqJa0ZJxvDAdDK9mp19MhU=
+=7cya
+-----END PGP SIGNATURE-----
+</code></pre></div>
+<p>To verify the message.txt.asc, you sadly need two steps:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --detach-sign -o sig.gpg message.txt.asc
+$ gpg --verify sig.gpg message.txt.asc
+gpg: Signature made Mo 17 Mai 2021 23:25:16 CEST
+gpg:                using RSA key D1E632346B642680EF360D696901E782EF663EC4
+gpg: Good signature from "Martin Thoma (Generated on 2021-01-15 for private use) &lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&gt;" [ultimate]
+</code></pre></div>
+<h2 id="dealing-with-breaches-revocation-certificates_1">Dealing with Breaches: Revocation Certificates</h2>
+<p>Any system will break eventually. The question is only when it will break and
+how you deal with it.</p>
+<p>When (and <strong>only then</strong> ⚠️) your private key becomes public, you want to tell
+the world that this private key should no longer be used. This is what you use
+a revocation certificate for.</p>
+<div class="highlight"><pre><span></span><code>$ gpg --output revocation.crt --gen-revoke john.smith@example.com
+</code></pre></div>
+<p>The file looks like this:</p>
+<div class="highlight"><pre><span></span><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: This is a revocation certificate
+
+iQJQBCABCgA6FiEEve8XTzI4e8gcXLrLSL/usUTi8owFAmCi45kcHQNKdXN0IGZv
+ciBleGFtcGxlIGJsb2cgcG9zdAAKCRBIv+6xROLyjGr+D/9+kHdBGjOP6pjN9I1I
+OffsUEIewwU5EHkIA0fK4ujlk/POqt5soKpEHKEduVZXRKE7M76VwdRl8jRu+0+7
+8ODxcVV5HNeN49kjWsN6K2CL9iweKHo49CBQ7MaA5dhRAhv/t5LxMax2j2tI5WHV
+j8ieS3qJCkY+QjzrXqeueHxTFZeRLX/HTdDbymhH3RpF8LSY3EIsEG2VLAbnUke2
+IzP/zhxDqnaEZW4GGsHmYGWur+TcyV6Vh7NZ2rVtaPY9U11906xfVbuVZy4adAG5
+SE2pqrXbJPPFnObK1WnwIiOZSnVeu3oEnfrK8kCAesxqmDnutRohlga6aKdOvKPE
+s1iJGwKJsjeF89TlUwEWVbDPFdBHPq7Yo4YA7YXHpls2hOBrBifgK0oxyl1um+fl
+m4z6qtkkMq3CB7qQUOftsvA/u+y1amepKCuOZTdQVOsZNAPSaDtz1onbaJWlowXi
+XRQWKMoGQ3RNp2m9raS1VRpdV8Y5f+NIqGJi85l8NT/KQSpQIxcO69VpHtFj0NVj
+iTwZT50WHbVN8lw2W1mImg3AZvM+pLlpE8mr+XFrjqRHnYCpMh44/inzPKFaOjgM
+L7DGq8P57SFs9Kg9TjHz6lx4VF/8GmZUx/cw0yoQbeu7QOWW7jY9gi0wLq2ZbI5I
+/2y8FtUVS4Pr9SLW8gqeMzMEBA==
+=i/uQ
+-----END PGP PUBLIC KEY BLOCK-----
+</code></pre></div>
+<p>It can be imported like this:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --import revocation.crt
+$ gpg --list-keys
+...
+pub   rsa4096 2021-05-17 [SC] [revoked: 2021-05-17]
+      BDEF174F32387BC81C5CBACB48BFEEB144E2F28C
+uid           [ revoked] John Smith &lt;[j](mailto:themoosemind@gmail.com)ohn.smith@example.com&gt;
+</code></pre></div>
+<p>And let the keyserver know:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --keyserver keyserver.ubuntu.com --send-keys $GPGKEY
+</code></pre></div>
+<h2 id="limitations">Limitations</h2>
+<p>Please be aware that sending GPG-encrypted messages <strong>only hides the contents
+of the file</strong>. It does not hide meta-data such as the <strong>message size</strong> or the
+<strong>sender/receiver</strong> of the message.</p>
+<p>You can obfuscate the size by appending padding text, e.g. something like a
+lorem-ipsum text. An attacker could still figure out a maximum message size.</p>
+<p>You can obfuscate the receiver by putting the message out in public, e.g. on
+your personal website. Or using a public computer to generate a new Gmail
+account and exchanging GPG-encrypted messages via those. But then you need to
+make sure you&rsquo;re actually talking to the right person &hellip; this problem is hard.</p>
+<p>If you exchange messages, you might also want to be able to <strong>repudiate</strong> the
+messages: If any part of the conversation went public, you want to be able to
+deny that you&rsquo;re the author. The solution here is simple: Share your private
+key. The problem is that you would need to do that regularly.</p>
+<p>If you are interested in other security and privacy features you might want to
+have, I highly recommend reading &ldquo;<a href="https://oaklandsok.github.io/papers/unger2014.pdf">SoK: Secure
+Messaging</a>&rdquo; (IEEE Symposium
+on Security and Privacy, 2015) by Unger, Dechand, Bonneau, Fahl, Perl,
+Goldberg, and Smith.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-05-17T20:00:00+02:00">Mai 17, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#gpg-ref">GPG
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#security-ref">security
+                    <span>19</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
