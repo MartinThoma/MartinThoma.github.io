@@ -10,7 +10,10 @@ category: Code
 tags: Software Engineering, Architecture
 featured_image: logos/star.png
 ---
-![Shared code can be in a library or in a service. Image by Martin Thoma.](../images/2021/05/library-vs-service.png)*Shared code can be in a library or in a service. Image by Martin Thoma.*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/05/library-vs-service.png"><img src="../images/2021/05/library-vs-service.png" alt="Shared code can be in a library or in a service" style="width: 512px;"/></a>
+    <figcaption class="text-center">Shared code can be in a library or in a service. Image by Martin Thoma.</figcaption>
+</figure>
 
 Preventing code duplication is a software development principle called
 [*DRY*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) — **D**on’t
@@ -34,7 +37,11 @@ library and a service are and when you should use one or another. Let’s start!
 
 ## The differences
 
-![Photo by [Denise Jones](https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9216/0*7euF5Y587KTF-LS8)*Photo by [Denise Jones](https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/06/moon-jelly.jpg"><img src="https://cdn-images-1.medium.com/max/9216/0*7euF5Y587KTF-LS8" alt="differences" style="width: 512px;"/></a>
+    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral">Denise Jones</a> on <a href="https://unsplash.com?utm_source=medium&utm_medium=referral">Unsplash</a></figcaption>
+</figure>
+![...]()*Photo by [Denise Jones](https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 A library is shared code that gets deployed with each application. So the
 library is part of the application and runs on the same machine as the
@@ -134,7 +141,10 @@ might not be as reliable or fast as I would like it to be. It needs to be
 wrapped in a local “caching” layer that also abstracts away some of the
 complexity of the external service.
 
-![Image by Martin Thoma](../images/2021/05/external-service-library-vs-service.png)*Image by Martin Thoma*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/05/external-service-library-vs-service.png"><img src="../images/2021/05/external-service-library-vs-service.png" alt="External Service Wrapper: Library vs Service" style="width: 512px;"/></a>
+    <figcaption class="text-center">Image by Martin Thoma</figcaption>
+</figure>
 
 In this case, it’s not so clear if the library option is better or worse than
 the application option. The handling of data makes me tend to use a service,
@@ -199,7 +209,10 @@ and they need to define their interfaces.
 
 As an image, it might look like this:
 
-![Image by Martin Thoma](../images/2021/05/library-service-transition.png)*Image by Martin Thoma*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/05/library-service-transition.png"><img src="../images/2021/05/library-service-transition.png" alt="Library to Service Transition" style="width: 512px;"/></a>
+    <figcaption class="text-center">Image by Martin Thoma</figcaption>
+</figure>
 
 A transition I have seen a couple of times is to create a monolith first to
 get the business going. When the company grows, they structure the monolith by
