@@ -3,13 +3,17 @@ layout: post
 title: Synchronous vs Asynchronous vs Concurrent vs Parallel
 subtitle: What is the difference and why does it matter?
 slug: synchronous-asynchronous-concurrent-parallel
+url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2
 author: Martin Thoma
 date: 2021-05-26 20:00
 category: Cyberculture
 tags: Programming, Software Development, Software Engineering, Parallel Execution, Concurrency
 featured_image: logos/star.png
 ---
-![Photo by [Edurne Chopeitia](https://unsplash.com/@edurnetx?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui)*Photo by [Edurne Chopeitia](https://unsplash.com/@edurnetx?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui"><img src="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui" alt="Photo by Edurne Chopeitia on Unsplash" style="width: 512px;"/></a>
+    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@edurnetx?utm_source=medium&utm_medium=referral">Edurne Chopeitia</a> on <a href="https://unsplash.com?utm_source=medium&utm_medium=referral">Unsplash</a></figcaption>
+</figure>
 
 We developers like to throw around terms that feel natural to us, but are
 technical terms that most non-developers don’t use in the same way. This

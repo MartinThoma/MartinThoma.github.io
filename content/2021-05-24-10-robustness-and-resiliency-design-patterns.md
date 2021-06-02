@@ -2,6 +2,7 @@
 layout: post
 title: 10 Robustness and Resiliency Design Patterns to Learn Today
 slug: 10-robustness-resiliency-design-patterns
+url: https://levelup.gitconnected.com/10-robustness-and-resiliency-design-patterns-to-learn-today-c03776f73936
 author: Martin Thoma
 date: 2021-05-24 20:00
 category: Cyberculture

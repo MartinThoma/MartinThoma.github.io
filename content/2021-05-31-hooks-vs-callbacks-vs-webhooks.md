@@ -3,13 +3,17 @@ layout: post
 title: Hooks vs Callbacks vs Webhooks
 subtitle: How do I use them and where is the difference?
 slug: hooks-vs-callbacks-vs-webhooks
+url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
 author: Martin Thoma
 date: 2021-05-31 20:00
 category: Cyberculture
 tags: Programming, Software Development, Software Engineering, Software Architecture, Web Development
 featured_image: logos/star.png
 ---
-![Photo by [Dan-Cristian Pădureț](https://unsplash.com/@dancristianp?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/2550/1*4CO_tjeX_cY7AK-H-4aIMA.jpeg)*Photo by [Dan-Cristian Pădureț](https://unsplash.com/@dancristianp?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Ima" style="width: 512px;"/></a>
+    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@dancristianp?utm_source=medium&utm_medium=referral">Dan-Cristian Pădureț</a></figcaption>
+</figure>
 
 The Unix programming philosophy is to do (just) one thing but do it well.
 Focusing on one core task is hard as developers see and feel their users' pain
@@ -89,7 +93,10 @@ extend the functionality of a web service by using hooks. For example, Slack
 allows you to post messages to an URL
 ([source](https://api.slack.com/messaging/webhooks#create_a_webhook)).
 
-![Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The “pull” model is also called “polling”. For the “push” model, the server needs to know the clients. So the clients need to subscribe. For this reason, it’s also called PubSub or Publisher-Subscriber-Model. Image by Martin Thoma](https://cdn-images-1.medium.com/max/4206/1*nPR87jiRz1LskYkYTdYDwQ.png)*Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The “pull” model is also called “polling”. For the “push” model, the server needs to know the clients. So the clients need to subscribe. For this reason, it’s also called PubSub or Publisher-Subscriber-Model. Image by Martin Thoma*
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/05/polling-vs-webhook.png"><img src="../images/2021/05/polling-vs-webhook.png" alt="Two models how the client can get new information" style="width: 512px;"/></a>
+    <figcaption class="text-center">Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The “pull” model is also called “polling”. For the “push” model, the server needs to know the clients. So the clients need to subscribe. For this reason, it’s also called PubSub or Publisher-Subscriber-Model.</figcaption>
+</figure>
 
 Webhooks allow websites to push information to you instead of you pulling (and
 polling) from them.
