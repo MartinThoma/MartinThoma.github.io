@@ -22,7 +22,7 @@ martin-thoma.com, I hope — but you only get to know that you lost the internet
 connection:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/fallback-chrome.png"><img src="../images/2018/05/fallback-chrome.png" alt="Fallback option for Chrome" style="width: 512px;"/></a>
+    <a href="../images/2021/05/fallback-chrome.png"><img src="../images/2021/05/fallback-chrome.png" alt="Fallback option for Chrome" style="width: 512px;"/></a>
     <figcaption class="text-center">Fallback option for Chrome</figcaption>
 </figure>
 
@@ -157,7 +157,11 @@ Servers can fail due to [breaking hardware](https://www.datacenterdynamics.com/e
 
 For hard disks, we have various [RAID levels](https://en.wikipedia.org/wiki/Standard_RAID_levels). For APIs, we can start multiple instances and have a round-robin load balancing.
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2646/1*46FG93CzACdXJiDQptl5CQ.png)*Image by Martin Thoma*
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2021/05/redundancy.png"><img src="../images/2021/05/redundancy.png" alt="Image by Martin Thoma" style="width: 512px;"/></a>
+    <figcaption class="text-center">Image by Martin Thoma</figcaption>
+</figure>
 
 Let’s say each server is 99.0% available. That means it is down for 3.65 days
 each year. If you have a redundant system where servers run in parallel as
