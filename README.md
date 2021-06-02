@@ -48,6 +48,13 @@
 The following snippets help to create new articles fast. To install them, go to
 "Tools &rightarrow; New Snippet..." in Sublime&nbsp;Text&nsp;3.
 
+Go to `/home/moose/.config/sublime-text-3/Packages/User` and copy the contents
+of the `./sublime` folder in it. Or add symbolic links:
+
+```bash
+$ ln -s ~/Github/Martin/MartinThoma.github.io/sublime/blog-article.sublime-snippet /home/moose/.config/sublime-text-3/Packages/User
+```
+
 ### blog-article
 
 ```text
