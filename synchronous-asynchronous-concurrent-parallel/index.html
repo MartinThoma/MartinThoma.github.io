@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Programming, Software Development, Software Engineering, Parallel Execution, Concurrency, Cyberculture, " />
+
+<meta property="og:title" content="Synchronous vs Asynchronous vs Concurrent vs Parallel  - What is the difference and why does it matter? "/>
+<meta property="og:url" content="synchronous-asynchronous-concurrent-parallel/" />
+<meta property="og:description" content="Photo by Edurne Chopeitia on Unsplash We developers like to throw around terms that feel natural to us, but are technical terms that most non-developers don’t use in the same way. This article is aimed at all the poor souls who have to deal with us, e.g. product …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-05-26T20:00:00+02:00" />
+<meta name="twitter:title" content="Synchronous vs Asynchronous vs Concurrent vs Parallel  - What is the difference and why does it matter? ">
+<meta name="twitter:description" content="Photo by Edurne Chopeitia on Unsplash We developers like to throw around terms that feel natural to us, but are technical terms that most non-developers don’t use in the same way. This article is aimed at all the poor souls who have to deal with us, e.g. product …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>Synchronous vs Asynchronous vs Concurrent vs Parallel  - What is the difference and why does it matter?  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../synchronous-asynchronous-concurrent-parallel/">Synchronous vs Asynchronous vs Concurrent vs Parallel <small>What is the difference and why does it matter?</small></a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Synchronous vs Asynchronous vs Concurrent vs Parallel">Synchronous vs Asynchronous vs Concurrent vs Parallel</a><ul><li><a class="toc-href" href="#speeding-up-execution" title="Speeding up Execution">Speeding up Execution</a></li><li><a class="toc-href" href="#sequential-vs-interleaved-vs-parallel" title="Sequential vs Interleaved vs Parallel">Sequential vs Interleaved vs Parallel</a></li><li><a class="toc-href" href="#outgoing-requests-asynchronous-vs-synchronous" title="Outgoing requests: Asynchronous vs synchronous">Outgoing requests: Asynchronous vs synchronous</a></li><li><a class="toc-href" href="#incoming-requests-asynchronous-vs-synchronous" title="Incoming Requests: Asynchronous vs synchronous">Incoming Requests: Asynchronous vs synchronous</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="Photo by Edurne Chopeitia on Unsplash" src="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui"/><em>Photo by <a href="https://unsplash.com/@edurnetx?utm_source=medium&amp;utm_medium=referral">Edurne Chopeitia</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>We developers like to throw around terms that feel natural to us, but are
+technical terms that most non-developers don&rsquo;t use in the same way. This
+article is aimed at all the poor souls who have to deal with us, e.g. product
+managers, product owners, scrum masters, business people.</p>
+<p>After reading this article, you will understand the difference between
+synchronous vs asynchronous vs concurrent vs parallel. Let&rsquo;s start!</p>
+<h2 id="speeding-up-execution">Speeding up Execution</h2>
+<p>If you want a program or website to feel faster, you have various options:</p>
+<ul>
+<li>Better machines: Buy new hardware</li>
+<li>Do less: Reduce the scope, simplify the business</li>
+<li>Do the things more efficiently: Better algorithms</li>
+<li>Do things in parallel: Make use of multiple CPU cores instead of just one</li>
+<li>Avoid waiting times</li>
+</ul>
+<p>Especially the last point is interesting. Think about baking a cake. My oven
+takes about 15 minutes until it is at 200&deg;C. It takes me about 25 minutes to
+prepare the cake and it needs to stay for 20 minutes in the oven. How long
+does it take to make the cake?</p>
+<p>The simple way is to execute the tasks one step after each other &mdash;
+sequentially:</p>
+<ol>
+<li>25 min: Prepare the dough</li>
+<li>15 min: Pre-heat the oven</li>
+<li>20 min: Bake in the oven</li>
+</ol>
+<p>That is 60 min to bake the cake.</p>
+<blockquote>
+<h1 id="asynchronous-execution-reduces-waiting-times">Asynchronous execution reduces waiting times</h1>
+</blockquote>
+<p>You can pre-heat the oven. You don&rsquo;t need to wait for it to pre-heat. This
+might mean that it stays hot for 10 minutes, but you don&rsquo;t need to wait. You
+just reduced the time to make the cake from 60 minutes to 45 minutes!</p>
+<p>But you might be able to do even more: By asking your girlfriend to help you,
+you can prepare the dough in 15 minutes instead of 25 minutes. It&rsquo;s not
+exactly half of the time because there are limits in what you can do in
+parallel. That means both of you worked even longer (2x 15 minutes is 30
+minutes of work instead of just 25 minutes), but the time on the clock was
+reduced. I call the 15 minutes you actually worked &ldquo;wall-clock time&rdquo; and the
+combined time &ldquo;execution time&rdquo;. So the overall wall-clock time was reduced to
+35 minutes.</p>
+<blockquote>
+<h1 id="parallel-execution-reduces-wall-clock-time">Parallel execution reduces wall-clock time</h1>
+</blockquote>
+<h2 id="sequential-vs-interleaved-vs-parallel">Sequential vs Interleaved vs Parallel</h2>
+<p>The <strong>sequential</strong> execution model does everything <strong>step-by-step</strong>. The
+<strong>parallel</strong> one does it at the <strong>same time</strong>. The weird one is the
+interleaved execution model. It is not in parallel, but also not sequential.</p>
+<p>Think about something that is pretty CPU intensive, e.g. extracting a big ZIP
+archive. That might block your CPU for several minutes. If things were done
+strictly sequential, you could not do anything at that time. You could not
+browse the web. You could not even move your mouse cursor. That feels not
+responsive.</p>
+<p>Instead of doing it sequentially, we can give the mouse cursor a little bit of
+CPU time so that you can interact with the system. We stop the extraction of
+the ZIP archive several times per second to see if you moved the mouse. If you
+did, we change the position of the cursor on the screen and continue
+extracting the ZIP archive. The execution of the ZIP archive extraction and
+your mouse cursor moving is <strong>interleaved</strong>.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/05/parallel-interleaved.png"><img alt="Sequential vs Interleaved vs Parallel" src="../images/2021/05/parallel-interleaved.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Sequential vs Interleaved vs Parallel</figcaption>
+</figure>
+<p>As you can see, the execution times overlap in the parallel case. In the
+sequential execution and the interleaved execution, the execution times for
+both tasks never overlap. But the total task execution time from start to
+finish overlaps in the interleaved case, whereas task 1 needs to finish before
+task 2 can do anything in the interleaved case.</p>
+<p>Interleaved execution is done by concurrent threads. Concurrent and
+interleaved are used (roughly) synonymously.</p>
+<h2 id="outgoing-requests-asynchronous-vs-synchronous">Outgoing requests: Asynchronous vs synchronous</h2>
+<p>Suppose you write a web crawler, which means a program that should read a
+complete website. For example, you want to find interesting news stories on
+<a href="https://www.nytimes.com/">nytimes.com</a>. The program goes to the first page,
+extracts all interesting content and all URLs. Given every single of those
+URLs, you do the same:</p>
+<ul>
+<li>Get the content behind the URL</li>
+<li>Get all URLs in the content</li>
+</ul>
+<p>You do that until you have seen all URLs on nytimes.com. Of course, most of
+the time you would just wait for the network / the website to actually give
+you the content. Your CPU would not be busy all the time, your network would
+not be busy all the time. There are tiny waiting times of maybe 0.5 seconds
+for each web page. If you access 200,000 pages, those tiny waiting times
+accumulate to half an hour.</p>
+<p>Instead of doing it sequentially, you could run things in parallel. However,
+you only have 4 cores and the level of parallelism is limited. It&rsquo;s by far not
+200,000.</p>
+<p>What you have at this point are blocking I/O calls &mdash; I/O is short for
+input/output. It essentially means we need to wait for the network or a disk
+to give our code the data to continue:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_website</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Here we have to wait; IO blocks us</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">get_links</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">add_to_db</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<p>Instead, you could do something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_website</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">get_links</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">add_to_db</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<p>For developers who want to understand how to use async/await in Python, I
+recommend &ldquo;<a href="https://realpython.com/async-io-python/">Async IO in Python: A Complete
+Walkthrough</a>&rdquo; by Brad Solomon.</p>
+<p>For non-develpers, the important take-away is that it requires additional
+development effort but you can get <strong>good speedups if blocking IO is the
+issue</strong>.</p>
+<h2 id="incoming-requests-asynchronous-vs-synchronous">Incoming Requests: Asynchronous vs synchronous</h2>
+<p>Think about how you get a website. You type in the URL in your browser, your
+browser sends a request to the website, the website gets some data to build
+the website and sends the response back. Simple enough, right?</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/05/synchronous-response.png"><img alt="Synchronous Response" src="../images/2021/05/synchronous-response.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Synchronous Response</figcaption>
+</figure>
+<p>It becomes more interesting when you realize that all of this takes time.
+Getting the data from the DB costs time. Maybe a 3rd party service is
+contacted to build the webpage for you. And you&rsquo;re not the only person using
+that website.</p>
+<p>The simplest mode of operation is to keep everything <strong>sequential</strong>. Alice
+requested the webpage first, so she gets a response first. Then Bob and then
+Charlie. But what happens if Alice wants a webpage that takes 5 seconds to
+load? Does Bob have to wait for 5 seconds before the system even starts
+working on his stuff?</p>
+<p>Of course not. The obvious first improvement is to realize that you can run
+many processes/threads in parallel. The number of concurrent threads you can
+run is typically in the order of a few dozens. That means if you have hundreds
+of requests hitting your server at the same time, <strong>multiprocessing</strong> or
+<strong>multithreading</strong> is not a solution.</p>
+<p>The next step is to start to think about which resources you run out of.
+Typically, <strong>CPU utilization</strong> is not the issue. The CPU could handle way more
+requests. The issue is that the CPU of the website does not get the data to
+process. It&rsquo;s waiting for the response from the database or from other
+services. It&rsquo;s <strong>blocked</strong> by that and simply waits.</p>
+<p>Realizing this, you can keep a list of tasks you need to do. When one task is
+blocked, it just gives away its &ldquo;right&rdquo; to execute to other services. It&rsquo;s
+acting cooperative. Welcome to <strong>coroutines</strong>.</p>
+<p>To phrase it in our example:</p>
+<ul>
+<li>The website receives Alice requests. It parses the request and realizes that
+  it needs data from the database. It sends the request to the database. But
+  the program knows that this will take a bit of time, so it let&rsquo;s other
+  people continue.</li>
+<li>The website receives Bob request. It parses the request, sends the DB
+  request and returns the power to execute.</li>
+<li>Alice DB request returned an answer. The response is crafted and Alice can continue</li>
+</ul>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/05/asynchronous-response.png"><img alt="Asynchronous Response" src="../images/2021/05/asynchronous-response.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Asynchronous Response</figcaption>
+</figure>
+<p>This makes responses faster as waiting times are reduced. Of course, this only
+matters if you have a lot of concurrent requests.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-05-26T20:00:00+02:00">Mai 26, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#concurrency-ref">Concurrency
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#parallel-execution-ref">Parallel Execution
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#programming-ref">Programming
+                    <span>51</span>
+</a></li>
+                <li><a href="../tags.html#software-development-ref">Software Development
+                    <span>14</span>
+</a></li>
+                <li><a href="../tags.html#software-engineering-ref">Software Engineering
+                    <span>18</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>

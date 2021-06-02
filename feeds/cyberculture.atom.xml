@@ -1,5 +1,467 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-05-17T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>How to use GPG</title><link href="https://martin-thoma.com/gpg/" rel="alternate"></link><published>2021-05-17T20:00:00+02:00</published><updated>2021-05-17T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-05-17:/gpg/</id><summary type="html">&lt;p&gt;Having full control over encrypted messages is sometimes just nice and crucial
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2021-05-31T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Hooks vs Callbacks vs Webhooks</title><link href="https://martin-thoma.com/hooks-vs-callbacks-vs-webhooks/" rel="alternate"></link><published>2021-05-31T20:00:00+02:00</published><updated>2021-05-31T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-05-31:/hooks-vs-callbacks-vs-webhooks/</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by Dan-Cristian Pădureț on Unsplash" src="https://cdn-images-1.medium.com/max/2550/1*4CO_tjeX_cY7AK-H-4aIMA.jpeg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@dancristianp?utm_source=medium&amp;amp;utm_medium=referral"&gt;Dan-Cristian Pădureț&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The Unix programming philosophy is to do (just) one thing but do it well.
+Focusing on one core task is hard as developers see and feel their users' pain
+points and desires. To be able to focus on the core product but allow
+additional …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Photo by Dan-Cristian Pădureț on Unsplash" src="https://cdn-images-1.medium.com/max/2550/1*4CO_tjeX_cY7AK-H-4aIMA.jpeg"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@dancristianp?utm_source=medium&amp;amp;utm_medium=referral"&gt;Dan-Cristian Pădureț&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The Unix programming philosophy is to do (just) one thing but do it well.
+Focusing on one core task is hard as developers see and feel their users' pain
+points and desires. To be able to focus on the core product but allow
+additional functions we cannot take care of, we develop plugin systems. One
+way to do this is by giving hooks.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="a-hook-is-a-way-to-extend-software"&gt;A hook is a way to extend software.&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Think about an email client. The email client might define a hook pre_send
+that receives the current receiver, subject line, and content of the email.
+Developers can use this to extend the software. You could have one plugin that
+uses this hook and adds a signature if it&amp;rsquo;s missing. Another hook could look
+for swear words and stop you from sending that email drunk at night, which you
+will regret.&lt;/p&gt;
+&lt;p&gt;Another way to extend software is by an event. An event just tells the plugin
+that something happened. A hook might allow you to stop the further execution
+flow &amp;mdash; like preventing sending the email with swear words.&lt;/p&gt;
+&lt;h2 id="callbacks"&gt;Callbacks&lt;/h2&gt;
+&lt;p&gt;Callbacks are pointers to functions. They represent a concrete function.&lt;/p&gt;
+&lt;p&gt;For example, think of a web crawler that wants to get the content of
+&lt;code&gt;many_urls&lt;/code&gt;. You could run it sequentially:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;many_urls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;get_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Or you could implement a function that executes everything in parallel for
+every argument:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;parallel_for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get_content&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;many_urls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Please note that we don&amp;rsquo;t actually call get_content in the second example. We
+pass it as a parameter to a function. When you pass a function as a parameter
+to another function, you call it a &lt;em&gt;callback&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id="callbacks-and-hooks"&gt;Callbacks and Hooks&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Callbacks can be used to implement hooks.&lt;/strong&gt; If you think again about the
+email example from above, you could implement it like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;email_client&lt;/span&gt;
+
+&lt;span class="n"&gt;email_client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register_pre_send_hook&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;add_signature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;email_client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register_pre_send_hook&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;detect_swearwords&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The developers of email_client need to provide the method
+&lt;code&gt;register_pre_send_hook&lt;/code&gt;. They need to tell you that this function expects a
+function as a parameter: A callback.&lt;/p&gt;
+&lt;p&gt;They need to tell you that they will run every given callback like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;send_email&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# Execute all registered hooks&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;hook&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;registered_hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hook&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So your hook receives an email object. It can modify this object in any way
+and overwrite the contents in any way.&lt;/p&gt;
+&lt;h2 id="webhooks"&gt;Webhooks&lt;/h2&gt;
+&lt;p&gt;Webhooks are hooks used in web services. Just like with normal hooks, you can
+extend the functionality of a web service by using hooks. For example, Slack
+allows you to post messages to an URL
+(&lt;a href="https://api.slack.com/messaging/webhooks#create_a_webhook"&gt;source&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The &amp;ldquo;pull&amp;rdquo; model is also called &amp;ldquo;polling&amp;rdquo;. For the &amp;ldquo;push&amp;rdquo; model, the server needs to know the clients. So the clients need to subscribe. For this reason, it&amp;rsquo;s also called PubSub or Publisher-Subscriber-Model. Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/4206/1*nPR87jiRz1LskYkYTdYDwQ.png"/&gt;&lt;em&gt;Two models how the client can get new information: Either the server pushes the information or the client needs to pull. The &amp;ldquo;pull&amp;rdquo; model is also called &amp;ldquo;polling&amp;rdquo;. For the &amp;ldquo;push&amp;rdquo; model, the server needs to know the clients. So the clients need to subscribe. For this reason, it&amp;rsquo;s also called PubSub or Publisher-Subscriber-Model. Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Webhooks allow websites to push information to you instead of you pulling (and
+polling) from them.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s make it more concrete. You are certainly using
+&lt;a href="https://en.wikipedia.org/wiki/Slack_(software)"&gt;Slack&lt;/a&gt;. And maybe you have a
+monitoring system like &lt;a href="https://sentry.io/welcome/"&gt;Sentry&lt;/a&gt;. Now you want a
+Slack message in a certain channel whenever Sentry finds a new issue.&lt;/p&gt;
+&lt;p&gt;The polling mechanism would be simple &amp;mdash; slack would ask Sentry every few
+seconds if there is a new message. That would consume way more resources from
+Slack and Sentry than necessary. Instead of Slack pulling messages, we want
+Sentry to push messages to Slack.&lt;/p&gt;
+&lt;p&gt;Web servers typically don&amp;rsquo;t know their clients. To be able to push information
+to Slack, this needs to change. The client (Slack) needs to subscribe to the
+server (Sentry). Slack needs to share an URL with Sentry. The code on the
+sentry might look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;subscribe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;callback_url&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;# callback_url could be&lt;/span&gt;
+    &lt;span class="c1"&gt;# https://hooks.slack.com/services/T000/B000/XXXXXXXX&lt;/span&gt;
+    &lt;span class="n"&gt;store_in_client_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;callback_url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The two parties need to agree on which format to use for exchange. In the case
+of Slack, they provide &lt;a href="https://api.slack.com/messaging/webhooks"&gt;documentation for their webhook
+system&lt;/a&gt;. Both parties can do that.
+In the end, it only matters that they agree.&lt;/p&gt;
+&lt;p&gt;When Sentry finds a new issue, they will send data to Slack:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;handle_subscribers&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;subscribers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_subscribers&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;subscriber&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;subscribers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;subscriber&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;callback_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The post method could also use the return value, but in the case of Slack,
+it&amp;rsquo;s simply ignored as far as I know.&lt;/p&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A hook is a way to extend software.&lt;/li&gt;
+&lt;li&gt;A callback is a function that is passed as a parameter to another function.&lt;/li&gt;
+&lt;li&gt;A webhook is a hook in the web. Typically used to make two distinct systems
+  communicate and typically to go away from polling towards a
+  publisher-subscriber model.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Cyberculture"></category><category term="Programming"></category><category term="Software Development"></category><category term="Software Engineering"></category><category term="Software Architecture"></category><category term="Web Development"></category></entry><entry><title>Synchronous vs Asynchronous vs Concurrent vs Parallel</title><link href="https://martin-thoma.com/synchronous-asynchronous-concurrent-parallel/" rel="alternate"></link><published>2021-05-26T20:00:00+02:00</published><updated>2021-05-26T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-05-26:/synchronous-asynchronous-concurrent-parallel/</id><summary type="html">&lt;p&gt;&lt;img alt="Photo by Edurne Chopeitia on Unsplash" src="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@edurnetx?utm_source=medium&amp;amp;utm_medium=referral"&gt;Edurne Chopeitia&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We developers like to throw around terms that feel natural to us, but are
+technical terms that most non-developers don&amp;rsquo;t use in the same way. This
+article is aimed at all the poor souls who have to deal with us, e.g. product …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Photo by Edurne Chopeitia on Unsplash" src="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui"/&gt;&lt;em&gt;Photo by &lt;a href="https://unsplash.com/@edurnetx?utm_source=medium&amp;amp;utm_medium=referral"&gt;Edurne Chopeitia&lt;/a&gt; on &lt;a href="https://unsplash.com?utm_source=medium&amp;amp;utm_medium=referral"&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We developers like to throw around terms that feel natural to us, but are
+technical terms that most non-developers don&amp;rsquo;t use in the same way. This
+article is aimed at all the poor souls who have to deal with us, e.g. product
+managers, product owners, scrum masters, business people.&lt;/p&gt;
+&lt;p&gt;After reading this article, you will understand the difference between
+synchronous vs asynchronous vs concurrent vs parallel. Let&amp;rsquo;s start!&lt;/p&gt;
+&lt;h2 id="speeding-up-execution"&gt;Speeding up Execution&lt;/h2&gt;
+&lt;p&gt;If you want a program or website to feel faster, you have various options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Better machines: Buy new hardware&lt;/li&gt;
+&lt;li&gt;Do less: Reduce the scope, simplify the business&lt;/li&gt;
+&lt;li&gt;Do the things more efficiently: Better algorithms&lt;/li&gt;
+&lt;li&gt;Do things in parallel: Make use of multiple CPU cores instead of just one&lt;/li&gt;
+&lt;li&gt;Avoid waiting times&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Especially the last point is interesting. Think about baking a cake. My oven
+takes about 15 minutes until it is at 200&amp;deg;C. It takes me about 25 minutes to
+prepare the cake and it needs to stay for 20 minutes in the oven. How long
+does it take to make the cake?&lt;/p&gt;
+&lt;p&gt;The simple way is to execute the tasks one step after each other &amp;mdash;
+sequentially:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;25 min: Prepare the dough&lt;/li&gt;
+&lt;li&gt;15 min: Pre-heat the oven&lt;/li&gt;
+&lt;li&gt;20 min: Bake in the oven&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That is 60 min to bake the cake.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="asynchronous-execution-reduces-waiting-times"&gt;Asynchronous execution reduces waiting times&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can pre-heat the oven. You don&amp;rsquo;t need to wait for it to pre-heat. This
+might mean that it stays hot for 10 minutes, but you don&amp;rsquo;t need to wait. You
+just reduced the time to make the cake from 60 minutes to 45 minutes!&lt;/p&gt;
+&lt;p&gt;But you might be able to do even more: By asking your girlfriend to help you,
+you can prepare the dough in 15 minutes instead of 25 minutes. It&amp;rsquo;s not
+exactly half of the time because there are limits in what you can do in
+parallel. That means both of you worked even longer (2x 15 minutes is 30
+minutes of work instead of just 25 minutes), but the time on the clock was
+reduced. I call the 15 minutes you actually worked &amp;ldquo;wall-clock time&amp;rdquo; and the
+combined time &amp;ldquo;execution time&amp;rdquo;. So the overall wall-clock time was reduced to
+35 minutes.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1 id="parallel-execution-reduces-wall-clock-time"&gt;Parallel execution reduces wall-clock time&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="sequential-vs-interleaved-vs-parallel"&gt;Sequential vs Interleaved vs Parallel&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;sequential&lt;/strong&gt; execution model does everything &lt;strong&gt;step-by-step&lt;/strong&gt;. The
+&lt;strong&gt;parallel&lt;/strong&gt; one does it at the &lt;strong&gt;same time&lt;/strong&gt;. The weird one is the
+interleaved execution model. It is not in parallel, but also not sequential.&lt;/p&gt;
+&lt;p&gt;Think about something that is pretty CPU intensive, e.g. extracting a big ZIP
+archive. That might block your CPU for several minutes. If things were done
+strictly sequential, you could not do anything at that time. You could not
+browse the web. You could not even move your mouse cursor. That feels not
+responsive.&lt;/p&gt;
+&lt;p&gt;Instead of doing it sequentially, we can give the mouse cursor a little bit of
+CPU time so that you can interact with the system. We stop the extraction of
+the ZIP archive several times per second to see if you moved the mouse. If you
+did, we change the position of the cursor on the screen and continue
+extracting the ZIP archive. The execution of the ZIP archive extraction and
+your mouse cursor moving is &lt;strong&gt;interleaved&lt;/strong&gt;.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2021/05/parallel-interleaved.png"&gt;&lt;img alt="Sequential vs Interleaved vs Parallel" src="../images/2021/05/parallel-interleaved.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Sequential vs Interleaved vs Parallel&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;As you can see, the execution times overlap in the parallel case. In the
+sequential execution and the interleaved execution, the execution times for
+both tasks never overlap. But the total task execution time from start to
+finish overlaps in the interleaved case, whereas task 1 needs to finish before
+task 2 can do anything in the interleaved case.&lt;/p&gt;
+&lt;p&gt;Interleaved execution is done by concurrent threads. Concurrent and
+interleaved are used (roughly) synonymously.&lt;/p&gt;
+&lt;h2 id="outgoing-requests-asynchronous-vs-synchronous"&gt;Outgoing requests: Asynchronous vs synchronous&lt;/h2&gt;
+&lt;p&gt;Suppose you write a web crawler, which means a program that should read a
+complete website. For example, you want to find interesting news stories on
+&lt;a href="https://www.nytimes.com/"&gt;nytimes.com&lt;/a&gt;. The program goes to the first page,
+extracts all interesting content and all URLs. Given every single of those
+URLs, you do the same:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the content behind the URL&lt;/li&gt;
+&lt;li&gt;Get all URLs in the content&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You do that until you have seen all URLs on nytimes.com. Of course, most of
+the time you would just wait for the network / the website to actually give
+you the content. Your CPU would not be busy all the time, your network would
+not be busy all the time. There are tiny waiting times of maybe 0.5 seconds
+for each web page. If you access 200,000 pages, those tiny waiting times
+accumulate to half an hour.&lt;/p&gt;
+&lt;p&gt;Instead of doing it sequentially, you could run things in parallel. However,
+you only have 4 cores and the level of parallelism is limited. It&amp;rsquo;s by far not
+200,000.&lt;/p&gt;
+&lt;p&gt;What you have at this point are blocking I/O calls &amp;mdash; I/O is short for
+input/output. It essentially means we need to wait for the network or a disk
+to give our code the data to continue:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_website&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Here we have to wait; IO blocks us&lt;/span&gt;
+    &lt;span class="n"&gt;links&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_links&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;add_to_db&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;links&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Instead, you could do something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_website&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;await&lt;/span&gt; &lt;span class="n"&gt;get_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;links&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_links&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;add_to_db&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;links&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For developers who want to understand how to use async/await in Python, I
+recommend &amp;ldquo;&lt;a href="https://realpython.com/async-io-python/"&gt;Async IO in Python: A Complete
+Walkthrough&lt;/a&gt;&amp;rdquo; by Brad Solomon.&lt;/p&gt;
+&lt;p&gt;For non-develpers, the important take-away is that it requires additional
+development effort but you can get &lt;strong&gt;good speedups if blocking IO is the
+issue&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id="incoming-requests-asynchronous-vs-synchronous"&gt;Incoming Requests: Asynchronous vs synchronous&lt;/h2&gt;
+&lt;p&gt;Think about how you get a website. You type in the URL in your browser, your
+browser sends a request to the website, the website gets some data to build
+the website and sends the response back. Simple enough, right?&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2021/05/synchronous-response.png"&gt;&lt;img alt="Synchronous Response" src="../images/2021/05/synchronous-response.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Synchronous Response&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;It becomes more interesting when you realize that all of this takes time.
+Getting the data from the DB costs time. Maybe a 3rd party service is
+contacted to build the webpage for you. And you&amp;rsquo;re not the only person using
+that website.&lt;/p&gt;
+&lt;p&gt;The simplest mode of operation is to keep everything &lt;strong&gt;sequential&lt;/strong&gt;. Alice
+requested the webpage first, so she gets a response first. Then Bob and then
+Charlie. But what happens if Alice wants a webpage that takes 5 seconds to
+load? Does Bob have to wait for 5 seconds before the system even starts
+working on his stuff?&lt;/p&gt;
+&lt;p&gt;Of course not. The obvious first improvement is to realize that you can run
+many processes/threads in parallel. The number of concurrent threads you can
+run is typically in the order of a few dozens. That means if you have hundreds
+of requests hitting your server at the same time, &lt;strong&gt;multiprocessing&lt;/strong&gt; or
+&lt;strong&gt;multithreading&lt;/strong&gt; is not a solution.&lt;/p&gt;
+&lt;p&gt;The next step is to start to think about which resources you run out of.
+Typically, &lt;strong&gt;CPU utilization&lt;/strong&gt; is not the issue. The CPU could handle way more
+requests. The issue is that the CPU of the website does not get the data to
+process. It&amp;rsquo;s waiting for the response from the database or from other
+services. It&amp;rsquo;s &lt;strong&gt;blocked&lt;/strong&gt; by that and simply waits.&lt;/p&gt;
+&lt;p&gt;Realizing this, you can keep a list of tasks you need to do. When one task is
+blocked, it just gives away its &amp;ldquo;right&amp;rdquo; to execute to other services. It&amp;rsquo;s
+acting cooperative. Welcome to &lt;strong&gt;coroutines&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To phrase it in our example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The website receives Alice requests. It parses the request and realizes that
+  it needs data from the database. It sends the request to the database. But
+  the program knows that this will take a bit of time, so it let&amp;rsquo;s other
+  people continue.&lt;/li&gt;
+&lt;li&gt;The website receives Bob request. It parses the request, sends the DB
+  request and returns the power to execute.&lt;/li&gt;
+&lt;li&gt;Alice DB request returned an answer. The response is crafted and Alice can continue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2021/05/asynchronous-response.png"&gt;&lt;img alt="Asynchronous Response" src="../images/2021/05/asynchronous-response.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Asynchronous Response&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This makes responses faster as waiting times are reduced. Of course, this only
+matters if you have a lot of concurrent requests.&lt;/p&gt;</content><category term="Cyberculture"></category><category term="Programming"></category><category term="Software Development"></category><category term="Software Engineering"></category><category term="Parallel Execution"></category><category term="Concurrency"></category></entry><entry><title>10 Robustness and Resiliency Design Patterns to Learn Today</title><link href="https://martin-thoma.com/10-robustness-resiliency-design-patterns/" rel="alternate"></link><published>2021-05-24T20:00:00+02:00</published><updated>2021-05-24T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-05-24:/10-robustness-resiliency-design-patterns/</id><summary type="html">&lt;p&gt;Software is correct if it acts as specified. It is robust if it can take a
+high load until it goes down. Software is resilient if it can go back to
+normal after a disruption. The disruption could be a power outage, a temporary
+network outage, a full disk, or …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Software is correct if it acts as specified. It is robust if it can take a
+high load until it goes down. Software is resilient if it can go back to
+normal after a disruption. The disruption could be a power outage, a temporary
+network outage, a full disk, or a web service that is temporarily not
+reachable. There are patterns to deal with those issues. Learn them, use them!&lt;/p&gt;
+&lt;h2 id="1-fallback"&gt;1. Fallback&lt;/h2&gt;
+&lt;p&gt;You probably know it: You&amp;rsquo;re commuting, reading your favorite articles on your
+smartphone when the connection drops. You enter your favorite blog URL &amp;mdash;
+martin-thoma.com, I hope &amp;mdash; but you only get to know that you lost the internet
+connection:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2021/05/fallback-chrome.png"&gt;&lt;img alt="Fallback option for Chrome" src="../images/2018/05/fallback-chrome.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Fallback option for Chrome&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Your browser cannot get any information from the internet without a
+connection. Obviously. But what could it do instead?&lt;/p&gt;
+&lt;p&gt;Google Chrome shows you a mini-game. It tries to inform you what you could
+possibly do to fix it and you can choose to play with the dinosaur. The
+dinosaur game is not what you wanted, but a neat fallback.&lt;/p&gt;
+&lt;p&gt;In other contexts, fallbacks are called a &amp;ldquo;fail-safe&amp;rdquo;. The &lt;a href="https://en.wikipedia.org/wiki/Dead_man%27s_switch"&gt;dead man&amp;rsquo;s
+switch&lt;/a&gt; in trains is one
+concrete example. The train driver has to press a pedal in regular intervals
+to show that he is ok and paying attention. If the train driver does not press
+the dead man&amp;rsquo;s switch, the train performs an emergency stop.&lt;/p&gt;
+&lt;h2 id="2-retry"&gt;2. Retry&lt;/h2&gt;
+&lt;p&gt;While you&amp;rsquo;re playing the mini-game, the browser can still try to get the
+website. Maybe your connection is unstable. This means you have a connection
+once in a while. The browser can try to get what you need in the background
+and support you with offline reading when you want to go back. Not ideal, but
+a good fallback. Better than the mini-game.&lt;/p&gt;
+&lt;p&gt;To get to this improved fallback, the browser has to retry to get to the website.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2021/05/error-loading-data-server.png"&gt;&lt;img alt="Image by Revansx from Wikimedia Commons" src="../images/2021/05/error-loading-data-server.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Image by &lt;a href="https://commons.wikimedia.org/wiki/User:Revansx"&gt;Revansx&lt;/a&gt; from &lt;a href="https://commons.wikimedia.org/wiki/File:Screen_Shot_06-11-19_at_09.58_AM.png"&gt;Wikimedia Commons&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Yes, that is a pattern. A trivial one, but an important one. I&amp;lsquo;ve used it when
+sending web requests. If you receive an error, try again. The Python requests
+library has a built-in
+&lt;a href="https://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter"&gt;max_retries&lt;/a&gt;
+argument for some of the error cases.&lt;/p&gt;
+&lt;p&gt;In some cases, you deal with changing state. Now it becomes tricky. Maybe you
+don&amp;rsquo;t really know if the request before failed? Can you risk executing the
+request twice? The property you want is &lt;strong&gt;idempotency&lt;/strong&gt;: f(x) = f(f(x)).
+Applying the function twice yields the same result as applying it once.&lt;/p&gt;
+&lt;p&gt;For example, if you have a money transfer like &amp;ldquo;Martin sends 50 EUR to Anna&amp;rdquo;,
+it&amp;rsquo;s not idempotent. If you have &amp;ldquo;Execute transaction XYZ, if not executed
+before&amp;rdquo;, it is. However, now you need to make sure that you have a locking
+mechanism and that all transactions have unique IDs.&lt;/p&gt;
+&lt;p&gt;Retrying to connect to a failing service comes with its own problems. You
+might make it harder for the service to get back to normal. For this reason,
+you might want to consider &lt;strong&gt;capped exponential backoff&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;max_sleep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;  &lt;span class="c1"&gt;# seconds&lt;/span&gt;
+&lt;span class="n"&gt;base_sleep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;  &lt;span class="c1"&gt;# seconds&lt;/span&gt;
+&lt;span class="n"&gt;sleep_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_sleep&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;attempts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In order to prevent multiple services essentially hitting at the same time,
+you can add a jitter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;max_sleep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;  &lt;span class="c1"&gt;# seconds&lt;/span&gt;
+&lt;span class="n"&gt;base_sleep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;  &lt;span class="c1"&gt;# seconds&lt;/span&gt;
+&lt;span class="n"&gt;jitter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# seconds&lt;/span&gt;
+
+&lt;span class="n"&gt;sleep_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_sleep&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;attempts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;jitter&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="3-timeout-and-other-resource-limitations"&gt;3. Timeout and other Resource Limitations&lt;/h2&gt;
+&lt;p&gt;At some point, you need to accept that something is broken. But when do you do
+that? A common default is to wait for a response from a web service for 30
+seconds. That is really long. In many cases, you want a timeout way sooner.
+The timeout basically means that you accept that something went wrong. After
+the timeout, you can retry or use a fallback.&lt;/p&gt;
+&lt;p&gt;Limiting the possible execution time for one function, process, or program is
+also of advantage in other situations. The Google Code Jam pops into my mind.
+It&amp;rsquo;s an open competition in which developers submit code to tasks given by
+Google. Those solutions might have flaws that lead to infinite loops. This
+means if Google executes those solutions, they need to limit the potential
+execution time.&lt;/p&gt;
+&lt;p&gt;A watchdog can monitor the responsiveness of the overall system and restart
+everything in case the system becomes unresponsive. Web services, for example,
+typically have a /health endpoint that responds with something trivial, e.g.
+the constant string "healthy" or the current system time. If the response does
+not come or takes too long, the system is marked as &amp;ldquo;unhealthy&amp;rdquo;. If it&amp;rsquo;s
+unhealthy for too long, the Docker container is restarted.&lt;/p&gt;
+&lt;p&gt;Another resource you might want to limit is memory and disk. Think about
+anti-virus software that wants to check a ZIP archive. The archive might be a
+ZIP bomb:
+&lt;a href="https://infosecwriteups.com/zip-bombs-30337a1b0112"&gt;&lt;strong&gt;ZIP Bombs 💣😈&lt;/strong&gt;
+&lt;em&gt;Make your storage explode 💥&lt;/em&gt;infosecwriteups.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;By limiting both resources you make sure you&amp;rsquo;re not vulnerable to this issue.&lt;/p&gt;
+&lt;h2 id="4-circuit-breaker"&gt;4. Circuit Breaker&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Photo of a two-pole circuit breaker on Wikimedia Commons by Dmitry G" src="https://cdn-images-1.medium.com/max/2000/0*QJlGl6Oslr7t1xeh.JPG"/&gt;&lt;em&gt;Photo of a two-pole circuit breaker on &lt;a href="https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG"&gt;Wikimedia Commons&lt;/a&gt; by &lt;a href="https://commons.wikimedia.org/wiki/User:Dmitry_G"&gt;Dmitry G&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;If something is wrong with the electricity in one room of your house, e.g. one
+part is having a short-circuit or consuming too much power, you want
+everything else to still work.&lt;/p&gt;
+&lt;p&gt;In the case of software, you might think of a web service A which uses a web
+service B. Now A notices that B starts getting slower and slower. Now A could
+just send all requests to B and handle the potential timeouts. However, it can
+also notice that B is having issues. A stops sending normal requests to B,
+giving B time to recover. This means there needs to be a mechanism to check if
+B is healthy again. That could be just a health-endpoint. Or it could be a
+throttled mode at A where response times are automatically measured.&lt;/p&gt;
+&lt;p&gt;The circuit-breaker pattern goes slightly beyond the capped exponential
+backoff with jitter. It tracks requests over multiple sources.&lt;/p&gt;
+&lt;h2 id="5-rate-limiting"&gt;5. Rate Limiting&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;ve talked about the retry pattern with capped exponential backoff and
+circuit breaker pattern as ways to be &amp;ldquo;good neighbors&amp;rdquo;, trying to protect the
+services they use.&lt;/p&gt;
+&lt;p&gt;However, not every user is such a good neighbor. They might not intentionally
+try to harm you, but maybe a developer is not aware that they are using an
+endpoint which causes a lot of work. You might want to be able to limit how
+the API is used &amp;mdash; especially if it&amp;rsquo;s public.&lt;/p&gt;
+&lt;h2 id="6-redundancy"&gt;6. Redundancy&lt;/h2&gt;
+&lt;p&gt;Servers can fail due to &lt;a href="https://www.datacenterdynamics.com/en/news/google-and-seagate-use-ai-to-predict-hard-drive-failures/"&gt;breaking hardware&lt;/a&gt;, &lt;a href="https://www.datacenterdynamics.com/en/news/texas-power-outages-bring-austin-city-data-center-offline/"&gt;power outages&lt;/a&gt;, &lt;a href="https://www.reuters.com/article/us-france-ovh-fire-idUSKBN2B20NU"&gt;a fire in the data center&lt;/a&gt;, or network outages due to construction work to name just a few reasons. Having redundancy makes the system more robust against those rare events.&lt;/p&gt;
+&lt;p&gt;For hard disks, we have various &lt;a href="https://en.wikipedia.org/wiki/Standard_RAID_levels"&gt;RAID levels&lt;/a&gt;. For APIs, we can start multiple instances and have a round-robin load balancing.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2646/1*46FG93CzACdXJiDQptl5CQ.png"/&gt;&lt;em&gt;Image by Martin Thoma&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s say each server is 99.0% available. That means it is down for 3.65 days
+each year. If you have a redundant system where servers run in parallel as
+outlined above, the service is still up when at least one server is up. That
+means the availability increases to 1-(1-p)^n where n is the number of servers
+and p is the availability of one server. Let&amp;rsquo;s see how those numbers change
+with n:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n=1: The service is 99.0% available. That&amp;rsquo;s 3.65 days of downtime per year.&lt;/li&gt;
+&lt;li&gt;n=2: The service is 99.99% (&amp;ldquo;four nines&amp;rdquo;) available. That&amp;rsquo;s 52 minutes of
+  downtime per year.&lt;/li&gt;
+&lt;li&gt;n=3: The service is 99.9999% (&amp;ldquo;six nines&amp;rdquo;) available. That&amp;rsquo;s 31 seconds of
+  downtime per year.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This assumes that a single server going down does not harm the others &amp;mdash; which
+is unlikely, as the load will increase.&lt;/p&gt;
+&lt;p&gt;You should also note that this is for services that run in parallel and can
+replace each other. If you have services that rely on each other the formula
+changes to &lt;span class="math"&gt;\(p^n\)&lt;/span&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n=1: The service is 99.0% available. That&amp;rsquo;s 3.65 days of downtime per year.&lt;/li&gt;
+&lt;li&gt;n=2: The service is 98.01% available. That&amp;rsquo;s 7.27 days of downtime per year.&lt;/li&gt;
+&lt;li&gt;n=3: The service is 97.03% available. That&amp;rsquo;s 10.8 days of downtime per year.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Spinning up such parallel machines is easy if you don&amp;rsquo;t need to store or
+modify state. It&amp;rsquo;s a lot harder for databases.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve mainly written about servers here, but you can also think of
+&lt;strong&gt;error-correcting codes&lt;/strong&gt; in the case of network communication and storage
+also is the redundancy pattern.&lt;/p&gt;
+&lt;h2 id="7-bulkhead"&gt;7. Bulkhead&lt;/h2&gt;
+&lt;p&gt;Bulkheads provide boundaries across which failures do not propagate. For
+example, think of YouTube. Users can upload videos and the videos get
+re-encoded. Executing this task on a separate machine guarantees that no
+issues with disk space, memory usage, CPU usage, and potential exploits in the
+used libraries affect the rest of the system. Having the software run of a
+separate machine is one form of sandboxing. We can guarantee by this strong
+isolation that this single feature will not affect others.&lt;/p&gt;
+&lt;h2 id="8-caching"&gt;8. Caching&lt;/h2&gt;
+&lt;p&gt;I have a love-hate relationship with caching. On the one hand, caches reduce
+the load on your servers A LOT. They provide a nice fallback as well. On the
+other hand, you need to deal with inconsistencies introduced by caching. Maybe
+you need to explicitly invalidate the caches.&lt;/p&gt;
+&lt;p&gt;&lt;a href="undefined"&gt;Adrian Hornsby&lt;/a&gt; wrote a nice article about caching for resilience:
+&lt;a href="https://medium.com/the-cloud-architect/patterns-for-resilient-architecture-part-4-85afa66d6341"&gt;&lt;strong&gt;Patterns for Resilient Architecture &amp;mdash; Part 4&lt;/strong&gt;
+&lt;em&gt;Caching for Resiliency&lt;/em&gt;medium.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="9-boundary-validation"&gt;9. Boundary Validation&lt;/h2&gt;
+&lt;p&gt;You want to make sure that the input to your service is structured as expected
+and that you provide the output you promised. You can use libraries like
+&lt;a href="https://pypi.org/project/pydantic/"&gt;pydantic&lt;/a&gt; to clearly define models of
+what you expect as input. Checking parameters is important. If something is
+not as expected, you should fail early. If an external API has changed its
+response types, e.g. from float to string, you want to know this early. In the
+best case, you can even convert it automatically. If you received a complex
+dictionary and the service changed deep down how the response is structured,
+having clear models helps a lot.&lt;/p&gt;
+&lt;p&gt;For external systems, you want to clearly separate the input model from the
+rest. This should at least be its own module or class. If it&amp;rsquo;s something
+bigger, maybe even its own library or an internal service that wraps the
+external service.&lt;/p&gt;
+&lt;h2 id="10-rollbacks"&gt;10. Rollbacks&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s not always the external world that makes our software fail. Programming
+mistakes we developers introduce have their fair share as well. In fact, I
+would argue that no non-trivial system is bug-free. Some bugs are acceptable,
+others are not. And some bugs are so problematic, that they need to be fixed
+ASAP.&lt;/p&gt;
+&lt;p&gt;This is where rollbacks come into play. A rollback means to jump back to a
+stable system state. I know them from two fronts: Either from a version
+control system like git where a previous release that is known to work is
+restored. Or from a systems perspective, e.g. using the &lt;a href="https://en.wikipedia.org/wiki/OpenShift"&gt;OpenShift Container
+Platform&lt;/a&gt;. Every service is running
+in a Docker container. Updating a service means adding a new image and
+changing the service:latest tag. If a service is never healthy, the last known
+healthy image is used.&lt;/p&gt;
+&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
+&lt;p&gt;The presented design patterns can be grouped:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Detection&lt;/strong&gt;: Get to know that something is wrong. &lt;code&gt;Timeouts&lt;/code&gt; and
+  &lt;code&gt;Checksumsare&lt;/code&gt; in this category.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Containment&lt;/strong&gt;: Make sure the errors don&amp;rsquo;t affect other systems and limit
+  the impact on the user. The patterns in this category are &lt;code&gt;Fallback&lt;/code&gt;,
+  &lt;code&gt;Resource Limitation&lt;/code&gt;, &lt;code&gt;Circuit Breaker&lt;/code&gt;, &lt;code&gt;Bulkhead&lt;/code&gt;, &lt;code&gt;Caching&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recovery&lt;/strong&gt;: Get back up. Retry and Rollback are in this category&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prevention&lt;/strong&gt;: Avoid getting into trouble in the first place. &lt;code&gt;Rate
+  Limiting&lt;/code&gt;, &lt;code&gt;Redundancy&lt;/code&gt;, &lt;code&gt;Caching&lt;/code&gt;, and &lt;code&gt;Boundary Validation&lt;/code&gt; do that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope this was helpful to you!&lt;/p&gt;
+&lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="undefined"&gt;Sazzad Hissain Khan&lt;/a&gt;: &amp;ldquo;&lt;a href="https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49"&gt;Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance&lt;/a&gt;&amp;rdquo;, 2019.&lt;/li&gt;
+&lt;li&gt;Saurabh Hukerikar, Christian Engelmann: &amp;ldquo;&lt;a href="https://www.osti.gov/servlets/purl/1407767"&gt;Resilience Design Patterns: A Structured Approach to Resilience at Extreme Scale&lt;/a&gt;&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Cyberculture"></category><category term="Rating"></category></entry><entry><title>How to use GPG</title><link href="https://martin-thoma.com/gpg/" rel="alternate"></link><published>2021-05-17T20:00:00+02:00</published><updated>2021-05-17T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2021-05-17:/gpg/</id><summary type="html">&lt;p&gt;Having full control over encrypted messages is sometimes just nice and crucial
 in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is
 a commonly used tool to encrypt, decrypt, and sign secrets.&lt;/p&gt;
 &lt;p&gt;After reading this article, you will know how to use GPG. Let&amp;rsquo;s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having full control over encrypted messages is sometimes just nice and crucial

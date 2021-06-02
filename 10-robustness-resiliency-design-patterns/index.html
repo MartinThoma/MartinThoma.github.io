@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Rating, Cyberculture, " />
+
+<meta property="og:title" content="10 Robustness and Resiliency Design Patterns to Learn Today "/>
+<meta property="og:url" content="10-robustness-resiliency-design-patterns/" />
+<meta property="og:description" content="Software is correct if it acts as specified. It is robust if it can take a high load until it goes down. Software is resilient if it can go back to normal after a disruption. The disruption could be a power outage, a temporary network outage, a full disk, or …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-05-24T20:00:00+02:00" />
+<meta name="twitter:title" content="10 Robustness and Resiliency Design Patterns to Learn Today ">
+<meta name="twitter:description" content="Software is correct if it acts as specified. It is robust if it can take a high load until it goes down. Software is resilient if it can go back to normal after a disruption. The disruption could be a power outage, a temporary network outage, a full disk, or …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>10 Robustness and Resiliency Design Patterns to Learn Today  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../10-robustness-resiliency-design-patterns/">10 Robustness and Resiliency Design Patterns to Learn Today</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="10 Robustness and Resiliency Design Patterns to Learn Today">10 Robustness and Resiliency Design Patterns to Learn Today</a><ul><li><a class="toc-href" href="#1-fallback" title="1. Fallback">1. Fallback</a></li><li><a class="toc-href" href="#2-retry" title="2. Retry">2. Retry</a></li><li><a class="toc-href" href="#3-timeout-and-other-resource-limitations" title="3. Timeout and other Resource Limitations">3. Timeout and other Resource Limitations</a></li><li><a class="toc-href" href="#4-circuit-breaker" title="4. Circuit Breaker">4. Circuit Breaker</a></li><li><a class="toc-href" href="#5-rate-limiting" title="5. Rate Limiting">5. Rate Limiting</a></li><li><a class="toc-href" href="#6-redundancy" title="6. Redundancy">6. Redundancy</a></li><li><a class="toc-href" href="#7-bulkhead" title="7. Bulkhead">7. Bulkhead</a></li><li><a class="toc-href" href="#8-caching" title="8. Caching">8. Caching</a></li><li><a class="toc-href" href="#9-boundary-validation" title="9. Boundary Validation">9. Boundary Validation</a></li><li><a class="toc-href" href="#10-rollbacks" title="10. Rollbacks">10. Rollbacks</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Software is correct if it acts as specified. It is robust if it can take a
+high load until it goes down. Software is resilient if it can go back to
+normal after a disruption. The disruption could be a power outage, a temporary
+network outage, a full disk, or a web service that is temporarily not
+reachable. There are patterns to deal with those issues. Learn them, use them!</p>
+<h2 id="1-fallback">1. Fallback</h2>
+<p>You probably know it: You&rsquo;re commuting, reading your favorite articles on your
+smartphone when the connection drops. You enter your favorite blog URL &mdash;
+martin-thoma.com, I hope &mdash; but you only get to know that you lost the internet
+connection:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/05/fallback-chrome.png"><img alt="Fallback option for Chrome" src="../images/2018/05/fallback-chrome.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Fallback option for Chrome</figcaption>
+</figure>
+<p>Your browser cannot get any information from the internet without a
+connection. Obviously. But what could it do instead?</p>
+<p>Google Chrome shows you a mini-game. It tries to inform you what you could
+possibly do to fix it and you can choose to play with the dinosaur. The
+dinosaur game is not what you wanted, but a neat fallback.</p>
+<p>In other contexts, fallbacks are called a &ldquo;fail-safe&rdquo;. The <a href="https://en.wikipedia.org/wiki/Dead_man%27s_switch">dead man&rsquo;s
+switch</a> in trains is one
+concrete example. The train driver has to press a pedal in regular intervals
+to show that he is ok and paying attention. If the train driver does not press
+the dead man&rsquo;s switch, the train performs an emergency stop.</p>
+<h2 id="2-retry">2. Retry</h2>
+<p>While you&rsquo;re playing the mini-game, the browser can still try to get the
+website. Maybe your connection is unstable. This means you have a connection
+once in a while. The browser can try to get what you need in the background
+and support you with offline reading when you want to go back. Not ideal, but
+a good fallback. Better than the mini-game.</p>
+<p>To get to this improved fallback, the browser has to retry to get to the website.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/05/error-loading-data-server.png"><img alt="Image by Revansx from Wikimedia Commons" src="../images/2021/05/error-loading-data-server.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Image by <a href="https://commons.wikimedia.org/wiki/User:Revansx">Revansx</a> from <a href="https://commons.wikimedia.org/wiki/File:Screen_Shot_06-11-19_at_09.58_AM.png">Wikimedia Commons</a></figcaption>
+</figure>
+<p>Yes, that is a pattern. A trivial one, but an important one. I&lsquo;ve used it when
+sending web requests. If you receive an error, try again. The Python requests
+library has a built-in
+<a href="https://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter">max_retries</a>
+argument for some of the error cases.</p>
+<p>In some cases, you deal with changing state. Now it becomes tricky. Maybe you
+don&rsquo;t really know if the request before failed? Can you risk executing the
+request twice? The property you want is <strong>idempotency</strong>: f(x) = f(f(x)).
+Applying the function twice yields the same result as applying it once.</p>
+<p>For example, if you have a money transfer like &ldquo;Martin sends 50 EUR to Anna&rdquo;,
+it&rsquo;s not idempotent. If you have &ldquo;Execute transaction XYZ, if not executed
+before&rdquo;, it is. However, now you need to make sure that you have a locking
+mechanism and that all transactions have unique IDs.</p>
+<p>Retrying to connect to a failing service comes with its own problems. You
+might make it harder for the service to get back to normal. For this reason,
+you might want to consider <strong>capped exponential backoff</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">max_sleep</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># seconds</span>
+<span class="n">base_sleep</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># seconds</span>
+<span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_sleep</span><span class="p">,</span> <span class="n">base</span> <span class="o">**</span> <span class="n">attempts</span><span class="p">)</span>
+</code></pre></div>
+<p>In order to prevent multiple services essentially hitting at the same time,
+you can add a jitter:</p>
+<div class="highlight"><pre><span></span><code><span class="n">max_sleep</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># seconds</span>
+<span class="n">base_sleep</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># seconds</span>
+<span class="n">jitter</span> <span class="o">=</span> <span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># seconds</span>
+
+<span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_sleep</span><span class="p">,</span> <span class="n">base</span> <span class="o">**</span> <span class="n">attempts</span><span class="p">)</span> <span class="o">+</span> <span class="n">jitter</span>
+</code></pre></div>
+<h2 id="3-timeout-and-other-resource-limitations">3. Timeout and other Resource Limitations</h2>
+<p>At some point, you need to accept that something is broken. But when do you do
+that? A common default is to wait for a response from a web service for 30
+seconds. That is really long. In many cases, you want a timeout way sooner.
+The timeout basically means that you accept that something went wrong. After
+the timeout, you can retry or use a fallback.</p>
+<p>Limiting the possible execution time for one function, process, or program is
+also of advantage in other situations. The Google Code Jam pops into my mind.
+It&rsquo;s an open competition in which developers submit code to tasks given by
+Google. Those solutions might have flaws that lead to infinite loops. This
+means if Google executes those solutions, they need to limit the potential
+execution time.</p>
+<p>A watchdog can monitor the responsiveness of the overall system and restart
+everything in case the system becomes unresponsive. Web services, for example,
+typically have a /health endpoint that responds with something trivial, e.g.
+the constant string "healthy" or the current system time. If the response does
+not come or takes too long, the system is marked as &ldquo;unhealthy&rdquo;. If it&rsquo;s
+unhealthy for too long, the Docker container is restarted.</p>
+<p>Another resource you might want to limit is memory and disk. Think about
+anti-virus software that wants to check a ZIP archive. The archive might be a
+ZIP bomb:
+<a href="https://infosecwriteups.com/zip-bombs-30337a1b0112"><strong>ZIP Bombs 💣😈</strong>
+<em>Make your storage explode 💥</em>infosecwriteups.com</a></p>
+<p>By limiting both resources you make sure you&rsquo;re not vulnerable to this issue.</p>
+<h2 id="4-circuit-breaker">4. Circuit Breaker</h2>
+<p><img alt="Photo of a two-pole circuit breaker on Wikimedia Commons by Dmitry G" src="https://cdn-images-1.medium.com/max/2000/0*QJlGl6Oslr7t1xeh.JPG"/><em>Photo of a two-pole circuit breaker on <a href="https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG">Wikimedia Commons</a> by <a href="https://commons.wikimedia.org/wiki/User:Dmitry_G">Dmitry G</a></em></p>
+<p>If something is wrong with the electricity in one room of your house, e.g. one
+part is having a short-circuit or consuming too much power, you want
+everything else to still work.</p>
+<p>In the case of software, you might think of a web service A which uses a web
+service B. Now A notices that B starts getting slower and slower. Now A could
+just send all requests to B and handle the potential timeouts. However, it can
+also notice that B is having issues. A stops sending normal requests to B,
+giving B time to recover. This means there needs to be a mechanism to check if
+B is healthy again. That could be just a health-endpoint. Or it could be a
+throttled mode at A where response times are automatically measured.</p>
+<p>The circuit-breaker pattern goes slightly beyond the capped exponential
+backoff with jitter. It tracks requests over multiple sources.</p>
+<h2 id="5-rate-limiting">5. Rate Limiting</h2>
+<p>We&rsquo;ve talked about the retry pattern with capped exponential backoff and
+circuit breaker pattern as ways to be &ldquo;good neighbors&rdquo;, trying to protect the
+services they use.</p>
+<p>However, not every user is such a good neighbor. They might not intentionally
+try to harm you, but maybe a developer is not aware that they are using an
+endpoint which causes a lot of work. You might want to be able to limit how
+the API is used &mdash; especially if it&rsquo;s public.</p>
+<h2 id="6-redundancy">6. Redundancy</h2>
+<p>Servers can fail due to <a href="https://www.datacenterdynamics.com/en/news/google-and-seagate-use-ai-to-predict-hard-drive-failures/">breaking hardware</a>, <a href="https://www.datacenterdynamics.com/en/news/texas-power-outages-bring-austin-city-data-center-offline/">power outages</a>, <a href="https://www.reuters.com/article/us-france-ovh-fire-idUSKBN2B20NU">a fire in the data center</a>, or network outages due to construction work to name just a few reasons. Having redundancy makes the system more robust against those rare events.</p>
+<p>For hard disks, we have various <a href="https://en.wikipedia.org/wiki/Standard_RAID_levels">RAID levels</a>. For APIs, we can start multiple instances and have a round-robin load balancing.</p>
+<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2646/1*46FG93CzACdXJiDQptl5CQ.png"/><em>Image by Martin Thoma</em></p>
+<p>Let&rsquo;s say each server is 99.0% available. That means it is down for 3.65 days
+each year. If you have a redundant system where servers run in parallel as
+outlined above, the service is still up when at least one server is up. That
+means the availability increases to 1-(1-p)^n where n is the number of servers
+and p is the availability of one server. Let&rsquo;s see how those numbers change
+with n:</p>
+<ul>
+<li>n=1: The service is 99.0% available. That&rsquo;s 3.65 days of downtime per year.</li>
+<li>n=2: The service is 99.99% (&ldquo;four nines&rdquo;) available. That&rsquo;s 52 minutes of
+  downtime per year.</li>
+<li>n=3: The service is 99.9999% (&ldquo;six nines&rdquo;) available. That&rsquo;s 31 seconds of
+  downtime per year.</li>
+</ul>
+<p>This assumes that a single server going down does not harm the others &mdash; which
+is unlikely, as the load will increase.</p>
+<p>You should also note that this is for services that run in parallel and can
+replace each other. If you have services that rely on each other the formula
+changes to <span class="math">\(p^n\)</span>:</p>
+<ul>
+<li>n=1: The service is 99.0% available. That&rsquo;s 3.65 days of downtime per year.</li>
+<li>n=2: The service is 98.01% available. That&rsquo;s 7.27 days of downtime per year.</li>
+<li>n=3: The service is 97.03% available. That&rsquo;s 10.8 days of downtime per year.</li>
+</ul>
+<p>Spinning up such parallel machines is easy if you don&rsquo;t need to store or
+modify state. It&rsquo;s a lot harder for databases.</p>
+<p>I&rsquo;ve mainly written about servers here, but you can also think of
+<strong>error-correcting codes</strong> in the case of network communication and storage
+also is the redundancy pattern.</p>
+<h2 id="7-bulkhead">7. Bulkhead</h2>
+<p>Bulkheads provide boundaries across which failures do not propagate. For
+example, think of YouTube. Users can upload videos and the videos get
+re-encoded. Executing this task on a separate machine guarantees that no
+issues with disk space, memory usage, CPU usage, and potential exploits in the
+used libraries affect the rest of the system. Having the software run of a
+separate machine is one form of sandboxing. We can guarantee by this strong
+isolation that this single feature will not affect others.</p>
+<h2 id="8-caching">8. Caching</h2>
+<p>I have a love-hate relationship with caching. On the one hand, caches reduce
+the load on your servers A LOT. They provide a nice fallback as well. On the
+other hand, you need to deal with inconsistencies introduced by caching. Maybe
+you need to explicitly invalidate the caches.</p>
+<p><a href="undefined">Adrian Hornsby</a> wrote a nice article about caching for resilience:
+<a href="https://medium.com/the-cloud-architect/patterns-for-resilient-architecture-part-4-85afa66d6341"><strong>Patterns for Resilient Architecture &mdash; Part 4</strong>
+<em>Caching for Resiliency</em>medium.com</a></p>
+<h2 id="9-boundary-validation">9. Boundary Validation</h2>
+<p>You want to make sure that the input to your service is structured as expected
+and that you provide the output you promised. You can use libraries like
+<a href="https://pypi.org/project/pydantic/">pydantic</a> to clearly define models of
+what you expect as input. Checking parameters is important. If something is
+not as expected, you should fail early. If an external API has changed its
+response types, e.g. from float to string, you want to know this early. In the
+best case, you can even convert it automatically. If you received a complex
+dictionary and the service changed deep down how the response is structured,
+having clear models helps a lot.</p>
+<p>For external systems, you want to clearly separate the input model from the
+rest. This should at least be its own module or class. If it&rsquo;s something
+bigger, maybe even its own library or an internal service that wraps the
+external service.</p>
+<h2 id="10-rollbacks">10. Rollbacks</h2>
+<p>It&rsquo;s not always the external world that makes our software fail. Programming
+mistakes we developers introduce have their fair share as well. In fact, I
+would argue that no non-trivial system is bug-free. Some bugs are acceptable,
+others are not. And some bugs are so problematic, that they need to be fixed
+ASAP.</p>
+<p>This is where rollbacks come into play. A rollback means to jump back to a
+stable system state. I know them from two fronts: Either from a version
+control system like git where a previous release that is known to work is
+restored. Or from a systems perspective, e.g. using the <a href="https://en.wikipedia.org/wiki/OpenShift">OpenShift Container
+Platform</a>. Every service is running
+in a Docker container. Updating a service means adding a new image and
+changing the service:latest tag. If a service is never healthy, the last known
+healthy image is used.</p>
+<h2 id="summary">Summary</h2>
+<p>The presented design patterns can be grouped:</p>
+<ul>
+<li><strong>Detection</strong>: Get to know that something is wrong. <code>Timeouts</code> and
+  <code>Checksumsare</code> in this category.</li>
+<li><strong>Containment</strong>: Make sure the errors don&rsquo;t affect other systems and limit
+  the impact on the user. The patterns in this category are <code>Fallback</code>,
+  <code>Resource Limitation</code>, <code>Circuit Breaker</code>, <code>Bulkhead</code>, <code>Caching</code></li>
+<li><strong>Recovery</strong>: Get back up. Retry and Rollback are in this category</li>
+<li><strong>Prevention</strong>: Avoid getting into trouble in the first place. <code>Rate
+  Limiting</code>, <code>Redundancy</code>, <code>Caching</code>, and <code>Boundary Validation</code> do that.</li>
+</ul>
+<p>I hope this was helpful to you!</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="undefined">Sazzad Hissain Khan</a>: &ldquo;<a href="https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49">Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance</a>&rdquo;, 2019.</li>
+<li>Saurabh Hukerikar, Christian Engelmann: &ldquo;<a href="https://www.osti.gov/servlets/purl/1407767">Resilience Design Patterns: A Structured Approach to Resilience at Extreme Scale</a>&rdquo;</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-05-24T20:00:00+02:00">Mai 24, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#rating-ref">Rating
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
