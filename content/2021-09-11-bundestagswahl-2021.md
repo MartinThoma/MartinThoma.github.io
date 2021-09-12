@@ -11,14 +11,37 @@ featured_image: logos/star.png
 ---
 Die [Bundestagswahl 2021](https://de.wikipedia.org/wiki/Bundestagswahl_2021) findet am 26. September 2021 statt.
 
+Seit März 2020 dominiert die [COVID-19-Pandemie](https://de.wikipedia.org/wiki/COVID-19-Pandemie) das Weltgeschehen. Spätestens seit 2005 mit dem [Kyoto-Protokoll](https://de.wikipedia.org/wiki/Kyoto-Protokoll) muss auch jedem Politiker klar sein, dass die [globale Erwährmung](https://de.wikipedia.org/wiki/Globale_Erw%C3%A4rmung) ein riesiges Problem ist.
+
 ## Themen
 
-Themen die aus meiner Sicht für die Zukunft interessant sind:
+Folgendes sind die großen Themen die aus meiner Sicht für die Zukunft interessant sind:
 
-* Klimawandel:
-* Wohnen: Mieten, Vermieten, Bauen, Renovieren
+* **Klimawandel**:
+    * Wie können wir in Deutschland unseren CO<sub>2</sub>-Fußabdruck reduzieren?
+    * Wie können wir einen positiven Einfluss auf den CO<sub>2</sub>-Fußabdruck der Welt nehmen?
+* **Mittelschicht**: Eine gesunde Gesellschaft muss eine starke Mittelschicht haben. Das heißt für mich, dass ein Großteil der Menschen über einer gewissen Einkommensschwelle liegen muss. Der [Armuts- und Reichtumsbericht der Bundesregierung](https://de.wikipedia.org/wiki/Armuts-_und_Reichtumsbericht_der_Bundesregierung) nimmt 60% des Median-Einkommens als Schwelle. 2021 wäre man also mit einem Monatseinkommen von TODO über dieser Schwelle. Es waren also TODO arm.
+* **Wohnen**: Mieten, Vermieten, Bauen, Renovieren: Wie schaffen wir es, Wohnraum in den Stätten günstiger zu machen / die Preissteigerungen zu begrenzen?
+* **Rente**: Wie schaffen wir es, den Menschen eine Rentezu geben die zum Leben genügt?
 
 
+### Digitaler Wandel
+
+* Wie bekommen wir eine schnelle, günstige, und zuverlässige Internetverbindung Flächendeckend in Deutschland?
+* Wie nutzen wir neue Möglichkeiten in den Prozessen, z.B.
+    * Allgemeine Behördengänge, z.B. Einwohnermeldeamt
+    * Steuererklärung (Elster)
+    * Behördeninterne Kommunikation und Datenhaltung
+* Open Source:
+* Bildung: Wie schaffen wir freie Lerninhalte (Open Education)
+
+### Urheberrecht
+
+TODO
+
+### Korruption & Demokratie
+
+TODO
 
 ## Parteien
 
@@ -186,13 +209,18 @@ Im Folgenden will ich nun für die genannten Themen sehen was die Parteien plane
 
 ### CSU-Fraktion
 
-Die CDU/CSU hat von 2005 - 2021 insgesamt 4 Kabitette gestellt.
+Die CDU/CSU hat von 2005 - 2021 insgesamt vier Kabinette gestellt.
 
-Das [Wahlprogramm der CDU/CSU](https://www.abgeordnetenwatch.de/sites/default/files/election-program-files/CDU-CSU_Wahlprogramm_BTW2021.pdf) hat 140 Seiten. Da die CDU/CSU seit
+Schauen wir uns mal vergangene Wahlversprechen aus der Wahl 2017 an:
 
+* **Elektronisches Bürgerkonto**<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>: Die CDU/CSU wollte ein elektronisches Bürgerkonto einführen, über welches man z.B. einen Antrag auf Kindergeld machen kann. Soweit ich weiß gibt es keinen einzelnen Dienst über den man alles machen kann. Das für mich relevanteste Projekt ist [Elster](https://de.wikipedia.org/wiki/Elster_(Software)). Hier vermute ich mal, dass man es der CSU zuschreiben kann. Es wundert mich allerdings, dass sich die CSU nicht selbst mit diesen Federn schmückt; eventuell kommt es also doch woanders her?
+* **Flächendeckender Glasfaser-Ausbau**<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup> bis 2025: 8.3 Millionen Haushalte von 41.5 Millionen Haushalten haben aktuell Glasfaser-Zugang<sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup>. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen<sup id="fnref-3"><a class="footnote-ref" href="#fn-3">3</a></sup>. Für mich sieht es nicht so aus als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
+* **Vorreiter beim 5G-Ausbau**<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup> bis 2025:
+* **Bildungscloud**<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>: Sehr gute Ideen, allerdings ungenügende Umsetzung.
+
+Das [Wahlprogramm der CDU/CSU](https://www.abgeordnetenwatch.de/sites/default/files/election-program-files/CDU-CSU_Wahlprogramm_BTW2021.pdf) hat 140 Seiten.
 
 Negativ aufgefallen ist mir der Abschnitt "Gefahrenabwehr im Cyberraum". Allein schon der Titel. WTF. Was ist denn bitte der "Cyberraum"? Ich vermute das liegt irgendwo im Neuland?
-
 
 Skandale:
 
@@ -202,6 +230,117 @@ Skandale:
 * [Bundestrojaner](https://de.wikipedia.org/wiki/Online-Durchsuchung_(Deutschland))
 * [Wirecard](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag)
 
+Kritikpunkte:
+
+* Kohleförderung
+* Festhalten am Benziner - könnte ja Arbeitsplätze kosten
+    * Umgang mit Elktromobilität
+* Verhindern der Windkraft (was ist hier mit den Arbeitsplätzen?)
+* Blasphemie-Paragraph
+* Vollverschleierungsverbot
+* Auseinandersetzung mit Kritik: Rezo
+* PKW-Maut
+* Vorratsdatenspeicherung
+* Evakuierung Afghanistan
+* TTIP
+
 ## SPD
 
-* [Wirecard](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag)
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6Kwx8nanRSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Die SPD hat kein eigenes Video mit ihrem Wahlprogramm, nur "[Scholz packt das an.](https://www.youtube.com/watch?v=6Kwx8nanRSo)". Da will ich mal kurz an den [Brechmittel-Einsatz 2001](https://taz.de/Brechmitteleinsatz-in-Hamburg/!5143440/), die [Cum-Ex-Affäre der Warburg-Bank 2016](https://de.wikipedia.org/wiki/Olaf_Scholz#Cum-Ex-Gesch%C3%A4fte_der_Warburg_Bank), dem [Wirecard-Skandal 2018-2020](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag), sowie dem sich anbahnenden [FIU/Geldwäscheskandal 2021](https://www.t-online.de/nachrichten/deutschland/innenpolitik/id_90783220/opposition-wirft-scholz-mitverantwortung-in-geldwaesche-skandal-vor.html) bedenkt. Das ist die Galleonsfigur, die sich die SPD ausgesucht hat.
+
+
+## FDP
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6SPKfiz8Zq8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Freiheit ist ein Kernmotiv der Politik der FDP.
+
+* Rentenreform
+* Gegen Urheberrechtsreform
+* Cannabis-Legalisierung
+* Gleichstellung von gleichgeschlechtlichen Paaren
+* Gegen Vorratsdatenspeicherung
+
+## AfD
+
+Die sogennante [Alternative für Deutschland](https://de.wikipedia.org/wiki/Alternative_f%C3%BCr_Deutschland),
+kurz AfD, ist aus meiner Sicht aus einigen Gründen nicht wählbar.
+
+Ein kurzer Blick ins [Wahlprogramm](https://www.afd.de/wahlprogramm/):
+
+> Es ist bis heute nicht nachgewiesen, dass der Mensch, insbesondere die
+> Industrie, für den Wandel des Klimas maßgeblich verantwortlich ist.
+
+Das ist falsch. Exemplarisch wäre hier:
+
+* [Oreskes](https://de.wikipedia.org/wiki/Naomi_Oreskes): [The Scientific Consensus on Climate Change](https://www.science.org/doi/full/10.1126/science.1103618), [Science](https://de.wikipedia.org/wiki/Science), 2004
+* [Cook](https://www.monash.edu/mcccrh/people/john-cook), [Oreskes](https://de.wikipedia.org/wiki/Naomi_Oreskes), Doran, et al: [Consensus on consensus: a synthesis of consensus estimates on human-caused global warming](https://iopscience.iop.org/article/10.1088/1748-9326/11/4/048002), [Environmental Research Letters](https://de.wikipedia.org/wiki/Environmental_Research_Letters), 2016
+* [Anderegg](http://www.anderegglab.net/), [Prall](https://www.eecg.utoronto.ca/~prall/), Harold et al: [Expert credibility in climate change.](https://www.pnas.org/content/107/27/12107.short), [Proceedings of the National Academy of Sciences](https://de.wikipedia.org/wiki/Proceedings_of_the_National_Academy_of_Sciences_of_the_United_States_of_America), 2010
+
+Allein diese offensichtliche Leugnung der Realität macht die Partei unwählbar.
+Wer nicht in der realen Welt lebt kann deren Probleme auch nicht lösen.
+Da will ich gar nicht weiter auf das rechtsradikale Gedankengut eingehen.
+
+## Die Linke
+
+[Die Linke](https://de.wikipedia.org/wiki/Die_Linke) hat 2008 ein [100-Punkte Programm](https://www.linksfraktion.de/themen/positionspapiere/detail/das-100-punkte-programm-1/) veröffentlicht, welches immer noch verschiedene Grundgedanken gut zusammenfasst. Exemplarisch halte ich folgende für erwähnenswert:
+
+> 1: Krieg ist kein Mittel der Politik.
+>
+> ...
+>
+> 10: Eine global wirkende Kartellbehörde setzt den multinationalen Konzernen Schranken.
+>
+> ...
+>
+> 18: Die Europäische Zentralbank wird auf Wachstum und Beschäftigung verpflichtet.
+>
+> ...
+>
+> 38: Massenentlassungen bei gleichzeitig hohen Gewinnen werden genehmigungspflichtig.
+>
+> ...
+>
+> 40: Öffentliche Fördergelder werden als Unternehmensbeteiligungen vergeben.
+>
+> ...
+>
+> 71: Deutsche Staatsangehörige werden unabhängig von ihrem tatsächlichen Wohnsitz oder gewöhnlichen Aufenthalt mit ihrem Einkommen in Deutschland steuerpflichtig.
+>
+> ...
+>
+> 74: Steuerpflichtige mit einem Einkommen von mehr als 500.000 Euro werden regelmäßig geprüft.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XVehiXiyJ74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+"Gerechtigkeit" ist ein Kernmotiv linker Politik. Seit Jahren ist Altersarmut, die Unterstützung des "kleinen Mannes" (z.B. Geringverdiener, Mieter, Minderheiten), mehr Kontrolle von Priviligierten (Große Firmen, Personen mit Einkommen über TODO). Frieden ist auch seit Jahrzehnten ein großes Anliegen der Linken.
+
+
+
+
+* Entlastung von Geringverdienern
+* Vermögenssteuer
+* Bildungspolitik
+* Konsequente Umweltpolitk
+* Gegen NATO
+* Keine gute Abgrenzung von Kuba
+
+## Grüne
+
+* Homöpathie
+* Enthaltung / Befürwortung von Urheberrechtsreform
+* Hambacher Forst
+
+## Piraten
+
+## Die Partei
+
+* Urheberrechtsreform
+
+## Einzelnachweise
+
+[^1] cdu.de: [Chancen im digitalen Zeitalter nutzen](https://archiv.cdu.de/artikel/chancen-im-digitalen-zeitalter-nutzen), 2017.
+[^2] Volker Briegleb: [Glasfaser-Ausbau in Deutschland: "Der Markt funktioniert"](https://www.heise.de/news/Glasfaser-Ausbau-in-Deutschland-Der-Markt-funktioniert-6149233.html), 2021.
+[^3] Deutscher Bundestag: [11,8 Prozent der Haushalte mit Glasfaseranschluss](https://www.bundestag.de/presse/hib/707096-707096), 2020.
