@@ -11,7 +11,9 @@ featured_image: logos/web.png
 <div class="info">In case you wanted to read something about me, go to the <a href="https://martin-thoma.com/author/martin-thoma/">about me page</a>.</div>
 
 Keeping my blog online costs money. When you like my blog, you should support
-me in keeping it online.
+me in keeping it online. You can either send money directly to me via PayPal,
+buy me a gift via Amazon, or [become a Medium member](https://martinthoma.medium.com/membership)
+for which I'll get a referal bonus as long as you are a member.
 
 
 ## PayPal
