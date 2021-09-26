@@ -172,6 +172,20 @@ Sind die Nebeneinkünfte von Politikern sehr hoch, sehe ich drei mögliche Grün
 2. Politik ist Nebenjob: Der Politiker fokusiert sich auf etwas anderes. Das Bundestagsmandat ist nicht im Fokus, sondern die "neben"einkunft.
 3. Korruption: Man lässt sich über sehr gut bezahlte Vorträge, über Vorstands-Positionen, oder ganz direkt über Spenden bestechen.
 
+Um das zu umgehen, sehe ich ein paar Möglichkeiten:
+
+1. Nebeneinkunftsobergrenze:  Wer als Abgeordneter mehr Nebeneinkünfte hat als über
+   die Obergrenze definitiert, der muss darauf 100% Einkommenssteuer bezahlen.
+   Das ist z.B. sinnvoll für Abgeordnete, die größere Betriebe besitzen. Die
+   Grenze sollte in Abhängigkeit vom Netto-Median-Einkommen des vorhergehenden
+   Jahres sein.
+2. Temporäres Berufsverbot: Manche Berufe/Positionen sind inhärent intransparent.
+   Beispielsweise dürfen Anwälte und Berater ggf. nichts über ihre Kunden verraten.
+   Da ich von Bundestagsabgeordneten erwarte ihre Energie für Deutschland einzusetzen,
+   würde ich es akzeptabel finden die Ausübung des Berufes zeitweise zu verbieten.
+   Wer das nicht will oder vertraglich bedingt nicht kann, der kann halt kein
+   Abgeordneter werden.
+
 Eine weitere Maßnahme um Vertrauen zu schaffen ist die Einführung einer
 **legislativen Fußspur**. Das bedeutet, dass für jeden Gesetztesentwurf
 dokumentiert werden muss, wer diesen geschrieben hat / wer beratend zur Seite
@@ -403,6 +417,14 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="green-bg">48</td>
         <td class="fdp-bg">51</td>
         <td class="linke-bg">55</td>
+    </tr>
+    <tr>
+        <td>Mitglieder</td>
+        <td class="cdu-bg">399.110 + 140.876</td>
+        <td class="spd-bg">419.300</td>
+        <td class="green-bg">120.000</td>
+        <td class="fdp-bg">75.000</td>
+        <td class="linke-bg">60.350</td>
     </tr>
     <tr>
         <td>Mitgliedsbeiträge (Pro Monat)</td>
