@@ -411,6 +411,14 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <th class="linke-bg">LINKE</th>
     </tr>
     <tr>
+        <td>Wahlprogramm</td>
+        <td class="cdu-bg"><a href="https://www.abgeordnetenwatch.de/sites/default/files/election-program-files/CDU-CSU_Wahlprogramm_BTW2021.pdf">140 Seiten</a></td>
+        <td class="spd-bg"><a href="https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/SPD-Zukunftsprogramm.pdf">66 Seiten</a></td>
+        <td class="green-bg"><a href="https://cms.gruene.de/uploads/documents/Wahlprogramm-DIE-GRUENEN-Bundestagswahl-2021_barrierefrei.pdf">272 Seiten</a></td>
+        <td class="fdp-bg"><a href="https://www.fdp.de/sites/default/files/2021-08/FDP_BTW2021_Wahlprogramm_1.pdf">68 Seiten</a></td>
+        <td class="linke-bg"><a href="https://www.die-linke.de/fileadmin/download/wahlen2021/Wahlprogramm/DIE_LINKE_Wahlprogramm_zur_Bundestagswahl_2021.pdf">168 Seiten</a></td>
+    </tr>
+    <tr>
         <td>Mitgliedsalter<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup></td>
         <td class="cdu-bg">61</td>
         <td class="spd-bg">60</td>
@@ -420,7 +428,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
     </tr>
     <tr>
         <td>Mitglieder</td>
-        <td class="cdu-bg">399.110 + 140.876</td>
+        <td class="cdu-bg">399.110/140.876</td>
         <td class="spd-bg">419.300</td>
         <td class="green-bg">120.000</td>
         <td class="fdp-bg">75.000</td>
@@ -940,8 +948,6 @@ Schauen wir uns mal vergangene Wahlversprechen aus der Wahl 2017 an:
 * **Flächendeckender Glasfaser-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: 8.3 Millionen Haushalte von 41.5 Millionen Haushalten haben aktuell Glasfaser-Zugang<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Für mich sieht es nicht so aus als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
 * **Vorreiter beim 5G-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025:
 * **Bildungscloud**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>: Sehr gute Ideen, allerdings ungenügende Umsetzung.
-
-Das [Wahlprogramm der CDU/CSU](https://www.abgeordnetenwatch.de/sites/default/files/election-program-files/CDU-CSU_Wahlprogramm_BTW2021.pdf) ist mit 140 Seiten recht umfangreich.
 
 Negativ aufgefallen ist mir der Abschnitt "Gefahrenabwehr im Cyberraum". Allein schon der Titel. WTF. Was ist denn bitte der "Cyberraum"? Ich vermute das liegt irgendwo im Neuland?
 
