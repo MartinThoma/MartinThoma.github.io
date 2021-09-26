@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2021-09-11 20:00
 category: German posts
 tags: politics, SPD, CDU, CSU, LINKE, Grüne, FDP
-featured_image: logos/star.png
+featured_image: logos/germany.png
 ---
 Die [Bundestagswahl 2021](https://de.wikipedia.org/wiki/Bundestagswahl_2021)
 findet am 26. September 2021 statt. In diesem Artikel ordne ich ein paar Gedanken
@@ -34,8 +34,8 @@ prominent im Programm. Die Bürgerversicherung wird nun auch mal wieder erwähnt
 Die Klimakrise ist ein zentrales Problem unserer Zeit. Der Ausstoß von
 Treibhausgasen muss reduziert werden um eine Begrenzung der globalen Erwärmung
 zu erreichen. Treibhausgase werden in CO<sub>2</sub>-äquivalenten Tonnen
-gemessen. So hat z.B. Methan ein Treibhauspotential von 28. Eine Tonne Methan
-verursascht also einen so großen Treibhauseffekt wie 28 Tonnen CO<sub>2</sub>.
+gemessen. So hat z.B. Methan ein Treibhauspotenzial von 28. Eine Tonne Methan
+verursacht also einen so großen Treibhauseffekt wie 28 Tonnen CO<sub>2</sub>.
 
 Aus meiner Sicht gibt es nur einen wirklich sinnvollen Mechanismus um die
 CO<sub>2</sub>-Emissionen zu regulieren: Den [Emissionsrechtehandel](https://de.wikipedia.org/wiki/EU-Emissionshandel).
@@ -46,14 +46,14 @@ Tempolimits einzuführen, usw. können nur unterstützend sein.
 **Regelung**: Der Staat eine Maximalmenge an CO<sub>2</sub>-Äquivalenztonnen
 definieren, welche ausgestoßen werden darf. 2018 hat Deutschland 753 Millionen
 Tonnen CO<sub>2</sub> ausgestoßen<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.
-Wenn man nun den ausstoß auf 700 Millionen Tonnen CO<sub>2</sub> begrenzen will,
+Wenn man nun den Ausstoß auf 700 Millionen Tonnen CO<sub>2</sub> begrenzen will,
 gibt man Zertifikate in genau dieser Höhe aus. Bevor eine Firma Produkte
 verkaufen darf welche CO<sub>2</sub> ausstoßen, benötigt sie ein Zertifikat.
 Wenn eine Firma zu viel CO<sub>2</sub> ausstößt, muss sie die Kosten zum
 entfernen des CO<sub>2</sub> bezahlen (die sind immens!).
 
 **Emissionen**: CO<sub>2</sub> wird vor allem bei der Energieerzeugung
-ausgestoßen, also wenn man Benzin, Diesel, Kerosin, Erdgas, Kohle oder ähnliches
+ausgestoßen, also wenn man Benzin, Diesel, Kerosin, Erdgas, Kohle oder Ähnliches
 verbrennt oder wenn Zement produziert wird<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Das heißt vor allem Firmen welche diese Produkte fördern müssen beim Verkauf
 nachweisen, dass sie über genügend viele Zertifikate verfügen. Da es
 überschaubar viele Firmen gibt welche Öl / Kohle / Gas fördern bzw. Zement
@@ -72,9 +72,13 @@ alle Gebote abgegeben wurden, werden zuerst die meistbietenden bedient.
 Irgendwann sind die Zertifikate vergeben und die wenigbietenden fallen leer aus.
 Danach entspricht es der typischen Preisbindung an einer Börse mit vielen
 Anbietern / Abnehmern von Zertifikaten.
-Am Ende eines Jahres sollten Zertifikate verfallen und wieder neue versteigert werden.
+Am Ende eines Jahres sollten Zertifikate verfallen und wieder Neue versteigert werden.
 
-Aktuell kostet jede Tonne CO<sub>2</sub> 25 EUR.
+<b>Wir haben bereits das [EU-ETS](https://de.wikipedia.org/wiki/EU-Emissionshandel)
+bei dem ein Zertifikat zur Emission einer Tonne CO<sub>2</sub> berechtigt.</b>
+Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.<sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup> Ich habe allerdings leider keine Quelle finden können die klar erklärt
+welche Firmen überhaupt daran teilnehmen müssen, wie kontrolliert wird, und wie
+viele Zertifikate ausgegeben wurden.
 
 Kernfragen, welche ich hier von den Parteien beantwortet sehen will, sind:
 
@@ -107,7 +111,7 @@ Wer ist arm?
 * 15% der über 60 Jährigen<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>
 * 3.8 Millionen Hartz IV-Empfänger<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>
 
-Wir werden in den kommenden Jahren einen immer höheren Grad an automatisierung sehen.
+Wir werden in den kommenden Jahren einen immer höheren Grad an Automatisierung sehen.
 Jobs fallen im Prinzip ersatzlos weg. Insbesondere selbstfahrende Autos machen
 mir im Bezug auf unseren Sozialstaat große Sorgen. Es wird nicht in den nächsten
 10 Jahren passieren, aber wir sollten darauf vorbereitet sein dass [500.000 Berufskraffahrer](https://de.statista.com/statistik/daten/studie/294128/umfrage/anzahl-der-berufskraftfahrer-im-gueterverkehr/)
@@ -167,6 +171,11 @@ Sind die Nebeneinkünfte von Politikern sehr hoch, sehe ich drei mögliche Grün
 1. Überflieger: Es gibt immer ein paar Individuen, die sehr viel schaffen. Leute mit enorm viel Energie und genug Intelligenz, um an 10 Baustellen gleichzeitig sinnvoll zu arbeiten. Oder Leute die sich ein Geschäft aufgebaut haben, dass auch ohne ihr Eingreifen im großen und ganzen von selbst läuft.
 2. Politik ist Nebenjob: Der Politiker fokusiert sich auf etwas anderes. Das Bundestagsmandat ist nicht im Fokus, sondern die "neben"einkunft.
 3. Korruption: Man lässt sich über sehr gut bezahlte Vorträge, über Vorstands-Positionen, oder ganz direkt über Spenden bestechen.
+
+Eine weitere Maßnahme um Vertrauen zu schaffen ist die Einführung einer
+**legislativen Fußspur**. Das bedeutet, dass für jeden Gesetztesentwurf
+dokumentiert werden muss, wer diesen geschrieben hat / wer beratend zur Seite
+gestanden hat oder anderweitig daran mitgewirkt hat.
 
 Hierbei interessant:
 
@@ -396,6 +405,39 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">55</td>
     </tr>
     <tr>
+        <td>Mitgliedsbeiträge (Pro Monat)</td>
+        <td class="cdu-bg">
+            <a href="https://www.cdu.de/mitglied-werden">Nach Brutto-Einkommen</a>:<br/>
+        - mindestens 6&nbsp;EUR<br/>
+        - über 2.5k&nbsp;EUR: 15&nbsp;EUR<br/>
+        - ab 4k&nbsp;EUR: 25&nbsp;EUR<br/>
+        - ab 6k&nbsp;EUR: 50&nbsp;EUR
+        </td>
+        <td class="spd-bg">
+            <a href="https://www.spd.de/unterstuetzen/mitglied-werden/">Nach Netto-Einkommen</a>:<br/>
+        - bis 1k&nbsp;EUR: 6&nbsp;EUR<br/>
+        - bis 2k&nbsp;EUR: 8&nbsp;EUR<br/>
+        - bis 3k&nbsp;EUR: 26&nbsp;EUR<br/>
+        - bis 4k&nbsp;EUR: 47&nbsp;EUR<br/>
+        - bis 6k&nbsp;EUR: 105&nbsp;EUR<br/>
+        - ab 6k&nbsp;EUR: 300&nbsp;EUR
+        </td>
+        <td class="green-bg"><a href="https://www.gruene.de/mitglied-werden">1% des Netto-Einkommens</a></td>
+        <td class="fdp-bg"><a href="https://mitgliedwerden.fdp.de/fragen-und-antworten-zur-mitgliedschaft#waskostetdas">Nach Brutto-Einkommen</a>:<br/>
+        - Ausbildung: 5&nbsp;EUR<br/>
+        - bis 2.4&nbsp;EUR: 10&nbsp;EUR<br/>
+        - bis 3.6&nbsp;EUR: 12&nbsp;EUR<br/>
+        - bis 4.8&nbsp;EUR: 18&nbsp;EUR<br/>
+        - ab 4.8&nbsp;EUR: 24&nbsp;EUR
+        </td>
+        <td class="linke-bg"><a href="https://www.die-linke.de/partei/grundsatzdokumente/bundesfinanzordnung/beitragstabelle/">Nach Netto-Einkommens</a>:<br/>
+        - ohne Einkommen: 1.50&nbsp;EUR<br/>
+        - bis 500 EUR: 3&nbsp;EUR<br/>
+        - 2300 - 2500 EUR: 85&nbsp;EUR<br/>
+        - über 2.5&nbsp;EUR: 4%
+        </td>
+    </tr>
+    <tr>
         <td>MdB Durchschnittsalter<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></td>
         <td class="cdu-bg">50,0&nbsp;</td>
         <td class="spd-bg">50,5&nbsp;</td>
@@ -484,12 +526,51 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg border-bottom"></td>
     </tr>
     <tr>
-        <th class="border-bottom">Wohnen</th>
-        <td class="cdu-bg border-bottom"></td>
-        <td class="spd-bg border-bottom"></td>
-        <td class="green-bg border-bottom"></td>
-        <td class="fdp-bg border-bottom">- Mehr Wohnraum</td>
-        <td class="linke-bg border-bottom"></td>
+        <th class="">Wohnen</th>
+        <td class="cdu-bg"></td>
+        <td class="spd-bg">
+            - Zeitlich begrenztes "Mietenmoratorium" in angespannten Wohnlagen
+        </td>
+        <td class="green-bg">
+            - "Recht auf Wohnen" ins Grundgesetz<br/>
+            - Mietobergrenzen<br/>
+            - Reguläre Mieterhöhungen sollen auf 2,5 Prozent im Jahr innerhalb des Mietspiegels begrenzt werden<br/>
+            - Modernisierungsumlage auf maximal 1,50 Euro pro Quadratmeter zu begrenzen<br/>
+        </td>
+        <td class="fdp-bg">
+            - Mehr Wohnraum schaffen<br/>
+            - 500.000 Euro Freibetrag für Grunderwerbssteuer<br/>
+            - Baugenehmigungen beschleunigen
+        </td>
+        <td class="linke-bg">
+            - Immobilienkonzerne von der Börse nehmen<br/>
+            - im Jahr mindestens 250,000 zusätzliche Wohnungen schaffen
+        </td>
+    </tr>
+    <tr>
+        <td class="">Sozialwohnungen</th>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">
+        - einführung einer "neue[n] Wohnungsgemeinnützigkeit" (was auch immer das bedeutet)
+        </td>
+        <td class="green-bg">
+        - Mittel für den sozialen Wohnungsbau deutlich erhöhen<br/>
+        - bis 2031: den Bestand an Sozialwohnungen um eine Million erhöhen<br/>
+        </td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">
+        - Ehemaldige Kasernen in Sozialwohnungen umwandeln<br/>
+        - bis zu 250,000 Sozialwohnungen pro Jahr über "neue Wohnungsgemeinnützigkeit"
+        </td>
+    </tr>
+    <tr>
+        <td class="border-bottom">Mietpreisbremse / <a href="https://de.wikipedia.org/wiki/Mietendeckel">Mietendeckel</a></td>
+        <td class="cdu-bg border-bottom">❌</td>
+        <td class="spd-bg border-bottom">✅ Mietpreisbremse in Inflationshöhe</td>
+        <td class="green-bg border-bottom">✅ Mietpreisbremse (Ausnahmen für beim möblierten Wohnen werden abgeschafft)</td>
+        <td class="fdp-bg border-bottom"><a href="https://www.fdp.de/mietendeckel-ist-ideologischer-populismus-auf-kosten-der-mieter">❌ Mietendeckel
+abschaffen</a></td>
+        <td class="linke-bg border-bottom">✅ Mietendeckel überall in Deutschland</td>
     </tr>
     <tr>
         <th>Rente</th>
@@ -592,12 +673,63 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <th>Korruption bekämpfen</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">❌</td>
-        <td class="green-bg">TODO</td>
-        <td class="fdp-bg">TODO</td>
-        <td class="linke-bg">TODO</td>
+        <td class="green-bg">✅
+            <ul>
+                <li></li>
+            </ul>
+        </td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅
+            <ul>
+                <li>Parteispenden: Nehmen keine Großspenden an</li>
+                <li>Lobbyregister: Einführen + unabhängige Lobby-Beauftragten</li>
+                <li>Gesundheitswesen: Arzneimittelstudien müssen immer veröffentlicht werden</li>
+                <li>...</li>
+            </ul>
+        </td>
     </tr>
     <tr>
-        <td>Korruptionsskandale der letzten 4 Jahre</td>
+        <td class=""><a href="https://www.bundestag.de/presse/hib/796052-796052">Legislative Fußspur</a></td>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">?</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <td class=""><a href="https://www.abgeordnetenwatch.de/unternehmensspenden-hintergrundinfos">Parteispenden von Unternehmen/Verbänden verbieten</a><sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
+        <td class="cdu-bg"><a href="https://www.tagesschau.de/inland/parteien-spenden-101.html">❌</a></td>
+        <td class="spd-bg">❌</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <td class=""><a href="https://www.bundestag.de/webarchiv/textarchiv/2010/28618246_kw06_de_parteispenden-200920">Parteispenden von natürlichen Personen begrenzen</a></td>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">~</td>
+        <td class="green-bg">100.000 EUR</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">25.000 EUR</td>
+    </tr>
+    <tr>
+        <td class="">Abgeordnetenbestechung: Schärfere Regeln was als Bestechung zählt</td>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">❌</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">?</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+	<tr>
+		<td>Whistleblower-Schutz</td>
+		<td class="cdu-bg">❌</td>
+		<td class="spd-bg">❌</td>
+		<td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/rechtspolitik/eu-whistleblower-richtlinie-umfassend-umsetzen">✅</a></td>
+		<td class="fdp-bg"><a href="https://www.fdp.de/forderung/besserer-schutz-von-whistleblowern">✅</a></td>
+		<td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/whistleblowing/">✅</a></td>
+	</tr>
+    <tr>
+        <td><a href="https://de.wikipedia.org/wiki/Liste_von_Korruptionsaff%C3%A4ren_um_Politiker_in_der_Bundesrepublik_Deutschland">Korruptionsskandale</a> der letzten 4 Jahre</td>
         <td class="cdu-bg">
             <ol>
                 <li><a href="https://de.wikipedia.org/wiki/Maskenaff%C3%A4re">Maskenaffäre</a></li>
@@ -619,30 +751,91 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">keine</td>
     </tr>
     <tr>
-        <td>"Erstaunlich" hohe <a href="https://de.wikipedia.org/wiki/Liste_der_Nebeneink%C3%BCnfte_der_Mitglieder_des_Bundestags_in_der_19._Wahlperiode">Nebeneinkünfte</a></td>
+        <td>Top-Spender<br/>(bis 200k EUR)</td>
         <td class="cdu-bg">
+            <a href="https://lobbypedia.de/wiki/CDU">2014-2018 (CDU)</a>:
+            <ul>
+                <li><a href="https://lobbypedia.de/wiki/Deutsche_Verm%C3%B6gensberatung">DVAG</a>: 1.376.500 EUR</li>
+                <li>Hans-Joachim Langmann (Merck KgaA, Hauck & Aufhäuser): 925.000 EUR</li>
+                <li>Familie Dommermuth (<a href="https://de.wikipedia.org/wiki/United_Internet">United Internet</a>): 700.000 EUR</li>
+                <li>Daimler: 500.000 EUR</li>
+            </ul>
+        </td>
+        <td class="spd-bg">
+            <a href="https://lobbypedia.de/wiki/SPD">2014-2018</a>:
+            <ul>
+                <li>Gesamtmetall: 655.001 EUR</li>
+                <li>Daimler: 500.001 EUR</li>
+                <li>Evonik Industries: 430.000 EUR</li>
+                <li><a href="https://lobbypedia.de/wiki/VCI_Verband_der_Chemischen_Industrie_e.V.">VCI Verband der Chemischen Industrie e.V.</a>: 315.500 EUR</li>
+                <li>Ralf Pollmeier (<a href="https://www.pollmeier.com/de/#gref">Pollmeier Massivholz</a>): 286.242 EUR</li>
+            </ul>
+        </td>
+        <td class="green-bg">
+            <a href="https://lobbypedia.de/wiki/B%C3%BCndnis_90/Die_Gr%C3%BCnen">2014-2018</a>:
+            <ul>
+                <li>Jochen Wermuth: 843.746 EUR</li>
+                <li>Gesamtmetall: 780.001 EUR</li>
+                <li>Daimler: 200.000 EUR</li>
+            </ul>
+        </td>
+        <td class="fdp-bg">
+            <a href="https://lobbypedia.de/wiki/FDP">2014-2018</a>:
+            <ul>
+                <li><a href="https://lobbypedia.de/wiki/Gesamtmetall">Gesamtmetall</a>: 1.210.000 EUR</li>
+                <li><a href="https://lobbypedia.de/wiki/R%26W_Industriebeteiligungen">R&W Industriebeteiligungen</a>: 956.310 EUR</li>
+                <li><a href="https://de.wikipedia.org/wiki/Lutz_Helmig">Lutz Helmig</a>: 540.000</li>
+                <li><a href="https://lobbypedia.de/wiki/Deutsche_Verm%C3%B6gensberatung">DVAG</a>: 434.000 EUR</li>
+                <li><a href="https://lobbypedia.de/wiki/VCI_Verband_der_Chemischen_Industrie_e.V.">VCI Verband der Chemischen Industrie e.V.</a>: 283.000 EUR</li>
+            </ul>
+        </td>
+        <td class="linke-bg"><a href="https://lobbypedia.de/wiki/Die_Linke">keine über 200k</a></td>
+    </tr>
+    <tr>
+        <td class="border-bottom">"Erstaunlich" hohe <a href="https://de.wikipedia.org/wiki/Liste_der_Nebeneink%C3%BCnfte_der_Mitglieder_des_Bundestags_in_der_19._Wahlperiode">Nebeneinkünfte</a> (bis 100.000 EUR)</td>
+        <td class="cdu-bg border-bottom">
             <ol>
                 <li>Sebastian Brehm (<a href="https://www.abgeordnetenwatch.de/profile/sebastian-brehm/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Steuerberater</a>): 1.383.000 EUR</li>
                 <li>Hans-Georg von der Marwitz (<a href="https://www.abgeordnetenwatch.de/profile/hans-georg-von-der-marwitz/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Landwirt</a>): 1.223.500 EUR</li>
-                <li>Albert Stegemann (<a href="https://www.abgeordnetenwatch.de/profile/albert-stegemann/nebentaetigkeiten">Landwirt</a>): 1.035.500 ✅</li>
-                <li>Michael Kuffer (<a href="https://www.abgeordnetenwatch.de/profile/michael-kuffer/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Rechtsanwalt</a>): 639.000 </li>
+                <li>Albert Stegemann (<a href="https://www.abgeordnetenwatch.de/profile/albert-stegemann/nebentaetigkeiten">Landwirt</a>): 1.035.500 EUR</li>
+                <li>Michael Kuffer (<a href="https://www.abgeordnetenwatch.de/profile/michael-kuffer/nebentaetigkeiten?legislatures_of_politician_sidejobs=All&category=All&field_topics_target_id=All&income_level=All&interval=All&order=income_level&sort=desc">Rechtsanwalt</a>): 639.000 EUR</li>
+                <li>Johannes Röring (Landwirt): 620.000 EUR<sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup></li>
+                <li>Hans Michelbach (persönlich haftender Gesellschafter eines Projektentwicklers): 500.000 EUR</li>
+                <li>Peter Ramsauer (Gesellschafter des Familienbetriebs, Aufsichtsrat): 487.500 EUR</li>
+                <li>Olav Gutting (Rechtsanwalt): 450.000 EUR</li>
+                <li>Rudolf Henke: 234.500 EUR</li>
+                <li>Mark Hauptmann: 233.000	EUR</li>
+                <li>Hans-Jürgen Irmer: 188.000 EUR</li>
+                <li>Josef Rief: 181.500 EUR</li>
+                <li>Bernhard Loos: 163.000 EUR</li>
+                <li>Max Straubinger: 157.000 EUR</li>
+                <li>Rüdiger Kruse: 147.000 EUR</li>
+                <li>Georg Nüßlein: 108.500 EUR</li>
             </ol></td>
-        <td class="spd-bg">TODO</td>
-        <td class="green-bg">TODO</td>
-        <td class="fdp-bg">
+        <td class="spd-bg border-bottom">
             <ol>
-                <li>Carl-Julius Cronenberg: 1.106.500</li>
+                <li>Kirsten Lühmann: 228.000 EUR</li>
+                <li>Martin Burkert: 191.000	EUR</li>
+                <li>Sigmar Gabriel: 165.000 EUR</li>
+                <li>Ulla Schmidt: 151.500 EUR</li>
+                <li>Lars Klingbeil: 147.000  EUR</li>
+                <li>Dietmar Nietan: 147.000 EUR</li>
             </ol>
         </td>
-        <td class="linke-bg">TODO</td>
-    </tr>
-    <tr>
-        <td class="border-bottom"><a href="https://www.abgeordnetenwatch.de/unternehmensspenden-hintergrundinfos">Unternehmensspenden verbieten</a></td>
-        <td class="cdu-bg border-bottom">❌</td>
-        <td class="spd-bg border-bottom">❌</td>
-        <td class="green-bg border-bottom">✅</td>
-        <td class="fdp-bg border-bottom">❌</td>
-        <td class="linke-bg border-bottom"><a href="https://www.die-linke.de/fileadmin/download/wahlen2021/Wahlprogramm/DIE_LINKE_Wahlprogramm_zur_Bundestagswahl_2021.pdf">✅</a></td>
+        <td class="green-bg border-bottom">Keine</td>
+        <td class="fdp-bg border-bottom">
+            <ol>
+                <li>Carl-Julius Cronenberg: 1.106.500 EUR</li>
+                <li>Judith Skudelny: 430.000 EUR</li>
+                <li>Markus Herbrand: 314.500 EUR</li>
+                <li>Christian Lindner: 311.500 EUR</li>
+                <li>Stefan Ruppert: 168.500 EUR</li>
+                <li>Hagen Reinhold: 147.000 EUR</li>
+                <li>Karlheinz Busen: 109.000 EUR</li>
+                <li>Alexander Müller: 105.000 EUR</li>
+            </ol>
+        </td>
+        <td class="linke-bg border-bottom">Gregor Gysi: 342.000 EUR</td>
     </tr>
     <tr>
         <td>Digitalisierung</td>
@@ -666,22 +859,6 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
 		<td class="spd-bg">✅</td>
 		<td class="green-bg">✅</td>
 		<td class="fdp-bg">✅</td>
-		<td class="linke-bg">✅</td>
-	</tr>
-	<tr>
-		<td>Whistleblower-Schutz</td>
-		<td class="cdu-bg">❌</td>
-		<td class="spd-bg">❌</td>
-		<td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/rechtspolitik/eu-whistleblower-richtlinie-umfassend-umsetzen">✅</a></td>
-		<td class="fdp-bg"><a href="https://www.fdp.de/forderung/besserer-schutz-von-whistleblowern">✅</a></td>
-		<td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/whistleblowing/">✅</a></td>
-	</tr>
-	<tr>
-		<td>Verbot von Unternehmensspenden<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup></td>
-		<td class="cdu-bg">❌</td>
-		<td class="spd-bg">❌</td>
-		<td class="green-bg">✅</td>
-		<td class="fdp-bg">❌</td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
@@ -825,7 +1002,10 @@ Freiheit ist ein Kernmotiv der Politik der FDP.
 Das [Wahlprogramm der FDP](https://www.fdp.de/sites/default/files/2021-08/FDP_BTW2021_Wahlprogramm_1.pdf) ist von liberalen Werten geprägt. Das gilt sowohl
 für die Wirtschaft, als auch Einzelpersonen.
 
-Die FDP scheint von der [Trickle-down-Theorie](https://de.wikipedia.org/wiki/Trickle-down-Theorie) überzeugt zu sein: Wenn man Firmen steuern erlässt, dann wird das automatisch investiert und kommt besser bei den Menschen an als wenn man durch Steuern umverteilt.
+Die FDP scheint von der [Trickle-down-Theorie](https://de.wikipedia.org/wiki/Trickle-down-Theorie)
+überzeugt zu sein: Wenn man Firmen steuern erlässt, dann wird das automatisch
+investiert und kommt besser bei den Menschen an als wenn man durch Steuern
+umverteilt.
 
 Weitere interessante Punkte:
 
@@ -1031,3 +1211,5 @@ Siehe auch:
 [^25]: Zeit Online / dpa: [Weltbank rechnet mit 216 Millionen Klimaflüchtlingen in dreißig Jahren](https://www.zeit.de/gesellschaft/2021-09/klimawandel-migration-weltbank-fluechtlinge-wasserknappheit-meeresspiegel), 2021.
 [^26]: Umweltbundesamt: [Klimaschutz durch
 Tempolimit](https://www.umweltbundesamt.de/sites/default/files/medien/1410/publikationen/2020-06-15_texte_38-2020_wirkung-tempolimit_bf.pdf), 2020.
+[^27]: Simplicissimus: [Warum deine Leberwurst 1,09€ kostet](https://www.youtube.com/watch?v=QTBg9la6RPE), 2021
+[^28]: Umwelt Bundesamt: [Der Europäische Emissionshandel](https://www.umweltbundesamt.de/daten/klima/der-europaeische-emissionshandel#teilnehmer-prinzip-und-umsetzung-des-europaischen-emissionshandels), 2021.
