@@ -242,8 +242,8 @@ if __name__ == "__main__":
 ```
 
 The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:
-```bash
 
+```bash
 ikj-algorithm	44m13.458s
 LEAF_SIZE	Time
 2	47m45.983s
@@ -429,6 +429,7 @@ Here are the results for different leaf-sizes:
         </figure>
 
 <h2>C++</h2>
+
 ```cpp
 #include <sstream>
 #include <string>
@@ -711,3 +712,5 @@ I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I thi
 For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)
 
 Leafsizes from 64 to 256 seem to be the best solution.
+
+<img src="https://vg02.met.vgwort.de/na/bc95a35e98ed4c7aa757f50e22f8d634" width="1" height="1" alt="">
