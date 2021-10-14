@@ -201,8 +201,8 @@ There is a `yaml.dump` method, so you can write the configuration the same way.
 Just build up a dictionary.
 
 YAML is used by the Blender project.
+### Resources
 
-#### Resources
 * [Documentation](https://docs.python.org/3/library/configparser.html)
 
 ## INI
@@ -396,3 +396,5 @@ want to use.
 * [Why do so many projects use XML for configuration files?](http://stackoverflow.com/q/791761/562769)
 * [YAML Lint](http://yamllint.com/)
 * [TOML](https://en.wikipedia.org/wiki/TOML): Very similar to INI files.
+
+<img src="https://vg09.met.vgwort.de/na/afda62ce660449a5baeb1b60133dc877" width="1" height="1" alt="">
