@@ -4,18 +4,19 @@ title: Gedanken zur Bundestagswahl 2013
 author: Martin Thoma
 date: 2013-09-06 11:54:58.000000000 +02:00
 category: German posts
-tags: politics, SPD, CDU, CSU, Piratenpartei, LINKE, Grüne, FDP
+tags: politics, SPD, CDU, CSU, Piratenpartei, LINKE, Grüne, FDP, Bundestagswahl
 ---
 Am 22. September 2013 findet die Bundestagswahl 2013 statt.
 
-<h2>Worum geht es?</h2>
+## Worum geht es?
+
 <iframe width="512" height="288" src="//www.youtube.com/embed/qP6ye8R_QEA" frameborder="0" allowfullscreen></iframe>
 
-<h2>Parteien</h2>
+## Parteien
 Ich werde jeweils zwei Videos verlinken. Eines von &bdquo;MrWissen2go&ldquo; und einen Wahlwerbespot der Parteien selbst.
 Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 
-<h3>Piraten</h3>
+### Piraten
 <table>
   <tr>
     <th colspan="2"><img src="../images/2013/09/Piratenpartei-logo.png" alt="Logo der Piratenpartei" width="300" height="140" class="size-full wp-image-76414" /></th>
@@ -57,7 +58,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/d5dMwpfDCTM" frameborder="0" allowfullscreen></iframe>
 
-<h3>DIE LINKE.</h3>
+### DIE LINKE.
 <table>
   <tr>
     <th colspan="2"><img src="../images/2013/09/die-linke.png" alt="DIE LINKE." width="250" height="56" class="size-full wp-image-76417" /></th>
@@ -101,7 +102,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/oUz1qPJ8NoA" frameborder="0" allowfullscreen></iframe>
 
-<h3>FDP</h3>
+### FDP
 <table>
   <tr>
     <th colspan="2"><img src="../images/2013/09/FDP-logo.png" alt="Logo der FDP" width="150" height="137" class="size-full wp-image-76421" /></th>
@@ -138,7 +139,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/IQQ5nREaJWs" frameborder="0" allowfullscreen></iframe>
 
-<h3>Grüne</h3>
+### Grüne
 <table>
   <tr>
     <th colspan="2"><img src="../images/2013/09/gruenen-logo.png" alt="Logo von Bündnis 90 - die Grünen" width="180" height="108" class="size-full wp-image-76422" /></th>
@@ -184,7 +185,8 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/NwOcVbGn7Qs" frameborder="0" allowfullscreen></iframe>
 
-<h3>SPD</h3>
+### SPD
+
 <table>
   <tr>
     <th colspan="2"><img src="../images/2013/09/spd-logo.png" alt="SPD Logo" width="150" height="150" class="size-full wp-image-76423" /></th>
@@ -222,7 +224,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/ffG18Nz5cSQ" frameborder="0" allowfullscreen></iframe>
 
-<h3>CDU / CSU</h3>
+### CDU / CSU
 <table>
   <tr>
     <th colspan="2"><img src="../images/2013/09/cdu-partei.png" alt="CDU - Partei" width="250" height="74" class="size-full wp-image-76418" /></th>
@@ -264,7 +266,8 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 
 <iframe width="512" height="384" src="//www.youtube.com/embed/Mk06yfbXQYg" frameborder="0" allowfullscreen></iframe>
 
-<h2>Koalitionsmöglichkeiten</h2>
+## Koalitionsmöglichkeiten
+
 <figure class="aligncenter">
             <a href="../images/2013/09/koalitionsrechner.png"><img src="../images/2013/09/koalitionsrechner.png" alt="Koalitionsrechner - Ergebnis" style="max-width:458px;max-height:174px" class="size-full wp-image-76427"/></a>
             <figcaption class="text-center">Koalitionsrechner - Ergebnis</figcaption>
@@ -292,10 +295,12 @@ Damit steht fest:
   <li>Sonst wirds vielleicht interessant, aber vermutlich Schwarz-Rot</li>
 </ul>
 
-<h2>Themen</h2>
+## Themen
+
 Ich finde es interessant, welche Themen für die Parteien wichtig sind und welche in der Öffentlichkeit häufig diskutiert werden. Im folgenden mal einige Themen, die meiner Meinung nach wichtig sind.
 
-<h3>Sozialer Ausgleich</h3>
+### Sozialer Ausgleich
+
 Ich denke, dass in Deutschland die viel zitierte &bdquo;Schere zwischen Arm und Reich&ldquo; zu gro&szlig; wird. Zu dem Thema gibt es in den Wiki-Artikeln <a href="https://de.wikipedia.org/wiki/Einkommensverteilung_in_Deutschland">Einkommensverteilung in Deutschland</a> und <a href="https://de.wikipedia.org/wiki/Verm%C3%B6gensverteilung_in_Deutschland">Vermögensverteilung in Deutschland</a> viele Informationen, z.B.:
 <ul>
   <li>2008 betrug nach Zahlen des DIW das mittlere verfügbare Einkommen 1.252 Euro</li>
@@ -333,7 +338,7 @@ Hier mal ein paar Leistungen, die es gibt:
 
 In der <a href="https://de.wikipedia.org/wiki/Kategorie:Sozialleistung_(Deutschland)">Kategorie:Sozialleistung (Deutschland)</a> findet man noch viel mehr.
 
-<h3>Eurokrise</h3>
+### Eurokrise
 Die <a href="https://de.wikipedia.org/wiki/Eurokrise">Eurokrise</a> muss beendet werden. Wichtige Zahlen dazu sind:
 <ul>
   <li>Die Jugendarbeitslosigkeit in Spanien betrug 2012 ca. 24,9%.</li>
@@ -374,7 +379,7 @@ Hier kann man nicht davon ausgehen, dass irgendeine Partei eine belegbar gute L�
 
 Das ist selbstverständlich keine vollständige Liste. Wenn es einen wirklich interessiert, sollte man das Wahlprogramm der Parteien danach durchsuchen.
 
-<h3>Korruption und Transparenz</h3>
+### Korruption und Transparenz
 Korruption kann dazu führen, dass Entscheidungen getroffen werden, die für den Staat nicht optimal sind. Dazu sollte Abgeordnetenbestechung zuerst einmal illegal sein, also ein &bdquo;Anti-Korruptionsgesetz&ldquo; eingeführt werden. Dagegen wehren sich aber CDU/CSU und FDP sehr. Es gab auch schon eine <a href="http://www.abgeordnetenwatch.de/schaerfere_regeln_gegen_abgeordnetenbestechung-605-525.html">Abstimmung Schärfere Regeln gegen Abgeordnetenbestechung</a> - kontrolliert doch selbst, wie eure Abgeordneten abgestimmt haben.
 
 Au&szlig;erdem führt der Verdacht auf bestechliche Politiker zu weiterer Politikverdrossenheit.
@@ -386,12 +391,12 @@ Siehe zu Abgeordnetenbestechung:
   <li><a href="http://beta.abgeordnetenwatch.de/blog/2013-06-26/ueberraschung-bundestag-soll-doch-noch-ueber-abgeordnetenbestechung-abstimmen">Überraschung: Bundestag soll doch noch über Abgeordnetenbestechung abstimmen</a></li>
 </ul>
 
-<h3>Energiewende</h3>
+### Energiewende
 Die Versorgung mit Energie ist ein essentieller bestandteil der öffentlichen Infrastruktur. Sei es in Form von elektrischer Energie für Haushalte und Firmen, in Form von Wärme oder in Form von Mobilität. Dabei wäre es schön, das Problem nachhaltig zu lösen.
 
 Momentan geschieht dies in Form von <a href="https://de.wikipedia.org/wiki/Liste_von_Onshore-Windparks_in_Deutschland">On</a>- und <a href="https://de.wikipedia.org/wiki/Liste_der_Offshore-Windparks">Offshore Windkraftparks</a> sowie im <a href="https://de.wikipedia.org/wiki/Netzausbau">Netzausbau</a>. Das <a href="https://de.wikipedia.org/wiki/Erneuerbare-Energien-Gesetz">Erneuerbare-Energien-Gesetz</a> (EEG) soll dabei helfen und regelt die sog. <a href="https://de.wikipedia.org/wiki/Einspeiseverg%C3%BCtung">Einspeisevergütung</a>.
 
-<h3>Steuern</h3>
+### Steuern
 Im Bezug auf Steuern sehe ich zwei gro&szlig;e Probleme:
 <ol>
   <li>Konzerne spielen Länder gegeneinander aus</li>
@@ -453,7 +458,7 @@ Hier mal eine Grafik über das Steueraufkommen in Deutschland:
 
 Es gibt noch den Ansatz der &bdquo;<a href="https://de.wikipedia.org/wiki/Flat_Tax">Flat Tax</a>&ldquo;, die Steuern einfacher machen soll. Ob das sinnvoll ist, kann ich nicht sagen. Aber eine Vereinfachung verbunden mit einer Europäischen Vereinheitlichung könnte Firmen entlasten und Steuerschlupflöcher schlie&szlig;en.
 
-<h3>Bürgerrechte</h3>
+### Bürgerrechte
 Im <a href="https://de.wikipedia.org/wiki/%C3%9Cberwachungs-_und_Spionageaff%C3%A4re_2013">Spähskandal</a> (NSA, Prism, Tempora, Xkeyscore, ...) hat die CDU/CSU bisher nichts gemacht, um für Aufklärung und Beendigung der illegalen Praktiken zu sorgen.
 
 In einigen anderen Berechen wurden jedoch kritische Gesetze/Projekte/Aussagen umgesetzt/gestartet/gemacht:
@@ -468,7 +473,7 @@ Aber auch die SPD scheint in dem NSA-Skandal nicht ganz unbeteiligt zu sein (<a 
 
 Die Grünen und Piraten sind gegen Videoüberwachung, wollen das Fernmeldegeheimnis zu einem Kommunikations- und Mediennutzungsgeheimnis ausweiten, gegen die Bestandsdatenauskunft vorgehen und Vorratsdatenspeicherung verhindern.
 
-<h3>Kleine Themen</h3>
+### Kleine Themen
 Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich das sie im gro&szlig;en und ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
 
 <ul>
@@ -486,7 +491,8 @@ Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl 
   <li>Autobahn-Maut für Ausländer</li>
 </ul>
 
-<h2>Abschlie&szlig;ende Worte</h2>
+## Abschlie&szlig;ende Worte
+
 Dieser Artikel stellt nur eine kurze Zusammenfassung von Gedanken dar, die mir wichtig oder interessant zu sein scheinen. Bitte denkt über die Themen nach und überlegt euch:
 <ul>
   <li>Bin ich mit der Politik der letzten 4 Jahre zufrieden?</li>
@@ -505,7 +511,8 @@ Wenn man nur auf die grobe Ausrichtung der Parteien betrachtet, kann man eventue
 
 Wenn es euch irgendwie kümmert, was in Deutschland passiert, solltet ihr wählen gehen.
 
-<h2>Links</h2>
+## Links
+
 <ul>
   <li><a href="//www.youtube.com/watch?v=X9Xhlz4uEmc">Aussagelose Wahlslogans</a></li>
 </ul>

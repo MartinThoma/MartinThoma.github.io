@@ -5,7 +5,7 @@ slug: bundestagswahl-2021
 author: Martin Thoma
 date: 2021-09-11 20:00
 category: German posts
-tags: politics, SPD, CDU, CSU, LINKE, Grüne, FDP
+tags: politics, SPD, CDU, CSU, LINKE, Grüne, FDP, Bundestagswahl
 featured_image: logos/germany.png
 ---
 Die [Bundestagswahl 2021](https://de.wikipedia.org/wiki/Bundestagswahl_2021)
@@ -76,7 +76,14 @@ Am Ende eines Jahres sollten Zertifikate verfallen und wieder Neue versteigert w
 
 <b>Wir haben bereits das [EU-ETS](https://de.wikipedia.org/wiki/EU-Emissionshandel)
 bei dem ein Zertifikat zur Emission einer Tonne CO<sub>2</sub> berechtigt.</b>
-Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.<sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup> Ich habe allerdings leider keine Quelle finden können die klar erklärt
+Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.<sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup>
+
+Anhand des <a href="https://www.bmu.de/themen/klimaschutz-anpassung/klimaschutz/emissionshandel/nationaler-allokationsplan-nap">Nationalen Allokationsplanes (NAP)</a> werden
+die Zertifikate in Deutschland verteilt. Initial wurde der
+historische Verbrauch festgestellt und orientiert an diesem bekommen die
+Unternehmen erstmal so viele Zertifikate geschenkt. Das nennt sich <b>Grandfathering</b>.
+
+Ich habe allerdings leider keine Quelle finden können die klar erklärt
 welche Firmen überhaupt daran teilnehmen müssen, wie kontrolliert wird, und wie
 viele Zertifikate ausgegeben wurden.
 
@@ -485,27 +492,19 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
     </tr>
     <tr>
         <th>Klimakrise</th>
-        <td class="cdu-bg">- 2045: DL ist Klimaneutral<br/>- Sie wollen Emissionshandel<br/>- Senkung der Strompreise</td>
-        <td class="spd-bg">- CO<sub>2</sub>-Bepreisung<br/>- Modernisierung der Bahn<br/>- Elektro attraktiver machen (incl. Wasserstoff)</td>
+        <td class="cdu-bg">- Sie wollen Emissionshandel<br/>- Senkung der Strompreise</td>
+        <td class="spd-bg">- Bis 2040: Strom vollständig aus erneuerbaren Energien (2020 waren es 45%)<br/>- CO<sub>2</sub>-Bepreisung<br/>- Modernisierung der Bahn<br/>- Elektro attraktiver machen (incl. Wasserstoff)</td>
         <td class="green-bg">- Energiegeld<br/>- Reduzierter Steuersatz für Pflanzliche Milch-Alternativen</td>
-        <td class="fdp-bg">- Festlegung des maximalen CO<sub>2</sub>-Ausstoßes<br/>- Regulierung über Zertifikate<br/>- kein Verbot von Diesel-Fahrzeugen<br/>- Keine besonderen Förderungen</td>
-        <td class="linke-bg">- 2035: DL ist von nicht-erneuerbaren unabhängig<br/>- Lufthansa + DB werden zusammengelegt</td>
+        <td class="fdp-bg">Keine besonderen Förderungen</td>
+        <td class="linke-bg">- Lufthansa + DB werden zusammengelegt</td>
     </tr>
-	<tr>
-        <td>Bis 2030</td>
-        <td class="cdu-bg">CO<sub>2</sub>-Ausstoß um 65% reduziert</td>
-        <td class="spd-bg"></td>
-        <td class="green-bg">bis: CO<sub>2</sub>-Ausstoß um 70% reduzieren<br/>ab: nur Emissionsfreie Autos zulassen</td>
-        <td class="fdp-bg"></td>
-        <td class="linke-bg">ab: Keine Zulassung / Export von Autos mit Verbrennungsmotoren</td>
-    </tr>
-	<tr>
-        <td>Bis 2040</td>
-        <td class="cdu-bg"></td>
-        <td class="spd-bg">Strom vollständig aus erneuerbaren Energien (2020 waren es 45%)</td>
-        <td class="green-bg"></td>
-        <td class="fdp-bg"></td>
-        <td class="linke-bg">DL ist Klimaneutral<br/></td>
+    <tr>
+        <td>Angestrebte Klimaneutralität</td>
+        <td class="cdu-bg">bis 2045</td>
+        <td class="spd-bg">bis 2045</td>
+        <td class="green-bg">bis 2035</td>
+        <td class="fdp-bg">bis 2050</td>
+        <td class="linke-bg">bis 2035</td>
     </tr>
 	<tr>
         <td><a href="https://de.wikipedia.org/wiki/Kohleausstieg#Deutschland">Kohleausstieg</a></td>
@@ -514,6 +513,22 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/kohleausstieg">2030</a></td>
         <td class="fdp-bg">2038</td>
         <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/kohleausstieg/">2030</a></td>
+    </tr>
+    <tr>
+        <td>EU-ETS (Emissionshandel) verbessern</td>
+        <td class="cdu-bg">- Emissionshandel auf den Verkehr- und Wärmesektor ausweiten</td>
+        <td class="spd-bg">?</td>
+        <td class="green-bg">- deutliche Reduktion von Emissionszertifikaten</td>
+        <td class="fdp-bg">- Emissionshandel auf alle Emissionen ausweiten</td>
+        <td class="linke-bg">❌</td>
+    </tr>
+	<tr>
+        <td>Bis 2030</td>
+        <td class="cdu-bg">CO<sub>2</sub>-Ausstoß um 65% reduziert</td>
+        <td class="spd-bg"></td>
+        <td class="green-bg">bis: CO<sub>2</sub>-Ausstoß um 70% reduzieren<br/>ab: nur Emissionsfreie Autos zulassen</td>
+        <td class="fdp-bg"></td>
+        <td class="linke-bg">ab: Keine Zulassung / Export von Autos mit Verbrennungsmotoren</td>
     </tr>
     <tr>
         <td>Verbrennungsmotoren verbieten</td>
@@ -530,6 +545,22 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="green-bg">130km/h</td>
         <td class="fdp-bg">❌</td>
         <td class="linke-bg"><a href="https://www.linksfraktion.de/themen/a-z/detailansicht/verkehrspolitik/">120km/h</a></td>
+    </tr>
+	<tr>
+        <td>Dieselsubvention beenden<sup id="fnref:34"><a class="footnote-ref" href="#fn:34">34</a></sup></td>
+        <td class="cdu-bg">❌</td>
+        <td class="spd-bg">?</td>
+        <td class="green-bg">✅</td>
+        <td class="fdp-bg">❌</td>
+        <td class="linke-bg">✅</td>
+    </tr>
+    <tr>
+        <td>Förderung von Wasserstoff-PKWs<br>(Das ist <b>nicht</b> sinnvoll<sup id="fnref:31"><a class="footnote-ref" href="#fn:31">31</a>, </sup><sup id="fnref:32"><a class="footnote-ref" href="#fn:32">32</a>, </sup><sup id="fnref:33"><a class="footnote-ref" href="#fn:33">33</a></sup>!)</td>
+        <td class="cdu-bg">✅</td>
+        <td class="spd-bg">✅</td>
+        <td class="green-bg">❌</td>
+        <td class="fdp-bg">✅</td>
+        <td class="linke-bg">❌</td>
     </tr>
 	<tr>
         <td><a href="https://www.abgeordnetenwatch.de/bundestag/17/abstimmungen/atomausstieg-bis-2022">Atomausstieg bis 2022</a></td>
@@ -703,11 +734,7 @@ abschaffen</a></td>
         <th>Korruption bekämpfen</th>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">❌</td>
-        <td class="green-bg">✅
-            <ul>
-                <li></li>
-            </ul>
-        </td>
+        <td class="green-bg">✅</td>
         <td class="fdp-bg">❌</td>
         <td class="linke-bg">✅
             <ul>
@@ -946,7 +973,7 @@ Schauen wir uns mal vergangene Wahlversprechen aus der Wahl 2017 an:
   einzelnen Dienst über den man alles machen kann. Das für mich relevanteste
   Projekt ist [Elster](https://de.wikipedia.org/wiki/Elster_(Software)). Hier vermute ich mal, dass man es der CSU zuschreiben kann. Es wundert mich allerdings, dass sich die CSU nicht selbst mit diesen Federn schmückt; eventuell kommt es also doch woanders her?
 * **Flächendeckender Glasfaser-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: 8.3 Millionen Haushalte von 41.5 Millionen Haushalten haben aktuell Glasfaser-Zugang<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Für mich sieht es nicht so aus als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
-* **Vorreiter beim 5G-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025:
+* **Vorreiter beim 5G-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: Hier bin ich überfragt. Aber es fühlt sich zumindest nicht so an.
 * **Bildungscloud**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>: Sehr gute Ideen, allerdings ungenügende Umsetzung.
 
 Negativ aufgefallen ist mir der Abschnitt "Gefahrenabwehr im Cyberraum". Allein schon der Titel. WTF. Was ist denn bitte der "Cyberraum"? Ich vermute das liegt irgendwo im Neuland?
@@ -998,8 +1025,6 @@ Die [Tagesschau](https://www.youtube.com/watch?v=xkVb_bJv8aI) fasst das [Wahlpro
 * Deutschland soll bis 2050 Klimaneutral werden:
     * Wasserstoff
     * Power 2 Gas
-* Bürgerversicherung
-* Hartz IV abschaffen
 
 Im Wahlprogramm und dem Werbematerial liest man sehr häufig "Respekt". Keine Ahnung was das soll. Sieht für mich ziemlich planlos aus. Im Wahlprogramm finden sich jedoch auch konkrete Ziele:
 
@@ -1114,18 +1139,11 @@ Interessant ist auch:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9TMLv9TvPhI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Die [Tagesschau](https://www.youtube.com/watch?v=fKzgDtA8Hw4) fasst das [Wahlprogramm der Grünen](https://www.gruene.de/artikel/wahlprogramm-zur-bundestagswahl-2021) wie folgt zusammen:
+Weitere Ziele, die in der Tabelle oben nicht vorkommen:
 
 * Mehl Geld für Wissenschaft und Forschung
 * Bildungsreform
 * Mehr Geld für Infrastruktur
-* Digitalisierung
-* Klimakrise:
-    * Bis 2030 reduktion von 70% im Vergleich zu 1930
-    * CO<sub>2</sub>-Preis stärker steigen lassen: Energiegeld sozial gerecht umverteilen
-    * Kohleausstieg früher
-    * Tempolimit 130
-* Weg von Hartz IV zu Grundsicherung
 
 In ihrer Wahlwerbung fokussieren sie sich auf 6 Punkte:
 
@@ -1158,22 +1176,23 @@ In ihrer Wahlwerbung fokussieren sie sich auf 6 Punkte:
 
 Kritikpunkte:
 
-
-* Homöopathie
+* Homöopathie: 2019 haben sie sich aus meiner Sicht zu dem Thema nicht gut
+  präsentiert<sup id="fnref:29"><a class="footnote-ref" href="#fn:29">29</a></sup>, aber das wurde 2020 beigelegt.<sup id="fnref:30"><a class="footnote-ref" href="#fn:29">30</a></sup>
 * Enthaltung / Befürwortung von Urheberrechtsreform
 * Hambacher Forst
 
 
 ## Die Partei
 
-[Die PARTEI](https://de.wikipedia.org/wiki/Die_PARTEI) ist vor allem wegen der Arbeit von Martin Sonneborn im Europäischen
-Parlament bekann.
+[Die PARTEI](https://de.wikipedia.org/wiki/Die_PARTEI) ist vor allem wegen der
+Arbeit von Martin Sonneborn im Europäischen Parlament bekann.
 
-Wenn man gegen die etablierten Parteien Protestieren will, ist die PARTEI eine gute Wahl. Es nervt keiner so gut wie Sonneborn.
+Wenn man gegen die etablierten Parteien Protestieren will, ist die PARTEI eine
+gute Wahl. Es nervt keiner so gut wie Sonneborn.
 
 * [Wahlprogramm](https://www.die-partei.de/btw21/)
 
-## Koalitionsmöglichkeiten
+## Koalitions&shy;möglichkeiten
 
 Aktuelle [Wahlumfragen](https://www.wahlrecht.de/umfragen/) deuten auf folgenden Ausgang hin:
 
@@ -1241,3 +1260,10 @@ Siehe auch:
 Tempolimit](https://www.umweltbundesamt.de/sites/default/files/medien/1410/publikationen/2020-06-15_texte_38-2020_wirkung-tempolimit_bf.pdf), 2020.
 [^27]: Simplicissimus: [Warum deine Leberwurst 1,09€ kostet](https://www.youtube.com/watch?v=QTBg9la6RPE), 2021
 [^28]: Umwelt Bundesamt: [Der Europäische Emissionshandel](https://www.umweltbundesamt.de/daten/klima/der-europaeische-emissionshandel#teilnehmer-prinzip-und-umsetzung-des-europaischen-emissionshandels), 2021.
+[^29]: Florian Staeck: [Grüne sind bei Homöopathie gespalten
+](https://www.aerztezeitung.de/Politik/Gruene-sind-bei-Homoeopathie-gespalten-402464.html), 2019.
+[^30]: Florian Staeck: [Grüne distanzieren sich von Homöopathie](https://www.aerztezeitung.de/Politik/Gruene-distanzieren-sich-von-Homoeopathie-ein-bisschen-414943.html), 2020.
+[^31]: Martin Thoma: [Why Hydrogen Cars will die](https://martinthoma.medium.com/why-hydrogen-cars-will-die-38efd117e7bc) in Medium, 2021.
+[^32]: Andreas Schmitz: [Die Zerstörung der Wasserstoffstrategie](https://www.youtube.com/watch?v=VLdFn9wjqvw) auf YouTube, 2021.
+[^33]: Robert W. Howarth, Mark Z. Jacobson: [How green is blue hydrogen?](https://onlinelibrary.wiley.com/doi/full/10.1002/ese3.956), 2021.
+[^34]: David Böcking: [VW-Chef Müllers Überraschungsangriff auf die Dieselsubvention](https://www.spiegel.de/wirtschaft/unternehmen/subventionen-fuer-diesel-das-steckt-hinter-den-forderungen-von-vw-chef-mueller-a-1182815.html), 2017.
