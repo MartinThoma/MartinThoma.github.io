@@ -17,11 +17,11 @@
 <meta name="keywords" content="Python, Release, Code, " />
 
 <meta property="og:title" content="Python 3.10 is Released "/>
-<meta property="og:url" content="Know What’s New and If It’s Worth the Switch/" />
+<meta property="og:url" content="https://betterprogramming.pub/python-3-10-is-released-know-whats-new-and-if-it-s-worth-the-switch-19c7a5738f7c" />
 <meta property="og:description" content="Photo by Vraj Shah from pexels and Mike from pexels, edited by Martin Thoma Python 3.10 was released on the 4th of October 2021 according to PEP 619. Let’s see what’s in store for us. Type Annotations I absolutely love type annotations. Since Python 3.6, they …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2021-05-31T20:00:00+02:00" />
+<meta property="og:article:published_time" content="2021-10-04T20:00:00+02:00" />
 <meta name="twitter:title" content="Python 3.10 is Released ">
 <meta name="twitter:description" content="Photo by Vraj Shah from pexels and Mike from pexels, edited by Martin Thoma Python 3.10 was released on the 4th of October 2021 according to PEP 619. Let’s see what’s in store for us. Type Annotations I absolutely love type annotations. Since Python 3.6, they …">
 <meta property="og:image" content="logos/python.png" />
@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../Know What’s New and If It’s Worth the Switch/">Python 3.10 is Released</a></h1>
+    <h1><a href="https://betterprogramming.pub/python-3-10-is-released-know-whats-new-and-if-it-s-worth-the-switch-19c7a5738f7c">Python 3.10 is Released</a></h1>
     </header>
 </div>
 
@@ -119,18 +119,38 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p><img alt="Photo by Vraj Shah from pexels and Mike from pexels, edited by Martin Thoma" src="https://cdn-images-1.medium.com/max/2550/1*SR9kv1wd0yHxk1ukW-yBOg.png"/><em>Photo by Vraj Shah <a href="https://www.pexels.com/de-de/foto/rotes-autokopflicht-638479/">from pexels</a> and Mike <a href="https://www.pexels.com/de-de/foto/graustufenfotografie-des-automotors-190574/">from pexels</a>, edited by Martin Thoma</em></p>
+            <figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/10/python-3-10-title.png"><img alt="Photo by Vraj Shah and Mike from pexels, edited by Martin Thoma" src="../images/2021/10/python-3-10-title.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Photo by Vraj Shah <a href="https://www.pexels.com/de-de/foto/rotes-autokopflicht-638479/">from pexels</a> and Mike <a href="https://www.pexels.com/de-de/foto/graustufenfotografie-des-automotors-190574/">from pexels</a>, edited by Martin Thoma</figcaption>
+</figure>
 <p>Python 3.10 <a href="https://www.python.org/downloads/release/python-3100/">was released</a> on the 4th of October 2021 according to <a href="https://www.python.org/dev/peps/pep-0619/">PEP 619</a>. Let&rsquo;s see what&rsquo;s in store for us.</p>
 <h2 id="type-annotations">Type Annotations</h2>
-<p>I absolutely love type annotations. Since Python 3.6, they are super useful. If you don&rsquo;t use them already, I highly recommend you to read<a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d"> my introduction</a>.</p>
+<p>I absolutely love type annotations. Since Python 3.6, they are super useful. If you don&rsquo;t use them already, I highly recommend you to read <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">my introduction</a>.</p>
 <p>Python 3.10 has improved them again! Let&rsquo;s see how</p>
 <h3 id="typeguards-conditional-type-narrowing">TypeGuards: Conditional Type Narrowing</h3>
 <p><a href="https://www.python.org/dev/peps/pep-0647/">PEP 647</a> introduces a new TypeGuard annotation. It&rsquo;s backported via <a href="https://pypi.org/project/typing-extensions/">typing_extensions</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypeGuard</span>  <span class="c1"># Before Python 3.10</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeGuard</span>             <span class="c1"># With Python 3.10</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeGuard</span>  <span class="c1"># With Python 3.10</span>
 </code></pre></div>
 <p>Without TypeGuards, you could not find that there is an issue with this:</p>
-<iframe frameborder="0" src="https://medium.com/media/65bb001a2f0bd05edb4052fc86cfdf57"></iframe>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">TypeGuard</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">is_user</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGuard</span><span class="p">[</span><span class="n">User</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="s2">"name"</span> <span class="ow">in</span> <span class="n">data</span> <span class="ow">and</span> <span class="s2">"email"</span> <span class="ow">in</span> <span class="n">data</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Martin"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"info@martin-thoma.de"</span><span class="p">}</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">is_user</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s2">"x"</span><span class="p">])</span>
+</code></pre></div>
 <p>But with the TypeGuard, you can see:</p>
 <div class="highlight"><pre><span></span><code>typeguard.py:17: error: TypedDict "User" has no key "x"
 
@@ -139,36 +159,73 @@ Found 1 error in 1 file (checked 1 source file)
 <p>Neat! Now you can get rid of a couple of cast andassert calls or comments like # type: ignore .</p>
 <h3 id="syntactic-sugar-allow-writing-union-types-as-x-y">Syntactic Sugar: Allow writing union types as X | Y ✨</h3>
 <p><a href="https://www.python.org/dev/peps/pep-0020/">Readability counts</a>. The documentation is a lot of the reason why I love type annotations so much. <a href="https://www.python.org/dev/peps/pep-0604/">PEP 604</a> allows you to use a more concise syntax that is easier to read:</p>
-<iframe frameborder="0" src="https://medium.com/media/54524d74bf9900e88b8c88575d60bb8d"></iframe>
+<div class="highlight"><pre><span></span><code><span class="c1"># Before 3.10</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="o">...</span>
+
+
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">bar</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+
+<span class="c1"># With 3.10</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="o">...</span>
+
+
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="parameter-specification-variables-type-annotations-for-decorators">Parameter Specification Variables: Type Annotations for Decorators</h3>
 <p>Non-trivial decorators are a pain to understand once they are written. And writing type-annotations has been pretty hard. <a href="https://www.python.org/dev/peps/pep-0612/">PEP 612</a> introduces typing.ParamSpec and typing.Concatenate .</p>
 <p>The PEP already gives a good example for those. Imagine you wrote a decorator add_logging which executed log_to_database before the decorated function is called. The function could have any parameters &mdash; the execution of the function should not be changed. How would you annotate that?</p>
 <p>With parameter specification variables you could do it like this:</p>
-<iframe frameborder="0" src="https://medium.com/media/afa2dfc3bb55a697c766c060aa7d1eed"></iframe>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Awaitable</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">ParamSpec</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">"P"</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"R"</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">add_logging</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">Awaitable</span><span class="p">[</span><span class="n">R</span><span class="p">]]:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">log_to_database</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">inner</span>
+
+
+<span class="nd">@add_logging</span>
+<span class="k">def</span> <span class="nf">takes_int_str</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">7</span>
+
+
+<span class="k">await</span> <span class="n">takes_int_str</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">)</span>  <span class="c1"># Accepted</span>
+<span class="k">await</span> <span class="n">takes_int_str</span><span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Correctly rejected by the type checker</span>
+</code></pre></div>
 <p>You can also add parameters or remove them with decorators. And now you can add proper types for that! Just have a look into <a href="https://www.python.org/dev/peps/pep-0612/">PEP 612</a>.</p>
 <h3 id="explicit-type-aliases">Explicit Type Aliases</h3>
 <p><a href="https://www.python.org/dev/peps/pep-0613/">PEP 613</a> introduces typing.TypeAlias . This helps the type checker to distinguish between module-level assignments to create constants and actual type aliases:</p>
-<div class="highlight"><pre><span></span><code><span class="nl">StrCache</span><span class="p">:</span><span class="w"> </span><span class="n">TypeAlias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Cache[str]'</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">alias</span><span class="w"></span>
-<span class="n">LOG_PREFIX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'LOG[DEBUG]'</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="n">constant</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">StrCache</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="s2">"Cache[str]"</span>  <span class="c1"># a type alias</span>
+<span class="n">LOG_PREFIX</span> <span class="o">=</span> <span class="s2">"LOG[DEBUG]"</span>  <span class="c1"># a module constant</span>
 </code></pre></div>
 <p>This helps mypy to give better error messages.</p>
 <h2 id="structural-pattern-matching_1">Structural Pattern Matching</h2>
 <p>Structural Pattern Matching is such a big new feature that it is covered by multiple PEPs: <a href="https://www.python.org/dev/peps/pep-0634/">PEP 634</a> (Specification), <a href="https://www.python.org/dev/peps/pep-0635/">PEP 635</a> (Rationale), and <a href="https://www.python.org/dev/peps/pep-0636/">PEP 636</a> (Tutorial)!</p>
 <p>An example from the tutorial explains it best:</p>
-<div class="highlight"><pre><span></span><code><span class="n">match</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
-    <span class="n">case</span> <span class="p">[</span><span class="s2">"quit"</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Goodbye!"</span><span class="p">)</span>
-        <span class="n">quit_game</span><span class="p">()</span>
-    <span class="n">case</span> <span class="p">[</span><span class="s2">"look"</span><span class="p">]:</span>
-        <span class="n">current_room</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-    <span class="n">case</span> <span class="p">[</span><span class="s2">"get"</span><span class="p">,</span> <span class="n">obj</span><span class="p">]:</span>
-        <span class="n">character</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">current_room</span><span class="p">)</span>
-    <span class="n">case</span> <span class="p">[</span><span class="s2">"go"</span><span class="p">,</span> <span class="n">direction</span><span class="p">]:</span>
-        <span class="n">current_room</span> <span class="o">=</span> <span class="n">current_room</span><span class="o">.</span><span class="n">neighbor</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
-    <span class="c1"># The rest of your commands go here</span>
+<div class="highlight"><pre><span></span><code>match command.split():
+    case ["quit"]:
+        print("Goodbye!")
+        quit_game()
+    case ["look"]:
+        current_room.describe()
+    case ["get", obj]:
+        character.get(obj, current_room)
+    case ["go", direction]:
+        current_room = current_room.neighbor(direction)
+    # The rest of your commands go here
 </code></pre></div>
 <p>As you can see, the new keywords are match and case . The part after the match is what is evaluated. In this case, command.spit() returns a list of strings. An equivalent code before structural pattern matching would be:</p>
-<div class="highlight"><pre><span></span><code><span class="n">val</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">val</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"quit"</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Goodbye!"</span><span class="p">)</span>
@@ -186,14 +243,22 @@ Found 1 error in 1 file (checked 1 source file)
 <h2 id="better-error-messages">Better Error Messages</h2>
 <p>Python 3.10 has improved a couple of error messages. Here are just two
 examples, but there are many more:</p>
-<p><img alt="" src="https://cdn-images-1.medium.com/max/2600/1*ws6meCi7NEPkbfZBv075ww.png"/></p>
-<p><img alt="" src="https://cdn-images-1.medium.com/max/2600/1*R3tt6NFpLCSb6id553bbPA.png"/></p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/10/error-assignment-comparison.png"><img alt="Error message for assignment instead of comparison" src="../images/2021/10/error-assignment-comparison.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Error message for assignment instead of comparison</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2021/10/error-missing-dict-close.png"><img alt="Error message when a dictionary was not closed" src="../images/2021/10/error-missing-dict-close.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Error message when a dictionary was not closed</figcaption>
+</figure>
 <p>I&rsquo;m using the <a href="https://stackoverflow.com/a/59507107/562769">colored Python shell script</a> to get the highlighting. In the Terminal I use ZSH and the solarized dark color theme.</p>
 <h2 id="performance">Performance</h2>
 <p>Comparing performance is always hard. It depends a lot on your workload and what exactly you&rsquo;re interested in. One obvious part is the startup time. The interpreter starts roughly 10% faster than Python 3.8. Also, the rendering of Django templates improved quite a bit.</p>
 <p>Python 3.10 will be faster than 3.9 and 3.8:</p>
-<iframe frameborder="0" src="https://medium.com/media/4e783632d9329dde90ede37f7c6c18a1"></iframe>
-<iframe frameborder="0" src="https://medium.com/media/a75c118987374a6b9916b8fc67a24c46"></iframe>
+<blockquote class="twitter-tweet"><p dir="ltr" lang="en">Python 3.10 will be up to 10% faster: <a href="https://t.co/7ydQ4iATsN">https://t.co/7ydQ4iATsN</a>. Here's the email that I wrote to python-dev 4.5 years ago with some perf ideas: <a href="https://t.co/tuJL7yXmjZ">https://t.co/tuJL7yXmjZ</a>. Thanks to <a href="https://twitter.com/pyblogsal?ref_src=twsrc%5Etfw">@pyblogsal</a> for picking up my patch and polishing it to get it merged. 🚀</p>&mdash; Yury Selivanov (@1st1) <a href="https://twitter.com/1st1/status/1318558048265404420?ref_src=twsrc%5Etfw">October 20, 2020</a></blockquote>
+<script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+<blockquote class="twitter-tweet"><p dir="ltr" lang="en">Python 3.10 is bringing a lot of cool things but how much faster is going to be? 🤔 The answer is "it depends" 😉 In the performance benchmark suite (<a href="https://t.co/RxzDk7vK33">https://t.co/RxzDk7vK33</a>) we are seeing speedups up to 25% in some cases 🚀 How this translates to your code depends a lot. 🧵👇 <a href="https://t.co/RZIfB09AlK">pic.twitter.com/RZIfB09AlK</a></p>&mdash; Pablo Galindo Salgado (@pyblogsal) <a href="https://twitter.com/pyblogsal/status/1433411699235774466?ref_src=twsrc%5Etfw">September 2, 2021</a></blockquote>
+<script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
 <p>See the <a href="https://speed.python.org/comparison/">official speed comparison</a> for all benchmarks.</p>
 <h2 id="how-to-get-python-310">How To Get Python 3.10</h2>
 <p>As a developer, I like to use <a href="https://github.com/pyenv/pyenv">pyenv</a> to get the Python versions I need:</p>
@@ -244,7 +309,7 @@ e.g. 3.10-slim-bullseye .</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2021-05-31T20:00:00+02:00">Mai 31, 2021</time>
+            <time pubdate="pubdate" datetime="2021-10-04T20:00:00+02:00">Okt 4, 2021</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
