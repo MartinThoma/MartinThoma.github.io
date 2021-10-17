@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Code, Programming, Software Development, Software Engineering, Code, " />
+
+<meta property="og:title" content="9 Clean Code Patterns I wish I knew earlier "/>
+<meta property="og:url" content="https://towardsdatascience.com/9-clean-code-patterns-i-wish-i-knew-earlier-57ee56c5892" />
+<meta property="og:description" content="Do you know the feeling when you look back at code which you wrote early in your career? I always feel a bit horrified. But there is a positive side to it: I learned something new 😄 A core part of good software is readability. Keeping the mental complexity low so …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-10-17T20:00:00+02:00" />
+<meta name="twitter:title" content="9 Clean Code Patterns I wish I knew earlier ">
+<meta name="twitter:description" content="Do you know the feeling when you look back at code which you wrote early in your career? I always feel a bit horrified. But there is a positive side to it: I learned something new 😄 A core part of good software is readability. Keeping the mental complexity low so …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>9 Clean Code Patterns I wish I knew earlier  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HZ7HBMC9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HZ7HBMC9L');
+</script>    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/9-clean-code-patterns-i-wish-i-knew-earlier-57ee56c5892">9 Clean Code Patterns I wish I knew earlier</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="9 Clean Code Patterns I wish I knew earlier">9 Clean Code Patterns I wish I knew earlier</a><ul><li><a class="toc-href" href="#no1-explanatory-variables" title="№1: Explanatory Variables">№1: Explanatory Variables</a></li><li><a class="toc-href" href="#no2-follow-conventions-and-style-guides" title="№2: Follow Conventions and Style Guides">№2: Follow Conventions and Style Guides</a></li><li><a class="toc-href" href="#no3-type-checking" title="№3: Type Checking">№3: Type Checking</a></li><li><a class="toc-href" href="#no4-consistent-terminology" title="№4 Consistent Terminology">№4 Consistent Terminology</a></li><li><a class="toc-href" href="#no5-meaningful-names" title="№5 Meaningful Names">№5 Meaningful Names</a></li><li><a class="toc-href" href="#no6-the-step-down-rule" title="№6 The step-down rule">№6 The step-down rule</a></li><li><a class="toc-href" href="#no7-remove-dead-code" title="№7 Remove Dead Code">№7 Remove Dead Code</a></li><li><a class="toc-href" href="#no8-use-containers" title="№8 Use containers">№8 Use containers</a></li><li><a class="toc-href" href="#no9-avoid-surprises" title="№9 Avoid Surprises">№9 Avoid Surprises</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Do you know the feeling when you look back at code which you wrote early in
+your career? I always feel a bit horrified. But there is a positive side to
+it: I learned something new 😄</p>
+<p>A core part of good software is readability. Keeping the mental complexity low
+so that everybody (including the author) has an easy time understanding it.
+Clean code patterns help to do so.</p>
+<p>In this article, you will get to know 9 clean code patterns that make code
+easier to read. Please see such patterns as tools. They don&rsquo;t apply all the
+time. Don&rsquo;t get religious about them. The language I use is Python, but the
+patterns apply outside of Python as well. Let&rsquo;s start!</p>
+<h2 id="no1-explanatory-variables">№1: Explanatory Variables</h2>
+<p>This is probably the simplest trick which you can easily apply. If something
+is hard to understand and you need a comment for it, try giving it a name.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+    <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
+    <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
+    <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="n">string</span>
+
+<span class="c1"># Good</span>
+<span class="o">**</span><span class="n">is_tripple_quoted_string</span><span class="o">**</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
+    <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_tripple_quoted_string</span> <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]):</span>
+    <span class="k">return</span> <span class="n">string</span>
+</code></pre></div>
+<p>This applies mostly to boolean expressions, but also to regular expressions,
+and sometimes to return values.</p>
+<h2 id="no2-follow-conventions-and-style-guides">№2: Follow Conventions and Style Guides</h2>
+<p><img alt="Photo by Ruthson Zimmerman on Unsplash" src="https://cdn-images-1.medium.com/max/10368/0*ZZERvL4XB41BeMEY"/><em>Photo by <a href="https://unsplash.com/@ruthson_zimmerman?utm_source=medium&amp;utm_medium=referral">Ruthson Zimmerman</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Every programming language has a syntax that you need to follow, otherwise, it
+will not work. And then there are conventions. You don&rsquo;t have to follow them;
+it will still work. However, it makes the life of others way easier if you do
+follow them.</p>
+<p>One of the simplest conventions is <strong>style guides</strong>. In Python it&rsquo;s <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>, Google published guides for <a href="https://google.github.io/styleguide/cppguide.html">C++</a> / <a href="https://google.github.io/styleguide/javaguide.html">Java</a>, the <a href="https://www.oracle.com/technetwork/java/codeconventions-150003.pdf">Oracle Java Code Conventions</a>, in PHP there is <a href="https://www.php-fig.org/psr/psr-1/">PSR-1</a>, &hellip;</p>
+<p>Other guides are implicit. For example, how a Django project is structured. Where you typically store views, models, and templates.</p>
+<blockquote>
+<h1 id="find-the-style-guides-that-are-relevant-for-you-and-follow-them">Find the style guide(s) that are relevant for you and follow them.</h1>
+</blockquote>
+<p>Typically, there are also <strong>linters</strong> or <strong>static code analysis tools</strong> that help you to get used to the guides. For example, in Python, there is flake8 with a lot of plugins. For the simplest part, the formatting, you can use tools that do it for you. A code autoformatter for Python which I love is <a href="https://pypi.org/project/black/">black</a>.</p>
+<h2 id="no3-type-checking">№3: Type Checking</h2>
+<p>I love type annotations in Python. They are optional, but I highly recommend
+using them. There are also differences in how to use them.</p>
+<p>For example, if you have Dict[str, Any] you might want to consider using
+NamedTuple / TypedDict / pydantic / dataclasses instead.</p>
+<p>In some case, when you use str as the type you might want to consider using
+NewType to denote which kind of string you are using. Is it an AuthorId ? Is
+it an UserId ?</p>
+<p>Those two patterns apply to other languages as well. Let&rsquo;s phrase it like this:</p>
+<blockquote>
+<h1 id="make-good-use-of-the-type-system">Make good use of the type system.</h1>
+</blockquote>
+<p>If you want to know more about type annotations in Python, please read:
+<a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d"><strong>Type Annotations in Python 3.8</strong>
+<em>Learn how to make Python code easier to read and less error-prone by gradual typing</em>medium.com</a></p>
+<p>If you want to know about the most recent improvements, read my <a href="https://betterprogramming.pub/python-3-10-is-released-know-whats-new-and-if-it-s-worth-the-switch-19c7a5738f7c">Python 3.10 article</a>.</p>
+<h2 id="no4-consistent-terminology">№4 Consistent Terminology</h2>
+<p><img alt="Photo by Waldemar Brandt on Unsplash" src="https://cdn-images-1.medium.com/max/12000/0*W2P9YP2EO_JOVB5c"/><em>Photo by <a href="https://unsplash.com/@waldemarbrandt67w?utm_source=medium&amp;utm_medium=referral">Waldemar Brandt</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>I work at the FinTech company <a href="https://cashlink.de/">Cashlink</a> as a Python backend developer. We handle digital securities, e.g. tokens that represent a real value like a part of a solar farm. Those tokens can be transferred. And here it starts to become interesting. Depending on the type of transfer, we must do different things. Either because of regulations or because of technical reasons. So we started to name different types of transfers differently to not be confused all the time:</p>
+<ul>
+<li><strong>Transfer</strong>: Any action that changes a balance. All terms below are some kind of transfer (although I would hesitate to call minting and burn a transfer).</li>
+<li><strong>Minting</strong>: The tokens are generated. This happens first.</li>
+<li><strong>Issuance</strong>: The transfer from the issuer to the investor. This happens second.</li>
+<li><strong>Move</strong>: A transfer from wallet A to wallet B, where A and B belong to the same investor.</li>
+<li><strong>Handover</strong>: A transfer from wallet A to wallet B, where A and B belong to different investors.</li>
+<li><strong>Burn</strong>: Removing tokens from an investor's account.</li>
+</ul>
+<p>Those things are important, but there are other examples where the terminology can be different. For example, internal product names and external ones. Marketing might have different needs than development. Try to get a vocabulary that fits most of the company.</p>
+<h2 id="no5-meaningful-names">№5 Meaningful Names</h2>
+<p>Think of your codebase like a book. The book has many, many different storylines. The variables are the characters. You can rely a bit on the context, but readers will be confused if you call everybody just &ldquo;the friend&rdquo;. They will be annoyed if they need to read half a page just for the name.</p>
+<ul>
+<li><strong>Avoid too short names </strong>like i orx . They are hard to search for. If you
+  write a mathematical function, they might make sense, though.</li>
+<li><strong>Avoid too long names</strong> like
+  InternalFrameInternalFrameTitlePaneInternalFrameTitlePaneMaximizeButtonWindowNotFocusedState.
+  Java developers regularly fall into this trap. Yes, the name might be super
+  exact. However, it makes all the logic around it super hard to understand.
+  There is a nice middle ground between x and
+  InternalFrameInternalFrameTitlePaneInternalFrameTitlePaneMaximizeButtonWindowNotFocusedState.</li>
+<li><strong>Be consistent</strong> with the vocabulary from №4. Also in spelling. Decide if
+  you want to use American English or British English. Decide if you want to
+  write display/show/present/print in your codebase.</li>
+<li><strong>Avoid data structures in names</strong> like user_dict . If you need that, it
+  might be that you&rsquo;re violating №6. Try to use only one representation of one
+  object. But keep in mind that this is a general rule. It does make sense
+  sometimes to use user_dict .</li>
+<li><strong>Make use of context</strong>. For example, the
+  java.sql.SQLIntegrityContraintViolation could simply be a
+  java.sql.IntegrityError . Within the sql package, everything should be about
+  SQL. And a ConstraintViolation simply is an Error.</li>
+</ul>
+<p>A pattern I like when iterating is to use the plural form for the iterator
+(ending in &ldquo;s&rdquo;) and the singular (without the final &ldquo;s&rdquo;)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
+<span class="k">for</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span> <span class="o">...</span>
+
+<span class="c1"># Good</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">registered_users</span><span class="p">:</span> <span class="o">...</span>
+</code></pre></div>
+<p>By the way: Please share if you&rsquo;ve seen <a href="https://www.reddit.com/r/ProgrammerHumor/comments/k1wdrt/whats_the_most_inappropriate_variable_name/">funny variable naming</a> in the wild 😄</p>
+<h2 id="no6-the-step-down-rule">№6 The step-down rule</h2>
+<p><img alt="Photo by Larm Rmah on Unsplash" src="https://cdn-images-1.medium.com/max/10368/0*beIO8I4KcJNur1tc"/><em>Photo by <a href="https://unsplash.com/@larm?utm_source=medium&amp;utm_medium=referral">Larm Rmah</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Keeping a function at one abstraction level helps you to focus on one topic.</p>
+<blockquote>
+<h1 id="separate-logic-data-collectiontransfer-presentation">Separate logic &harr; data collection/transfer &harr; presentation.</h1>
+</blockquote>
+<p>The presentation does not necessarily have to be visual. It can be print
+statements or it could be an API response.</p>
+<p>Marek Hudyma gives <a href="https://marekhudyma.com/code-style/2021/03/02/step-down-rule.html">a good example</a> of the step-down rule.</p>
+<p>In Python, you can sometimes see this when there is a lot of indentation.</p>
+<h2 id="no7-remove-dead-code">№7 Remove Dead Code</h2>
+<p><img alt="Photo by Gene Gallin on Unsplash" src="https://cdn-images-1.medium.com/max/8000/0*y9x2yyfDJEhmhkPH"/><em>Photo by <a href="https://unsplash.com/@genefoto?utm_source=medium&amp;utm_medium=referral">Gene Gallin</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Code that isn&rsquo;t there is code that cannot break. It&rsquo;s code that will not cause
+security issues. It&rsquo;s code that doesn&rsquo;t need to be maintained. Instead of
+commenting code out, remove it.</p>
+<p>You can use <a href="https://pypi.org/project/vulture/">vulture</a> and
+<a href="https://pypi.org/project/flake8-eradicate/">flake8-eradicate</a> to find such
+pieces in a Python codebase.</p>
+<p>I know the feeling when you have stuff that might be necessary later. I
+typically try to write a really thorough commit message, removing only those
+comments/files to be able to find it later if I need it. But there is YAGNI:
+<a href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it">You aren&rsquo;t gonna need
+it!</a></p>
+<h2 id="no8-use-containers">№8 Use containers</h2>
+<p>If you pass the same few values around in several places of your codebase you might want to consider writing a container. That could be a class, in Python you can use a <a href="https://docs.python.org/3/library/dataclasses.html">dataclass</a>, a <a href="https://docs.python.org/3/library/typing.html#typing.NamedTuple">NamedTuple</a>, or a <a href="https://www.python.org/dev/peps/pep-0589/">TypedDict</a>. If you need to serialize it, a Pydantic class is pretty nice as well.</p>
+<p>A prime example where you should likely use a container format is
+configuration.</p>
+<h2 id="no9-avoid-surprises">№9 Avoid Surprises</h2>
+<p>This is a no-brainer, but it is sometimes easy to forget. One core part is to
+<strong>avoid side effects</strong>. It should be clear whether a function changes state.
+Another part is to <strong>document hacks</strong>. Sometimes it is necessary to have
+hacks, but at least leave a comment on why the hack is there.</p>
+<p>Don&rsquo;t try to do something smart. Follow the KISS principle &mdash; Keep it simple
+and stupid!</p>
+<h2 id="summary">Summary</h2>
+<p>Writing good code is like writing good articles: It needs <strong>practice</strong> and you will always improve. Read a lot, <a href="https://codereview.stackexchange.com/">ask for feedback</a> and encourage people to also give small little notes in feedback. The ones that don&rsquo;t matter too much, but are just personal preferences.</p>
+<p>Finally, understand what you hate when you read code. Avoid <a href="https://cs.fit.edu/~kgallagher/Schtick/How%20To%20Write%20Unmaintainable%20Code.html">those patterns</a> 😄 &mdash; but <a href="https://github.com/zedr/clean-code-python/blob/master/README.md">apply this</a> 😍 Practice, be open to feedback, look critical at your code. Then you will be an awesome software engineer 🥂</p>
+<p>I love writing about software development and technology 🤩 Don&rsquo;t miss updates: <a href="https://martinthoma.medium.com/subscribe">**Get my free email newsletter</a>** 📧 or <a href="https://martinthoma.medium.com/membership">sign up for Medium</a> ✍️ if you haven&rsquo;t done it yet &mdash; both encourages me to write more 🤗</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2021-10-17T20:00:00+02:00">Okt 17, 2021</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#code-ref">Code
+                    <span>10</span>
+</a></li>
+                <li><a href="../tags.html#programming-ref">Programming
+                    <span>52</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>141</span>
+</a></li>
+                <li><a href="../tags.html#software-development-ref">Software Development
+                    <span>15</span>
+</a></li>
+                <li><a href="../tags.html#software-engineering-ref">Software Engineering
+                    <span>19</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
