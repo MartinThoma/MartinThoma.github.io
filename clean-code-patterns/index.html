@@ -134,17 +134,12 @@ patterns apply outside of Python as well. Let&rsquo;s start!</p>
 is hard to understand and you need a comment for it, try giving it a name.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
-    <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
-    <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
-    <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
 <span class="p">):</span>
     <span class="k">return</span> <span class="n">string</span>
 
 <span class="c1"># Good</span>
-<span class="o">**</span><span class="n">is_tripple_quoted_string</span><span class="o">**</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
-    <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
-<span class="p">)</span>
+<span class="n">is_tripple_quoted_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_tripple_quoted_string</span> <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]):</span>
     <span class="k">return</span> <span class="n">string</span>
 </code></pre></div>
@@ -214,10 +209,12 @@ it an UserId ?</p>
 <p>A pattern I like when iterating is to use the plural form for the iterator
 (ending in &ldquo;s&rdquo;) and the singular (without the final &ldquo;s&rdquo;)</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
-<span class="k">for</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">for</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="o">...</span>
 
 <span class="c1"># Good</span>
-<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">registered_users</span><span class="p">:</span> <span class="o">...</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">registered_users</span><span class="p">:</span>
+    <span class="o">...</span>
 </code></pre></div>
 <p>By the way: Please share if you&rsquo;ve seen <a href="https://www.reddit.com/r/ProgrammerHumor/comments/k1wdrt/whats_the_most_inappropriate_variable_name/">funny variable naming</a> in the wild 😄</p>
 <h2 id="no6-the-step-down-rule">№6 The step-down rule</h2>
