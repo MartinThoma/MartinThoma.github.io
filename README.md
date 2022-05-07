@@ -6,6 +6,12 @@
 - `sudo apt-get install npm && sudo apt-get install nodejs && sudo npm install -g mediumexporter`
 - `make html-local` and `make serve` to see the result on http://127.0.0.1:8000/
 
+## Get article from medium
+
+```bash
+mediumexporter https://infosecwriteups.com/redos-denial-of-service-by-regex-59c7ffab4880 > 2022-03-07-redos.md
+```
+
 ## TODO
 
 - `linkchecker https://martin-thoma.com -F csv`
