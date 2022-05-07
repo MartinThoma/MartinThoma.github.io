@@ -5,14 +5,14 @@ slug: Hausgeld
 author: Martin Thoma
 date: 2022-01-02 20:00
 category: German posts
+status: draft
 tags: Politik, Immobilien, Investment
-featured_image: logos/de.png
+featured_image: logos/germany.png
 ---
 Als Mieter muss ich nicht nur die Miete bezahlen, sondern auch Betriebskosten.
 Umgangssprachlich werden diese auch als "zweite Miete" bezeichnet. In
 der Betriebskostenverordnung (BetrKV) sind sie als "die Kosten, die dem Eigentümer [...] durch das Eigentum [...] am Grundstück oder durch den bestimmungsmäßigen Gebrauch des Gebäudes, der Nebengebäude,
 Anlagen, Einrichtungen und des Grundstücks laufend entstehen" definiert.
-
 
 
 ## Was ist Umlagefähig?
