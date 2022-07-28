@@ -8,8 +8,9 @@ category: Code
 tags: Python,packaging
 featured_image: logos/python.png
 ---
-The `pyproject.toml` file is a solution for defining the build system as a
-dependency. Also, other kinds of meta-data and the install requirements can be
+The `pyproject.toml` file allows package creators to define the build system as
+a dependency as well as a projects metadata.
+Also, other kinds of meta-data and the install requirements can be
 defined in it.
 
 If you are interested in a sample project, try [pypa/sampleproject](https://github.com/pypa/sampleproject) or try the [packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/).
@@ -23,14 +24,12 @@ name = "infer_pyproject"
 version = "0.1.0"
 description = "Create a pyproject.toml file for an existing project."
 authors = [
-    "Martin Thoma <info@martin-thoma.de>"
+    {name = "Martin Thoma", email="info@martin-thoma.de"},
+    {email = "info@example.com"}
 ]
-license = "MIT"
+license = {file = "LICENSE.txt"}
 readme = "README.md"
-python = "^3.6"
-homepage = "https://github.com/MartinThoma/infer_pyproject"
-repository = "https://github.com/MartinThoma/infer_pyproject"
-documentation = "https://github.com/MartinThoma/infer_pyproject"
+requires-python = ">=3.6"
 
 keywords = ["packaging", "dependency", "infer", "pyproject.toml"]
 
@@ -38,14 +37,22 @@ classifiers = [
     "Topic :: Software Development"
 ]
 
-# Requirements
-[dependencies]
-Click = "^7.0"
+# Requirements: This is done differently by poetry!
+dependencies = [
+    "Click>=7.0"
+]
 
-[dev-dependencies]
-black = { version = "^18.3-alpha.0", python = "^3.6" }
+[project.optional-dependencies]
+dev = [
+    "black>=18.3-alpha.0",
+]
 
-[scripts]
+[project.urls]
+homepage = "https://github.com/MartinThoma/infer_pyproject"
+documentation = "https://github.com/MartinThoma/infer_pyproject"
+repository = "https://github.com/MartinThoma/infer_pyproject"
+
+[project.scripts]
 poetry = "infer_pyproject.cli:main"
 
 [build-system]
@@ -102,6 +109,7 @@ exclude = '''
 * 2016-11-18: First commit of [pipfile](https://github.com/pypa/pipfile/commit/8bfff2988d0575cacae8a15ae22fd3f9749c5055)
 * 2017-01-20: First commit of [pipenv](https://github.com/pypa/pipenv/commit/be4b70e646e6232834e9f9917fdc1adde2156f47)
 * 2018-02-28: First version of [Poetry](https://pypi.org/project/poetry) was released
+* 2020-06-22: [PEP 621](https://peps.python.org/pep-0621/) - still not supported by poetry in August 2022 ([#3332](https://github.com/python-poetry/poetry/issues/3332))
 
 ## Tools
 
