@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="pyproject.toml "/>
 <meta property="og:url" content="pyproject-toml/" />
-<meta property="og:description" content="The pyproject.toml file is a solution for defining the build system as a dependency. Also, other kinds of meta-data and the install requirements can be defined in it. If you are interested in a sample project, try pypa/sampleproject or try the packaging tutorial. Example [project] name = &#34;infer_pyproject&#34; version …" />
+<meta property="og:description" content="The pyproject.toml file allows package creators to define the build system as a dependency as well as a projects metadata. Also, other kinds of meta-data and the install requirements can be defined in it. If you are interested in a sample project, try pypa/sampleproject or try the packaging …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-07-30T20:00:00+02:00" />
 <meta name="twitter:title" content="pyproject.toml ">
-<meta name="twitter:description" content="The pyproject.toml file is a solution for defining the build system as a dependency. Also, other kinds of meta-data and the install requirements can be defined in it. If you are interested in a sample project, try pypa/sampleproject or try the packaging tutorial. Example [project] name = &#34;infer_pyproject&#34; version …">
+<meta name="twitter:description" content="The pyproject.toml file allows package creators to define the build system as a dependency as well as a projects metadata. Also, other kinds of meta-data and the install requirements can be defined in it. If you are interested in a sample project, try pypa/sampleproject or try the packaging …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -119,8 +119,9 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The <code>pyproject.toml</code> file is a solution for defining the build system as a
-dependency. Also, other kinds of meta-data and the install requirements can be
+            <p>The <code>pyproject.toml</code> file allows package creators to define the build system as
+a dependency as well as a projects metadata.
+Also, other kinds of meta-data and the install requirements can be
 defined in it.</p>
 <p>If you are interested in a sample project, try <a href="https://github.com/pypa/sampleproject">pypa/sampleproject</a> or try the <a href="https://packaging.python.org/tutorials/packaging-projects/">packaging tutorial</a>.</p>
 <h2 id="example">Example</h2>
@@ -129,14 +130,12 @@ defined in it.</p>
 <span class="na">version</span> <span class="o">=</span> <span class="s">"0.1.0"</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">"Create a pyproject.toml file for an existing project."</span>
 <span class="na">authors</span> <span class="o">=</span> <span class="s">[</span>
-    <span class="na">"Martin Thoma &lt;info@martin-thoma.de&gt;"</span>
+    <span class="na">{name</span> <span class="o">=</span> <span class="s">"Martin Thoma", email="info@martin-thoma.de"},</span>
+    <span class="na">{email</span> <span class="o">=</span> <span class="s">"info@example.com"}</span>
 <span class="na">]</span>
-<span class="na">license</span> <span class="o">=</span> <span class="s">"MIT"</span>
+<span class="na">license</span> <span class="o">=</span> <span class="s">{file = "LICENSE.txt"}</span>
 <span class="na">readme</span> <span class="o">=</span> <span class="s">"README.md"</span>
-<span class="na">python</span> <span class="o">=</span> <span class="s">"^3.6"</span>
-<span class="na">homepage</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
-<span class="na">repository</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
-<span class="na">documentation</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+<span class="na">requires-python</span> <span class="o">=</span> <span class="s">"&gt;=3.6"</span>
 
 <span class="na">keywords</span> <span class="o">=</span> <span class="s">["packaging", "dependency", "infer", "pyproject.toml"]</span>
 
@@ -144,14 +143,22 @@ defined in it.</p>
     <span class="na">"Topic :: Software Development"</span>
 <span class="na">]</span>
 
-<span class="c1"># Requirements</span>
-<span class="k">[dependencies]</span>
-<span class="na">Click</span> <span class="o">=</span> <span class="s">"^7.0"</span>
+<span class="c1"># Requirements: This is done differently by poetry!</span>
+<span class="na">dependencies</span> <span class="o">=</span> <span class="s">[</span>
+    <span class="na">"Click&gt;</span><span class="o">=</span><span class="s">7.0"</span>
+<span class="na">]</span>
 
-<span class="k">[dev-dependencies]</span>
-<span class="na">black</span> <span class="o">=</span> <span class="s">{ version = "^18.3-alpha.0", python = "^3.6" }</span>
+<span class="k">[project.optional-dependencies]</span>
+<span class="na">dev</span> <span class="o">=</span> <span class="s">[</span>
+    <span class="na">"black&gt;</span><span class="o">=</span><span class="s">18.3-alpha.0",</span>
+<span class="na">]</span>
 
-<span class="k">[scripts]</span>
+<span class="k">[project.urls]</span>
+<span class="na">homepage</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+<span class="na">documentation</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+<span class="na">repository</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+
+<span class="k">[project.scripts]</span>
 <span class="na">poetry</span> <span class="o">=</span> <span class="s">"infer_pyproject.cli:main"</span>
 
 <span class="k">[build-system]</span>
@@ -206,6 +213,7 @@ defined in it.</p>
 <li>2016-11-18: First commit of <a href="https://github.com/pypa/pipfile/commit/8bfff2988d0575cacae8a15ae22fd3f9749c5055">pipfile</a></li>
 <li>2017-01-20: First commit of <a href="https://github.com/pypa/pipenv/commit/be4b70e646e6232834e9f9917fdc1adde2156f47">pipenv</a></li>
 <li>2018-02-28: First version of <a href="https://pypi.org/project/poetry">Poetry</a> was released</li>
+<li>2020-06-22: <a href="https://peps.python.org/pep-0621/">PEP 621</a> - still not supported by poetry in August 2022 (<a href="https://github.com/python-poetry/poetry/issues/3332">#3332</a>)</li>
 </ul>
 <h2 id="tools">Tools</h2>
 <dl>
