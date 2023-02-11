@@ -201,6 +201,9 @@ When you talk about "speed" in a network context, there are two important values
 
 Typical values:
 
+* Accessing a CPU register: Less than 1ns!
+* Accessing L1 / L2 CPU caches: 1ns - 10ns
+* Accessing L3 CPU cache: 10ns - 100ns
 * Ethernet Switch Latency: 50μs - 125μs
 * Cable: Essentially non-existant as the signal travels with the speed of light
 
