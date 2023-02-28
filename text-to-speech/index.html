@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="ML, AI, Code, " />
+
+<meta property="og:title" content="Let your computer speak to you "/>
+<meta property="og:url" content="https://medium.com/@martinthoma/let-your-computer-speak-to-you-4a42994ed48f" />
+<meta property="og:description" content="A Text-to-Speech pipeline I recently injured my eye during a hike. Don’t worry, it’s be fine soon — but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand: Martin Thoma · eSpeak NG …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2023-02-28T20:00:00+01:00" />
+<meta name="twitter:title" content="Let your computer speak to you ">
+<meta name="twitter:description" content="A Text-to-Speech pipeline I recently injured my eye during a hike. Don’t worry, it’s be fine soon — but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand: Martin Thoma · eSpeak NG …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Let your computer speak to you  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HZ7HBMC9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HZ7HBMC9L');
+</script>    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://medium.com/@martinthoma/let-your-computer-speak-to-you-4a42994ed48f">Let your computer speak to you</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#" title="Let your computer speak to you">Let your computer speak to you</a><ul><li><a class="toc-href" href="#the-old-stuff-pyttsx3-and-espeak" title="The old Stuff: pyttsx3 and eSpeak">The old Stuff: pyttsx3 and eSpeak</a></li><li><a class="toc-href" href="#the-stages-of-the-text-to-speech-pipeline" title="The Stages of the Text-To-Speech Pipeline">The Stages of the Text-To-Speech Pipeline</a></li><li><a class="toc-href" href="#wavenet-what-google-speech-services-are-using" title="WaveNet: What Google Speech Services are using">WaveNet: What Google Speech Services are using</a></li><li><a class="toc-href" href="#end-to-end-deep-learning" title="End-to-End Deep Learning">End-to-End Deep Learning</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#additional-resources" title="Additional Resources">Additional Resources</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2023/02/tts-pipeline.drawio.png"><img alt="A Text-to-Speech pipeline" src="../images/2023/02/tts-pipeline.drawio.png" style="width: 512px;"/></a>
+<figcaption class="text-center">A Text-to-Speech pipeline</figcaption>
+</figure>
+<p>I recently injured my eye during a hike. Don&rsquo;t worry, it&rsquo;s be fine soon &mdash; but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand:</p>
+<iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453260838&amp;color=ff5500" width="100%"></iframe>
+<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma">Martin Thoma</a> &middot; <a href="https://soundcloud.com/martin-thoma-172139021/mark-twain-the-awful-german-language-by-espeak-ng" style="color: #cccccc; text-decoration: none;" target="_blank" title='eSpeak NG: "The Awful German Language" by Mark Twain'>eSpeak NG: "The Awful German Language" by Mark Twain</a></div>
+<p>This article guides you through the process of utilizing an improved text-to-speech system. Here, you will find complete, functional code that can be executed locally, as well as access to scientific publications for a deeper understanding. Audio examples will illustrate the notable advancements made in recent years. Without further ado, let&rsquo;s delve into the topic at hand!</p>
+<h2 id="the-old-stuff-pyttsx3-and-espeak">The old Stuff: pyttsx3 and eSpeak</h2>
+<p>After installing the necessary requirements for <a href="https://github.com/nateshmbhat/pyttsx3#installation-">pyttsx3</a>, you can use the following Python snippet to generate the audio sample from above:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pyttsx3</span> <span class="k">as</span> <span class="nn">tts</span>  <span class="c1"># pip install pyttsx3==2.90</span>
+
+<span class="c1"># Get the data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">tts</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># engine.say(data)  # say it directly</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">save_to_file</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>  <span class="c1"># store to file</span>
+
+<span class="n">engine</span><span class="o">.</span><span class="n">runAndWait</span><span class="p">()</span>
+</code></pre></div>
+<p>pyttsx3 is just using the <a href="https://en.wikipedia.org/wiki/ESpeak">eSpeak NG</a> speech synthesizer. It uses formant synthesis. That technique was developed around 1995 with the &ldquo;Speak&rdquo; software by Jonathan Duddington.</p>
+<h2 id="the-stages-of-the-text-to-speech-pipeline">The Stages of the Text-To-Speech Pipeline</h2>
+<p>A text-to-speech (TTS) pipeline contains the following steps:</p>
+<ul>
+<li><strong>Text Analysis</strong>: Find sentence boundaries. Part-of-speech tagging (POS tagging) means that every word gets categorized with its grammatical role in the sentence (subject, verb, object). This helps to distinguish homographs like wind (blowing air) and wind (turn or twist).</li>
+<li><strong>Text Normalisation</strong>: Convert abbreviations like &ldquo;e.g.&rdquo; and units like &ldquo;&deg;C&rdquo; into their full form.</li>
+<li><strong>Phonetic Analysis</strong>: Generate a sequence of phonemes. Those are similar to letters, but describe sounds. For example, the word &ldquo;phoneme&rdquo; would be written as /ˈfoʊniːm/. The wind (blowing air) is /wɪnd/ whereas the wind (turn or twist) is /waɪnd/. The phonetic analysis might simply be a dictionary lookup (e.g. via <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict">CMUdict</a>), but if the word is not found it becomes more complex. Then letter-to-sound (LTS) rules kick in.</li>
+<li><strong>Prosodic Analysis</strong>: Figure out what to stress, how the intonation should be, and how the rhythm of the generated speech should be. The <a href="https://en.wikipedia.org/wiki/ToBI">ToBI</a> annotation system can be used.</li>
+<li><strong>Audio synthesis</strong>: The acoustic model typically generates mel-spectrograms as an input for the waveform generation. This is a high-level acoustic representation.</li>
+<li><strong>Waveform Generation</strong>: The vocoder takes the high-level acoustic representation and converts it into a waveform that can be played as sound.</li>
+</ul>
+<p>You can see that the first parts &mdash; text analysis and normalization &mdash; are clearly natural language processing. Waveform generation is rather digital speech processing. And the rest is somewhere in between.</p>
+<h2 id="wavenet-what-google-speech-services-are-using">WaveNet: What Google Speech Services are using</h2>
+<p>The <a href="https://arxiv.org/abs/1609.03499">WaveNet paper</a> was published in 2016 by Google (DeepMind) and it drastically improved audio synthesis and waveform generation. The change of approach is to use data to learn how text should sound, whereas formant synthesis uses knowledge and manual analysis to describe how the sounds are generated.</p>
+<p>Listen for yourself:</p>
+<iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453260838&amp;color=ff5500" width="100%"></iframe>
+<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma">Martin Thoma</a> &middot; <a href="https://soundcloud.com/martin-thoma-172139021/mark-twain-the-awful-german-language-by-espeak-ng" style="color: #cccccc; text-decoration: none;" target="_blank" title='eSpeak NG: "The Awful German Language" by Mark Twain'>eSpeak NG: "The Awful German Language" by Mark Twain</a></div>
+<p>You can use Google Text-to-Speech (TTS) to generate it:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">gtts</span> <span class="kn">import</span> <span class="n">gTTS</span>  <span class="c1"># pip install gtts</span>
+
+<span class="c1"># Get the data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Generate an mp3</span>
+<span class="n">tts</span> <span class="o">=</span> <span class="n">gTTS</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="p">)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">"gtts-text.mp3"</span>
+<span class="n">tts</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+<p>The core innovation of WaveNet compared to formant synthesis was to use a machine learning approach &mdash; deep neural networks &mdash; for generating raw audio waveforms. Please note that there were other breakthroughs between the two methods.</p>
+<p>It&rsquo;s good, but it&rsquo;s an external service. You might want to actually generate it on your machine so that nobody else can get your data. Additionally, 2016 is already 8 years ago. A lot has happened in ML since.</p>
+<h2 id="end-to-end-deep-learning">End-to-End Deep Learning</h2>
+<p>Deep learning has not only improved waveform generation but also the other parts. To cite from the Tacotron paper:</p>
+<blockquote>
+<h1 id="tacotron-is-an-end-to-end-generative-text-to-speech-model-that-synthesizes-speech-directly-from-characters">Tacotron [is] an end-to-end generative text-to-speech model that synthesizes speech directly from characters.</h1>
+</blockquote>
+<p>A few other papers in this context are:</p>
+<ul>
+<li>2017 (Google): <a href="https://arxiv.org/abs/1703.10135">Tacotron</a> and <a href="https://ai.googleblog.com/2017/12/tacotron-2-generating-human-like-speech.html">Tacotron 2</a>. Tacotron takes a text sequence and outputs a feature vector sequence that can be given to WaveNet.</li>
+<li>2017 (Baidu): <a href="https://arxiv.org/abs/1710.07654">Deep Voice 3</a> is a neural-network based approach for the acoustic model (the audio synthesis) just like Tacotron. Where Tacotron uses a recurrent neural network (RNN), Deep Voice 3 uses an attention-based approach.</li>
+<li>2019 (Microsoft): <a href="https://arxiv.org/abs/1905.09263">FastSpeech</a> improves the inference speed compared to Deep Voice 3.</li>
+<li>2020 (Kakao): <a href="https://arxiv.org/abs/2005.11129">Glow-TTS</a> speeded-up the training method of the used neural network.</li>
+<li>2021 (KAIST): <a href="https://arxiv.org/pdf/2106.06103.pdf">VITS</a> (Variational Inference with adversarial learning for end-to-end Text-to-Speech) improves the generated audio quality.</li>
+</ul>
+<p>Let&rsquo;s judge VITS for yourself:</p>
+<iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453478362&amp;color=ff5500" width="100%"></iframe>
+<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma">Martin Thoma</a> &middot; <a href="https://soundcloud.com/martin-thoma-172139021/vits-the-awful-german-language-by-mark-twain" style="color: #cccccc; text-decoration: none;" target="_blank" title='VITS: "The Awful German Language" by Mark Twain'>VITS: "The Awful German Language" by Mark Twain</a></div>
+<p>Thanks to CoquiTTS (<a href="https://huggingface.co/spaces/coqui/CoquiTTS">web demo</a>) you can now use this as a complete TTS system to generate this on your machine:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">TTS.api</span> <span class="kn">import</span> <span class="n">TTS</span>  <span class="c1"># pip install TTS</span>
+
+
+<span class="k">def</span> <span class="nf">get_text</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"&rdquo;"</span><span class="p">,</span> <span class="s1">'"'</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"&ldquo;"</span><span class="p">,</span> <span class="s1">'"'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span> <span class="nf">gen</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">out_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Init TTS with the target model name</span>
+    <span class="n">tts</span> <span class="o">=</span> <span class="n">TTS</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">gpu</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"#"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"model=</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"speakers=</span><span class="si">{</span><span class="n">tts</span><span class="o">.</span><span class="n">speakers</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"languages=</span><span class="si">{</span><span class="n">tts</span><span class="o">.</span><span class="n">languages</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">speaker</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">tts</span><span class="o">.</span><span class="n">speakers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">speaker</span> <span class="o">=</span> <span class="n">tts</span><span class="o">.</span><span class="n">speakers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Select language and speaker</span>
+    <span class="k">if</span> <span class="n">speaker</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+        <span class="n">speaker</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">tts</span><span class="o">.</span><span class="n">languages</span><span class="p">:</span>
+        <span class="n">language</span> <span class="o">=</span> <span class="s2">"en"</span>
+
+    <span class="c1"># Generate it!</span>
+    <span class="n">tts</span><span class="o">.</span><span class="n">tts_to_file</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">speaker</span><span class="o">=</span><span class="n">speaker</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="n">language</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">out_file</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="s2">"tts_models/en/ljspeech/vits--neon"</span>
+    <span class="n">speaker</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">out_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"coqui.wav"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="c1"># if you want to see which models are available: TTS.list_models()</span>
+    <span class="n">gen</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">get_text</span><span class="p">(),</span> <span class="n">out_file</span><span class="o">=</span><span class="n">out_file</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>In this article, you have learned the basics of text-to-speech systems. You have enough entry-points that you make a deep-dive and you have complete code so that you can play around with existing systems.</p>
+<p>Have fun!</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="http://ttssamples.syntheticspeech.de/">German Text-to-Speech</a>: Lots of audio samples for many TTS systems.</li>
+<li>Andrew Gibiansky: <a href="https://andrew.gibiansky.com/wavenet-and-tacotron-arent-tts-systems/">WaveNet and Tacotron aren&rsquo;t TTS systems</a>, 2020.</li>
+</ul>
+<p>I love writing about software development and technology 🤩 Don&rsquo;t miss updates: <a href="https://martinthoma.medium.com/subscribe">**Get my free email newsletter</a>** 📧 or <a href="https://martinthoma.medium.com/membership">sign up for Medium</a> ✍️ if you haven&rsquo;t done it yet &mdash; both encourage me to write more 🤗</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2023-02-28T20:00:00+01:00">Feb 28, 2023</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#ai-ref">AI
+                    <span>13</span>
+</a></li>
+                <li><a href="../tags.html#ml-ref">ML
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
