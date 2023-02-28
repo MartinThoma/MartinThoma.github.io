@@ -764,7 +764,7 @@ Fabrics:
             <td>6.49 € / 4.056kg</td>
         </tr>
         <tr>
-            <td>Birne</td>
+            <td>Pears (Birne)</td>
             <td>2 months</td>
             <td>2.99 € / kg</td>
             <td>1.79 € / 0.6 kg</td>
@@ -782,7 +782,7 @@ Fabrics:
             <td>14.55 € / 13 piece</td>
         </tr>
         <tr>
-            <td>Kirschen</td>
+            <td>Cherries (Kirschen)</td>
             <td>2 weeks</td>
             <td>5.90 €/kg</td>
             <td>9.08 € / 1.938 kg</td>
@@ -2906,7 +2906,6 @@ I didn't like them:
 
 * LUDOS Ultra by Ludos Tech (13.57 €, 4.4 stars)
 * AKG eo-ig955bsegww by RS Traders (9.99 €, 4.1 stars)
-
 
 ## Other
 
