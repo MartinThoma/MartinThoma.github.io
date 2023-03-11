@@ -32,7 +32,9 @@ Bei der Finanzierung gibt es erstaunlich wenige relevante Fragen:
 1. **Eigenkapital**: Wie viel Geld kann man für das Haus direkt selbst bezahlen?
    Hier kann man ggf. bei einem Neubau das sog. "Muskelkapital" mit einbringen,
    wenn man ein paar Sachen in Eigenleistung erbringen kann. Ein Beispiel
-   wären Malerarbeiten.
+   wären Malerarbeiten. Man muss mindestens 11% des Kaufpreises als Eigenkapital mitbringen.
+   Das sind die Kaufnebenkosten. Wenn man nur diese bezahlt spricht man von einer
+   100%-Finanzierung.
 2. **Einkommen**: Die Bank lässt typischerweise ca. 1/3 des Netto-Einkommens als
    verfügbares Einkommen für einen Kredit zu.
 
@@ -43,17 +45,14 @@ Die Formel lautet:
 
 $$
 \begin{align}
-\text{Finanzierungsbedarf}&=\text{Hauspreis} - \text{Eigenkapital}\\
+\text{Finanzierungsbedarf}&=\text{Hauspreis} + \text{Kaufnebenkosten} - \text{Eigenkapital}\\
+&=\text{Hauspreis} \cdot 1.11 - \text{Eigenkapital}\\
 \\
 \text{Maximale Rate} &= (2\% + \text{Sollzins}) \cdot \text{maximale Finanzierung}\\
 \Leftrightarrow \frac{\text{Nettojahresgehalt}}{3} &= \frac{2 + \text{Sollzins}}{100} \cdot \text{maximale Finanzierung}\\
 \Leftrightarrow \text{maximale Finanzierung} &= \frac{\text{Nettojahresgehalt}}{3} \cdot  \frac{100}{2 + \text{Sollzins}}
 \end{align}
 $$
-
-Man muss zusätzlich mindestens 11% des Kaufpreises als Eigenkapital mitbringen.
-Das sind die Kaufnebenkosten. Wenn man nur diese bezahlt spricht man von einer
-100%-Finanzierung.
 
 Die maximale Rate mit 1/3 des Monatsgehalts anzusetzen kann natürlich auch
 deutlich daneben liegen. Das hängt von den persönlichen Verpflichtungen ab.
