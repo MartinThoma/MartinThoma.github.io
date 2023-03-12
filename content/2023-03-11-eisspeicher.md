@@ -101,3 +101,32 @@ Folgendes habe ich hier nicht berücksichtigt:
   in den 4m tiefe wohl eher höher sein.
 * Der Heizbedarf ist nicht nur im Winter. Auch im Frühling oder in kühlen
   Sommernächten muss man heizen. Auch das spricht für eine höhere Abdeckung.
+
+
+## Wirtschaftlichkeit
+
+Der Eisspeicher kostet ca. 7000€ - 12000€ ([Quelle](https://www.heizung.de/waermepumpe/eisspeicher.html)).
+Gehen wir mal von 10.000 EUR aus - und das ist vermutlich wesentlich zu niedrig.
+
+Angegeben wird von Viessmann ein COP-Wert von bis zu 5 ([Quelle](https://www.baulinks.de/webplugin/2022/0265.php4)). Eine Luftwärmepumpe ist eher be 4.
+
+Angenommen das würde für die benötigten 14880 kWh gelten (was es nicht tut, es
+wird weniger/schlechter sein), dann würde man 2976 kWh Strom anstelle von
+3720 kWh Strom pro Jahr für die Heizung bezahlen. Man spart sich also 744 kWh
+Strom.
+
+Bei einem Strompreis von 0.34 EUR/kWh sind das ca. 250€/Jahr.
+
+Die Amortisationszeit wäre also bei 10.000 EUR/ (250 EUR/Jahr) = 40 Jahren - und
+das obwohl ich Wartungskosten nicht berücksichtigt habe.
+
+Investiert man in den S&P 500, so bekommt man im Schnitt pro Jahr relativ
+sicher 5% Wertsteigerung. Das muss jede andere Investition schlagen. Das
+bedeutet eine Verdoppelung nach 14 Jahren.
+
+Der Eisspeicher lohnt sich also leider sehr deutlich nicht.
+
+## Fazit
+
+Der Eisspeicher ist ein tolles Konzept, aber zumindest für ein Einfamilienhaus
+im Altbestand lohnt er sich einfach nicht.
