@@ -5,11 +5,13 @@ slug: weissbrot-rezept
 author: Martin Thoma
 date: 2023-03-12 20:00
 category: German posts
-tags: recipe, money, food
-featured_image: logos/food.png
+tags: recipe, cooking
+featured_image: logos/cooking.png
 ---
 Das folgende Rezept ergibt ca. 800g Weißbrot. Die Zubereitung benötigt ca. 2h;
 davon sind ca. 10 min reine Arbeitszeit.
+
+Das sind ca. 12 Scheiben. Eine Mahlzeit für eine Person sind ca. 3 Scheiben.
 
 ## Zutaten
 
@@ -61,7 +63,7 @@ davon sind ca. 10 min reine Arbeitszeit.
     <tfoot>
     <tr>
         <th>Summe</th>
-        <th>&nbsp;</th>
+        <th>800g Weißbrot</th>
         <th>0.98 EUR</th>
     </tr>
     </tfoot>
@@ -86,19 +88,31 @@ ausgehen, also insbesondere:
         <tr>
             <th>Nährwert</th>
             <th>pro 100g</th>
+            <th>pro Portion (200g)</th>
+            <th>Tagesbedarf pro Portion</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Energie</td>
             <td>1310 kJ (=313 kCal)</td>
+            <td>2610 kJ</td>
+            <td>26%<sup>[<a href="https://www.tk.de/techniker/magazin/ernaehrung/uebergewicht-und-diaet/wie-viele-kalorien-pro-tag-2006758">1</a>]</sup></td>
         </tr>
         <tr>
             <td>Protein</td>
             <td>13g</td>
+            <td>26g</td>
+            <td>35%<sup>[<a href="https://www.ndr.de/ratgeber/gesundheit/Wie-viel-Eiweiss-ist-gesund,eiweiss102.html">2</a>]</sup></td>
         </tr>
     </tbody>
 </table>
+
+Dazu kommt dann der Belag, z.B. für eine Scheibe:
+
+* 10g Magarine (222 kJ)
+* 25g Marmelade (238 kJ, 0.1g Eiweiß)
+* 1 Scheibe  Käse (547 kJ, 9.5g Eiweiß)
 
 ## Variationen
 
