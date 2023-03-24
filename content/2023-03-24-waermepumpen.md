@@ -5,7 +5,7 @@ slug: waermepumpen
 author: Martin Thoma
 date: 2023-03-24 20:00
 category: German posts
-tags: money, home
+tags: money, house
 featured_image: logos/house.png
 ---
 Im Hinblick auf die steigenden Energiekosten und die vergangende
@@ -268,18 +268,20 @@ Vorlauftemperatur von 55°C.
         <td>20 Jahre (<a href="https://praxistipps.focus.de/lebensdauer-einer-heizung-informationen-zu-verschleiss-und-haltbarkeit_98439">Quelle</a>)</td>
         <td>1500 €</td>
         <td>160€/Jahr für die Heizung (<a href="https://www.heizspiegel.de/heizkosten-senken/heizungswartung/">Quelle</a>)<br/>+ 110€/Jahr für den Schornsteinfeger</td>
-        <td>9.8 kWh/L; 1.15 EUR/L => 1800€/Jahr</td>
-        <td>80k EUR</td>
+        <td>9.8 kWh/L; 1.15 €/L => 1800€/Jahr</td>
+        <td>80k €</td>
         <td>Öltank verbraucht Platz, es muss ein Zugang von der Straße zum Öltank freigehalten werden, das Öl hat zumindest im Heizraum einen Starken geruch, man ist abhängig von schwankenden Ölpreisen und deren Verfügbarkeit</td>
     </tr>
     <tr>
         <td>Luft-Luft-Wärmepumpe</td>
-        <td>10.000€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
+        <td>5250€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>):<br/>
+            5x LG S09 (2.5 kW, Schlafzimmer/Büro/Kinderzimmer/Bad/Küche) à 790€ oder Samsung AR35 à 590€  oder Panasonic CS-PZ25-VKE à 890 € oder Daikin Siesta ATXF25D à 1100€<br/>
+            + 1x LG S18 (5.0 kW, Wohnzimmer) oder Mitsubishi MSZ-HR50VF R32 à 1300€</td>
         <td>15 Jahre (<a href="https://m-tec.at/blog/10-mythen-zum-thema-waermepumpen/">Quelle</a>)</td>
         <td>15.000€  (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>140 €/Jahr (<a href="https://www.heizspiegel.de/heizkosten-senken/heizungswartung/">Quelle</a>)</td>
         <td>COP von 4.2, 0.33€/kWh => 1200 €/Jahr</td>
-        <td>90k EUR</td>
+        <td>90k €</td>
         <td>Einfache Installation, dezentral, kann im Sommer kühlen; ggf. störender Lärm (typisch sind 35 dB(A))</td>
     </tr>
     <tr>
@@ -289,7 +291,7 @@ Vorlauftemperatur von 55°C.
         <td>4.000€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>50 - 100€, alle 1-3 Jahre (<a href="https://blog.kelag.at/waermepumpe-wartung">Quelle</a>)</td>
         <td>SCOP=4.2 (<a href="https://www.bosch-thermotechnology.com/ocsmedia/optimized/full/o473837v272_Folder_Compress7800iW_EK_1220_web.pdf">5.4 möglich</a>), 0.33€/kWh => 1200 €/Jahr</td>
-        <td>75k EUR</td>
+        <td>75k €</td>
         <td>Man kann ggf. bestehende Heizungen verwenden, insbesondere wenn Fußbodenheizungen vorliegen</td>
     </tr>
     <tr>
@@ -299,7 +301,7 @@ Vorlauftemperatur von 55°C.
         <td>10.000€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>50 - 100€, alle 1-3 Jahre (<a href="https://blog.kelag.at/waermepumpe-wartung">Quelle</a>)</td>
         <td><a href="https://www.nibe.eu/assets/documents/26254/531075-1.pdf">SCOP=4.3</a>, 0.33€/kWh => 1200€/Jahr</td>
-        <td>49k EUR</td>
+        <td>49k €</td>
         <td>Großer Flächenbedarf; tief wurzelnde Bäume wachsen ggf. schlechter</td>
     </tr>
     <tr>
@@ -309,7 +311,7 @@ Vorlauftemperatur von 55°C.
         <td>16.500€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>50 - 100€, alle 1-3 Jahre (<a href="https://blog.kelag.at/waermepumpe-wartung">Quelle</a>)</td>
         <td><a href="https://www.nibe.eu/assets/documents/26254/531075-1.pdf">SCOP=4.3</a>, 0.33€/kWh => 1200€/Jahr</td>
-        <td>69k EUR</td>
+        <td>69k €</td>
         <td>Für die Gesamtkosten habe ich 30 Jahre Laufzeit angenommen.</td>
     </tr>
     <tr>
@@ -319,7 +321,7 @@ Vorlauftemperatur von 55°C.
         <td>12.000€ (<a href="https://www.heizungsfinder.de/waermepumpe/kosten-preise/wasser-wasser">Quelle</a>, <a href="https://www.energie-fachberater.de/heizung-lueftung/heizung/waermepumpe/grundwasserwaermepumpe-alles-zu-funktion-bedingungen-und-kosten.php">Quelle</a>)</td>
         <td>100€/Jahr (<a href="https://www.energie-fachberater.de/heizung-lueftung/heizung/waermepumpe/grundwasserwaermepumpe-alles-zu-funktion-bedingungen-und-kosten.php">Quelle</a>)</td>
         <td>SCOP=4.15 (<a href="https://www.mtec-systems.com/wp-content/uploads/sites/19/wplk-2021-finale_DoppelseiteWEB.pdf">Quelle</a>), 0.33€/kWh => 1200€</td>
-        <td>66k EUR</td>
+        <td>66k €</td>
         <td></td>
     </tr>
 </table>
@@ -327,6 +329,11 @@ Vorlauftemperatur von 55°C.
 Der Vergleich würde deutlich besser ausfallen, wenn man anstelle der 0.33€/kWh
 an Strom des Energieversorgers den eigenen Strom der Solarzelle nehemen würde.
 Oder wenn man mit einer niedrigeren Vorlauftemperatur auskommen würde.
+
+[Laut Andreas Schmitz](https://youtu.be/BvI7A3NmY08?t=874) kann man die
+Installation der Luft-Luft-Wärmepumpe auch selbst machen. Man braucht eine
+Mauernutfräse (ca. 100€) und eine 50mm-Diamant-Bohrkrone (50€) für die
+Kernbohrung. Dann muss der Fachmann es vor der Inbetriebnahme nur noch abnehmen.
 
 ### Anschaffungs- und Installationskosten
 
@@ -351,7 +358,7 @@ sollten sich daher im Vorfeld genau über die verschiedenen Fördermöglichkeite
 informieren.
 
 Energetische Sanierungen kann man von der Einkommenssteuer absetzen -
-auch fürs Eigenheim. Das sind 20% und bis zu 40.000 EUR. Leider kann man nur
+auch fürs Eigenheim. Das sind 20% und bis zu 40.000 €. Leider kann man nur
 entweder ein Förderprogram oder den Steuervorteil nutzen ([Quelle](https://www.finanztip.de/sanierungskosten-absetzen/)).
 
 ### Wartungskosten
@@ -403,12 +410,35 @@ Werte. Genau wie der COP sagt er wie viel Heizleistung man für den eingesetzten
 Strom bekommt. Ein SCOP=4 bedeutet also, dass man im Mittel für 1kWh Strom ganze
 4kWh Wärme bekommt.
 
-Luft-Luft Wärmepumpen haben einen SCOP von 4 bis 5.5. Die [Daikin Perfera 25R](https://www.daikin.at/content/dam/DACE-AT/document-library/einzelblatter/ac/split/Daikin_Split_Perfera_FTXM-R.pdf) hat einen SCOP von 5.2
+Luft-Luft Wärmepumpen haben einen SCOP von 4 bis 5.5. Die [Daikin Perfera
+25R](https://www.daikin.at/content/dam/DACE-AT/document-library/einzelblatter/ac/split/Daikin_Split_Perfera_FTXM-R.pdf)
+hat einen SCOP von 5.2
 
 Die Jahresarbeitszahl bezieht sich dann auf ein konkretes Haus. Das ist der wohl
 interessanteste Wert, allerdings kann man diesen naturgemäß nicht in Datenblättern
 von Klimaanlagen nachlesen.
 
+
+## Der Übergang von Öl auf Strom
+
+Andreas Schmitz hat in seinem Video [DIY Heizung: Günstige Alternative zur
+Wärmepumpe für den Altbau](https://www.youtube.com/watch?v=BvI7A3NmY08) ein
+paar interessante Sachen gezeigt:
+
+* **Parallelbetrieb**: Er nutzt eine Öl-Heizung mit Luft-Luft-Wärmepumpen im
+  Parallelbetrieb. Dadurch kann er die Öl-Heizung im ganzen Jahr im Sommer-Modus
+  laufen lassen.
+* **Kachelofen**: Wenn es richtig kalt wird nutzt er einen Kachelofen. Das
+  bedeutet, er kann die wenigen Tage im Jahr die unter -10°C liegen und damit
+  die Effizienz der Wärmepumpe kaputt machen überbrücken.
+* **Brauchwasserwärmepumpe**: Im Keller ist es ganzjährig deutlich über 0°C,
+  aber es könnte auch ohne Probleme kälter sein. Man könnte z.B. einen Kühlraum
+  machen. Die Stiebel Eltron Warmwasser-Wärmepumpe WWK 220 kostet z.B. 2600€.
+  Sollte die Ölheizung kaputt gehen kann man sie durch eine
+  Brauchwasserwärmepumpe ersetzen. Damit kann man den Öltank komplett leeren
+  bzw. die Lebensdauer der Ölheizung komplett ausreizen. Durch die Luft-Luft
+  Wärmepumpen wird man auf keinen Fall im kalten sitzen, aber ggf. eine Weile
+  kalt duschen.
 
 
 ## Fazit
@@ -420,4 +450,7 @@ machen. Ach ja, sie können im Sommer kühlen!
 
 Die hohen Anschaffungskosten und die notwendige niedrige Vorlauftemperatur für
 wirklich gute SCOP-Werte machen die Sache wirtschaftlich für Altbauten leider
-nicht so eindeutig.
+nicht so eindeutig. Dabei ist allerdings noch nicht die Förderung berücksichtig.
+Mit Förderung ist es klar: Wärmepumpen lohnen sich auch im Altbau. Wenn man
+zusätzlich noch eine Fußbodenheizung und/oder Solarzellen hat, ist es eine
+runde Sache.
