@@ -58,6 +58,17 @@ die in einzelnen Fällen regional verschärft werden können.
 
 Konkret wünsche ich mir europaweite Prüfrichtlinien (Prüfnormen, Klassifizierungsnormen, und Produktnormen) für den Brandschutz.
 
+### Friedhofszwang bei Feuerbestattung abschaffen
+
+Der Friedhofszwang macht Sinn bei der Erdbestattung. Man muss die Leute vor
+Krankheiten schützen.
+
+Kosten:
+
+* Feuerbestattung: 4260 € ([Quelle](https://www.bestattungen.de/ratgeber/bestattungskosten/kosten-feuerbestattung.html))
+* Seebestattung: 4607 € ([Quelle](https://www.bestattungen.de/ratgeber/bestattungskosten/kosten-seebestattung.html))
+* Erdbestattung: 7252 € ([Quelle](https://november.de/ratgeber/bestattungskosten/erdbestattung/), [Quelle](https://www.bestattungen.de/ratgeber/bestattungskosten/kosten-erdbestattung.html#kosten-erdbestattung))
+
 
 ## Soziale Gerechtigkeit
 
