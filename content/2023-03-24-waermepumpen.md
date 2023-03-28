@@ -69,7 +69,9 @@ der genutzten Energiequelle und der verwendeten Technologie unterscheiden.
 **Luft-Luft-Wärmepumpen** nutzen die Energie der Außenluft und geben die
 erzeugte Wärme direkt an die Raumluft ab. Ein Quick-Connect System macht die
 Installation einfacher. Nach EU Verordnung 517/2014 darf nur ein zertifiziertes
-Unternehmen Klimageräte in Betrieb nehmen.
+Unternehmen Klimageräte in Betrieb nehmen. Eingebaut werden können solche
+Wärmepumpen von Klimaanlagen-Bauern / Kältetechnikern, aber auch Heizungsbauer.
+Man benötigt einen "Kälteschein".
 
 **Luft-Wasser-Wärmepumpen** nutzen die Energie der Umgebungsluft und sind am
 häufigsten in Wohngebäuden zu finden.
@@ -275,7 +277,7 @@ Vorlauftemperatur von 55°C.
     <tr>
         <td>Luft-Luft-Wärmepumpe</td>
         <td>5250€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>):<br/>
-            5x LG S09 (2.5 kW, Schlafzimmer/Büro/Kinderzimmer/Bad/Küche) à 790€ oder Samsung AR35 à 590€  oder Panasonic CS-PZ25-VKE à 890 € oder Daikin Siesta ATXF25D à 1100€<br/>
+            5x LG S09 (2.5 kW, Schlafzimmer/Büro/Kinderzimmer/Bad/Küche) à 790€ oder Samsung AR35 à 590€  oder Panasonic CS-PZ25-VKE à 890 € oder Daikin Siesta ATXF25D à 1100€ oder <a href="https://www.klimaprofis.com/klimageraete/split-klimageraete/wandklimageraete/mitsubishi-electric-msz-ap42vgk-wifi-r32-kompakt-wandklimageraete-set-4-5-kw">Mitsubishi MSZ AP42VG</a> à 1600€<br/>
             + 1x LG S18 (5.0 kW, Wohnzimmer) oder Mitsubishi MSZ-HR50VF R32 à 1300€</td>
         <td>15 Jahre (<a href="https://m-tec.at/blog/10-mythen-zum-thema-waermepumpen/">Quelle</a>)</td>
         <td>15.000€  (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
