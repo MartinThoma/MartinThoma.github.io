@@ -92,7 +92,7 @@ SITEMAP = {
     "format": "xml",
 }
 
-TOC = {"TOC_HEADERS": "^h[2-3]", "TOC_RUN": "true"}
+TOC = {"TOC_HEADERS": "^h[2-3]", "TOC_RUN": "true", "TOC_INCLUDE_TITLE": False}
 
 DIRECT_TEMPLATES = ("index", "tags", "categories", "archives", "search", "404")
 
