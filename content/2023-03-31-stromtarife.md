@@ -20,7 +20,7 @@ der Netzfrequenz und sogar zu Stromausfällen kommen. Deshalb ist es wichtig,
 dass das Stromnetz immer in einem stabilen Zustand gehalten wird.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg"><img src="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg" alt="Netzspannungen in der Welt" style="width: 512px;"/></a>
+<a href="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg"><img src="../images/2023/03/World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg" alt="Netzspannungen in der Welt" style="width: 750px;"/></a>
 <figcaption class="text-center">Netzspannungen in der Welt (<a href="https://commons.wikimedia.org/wiki/File:World_Map_of_Mains_Voltages_and_Frequencies,_Detailed.svg">Quelle</a>)</figcaption>
 </figure>
 
@@ -81,8 +81,232 @@ regulatorischen Anforderungen der Regierung.
 ## Schätzung des Verbrauchs
 
 Die Schätzung des Verbrauchs hängt von mehreren Faktoren ab, wie z.B. der Anzahl
-der Personen im Haushalt, der Größe der Wohnung oder des Hauses, und dem
-Stromverbrauch in der Vergangenheit.
+der Personen im Haushalt, ob es eine Wohnung in einem Mehrfamilienhaus ist oder
+ein Einfamilienhaus, und ob das warme Wasser mit Strom erhitzt wird.
+Nachtspeicheröfen oder Wärmepumpen treiben den Stromverbrauch natürlich auch
+hoch.
+
+Hier ist eine kleine [Einordnung des Stromverbrauchs](https://www.eon.de/de/pk/strom/stromverbrauch/stromverbrauch-berechnen.html).
+
+<!-- Einfamilienhaus - Warmwasser ohne Strom:
+
+<table>
+    <tr>
+        <th>Personen</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>≤ 1300 kWh/Jahr</td>
+        <td>≤ 1600 kWh/Jahr</td>
+        <td>≤ 2000 kWh/Jahr</td>
+        <td>≤ 2500 kWh/Jahr</td>
+        <td>≤ 3200 kWh/Jahr</td>
+        <td>≤ 4100 kWh/Jahr</td>
+        <td>&gt; 4100 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>≤ 2000 kWh/Jahr</td>
+        <td>≤ 2400 kWh/Jahr</td>
+        <td>≤ 2800 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 4200 kWh/Jahr</td>
+        <td>&gt; 4200 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>≤ 2500 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3400 kWh/Jahr</td>
+        <td>≤ 3700 kWh/Jahr</td>
+        <td>≤ 4200 kWh/Jahr</td>
+        <td>≤ 5000 kWh/Jahr</td>
+        <td>&gt; 5000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>≤ 2700 kWh/Jahr</td>
+        <td>≤ 3300 kWh/Jahr</td>
+        <td>≤ 3700 kWh/Jahr</td>
+        <td>≤ 4000 kWh/Jahr</td>
+        <td>≤ 4700 kWh/Jahr</td>
+        <td>≤ 5800 kWh/Jahr</td>
+        <td>&gt; 5800 kWh/Jahr</td>
+    </tr>
+</table>
+
+Einfamilienhaus - Warmwasser mit Strom:
+
+<table>
+    <tr>
+        <th>Personen</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>≤ 1500 kWh/Jahr</td>
+        <td>≤ 1900 kWh/Jahr</td>
+        <td>≤ 2200 kWh/Jahr</td>
+        <td>≤ 2900 kWh/Jahr</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 5000 kWh/Jahr</td>
+        <td>&gt; 5000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>≤ 2400 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3400 kWh/Jahr</td>
+        <td>≤ 3800 kWh/Jahr</td>
+        <td>≤ 4500 kWh/Jahr</td>
+        <td>≤ 6000 kWh/Jahr</td>
+        <td>&gt; 6000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 4000 kWh/Jahr</td>
+        <td>≤ 4800 kWh/Jahr</td>
+        <td>≤ 5600 kWh/Jahr</td>
+        <td>≤ 7000 kWh/Jahr</td>
+        <td>&gt; 7000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 4000 kWh/Jahr</td>
+        <td>≤ 4800 kWh/Jahr</td>
+        <td>≤ 5500 kWh/Jahr</td>
+        <td>≤ 6400 kWh/Jahr</td>
+        <td>≤ 8000 kWh/Jahr</td>
+        <td>&gt; 8000 kWh/Jahr</td>
+    </tr>
+</table>
+
+Mehrfamilienhaus - Warmwasser ohne Strom:
+
+<table>
+    <tr>
+        <th>Personen</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>≤ 800 kWh/Jahr</td>
+        <td>≤ 1000 kWh/Jahr</td>
+        <td>≤ 1200 kWh/Jahr</td>
+        <td>≤ 1500 kWh/Jahr</td>
+        <td>≤ 1600 kWh/Jahr</td>
+        <td>≤ 2000 kWh/Jahr</td>
+        <td>&gt; 2000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>≤ 1200 kWh/Jahr</td>
+        <td>≤ 1500 kWh/Jahr</td>
+        <td>≤ 1800 kWh/Jahr</td>
+        <td>≤ 2100 kWh/Jahr</td>
+        <td>≤ 2500 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>&gt; 3000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>≤ 1500 kWh/Jahr</td>
+        <td>≤ 1900 kWh/Jahr</td>
+        <td>≤ 2200 kWh/Jahr</td>
+        <td>≤ 2600 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3700 kWh/Jahr</td>
+        <td>&gt; 3700 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>≤ 1700 kWh/Jahr</td>
+        <td>≤ 2000 kWh/Jahr</td>
+        <td>≤ 2500 kWh/Jahr</td>
+        <td>≤ 2900 kWh/Jahr</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 4100 kWh/Jahr</td>
+        <td>&gt; 4100 kWh/Jahr</td>
+    </tr>
+</table>
+
+Mehrfamilienhaus - Warmwasser mit Strom:
+
+<table>
+    <tr>
+        <th>Personen</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>≤ 1000 kWh/Jahr</td>
+        <td>≤ 1400 kWh/Jahr</td>
+        <td>≤ 1600 kWh/Jahr</td>
+        <td>≤ 2000 kWh/Jahr</td>
+        <td>≤ 2200 kWh/Jahr</td>
+        <td>≤ 2800 kWh/Jahr</td>
+        <td>&gt; 2800 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>≤ 1800 kWh/Jahr</td>
+        <td>≤ 2300 kWh/Jahr</td>
+        <td>≤ 2600 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 4000 kWh/Jahr</td>
+        <td>&gt; 4000 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>≤ 2500 kWh/Jahr</td>
+        <td>≤ 3000 kWh/Jahr</td>
+        <td>≤ 3500 kWh/Jahr</td>
+        <td>≤ 4000 kWh/Jahr</td>
+        <td>≤ 4500 kWh/Jahr</td>
+        <td>≤ 5500 kWh/Jahr</td>
+        <td>&gt; 5500 kWh/Jahr</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>≤ 2500 kWh/Jahr</td>
+        <td>≤ 3200 kWh/Jahr</td>
+        <td>≤ 4300 kWh/Jahr</td>
+        <td>≤ 5200 kWh/Jahr</td>
+        <td>≤ 6200 kWh/Jahr</td>
+        <td>≤ 8000 kWh/Jahr</td>
+        <td>&gt; 8000 kWh/Jahr</td>
+    </tr>
+</table> -->
 
 ## Stromtarif Grundlagen
 
