@@ -105,6 +105,23 @@ TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Eins
 ### Kapitalertragssteuer durch Einkommenssteuer ersetzen?
 
 
+### Bekämpfung von Polizeigewalt
+
+1. Einführung von Identifikationsnummern für alle Polizisten in der Öffentlichkeit
+2. Einführung von Körperkameras ("Bodycams") bei Großeinsätzen
+3. Schaffen einer unabhängige Stelle für polizeiliches Fehlverhalten
+    1. Unter der Leitung des Justizministeriums.
+    2. Sollte eine Website haben, auf der die Menschen Kontakt aufnehmen können.
+    3. Sollte mindestens in den 20 größten Städten Deutschlands mit mindestens
+       5 Personen präsent sein. Dies sollte sicherstellen, dass Opfer persönlich
+       mit Ermittlern sprechen können / dass Ermittler tatsächlich zu den Opfern gehen können.
+4. Soll die Kompetenz haben, Polizisten zu beurlauben / freizustellen / zu entlassen / anzuklagen
+
+
+### Wasser-Cent
+
+Die nutzung von Grundwasser durch Konzerne darf nicht kostenlos sein. Konzerne
+müssen zum Wasser sparen motiviert werden.
 
 
 ## Einzelnachweise
