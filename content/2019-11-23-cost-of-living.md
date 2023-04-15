@@ -806,7 +806,7 @@ Fabrics:
             <td>0.99 € / 480g</td>
         </tr>
         <tr>
-            <td>Strawberries (Erdbeeren)</td>
+            <td>Strawberries (🇩🇪 Erdbeeren)</td>
             <td>3 days</td>
             <td>1.89 € / 500g</td>
             <td>8.75 € / 2500g</td>
@@ -908,7 +908,7 @@ Fabrics:
             <td>9.17 € / 10.443 kg</td>
         </tr>
         <tr>
-            <td>Brokkoli (Broccoli)</td>
+            <td>Broccoli (🇩🇪 Brokkoli)</td>
             <td>2 weeks</td>
             <td>0.86 € / 500g to 1.49 € / 500g</td>
             <td>8.81 € / 6000g</td>
