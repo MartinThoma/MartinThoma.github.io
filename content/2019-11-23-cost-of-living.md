@@ -1499,8 +1499,8 @@ General Cooking:
         <tr>
             <td>Speisequark</td>
             <td>2 weeks?</td>
-            <td>0.54 € / 200g?</td>
-            <td>0.54 € / 200g</td>
+            <td>0.54 € / 250g</td>
+            <td>0.54 € / 250g</td>
         </tr>
         <tr>
             <td>Haferflocken</td>
