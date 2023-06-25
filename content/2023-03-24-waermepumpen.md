@@ -201,12 +201,12 @@ Zusammenfassen kann man sagen: Man spricht je nach Tiefe von unterschiedlichen T
 ### Benötigte Heizleistung berechnen
 
 Die Heizlastberechnung nach DIN 12831 ist eine Methode, um die benötigte
-Heizleistung eines Gebäudes zu berechnen. Hierbei werden verschiedene Faktoren
-wie die Größe und Form des Gebäudes, die Dämmung, die Fenster und Türen sowie
-die Art der Nutzung berücksichtigt. Ziel ist es, eine möglichst genaue
-Abschätzung der benötigten Heizleistung zu ermitteln, um eine passende
-Wärmepumpe auswählen zu können. Die Heizlastberechnung kann entweder manuell
-oder mit speziellen Softwareprogrammen durchgeführt werden. Es ist
+Heizleistung eines Gebäudes anhand des Verbrauchs zu berechnen. Hierbei werden
+verschiedene Faktoren wie die Größe und Form des Gebäudes, die Dämmung, die
+Fenster und Türen sowie die Art der Nutzung berücksichtigt. Ziel ist es, eine
+möglichst genaue Abschätzung der benötigten Heizleistung zu ermitteln, um eine
+passende Wärmepumpe auswählen zu können. Die Heizlastberechnung kann entweder
+manuell oder mit speziellen Softwareprogrammen durchgeführt werden. Es ist
 empfehlenswert, die Berechnung von einem Fachmann durchführen zu lassen, um eine
 genaue und zuverlässige Einschätzung zu erhalten.
 
