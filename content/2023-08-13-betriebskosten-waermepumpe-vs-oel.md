@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Wärmepumpe vs Ölheizung
-slug: energie-sparen
+title: Betriebskosten: Wärmepumpe vs Ölheizung
+slug: betriebskosten-waermepumpe-vs-oelheizung
 author: Martin Thoma
 date: 2023-08-13 20:00
 category: German posts
@@ -16,10 +16,9 @@ Strom kostet aktuell mindestens 0,34 €/kWh und Öl / Gas / Holz ist nicht gera
 günstiger.
 
 
-
 ## Heizbedarf
 
-Angenommen wir haben Haus der Energieeffizienzklasse "C" mit
+Angenommen wir haben Haus der Energieeffizienzklasse C mit
 $90\frac{\text{kWh}}{m^2 \cdot a}$ und $150\text{m}^2$ Wohnfläche. Dann benötigt
 es also im Jahr 13.500kWh an Energie.
 

@@ -13,14 +13,6 @@ heizen in den Übgergangsmonaten September - November und März - Mai zu besorge
 Ein Kernattribut ist das Kühlmittel.
 
 
-Im Allgemeinen unterscheidet man zwischen natürlichen und synthetischen
-Kältemitteln. Unter natürlichen Kältemitteln versteht man Stoffe, die in der
-Natur vorkommen, wie z. B. Kohlenwasserstoffe, Kohlenstoffdioxid, Ammoniak,
-Wasser und Luft. Synthetische Kältemittel werden künstlich erzeugt. Zu diesen
-Stoffen zählen Fluorchlorkohlenwasserstoffe (FCKW), teilhalogenierte
-Fluorchlorkohlenwasserstoffe (H-FCKW) sowie Fluorkohlenwasserstoffe und
-teilhalogenierte Fluorkohlenwasserstoffe (FKW und H-FKW).
-
 * **R32** (Difluormethan, CH2F2) . Es wird z.B. in Kältebringer KB51, der Danyon
   DA-XA35QC, der Daikin Perfera, und der Mitsubishi SRC20ZS verwendet. Es hat den Siedepunkt bei
   −51,7 °C. Es besitzt ein um 675-mal stärkeres Treibhauspotenzial (GWP) als CO2.
