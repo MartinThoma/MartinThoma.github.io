@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="house, money, German posts, " />
+
+<meta property="og:title" content="Heizlastberechnung "/>
+<meta property="og:url" content="heizlastberechnung/" />
+<meta property="og:description" content="Ich will einige Energetische Sanierungsmaßnahmen an meinem Haus durchführen, falls es denn wirtschaftlich sinnvoll ist. Dafür muss ich wissen wie groß die Wärmepumpe dimensioniert sein muss. Ich muss das ggf. pro Raum wissen um beurteilen zu können, ob ich neue Heizkörper benötige. Die Heizlast ist die Wärmemenge, welche zur Aufrechterhaltung …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2023-08-12T20:00:00+02:00" />
+<meta name="twitter:title" content="Heizlastberechnung ">
+<meta name="twitter:description" content="Ich will einige Energetische Sanierungsmaßnahmen an meinem Haus durchführen, falls es denn wirtschaftlich sinnvoll ist. Dafür muss ich wissen wie groß die Wärmepumpe dimensioniert sein muss. Ich muss das ggf. pro Raum wissen um beurteilen zu können, ob ich neue Heizkörper benötige. Die Heizlast ist die Wärmemenge, welche zur Aufrechterhaltung …">
+<meta property="og:image" content="logos/house.png" />
+<meta name="twitter:image" content="logos/house.png" >
+
+        <title>Heizlastberechnung  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../heizlastberechnung/">Heizlastberechnung</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#normauentemperatur" title="Normau&szlig;entemperatur">Normau&szlig;entemperatur</a></li><li><a class="toc-href" href="#hullflachenverfahren" title="H&uuml;llfl&auml;chenverfahren">H&uuml;llfl&auml;chenverfahren</a><ul><li><a class="toc-href" href="#luftungswarmeverluste" title="L&uuml;ftungsw&auml;rmeverluste">L&uuml;ftungsw&auml;rmeverluste</a></li><li><a class="toc-href" href="#transmissionswarmeverluste" title="Transmissionsw&auml;rmeverluste">Transmissionsw&auml;rmeverluste</a></li></ul></li><li><a class="toc-href" href="#die-leistung-von-heizkorpern_1" title="Die Leistung von Heizk&ouml;rpern">Die Leistung von Heizk&ouml;rpern</a></li><li><a class="toc-href" href="#weiteres" title="Weiteres">Weiteres</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Ich will einige Energetische Sanierungsma&szlig;nahmen an meinem Haus durchf&uuml;hren,
+falls es denn wirtschaftlich sinnvoll ist. Daf&uuml;r muss ich wissen wie gro&szlig; die
+W&auml;rmepumpe dimensioniert sein muss. Ich muss das ggf. pro Raum wissen um beurteilen
+zu k&ouml;nnen, ob ich neue Heizk&ouml;rper ben&ouml;tige.</p>
+<p>Die Heizlast ist die W&auml;rmemenge, welche zur Aufrechterhaltung der Raumtemperatur
+n&ouml;tig ist. Da ich wissen will wie viel Leistung die W&auml;rmepumpe(n) bringen sollen,
+muss ich mir vor allem die Extremwerte ansehen.</p>
+<h2 id="normauentemperatur">Normau&szlig;entemperatur</h2>
+<blockquote>
+<p>Die Normau&szlig;entemperatur ist die tiefste Temperatur einer K&auml;lteperiode, welche
+sich 10 Mal innerhalb von 20 Jahren &uuml;ber einen Zeitraum von mindestens zwei
+aufeinanderfolgenden Tagen gehalten haben muss.</p>
+</blockquote>
+<p>Quelle: <a href="https://www.haustechnikverstehen.de/glossary/normaussentemperatur/">haustechnikverstehen.de</a></p>
+<p>Es ist also insbesondere nicht die k&auml;lteste gemessene Temperatur. Es ist jedoch
+eine sinnvolle annahme f&uuml;r die Dimensionierung des Heizsystems.</p>
+<p>Beispiel: In M&uuml;chen (PLZ 80939) ist die Norm-Au&szlig;entemperatur bei -12.9&deg;C, aber
+die k&auml;lteste gemessene Temperatur bei -19.20&deg;C (<a href="https://www.waermepumpe.de/normen-technik/klimakarte/">Quelle</a>).
+Das Histogram zeigt, dass es in M&uuml;nchen zwischen 2005 und 2023 im Schnitt in einem
+Jahr nur 5.8 Stunden unter -13&deg;C hatte.</p>
+<p>Legt man seine Heiztechnik nun f&uuml;r -12.9&deg;C aus, dann ist es in diesen 5.8
+Stunden im Jahr unterdimensioniert. In der Zeit verliert das Haus also W&auml;rme,
+wenn man nicht gegensteuert. Das kann man z.B. einfach mit einem mobilen
+Heizl&uuml;fter f&uuml;r 20&euro;. Allerdings sind diese 5 Stunden vermutlich eh in der Nacht.
+Und das Haus wird ja nicht sofort klirrend kalt, sonder k&uuml;hlt allm&auml;hlich ab.</p>
+<p>Wenn man hingegen die Heiztechnik nicht auf -12.9&deg;C sondern auf -19.20&deg;C auslegt,
+dann kann man mit einigen tausend Euro an Mehrkosten rechnen.</p>
+<h2 id="hullflachenverfahren">H&uuml;llfl&auml;chenverfahren</h2>
+<p>Das H&uuml;llfl&auml;chenverfahren habe ich von <a href="https://www.youtube.com/watch?v=iwjGjYLrSOM">schlau
+energiesparen</a> (<a href="https://www.linkedin.com/in/boerger/">Alex
+Boerger</a>) gelernt. Das Video und den Kanal
+kann ich sehr empfehlen.</p>
+<p>Das H&uuml;llfl&auml;chenverfahren ist eine einfache Methode zur berechnung der Heizlast
+pro Raum.</p>
+<p>Die W&auml;rmeverluste lassen sich in zwei Kategorien aufteilen:</p>
+<ul>
+<li><strong>L&uuml;ftungsw&auml;rmeverluste</strong>: W&auml;rmeverluste duch Luftaustausch</li>
+<li><strong>Transmissionsw&auml;rmeverluste</strong>: W&auml;rmeverluste duch Abstrahlung</li>
+</ul>
+<p>Die Berechnung von beiden werde ich im folgenden erkl&auml;ren. Um ein intutives
+Verst&auml;ndnis von diesen zu bekommen:</p>
+<p>Eine geschlossene Plastik-T&uuml;te hat keinen Luftaustausch. Es gibt also keine
+L&uuml;ftungsw&auml;rme-Verluste. Dennoch wird es in der T&uuml;te kalt. Das sieht man z.B.
+wenn man Wassereis in den Gefrierschrank legt. Das sind reine
+Transmissunsw&auml;rmeverluste.</p>
+<p>Umgekehrt verhindern diese Glasfaser-D&auml;mmplatten nicht, dass es durch zieht.
+Wenn man also zu viel Luftaustausch hat, dann kann der L&uuml;ftungsw&auml;rmeverlust
+auch hoch sein.</p>
+<h3 id="luftungswarmeverluste">L&uuml;ftungsw&auml;rmeverluste</h3>
+<p>Man muss die Raumluft etwa alle zwei Stunden wechseln um Schimmel zu vermeiden.
+Teilweise sehe ich auch 4x pro Tag (<a href="https://www.ndr.de/ratgeber/verbraucher/Wohnung-richtig-lueften-So-laesst-sich-Schimmel-vermeiden,richtiglueften100.html">Quelle</a>), aber hier rechne ich mal lieber vorsichtig. Da die Geb&auml;udeh&uuml;lle auch nicht
+ganz dicht ist, nehme ich hier lieber einen h&ouml;heren Wert an.</p>
+<p>Ich muss also jede Stunde die H&auml;lfte des Raumvolumens austauschen. Das hei&szlig;t,
+dass ich die Luft mit der Au&szlig;entemperatur auf die Innentemperatur anheben muss.</p>
+<p>Ich brauche also:</p>
+<ul>
+<li><strong>Raumvolumen <span class="math">\(V\)</span></strong>: Typischerweise B&times;L&times;H. Bei einer Dachschr&auml;ge oder nicht-Quaderf&ouml;rmigen
+  R&auml;umen wirds komplizierter, aber das ist immer noch alles einfache Geometrie.</li>
+<li><strong>Energie f&uuml;r 1m&sup3; Luft</strong>: 0.34 Wh / K</li>
+<li><strong>Pro Stunde die H&auml;lfte des Raumvolumens</strong></li>
+<li><strong>Temperaturdifferenz <span class="math">\(\Delta_T\)</span></strong>: Die gew&uuml;nschte Innentemperatur minus die Norm-Au&szlig;entemperatur</li>
+</ul>
+<p>Daher ist die Leistung f&uuml;r den Ausgleich der L&uuml;ftungsw&auml;rmeverluste:</p>
+<p><span class="math">\(P_{\text{L&uuml;ftung}} = 0.34 \frac{Wh}{K} \cdot \frac{V}{2} \cdot \Delta_T\)</span></p>
+<p>Beispiel: Angenommen ich habe einen Raum mit 3m L&auml;nge, 4m Breite, und einer Raumh&ouml;he von 2.45m. Dann habe ich ein Volumen von <span class="math">\(V = 3\text{m} \cdot 4\text{m} \cdot 2.45\text{m} = 29.4\text{m}^3\)</span>.
+Angenommen ich habe eine Norm-Au&szlig;entemperatur von -13&deg;C und eine Wunschtemperatur von 22&deg;C.
+Dann habe ich <span class="math">\(\Delta_T = 22 - (-13) = 35 K\)</span>.</p>
+<p>Um die L&uuml;ftungsverluste dieses Raumes auszugleichen muss ich also W&auml;rme in H&ouml;he
+von <span class="math">\(= 0.34 \frac{Wh}{K} \cdot \frac{29.4\text{m}^3}{2} \cdot 35 K \approx 175W\)</span>
+hinzuf&uuml;hren.</p>
+<h3 id="transmissionswarmeverluste">Transmissionsw&auml;rmeverluste</h3>
+<p>Hier kommt es auf die Au&szlig;enfl&auml;che an und der W&auml;rmedurchgangskoeffzient (U-Wert)
+kommt ins spiel. Der U-Wert gibt an wie viel Energie verloren geht, wenn
+drau&szlig;en die Temperatur ein Grad k&auml;lter ist. Er wird in <span class="math">\(\frac{W}{m^2 \cdot K}\)</span> angegeben.</p>
+<p>Hier muss man jetzt sehr viele Fl&auml;chen berechnen und die U-Werte der Bauteile
+kennen. Das Bundesministeriumf&uuml;r Wirtschaft und Energie sowie das Bundesministeriumdes Innern, f&uuml;r Bau und Heimat
+haben f&uuml;r Altbauten Tabellen in einer <a href="https://www.bundesanzeiger.de/pub/publication/qzQUGd8A3unSCCbVMcf?0">Bekanntmachung der Regeln zur Datenaufnahme und Datenverwendungim Wohngeb&auml;udebestand</a> aufgelistet.</p>
+<p>Die wichtigsten Punkte:</p>
+<ul>
+<li><strong>Fenster</strong>: z.B. die Baualtersklasse 1984 bis 1994 hat bei Holzfenstern mit zwei Scheiben einen U-Wert von <span class="math">\(2.7 \frac{W}{m^2 \cdot K}\)</span>.</li>
+<li><strong>Roll&auml;den</strong>: z.B. <span class="math">\(3.6 \frac{W}{m^2 \cdot K}\)</span></li>
+<li><strong>Au&szlig;enw&auml;nde / Decke</strong>: z.B. <span class="math">\(0.6 \frac{W}{m^2 \cdot K}\)</span></li>
+</ul>
+<p>Angenommen der Raum hat ein Fenster mit den Ma&szlig;en 1.10m &times; 1.20m. Dabei messe ich
+die Niesche, nicht nur das Glas. Der U-Wert gilt f&uuml;r das Bauteil insgesamt.
+Manchmal sieht man auch <span class="math">\(U_W\)</span> (w f&uuml;r window, also Fenster) und <span class="math">\(U_G\)</span> (g f&uuml;r glass, also das Fenstergla&szlig;).
+Der <span class="math">\(U_W\)</span> Wert bezieht sich auf das ganze Bauteil.</p>
+<p>Dann habe ich nur f&uuml;r das Fenster einen W&auml;rmeverlust von <span class="math">\(2.7\frac{\text{W}}{\text{m}^2 \cdot K} \cdot (1.1\text{m} \cdot 1.2\text{m}) \cdot (22 - (-13))K \approx 125 \text{W}\)</span>.</p>
+<p>Die Rolladenfl&auml;che kann man einfach mit 10% der Fensterfl&auml;che annehmen. Daf&uuml;r gibts dann
+<span class="math">\(3.6 \cdot 0.132 \cdot 35 \text{W} \approx 17\text{W}\)</span>.</p>
+<p>Angenommen zwei W&auml;nde sind Au&szlig;enw&auml;nde. Interessant ist die Fl&auml;che von au&szlig;en und
+nicht von Innen. Wir k&ouml;nnen aber die Innenfl&auml;che berechnen und +25% addieren, also:</p>
+<p><span class="math">\(0.6 \cdot (2.45 \cdot (4 + 3)) \cdot 1.25 \cdot 35 \text{W} \approx 450 \text{W}\)</span>.</p>
+<p>Jetzt nehmen wir auch mal an, das sowohl das Geschoss darunter als auch das
+Geschoss dar&uuml;ber beheizt sind. Dann sind wir hier fertig.</p>
+<p>Wir kommen also auf Transimissionsverluste von <span class="math">\(125 + 17 + 450 \text{W} = 592 \text{W}\)</span>.</p>
+<h2 id="die-leistung-von-heizkorpern_1">Die Leistung von Heizk&ouml;rpern</h2>
+<p><a href="https://www.beuth.de/de/norm/din-en-442-2/207503152">DIN EN 442 (Radiatoren und Konvektoren)</a> gibt an welche
+Leistung verschiedene Heizk&ouml;rper haben. Ich habe die Norm nicht gelesen, habe aber
+Ausz&uuml;ge davon gesehen.</p>
+<p>Als erstes muss man die Ma&szlig;e (Breite &times; H&ouml;he) des Heizk&ouml;rpers bestimmen. Dann
+braucht man den Heizk&ouml;rper-Typ. Dieser besteht aus zwei Ziffern:</p>
+<ul>
+<li>Erste Ziffer: Anzahl der Platten, durch die Wasser flie&szlig;t. Entweder 1, 2 oder 3.</li>
+<li>Zweite Ziffer: Anzahl der Lamellen. Entweder 0, 1, 2, oder 3.</li>
+</ul>
+<p>Das kann man einfach sehen, wenn man den Heizk&ouml;rper von oben anschaut.</p>
+<p>Nun gibts Tabellen f&uuml;r die einzelnen Typen:</p>
+<ul>
+<li><a href="https://www.as-heizkoerper.de/contents/de/d57_din_en_442_bei_55_45_raum_20.html">Typ 11</a></li>
+<li><a href="https://www.as-heizkoerper.de/contents/de/d59_DIN_EN_442_bei_75_60C_Raum_20C.html">Typ 21</a></li>
+<li><a href="https://www.as-heizkoerper.de/contents/de/d83_Waermeleistung-Heizkoerper-Typ-22.html">Typ 22</a></li>
+<li><a href="https://www.as-heizkoerper.de/contents/de/d84_Waermeleistung-Heizkoerper-Typ-33.html">Typ 33</a></li>
+</ul>
+<p>Die Angaben sind nun in der Form (exemplarisch f&uuml;r Typ 22, B80&times;H60):</p>
+<ul>
+<li>Vorlauf-Temperatur / R&uuml;cklauf-Temperatur / Raumtemperatur: Leistung</li>
+<li>55 &deg;C / 45&deg;C / 20&deg;C: 707 Watt</li>
+<li>70 &deg;C / 55&deg;C / 20&deg;C: 1128 Watt</li>
+<li>75 &deg;C / 65&deg;C / 20&deg;C: 1403 Watt</li>
+</ul>
+<p>Wenn man also f&uuml;r einen Raum einen W&auml;rmebedarf von 1200 Watt ermittelt hat und
+man hat nur einen Heizk&ouml;rper Typ 22 (B80&times;H60) darin, dann ben&ouml;tigt man eine
+Vorlauftemperatur von 75&deg;C.</p>
+<p>Man kann die Vorlauftemperatur nur f&uuml;r das Gesamtgeb&auml;ude festlegen. Daher
+dominiert hier das schw&auml;chste Glied.</p>
+<h2 id="weiteres">Weiteres</h2>
+<ul>
+<li>https://www.ubakus.de/u-wert-rechner/</li>
+<li>https://www.sbz-monteur.de/gut-zu-wissen/norm-waermeleistung-oder-reale-bedingungen</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2023-08-12T20:00:00+02:00">Aug 12, 2023</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#house-ref">house
+                    <span>9</span>
+</a></li>
+                <li><a href="../tags.html#money-ref">money
+                    <span>11</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
