@@ -109,7 +109,7 @@ TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Eins
 
 1. Einführung von Identifikationsnummern für alle Polizisten in der Öffentlichkeit
 2. Einführung von Körperkameras ("Bodycams") bei Großeinsätzen
-3. Schaffen einer unabhängige Stelle für polizeiliches Fehlverhalten
+3. Schaffen einer unabhängige Stelle für polizeiliches Fehlverhalten (Polizeibeschwerdestelle)
     1. Unter der Leitung des Justizministeriums.
     2. Sollte eine Website haben, auf der die Menschen Kontakt aufnehmen können.
     3. Sollte mindestens in den 20 größten Städten Deutschlands mit mindestens
@@ -122,6 +122,25 @@ TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Eins
 
 Die nutzung von Grundwasser durch Konzerne darf nicht kostenlos sein. Konzerne
 müssen zum Wasser sparen motiviert werden.
+
+## Korruption
+
+* (Öffentliches?) Immobilien-Register
+*  EU GRECO: 14 EU recommendations against corruption
+* Petty corruption vs "High" corruption
+
+## Soziale Leistungen
+
+1. Jeder soll auf Gesundheitsleistungen in Deutschland und Rente weltweit anspruch haben
+2. Jeder soll in gleicher weise einzahlen müssen.
+
+Das bedeutet insbesondere Änderungen für:
+
+* Beamte
+* Selbstständige
+
+Gleichzeitig sollen Abgaben im US-Stil gemacht werden: Wer die deutsche
+Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt
 
 
 ## Einzelnachweise
