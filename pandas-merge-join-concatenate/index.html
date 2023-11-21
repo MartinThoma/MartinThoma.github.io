@@ -151,35 +151,35 @@ dataframes. So here are some examples that should make it crystal clear.</p>
 <h2 id="merge">Merge</h2>
 <p>The <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html">pandas docs</a>
 tell you that it has the syntax:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; df1.merge(df2, on='country', how='inner')
-   country capital_x  inhabitant capital_y    HDI
-0  Germany    Berlin  82500000.0    Berlin  0.926
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='inner')</span>
+<span class="err">   country capital_x  inhabitant capital_y    HDI</span>
+<span class="err">0  Germany    Berlin  82500000.0    Berlin  0.926</span>
 </code></pre></div>
 <p>Please note that the column <code>capital</code> was duplicated as it is in both tables</p>
 <p>Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT JOIN:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; df1.merge(df2, on='country', how='left')
-     country capital_x   inhabitant capital_y    HDI
-0    Germany    Berlin   82500000.0    Berlin  0.926
-1     France     Paris   66900000.0       NaN    NaN
-2  Indonesia   Jakarta  255500000.0       NaN    NaN
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='left')</span>
+<span class="err">     country capital_x   inhabitant capital_y    HDI</span>
+<span class="err">0    Germany    Berlin   82500000.0    Berlin  0.926</span>
+<span class="err">1     France     Paris   66900000.0       NaN    NaN</span>
+<span class="err">2  Indonesia   Jakarta  255500000.0       NaN    NaN</span>
 </code></pre></div>
 <p>A RIGHT JOIN:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; df1.merge(df2, on='country', how='right')
-   country capital_x  inhabitant capital_y    HDI
-0  Germany    Berlin  82500000.0    Berlin  0.926
-1    Italy       NaN         NaN      Rome  0.897
-2    Spain       NaN         NaN    Madrid  0.844
-3  Austria       NaN         NaN    Vienna  0.893
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='right')</span>
+<span class="err">   country capital_x  inhabitant capital_y    HDI</span>
+<span class="err">0  Germany    Berlin  82500000.0    Berlin  0.926</span>
+<span class="err">1    Italy       NaN         NaN      Rome  0.897</span>
+<span class="err">2    Spain       NaN         NaN    Madrid  0.844</span>
+<span class="err">3  Austria       NaN         NaN    Vienna  0.893</span>
 </code></pre></div>
 <p>OUTER JOIN:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; df1.merge(df2, on='country', how='outer')
-     country capital_x   inhabitant capital_y    HDI
-0    Germany    Berlin   82500000.0    Berlin  0.926
-1     France     Paris   66900000.0       NaN    NaN
-2  Indonesia   Jakarta  255500000.0       NaN    NaN
-3      Italy       NaN          NaN      Rome  0.897
-4      Spain       NaN          NaN    Madrid  0.844
-5    Austria       NaN          NaN    Vienna  0.893
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='outer')</span>
+<span class="err">     country capital_x   inhabitant capital_y    HDI</span>
+<span class="err">0    Germany    Berlin   82500000.0    Berlin  0.926</span>
+<span class="err">1     France     Paris   66900000.0       NaN    NaN</span>
+<span class="err">2  Indonesia   Jakarta  255500000.0       NaN    NaN</span>
+<span class="err">3      Italy       NaN          NaN      Rome  0.897</span>
+<span class="err">4      Spain       NaN          NaN    Madrid  0.844</span>
+<span class="err">5    Austria       NaN          NaN    Vienna  0.893</span>
 </code></pre></div>
 <h2 id="join">Join</h2>
 <p>Join is just a convenience method, which uses merge and should be used if you
@@ -200,15 +200,15 @@ Efficiently Join multiple DataFrame objects by index at once by passing a
 list.</p>
 </blockquote>
 <p>Having a look at the following example:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; df1.join(df2, on='country', how='outer', lsuffix='_df1')
-  country_df1 capital_df1   inhabitant country capital    HDI
-0     Germany      Berlin   82500000.0     NaN     NaN    NaN
-1      France       Paris   66900000.0     NaN     NaN    NaN
-2   Indonesia     Jakarta  255500000.0     NaN     NaN    NaN
-2         NaN         NaN          NaN       0  Berlin  0.926
-2         NaN         NaN          NaN       1    Rome  0.897
-2         NaN         NaN          NaN       2  Madrid  0.844
-2         NaN         NaN          NaN       3  Vienna  0.893
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.join(df2, on='country', how='outer', lsuffix='_df1')</span>
+<span class="err">  country_df1 capital_df1   inhabitant country capital    HDI</span>
+<span class="err">0     Germany      Berlin   82500000.0     NaN     NaN    NaN</span>
+<span class="err">1      France       Paris   66900000.0     NaN     NaN    NaN</span>
+<span class="err">2   Indonesia     Jakarta  255500000.0     NaN     NaN    NaN</span>
+<span class="err">2         NaN         NaN          NaN       0  Berlin  0.926</span>
+<span class="err">2         NaN         NaN          NaN       1    Rome  0.897</span>
+<span class="err">2         NaN         NaN          NaN       2  Madrid  0.844</span>
+<span class="err">2         NaN         NaN          NaN       3  Vienna  0.893</span>
 </code></pre></div>
 <p>I would say join and merge look extremely similar. You can notice differences
 in the function signature when you look at the help, but the difference in the
@@ -218,15 +218,15 @@ don't have that anymore.</p>
 <h2 id="concatenate">Concatenate</h2>
 <p><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html">Pandas Documentation</a>
 and the example</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; pd.concat([df1, df2])
-     HDI  capital    country   inhabitant
-0    NaN   Berlin    Germany   82500000.0
-1    NaN    Paris     France   66900000.0
-2    NaN  Jakarta  Indonesia  255500000.0
-0  0.926   Berlin    Germany          NaN
-1  0.897     Rome      Italy          NaN
-2  0.844   Madrid      Spain          NaN
-3  0.893   Vienna    Austria          NaN
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; pd.concat([df1, df2])</span>
+<span class="err">     HDI  capital    country   inhabitant</span>
+<span class="err">0    NaN   Berlin    Germany   82500000.0</span>
+<span class="err">1    NaN    Paris     France   66900000.0</span>
+<span class="err">2    NaN  Jakarta  Indonesia  255500000.0</span>
+<span class="err">0  0.926   Berlin    Germany          NaN</span>
+<span class="err">1  0.897     Rome      Italy          NaN</span>
+<span class="err">2  0.844   Madrid      Spain          NaN</span>
+<span class="err">3  0.893   Vienna    Austria          NaN</span>
 </code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>

@@ -166,15 +166,15 @@ you two functions:</p>
     <span class="o">...</span>
 </code></pre></div>
 <p>As an example:</p>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; **from** werkzeug.security **import** generate_password_hash as gen_key
-&gt;&gt;&gt; key = **gen_key**("foobar", "pbkdf2:sha512:1000", salt_length=8)
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="o">**</span><span class="k">from</span><span class="o">**</span> <span class="n">werkzeug</span><span class="p">.</span><span class="k">security</span> <span class="o">**</span><span class="n">import</span><span class="o">**</span> <span class="n">generate_password_hash</span> <span class="k">as</span> <span class="n">gen_key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">key</span> <span class="o">=</span> <span class="o">**</span><span class="n">gen_key</span><span class="o">**</span><span class="p">(</span><span class="ss">"foobar"</span><span class="p">,</span> <span class="ss">"pbkdf2:sha512:1000"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 
-&gt;&gt;&gt; key
-'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'
+<span class="o">&gt;&gt;&gt;</span> <span class="k">key</span>
+<span class="s1">'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'</span>
 
-&gt;&gt;&gt; **from** werkzeug.security **import** check_password_hash as check_key
-&gt;&gt;&gt; **check_key**(key, "foobar")
-True
+<span class="o">&gt;&gt;&gt;</span> <span class="o">**</span><span class="k">from</span><span class="o">**</span> <span class="n">werkzeug</span><span class="p">.</span><span class="k">security</span> <span class="o">**</span><span class="n">import</span><span class="o">**</span> <span class="n">check_password_hash</span> <span class="k">as</span> <span class="n">check_key</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="o">**</span><span class="n">check_key</span><span class="o">**</span><span class="p">(</span><span class="k">key</span><span class="p">,</span> <span class="ss">"foobar"</span><span class="p">)</span>
+<span class="k">True</span>
 </code></pre></div>
 <p>You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the Dollar symbol) is the 8 characters of the salt. Then comes the password which is hashed with the given method and salt.</p>
 <p>There are other key derivate functions. Most notably <a href="https://en.wikipedia.org/wiki/Scrypt">scrypt</a>, which was not only designed to be demanding to the CPU but also requires much memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it seems not too wide-spread (<a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497">source</a>). Instead, you can create something similar on your own by using core Python functions such as <a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt">hashlib.scrypt</a> . A noteworthy key derivation function is <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a>.</p>

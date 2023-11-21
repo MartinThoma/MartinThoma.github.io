@@ -118,16 +118,16 @@ MathJax.Hub.Queue(function() {
 <h2 id="pdf">PDF</h2>
 <p>Convert a folder of PDF slides into text files of the same name. This is nice
 for using <code>grep</code>:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> file <span class="k">in</span> *.pdf<span class="p">;</span><span class="k">do</span> pdftotext <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> file in *.pdf<span class="p">;</span><span class="k">do</span> pdftotext <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></div>
 <p>Convert PS to PDF with ghostscript (<a href="http://askubuntu.com/a/114404/10425">source</a>):</p>
 <div class="highlight"><pre><span></span><code>$ ps2pdf input.ps output.pdf
 </code></pre></div>
 <p>Merge multiple PDFs into one (<a href="http://stackoverflow.com/a/11280219/562769">source</a>)</p>
-<div class="highlight"><pre><span></span><code>$ pdfunite <span class="k">in</span>-1.pdf <span class="k">in</span>-2.pdf <span class="k">in</span>-n.pdf out.pdf
+<div class="highlight"><pre><span></span><code>$ pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
 </code></pre></div>
 <p><strong>pdf2jpg</strong>: Imagemagick does the trick</p>
-<div class="highlight"><pre><span></span><code>$ convert -density <span class="m">300</span> <span class="k">in</span>.pdf -quality <span class="m">90</span> out.jpg
+<div class="highlight"><pre><span></span><code>$ convert -density <span class="m">300</span> in.pdf -quality <span class="m">90</span> out.jpg
 </code></pre></div>
 <p>Convert png files to one PDF in A4 format:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">i</span><span class="o">=</span><span class="m">300</span><span class="p">;</span> convert soca-trail-1.png soca-trail-2.png soca-trail-3.png soca-trail-complete.png -compress jpeg -quality <span class="m">100</span> <span class="se">\</span>
@@ -142,11 +142,11 @@ for using <code>grep</code>:</p>
 <div class="highlight"><pre><span></span><code>convert <span class="s2">"OldPicture.jpg"</span> -resize 1600x1600 <span class="s2">"NewPicture.jpg"</span>
 </code></pre></div>
 <p>You can also do this for a whole folder. Just go into that folder and:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> i <span class="k">in</span> *.jpg<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1600x1600 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> i in *.jpg<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1600x1600 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></div>
 <p>In case you have just taken many photos of a document and you want to send it
 as a single PDF via email. That's the way to go:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> i <span class="k">in</span> *.JPG<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1200x1200 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> convert *.JPG merged.pdf
+<div class="highlight"><pre><span></span><code><span class="k">for</span> i in *.JPG<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1200x1200 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> convert *.JPG merged.pdf
 </code></pre></div>
 <p><strong>Create a Black-and-white picture and compress it</strong></p>
 <div class="highlight"><pre><span></span><code>$ djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual <span class="m">70</span> &gt;<span class="s2">"NewPicture.jpg"</span>
@@ -173,7 +173,7 @@ as a single PDF via email. That's the way to go:</p>
 <div class="highlight"><pre><span></span><code>$ mp3wrap merged.mp3 one.mp3 two.mp3
 </code></pre></div>
 <p><b>Convert all <em>.wav-files in one folder two </em>.mp3-files and remove the *.wav-files</b>:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i <span class="k">in</span> *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span> rm <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i in *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span> rm <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></div>
 <p><b>Convert an mp3 file to a PCM wav file</b>:</p>
 <div class="highlight"><pre><span></span><code>$ mplayer -ao pcm:fast:waveheader:file<span class="o">=</span>output.wav -vo null -vc null input.mp3

@@ -174,16 +174,16 @@ Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyrig
 &amp;gt;&amp;gt;&amp;gt; import tempfile
 &amp;gt;&amp;gt;&amp;gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
 Traceback &lt;span class="o"&gt;(&lt;/span&gt;most recent call last&lt;span class="o"&gt;)&lt;/span&gt;:
-  File &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;, line &lt;span class="m"&gt;1&lt;/span&gt;, &lt;span class="k"&gt;in&lt;/span&gt; &amp;lt;module&amp;gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;348&lt;/span&gt;, &lt;span class="k"&gt;in&lt;/span&gt; mkdtemp
+  File &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;, line &lt;span class="m"&gt;1&lt;/span&gt;, in &amp;lt;module&amp;gt;
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;348&lt;/span&gt;, in mkdtemp
     prefix, suffix, dir, &lt;span class="nv"&gt;output_type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; _sanitize_params&lt;span class="o"&gt;(&lt;/span&gt;prefix, suffix, dir&lt;span class="o"&gt;)&lt;/span&gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;118&lt;/span&gt;, &lt;span class="k"&gt;in&lt;/span&gt; _sanitize_params
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;118&lt;/span&gt;, in _sanitize_params
     &lt;span class="nv"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; gettempdir&lt;span class="o"&gt;()&lt;/span&gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;287&lt;/span&gt;, &lt;span class="k"&gt;in&lt;/span&gt; gettempdir
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;287&lt;/span&gt;, in gettempdir
     &lt;span class="nv"&gt;tempdir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; _get_default_tempdir&lt;span class="o"&gt;()&lt;/span&gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;219&lt;/span&gt;, &lt;span class="k"&gt;in&lt;/span&gt; _get_default_tempdir
+  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;219&lt;/span&gt;, in _get_default_tempdir
     raise FileNotFoundError&lt;span class="o"&gt;(&lt;/span&gt;_errno.ENOENT,
-FileNotFoundError: &lt;span class="o"&gt;[&lt;/span&gt;Errno &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; No usable temporary directory found &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/var/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/usr/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+FileNotFoundError: &lt;span class="o"&gt;[&lt;/span&gt;Errno &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; No usable temporary directory found in &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/var/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/usr/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can work around this issue by mounting /tmp as a volume:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it --mount &lt;span class="nv"&gt;source&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;myvol2,target&lt;span class="o"&gt;=&lt;/span&gt;/tmp --read-only python:3.9.1-buster
@@ -1542,15 +1542,15 @@ you two functions:&lt;/p&gt;
     &lt;span class="o"&gt;...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;As an example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; **from** werkzeug.security **import** generate_password_hash as gen_key
-&amp;gt;&amp;gt;&amp;gt; key = **gen_key**("foobar", "pbkdf2:sha512:1000", salt_length=8)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;werkzeug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;security&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;generate_password_hash&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;gen_key&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;gen_key&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;"foobar"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;"pbkdf2:sha512:1000"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&amp;gt;&amp;gt;&amp;gt; key
-'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt;
+&lt;span class="s1"&gt;'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'&lt;/span&gt;
 
-&amp;gt;&amp;gt;&amp;gt; **from** werkzeug.security **import** check_password_hash as check_key
-&amp;gt;&amp;gt;&amp;gt; **check_key**(key, "foobar")
-True
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;werkzeug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;security&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;check_password_hash&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;check_key&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;check_key&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;"foobar"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;True&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the Dollar symbol) is the 8 characters of the salt. Then comes the password which is hashed with the given method and salt.&lt;/p&gt;
 &lt;p&gt;There are other key derivate functions. Most notably &lt;a href="https://en.wikipedia.org/wiki/Scrypt"&gt;scrypt&lt;/a&gt;, which was not only designed to be demanding to the CPU but also requires much memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it seems not too wide-spread (&lt;a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497"&gt;source&lt;/a&gt;). Instead, you can create something similar on your own by using core Python functions such as &lt;a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt"&gt;hashlib.scrypt&lt;/a&gt; . A noteworthy key derivation function is &lt;a href="https://en.wikipedia.org/wiki/Argon2"&gt;Argon2&lt;/a&gt;.&lt;/p&gt;
@@ -1806,7 +1806,7 @@ Enumerating objects: &lt;span class="m"&gt;115&lt;/span&gt;, &lt;span class="k"&
 Counting objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;/115&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
 Compressing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;42&lt;/span&gt;/42&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
 Total &lt;span class="m"&gt;115&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;115&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt; No leaks detected. &lt;span class="m"&gt;29&lt;/span&gt; commits scanned &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="m"&gt;111&lt;/span&gt; milliseconds &lt;span class="m"&gt;984&lt;/span&gt; microseconds
+INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt; No leaks detected. &lt;span class="m"&gt;29&lt;/span&gt; commits scanned in &lt;span class="m"&gt;111&lt;/span&gt; milliseconds &lt;span class="m"&gt;984&lt;/span&gt; microseconds
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://github.com/streaak/keyhacks#AWS-Access-Key-ID-and-Secret"&gt;&lt;strong&gt;Keyhacks&lt;/strong&gt;&lt;/a&gt; is a project which shows you if leaked keys are still valid and what an attacker could do with them.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://haveibeenpwned.com/"&gt;&lt;strong&gt;HaveIbeenPwned&lt;/strong&gt;&lt;/a&gt; is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: &lt;strong&gt;Don&amp;rsquo;t re-use passwords! A re-used password is a leaked password!&lt;/strong&gt;&lt;/p&gt;

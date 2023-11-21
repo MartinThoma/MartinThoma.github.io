@@ -196,16 +196,16 @@ Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span 
 &gt;&gt;&gt; import tempfile
 &gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> tempfile.mkdtemp<span class="o">()</span>
 Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="s2">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, <span class="k">in</span> &lt;module&gt;
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">348</span>, <span class="k">in</span> mkdtemp
+  File <span class="s2">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in &lt;module&gt;
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">348</span>, in mkdtemp
     prefix, suffix, dir, <span class="nv">output_type</span> <span class="o">=</span> _sanitize_params<span class="o">(</span>prefix, suffix, dir<span class="o">)</span>
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">118</span>, <span class="k">in</span> _sanitize_params
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">118</span>, in _sanitize_params
     <span class="nv">dir</span> <span class="o">=</span> gettempdir<span class="o">()</span>
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">287</span>, <span class="k">in</span> gettempdir
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">287</span>, in gettempdir
     <span class="nv">tempdir</span> <span class="o">=</span> _get_default_tempdir<span class="o">()</span>
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">219</span>, <span class="k">in</span> _get_default_tempdir
+  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">219</span>, in _get_default_tempdir
     raise FileNotFoundError<span class="o">(</span>_errno.ENOENT,
-FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span class="o">]</span> No usable temporary directory found <span class="k">in</span> <span class="o">[</span><span class="s1">'/tmp'</span>, <span class="s1">'/var/tmp'</span>, <span class="s1">'/usr/tmp'</span>, <span class="s1">'/'</span><span class="o">]</span>
+FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span class="o">]</span> No usable temporary directory found in <span class="o">[</span><span class="s1">'/tmp'</span>, <span class="s1">'/var/tmp'</span>, <span class="s1">'/usr/tmp'</span>, <span class="s1">'/'</span><span class="o">]</span>
 </code></pre></div>
 <p>You can work around this issue by mounting /tmp as a volume:</p>
 <div class="highlight"><pre><span></span><code>$ sudo docker run -it --mount <span class="nv">source</span><span class="o">=</span>myvol2,target<span class="o">=</span>/tmp --read-only python:3.9.1-buster

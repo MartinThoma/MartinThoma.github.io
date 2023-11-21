@@ -119,7 +119,7 @@ You can do that with the command</p>
 </ol>
 <p>Now we know how to get the number of pages of a PDF document for a single
 document. But what if you want to get it for all documents within a folder?</p>
-<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i <span class="k">in</span> *.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$i</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> paste -sd+ - <span class="p">|</span> bc
+<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i in *.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$i</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> paste -sd+ - <span class="p">|</span> bc
 </code></pre></div>
 <p>It works like this:</p>
 <ol>

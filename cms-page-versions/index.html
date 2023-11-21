@@ -137,11 +137,11 @@ in another table. The current revision is always in <code>joomla_content</code><
 <figcaption class="text-center">How MediaWiki stores page versions</figcaption>
 </figure>
 <p>If they want to get the current text of a page, they have to do something like</p>
-<div class="highlight"><pre><span></span><code>SELECT *
-FROM revision
-JOIN text ON text.old_id = revision.rev_text_id
-WHERE revision.rev_page = 1
-ORDER BY revision.rev_timestamp DESC LIMIT 1
+<div class="highlight"><pre><span></span><code><span class="err">SELECT *</span>
+<span class="err">FROM revision</span>
+<span class="err">JOIN text ON text.old_id = revision.rev_text_id</span>
+<span class="err">WHERE revision.rev_page = 1</span>
+<span class="err">ORDER BY revision.rev_timestamp DESC LIMIT 1</span>
 </code></pre></div>
 <p>If a page is edited, they have to insert to <code>revision</code> and to <code>text</code>. And there are some things like the title where changes are not tracked.</p>
 <p>If one wants to revert edits, one creates a new revision. The text does not have to be duplicated, though. So one text entry can belong to multiple revisions.</p>

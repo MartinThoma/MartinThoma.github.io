@@ -501,17 +501,17 @@ encoded string.</p>
 of Python 3 within Python 2: All <code>"string literals"</code> are unicode strings. Otherwise,
 they are byte strings.</p>
 <p>A couple of really helpful examples from <a href="https://stackoverflow.com/a/18034409/562769">Bakuriu</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">len</span><span class="p">(</span><span class="n">u</span><span class="s">'&agrave;'</span><span class="p">)</span>  <span class="err">#</span> <span class="n">a</span> <span class="n">single</span> <span class="n">code</span> <span class="n">point</span>
-<span class="mi">1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">len</span><span class="p">(</span><span class="s">'&agrave;'</span><span class="p">)</span>   <span class="err">#</span> <span class="n">by</span> <span class="n">default</span> <span class="n">utf</span><span class="o">-</span><span class="mi">8</span> <span class="o">-&gt;</span> <span class="n">takes</span> <span class="n">two</span> <span class="n">bytes</span>
-<span class="mi">2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">len</span><span class="p">(</span><span class="n">u</span><span class="s">'&agrave;'</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span>
-<span class="mi">2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">len</span><span class="p">(</span><span class="n">u</span><span class="s">'&agrave;'</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'latin1'</span><span class="p">))</span>  <span class="err">#</span> <span class="kr">in</span> <span class="n">latin1</span> <span class="n">it</span> <span class="n">takes</span> <span class="n">one</span> <span class="n">byte</span>
-<span class="mi">1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">u</span><span class="s">'&agrave;'</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>  <span class="err">#</span> <span class="n">terminal</span> <span class="n">encoding</span> <span class="n">is</span> <span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; len(u'&agrave;')  # a single code point</span>
+<span class="err">1</span>
+<span class="err">&gt;&gt;&gt; len('&agrave;')   # by default utf-8 -&gt; takes two bytes</span>
+<span class="err">2</span>
+<span class="err">&gt;&gt;&gt; len(u'&agrave;'.encode('utf-8'))</span>
+<span class="err">2</span>
+<span class="err">&gt;&gt;&gt; len(u'&agrave;'.encode('latin1'))  # in latin1 it takes one byte</span>
+<span class="err">1</span>
+<span class="err">&gt;&gt;&gt; print u'&agrave;'.encode('utf-8')  # terminal encoding is utf-8</span>
 <span class="err">&agrave;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">u</span><span class="s">'&agrave;'</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'latin1'</span><span class="p">)</span> <span class="err">#</span> <span class="n">it</span> <span class="n">cannot</span> <span class="n">understand</span> <span class="n">the</span> <span class="n">latin1</span> <span class="n">byte</span>
+<span class="err">&gt;&gt;&gt; print u'&agrave;'.encode('latin1') # it cannot understand the latin1 byte</span>
 <span class="err">�</span>
 </code></pre></div>
 <h2 id="pitfalls_1">Pitfalls</h2>
