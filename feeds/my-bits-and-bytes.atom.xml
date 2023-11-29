@@ -1,5 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2023-11-21T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Game Consoles</title><link href="https://martin-thoma.com/game-consoles/" rel="alternate"></link><published>2023-11-21T20:00:00+01:00</published><updated>2023-11-21T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2023-11-21:/game-consoles/</id><summary type="html">&lt;p&gt;Helping you to find a nice gaming console. I have a Switch, but I am thinking
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2023-11-29T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Dew Points</title><link href="https://martin-thoma.com/dew-points/" rel="alternate"></link><published>2023-11-29T20:00:00+01:00</published><updated>2023-11-29T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2023-11-29:/dew-points/</id><summary type="html">&lt;p&gt;The dew point is important for home owners as it's the deciding factor if you
+get mold.&lt;/p&gt;
+&lt;p&gt;It's a combination of temperature in the room, humidity in the room, and the
+temperature of colder surfaces. As this is typically the window, I will now only
+mention the window.&lt;/p&gt;
+&lt;p&gt;The gist …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The dew point is important for home owners as it's the deciding factor if you
+get mold.&lt;/p&gt;
+&lt;p&gt;It's a combination of temperature in the room, humidity in the room, and the
+temperature of colder surfaces. As this is typically the window, I will now only
+mention the window.&lt;/p&gt;
+&lt;p&gt;The gist of it: Condensation happens, when&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;... the humidity is higher&lt;/li&gt;
+&lt;li&gt;... the outside temperature (and thus the window) is colder&lt;/li&gt;
+&lt;li&gt;... the inside temperature is higher&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here you can see the temperatures:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dew points by temperature" src="../images/2023/11/dew_points.png"/&gt;&lt;/p&gt;
+&lt;p&gt;A few ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you have a humidity of 40%, the dew-point is:&lt;ul&gt;
+&lt;li&gt;For 20&amp;deg;C room temperature at 6&amp;deg;C&lt;/li&gt;
+&lt;li&gt;For 25&amp;deg;C room temperature at 10&amp;deg;C&lt;/li&gt;
+&lt;li&gt;For 30&amp;deg;C room temperature at 15&amp;deg;C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;If you have a humidity of 50%, the dew-point is:&lt;ul&gt;
+&lt;li&gt;For 20&amp;deg;C room temperature at 9&amp;deg;C&lt;/li&gt;
+&lt;li&gt;For 25&amp;deg;C room temperature at 14&amp;deg;C&lt;/li&gt;
+&lt;li&gt;For 30&amp;deg;C room temperature at 18&amp;deg;C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;If you have a humidity of 75%, the dew-point is:&lt;ul&gt;
+&lt;li&gt;For 20&amp;deg;C room temperature at 15&amp;deg;C&lt;/li&gt;
+&lt;li&gt;For 25&amp;deg;C room temperature at 20&amp;deg;C&lt;/li&gt;
+&lt;li&gt;For 30&amp;deg;C room temperature at 25&amp;deg;C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="created-via"&gt;Created via&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;typer&lt;/span&gt;  &lt;span class="c1"&gt;# pip install typer&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;  &lt;span class="c1"&gt;# pip install numpy&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;  &lt;span class="c1"&gt;# pip install matplotlib&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mpl_toolkits.mplot3d&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Axes3D&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;calculate_dew_point&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Calculate dew point using temperature and relative humidity&lt;/span&gt;
+
+&lt;span class="sd"&gt;    Formula source: https://en.wikipedia.org/wiki/Dew_point#Calculating_the_dew_point&lt;/span&gt;
+&lt;span class="sd"&gt;    1974 Psychrometry and Psychrometric Charts&lt;/span&gt;
+&lt;span class="sd"&gt;    """&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;17.27&lt;/span&gt;
+    &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;237.7&lt;/span&gt;  &lt;span class="c1"&gt;# &amp;deg;C&lt;/span&gt;
+
+    &lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;humidity&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mf"&gt;100.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;dew_point&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;dew_point&lt;/span&gt;  &lt;span class="c1"&gt;# round(dew_point, 2)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;plot2d&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# Generate temperature values&lt;/span&gt;
+    &lt;span class="n"&gt;temperature_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Calculate dew point for different humidity levels&lt;/span&gt;
+    &lt;span class="n"&gt;humidity_levels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Create a 2D plot&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;humidity&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;humidity_levels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;dew_point_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+            &lt;span class="n"&gt;calculate_dew_point&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;temp&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;temperature_values&lt;/span&gt;
+        &lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;"Humidity &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;humidity&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;%"&lt;/span&gt;
+        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature_values&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dew_point_values&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linewidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;3.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Label the axes&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Temperature (&amp;deg;C)"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Dew Point (&amp;deg;C)"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Increase the font size of tick labels&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Add a legend&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fontsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Show the plot&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Dew Point vs Temperature for Different Humidity Levels"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;plot3d&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# Generate data points&lt;/span&gt;
+    &lt;span class="n"&gt;temperature_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;humidity_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;temperature_mesh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity_mesh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature_values&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity_values&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dew_point_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;calculate_dew_point&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature_mesh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity_mesh&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Create 3D plot&lt;/span&gt;
+    &lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;111&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;projection&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"3d"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Plot the surface&lt;/span&gt;
+    &lt;span class="n"&gt;surf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot_surface&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;temperature_mesh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity_mesh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dew_point_values&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"viridis"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;edgecolor&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"k"&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Label the axes&lt;/span&gt;
+    &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Temperature (&amp;deg;C)"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Humidity (%)"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_zlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Dew Point (&amp;deg;C)"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Add a color bar&lt;/span&gt;
+    &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;colorbar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;surf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shrink&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;aspect&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Show the plot&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Save the plot as a PNG image&lt;/span&gt;
+    &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"dew_point_graph.png"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;dew_point&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;calculate_dew_point&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;humidity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;typer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;"The dew point at &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;temperature&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;deg;C and &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;humidity&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;% humidity is &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;dew_point&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;deg;C"&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;plot2d&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="c1"&gt;# plot3d()&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;typer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="My bits and bytes"></category><category term="house"></category></entry><entry><title>Game Consoles</title><link href="https://martin-thoma.com/game-consoles/" rel="alternate"></link><published>2023-11-21T20:00:00+01:00</published><updated>2023-11-21T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2023-11-21:/game-consoles/</id><summary type="html">&lt;p&gt;Helping you to find a nice gaming console. I have a Switch, but I am thinking
 about selling it and getting an Xbox / Playstation.&lt;/p&gt;
 &lt;style type="text/css"&gt;
     .good {
@@ -180,7 +320,7 @@ I tried to find the most popular ones and categorize them.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Jump- and Run&lt;/td&gt;
-&lt;td class="good"&gt;Donkey Kong, Rayman Legends, &lt;a href="https://www.nintendo.de/Spiele/Nintendo-Switch-Download-Software/Hollow-Knight-1125772.html"&gt;Hollow Knight&lt;/a&gt;&lt;/td&gt;
+&lt;td class="good"&gt;&lt;a href="https://www.nintendo.de/Spiele/Nintendo-Switch-Spiele/Donkey-Kong-Country-Tropical-Freeze-1325706.html"&gt;Donkey Kong Country: Tropical Freeze&lt;/a&gt;, Rayman Legends, &lt;a href="https://www.nintendo.de/Spiele/Nintendo-Switch-Download-Software/Hollow-Knight-1125772.html"&gt;Hollow Knight&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href="https://www.xbox.com/de-DE/games/store/crash-bandicoot-n-sane-trilogy/C27XPR5XDMFT"&gt;Crash Bandicoot N.Sane Trilogy&lt;/a&gt; (16&amp;euro; - 40&amp;euro;, &lt;a href="https://www.youtube.com/watch?v=PB_JmTQlnSs"&gt;Gameplay&lt;/a&gt;),
             &lt;a href="https://www.xbox.com/de-DE/games/store/rayman-legends/C26K4DVGR45B/0001"&gt;Rayman Legends&lt;/a&gt;,
@@ -225,7 +365,12 @@ I tried to find the most popular ones and categorize them.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Other&lt;/td&gt;
-&lt;td&gt;&lt;a href="https://www.nintendo.de/Spiele/Nintendo-Switch-Spiele/Ori-and-the-Will-of-the-Wisps-1842518.html"&gt;Ori and the will of the Wisps&lt;/a&gt; (22&amp;euro; - 30&amp;euro;)&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="https://www.nintendo.de/Spiele/Nintendo-Switch-Spiele/Ori-and-the-Will-of-the-Wisps-1842518.html"&gt;Ori and the will of the Wisps&lt;/a&gt; (22&amp;euro; - 30&amp;euro;)
+            &lt;a href="https://www.nintendo.de/Spiele/Nintendo-Switch-Download-Software/Fall-Guys-1923517.html"&gt;Fall Guys&lt;/a&gt;
+            KeyWe
+            Humans fall flat
+            &lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href="https://www.xbox.com/de-DE/games/store/die-sims-4/C08JXNK0VG5L/0001"&gt;Die Sims 4&lt;/a&gt;, &lt;a href="https://www.xbox.com/de-DE/games/store/fall-guys/9PMXH5249DG5"&gt;Fall Guys&lt;/a&gt;,
             &lt;a href="https://www.xbox.com/de-DE/games/store/borderlands-3/C34NB0F1B5WQ/0001"&gt;Borderlands 3&lt;/a&gt;
@@ -265,7 +410,7 @@ I tried to find the most popular ones and categorize them.&lt;/p&gt;
 &lt;td&gt;15&amp;euro;/Month (Ultimate) 🎌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;p&gt;There is also &lt;/p&gt;
+&lt;p&gt;There is also&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://store.ubisoft.com/de/ubisoftplus"&gt;Ubisoft+&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.ea.com/de-de/ea-play"&gt;EA Play&lt;/a&gt;: Sims 4, Unravel 2, A Way out, It takes two&lt;/li&gt;
@@ -282,7 +427,7 @@ both have one.&lt;/p&gt;
 &lt;p&gt;According to &lt;a href="https://www.4kfilme.de/playstation-5-vs-xbox-series-x-die-ultra-hd-blu-ray-player-im-vergleich/"&gt;4kfilme.de&lt;/a&gt;, the
 Panasonic UB9000 is way better:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Neither one has Dolby Vision or HDR10+ &lt;/li&gt;
+&lt;li&gt;Neither one has Dolby Vision or HDR10+&lt;/li&gt;
 &lt;li&gt;Xbox has issues with 24p (skipping frames)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
@@ -301,6 +446,7 @@ Panasonic UB9000 is way better:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Steam_Deck"&gt;Steam Deck&lt;/a&gt;: Same form factor as the switch, but way better specs. I'm uncertain about the available games + if you can even play it on a big screen. &lt;a href="https://store.steampowered.com/app/880940/Pummel_Party/"&gt;Pummel Party&lt;/a&gt; looks very fun though.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;https://gamerant.com/co-op-games-to-play-after-it-takes-two/&lt;/li&gt;
 &lt;/ul&gt;</content><category term="My bits and bytes"></category><category term="games"></category></entry><entry><title>Earth to Moon</title><link href="https://martin-thoma.com/earth-to-moon/" rel="alternate"></link><published>2023-09-15T20:00:00+02:00</published><updated>2023-09-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2023-09-15:/earth-to-moon/</id><summary type="html">&lt;p&gt;I've just watched an animation movie where a girl goes from Earth to Moon with
 a little toy rocket. That made me think: How much fuel do you minimally need
 to get from Earth to the moon and how fast can it be?&lt;/p&gt;
@@ -428,6 +574,12 @@ Aldi, Lidl, or DM.&lt;/p&gt;
 &lt;td&gt;+107%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;Sugar (Zucker)&lt;/td&gt;
+&lt;td&gt;0.79 - 1.49 &amp;euro;&lt;/td&gt;
+&lt;td&gt;0.79 &amp;euro;/kg&lt;/td&gt;
+&lt;td&gt;+107%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;Eggs (Eier)&lt;/td&gt;
 &lt;td&gt;3.29 &amp;euro;/18 pieces oder 1.99 &amp;euro;/10 pieces&lt;/td&gt;
 &lt;td&gt;1.83 &amp;euro;/10 pieces - 1.99 &amp;euro;/10 pieces&lt;/td&gt;
@@ -456,6 +608,12 @@ Aldi, Lidl, or DM.&lt;/p&gt;
 &lt;td&gt;2.49 &amp;euro;&lt;/td&gt;
 &lt;td&gt;2.49 &amp;euro;/kg&lt;/td&gt;
 &lt;td&gt;+32%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pasta Noodles (Hartweizen-Nudeln: Spaghetti)&lt;/td&gt;
+&lt;td&gt;0.79&amp;euro;/500g&lt;/td&gt;
+&lt;td&gt;1.58 &amp;euro;/kg&lt;/td&gt;
+&lt;td&gt;+61%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Spinat-Ricotta Tortelloni&lt;/td&gt;
@@ -709,6 +867,12 @@ Aldi, Lidl, or DM.&lt;/p&gt;
 &lt;td&gt;1.99&amp;euro;/piece (in June)&lt;/td&gt;
 &lt;td&gt;1.99&amp;euro;/piece&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Mandarin_orange"&gt;Mandarin orange&lt;/a&gt;  (Clementinen)&lt;/td&gt;
+&lt;td&gt;1.49&amp;euro;/500g (in November)&lt;/td&gt;
+&lt;td&gt;2.98&amp;euro;/kg&lt;/td&gt;
+&lt;td&gt;+30%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1390,6 +1554,12 @@ Aldi, Lidl, or DM.&lt;/p&gt;
 &lt;td&gt;1.90 &amp;euro;/L&lt;/td&gt;
 &lt;td&gt;+10%&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dishwasher-Tabs (Geschirrreiniger-Tabs)&lt;/td&gt;
+&lt;td&gt;2.99 &amp;euro; / 60 pieces&lt;/td&gt;
+&lt;td&gt;0.05&amp;euro; / tab&lt;/td&gt;
+&lt;td&gt;+10%&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id="household-usage"&gt;Household - Usage&lt;/h2&gt;
@@ -1408,6 +1578,10 @@ Aldi, Lidl, or DM.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;Spannbettlaken (2m x 1m x 15cm, Feinbiber)&lt;/td&gt;
 &lt;td&gt;8.99 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W&amp;auml;rmflasche (Rossmann, mit Bezug)&lt;/td&gt;
+&lt;td&gt;5.99 &amp;euro;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
