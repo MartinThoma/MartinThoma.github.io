@@ -123,79 +123,79 @@ MathJax.Hub.Queue(function() {
 <p>You can put the part that can get executed concurrently in a separate class that implements the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnable</a>. This class has a method called run(). You can create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#Thread(java.lang.Runnable)">Thread(Runnable)</a> by calling <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#start()">start()</a>.</p>
 <p>Here is an example:</p>
 <h2 id="sum">Sum</h2>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sum</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">UpperEnd</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Sum</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">UpperEnd</span><span class="p">;</span>
 
-    <span class="kd">public</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">upperEnd</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">UpperEnd</span> <span class="o">=</span> <span class="n">upperEnd</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">upperEnd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">UpperEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">upperEnd</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">UpperEnd</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">RaceCondition</span><span class="p">.</span><span class="na">bigSum</span><span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">UpperEnd</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">RaceCondition</span><span class="p">.</span><span class="na">bigSum</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="main">Main</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">BIG_NR</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">NR_THREADS</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">bigSum</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BIG_NR</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">NR_THREADS</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">bigSum</span><span class="p">;</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"You should specify the number "</span>
-                    <span class="o">+</span> <span class="s">"of threads and BIG_NR. Call me like this:\n"</span>
-                    <span class="o">+</span> <span class="s">"java -jar RaceCondition.jar 5 20000\n"</span>
-                    <span class="o">+</span> <span class="s">"This will create 5 Threads which try to count"</span>
-                    <span class="o">+</span> <span class="s">"up to 2000000.\n"</span> <span class="o">+</span> <span class="s">"-v will show status "</span>
-                    <span class="o">+</span> <span class="s">"information "</span><span class="p">);</span>
-            <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"You should specify the number "</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"of threads and BIG_NR. Call me like this:\n"</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"java -jar RaceCondition.jar 5 20000\n"</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"This will create 5 Threads which try to count"</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"up to 2000000.\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"-v will show status "</span>
+<span class="w">                    </span><span class="o">+</span><span class="w"> </span><span class="s">"information "</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="kt">boolean</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">verbose</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n">NR_THREADS</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
-        <span class="n">BIG_NR</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
+<span class="w">        </span><span class="n">NR_THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+<span class="w">        </span><span class="n">BIG_NR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span> <span class="n">threads</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NR_THREADS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">Runnable</span> <span class="n">task</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sum</span><span class="p">(</span><span class="n">BIG_NR</span><span class="p">);</span>
-            <span class="n">Thread</span> <span class="n">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
-            <span class="n">worker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
-            <span class="n">threads</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NR_THREADS</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Runnable</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sum</span><span class="p">(</span><span class="n">BIG_NR</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Thread</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<span class="w">            </span><span class="n">worker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="w">            </span><span class="n">threads</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="kt">int</span> <span class="n">running</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">do</span> <span class="p">{</span>
-            <span class="n">running</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">Thread</span> <span class="n">thread</span> <span class="p">:</span> <span class="n">threads</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">thread</span><span class="p">.</span><span class="na">isAlive</span><span class="p">())</span> <span class="p">{</span>
-                    <span class="n">running</span><span class="o">++</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Thread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">threads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">thread</span><span class="p">.</span><span class="na">isAlive</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">running</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Remaining threads: "</span> <span class="o">+</span> <span class="n">running</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">running</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Remaining threads: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">running</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">running</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">RaceCondition</span><span class="p">.</span><span class="na">bigSum</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">RaceCondition</span><span class="p">.</span><span class="na">bigSum</span><span class="p">);</span>
 
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Call it like this:</p>
-<div class="highlight"><pre><span></span><code>java Main <span class="m">5</span> <span class="m">2000</span>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>Main<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">2000</span>
 </code></pre></div>
 <h2 id="race-conditions">Race Conditions</h2>
 <p>When you execute the code above, the output will vary. Why is this the case?</p>
@@ -212,7 +212,7 @@ MathJax.Hub.Queue(function() {
 <p>Ok, we can obviously get values in <span class="math">\([\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>.</p>
 <p>Can we get smaller values? Yes, we can!</p>
 <p>Execute:</p>
-<div class="highlight"><pre><span></span><code>java Main <span class="m">50</span> <span class="m">20000</span>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>Main<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">20000</span>
 </code></pre></div>
 <ul>
 <li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
@@ -234,20 +234,20 @@ MathJax.Hub.Queue(function() {
 <li>$3: BIG_NR</li>
 </ul>
 <p>The script executes the program <span class="math">\($1 \cdot $2\)</span> times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
-<div class="highlight"><pre><span></span><code>rm raceCondition.tmp
-touch raceCondition.tmp
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>raceCondition.tmp
+touch<span class="w"> </span>raceCondition.tmp
 
 <span class="c1"># Up to $2 threads</span>
-<span class="k">for</span> <span class="o">((</span> <span class="nv">threads</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>threads&lt;<span class="o">=</span><span class="nv">$2</span><span class="p">;</span> threads++<span class="o">))</span>
+<span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">threads</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>threads&lt;<span class="o">=</span><span class="nv">$2</span><span class="p">;</span><span class="w"> </span>threads++<span class="o">))</span>
 <span class="k">do</span>
-    <span class="k">for</span> <span class="o">((</span> <span class="nv">c</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> c&lt;<span class="o">=</span><span class="nv">$1</span><span class="p">;</span> c++ <span class="o">))</span>
-    <span class="k">do</span>
-        <span class="c1"># $threads threads, count up to $3 in each thread</span>
-        <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar <span class="nv">$threads</span> <span class="nv">$3</span><span class="sb">`</span>
-        <span class="c1"># Normalize: thisExecutionSum / number of threads</span>
-        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$thisExecutionSum</span> -vtotal<span class="o">=</span><span class="nv">$threads</span> <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
-        <span class="nb">echo</span> -e <span class="nv">$threads</span><span class="s2">"\t"</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
-    <span class="k">done</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="m">1</span><span class="p">;</span><span class="w"> </span>c&lt;<span class="o">=</span><span class="nv">$1</span><span class="p">;</span><span class="w"> </span>c++<span class="w"> </span><span class="o">))</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="c1"># $threads threads, count up to $3 in each thread</span>
+<span class="w">        </span><span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java<span class="w"> </span>-jar<span class="w"> </span>RaceCondition.jar<span class="w"> </span><span class="nv">$threads</span><span class="w"> </span><span class="nv">$3</span><span class="sb">`</span>
+<span class="w">        </span><span class="c1"># Normalize: thisExecutionSum / number of threads</span>
+<span class="w">        </span><span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk<span class="w"> </span>-vsome<span class="o">=</span><span class="nv">$thisExecutionSum</span><span class="w"> </span>-vtotal<span class="o">=</span><span class="nv">$threads</span><span class="w"> </span><span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">$threads</span><span class="s2">"\t"</span><span class="nv">$normalizedSum</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>raceCondition.tmp
+<span class="w">    </span><span class="k">done</span>
 <span class="k">done</span>
 </code></pre></div>
             

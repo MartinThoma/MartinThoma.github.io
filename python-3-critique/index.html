@@ -182,12 +182,12 @@ which introduce the core concepts of a language. I think Python should have
 <p>Every function / object / method should have examples. So the
 <a href="https://docs.python.org/3/library/functions.html?highlight=len#len"><code>len</code></a>
 function should additionally have this:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; some_list = [23, 12, -3, 0]</span>
-<span class="err">&gt;&gt;&gt; len(some_list)</span>
-<span class="err">4</span>
-<span class="err">&gt;&gt;&gt; other_list = [[12, 32, 456], [1, 2, 3]]</span>
-<span class="err">&gt;&gt;&gt; len(other_list)</span>
-<span class="err">2</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; some_list = [23, 12, -3, 0]
+&gt;&gt;&gt; len(some_list)
+4
+&gt;&gt;&gt; other_list = [[12, 32, 456], [1, 2, 3]]
+&gt;&gt;&gt; len(other_list)
+2
 </code></pre></div>
 <p>I think the PHP documentation is awesome. Take a look at
 <a href="http://php.net/manual/en/function.strlen.php"><code>strlen</code></a>. It is immediately
@@ -204,13 +204,13 @@ be nice.</p>
 That should not be possible. So there is an issue with namespaces.</p>
 <h2 id="joining-lists">Joining lists</h2>
 <p>Joining a list of strings works like this in Python 3:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; a = [str(el) for el in range(5)]</span>
-<span class="err">&gt;&gt;&gt; a.join(" ")</span>
-<span class="err">Traceback (most recent call last):</span>
-<span class="err">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span>
-<span class="c">AttributeError: 'list' object has no attribute 'join'</span>
-<span class="err">&gt;&gt;&gt; " ".join(a)</span>
-<span class="err">'0 1 2 3 4'</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>[<span class="nv">str</span><span class="ss">(</span><span class="nv">el</span><span class="ss">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">el</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span>]
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">a</span>.<span class="nv">join</span><span class="ss">(</span><span class="s2">" "</span><span class="ss">)</span>
+<span class="nv">Traceback</span><span class="w"> </span><span class="ss">(</span><span class="nv">most</span><span class="w"> </span><span class="nv">recent</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="nl">last</span><span class="ss">)</span>:
+<span class="w">  </span><span class="nv">File</span><span class="w"> </span><span class="s2">"&lt;stdin&gt;"</span>,<span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="mi">1</span>,<span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">module</span><span class="o">&gt;</span>
+<span class="nv">AttributeError</span>:<span class="w"> </span><span class="s1">'list'</span><span class="w"> </span><span class="nv">object</span><span class="w"> </span><span class="nv">has</span><span class="w"> </span><span class="nv">no</span><span class="w"> </span><span class="nv">attribute</span><span class="w"> </span><span class="s1">'join'</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="s2">" "</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span>
+<span class="s1">'0 1 2 3 4'</span>
 </code></pre></div>
 <p>However, I think it is much more logical to apply a <code>join</code> method of a list
 with a string argument than a <code>join</code> method of a string with a list argument.

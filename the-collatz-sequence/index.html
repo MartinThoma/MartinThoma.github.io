@@ -210,7 +210,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
 </code></pre></div>
 <p>called like this:</p>
-<div class="highlight"><pre><span></span><code>python small-numbers.py -n <span class="m">15</span> -p fdp
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>small-numbers.py<span class="w"> </span>-n<span class="w"> </span><span class="m">15</span><span class="w"> </span>-p<span class="w"> </span>fdp
 </code></pre></div>
 <h2 id="n27">$n=27$</h2>
 <p><span class="math">\(n=27\)</span> is an enourmously long sequence:</p>
@@ -252,146 +252,146 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 </figure>
 <p>For every hexagon, you check how many datapoints <span class="math">\((n,steps)\)</span> you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
 <p>The data was created as a 116.9 MB csv file with this C++ code:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="c1"> // get maximum value of unsigned long long</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="c1"> // exit</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;climits&gt;</span><span class="c1"> // get maximum value of unsigned long long</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span><span class="c1"> // exit</span>
 
 <span class="cp">#define SURPRESS_OUTPUT true</span>
 <span class="cp">#define SHOW_DICT_CREATION false</span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="nc">element</span> <span class="p">{</span>
-    <span class="cm">/** What is the next collatz number? */</span>
-    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/** What is the next collatz number? */</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 
-    <span class="cm">/** How many steps does it take until you reach 1? */</span>
-    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">steps</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/** How many steps does it take until you reach 1? */</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">steps</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">element</span><span class="o">&gt;</span> <span class="n">collatz</span><span class="p">;</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="o">&gt;</span><span class="w"> </span><span class="n">collatz</span><span class="p">;</span>
 
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">CRITICAL_VALUE</span> <span class="o">=</span> <span class="p">(</span><span class="n">ULLONG_MAX</span><span class="mi">-1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">CRITICAL_VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ULLONG_MAX</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxAddFromOneEntry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxEntry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxStepsToOne</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">saveULong</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">maxAddFromOneEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">maxEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">maxStepsToOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">saveULong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="cm">/** n &gt;= 1 */</span>
-<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">nextCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="n">CRITICAL_VALUE</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Critical value is: "</span> <span class="o">&lt;&lt;</span> <span class="n">CRITICAL_VALUE</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"n is: "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"saveULong is: "</span> <span class="o">&lt;&lt;</span> <span class="n">saveULong</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">nextCollatz</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">CRITICAL_VALUE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Critical value is: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">CRITICAL_VALUE</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"n is: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"saveULong is: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">saveULong</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">insertCollatz</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="p">){</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">collatz</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" is not in collatz:"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">insertCollatz</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">collatz</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SHOW_DICT_CREATION</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" is not in collatz:"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="c1">// i is not in collatz</span>
-        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;</span> <span class="n">steps</span><span class="p">;</span>
-        <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">current</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-        <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span> <span class="o">=</span> <span class="n">nextCollatz</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
-        <span class="k">while</span><span class="p">(</span><span class="n">collatz</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">==</span> <span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
-            <span class="n">steps</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
-            <span class="n">next</span> <span class="o">=</span> <span class="n">nextCollatz</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="c1">// i is not in collatz</span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">steps</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextCollatz</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">collatz</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">current</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">steps</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+<span class="w">            </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextCollatz</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">steps</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">maxAddFromOneEntry</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">maxAddFromOneEntry</span> <span class="o">=</span> <span class="n">steps</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">steps</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxAddFromOneEntry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">maxAddFromOneEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="o">&gt;::</span><span class="n">reverse_iterator</span> <span class="n">it</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="n">it</span><span class="o">=</span><span class="n">steps</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">steps</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">){</span>
-            <span class="k">struct</span> <span class="nc">element</span> <span class="n">el</span><span class="p">;</span>
-            <span class="n">el</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
-            <span class="n">el</span><span class="p">.</span><span class="n">steps</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">[</span><span class="n">current</span><span class="p">].</span><span class="n">steps</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="n">collatz</span><span class="p">[</span><span class="o">*</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">el</span><span class="p">;</span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;::</span><span class="n">reverse_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">it</span><span class="o">=</span><span class="n">steps</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">steps</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="o">++</span><span class="p">){</span>
+<span class="w">            </span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="w"> </span><span class="n">el</span><span class="p">;</span>
+<span class="w">            </span><span class="n">el</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="p">;</span>
+<span class="w">            </span><span class="n">el</span><span class="p">.</span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collatz</span><span class="p">[</span><span class="n">current</span><span class="p">].</span><span class="n">steps</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">collatz</span><span class="p">[</span><span class="o">*</span><span class="n">it</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">el</span><span class="p">;</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">steps</span> <span class="o">&gt;</span> <span class="n">maxStepsToOne</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">maxStepsToOne</span> <span class="o">=</span> <span class="n">el</span><span class="p">.</span><span class="n">steps</span><span class="p">;</span>
-            <span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">steps</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxStepsToOne</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">maxStepsToOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="n">steps</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">&gt;</span> <span class="n">maxEntry</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">maxEntry</span> <span class="o">=</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
-            <span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxEntry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">maxEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
 
-            <span class="n">current</span> <span class="o">=</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
+<span class="w">            </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">inserted "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="s">"-&gt;"</span> <span class="o">&lt;&lt;</span> <span class="n">el</span><span class="p">.</span><span class="n">next</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SHOW_DICT_CREATION</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\t</span><span class="s">inserted "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-&gt;"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">SHOW_DICT_CREATION</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" was already in collatz."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SHOW_DICT_CREATION</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">SURPRESS_OUTPUT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" was already in collatz."</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">printCollatz</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">element</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span><span class="o">=</span><span class="n">collatz</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-        <span class="n">it</span><span class="o">!=</span><span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">).</span><span class="n">first</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="n">next</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">next</span> <span class="o">&lt;&lt;</span> <span class="s">"-&gt;"</span><span class="p">;</span>
-            <span class="n">next</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">[</span><span class="n">next</span><span class="p">].</span><span class="n">next</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">printCollatz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="o">=</span><span class="n">collatz</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="w">        </span><span class="n">it</span><span class="o">!=</span><span class="n">collatz</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">).</span><span class="n">first</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-&gt;"</span><span class="p">;</span>
+<span class="w">            </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collatz</span><span class="p">[</span><span class="n">next</span><span class="p">].</span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">printSteps</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n,steps"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">max</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">","</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">steps</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">printSteps</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"n,steps"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">max</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">","</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">collatz</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">steps</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="nc">element</span> <span class="n">e</span><span class="p">;</span>
-    <span class="n">e</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-    <span class="n">e</span><span class="p">.</span><span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">collatz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">collatz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
 
-    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxCollatz</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">maxCollatz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">maxCollatz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">insertCollatz</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="n">saveULong</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">1000000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxCollatz</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">insertCollatz</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="n">saveULong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000000</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxAddFromOneEntry: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxAddFromOneEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxStepsToOne: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxStepsToOne</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxEntry: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"entries: "</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"maxAddFromOneEntry: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">maxAddFromOneEntry</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"maxStepsToOne: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">maxStepsToOne</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"maxEntry: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">maxEntry</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"entries: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">collatz</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 
-    <span class="c1">//printCollatz();</span>
-    <span class="n">printSteps</span><span class="p">(</span><span class="n">maxCollatz</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//printCollatz();</span>
+<span class="w">    </span><span class="n">printSteps</span><span class="p">(</span><span class="n">maxCollatz</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Then I've processed it with R:</p>
-<div class="highlight"><pre><span></span><code>R -f analyze.R
+<div class="highlight"><pre><span></span><code>R<span class="w"> </span>-f<span class="w"> </span>analyze.R
 </code></pre></div>
 <p>analyze.R:</p>
 <div class="highlight"><pre><span></span><code>library(ggplot2)
@@ -409,7 +409,7 @@ p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 p
 </code></pre></div>
 <p>And finally, I've converted it to png:</p>
-<div class="highlight"><pre><span></span><code>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png
+<div class="highlight"><pre><span></span><code>inkscape<span class="w"> </span>Rplots.pdf<span class="w"> </span>-w<span class="w"> </span><span class="m">512</span><span class="w"> </span>--export-png<span class="o">=</span>collatz-sequence-steps.png
 </code></pre></div>
 <p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
 <h2 id="maximum-in-sequence">Maximum in sequence</h2>
@@ -434,10 +434,10 @@ p
 <h2 id="execution-times">Execution times</h2>
 <p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
 <p>Inkscape didn't like the heavy plot:</p>
-<div class="highlight"><pre><span></span><code>moose@pc07$ inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
+<div class="highlight"><pre><span></span><code>moose@pc07$<span class="w"> </span>inkscape<span class="w"> </span>Rplots.pdf<span class="w"> </span>-w<span class="w"> </span><span class="m">512</span><span class="w"> </span>--export-png<span class="o">=</span>maxInSequence.png
 
-<span class="o">(</span>inkscape:26733<span class="o">)</span>: GLib-ERROR **: /build/buildd/glib2.0-2.34.1/./glib/gmem.c:165: failed to allocate <span class="m">3440640</span> bytes
-^CTrace/breakpoint <span class="nb">trap</span> <span class="o">(</span>core dumped<span class="o">)</span>
+<span class="o">(</span>inkscape:26733<span class="o">)</span>:<span class="w"> </span>GLib-ERROR<span class="w"> </span>**:<span class="w"> </span>/build/buildd/glib2.0-2.34.1/./glib/gmem.c:165:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>allocate<span class="w"> </span><span class="m">3440640</span><span class="w"> </span>bytes
+^CTrace/breakpoint<span class="w"> </span><span class="nb">trap</span><span class="w"> </span><span class="o">(</span>core<span class="w"> </span>dumped<span class="o">)</span>
 </code></pre></div>
 <h2 id="maximum-in-sequence-and-steps">Maximum in sequence and steps</h2>
 <figure class="aligncenter">

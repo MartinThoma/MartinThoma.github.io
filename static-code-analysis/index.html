@@ -119,15 +119,15 @@ MathJax.Hub.Queue(function() {
 <div class="math">$$CC = E - N + 2 \cdot P$$</div>
 <p>where N is the number of nodes in the control flow graph, E is the number of edges and P is the number of condition-nodes (if-statements, while/for loops).</p>
 <p>You can calculate it in Python with <a href="https://pypi.org/project/radon/">radon</a>:</p>
-<div class="highlight"><pre><span></span><code>$ pip install radon
-$ radon cc mpu/aws.py -s
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>radon
+$<span class="w"> </span>radon<span class="w"> </span>cc<span class="w"> </span>mpu/aws.py<span class="w"> </span>-s
 mpu/aws.py
-    F <span class="m">85</span>:0 s3_download - B <span class="o">(</span><span class="m">6</span><span class="o">)</span>
-    F <span class="m">16</span>:0 list_files - A <span class="o">(</span><span class="m">3</span><span class="o">)</span>
-    F <span class="m">165</span>:0 _s3_path_split - A <span class="o">(</span><span class="m">2</span><span class="o">)</span>
-    F <span class="m">46</span>:0 s3_read - A <span class="o">(</span><span class="m">1</span><span class="o">)</span>
-    F <span class="m">141</span>:0 s3_upload - A <span class="o">(</span><span class="m">1</span><span class="o">)</span>
-    C <span class="m">77</span>:0 ExistsStrategy - A <span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<span class="w">    </span>F<span class="w"> </span><span class="m">85</span>:0<span class="w"> </span>s3_download<span class="w"> </span>-<span class="w"> </span>B<span class="w"> </span><span class="o">(</span><span class="m">6</span><span class="o">)</span>
+<span class="w">    </span>F<span class="w"> </span><span class="m">16</span>:0<span class="w"> </span>list_files<span class="w"> </span>-<span class="w"> </span>A<span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="o">)</span>
+<span class="w">    </span>F<span class="w"> </span><span class="m">165</span>:0<span class="w"> </span>_s3_path_split<span class="w"> </span>-<span class="w"> </span>A<span class="w"> </span><span class="o">(</span><span class="m">2</span><span class="o">)</span>
+<span class="w">    </span>F<span class="w"> </span><span class="m">46</span>:0<span class="w"> </span>s3_read<span class="w"> </span>-<span class="w"> </span>A<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<span class="w">    </span>F<span class="w"> </span><span class="m">141</span>:0<span class="w"> </span>s3_upload<span class="w"> </span>-<span class="w"> </span>A<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<span class="w">    </span>C<span class="w"> </span><span class="m">77</span>:0<span class="w"> </span>ExistsStrategy<span class="w"> </span>-<span class="w"> </span>A<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)</span>
 </code></pre></div>
 <p>The first letter shows the <strong>type of block</strong> (F for function, C for class). Then radon gives the <strong>line number</strong>, the <strong>name</strong> of the class/function, a <strong>grade</strong> (A, B, C, D, E, or F), and the actual <strong>complexity as a number</strong>. Typically, a complexity below 10 is ok. <a href="https://github.com/scipy/scipy/blob/master/scipy/sparse/linalg/eigen/lobpcg/lobpcg.py#L127">The most complex part of scipy</a> has a complexity of 61.</p>
 <p>Besides radon, there are various other packages and Flake8 plugins:</p>
@@ -163,7 +163,7 @@ mpu/aws.py
 <p>I love the NumpyDoc format as it is super easy to read even when you just have it inside a text editor. Numpydoc is also well-supported by editors.</p>
 <p>Here you can see the three in comparison:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_meta_numpydoc</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">a_number</span><span class="p">,</span> <span class="n">a_dict</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get meta-information of an image.</span>
 
 <span class="sd">    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
@@ -194,7 +194,7 @@ mpu/aws.py
 
 
 <span class="k">def</span> <span class="nf">get_meta_google_doc</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">a_number</span><span class="p">,</span> <span class="n">a_dict</span><span class="p">):</span>
-    <span class="sd">"""Get meta-information of an image.</span>
+<span class="w">    </span><span class="sd">"""Get meta-information of an image.</span>
 
 <span class="sd">    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
 <span class="sd">    Aenean commodo</span>
@@ -216,7 +216,7 @@ mpu/aws.py
 
 
 <span class="k">def</span> <span class="nf">get_meta_sphinx_doc</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">a_number</span><span class="p">,</span> <span class="n">a_dict</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get meta-information of an image.</span>
 
 <span class="sd">    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
@@ -330,26 +330,26 @@ mpu/aws.py
 <p><img alt="Check that your package looks fine before shipping it. Photo by Toby Stodart on Unsplash" src="https://cdn-images-1.medium.com/max/10080/0*y67weckARV-M_yOh"/><em>Check that your package looks fine before shipping it. Photo by <a href="https://unsplash.com/@tobystodart?utm_source=medium&amp;utm_medium=referral">Toby Stodart</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p><a href="https://github.com/regebro/pyroma">pyroma</a> rates how well a Python project complies with the best practices of the Python packaging ecosystem.</p>
 <p>Here are some examples of my projects:</p>
-<div class="highlight"><pre><span></span><code>$ pyroma mpu
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyroma<span class="w"> </span>mpu
 ------------------------------
-Checking mpu
-Found mpu
+Checking<span class="w"> </span>mpu
+Found<span class="w"> </span>mpu
 ------------------------------
-Final rating: <span class="m">10</span>/10
-Your cheese is so fresh most pe
+Final<span class="w"> </span>rating:<span class="w"> </span><span class="m">10</span>/10
+Your<span class="w"> </span>cheese<span class="w"> </span>is<span class="w"> </span>so<span class="w"> </span>fresh<span class="w"> </span>most<span class="w"> </span>pe
 
-$ pyroma nox
+$<span class="w"> </span>pyroma<span class="w"> </span>nox
 ------------------------------
-Checking nox
-Found nox
+Checking<span class="w"> </span>nox
+Found<span class="w"> </span>nox
 ------------------------------
-Your long_description is not valid ReST:
-&lt;string&gt;:2: <span class="o">(</span>WARNING/2<span class="o">)</span> Explicit markup ends without a blank line<span class="p">;</span> unexpected unindent.
-&lt;string&gt;:3: <span class="o">(</span>WARNING/2<span class="o">)</span> Field list ends without a blank line<span class="p">;</span> unexpected unindent.
-&lt;string&gt;:4: <span class="o">(</span>WARNING/2<span class="o">)</span> Explicit markup ends without a blank line<span class="p">;</span> unexpected unindent.
+Your<span class="w"> </span>long_description<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>valid<span class="w"> </span>ReST:
+&lt;string&gt;:2:<span class="w"> </span><span class="o">(</span>WARNING/2<span class="o">)</span><span class="w"> </span>Explicit<span class="w"> </span>markup<span class="w"> </span>ends<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>blank<span class="w"> </span>line<span class="p">;</span><span class="w"> </span>unexpected<span class="w"> </span>unindent.
+&lt;string&gt;:3:<span class="w"> </span><span class="o">(</span>WARNING/2<span class="o">)</span><span class="w"> </span>Field<span class="w"> </span>list<span class="w"> </span>ends<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>blank<span class="w"> </span>line<span class="p">;</span><span class="w"> </span>unexpected<span class="w"> </span>unindent.
+&lt;string&gt;:4:<span class="w"> </span><span class="o">(</span>WARNING/2<span class="o">)</span><span class="w"> </span>Explicit<span class="w"> </span>markup<span class="w"> </span>ends<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>blank<span class="w"> </span>line<span class="p">;</span><span class="w"> </span>unexpected<span class="w"> </span>unindent.
 ------------------------------
-Final rating: <span class="m">9</span>/10
-Cottage Cheese
+Final<span class="w"> </span>rating:<span class="w"> </span><span class="m">9</span>/10
+Cottage<span class="w"> </span>Cheese
 ------------------------------
 </code></pre></div>
 <h2 id="want-to-know-more-about-unit-testing">Want to Know More About Unit Testing?</h2>

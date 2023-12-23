@@ -118,71 +118,71 @@ MathJax.Hub.Queue(function() {
 <h2 id="pdf">PDF</h2>
 <p>Convert a folder of PDF slides into text files of the same name. This is nice
 for using <code>grep</code>:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> file in *.pdf<span class="p">;</span><span class="k">do</span> pdftotext <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.pdf<span class="p">;</span><span class="k">do</span><span class="w"> </span>pdftotext<span class="w"> </span><span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div>
 <p>Convert PS to PDF with ghostscript (<a href="http://askubuntu.com/a/114404/10425">source</a>):</p>
-<div class="highlight"><pre><span></span><code>$ ps2pdf input.ps output.pdf
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ps2pdf<span class="w"> </span>input.ps<span class="w"> </span>output.pdf
 </code></pre></div>
 <p>Merge multiple PDFs into one (<a href="http://stackoverflow.com/a/11280219/562769">source</a>)</p>
-<div class="highlight"><pre><span></span><code>$ pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pdfunite<span class="w"> </span><span class="k">in</span>-1.pdf<span class="w"> </span><span class="k">in</span>-2.pdf<span class="w"> </span><span class="k">in</span>-n.pdf<span class="w"> </span>out.pdf
 </code></pre></div>
 <p><strong>pdf2jpg</strong>: Imagemagick does the trick</p>
-<div class="highlight"><pre><span></span><code>$ convert -density <span class="m">300</span> in.pdf -quality <span class="m">90</span> out.jpg
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>convert<span class="w"> </span>-density<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="k">in</span>.pdf<span class="w"> </span>-quality<span class="w"> </span><span class="m">90</span><span class="w"> </span>out.jpg
 </code></pre></div>
 <p>Convert png files to one PDF in A4 format:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">i</span><span class="o">=</span><span class="m">300</span><span class="p">;</span> convert soca-trail-1.png soca-trail-2.png soca-trail-3.png soca-trail-complete.png -compress jpeg -quality <span class="m">100</span> <span class="se">\</span>
-      -density <span class="si">${</span><span class="nv">i</span><span class="si">}</span>x<span class="si">${</span><span class="nv">i</span><span class="si">}</span> -units PixelsPerInch <span class="se">\</span>
-      -resize <span class="k">$((</span>i*827/100<span class="k">))</span>x<span class="k">$((</span>i*1169/100<span class="k">))</span> <span class="se">\</span>
-      -gravity center <span class="se">\</span>
-      -extent <span class="k">$((</span>i*827/100<span class="k">))</span>x<span class="k">$((</span>i*1169/100<span class="k">))</span> multipage.pdf
+<div class="highlight"><pre><span></span><code><span class="nv">i</span><span class="o">=</span><span class="m">300</span><span class="p">;</span><span class="w"> </span>convert<span class="w"> </span>soca-trail-1.png<span class="w"> </span>soca-trail-2.png<span class="w"> </span>soca-trail-3.png<span class="w"> </span>soca-trail-complete.png<span class="w"> </span>-compress<span class="w"> </span>jpeg<span class="w"> </span>-quality<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-density<span class="w"> </span><span class="si">${</span><span class="nv">i</span><span class="si">}</span>x<span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="w"> </span>-units<span class="w"> </span>PixelsPerInch<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-resize<span class="w"> </span><span class="k">$((</span><span class="nv">i</span><span class="o">*</span><span class="m">827</span><span class="o">/</span><span class="m">100</span><span class="k">))</span>x<span class="k">$((</span><span class="nv">i</span><span class="o">*</span><span class="m">1169</span><span class="o">/</span><span class="m">100</span><span class="k">))</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-gravity<span class="w"> </span>center<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-extent<span class="w"> </span><span class="k">$((</span><span class="nv">i</span><span class="o">*</span><span class="m">827</span><span class="o">/</span><span class="m">100</span><span class="k">))</span>x<span class="k">$((</span><span class="nv">i</span><span class="o">*</span><span class="m">1169</span><span class="o">/</span><span class="m">100</span><span class="k">))</span><span class="w"> </span>multipage.pdf
 </code></pre></div>
 <h2 id="image-files">Image Files</h2>
 <p>If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.</p>
 <p><strong>Resize Images to a maximum resolution</strong></p>
-<div class="highlight"><pre><span></span><code>convert <span class="s2">"OldPicture.jpg"</span> -resize 1600x1600 <span class="s2">"NewPicture.jpg"</span>
+<div class="highlight"><pre><span></span><code>convert<span class="w"> </span><span class="s2">"OldPicture.jpg"</span><span class="w"> </span>-resize<span class="w"> </span>1600x1600<span class="w"> </span><span class="s2">"NewPicture.jpg"</span>
 </code></pre></div>
 <p>You can also do this for a whole folder. Just go into that folder and:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> i in *.jpg<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1600x1600 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.jpg<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>convert<span class="w"> </span><span class="nv">$i</span><span class="w"> </span>-resize<span class="w"> </span>1600x1600<span class="w"> </span><span class="nv">$i</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div>
 <p>In case you have just taken many photos of a document and you want to send it
 as a single PDF via email. That's the way to go:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> i in *.JPG<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1200x1200 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> convert *.JPG merged.pdf
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.JPG<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>convert<span class="w"> </span><span class="nv">$i</span><span class="w"> </span>-resize<span class="w"> </span>1200x1200<span class="w"> </span><span class="nv">$i</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="p">;</span><span class="w"> </span>convert<span class="w"> </span>*.JPG<span class="w"> </span>merged.pdf
 </code></pre></div>
 <p><strong>Create a Black-and-white picture and compress it</strong></p>
-<div class="highlight"><pre><span></span><code>$ djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual <span class="m">70</span> &gt;<span class="s2">"NewPicture.jpg"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>djpeg<span class="w"> </span><span class="s2">"OldPicture.jpg"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>ppmtopgm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cjpeg<span class="w"> </span>-qual<span class="w"> </span><span class="m">70</span><span class="w"> </span>&gt;<span class="s2">"NewPicture.jpg"</span>
 </code></pre></div>
 <p><strong>webp2png</strong>: First install <code>webp</code>, then</p>
-<div class="highlight"><pre><span></span><code>$ dwebp OldPicture.webp -o NewPicture.png
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>dwebp<span class="w"> </span>OldPicture.webp<span class="w"> </span>-o<span class="w"> </span>NewPicture.png
 </code></pre></div>
 <p><strong>png2webp</strong>: First install <code>webp</code>, then</p>
-<div class="highlight"><pre><span></span><code>$ cwebp OldPicture.png -o NewPicture.webp
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cwebp<span class="w"> </span>OldPicture.png<span class="w"> </span>-o<span class="w"> </span>NewPicture.webp
 </code></pre></div>
 <p><b>Rename Pictures</b>:</p>
-<div class="highlight"><pre><span></span><code>$ rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg$/<span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rename<span class="w"> </span>-n<span class="w"> </span><span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg$/<span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span><span class="w"> </span>*.jpg
 </code></pre></div>
 <p><b>Animations to series of images</b></p>
 <p>Note that you might have to adjust the <code>%02d</code> if your animation has more than
 100 frames (two digits):</p>
-<div class="highlight"><pre><span></span><code>$ convert -coalesce animated.gif single-image-%02d.png
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>convert<span class="w"> </span>-coalesce<span class="w"> </span>animated.gif<span class="w"> </span>single-image-%02d.png
 </code></pre></div>
 <h2 id="audio-files">Audio Files</h2>
 <p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
-<div class="highlight"><pre><span></span><code>$ mp3gain -a *.mp3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mp3gain<span class="w"> </span>-a<span class="w"> </span>*.mp3
 </code></pre></div>
 <p><b>Merge many audio files to one</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mp3wrap merged.mp3 one.mp3 two.mp3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mp3wrap<span class="w"> </span>merged.mp3<span class="w"> </span>one.mp3<span class="w"> </span>two.mp3
 </code></pre></div>
 <p><b>Convert all <em>.wav-files in one folder two </em>.mp3-files and remove the *.wav-files</b>:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i in *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span> rm <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.wav<span class="p">;</span><span class="k">do</span><span class="w"> </span>lame<span class="w"> </span><span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span><span class="w"> </span>rm<span class="w"> </span><span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div>
 <p><b>Convert an mp3 file to a PCM wav file</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mplayer -ao pcm:fast:waveheader:file<span class="o">=</span>output.wav -vo null -vc null input.mp3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mplayer<span class="w"> </span>-ao<span class="w"> </span>pcm:fast:waveheader:file<span class="o">=</span>output.wav<span class="w"> </span>-vo<span class="w"> </span>null<span class="w"> </span>-vc<span class="w"> </span>null<span class="w"> </span>input.mp3
 </code></pre></div>
 <p><b>Minimize file size</b>:</p>
-<div class="highlight"><pre><span></span><code>$ lame -b <span class="m">32</span> input.mp3 output.mp3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lame<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>input.mp3<span class="w"> </span>output.mp3
 </code></pre></div>
 <p><b>Split MP3 by silence</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mp3splt -s -p <span class="nv">th</span><span class="o">=</span>-40,min<span class="o">=</span><span class="m">3</span>,rm input.mp3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mp3splt<span class="w"> </span>-s<span class="w"> </span>-p<span class="w"> </span><span class="nv">th</span><span class="o">=</span>-40,min<span class="o">=</span><span class="m">3</span>,rm<span class="w"> </span>input.mp3
 </code></pre></div>
 <p>Parameters (thank you, <a href="http://blog.dornea.nu/2012/04/01/howto-split-mp3s-by-silence-detection-using-mp3splt/">Victor</a>!):</p>
 <ul>
@@ -193,7 +193,7 @@ as a single PDF via email. That's the way to go:</p>
 <li><code>rm</code>: remove silence from splitted files</li>
 </ul>
 <p><b>Split MP3 by time</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mp3splt input.mp3 -t <span class="m">10</span>.00
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mp3splt<span class="w"> </span>input.mp3<span class="w"> </span>-t<span class="w"> </span><span class="m">10</span>.00
 </code></pre></div>
 <p>splits the mp3 after every <code>MM.SS</code>, in this case after every 10 minutes and 0
 seconds. So a 53 minutes MP3 would get splitted 5 times and hence result in
@@ -201,53 +201,53 @@ seconds. So a 53 minutes MP3 would get splitted 5 times and hence result in
 <h2 id="video-files">Video Files</h2>
 <p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
 You might also want to install some codecs first:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libavcodec-extra-52<span class="w"> </span>libavdevice-extra-52<span class="w"> </span>libavformat-extra-52<span class="w"> </span>libavutil-extra-50<span class="w"> </span>libpostproc-extra-51<span class="w"> </span>libswscale-extra-0<span class="w"> </span>libavcodec-unstripped-52<span class="w"> </span>ubuntu-restricted-extras
 </code></pre></div>
 <p><b>Merge many video files to one</b>:</p>
-<div class="highlight"><pre><span></span><code>$ cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>One.mpg<span class="w"> </span>Two.mpg<span class="w"> </span>Three.mpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>mpeg<span class="w"> </span>-i<span class="w"> </span>-<span class="w"> </span>-vcodec<span class="w"> </span>copy<span class="w"> </span>-acodec<span class="w"> </span>copy<span class="w"> </span><span class="s2">"Merged.mpg"</span>
 </code></pre></div>
 <p><b>avi2mpg</b>:</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">"Original.avi"</span><span class="w"> </span><span class="s2">"New.mpg"</span>
 </code></pre></div>
 <p><b>mp42mpg</b>:</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">"Original.mp4"</span><span class="w"> </span>-target<span class="w"> </span>ntsc-vcd<span class="w"> </span><span class="s2">"New.mpg"</span>
 </code></pre></div>
 <p><b>mp42ogv</b> (without sound; e.g. for Wikimedia Commons):</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i input.mp4 -c:v libtheora -q:v <span class="m">7</span> -an output.ogv
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-c:v<span class="w"> </span>libtheora<span class="w"> </span>-q:v<span class="w"> </span><span class="m">7</span><span class="w"> </span>-an<span class="w"> </span>output.ogv
 </code></pre></div>
 <p><b>mp42mp3</b>:</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i Original.mp4 -f mp3 -ab <span class="m">192000</span> -vn New.mp3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>Original.mp4<span class="w"> </span>-f<span class="w"> </span>mp3<span class="w"> </span>-ab<span class="w"> </span><span class="m">192000</span><span class="w"> </span>-vn<span class="w"> </span>New.mp3
 </code></pre></div>
 <p><b>mod2avi</b>:
 ?</p>
 <p><b>mts2avi</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i <span class="m">00008</span>.MTS -acodec copy -vcodec libx264 -crf <span class="m">21</span> -r <span class="m">30000</span>/1001 -deinterlace -y -threads <span class="m">0</span> output_file.avi
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="m">00008</span>.MTS<span class="w"> </span>-acodec<span class="w"> </span>copy<span class="w"> </span>-vcodec<span class="w"> </span>libx264<span class="w"> </span>-crf<span class="w"> </span><span class="m">21</span><span class="w"> </span>-r<span class="w"> </span><span class="m">30000</span>/1001<span class="w"> </span>-deinterlace<span class="w"> </span>-y<span class="w"> </span>-threads<span class="w"> </span><span class="m">0</span><span class="w"> </span>output_file.avi
 </code></pre></div>
 <p><b>vcd2avi</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span><span class="m">2000</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mencoder<span class="w"> </span>vcd://2<span class="w"> </span>-o<span class="w"> </span><span class="s2">"New.avi"</span><span class="w"> </span>-oac<span class="w"> </span>copy<span class="w"> </span>-ovc<span class="w"> </span>lavc<span class="w"> </span>-lavcopts<span class="w"> </span><span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span><span class="m">2000</span>
 </code></pre></div>
 <p><b>ogv2avi</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span><span class="m">1</span> -o <span class="s2">"New.avi"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mencoder<span class="w"> </span><span class="s2">"Original.ogv"</span><span class="w"> </span>-ovc<span class="w"> </span>xvid<span class="w"> </span>-oac<span class="w"> </span>mp3lame<span class="w"> </span>-xvidencopts<span class="w"> </span><span class="nv">pass</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">"New.avi"</span>
 </code></pre></div>
 <p><b>wmv2mpg</b>:
 aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
-<div class="highlight"><pre><span></span><code>$ mencoder -of avi -ofps <span class="m">25</span> <span class="se">\</span>
-  -oac mp3lame -lameopts cbr:br<span class="o">=</span><span class="m">112</span>:aq<span class="o">=</span><span class="m">3</span>:mode<span class="o">=</span><span class="m">0</span>:vol<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
-  -vf hqdn3d,softskip,harddup <span class="se">\</span>
-  -ovc xvid <span class="se">\</span>
-  -xvidencopts <span class="nv">bitrate</span><span class="o">=</span><span class="m">501</span>:max_key_interval<span class="o">=</span><span class="m">37</span>:aspect<span class="o">=</span><span class="m">16</span>/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span><span class="m">0</span>:vhq<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
-  Original.wmv <span class="se">\</span>
-  -o New.avi
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mencoder<span class="w"> </span>-of<span class="w"> </span>avi<span class="w"> </span>-ofps<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-oac<span class="w"> </span>mp3lame<span class="w"> </span>-lameopts<span class="w"> </span>cbr:br<span class="o">=</span><span class="m">112</span>:aq<span class="o">=</span><span class="m">3</span>:mode<span class="o">=</span><span class="m">0</span>:vol<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-vf<span class="w"> </span>hqdn3d,softskip,harddup<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-ovc<span class="w"> </span>xvid<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-xvidencopts<span class="w"> </span><span class="nv">bitrate</span><span class="o">=</span><span class="m">501</span>:max_key_interval<span class="o">=</span><span class="m">37</span>:aspect<span class="o">=</span><span class="m">16</span>/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span><span class="m">0</span>:vhq<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>Original.wmv<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>New.avi
 </code></pre></div>
 <p><b>mkv2avi</b>:</p>
-<div class="highlight"><pre><span></span><code>$ mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span><span class="m">6000</span> -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span><span class="m">3</span> -o <span class="s2">"New.avi"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mencoder<span class="w"> </span><span class="s2">"Original.mkv"</span><span class="w"> </span>-ovc<span class="w"> </span>lavc<span class="w"> </span>-lavcopts<span class="w"> </span><span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span><span class="m">6000</span><span class="w"> </span>-oac<span class="w"> </span>mp3lame<span class="w"> </span>-lameopts<span class="w"> </span><span class="nv">vbr</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">"New.avi"</span>
 </code></pre></div>
 <h3 id="converting-flash-videos-flv-to-mpg">Converting Flash Videos flv to mpg</h3>
 <p>You might want to get the information of the video first:</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i inputVideo.flv
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>inputVideo.flv
 </code></pre></div>
 <p>This is how you convert it:</p>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r <span class="m">24</span> outputVideo.mpg
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>inputVideo.flv<span class="w"> </span>-acodec<span class="w"> </span>libmp3lame<span class="w"> </span>-ab<span class="w"> </span>64k<span class="w"> </span>-s<span class="w"> </span>320x240<span class="w"> </span>-r<span class="w"> </span><span class="m">24</span><span class="w"> </span>outputVideo.mpg
 </code></pre></div>
 <p><strong>-i</strong> input file
 <strong>-acodec</strong> audio codec
@@ -255,7 +255,7 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <strong>-s</strong> size
 <strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.</p>
 <h2 id="converting-flash-videos-flv-to-avi_1">Converting Flash Videos flv to avi</h2>
-<div class="highlight"><pre><span></span><code>$ ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>inputVideo.flv<span class="w"> </span>-sameq<span class="w"> </span>-ab<span class="w"> </span>128k<span class="w"> </span>outputVideo.avi
 </code></pre></div>
 <h2 id="shortcuts-for-linux-console">Shortcuts for Linux Console</h2>
 <p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>

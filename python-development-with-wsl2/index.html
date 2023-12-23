@@ -134,41 +134,41 @@ MathJax.Hub.Queue(function() {
 <iframe frameborder="0" src="https://medium.com/media/db0a1b7a8b8d0eccc2a75276eec241da"></iframe>
 <h2 id="install-pyenv">Install pyenv</h2>
 <p><a href="https://github.com/pyenv/pyenv">pyenv</a> lets you run any Python runtime you like. To install it, run the following commands. Lines that begin with $ indicate that you should enter what follows. Copy everything except the $ until the next $</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install git
-$ git clone <span class="o">[</span>https://github.com/pyenv/pyenv.git<span class="o">](</span>https://github.com/pyenv/pyenv.git<span class="o">)</span> ~/.pyenv
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>https://github.com/pyenv/pyenv.git<span class="o">](</span>https://github.com/pyenv/pyenv.git<span class="o">)</span><span class="w"> </span>~/.pyenv
 
-$ <span class="nb">echo</span> <span class="s1">'export PYENV_ROOT="$HOME/.pyenv"'</span> &gt;&gt; ~/.bash_profile
-$ <span class="nb">echo</span> <span class="s1">'export PATH="$PYENV_ROOT/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'export PYENV_ROOT="$HOME/.pyenv"'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'export PATH="$PYENV_ROOT/bin:$PATH"'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
 
-$ <span class="nb">echo</span> <span class="s1">'export PYENV_ROOT="$HOME/.pyenv"'</span> &gt;&gt; ~/.zshrc
-$ <span class="nb">echo</span> <span class="s1">'export PATH="$PYENV_ROOT/bin:$PATH"'</span> &gt;&gt; ~/.zshrc
-
-<span class="c1"># Copy the next two lines, except the first $</span>
-$ <span class="nb">echo</span> -e <span class="s1">'if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval "$(pyenv init -)"\nfi'</span> &gt;&gt; ~/.bash_profile
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'export PYENV_ROOT="$HOME/.pyenv"'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'export PATH="$PYENV_ROOT/bin:$PATH"'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
 
 <span class="c1"># Copy the next two lines, except the first $</span>
-$ <span class="nb">echo</span> -e <span class="s1">'if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval "$(pyenv init -)"\nfi'</span> &gt;&gt; ~/.zshrc
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">'if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval "$(pyenv init -)"\nfi'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+
+<span class="c1"># Copy the next two lines, except the first $</span>
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">'if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval "$(pyenv init -)"\nfi'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
 
 <span class="c1"># Install the build dependencies</span>
-$ sudo apt-get update<span class="p">;</span> sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>--no-install-recommends<span class="w"> </span>make<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>wget<span class="w"> </span>curl<span class="w"> </span>llvm<span class="w"> </span>libncurses5-dev<span class="w"> </span>xz-utils<span class="w"> </span>tk-dev<span class="w"> </span>libxml2-dev<span class="w"> </span>libxmlsec1-dev<span class="w"> </span>libffi-dev<span class="w"> </span>liblzma-dev
 </code></pre></div>
 <p>Close all terminals and open one again. Now the command pyenv should show you the help:</p>
 <p><img alt="Screenshot by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*nKXKMJmDFiUiATZM__i_1g.png"/><em>Screenshot by Martin Thoma</em></p>
 <p>Most importantly the command pyenv install --list which shows you all the different Python versions you can install. I recommend installing 3.8.6 as of October 2020.</p>
-<div class="highlight"><pre><span></span><code>$ pyenv install <span class="m">3</span>.8.6
-Downloading Python-3.8.6.tar.xz...
--&gt; <span class="o">[</span>https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz<span class="o">](</span>https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz<span class="o">)</span>
-Installing Python-3.8.6...
-Installed Python-3.8.6 to /home/math/.pyenv/versions/3.8.6
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.8.6
+Downloading<span class="w"> </span>Python-3.8.6.tar.xz...
+-&gt;<span class="w"> </span><span class="o">[</span>https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz<span class="o">](</span>https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz<span class="o">)</span>
+Installing<span class="w"> </span>Python-3.8.6...
+Installed<span class="w"> </span>Python-3.8.6<span class="w"> </span>to<span class="w"> </span>/home/math/.pyenv/versions/3.8.6
 </code></pre></div>
 <p>After that, you can use it globally:</p>
-<div class="highlight"><pre><span></span><code>$ pyenv global <span class="m">3</span>.8.6
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span>global<span class="w"> </span><span class="m">3</span>.8.6
 
-$ python --version
-Python <span class="m">3</span>.8.6
+$<span class="w"> </span>python<span class="w"> </span>--version
+Python<span class="w"> </span><span class="m">3</span>.8.6
 
-$ pip --version
-pip <span class="m">20</span>.2.1 from /home/math/.pyenv/versions/3.8.6/lib/python3.8/site-packages/pip <span class="o">(</span>python <span class="m">3</span>.8<span class="o">)</span>
+$<span class="w"> </span>pip<span class="w"> </span>--version
+pip<span class="w"> </span><span class="m">20</span>.2.1<span class="w"> </span>from<span class="w"> </span>/home/math/.pyenv/versions/3.8.6/lib/python3.8/site-packages/pip<span class="w"> </span><span class="o">(</span>python<span class="w"> </span><span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
 <h2 id="editor">Editor</h2>
 <p>There are two beginner-friendly, gratis, wide-spread editor options: <a href="https://code.visualstudio.com/">Visual Studio Code</a> and <a href="https://www.sublimetext.com/">Sublime Text</a>. A lot of people also like <a href="https://www.jetbrains.com/pycharm/download">PyCharm Professional</a> and some hackers like vim / Emacs. Personally, I do most of my work in Sublime Text. I like that it is super lightweight and doesn&rsquo;t have a lot of distracting information.</p>

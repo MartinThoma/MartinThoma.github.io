@@ -115,10 +115,10 @@ MathJax.Hub.Queue(function() {
 <p>Last year I&rsquo;ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting and I&rsquo;ll share here how I did it &mdash; or rather how I would do it if I had the same situation again.</p>
 <h2 id="local-setup">Local Setup</h2>
 <p>Make sure you can execute Python 2 and Python 3 locally. I like <a href="https://github.com/pyenv/pyenv">pyenv</a> for that:</p>
-<div class="highlight"><pre><span></span><code>$ pyenv install <span class="m">2</span>.7.18
-$ pyenv install <span class="m">3</span>.8.5
-$ pyenv <span class="nb">local</span> <span class="m">3</span>.8.5
-$ pip --version
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">2</span>.7.18
+$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.8.5
+$<span class="w"> </span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.8.5
+$<span class="w"> </span>pip<span class="w"> </span>--version
 </code></pre></div>
 <p>Alternatively, you can <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html#installing-a-different-version-of-python">use conda to switch between Python 2 and 3</a>.</p>
 <h2 id="general-project-setup">General project setup</h2>
@@ -145,8 +145,8 @@ py2&gt;&gt;&gt; print(1, 2, 3)
 </code></pre></div>
 <p>Note that I didn&rsquo;t use the print_function &mdash; I just imported it.</p>
 <p>Applying this small change is tedious, but you can use <a href="https://docs.python.org/3.8/library/2to3.html">2to3</a> to do it for you:</p>
-<div class="highlight"><pre><span></span><code>$ pip install 2to3
-$ 2to3 --fix<span class="o">=</span>print .
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>2to3
+$<span class="w"> </span>2to3<span class="w"> </span>--fix<span class="o">=</span>print<span class="w"> </span>.
 </code></pre></div>
 <h2 id="keeping-python-2-compatibility">Keeping Python 2 Compatibility</h2>
 <p>You should have a version that works for Python 2 and Python 3 in exactly the same way for a while. For bigger projects with lots of dependencies, it&rsquo;s a big help if they can move gradually forward.</p>
@@ -160,11 +160,11 @@ $ 2to3 --fix<span class="o">=</span>print .
     <span class="kn">from</span> <span class="nn">urllib2</span> <span class="kn">import</span> <span class="n">urlopen</span>
 </code></pre></div>
 <p>Even nicer is the compatibility library six:</p>
-<div class="highlight"><pre><span></span><code>$ pip install six
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>six
 </code></pre></div>
 <p><code>six</code> can then be used like this in both, Python 2 and Python 3:</p>
-<div class="highlight"><pre><span></span><code>from six.moves.urllib.parse import urlparse, urlencode
-from six.moves.urllib.request import urlopen
+<div class="highlight"><pre><span></span><code>from<span class="w"> </span>six.moves.urllib.parse<span class="w"> </span>import<span class="w"> </span>urlparse,<span class="w"> </span>urlencode
+from<span class="w"> </span>six.moves.urllib.request<span class="w"> </span>import<span class="w"> </span>urlopen
 </code></pre></div>
 <p>When you write code only to keep the support for older versions, make sure you
 add a string that is easy to find. Something like &ldquo;support for Python 2&rdquo;</p>
@@ -268,7 +268,7 @@ bigger projects, e.g. the last 3 major Python versions.</p>
 <p>Supporting Python 2 means you need to add additional code and likely that you
 cannot use some of the killer features of newer Python versions.</p>
 <p>When you remove the support for a Python version, do it in one git commit so that the change is clear. Search for that string:</p>
-<div class="highlight"><pre><span></span><code>$ grep -rnI <span class="s2">"support for Python 2"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>grep<span class="w"> </span>-rnI<span class="w"> </span><span class="s2">"support for Python 2"</span>
 </code></pre></div>
 <h2 id="use-the-new-stuff">Use the new stuff!</h2>
 <p>Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: <a href="https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8">Killer Features by Python Version</a></p>

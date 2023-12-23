@@ -114,243 +114,243 @@ MathJax.Hub.Queue(function() {
             <p>Some months ago, I had to improve some Java code for university. They gave us a model of a windows like file system and we had to make the code "cleaner". I think I've overdone the application of generics, but it's a nice example for generics 😉</p>
 <p>You can download the <a href="../images/2012/10/Filesystem.zip">complete Eclipse project</a>.</p>
 <h2 id="computerjava">Computer.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Vector</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Vector</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Computer</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="n">computerName</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">HDD</span><span class="o">&gt;</span> <span class="n">hdds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">HDD</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Computer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">computerName</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">HDD</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hdds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">HDD</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="nf">Computer</span><span class="p">(</span><span class="n">String</span> <span class="n">companyName</span><span class="p">,</span> <span class="n">HDD</span> <span class="n">gf</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">computerName</span> <span class="o">=</span> <span class="n">companyName</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">hdds</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">gf</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Computer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">companyName</span><span class="p">,</span><span class="w"> </span><span class="n">HDD</span><span class="w"> </span><span class="n">gf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">computerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">companyName</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hdds</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">gf</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">addDrive</span><span class="p">(</span><span class="n">HDD</span> <span class="n">drive</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">hdds</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">drive</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addDrive</span><span class="p">(</span><span class="n">HDD</span><span class="w"> </span><span class="n">drive</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">hdds</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">drive</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printContent</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">HDD</span> <span class="n">hdd</span> <span class="p">:</span> <span class="n">hdds</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"| HDD: "</span> <span class="o">+</span> <span class="n">hdd</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s">" ("</span> <span class="o">+</span> <span class="n">hdd</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span> <span class="o">+</span> <span class="s">")"</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printContent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">HDD</span><span class="w"> </span><span class="n">hdd</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">hdds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"| HDD: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hdd</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" ("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hdd</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">")"</span><span class="p">);</span>
 
-            <span class="k">for</span> <span class="p">(</span><span class="n">Directory</span> <span class="n">dir</span> <span class="p">:</span> <span class="n">hdd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
-                <span class="n">printContent</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-            <span class="p">}</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Directory</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">hdd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="na">class</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">printContent</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
 
-            <span class="k">for</span> <span class="p">(</span><span class="n">ZipArchiv</span> <span class="n">zip</span> <span class="p">:</span> <span class="n">hdd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ZipArchiv</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
-                <span class="n">printContent</span><span class="p">(</span><span class="n">zip</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-            <span class="p">}</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">ZipArchiv</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">hdd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ZipArchiv</span><span class="p">.</span><span class="na">class</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">printContent</span><span class="p">(</span><span class="n">zip</span><span class="p">,</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
 
-            <span class="k">for</span> <span class="p">(</span><span class="n">File</span> <span class="n">f</span> <span class="p">:</span> <span class="n">hdd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
-                <span class="n">printContent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">"|-"</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">hdd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="na">class</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">printContent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="s">"|-"</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">printContent</span><span class="p">(</span><span class="n">Node</span> <span class="n">d</span><span class="p">,</span> <span class="n">String</span> <span class="n">ident</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"|-"</span> <span class="o">+</span> <span class="n">ident</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">d</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printContent</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ident</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"|-"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ident</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
 
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Node</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Node</span><span class="o">&gt;&gt;</span><span class="p">();</span>
-        <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-        <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ZipArchiv</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-        <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ZipArchiv</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="k">instanceof</span> <span class="n">NodeContainer</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">NodeContainer</span> <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">NodeContainer</span><span class="p">)</span> <span class="n">d</span><span class="p">;</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Node</span><span class="o">&gt;</span> <span class="n">T</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">ArrayList</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Node</span><span class="o">&gt;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">Node</span> <span class="n">n</span> <span class="p">:</span> <span class="n">tmp</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">printContent</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ident</span> <span class="o">+</span> <span class="s">"-"</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">NodeContainer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">NodeContainer</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">NodeContainer</span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ArrayList</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">printContent</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">ident</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"-"</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Create the computer</span>
-        <span class="n">HDD</span> <span class="n">platte1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HDD</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span> <span class="s">"Main disk"</span><span class="p">);</span>
-        <span class="n">Computer</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Computer</span><span class="p">(</span><span class="s">"MyMainComputer"</span><span class="p">,</span> <span class="n">platte1</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create the computer</span>
+<span class="w">        </span><span class="n">HDD</span><span class="w"> </span><span class="n">platte1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HDD</span><span class="p">(</span><span class="s">"C"</span><span class="p">,</span><span class="w"> </span><span class="s">"Main disk"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Computer</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Computer</span><span class="p">(</span><span class="s">"MyMainComputer"</span><span class="p">,</span><span class="w"> </span><span class="n">platte1</span><span class="p">);</span>
 
-        <span class="c1">// we need a backup</span>
-        <span class="n">HDD</span> <span class="n">platte2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HDD</span><span class="p">(</span><span class="s">"D"</span><span class="p">,</span> <span class="s">"Backup disk"</span><span class="p">);</span>
-        <span class="n">f</span><span class="p">.</span><span class="na">addDrive</span><span class="p">(</span><span class="n">platte2</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// we need a backup</span>
+<span class="w">        </span><span class="n">HDD</span><span class="w"> </span><span class="n">platte2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HDD</span><span class="p">(</span><span class="s">"D"</span><span class="p">,</span><span class="w"> </span><span class="s">"Backup disk"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">addDrive</span><span class="p">(</span><span class="n">platte2</span><span class="p">);</span>
 
-        <span class="c1">// create main directories</span>
-        <span class="n">Directory</span> <span class="n">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Directory</span><span class="p">(</span><span class="s">"temp"</span><span class="p">,</span> <span class="s">"temporary files"</span><span class="p">);</span>
-        <span class="n">platte1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
-        <span class="n">v1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span> <span class="n">Directory</span><span class="p">(</span><span class="s">"asdf"</span><span class="p">,</span> <span class="s">"jkl&amp;ouml;"</span><span class="p">));</span>
-        <span class="n">Directory</span> <span class="n">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Directory</span><span class="p">(</span><span class="s">"Pictures"</span><span class="p">,</span> <span class="s">"Holiday pictures"</span><span class="p">);</span>
-        <span class="n">platte1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// create main directories</span>
+<span class="w">        </span><span class="n">Directory</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Directory</span><span class="p">(</span><span class="s">"temp"</span><span class="p">,</span><span class="w"> </span><span class="s">"temporary files"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">platte1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Directory</span><span class="p">(</span><span class="s">"asdf"</span><span class="p">,</span><span class="w"> </span><span class="s">"jkl&amp;ouml;"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Directory</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Directory</span><span class="p">(</span><span class="s">"Pictures"</span><span class="p">,</span><span class="w"> </span><span class="s">"Holiday pictures"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">platte1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
 
-        <span class="c1">// Gib den Verzeichnissen ein paar Inhalte</span>
-        <span class="c1">// Ein paar Archive im Temp</span>
-        <span class="n">ZipArchiv</span> <span class="n">zip1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"fp-update.zip"</span><span class="p">,</span> <span class="s">"Flashplayer Update"</span><span class="p">);</span>
-        <span class="n">v1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">zip1</span><span class="p">);</span>
-        <span class="n">ZipArchiv</span> <span class="n">zip2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"swt1-folien.zip"</span><span class="p">,</span> <span class="s">"PDFs of SWT1"</span><span class="p">);</span>
-        <span class="n">v1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">zip2</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Gib den Verzeichnissen ein paar Inhalte</span>
+<span class="w">        </span><span class="c1">// Ein paar Archive im Temp</span>
+<span class="w">        </span><span class="n">ZipArchiv</span><span class="w"> </span><span class="n">zip1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"fp-update.zip"</span><span class="p">,</span><span class="w"> </span><span class="s">"Flashplayer Update"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">zip1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ZipArchiv</span><span class="w"> </span><span class="n">zip2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"swt1-folien.zip"</span><span class="p">,</span><span class="w"> </span><span class="s">"PDFs of SWT1"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">zip2</span><span class="p">);</span>
 
-        <span class="c1">// pictures</span>
-        <span class="n">ZipArchiv</span> <span class="n">barcelona</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"2010-Barcelona.zip"</span><span class="p">,</span> <span class="s">"Holiday Barcelona 2010"</span><span class="p">);</span>
-        <span class="n">v2</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">barcelona</span><span class="p">);</span>
-        <span class="n">ZipArchiv</span> <span class="n">mallorca</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"2011-Mallorca.zip"</span><span class="p">,</span> <span class="s">"Sonne satt"</span><span class="p">);</span>
-        <span class="n">v2</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">mallorca</span><span class="p">);</span>
-        <span class="n">v2</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"ipdlogo.png"</span><span class="p">,</span> <span class="s">"IPD"</span><span class="p">));</span>
+<span class="w">        </span><span class="c1">// pictures</span>
+<span class="w">        </span><span class="n">ZipArchiv</span><span class="w"> </span><span class="n">barcelona</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"2010-Barcelona.zip"</span><span class="p">,</span><span class="w"> </span><span class="s">"Holiday Barcelona 2010"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v2</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">barcelona</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ZipArchiv</span><span class="w"> </span><span class="n">mallorca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"2011-Mallorca.zip"</span><span class="p">,</span><span class="w"> </span><span class="s">"Sonne satt"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v2</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">mallorca</span><span class="p">);</span>
+<span class="w">        </span><span class="n">v2</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"ipdlogo.png"</span><span class="p">,</span><span class="w"> </span><span class="s">"IPD"</span><span class="p">));</span>
 
-        <span class="c1">// add some files to archives</span>
-        <span class="n">ZipArchiv</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"BarcelonaBeach.zip"</span><span class="p">,</span> <span class="s">"Strandbilder"</span><span class="p">);</span>
-        <span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b1</span><span class="p">);</span>
-        <span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"s1.jpg"</span><span class="p">,</span> <span class="s">"Strand"</span><span class="p">));</span>
-        <span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"s2.jpg"</span><span class="p">,</span> <span class="s">"Mehr Strand"</span><span class="p">));</span>
-        <span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"s3.jpg"</span><span class="p">,</span> <span class="s">"Strand und Meer"</span><span class="p">));</span>
-        <span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"s4.jpg"</span><span class="p">,</span> <span class="s">"Noch mehr Strand"</span><span class="p">));</span>
+<span class="w">        </span><span class="c1">// add some files to archives</span>
+<span class="w">        </span><span class="n">ZipArchiv</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ZipArchiv</span><span class="p">(</span><span class="s">"BarcelonaBeach.zip"</span><span class="p">,</span><span class="w"> </span><span class="s">"Strandbilder"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"s1.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Strand"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"s2.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Mehr Strand"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"s3.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Strand und Meer"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"s4.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Noch mehr Strand"</span><span class="p">));</span>
 
-        <span class="n">File</span> <span class="n">b2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"Picasso.jpg"</span><span class="p">,</span> <span class="s">"Museum"</span><span class="p">);</span>
-        <span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"Picasso.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Museum"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b2</span><span class="p">);</span>
 
-        <span class="n">File</span> <span class="n">b3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"SagradaFamilia.jpg"</span><span class="p">,</span> <span class="s">"Kirche"</span><span class="p">);</span>
-        <span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"SagradaFamilia.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Kirche"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b3</span><span class="p">);</span>
 
-        <span class="n">File</span> <span class="n">b4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"CampNou.jpg"</span><span class="p">,</span> <span class="s">"Fu&amp;szlig;ball"</span><span class="p">);</span>
-        <span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">b4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"CampNou.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fu&amp;szlig;ball"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">barcelona</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">b4</span><span class="p">);</span>
 
-        <span class="n">File</span> <span class="n">m1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"Strand.jpg"</span><span class="p">,</span> <span class="s">"Strand"</span><span class="p">);</span>
-        <span class="n">mallorca</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">m1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"Strand.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s">"Strand"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mallorca</span><span class="p">.</span><span class="na">addNode</span><span class="p">(</span><span class="n">m1</span><span class="p">);</span>
 
-        <span class="n">f</span><span class="p">.</span><span class="na">printContent</span><span class="p">();</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">printContent</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="nodejava">Node.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getDescription</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">description</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescription</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescription</span><span class="p">(</span><span class="n">String</span> <span class="n">description</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setDescription</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="nodecontainerjava">NodeContainer.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">NodeContainer</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="p">);</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">);</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">NodeContainer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="hddjava">HDD.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HDD</span> <span class="kd">extends</span> <span class="n">Node</span> <span class="kd">implements</span> <span class="n">NodeContainer</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HDD</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeContainer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="nf">HDD</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">beschreibung</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">beschreibung</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HDD</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">beschreibung</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">beschreibung</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
-    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">allElements</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="k">for</span><span class="p">(</span><span class="n">Node</span> <span class="n">o</span> <span class="p">:</span> <span class="n">nodes</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">==</span> <span class="n">clazz</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">allElements</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span> <span class="n">o</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">allElements</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nodes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">allElements</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">allElements</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">nodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">nodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="directoryjava">Directory.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Directory</span> <span class="kd">extends</span> <span class="n">Node</span> <span class="kd">implements</span> <span class="n">NodeContainer</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Directory</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeContainer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="nf">Directory</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">description</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">description</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Directory</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">description</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">nodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">nodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
-    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">allElements</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="k">for</span><span class="p">(</span><span class="n">Node</span> <span class="n">o</span> <span class="p">:</span> <span class="n">nodes</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">==</span> <span class="n">clazz</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">allElements</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span> <span class="n">o</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">allElements</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nodes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">allElements</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">allElements</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="ziparchivjava">ZipArchiv.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ZipArchiv</span> <span class="kd">extends</span> <span class="n">File</span> <span class="kd">implements</span> <span class="n">NodeContainer</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ZipArchiv</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeContainer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="kd">public</span> <span class="nf">ZipArchiv</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">description</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ZipArchiv</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">nodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">nodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
-    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">allElements</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
-        <span class="k">for</span><span class="p">(</span><span class="n">Node</span> <span class="n">o</span> <span class="p">:</span> <span class="n">nodes</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">==</span> <span class="n">clazz</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">allElements</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span> <span class="n">o</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">allElements</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nodes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">clazz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">allElements</span><span class="p">.</span><span class="na">add</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">allElements</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="filejava">File.java</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">edu.kit.filesystem</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">File</span> <span class="kd">extends</span> <span class="n">Node</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="nf">File</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">beschreibung</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">beschreibung</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">File</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">File</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">beschreibung</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">beschreibung</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
             

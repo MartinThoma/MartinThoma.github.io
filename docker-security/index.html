@@ -160,12 +160,12 @@ file to make sure that some files are not added.</p>
 ID 0 &mdash; with root. It is recommended not to do that. You can change that in
 multiple ways:</p>
 <p>Within the Dockerfile &mdash; I prefer that one:</p>
-<div class="highlight"><pre><span></span><code><span class="k">RUN</span> groupadd -r noroot <span class="o">&amp;&amp;</span> useradd -r -g noroot noroot
-<span class="k">USER</span><span class="s"> noroot</span>
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>noroot<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-g<span class="w"> </span>noroot<span class="w"> </span>noroot
+<span class="k">USER</span><span class="w"> </span><span class="s">noroot</span>
 </code></pre></div>
 <p>When you start the container:</p>
-<div class="highlight"><pre><span></span><code>$ docker run -u <span class="m">1000</span> -it python:3.9.1-buster bash
-I have no name!@a70ba4f24042:/$ <span class="nb">echo</span> <span class="nv">$UID</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-u<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-it<span class="w"> </span>python:3.9.1-buster<span class="w"> </span>bash
+I<span class="w"> </span>have<span class="w"> </span>no<span class="w"> </span>name!@a70ba4f24042:/$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$UID</span>
 <span class="m">1000</span>
 </code></pre></div>
 <p>In Kubernetes via RunAsUser in the securityContext
@@ -173,65 +173,65 @@ I have no name!@a70ba4f24042:/$ <span class="nb">echo</span> <span class="nv">$U
 <h3 id="multi-stage-builds">Multi-Stage Builds</h3>
 <p>If an attacker gets access to your container, you want them to have as few tools there as possible. Use <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi-stage builds</a> for that. Build your code in a build-container and use the built artifact in another container. As a bonus, your image size will be smaller.</p>
 <p>The <a href="https://docs.docker.com/develop/develop-images/multistage-build/">Docker docs</a> give a very good example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">golang:1.7.3</span>
-<span class="k">WORKDIR</span><span class="s"> /go/src/github.com/alexellis/href-counter/</span>
-<span class="k">RUN</span> go get -d -v golang.org/x/net/html
-<span class="k">COPY</span> app.go .
-<span class="k">RUN</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>linux go build -a -installsuffix cgo -o app .
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.7.3</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/go/src/github.com/alexellis/href-counter/</span>
+<span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>get<span class="w"> </span>-d<span class="w"> </span>-v<span class="w"> </span>golang.org/x/net/html
+<span class="k">COPY</span><span class="w"> </span>app.go<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">GOOS</span><span class="o">=</span>linux<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-a<span class="w"> </span>-installsuffix<span class="w"> </span>cgo<span class="w"> </span>-o<span class="w"> </span>app<span class="w"> </span>.
 
-<span class="k">FROM</span> <span class="s">alpine:latest</span>
-<span class="k">RUN</span> apk --no-cache add ca-certificates
-<span class="k">WORKDIR</span><span class="s"> /root/</span>
-<span class="k">COPY</span> **--from<span class="o">=</span><span class="m">0</span>** /go/src/github.com/alexellis/href-counter/app .
-<span class="k">CMD</span> <span class="p">[</span><span class="s2">"./app"</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">alpine:latest</span>
+<span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>--no-cache<span class="w"> </span>add<span class="w"> </span>ca-certificates
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root/</span>
+<span class="k">COPY</span><span class="w"> </span>**--from<span class="o">=</span><span class="m">0</span>**<span class="w"> </span>/go/src/github.com/alexellis/href-counter/app<span class="w"> </span>.
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"./app"</span><span class="p">]</span>
 </code></pre></div>
 <h2 id="harden-your-containers_1">Harden Your Containers</h2>
 <h3 id="read-only-root-file-system">Read-Only Root File System</h3>
 <p>This depends on how you run the docker image, but if you use docker run you can add the <a href="https://docs.docker.com/engine/reference/commandline/run/">--read-only flag</a>. This makes the root file system read-only. This means if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.</p>
 <p>You should also be aware that some pretty standard tasks like creating a temporary file obviously don&rsquo;t work anymore:</p>
-<div class="highlight"><pre><span></span><code>$ sudo docker run -it --read-only python:3.9.1-buster
-Python <span class="m">3</span>.9.1 <span class="o">(</span>default, Jan <span class="m">12</span> <span class="m">2021</span>, <span class="m">16</span>:45:25<span class="o">)</span>
-<span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span> on linux
-Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for</span> more information.
-&gt;&gt;&gt; import tempfile
-&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> tempfile.mkdtemp<span class="o">()</span>
-Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="s2">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in &lt;module&gt;
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">348</span>, in mkdtemp
-    prefix, suffix, dir, <span class="nv">output_type</span> <span class="o">=</span> _sanitize_params<span class="o">(</span>prefix, suffix, dir<span class="o">)</span>
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">118</span>, in _sanitize_params
-    <span class="nv">dir</span> <span class="o">=</span> gettempdir<span class="o">()</span>
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">287</span>, in gettempdir
-    <span class="nv">tempdir</span> <span class="o">=</span> _get_default_tempdir<span class="o">()</span>
-  File <span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>, line <span class="m">219</span>, in _get_default_tempdir
-    raise FileNotFoundError<span class="o">(</span>_errno.ENOENT,
-FileNotFoundError: <span class="o">[</span>Errno <span class="m">2</span><span class="o">]</span> No usable temporary directory found in <span class="o">[</span><span class="s1">'/tmp'</span>, <span class="s1">'/var/tmp'</span>, <span class="s1">'/usr/tmp'</span>, <span class="s1">'/'</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--read-only<span class="w"> </span>python:3.9.1-buster
+Python<span class="w"> </span><span class="m">3</span>.9.1<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Jan<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">2021</span>,<span class="w"> </span><span class="m">16</span>:45:25<span class="o">)</span>
+<span class="o">[</span>GCC<span class="w"> </span><span class="m">8</span>.3.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">"help"</span>,<span class="w"> </span><span class="s2">"copyright"</span>,<span class="w"> </span><span class="s2">"credits"</span><span class="w"> </span>or<span class="w"> </span><span class="s2">"license"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>tempfile
+&gt;&gt;&gt;<span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tempfile.mkdtemp<span class="o">()</span>
+Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"&lt;stdin&gt;"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">348</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>mkdtemp
+<span class="w">    </span>prefix,<span class="w"> </span>suffix,<span class="w"> </span>dir,<span class="w"> </span><span class="nv">output_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_sanitize_params<span class="o">(</span>prefix,<span class="w"> </span>suffix,<span class="w"> </span>dir<span class="o">)</span>
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">118</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_sanitize_params
+<span class="w">    </span><span class="nv">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gettempdir<span class="o">()</span>
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">287</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>gettempdir
+<span class="w">    </span><span class="nv">tempdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_get_default_tempdir<span class="o">()</span>
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/usr/local/lib/python3.9/tempfile.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">219</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_get_default_tempdir
+<span class="w">    </span>raise<span class="w"> </span>FileNotFoundError<span class="o">(</span>_errno.ENOENT,
+FileNotFoundError:<span class="w"> </span><span class="o">[</span>Errno<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>No<span class="w"> </span>usable<span class="w"> </span>temporary<span class="w"> </span>directory<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span><span class="s1">'/tmp'</span>,<span class="w"> </span><span class="s1">'/var/tmp'</span>,<span class="w"> </span><span class="s1">'/usr/tmp'</span>,<span class="w"> </span><span class="s1">'/'</span><span class="o">]</span>
 </code></pre></div>
 <p>You can work around this issue by mounting /tmp as a volume:</p>
-<div class="highlight"><pre><span></span><code>$ sudo docker run -it --mount <span class="nv">source</span><span class="o">=</span>myvol2,target<span class="o">=</span>/tmp --read-only python:3.9.1-buster
-Python <span class="m">3</span>.9.1 <span class="o">(</span>default, Jan <span class="m">12</span> <span class="m">2021</span>, <span class="m">16</span>:45:25<span class="o">)</span>
-<span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span> on linux
-Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for</span> more information.
-&gt;&gt;&gt; import tempfile<span class="p">;</span> <span class="nv">a</span> <span class="o">=</span> tempfile.mkdtemp<span class="o">()</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--mount<span class="w"> </span><span class="nv">source</span><span class="o">=</span>myvol2,target<span class="o">=</span>/tmp<span class="w"> </span>--read-only<span class="w"> </span>python:3.9.1-buster
+Python<span class="w"> </span><span class="m">3</span>.9.1<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Jan<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">2021</span>,<span class="w"> </span><span class="m">16</span>:45:25<span class="o">)</span>
+<span class="o">[</span>GCC<span class="w"> </span><span class="m">8</span>.3.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">"help"</span>,<span class="w"> </span><span class="s2">"copyright"</span>,<span class="w"> </span><span class="s2">"credits"</span><span class="w"> </span>or<span class="w"> </span><span class="s2">"license"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>tempfile<span class="p">;</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tempfile.mkdtemp<span class="o">()</span>
 
 
-$ sudo docker run --rm -i -v<span class="o">=</span>myvol2:/tmp/v busybox find /tmp/v
+$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-i<span class="w"> </span>-v<span class="o">=</span>myvol2:/tmp/v<span class="w"> </span>busybox<span class="w"> </span>find<span class="w"> </span>/tmp/v
 /tmp/v
 /tmp/v/tmpbhw8djco
 </code></pre></div>
 <p>Even better is using the host's temporary file system:</p>
-<div class="highlight"><pre><span></span><code>$ sudo docker run -it **--tmpfs /tmp** --read-only python:3.9.1-buster
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>**--tmpfs<span class="w"> </span>/tmp**<span class="w"> </span>--read-only<span class="w"> </span>python:3.9.1-buster
 </code></pre></div>
 <h3 id="limit-capabilities">Limit Capabilities</h3>
 <p>You can limit the <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html">Linux kernel capabilities</a>:</p>
-<div class="highlight"><pre><span></span><code>$ docker run **--cap-drop all** -it python:3.9.1-buster bash
-root@3c568219116e:/# groupadd -r noroot
-**groupadd: failure <span class="k">while</span> writing changes to /etc/gshadow**
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>**--cap-drop<span class="w"> </span>all**<span class="w"> </span>-it<span class="w"> </span>python:3.9.1-buster<span class="w"> </span>bash
+root@3c568219116e:/#<span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>noroot
+**groupadd:<span class="w"> </span>failure<span class="w"> </span><span class="k">while</span><span class="w"> </span>writing<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>/etc/gshadow**
 </code></pre></div>
 <p>You can then grant the ones your application needs:</p>
-<div class="highlight"><pre><span></span><code>$ docker run --cap-drop all --cap-add CHOWN -it python:3.9.1-buster bash
-root@3c568219116e:/# groupadd -r noroot
-groupadd: failure <span class="k">while</span> writing changes to /etc/gshadow
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--cap-drop<span class="w"> </span>all<span class="w"> </span>--cap-add<span class="w"> </span>CHOWN<span class="w"> </span>-it<span class="w"> </span>python:3.9.1-buster<span class="w"> </span>bash
+root@3c568219116e:/#<span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>noroot
+groupadd:<span class="w"> </span>failure<span class="w"> </span><span class="k">while</span><span class="w"> </span>writing<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>/etc/gshadow
 </code></pre></div>
 <p>In Kubernetes, this is done via capabilities in the securityContext
 (<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>

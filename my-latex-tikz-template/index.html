@@ -143,33 +143,33 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
 <h3 id="makefile">Makefile</h3>
-<div class="highlight"><pre><span></span><code><span class="nv">SOURCE</span> <span class="o">=</span> latex-document.tex
+<div class="highlight"><pre><span></span><code><span class="nv">SOURCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>latex-document.tex
 
-<span class="nv">DELAY</span> <span class="o">=</span> <span class="m">80</span>
-<span class="nv">DENSITY</span> <span class="o">=</span> <span class="m">300</span>
+<span class="nv">DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="nv">DENSITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span>
 
 <span class="nf">make</span><span class="o">:</span>
-    pdflatex <span class="k">$(</span>SOURCE<span class="k">)</span>.tex -output-format<span class="o">=</span>pdf
-    make clean
+<span class="w">    </span>pdflatex<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.tex<span class="w"> </span>-output-format<span class="o">=</span>pdf
+<span class="w">    </span>make<span class="w"> </span>clean
 
 <span class="nf">clean</span><span class="o">:</span>
-    rm -rf  <span class="k">$(</span>TARGET<span class="k">)</span> *.class *.html *.log *.aux
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w">  </span><span class="k">$(</span>TARGET<span class="k">)</span><span class="w"> </span>*.class<span class="w"> </span>*.html<span class="w"> </span>*.log<span class="w"> </span>*.aux
 
 <span class="nf">animatedGif</span><span class="o">:</span>
-    pdfcrop <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf
-    convert -verbose -delay <span class="k">$(</span>DELAY<span class="k">)</span> -loop <span class="m">0</span> -density <span class="k">$(</span>DENSITY<span class="k">)</span> <span class="k">$(</span>SOURCE<span class="k">)</span>-crop.pdf <span class="k">$(</span>SOURCE<span class="k">)</span>.gif
-    make clean
+<span class="w">    </span>pdfcrop<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf
+<span class="w">    </span>convert<span class="w"> </span>-verbose<span class="w"> </span>-delay<span class="w"> </span><span class="k">$(</span>DELAY<span class="k">)</span><span class="w"> </span>-loop<span class="w"> </span><span class="m">0</span><span class="w"> </span>-density<span class="w"> </span><span class="k">$(</span>DENSITY<span class="k">)</span><span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>-crop.pdf<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.gif
+<span class="w">    </span>make<span class="w"> </span>clean
 
 <span class="nf">transparentGif</span><span class="o">:</span>
-    convert <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf -transparent white result.gif
-    make clean
+<span class="w">    </span>convert<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf<span class="w"> </span>-transparent<span class="w"> </span>white<span class="w"> </span>result.gif
+<span class="w">    </span>make<span class="w"> </span>clean
 
 <span class="nf">svg</span><span class="o">:</span>
-    pdf2svg <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf <span class="k">$(</span>SOURCE<span class="k">)</span>.svg
-    <span class="c1"># Necessary, as pdf2svg does not always create valid svgs:</span>
-    inkscape <span class="k">$(</span>SOURCE<span class="k">)</span>.svg --export-plain-svg<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
-    <span class="c1"># Alternatively, only this one (produces worse results):</span>
-    <span class="c1">#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg</span>
+<span class="w">    </span>pdf2svg<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
+<span class="w">    </span><span class="c1"># Necessary, as pdf2svg does not always create valid svgs:</span>
+<span class="w">    </span>inkscape<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg<span class="w"> </span>--export-plain-svg<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
+<span class="w">    </span><span class="c1"># Alternatively, only this one (produces worse results):</span>
+<span class="w">    </span><span class="c1">#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg</span>
 </code></pre></div>
 <h2 id="requirements_1">Requirements</h2>
 <ul>
@@ -180,33 +180,33 @@ MathJax.Hub.Queue(function() {
 </ul>
 <h2 id="test-if-you-meet-these-requirements">Test if you meet these requirements</h2>
 <p>Make sure that you have a valid LaTeX installation. <code>pdflatex --version</code> should output something like:</p>
-<div class="highlight"><pre><span></span><code>pdfTeX <span class="m">3</span>.1415926-2.3-1.40.12 <span class="o">(</span>TeX Live <span class="m">2011</span><span class="o">)</span>
-kpathsea version <span class="m">6</span>.0.1
-Copyright <span class="m">2011</span> Peter Breitenlohner <span class="o">(</span>eTeX<span class="o">)</span>/Han The Thanh <span class="o">(</span>pdfTeX<span class="o">)</span>.
-There is NO warranty.  Redistribution of this software is
-covered by the terms of both the pdfTeX copyright and
-the Lesser GNU General Public License.
-For more information about these matters, see the file
-named COPYING and the pdfTeX source.
-Primary author of pdfTeX: Peter Breitenlohner <span class="o">(</span>eTeX<span class="o">)</span>/Han The Thanh <span class="o">(</span>pdfTeX<span class="o">)</span>.
-Compiled with libpng <span class="m">1</span>.5.2<span class="p">;</span> using libpng <span class="m">1</span>.5.2
-Compiled with zlib <span class="m">1</span>.2.5<span class="p">;</span> using zlib <span class="m">1</span>.2.5
-Compiled with xpdf version <span class="m">3</span>.02pl5
+<div class="highlight"><pre><span></span><code>pdfTeX<span class="w"> </span><span class="m">3</span>.1415926-2.3-1.40.12<span class="w"> </span><span class="o">(</span>TeX<span class="w"> </span>Live<span class="w"> </span><span class="m">2011</span><span class="o">)</span>
+kpathsea<span class="w"> </span>version<span class="w"> </span><span class="m">6</span>.0.1
+Copyright<span class="w"> </span><span class="m">2011</span><span class="w"> </span>Peter<span class="w"> </span>Breitenlohner<span class="w"> </span><span class="o">(</span>eTeX<span class="o">)</span>/Han<span class="w"> </span>The<span class="w"> </span>Thanh<span class="w"> </span><span class="o">(</span>pdfTeX<span class="o">)</span>.
+There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span>warranty.<span class="w">  </span>Redistribution<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>software<span class="w"> </span>is
+covered<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>terms<span class="w"> </span>of<span class="w"> </span>both<span class="w"> </span>the<span class="w"> </span>pdfTeX<span class="w"> </span>copyright<span class="w"> </span>and
+the<span class="w"> </span>Lesser<span class="w"> </span>GNU<span class="w"> </span>General<span class="w"> </span>Public<span class="w"> </span>License.
+For<span class="w"> </span>more<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>these<span class="w"> </span>matters,<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>file
+named<span class="w"> </span>COPYING<span class="w"> </span>and<span class="w"> </span>the<span class="w"> </span>pdfTeX<span class="w"> </span>source.
+Primary<span class="w"> </span>author<span class="w"> </span>of<span class="w"> </span>pdfTeX:<span class="w"> </span>Peter<span class="w"> </span>Breitenlohner<span class="w"> </span><span class="o">(</span>eTeX<span class="o">)</span>/Han<span class="w"> </span>The<span class="w"> </span>Thanh<span class="w"> </span><span class="o">(</span>pdfTeX<span class="o">)</span>.
+Compiled<span class="w"> </span>with<span class="w"> </span>libpng<span class="w"> </span><span class="m">1</span>.5.2<span class="p">;</span><span class="w"> </span>using<span class="w"> </span>libpng<span class="w"> </span><span class="m">1</span>.5.2
+Compiled<span class="w"> </span>with<span class="w"> </span>zlib<span class="w"> </span><span class="m">1</span>.2.5<span class="p">;</span><span class="w"> </span>using<span class="w"> </span>zlib<span class="w"> </span><span class="m">1</span>.2.5
+Compiled<span class="w"> </span>with<span class="w"> </span>xpdf<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>.02pl5
 </code></pre></div>
 <p>Make sure you can execute Makefiles. <code>make --version</code> should output something like this:</p>
-<div class="highlight"><pre><span></span><code>GNU Make <span class="m">3</span>.81
-Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2006</span>  Free Software Foundation, Inc.
-This is free software<span class="p">;</span> see the <span class="nb">source</span> <span class="k">for</span> copying conditions.
-There is NO warranty<span class="p">;</span> not even <span class="k">for</span> MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.
+<div class="highlight"><pre><span></span><code>GNU<span class="w"> </span>Make<span class="w"> </span><span class="m">3</span>.81
+Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2006</span><span class="w">  </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
+This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>copying<span class="w"> </span>conditions.
+There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span>warranty<span class="p">;</span><span class="w"> </span>not<span class="w"> </span>even<span class="w"> </span><span class="k">for</span><span class="w"> </span>MERCHANTABILITY<span class="w"> </span>or<span class="w"> </span>FITNESS<span class="w"> </span>FOR<span class="w"> </span>A
+PARTICULAR<span class="w"> </span>PURPOSE.
 
-This program built <span class="k">for</span> i486-pc-linux-gnu
+This<span class="w"> </span>program<span class="w"> </span>built<span class="w"> </span><span class="k">for</span><span class="w"> </span>i486-pc-linux-gnu
 </code></pre></div>
 <p>The command <code>inkscape --version</code> should return:</p>
-<div class="highlight"><pre><span></span><code>Inkscape <span class="m">0</span>.47 r22583 <span class="o">(</span>Apr  <span class="m">4</span> <span class="m">2010</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>Inkscape<span class="w"> </span><span class="m">0</span>.47<span class="w"> </span>r22583<span class="w"> </span><span class="o">(</span>Apr<span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">2010</span><span class="o">)</span>
 </code></pre></div>
 <p>And <code>pdf2svg --version</code> should return:</p>
-<div class="highlight"><pre><span></span><code>Usage: pdf2svg &lt;in file.pdf&gt; &lt;out file.svg&gt; <span class="o">[</span>&lt;page no&gt;<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>Usage:<span class="w"> </span>pdf2svg<span class="w"> </span>&lt;<span class="k">in</span><span class="w"> </span>file.pdf&gt;<span class="w"> </span>&lt;out<span class="w"> </span>file.svg&gt;<span class="w"> </span><span class="o">[</span>&lt;page<span class="w"> </span>no&gt;<span class="o">]</span>
 </code></pre></div>
 <h2 id="how-to-use-it">How to use it</h2>
 <p>You have to place the Makefile in the same folder as latex-document.tex. If you have done this and if you meet the requirements, you can execute:</p>

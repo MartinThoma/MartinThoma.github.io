@@ -118,34 +118,34 @@ described by the <a href="http://wiki.tcl.tk/10259">12 Rules for Tcl</a>.</p>
 <h2 id="basic-syntax-by-example">Basic Syntax by Example</h2>
 <p>Some nice comparisons of the syntax of many languages can be found at <a href="http://rigaux.org/language-study/syntax-across-languages.html">rigaux.org</a></p>
 <h3 id="hello-world">Hello World</h3>
-<div class="highlight"><pre><span></span><code><span class="k">set</span> myVariable <span class="s2">"Hallo World!"</span>
-<span class="nb">puts</span> <span class="nv">$myVariable</span>
+<div class="highlight"><pre><span></span><code><span class="k">set</span><span class="w"> </span>myVariable<span class="w"> </span><span class="s2">"Hallo World!"</span>
+<span class="nb">puts</span><span class="w"> </span><span class="nv">$myVariable</span>
 </code></pre></div>
 <h3 id="loop-over-a-list">Loop over a list</h3>
-<div class="highlight"><pre><span></span><code><span class="o">%</span> <span class="k">foreach</span> element <span class="k">{</span><span class="nv">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="k">}</span> <span class="k">{</span>
-    <span class="nb">puts</span> <span class="nv">$element</span>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="w"> </span><span class="k">foreach</span><span class="w"> </span>element<span class="w"> </span><span class="k">{</span><span class="nv">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="nv">$element</span>
 <span class="k">}</span>
 </code></pre></div>
 <h3 id="fibonacci">Fibonacci</h3>
-<div class="highlight"><pre><span></span><code><span class="k">proc</span> fib <span class="k">{</span><span class="nv">n</span><span class="k">}</span> <span class="k">{</span>
-    <span class="k">if</span> <span class="k">{</span><span class="nv">$n</span> <span class="o">&lt;</span> <span class="nv">2</span><span class="k">}</span> <span class="k">{</span>
-        <span class="k">return</span> <span class="nv">$n</span>
-    <span class="k">}</span> <span class="k">else</span> <span class="k">{</span>
-        <span class="k">return</span> <span class="k">[expr</span> <span class="k">{[</span><span class="nv">fib</span> <span class="k">[expr</span> <span class="k">{</span><span class="nv">$n-2</span><span class="k">}]]</span> <span class="o">+</span> <span class="k">[</span><span class="nv">fib</span> <span class="k">[expr</span> <span class="k">{</span><span class="nv">$n-1</span><span class="k">}]]}]</span>
-    <span class="k">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">proc</span><span class="w"> </span>fib<span class="w"> </span><span class="k">{</span><span class="nv">n</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">2</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nv">$n</span>
+<span class="w">    </span><span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{[</span><span class="nv">fib</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$n-2</span><span class="k">}]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">[</span><span class="nv">fib</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$n-1</span><span class="k">}]]}]</span>
+<span class="w">    </span><span class="k">}</span>
 <span class="k">}</span>
 
-<span class="k">for</span> <span class="k">{set</span> x <span class="mi">0</span><span class="k">}</span> <span class="k">{</span><span class="nv">$x</span><span class="o">&lt;</span><span class="nv">10</span><span class="k">}</span> <span class="k">{</span><span class="nb">incr</span> x<span class="k">}</span> <span class="k">{</span>
-    <span class="nb">puts</span> <span class="k">[</span><span class="nv">fib</span> <span class="nv">$x</span><span class="k">]</span>
+<span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>x<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="o">&lt;</span><span class="nv">10</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>x<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="k">[</span><span class="nv">fib</span><span class="w"> </span><span class="nv">$x</span><span class="k">]</span>
 <span class="k">}</span>
 </code></pre></div>
 <h3 id="comments">Comments</h3>
 <p>TCL uses <code>#</code> as a line comment and does not offer block comments. In fact, they
 recommend this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="mi">0</span> <span class="k">{</span>
-    <span class="nv">Any</span> Tcl code to be commented out <span class="k">(</span><span class="nv">with</span> matching braces<span class="err">,</span> of course<span class="o">!</span><span class="k">)</span>
-    <span class="nv">or</span> any other kind of text<span class="err">,</span> will be ignored <span class="o">-</span> and even <span class="k">[</span><span class="nb">exit</span><span class="k">]</span> won<span class="err">'</span>t fire
-    <span class="nv">because</span> it<span class="err">'</span>s <span class="ow">in</span> braces<span class="err">,</span> so left unevaluated<span class="o">!</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">Any</span><span class="w"> </span>Tcl<span class="w"> </span>code<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>commented<span class="w"> </span>out<span class="w"> </span><span class="k">(</span><span class="nv">with</span><span class="w"> </span>matching<span class="w"> </span>braces,<span class="w"> </span>of<span class="w"> </span>course<span class="o">!</span><span class="k">)</span>
+<span class="w">    </span><span class="nv">or</span><span class="w"> </span>any<span class="w"> </span>other<span class="w"> </span>kind<span class="w"> </span>of<span class="w"> </span>text,<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>ignored<span class="w"> </span><span class="o">-</span><span class="w"> </span>and<span class="w"> </span>even<span class="w"> </span><span class="k">[</span><span class="nb">exit</span><span class="k">]</span><span class="w"> </span>won<span class="err">'</span>t<span class="w"> </span>fire
+<span class="w">    </span><span class="nv">because</span><span class="w"> </span>it<span class="err">'</span>s<span class="w"> </span><span class="ow">in</span><span class="w"> </span>braces,<span class="w"> </span>so<span class="w"> </span>left<span class="w"> </span>unevaluated<span class="o">!</span>
 <span class="k">}</span>
 </code></pre></div>
 <p>Source: <a href="http://wiki.tcl.tk/1669">wiki.tcl.tk/1669</a></p>
@@ -185,25 +185,25 @@ recommend this:</p>
 
 <span class="c"># 99.tcl; Tcl version of 99 Bottles of Beer Song</span>
 
-<span class="k">proc</span> findBString <span class="k">{</span> <span class="nv">count</span> <span class="k">}</span> <span class="k">{</span>
-  <span class="k">return</span> <span class="k">[switch</span> <span class="o">-</span>exact <span class="o">--</span> <span class="nv">$count</span> <span class="k">{</span>
-    <span class="nv">0</span>       <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">"No more bottles"</span><span class="k">}</span>  <span class="k">}</span>
-    <span class="nv">1</span>       <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">"1 bottle"</span><span class="k">}</span>         <span class="k">}</span>
-    <span class="nv">default</span> <span class="k">{</span> <span class="k">expr</span> <span class="k">{</span><span class="s2">"$count bottles"</span><span class="k">}</span>   <span class="k">}</span>
-  <span class="k">}]</span>
+<span class="k">proc</span><span class="w"> </span>findBString<span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">[switch</span><span class="w"> </span><span class="o">-</span>exact<span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="nv">$count</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">0</span><span class="w">       </span><span class="k">{</span><span class="w"> </span><span class="k">expr</span><span class="w"> </span><span class="k">{</span><span class="s2">"No more bottles"</span><span class="k">}</span><span class="w">  </span><span class="k">}</span>
+<span class="w">    </span><span class="nv">1</span><span class="w">       </span><span class="k">{</span><span class="w"> </span><span class="k">expr</span><span class="w"> </span><span class="k">{</span><span class="s2">"1 bottle"</span><span class="k">}</span><span class="w">         </span><span class="k">}</span>
+<span class="w">    </span><span class="nv">default</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">expr</span><span class="w"> </span><span class="k">{</span><span class="s2">"$count bottles"</span><span class="k">}</span><span class="w">   </span><span class="k">}</span>
+<span class="w">  </span><span class="k">}]</span>
 <span class="k">}</span>
 
-<span class="k">set</span> bottles <span class="mi">99</span>
-<span class="k">set</span> bString <span class="k">[</span><span class="nv">findBString</span> <span class="nv">$bottles</span><span class="k">]</span>
-<span class="k">while</span> <span class="k">{</span><span class="nv">$bottles</span> <span class="o">+</span> <span class="nv">1</span><span class="k">}</span> <span class="k">{</span>
-  <span class="nb">puts</span> <span class="s2">"$bString of beer on the wall.  $bString of beer."</span>
-  <span class="nb">incr</span> bottles <span class="o">-</span><span class="mi">1</span>
-  <span class="k">if</span> <span class="k">{</span><span class="nv">$bottles</span> <span class="o">+</span> <span class="nv">1</span><span class="k">}</span> <span class="k">{</span>
-    <span class="k">set</span> bString <span class="k">[</span><span class="nv">findBString</span> <span class="nv">$bottles</span><span class="k">]</span>
-    <span class="nb">puts</span> <span class="s2">"Take one down, pass it round, $bString of beer on the wall.\n"</span>
-  <span class="k">}</span> <span class="k">else</span> <span class="k">{</span>
-    <span class="nb">puts</span> <span class="s2">"Go to the store and buy some more...99 bottles of beer."</span>
-  <span class="k">}</span>
+<span class="k">set</span><span class="w"> </span>bottles<span class="w"> </span><span class="mi">99</span>
+<span class="k">set</span><span class="w"> </span>bString<span class="w"> </span><span class="k">[</span><span class="nv">findBString</span><span class="w"> </span><span class="nv">$bottles</span><span class="k">]</span>
+<span class="k">while</span><span class="w"> </span><span class="k">{</span><span class="nv">$bottles</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">  </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"$bString of beer on the wall.  $bString of beer."</span>
+<span class="w">  </span><span class="nb">incr</span><span class="w"> </span>bottles<span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$bottles</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>bString<span class="w"> </span><span class="k">[</span><span class="nv">findBString</span><span class="w"> </span><span class="nv">$bottles</span><span class="k">]</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"Take one down, pass it round, $bString of beer on the wall.\n"</span>
+<span class="w">  </span><span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="s2">"Go to the store and buy some more...99 bottles of beer."</span>
+<span class="w">  </span><span class="k">}</span>
 <span class="k">}</span>
 </code></pre></div>
 <p>Source: <a href="http://99-bottles-of-beer.net/language-tcl-797.html">99-bottles-of-beer.net</a></p>

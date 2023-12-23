@@ -129,9 +129,9 @@ MathJax.Hub.Queue(function() {
 <p>Either don&rsquo;t log environment variables at all or make REALLY sure that there are no secrets inside. You can also blacklist patterns as <a href="undefined">Joe Crobak</a> showed in his post &ldquo;<a href="https://medium.com/@joecrobak/seven-best-practices-for-keeping-sensitive-data-out-of-logs-3d7bbd12904">Seven Best Practices for Keeping Sensitive Data Out of Logs</a>&rdquo;.</p>
 <h3 id="storing-secrets-locally-direnv">Storing Secrets Locally: Direnv</h3>
 <p><a href="https://direnv.net/">direnv</a> is a shell extension that makes your shell execute an .envrc file if you are in the folder or a subfolder. Such a file can look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>AKIAIOSFODNN7EXAMPLE
-<span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>wJalrXUtnFEMI/K7MDENG/bPxRfYEXAMPLEKEY
-<span class="nb">export</span> <span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-west-2
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>AKIAIOSFODNN7EXAMPLE
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>wJalrXUtnFEMI/K7MDENG/bPxRfYEXAMPLEKEY
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-west-2
 </code></pre></div>
 <p>Make sure the .envrc file is kept private by adding it to the .gitignore file.</p>
 <p>Wherever people would have used their secrets in the code, they now can use the environment variable instead.</p>
@@ -140,17 +140,17 @@ MathJax.Hub.Queue(function() {
 <p><a href="https://pre-commit.com/">pre-commit</a> is an application that helps you to apply git hooks. Those are executed before code is added to the git repository.</p>
 <p>You can make sure that no AWS credentials or private keys are added to the repository by creating the following .pre-commit-config.yaml file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">repos</span><span class="p">:</span>
-<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/pre-commit/pre-commit-hooks</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/pre-commit/pre-commit-hooks)</span>
-    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v3.2.0</span>
-    <span class="nt">hooks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">detect-aws-credentials</span>
-    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">detect-private-key</span>
-<span class="p p-Indicator">-</span>   <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">git@github.com:Yelp/detect-secrets</span>
-    <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.14.3</span>
-    <span class="nt">hooks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span>   <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">detect-secrets</span>
-        <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">'--baseline'</span><span class="p p-Indicator">,</span> <span class="s">'.secrets.baseline'</span><span class="p p-Indicator">]</span>
-        <span class="nt">exclude</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.*/tests/.*</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">https</span><span class="p p-Indicator">:</span><span class="nv">//github.com/pre-commit/pre-commit-hooks</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(https://github.com/pre-commit/pre-commit-hooks)</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3.2.0</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">detect-aws-credentials</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">detect-private-key</span>
+<span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git@github.com:Yelp/detect-secrets</span>
+<span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v0.14.3</span>
+<span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">detect-secrets</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'--baseline'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'.secrets.baseline'</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.*/tests/.*</span>
 </code></pre></div>
 <p>Then execute pre-commit install and you&rsquo;re done 🙂</p>
 <p>Yelps <a href="https://github.com/Yelp/detect-secrets"><strong>detect-secrets</strong></a> tries to find secrets in source code by finding high-entropy strings and the others look for common file formats/strings.</p>
@@ -186,20 +186,20 @@ MathJax.Hub.Queue(function() {
 <div class="highlight"><pre><span></span><code><span class="c1"># You can also go to</span>
 <span class="c1"># [https://github.com/zricethezav/gitleaks/releases](https://github.com/zricethezav/gitleaks/releases)</span>
 <span class="c1"># and download the version you need in the browser</span>
-$ wget <span class="o">[</span>https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64<span class="o">](</span>https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64<span class="o">)</span>
+$<span class="w"> </span>wget<span class="w"> </span><span class="o">[</span>https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64<span class="o">](</span>https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64<span class="o">)</span>
 
-$ mv gitleaks-linux-amd64 gitleaks
-$ chmod +x gitleaks
-$ sudo mv gitleaks /usr/local/bin/
+$<span class="w"> </span>mv<span class="w"> </span>gitleaks-linux-amd64<span class="w"> </span>gitleaks
+$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>gitleaks
+$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>gitleaks<span class="w"> </span>/usr/local/bin/
 
-$ <span class="nb">cd</span> your-repo
-$ gitleaks --repo<span class="o">=</span>. -v
-INFO<span class="o">[</span><span class="m">2020</span>-10-13T17:38:49+02:00<span class="o">]</span> cloning... .
-Enumerating objects: <span class="m">115</span>, <span class="k">done</span>.
-Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">115</span>/115<span class="o">)</span>, <span class="k">done</span>.
-Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">42</span>/42<span class="o">)</span>, <span class="k">done</span>.
-Total <span class="m">115</span> <span class="o">(</span>delta <span class="m">68</span><span class="o">)</span>, reused <span class="m">115</span> <span class="o">(</span>delta <span class="m">68</span><span class="o">)</span>
-INFO<span class="o">[</span><span class="m">2020</span>-10-13T17:38:49+02:00<span class="o">]</span> No leaks detected. <span class="m">29</span> commits scanned in <span class="m">111</span> milliseconds <span class="m">984</span> microseconds
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>your-repo
+$<span class="w"> </span>gitleaks<span class="w"> </span>--repo<span class="o">=</span>.<span class="w"> </span>-v
+INFO<span class="o">[</span><span class="m">2020</span>-10-13T17:38:49+02:00<span class="o">]</span><span class="w"> </span>cloning...<span class="w"> </span>.
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">115</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">115</span>/115<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">42</span>/42<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">115</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">68</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">115</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">68</span><span class="o">)</span>
+INFO<span class="o">[</span><span class="m">2020</span>-10-13T17:38:49+02:00<span class="o">]</span><span class="w"> </span>No<span class="w"> </span>leaks<span class="w"> </span>detected.<span class="w"> </span><span class="m">29</span><span class="w"> </span>commits<span class="w"> </span>scanned<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">111</span><span class="w"> </span>milliseconds<span class="w"> </span><span class="m">984</span><span class="w"> </span>microseconds
 </code></pre></div>
 <p><a href="https://github.com/streaak/keyhacks#AWS-Access-Key-ID-and-Secret"><strong>Keyhacks</strong></a> is a project which shows you if leaked keys are still valid and what an attacker could do with them.</p>
 <p><a href="https://haveibeenpwned.com/"><strong>HaveIbeenPwned</strong></a> is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: <strong>Don&rsquo;t re-use passwords! A re-used password is a leaked password!</strong></p>

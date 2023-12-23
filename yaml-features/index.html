@@ -116,36 +116,36 @@ MathJax.Hub.Queue(function() {
 <p>Let&rsquo;s cover the basics first: YAML is a superset of JSON (<a href="https://yaml.org/spec/1.2/spec.html#id2759572">source</a>). Every valid JSON file is also a valid YAML file. This means you have all of the types you expect: Integers, floats, strings, bool, null. Also sequences and maps. Depending on your programming language, you might say &ldquo;array&rdquo; or &ldquo;list&rdquo; instead of sequence and &ldquo;dictionary&rdquo; instead of map.</p>
 <p>It typically looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">mysql</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
-  <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
-  <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">something</span>
-<span class="nt">preprocessing_queue</span><span class="p">:</span>  <span class="c1"># Line comments are available!</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">preprocessing.scale_and_center</span>
-    <span class="nt">width</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-    <span class="nt">height</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">preprocessing.dot_reduction</span>
-<span class="nt">use_anonymous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">something</span>
+<span class="nt">preprocessing_queue</span><span class="p">:</span><span class="w">  </span><span class="c1"># Line comments are available!</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">preprocessing.scale_and_center</span>
+<span class="w">    </span><span class="nt">width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span>
+<span class="w">    </span><span class="nt">height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">preprocessing.dot_reduction</span>
+<span class="nt">use_anonymous</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <h2 id="equivalent-notation">Equivalent Notation</h2>
 <p>YAML has a lot of equivalent ways to write stuff:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">list_by_dash</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
-<span class="nt">list_by_square_bracets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">foo</span><span class="p p-Indicator">,</span> <span class="nv">bar</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="nt">list_by_square_bracets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">foo</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">bar</span><span class="p p-Indicator">]</span>
 <span class="nt">map_by_indentation</span><span class="p">:</span>
-  <span class="nt">foo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
-  <span class="nt">bar</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">baz</span>
-<span class="nt">map_by_curly_braces</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">foo</span><span class="p">:</span> <span class="nv">bar</span><span class="p p-Indicator">,</span><span class="nt"> bar</span><span class="p">:</span> <span class="nv">baz</span><span class="p p-Indicator">}</span>
-<span class="nt">string_no_quotes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Monty Python</span>
-<span class="nt">string_double_quotes</span><span class="p">:</span> <span class="s">"Monty</span><span class="nv"> </span><span class="s">Python"</span>
-<span class="nt">string_single_quotes</span><span class="p">:</span> <span class="s">'Monty</span><span class="nv"> </span><span class="s">Python'</span>
-<span class="nt">bool_english</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-<span class="nt">bool_english_no</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-<span class="nt">bool_python</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-<span class="nt">bool_json</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="w">  </span><span class="nt">bar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baz</span>
+<span class="nt">map_by_curly_braces</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="nv">bar</span><span class="p p-Indicator">,</span><span class="nt"> bar</span><span class="p">:</span><span class="w"> </span><span class="nv">baz</span><span class="p p-Indicator">}</span>
+<span class="nt">string_no_quotes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monty Python</span>
+<span class="nt">string_double_quotes</span><span class="p">:</span><span class="w"> </span><span class="s">"Monty</span><span class="nv"> </span><span class="s">Python"</span>
+<span class="nt">string_single_quotes</span><span class="p">:</span><span class="w"> </span><span class="s">'Monty</span><span class="nv"> </span><span class="s">Python'</span>
+<span class="nt">bool_english</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="nt">bool_english_no</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="nt">bool_python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="nt">bool_json</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <p>Some words of caution here:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>  <span class="c1"># ISO 639-1 code for the Norwegian language</span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w">  </span><span class="c1"># ISO 639-1 code for the Norwegian language</span>
 </code></pre></div>
 <p>This no is interpreted as false . You need to write "no" or 'no' .</p>
 <p>In general, I recommend using true and false just like JSON does for booleans,
@@ -154,103 +154,103 @@ If you want to use quotes for strings, I would also use " like JSON does. You
 still need to remember "no" , but at least the file looks a bit more familiar
 to YAML beginners.</p>
 <h2 id="long-strings">Long Strings</h2>
-<div class="highlight"><pre><span></span><code><span class="nt">disclaimer</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
-    <span class="no">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-    <span class="no">In nec urna pellentesque, imperdiet urna vitae, hendrerit</span>
-    <span class="no">odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">disclaimer</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+<span class="w">    </span><span class="no">In nec urna pellentesque, imperdiet urna vitae, hendrerit</span>
+<span class="w">    </span><span class="no">odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla.</span>
 </code></pre></div>
 <p>This is equivalent to the following JSON (newlines are added for readability; please ignore them):</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"disclaimer"</span><span class="p">:</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec urna pellentesque, imperdiet urna vitae, hendrerit odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla."</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"disclaimer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec urna pellentesque, imperdiet urna vitae, hendrerit odio. Donec porta aliquet laoreet. Sed viverra tempus fringilla."</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="multi-line-string">Multi-Line String</h2>
-<div class="highlight"><pre><span></span><code><span class="nt">mail_signature</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-      <span class="no">Martin Thoma</span>
-      <span class="no">Tel. +49 123 4567</span>
+<div class="highlight"><pre><span></span><code><span class="nt">mail_signature</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">Martin Thoma</span>
+<span class="w">      </span><span class="no">Tel. +49 123 4567</span>
 </code></pre></div>
 <p>This is equivalent to the JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"mail_signature"</span><span class="p">:</span> <span class="s2">"Martin Thoma\nTel. +49 123 4567"</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"mail_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Martin Thoma\nTel. +49 123 4567"</span><span class="p">}</span>
 </code></pre></div>
 <p>Note how the leading whitespace is ignored. The first line (&ldquo;Martin Thoma&rdquo;)
 determines the number of ignored leading whitespace.</p>
 <h2 id="anchor">Anchor</h2>
-<div class="highlight"><pre><span></span><code><span class="nt">email</span><span class="p">:</span> <span class="nl">&amp;emailAddress</span> <span class="s">"info@example.de"</span>
-<span class="nt">id</span><span class="p">:</span> <span class="nv">*emailAddress</span>
+<div class="highlight"><pre><span></span><code><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;emailAddress</span><span class="w"> </span><span class="s">"info@example.de"</span>
+<span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="nv">*emailAddress</span>
 </code></pre></div>
 <p>This is equivalent to the following JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"email"</span><span class="p">:</span> <span class="s2">"info@example.de"</span><span class="p">,</span> <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"info@example.de"</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info@example.de"</span><span class="p">,</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info@example.de"</span><span class="p">}</span>
 </code></pre></div>
 <p>The <code>&amp;</code> defined a variable emailAddress with the value <code>"info@example.de</code>.
 The <code>*</code> then indicated that the name of a variable follows.</p>
 <p>You can do the same with mappings:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span> <span class="err">&amp;*</span><span class="nv">*default_settings</span><span class="err">**</span>
-  <span class="nt">db</span><span class="p">:</span>
-    <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main_db</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1337</span>
-  <span class="nt">email</span><span class="p">:</span>
-    <span class="nt">admin</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">admin@example.com</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(mailto:admin@example.com)</span>
-<span class="nt">prod</span><span class="p">:</span> <span class="nv">*default_settings</span>
-<span class="nt">dev</span><span class="p">:</span> <span class="nv">*default_settings</span>
+<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="err">&amp;*</span><span class="nv">*default_settings</span><span class="err">**</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main_db</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1337</span>
+<span class="w">  </span><span class="nt">email</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">admin</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">admin@example.com</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(mailto:admin@example.com)</span>
+<span class="nt">prod</span><span class="p">:</span><span class="w"> </span><span class="nv">*default_settings</span>
+<span class="nt">dev</span><span class="p">:</span><span class="w"> </span><span class="nv">*default_settings</span>
 </code></pre></div>
 <p>which gives:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="nt">"dev"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span>
-                  <span class="s2">"localhost"</span><span class="p">,</span>
-                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
-                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
-  <span class="nt">"foo"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
-                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
-  <span class="nt">"prod"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-                   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
-                   <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-            <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}}}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span>
+<span class="w">                  </span><span class="s2">"localhost"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_db"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">},</span>
+<span class="w">           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_db"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">},</span>
+<span class="w">           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">"prod"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span>
+<span class="w">                   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_db"</span><span class="p">,</span>
+<span class="w">                   </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}}}</span>
 </code></pre></div>
 <p>Now you might want to insert a password to the dev and prod settings. You can
 do that by using the <a href="https://yaml.org/type/merge.html">merge key</a> <code>&lt;&lt;</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span> <span class="nl">&amp;default_settings</span>
-  <span class="nt">db</span><span class="p">:</span>
-    <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main_db</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1337</span>
-  <span class="nt">email</span><span class="p">:</span>
-    <span class="nt">admin</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">admin@example.com</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(mailto:admin@example.com)</span>
+<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;default_settings</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main_db</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1337</span>
+<span class="w">  </span><span class="nt">email</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">admin</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">admin@example.com</span><span class="p p-Indicator">]</span><span class="l l-Scalar l-Scalar-Plain">(mailto:admin@example.com)</span>
 <span class="nt">prod</span><span class="p">:</span>
-  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*default_settings</span>
+<span class="w">  </span><span class="nt">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="nv">*default_settings</span>
 <span class="nt">**  app</span><span class="p">:</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80**</span>
-<span class="nt">dev</span><span class="p">:</span> <span class="nv">*default_settings</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80**</span>
+<span class="nt">dev</span><span class="p">:</span><span class="w"> </span><span class="nv">*default_settings</span>
 </code></pre></div>
 <p>which is equivalent to this JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span> <span class="nt">"foo"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
-                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
-  <span class="nt">"prod"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"app"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"port"</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
-            <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-                   <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
-                   <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-            <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
-  <span class="nt">"dev"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"db"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
-                  <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"main_db"</span><span class="p">,</span>
-                  <span class="nt">"port"</span><span class="p">:</span> <span class="mi">1337</span><span class="p">},</span>
-           <span class="nt">"email"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span> <span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"foo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_db"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">},</span>
+<span class="w">           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">"prod"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"app"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span>
+<span class="w">                   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_db"</span><span class="p">,</span>
+<span class="w">                   </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">},</span>
+<span class="w">            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">"dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_db"</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1337</span><span class="p">},</span>
+<span class="w">           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[admin@example.com](mailto:admin@example.com)"</span><span class="p">}},}</span>
 </code></pre></div>
 <h2 id="type-casting">Type Casting</h2>
 <p>The double bang <code>!!</code> has a special meaning in YAML. It is called &ldquo;secondary tag
 handle&rdquo; and a shorthand for <code>!tag:yaml.org,2002:</code>
 (<a href="https://yaml.org/spec/1.2/spec.html#id2782457">source</a>).</p>
 <p>You can do simple conversions like that:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">price</span><span class="p">:</span> <span class="kt">!!float</span> <span class="l l-Scalar l-Scalar-Plain">42</span>
-<span class="nt">id</span><span class="p">:</span> <span class="kt">!!str</span> <span class="l l-Scalar l-Scalar-Plain">42</span>
+<div class="highlight"><pre><span></span><code><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="kt">!!float</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
+<span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="kt">!!str</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
 </code></pre></div>
 <p>Or more complex ones, e.g. map to default Python types that are not specified in YAML directly:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">tuple_example</span><span class="p">:</span> <span class="err">**</span><span class="kt">!!python/tuple**</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1337</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">42</span>
-<span class="nt">set_example</span><span class="p">:</span> <span class="err">**</span><span class="kt">!!set**</span> <span class="p p-Indicator">{</span><span class="nv">1337</span><span class="p p-Indicator">,</span> <span class="nv">42</span><span class="p p-Indicator">}</span>
-<span class="nt">date_example</span><span class="p">:</span> <span class="err">**</span><span class="kt">!!timestamp**</span> <span class="l l-Scalar l-Scalar-Plain">2020-12-31</span>
+<div class="highlight"><pre><span></span><code><span class="nt">tuple_example</span><span class="p">:</span><span class="w"> </span><span class="err">**</span><span class="kt">!!python/tuple**</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1337</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
+<span class="nt">set_example</span><span class="p">:</span><span class="w"> </span><span class="err">**</span><span class="kt">!!set**</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">1337</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">42</span><span class="p p-Indicator">}</span>
+<span class="nt">date_example</span><span class="p">:</span><span class="w"> </span><span class="err">**</span><span class="kt">!!timestamp**</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2020-12-31</span>
 </code></pre></div>
 <p>You can read it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>
@@ -313,9 +313,9 @@ arbitrary code with <code>!!python/object/apply:module.f</code>. In PyYaml, you 
 <code>yaml.unsafe_load</code> to use it. Hence you should probably not use it!</p>
 <h2 id="multiple-documents-in-one-yaml">Multiple Documents in one YAML</h2>
 <p>Three dashes separate documents in YAML:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+<div class="highlight"><pre><span></span><code><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
 <span class="nn">---</span>
-<span class="nt">fizz</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">buzz</span>
+<span class="nt">fizz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">buzz</span>
 </code></pre></div>
 <p>In Python, you can load it like this with <a href="https://pypi.org/project/PyYAML/">PyYAML</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>

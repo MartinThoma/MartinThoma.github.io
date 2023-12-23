@@ -118,74 +118,74 @@ MathJax.Hub.Queue(function() {
 <p>The Arch Linux installation setup is command line based.</p>
 <h2 id="keyboard-layout">Keyboard layout</h2>
 <p>You can switch to a German keyboard layout with this command:</p>
-<div class="highlight"><pre><span></span><code>loadkeys de
+<div class="highlight"><pre><span></span><code>loadkeys<span class="w"> </span>de
 </code></pre></div>
 <h2 id="partitioning-and-mounting">Partitioning and mounting</h2>
 <p>You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).</p>
 <p>Check the result with</p>
-<div class="highlight"><pre><span></span><code>parted /dev/sda print
-fdisk -l
+<div class="highlight"><pre><span></span><code>parted<span class="w"> </span>/dev/sda<span class="w"> </span>print
+fdisk<span class="w"> </span>-l
 </code></pre></div>
 <p>Afterwards:</p>
-<div class="highlight"><pre><span></span><code>mkfs.ext4 /dev/sda1
-mkfs.ext4 /dev/sda3
-mkswap /dev/sda2
-swapon /dev/sda2
-mount /dev/sda1 /mnt
-mkdir /mnt/home
-mount /dev/sda3 /mnt/home/
+<div class="highlight"><pre><span></span><code>mkfs.ext4<span class="w"> </span>/dev/sda1
+mkfs.ext4<span class="w"> </span>/dev/sda3
+mkswap<span class="w"> </span>/dev/sda2
+swapon<span class="w"> </span>/dev/sda2
+mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt
+mkdir<span class="w"> </span>/mnt/home
+mount<span class="w"> </span>/dev/sda3<span class="w"> </span>/mnt/home/
 </code></pre></div>
 <h2 id="getting-internet">Getting internet</h2>
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
-<div class="highlight"><pre><span></span><code>wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
-wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
-dhcpcd wlp4s0
+<div class="highlight"><pre><span></span><code>wpa_passphrase<span class="w"> </span><span class="s2">"SSID"</span><span class="w"> </span>PASSWORD<span class="w"> </span>&gt;<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant<span class="w"> </span>-i<span class="w"> </span>wlp4so<span class="w"> </span>-D<span class="w"> </span>wext<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf<span class="w"> </span>-B
+dhcpcd<span class="w"> </span>wlp4s0
 </code></pre></div>
 <p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
 <p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
 <h2 id="install-base-system">Install base system</h2>
-<div class="highlight"><pre><span></span><code>packstrap -i /mnt base base base-devel
+<div class="highlight"><pre><span></span><code>packstrap<span class="w"> </span>-i<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base<span class="w"> </span>base-devel
 </code></pre></div>
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
-<div class="highlight"><pre><span></span><code>genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
-arch-chroot /mnt
-nano /etc/locale.gen
+<div class="highlight"><pre><span></span><code>genfstab<span class="w"> </span>-U<span class="w"> </span>-p<span class="w"> </span>/mnt<span class="w">  </span>:<span class="w">  </span>sed<span class="w"> </span><span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/mnt/etc/fstab
+arch-chroot<span class="w"> </span>/mnt
+nano<span class="w"> </span>/etc/locale.gen
 </code></pre></div>
 <p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
 <div class="highlight"><pre><span></span><code><span class="nv">locale</span><span class="o">=</span>gen
-<span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
-<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-hwclock --systohc --utc
-systemctl <span class="nb">enable</span> dhcpcd.service
+<span class="nb">echo</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span>&gt;<span class="w"> </span>/etc/locale.conf
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/zoneinfo/Europe/Berlin<span class="w"> </span>/etc/localtime
+hwclock<span class="w"> </span>--systohc<span class="w"> </span>--utc
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>dhcpcd.service
 </code></pre></div>
 <p>Now edit and uncomment multilib. Then:</p>
-<div class="highlight"><pre><span></span><code>mkinitcpio -p linux
+<div class="highlight"><pre><span></span><code>mkinitcpio<span class="w"> </span>-p<span class="w"> </span>linux
 </code></pre></div>
 <p>Now set the password by entering <code>passwd</code>.
 Create your user:</p>
-<div class="highlight"><pre><span></span><code>useradd -m -g users -G wheel -s /bin/bash moose
-passwd moose
+<div class="highlight"><pre><span></span><code>useradd<span class="w"> </span>-m<span class="w"> </span>-g<span class="w"> </span>users<span class="w"> </span>-G<span class="w"> </span>wheel<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>moose
+passwd<span class="w"> </span>moose
 </code></pre></div>
 <p>Synchronise caches:</p>
-<div class="highlight"><pre><span></span><code>pacman -Syy
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-Syy
 </code></pre></div>
 <p>Install grub:</p>
-<div class="highlight"><pre><span></span><code>pacman -S grub-bios
-pacman -S os-prober
-grub-install /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>grub-bios
+pacman<span class="w"> </span>-S<span class="w"> </span>os-prober
+grub-install<span class="w"> </span>/dev/sda
+grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
 <span class="nb">exit</span>
 restart
 </code></pre></div>
 <p>Give yourself sudo:</p>
-<div class="highlight"><pre><span></span><code>pacman -S sudo
-nano /etc/sudoers
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>sudo
+nano<span class="w"> </span>/etc/sudoers
 </code></pre></div>
 <p>Add your user to the bottom section "User privilege specification"</p>
 <h2 id="install-gnome">Install GNOME</h2>
-<div class="highlight"><pre><span></span><code>pacman -S gnome xorg
-systemctl <span class="nb">enable</span> gdm.service
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>gnome<span class="w"> </span>xorg
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>gdm.service
 </code></pre></div>
 <h2 id="mate">MATE</h2>
 <p>Add the following to your /etc/pacman.conf:</p>

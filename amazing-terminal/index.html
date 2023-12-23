@@ -153,13 +153,13 @@ like images. It can make the prompt way nicer.</p>
 <h2 id="linux-and-windows-terminal-aminal">Linux and Windows Terminal: Aminal</h2>
 <p><a href="https://github.com/liamg/aminal">Aminal</a> is a Terminal Emulator written in Go. It can be used on Linux, Windows, and Mac. It allows configuration via a configuration file and includes the color and keyboard shortcuts in it.</p>
 <p>First, you need to install and configure Go on your system. On Ubuntu, it works like this:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install golang libgl1-mesa-dev xorg-dev
-$ <span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/go"</span>
-$ <span class="nb">export</span> <span class="nv">GOBIN</span><span class="o">=</span><span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>golang<span class="w"> </span>libgl1-mesa-dev<span class="w"> </span>xorg-dev
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">GOPATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/go"</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">GOBIN</span><span class="o">=</span><span class="k">$(</span>go<span class="w"> </span>env<span class="w"> </span>GOPATH<span class="k">)</span>/bin
 </code></pre></div>
 <p>Then you can install and run aminal:</p>
-<div class="highlight"><pre><span></span><code>$ go get -u github.com/liamg/aminal
-$ aminal
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>go<span class="w"> </span>get<span class="w"> </span>-u<span class="w"> </span>github.com/liamg/aminal
+$<span class="w"> </span>aminal
 </code></pre></div>
 <h2 id="linux-gnome-terminal">Linux: Gnome Terminal</h2>
 <p>The Gnome terminal can be customized by editing the profile. Here I set the <a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">Ubuntu Mono derivate Powerline Regular</a> with a font size of 12.</p>
@@ -180,41 +180,41 @@ $ aminal
 <p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*P4xCOjogPGb3SdquyLiC2Q.png"/></p>
 <h2 id="linux-shell-fish">Linux Shell: fish</h2>
 <p>Install the <strong>fish</strong> shell:</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install fish
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>fish
 </code></pre></div>
 <p>Change the default shell in your terminal emulator to fish . Within Gnome
 terminal, it is called &ldquo;custom command&rdquo;.</p>
 <p>Then install &ldquo;<a href="https://github.com/oh-my-fish/oh-my-fish"><strong>Oh My Fish</strong></a>&rdquo;:</p>
-<div class="highlight"><pre><span></span><code>curl -L https://get.oh-my.fish <span class="p">|</span> fish
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>https://get.oh-my.fish<span class="w"> </span><span class="p">|</span><span class="w"> </span>fish
 </code></pre></div>
 <p>And set the theme to <strong>agnoster</strong>:</p>
-<div class="highlight"><pre><span></span><code>omf install agnoster
-omf theme agnoster
+<div class="highlight"><pre><span></span><code>omf<span class="w"> </span>install<span class="w"> </span>agnoster
+omf<span class="w"> </span>theme<span class="w"> </span>agnoster
 </code></pre></div>
 <p>For cool features of the fish shell, read <a href="https://medium.com/better-programming/why-i-use-fish-shell-over-bash-and-zsh-407d23293839">Why I Use Fish Shell Over Bash and Zsh</a> by <a href="undefined">Alec Brunelle</a>.</p>
 <h2 id="aliases">Aliases</h2>
 <p>A core part of making the terminal awesome is making common commands short. To do so, you create an alias for a command &mdash; a shorter version of the original command. The most common example is changing a directory to go one level up. For example, if you are in /home/user/foo/bar , you want to get to /home/user/foo . In most shells, you have to enter cd .. . I like to abbreviate that to .. . So I have the alias alias ..='cd ..' . The syntax may vary, depending on your shell. For Bash, ZSH, and fish it is</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">short</span><span class="o">=</span><span class="s1">'long'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">short</span><span class="o">=</span><span class="s1">'long'</span>
 </code></pre></div>
 <p>For bash, you insert them in ~/.bashrc , for ZSH in ~/.zshrc . In fish, <a href="https://stackoverflow.com/a/2763014/562769">it is different</a>.</p>
 <p>Here are some aliases I like:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Shorten things</span>
-<span class="nb">alias</span> ..<span class="o">=</span><span class="s1">'cd ..'</span>
-<span class="nb">alias</span> ...<span class="o">=</span><span class="s1">'cd ../../'</span>
-<span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -alF'</span>
-<span class="nb">alias</span> <span class="nv">la</span><span class="o">=</span><span class="s1">'ls -A'</span>
-<span class="nb">alias</span> <span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CF'</span>
-<span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
+<span class="nb">alias</span><span class="w"> </span>..<span class="o">=</span><span class="s1">'cd ..'</span>
+<span class="nb">alias</span><span class="w"> </span>...<span class="o">=</span><span class="s1">'cd ../../'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -alF'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">la</span><span class="o">=</span><span class="s1">'ls -A'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">'ls -CF'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
 
 <span class="c1"># If your terminal supports colors, use them!</span>
-<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">'ls --color=auto'</span>
-<span class="nb">alias</span> <span class="nv">grep</span><span class="o">=</span><span class="s1">'grep --color=auto'</span>
-<span class="nb">alias</span> <span class="nv">fgrep</span><span class="o">=</span><span class="s1">'fgrep --color=auto'</span>
-<span class="nb">alias</span> <span class="nv">egrep</span><span class="o">=</span><span class="s1">'egrep --color=auto'</span>
-<span class="nb">alias</span> <span class="nv">diff</span><span class="o">=</span><span class="s1">'colordiff'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'ls --color=auto'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">grep</span><span class="o">=</span><span class="s1">'grep --color=auto'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">fgrep</span><span class="o">=</span><span class="s1">'fgrep --color=auto'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">egrep</span><span class="o">=</span><span class="s1">'egrep --color=auto'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">diff</span><span class="o">=</span><span class="s1">'colordiff'</span>
 
 <span class="c1"># Works only if you have notify-send</span>
-<span class="nb">alias</span> <span class="nv">alert</span><span class="o">=</span><span class="s1">'notify-send --urgency=low -i "$([ $? = 0 ] &amp;&amp; echo terminal || echo error)" "$(history|tail -n1|sed -e '</span><span class="se">\'</span><span class="s1">'s/^\s*[0-9]\+\s*//;s/[;&amp;|]\s*alert$//'</span><span class="se">\'</span><span class="s1">')"'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">alert</span><span class="o">=</span><span class="s1">'notify-send --urgency=low -i "$([ $? = 0 ] &amp;&amp; echo terminal || echo error)" "$(history|tail -n1|sed -e '</span><span class="se">\'</span><span class="s1">'s/^\s*[0-9]\+\s*//;s/[;&amp;|]\s*alert$//'</span><span class="se">\'</span><span class="s1">')"'</span>
 </code></pre></div>
 <h2 id="summary">Summary</h2>
 <ul>

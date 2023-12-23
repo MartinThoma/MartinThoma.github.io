@@ -301,21 +301,21 @@ MathJax.Hub.Queue(function() {
 <h3 id="jml">JML</h3>
 <p>Ein paar Ausz&uuml;ge aus den Folien von Prof. Dr. Beckert. Ich finde daran sieht
 man sch&ouml;n, wie JML funktioniert:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PostInc</span><span class="p">{</span>
-    <span class="kd">public</span> <span class="n">PostInc</span> <span class="n">rec</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-    <span class="cm">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PostInc</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">PostInc</span><span class="w"> </span><span class="n">rec</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="cm">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
 <span class="cm">      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;</span>
 <span class="cm">      @*/</span>
 
-    <span class="cm">/*@ public normal_behavior</span>
+<span class="w">    </span><span class="cm">/*@ public normal_behavior</span>
 <span class="cm">      @ requires true;</span>
 <span class="cm">      @ ensures rec.x == \old(rec.y) &amp;&amp;</span>
 <span class="cm">      @ rec.y == \old(rec.y) + 1;</span>
 <span class="cm">      @*/</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postinc</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">rec</span><span class="p">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">rec</span><span class="p">.</span><span class="na">y</span><span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">postinc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">rec</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rec</span><span class="p">.</span><span class="na">y</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=3">28JML.pdf#page=3</a></p>
@@ -339,20 +339,20 @@ Bereichseinschr&auml;nkung und <code>R</code> der Schleifenrumpf ist. Es gibt au
 <li><code>&lt;==&gt;</code>: &Auml;quivalenz</li>
 <li><code>==</code>: Gleichheit</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kt">int</span> <span class="nf">commonEntry</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">commonEntry</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
 
-    <span class="cm">/*@ loop_invariant</span>
+<span class="w">    </span><span class="cm">/*@ loop_invariant</span>
 <span class="cm">      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;</span>
 <span class="cm">      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);</span>
 <span class="cm">      @ assignable \nothing;</span>
 <span class="cm">      @ decreases a1.length - k;</span>
 <span class="cm">      @*/</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">a1</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">==</span> <span class="n">a2</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">){</span><span class="k">break</span><span class="p">;}</span>
-        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">a1</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a2</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="p">){</span><span class="k">break</span><span class="p">;}</span>
+<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=44">28JML.pdf#page=44</a></p>

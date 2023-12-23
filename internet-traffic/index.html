@@ -122,27 +122,27 @@ traffic per month (and they unashamedly still call it an internet flat rate).</p
 recording it with <code>vnstat</code>.</p>
 <h2 id="how-to-measure">How to measure</h2>
 <p>Install <code>vnstat</code> and <code>vnstati</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install vnstat vnstati
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>vnstat<span class="w"> </span>vnstati
 </code></pre></div>
 <p>Then execute</p>
-<div class="highlight"><pre><span></span><code>$ ip link
-<span class="m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span class="m">1</span>
-    link/loopback <span class="m">00</span>:00:00:00:00:00 brd <span class="m">00</span>:00:00:00:00:00
-<span class="m">2</span>: enp0s31f6: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state DOWN mode DEFAULT group default qlen <span class="m">1000</span>
-    link/ether <span class="m">98</span>:76:54:32:10:45 brd ff:ff:ff:ff:ff:ff
-<span class="m">3</span>: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc mq state UP mode DORMANT group default qlen <span class="m">1000</span>
-    link/ether <span class="m">12</span>:34:56:78:90:ab brd ff:ff:ff:ff:ff:ff
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ip<span class="w"> </span>link
+<span class="m">1</span>:<span class="w"> </span>lo:<span class="w"> </span>&lt;LOOPBACK,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">65536</span><span class="w"> </span>qdisc<span class="w"> </span>noqueue<span class="w"> </span>state<span class="w"> </span>UNKNOWN<span class="w"> </span>mode<span class="w"> </span>DEFAULT<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1</span>
+<span class="w">    </span>link/loopback<span class="w"> </span><span class="m">00</span>:00:00:00:00:00<span class="w"> </span>brd<span class="w"> </span><span class="m">00</span>:00:00:00:00:00
+<span class="m">2</span>:<span class="w"> </span>enp0s31f6:<span class="w"> </span>&lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span><span class="w"> </span>qdisc<span class="w"> </span>pfifo_fast<span class="w"> </span>state<span class="w"> </span>DOWN<span class="w"> </span>mode<span class="w"> </span>DEFAULT<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
+<span class="w">    </span>link/ether<span class="w"> </span><span class="m">98</span>:76:54:32:10:45<span class="w"> </span>brd<span class="w"> </span>ff:ff:ff:ff:ff:ff
+<span class="m">3</span>:<span class="w"> </span>wlp3s0:<span class="w"> </span>&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span><span class="w"> </span>qdisc<span class="w"> </span>mq<span class="w"> </span>state<span class="w"> </span>UP<span class="w"> </span>mode<span class="w"> </span>DORMANT<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
+<span class="w">    </span>link/ether<span class="w"> </span><span class="m">12</span>:34:56:78:90:ab<span class="w"> </span>brd<span class="w"> </span>ff:ff:ff:ff:ff:ff
 </code></pre></div>
 <p>to find your network interface. In my case, it is <code>wlp3s0</code>. In most cases, it
 will be <code>wlan0</code> or <code>eth0</code> if you use a cable.</p>
 <p>I was mainly interested in WLAN. In my case, this is the interface <code>wlp3s0</code>.
 Now I have to enable monitoring of that interface. You might need super user
 (root) for that:</p>
-<div class="highlight"><pre><span></span><code>$ vnstat -u -i wlp3s0
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>vnstat<span class="w"> </span>-u<span class="w"> </span>-i<span class="w"> </span>wlp3s0
 </code></pre></div>
 <p>To get the nice images, you have to execute the following code (with your
 network interface). It will create a <code>summary.png</code> image:</p>
-<div class="highlight"><pre><span></span><code>$ vnstati -vs -i wlp3s0 -o ~/summary.png
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>vnstati<span class="w"> </span>-vs<span class="w"> </span>-i<span class="w"> </span>wlp3s0<span class="w"> </span>-o<span class="w"> </span>~/summary.png
 </code></pre></div>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Internet traffic of August" src="../images/2016/09/vnstati-august.png"/>
@@ -154,7 +154,7 @@ and <code>tx</code> is the transferred traffic.</p>
 <h3 id="general">General</h3>
 <p>I was not at home most of August, so the results you see in the image above
 might be different than usually. So lets get a summary for this year:</p>
-<div class="highlight"><pre><span></span><code>$ vnstati -vs -m -i wlp3s0 -o ~/summary.png
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>vnstati<span class="w"> </span>-vs<span class="w"> </span>-m<span class="w"> </span>-i<span class="w"> </span>wlp3s0<span class="w"> </span>-o<span class="w"> </span>~/summary.png
 </code></pre></div>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Internet traffic of May, June, July, August" src="../images/2016/09/vnstati-2016.png"/>

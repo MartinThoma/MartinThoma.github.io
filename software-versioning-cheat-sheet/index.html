@@ -113,58 +113,58 @@ MathJax.Hub.Queue(function() {
             
             <p>This <a href="../images/2012/04/versioning-cheat-sheet.pdf">Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href="../images/2012/04/versioning-cheat-sheet.zip">LaTeX Source Code</a> is here.)</p>
 <p>If you're at the KIT and you have SWT, then you'll probably need this command:</p>
-<div class="highlight"><pre><span></span><code>$ svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>checkout<span class="w"> </span>https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/<span class="w"> </span>SWT/<span class="w"> </span>--username<span class="w"> </span>swt1
 </code></pre></div>
 <p>You will be asked for a password. I hope you remember it.</p>
 <h2 id="svn">SVN</h2>
-<div class="highlight"><pre><span></span><code>$ svn co URL LocalTarget --username yourUserName
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>co<span class="w"> </span>URL<span class="w"> </span>LocalTarget<span class="w"> </span>--username<span class="w"> </span>yourUserName
 </code></pre></div>
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a></p>
-<div class="highlight"><pre><span></span><code>$ svn up
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>up
 </code></pre></div>
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a></p>
-<div class="highlight"><pre><span></span><code>$ svn log -l <span class="m">4</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>log<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span>
 </code></pre></div>
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a></p>
 <h3 id="updating-the-repository">Updating the repository</h3>
 <p>You can update a SVN repository with this command:</p>
-<div class="highlight"><pre><span></span><code>$ svn up <span class="o">[</span>path<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>up<span class="w"> </span><span class="o">[</span>path<span class="o">]</span>
 </code></pre></div>
 <p>If you need to execute the command often, you might want to define an alias.
 aliases are shorthands for long commands in the bash. To create a permanent
 one, add the following line to your <code>~/.bashrc file</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
 </code></pre></div>
 <p>Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".</p>
 <h3 id="nice-diffs">Nice diffs</h3>
 <p>You can modify your config file:</p>
-<div class="highlight"><pre><span></span><code>$ gedit ~/.subversion/config
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>gedit<span class="w"> </span>~/.subversion/config
 </code></pre></div>
 <p>and change <code>diff-cmd</code> to <code>meld</code>.</p>
 <h3 id="compare-revisions">Compare revisions</h3>
-<div class="highlight"><pre><span></span><code>$ svn diff -r <span class="m">63</span>:64
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>svn<span class="w"> </span>diff<span class="w"> </span>-r<span class="w"> </span><span class="m">63</span>:64
 </code></pre></div>
 <p>compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).</p>
 <h2 id="git_1">Git</h2>
 <h3 id="global-configuration">Global configuration</h3>
-<div class="highlight"><pre><span></span><code>$ git config --global user.name <span class="s2">"Martin Thoma"</span>
-$ git config --global user.email info@martin-thoma.de
-$ git config --global color.ui <span class="nb">true</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Martin Thoma"</span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>info@martin-thoma.de
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>color.ui<span class="w"> </span><span class="nb">true</span>
 </code></pre></div>
 <h3 id="nice-diffs_1">Nice diffs</h3>
 <p>If you want a GUI for <code>git diff</code>, then you should do the following:</p>
 <p>Install meld:</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install meld
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>meld
 </code></pre></div>
 <p>Go to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-meld <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$5</span><span class="s2">"</span>
+meld<span class="w"> </span><span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$5</span><span class="s2">"</span>
 </code></pre></div>
 <p>Make it executable:</p>
-<div class="highlight"><pre><span></span><code>chmod +x git-meld
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>git-meld
 </code></pre></div>
 <p>Add it to your git configuration:</p>
-<div class="highlight"><pre><span></span><code>git config --global diff.external git-meld
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>diff.external<span class="w"> </span>git-meld
 </code></pre></div>
 <p>Enjoy this experience when entering <code>git diff</code>:</p>
 <figure class="aligncenter">
@@ -176,14 +176,14 @@ meld <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span
 <p>Aki Koskinen posted a nice article on how to make <a href="http://www.akikoskinen.info/image-diffs-with-git/">image diffs with git</a>. I only changed the diff program to <a href="https://gist.github.com/StanAngeloff/1716699">StanAngeloffs simple-imagediff.py
 </a> The most important steps are:</p>
 <p>Tell git what images are:</p>
-<div class="highlight"><pre><span></span><code>$ git config --global core.attributesfile <span class="s1">'~/.gitattributes'</span>
-$ cat .gitattributes
-*.gif <span class="nv">diff</span><span class="o">=</span>image
-*.jpg <span class="nv">diff</span><span class="o">=</span>image
-*.png <span class="nv">diff</span><span class="o">=</span>image
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.attributesfile<span class="w"> </span><span class="s1">'~/.gitattributes'</span>
+$<span class="w"> </span>cat<span class="w"> </span>.gitattributes
+*.gif<span class="w"> </span><span class="nv">diff</span><span class="o">=</span>image
+*.jpg<span class="w"> </span><span class="nv">diff</span><span class="o">=</span>image
+*.png<span class="w"> </span><span class="nv">diff</span><span class="o">=</span>image
 </code></pre></div>
 <p>Tell git how to deal with images in diffs:</p>
-<div class="highlight"><pre><span></span><code>$ git config --global diff.image.command <span class="s1">'simple-imagediff'</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>diff.image.command<span class="w"> </span><span class="s1">'simple-imagediff'</span>
 </code></pre></div>
 <p>Add <code>~/.local/bin/simple-imagediff</code> as an executable:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -285,21 +285,21 @@ $ cat .gitattributes
 <h3 id="github">GitHub</h3>
 <h4 id="preparation">Preparation</h4>
 <p>Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/.ssh
-ssh-keygen -t rsa -C <span class="s2">"info@martin-thoma.de"</span>
-git config --global user.name <span class="s2">"Martin Thoma"</span>
-git config --global user.email info@martin-thoma.de
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/.ssh
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-C<span class="w"> </span><span class="s2">"info@martin-thoma.de"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Martin Thoma"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>info@martin-thoma.de
 </code></pre></div>
 <h4 id="clone">Clone</h4>
 <p>Clone a GITHub repository:</p>
-<div class="highlight"><pre><span></span><code>git clone git@github.com:MartinThoma/matrix-multiplication.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:MartinThoma/matrix-multiplication.git
 </code></pre></div>
 <h3 id="snippets">Snippets</h3>
 <p>Reset a single file to the latest revision on the server:</p>
-<div class="highlight"><pre><span></span><code>git checkout HEAD file/to/restore
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>HEAD<span class="w"> </span>file/to/restore
 </code></pre></div>
 <p>Get the latest diff:</p>
-<div class="highlight"><pre><span></span><code>git diff HEAD @<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>HEAD<span class="w"> </span>@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
 </code></pre></div>
 <h2 id="resources_1">Resources</h2>
 <ul>

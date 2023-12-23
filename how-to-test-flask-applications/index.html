@@ -128,10 +128,10 @@ MathJax.Hub.Queue(function() {
     └── test_app.py  # The actual unit tests
 </code></pre></div>
 <p>The only file you don&rsquo;t find in there is .envrc which is used with direnv to set environment variables. Its content looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DB_HOST</span><span class="o">=</span>localhost
-<span class="nb">export</span> <span class="nv">DB_DATABASE</span><span class="o">=</span>books
-<span class="nb">export</span> <span class="nv">DB_USER</span><span class="o">=</span>root
-<span class="nb">export</span> <span class="nv">DB_PASSWORD</span><span class="o">=</span>you_wish_i_forgot
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DB_HOST</span><span class="o">=</span>localhost
+<span class="nb">export</span><span class="w"> </span><span class="nv">DB_DATABASE</span><span class="o">=</span>books
+<span class="nb">export</span><span class="w"> </span><span class="nv">DB_USER</span><span class="o">=</span>root
+<span class="nb">export</span><span class="w"> </span><span class="nv">DB_PASSWORD</span><span class="o">=</span>you_wish_i_forgot
 </code></pre></div>
 <h2 id="how-to-test-routes">How to test Routes</h2>
 <p>Routes typically look like this in Flask:</p>
@@ -311,7 +311,7 @@ can already capture Problem 1 and 2:</p>
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
 <span class="k">def</span> <span class="nf">app</span><span class="p">():</span>
-    <span class="sd">"""Create application for the tests."""</span>
+<span class="w">    </span><span class="sd">"""Create application for the tests."""</span>
     <span class="n">_app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
     <span class="n">_app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
     <span class="n">ctx</span> <span class="o">=</span> <span class="n">_app</span><span class="o">.</span><span class="n">test_request_context</span><span class="p">()</span>
@@ -398,8 +398,8 @@ create a <code>locustfile.py</code> with this content:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
 </code></pre></div>
 <p>Then you run</p>
-<div class="highlight"><pre><span></span><code>pip install locust
-locust -f locustfile.py --host<span class="o">=[</span>https://your-website.com<span class="o">](</span>https://martin-thoma.com<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>locust
+locust<span class="w"> </span>-f<span class="w"> </span>locustfile.py<span class="w"> </span>--host<span class="o">=[</span>https://your-website.com<span class="o">](</span>https://martin-thoma.com<span class="o">)</span>
 </code></pre></div>
 <p>It then gives output like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">

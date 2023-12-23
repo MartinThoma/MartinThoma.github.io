@@ -168,11 +168,11 @@ the server.</p>
 </ul>
 <h2 id="install-jekyll">Install Jekyll</h2>
 <p>On an Ubunty system I need for this blog:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install ruby1.9.1-dev imagemagick ruby-rmagick libmagickwand-dev ruby-execjs ruby-nokogiri
-$ sudo gem install jekyll
-$ sudo gem install dimensions
-$ sudo gem install fileutils
-$ sudo mkdir -p /var/www/blog
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ruby1.9.1-dev<span class="w"> </span>imagemagick<span class="w"> </span>ruby-rmagick<span class="w"> </span>libmagickwand-dev<span class="w"> </span>ruby-execjs<span class="w"> </span>ruby-nokogiri
+$<span class="w"> </span>sudo<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>jekyll
+$<span class="w"> </span>sudo<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>dimensions
+$<span class="w"> </span>sudo<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>fileutils
+$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www/blog
 </code></pre></div>
 <h2 id="github">GitHub</h2>
 <h3 id="create-your-repository">Create your repository</h3>
@@ -183,21 +183,21 @@ $ sudo mkdir -p /var/www/blog
 <h3 id="branches">Branches</h3>
 <p>The way to use Jekyll with GitHub is by using branches.
 Go to your Git repository that cointains your blog:</p>
-<div class="highlight"><pre><span></span><code>moose@pc08 ~/Downloads/MartinThoma.github.io $ ls
-_config.yml  favicon.ico  index.html  Makefile  Readme.md
-css          images       js          _plugins  _site
-_drafts      _includes    _layouts    _posts    thumbs
+<div class="highlight"><pre><span></span><code>moose@pc08<span class="w"> </span>~/Downloads/MartinThoma.github.io<span class="w"> </span>$<span class="w"> </span>ls
+_config.yml<span class="w">  </span>favicon.ico<span class="w">  </span>index.html<span class="w">  </span>Makefile<span class="w">  </span>Readme.md
+css<span class="w">          </span>images<span class="w">       </span>js<span class="w">          </span>_plugins<span class="w">  </span>_site
+_drafts<span class="w">      </span>_includes<span class="w">    </span>_layouts<span class="w">    </span>_posts<span class="w">    </span>thumbs
 </code></pre></div>
 <p>Now you should create a new branch that will contain your source files.
 The following command creates a branch <code>sources</code> that starts where
 the branch <code>master</code> currently is:</p>
-<div class="highlight"><pre><span></span><code>git checkout -b <span class="nb">source</span> master
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span><span class="nb">source</span><span class="w"> </span>master
 </code></pre></div>
 <p>Now update this branch to the server:</p>
-<div class="highlight"><pre><span></span><code>git push -u origin <span class="nb">source</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span><span class="nb">source</span>
 </code></pre></div>
 <p>When you enter</p>
-<div class="highlight"><pre><span></span><code>git checkout . master
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>.<span class="w"> </span>master
 </code></pre></div>
 <p>you will switch to the <code>master</code> brach. The same way you can switch
 to the <code>source</code> branch. After you've entered the command, you can
@@ -219,7 +219,7 @@ have to:</p>
 <p>One tool that might now come to your mind is <code>rsync</code>. But rsync
 needs SSH (<a href="http://serverfault.com/a/24627/113899">source</a>). If you
 have SSH, then you can do something like this:</p>
-<div class="highlight"><pre><span></span><code>rsync -avz --delete _site/ user@host:/path/to/web/root
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-avz<span class="w"> </span>--delete<span class="w"> </span>_site/<span class="w"> </span>user@host:/path/to/web/root
 </code></pre></div>
 <p>The <code>--delete</code> options "delete[s] extraneous files from dest dirs",
 <code>-a</code> means archive which preserves the owner, group, change date
@@ -228,10 +228,10 @@ compression while the file transfer happens. <code>--progress</code> might also
 be interesting, especially for the first upload.</p>
 <p>Otherwise, you might want to try <code>curlftpfs</code>. This program lets you
 mount a FTP folder:</p>
-<div class="highlight"><pre><span></span><code>curlftpfs ftp.example.com/backups /mnt/ftpserver
+<div class="highlight"><pre><span></span><code>curlftpfs<span class="w"> </span>ftp.example.com/backups<span class="w"> </span>/mnt/ftpserver
 </code></pre></div>
 <p>and you can also umount it:</p>
-<div class="highlight"><pre><span></span><code>rsync --delete /var/backups /mnt/ftpserver
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>--delete<span class="w"> </span>/var/backups<span class="w"> </span>/mnt/ftpserver
 </code></pre></div>
 <h2 id="markdown">Markdown</h2>
 <p>I've switched between <code>rdiscount</code> and <code>redcarpet</code>. The former is
@@ -304,9 +304,9 @@ plugins and templates. Everything is quite easy. The Liquid templating
 language seems to be very similar to Django Templates (Python).</p>
 <h2 id="make-the-website-super-fast">Make the Website super-fast</h2>
 <h3 id="css-minification">CSS Minification</h3>
-<div class="highlight"><pre><span></span><code>sudo gem install juicer
-juicer install jslint
-juicer install yui_compressor
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>juicer
+juicer<span class="w"> </span>install<span class="w"> </span>jslint
+juicer<span class="w"> </span>install<span class="w"> </span>yui_compressor
 </code></pre></div>
 <h3 id="images">Images</h3>
 <p>I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>). According to <a href="http://caniuse.com/datauri">caniuse</a> it's quite save to use.</p>

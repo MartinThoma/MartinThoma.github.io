@@ -164,27 +164,27 @@ structure unit testing code in Python.</p>
 <p>Test level docstrings are used in a good way in parts of
 <a href="https://github.com/sympy/sympy/blob/master/sympy/solvers/tests/test_recurr.py#L78">sympy</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">recurrence_term</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-    <span class="sd">"""Compute RHS of recurrence in f(n) with coefficients in c."""</span>
+<span class="w">    </span><span class="sd">"""Compute RHS of recurrence in f(n) with coefficients in c."""</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
 </code></pre></div>
 <p>There are tons of negative examples like this from Flask, where the docstring
 adds no value:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_jsonify_basic_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_value</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
-    <span class="sd">"""Test jsonify with basic types."""</span>
+<span class="w">    </span><span class="sd">"""Test jsonify with basic types."""</span>
 
 
 <span class="o">...</span>
 
 
 <span class="k">def</span> <span class="nf">test_scriptinfo</span><span class="p">(</span><span class="n">test_apps</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
-    <span class="sd">"""Test of ScriptInfo."""</span>
+<span class="w">    </span><span class="sd">"""Test of ScriptInfo."""</span>
 </code></pre></div>
 <p>I&rsquo;ve also checked my own code and I&rsquo;ve mainly seen neutral or negative uses of test level docstrings 😱</p>
 <h2 id="pytest-markers">Pytest markers</h2>
 <p>Pytest gives you the option to decorate your code with <code>@pytest.mark.foo</code>,
 where <code>foo</code> can be any arbitrary string you like. I use <code>@pytest.mark.slow</code> quite
 often. Then you can execute all tests which are not slow like this:</p>
-<div class="highlight"><pre><span></span><code>pytest -v -m <span class="s2">"not slow"</span>
+<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>-v<span class="w"> </span>-m<span class="w"> </span><span class="s2">"not slow"</span>
 </code></pre></div>
 <p>I&rsquo;ve seen the marks high_memory and db in Pandas as well.</p>
 <h2 id="shared-test-helpers">Shared test helpers</h2>

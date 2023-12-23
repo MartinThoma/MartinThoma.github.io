@@ -117,79 +117,79 @@ MathJax.Hub.Queue(function() {
 <p>The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.</p>
 <h2 id="a-quick-example">A quick example</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Text color variables</span>
-<span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">1</span><span class="k">)</span>    <span class="c1"># Red</span>
-<span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput sgr0<span class="k">)</span>     <span class="c1"># Reset your text</span>
-<span class="nb">echo</span> <span class="s2">"Roses are </span><span class="si">${</span><span class="nv">txtred</span><span class="si">}</span><span class="s2">red</span><span class="si">${</span><span class="nv">txtreset</span><span class="si">}</span><span class="s2">."</span>
+<span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="w">    </span><span class="c1"># Red</span>
+<span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput<span class="w"> </span>sgr0<span class="k">)</span><span class="w">     </span><span class="c1"># Reset your text</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Roses are </span><span class="si">${</span><span class="nv">txtred</span><span class="si">}</span><span class="s2">red</span><span class="si">${</span><span class="nv">txtreset</span><span class="si">}</span><span class="s2">."</span>
 </code></pre></div>
 <p>Simply copy this example line by line and then you'll see the expected example.</p>
 <p>A shorter way would be</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
 </code></pre></div>
 <h2 id="the-sgr-attribuge">The sgr attribuge</h2>
-<div class="highlight"><pre><span></span><code>tput sgr <span class="m">0</span> <span class="m">1</span>     turn off standout<span class="p">;</span> turn on underline
-tput sgr <span class="m">0</span> <span class="m">0</span>     turn off standout<span class="p">;</span> turn off underline
-tput sgr <span class="m">1</span> <span class="m">1</span>     turn on standout<span class="p">;</span> turn on underline
-tput sgr <span class="m">1</span> <span class="m">0</span>     turn on standout<span class="p">;</span> turn off underline
-tput sgr0        short <span class="k">for</span> sgr <span class="m">0</span> <span class="m">0</span>
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w">     </span>turn<span class="w"> </span>off<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>on<span class="w"> </span>underline
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w">     </span>turn<span class="w"> </span>off<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>off<span class="w"> </span>underline
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w">     </span>turn<span class="w"> </span>on<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>on<span class="w"> </span>underline
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w">     </span>turn<span class="w"> </span>on<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>off<span class="w"> </span>underline
+tput<span class="w"> </span>sgr0<span class="w">        </span>short<span class="w"> </span><span class="k">for</span><span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 <h2 id="the-setaf-attribute">The setaf attribute</h2>
-<div class="highlight"><pre><span></span><code>setaf <span class="m">1</span> Red
-setaf <span class="m">2</span> Green
-setaf <span class="m">3</span> Yellow
-setaf <span class="m">4</span> Blue
-setaf <span class="m">5</span> Purple
-setaf <span class="m">6</span> Cyan
-setaf <span class="m">7</span> Gray
+<div class="highlight"><pre><span></span><code>setaf<span class="w"> </span><span class="m">1</span><span class="w"> </span>Red
+setaf<span class="w"> </span><span class="m">2</span><span class="w"> </span>Green
+setaf<span class="w"> </span><span class="m">3</span><span class="w"> </span>Yellow
+setaf<span class="w"> </span><span class="m">4</span><span class="w"> </span>Blue
+setaf<span class="w"> </span><span class="m">5</span><span class="w"> </span>Purple
+setaf<span class="w"> </span><span class="m">6</span><span class="w"> </span>Cyan
+setaf<span class="w"> </span><span class="m">7</span><span class="w"> </span>Gray
 </code></pre></div>
 <h2 id="misc">Misc</h2>
 <p>Make your text bold:</p>
-<div class="highlight"><pre><span></span><code>tput bold
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>bold
 </code></pre></div>
 <p>Reset your style:</p>
-<div class="highlight"><pre><span></span><code>tput sgr0
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr0
 </code></pre></div>
 <h2 id="advanced-example">Advanced Example</h2>
 <p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
 <p>This is the way how "[ERROR]" gets red and bold:</p>
-<div class="highlight"><pre><span></span><code><span class="sb">`</span>tput setaf <span class="m">1</span><span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
+<div class="highlight"><pre><span></span><code><span class="sb">`</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">1</span><span class="sb">``</span>tput<span class="w"> </span>bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput<span class="w"> </span>sgr0<span class="sb">`</span>
 </code></pre></div>
 <p>You can test it with</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
 </code></pre></div>
 <p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
 <p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is</p>
-<div class="highlight"><pre><span></span><code>sed <span class="s1">'s/search/replace/'</span>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">'s/search/replace/'</span>
 </code></pre></div>
 <p>So we pipe the output to sed:</p>
-<div class="highlight"><pre><span></span><code>python output.py <span class="p">|</span> sed <span class="s1">'s/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
 </code></pre></div>
 <p>And now we bring it all together:</p>
-<div class="highlight"><pre><span></span><code>python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
 </code></pre></div>
 <p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
-<div class="highlight"><pre><span></span><code>python output.py <span class="p">|</span> sed <span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
 </code></pre></div>
 <h2 id="colorize-c-c-output">Colorize C / C++ output</h2>
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[30m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"black?"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[31m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"red"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[32m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"lime"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[33m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"yellow"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[34m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"blue"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[35m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"gray"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[36m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"blue"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[37m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"light gray"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[38m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"black?"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[39m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"black?"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[41m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"red background"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[1;34m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"bold and blue"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[4m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"underlined"</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[9m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"strike"</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[30m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"black?"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[31m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"red"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[32m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"lime"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[33m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"yellow"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[34m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"blue"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[35m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"gray"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[36m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"blue"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[37m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"light gray"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[38m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"black?"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[39m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"black?"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[41m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"red background"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[1;34m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"bold and blue"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[4m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"underlined"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[9m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="s">"strike"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".

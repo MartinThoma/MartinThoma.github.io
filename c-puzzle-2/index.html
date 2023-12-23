@@ -113,19 +113,19 @@ MathJax.Hub.Queue(function() {
             
             <p>What is the output of the following script? Why? How can it be fixed to get the expected output?</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define __STDC_FORMAT_MACROS</span>
-<span class="cp">#include</span> <span class="cpf">&lt;inttypes.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;inttypes.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">uint64_t</span> <span class="n">testvar</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">testvar</span><span class="p">;</span>
 
-    <span class="n">testvar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^30 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testvar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"2^30 = %"</span><span class="w"> </span><span class="n">PRIu64</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">testvar</span><span class="p">);</span>
 
-    <span class="n">testvar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^31 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testvar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"2^31 = %"</span><span class="w"> </span><span class="n">PRIu64</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">testvar</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>.
@@ -158,19 +158,19 @@ MathJax.Hub.Queue(function() {
 <h2 id="how-to-fix-it">How to fix it</h2>
 <p>Add a typecast:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define __STDC_FORMAT_MACROS</span>
-<span class="cp">#include</span> <span class="cpf">&lt;inttypes.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;inttypes.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">uint64_t</span> <span class="n">testvar</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">testvar</span><span class="p">;</span>
 
-    <span class="n">testvar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^30 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testvar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">30</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"2^30 = %"</span><span class="w"> </span><span class="n">PRIu64</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">testvar</span><span class="p">);</span>
 
-    <span class="n">testvar</span> <span class="o">=</span> <span class="p">((</span><span class="kt">uint64_t</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"2^31 = %"</span> <span class="n">PRIu64</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">testvar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testvar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kt">uint64_t</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"2^31 = %"</span><span class="w"> </span><span class="n">PRIu64</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">testvar</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
             

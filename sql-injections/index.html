@@ -128,16 +128,16 @@ MathJax.Hub.Queue(function() {
 <p>In the worst case, the attacker steals the data and sells it. After that, they corrupt your data in a way that you don&rsquo;t fix it / use the backups.</p>
 <h2 id="how-are-sql-injection-attacks-executed">How are SQL injection attacks executed?</h2>
 <p>Imagine you have a website with a login form. Leaving some important bells and whistles away, something like this happens:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span>   <span class="n">users</span>
-<span class="k">WHERE</span>  <span class="k">USER</span> <span class="o">=</span> <span class="s1">'**[username]**'</span>
-       <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">'**[password]**'</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w">   </span><span class="n">users</span>
+<span class="k">WHERE</span><span class="w">  </span><span class="k">USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'**[username]**'</span>
+<span class="w">       </span><span class="k">AND</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'**[password]**'</span>
 </code></pre></div>
 <p>The attacker can change the username to admin' OR '1'='1 which then gives the query:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span>   <span class="n">users</span>
-<span class="k">WHERE</span>  <span class="k">USER</span> <span class="o">=</span> <span class="s1">'**admin'</span> <span class="k">OR</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1**'</span>
-       <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">'secret'</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w">   </span><span class="n">users</span>
+<span class="k">WHERE</span><span class="w">  </span><span class="k">USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'**admin'</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="s1">'1'</span><span class="o">=</span><span class="s1">'1**'</span>
+<span class="w">       </span><span class="k">AND</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'secret'</span>
 </code></pre></div>
 <p>This means the query will look for two conditions:</p>
 <ul>
@@ -154,7 +154,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="c1"># Create a connection conn</span>
 <span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span>
-    <span class="sd">"""SELECT * FROM users</span>
+<span class="w">    </span><span class="sd">"""SELECT * FROM users</span>
 <span class="sd">               WHERE user = :username AND password = :password"""</span>
 <span class="p">)</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">prams</span><span class="o">=</span><span class="p">{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">})</span>
@@ -200,18 +200,18 @@ a defense-in-depth perspective.</p>
 <h3 id="order-by">Order By</h3>
 <p>You might be tempted to think that the following SQL query is secure because
 the user input is just in the ORDER BY clause:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">book_title</span> <span class="k">FROM</span> <span class="n">books</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">{</span><span class="n">user_input</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">book_title</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">books</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{</span><span class="n">user_input</span><span class="err">}</span>
 </code></pre></div>
 <p>where the developer expects <code>user_input</code> to be either <code>sales</code> or
 <code>average_review</code>. However, an attacker could change <code>user_input</code> to this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CASE</span> <span class="k">WHEN</span>
-    <span class="p">(</span><span class="k">SELECT</span> <span class="mi">1</span> <span class="k">FROM</span> <span class="n">users</span>
-     <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="ss">"admin"</span>
-         <span class="k">AND</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="ss">"a"</span>
-     <span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-     <span class="k">THEN</span> <span class="n">sales</span>
-     <span class="k">ELSE</span> <span class="n">average_review</span>
-<span class="k">END</span> <span class="k">ASC</span>
+<div class="highlight"><pre><span></span><code><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span>
+<span class="w">     </span><span class="k">WHERE</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"admin"</span>
+<span class="w">         </span><span class="k">AND</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"a"</span>
+<span class="w">     </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">     </span><span class="k">THEN</span><span class="w"> </span><span class="n">sales</span>
+<span class="w">     </span><span class="k">ELSE</span><span class="w"> </span><span class="n">average_review</span>
+<span class="k">END</span><span class="w"> </span><span class="k">ASC</span>
 </code></pre></div>
 <p>This way the attacker can get the password hash of the admin user. Character by
 character. Just by looking at how the sorting changes.</p>

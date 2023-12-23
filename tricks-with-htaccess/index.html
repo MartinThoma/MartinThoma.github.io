@@ -126,43 +126,43 @@ Prevent Direct Access</a></li></ul></div>
 <h2 id="enable-htaccess-files">
 Enable htaccess-files</h2>
 <p>Set <a href="http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride" rel="nofollow">AllowOverride</a> to "All":</p>
-<div class="highlight"><pre><span></span><code>sudo gedit /etc/apache2/sites-available/default
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>gedit<span class="w"> </span>/etc/apache2/sites-available/default
 </code></pre></div>
 <p>Restart Apache:</p>
-<div class="highlight"><pre><span></span><code>sudo /etc/init.d/apache2 reload
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/etc/init.d/apache2<span class="w"> </span>reload
 </code></pre></div>
 <h2 id="enable-expireson-mod_rewrite">
 Enable ExpiresOn / mod_rewrite</h2>
 <p>This is for Ubuntu:</p>
-<div class="highlight"><pre><span></span><code>sudo a2enmod
-rewrite expires
-sudo /etc/init.d/apache2 restart
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>a2enmod
+rewrite<span class="w"> </span>expires
+sudo<span class="w"> </span>/etc/init.d/apache2<span class="w"> </span>restart
 </code></pre></div>
 <h2 id="prevent-or-allow-directory-listing">
 Prevent or allow directory listing</h2>
 <p>Add the following line to your .htaccess-file to allow directory listing:</p>
-<div class="highlight"><pre><span></span><code>Options +Indexes
+<div class="highlight"><pre><span></span><code>Options<span class="w"> </span>+Indexes
 </code></pre></div>
 <p>Add the following line to your .htaccess-file to prevent directory listing:</p>
-<div class="highlight"><pre><span></span><code>Options -Indexes
+<div class="highlight"><pre><span></span><code>Options<span class="w"> </span>-Indexes
 </code></pre></div>
 <h2 id="prevent-hot-linking">
 Prevent Hot Linking</h2>
-<div class="highlight"><pre><span></span><code>RewriteEngine on
-RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^$
-RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^http://<span class="o">(</span>www.<span class="o">)</span>?your-domain.com/.*$ <span class="o">[</span>NC<span class="o">]</span>
-RewriteRule <span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpe?g<span class="p">|</span>png<span class="o">)</span>$ - <span class="o">[</span>F<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>RewriteEngine<span class="w"> </span>on
+RewriteCond<span class="w"> </span>%<span class="o">{</span>HTTP_REFERER<span class="o">}</span><span class="w"> </span>!^$
+RewriteCond<span class="w"> </span>%<span class="o">{</span>HTTP_REFERER<span class="o">}</span><span class="w"> </span>!^http://<span class="o">(</span>www.<span class="o">)</span>?your-domain.com/.*$<span class="w"> </span><span class="o">[</span>NC<span class="o">]</span>
+RewriteRule<span class="w"> </span><span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpe?g<span class="p">|</span>png<span class="o">)</span>$<span class="w"> </span>-<span class="w"> </span><span class="o">[</span>F<span class="o">]</span>
 </code></pre></div>
 <h2 id="prevent-direct-access">
 Prevent Direct Access</h2>
 <p>If you include some files with PHP, you might want that others can't access this file directly. So add the following to your .htaccess-file:</p>
-<div class="highlight"><pre><span></span><code>&lt;FilesMatch <span class="s2">"\.(inc)\.(php)</span>$<span class="s2">"</span>&gt;
-    Order deny,allow
-    Deny from all
+<div class="highlight"><pre><span></span><code>&lt;FilesMatch<span class="w"> </span><span class="s2">"\.(inc)\.(php)</span>$<span class="s2">"</span>&gt;
+<span class="w">    </span>Order<span class="w"> </span>deny,allow
+<span class="w">    </span>Deny<span class="w"> </span>from<span class="w"> </span>all
 &lt;/FilesMatch&gt;
-&lt;FilesMatch <span class="s2">"\.(tpl)</span>$<span class="s2">"</span>&gt;
-    Order deny,allow
-    Deny from all
+&lt;FilesMatch<span class="w"> </span><span class="s2">"\.(tpl)</span>$<span class="s2">"</span>&gt;
+<span class="w">    </span>Order<span class="w"> </span>deny,allow
+<span class="w">    </span>Deny<span class="w"> </span>from<span class="w"> </span>all
 &lt;/FilesMatch&gt;
 </code></pre></div>
             

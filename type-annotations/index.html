@@ -136,11 +136,11 @@ MathJax.Hub.Queue(function() {
 </figure>
 <h2 id="type-checking-with-mypy">Type Checking with mypy</h2>
 <p>Install mypy via pip install mypy and run it:</p>
-<div class="highlight"><pre><span></span><code>$ mypy . --ignore-missing-imports
-Success: no issues found in <span class="m">1</span> <span class="nb">source</span> file
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mypy<span class="w"> </span>.<span class="w"> </span>--ignore-missing-imports
+Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>file
 </code></pre></div>
 <p>The <a href="https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports">--ignore-missing-imports</a> flag is necessary, because otherwise you will get a lot of messages like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">error</span><span class="o">:</span> <span class="n">Skipping</span> <span class="n">analyzing</span> <span class="s1">'setuptools'</span><span class="o">:</span> <span class="n">found</span> <span class="n">module</span> <span class="n">but</span> <span class="n">no</span> <span class="n">type</span> <span class="n">hints</span> <span class="n">or</span> <span class="n">library</span> <span class="n">stubs</span>
+<div class="highlight"><pre><span></span><code><span class="n">error</span><span class="o">:</span><span class="w"> </span><span class="n">Skipping</span><span class="w"> </span><span class="n">analyzing</span><span class="w"> </span><span class="s1">'setuptools'</span><span class="o">:</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">hints</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">stubs</span>
 </code></pre></div>
 <p>In order to make it more convenient, I usually add a setup.cfg file in which I specify that I always want this flag to be applied:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[mypy]</span>
@@ -148,7 +148,7 @@ Success: no issues found in <span class="m">1</span> <span class="nb">source</sp
 </code></pre></div>
 <p>Then you can pip install pytest-mypy and make sure mypy is always executed when you run pytest by adding this section to your setup.cfg:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tool:pytest]</span>
-<span class="na">addopts</span> <span class="o">=</span> <span class="s">--mypy</span>
+<span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">--mypy</span>
 </code></pre></div>
 <p>It is important to note that the Python community and also mypy assumes that you come from a non-type annotated code base. They want to make it easy to you to switch to an annotated code and thus support <a href="https://en.wikipedia.org/wiki/Gradual_typing">gradual typing</a>. However, this means that you might miss errors if you don&rsquo;t annotate your code! Mypy has a lot of flags to help you to make the move. You don&rsquo;t need to annotate everything.</p>
 <h2 id="typing-list-dict-tuple-any">typing: List, Dict, Tuple, Any</h2>
@@ -281,14 +281,14 @@ This is <code>True</code> when running a type checker, but <code>False</code> du
 <figcaption class="text-center">pyre logo</figcaption>
 </figure>
 <p>Install them:</p>
-<div class="highlight"><pre><span></span><code>$ pip install pyre-check pytype
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pyre-check<span class="w"> </span>pytype
 
 <span class="c1"># Yes, pyright is written in TypeScript...</span>
-$ npm install -g pyright
+$<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>pyright
 </code></pre></div>
 <p>Run them:</p>
-<div class="highlight"><pre><span></span><code>$ pyright .
-$ pytype .
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyright<span class="w"> </span>.
+$<span class="w"> </span>pytype<span class="w"> </span>.
 </code></pre></div>
 <p>pyright was complaining a lot about stuff that is actually correct.</p>
 <h2 id="pydantic">pydantic</h2>

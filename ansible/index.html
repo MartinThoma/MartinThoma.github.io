@@ -148,16 +148,16 @@ install Docker. This is where Ansible helps.</p>
 <h2 id="installation">Installation</h2>
 <p>Ansible is written in Python. For this reason, the simplest way to install it
 might be via the Python Package installer <code>pip</code>:</p>
-<div class="highlight"><pre><span></span><code>$ pip install ansible
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>ansible
 </code></pre></div>
 <p>To test if it worked:</p>
-<div class="highlight"><pre><span></span><code>$ ansible --version
-ansible <span class="m">2</span>.9.0
-  config <span class="nv">file</span> <span class="o">=</span> None
-  configured module search <span class="nv">path</span> <span class="o">=</span> <span class="o">[</span><span class="s1">'/home/moose/.ansible/plugins/modules'</span>, <span class="s1">'/usr/share/ansible/plugins/modules'</span><span class="o">]</span>
-  ansible python module <span class="nv">location</span> <span class="o">=</span> /home/moose/.local/lib/python3.6/site-packages/ansible
-  executable <span class="nv">location</span> <span class="o">=</span> /home/moose/.local/bin/ansible
-  python <span class="nv">version</span> <span class="o">=</span> <span class="m">3</span>.6.8 <span class="o">(</span>default, Oct  <span class="m">7</span> <span class="m">2019</span>, <span class="m">12</span>:59:55<span class="o">)</span> <span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ansible<span class="w"> </span>--version
+ansible<span class="w"> </span><span class="m">2</span>.9.0
+<span class="w">  </span>config<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>None
+<span class="w">  </span>configured<span class="w"> </span>module<span class="w"> </span>search<span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s1">'/home/moose/.ansible/plugins/modules'</span>,<span class="w"> </span><span class="s1">'/usr/share/ansible/plugins/modules'</span><span class="o">]</span>
+<span class="w">  </span>ansible<span class="w"> </span>python<span class="w"> </span>module<span class="w"> </span><span class="nv">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/moose/.local/lib/python3.6/site-packages/ansible
+<span class="w">  </span>executable<span class="w"> </span><span class="nv">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/moose/.local/bin/ansible
+<span class="w">  </span>python<span class="w"> </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>.6.8<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Oct<span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">2019</span>,<span class="w"> </span><span class="m">12</span>:59:55<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">8</span>.3.0<span class="o">]</span>
 </code></pre></div>
 <h2 id="vocabulary">Vocabulary</h2>
 <dl>
@@ -178,11 +178,11 @@ ansible <span class="m">2</span>.9.0
 </dl>
 <h2 id="usage">Usage</h2>
 <p>Ad hoc command to check the connection:</p>
-<div class="highlight"><pre><span></span><code>$ ansible -m ping all
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ansible<span class="w"> </span>-m<span class="w"> </span>ping<span class="w"> </span>all
 </code></pre></div>
 <p>Ad hoc command to get the available disk space:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ansible -m [module] -a '[module options]' [target]</span>
-$ ansible -m shell -a <span class="s1">'df -h'</span> all
+$<span class="w"> </span>ansible<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">'df -h'</span><span class="w"> </span>all
 </code></pre></div>
 <p>Ansible executes stuff with your account. If you need root, specify <code>-b</code> and
 <code>-k</code> to ask for a password.</p>
@@ -202,22 +202,22 @@ $ ansible -m shell -a <span class="s1">'df -h'</span> all
 <p>The <code>main.yml</code> files have the following structure:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Choose a descriptive name for the task as ansible will print them when</span>
 <span class="c1"># executing</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install a list of packages</span>
-  <span class="nt">apt</span><span class="p">:</span>  <span class="c1"># The ansible module</span>
-    <span class="nt">pkg</span><span class="p">:</span> <span class="c1"># install the following packages</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Add some file to the target machines</span>
-  <span class="nt">copy</span><span class="p">:</span>
-    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../files/foo.txt</span>
-    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/absolute/path/foo.txt</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install a list of packages</span>
+<span class="w">  </span><span class="nt">apt</span><span class="p">:</span><span class="w">  </span><span class="c1"># The ansible module</span>
+<span class="w">    </span><span class="nt">pkg</span><span class="p">:</span><span class="w"> </span><span class="c1"># install the following packages</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add some file to the target machines</span>
+<span class="w">  </span><span class="nt">copy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../files/foo.txt</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/absolute/path/foo.txt</span>
 </code></pre></div>
 <p>The <code>playbook.yml</code> file has the following structure:</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-  <span class="nt">become</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>  <span class="c1"># become another user; by default root</span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># become another user; by default root</span>
 </code></pre></div>
 <p>You can then execute the playbook via</p>
-<div class="highlight"><pre><span></span><code>$ ansible-playbook playbook.yml
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ansible-playbook<span class="w"> </span>playbook.yml
 </code></pre></div>
 <h2 id="alternatives">Alternatives</h2>
 <p><a href="https://en.wikipedia.org/wiki/Puppet_(company)#Puppet">Puppet</a> and <a href="https://en.wikipedia.org/wiki/Chef_(software)">Chef</a> are two other configuration management tools which are often used.</p>

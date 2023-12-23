@@ -122,17 +122,17 @@ MathJax.Hub.Queue(function() {
 <h2 id="travis-ci">Travis CI</h2>
 <p><a href="https://travis-ci.org/">Travis CI</a> was founded in 2011 and is the first CI service I&rsquo;ve used. It is configured via a .travis.yml file</p>
 <p>I&rsquo;ve almost always used it with the following script with minor variations:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">python</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3.6</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3.7</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3.8</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.6</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.7</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.8</span>
 <span class="nt">install</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install coveralls tox-travis</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install coveralls tox-travis</span>
 <span class="nt">script</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tox</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox</span>
 <span class="nt">after_success</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">coveralls</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coveralls</span>
 </code></pre></div>
 <p>The <a href="https://github.com/tox-dev/tox-travis">tox-travis</a> package is awesome. I just made sure tox is working and then Travis worked as well. If you want a refresher about tox, have a look at <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">the previous article</a> in this series.</p>
 <p>The configuration file looks for sure less scary than the one of Github Actions. The interface of Travis is also pretty and clean:</p>
@@ -165,30 +165,30 @@ MathJax.Hub.Queue(function() {
 <p>CircleCI is another possibility for a CI pipeline. They have a concept they call <a href="https://circleci.com/orbs/">Orbs</a> which is a re-usable set of configuration. It reminds me a bit of how you can have a Docker base image.</p>
 <p>The Python orb is on Github at <a href="https://github.com/circleci-public/python-orb">CircleCI-Public/python-orb</a>. The interesting parts are in src/commands . CircleCI has an <a href="https://circleci.com/orbs/registry/orb/circleci/python">example page</a> for the Python orb and a <a href="https://circleci.com/docs/2.0/language-python/">Python language overview</a>.</p>
 <p>The configuration I use for <a href="https://github.com/MartinThoma/mpu">mpu</a> only uses the checkout step. The rest is manually defined. The following is in .circleci/config.yml :</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.1</span>
 
 <span class="nt">orbs</span><span class="p">:</span>
-  <span class="nt">python</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">circleci/python@0.2.1</span>
+<span class="w">  </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">circleci/python@0.2.1</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
-  <span class="nt">build-and-test</span><span class="p">:</span>
-    <span class="nt">executor</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python/default</span>
-    <span class="nt">steps</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">checkout</span>
-      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
-          <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r requirements-dev.txt</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Test requirements-dev</span>
-      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
-          <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install -e .[all]</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Pacakge</span>
-      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
-          <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Test</span>
+<span class="w">  </span><span class="nt">build-and-test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">executor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python/default</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">checkout</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements-dev.txt</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Test requirements-dev</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -e .[all]</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Pacakge</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span>
 
 <span class="nt">workflows</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="nt">jobs</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">build-and-test</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">jobs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-and-test</span>
 </code></pre></div>
 <p>The CircleCI web interface looks nice and clean:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -196,43 +196,43 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">CircleCI Web Interface</figcaption>
 </figure>
 <p>I&rsquo;ve added CircleCI check to mpu and, of course, the badge should not be missing:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">![MartinThoma</span><span class="o">]</span><span class="p">(</span><span class="o">[</span><span class="n">https://circleci.com/gh/MartinThoma/mpu.svg?style=shield)</span><span class="o">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="p">.</span><span class="n">circleci</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">pipelines</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">MartinThoma</span><span class="o">/</span><span class="n">mpu</span><span class="p">)</span><span class="err">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">circleci</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">gh</span><span class="o">/</span><span class="n">MartinThoma</span><span class="o">/</span><span class="n">mpu</span><span class="p">.</span><span class="n">svg</span><span class="vm">?</span><span class="n">style</span><span class="o">=</span><span class="n">shield</span><span class="p">)</span><span class="err">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="p">.</span><span class="n">circleci</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">pipelines</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">MartinThoma</span><span class="o">/</span><span class="n">mpu</span><span class="p">))</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>[<span class="nt">![MartinThoma</span>](<span class="na">[https://circleci.com/gh/MartinThoma/mpu.svg?style=shield</span>)](https://app.circleci.com/pipelines/github/MartinThoma/mpu)](https://circleci.com/gh/MartinThoma/mpu.svg?style=shield)](https://app.circleci.com/pipelines/github/MartinThoma/mpu))
 </code></pre></div>
 <h2 id="gitlab-ci">Gitlab CI</h2>
 <p><a href="https://docs.gitlab.com/ee/ci/yaml/README.html">Gitlab CI</a> is similar to Github Actions in the sense that it is also integrated into the platform. You use a .gitlab-ci.yml file to configure it. However, I like Gitlab CI way more as it just seems so much cleaner.</p>
 <p>Let&rsquo;s take the linter <a href="https://gitlab.com/pycqa/flake8">Flake8</a> as an example. Their <a href="https://gitlab.com/pycqa/flake8/-/blob/master/.gitlab-ci.yml">.gitlab-ci.yml</a> is a bit lengthy, so I&rsquo;ve shortened it to only the test stage. They have a build and a release stage as well:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
 
 <span class="nt">stages</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
 
 <span class="nt">before_script</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install pip --upgrade</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r dev-requirements.txt</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install pip --upgrade</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r dev-requirements.txt</span>
 
 <span class="nt">after_script</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install codecov</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">codecov --token=7d117e6b-aab6-4283-ab19-166dafc38cf5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install codecov</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov --token=7d117e6b-aab6-4283-ab19-166dafc38cf5</span>
 
 <span class="nt">python36</span><span class="p">:</span>
-  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.6</span>
-  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e py36</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.6</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e py36</span>
 
 <span class="nt">python37</span><span class="p">:</span>
-  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
-  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e py37</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e py37</span>
 
 <span class="nt">python38</span><span class="p">:</span>
-  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.8</span>
-  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e py38</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.8</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e py38</span>
 
 <span class="nt">linters</span><span class="p">:</span>
-  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
-  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
-  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e linters</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
+<span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tox -e linters</span>
 </code></pre></div>
 <p>In the web interface, it looks like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -254,39 +254,39 @@ MathJax.Hub.Queue(function() {
 <div class="highlight"><pre><span></span><code><span class="c1"># [https://docs.microsoft.com/azure/devops/pipelines/languages/python](https://docs.microsoft.com/azure/devops/pipelines/languages/python)</span>
 
 <span class="nt">trigger</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 
 <span class="nt">pool</span><span class="p">:</span>
-  <span class="nt">vmImage</span><span class="p">:</span> <span class="s">'VS2017-Win2016'</span>
+<span class="w">  </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">'VS2017-Win2016'</span>
 <span class="nt">strategy</span><span class="p">:</span>
-  <span class="nt">matrix</span><span class="p">:</span>
-    <span class="nt">Python36</span><span class="p">:</span>
-      <span class="nt">python.version</span><span class="p">:</span> <span class="s">'3.6'</span>
-    <span class="nt">Python37</span><span class="p">:</span>
-      <span class="nt">python.version</span><span class="p">:</span> <span class="s">'3.7'</span>
+<span class="w">  </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Python36</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">python.version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.6'</span>
+<span class="w">    </span><span class="nt">Python37</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">python.version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.7'</span>
 
 <span class="nt">steps</span><span class="p">:</span>
-<span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
-  <span class="nt">inputs</span><span class="p">:</span>
-    <span class="nt">versionSpec</span><span class="p">:</span> <span class="s">'$(python.version)'</span>
-  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'Use</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">$(python.version)'</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
+<span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">versionSpec</span><span class="p">:</span><span class="w"> </span><span class="s">'$(python.version)'</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Use</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">$(python.version)'</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">python -m pip install --upgrade pip</span>
-    <span class="no">pip install -r requirements-dev.txt</span>
-  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'Install</span><span class="nv"> </span><span class="s">dependencies'</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">    </span><span class="no">pip install -r requirements-dev.txt</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Install</span><span class="nv"> </span><span class="s">dependencies'</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">pip install .[all]</span>
-  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'Install</span><span class="nv"> </span><span class="s">package'</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">pip install .[all]</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Install</span><span class="nv"> </span><span class="s">package'</span>
 
-<span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-    <span class="no">pip install pytest pytest-azurepipelines</span>
-    <span class="no">pytest -vv</span>
-  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'pytest'</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">pip install pytest pytest-azurepipelines</span>
+<span class="w">    </span><span class="no">pytest -vv</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'pytest'</span>
 </code></pre></div>
 <p>The first thing I did after the pipeline itself worked was to add a project badge:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">Build</span> <span class="n">Status</span><span class="p">]([</span><span class="nl">https</span><span class="p">:</span><span class="c1">//dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&amp;branchName=master)](https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&amp;branchName=master))</span>
+<div class="highlight"><pre><span></span><code>[<span class="nt">![Build Status</span>](<span class="na">[https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master</span>)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&amp;branchName=master)](https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&amp;branchName=master))
 </code></pre></div>
 <p>The main reason for adding the badge was that Azure tries to create new accounts for me. I have a super hard time coming back to the main overview page 😢</p>
 <figure class="wp-caption aligncenter img-thumbnail">

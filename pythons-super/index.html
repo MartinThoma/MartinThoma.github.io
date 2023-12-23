@@ -136,9 +136,9 @@ It might behave different from what you thought.</p>
 <span class="n">C</span><span class="p">()</span>
 </code></pre></div>
 <p>This prints:</p>
-<div class="highlight"><pre><span></span><code><span class="err">C</span>
-<span class="err">B</span>
-<span class="err">A</span>
+<div class="highlight"><pre><span></span><code>C
+B
+A
 </code></pre></div>
 <p>This is simple, because every class inherits from exactly one other class
 and the inheritance tree looks like this:</p>
@@ -182,10 +182,10 @@ This means classes can inherit from arbitrary many classes.</p>
 <figcaption class="text-center">Inharitance Tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
 </figure>
 <p>The output of this script is:</p>
-<div class="highlight"><pre><span></span><code><span class="err">C</span>
-<span class="err">B1</span>
-<span class="err">B2</span>
-<span class="err">A</span>
+<div class="highlight"><pre><span></span><code>C
+B1
+B2
+A
 </code></pre></div>
 <p>Still expected, right? Basically going deeper and left to right.</p>
 <h2 id="multiple-inheritance-linearization">Multiple Inheritance: Linearization</h2>
@@ -218,14 +218,14 @@ anymore. Which output would you expect?</p>
 <span class="n">C</span><span class="p">()</span>
 </code></pre></div>
 <p>The received output is</p>
-<div class="highlight"><pre><span></span><code><span class="err">C</span>
-<span class="err">B1</span>
+<div class="highlight"><pre><span></span><code>C
+B1
 </code></pre></div>
 <p>Now, why does it not print <code>B2</code> and not <code>A</code>? After all, C still inherits from
 <code>B2</code> and <code>B2</code> still calls <code>super</code> which would point to <code>A</code>, right?</p>
 <p>The reason is that the method resolution order is:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; print(C.__mro__)</span>
-<span class="err">(&lt;class '__main__.C'&gt;, &lt;class '__main__.B1'&gt;, &lt;class '__main__.B2'&gt;, &lt;class '__main__.A'&gt;, &lt;class 'object'&gt;)</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; print(C.__mro__)
+(&lt;class '__main__.C'&gt;, &lt;class '__main__.B1'&gt;, &lt;class '__main__.B2'&gt;, &lt;class '__main__.A'&gt;, &lt;class 'object'&gt;)
 </code></pre></div>
 <p>This means that super searches first in B1, then B2, then A and then object for
 the <code>__init__</code> function. If it is found in one of them, it just executes that

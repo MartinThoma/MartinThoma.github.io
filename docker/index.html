@@ -175,35 +175,35 @@ alternatives:</p>
 <h3 id="dockerfile">Dockerfile</h3>
 <p>A <code>Dockerfile</code> defines an image. It is a simple text file which could look
 as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">ubuntu:latest</span>
-<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
+<span class="k">LABEL</span><span class="w"> </span><span class="nv">maintainer</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span>
 
 <span class="c"># Settings for the local user</span>
-<span class="k">ENV</span> APP_USER docker
-<span class="k">ENV</span> APP_USER_UID <span class="m">9999</span>
-<span class="k">ENV</span> APP_USER_GROUP docker
-<span class="k">ENV</span> APP_USER_GROUP_GID <span class="m">4711</span>
+<span class="k">ENV</span><span class="w"> </span>APP_USER<span class="w"> </span>docker
+<span class="k">ENV</span><span class="w"> </span>APP_USER_UID<span class="w"> </span><span class="m">9999</span>
+<span class="k">ENV</span><span class="w"> </span>APP_USER_GROUP<span class="w"> </span>docker
+<span class="k">ENV</span><span class="w"> </span>APP_USER_GROUP_GID<span class="w"> </span><span class="m">4711</span>
 
 <span class="c"># Install and update software</span>
-<span class="k">RUN</span> apt-get update -y
-<span class="k">RUN</span> apt-get install -y python-pip python-dev build-essential
-<span class="k">RUN</span> apt-get upgrade -y
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span>-y
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python-pip<span class="w"> </span>python-dev<span class="w"> </span>build-essential
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>upgrade<span class="w"> </span>-y
 
 <span class="c"># Copy projects code</span>
-<span class="k">COPY</span> . /opt/app
-<span class="k">WORKDIR</span><span class="s"> /opt/app</span>
-<span class="k">RUN</span> pip install -r requirements.txt --no-cache-dir
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>/opt/app
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/opt/app</span>
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--no-cache-dir
 
 <span class="c"># Create user</span>
-<span class="k">RUN</span> groupadd --gid <span class="si">${</span><span class="nv">APP_USER_GROUP_GID</span><span class="si">}</span> <span class="si">${</span><span class="nv">APP_USER_GROUP</span><span class="si">}</span>
-<span class="k">RUN</span> useradd --uid <span class="si">${</span><span class="nv">APP_USER_UID</span><span class="si">}</span> --create-home -g <span class="si">${</span><span class="nv">APP_USER_GROUP</span><span class="si">}</span> <span class="si">${</span><span class="nv">APP_USER</span><span class="si">}</span>
-<span class="k">RUN</span> chown -R <span class="nv">$APP_USER</span>:<span class="nv">$APP_USER_GROUP</span> /opt/app
+<span class="k">RUN</span><span class="w"> </span>groupadd<span class="w"> </span>--gid<span class="w"> </span><span class="si">${</span><span class="nv">APP_USER_GROUP_GID</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">APP_USER_GROUP</span><span class="si">}</span>
+<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>--uid<span class="w"> </span><span class="si">${</span><span class="nv">APP_USER_UID</span><span class="si">}</span><span class="w"> </span>--create-home<span class="w"> </span>-g<span class="w"> </span><span class="si">${</span><span class="nv">APP_USER_GROUP</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">APP_USER</span><span class="si">}</span>
+<span class="k">RUN</span><span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="nv">$APP_USER</span>:<span class="nv">$APP_USER_GROUP</span><span class="w"> </span>/opt/app
 
 <span class="c"># Start app</span>
-<span class="k">USER</span><span class="s"> docker</span>
-<span class="k">RUN</span> mkdir -p /opt/app/uploads
-<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">"python"</span><span class="p">]</span>
-<span class="k">CMD</span> <span class="p">[</span><span class="s2">"app.py"</span><span class="p">]</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">docker</span>
+<span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/app/uploads
+<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">]</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"app.py"</span><span class="p">]</span>
 </code></pre></div>
 <p>Let's go through it:</p>
 <ul>
@@ -257,62 +257,62 @@ volumes. There are two types of volumes:</p>
 <h3 id="docker-composeyml">docker-compose.yml</h3>
 <p>The <code>docker-compose.yml</code> is a <a href="https://en.wikipedia.org/wiki/YAML">YAML file</a>
 which defines multi-container applications. It looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>  <span class="c1"># Version number of the docker-compose file format</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">'3'</span><span class="w">  </span><span class="c1"># Version number of the docker-compose file format</span>
 <span class="nt">services</span><span class="p">:</span>
-  <span class="nt">web</span><span class="p">:</span>
-    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
-    <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app.py</span>
-    <span class="nt">ports</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="s">"8082:5000"</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">.:/opt/app</span>  <span class="c1"># enables hot code reloading</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">uploads:/opt/app/uploads</span>  <span class="c1"># for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)</span>
-    <span class="nt">links</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-    <span class="nt">hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myappserver</span>
-    <span class="nt">environment</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_HOST=db</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_PORT=3306</span>
-    <span class="nt">depends_on</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-  <span class="nt">db</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
-    <span class="nt">ports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="s">"3307:3306"</span>
-    <span class="nt">environment</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_HOST=mysqlserver</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.py</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8082:5000"</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/opt/app</span><span class="w">  </span><span class="c1"># enables hot code reloading</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uploads:/opt/app/uploads</span><span class="w">  </span><span class="c1"># for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)</span>
+<span class="w">    </span><span class="nt">links</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myappserver</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_HOST=db</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_PORT=3306</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"3307:3306"</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_HOST=mysqlserver</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql</span>
 <span class="nt">volumes</span><span class="p">:</span>
-    <span class="nt">uploads</span><span class="p">:</span>
-        <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">uploads</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
 </code></pre></div>
 <p>Start it with <code>docker-compose up</code>.</p>
 <p>The host name of each service is the name of the service itself.</p>
 <p>You can find the data persistance volume with:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker volumes ls</span>
-DRIVER              VOLUME NAME
-<span class="nb">local</span>               db6caef4eae28832f35af0951e95ae77d6c29189a793300f5aa9523cd25af362
-<span class="nb">local</span>               flaskmysqldockerized_uploads
+DRIVER<span class="w">              </span>VOLUME<span class="w"> </span>NAME
+<span class="nb">local</span><span class="w">               </span>db6caef4eae28832f35af0951e95ae77d6c29189a793300f5aa9523cd25af362
+<span class="nb">local</span><span class="w">               </span>flaskmysqldockerized_uploads
 </code></pre></div>
 <p>And you can find the path on the host with</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># docker volume inspect flaskmysqldockerized_uploads</span>
 <span class="o">[</span>
-    <span class="o">{</span>
-        <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
-        <span class="s2">"Labels"</span>: <span class="o">{</span>
-            <span class="s2">"com.docker.compose.project"</span>: <span class="s2">"flaskmysqldockerized"</span>,
-            <span class="s2">"com.docker.compose.volume"</span>: <span class="s2">"uploads"</span>
-        <span class="o">}</span>,
-        <span class="s2">"Mountpoint"</span>: <span class="s2">"/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data"</span>,
-        <span class="s2">"Name"</span>: <span class="s2">"flaskmysqldockerized_uploads"</span>,
-        <span class="s2">"Options"</span>: <span class="o">{}</span>,
-        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>
-    <span class="o">}</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">"Driver"</span>:<span class="w"> </span><span class="s2">"local"</span>,
+<span class="w">        </span><span class="s2">"Labels"</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="s2">"com.docker.compose.project"</span>:<span class="w"> </span><span class="s2">"flaskmysqldockerized"</span>,
+<span class="w">            </span><span class="s2">"com.docker.compose.volume"</span>:<span class="w"> </span><span class="s2">"uploads"</span>
+<span class="w">        </span><span class="o">}</span>,
+<span class="w">        </span><span class="s2">"Mountpoint"</span>:<span class="w"> </span><span class="s2">"/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data"</span>,
+<span class="w">        </span><span class="s2">"Name"</span>:<span class="w"> </span><span class="s2">"flaskmysqldockerized_uploads"</span>,
+<span class="w">        </span><span class="s2">"Options"</span>:<span class="w"> </span><span class="o">{}</span>,
+<span class="w">        </span><span class="s2">"Scope"</span>:<span class="w"> </span><span class="s2">"local"</span>
+<span class="w">    </span><span class="o">}</span>
 <span class="o">]</span>
 </code></pre></div>
 <h3 id="cleanup">Cleanup</h3>

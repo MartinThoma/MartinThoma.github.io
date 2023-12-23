@@ -139,11 +139,11 @@ we will create a plugin which recognizes the pattern</p>
 </ul>
 <p>One can select the rules which one wants to check on a prefix-basis:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check all rules beginning with "E1" and nothing else</span>
-flake8 --select E1 .
+flake8<span class="w"> </span>--select<span class="w"> </span>E1<span class="w"> </span>.
 </code></pre></div>
 <p>Alternatively, one can blacklist rules:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check all rules except the ones beginning with E1 or W512</span>
-flake8 --ignore E1,W512 .
+flake8<span class="w"> </span>--ignore<span class="w"> </span>E1,W512<span class="w"> </span>.
 </code></pre></div>
 <p>Plugins need a 3-character prefix. For my plugin <a href="https://pypi.org/project/flake8-simplify/0.1.0/">flake8-simplify</a>, I chose SIM as a prefix.</p>
 <blockquote>
@@ -152,10 +152,10 @@ flake8 --ignore E1,W512 .
 <p><img alt="Comic by Geek and Poke (Oliver Widder)" src="https://cdn-images-1.medium.com/max/8534/1*TX5RSfIk0XrEeSX0aXm4hg.jpeg"/><em>Comic by <a href="https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html">Geek and Poke</a> (Oliver Widder)</em></p>
 <h2 id="the-flake8-plugin-skeleton">The Flake8 Plugin Skeleton</h2>
 <p><a href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> is a command-line utility that allows you to create a project from scratch by using a template. Install it via</p>
-<div class="highlight"><pre><span></span><code>pip install cookiecutter
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>cookiecutter
 </code></pre></div>
 <p>To create your Flake8 plugin template, use:</p>
-<div class="highlight"><pre><span></span><code>cookiecutter https://github.com/MartinThoma/cookiecutter-flake8-plugin
+<div class="highlight"><pre><span></span><code>cookiecutter<span class="w"> </span>https://github.com/MartinThoma/cookiecutter-flake8-plugin
 </code></pre></div>
 <h2 id="the-flake8-plugin-class">The Flake8 Plugin class</h2>
 <p>You need to create a plugin class like this:</p>
@@ -186,32 +186,32 @@ flake8 --ignore E1,W512 .
 </code></pre></div>
 <p>You need to point to that class in the setup.cfg:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[options.entry_points]</span>
-<span class="na">flake8.extension</span> <span class="o">=</span><span class="s"></span>
-<span class="s">    AWE=flake8_awesome:Plugin</span>
+<span class="na">flake8.extension</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">AWE</span><span class="o">=</span><span class="s">flake8_awesome:Plugin</span>
 </code></pre></div>
 <p>Just replace AWE by the 3-character code you want to have for your rules. We are, of course, not there jet. The visitor class still needs to be implemented. But to understand the visitor, we need to understand Pythons AST.</p>
 <h2 id="understanding-pythons-ast">Understanding Pythons AST</h2>
 <p>An <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a> (AST) is another representation of the code.</p>
 <p>Install <a href="https://pypi.org/project/astpretty/">astpretty</a> to understand how the AST looks like for a piece of code you&rsquo;re interested in:</p>
-<div class="highlight"><pre><span></span><code>pip install astpretty
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>astpretty
 </code></pre></div>
 <p>Here is how you use it:</p>
-<div class="highlight"><pre><span></span><code>$ astpretty --no-show-offsets /dev/stdin <span class="o">&lt;&lt;&lt;</span> <span class="s2">"not a == b"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>astpretty<span class="w"> </span>--no-show-offsets<span class="w"> </span>/dev/stdin<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">"not a == b"</span>
 
 Module<span class="o">(</span>
-    <span class="nv">body</span><span class="o">=[</span>
-        Expr<span class="o">(</span>
-            <span class="nv">value</span><span class="o">=</span>UnaryOp<span class="o">(</span>
-                <span class="nv">op</span><span class="o">=</span>Not<span class="o">()</span>,
-                <span class="nv">operand</span><span class="o">=</span>Compare<span class="o">(</span>
-                    <span class="nv">left</span><span class="o">=</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'a'</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())</span>,
-                    <span class="nv">ops</span><span class="o">=[</span>Eq<span class="o">()]</span>,
-                    <span class="nv">comparators</span><span class="o">=[</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'b'</span>, <span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())]</span>,
-                <span class="o">)</span>,
-            <span class="o">)</span>,
-        <span class="o">)</span>,
-    <span class="o">]</span>,
-    <span class="nv">type_ignores</span><span class="o">=[]</span>,
+<span class="w">    </span><span class="nv">body</span><span class="o">=[</span>
+<span class="w">        </span>Expr<span class="o">(</span>
+<span class="w">            </span><span class="nv">value</span><span class="o">=</span>UnaryOp<span class="o">(</span>
+<span class="w">                </span><span class="nv">op</span><span class="o">=</span>Not<span class="o">()</span>,
+<span class="w">                </span><span class="nv">operand</span><span class="o">=</span>Compare<span class="o">(</span>
+<span class="w">                    </span><span class="nv">left</span><span class="o">=</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'a'</span>,<span class="w"> </span><span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())</span>,
+<span class="w">                    </span><span class="nv">ops</span><span class="o">=[</span>Eq<span class="o">()]</span>,
+<span class="w">                    </span><span class="nv">comparators</span><span class="o">=[</span>Name<span class="o">(</span><span class="nv">id</span><span class="o">=</span><span class="s1">'b'</span>,<span class="w"> </span><span class="nv">ctx</span><span class="o">=</span>Load<span class="o">())]</span>,
+<span class="w">                </span><span class="o">)</span>,
+<span class="w">            </span><span class="o">)</span>,
+<span class="w">        </span><span class="o">)</span>,
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="nv">type_ignores</span><span class="o">=[]</span>,
 <span class="o">)</span>
 </code></pre></div>
 <p>Next, we need to recognize that pattern.</p>
@@ -232,7 +232,7 @@ Module<span class="o">(</span>
 
 
 <span class="k">def</span> <span class="nf">_get_not_equal_calls</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">UnaryOp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-    <span class="sd">"""Get a list of all calls where an unary 'not' is used for an quality."""</span>
+<span class="w">    </span><span class="sd">"""Get a list of all calls where an unary 'not' is used for an quality."""</span>
     <span class="n">errors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Not</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Compare</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">errors</span>
@@ -258,14 +258,14 @@ Module<span class="o">(</span>
 
 
 <span class="k">def</span> <span class="nf">_results</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-    <span class="sd">"""Apply the plugin to the given code."""</span>
+<span class="w">    </span><span class="sd">"""Apply the plugin to the given code."""</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
     <span class="n">plugin</span> <span class="o">=</span> <span class="n">Plugin</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">plugin</span><span class="o">.</span><span class="n">run</span><span class="p">()}</span>
 
 
 <span class="k">def</span> <span class="nf">test_trivial_case</span><span class="p">():</span>
-    <span class="sd">"""Check the plugins output for no code."""</span>
+<span class="w">    </span><span class="sd">"""Check the plugins output for no code."""</span>
     <span class="k">assert</span> <span class="n">_results</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
 </code></pre></div>
 <p>A non-trivial test looks like this:</p>

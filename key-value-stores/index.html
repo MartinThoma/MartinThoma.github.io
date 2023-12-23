@@ -172,16 +172,16 @@ for this problem.</p>
 <li>EC2 xlarge: 630 reads/s; 483 read+writes / s</li>
 </ul>
 <p>sysbench:</p>
-<div class="highlight"><pre><span></span><code>$ mysql
-&gt; create database sbtest<span class="p">;</span>
-$ sysbench oltp_read_write --db-driver<span class="o">=</span>mysql --mysql-db<span class="o">=</span>dbtest --mysql-user<span class="o">=</span>root --mysql-password<span class="o">=</span>YOUR_PASSWORD prepare
-$ sysbench oltp_read_write --db-driver<span class="o">=</span>mysql --mysql-db<span class="o">=</span>dbtest --threads<span class="o">=</span><span class="m">16</span> --events<span class="o">=</span><span class="m">100000</span> --mysql-user<span class="o">=</span>root --mysql-password<span class="o">=</span>YOUR_PASSWORD run
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mysql
+&gt;<span class="w"> </span>create<span class="w"> </span>database<span class="w"> </span>sbtest<span class="p">;</span>
+$<span class="w"> </span>sysbench<span class="w"> </span>oltp_read_write<span class="w"> </span>--db-driver<span class="o">=</span>mysql<span class="w"> </span>--mysql-db<span class="o">=</span>dbtest<span class="w"> </span>--mysql-user<span class="o">=</span>root<span class="w"> </span>--mysql-password<span class="o">=</span>YOUR_PASSWORD<span class="w"> </span>prepare
+$<span class="w"> </span>sysbench<span class="w"> </span>oltp_read_write<span class="w"> </span>--db-driver<span class="o">=</span>mysql<span class="w"> </span>--mysql-db<span class="o">=</span>dbtest<span class="w"> </span>--threads<span class="o">=</span><span class="m">16</span><span class="w"> </span>--events<span class="o">=</span><span class="m">100000</span><span class="w"> </span>--mysql-user<span class="o">=</span>root<span class="w"> </span>--mysql-password<span class="o">=</span>YOUR_PASSWORD<span class="w"> </span>run
 
-$ sudo -u postgres psql
+$<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># CREATE DATABASE sbtest;</span>
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># grant all privileges on database sbtest to example_user;</span>
-$ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<span class="o">=</span>sbtest --pgsql-user<span class="o">=</span>example_user --pgsql-password<span class="o">=</span>example_password prepare
-$ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<span class="o">=</span>sbtest --threads<span class="o">=</span><span class="m">16</span> --events<span class="o">=</span><span class="m">100000</span> --pgsql-user<span class="o">=</span>example_user --pgsql-password<span class="o">=</span>example_password run
+$<span class="w"> </span>sysbench<span class="w"> </span>oltp_read_write<span class="w"> </span>--db-driver<span class="o">=</span>pgsql<span class="w"> </span>--pgsql-db<span class="o">=</span>sbtest<span class="w"> </span>--pgsql-user<span class="o">=</span>example_user<span class="w"> </span>--pgsql-password<span class="o">=</span>example_password<span class="w"> </span>prepare
+$<span class="w"> </span>sysbench<span class="w"> </span>oltp_read_write<span class="w"> </span>--db-driver<span class="o">=</span>pgsql<span class="w"> </span>--pgsql-db<span class="o">=</span>sbtest<span class="w"> </span>--threads<span class="o">=</span><span class="m">16</span><span class="w"> </span>--events<span class="o">=</span><span class="m">100000</span><span class="w"> </span>--pgsql-user<span class="o">=</span>example_user<span class="w"> </span>--pgsql-password<span class="o">=</span>example_password<span class="w"> </span>run
 </code></pre></div>
 <p>On my Thinkpad T460p I get the following numbers. However, I'm not certain how
 valuable they are as they fluctuate quite a bit between consecutive runs.</p>

@@ -151,55 +151,55 @@ mysite
     └── wsgi.py
 </code></pre></div>
 <p>Create an app:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> mysite
-$ python manage.py startapp polls
-$ tree .
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>mysite
+$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>polls
+$<span class="w"> </span>tree<span class="w"> </span>.
 .
-├── manage.py
-├── mysite
-│&nbsp;&nbsp; ├── __init__.py
-│&nbsp;&nbsp; ├── settings.py
-│&nbsp;&nbsp; ├── urls.py
-│&nbsp;&nbsp; └── wsgi.py
-└── polls
-    ├── admin.py
-    ├── apps.py
-    ├── __init__.py
-    ├── migrations
-    │&nbsp;&nbsp; └── __init__.py
-    ├── models.py
-    ├── tests.py
-    └── views.py
+├──<span class="w"> </span>manage.py
+├──<span class="w"> </span>mysite
+│<span class="w">&nbsp;&nbsp; </span>├──<span class="w"> </span>__init__.py
+│<span class="w">&nbsp;&nbsp; </span>├──<span class="w"> </span>settings.py
+│<span class="w">&nbsp;&nbsp; </span>├──<span class="w"> </span>urls.py
+│<span class="w">&nbsp;&nbsp; </span>└──<span class="w"> </span>wsgi.py
+└──<span class="w"> </span>polls
+<span class="w">    </span>├──<span class="w"> </span>admin.py
+<span class="w">    </span>├──<span class="w"> </span>apps.py
+<span class="w">    </span>├──<span class="w"> </span>__init__.py
+<span class="w">    </span>├──<span class="w"> </span>migrations
+<span class="w">    </span>│<span class="w">&nbsp;&nbsp; </span>└──<span class="w"> </span>__init__.py
+<span class="w">    </span>├──<span class="w"> </span>models.py
+<span class="w">    </span>├──<span class="w"> </span>tests.py
+<span class="w">    </span>└──<span class="w"> </span>views.py
 </code></pre></div>
 <p>Create DB:</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py migrate
-Operations to perform:
-  Apply all migrations: admin, auth, contenttypes, sessions
-Running migrations:
-  Applying contenttypes.0001_initial... OK
-  Applying auth.0001_initial... OK
-  Applying admin.0001_initial... OK
-  Applying admin.0002_logentry_remove_auto_add... OK
-  Applying admin.0003_logentry_add_action_flag_choices... OK
-  Applying contenttypes.0002_remove_content_type_name... OK
-  Applying auth.0002_alter_permission_name_max_length... OK
-  Applying auth.0003_alter_user_email_max_length... OK
-  Applying auth.0004_alter_user_username_opts... OK
-  Applying auth.0005_alter_user_last_login_null... OK
-  Applying auth.0006_require_contenttypes_0002... OK
-  Applying auth.0007_alter_validators_add_error_messages... OK
-  Applying auth.0008_alter_user_username_max_length... OK
-  Applying auth.0009_alter_user_last_name_max_length... OK
-  Applying sessions.0001_initial... OK
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+Operations<span class="w"> </span>to<span class="w"> </span>perform:
+<span class="w">  </span>Apply<span class="w"> </span>all<span class="w"> </span>migrations:<span class="w"> </span>admin,<span class="w"> </span>auth,<span class="w"> </span>contenttypes,<span class="w"> </span>sessions
+Running<span class="w"> </span>migrations:
+<span class="w">  </span>Applying<span class="w"> </span>contenttypes.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>admin.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>admin.0002_logentry_remove_auto_add...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>admin.0003_logentry_add_action_flag_choices...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>contenttypes.0002_remove_content_type_name...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0002_alter_permission_name_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0003_alter_user_email_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0004_alter_user_username_opts...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0005_alter_user_last_login_null...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0006_require_contenttypes_0002...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0007_alter_validators_add_error_messages...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0008_alter_user_username_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0009_alter_user_last_name_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>sessions.0001_initial...<span class="w"> </span>OK
 </code></pre></div>
 <p>Make migrations - files that tell Django that the model changed and how it
 changed:</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py makemigrations polls
-Migrations <span class="k">for</span> <span class="s1">'polls'</span>:
-  polls/migrations/0001_initial.py
-    - Create model Choice
-    - Create model Question
-    - Add field question to choice
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations<span class="w"> </span>polls
+Migrations<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">'polls'</span>:
+<span class="w">  </span>polls/migrations/0001_initial.py
+<span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>model<span class="w"> </span>Choice
+<span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>model<span class="w"> </span>Question
+<span class="w">    </span>-<span class="w"> </span>Add<span class="w"> </span>field<span class="w"> </span>question<span class="w"> </span>to<span class="w"> </span>choice
 </code></pre></div>
 <h2 id="views">Views</h2>
 <p>Content is delivered by views. A simple view looks like this:</p>
@@ -210,18 +210,18 @@ Migrations <span class="k">for</span> <span class="s1">'polls'</span>:
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s2">"Hello, world. You're at the polls index."</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="orm">ORM</h2>
-<div class="highlight"><pre><span></span><code>$ python manage.py shell
-In <span class="o">[</span><span class="m">2</span><span class="o">]</span>: Question.objects.all<span class="o">()</span>
-Out<span class="o">[</span><span class="m">2</span><span class="o">]</span>: &lt;QuerySet <span class="o">[</span>&lt;Question: What<span class="s1">'s new?&gt;]</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>shell
+In<span class="w"> </span><span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>Question.objects.all<span class="o">()</span>
+Out<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>&lt;QuerySet<span class="w"> </span><span class="o">[</span>&lt;Question:<span class="w"> </span>What<span class="s1">'s new?&gt;]</span>
 <span class="s1">&gt;&gt;&gt; Question.objects.filter(question_text__startswith='</span>What<span class="s1">')</span>
-<span class="s1">&lt;QuerySet [&lt;Question: What'</span>s up?&gt;<span class="o">]</span>&gt;
+<span class="s1">&lt;QuerySet [&lt;Question: What'</span>s<span class="w"> </span>up?&gt;<span class="o">]</span>&gt;
 </code></pre></div>
 <h2 id="other-commands">Other commands</h2>
 <p>Interactive shell</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py shell
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>shell
 </code></pre></div>
 <p>Create an admin (superuser):</p>
-<div class="highlight"><pre><span></span><code>$ python manage.py createsuperuser
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>

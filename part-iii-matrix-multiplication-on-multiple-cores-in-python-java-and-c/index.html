@@ -128,18 +128,18 @@ MathJax.Hub.Queue(function() {
 <h2 id="python">Python</h2>
 <p>Because of global interpreter lock (GIL), you need to start new processes in Python (<a href="http://stackoverflow.com/a/9786225/562769">source</a>).</p>
 <p>The ikj single core algorithm implemented in Python needs:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-nonparallel.out
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>ikjMultiplication.py<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-nonparallel.out
 
-real    36m0.699s
-user    35m53.463s
-sys 0m2.356s
+real<span class="w">    </span>36m0.699s
+user<span class="w">    </span>35m53.463s
+sys<span class="w"> </span>0m2.356s
 </code></pre></div>
 <p>The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel.out
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>ikjMultiplication.py<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-parallel.out
 
-real    20m47.693s
-user    40m34.460s
-sys 0m2.092s
+real<span class="w">    </span>20m47.693s
+user<span class="w">    </span>40m34.460s
+sys<span class="w"> </span>0m2.092s
 </code></pre></div>
 <p>When we share memory, the code looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -190,7 +190,7 @@ sys 0m2.092s
 
 
 <span class="k">def</span> <span class="nf">extant_file</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    'Type' for argparse - checks that file exists but does not open.</span>
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -237,11 +237,11 @@ sys 0m2.092s
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </code></pre></div>
 <p>and it needs MUCH more time:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication-shared.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel-2threads.out
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>ikjMultiplication-shared.py<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-parallel-2threads.out
 
-real    131m35.433s
-user    250m36.820s
-sys 0m9.533s
+real<span class="w">    </span>131m35.433s
+user<span class="w">    </span>250m36.820s
+sys<span class="w"> </span>0m9.533s
 </code></pre></div>
 <p>When we don't use shared memory, things run faster:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -286,7 +286,7 @@ sys 0m9.533s
 
 
 <span class="k">def</span> <span class="nf">extant_file</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    'Type' for argparse - checks that file exists but does not open.</span>
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -331,196 +331,196 @@ sys 0m9.533s
     <span class="n">C</span> <span class="o">=</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">)</span>
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span> python ikjMultiplication.py -i <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel-4threads.out
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>python<span class="w"> </span>ikjMultiplication.py<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-parallel-4threads.out
 
-real    22m46.066s
-user    41m42.396s
-sys 0m2.324s
+real<span class="w">    </span>22m46.066s
+user<span class="w">    </span>41m42.396s
+sys<span class="w"> </span>0m2.324s
 </code></pre></div>
 <h2 id="java">Java</h2>
 <p>Shell.java:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.concurrent.Callable</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutionException</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.concurrent.Future</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedReader</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileReader</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.Callable</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ExecutionException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ExecutorService</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.Executors</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.Future</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Shell</span> <span class="p">{</span>
-    <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="nf">read</span><span class="p">(</span><span class="n">String</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="p">();</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shell</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="p">();</span>
 
-        <span class="n">String</span> <span class="n">thisLine</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">thisLine</span><span class="p">;</span>
 
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
-            <span class="c1">// Begin reading A</span>
-            <span class="k">while</span> <span class="p">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">thisLine</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">""</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="k">break</span><span class="p">;</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-                    <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
-                    <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">number</span> <span class="p">:</span> <span class="n">lineArray</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">line</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
-                    <span class="p">}</span>
-                    <span class="n">A</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
+<span class="w">            </span><span class="c1">// Begin reading A</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">thisLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">thisLine</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">""</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">                    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">lineArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lineArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">line</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="n">A</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
 
-            <span class="c1">// Begin reading B</span>
-            <span class="k">while</span> <span class="p">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-                <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">number</span> <span class="p">:</span> <span class="n">lineArray</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">line</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
-                <span class="p">}</span>
-                <span class="n">B</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="n">br</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error: "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">            </span><span class="c1">// Begin reading B</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">thisLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">                </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">lineArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thisLine</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lineArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">line</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">B</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">br</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Error: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
-        <span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
-        <span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">line</span> <span class="p">:</span> <span class="n">matrix</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">(</span><span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-                <span class="p">}</span>
-                <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printMatrix</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matrix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">matrix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="n">matrix</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">line</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"\t"</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">parallelMult</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="p">,</span>
-            <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span><span class="p">,</span> <span class="kt">int</span> <span class="n">threadNumber</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">][</span><span class="n">B</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">size</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
-        <span class="n">ExecutorService</span> <span class="n">executor</span> <span class="o">=</span> <span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="n">threadNumber</span><span class="p">);</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="nf">parallelMult</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">threadNumber</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">][</span><span class="n">B</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">size</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="n">threadNumber</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;&gt;</span><span class="p">();</span>
 
-        <span class="kt">int</span> <span class="n">part</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">threadNumber</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">part</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">part</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">part</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-            <span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="n">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineMultiplier</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">part</span><span class="p">);</span>
-            <span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="n">submit</span> <span class="o">=</span> <span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
-            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">submit</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">threadNumber</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">part</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">part</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LineMultiplier</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="n">part</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span><span class="w"> </span><span class="n">submit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span>
+<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">submit</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="c1">// now retrieve the result</span>
-        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">CF</span><span class="o">[][]</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="n">future</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">try</span> <span class="p">{</span>
-                <span class="n">CF</span> <span class="o">=</span> <span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
-                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">start</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">start</span><span class="o">+</span><span class="n">part</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">CF</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
-                <span class="p">}</span>
-            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
-            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ExecutionException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
-            <span class="p">}</span>
-            <span class="n">start</span><span class="o">+=</span><span class="n">part</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">executor</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// now retrieve the result</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">CF</span><span class="o">[][]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">CF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">start</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">start</span><span class="o">+</span><span class="n">part</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CF</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutionException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">start</span><span class="o">+=</span><span class="n">part</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">executor</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
 
-        <span class="k">return</span> <span class="n">C</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">String</span> <span class="n">filename</span><span class="p">;</span>
-        <span class="kt">int</span> <span class="n">cores</span> <span class="o">=</span> <span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">availableProcessors</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of cores:\t"</span> <span class="o">+</span> <span class="n">cores</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">filename</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">cores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">availableProcessors</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Number of cores:\t"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cores</span><span class="p">);</span>
 
-        <span class="kt">int</span> <span class="n">threads</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="s">"3.in"</span><span class="p">;</span>
-            <span class="n">threads</span> <span class="o">=</span> <span class="n">cores</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
-            <span class="n">threads</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">threads</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"3.in"</span><span class="p">;</span>
+<span class="w">            </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cores</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="n">matrices</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">matrices</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="n">matrices</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span> <span class="o">=</span> <span class="n">parallelMult</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threads</span><span class="p">);</span>
-        <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">matrices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrices</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrices</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parallelMult</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">threads</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>LineMultiplier.java:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.concurrent.Callable</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.Callable</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LineMultiplier</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="p">{</span>
-    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="p">;</span>
-    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">start</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">end</span><span class="p">;</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LineMultiplier</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
 
-    <span class="kd">public</span> <span class="nf">LineMultiplier</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">,</span>
-            <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-        <span class="n">B</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-        <span class="n">C</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">a</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">][</span><span class="n">b</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">size</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">LineMultiplier</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">        </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">a</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">][</span><span class="n">b</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">size</span><span class="p">()</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">        </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">call</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">.</span><span class="na">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="n">B</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">k</span><span class="p">).</span><span class="na">get</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">C</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">k</span><span class="p">).</span><span class="na">get</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Execute it with only one thread:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span> java Shell -i <span class="m">2000</span>.in <span class="m">1</span> &gt; <span class="m">2000</span>-paralllel.out
-Number of cores:    <span class="m">2</span>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>java<span class="w"> </span>Shell<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-paralllel.out
+Number<span class="w"> </span>of<span class="w"> </span>cores:<span class="w">    </span><span class="m">2</span>
 <span class="m">0</span>
 
-real    0m40.571s
-user    0m42.259s
-sys 0m0.388s
+real<span class="w">    </span>0m40.571s
+user<span class="w">    </span>0m42.259s
+sys<span class="w"> </span>0m0.388s
 </code></pre></div>
 <p>Execute it with two threads:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">time</span> java Shell -i <span class="m">2000</span>.in <span class="m">2</span> &gt; <span class="m">2000</span>-paralllel.out
-Number of cores:    <span class="m">2</span>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>java<span class="w"> </span>Shell<span class="w"> </span>-i<span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span><span class="m">2</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-paralllel.out
+Number<span class="w"> </span>of<span class="w"> </span>cores:<span class="w">    </span><span class="m">2</span>
 <span class="m">0</span>
 <span class="m">1000</span>
 
-real    0m30.188s
-user    0m54.999s
-sys 0m0.512s
+real<span class="w">    </span>0m30.188s
+user<span class="w">    </span>0m54.999s
+sys<span class="w"> </span>0m0.512s
 </code></pre></div>
 <p>Note that real time is lower than user time. The reason is simply that the execution time on each processor is added. So user time might be double as high as real time!</p>
 <p>We got from 40.571s down to 0m30.188s!</p>
@@ -533,11 +533,11 @@ sys 0m0.512s
 <h2 id="c_1">C++</h2>
 <p>Making the ikj-algorithm parallel is trivial with C++. You only need to add <code>#pragma omp parallel for</code> before the outer most for loop and add <code>-fopenmp</code> as a compile flag!
 (If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> ./ikj-algorithm.out <span class="m">2</span> <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel.out
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">time</span><span class="w"> </span>./ikj-algorithm.out<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2000</span>.in<span class="w"> </span>&gt;<span class="w"> </span><span class="m">2000</span>-parallel.out
 
-real    0m12.563s
-user    0m20.569s
-sys 0m0.156s
+real<span class="w">    </span>0m12.563s
+user<span class="w">    </span>0m20.569s
+sys<span class="w"> </span>0m0.156s
 </code></pre></div>
 <p>So we got from 20.407 seconds down to 12.563 seconds by adding only one line!</p>
 <h3 id="more-information">More Information</h3>

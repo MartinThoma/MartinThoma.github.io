@@ -117,23 +117,23 @@ executing small ad-hoc tasks. In this sense, it is similar to <code>sed</code>, 
 Getting an idea what you actually have.</p>
 <h2 id="installation">Installation</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu</span>
-$ sudo apt-get install jq
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>jq
 </code></pre></div>
 <p>Check if it worked:</p>
-<div class="highlight"><pre><span></span><code>$ jq --version
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>jq<span class="w"> </span>--version
 jq-1.5-1-a5b5cbe
 </code></pre></div>
 <h2 id="usage-example">Usage Example</h2>
 <p>There are <a href="https://github.com/jdorfman/awesome-json-datasets#movies">tons of JSON dataset examples</a>. Let's use <a href="https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json">American movies scraped from Wikipedia</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download the data</span>
-$ wget https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
+$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
 
 <span class="c1"># What do we have here?</span>
-$ wc movies.json
-      <span class="m">0</span>  <span class="m">144969</span> <span class="m">3386161</span> movies.json
+$<span class="w"> </span>wc<span class="w"> </span>movies.json
+<span class="w">      </span><span class="m">0</span><span class="w">  </span><span class="m">144969</span><span class="w"> </span><span class="m">3386161</span><span class="w"> </span>movies.json
 
 <span class="c1"># Everything is in one super long line. Is it a dict or a list?</span>
-$ head -c <span class="m">80</span> movies.json
+$<span class="w"> </span>head<span class="w"> </span>-c<span class="w"> </span><span class="m">80</span><span class="w"> </span>movies.json
 <span class="o">[{</span><span class="s2">"title"</span>:<span class="s2">"After Dark in Central Park"</span>,<span class="s2">"year"</span>:1900,<span class="s2">"cast"</span>:<span class="o">[]</span>,<span class="s2">"genres"</span>:<span class="o">[]}</span>,<span class="o">{</span><span class="s2">"titl%</span>
 
 <span class="s2"># List. How many movies do we have?</span>
@@ -144,19 +144,19 @@ $<span class="s2"> cat movies.json | jq '. | length'</span>
 $<span class="s2"> cat movies.json | jq '.[:5]'</span>
 <span class="s2">[</span>
 <span class="s2">  {</span>
-<span class="s2">    "</span>title<span class="s2">": "</span>After Dark in Central Park<span class="s2">",</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>After<span class="w"> </span>Dark<span class="w"> </span><span class="k">in</span><span class="w"> </span>Central<span class="w"> </span>Park<span class="s2">",</span>
 <span class="s2">    "</span>year<span class="s2">": 1900,</span>
 <span class="s2">    "</span>cast<span class="s2">": [],</span>
 <span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  },</span>
 <span class="s2">  {</span>
-<span class="s2">    "</span>title<span class="s2">": "</span>Boarding School Girls<span class="s1">' Pajama Parade",</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Boarding<span class="w"> </span>School<span class="w"> </span>Girls<span class="s1">' Pajama Parade",</span>
 <span class="s1">    "year": 1900,</span>
 <span class="s1">    "cast": [],</span>
 <span class="s1">    "genres": []</span>
 <span class="s1">  },</span>
 <span class="s1">  {</span>
-<span class="s1">    "title": "Buffalo Bill'</span>s Wild West Parad<span class="s2">",</span>
+<span class="s1">    "title": "Buffalo Bill'</span>s<span class="w"> </span>Wild<span class="w"> </span>West<span class="w"> </span>Parad<span class="s2">",</span>
 <span class="s2">    "</span>year<span class="s2">": 1900,</span>
 <span class="s2">    "</span>cast<span class="s2">": [],</span>
 <span class="s2">    "</span>genres<span class="s2">": []</span>
@@ -168,7 +168,7 @@ $<span class="s2"> cat movies.json | jq '.[:5]'</span>
 <span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  },</span>
 <span class="s2">  {</span>
-<span class="s2">    "</span>title<span class="s2">": "</span>Clowns Spinning Hats<span class="s2">",</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Clowns<span class="w"> </span>Spinning<span class="w"> </span>Hats<span class="s2">",</span>
 <span class="s2">    "</span>year<span class="s2">": 1900,</span>
 <span class="s2">    "</span>cast<span class="s2">": [],</span>
 <span class="s2">    "</span>genres<span class="s2">": []</span>
@@ -180,7 +180,7 @@ we get with <code>jq</code>.</p>
 <p>I want to see the titles. To do so, I first extract each list element. Then
 I extract the <code>title</code> field from each of them. To allow me scolling through it,
 I apply <code>less</code>:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title'</span> <span class="p">|</span> less
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | .title'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 <span class="s2">"After Dark in Central Park"</span>
 <span class="s2">"Boarding School Girls' Pajama Parade"</span>
 <span class="s2">"Buffalo Bill's Wild West Parad"</span>
@@ -195,7 +195,7 @@ I apply <code>less</code>:</p>
 ...
 </code></pre></div>
 <p>Now I want to find errors in the data:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&lt;=2)'</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | .title | select(length&lt;=2)'</span>
 <span class="s2">"It"</span>
 <span class="s2">"M"</span>
 <span class="s2">"W"</span>
@@ -220,14 +220,14 @@ I apply <code>less</code>:</p>
 <span class="s2">"XX"</span>
 <span class="s2">"It"</span>
 
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .title | length] | max'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .title | length] | max'</span>
 <span class="m">110</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&gt;=100)'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | .title | select(length&gt;=100)'</span>
 <span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
 <span class="s2">"The Green Goods Man; or, Josiah and Samanthy's Experience with the Original 'American Confidence Game'"</span>
 
 <span class="c1"># Alternatively:</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'max_by(.title | length).title'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'max_by(.title | length).title'</span>
 <span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
 </code></pre></div>
 <p>WTF, <a href="https://www.imdb.com/title/tt0235439/">The Green Goods Man...</a> and
@@ -237,13 +237,13 @@ actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_
 <a href="https://www.imdb.com/title/tt0043766/?ref_=fn_al_tt_2">M</a> and
 <a href="https://www.imdb.com/title/tt3166542/?ref_=fn_al_tt_3">W</a> are actually titles!</p>
 <p>Ok, let's see which value range the year covers:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | min'</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .year] | min'</span>
 <span class="m">1900</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | max'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .year] | max'</span>
 <span class="m">2018</span>
 </code></pre></div>
 <p>Let's see which ones were published in 1900:</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.year == 1900) | .title'</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | select(.year == 1900) | .title'</span>
 <span class="s2">"After Dark in Central Park"</span>
 <span class="s2">"Boarding School Girls' Pajama Parade"</span>
 <span class="s2">"Buffalo Bill's Wild West Parad"</span>
@@ -264,24 +264,24 @@ $ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | 
 </code></pre></div>
 <p>Now, what about the <code>cast</code> field? How often is there at least one value? What
 is the maximum number of cast members we have?</p>
-<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | length] | max'</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | length] | max'</span>
 <span class="m">35</span>
 
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=1)] | length'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | select(length&gt;=1)] | length'</span>
 <span class="m">27871</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=2)] | length'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | select(length&gt;=2)] | length'</span>
 <span class="m">26145</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=3)] | length'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | select(length&gt;=3)] | length'</span>
 <span class="m">13755</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=10)] | length'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | select(length&gt;=10)] | length'</span>
 <span class="m">394</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=20)] | length'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | select(length&gt;=20)] | length'</span>
 <span class="m">23</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=30)] | length'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .cast | select(length&gt;=30)] | length'</span>
 <span class="m">3</span>
 
 <span class="c1"># Get the titles for which we have at least 30 actors:</span>
-$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.cast|length&gt;=30) | .title'</span>
+$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | select(.cast|length&gt;=30) | .title'</span>
 <span class="s2">"Cars 2"</span>
 <span class="s2">"The Twilight Saga: Breaking Dawn - Part 2"</span>
 <span class="s2">"Anchorman 2: The Legend Continues"</span>

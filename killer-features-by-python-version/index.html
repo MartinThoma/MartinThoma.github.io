@@ -116,27 +116,27 @@ MathJax.Hub.Queue(function() {
 <h2 id="pyenv">pyenv</h2>
 <p>Before we start going into details, you must know about pyenv. It&rsquo;s a super handy tool which let&rsquo;s you easily switch the Python version. It downloads them automatically for you. Here is how you use it:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># See which Python versions are available:</span>
-$ pyenv install --list
+$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span>--list
 
 <span class="c1"># Install one</span>
-$ pyenv install <span class="m">3</span>.5.9
+$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.5.9
 
 <span class="c1"># Use one:</span>
-$ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
+$<span class="w"> </span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.5.9
 </code></pre></div>
 <p>It&rsquo;s pretty neat that it switches also the tools you install with it. For example, when you switch to 3.5.9, you also have pip for that version.</p>
 <h2 id="python-35">Python 3.5</h2>
 <p>I really hope nobody is using Python versions below 3.3 anymore. Or, god forbid, even Python 2.7 😨.</p>
 <p>There are so many new features and improvements in Python 3 compared to 2.7:</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">python2</span> <span class="n">thinks</span> <span class="n">this</span> <span class="k">is</span> <span class="n">fine</span><span class="p">,</span> <span class="n">python3</span> <span class="n">throws</span> <span class="n">an</span> <span class="k">Exception</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">True</span> <span class="o">=</span> <span class="k">False</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">max</span><span class="p">([</span><span class="s1">'foo'</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="s1">'foo'</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s1">'foo'</span> <span class="o">&gt;</span> <span class="mi">2</span>
-<span class="k">True</span>
+<div class="highlight"><pre><span></span><code># python2 thinks this is fine, python3 throws an Exception
+&gt;&gt;&gt; True = False
+&gt;&gt;&gt; max(['foo', 2])
+'foo'
+&gt;&gt;&gt; 'foo' &gt; 2
+True
 
-<span class="o">#</span> <span class="n">Advanced</span> <span class="n">iterable</span> <span class="n">unpacking</span><span class="p">:</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+# Advanced iterable unpacking:
+a, b, *rest = range(10)
 </code></pre></div>
 <p>And there is more:</p>
 <ul>
@@ -155,11 +155,11 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
 
 <span class="c1"># f-string!</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="s2">"foo {bar}"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">"foo </span><span class="si">{</span><span class="n">bar</span><span class="si">}</span><span class="s2">"</span>
 <span class="s1">'foo 3'</span>
 
 <span class="c1"># PEP 515: Underscores in Numeric Literals</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span><span class="n">_000_000</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 </code></pre></div>
 <p>The list of <a href="https://docs.python.org/3/whatsnew/3.6.html">new features in Python 3.6</a> is way longer. One improvement to point out is that the internal representation of dictionaries became way more efficient, leading to a 20% size reduction in memory.</p>
 <h2 id="python-37">Python 3.7</h2>
@@ -182,20 +182,20 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
 <li><a href="https://www.python.org/dev/peps/pep-0589/">PEP-589</a>: TypedDict 🎉</li>
 </ul>
 <h2 id="python-38">Python 3.8</h2>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">f</span><span class="o">-</span><span class="n">strings</span> <span class="k">for</span> <span class="n">debugging</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span> <span class="o">=</span> <span class="ss">"Hello World"</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="ss">"{foo=}, {bar=}"</span>
-<span class="ss">"foo='Hello World', bar=3"</span>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="nv">f</span><span class="o">-</span><span class="nv">strings</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">debugging</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">f</span><span class="s">"{foo=}, {bar=}"</span>
+<span class="s">"foo='Hello World', bar=3"</span>
 
-<span class="o">#</span> <span class="k">Assignment</span> <span class="n">expressions</span> <span class="p">(</span><span class="n">aka</span><span class="p">:</span> <span class="n">The</span> <span class="n">Walrus</span> <span class="k">Operator</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">is_positive</span> <span class="p">:</span><span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="p">...</span>     <span class="n">print</span><span class="p">(</span><span class="ss">"It's positive!"</span><span class="p">)</span>
-<span class="p">...</span> <span class="k">else</span><span class="p">:</span>
-<span class="p">...</span>     <span class="n">print</span><span class="p">(</span><span class="ss">"It's negative"</span><span class="p">)</span>
-<span class="p">...</span>
-<span class="n">It</span><span class="err">'</span><span class="n">s</span> <span class="n">positive</span><span class="o">!</span>
+<span class="o">#</span><span class="w"> </span><span class="nv">Assignment</span><span class="w"> </span><span class="nf">expressions</span><span class="w"> </span><span class="p">(</span><span class="nv">aka</span><span class="o">:</span><span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="nv">Walrus</span><span class="w"> </span><span class="nv">Operator</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">is_positive</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span>
+<span class="o">...</span><span class="w">     </span><span class="nf">print</span><span class="p">(</span><span class="s">"It's positive!"</span><span class="p">)</span>
+<span class="o">...</span><span class="w"> </span><span class="k">else</span><span class="o">:</span>
+<span class="o">...</span><span class="w">     </span><span class="nf">print</span><span class="p">(</span><span class="s">"It's negative"</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="nv">It</span><span class="o">'</span><span class="nv">s</span><span class="w"> </span><span class="nv">positive</span><span class="o">!</span>
 </code></pre></div>
 <p>TypedDict is also pretty cool (example taken from <a href="https://www.python.org/dev/peps/pep-0589/">PEP-589</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
@@ -210,12 +210,12 @@ $ pyenv <span class="nb">local</span> <span class="m">3</span>.5.9
 </code></pre></div>
 <h2 id="python-39">Python 3.9</h2>
 <p>Dictionary Union:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; a = {'foo': 'bar', 42: 1337}</span>
-<span class="err">&gt;&gt;&gt; b = {'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'foo'}</span>
-<span class="err">&gt;&gt;&gt; a | b</span>
-<span class="err">{'foo': 'foo', 42: 1337, 'x': 'y', 'a': 'b', 'c': 'd'}</span>
-<span class="err">&gt;&gt;&gt; b | a</span>
-<span class="err">{'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'bar', 42: 1337}</span>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = {'foo': 'bar', 42: 1337}
+&gt;&gt;&gt; b = {'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'foo'}
+&gt;&gt;&gt; a | b
+{'foo': 'foo', 42: 1337, 'x': 'y', 'a': 'b', 'c': 'd'}
+&gt;&gt;&gt; b | a
+{'x': 'y', 'a': 'b', 'c': 'd', 'foo': 'bar', 42: 1337}
 </code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>

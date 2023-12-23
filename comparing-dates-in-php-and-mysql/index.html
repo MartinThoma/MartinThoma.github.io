@@ -174,7 +174,7 @@ The related functions are:
     <span class="k">echo</span> <span class="s1">'$d1 is greater than $d2.'</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>It prints '$d1 is less than $d2.' as</p>
 <div class="highlight"><pre><span></span><code><span class="x">date_parse ("2011-05-11");</span>
@@ -195,37 +195,37 @@ range is from '1000-01-01' to '9999-12-31'</li>
 range is from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC</li>
 </ul>
 <p>Those examples show more than a long explanation:</p>
-<div class="highlight"><pre><span></span><code>mysql&gt; SELECT CURTIME<span class="o">()</span><span class="p">;</span>
-        -&gt; <span class="s1">'23:50:26'</span>
+<div class="highlight"><pre><span></span><code>mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>CURTIME<span class="o">()</span><span class="p">;</span>
+<span class="w">        </span>-&gt;<span class="w"> </span><span class="s1">'23:50:26'</span>
 <span class="c1"># Adding zero will NOT convert it to a UNIX timestamp:</span>
-mysql&gt; SELECT CURTIME<span class="o">()</span> + <span class="m">0</span><span class="p">;</span>
-        -&gt; <span class="m">235026</span>.000000 <span class="c1"># An "integered" TIME</span>
+mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>CURTIME<span class="o">()</span><span class="w"> </span>+<span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">        </span>-&gt;<span class="w"> </span><span class="m">235026</span>.000000<span class="w"> </span><span class="c1"># An "integered" TIME</span>
 
-mysql&gt; SELECT NOW<span class="o">(</span> <span class="o">)</span>
-        -&gt; <span class="s1">'2011-10-04 18:33:45'</span>
+mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>NOW<span class="o">(</span><span class="w"> </span><span class="o">)</span>
+<span class="w">        </span>-&gt;<span class="w"> </span><span class="s1">'2011-10-04 18:33:45'</span>
 <span class="c1"># Adding zero is a bad idea here, too:</span>
-mysql&gt; SELECT NOW<span class="o">(</span> <span class="o">)</span> +0
-        -&gt; <span class="m">20111004190945</span>.000000 <span class="c1"># An "integered" DATETIME</span>
+mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>NOW<span class="o">(</span><span class="w"> </span><span class="o">)</span><span class="w"> </span>+0
+<span class="w">        </span>-&gt;<span class="w"> </span><span class="m">20111004190945</span>.000000<span class="w"> </span><span class="c1"># An "integered" DATETIME</span>
 <span class="c1"># If you want a UNIX Timestamp, use this function</span>
-mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">()</span><span class="p">;</span>
-        -&gt; <span class="m">1317746025</span>
-mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="s1">'2011-10-04 18:33:45'</span><span class="o">)</span><span class="p">;</span>
-        -&gt; <span class="m">1317746025</span>
+mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>UNIX_TIMESTAMP<span class="o">()</span><span class="p">;</span>
+<span class="w">        </span>-&gt;<span class="w"> </span><span class="m">1317746025</span>
+mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>UNIX_TIMESTAMP<span class="o">(</span><span class="s1">'2011-10-04 18:33:45'</span><span class="o">)</span><span class="p">;</span>
+<span class="w">        </span>-&gt;<span class="w"> </span><span class="m">1317746025</span>
 <span class="c1"># You can also convert it:</span>
-mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="sb">`</span>my_datetime_row<span class="sb">`</span><span class="o">)</span> FROM <span class="sb">`</span>my_table<span class="sb">`</span>
+mysql&gt;<span class="w"> </span>SELECT<span class="w"> </span>UNIX_TIMESTAMP<span class="o">(</span><span class="sb">`</span>my_datetime_row<span class="sb">`</span><span class="o">)</span><span class="w"> </span>FROM<span class="w"> </span><span class="sb">`</span>my_table<span class="sb">`</span>
 </code></pre></div>
 <h3 id="comparisons_1">Comparisons</h3>
 <p>You can compare two DATETIMEs like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">datetime2</span><span class="o">`</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="n">my_row</span><span class="o">`</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">my_table</span><span class="o">`</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="o">`</span><span class="n">datetime1</span><span class="o">`</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">`</span><span class="n">datetime2</span><span class="o">`</span>
 </code></pre></div>
 <p>It's of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">int1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">int2</span><span class="o">`</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="n">my_row</span><span class="o">`</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">my_table</span><span class="o">`</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="o">`</span><span class="n">int1</span><span class="o">`</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">`</span><span class="n">int2</span><span class="o">`</span>
 </code></pre></div>
 <p>But what happens if you compare a DATETIME with a Timestamp (integer)?</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="n">UNIX_TIMESTAMP</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="n">my_row</span><span class="o">`</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">my_table</span><span class="o">`</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="o">`</span><span class="n">datetime1</span><span class="o">`</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">UNIX_TIMESTAMP</span><span class="p">()</span>
 </code></pre></div>
 <p>This is basically:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="mi">1317750167</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="n">my_row</span><span class="o">`</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">my_table</span><span class="o">`</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="o">`</span><span class="n">datetime1</span><span class="o">`</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1317750167</span>
 </code></pre></div>
 <p>And it compares the "integered" DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don't do it. Never.
 Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FROM_UNIXTIME(unix_timestamp).</p>

@@ -134,17 +134,17 @@ should do. This means my analysis is very simple and thus prone to some errors.<
 imports the package.</p>
 <h3 id="non-weighted">Non-weighted</h3>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
-    <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
 <span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">20</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span>
 </code></pre></div>
 <p>which gives</p>
 <figure class="aligncenter">
@@ -153,19 +153,19 @@ imports the package.</p>
 </figure>
 <p>and without the system packages:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
-    <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
 <span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
 <span class="k">WHERE</span>
-    <span class="o">`</span><span class="n">on_pypi</span><span class="o">`</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">20</span>
+<span class="w">    </span><span class="o">`</span><span class="n">on_pypi</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span>
 </code></pre></div>
 <p>which gives</p>
 <figure class="wp-caption aligncenter" style="width: 510px">
@@ -175,17 +175,17 @@ imports the package.</p>
 <h3 id="weighted">Weighted</h3>
 <p>How often gets a single module included over all packages?</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
-    <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
-    <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
 <span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">20</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span>
 </code></pre></div>
 <p>2&nbsp;seconds later I've got the result:</p>
 <figure class="aligncenter">
@@ -195,19 +195,19 @@ imports the package.</p>
 <p>If I'm only interested in the packages which are on PyPI, hence not system
 packages, I execute the following query:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
-    <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
-    <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span>
 <span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
 <span class="k">WHERE</span>
-    <span class="o">`</span><span class="n">on_pypi</span><span class="o">`</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">20</span>
+<span class="w">    </span><span class="o">`</span><span class="n">on_pypi</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">times</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span>
 </code></pre></div>
 <p>which gives me about 2&nbsp;seconds later the following result:</p>
 <figure class="aligncenter">
@@ -220,19 +220,19 @@ also quite a lot which are not usefull at all. One possibility to identify such
 packages is by checking which packages get neither used by others nor use
 other packages</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">name</span><span class="o">`</span>
-<span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
+<span class="w">    </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">name</span><span class="o">`</span>
+<span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">packages</span><span class="o">`</span>
 <span class="k">WHERE</span>
-    <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="k">in</span> <span class="p">(</span>
-        <span class="k">SELECT</span> <span class="k">DISTINCT</span>
-            <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">package</span><span class="o">`</span>
-        <span class="k">FROM</span>
-            <span class="n">dependencies</span><span class="p">)</span>
-<span class="k">OR</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="k">in</span> <span class="p">(</span>
-        <span class="k">SELECT</span> <span class="k">DISTINCT</span>
-            <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
-        <span class="k">FROM</span>
-            <span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">)</span>
+<span class="w">    </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">            </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">package</span><span class="o">`</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="n">dependencies</span><span class="p">)</span>
+<span class="k">OR</span><span class="w"> </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">            </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">needs_package</span><span class="o">`</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="o">`</span><span class="n">dependencies</span><span class="o">`</span><span class="p">)</span>
 </code></pre></div>
 <p>This leads to the result that 54&thinsp;900 packages of 67&thinsp;582
 packages are not obviously crap. Or to write it in another way: 11&nbsp;682
@@ -263,7 +263,7 @@ themselves:</p>
 <li>pym: 256</li>
 </ol>
 <p>One interesting thing I've learned is that you can use <code>pip</code> like this:</p>
-<div class="highlight"><pre><span></span><code>$ pip search <span class="s2">"djan</span>$<span class="s2">"</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>search<span class="w"> </span><span class="s2">"djan</span>$<span class="s2">"</span>
 </code></pre></div>
 <p>... and I found a pip bug (<a href="https://github.com/pypa/pip/issues/3327">github.com/pypa/pip/issues/3327</a>)</p>
 <h2 id="graph-analysis_1">Graph analysis</h2>

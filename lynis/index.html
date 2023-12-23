@@ -114,55 +114,55 @@ MathJax.Hub.Queue(function() {
             <p><a href="https://cisofy.com/documentation/lynis/get-started/">Lynis</a> is a auditing tool.</p>
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install colorized-logs
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>colorized-logs
 </code></pre></div>
 <h2 id="problems">Problems</h2>
 <h3 id="could-not-find-languages-directory">could not find languages directory</h3>
 <p>https://github.com/CISOfy/lynis/issues/213</p>
 <h2 id="ubuntu-1804-audit_1">Ubuntu 18.04 Audit</h2>
-<div class="highlight"><pre><span></span><code>$ sudo -H ./lynis audit system <span class="p">|</span> ansi2html -la &gt; ~/report.html
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-H<span class="w"> </span>./lynis<span class="w"> </span>audit<span class="w"> </span>system<span class="w"> </span><span class="p">|</span><span class="w"> </span>ansi2html<span class="w"> </span>-la<span class="w"> </span>&gt;<span class="w"> </span>~/report.html
 </code></pre></div>
 <p>The <a href="https://martin-thoma.com/pdf/lynis-report.pdf">lynis report of Ubuntu 18.04</a> is super long.</p>
 <h2 id="hardening">Hardening</h2>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install debsecan debsums rkhunter
-$ sudo apt-get autoremove
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>debsecan<span class="w"> </span>debsums<span class="w"> </span>rkhunter
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>autoremove
 </code></pre></div>
 <h3 id="kernels">Kernels</h3>
 <p>List Kernels:</p>
-<div class="highlight"><pre><span></span><code>$ dpkg --list <span class="p">|</span> grep linux-image
-rc  linux-image-4.15.0-20-generic    <span class="m">4</span>.15.0-20.21    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-22-generic    <span class="m">4</span>.15.0-22.24    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-23-generic    <span class="m">4</span>.15.0-23.25    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-24-generic    <span class="m">4</span>.15.0-24.26    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-29-generic    <span class="m">4</span>.15.0-29.31    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-30-generic    <span class="m">4</span>.15.0-30.32    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-32-generic    <span class="m">4</span>.15.0-32.35    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-33-generic    <span class="m">4</span>.15.0-33.36    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-34-generic    <span class="m">4</span>.15.0-34.37    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-36-generic    <span class="m">4</span>.15.0-36.39    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-39-generic    <span class="m">4</span>.15.0-39.42    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-42-generic    <span class="m">4</span>.15.0-42.45    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-43-generic    <span class="m">4</span>.15.0-43.46    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-44-generic    <span class="m">4</span>.15.0-44.47    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-45-generic    <span class="m">4</span>.15.0-45.48    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-46-generic    <span class="m">4</span>.15.0-46.49    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-47-generic    <span class="m">4</span>.15.0-47.50    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-50-generic    <span class="m">4</span>.15.0-50.54    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-51-generic    <span class="m">4</span>.15.0-51.55    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-52-generic    <span class="m">4</span>.15.0-52.56    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-54-generic    <span class="m">4</span>.15.0-54.58    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-55-generic    <span class="m">4</span>.15.0-55.60    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-58-generic    <span class="m">4</span>.15.0-58.64    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-60-generic    <span class="m">4</span>.15.0-60.67    amd64    Signed kernel image generic
-rc  linux-image-4.15.0-62-generic    <span class="m">4</span>.15.0-62.69    amd64    Signed kernel image generic
-ii  linux-image-4.15.0-64-generic    <span class="m">4</span>.15.0-64.73    amd64    Signed kernel image generic
-ii  linux-image-4.15.0-65-generic    <span class="m">4</span>.15.0-65.74    amd64    Signed kernel image generic
-ii  linux-image-generic              <span class="m">4</span>.15.0.65.67    amd64    Generic Linux kernel image
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>dpkg<span class="w"> </span>--list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>linux-image
+rc<span class="w">  </span>linux-image-4.15.0-20-generic<span class="w">    </span><span class="m">4</span>.15.0-20.21<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-22-generic<span class="w">    </span><span class="m">4</span>.15.0-22.24<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-23-generic<span class="w">    </span><span class="m">4</span>.15.0-23.25<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-24-generic<span class="w">    </span><span class="m">4</span>.15.0-24.26<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-29-generic<span class="w">    </span><span class="m">4</span>.15.0-29.31<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-30-generic<span class="w">    </span><span class="m">4</span>.15.0-30.32<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-32-generic<span class="w">    </span><span class="m">4</span>.15.0-32.35<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-33-generic<span class="w">    </span><span class="m">4</span>.15.0-33.36<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-34-generic<span class="w">    </span><span class="m">4</span>.15.0-34.37<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-36-generic<span class="w">    </span><span class="m">4</span>.15.0-36.39<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-39-generic<span class="w">    </span><span class="m">4</span>.15.0-39.42<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-42-generic<span class="w">    </span><span class="m">4</span>.15.0-42.45<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-43-generic<span class="w">    </span><span class="m">4</span>.15.0-43.46<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-44-generic<span class="w">    </span><span class="m">4</span>.15.0-44.47<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-45-generic<span class="w">    </span><span class="m">4</span>.15.0-45.48<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-46-generic<span class="w">    </span><span class="m">4</span>.15.0-46.49<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-47-generic<span class="w">    </span><span class="m">4</span>.15.0-47.50<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-50-generic<span class="w">    </span><span class="m">4</span>.15.0-50.54<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-51-generic<span class="w">    </span><span class="m">4</span>.15.0-51.55<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-52-generic<span class="w">    </span><span class="m">4</span>.15.0-52.56<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-54-generic<span class="w">    </span><span class="m">4</span>.15.0-54.58<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-55-generic<span class="w">    </span><span class="m">4</span>.15.0-55.60<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-58-generic<span class="w">    </span><span class="m">4</span>.15.0-58.64<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-60-generic<span class="w">    </span><span class="m">4</span>.15.0-60.67<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+rc<span class="w">  </span>linux-image-4.15.0-62-generic<span class="w">    </span><span class="m">4</span>.15.0-62.69<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+ii<span class="w">  </span>linux-image-4.15.0-64-generic<span class="w">    </span><span class="m">4</span>.15.0-64.73<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+ii<span class="w">  </span>linux-image-4.15.0-65-generic<span class="w">    </span><span class="m">4</span>.15.0-65.74<span class="w">    </span>amd64<span class="w">    </span>Signed<span class="w"> </span>kernel<span class="w"> </span>image<span class="w"> </span>generic
+ii<span class="w">  </span>linux-image-generic<span class="w">              </span><span class="m">4</span>.15.0.65.67<span class="w">    </span>amd64<span class="w">    </span>Generic<span class="w"> </span>Linux<span class="w"> </span>kernel<span class="w"> </span>image
 </code></pre></div>
 <p>The one you currently use:</p>
-<div class="highlight"><pre><span></span><code>$ uname -r
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>uname<span class="w"> </span>-r
 <span class="m">4</span>.15.0-65-generic
 </code></pre></div>
 <h3 id="php">PHP</h3>

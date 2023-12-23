@@ -157,7 +157,7 @@ transform a list of labels to an array of one-hot encoded targets:</p>
 
 
 <span class="k">def</span> <span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
-    <span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
+<span class="w">    </span><span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
@@ -174,13 +174,13 @@ than anything I can write in a few minutes, so ... <a href="http://tensorflow.or
  😜</p>
 <p>For Linux systems with CUDA and without root privileges, you can install it
 with:</p>
-<div class="highlight"><pre><span></span><code>$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl<span class="w"> </span>--user
 </code></pre></div>
 <p>But remember you have to set the environment variable <code>LD_LIBRARY_PATH</code> and
 <code>CUDA_HOME</code>. For many configurations, adding the following lines to your
 <code>.bashrc</code> will work:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/usr/local/cuda/lib64"</span>
-<span class="nb">export</span> <span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/usr/local/cuda/lib64"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
 </code></pre></div>
 <p>I currently (19.07.2016) to use Tensorflow rc0.7 (<a href="https://www.tensorflow.org/versions/r0.7/get_started/os_setup.html">installation instructions</a>) with CUDA 7.5 (<a href="http://askubuntu.com/a/799185/10425">installation instructions</a>). I had a couple
 of problems with other versions (e.g. <a href="https://github.com/tensorflow/tensorflow/issues/3342">#3342</a>, <a href="https://github.com/tensorflow/tensorflow/issues/2810">#2810</a>, <a href="https://github.com/tensorflow/tensorflow/issues/2034">#2034</a>, but that might only have been bad luck. Who knows.).</p>
@@ -219,12 +219,12 @@ a first hidden layer and 2&nbsp;output neurons. All neurons have biases.</p>
 
 
 <span class="k">def</span> <span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
-    <span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
+<span class="w">    </span><span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">analyze_classifier</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">XOR_X</span><span class="p">,</span> <span class="n">XOR_T</span><span class="p">):</span>
-    <span class="sd">"""Visualize the classification."""</span>
+<span class="w">    </span><span class="sd">"""Visualize the classification."""</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Epoch </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span>
         <span class="s2">"Hypothesis </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">input_</span><span class="p">:</span> <span class="n">XOR_X</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">XOR_T</span><span class="p">})</span>

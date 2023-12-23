@@ -374,13 +374,13 @@ is pretty high from the beginning.</p>
 <p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/nlp/">GitHub</a>.</p>
 <p>If you use it, please cite this article or link to this blog post:</p>
 <div class="highlight"><pre><span></span><code><span class="nc">@Misc</span><span class="p">{</span><span class="nl">Thom2017-reuters</span><span class="p">,</span>
-  <span class="na">Title</span>                    <span class="p">=</span> <span class="s">{The Reuters Dataset}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">Title</span><span class="w">                    </span><span class="p">=</span><span class="w"> </span><span class="s">{The Reuters Dataset}</span><span class="p">,</span>
 
-  <span class="na">Author</span>                   <span class="p">=</span> <span class="s">{Martin Thoma}</span><span class="p">,</span>
-  <span class="na">Month</span>                    <span class="p">=</span> <span class="nv">jul</span><span class="p">,</span>
-  <span class="na">Year</span>                     <span class="p">=</span> <span class="s">{2017}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">Author</span><span class="w">                   </span><span class="p">=</span><span class="w"> </span><span class="s">{Martin Thoma}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">Month</span><span class="w">                    </span><span class="p">=</span><span class="w"> </span><span class="nv">jul</span><span class="p">,</span>
+<span class="w">  </span><span class="na">Year</span><span class="w">                     </span><span class="p">=</span><span class="w"> </span><span class="s">{2017}</span><span class="p">,</span>
 
-  <span class="na">Url</span>                      <span class="p">=</span> <span class="s">{https://martin-thoma.com/nlp-reuters}</span>
+<span class="w">  </span><span class="na">Url</span><span class="w">                      </span><span class="p">=</span><span class="w"> </span><span class="s">{https://martin-thoma.com/nlp-reuters}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="data-loading">Data loading</h3>
@@ -405,7 +405,7 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{}):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Load the Reuters dataset.</span>
 
 <span class="sd">    Returns</span>
@@ -461,7 +461,7 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
-    <span class="sd">"""Create a MLP model."""</span>
+<span class="w">    </span><span class="sd">"""Create a MLP model."""</span>
     <span class="n">input_</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">input_</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
@@ -474,7 +474,7 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Recall metric.</span>
 
 <span class="sd">    Only computes a batch-wise average of recall.</span>
@@ -489,7 +489,7 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Precision metric.</span>
 
 <span class="sd">    Only computes a batch-wise average of precision.</span>
@@ -508,21 +508,21 @@ is pretty high from the beginning.</p>
 
 
 <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
-    <span class="sd">"""Calculate the F1 score."""</span>
+<span class="w">    </span><span class="sd">"""Calculate the F1 score."""</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
-    <span class="sd">"""Return an optimizer."""</span>
+<span class="w">    </span><span class="sd">"""Return an optimizer."""</span>
     <span class="n">lr</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">"optimizer"</span><span class="p">][</span><span class="s2">"initial_lr"</span><span class="p">]</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>  <span class="c1"># Using Adam instead of SGD to speed up training</span>
     <span class="k">return</span> <span class="n">optimizer</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_module</span><span class="p">):</span>
-    <span class="sd">"""Load data, train model and evaluate it."""</span>
+<span class="w">    </span><span class="sd">"""Load data, train model and evaluate it."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">data_module</span><span class="o">.</span><span class="n">n_classes</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>

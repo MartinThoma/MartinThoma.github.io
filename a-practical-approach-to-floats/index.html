@@ -122,32 +122,32 @@ MathJax.Hub.Queue(function() {
 </figure>
 <p>You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.</p>
 <p>So this is how you can check it:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> // printf</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;limits.h&gt;</span><span class="c1"> // INT_MAX, UINT_MAX, ...</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="c1">   // needed for NAN</span><span class="cp"></span>
-<span class="k">union</span> <span class="nc">myUnion</span> <span class="p">{</span>
-    <span class="kt">uint32_t</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// unsigned integer 32-bit type (on every machine)</span>
-    <span class="kt">float</span> <span class="n">f</span><span class="p">;</span> <span class="c1">// a type you want to play with</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> // printf</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits.h&gt;</span><span class="c1"> // INT_MAX, UINT_MAX, ...</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="c1">   // needed for NAN</span>
+<span class="k">union</span><span class="w"> </span><span class="nc">myUnion</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// unsigned integer 32-bit type (on every machine)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="c1">// a type you want to play with</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">printValue</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"uint32_t</span><span class="se">\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Bits</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"."</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">31</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">23</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"|"</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Number</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%0.10f</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">printValue</span><span class="p">(</span><span class="k">union</span><span class="w"> </span><span class="nc">myUnion</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"uint32_t</span><span class="se">\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Bits</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"."</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">23</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"|"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Number</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%0.10f</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">setSign</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setSign</span><span class="p">(</span><span class="k">union</span><span class="w"> </span><span class="nc">myUnion</span><span class="w"> </span><span class="o">*</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">sign</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mh">0xffffffff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">31</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">31</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
@@ -157,45 +157,45 @@ MathJax.Hub.Queue(function() {
 <span class="cm"> * your characteristic. If the characteristic is 0, you get infinity.</span>
 <span class="cm"> * Otherwise NaN.</span>
 <span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">setExponent</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">exponent</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setExponent</span><span class="p">(</span><span class="k">union</span><span class="w"> </span><span class="nc">myUnion</span><span class="w"> </span><span class="o">*</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">exponent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mh">0xffffffff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mh">0xff</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">23</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">exponent</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * The mantissa has 23 bits.</span>
 <span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">setMantissa</span><span class="p">(</span><span class="k">union</span> <span class="nc">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mantissa</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">mantissa</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setMantissa</span><span class="p">(</span><span class="k">union</span><span class="w"> </span><span class="nc">myUnion</span><span class="w"> </span><span class="o">*</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mantissa</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mh">0xffffffff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mh">0xff</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">mantissa</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">union</span> <span class="nc">myUnion</span> <span class="n">testVar</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">union</span><span class="w"> </span><span class="nc">myUnion</span><span class="w"> </span><span class="n">testVar</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Manual guessing</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">setSign</span><span class="p">(</span><span class="o">&amp;</span><span class="n">testVar</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n">setExponent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">testVar</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>
-    <span class="n">setMantissa</span><span class="p">(</span><span class="o">&amp;</span><span class="n">testVar</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">);</span>
-    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Manual guessing</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testVar</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setSign</span><span class="p">(</span><span class="o">&amp;</span><span class="n">testVar</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setExponent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">testVar</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p">);</span>
+<span class="w">    </span><span class="n">setMantissa</span><span class="p">(</span><span class="o">&amp;</span><span class="n">testVar</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">"What does UINT_MAX evaluate to?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">UINT_MAX</span><span class="p">;</span>
-    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"What does UINT_MAX evaluate to?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testVar</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UINT_MAX</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">"What does nan evaluate to?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="n">testVar</span><span class="p">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">;</span>
-    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"What does nan evaluate to?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testVar</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NAN</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">"The example above and switched first bit on</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mh">0xbf200000</span><span class="p">;</span>
-    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"The example above and switched first bit on</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">testVar</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xbf200000</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>I think I have tried all interesting values. Have fun trying it yourself ☺</p>
 <p>(hmm ... I could also try to make a visualization ... I will think about this when I have more time)</p>
 <h2 id="python-solution">Python Solution</h2>
 <p>Prerequesites:</p>
-<div class="highlight"><pre><span></span><code>pip install bitstring
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>bitstring
 </code></pre></div>
 <p>Python code <code>convert.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
@@ -224,7 +224,7 @@ positive 0 and <code>10000000000000000000000000000000</code> which is negative z
 are considered equal in all programming languages I know.</p>
 <p>You can get the sign in Python like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_sign</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; get_sign(-12)</span>
 <span class="sd">    -1.0</span>
 <span class="sd">    &gt;&gt;&gt; get_sign(12)</span>

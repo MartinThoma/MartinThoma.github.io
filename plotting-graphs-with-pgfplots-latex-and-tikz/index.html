@@ -178,37 +178,37 @@ MathJax.Hub.Queue(function() {
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
 <p>I generate the images directly with this Makefile:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SOURCE</span> <span class="o">=</span> birthday-paradox
-<span class="nv">DELAY</span> <span class="o">=</span> <span class="m">80</span>
-<span class="nv">DENSITY</span> <span class="o">=</span> <span class="m">300</span>
-<span class="nv">WIDTH</span> <span class="o">=</span> <span class="m">500</span>
+<div class="highlight"><pre><span></span><code><span class="nv">SOURCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>birthday-paradox
+<span class="nv">DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="nv">DENSITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span>
+<span class="nv">WIDTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span>
 
 <span class="nf">make</span><span class="o">:</span>
-    pdflatex <span class="k">$(</span>SOURCE<span class="k">)</span>.tex -output-format<span class="o">=</span>pdf
-    make clean
+<span class="w">    </span>pdflatex<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.tex<span class="w"> </span>-output-format<span class="o">=</span>pdf
+<span class="w">    </span>make<span class="w"> </span>clean
 
 <span class="nf">clean</span><span class="o">:</span>
-    rm -rf  <span class="k">$(</span>TARGET<span class="k">)</span> *.class *.html *.log *.aux
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w">  </span><span class="k">$(</span>TARGET<span class="k">)</span><span class="w"> </span>*.class<span class="w"> </span>*.html<span class="w"> </span>*.log<span class="w"> </span>*.aux
 
 <span class="nf">gif</span><span class="o">:</span>
-    pdfcrop <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf
-    convert -verbose -delay <span class="k">$(</span>DELAY<span class="k">)</span> -loop <span class="m">0</span> -density <span class="k">$(</span>DENSITY<span class="k">)</span> <span class="k">$(</span>SOURCE<span class="k">)</span>-crop.pdf <span class="k">$(</span>SOURCE<span class="k">)</span>.gif
-    make clean
+<span class="w">    </span>pdfcrop<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf
+<span class="w">    </span>convert<span class="w"> </span>-verbose<span class="w"> </span>-delay<span class="w"> </span><span class="k">$(</span>DELAY<span class="k">)</span><span class="w"> </span>-loop<span class="w"> </span><span class="m">0</span><span class="w"> </span>-density<span class="w"> </span><span class="k">$(</span>DENSITY<span class="k">)</span><span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>-crop.pdf<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.gif
+<span class="w">    </span>make<span class="w"> </span>clean
 
 <span class="nf">png</span><span class="o">:</span>
-    make
-    make svg
-    inkscape <span class="k">$(</span>SOURCE<span class="k">)</span>.svg -w <span class="k">$(</span>WIDTH<span class="k">)</span> --export-png<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.png
+<span class="w">    </span>make
+<span class="w">    </span>make<span class="w"> </span>svg
+<span class="w">    </span>inkscape<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg<span class="w"> </span>-w<span class="w"> </span><span class="k">$(</span>WIDTH<span class="k">)</span><span class="w"> </span>--export-png<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.png
 
 <span class="nf">transparentGif</span><span class="o">:</span>
-    convert <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf -transparent white result.gif
-    make clean
+<span class="w">    </span>convert<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf<span class="w"> </span>-transparent<span class="w"> </span>white<span class="w"> </span>result.gif
+<span class="w">    </span>make<span class="w"> </span>clean
 
 <span class="nf">svg</span><span class="o">:</span>
-    <span class="c1">#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg</span>
-    pdf2svg <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf <span class="k">$(</span>SOURCE<span class="k">)</span>.svg
-    <span class="c1"># Necessary, as pdf2svg does not always create valid svgs:</span>
-    inkscape <span class="k">$(</span>SOURCE<span class="k">)</span>.svg --export-plain-svg<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
+<span class="w">    </span><span class="c1">#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg</span>
+<span class="w">    </span>pdf2svg<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
+<span class="w">    </span><span class="c1"># Necessary, as pdf2svg does not always create valid svgs:</span>
+<span class="w">    </span>inkscape<span class="w"> </span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg<span class="w"> </span>--export-plain-svg<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
 </code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>

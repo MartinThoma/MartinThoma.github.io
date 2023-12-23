@@ -131,9 +131,9 @@ MathJax.Hub.Queue(function() {
 <h2 id="1-indices">1. Indices</h2>
 <p>Indices allow the database to find relevant rows quicker by maintaining an efficient search data structure (e.g., a <a href="https://en.wikipedia.org/wiki/B-tree">B-Tree</a>). This is done per table. Adding an index can be computationally expensive and has to be executed on the production system, so it&rsquo;s typically done infrequently.</p>
 <p>Creating an index is easy via SQL (<a href="https://dev.mysql.com/doc/refman/8.0/en/create-index.html">MySQL</a>, <a href="https://www.postgresql.org/docs/9.1/sql-createindex.html">PostgreSQL</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">arbitrary_index_name</span>
-<span class="k">ON</span> <span class="n">your_table_name</span>
-<span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">arbitrary_index_name</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">your_table_name</span>
+<span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">);</span>
 </code></pre></div>
 <p>Adding an index can speed up searches in the database, but slows down UPDATE / INSERT / DELETE statements, except if the &ldquo;WHERE&rdquo; part is costing a lot of time.</p>
 <h2 id="2-query-optimization">2. Query Optimization</h2>
@@ -158,17 +158,17 @@ MathJax.Hub.Queue(function() {
 <p>An image explains more than many words:</p>
 <p><img alt="Conceptual example for horizontal partitioning. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/5166/1*silDKsFQO0fkjPUV2Vr4Cg.png"/><em>Conceptual example for horizontal partitioning. Image by Martin Thoma.</em></p>
 <p>Partitioning simply by id works like this in <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-range.html">MySQL</a> / <a href="https://mariadb.com/kb/en/range-partitioning-type">MariaDB</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span> <span class="k">TABLE</span>
-    <span class="n">shopping_carts</span>
-<span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">RANGE</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
+<span class="w">    </span><span class="n">shopping_carts</span>
+<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">RANGE</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
 <span class="p">(</span>
-    <span class="n">Partition</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">1234</span><span class="p">),</span>
-    <span class="n">Partition</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4567</span><span class="p">),</span>
-    <span class="n">Partition</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span>
+<span class="w">    </span><span class="n">Partition</span><span class="w"> </span><span class="n">p0</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">1234</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Partition</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="p">(</span><span class="mi">4567</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Partition</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="k">LESS</span><span class="w"> </span><span class="k">THAN</span><span class="w"> </span><span class="k">MAXVALUE</span>
 <span class="p">);</span>
 </code></pre></div>
 <p>You want the user of the database system to still be able to query the database with the typical queries, perhaps using the following:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">shopping_carts</span> <span class="k">WHERE</span> <span class="n">cart_id</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shopping_carts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cart_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 </code></pre></div>
 <p>One important thing to note here: Horizontal partitioning is completely unrelated to <a href="https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925">scaling horizontally</a>!</p>
 <h2 id="6-vertical-partitioning">6. Vertical Partitioning</h2>

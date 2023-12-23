@@ -173,23 +173,23 @@ your direct <strong>and</strong> indirect dependencies.</p>
 dependencies. Not only the direct dependencies, but also the indirect ones.</p>
 <h3 id="pip-compile">pip-compile</h3>
 <p>Create a <code>requirements.in</code> and run <code>pip-compile</code> from <a href="https://pypi.org/project/pip-tools/"><code>pip-tools</code></a>:</p>
-<div class="highlight"><pre><span></span><code>$ pip-compile -U requirements.in
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip-compile<span class="w"> </span>-U<span class="w"> </span>requirements.in
 </code></pre></div>
 <p>This is the solution I would recommend.</p>
 <h3 id="virtualenv-pip-freeze">virtualenv + pip freeze</h3>
 <p>An alternative option is to create a virtual environment, install the package, make sure everything works and write the installed dependencies versions in a <code>requirements.txt</code> file:</p>
-<div class="highlight"><pre><span></span><code>$ virtualenv venv
-$ <span class="nb">source</span> venv/bin/activate
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>virtualenv<span class="w"> </span>venv
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
 
 <span class="c1"># Add additional targets, if wanted!</span>
-$ pip install .
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
 
-$ pip freeze &gt; requirements.txt
+$<span class="w"> </span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
 </code></pre></div>
 <h3 id="pipreqs">pipreqs</h3>
 <p>If you think your setup.py might miss something, try <a href="https://pypi.org/project/pipreqs/"><code>pipreqs</code></a>:</p>
-<div class="highlight"><pre><span></span><code>$ pip install pipreqs
-$ pipreqs /project/path
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pipreqs
+$<span class="w"> </span>pipreqs<span class="w"> </span>/project/path
 </code></pre></div>
 <p>A similar tool is <a href="https://pypi.org/project/pipdeptree/"><code>pipdeptree</code></a>.</p>
 <h2 id="dependency-formats_1">Dependency Formats</h2>
@@ -217,7 +217,7 @@ wily==1.12.2
 </code></pre></div>
 <p>One line of the format <code>[package]==[version]</code>per requirement.</p>
 <p>It can be installed via</p>
-<div class="highlight"><pre><span></span><code>$ pip install -r requirements.txt
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 <p>There are nice tools like <code>piprot</code> which tells you how outdated the
 requirements are. I would not create a <code>requirements.txt</code> manually, but instead
@@ -239,7 +239,7 @@ a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-comp
 
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-    <span class="sd">"""Read a text file and return the content as a string."""</span>
+<span class="w">    </span><span class="sd">"""Read a text file and return the content as a string."""</span>
     <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>
     <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -317,53 +317,53 @@ a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-comp
 <p>and this <code>setup.cfg</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[metadata]</span>
 <span class="c1"># https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files</span>
-<span class="na">name</span> <span class="o">=</span> <span class="s">mpu</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mpu</span>
 
-<span class="na">author</span> <span class="o">=</span> <span class="s">Martin Thoma</span>
-<span class="na">author_email</span> <span class="o">=</span> <span class="s">info@martin-thoma.de</span>
-<span class="na">maintainer</span> <span class="o">=</span> <span class="s">Martin Thoma</span>
-<span class="na">maintainer_email</span> <span class="o">=</span> <span class="s">info@martin-thoma.de</span>
+<span class="na">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Martin Thoma</span>
+<span class="na">author_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">info@martin-thoma.de</span>
+<span class="na">maintainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Martin Thoma</span>
+<span class="na">maintainer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">info@martin-thoma.de</span>
 
 <span class="c1"># keep in sync with mpu/_version.py</span>
-<span class="na">version</span> <span class="o">=</span> <span class="s">0.21.0</span>
+<span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.21.0</span>
 
-<span class="na">description</span> <span class="o">=</span> <span class="s">Martins Python Utilities</span>
-<span class="na">long_description</span> <span class="o">=</span> <span class="s">file: README.md</span>
-<span class="na">long_description_content_type</span> <span class="o">=</span> <span class="s">text/markdown</span>
-<span class="na">keywords</span> <span class="o">=</span> <span class="s">utility,</span>
+<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Martins Python Utilities</span>
+<span class="na">long_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file: README.md</span>
+<span class="na">long_description_content_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">text/markdown</span>
+<span class="na">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">utility,</span>
 
-<span class="na">platforms</span> <span class="o">=</span> <span class="s">Linux</span>
+<span class="na">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Linux</span>
 
-<span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/MartinThoma/mpu</span>
-<span class="na">download_url</span> <span class="o">=</span> <span class="s">https://github.com/MartinThoma/mpu</span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/MartinThoma/mpu</span>
+<span class="na">download_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/MartinThoma/mpu</span>
 
-<span class="na">license</span> <span class="o">=</span> <span class="s">MIT</span>
-<span class="na">classifiers</span> <span class="o">=</span><span class="s"></span>
-<span class="s">        Development Status :: 3 - Alpha</span>
-<span class="s">        Environment :: Console</span>
-<span class="s">        Intended Audience :: Developers</span>
-<span class="s">        Intended Audience :: Information Technology</span>
-<span class="s">        License :: OSI Approved :: MIT License</span>
-<span class="s">        Natural Language :: English</span>
-<span class="s">        Programming Language :: Python :: 3 :: Only</span>
-<span class="s">        Programming Language :: Python :: 3.6</span>
-<span class="s">        Programming Language :: Python :: 3.7</span>
-<span class="s">        Programming Language :: Python :: 3.8</span>
-<span class="s">        Topic :: Software Development</span>
-<span class="s">        Topic :: Utilities</span>
+<span class="na">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">MIT</span>
+<span class="na">classifiers</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="na">Development Status</span><span class="w"> </span><span class="o">:</span><span class="s">: 3 - Alpha</span>
+<span class="w">        </span><span class="na">Environment</span><span class="w"> </span><span class="o">:</span><span class="s">: Console</span>
+<span class="w">        </span><span class="na">Intended Audience</span><span class="w"> </span><span class="o">:</span><span class="s">: Developers</span>
+<span class="w">        </span><span class="na">Intended Audience</span><span class="w"> </span><span class="o">:</span><span class="s">: Information Technology</span>
+<span class="w">        </span><span class="na">License</span><span class="w"> </span><span class="o">:</span><span class="s">: OSI Approved :: MIT License</span>
+<span class="w">        </span><span class="na">Natural Language</span><span class="w"> </span><span class="o">:</span><span class="s">: English</span>
+<span class="w">        </span><span class="na">Programming Language</span><span class="w"> </span><span class="o">:</span><span class="s">: Python :: 3 :: Only</span>
+<span class="w">        </span><span class="na">Programming Language</span><span class="w"> </span><span class="o">:</span><span class="s">: Python :: 3.6</span>
+<span class="w">        </span><span class="na">Programming Language</span><span class="w"> </span><span class="o">:</span><span class="s">: Python :: 3.7</span>
+<span class="w">        </span><span class="na">Programming Language</span><span class="w"> </span><span class="o">:</span><span class="s">: Python :: 3.8</span>
+<span class="w">        </span><span class="na">Topic</span><span class="w"> </span><span class="o">:</span><span class="s">: Software Development</span>
+<span class="w">        </span><span class="na">Topic</span><span class="w"> </span><span class="o">:</span><span class="s">: Utilities</span>
 
 <span class="k">[options]</span>
-<span class="na">zip_safe</span> <span class="o">=</span> <span class="s">true</span>
-<span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
-<span class="na">python_requires</span> <span class="o">=</span> <span class="s">&gt;= 3.0</span>
+<span class="na">zip_safe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">find:</span>
+<span class="na">python_requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&gt;= 3.0</span>
 
 <span class="k">[options.extras_require]</span>
-<span class="na">all</span> <span class="o">=</span> <span class="s">pandas; python-magic; boto3; pytz; Pillow; tzlocal; pytest; pytest-cov; pytest-mccabe; pytest-flake8; simplejson</span>
-<span class="na">aws</span> <span class="o">=</span> <span class="s">boto3</span>
-<span class="na">datetime</span> <span class="o">=</span> <span class="s">pytz</span>
-<span class="na">image</span> <span class="o">=</span> <span class="s">Pillow</span>
-<span class="na">io</span> <span class="o">=</span> <span class="s">pytz; tzlocal</span>
-<span class="na">test</span> <span class="o">=</span> <span class="s">pytest; pytest-cov; pytest-mccabe; pytest-flake8; simplejson</span>
+<span class="na">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pandas</span><span class="c1">; python-magic; boto3; pytz; Pillow; tzlocal; pytest; pytest-cov; pytest-mccabe; pytest-flake8; simplejson</span>
+<span class="na">aws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">boto3</span>
+<span class="na">datetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pytz</span>
+<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Pillow</span>
+<span class="na">io</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pytz</span><span class="c1">; tzlocal</span>
+<span class="na">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pytest</span><span class="c1">; pytest-cov; pytest-mccabe; pytest-flake8; simplejson</span>
 </code></pre></div>
 <p>You also see a reason here why you might want to mix-and-match between a pure <code>setup.py</code> and a pure <code>setup.cfg</code> solution: The <code>all</code> extra can be specified way better in code than in the configuration.</p>
 <h3 id="pyprojecttoml">pyproject.toml</h3>
