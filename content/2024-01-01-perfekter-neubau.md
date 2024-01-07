@@ -35,13 +35,25 @@ um die 120m² - 160m² Wohnfläche.
 
 ### Heizung
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/heat-pump.jpg"><img src="../images/2024/01/heat-pump.jpg" alt="Wärmepumpe" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Wärmepumpe</figcaption>
+</figure>
+
 Eine Luft-Wasser-Wärmepumpe sorgt für warmes Brauchwasser und versorgt die
 Fußbodenheizung.
 
-Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen Kamin.
-Daher gibt es auch keine Kosten für Kaminkehrer.
+Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen Schornstein.
+Daher gibt es auch keine Kosten für Schornsteinfeger.
 
-Alternativen:
+Wenn man ein Kaminfeuer genießt, kann man auch ohne Schornstein einen Kamin auf
+Ethanol-Basis haben. Ein Liter Ethanol hat einen Brennwert von 5.9 kWh/L. Ein
+Neubau hat eine Heizlast von max. 50 Watt/m². Weil Ethanol so leicht entzündlich
+ist darf man maximal 20L lagern. Für 120m² wären das nicht mal ein Tag. Für
+Notfälle ist das also eher nicht geeignet.
+
+
+Alternativen zur Luft-Wasser-Wärmepumpe:
 
 * Luft-Luft-WP: Erwärmt leider nicht das Brauchwasser. Man könnte zusätzlich
   eine Brauchwasserwärmepumpe einbauen, aber das sorgt für mehr Arbeit. Die
@@ -59,14 +71,28 @@ Alternativen:
   Wenn niemand im Raum ist soll das Licht ausgehen.
 * Öffnungs-Sensoren an jedem Fenster und jeder Tür: Wenn Fenster offen sind soll
   die Klimaanlage aus gehen.
+* Möglichkeit die Rolladen via Smart Home zu steuern
+* Smart Home erfasst verbrauch automatisch und schickt Warnung bei unerwartetem
+  höherem Verbrauch.
 
 
 ## Sicherheit
 
-* Einbruch: RC-Standard
+* Einbruch: RC-Standard; Kameras rund ums Haus
 * Hochwasserschutz: Rückstauklappen
 * Elektrizität und Blitzschlag: FI-Schalter, Sicherungen ... alles Standard?
 * Feuer: Rauchmelder und in jedem Stockwerk einen Feuerlöscher
+
+
+## Türen
+
+Haustür: Aus Aluminium, Bolzen zum verschluss
+
+Innentüren:
+
+* Vollspan: Deutlich hochwertiger als Röhrenspan; hat bessere
+  Schallschutz-Werte.
+* CPL (Continuous Pressure Laminate) ist eine wiederstandsfähige Beschichtung.
 
 
 ## Boden
@@ -276,6 +302,15 @@ Luxus:
     <figcaption class="text-center">Wohnzimmer</figcaption>
 </figure>
 
+## Schlafzimmer
+
+* Integrierter "schwebender" Nachttisch; macht die Reinigung leichter
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/sleeping-room.jpg"><img src="../images/2024/01/sleeping-room.jpg" alt="Schlafzimmer" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Schlafzimmer</figcaption>
+</figure>
+
 ## Büro
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -287,6 +322,11 @@ Genug Platz für einen Schreibtisch mit Laptop und zweitem Bildschirm sowie ein
 paar Aktenordner. Muss nicht groß sein.
 
 ## Kinderzimmer
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/house-childrens-room.jpg"><img src="../images/2024/01/house-childrens-room.jpg" alt="Kinderzimmer" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Kinderzimmer</figcaption>
+</figure>
 
 * Sollte relativ groß sein, weil Kinder dort ja doch recht viel Zeit verbringen
 * Schreibtisch, Bett, Kleiderschrank, und Stauraum müssen Platz haben
@@ -314,6 +354,13 @@ Eine Chill-Area mit Whirlpool hat schon was, obwohl ich den Energiebedarf nicht 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/haus-whirlpool.jpg"><img src="../images/2024/01/haus-whirlpool.jpg" alt="Ankleidezimmer" style="max-height: 512px"/></a>
     <figcaption class="text-center">Whirlpool</figcaption>
+</figure>
+
+Und natürlich viele Hochbeete.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hochbeet.jpg"><img src="../images/2024/01/hochbeet.jpg" alt="Hochbeet" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hochbeet</figcaption>
 </figure>
 
 ## Besondere Räume
