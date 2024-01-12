@@ -32,6 +32,16 @@ um die 120m² - 160m² Wohnfläche.
   ist, ist ok. LED stripes sehen zwar toll aus, sind aber schwer auszutauschen.
 * Platz in jedem Stockwerk für einen Staubsaugroboter.
 
+<style>
+.good {
+  background-color: green;
+}
+
+.bad {
+  background-color: red;
+}
+</style>
+
 
 ### Heizung
 
@@ -66,6 +76,11 @@ Alternativen zur Luft-Wasser-Wärmepumpe:
 
 ### Smart Home
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/smart-home.jpg"><img src="../images/2024/01/smart-home.jpg" alt="Smart Home" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Smart Home</figcaption>
+</figure>
+
 * Ethernet-Buchse in jedem Raum
 * Temperatur-, Feuchtigkeits, und Anwesenheits-Sensor (Radar) in jedem Raum.
   Wenn niemand im Raum ist soll das Licht ausgehen.
@@ -74,6 +89,7 @@ Alternativen zur Luft-Wasser-Wärmepumpe:
 * Möglichkeit die Rolladen via Smart Home zu steuern
 * Smart Home erfasst verbrauch automatisch und schickt Warnung bei unerwartetem
   höherem Verbrauch.
+* Home Assistant im lokalen Betrieb
 
 
 ## Sicherheit
@@ -86,7 +102,12 @@ Alternativen zur Luft-Wasser-Wärmepumpe:
 
 ## Türen
 
-Haustür: Aus Aluminium, Bolzen zum verschluss
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/haustuer.jpg"><img src="../images/2024/01/haustuer.jpg" alt="Haustür" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Haustür</figcaption>
+</figure>
+
+Haustür: Aus Aluminium, Bolzen zum verschluss, mechanisches Automatik-Schloss, Türspion
 
 Innentüren:
 
@@ -121,6 +142,10 @@ Alternativen:
 * Klickparkett
 * Laminat
 
+
+Fußwarm sind baustoffe mit einer Wärmeleitfähgikeit bis 0.2W/mK: Holz, Kork,
+Linoleoum, Teppich.
+
 ### Fugenloser Boden
 
 Fugenlose Böden kennt man eigentlich nur aus Garagen, Kellern, und Kaufhäusern.
@@ -146,15 +171,20 @@ Die Spachtel-Methoden benötigen eine Versiegelung.
 
 * Laminat ist sehr trittlaut, dh man benötigt eine Dämmschicht. Es kommt nur
   bedingt mit Feuchtigkeit klar.
-* PVC: Kommt besser mit Feuchtigkeit klar, aber eine Dampfsperre wird empfohlen.
+* PVC: Kommt besser mit Feuchtigkeit klar, aber eine Dampfsperre wird empfohlen. Enthält Weichmacher und bei Feuer gibt es giftige Gase
 * Vinyl: Gibt es als "loses" Vinyl (billig), Klickvinyl (medium), und Hartvinyl
-  (teuer). Schwere Gegenstände können Druckstellen hinterlassen
-* Linoleum: Kann bei viel Nässe verrotten
+  (teuer). Schwere Gegenstände können Druckstellen hinterlassen. Modernere
+  Variante des PVC. TODO: Typische Fehler
+* Linoleum: Kann bei viel Nässe verrotten; besteht hauptsächlich aus Leinöl und Naturharzen
 
 
 Die Wärmeleitfähigkeit bestimmt wie kalt wir einen Boden empfinden, weil sie
 aussagt, wie schnell wärme vom Fuß weg geleitet wird. Bei Fliesen ist sie hoch,
 bei Holz niedrig.
+
+Zusammenaddiert durch alle Schichten der Fußbodenheizung sollte der
+Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
+überschreiten.
 
 
 <table>
@@ -165,6 +195,7 @@ bei Holz niedrig.
         <th>Kork</th>
         <th>Laminat</th>
         <th>Vinyl</th>
+        <th>Linoleum</th>
     </tr>
     <tr>
         <td>Preis</td>
@@ -173,14 +204,16 @@ bei Holz niedrig.
         <td>40&euro;/m&sup2; (16.50&euro;/m&sup2; - 47&euro;/m&sup2;)</td>
         <td>16&euro;/m&sup2; (10&euro;/m&sup2; - 25&euro;/m&sup2;)</td>
         <td>26&euro;/m&sup2; (20&euro; - 60&euro;)</td>
+        <td>24&euro;/m&sup2;</td>
     </tr>
     <tr>
         <td>Brandklasse</td>
-        <td>A1</td>
-        <td>Cfl-s1 / Dfl-s1</td>
+        <td class="good">A1</td>
+        <td class="bad">Cfl-s1 / Dfl-s1</td>
         <td>B2</td>
-        <td>Cfl-s1</td>
+        <td class="bad">Cfl-s1</td>
         <td>Bfl-s1</td>
+        <td class="bad">Cfl-s1</td>
     </tr>
     <tr>
         <td>St&auml;rke</td>
@@ -189,46 +222,52 @@ bei Holz niedrig.
         <td>10.5mm</td>
         <td>8mm</td>
         <td>3.5 mm - 4mm</td>
+        <td>2.5 mm</td>
     </tr>
     <tr>
         <td>Fu&szlig;bodenheizung geeignet</td>
-        <td>Ja</td>
-        <td>M&ouml;glich</td>
-        <td>Sehr eingeschr&auml;nkt</td>
-        <td>M&ouml;glich</td>
-        <td>M&ouml;glich</td>
+        <td class="good">Ja (Wärmedurchlasswiederstand 0,012)</td>
+        <td>M&ouml;glich (Wärmedurchlasswiederstand 0,04 - 0,15)</td>
+        <td class="bad">Sehr eingeschr&auml;nkt (Wärmedurchlasswiederstand 0,13)</td>
+        <td>M&ouml;glich (Wärmedurchlasswiederstand 0,010)</td>
+        <td>M&ouml;glich (Wärmedurchlasswiederstand 0,015)</td>
+        <td>Ja (Wärmedurchlasswiederstand 0,010 – 0,04)</td>
     </tr>
     <tr>
         <td>Optik</td>
         <td>Vielf&auml;ltig</td>
         <td>Einseitig</td>
-        <td>Sehr einseitig</td>
-        <td>Beliebig</td>
-        <td>Beliebig</td>
+        <td class="bad">Sehr einseitig</td>
+        <td class="good">Beliebig</td>
+        <td class="good">Beliebig</td>
+        <td>TODO</td>
     </tr>
     <tr>
         <td>Kratz-Robustheit</td>
-        <td>Sehr gut</td>
+        <td class="good">Sehr gut</td>
         <td>Befriedigend</td>
-        <td>Ausreichend</td>
+        <td class="bad">Ausreichend</td>
         <td>Gut</td>
         <td>Gut</td>
+        <td>TODO</td>
     </tr>
     <tr>
         <td>Wasser-Robustheit</td>
-        <td>extrem wasserabweisend</td>
+        <td class="good">extrem wasserabweisend</td>
         <td></td>
         <td>wasserfest + wasserabweisend</td>
         <td>nur bei Feuchtraumlaminat</td>
         <td>typischerweise wasserfest, wasserdicht möglich mit vollflächiger Verklebung</td>
+        <td>TODO</td>
     </tr>
     <tr>
         <td>Flecken-Robustheit (Wein)</td>
-        <td>Sehr gut</td>
+        <td class="good">Sehr gut</td>
         <td>Ausreichend</td>
-        <td>Mangelhaft</td>
+        <td class="bad">Mangelhaft</td>
         <td>Befriedigend</td>
         <td>Gut</td>
+        <td>TODO</td>
     </tr>
 </table>
 
@@ -249,8 +288,8 @@ bei Holz niedrig.
   weggeleitet wird.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="House" style="max-height: 512px"/></a>
-    <figcaption class="text-center">House</figcaption>
+    <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten</figcaption>
 </figure>
 
 
@@ -272,22 +311,30 @@ bei Holz niedrig.
   machen, dass was kaputt geht. Beton ist auch günstiger als Keramik
 * **Dunstabzug**: In die Herdplatte hinein. Das kann man (hoffentlich) besser
   reinigen.
+* **Appliance Garage**: Ein "Versteck" für so etwas wie den Wasserkocher,
+  Reiskocher, Toaster. Einfach damit es ordentlich aussieht.
 
 Luxus:
 
-* Kücheninsel
+* Kücheninsel: Herd auf der Insel, damit man beim Kochen in den Raum sehen kann.
 
 
-## Bad
+## Badezimmer
 
 * **Badewanne**: Ein bisschen Luxus muss sein.
 * **Toilette**: Hängend. Optimalerweise so, dass ein Wischroboter durch kann.
   Mit Bidet-Funktion (mit warmen Wasser).
 * **Wände und Böden**: Microcement. Keine Fugen im Nassbereich.
+* Beheizbarer Handtuchhalter
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" style="max-height: 512px"/></a>
     <figcaption class="text-center">Badezimmer</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/smart-mirror.jpg"><img src="../images/2024/01/smart-mirror.jpg" alt="Smart Mirror mit Wettervorhersage und Uhr" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Smart Mirror mit Wettervorhersage und Uhr</figcaption>
 </figure>
 
 
@@ -331,6 +378,13 @@ paar Aktenordner. Muss nicht groß sein.
 * Sollte relativ groß sein, weil Kinder dort ja doch recht viel Zeit verbringen
 * Schreibtisch, Bett, Kleiderschrank, und Stauraum müssen Platz haben
 
+## Gästezimmer
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/guest-room.jpg"><img src="../images/2024/01/guest-room.jpg" alt="Gästezimmer" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Gästezimmer</figcaption>
+</figure>
+
 ## Garage
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -352,8 +406,15 @@ Ein Waschbecken wäre auch gut. Und natürlich Steckdosen. Eine Wallbox.
 Eine Chill-Area mit Whirlpool hat schon was, obwohl ich den Energiebedarf nicht so toll finde.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/haus-whirlpool.jpg"><img src="../images/2024/01/haus-whirlpool.jpg" alt="Ankleidezimmer" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/haus-whirlpool.jpg"><img src="../images/2024/01/haus-whirlpool.jpg" alt="Whirlpool" style="max-height: 512px"/></a>
     <figcaption class="text-center">Whirlpool</figcaption>
+</figure>
+
+Ein "sunken Firepit" am Pool ist auch cool:
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/sunken-firepit.jpg"><img src="../images/2024/01/sunken-firepit.jpg" alt="Sunken Firepit" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Sunken Firepit</figcaption>
 </figure>
 
 Und natürlich viele Hochbeete.
@@ -362,6 +423,25 @@ Und natürlich viele Hochbeete.
     <a href="../images/2024/01/hochbeet.jpg"><img src="../images/2024/01/hochbeet.jpg" alt="Hochbeet" style="max-height: 512px"/></a>
     <figcaption class="text-center">Hochbeet</figcaption>
 </figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/garden-beds.jpg"><img src="../images/2024/01/garden-beds.jpg" alt="Hochbeet" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hochbeet</figcaption>
+</figure>
+
+## Vorratskeller
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/vorratskeller.jpg"><img src="../images/2024/01/vorratskeller.jpg" alt="Geordneter Vorratskeller mit Dosen, Nudeln, Mehl, Reis, Einmachgläsern, Öl, Wasserflaschen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Geordneter Vorratskeller mit Dosen, Nudeln, Mehl, Reis, Einmachgläsern, Öl, Wasserflaschen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/vorratskeller-2.jpg"><img src="../images/2024/01/vorratskeller-2.jpg" alt="Vorräte" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Vorräte</figcaption>
+</figure>
+
+* Bundesamt für Bevölkerungsschutz und Katastrophenhilfe: [Essen und Trinken bevorraten](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Vorsorge/Bevorraten/bevorraten_node.html)
 
 ## Besondere Räume
 
