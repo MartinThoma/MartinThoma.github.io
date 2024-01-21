@@ -196,6 +196,21 @@ Often confused with contemporary, modern design refers to a specific design era
 Clean lines, open spaces, and a focus on functionality.
 Use of materials like steel, glass, and concrete.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/modern-living-room.jpg"><img src="../images/2024/01/modern-living-room.jpg" alt="Modern living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Modern living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/modern-kitchen.jpg"><img src="../images/2024/01/modern-kitchen.jpg" alt="Modern kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Modern kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/modern-bathroom.jpg"><img src="../images/2024/01/modern-bathroom.jpg" alt="Modern bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Modern bathroom</figcaption>
+</figure>
+
 ## Minimalist
 
 Strives for simplicity and the elimination of unnecessary elements.
@@ -221,6 +236,21 @@ Clutter-free spaces and a sense of calm.
 
 Involves a mix of styles and periods, combining elements from different design aesthetics.
 Balance and cohesion are achieved through careful curation.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/eclectic-living-room.jpg"><img src="../images/2024/01/eclectic-living-room.jpg" alt="Eclectic style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Eclectic style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/eclectic-kitchen.jpg"><img src="../images/2024/01/eclectic-kitchen.jpg" alt="Eclectic style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Eclectic style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/eclectic-bathroom.jpg"><img src="../images/2024/01/eclectic-bathroom.jpg" alt="Eclectic style bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Eclectic style bathroom</figcaption>
+</figure>
 
 ## Coastal
 
@@ -290,6 +320,21 @@ Neutral color palettes with occasional pops of color.
 An eclectic and relaxed style with a mix of patterns, textures, and colors.
 Handcrafted and unique elements.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/boho-chic-living-room.jpg"><img src="../images/2024/01/boho-chic-living-room.jpg" alt="Boho-Chic style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Boho-Chic style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/boho-chic-kitchen.jpg"><img src="../images/2024/01/boho-chic-kitchen.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Boho-Chic style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Boho-Chic style bathroom</figcaption>
+</figure>
+
 ## Mediterranean
 
 Warm colors, textured walls, and rustic elements.
@@ -314,6 +359,20 @@ Use of wrought iron, terracotta, and vibrant patterns.
 
 a blend of art décor and mid-century ultramodern
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hollywood-glam-living-room.jpg"><img src="../images/2024/01/hollywood-glam-living-room.jpg" alt="Hollywood Glam living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hollywood Glam living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hollywood-glam-kitchen.jpg"><img src="../images/2024/01/hollywood-glam-kitchen.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hollywood Glam kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hollywood Glam bathroom</figcaption>
+</figure>
 
 
 ## Overview
