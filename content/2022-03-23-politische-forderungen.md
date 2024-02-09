@@ -34,6 +34,12 @@ relevant. Die KfZ-Steuer sollte abgeschafft werden. Besteuert werden sollten
 die Kraftstoffe für die CO2-Emissionen und der Kauf des Autos über die
 Mehrwertsteuer.
 
+### Konnexitätsprinzip
+
+Wer bestellt, zahlt. Wenn der Bund etwas beschließt, muss er für die Kosten
+aufkommen. Insbesondere sollte das für sozialausgaben gelten. Das würde die
+Kommunen massiv entlasten.
+
 ### Melde- und Ausländerbehörden zentralisieren
 
 Die Einwohnermeldeämter und Ausländerämter sind haben viel zu viel Arbeit.
@@ -132,7 +138,8 @@ müssen zum Wasser sparen motiviert werden.
 ## Soziale Leistungen
 
 1. Jeder soll auf Gesundheitsleistungen in Deutschland und Rente weltweit anspruch haben
-2. Jeder soll in gleicher weise einzahlen müssen.
+2. Jeder soll in gleicher weise einzahlen müssen. Wie in Österreich, wo auch
+   jeder für die Rente einzahlt
 
 Das bedeutet insbesondere Änderungen für:
 
@@ -142,9 +149,27 @@ Das bedeutet insbesondere Änderungen für:
 Gleichzeitig sollen Abgaben im US-Stil gemacht werden: Wer die deutsche
 Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt
 
+## Entkriminalisierung
+
+* Fahren ohne Fahrtschein
+* Kinderpornographie unter bestimmten Umständen (ermessungsspielraum des Richters)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
+* [Legalisierung von Drogenkonsum](https://de.wikipedia.org/wiki/Legalisierung_von_Drogen)
+
+
+## Wohnraum
+
+* Großstädte verkaufen keine Flächen, sondern verpachten sie nur noch
+* **Leerstandsgebühr**: Wenn der Mietpreis im letzten Jahr gestiegen ist und der
+  Leerstand unter 5% ist, dann kostet jeder Monat im Leerstand den Besitzer so
+  viel wie der letzte Mietpreis. Wurde noch nicht vermietet, dann so viel wie im
+  Mietpreisindex steht. Alternativ kann der Besitzer den Verkauf an die Stadt
+  durchführen. Die Stadt muss entweder 20 Jahre an Mieten anbieten, oder die
+  Leerstands-Miete entfällt.
+
 
 ## Einzelnachweise
 
 [^1]: bib.bund.de: [Private Haushalte – Einkommen und Konsum](https://www.bib.bund.de/Publikation/2021/pdf/Datenreport-2021-Ein-Sozialbericht-fuer-die-Bundesrepublik-Deutschland-Kapitel-6.pdf?__blob=publicationFile&v=3), 2021.
 [^2]: [Private Konsumausgaben je Einwohner in Deutschland von 1991 bis 2019](https://de.statista.com/statistik/daten/studie/440626/umfrage/private-konsumausgaben-je-einwohner-in-deutschland/), 2022.
 [^3]: Dr. Margot Münnich: [Einnahmen und Ausgaben von Rentner- und Pensionärshaushalten](https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2007/06/einnahmen-ausgaben-rentner-062007.pdf?__blob=publicationFile), 2007.
+[^4]: Joachim Wulkop: [Lehrerin will helfen - und wird wegen Kinderpornografie angeklagt](https://www.swr.de/swraktuell/rheinland-pfalz/koblenz/lehrerin-kinderpornografischer-inhalte-konfisziert-deswegen-angeklagt-100.html), 2023.

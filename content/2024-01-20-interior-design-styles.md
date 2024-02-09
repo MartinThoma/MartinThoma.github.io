@@ -65,6 +65,302 @@ design and the organic shapes found in Japanese design.
     <figcaption class="text-center">Japandi-style bathroom</figcaption>
 </figure>
 
+
+## Modern
+
+Often confused with contemporary, modern design refers to a specific design era
+(mid-20th century).
+
+Clean lines, open spaces, and a focus on functionality.
+Use of materials like steel, glass, and concrete.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/modern-living-room.jpg"><img src="../images/2024/01/modern-living-room.jpg" alt="Modern living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Modern living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/modern-kitchen.jpg"><img src="../images/2024/01/modern-kitchen.jpg" alt="Modern kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Modern kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/modern-bathroom.jpg"><img src="../images/2024/01/modern-bathroom.jpg" alt="Modern bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Modern bathroom</figcaption>
+</figure>
+
+## Contemporary
+
+Emphasizes clean lines, simplicity, and a lack of excessive ornamentation.
+Neutral color palettes with occasional bold accent colors.
+Innovative materials and modern furniture designs.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/contemporary-living-room.jpg"><img src="../images/2024/01/contemporary-living-room.jpg" alt="Contemporary living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Contemporary living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/contemporary-kitchen.jpg"><img src="../images/2024/01/contemporary-kitchen.jpg" alt="Contemporary kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Contemporary kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/contemporary-bathroom.jpg"><img src="../images/2024/01/contemporary-bathroom.jpg" alt="Contemporary bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Contemporary bathroom</figcaption>
+</figure>
+
+## Transitional
+
+Strikes a balance between traditional and contemporary styles.
+Classic furniture shapes paired with more modern finishes and accessories.
+Neutral color palettes with occasional pops of color.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/transitional-living-room.jpg"><img src="../images/2024/01/transitional-living-room.jpg" alt="Transitional style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Transitional style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/transitional-kitchen.jpg"><img src="../images/2024/01/transitional-kitchen.jpg" alt="Transitional style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Transitional style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/transitional-bathroom.jpg"><img src="../images/2024/01/transitional-bathroom.jpg" alt="Transitional style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Transitional style bathroom</figcaption>
+</figure>
+
+
+## Minimalist
+
+Strives for simplicity and the elimination of unnecessary elements.
+Neutral color palettes, clean lines, and a focus on functionality.
+Clutter-free spaces and a sense of calm.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/minimalist-living-room.jpg"><img src="../images/2024/01/minimalist-living-room.jpg" alt="Minimalist style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Minimalist style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/minimalist-kitchen.jpg"><img src="../images/2024/01/minimalist-kitchen.jpg" alt="Minimalist style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Minimalist style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/minimalist-bathroom.jpg"><img src="../images/2024/01/minimalist-bathroom.jpg" alt="Minimalist style bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Minimalist style bathroom</figcaption>
+</figure>
+
+
+
+## Mediterranean
+
+Warm colors, textured walls, and rustic elements.
+Use of wrought iron, terracotta, and vibrant patterns.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/mediterranean-living-room.jpg"><img src="../images/2024/01/mediterranean-living-room.jpg" alt="Mediterranean style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mediterranean style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/mediterranean-kitchen.jpg"><img src="../images/2024/01/mediterranean-kitchen.jpg" alt="Mediterranean style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mediterranean style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/mediterranean-bathroom.jpg"><img src="../images/2024/01/mediterranean-bathroom.jpg" alt="Mediterranean style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mediterranean style bathroom</figcaption>
+</figure>
+
+
+## Coastal
+
+Inspired by beach and seaside living.
+Light and breezy colors, such as blues and whites.
+Natural materials like wood and rattan, as well as nautical motifs.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/coastal-living-room.jpg"><img src="../images/2024/01/coastal-living-room.jpg" alt="Coastal style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Coastal style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/coastal-kitchen.jpg"><img src="../images/2024/01/coastal-kitchen.jpg" alt="Coastal style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Coastal style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/coastal-bathroom.jpg"><img src="../images/2024/01/coastal-bathroom.jpg" alt="Coastal style bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Coastal style bathroom</figcaption>
+</figure>
+
+
+
+## Mid-century
+
+Mid-century modern design is characterized by clean lines, simplicity, and a
+focus on functionality. Organic shapes and the use of natural materials like
+wood are common.
+
+Bold and vibrant colors, including earth tones, are often used.
+
+Iconic furniture designs, such as the Eames Lounge Chair, are hallmarks of
+mid-century modern style.
+
+
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/midcentury-living-room.jpg"><img src="../images/2024/01/midcentury-living-room.jpg" alt="Mid-century style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mid-century style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/midcentury-kitchen.jpg"><img src="../images/2024/01/midcentury-kitchen.jpg" alt="Mid-century style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mid-century style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/midcentury-bathroom.jpg"><img src="../images/2024/01/midcentury-bathroom.jpg" alt="Mid-century style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mid-century style bathroom</figcaption>
+</figure>
+
+
+## Farmhouse
+
+Embraces a cozy, country-inspired aesthetic.
+Natural materials, exposed wood, and vintage furnishings.
+Warm and inviting atmosphere.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/farmhouse-living-room.jpg"><img src="../images/2024/01/farmhouse-living-room.jpg" alt="Farmhouse style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Farmhouse style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/farmhouse-kitchen.jpg"><img src="../images/2024/01/farmhouse-kitchen.jpg" alt="Farmhouse style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Farmhouse style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/farmhouse-bathroom.jpg"><img src="../images/2024/01/farmhouse-bathroom.jpg" alt="Farmhouse style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Farmhouse style bathroom</figcaption>
+</figure>
+
+
+
+
+
+
+## Hollywood Glam
+
+a blend of art décor and mid-century ultramodern
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hollywood-glam-living-room.jpg"><img src="../images/2024/01/hollywood-glam-living-room.jpg" alt="Hollywood Glam living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hollywood Glam living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hollywood-glam-kitchen.jpg"><img src="../images/2024/01/hollywood-glam-kitchen.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hollywood Glam kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Hollywood Glam bathroom</figcaption>
+</figure>
+
+## Art deco
+
+Art Deco is characterized by luxury, glamour, and geometric shapes.
+
+Ornate detailing, including zigzags, chevrons, and sunburst motifs, is common.
+
+The use of materials like chrome, glass, and mirrors adds a sense of opulence.
+
+Symmetry and repetition are key design principles.
+
+Furniture often features streamlined, elegant shapes with intricate detailing.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/artdeco-living-room.jpg"><img src="../images/2024/01/artdeco-living-room.jpg" alt="Art-deco style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Art-deco style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/artdeco-kitchen.jpg"><img src="../images/2024/01/artdeco-kitchen.jpg" alt="Art-deco style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Art-deco style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/artdeco-bathroom.jpg"><img src="../images/2024/01/artdeco-bathroom.jpg" alt="Art-deco style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Art-deco style bathroom</figcaption>
+</figure>
+
+## Traditional
+
+Rich, dark woods, ornate details, and symmetry are common.
+Formal furniture arrangements and a sense of elegance prevail.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/traditional-living-room.jpg"><img src="../images/2024/01/traditional-living-room.jpg" alt="Traditional living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Traditional living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/traditional-kitchen.jpg"><img src="../images/2024/01/traditional-kitchen.jpg" alt="Traditional kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Traditional kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/traditional-bathroom.jpg"><img src="../images/2024/01/traditional-bathroom.jpg" alt="Traditional bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Traditional bathroom</figcaption>
+</figure>
+
+
+## Boho-Chic
+
+An eclectic and relaxed style with a mix of patterns, textures, and colors.
+Handcrafted and unique elements.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/boho-chic-living-room.jpg"><img src="../images/2024/01/boho-chic-living-room.jpg" alt="Boho-Chic style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Boho-Chic style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/boho-chic-kitchen.jpg"><img src="../images/2024/01/boho-chic-kitchen.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Boho-Chic style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Boho-Chic style bathroom</figcaption>
+</figure>
+
+## Eclectic
+
+Involves a mix of styles and periods, combining elements from different design aesthetics.
+Balance and cohesion are achieved through careful curation.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/eclectic-living-room.jpg"><img src="../images/2024/01/eclectic-living-room.jpg" alt="Eclectic style living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Eclectic style living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/eclectic-kitchen.jpg"><img src="../images/2024/01/eclectic-kitchen.jpg" alt="Eclectic style kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Eclectic style kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/eclectic-bathroom.jpg"><img src="../images/2024/01/eclectic-bathroom.jpg" alt="Eclectic style bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Eclectic style bathroom</figcaption>
+</figure>
+
 ## Bohemian
 
 Bohemian, or boho, style is characterized by its eclectic and free-spirited nature.
@@ -122,287 +418,12 @@ Functional and practical furniture with a focus on simplicity and durability.
     <figcaption class="text-center">Industrial-style bathroom</figcaption>
 </figure>
 
-## Mid-century
 
-Mid-century modern design is characterized by clean lines, simplicity, and a
-focus on functionality. Organic shapes and the use of natural materials like
-wood are common.
 
-Bold and vibrant colors, including earth tones, are often used.
 
-Iconic furniture designs, such as the Eames Lounge Chair, are hallmarks of
-mid-century modern style.
 
 
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-living-room.jpg"><img src="../images/2024/01/midcentury-living-room.jpg" alt="Mid-century style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mid-century style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-kitchen.jpg"><img src="../images/2024/01/midcentury-kitchen.jpg" alt="Mid-century style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mid-century style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-bathroom.jpg"><img src="../images/2024/01/midcentury-bathroom.jpg" alt="Mid-century style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mid-century style bathroom</figcaption>
-</figure>
-
-## Art deco
-
-Art Deco is characterized by luxury, glamour, and geometric shapes.
-
-Ornate detailing, including zigzags, chevrons, and sunburst motifs, is common.
-
-The use of materials like chrome, glass, and mirrors adds a sense of opulence.
-
-Symmetry and repetition are key design principles.
-
-Furniture often features streamlined, elegant shapes with intricate detailing.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-living-room.jpg"><img src="../images/2024/01/artdeco-living-room.jpg" alt="Art-deco style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Art-deco style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-kitchen.jpg"><img src="../images/2024/01/artdeco-kitchen.jpg" alt="Art-deco style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Art-deco style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-bathroom.jpg"><img src="../images/2024/01/artdeco-bathroom.jpg" alt="Art-deco style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Art-deco style bathroom</figcaption>
-</figure>
-
-## Traditional
-
-Rich, dark woods, ornate details, and symmetry are common.
-Formal furniture arrangements and a sense of elegance prevail.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/traditional-living-room.jpg"><img src="../images/2024/01/traditional-living-room.jpg" alt="Traditional living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Traditional living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/traditional-kitchen.jpg"><img src="../images/2024/01/traditional-kitchen.jpg" alt="Traditional kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Traditional kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/traditional-bathroom.jpg"><img src="../images/2024/01/traditional-bathroom.jpg" alt="Traditional bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Traditional bathroom</figcaption>
-</figure>
-
-## Contemporary
-
-Emphasizes clean lines, simplicity, and a lack of excessive ornamentation.
-Neutral color palettes with occasional bold accent colors.
-Innovative materials and modern furniture designs.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/contemporary-living-room.jpg"><img src="../images/2024/01/contemporary-living-room.jpg" alt="Contemporary living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Contemporary living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/contemporary-kitchen.jpg"><img src="../images/2024/01/contemporary-kitchen.jpg" alt="Contemporary kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Contemporary kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/contemporary-bathroom.jpg"><img src="../images/2024/01/contemporary-bathroom.jpg" alt="Contemporary bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Contemporary bathroom</figcaption>
-</figure>
-
-## Modern
-
-Often confused with contemporary, modern design refers to a specific design era
-(mid-20th century).
-
-Clean lines, open spaces, and a focus on functionality.
-Use of materials like steel, glass, and concrete.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/modern-living-room.jpg"><img src="../images/2024/01/modern-living-room.jpg" alt="Modern living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Modern living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/modern-kitchen.jpg"><img src="../images/2024/01/modern-kitchen.jpg" alt="Modern kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Modern kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/modern-bathroom.jpg"><img src="../images/2024/01/modern-bathroom.jpg" alt="Modern bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Modern bathroom</figcaption>
-</figure>
-
-## Minimalist
-
-Strives for simplicity and the elimination of unnecessary elements.
-Neutral color palettes, clean lines, and a focus on functionality.
-Clutter-free spaces and a sense of calm.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/minimalist-living-room.jpg"><img src="../images/2024/01/minimalist-living-room.jpg" alt="Minimalist style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Minimalist style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/minimalist-kitchen.jpg"><img src="../images/2024/01/minimalist-kitchen.jpg" alt="Minimalist style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Minimalist style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/minimalist-bathroom.jpg"><img src="../images/2024/01/minimalist-bathroom.jpg" alt="Minimalist style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Minimalist style bathroom</figcaption>
-</figure>
-
-## Eclectic
-
-Involves a mix of styles and periods, combining elements from different design aesthetics.
-Balance and cohesion are achieved through careful curation.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/eclectic-living-room.jpg"><img src="../images/2024/01/eclectic-living-room.jpg" alt="Eclectic style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Eclectic style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/eclectic-kitchen.jpg"><img src="../images/2024/01/eclectic-kitchen.jpg" alt="Eclectic style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Eclectic style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/eclectic-bathroom.jpg"><img src="../images/2024/01/eclectic-bathroom.jpg" alt="Eclectic style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Eclectic style bathroom</figcaption>
-</figure>
-
-## Coastal
-
-Inspired by beach and seaside living.
-Light and breezy colors, such as blues and whites.
-Natural materials like wood and rattan, as well as nautical motifs.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/coastal-living-room.jpg"><img src="../images/2024/01/coastal-living-room.jpg" alt="Coastal style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Coastal style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/coastal-kitchen.jpg"><img src="../images/2024/01/coastal-kitchen.jpg" alt="Coastal style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Coastal style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/coastal-bathroom.jpg"><img src="../images/2024/01/coastal-bathroom.jpg" alt="Coastal style bathroom" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Coastal style bathroom</figcaption>
-</figure>
-
-## Farmhouse
-
-Embraces a cozy, country-inspired aesthetic.
-Natural materials, exposed wood, and vintage furnishings.
-Warm and inviting atmosphere.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-living-room.jpg"><img src="../images/2024/01/farmhouse-living-room.jpg" alt="Farmhouse style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Farmhouse style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-kitchen.jpg"><img src="../images/2024/01/farmhouse-kitchen.jpg" alt="Farmhouse style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Farmhouse style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-bathroom.jpg"><img src="../images/2024/01/farmhouse-bathroom.jpg" alt="Farmhouse style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Farmhouse style bathroom</figcaption>
-</figure>
-
-## Transitional
-
-Strikes a balance between traditional and contemporary styles.
-Classic furniture shapes paired with more modern finishes and accessories.
-Neutral color palettes with occasional pops of color.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-living-room.jpg"><img src="../images/2024/01/transitional-living-room.jpg" alt="Transitional style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Transitional style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-kitchen.jpg"><img src="../images/2024/01/transitional-kitchen.jpg" alt="Transitional style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Transitional style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-bathroom.jpg"><img src="../images/2024/01/transitional-bathroom.jpg" alt="Transitional style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Transitional style bathroom</figcaption>
-</figure>
-
-## Boho-Chic
-
-An eclectic and relaxed style with a mix of patterns, textures, and colors.
-Handcrafted and unique elements.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-living-room.jpg"><img src="../images/2024/01/boho-chic-living-room.jpg" alt="Boho-Chic style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Boho-Chic style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-kitchen.jpg"><img src="../images/2024/01/boho-chic-kitchen.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Boho-Chic style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Boho-Chic style bathroom</figcaption>
-</figure>
-
-## Mediterranean
-
-Warm colors, textured walls, and rustic elements.
-Use of wrought iron, terracotta, and vibrant patterns.
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-living-room.jpg"><img src="../images/2024/01/mediterranean-living-room.jpg" alt="Mediterranean style living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mediterranean style living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-kitchen.jpg"><img src="../images/2024/01/mediterranean-kitchen.jpg" alt="Mediterranean style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mediterranean style kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-bathroom.jpg"><img src="../images/2024/01/mediterranean-bathroom.jpg" alt="Mediterranean style kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Mediterranean style bathroom</figcaption>
-</figure>
-
-## Hollywood Glam
-
-a blend of art décor and mid-century ultramodern
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-living-room.jpg"><img src="../images/2024/01/hollywood-glam-living-room.jpg" alt="Hollywood Glam living room" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hollywood Glam living room</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-kitchen.jpg"><img src="../images/2024/01/hollywood-glam-kitchen.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hollywood Glam kitchen</figcaption>
-</figure>
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Hollywood Glam bathroom</figcaption>
-</figure>
 
 
 ## Overview

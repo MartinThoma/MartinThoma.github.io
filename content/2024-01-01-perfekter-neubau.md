@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2024-01-01 20:00
 category: German posts
 tags: house
-featured_image: logos/star.png
+featured_image: logos/house.png
 ---
 Ich habe mir einen Altbau gekauft, aber ein Neubau wäre schon echt cool. In
 diesem Artikel sammel ich mal ein paar Ideen, wie für mich das perfekte Haus
@@ -31,6 +31,9 @@ um die 120m² - 160m² Wohnfläche.
 * Beleuchtung: E14 und E27 sind zu bevorzugen. Alles was leicht austauschbar
   ist, ist ok. LED stripes sehen zwar toll aus, sind aber schwer auszutauschen.
 * Platz in jedem Stockwerk für einen Staubsaugroboter.
+* Verschiebbare Holz-Laden zum Sonnenschutz an der Außenfassade
+* Regen-Notüberlauf an der Regenrinne, damit bei Verstopfung / zu viel Regen das
+  Wasser geordnet abgeleitet wird.
 
 <style>
 .good {
@@ -142,10 +145,6 @@ Alternativen:
 * Klickparkett
 * Laminat
 
-
-Fußwarm sind baustoffe mit einer Wärmeleitfähgikeit bis 0.2W/mK: Holz, Kork,
-Linoleoum, Teppich.
-
 ### Fugenloser Boden
 
 Fugenlose Böden kennt man eigentlich nur aus Garagen, Kellern, und Kaufhäusern.
@@ -169,25 +168,13 @@ Die Spachtel-Methoden benötigen eine Versiegelung.
 
 ### Klassisch
 
-* Laminat ist sehr trittlaut, dh man benötigt eine Dämmschicht. Es kommt nur
-  bedingt mit Feuchtigkeit klar.
-* PVC: Kommt besser mit Feuchtigkeit klar, aber eine Dampfsperre wird empfohlen. Enthält Weichmacher und bei Feuer gibt es giftige Gase
-* Vinyl: Gibt es als "loses" Vinyl (billig), Klickvinyl (medium), und Hartvinyl
-  (teuer). Schwere Gegenstände können Druckstellen hinterlassen. Modernere
-  Variante des PVC. TODO: Typische Fehler
-* Linoleum: Kann bei viel Nässe verrotten; besteht hauptsächlich aus Leinöl und Naturharzen
-
-
-Die Wärmeleitfähigkeit bestimmt wie kalt wir einen Boden empfinden, weil sie
-aussagt, wie schnell wärme vom Fuß weg geleitet wird. Bei Fliesen ist sie hoch,
-bei Holz niedrig.
-
 Zusammenaddiert durch alle Schichten der Fußbodenheizung sollte der
 Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
 überschreiten.
 
 
 <table>
+  <thead>
     <tr>
         <th></th>
         <th>Feinsteinzeug Fliese</th>
@@ -197,8 +184,22 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <th>Vinyl</th>
         <th>Linoleum</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
-        <td>Preis</td>
+      <th>Aufbau und Kommentare</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Laminat ist sehr trittlaut, dh man benötigt eine Dämmschicht. Es kommt nur
+  bedingt mit Feuchtigkeit klar.</td>
+      <td>Gibt es als "loses" Vinyl (billig), Klickvinyl (medium), und Hartvinyl
+  (teuer, auch SPC-Vinyl genannt). Schwere Gegenstände können Druckstellen
+  hinterlassen. Modernere Variante des PVC.</td>
+      <td>Kann bei viel Nässe verrotten; besteht hauptsächlich aus Leinöl und Naturharzen</td>
+    </tr>
+    <tr>
+        <th>Preis</th>
         <td>25&euro;/m&sup2; (21,49&nbsp;&euro;&nbsp;/ m&sup2; -&nbsp;70 &euro;&nbsp;/ m&sup2;)</td>
         <td>30 &euro;/m&sup2; - 60&euro;/m&sup2;</td>
         <td>40&euro;/m&sup2; (16.50&euro;/m&sup2; - 47&euro;/m&sup2;)</td>
@@ -207,7 +208,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>24&euro;/m&sup2;</td>
     </tr>
     <tr>
-        <td>Brandklasse</td>
+        <th>Brandklasse</th>
         <td class="good">A1</td>
         <td class="bad">Cfl-s1 / Dfl-s1</td>
         <td>B2</td>
@@ -216,7 +217,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td class="bad">Cfl-s1</td>
     </tr>
     <tr>
-        <td>St&auml;rke</td>
+        <th>St&auml;rke</th>
         <td>11mm</td>
         <td>11.5mm</td>
         <td>10.5mm</td>
@@ -225,7 +226,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>2.5 mm</td>
     </tr>
     <tr>
-        <td>Fu&szlig;bodenheizung geeignet</td>
+        <th>Fu&szlig;bodenheizung geeignet</th>
         <td class="good">Ja (Wärmedurchlasswiederstand 0,012)</td>
         <td>M&ouml;glich (Wärmedurchlasswiederstand 0,04 - 0,15)</td>
         <td class="bad">Sehr eingeschr&auml;nkt (Wärmedurchlasswiederstand 0,13)</td>
@@ -234,7 +235,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>Ja (Wärmedurchlasswiederstand 0,010 – 0,04)</td>
     </tr>
     <tr>
-        <td>Optik</td>
+        <th>Optik</th>
         <td>Vielf&auml;ltig</td>
         <td>Einseitig</td>
         <td class="bad">Sehr einseitig</td>
@@ -243,7 +244,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>TODO</td>
     </tr>
     <tr>
-        <td>Kratz-Robustheit</td>
+        <th>Kratz-Robustheit</th>
         <td class="good">Sehr gut</td>
         <td>Befriedigend</td>
         <td class="bad">Ausreichend</td>
@@ -252,7 +253,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>TODO</td>
     </tr>
     <tr>
-        <td>Wasser-Robustheit</td>
+        <th>Wasser-Robustheit</th>
         <td class="good">extrem wasserabweisend</td>
         <td></td>
         <td>wasserfest + wasserabweisend</td>
@@ -261,7 +262,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>TODO</td>
     </tr>
     <tr>
-        <td>Flecken-Robustheit (Wein)</td>
+        <th>Flecken-Robustheit (Wein)</th>
         <td class="good">Sehr gut</td>
         <td>Ausreichend</td>
         <td class="bad">Mangelhaft</td>
@@ -269,7 +270,26 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
         <td>Gut</td>
         <td>TODO</td>
     </tr>
+    <tr>
+        <th><a href="https://de.wikipedia.org/wiki/W%C3%A4rmeleitf%C3%A4higkeit">Wärmeleitfähigkeit</a> λ<sup title="Die Wärmeleitfähigkeit bestimmt wie kalt wir einen Boden empfinden, weil sie
+aussagt, wie schnell wärme vom Fuß weg geleitet wird. Bei Fliesen ist sie hoch,
+bei Holz niedrig. Fußwarm sind Baustoffe mit einer Wärmeleitfähgikeit bis 0.2W/mK: Holz, Kork,
+Linoleoum, Teppich.">*</sup></th>
+        <td class="bad">1.05 W/(mK)</td>
+        <td class="good">0.11 - 0.21 W/(mK)</td>
+        <td class="good">0.079 W/(mK)</td>
+        <td class="good">0.17 W/(mK)</td>
+        <td class="good">0.17 W/(mK)</td>
+        <td class="good">0.17 W/(mK)</td>
+    </tr>
+  </tbody>
 </table>
+
+Weitere:
+
+* PVC: Kommt besser mit Feuchtigkeit klar, aber eine Dampfsperre wird empfohlen.
+  Enthält Weichmacher und bei Feuer gibt es giftige Gase. Da Vinyl als moderne
+  Variante gilt habe ich es nicht aufgenommen.
 
 
 ## Gebäudehülle / Fassade
@@ -323,7 +343,7 @@ Luxus:
 
 * **Badewanne**: Ein bisschen Luxus muss sein.
 * **Toilette**: Hängend. Optimalerweise so, dass ein Wischroboter durch kann.
-  Mit Bidet-Funktion (mit warmen Wasser).
+  Mit Bidet-Funktion (mit warmen Wasser). Beheizter Sitz.
 * **Wände und Böden**: Microcement. Keine Fugen im Nassbereich.
 * Beheizbarer Handtuchhalter
 
@@ -340,14 +360,14 @@ Luxus:
 
 ## Wohnzimmer
 
-* Sitzfenster
-* Wohnwand mit Fernseher und Sofa / Couch
-
-
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/living-room.jpg"><img src="../images/2024/01/living-room.jpg" alt="Wohnzimmer" style="max-height: 512px"/></a>
     <figcaption class="text-center">Wohnzimmer</figcaption>
 </figure>
+
+* Sitzfenster
+* Wohnwand mit Fernseher und Sofa / Couch
+* TV: Wandmontage, versteckte Kabel
 
 ## Schlafzimmer
 
@@ -397,6 +417,7 @@ Man muss ein paar Sachen unterbringen können
 * Werkzeug fürs Auto / Fahrrad
 * Ersatzschläuche
 * Gartenwerkzeug
+* Stecktafel ("Pegboard") zur Lagerung vom Werkzeug; https://makerworld.com/en/models/134882#profileId-146324; https://www.franks-shed.com/
 
 Ein Waschbecken wäre auch gut. Und natürlich Steckdosen. Eine Wallbox.
 
@@ -443,6 +464,11 @@ Und natürlich viele Hochbeete.
 
 * Bundesamt für Bevölkerungsschutz und Katastrophenhilfe: [Essen und Trinken bevorraten](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Vorsorge/Bevorraten/bevorraten_node.html)
 
+## Waschzimmer
+
+* Platz für eine Waschmaschine und einen Trockner
+* Wasser-Ablauf im Boden, falls mal was kaputt geht
+
 ## Besondere Räume
 
 Meine Frau findet Ankleidezimmer toll:
@@ -457,3 +483,9 @@ Wintergarten ist auch nice, aber ich bin mir nicht sicher was die Feuchtigkeit a
 
 Und eine Anliegerwohnung ist insgesamt eine gute Idee, z.B. um mit zwei
 Generationen im Haus leben zu können.
+
+## Einzelnachweise
+
+[^1] selfio.de: [Ratgeber Fußbodenheizung & BodenbelagRatgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/)
+[^2] Der Bauladen: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm)
+[^3] VBG: [Bodenbeläge – Fußbodenmaterial](https://www.vbg.de/SharedDocs/Medien-Center/DE/Faltblatt/Themen/Arbeitsstaetten_gestalten/fi_boden_fussboden.pdf?__blob=publicationFile&v=9)
