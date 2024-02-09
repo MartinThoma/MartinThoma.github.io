@@ -182,11 +182,41 @@ Furniture often features streamlined, elegant shapes with intricate detailing.
 Rich, dark woods, ornate details, and symmetry are common.
 Formal furniture arrangements and a sense of elegance prevail.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/traditional-living-room.jpg"><img src="../images/2024/01/traditional-living-room.jpg" alt="Traditional living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Traditional living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/traditional-kitchen.jpg"><img src="../images/2024/01/traditional-kitchen.jpg" alt="Traditional kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Traditional kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/traditional-bathroom.jpg"><img src="../images/2024/01/traditional-bathroom.jpg" alt="Traditional bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Traditional bathroom</figcaption>
+</figure>
+
 ## Contemporary
 
 Emphasizes clean lines, simplicity, and a lack of excessive ornamentation.
 Neutral color palettes with occasional bold accent colors.
 Innovative materials and modern furniture designs.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/contemporary-living-room.jpg"><img src="../images/2024/01/contemporary-living-room.jpg" alt="Contemporary living room" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Contemporary living room</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/contemporary-kitchen.jpg"><img src="../images/2024/01/contemporary-kitchen.jpg" alt="Contemporary kitchen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Contemporary kitchen</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/contemporary-bathroom.jpg"><img src="../images/2024/01/contemporary-bathroom.jpg" alt="Contemporary bathroom" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Contemporary bathroom</figcaption>
+</figure>
 
 ## Modern
 
