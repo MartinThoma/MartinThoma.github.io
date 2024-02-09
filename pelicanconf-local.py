@@ -45,8 +45,6 @@ THEME = "./pelican-elegant"
 PYGMENTS_STYLE = "tango"  # Syntax highlighting theme
 CUSTOM_CSS = "static/custom.css"
 
-DISQUS_SITENAME = "martinthoma"
-
 
 ARTICLE_URL = "{slug}/"
 ARTICLE_SAVE_AS = "{slug}/index.html"
