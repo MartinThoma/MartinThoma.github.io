@@ -12,6 +12,7 @@ exclude_rule 'MD029'
 exclude_rule 'MD030'
 exclude_rule 'MD033'
 exclude_rule 'MD034'
+exclude_rule 'MD036'
 exclude_rule 'MD037'
 exclude_rule 'MD041'
 rule 'MD007', :indent => 4
