@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Programming Languages, Code, " />
+<meta name="keywords" content="Review, Review, " />
 
-<meta property="og:title" content="Type Systems "/>
-<meta property="og:url" content="type-systems/" />
-<meta property="og:description" content="The topic of type system keeps comming up when I hear people discuss programming languages. So let&#39;s summarize it. Dynamic vs Static Typing Rule of thumb: Statically typed languages check their types at compile time, while dynamically typed languages check their types at runtime. I like the definition of pythonconquerstheuniverse …" />
+<meta property="og:title" content="Pfannen "/>
+<meta property="og:url" content="drafts/pfannen.html" />
+<meta property="og:description" content="In diesem Artikel geht es um Pfannen. Ich will neue und will mir nie mehr Gedanken um das Thema machen. Beschichtete Pfannen gehen immer wieder kaputt. Egal ob Teflon oder Granit. Darauf habe ich keine Lust mehr. Granit-Beschichtungen sind etwas robuster als Teflon. PTFE u. PFOA: Keine Teflon-Pfannen PFOA/PFAS …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2018-11-26T20:00:00+01:00" />
-<meta name="twitter:title" content="Type Systems ">
-<meta name="twitter:description" content="The topic of type system keeps comming up when I hear people discuss programming languages. So let&#39;s summarize it. Dynamic vs Static Typing Rule of thumb: Statically typed languages check their types at compile time, while dynamically typed languages check their types at runtime. I like the definition of pythonconquerstheuniverse …">
+<meta property="og:article:published_time" content="2024-05-20T20:00:00+02:00" />
+<meta name="twitter:title" content="Pfannen ">
+<meta name="twitter:description" content="In diesem Artikel geht es um Pfannen. Ich will neue und will mir nie mehr Gedanken um das Thema machen. Beschichtete Pfannen gehen immer wieder kaputt. Egal ob Teflon oder Granit. Darauf habe ich keine Lust mehr. Granit-Beschichtungen sind etwas robuster als Teflon. PTFE u. PFOA: Keine Teflon-Pfannen PFOA/PFAS …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
-        <title>Type Systems  · Martin Thoma
+        <title>Pfannen  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -97,7 +97,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../type-systems/">Type Systems</a></h1>
+    <h1><a href="../drafts/pfannen.html">Pfannen</a></h1>
     </header>
 </div>
 
@@ -105,130 +105,138 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#dynamic-vs-static-typing" title="Dynamic vs Static Typing">Dynamic vs Static Typing</a></li><li><a class="toc-href" href="#strong-vs-weak-typing" title="Strong vs Weak Typing">Strong vs Weak Typing</a></li><li><a class="toc-href" href="#explicit-vs-implicit-typing" title="Explicit vs Implicit Typing">Explicit vs Implicit Typing</a></li><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#typen" title="Typen">Typen</a></li><li><a class="toc-href" href="#groen" title="Gr&ouml;&szlig;en">Gr&ouml;&szlig;en</a></li><li><a class="toc-href" href="#features" title="Features">Features</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The topic of type system keeps comming up when I hear people discuss
-programming languages. So let's summarize it.</p>
-<h2 id="dynamic-vs-static-typing">Dynamic vs Static Typing</h2>
-<div style="background-color: #cdcdcd">Rule of thumb: Statically typed languages check their types at compile time,
-while dynamically typed languages check their types at runtime.</div>
-<p>I like the definition of <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">pythonconquerstheuniverse</a>:</p>
-<blockquote>
-<p>In a <strong>statically typed</strong> language, every variable name is bound both
-a type (at compile time, by means of a data declaration) and an object.</p>
-<p>In a <strong>dynamically typed</strong> language, every variable name is bound only to an
-object.</p>
-</blockquote>
-<p>Something you can do in a dynamic language, but not in a static language:</p>
-<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">"bar"</span>
-<span class="n">foo</span> <span class="o">=</span> <span class="mi">9</span>
-</code></pre></div>
-<p>So the model you have in mind is different. In statically typed languages you
-imagine variables as containers for specific types of information. In dynamically
-typed languages, you imagine variables as post-it notes.</p>
-<p>The advantage of statically typed languages is less confusion.</p>
-<h2 id="strong-vs-weak-typing">Strong vs Weak Typing</h2>
-<div style="background-color: #cdcdcd">Rule of thumb: Weakly typed languages do type coercion.</div>
-<p>Continuing with the definition of <a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/">pythonconquerstheuniverse</a>:</p>
-<blockquote>
-<p>In a weakly typed language, variables can be implicitly coerced to unrelated
-types, whereas in a strongly typed language they cannot, and an explicit
-conversion is required.</p>
-</blockquote>
-<p>What you can do in weakly typed languages, but not in strongly typed languages:</p>
-<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">"hello"</span>
-<span class="n">bar</span> <span class="o">=</span> <span class="mi">1337</span>
-<span class="n">foo</span> <span class="o">+</span> <span class="n">bar</span>
-</code></pre></div>
-<p>Instead, the strongly typed language needs something like that:</p>
-<div class="highlight"><pre><span></span><code><span class="n">foo</span> <span class="o">=</span> <span class="s2">"hello"</span>
-<span class="n">bar</span> <span class="o">=</span> <span class="mi">1337</span>
-<span class="n">foo</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
-</code></pre></div>
-<p>Note that this is a spectrum, but the example from above is where I draw the
-line.</p>
-<p>I'd say strong is to be prefered, but not too strong. For example, if I add
-a float and a double I would not want to get an exception. Maybe.</p>
-<h2 id="explicit-vs-implicit-typing">Explicit vs Implicit Typing</h2>
-<p>In an <strong>explicitly typed</strong> language, all variable types are directly given by
-the developer.</p>
-<p>In an <strong>implicitly typed</strong> language, the language can infer some of the types.</p>
-<p>Note that dynamically typed languages are always implicitly typed. Python likes
-to call that "duck typing": If it walks like a duck and quacks like a duck, it
-is a duck.</p>
-<h2 id="overview">Overview</h2>
-<table class="table">
+            <p>In diesem Artikel geht es um Pfannen. Ich will neue und will mir nie mehr
+Gedanken um das Thema machen.</p>
+<p>Beschichtete Pfannen gehen immer wieder kaputt. Egal ob Teflon oder Granit.
+Darauf habe ich keine Lust mehr. Granit-Beschichtungen sind etwas robuster als
+Teflon.</p>
+<p>PTFE u. PFOA: Keine Teflon-Pfannen
+PFOA/PFAS/PTFE</p>
+<p>Messing: Pflege</p>
+<h2 id="typen">Typen</h2>
+<style type="text/css">
+    .good {
+        background-color: #bdeebd;
+    }
+    .bad {
+        background-color: #ffb2b2;
+    }
+</style>
+<table>
+<thead>
 <tr>
-<th>Language</th>
-<th>Static</th>
-<th>Strength</th>
-<th>Type Expression</th>
+<th></th>
+<th>Edelstahl</th>
+<th>Gusseisen</th>
+<th>Keramikbeschichtung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hitzebest&auml;ndigkeit</td>
+<td>400&deg;C</td>
+<td>300&deg;C</td>
+<td>450&deg;C</td>
 </tr>
 <tr>
-<td>Rust</td>
-<td>static</td>
-<td>strong</td>
-<td><a href="https://doc.rust-lang.org/book/first-edition/variable-bindings.html">implicit</a></td>
+<td>Langlebigkeit</td>
+<td class="good">Sehr hoch</td>
+<td class="good">Sehr hoch</td>
+<td>Mittel</td>
 </tr>
 <tr>
-<td>C++</td>
-<td>static</td>
-<td>strong</td>
-<td>explicit</td>
+<td>Gewicht</td>
+<td>1.0kg - 1.4kg</td>
+<td class="bad">2.7kg - 4.3kg (typ. 3.5kg)</td>
+<td>1.2kg - 1.7kg</td>
 </tr>
 <tr>
-<td>C</td>
-<td>static</td>
-<td>weak</td>
-<td>explicit</td>
+<td>Antihaft-Eigenschaften</td>
+<td>Keine</td>
+<td>Nat&uuml;rlich antihaftend (bei richtiger Pflege)</td>
+<td>Antihaftend</td>
 </tr>
 <tr>
-<td>Java</td>
-<td>static</td>
-<td>strong</td>
-<td>explicit</td>
+<td>Reinigung</td>
+<td>Schwerer zu reinigen</td>
+<td>Einfach, aber muss gepflegt werden</td>
+<td>Einfach</td>
 </tr>
 <tr>
-<td>Python</td>
-<td>dynamic</td>
-<td>strong</td>
-<td>implicit, since Python 3.5 optionally explicit</td>
+<td>Vorteile</td>
+<td>
+                Robust, rostfrei
+            </td>
+<td>
+                Hervorragende W&auml;rmespeicherung, ideal f&uuml;r hohe Temperaturen
+            </td>
+<td>
+                Umweltfreundlicher, gute W&auml;rmeverteilung
+            </td>
 </tr>
 <tr>
-<td>JavaScript</td>
-<td>dynamic</td>
-<td>weak</td>
-<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">implicit</a></td>
+<td>Nachteile</td>
+<td>
+                Kann anbrennen, schwerer zu reinigen
+            </td>
+<td>
+                Schwer, rostet bei falscher Pflege
+            </td>
+<td>
+                Empfindlich gegen&uuml;ber St&ouml;&szlig;en, Beschichtung kann abnutzen
+            </td>
 </tr>
 <tr>
-<td>PHP</td>
-<td>dynamic</td>
-<td>weak</td>
-<td>implicit</td>
+<td>Marken</td>
+<td>WMF, SILBERTHAL</td>
+<td>Hoffmann</td>
+<td>Tefal, Redchef</td>
 </tr>
+<tr>
+<td>Preisbereich</td>
+<td>35&euro; - 70&euro;</td>
+<td>30&euro; - 60&euro;</td>
+<td>30&euro; - 60&euro;</td>
+</tr>
+</tbody>
 </table>
-<h2 id="see-also">See also</h2>
+<h2 id="groen">Gr&ouml;&szlig;en</h2>
 <ul>
-<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages_by_type_system">Comparison of programming languages by type system</a></li>
+<li>28cm Durchmesser + 5cm hoch: Standard</li>
+<li>24cm(?): kleine Pfanne, z.B. f&uuml;r Spiegelei</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Loch im Griff zum Aufh&auml;ngen</li>
+<li>Abnehmbarer Griff<ul>
+<li>Tefal: Ingenio</li>
+<li>SILBERTHAL: Easy Click</li>
+<li>WMF: Click &amp; Serve</li>
+</ul>
+</li>
+<li>Sp&uuml;lmaschinenfest</li>
+<li>Ofenfester Griff</li>
 </ul>
             
         </div>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2018-11-26T20:00:00+01:00">Nov 26, 2018</time>
+            <time pubdate="pubdate" datetime="2024-05-20T20:00:00+02:00">Mai 20, 2024</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <a class="category-link" href="../categories.html#review-ref">Review</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#programming-languages-ref">Programming Languages
-                    <span>1</span>
+                <li><a href="../tags.html#review-ref">Review
+                    <span>20</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
