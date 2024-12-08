@@ -271,21 +271,21 @@ running!</p>
 <div class="highlight"><pre><span></span><code><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="n">autospec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>Or you can create a Mock like this:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">Mock</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">datetime</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">Mock</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">datetime</span><span class="p">)</span>
 
 <span class="c1"># Not Ok!</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">foo</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s2">"/home/moose/.pyenv/versions/3.8.1/lib/python3.8/unittest/mock.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">635</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__getattr__</span>
-    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">"Mock object has no attribute </span><span class="si">%r</span><span class="s2">"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="n">Mock</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'foo'</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">foo</span>
+<span class="n">Traceback</span><span class="w"> </span><span class="p">(</span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">last</span><span class="p">):</span>
+<span class="w">  </span><span class="n">File</span><span class="w"> </span><span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">File</span><span class="w"> </span><span class="s2">"/home/moose/.pyenv/versions/3.8.1/lib/python3.8/unittest/mock.py"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">635</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="fm">__getattr__</span>
+<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="n">AttributeError</span><span class="p">(</span><span class="s2">"Mock object has no attribute </span><span class="si">%r</span><span class="s2">"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="n">AttributeError</span><span class="p">:</span><span class="w"> </span><span class="n">Mock</span><span class="w"> </span><span class="nb">object</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="s1">'foo'</span>
 
 <span class="c1"># That is ok:</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">datetime</span>
-<span class="o">&lt;</span><span class="n">Mock</span> <span class="n">name</span><span class="o">=</span><span class="s1">'mock.datetime'</span> <span class="nb">id</span><span class="o">=</span><span class="s1">'139883597784544'</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">datetime</span>
+<span class="o">&lt;</span><span class="n">Mock</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">'mock.datetime'</span><span class="w"> </span><span class="nb">id</span><span class="o">=</span><span class="s1">'139883597784544'</span><span class="o">&gt;</span>
 </code></pre></div>
 <p>The next parameter of patchis autospec. Where spec looks at the mocked object, autospec also looks at the attributes of that object (and their attributes and those attributes, &hellip;).</p>
 <p>Finally, there is spec_set . That one prevents you from setting attributes that don&rsquo;t exist.</p>
@@ -392,18 +392,18 @@ that.</p>
 <h2 id="dependency-injection-randomness">Dependency Injection: Randomness</h2>
 <p>Just like adding a time parameter for functions which use by default the current time might make your code way easier to test, adding a random_state parameter or a seed parameter to functions which use randomness helps.</p>
 <p>Here are some ways to seed random number generators:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">random</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">random</span><span class="o">.</span><span class="kp">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.8444218515250481</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.5488135039273248</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="kp">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">random_state</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random_state</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.5488135039273248</span>
 </code></pre></div>
 <p>Setting a random state / seed is also very helpful for debugging. If you
