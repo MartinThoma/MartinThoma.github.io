@@ -466,3 +466,50 @@ spart, wirtschaftliche Förderung, und ganz allgemein das Wohl der Bürger.
 Selbst wenn er nur für den Bundeshaushalt neutral bauen würde, könnte er mit
 einer Rendite von 2.5% bauen und die Miete für 14.25€/m² anbieten. Das wäre in
 vielen Großstädten ein echter Segen.
+
+
+## Was können wir tun?
+
+Wir wollen, dass jeder Mensch sich eine angemessene Wohnungsgröße (z.B. 25m²)
+pro Person zu maximal 33% des Netto-Einkommens (warm) leisten kann. Und
+natürlich in der Region, in der die Menschen wohnen.
+
+Ein erster Schritt wäre **Leerstandvermeidung**. Dafür kann man finanzielle
+Anreize schaffen, z.B. durch eine Leerstands-Steuer welche ggf. durch die
+Gemeinde erhoben werden kann. Diese Leerstands-Steuer sollte erst greifen wenn
+die Wohnung mindestens 6 Monate leer steht.
+
+Der Kauf/Verkauf sollte auch einfacher gemacht werden. Das bedeutet vor allem
+die Kaufnebenkosten zu reduzieren. Man könnte z.B. die Grunderwerbssteuer
+bei selbstgenutzen Immobilien abschaffen.
+
+Der Staat könnte beim Wohnungstausch unterstützen: Wenn eine Familie in zu
+engen Wohnverhältnissen lebt, und ein Rentner mehr Platz hat als er/sie braucht,
+könnte der Staat den Tausch subventionieren. Insbesondere wenn die Familie
+sowieso anspruch auf Wohnungsgeld hätte. Dann würde man die Wohnung des Rentners
+ggf. subventionieren obwohl dieser eigentlich keinen Anspruch hätte - aber dafür
+weniger Wohngeld an die Familie zahlen.
+
+Dennoch brauchen wir **Neubau bei Wohnungsmangel**. Dafür müssen wir zuerst
+bessere Daten haben. Wir brauchen für jede Gemeinde die Anzahl an Menschen in
+ihr und die Anzahl der Woheinheiten.
+
+Der Staat sollte [Wohnheime bauen](https://martin-thoma.com/wohnungsmangel/),
+aber auch den Anteil an Sozialwohnungen erhöhen. Und bitte nicht nur temporär.
+Gemeinden/Städte sollten einen zweistelligen Prozentsatz der Wohnungen auf ihrem
+Kerngebiet besitzen.
+
+
+### Wohngeld
+
+Wohngeld sollte nur zeitlich begrenzt gezahlt werden, z.B. wenn man gerade den
+Job verloren hat. Sagen wir für maximal 6 Monate. Dannach sollte die Kommune
+(Stadt oder Gemeinde) den Menschen eine Wohnung bereitstellen, die sie
+verwaltet. Damit kann man verhindern, dass das Wohngeld die Mieten in die Höhe
+treibt.
+
+### Mietpreisbremse
+
+Noch habe ich dafür kein geschlossenes Konzept, allerdings erscheint mir die
+aktuelle ausgestaltung der Mietpreisbremse schlicht keinen Effekt zu haben. So
+wie es ist, würde ich sie eher abschaffen.
