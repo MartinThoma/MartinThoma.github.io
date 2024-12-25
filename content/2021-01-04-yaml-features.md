@@ -7,7 +7,7 @@ slug: yaml-features
 author: Martin Thoma
 date: 2021-01-04 20:00
 category: Code
-tags: YAML
+tags: Software Development
 featured_image: logos/star.png
 ---
 ![](https://cdn-images-1.medium.com/max/3474/1*1zw7ZZTxnY5LiSnn9w6zlw.png)

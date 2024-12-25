@@ -129,6 +129,13 @@ TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Eins
 Die nutzung von Grundwasser durch Konzerne darf nicht kostenlos sein. Konzerne
 müssen zum Wasser sparen motiviert werden.
 
+### Bezahlung
+
+Der Lohn aus Festanstellungen muss spätestens am 1. des Monats auf dem Konto
+des Arbeitnehmers sein. Für jeden Tag Verzug gibt es eine Strafe in Höhe von
+5 Prozentpunkten über dem Basiszinssatz. Abweichende Regelungen sind unwirksam.
+Bonuszahlungen dürfen bis zu 40 Tage verzögert gezahlt werden.
+
 ## Korruption
 
 * (Öffentliches?) Immobilien-Register
@@ -165,6 +172,12 @@ Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt
   Mietpreisindex steht. Alternativ kann der Besitzer den Verkauf an die Stadt
   durchführen. Die Stadt muss entweder 20 Jahre an Mieten anbieten, oder die
   Leerstands-Miete entfällt.
+
+## Demokratie und Rechtsstaat
+
+### Gemeinnützigkeit von Vereinen
+
+* Die Gemeinnützigkeit von Vereinen soll nicht mehr rückwirkend entzogen werden können.
 
 
 ## Einzelnachweise

@@ -5,7 +5,7 @@ slug: was-mir-sorgen-macht
 author: Martin Thoma
 date: 2024-12-25 20:00
 category: My bits and bytes
-tags: my bits and bites
+tags: politics, Climate Change, Germany, United States
 featured_image: logos/star.png
 ---
 Es gab in den letzten Wochen und Monaten einige Nachrichten, die mir Sorgen
@@ -28,8 +28,8 @@ massive Auswirkungen auf die Wirtschaft:
 
 * **Batterie-Elektrische Autos (BEVs) werden Verbrenner (ICEs) verdrängen**:
   2024 hingen 773.000 Arbeitsplätze in Deutschland direkt an der
-  Autoindustrie.[^6] Zählt man noch die Zulieferer dazu, sind es 1,75 Millionen
-  Arbeitsplätze.[^7] Das sind etwa 4% der deutschen Arbeitsplätze. Allerdings
+  Autoindustrie.<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small> Zählt man noch die Zulieferer dazu, sind es 1,75 Millionen
+  Arbeitsplätze.<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small> Das sind etwa 4% der deutschen Arbeitsplätze. Allerdings
   sind diese 4% überduchschnittlich gut bezahlt. Mit dem Festklammern an
   Verbrennern können wir zwar unsere Marktsegmente bei den Verbrennern halten,
   allerdings wird der Markt für Verbrenner schrumpfen. Das ist unser Nokia /
@@ -67,7 +67,7 @@ neuen Förderungen und deren plötzlichen Streichungen ins Knie:
 * [10H-Regelung](https://de.wikipedia.org/wiki/10H-Regelung) (2014): Horst
   Seehofer hat diese Regelung eingeführt, um den Ausbau von Windkraftanlagen zu
   bremsen. Diese Regelung brachte den Windkraftausbau in Bayern praktisch zum
-  erliegen.[^9]
+  erliegen.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small>
 * [E-Auto-Förderstopp](https://www.tagesschau.de/wirtschaft/verbraucher/e-autos-foerderstopp-faq-100.html) (2023): Die Bundesregierung hat die Förderung von Elektroautos gestoppt. Das hat zu einem Einbruch der Verkaufszahlen geführt.
 * Deutschland als unzuverlässiger Partner (2024): Wir verhalten uns weder intern
   noch nach außen verlässlich. Dieses Wackelverhalten ist als "German Vote"
@@ -105,14 +105,14 @@ gepaart mit Autoritarismus und Verschwörungstheorien.
 In Deutschland hat die AfD in [aktuellen Umfragen](https://www.wahlrecht.de/umfragen/)
 zwischen 17% und 19.5%. Die Partei fällt mir durch folgendes auf:
 
-* **Ablehnung von Europa**: "Der gemeinsame EURO ist eine grundlegende Fehlkonstruktion."[^10]
+* **Ablehnung von Europa**: "Der gemeinsame EURO ist eine grundlegende Fehlkonstruktion."<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small>
   sowie [Dexit? Die AfD will, dass Deutschland die EU verlässt](https://www.dw.com/de/dexit-die-afd-will-dass-deutschland-die-eu-verl%C3%A4sst/a-71093078)
 * **Steuer-Populismus**: [Grund-, Erbschafts- und Schenkungssteuer soll wegfallen](https://www.bundestag.de/presse/hib/kurzmeldungen-1024812), ein [höherer Grundfreibetrag](https://www.bundestag.de/presse/hib/kurzmeldungen-997774) ([Video](https://www.bundestag.de/dokumente/textarchiv/2024/kw15-de-lohnabstandsgebot-997408)), [Solidaritätszuschlag und Kalte Progression abschaffen](https://www.bundestag.de/presse/hib/kurzmeldungen-1030462). Steuergeschenke in Höhe von
   [149 Mrd EUR](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html). Und die [Schuldenbremse soll bleiben](https://afdbundestag.de/kay-gottschalk-schuldenbremse-bewahren-finanzpolitik-verantwortungsbewusst-gestalten/). Das passt nicht zusammen. Entweder sind sie naiv, dumm, oder sie lügen.
 * **Klimawandel-Leugnung** [AfD fordert Aufkündigung aller Klimavereinbarungen](https://www.bundestag.de/presse/hib/kurzmeldungen-966976)
 * "Besseres Verhältnis zu Russland [...] Die USA bleiben unser Partner. Russland
   soll es werden. Die AfD setzt sich deshalb für ein Ende der Sanktionen und
-  eine Verbesserung der Beziehungen zu Russland ein."[^10] Klar wäre es schön,
+  eine Verbesserung der Beziehungen zu Russland ein."<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small> Klar wäre es schön,
   wenn es wieder Frieden geben würde. Aber Russland hat sich nicht ans
   [Budapester Memorandum](https://de.wikipedia.org/wiki/Budapester_Memorandum)
   gehalten. Auch nicht ans [Protokoll von Minsk](https://de.wikipedia.org/wiki/Protokoll_von_Minsk).
@@ -126,11 +126,13 @@ zwischen 17% und 19.5%. Die Partei fällt mir durch folgendes auf:
 
 Mit der erneuten Wahl von Trump werden wir wohl viel mehr in dieser Richtung sehen:
 
-* **Kannada-Annexion**[^13]
-* **Grönland-Annexion**[^1]
-* **Mexiko-Invasion**[^2][^3]
-* **Panama-Kanal Übernahme**[^4]
-* **Fracking-Boom**[^5] und Klimawandel-Leugnung[^11] und ignorieren von Umweltschutz[^12]
+* **Kannada-Annexion**<small><sup><a href="#ref13" name="anchor13">[13]</a></sup></small>
+* **Grönland-Annexion**<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
+* **Mexiko-Invasion**<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small><small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
+* **Panama-Kanal Übernahme**<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
+* **Fracking-Boom**<small><sup><a href="#ref5"
+  name="anchor5">[5]</a></sup></small> und Klimawandel-Leugnung<small><sup><a href="#ref11" name="anchor11">[11]</a></sup></small> und
+  ignorieren von Umweltschutz<small><sup><a href="#ref12" name="anchor12">[12]</a></sup></small>
 
 ### Europa
 
@@ -142,8 +144,8 @@ Mit der erneuten Wahl von Trump werden wir wohl viel mehr in dieser Richtung seh
 
 ## Wirtschaft
 
-* **Handelskriege**: Trump will Zölle mit Mexiko und Kanada[^14], China[^15] und
-  mindestens 10% auf jegliche Importe einführen[^16].
+* **Handelskriege**: Trump will Zölle mit Mexiko und Kanada<small><sup><a href="#ref14" name="anchor14">[14]</a></sup></small>, China<small><sup><a href="#ref15" name="anchor15">[15]</a></sup></small> und
+  mindestens 10% auf jegliche Importe einführen<small><sup><a href="#ref16" name="anchor16">[16]</a></sup></small>.
 * **Strukturwandel durch Elektrifizierung**: VW musste wegen Absatz-Problemen Werke in Deutschland
   schließen. Solange wir uns nicht auf Elektroautos einigen, wird das weiter
   gehen. So ähnlich wie der Markt an Pferdekuschen zwar dominiert werden kann,
@@ -162,19 +164,19 @@ Mit der erneuten Wahl von Trump werden wir wohl viel mehr in dieser Richtung seh
 
 ## Einzelnachweise
 
-[^1] [Trump says ownership of Greenland 'is an absolute necessity'](https://www.nbcnews.com/politics/donald-trump/trump-says-ownership-greenland-absolute-necessity-rcna185197) in NBC News, 23.12.2024
-[^2] Asawin Suebsaeng, Andrew Perez: [Team Trump Debates ‘How Much Should We Invade Mexico?’](https://www.rollingstone.com/politics/politics-features/trump-mexico-drug-cartels-military-invade-1235183177/) in Rolling Stone, 27.11.2024.
-[^3] Alexandra Ulmer: [Trump threatens to designate Mexican cartels as terrorists](https://www.reuters.com/world/americas/trump-vows-launch-anti-drug-ad-campaign-designate-mexican-cartels-terrorists-2024-12-22/) in Reuters, 22.12.2024
-[^4] [Panama: Protesters say 'enemy' Trump must leave canal alone](https://www.dw.com/en/panama-protesters-say-enemy-trump-must-leave-canal-alone/a-71156004) in DW, 25.12.2024.
-[^5] Leah Sarnoff: [What Trump's 'drill, baby, drill' fracking agenda could look like](https://abcnews.go.com/US/trumps-drill-baby-drill-fracking-agenda/story?id=115869936) in abcnews, 20.11.2024.
-[^6] [Warum die Autoindustrie so wichtig ist](https://www.zdf.de/nachrichten/wirtschaft/autoindustrie-deutschland-zahlen-fakten-100.html?), 23.09.2024.
-[^7] [Pressemitteilung Nr. 139 vom 9. April 2019](https://www.destatis.de/DE/Presse/Pressemitteilungen/2019/04/PD19_139_811.html) auf destatis.de
-[^8] René Muschter: [Golfregion: Anteil der Erdölrenditen am Bruttoinlandsprodukt (BIP) der Staaten des Golf-Kooperationsrats in den Jahren 2011 bis 2021](https://de.statista.com/statistik/daten/studie/1414292/umfrage/anteil-der-erdoelrenditen-am-bip-in-den-golfstaaten/) auf statista.com, 29.10.2024
-[^9] [Ausbau in Bayern](https://www.energieatlas.bayern.de/thema_wind/windenergie_wissen/windenergie-bayern/ausbau-bayern) im Energieatlas Bayern, abgerufen am 25.12.2024.
-[^10] [Grundsatzprogram](https://www.afd.de/grundsatzprogramm/) auf auf.de
-[^11] [Trump picks oil industry executive, climate change denier to lead Energy Department](https://www.timesofisrael.com/trump-picks-oil-industry-executive-climate-change-denier-to-lead-energy-department/), 17.11.2024
-[^12] [Trump Says Companies Investing $1 Billion In U.S. Will Soar Through Environmental Regulations](https://www.forbes.com/sites/maryroeloffs/2024/12/10/trump-says-companies-investing-1-billion-in-us-will-soar-through-environmental-regulations/), 10.12.2024
-[^13] [Canadians respond to Trump's jibe that country could become 51st state](https://www.bbc.com/news/videos/cjr21q588r7o), 18.12.2024
-[^14] [Mexico and Canada weigh potential fallout of Trump tariffs](https://www.dw.com/en/trump-tariffs-mexico-and-canada-weigh-potential-fallout-of-new-threats/a-70972316)
-[^15] [Breaking Down Trump’s Tariffs on China and the World, in Charts](https://www.wsj.com/economy/trade/trump-tariff-rates-china-world-trade-charts-3d6aee09), 03.12.2024.
-[^16] Jasper Jolly, Lisa O'Carroll: [Trump’s trade tariffs: how protectionist US policies will hit German carmakers](https://www.theguardian.com/business/2024/nov/09/trumps-trade-tariffs-how-protectionist-us-policies-will-hit-german-carmakers) im Guardian, 09.11.2024.
+* 1<a name="ref1" href="#anchor1">&uarr;</a> [Trump says ownership of Greenland 'is an absolute necessity'](https://www.nbcnews.com/politics/donald-trump/trump-says-ownership-greenland-absolute-necessity-rcna185197) in NBC News, 23.12.2024
+* 2<a name="ref2" href="#anchor2">&uarr;</a> Asawin Suebsaeng, Andrew Perez: [Team Trump Debates ‘How Much Should We Invade Mexico?’](https://www.rollingstone.com/politics/politics-features/trump-mexico-drug-cartels-military-invade-1235183177/) in Rolling Stone, 27.11.2024.
+* 3<a name="ref3" href="#anchor3">&uarr;</a> Alexandra Ulmer: [Trump threatens to designate Mexican cartels as terrorists](https://www.reuters.com/world/americas/trump-vows-launch-anti-drug-ad-campaign-designate-mexican-cartels-terrorists-2024-12-22/) in Reuters, 22.12.2024
+* 4<a name="ref4" href="#anchor4">&uarr;</a> [Panama: Protesters say 'enemy' Trump must leave canal alone](https://www.dw.com/en/panama-protesters-say-enemy-trump-must-leave-canal-alone/a-71156004) in DW, 25.12.2024.
+* 5<a name="ref5" href="#anchor5">&uarr;</a> Leah Sarnoff: [What Trump's 'drill, baby, drill' fracking agenda could look like](https://abcnews.go.com/US/trumps-drill-baby-drill-fracking-agenda/story?id=115869936) in abcnews, 20.11.2024.
+* 6<a name="ref6" href="#anchor6">&uarr;</a> [Warum die Autoindustrie so wichtig ist](https://www.zdf.de/nachrichten/wirtschaft/autoindustrie-deutschland-zahlen-fakten-100.html?), 23.09.2024.
+* 7<a name="ref7" href="#anchor7">&uarr;</a> [Pressemitteilung Nr. 139 vom 9. April 2019](https://www.destatis.de/DE/Presse/Pressemitteilungen/2019/04/PD19_139_811.html) auf destatis.de
+* 8<a name="ref8" href="#anchor8">&uarr;</a> René Muschter: [Golfregion: Anteil der Erdölrenditen am Bruttoinlandsprodukt (BIP) der Staaten des Golf-Kooperationsrats in den Jahren 2011 bis 2021](https://de.statista.com/statistik/daten/studie/1414292/umfrage/anteil-der-erdoelrenditen-am-bip-in-den-golfstaaten/) auf statista.com, 29.10.2024
+* 9<a name="ref9" href="#anchor9">&uarr;</a> [Ausbau in Bayern](https://www.energieatlas.bayern.de/thema_wind/windenergie_wissen/windenergie-bayern/ausbau-bayern) im Energieatlas Bayern, abgerufen am 25.12.2024.
+* 10<a name="ref10" href="#anchor10">&uarr;</a> [Grundsatzprogram](https://www.afd.de/grundsatzprogramm/) auf auf.de
+* 11<a name="ref11" href="#anchor11">&uarr;</a> [Trump picks oil industry executive, climate change denier to lead Energy Department](https://www.timesofisrael.com/trump-picks-oil-industry-executive-climate-change-denier-to-lead-energy-department/), 17.11.2024
+* 12<a name="ref12" href="#anchor12">&uarr;</a> [Trump Says Companies Investing $1 Billion In U.S. Will Soar Through Environmental Regulations](https://www.forbes.com/sites/maryroeloffs/2024/12/10/trump-says-companies-investing-1-billion-in-us-will-soar-through-environmental-regulations/), 10.12.2024
+* 13<a name="ref13" href="#anchor13">&uarr;</a> [Canadians respond to Trump's jibe that country could become 51st state](https://www.bbc.com/news/videos/cjr21q588r7o), 18.12.2024
+* 14<a name="ref14" href="#anchor14">&uarr;</a> [Mexico and Canada weigh potential fallout of Trump tariffs](https://www.dw.com/en/trump-tariffs-mexico-and-canada-weigh-potential-fallout-of-new-threats/a-70972316)
+* 15<a name="ref15" href="#anchor15">&uarr;</a> [Breaking Down Trump’s Tariffs on China and the World, in Charts](https://www.wsj.com/economy/trade/trump-tariff-rates-china-world-trade-charts-3d6aee09), 03.12.2024.
+* 16<a name="ref16" href="#anchor16">&uarr;</a> Jasper Jolly, Lisa O'Carroll: [Trump’s trade tariffs: how protectionist US policies will hit German carmakers](https://www.theguardian.com/business/2024/nov/09/trumps-trade-tariffs-how-protectionist-us-policies-will-hit-german-carmakers) im Guardian, 09.11.2024.

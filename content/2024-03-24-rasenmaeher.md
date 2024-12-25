@@ -5,7 +5,7 @@ slug: rasenmaeher
 author: Martin Thoma
 date: 2024-03-09 20:00
 category: German posts
-tags: haus
+tags: house
 featured_image: logos/house.png
 ---
 Ich habe einen Garten mit ca. 400m² und brauche einen Rasenmäher. Das sind meine
@@ -116,6 +116,9 @@ Ich habe folgendes ignoriert:
 Abkürzungen:
 
 * P4A: Power for All, auch 18V-Allianz genannt
+    * 1x P4A 4Ah: 80€
+* PXC: Power X-Change
+    * 2x PXC 4Ah: 65€
 
 <table>
   <thead>
@@ -125,9 +128,9 @@ Abkürzungen:
       <th>Preis</th>
       <th>Fläche</th>
       <th>Akku</th>
-      <th>Schnittbreite</th>
-      <th>Grasfangvolumen</th>
-      <th>Schnitthöhe</th>
+      <th>Schnitt&shy;breite</th>
+      <th>Grasfang&shy;volumen</th>
+      <th>Schnitt&shy;höhe</th>
       <th>Gewicht</th>
     </tr>
   </thead>
@@ -145,10 +148,10 @@ Abkürzungen:
     </tr>
     <tr>
         <td>Einhell</td>
-        <td>RASARRO 36/36</td>
+        <td><a href="https://www.einhell.de/p/3413282-rasarro-36-36-2x3-0ah-plus/">RASARRO 36/36</a></td>
         <td>297€</td>
         <td>400m²</td>
-        <td>216 Wh (2x 36V mit 3Ah)</td>
+        <td>108 Wh (2x 18V mit 3Ah, PXC)</td>
         <td>36cm</td>
         <td>40L</td>
         <td>25-75 mm</td>
@@ -167,10 +170,10 @@ Abkürzungen:
     </tr>
     <tr>
       <td>Einhell</td>
-      <td>RASARRO 36/40</td>
+      <td><a href="https://www.einhell.de/p/3413278-rasarro-36-40-2x40ah/">RASARRO 36/40</a></td>
       <td>380€</td>
       <td>500m²</td>
-      <td>288 Wh (2x 36V mit 4Ah)</td>
+      <td>144 Wh (2x 18V mit 4Ah, PXC)</td>
       <td class="green">40cm</td>
       <td class="green">50L</td>
       <td>25-75 mm</td>
@@ -215,3 +218,4 @@ Abkürzungen:
 ## Siehe auch
 
 * Stiftung Warentest: [Akku siegt, Kabel spart](https://www.test.de/Rasenmaeher-im-Test-5157148-0/), März 2023.
+* FAZ: [Der beste Akku-Rasenmäher](https://www.faz.net/kaufkompass/test/der-beste-akku-rasenmaeher/),  März 2024.

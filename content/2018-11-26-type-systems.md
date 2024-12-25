@@ -13,13 +13,17 @@ programming languages. So let's summarize it.
 
 ## Dynamic vs Static Typing
 
+<div style="background-color: #cdcdcd">Rule of thumb: Statically typed languages check their types at compile time,
+while dynamically typed languages check their types at runtime.</div>
+
 I like the definition of [pythonconquerstheuniverse](https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/):
 
 > In a **statically typed** language, every variable name is bound both
 > a type (at compile time, by means of a data declaration) and an object.
-
+>
 > In a **dynamically typed** language, every variable name is bound only to an
 > object.
+
 
 Something you can do in a dynamic language, but not in a static language:
 
@@ -36,6 +40,8 @@ The advantage of statically typed languages is less confusion.
 
 
 ## Strong vs Weak Typing
+
+<div style="background-color: #cdcdcd">Rule of thumb: Weakly typed languages do type coercion.</div>
 
 Continuing with the definition of [pythonconquerstheuniverse](https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/):
 
@@ -102,7 +108,7 @@ is a duck.
     <tr>
         <td>C</td>
         <td>static</td>
-        <td>strong</td>
+        <td>weak</td>
         <td>explicit</td>
     </tr>
     <tr>
@@ -115,7 +121,7 @@ is a duck.
         <td>Python</td>
         <td>dynamic</td>
         <td>strong</td>
-        <td>implicit<sup>&#x2606;</sup></td>
+        <td>implicit, since Python 3.5 optionally explicit</td>
     </tr>
     <tr>
         <td>JavaScript</td>
@@ -130,8 +136,6 @@ is a duck.
         <td>implicit</td>
     </tr>
 </table>
-
-<sup>&#x2606;</sup> As of Python 3.5, explicit typing is possible
 
 
 ## See also
