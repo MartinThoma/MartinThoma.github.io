@@ -39,7 +39,7 @@ massive Auswirkungen auf die Wirtschaft:
   gewissen Punkt wird es für viele Förderer nicht mehr rentabel sein, zu
   fördern. Das bedeutet, dass Förderer pleite gehen. Damit sinkt die
   Förderung wieder und die Preise steigen. Das ist für Kuwait, Saudi-Arabien,
-  Oman, die Vereinigten Arabischen Emirate, Katar und Bahrain ein Problem.
+  Oman, die Vereinigten Arabischen Emirate, Katar und Bahrain ein Problem.<small><sup><a href="#ref8" name="anchor8">[8]</a></sup></small>
   Interessanter wäre es zu wissen wie hoch der Anteil der Fossilen Industrien
   in den USA und Europa wäre, aber diese Zahlen sind schwer zu finden. Mit ein
   paar Branchenriesen kann man einen ersten Eindruck erhalten:
@@ -126,7 +126,7 @@ zwischen 17% und 19.5%. Die Partei fällt mir durch folgendes auf:
 
 Mit der erneuten Wahl von Trump werden wir wohl viel mehr in dieser Richtung sehen:
 
-* **Kannada-Annexion**<small><sup><a href="#ref13" name="anchor13">[13]</a></sup></small>
+* **Kanada-Annexion**<small><sup><a href="#ref13" name="anchor13">[13]</a></sup></small>
 * **Grönland-Annexion**<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
 * **Mexiko-Invasion**<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small><small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
 * **Panama-Kanal Übernahme**<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
@@ -143,6 +143,19 @@ Mit der erneuten Wahl von Trump werden wir wohl viel mehr in dieser Richtung seh
 
 
 ## Wirtschaft
+
+Die meisten Menschen in Deutschland und den USA spüren die steigenden Preise für
+Mieten und Lebensmittel. Wir nennen das Inflation, aber die Analyse für die
+Ursachen bzw. die Möglichkeiten zur Bekämpfung sind sehr Unterschiedlich. Viele
+Menschen scheinen zu denken, dass es ein Geldproblem ist. Nur dann ist es
+Folgerichtig die Zinsen zu erhöhen, damit weniger Geld in Umlauf kommt. Meine
+Analyse ist eine andere: Wir haben ein Produktionsproblem. Die Weltwirtschaft
+wurde durch die Corona-Pandemie und damit zusammenhängende Isolationsmaßnahmen,
+die [Ever Given im Suezkanal](https://de.wikipedia.org/wiki/Ever_Given),
+sowie den Krieg zwischen Russland und der Ukraine und den von der EU verhängten
+Sanktionen gestört.
+
+Und es wird wohl auch so weitergehen:
 
 * **Handelskriege**: Trump will Zölle mit Mexiko und Kanada<small><sup><a href="#ref14" name="anchor14">[14]</a></sup></small>, China<small><sup><a href="#ref15" name="anchor15">[15]</a></sup></small> und
   mindestens 10% auf jegliche Importe einführen<small><sup><a href="#ref16" name="anchor16">[16]</a></sup></small>.
