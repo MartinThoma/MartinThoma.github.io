@@ -85,6 +85,33 @@ neuen Förderungen und deren plötzlichen Streichungen ins Knie:
       den Preisanstieg abfedern - und somit das Ziel der CO2-Reduktion
       bewusst sabotieren.
 
+## Demographiewandel
+
+Deutschland wird älter.
+
+![](../images/2024/12/bevoelkerung-altersstruktur-2022-de.png)
+
+Das führt insbesondere dazu, dass das Verhältnis zwischen Einzahlern in das
+Gesundheits- und Rentensystem und den Empfängern schlechter wird. Wenn wir
+Pflegende zumindest gleich gut wie früher bezahlen wollen und auch die Leistungen
+der Kassen für die Kranken/Pflegebedürftigen gleich bleiben sollen, dann müssen
+Arbeitnehmer mehr einzahlen.
+
+Das führt zu einem Wohlstandverlust.
+
+Bekämpfen kann man das durch folgende Maßnahmen:
+
+* **Zuwanderung**: Wenn mehr Menschen in Deutschland arbeiten, dann zahlen auch
+  mehr Menschen in die Sozialsysteme ein.
+* **Automatisierung**: Produktivitätssteigerungen können steigende Kosten
+  auffangen.
+* **Gesundheitsförderung**: Wenn die Menschen gesünder sind, dann fallen
+  weniger Kosten an. Erhöhte Preise für Alkohol (vgl. [Finnland](https://de.statista.com/statistik/daten/studie/166425/umfrage/steuersaetze-fuer-spirituosen/)), Zucker, und Tabak könnten ein
+  Schritt sein. Kurse zur gesunden Ernährung. [Japan macht das vor](https://www.wiwo.de/technologie/ernaehrung-japan-als-vorbild-gegen-fettleibigkeit/5498226.html).
+
+Es bereitet mir Sorge, dass die meisten Parteien in Deutschland nicht bereit
+sind, diese Maßnahmen zu ergreifen. Viele arbeiten sogar aktiv dagegen.
+
 ## Populismus und Rechtsextremismus
 
 Ich beobachte Weltweit, dass Populisten mehr Gehör finden. Unter Populismus
