@@ -104,7 +104,13 @@ Bekämpfen kann man das durch folgende Maßnahmen:
 * **Zuwanderung**: Wenn mehr Menschen in Deutschland arbeiten, dann zahlen auch
   mehr Menschen in die Sozialsysteme ein.
 * **Automatisierung**: Produktivitätssteigerungen können steigende Kosten
-  auffangen.
+  auffangen. [Im öffentlichen Dienst muss man Prozesse digitalisieren](https://www.tagesschau.de/inland/innenpolitik/oeffentlicher-dienst-personalmangel-100.html),
+  das bedeutet sie zuerst zu vereinfachen und über kommunale Grenzen hinweg zu
+  standardisieren. Dann kann man sie möglichst komplett digital abbilden. Ohne
+  Papier, ohne Bruch in der digitalen Kette. Das spart Zeit und Geld, weil
+  man viele Prüfungen nicht mehrfach machen muss. Im besten Fall können sie auch
+  komplett automatisch laufen. Allerdings bekommen wir das seit Jahrzehnten nicht
+  hin. Wieso?
 * **Gesundheitsförderung**: Wenn die Menschen gesünder sind, dann fallen
   weniger Kosten an. Erhöhte Preise für Alkohol (vgl. [Finnland](https://de.statista.com/statistik/daten/studie/166425/umfrage/steuersaetze-fuer-spirituosen/)), Zucker, und Tabak könnten ein
   Schritt sein. Kurse zur gesunden Ernährung. [Japan macht das vor](https://www.wiwo.de/technologie/ernaehrung-japan-als-vorbild-gegen-fettleibigkeit/5498226.html).
