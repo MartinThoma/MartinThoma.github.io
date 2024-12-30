@@ -85,7 +85,9 @@ neuen Förderungen und deren plötzlichen Streichungen ins Knie:
       den Preisanstieg abfedern - und somit das Ziel der CO2-Reduktion
       bewusst sabotieren.
 
-## Demographiewandel
+## Demografischer Wandel
+
+### Altersstruktur
 
 Deutschland wird älter.
 
@@ -117,6 +119,29 @@ Bekämpfen kann man das durch folgende Maßnahmen:
 
 Es bereitet mir Sorge, dass die meisten Parteien in Deutschland nicht bereit
 sind, diese Maßnahmen zu ergreifen. Viele arbeiten sogar aktiv dagegen.
+
+### Räumliche Verteilung
+
+Ein weiterer Aspekt des demografischen Wandels ist die räumliche Verteilung
+der Menschen. Wo wohnen wir?
+
+Die folgende [Grafik von Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Population_density_of_Germany_by_municipality-de.svg) zeigt es sehr schön:
+
+![Bevölkerungsdichte 2022 in Deutschland](../images/2024/12/population-density-germany-2022.png)
+
+Auch über die [Liste der deutschen Bundesländer nach Bevölkerungsentwicklung](https://de.wikipedia.org/wiki/Liste_der_deutschen_Bundesl%C3%A4nder_nach_Bev%C3%B6lkerungsentwicklung)
+kann man ein paar Eindrücke gewinnen.
+
+Mal zusammengefasst:
+
+* Große Städte wie Berlin, Hamburg, München, Köln, Frankfurt, Stuttgart,
+  Düsseldorf und Dortmund wachsen.
+* Ländliche Regionen verlieren Einwohner.
+* Der Süden (Bayern und Baden-Württemberg) wächst.
+* Der Osten (Sachsen, Sachsen-Anhalt, Thüringen und Mecklenburg-Vorpommern)
+  schrumpft.
+
+Das Problem dabei ist der [Wohnraummangel in den Großstädten](https://martin-thoma.com/wohnungsmangel-mathe/).
 
 ## Populismus und Rechtsextremismus
 
