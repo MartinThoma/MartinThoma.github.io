@@ -10,7 +10,7 @@ featured_image: logos/star.png
 ---
 You can connect two pieces of wood in many ways. Here are some of them.
 
-## Glue
+## Glue (Leim 🇩🇪)
 
 You glue two flat pieces of wood together. Use clamps.
 
@@ -28,6 +28,10 @@ long grain.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1RRNjne3R84?si=dFvVDk_64oK6Caiv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Countersinks are nice.
+
+* Einschraubmuffe: Man macht ein Loch ins holz, schraubt das Metallgewinde
+  rein. Dann kann man eine Schraube sicher in das Metallgewinde schrauben.
+* Exzenterverbinder
 
 ## Pocket-Hole Jigs
 
@@ -63,6 +67,17 @@ Like a thick Busikit. You need a special machine to use it.
 
 ## Interlocking Joints
 
+* [Gehrung](https://de.wikipedia.org/wiki/Gehrung) (Miter joint)
+    * Nut-Feder-Verbindung (Miter joint with spline)
+    * Frame mitre joint vs Case mitre joint
+
+
 ### Dovetails
 
 Looks really nice.
+
+* [Schwalbenschwanzverbindung](https://de.wikipedia.org/wiki/Schwalbenschwanzverbindung) (Dovetail joint)
+    * Through dovetail
+    * Half-blind dovetail
+    * Secret mitred dovetail
+    * Sliding dovetail
