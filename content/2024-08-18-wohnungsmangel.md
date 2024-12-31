@@ -1,16 +1,58 @@
 ---
 layout: post
-title: Wohnungsmangel
+title: Politik gegen Wohnungsmangel
 slug: wohnungsmangel
 author: Martin Thoma
 date: 2024-08-18 20:00
 category: My bits and bytes
-tags: politics
+tags: politics, Germany
 featured_image: logos/mathematics.png
 ---
-Deutschland hat zu wenig Wohnungen.
+Deutschland hat zu wenig Wohnungen. 439.500 Personen waren 2024 wohnungslos,
+aber das ist tatsächlich nicht die Zahl auf die man sich fokusieren sollte.
+Interessanter wäre es zu sehen wie viele Menschen einen Job nicht angenmmen
+haben, weil sie keine Wohnung gefunden haben. Oder wie viele Menschen mehr als
+33% ihres Netto-Einkommens für die Miete ausgeben. Oder in wie vielen Städten
+der Leerstand unter 3% liegt.
 
-## Politik
+## Daten zum Wohnungsmangel
+
+
+### Leerstand
+
+Eine Leerstandsquote von 3%-5% wird als normal angesehen. Hier mal ein paar
+ausgewählte Städte:
+
+* Aschheim: 1.5%
+* Unterhaching: 1.7%
+* Niederalteich: 1.9%
+* München: 2.4%
+* Starnberg: 2.6%
+* Regensburg: 2.9%
+* Nürnberg/Würzburg: 3.1%
+* Augsburg: 3.9%
+* Landshut: 4.2%
+* Bayreuth: 4.9%
+* Passau: 5.7%
+* Bayrisch Eistenstein: 14%
+* Schirnding: 16.3%
+
+### Neubau
+
+Neue Wohnungen pro Jahr:
+
+* 1995: 602.800
+* 2000: 423.000
+* 2005: 242.300
+* 2010: 159.800
+* 2020: 306.400
+* 2021: 293.400
+* 2022: 295.300
+* 2023: 294.400, davon 257.200 Neubauwohnungen in Wohngebäuden. Auf
+        Einfamilienhäuser entfielen davon 69 900 Wohnungen
+
+
+## Aktuelle Politik
 
 Das SPD-Bundestagswahlprogramm 2021 spricht von
 "überteuerten Wohnungen" und wollen "bezahlbaren Wohnraum" schaffen indem sie
@@ -26,37 +68,32 @@ wollen sie den ÖPNV stärken um so Ballungsgebiete zu entlasten.
 Die Grünen wollen bezahlbaren Wohngraum schaffen, indem sie die Mittel für den
 sozialen Wohnungsbau deutlich erhöhen.
 
-## Statistiken
+## Politische Maßnahmen
 
-* Neue Wohnungen pro Jahr:
-    * 2010: 159.800
-    * 2020: 306.400
-    * 2023: 294.400, davon 257.200 Neubauwohnungen in Wohngebäuden. Auf
-            Einfamilienhäuser entfielen davon 69 900 Wohnungen
-* Wohnungslosigkeit nach Jahr:
-    * 2024: 439.500 Personen
+Folgendes ist vorstellbar um den Wohnungsbau voranzutreiben:
 
-## Schlaglicht: Frankfurt
+* **Finanzielle Anreize**: Günstige Kredite, Steuererleichterungen.
+* **Infrastruktur**: Wenn es gute ÖPNV-Anbindungen gibt, ziehen Menschen eher
+  in die Peripherie. Das entlastet die Innenstädte. Das ist allerdings ein
+  Henne-Ei-Problem: Wenn es keine Wohnungen in der Peripherie gibt, ziehen auch
+  keine Menschen dorthin. Dann gibt es auch keine Notwendigkeit für den ÖPNV.
+* **Staatlicher Wohnungsbau**: Der Staat (bzw. die Bundesländer / Gemeinden / Städte)
+  könnten als Bauherren auftreten und selbst bauen und vermieten. Damit könnte
+  man auch sicherstellen, dass die Mieten nicht absurd steigen. Als Stadt
+  kann man dann auch direkt die Infrastruktur mitplanen.
 
-[Frankfurt am Main](https://de.wikipedia.org/wiki/Frankfurt_am_Main) ist die
-fünftgrößte Stadt Deutschlands
+Folgendes ist vorstellbar um mehr Wohnungen dem Markt zuzuführen:
 
-* Einwohner: 775.790 (31. Dez. 2023)
-* Fläche: 248,31 km²
-* Gebäude mit Wohnungen: 81.129
-* Wohnungen: 410.235
-* Studierende: 64.953
-    * [Johann Wolfgang Goethe-Universität Frankfurt am Main](https://de.wikipedia.org/wiki/Johann_Wolfgang_Goethe-Universit%C3%A4t_Frankfurt_am_Main): 41.783 (Wintersemester 2023/24)
-    * [Frankfurt University of Applied Sciences](https://de.wikipedia.org/wiki/Frankfurt_University_of_Applied_Sciences): 15.036 (Wintersemester 2023/24)
-    * [Frankfurt School of Finance & Management](https://de.wikipedia.org/wiki/Frankfurt_School_of_Finance_%26_Management): 3.284 + ca. 2800 Teilnehmende der Ausbildungsakademie/dualen Berufsausbildung  (2024)
-    * [Provadis School of International Management and Technology](https://de.wikipedia.org/wiki/Provadis_School_of_International_Management_and_Technology): 1.100 (2024)
-    * [Hochschule für Musik und Darstellende Kunst Frankfurt am Main](https://de.wikipedia.org/wiki/Hochschule_f%C3%BCr_Musik_und_Darstellende_Kunst_Frankfurt_am_Main): 950 (2024)
-* Studentenwohnheimplätze: 3.511 in 27 Wohnheimen ([2024](https://studiwohnen.com/studentenwohnheime-in/frankfurt-am-main))
-* Auszubildende:  18.935 (2020)
-* Rentner: ca. 16% über 65; über die Anzahl der Rentner in Frankfurt gibt es keine offiziellen Zahlen
-* Wohnungslose Personen: 3.892 ([2024](https://www.faz.net/aktuell/rhein-main/frankfurt/obdachlosenhilfe-in-frankfurt-niemand-muss-auf-der-strasse-schlafen-19435699.html))
+* [Zweckentfremdungsverbot](https://de.wikipedia.org/wiki/Wohnraumzweckentfremdung):
+  Wenn eine Wohnung mehr als 3 Monate leer steht, muss sie vermietet werden.
+  Ausnahmen wären Sarnierung.
+* **Grundsteuer**: Wenn die Steuer auf Wohnungen hoch ist haben Eigentümer einen
+  Anreiz die Wohnung zu vermieten. Als sozialen Ausgleich könnte man gemeldeten
+  Einwohnern (pro Person, unabhängig von der Wohnungsgröße und -anzahl) einen
+  Mietzuschuss bezahlen.
 
-## Studentenwohnheime
+
+## Schlaglicht: Studentenwohnheime
 
 Das Hans-Dickmann-Kollegs (HaDiKo) in Karlsruhe hat 6 Häuser mit 1102 Zimmern:
 
@@ -81,8 +118,6 @@ Wie viel Wohnfläche wäre das in etwa?
 
 Das wären 5400m² Wohnfläche. Bei 2500€/m² an Baukosten wären das 13,5 Millionen
 Euro pro Haus. Also 70k Euro pro Student.
-
-## Politisches Programm
 
 Man könnte nun bundespolitisch für jede Stadt für jeden Studenten über 10 Jahre
 verteilt 35k EUR an Zuschüssen für den Bau von Wohnheimen der Hadiko-Klasse
@@ -118,6 +153,27 @@ auch langfristig helfen. Er würde den Wohnungsmarkt entlasten und die
 Lebensqualität vieler Menschen verbessern. Er wäre zielgerichtet und würde
 direkt bei einer der finanziell schwächsten Gruppen ansetzen.
 
+## Schlaglicht: Frankfurt
+
+[Frankfurt am Main](https://de.wikipedia.org/wiki/Frankfurt_am_Main) ist die
+fünftgrößte Stadt Deutschlands
+
+* Einwohner: 775.790 (31. Dez. 2023)
+* Fläche: 248,31 km²
+* Gebäude mit Wohnungen: 81.129
+* Wohnungen: 410.235
+* Studierende: 64.953
+    * [Johann Wolfgang Goethe-Universität Frankfurt am Main](https://de.wikipedia.org/wiki/Johann_Wolfgang_Goethe-Universit%C3%A4t_Frankfurt_am_Main): 41.783 (Wintersemester 2023/24)
+    * [Frankfurt University of Applied Sciences](https://de.wikipedia.org/wiki/Frankfurt_University_of_Applied_Sciences): 15.036 (Wintersemester 2023/24)
+    * [Frankfurt School of Finance & Management](https://de.wikipedia.org/wiki/Frankfurt_School_of_Finance_%26_Management): 3.284 + ca. 2800 Teilnehmende der Ausbildungsakademie/dualen Berufsausbildung  (2024)
+    * [Provadis School of International Management and Technology](https://de.wikipedia.org/wiki/Provadis_School_of_International_Management_and_Technology): 1.100 (2024)
+    * [Hochschule für Musik und Darstellende Kunst Frankfurt am Main](https://de.wikipedia.org/wiki/Hochschule_f%C3%BCr_Musik_und_Darstellende_Kunst_Frankfurt_am_Main): 950 (2024)
+* Studentenwohnheimplätze: 3.511 in 27 Wohnheimen ([2024](https://studiwohnen.com/studentenwohnheime-in/frankfurt-am-main))
+* Auszubildende:  18.935 (2020)
+* Rentner: ca. 16% über 65; über die Anzahl der Rentner in Frankfurt gibt es keine offiziellen Zahlen
+* Wohnungslose Personen: 3.892 ([2024](https://www.faz.net/aktuell/rhein-main/frankfurt/obdachlosenhilfe-in-frankfurt-niemand-muss-auf-der-strasse-schlafen-19435699.html))
+
+
 ## Einzelnachweise
 
 1. destatis.de: [Pressemitteilung Nr. 203](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/05/PD24_203_31121.html), 23. Mai 2024.
@@ -128,3 +184,6 @@ direkt bei einer der finanziell schwächsten Gruppen ansetzen.
 6. Stadt Frankfurt: [Bauen und Wohnen](https://frankfurt.de/service-und-rathaus/daten-informationen-wissen/themen/bauen-und-wohnen), Datenstand: 2021
 7. Christoph Manus: [Viel mehr Wohngeld ausgezahlt in Frankfurt](https://www.fr.de/frankfurt/viel-mehr-wohngeld-ausgezahlt-in-frankfurt-92879414.html), Stand:08.03.2024.
 8. statista.com: [Anzahl der Studierenden an Hochschulen in Deutschland in den Wintersemestern von 2002/2003 bis 2023/2024](https://de.statista.com/statistik/daten/studie/221/umfrage/anzahl-der-studenten-an-deutschen-hochschulen/)
+9. bmwsb.bund.de: [Wohnungslosenbericht 2022](https://www.bmwsb.bund.de/SharedDocs/downloads/Webs/BMWSB/DE/veroeffentlichungen/pm-kurzmeldung/wohnungslosenbericht-2022.html)
+10. Sophie Menner: [Leerstand in Bayern trotz Wohnungsnot: Wie passt das zusammen?](https://www.br.de/nachrichten/bayern/leerstand-in-bayern-und-wohnungsnot-wie-passt-das-zusammen,UIa6oLh), 28.09.2024
+11. [Pressemitteilung Nr. N041 vom 29. Juni 2023](https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/06/PD23_N041_31.html): Fertiggestellte Wohnungen pro Jahr

@@ -6,10 +6,14 @@ author: Martin Thoma
 date: 2024-12-08 20:00
 category: My bits and bytes
 tags: mathematics, politics
-featured_image: logos/star.png
+featured_image: logos/mathematics.png
 ---
 Der Wohnngsmangel ist eines der heißesten Themen in der deutschen Politik.
-Wir machen keinen Fortschritt aus ein paar einfachen Gründen.
+Ich habe schon mal über [den Wohnungsmangel in Deutschland](https://martin-thoma.com/wohnungsmangel/) geschrieben.
+
+Wir machen keinen Fortschritt, weil wir uns zu sehr auf den privaten Wohnungsbau
+verlassen. Das ist ein Problem, weil es bei aktuellen Zinsen einfach nicht
+ökonomisch sinnvoll ist Wohnungen zu bauen.
 
 ## Wohnungsmangel - Ein Verteilungsproblem
 
