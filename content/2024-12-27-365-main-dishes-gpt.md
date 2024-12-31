@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 365 Hauptgerichte
-slug: 365-main-dishes
+slug: 365-main-dishes-gpt
 author: Martin Thoma
 date: 2023-12-27 20:00
 category: German posts

@@ -22,6 +22,24 @@ Angenommen wir haben Haus der Energieeffizienzklasse C mit
 $90\frac{\text{kWh}}{m^2 \cdot a}$ und $150\text{m}^2$ Wohnfläche. Dann benötigt
 es also im Jahr 13.500kWh an Energie.
 
+## Warmwasser
+
+Angenommen jede Person duscht ca. 15 Minuten pro Tag. Mein Duschkopf lässt ca.
+4L/min durch. Das ist sehr wenig. Anscheinend ist unter 8L/min schon wenig; ab
+12L/min ist es viel.
+
+Damit sind wir pro person bei 60L/Tag und Person. Bei zwei Personen wären wir
+bei 120L/Tag fürs Duschen.
+
+Nehmen wir nun an, dass das kalte Wasser bei 15°C liegt und wir bei 40°C duschen.
+Also haben wir eine Temperaturdifferenz von 25°C. Wasser hat eine [spezifische
+Wärmekapazität](https://de.wikipedia.org/wiki/Spezifische_W%C3%A4rmekapazit%C3%A4t)
+von 4.18 kJ/kg K. Das bedeutet:
+
+120L/Tag * 1 kg/L * 25 K * 4.18 kJ/kg K / Tag =12.540 kJ/Tag = 3.48 kWh/Tag
+
+Das sind dann 1270.2 kWh/Jahr. Bei Heizöl sind das 130L/Jahr.
+
 
 ## Betriebskosten Ölheizung
 

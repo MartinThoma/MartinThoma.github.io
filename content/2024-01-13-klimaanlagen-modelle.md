@@ -19,6 +19,13 @@ Split-Klimaanlagen haben für mich einen besonderen Charme:
 3. **Dezentral**: Mehrere Geräte zu haben bedeutet, dass es unwahrscheinlicher wird, dass alle auf einmal ausfallen.
 4. **Kühlen**: Im Gegensatz zu anderen Heizsystemen kann man mit den Klima-Anlagen halt auch kühlen
 
+
+## Allgemeines
+
+* TODO: Schalltechnische Entkopplung: Wie funktioniert das, wenn das Gerät an
+  der Wand montiert ist?
+* Heizleistung: Achtung! Bei niedrigeren Temperaturen sinkt die Heizleistung!
+
 ## Betriebskosten
 
 Der SCOP (Seasonal Coefficient of Performance) gibt die Effizienz der Klimaanlage fürs Heizen an. Der SEER macht das selbe fürs kühlen.
@@ -99,12 +106,12 @@ Das Wohnzimmer macht vermutlich 1/3 des Gesamtbedarfs aus, also 5800 kWh/a.
         <td></td>
     </tr>
     <tr>
-        <td>5.1</td>
+        <td class="Highlight">5.1</td>
         <td>341.18&nbsp;€/a</td>
         <td>6823.60&nbsp;€</td>
         <td>Δ = 136.40&nbsp;€</td>
         <td>7380.48&nbsp;€</td>
-        <td></td>
+        <td>Das scheint ein typischer SCOP zu sein</td>
     </tr>
     <tr>
         <td>5.2</td>
@@ -154,6 +161,14 @@ Das Wohnzimmer macht vermutlich 1/3 des Gesamtbedarfs aus, also 5800 kWh/a.
         <td>8305.68&nbsp;€</td>
         <td></td>
     </tr>
+    <tr>
+        <td>6.7</td>
+        <td>259.71&nbsp;€/a</td>
+        <td>5194.03&nbsp;€</td>
+        <td>Δ = 704.37&nbsp;€</td>
+        <td>9010.05&nbsp;€</td>
+        <td>Die MSZ-LN35VG erreicht diesen Wert angeblich</td>
+    </tr>
     </tbody>
 </table>
 
@@ -164,9 +179,7 @@ Beim Heizöl mit 1.20€/L wäre ich bei 710.20€/a und 14204€ in 20 Jahren.
 
 ## Dimensionierung
 
-Als Daumenregel:
-
-Anzahl Quadratmeter des Raumes * 80 W/m² = Benötigte Heizleistung
+Als Daumenregel: Anzahl Quadratmeter des Raumes ⋅ 80 W/m² = Benötigte Heizleistung
 
 Besser: Heizlastberechnung
 
@@ -176,8 +189,6 @@ Liste der förderfähigen Wärmepumpenanlagen: https://www.bafa.de/SharedDocs/Do
 
 Förderung über Umfeldmaßnahme (bis zu 40%, max. 60k€ pro Kalenderjahr!)
 Zuerst Antrag stellen!!!!!
-
-
 
 
 ## Split-Klimaanlagen
@@ -191,18 +202,113 @@ https://www.akkudoktor.net/forum/heizungssysteme/split-klimas-in-schweden/
 4. Daikin - 4712 Beiträge
 5. Sanyo - 3099 Beiträge
 
+### Panasonic
+
+Etherea CS-Z35ZKEW + CU-Z35ZKE:
+
+* [1238€](https://www.climamarket.eu/de/split-panasonic-cs-z35xkew-cu-z35xke)
+* SEER / SCOP: 9.50 / 5.20
+* Heizleistung: 4.0 kW
+* Empfohlene Fläche: 25 - 35 m²
+* Kältemittel: R-32
+* Wifi: Inklusive
+
+
+### LG
+
+* [LG ThinQ Android App](https://play.google.com/store/apps/details?id=com.lgeha.nuts&hl=en_US)
+* [LG AC Smart Diagnosis](https://play.google.com/store/apps/details?id=com.lge.android.rac.buzzer&hl=de&gl=US)
+
+LG Inverter, Deluxe Dualcool, Wandgeräte, DC12RH NSJ + DC12RH UL2:
+
+* [2950 €](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/lg-inverter-deluxe-dualcool-wandgeraete-dc12rh-nsj-dc12rh-ul2-fuer-ca-25m-35m-inkl-montage.html) mit Montage
+* SCOP: 4,6
+* SEER: 7,6
+* Nennheizleistung 4.0 kW
+* R32
+
 ### Samsung
+
+* [Samsung Electronics](https://de.wikipedia.org/wiki/Samsung_Electronics)
+    * Gründung 1969
+    * Sitz: Südkorea
+    * Mitarbeiter: 270.000
+    * Umsatz: 210 Mrd. EUR (2022)
+* [Smart Things](https://www.samsung.com/in/support/home-appliances/how-to-connect-your-samsung-smart-ac-to-the-smartthings-app/): [SmartThings](https://play.google.com/store/apps/details?id=com.samsung.android.oneconnect&hl=de_CH)
+* [Android Technician App](https://play.google.com/store/apps/details?id=com.samsung.kato&hl=gsw&gl=US)
 
 Wind-Free Elite AR09CXCAAWKN + AR09TXCAAWKX:
 
 * [2162€](https://www.klimaworld.com/samsung-monosplit-klimaanlage-wind-free-elite-2-5-kw.html)
 * SCOP: 5.1 (-15 °C bis 24 °C)
 * SEER: 8.8 (-10 °C bis 46 °C)
-* Mit Bewegungssensor
+* Mit Bewegungssensor, [Produktseite](https://www.samsung.com/at/business/climate/windfree/)
 * Heizleistung: 3,2 kW (0,80 - 7,10)
 
+### Toshiba
 
-### MITSUBISHI
+* [Toshiba](https://de.wikipedia.org/wiki/Toshiba)
+    * Gründung: 1875
+    * Sitz: Japan
+    * Mitarbeiter: 116.224
+    * Umsatz: 21 Mrd. Euro (2021)
+* [Toshiba Home AC Control](https://play.google.com/store/apps/details?id=com.toshibatctc.SmartAC&hl=de_AT)
+
+Edge RAS-B13G3KVSG-E + RAS-13J2AVSG-E1
+
+* [1146€](https://www.climamarket.eu/de/split-toshiba-edge-w-13)
+* SEER / SCOP: 8.6 / 5.10
+* Heizleistung: 4.2 kW
+* Kältemittel: R-32
+* Wifi: inclusive
+
+Haori RAS-B13N4KVRG-E + RAS-13J2AVSG-E1:
+
+* [1.511 €](https://www.climamarket.eu/de/split-toshiba-ras-b13n4kvrg-e-ras-13j2avsg-e1)
+* SEER / SCOP: 8,6 / 5,10
+* Heizleistung: 4.2 kW
+* Empfohlene Fläche: 25 - 35 m²
+* Kältemittel: R-32
+* Wifi: inclusive
+
+## Mitsubishi
+
+* [Mitsubishi Electric](https://de.wikipedia.org/wiki/Mitsubishi_Electric)
+    * Gründung 1921
+    * Sitz: Japan
+    * Mitarbeiter: 149.655
+    * Umsatz: 38.1 Mrd. EUR ()
+* Control
+    * [Home Assistant](https://www.home-assistant.io/integrations/melcloud/)
+    * [Android App: MELCloud](https://play.google.com/store/apps/details?id=mitsubishi.wifi.android.mitsubishiwifiapp&hl=en_US)
+* Namen wie MSZ-EF35VGK-W oder MSZ-EF35VGK-B:
+    * Block 1
+        * MSZ: Mitsubishi Split-Zone; das Innengerät
+        * MUZ: Mitsubishi Unit Zone; das Außengerät
+    * Block 2
+        * Präfix: Design-Serie
+            * [RW](https://www.mitsubishi-les.com/de-de/msz-rw-8259.html): SCOP bis 5,2/SEER bis 11,2
+            * [LN](https://www.mitsubishi-les.com/de-de/msz-ln-1896.html): SCOP bis 5,2/ SEER bis 10,5 (Diamond Wandgeräte)
+            * [AY](https://www.mitsubishi-les.com/de-de/msz-ay-8256.html): SCOP bis 4,8/SEER bis 8,7
+            * [FT](https://www.mitsubishi-les.com/de-de/msz-ft-8258.html): SCOP bis 4,8/SEER bis 8,6
+            * [EF](https://www.mitsubishi-les.com/de-de/msz-ef-1915.html): SCOP bis 4,7/SEER bis 9,1 (PREMIUM DESIGN-WANDGERÄTE; auch [Kirigamine ZEN](https://innovations.mitsubishi-les.com/files/pdf/de/ME-M-Serie-MSZ-EF-Broschuere-DE.pdf) genannt)
+            * [AP](https://www.mitsubishi-les.com/de-de/msz-ap-8320.html): SCOP bis 4,6/SEER bis 7.4
+            * [HR](https://www.mitsubishi-les.com/de-de/dam-upload/aktionsflyer-cool-clever-fuer-fachhaendler.pdf?rev=199063): SCOP 4.3
+        * 25/35 steht für die Kühlleistung, also 2.5 kW oder 3.5 kW
+        * Suffix: VGK/VG2/VGW: Invertertechnologie und andere technische Merkmale
+    * Suffix: Farbe des Innengeräts
+        * W: Natural White
+        * B: Onyx Black
+        * V: Pearl White
+        * R: Ruby Red
+
+MUZ/MSZ-EF35VGK-W:
+
+* [1350€](https://www.climamarket.eu/de/split-klimaanlage-mitsubishi-electric-msz-ef35vgk-w-muz-ef35vg) - [1420 €](https://www.climamarket.eu/de/split-klimaanlage-mitsubishi-electric-msz-ef35vgk-b-muz-ef35vg)
+* SEER / SCOP: 8.8 / 5.6
+* Heizleistung: 4.0 kW
+* Wifi: inclusive
+* Empfohlene Fläche: 25 - 35 m²
 
 MUZ/MSZ-AY25VGK
 
@@ -213,14 +319,20 @@ MUZ/MSZ-AY25VGK
 
 MUZ/MSZ-LN35VG2:
 
-MUZ/MSZ-LN35VG2:
-
 * [2494€](https://www.klimaworld.com/mitsubishi-klimaanlage-muz-ln35vg-msz-ln35vg-5m-easy-quick.html) ([2109€ ohne Easy-quick](https://www.klimaworld.com/mitsubishi-monosplit-klimaanlage-ln35vg2-3-5-kw.html))
 * SCOP: 5.1 (-15 °C bis 24 °C)
 * SEER: 9.5 (-10 °C bis 46 °C)
 * Energieleistung Heizen G: 3.6kW
 * IP24
 * MELCloud via WiFi Adapter serienmäßig
+
+**MUZ/MSZ-LN35VG**
+
+* [1713€](https://www.climamarket.eu/de/mitsubishi-electric-split-msz-ln35vgw) - [1851€](https://www.climamarket.eu/de/mitsubishi-electric-split-msz-ln35vgv) - [2800€](https://kuehlungsprofi.de/produkt/split-klimaanlage-mitsubishi-electric-msz-ln35vgv-muz-ln35vg/)
+* SEER / SCOP: 9.5 / 6.7 🤯
+* Heizleistung: 4.0kW
+* Kältemittel: R-32
+* Wifi: Inklusive
 
 ### NEXA Energy E
 
@@ -233,6 +345,12 @@ MUZ/MSZ-LN35VG2:
 
 ### Gree
 
+* [Gree Electric Appliances](https://de.wikipedia.org/wiki/Gree_Electric_Appliances)
+    * Gründung: 1993
+    * Sitz: China
+    * Mitarbeiter: 23.000
+* [Android App](https://play.google.com/store/apps/details?id=com.gree.greeplus&hl=de&gl=US)
+
 SOYAL 9 GWH09AKC-K6DNA1A:
 
 * [1892€](https://www.klimaworld.com/gree-monosplit-klimaanlage-g-tech-9-2-7-kw-quick-connect-1.html)
@@ -240,14 +358,114 @@ SOYAL 9 GWH09AKC-K6DNA1A:
 * SEER: 9.4 (A+++, -15 °C bis +52 °C)
 * Energieleistung Heizen G: 3.0kW
 
-SOYAL 12 	GWH12AKC-K6DNA1A
+SOYAL 12 GWH12AKC-K6DNA1A
 
 * [2294€](https://www.klimaworld.com/gree-monosplit-klimaanlage-fairy-black-12-3-5-kw-quick-connect-1.html)
 * SCOP: 5.1 (A+++, -25 °C bis +24 °C)
 * SEER: 9.0 (A+++, -15 °C bis +52 °C)
 * Energieleistung Heizen G: 3.2kW
 
+### Giatsu
+
+
+* [376€](https://www.climamarket.eu/de/split-klimaanlage-giatsu-gia-s12ar2b-r32-i-gia-s12ar2b-r32-o)
+* SEER / SCOP: 6.1 / 4.0
+* Heizleistung: 3.80 kW
+* Kältemittel: R-32
+
+### Haier
+
+* [Haier](https://de.wikipedia.org/wiki/Haier)
+    * Gründung: 1984
+    * Sitz: China
+    * Mitarbeiter: 70.000
+
+* [757€](https://www.climamarket.eu/de/split-klimaanlage-haier-as35s2sf1fa-wh-1u35s2sm1fa)
+* SEER / SCOP: 8.50 / 4.60
+* Heizleistung: 4.20 kW
+
+
+## Daikin
+
+* [Daikin Industries](https://de.wikipedia.org/wiki/Daikin_Industries):
+    * Gründung 1924
+    * Sitz: Japan
+    * Mitarbeiter: 88.698
+    * Umsatz: 23 Mrd. Euro  (2021)
+* Control:
+    * [Android App](https://play.google.com/store/apps/details?id=eu.daikin.remoapp&hl=de&gl=US)
+    * [Home Assistant](https://www.home-assistant.io/integrations/daikin/):
+      Daikin has removed their local API in newer products. They offer a cloud
+      API accessible only under NDA, which is incompatible with open source.
+* Modellbezeichnungen, z.B. FTXP35N5V1B / RXJ20A5V1B ([Nomenclature](https://www.daikinac.com/content/assets/Uploads/PM-DCRG.pdf)):
+    * Reihe
+        * [Perfera](https://www.daikin.de/de_de/privatkunden/produkte-und-beratung/produktkategorien/waermepumpen/luft-luft-waermepumpen/perfera-wandgeraet.html): Seit 2021 auf dem Markt
+        * [Perfera Cold Region](https://www.daikin.de/de_de/privatkunden/produkte-und-beratung/produktkategorien/waermepumpen/luft-luft-waermepumpen/perfera-wandgeraet-cold-region.html)
+        * [Stylish](https://www.daikin.de/de_de/privatkunden/produkte-und-beratung/produktkategorien/waermepumpen/luft-luft-waermepumpen/stylish.html): Seit 2017 auf dem Markt, Reddot Award; standardmäßig mit einem Online Controller ausgestattet; Thermo-und Bewegungssensor
+        * [Ururu Sarara](https://www.daikin.de/de_de/privatkunden/produkte-und-beratung/produktkategorien/waermepumpen/luft-luft-waermepumpen/ururu-sarara.html): Markteinführung 2018; Entfeuchtung, selbstreinigender Filter
+        * [Comfora](https://www.daikin.de/de_de/privatkunden/produkte-und-beratung/produktkategorien/klimaanlagen/comfora.html): Seit 2018 auf dem Markt
+        * [Emura 3](https://www.daikin.de/de_de/pressemeldungen/Emura3.html): Markteinführung 2016.
+    * Innengerät (FTX): High-Efficiency Wall-Mounted Ductless Heat Pump System
+        * Anbringungsart:
+            * F: Innengerät
+            * FT/CT: Wandmontage
+            * FD/CD: Slim Duct
+        * Systemtyp:
+            * X: Wärmepumpe mit hoher Effizienz
+            * F: Deckenmontage
+            * K: Cooling only
+        * Effizienz:
+            *
+        * Modellreihe
+            * TXP
+            * TXJ
+            * TXA
+        * Kälteleistung
+            * 20: 2.0 kW
+            * 35: 3.5 kW
+        * Suffix: Farbe des Innengeräts
+            * W: White
+            * B: Black
+    * Außengeräte (R): Air-Cooled Outdoor Unit, z.B. RXP35M / RXJ20A5V1B / RXA20A9
+        * X: Heat Pump (K wäre nur zum Kühlen)
+        * Effizienz:
+            * N: Standard
+            * _: Mid (Blank)
+            * L : Low Ambient
+            * S: High
+            * G: Highest
+        * Zahl:
+            * 20: 20,000 BTU/h
+            * 35: 35,000 BTU/h
+        * Major Design Category: A
+        * Power Supply
+            * V1: Einphasig
+* Support gut ([ronnie auf YouTube](https://www.youtube.com/watch?v=TjIAc9yl-ng))
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2024/01/daikin-models.png"><img src="../images/2024/01/daikin-models.png" alt="Suchaktivität in Google Trends bzgl. der Daikin Modellreihen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Suchaktivität in Google Trends bzgl. der Daikin Modellreihen</figcaption>
+</figure>
+
+
+### Daikin Comfora
+
+FTXP35N5V1B + RXP35M:
+
+* [939€](https://www.climamarket.eu/de/daikin-split-txp35m)
+* SEER / SCOP: 6.62 / 4.64
+* Heizleistung: 4.0 kW
+* Kältemittel: R-32
+
 ### Daikin Emura 3 Wandgerät
+
+FTXJ20A2V1BW + RXJ20A5V1B:
+
+* [3292€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-emura3-wandgeraet-ftxj20mw-rxj20m-fuer-ca-10m-20m-inkl-montage.html) incl. Montage
+* SCOP (-10°C): 5.15
+* Heizleistung: 2.02kW
+* SEER: 8.75
+* R-32 (675)
 
 FTXJ25AW + RXJ25M:
 
@@ -258,18 +476,27 @@ FTXJ25AW + RXJ25M:
 
 FTXJ35AB + RXJ35A:
 
-* [2761€](https://www.klimaworld.com/daikin-emura-3-klimaanlage-ftxj35aw-rxj35a-mattweiss-3-4-kw-1.html)
+* [2050€](https://www.climamarket.eu/de/split-daikin-txj35aw) - [2110€](https://www.climamarket.eu/de/split-daikin-txj35ab) - [2770€](https://www.klimaworld.com/daikin-emura-3-klimaanlage-ftxj35aw-rxj35a-mattweiss-3-4-kw-1.html)
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
-* Sprachsteuerung via Alexa oder Google Assistant
 * Heizleistung: 4.0 kW
+* Wifi: Sprachsteuerung via Alexa oder Google Assistant
+* Kältemittel: R-32
 
 
-### Daikin Stylish Wandgerät
+### Daikin Stylish
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F5NVM-djpAo?si=KTuIcAKXBkG-EJpO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+3 Farben:
+
+* Silber
+* Weiß
+* Blackwood
 
 FTXA20+RXA20A9:
 
-[1886 €](https://www.klimaworld.com/daikin-stylish-klimaanlage-ftxa20-rxa20a-2-0-kw.html)
+[1890€](https://www.klimaworld.com/daikin-stylish-klimaanlage-ftxa20-rxa20a-2-0-kw.html)
 
 * SCOP: 5.15 (A+++)
 * SEER: 8.75
@@ -277,33 +504,44 @@ FTXA20+RXA20A9:
 
 FTXA25+RXA25A9:
 
-* [2087€](https://www.klimaworld.com/daikin-stylish-klimaanlage-set-ftxa25-rxa25a-2-5-kw.html)
+* [2090€](https://www.klimaworld.com/daikin-stylish-klimaanlage-set-ftxa25-rxa25a-2-5-kw.html)
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
 * Energieleistung Heizen G in kW: 3.0 kW
 
 FTXA25BS + RXA25A:
 
-* [3632€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bs-rxa25a-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
+* [3640€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bs-rxa25a-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
 * Deklarierte Leistung bei -10 °C: 2.3 kW
 
 FTXA25BB + RXA25A:
 
-* [3578€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bb-rxa25a-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
+* [3580€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bb-rxa25a-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
 * Deklarierte Leistung bei -10 °C: 2.3 kW
 
 FTXA35+RXA35A9:
 
-* [2389€](https://www.klimaworld.com/daikin-stylish-klimaanlage-set-ftxa35-rxa35a-3-4-kw.html)
+* [2390€](https://www.klimaworld.com/daikin-stylish-klimaanlage-set-ftxa35-rxa35a-3-4-kw.html)
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.73 (A+++)
 * Energieleistung Heizen G in kW: 4.0 kW
 
 ### DAIKIN Perfera
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6YfMXII6ZSg?si=rtcmfK6pxHW3PIDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+Features:
+
+* 2-Zonen Bewegungssensor + 3D Luftstrom
+
+[Erfahrungen und Probleme](https://www.akkudoktor.net/forum/heizungssysteme/daikin-perfera-erfahrungen-und-probleme/):
+
+* Bedarfssteuerung: Man muss mehr manuell eingreifen als erhofft
+* Probleme bei zu kleinen Räumen
 
 FTXM25R+RXM25R9
 
@@ -315,11 +553,14 @@ FTXM25R+RXM25R9
 
 FTXM35R+RXM35R9
 
-* [1636€](https://www.klimaworld.com/catalog/product/view/id/87937/s/daikin-professional-r-32-klimaanlage-set-ftxm35n-rxm35n9-3-4-kw/)
-* SCOP: 5.1 (A+++)
+* [1196€](https://www.climamarket.eu/de/split-klimaanlage-daikin-ftxm35r-rxm35r) - [1636€](https://www.klimaworld.com/catalog/product/view/id/87937/s/daikin-professional-r-32-klimaanlage-set-ftxm35n-rxm35n9-3-4-kw/) bzw. [3065 €](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-perfera-wandgeraet-ftxm35r-rxm35r-fuer-ca-25m-35m-inkl-montage.html) mit Montage
+* SCOP (-10°C): 5.1 (A+++)
 * SEER: 8.65 (A+++)
 * Energieleistung Heizen G in kW: 4.0 kW
-* Sprachsteuerung via Amazon Alexa oder Google Assistant möglich.
+* Heizleistung: 2.35 kW
+* Wifi: Sprachsteuerung via Amazon Alexa oder Google Assistant möglich.
+* R-32 (GWP=675)
+
 
 ### DAIKIN Perfera Cold Region
 
@@ -329,14 +570,19 @@ FTXTM30R+RXTM30R:
 * SCOP: 5.12 (-25~18)
 * SEER: 7.6 (-10~46 °C)
 
-FTXTM40R+RXTM40R:
+FTXTM40R + RXTM40R:
 
 * [1969€](https://www.breeze24.com/klimaanlagen/klimaanlage-sets/monosplit-und-multisplit-set/monosplit/wandgeraet/daikin-set-wandgeraet-perfera-cold-region-4-0-kw-ftxtm40r-rxtm40r-hyper-heating-r32) - [2427€](https://www.klimaworld.com/daikin-r32-klimaanlage-perfera-cold-region-ftxtm40m-rxtm40n-4-0-kw.html)
 * SCOP: 5.3 (A+++)
 * SEER: 7.7 (A++)
 * Energieleistung Heizen G: 4.0 kW
 
+FTXTM40R+RXTM40R: [2427€](https://www.klimaworld.com/daikin-r32-klimaanlage-perfera-cold-region-ftxtm40m-rxtm40n-4-0-kw.html)
+
+
 ### DAIKIN Ururu Sarara
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4vJW7DJC4xw?si=iHYcrpzbQj9OH3Qz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 FTXZ25N+RXZ25N:
 
@@ -364,3 +610,12 @@ FTXZ50N+RXZ50N:
 * Energieleistung Heizen G: 5.0 kW
 * Arbeitstemperatur heizen	-20~18 °C
 * rbeitstemperatur kühlen	-10~43°C
+
+
+## Weiteres
+
+* Stiftung Warentest: [19 Klimageräte Splitgeräte 06/2021, 06/2022, 05/2023](https://www.test.de/Klimageraete-im-Test-4722766-0/)
+* Klimaanlagen (Luft-Luft Wärmepumpen) und Lüftungsanlagen sind zwei paar
+  Schuhe. Man kann mit der Klimaanlage Feuchtigkeit aus der Luft nehmen, aber
+  die CO2-Konzentration/Schadstoffbelastung wird dadurch nicht geändert.
+* Truhengeräte haben eine schlechtere Effizienz als Wandgeräte

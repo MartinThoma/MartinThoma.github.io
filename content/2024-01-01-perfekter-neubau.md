@@ -56,6 +56,11 @@ um die 120m² - 160m² Wohnfläche.
 Eine Luft-Wasser-Wärmepumpe sorgt für warmes Brauchwasser und versorgt die
 Fußbodenheizung.
 
+Ein Hygienespeicher kann als zusätzlicher Speicher für Warmwasser dienen: Der
+Heizstab erhitzt das Wasser im Hygienespeicher. Wenn man dann Warmwasser
+benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und
+so erwärmt.
+
 Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen Schornstein.
 Daher gibt es auch keine Kosten für Schornsteinfeger.
 
@@ -117,6 +122,8 @@ Innentüren:
 * Vollspan: Deutlich hochwertiger als Röhrenspan; hat bessere
   Schallschutz-Werte.
 * CPL (Continuous Pressure Laminate) ist eine wiederstandsfähige Beschichtung.
+* Hohe Türen
+* Verdeckte Bänder
 
 
 ## Boden
@@ -141,7 +148,8 @@ zu reinigen ist.
 Alternativen:
 
 * Teppich: Fest verbauter Teppich wird dreckig und kann man dann nicht reinigen.
-* Echtholzparkett
+* Echtholzparkett: Französisches Fischgrät-Eichenparkett im Schlafzimmer, weil
+  es Fußwarm ist und der Boden im Schlafzimmer nur gering belastet wird.
 * Klickparkett
 * Laminat
 
@@ -292,6 +300,13 @@ Weitere:
   Variante gilt habe ich es nicht aufgenommen.
 
 
+Bei Feinsteinzeug-Fließen:
+
+* Durchgefärbt
+* Rektifiziert / kalibriert
+* Härtegrad
+
+
 ## Gebäudehülle / Fassade
 
 * Großer Dachüberstand, damit man trocken ums Haus herum laufen kann. Damit ist
@@ -312,6 +327,12 @@ Weitere:
     <figcaption class="text-center">Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten</figcaption>
 </figure>
 
+### Fenster
+
+* Rolländen: Überall und elektrisch, ohne verbindung nach innen. Aber mit einem
+  manuellen Notbetrieb, der von innen erreichbar ist (durchs geöffnete Fenster)
+* 3-fach verglast
+* Insekten-Rollo (Plissee) in den Fenstern
 
 
 ## Küche
@@ -321,14 +342,27 @@ Weitere:
     <figcaption class="text-center">Küche</figcaption>
 </figure>
 
-* **Spülbecken**: Flächenbündig oder unterbau. Im Gegensatz zum Einbau-Spüle
+* **Spülbecken**: Flächenbündig oder Unterbaubecken. Im Gegensatz zum Einbau-Spüle
   kann man hier besser reinigen.
 * **Herd**:
     * Flächenbündig: Selbes Argument wie beim Spülbecken.
     * Induktionsherd: Sehr geringes Brandrisiko, kein Rauch oder Abgase
-* **Arbeitsplatte**: Aus Beton, weil es sonst mit dem flächenbündigen Einbau
-  schwer wird. Aus Keramik würde wohl auch gehen, aber da würde ich mir sorgen
-  machen, dass was kaputt geht. Beton ist auch günstiger als Keramik
+    * Umluft-Abzug (keine Abluft): Obwohl Abluft sicherlich besser funktioniert,
+      bedeutet es eine schlechtere Wärmedämmung und der Schornsteinfeger muss
+      regelmäßig kommen.
+* **Backofen**:
+    * Ober-Unterhitze, Heißluft, Grill
+    * Backauszug
+    * 60x60cm: 67L Garraum
+    * Mikrowellen-Funktion: z.B. [Bosch HMG6764B1 Serie 8](https://www.bosch-home.com/de/produktliste/kochen-backen/herde-backoefen/einbaubackoefen/HMG6764B1#/Togglebox=accessories/Togglebox=manuals/Togglebox=accessoriesOthers/), [Siemens HM636GNS1 iQ700](https://www.siemens-home.bsh-group.com/de/produktliste/kochen-backen/backoefen-herde/backoefen-mit-mikrowelle/HM636GNS1#/Togglebox=accessories/Togglebox=manuals/Togglebox=accessoriesOthers/)
+    * Dampf-Garer
+* **Arbeitsplatte**: Aus
+  [Beton](https://homewithstefani.com/diy-concrete-countertops/) (auch in
+  [Marmor-Optik](https://www.youtube.com/watch?v=4537Eh2ZNys)), weil es sonst
+  mit dem flächenbündigen Einbau schwer wird. Aus Keramik würde wohl auch gehen,
+  aber da würde ich mir sorgen machen, dass was kaputt geht - Dekton ist da wohl
+  besser, aber auch viel teurer. Beton ist auch günstiger als Keramik. Quartz
+  fühlt sich besser an als Keramik.
 * **Dunstabzug**: In die Herdplatte hinein. Das kann man (hoffentlich) besser
   reinigen.
 * **Appliance Garage**: Ein "Versteck" für so etwas wie den Wasserkocher,
@@ -346,6 +380,9 @@ Luxus:
   Mit Bidet-Funktion (mit warmen Wasser). Beheizter Sitz.
 * **Wände und Böden**: Microcement. Keine Fugen im Nassbereich.
 * Beheizbarer Handtuchhalter
+* **Dusche**: Bodengleich, mit Regendusche und Handbrause. Mit Ablage für
+  Shampoo und Duschgel. Mit Sitzgelegenheit. Mit Dusch-WC. Nieschen-Dusche mit
+  Pendeltür. Mindestens 90x90cm, besser 120x120cm.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" style="max-height: 512px"/></a>
@@ -356,6 +393,10 @@ Luxus:
     <a href="../images/2024/01/smart-mirror.jpg"><img src="../images/2024/01/smart-mirror.jpg" alt="Smart Mirror mit Wettervorhersage und Uhr" style="max-height: 512px"/></a>
     <figcaption class="text-center">Smart Mirror mit Wettervorhersage und Uhr</figcaption>
 </figure>
+
+Einrichtung:
+
+* **Handtücher**: 600 g/m² oder mehr, waschbar bei 60°C oder mehr; Walkfrottier
 
 
 ## Wohnzimmer
@@ -450,6 +491,8 @@ Und natürlich viele Hochbeete.
     <figcaption class="text-center">Hochbeet</figcaption>
 </figure>
 
+Mit Glasbrocken (Gambionen) in Türkis und LEDs kann man sehr schöne Sachen machen (Wege, Kräuterspirale, Mauern)
+
 ## Vorratskeller
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -483,6 +526,81 @@ Wintergarten ist auch nice, aber ich bin mir nicht sicher was die Feuchtigkeit a
 
 Und eine Anliegerwohnung ist insgesamt eine gute Idee, z.B. um mit zwei
 Generationen im Haus leben zu können.
+
+## Einordnung
+
+<table>
+    <thead>
+        <tr>
+            <th>Kategorie</th>
+            <th>Einfach</th>
+            <th>Standard</th>
+            <th>Gehobene Ausstattung</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Bodenbeläge</th>
+            <td>Alter Teppich, einfacher Linoleum</td>
+            <td>Laminat, einfacher Teppich</td>
+            <td>Echtholzparkett (z.B. Bauwerk), Natursteinfliesen, Feinsteinzeug (z.B. Villeroy & Boch), großformatige Fließen</td>
+        </tr>
+        <tr>
+            <th>Wände/Decken</th>
+            <td>Alte Tapeten, einfacher Putz, Risse</td>
+            <td>Raufaser, glatt verputzt (Q2-Spachtelung)</td>
+            <td>Glatte Wände (Q3-Q4 Spachtelung), Stuckarbeiten, Designer-Tapeten (z.B. Rasch)</td>
+        </tr>
+        <tr>
+            <th>Heizung</th>
+            <td>Einzelöfen, elektrische Direktheizungen (Nachtspeicheröfen, Heizlüfter, Infrarot-Heizung)</td>
+            <td>Zentralheizung (Öl/Gas)</td>
+            <td>Fußbodenheizung, moderne Heizsysteme wie Wärmepumpen (z.B. Viessmann)</td>
+        </tr>
+        <tr>
+            <th>Fenster</th>
+            <td>Einfachverglasung, veraltete Fensterrahmen</td>
+            <td>Doppelverglasung, Kunststoffrahmen</td>
+            <td>Dreifachverglasung, Fensterrahmen aus Holz oder Aluminium (z.B. Schüco)</td>
+        </tr>
+        <tr>
+            <th>Sanitäre Anlagen</th>
+            <td>Alte, abgenutzte Sanitäreinrichtungen</td>
+            <td>Standard-Badewanne und Waschbecken, PVC-Rohre</td>
+            <td>Designer-Armaturen und -Waschbecken (z.B. Grohe, Duravit), Whirlpool, bodengleiche Duschen, Edelstahl-Rohre</td>
+        </tr>
+        <tr>
+            <th>Küche</th>
+            <td>Einfache Küchenzeile, veraltete Geräte</td>
+            <td>Einbauküche mit Standardgeräten</td>
+            <td>Einbauküche mit Markengeräten (z.B. Miele, Siemens), Arbeitsplatten aus Naturstein oder Quarzkomposit (z.B. Silestone)</td>
+        </tr>
+        <tr>
+            <th>Türen</th>
+            <td>Einfache, hohle Türen, veraltete Schlösser</td>
+            <td>Röhrenspan-Türen, Standard-Holztüren</td>
+            <td>Vollspan-Türen, Massivholztüren, Türen mit Designbeschlägen (z.B. FSB)</td>
+        </tr>
+        <tr>
+            <td>Elektrik</td>
+            <td>Alte Verkabelung, wenige Steckdosen</td>
+            <td>Standard-Verkabelung, ausreichende Steckdosen</td>
+            <td>Smart-Home-Systeme (z.B. KNX), umfassende Elektroinstallationen mit vielen Steckdosen und Beleuchtungskonzepten</td>
+        </tr>
+        <tr>
+            <td>Außenanlagen</td>
+            <td>Vernachlässigter Garten, einfacher Betonweg</td>
+            <td>Gepflegter Garten, einfache Terrasse</td>
+            <td>Professionell angelegter Garten, Terrasse mit Naturstein oder Feinsteinzeug, Außenbeleuchtung (z.B. Licht im Garten)</td>
+        </tr>
+        <tr>
+            <td>Energieeffizienz</td>
+            <td>Schlechte Dämmung, hohe Energiekosten</td>
+            <td>Durchschnittliche Dämmung, Energieverbrauch &gt;100 kWh/m²a</td>
+            <td>Sehr gute Dämmung (z.B. Mineralwolle, Zellulose), niedriger Energieverbrauch (&lt;50 kWh/m²a),  energetisch optimierte Bauweise, Solaranlagen (z.B. SolarWorld)</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Einzelnachweise
 

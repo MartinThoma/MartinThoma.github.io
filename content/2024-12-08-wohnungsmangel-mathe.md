@@ -5,7 +5,7 @@ slug: wohnungsmangel-mathe
 author: Martin Thoma
 date: 2024-12-08 20:00
 category: My bits and bytes
-tags: math, politics
+tags: mathematics, politics
 featured_image: logos/star.png
 ---
 Der Wohnngsmangel ist eines der heißesten Themen in der deutschen Politik.
