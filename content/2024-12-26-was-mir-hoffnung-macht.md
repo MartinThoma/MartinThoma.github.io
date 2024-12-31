@@ -114,6 +114,6 @@ wie gut ich versorgt werde.
 * 6<a name="ref6" href="#anchor6">&uarr;</a> Sebastian Schaal: [E-Bus-Einsatz im Polarkreis geht in den zweiten Winter](https://www.electrive.net/2024/11/20/e-bus-einsatz-im-polarkreis-geht-in-den-zweiten-winter/)], 20.11.2024.
 * 7<a name="ref7" href="#anchor7">&uarr;</a> destatis.de: [14,6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html), 10.09.2024.
 * 8<a name="ref8" href="#anchor8">&uarr;</a> Christian Stöcker: [Ein Batterie-Tsunami rollt heran](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) in Spiegel Wissenschaft, 17.11.2024.
-* 9<a name="ref8" href="#anchor8">&uarr;</a> Plusminus: [Warum es Dienstleistungen noch immer nicht online gibt](https://www.youtube.com/watch?v=Sna99E9jKsw) im MDR.
+* 9<a name="ref9" href="#anchor9">&uarr;</a> Plusminus: [Warum es Dienstleistungen noch immer nicht online gibt](https://www.youtube.com/watch?v=Sna99E9jKsw) im MDR.
 * 10<a name="ref10" href="#anchor10">&uarr;</a> Christina Hertel: [MVG stellt Weichen für autonom fahrende U-Bahnen in München](https://www.abendzeitung-muenchen.de/muenchen/mvg-stellt-weichen-fuer-autonom-fahrende-u-bahnen-in-muenchen-art-946721), 15.12.2023.
 * 11<a name="ref11" href="#anchor11">&uarr;</a> BR: [E-Mobilität: Autonom fahrende Shuttle-Busse](https://www.youtube.com/watch?v=iAkMQODZ5MY) auf YouTube, 15.12.2021.
