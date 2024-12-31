@@ -5,7 +5,7 @@ slug: waermepumpen
 author: Martin Thoma
 date: 2023-03-24 20:00
 category: German posts
-tags: money, house
+tags: money, house, climate change
 featured_image: logos/house.png
 ---
 Im Hinblick auf die steigenden Energiekosten und die vergangende
