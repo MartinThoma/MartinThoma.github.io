@@ -185,10 +185,42 @@ Fadendichte, auch Fadenzahl genannt (Thread Count, TC)
 * TC 600: [Pizuna 600](https://www.amazon.de/dp/B08Z7VV3XD/ref=sspa_dk_detail_2) (57€)
 * TC 800: [Pizuna 800](https://www.amazon.de/dp/B08Z825H58/ref=sspa_dk_detail_3) (52€)
 
-### Flächengewicht
+### Flächengewicht (GSM)
+
+Je höher die Dichte, desto saugfähiger und weicher ist der Stoff.
 
 * 100 - 150 g/m²: [Moon Classic](https://www.amazon.de/Hotelbettw%C3%A4sche-Bettw%C3%A4sche-Moon-Hotelverschluss-kochfest/dp/B077YW98H2/) (51€)
 * 200 g/m²: [Formesse Bella Donna Premium](https://www.bettwaren-shop.de/Bettlaken/Formesse-Bella-Donna-Premium-Spannbetttuch.html) (109€)
+* 300 - 900 g/m²: Dichte von Handtüchern
+* ab 600 g/m²: Hochwertiges Handtuch
+
+## Handtücher
+
+Größen:
+
+* Badetuch: 50x100cm
+* Duschtücher 70x140cm
+
+Webarten:
+
+* Frottee
+    * Zwirnfrottee: fester und robuster
+    * Walkfrottee:  sehr weich und flauschig
+* Frottier: Optisch glatte oberfläche (weniger flauschig/weich als Frottee)
+    * Walkfrottier: weich, flauschig und saugfähig
+    * Zwirnfrottier: fester und robuster; z.B. Küche, Friseursalon oder Physiotherapie
+    * Velourfrottier: softe, samtartige Flor (typisch für Bademäntel)
+
+Bei Frottier unterscheidet man Gewichtsklassen:
+
+* 350 bis 499 g/m²: leicht
+* 500 bis 599 g/m²: mittel
+* mehr als 600 g/m²: schwer
+
+Marken:
+
+* Möve Superwuschel Uni: 50x100cm, weiß, 550g/m² für 13.60€. Ist toll.
+* ZOLLNER: 50x100 cm, weiß, 420g/m² für 7.25€ pro Handtuch. War OK.
 
 ## Siehe auch
 

@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2024-11-08 20:00
 category: My bits and bytes
 tags: house,finances
-featured_image: logos/star.png
+featured_image: logos/house.png
 ---
 Es gibt ein paar Eckdaten, die den Wert eines Einfamilienhauses samt Grundstück
 bestimmen. Hier im Artikel gehe ich auf die wichtigsten ein.
