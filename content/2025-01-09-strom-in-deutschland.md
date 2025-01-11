@@ -69,7 +69,7 @@ Jede neue Solaranlage und jedes neue Windrad bedeutet ein Stück mehr
 Unabhängigkeit – ökonomisch wie geopolitisch.
 
 * Kernkraft: Wir mussten Uran importieren. [Großteils aus Russland](https://www.tagesschau.de/inland/regional/niedersachsen/ndr-deutlich-mehr-uran-aus-russland-nach-lingen-geliefert-100.html)
-* Kohle: Deutschland hat 2023 [102 Millionen Tonnen Braunkohle](https://www.destatis.de/Europa/DE/Thema/Umwelt-Energie/Braunkohle.html) abgebaut. Wir haben [27 Millionen Tonnen Steinkohle importiert](https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Energie/Verwendung/Tabellen/einfuhr-steinkohle-zeitreihe.html). Die größten Massengutfrachter können rund 400.000 Tonnen Ladung befördern ([Quelle](https://www.machmeer.de/infos-fuer-azubis/schiffe/massengutfrachter)), also ca. 70 große Frachter. Wir sind seit 2018 mit der [Schließung vom Bergwerk Prosper-Haniel](https://de.wikipedia.org/wiki/Bergwerk_Prosper-Haniel) von Importen abhängig. Der Grund ist, dass die deutsche Steinkohle nicht mehr wirtschaftlich abgebaut werden kann. Es ist einfach günstiger die Kohle in Australien abzubauen und nach Deutschland zu transportieren. Verrückt.
+* Kohle: 2023 hat Deutschland [102 Millionen Tonnen Braunkohle](https://www.destatis.de/Europa/DE/Thema/Umwelt-Energie/Braunkohle.html) abgebaut. Wir haben [27 Millionen Tonnen Steinkohle importiert](https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Energie/Verwendung/Tabellen/einfuhr-steinkohle-zeitreihe.html). Die größten Massengutfrachter können rund 400.000 Tonnen Ladung befördern ([Quelle](https://www.machmeer.de/infos-fuer-azubis/schiffe/massengutfrachter)), also ca. 70 große Frachter. Wir sind seit 2018 mit der [Schließung vom Bergwerk Prosper-Haniel](https://de.wikipedia.org/wiki/Bergwerk_Prosper-Haniel) von Importen abhängig. Der Grund ist, dass die deutsche Steinkohle nicht mehr wirtschaftlich abgebaut werden kann. Es ist einfach günstiger die Kohle in Australien abzubauen und nach Deutschland zu transportieren. Verrückt.
 * Erdgas: Deutschland hat 2023 [2 Millionen Terajoule Erdgas importiert](https://www.destatis.de/DE/Themen/Wirtschaft/Aussenhandel/Tabellen/erdgas-jaehrlich.html). Seit 2023 kommt ein Großteil aus Norwegen, Niederlande, und Belgien ([Quelle](https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/))
 
 
@@ -108,7 +108,7 @@ zu den foglenden Stichtagen bezahlt:
 
 Also im großen und ganzen kann man sagen, dass der Ukraine-Krieg die Strompreise
 in die Höhe getrieben hat, aber dass die Strompreise inzwischen wieder auf dem
-Niveau von 2021 sind. Die Kriese wurde also überwunden.
+Niveau von 2021 sind. Die Krise wurde also überwunden.
 
 Die aktuelle [Zusammensetzung des Strompreises](https://www.verivox.de/strom/themen/strompreiszusammensetzung/) sieht wie folgt aus:
 
@@ -145,18 +145,52 @@ Siehe auch:
 * Wikipedia: [Liste historischer Stromausfälle](https://de.wikipedia.org/wiki/Liste_historischer_Stromausf%C3%A4lle)
 * Statista: [Länge der Versorgungsunterbrechung je Stromverbraucher in Deutschland in den Jahren 2006 bis 2023](https://de.statista.com/statistik/daten/studie/241414/umfrage/stromversorgungsunterbrechungen-in-deutschland/)
 
-### Mit Atomkraft wäre es günstiger
+### Mit Atomkraft wäre Strom günstiger
 
 Atomkraftwerke haben enorme Baukosten sowie sehr hohe Kosten für die Entsorgung
 des radioaktiven Mülls. Wenn man diese Kosten ignoriert sieht der Atom-Strom
-günstig aus.
+günstig aus. Wenn man Infrastruktur für die Herstellung
+von Atomwaffen benötigt kann man so natürlich auch die Kosten für die zivile
+Nutzung senken.
 
-Die großen [AKWs in Deutschland](https://de.wikipedia.org/wiki/Liste_der_Kernreaktoren_in_Deutschland)
-haben in ihrer Lebensdauer von etwa 35 Jahren etwa 350 TWh Strom erzeugt. Schaut man sich in Europa mal neue AKWs an, kann man mal ausrechnen wie hoch der Strompreis nur wegen der Baukosten sein müsste (ohne Betrieb, ohne Wartung, ohne Entsorgungskosten, ohne Personal, ohne Brennstoffkosten, ohne Rückbaukosten, ohne Steuern, ohne Netzabgaben, ohne Gewinnmarge):
+Die großen [AKWs in
+Deutschland](https://de.wikipedia.org/wiki/Liste_der_Kernreaktoren_in_Deutschland)
+haben in ihrer Lebensdauer von etwa 35 Jahren etwa 350 TWh Strom erzeugt. Schaut
+man sich in Europa mal neue AKWs an, kann man mal ausrechnen wie hoch der
+Strompreis nur wegen der Baukosten sein müsste (ohne Betrieb, ohne Wartung, ohne
+Entsorgungskosten, ohne Personal, ohne Brennstoffkosten, ohne Rückbaukosten,
+ohne Steuern, ohne Netzabgaben, ohne Gewinnmarge):
 
 * [Hinkley Point C (Großbritannien)](https://de.wikipedia.org/wiki/Kernkraftwerk_Hinkley_Point): 51.3 Mrd (geplant waren 21.5 Mrd EUR), Bauzeit von 16 Jahren und noch ist es nicht fertig  ➜ 14.7 ct/kWh
 * [Flamanville 3 (Frankreich)](https://de.wikipedia.org/wiki/Kernkraftwerk_Flamanville): 12 Mrd EUR (geplant waren 3.3 Mrd EUR), Bauzeit von 20 Jahren ([Quelle](https://www.fr.de/panorama/frankreich-nimmt-neues-atomkraftwerk-in-betrieb-fuer-12-milliarden-euro-zr-92920756.html)) ➜ 3.4 ct/kWh
 * [Olkiluoto 3 (Finnland)](https://de.wikipedia.org/wiki/Kernkraftwerk_Olkiluoto): 11 Mrd EUR (geplant waren 3 Mrd EUR), Bauzeit von 18 Jahren ➜ 3.1 ct/kWh
+
+Um innerhalb von Deutschland einen guten Vergleich der Stromquellen zu bekommen,
+muss man sich die [Stromgestehungskosten](https://de.wikipedia.org/wiki/Stromgestehungskosten)
+ansehen:
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/01/Stromgestehungskosten_Fraunhofer_2024.png"><img src="../images/2025/01/Stromgestehungskosten_Fraunhofer_2024.png" alt="Stromgestehungskosten in Deutschland, 2024" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Stromgestehungskosten in Deutschland, 2024 (<a href="https://commons.wikimedia.org/wiki/File:Stromgestehungskosten_Fraunhofer_2024.svg">Bildquelle</a>, <a href="https://www.ise.fraunhofer.de/content/dam/ise/de/documents/publications/studies/DE2024_ISE_Studie_Stromgestehungskosten_Erneuerbare_Energien.pdf">Datenquelle</a>)</figcaption>
+</figure>
+
+Man sieht hier deutlich, dass selbst bei einer optimistischen Annahme bei
+Kernkraft die Stromgestehungskosten bei 14ct/kWh liegen, die Erneuerbaren aber
+bei pessimistischer Annahme unter 10 ct/kWh liegen.
+
+Wasserkraft ist [laut BMWK](https://www.bmwk.de/Redaktion/DE/Downloads/P-R/plattform-strommarkt-praesentation-marktanalyse-wasserkraft.pdf?__blob=publicationFile&v=3)
+bei Anlagen von 1 MW oder weniger bei 12.17 ct/kWh oder mehr. Bei größeren
+Anlagen ist es günstiger:
+
+* 2MW: 10.51 ct/kWh
+* 5MW: 8.42 ct/kWh
+* 10MW: 7.17 ct/kWh
+* 20MW: 6.28 ct/kWh
+* 50MW: 5.33 ct/kWh
+
+Frankreich hatte lange Zeit sehr günstigen Strom für
+die Endverbraucher, weil sie den Strom subventioniert haben. [Atomstrom in Frankreich wird nun teurer](https://www.zdf.de/nachrichten/politik/ausland/atomenergie-strom-frankreich-100.html). [2022 wurde der verschuldete Stromkonzern EDF verstaatlicht](https://www.tagesschau.de/wirtschaft/unternehmen/edf-verstaatlichung-101.html) - sonst
+hätten die Franzosen die Strompreise noch weiter erhöhen müssen.
 
 Siehe auch:
 
@@ -164,6 +198,8 @@ Siehe auch:
 * Matthias Janson: [Folgekosten von Atomstrom am höchsten](https://de.statista.com/infografik/27231/kosten-der-stromerzeugung-in-deutschland-nach-energietraeger/) auf statista.com, 2022.
 * BUND: [Die wahren Kosten von Atomkraft](https://www.bund-sh.de/energie/atomkraft/hintergrund/die-wahren-kosten-von-atomkraft/)
 * IG Metall: [Das Märchen vom billigen Atomstrom](https://www.igmetall.de/politik-und-gesellschaft/umwelt-und-energie/das-maerchen-vom-billigen-atomstrom), 2011.
+* Florian Blümm: [Vollkosten pro kWh: Welche ist die günstigste Energiequelle 2024?](https://www.tech-for-future.de/kosten-kwh/), 09.10.2023.
+* Wissenschaftliche Dienste des Bundestags: [Zu Ausbaupotentialen der Wasserkraft in Deutschland](https://www.bundestag.de/resource/blob/905046/9d57e55ade81de8c742cbbddd5c11ce0/WD-8-026-22-pdf.pdf), 13.05.2022.
 
 #### Deutscher Strom ist der teuerste Europas
 
