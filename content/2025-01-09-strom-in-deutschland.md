@@ -5,8 +5,8 @@ slug: strom-in-deutschland
 author: Martin Thoma
 date: 2025-01-11 20:00
 category: My bits and bytes
-tags: house,finances
-featured_image: logos/house.png
+tags: germany,german,politics,climate change,energy
+featured_image: logos/germany.png
 ---
 Deutschland hat in den letzten Jahrzehnten beeindruckende Fortschritte bei der
 Energiewende gemacht. Doch wie steht es aktuell um die Stromversorgung, und wie
@@ -23,7 +23,10 @@ kontinuierlich gesunken. 2024 lag er bei rund 512 TWh ([Quelle](https://de.stati
 Verbrauchs von 2007 entspricht. Allerdings wird der Strombedarf durch die
 Elektrifizierung von Verkehr und Wärme in den kommenden Jahren wieder steigen.
 
-![](../images/2025/01/bruttostromverbrauch-dl-1990-2024.png)
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/01/bruttostromverbrauch-dl-1990-2024.png"><img src="../images/2025/01/bruttostromverbrauch-dl-1990-2024.png" alt="Strommix 2024" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Bruttostromverbrauch in Deutschland von 1990 bis 2023 ([Quelle](https://www.umweltbundesamt.de/daten/energie/stromverbrauch))</figcaption>
+</figure>
 
 Schon heute zeigt sich die Bedeutung der Effizienz: Der Nettostromverbrauch lag
 2023 bei 467 TWh ([Quelle](https://de.statista.com/statistik/daten/studie/164149/umfrage/netto-stromverbrauch-in-deutschland-seit-1999/)) – etwa 11 % des erzeugten Stroms gehen durch Netzverluste
@@ -204,7 +207,8 @@ Um dieses Ziel zu erreichen, müssen wir:
   Wärmepumpen, Elektroautos, oder auch Industrieanlagen sein. So kann man z.B.
   einen Warmwassertank aufheizen, wenn gerade viel Energie im Netz ist.
   Das E-Auto muss in der Früh einen gewissen Ladestand haben, aber wann genau
-  es geladen wird, ist egal.
+  es geladen wird, ist egal. [§14a EnWG, Modul 3](https://1komma5.com/de/magazin/news/paragraf-14a-enwg-steuerbare-verbrauchseinrichtungen/) geht auch in diese
+  Richtung ([Video](https://www.youtube.com/watch?v=lk9xRjT4avg)).
 * [**Power-to-X**](https://de.wikipedia.org/wiki/Power-to-X): Wir können nicht
   nur Strom speichern, sondern auch Wasserstoff für die Stahlproduktion oder
   [E-Fuels für Flugzeuge](https://www.br.de/nachrichten/wissen/gruenes-fliegen-wie-luftfahrt-klimafreundlicher-werden-kann,TqUWv6Q) und
