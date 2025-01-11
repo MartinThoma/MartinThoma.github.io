@@ -180,8 +180,9 @@ Elastizität, Reißfestigkeit, Feuchtigkeitsaufnahme.
 
 Fadendichte, auch Fadenzahl genannt (Thread Count, TC)
 
-* TC 200 - 300: [Carpe Sonno aus Damast](https://www.amazon.de/CARPE-SONNO-Bettw%C3%A4sche-Baumwolle-Damast/dp/B09SBBTTH8/) (54€)
-* TC 300 - 400: [Ikea RÖNNVECKMAL](https://www.ikea.com/de/de/p/roennveckmal-kopfkissenbezug-weiss-80532660/), [Samthus Bettwäsche](https://www.amazon.de/Samthus-Bettw%C3%A4sche-135x200-Baumwolle-Satin/dp/B0BWV7GXWC/) (45€), [Carpe Sonno Biber](https://www.amazon.de/Carpe-Sonno-kuschelige-Winterbettw%C3%A4sche-Rei%C3%9Fverschluss/dp/B01LX447Z0/) (45€)
+* TC 120 - 200 (Standard)
+* TC 200 - 300 (Gehoben): [Carpe Sonno aus Damast](https://www.amazon.de/CARPE-SONNO-Bettw%C3%A4sche-Baumwolle-Damast/dp/B09SBBTTH8/) (54€)
+* TC 300 - 400 (Luxus): [Ikea RÖNNVECKMAL](https://www.ikea.com/de/de/p/roennveckmal-kopfkissenbezug-weiss-80532660/), [Samthus Bettwäsche](https://www.amazon.de/Samthus-Bettw%C3%A4sche-135x200-Baumwolle-Satin/dp/B0BWV7GXWC/) (45€), [Carpe Sonno Biber](https://www.amazon.de/Carpe-Sonno-kuschelige-Winterbettw%C3%A4sche-Rei%C3%9Fverschluss/dp/B01LX447Z0/) (45€)
 * TC 600: [Pizuna 600](https://www.amazon.de/dp/B08Z7VV3XD/ref=sspa_dk_detail_2) (57€)
 * TC 800: [Pizuna 800](https://www.amazon.de/dp/B08Z825H58/ref=sspa_dk_detail_3) (52€)
 

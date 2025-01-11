@@ -28,7 +28,9 @@ absehbar auch die günstigste Variante:
   Technische Fortschritt und Skaleneffekte werden die Wahl immer klarer machen:
   Die Reichweiten steigen, die Ladezeiten sinken, die Anschaffungskosten sinken.
   Und die Reparaturkosten sowie die Betriebskosten waren schon immer geringer
-  als bei Verbrennern.
+  als bei Verbrennern. Und auch der Ausbau an Ladepunkten kommt voran. In
+  [London kann man an Straßenlaternen landen](https://edison.media/laden-an-laternen-in-london/25202454/), [bei IKEA konnte man kostenlos laden](https://www.golem.de/news/mehr-ladepunkte-ikea-beendet-kostenloses-e-auto-laden-2403-183086.html), und
+  die Ladepunkte bei [Aldi](https://www.e-ladestation.aldi-sued.de/)/[Lidl](https://www.lidl.de/c/e-ladesaeulen/s10007751) sind inzwischen wirklich überall.
 * **Energiewende**: Der Ausbau an Photovoltaik-Anlagen geht immer schneller
   voran. Schneller als jeder erwartet hat.<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small> Und der Ausbau wird immer
   günstiger und einfacher. In Deutschland merken wir das bei Steckerkraftwerken

@@ -69,75 +69,50 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     <tr>
         <th>Baustoff</th>
         <th>Brandschutzklasse</th>
+        <th>Resistent gegen Insekten und Nagetiere</th>
         <th>Lambda</th>
         <th>U-Wert (1cm)</th>
         <th>U-Wert (10cm)</th>
+        <th>Dichte</th>
         <th>Energieverlust pro m&sup2; bei 10cm</th>
-        <th>Wasserdampf&shy;diffusions&shy;widerstand µ</th>
+        <th>Wasser&shy;dampf&shy;diffusions&shy;widerstand µ</th>
         <th>Kapillar&shy;aktivität</th>
         <th>Weiteres</th>
     </tr>
     <tr>
-        <td>Polyurethan Hartschaum (PUR)</td>
-        <td>B2</td>
-        <td class="good">0.020 - 0.040&nbsp;W/mK</td>
-        <td>2 - 4</td>
-        <td>0.2 - 0.4</td>
-        <td>10.8 W / m&sup2;</td>
-        <td>60</td>
-        <td></td>
-        <td>Nicht resistent gegen Nagetiere<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
-    </tr>
-    <tr>
-        <td>Expandiertes Polystyrol (EPS), Extrudiertes Polystyrol (XPS), Polystyrol ("Styropor")</td>
-        <td>B1 - B2</td>
-        <td class="good">0,032 - 0,040 W/mK</td>
-        <td>3.2 - 4</td>
-        <td>0.32 - 0.4</td>
-        <td>13.0 W/m&sup2;</td>
-        <td>60 - 150</td>
-        <td></td>
-        <td>Insekten befallen es gerne<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
-    </tr>
-    <tr>
         <td>Mineral&shy;faserplatten</td>
         <td class="good">A1</td>
+        <td class="good">✔</td>
         <td class="good">0.039&nbsp;W/mK</td>
         <td>3.9</td>
         <td>0.39</td>
+        <td>150 kg/m&sup3;</td>
         <td>14 W/m&sup2;</td>
         <td>1</td>
         <td></td>
-        <td>verrottungsfest und unangreifbar von Ungeziefern, Fäulnis und Schimmel</td>
-    </tr>
-    <tr>
-        <td>Holzfaserdämmplatten</td>
-        <td class="bad">E</td>
-        <td class="good">0.040&nbsp;W/mK</td>
-        <td>4.0</td>
-        <td>0.40</td>
-        <td>14.4 W/m&sup2;</td>
-        <td>5-10</td>
-        <td></td>
-        <td>resistent gegen Verrottung, Ungeziefer, Pilzbefall<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+        <td class="good">verrottungsfest und unangreifbar von Fäulnis und Schimmel</td>
     </tr>
     <tr>
         <td>Mineral&shy;dämmplatten</td>
         <td class="good">A1</td>
+        <td class="good">✔</td>
         <td class="good">0.042 - 0.045&nbsp;W/mK</td>
         <td>4.5</td>
         <td>0.45</td>
+        <td>90 - 115 kg/m³</td>
         <td>16.2 W/m&sup2;</td>
         <td>2-5</td>
         <td>++</td>
-        <td>schimmelresistent, resistent gegen Schädlinge/Insekten; unverrottbar</td>
+        <td class="good">schimmelresistent; unverrottbar</td>
     </tr>
     <tr>
         <td>Mineral&shy;wolle / Glaswolle</td>
         <td class="good">A1</td>
+        <td>?</td>
         <td class="good">0.035 - 0.050&nbsp;W/mK</td>
         <td>3.5 - 5</td>
         <td>0.35 - 0.5</td>
+        <td>...</td>
         <td>15.3 W/m&sup2;</td>
         <td>1</td>
         <td>0</td>
@@ -146,20 +121,76 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     <tr>
         <td>Kalziumsilikatplatte ("CaSi Klimaplatte")</td>
         <td class="good">A1</td>
+        <td class="good">✔</td>
         <td>0.070&nbsp;W/mK</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>7</td>
+        <td>0.7</td>
+        <td>230 - 265kg/m&sup3;</td>
+        <td>25.2 W/m&sup2</td>
         <td>5-20</td>
         <td>+++</td>
-        <td>stark gegen Schimmel, resistent gegen Schädlinge/Insekten</td>
+        <td class="good">stark gegen Schimmel</td>
+    </tr>
+    <tr>
+        <td>Poroton <abbr title="Poroton mit Perlite gefüll">T7</abbr></td>
+        <td class="good">F 90-A </td>
+        <td class="good">✔</td>
+        <td>0.070&nbsp;W/(mK)</td>
+        <td>7</td>
+        <td>0.7</td>
+        <td>550 kg/m&sup3;</td>
+        <td>25.2 W/m&sup2;</td>
+        <td>4-5</td>
+        <td>✔</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Polyurethan Hartschaum (PUR)</td>
+        <td>B2</td>
+        <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+        <td class="good">0.020 - 0.040&nbsp;W/mK</td>
+        <td>2 - 4</td>
+        <td>0.2 - 0.4</td>
+        <td>...</td>
+        <td>10.8 W / m&sup2;</td>
+        <td>60</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Expandiertes Polystyrol (EPS), Extrudiertes Polystyrol (XPS), Polystyrol ("Styropor")</td>
+        <td>B1 - B2</td>
+        <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+        <td class="good">0,032 - 0,040 W/mK</td>
+        <td>3.2 - 4</td>
+        <td>0.32 - 0.4</td>
+        <td>31 - 39 kg/m&sup3;</td>
+        <td>13.0 W/m&sup2;</td>
+        <td>60 - 150</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Holzfaserdämmplatten</td>
+        <td class="bad">E</td>
+        <td class="good">✔<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+        <td class="good">0.040&nbsp;W/mK</td>
+        <td>4.0</td>
+        <td>0.40</td>
+        <td>250 kg/m³</td>
+        <td>14.4 W/m&sup2;</td>
+        <td>5-10</td>
+        <td></td>
+        <td class="good">resistent gegen Verrottung/Pilzbefall<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
     </tr>
     <tr>
         <td>Beton</td>
         <td class="good">A1</td>
+        <td class="good">✔</td>
         <td class="bad">1.4&nbsp;W/mK</td>
         <td>140</td>
         <td>14</td>
+        <td>...</td>
         <td>504 W/m&sup2;</td>
         <td>70 – 150</td>
         <td></td>
