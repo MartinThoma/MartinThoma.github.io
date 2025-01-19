@@ -9,7 +9,7 @@ SITEURL = "//127.0.0.1:8000"
 
 PATH = "content"
 
-TIMEZONE = "Europe/Berlin"
+TIMEZONE = "Europe/Paris"
 
 DEFAULT_LANG = "en"
 
