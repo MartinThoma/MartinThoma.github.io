@@ -8,33 +8,35 @@ category: My bits and bytes
 tags: germany,german,politics
 featured_image: logos/germany.png
 ---
-Die meisten Menschen in Deutschland und alle Parteien, die eine Chance haben in
-die nächste Regierung zu kommen (CDU/CSU, SPD, und Grüne), sind sich einig:
-Deutschland muss die Wirtschaft ankurblen, die Bundeswehr stärken, marode
-Straßen/Brücken/Schulen sanieren und die Digitalisierung vorantreiben. Das
-Rentenniveau soll stabil bleiben.
+In Deutschland herrscht weitgehend Einigkeit – sowohl unter den Bürgern als auch
+den führenden politischen Parteien (CDU/CSU, SPD und Grüne): Es müssen Maßnahmen
+ergriffen werden, um die Wirtschaft anzukurbeln, die Bundeswehr zu stärken,
+marode Infrastruktur wie Straßen, Brücken und Schulen zu sanieren und die
+Digitalisierung voranzutreiben. Gleichzeitig soll das Rentenniveau stabil
+bleiben.
 
-In diesem Artikel möchte ich ein paar Gedanken teilen, wie man das Geld dafür
-bekommen könnte.
+In diesem Artikel möchte ich einige Überlegungen dazu teilen, wie man die
+nötigen finanziellen Mittel dafür aufbringen könnte.
 
-## Wie gehts unserer Wirtschaft?
+## Wie steht es um die deutsche Wirtschaft?
 
-Nach der Wiedervereinigung gab es in Deutschland folgende einschneidende
-Ereignisse für die Wirtschaft:
+Seit der Wiedervereinigung gab es in Deutschland einige entscheidende Ereignisse, die die Wirtschaft maßgeblich beeinflussten:
 
 * [Weltfinanzkrise](https://de.wikipedia.org/wiki/Weltfinanzkrise_2007%E2%80%932008): 2008
 * [COVID-19-Pandemie](https://de.wikipedia.org/wiki/COVID-19-Pandemie): 2020
 * [Globale Energiekrise](https://de.wikipedia.org/wiki/Globale_Energiekrise_2021%E2%80%932023): 2021-2023
 
-Diese muss man berücksichtigen, wenn man die Wirtschaftsentwicklung betrachtet.
-Der Effekt kann auch verzögert eintreten.
+Diese Ereignisse sind bei der Betrachtung der Wirtschaftsentwicklung unbedingt
+zu berücksichtigen. Ihre Auswirkungen traten teils verzögert auf und sind noch
+immer spürbar.
 
-Die [Arbeitslosenquote](https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Lange-Reihen/Arbeitsmarkt/lrarb003ga.html) ist mit 6.5% (2024) auf einem niedrigen Niveau.
-Unter 6% hatten wir nur 2022, 2019, 2018, sowie vor 1980. Aktuell sind [650.000 Arbeitsstellen offen und beim BA gemeldet](https://de.statista.com/statistik/daten/studie/2900/umfrage/entwicklung-des-gemeldeten-offenen-arbeitsstellenbestands/).
+Die [Arbeitslosenquote](https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Lange-Reihen/Arbeitsmarkt/lrarb003ga.html) liegt 2024 bei 6,5 % auf einem niedrigen Niveau.
+Nur in den Jahren 2022, 2019, 2018 und vor 1980 lag sie unter 6 %. Aktuell sind [650.000 Arbeitsstellen offen und beim BA gemeldet](https://de.statista.com/statistik/daten/studie/2900/umfrage/entwicklung-des-gemeldeten-offenen-arbeitsstellenbestands/).
 
-Auch die [Unternehmensinsolvenzen](https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Unternehmen/Gewerbemeldungen-Insolvenzen/Tabellen/lrins01.html#242428) sind mit 17.814 (2023)
-auf einem niedrigen Niveau. Weniger gab es nur 2022, 2021, 2020, 1991, 1990, und
-vor 1990.
+Auch die
+[Unternehmensinsolvenzen](https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Unternehmen/Gewerbemeldungen-Insolvenzen/Tabellen/lrins01.html#242428)
+sind mit 17.814 (2023) auf einem niedrigen Niveau. Nur in den Jahren 2022, 2021,
+2020 sowie in den 1990er Jahren gab es weniger Insolvenzen.
 
 Das [BIP ist auf einem historischem Höchststand](https://de.statista.com/statistik/daten/studie/1251/umfrage/entwicklung-des-bruttoinlandsprodukts-seit-dem-jahr-1991/) - nur 2009 und 2020
 hatten wir einen Rückgang. Interessanter ist jedoch die [preisbereinigte
@@ -42,32 +44,33 @@ Entwicklung](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-G
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/01/bip-1950-heute.png"><img src="../images/2025/01/bip-1950-heute.png" alt="Das Preisbereinigte BIP von 1950 bis 2024" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Das Preisbereinigte BIP von 1950 bis 2024 zeigt: 2009 nach der Finanzkrise, 2020 nach Corona, und deutlich schwäche 2023 und 2024 durch die Gaskrise ist das BIP zurück gegangen. Im langfristigen Trend sind das BIP seit 1950.</figcaption>
+    <figcaption class="text-center">Das preisbereinigte BIP von 1950 bis 2024 zeigt: Nach der Finanzkrise 2009, der Corona-Pandemie 2020 und der Energiekrise 2023/2024 gab es Rückgänge. Langfristig zeigt sich jedoch ein stetiges Wachstum.</figcaption>
 </figure>
 
-Wenn wir uns die inflationsbereinigten Pro-Kopf-BIP-Werte anschauen, stehen wir
-ziemlich gut da:
+Wenn wir uns die inflationsbereinigten Pro-Kopf-BIP-Werte ansehen, zeigt sich,
+dass Deutschland im internationalen Vergleich sehr gut dasteht:
 
 <iframe src="//www.gapminder.org/tools/?embedded=true#$model$markers$line$data$filter$dimensions$geo$/$or@$geo$/$in@=usa&=deu&=fra&=jpn&=che&=aut;;;;;;;;&encoding$y$scale$zoomed@=30000&=70000;;;&x$scale$zoomed@=1990&=2023;;;&color$scale$type:null&domain:null&zoomed:null;;;;;;&chart-type=linechart&url=v2" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen></iframe>
 
-Ich sehe zwei Gründe, warum es sich für manche Menschen anders anfühlt:
+Trotz dieser positiven Zahlen gibt es zwei Gründe, warum sich die Lage für viele
+Menschen anders anfühlt:
 
-1. Medien: Wir werden immer mehr mit Hiobsbotschaften bombardiert. Das erzeugt
-   natürlich das Gefühl, dass es schlecht läuft. Selbst wenn es einem selbst
-   objektiv gut geht, hat man das Gefühl, dass es anderen bzw. der Gesellschaft
-    schlecht geht.
-2. Ungleichverteilung: Das BIP misst die Wirtschaftsleistung, nicht die
+1. **Medien**: Die ständige Konfrontation mit Negativnachrichten lässt den
+   Eindruck entstehen, dass es der Gesellschaft insgesamt schlecht geht. Selbst
+   wenn es einem selbst gut geht, kann das Gefühl aufkommen, dass es anderen
+   schlechter geht.
+2. **Ungleichverteilung**: Das BIP misst die Wirtschaftsleistung, nicht die
    Verteilung. Wenn die Wirtschaft wächst, aber nur die oberen 10% davon
    profitieren, fühlt sich das für die unteren 90% nicht gut an.
 
-Interessanterweise gibt es hier keine dramatischen verschlechterungen:
+Interessanterweise zeigen die Daten jedoch keine dramatischen Verschlechterungen:
 
 <iframe src="//www.gapminder.org/tools/?embedded=true#$model$markers$line$data$filter$dimensions$geo$/$or@$geo$/$in@=usa&=deu&=fra&=jpn&=che&=aut;;;;;;;;&encoding$y$scale$zoomed@=30000&=70000;;;&x$scale$zoomed@=1990&=2023;;;&color$scale$type:null&domain:null&zoomed:null;;;;;;&chart-type=linechart&url=v2" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen></iframe>
 
-Auch weitere Daten wie die Armutsrate oder extreme Armut deuten nicht auf eine
-wesentliche Änderung in den letzten 10 Jahren hin.
+Weitere Daten zu Armutsraten und extremer Armut zeigen ebenfalls keine
+gravierenden Veränderungen in den letzten zehn Jahren.
 
-Eine Besonderheit ist die Inflation:
+Eine Besonderheit der letzen Jahre ist die Inflation:
 
 <iframe src="//www.gapminder.org/tools/?embedded=true#$model$markers$line$data$filter$dimensions$geo$/$or@$geo$/$in@=usa&=deu&=fra&=jpn;;;;;;;;&encoding$y$data$concept=fp_cpi_totl_zg&source=wdi&space@=geo&=time;;&scale$type:null&domain:null&zoomed@=-0.36&=8;;;&x$scale$zoomed@=1990&=2023;;;;;;;&chart-type=linechart&url=v2" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen></iframe>
 
@@ -75,62 +78,63 @@ Eine Besonderheit ist die Inflation:
 
 ### Schulden machen
 
-Wenn man investieren möchte, aber das Geld nicht auf der hohen Kante hat, kann
-Kredite aufnehmen. Dafür müsste man die Schuldenbremse anpassen.
+Wenn ein Staat investieren möchte, ohne über ausreichend liquide Mittel zu
+verfügen, liegt die Aufnahme von Krediten nahe. Dafür müsste jedoch die derzeit
+geltende Schuldenbremse angepasst werden.
 
 Die deutsche Schuldengrenze erlaubt dem Bund eine strukturelle Neuverschuldung
-von höchstens 0,35 % des Bruttoinlandsprodukts (BIP) eingehen.
-
-Der europäische [Stabilitäts- und
+von maximal 0,35 % des Bruttoinlandsprodukts (BIP). Der europäische [Stabilitäts- und
 Wachstumspakt](https://de.wikipedia.org/wiki/Stabilit%C3%A4ts-_und_Wachstumspakt)
-erlaubt eine jährliche Neuverschuldung (Staatsdefizit) von bis zu 3% des BIP.
+geht etwas weiter und gestattet eine jährliche Neuverschuldung (Staatsdefizit) von bis zu 3 % des BIP.
 Die
-[Schuldenquote](https://de.wikipedia.org/wiki/Staatsverschuldung_Deutschlands)
-darf 60% des BIPs nicht überschreiten. 2023 waren wir bei 62.9%.
+[Schuldenquote](https://de.wikipedia.org/wiki/Staatsverschuldung_Deutschlands), also das Verhältnis der gesamten Schulden zum BIP, sollte dabei 60 % nicht überschreiten. Deutschland lag 2023 bei einer Quote von 62,9%.
 
-Dennoch bin ich mir sicher, dass die nächste Regierung die Schuldenbremse
-lockern wird und mehr Schulden aufnimmt.
+Angesichts dieser Zahlen ist es wahrscheinlich, dass die kommende Regierung die
+Schuldenbremse lockern wird, um zusätzliche Kredite aufzunehmen.
 
 ### Steuern erhöhen
 
-Der zweite leichte Weg um höhere Ausgaben zu finanzieren ist, die Einnahmen
-durch Steuern zu erhöhen. 2021 war die Struktur der [Steuereinnahmen in
+Ein anderer Weg, um die Einnahmen des Staates zu steigern, ist die Erhöhung von
+Steuern. Im Jahr 2021 setzte sich die Struktur der [Steuereinnahmen in
 Deutschland](https://de.wikipedia.org/wiki/Steueraufkommen_(Deutschland)) wie
-folgt:
+folgt zusammen:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/01/steuereinnahmen-2021-small.jpg"><img src="../images/2025/01/steuereinnahmen-2021-small.jpg" alt="Steuereinnahmen in Deutschland, 2021" style="max-height: 512px"/></a>
     <figcaption class="text-center">Steuereinnahmen in Deutschland, 2021</figcaption>
 </figure>
 
-Obwohl das keine Partei will, hier mal ein paar offensichtliche Kandidaten:
+Obwohl keine der großen Parteien eine Steuererhöhung offensiv propagiert, gibt
+es einige offensichtliche Ansätze:
 
-* **Erhöhung der Umsatzsteuer**: Der regulären Satz beträgt 19%. Der ermäßigte
-  Satz beträgt 7%. 2023 gab es 212,6 Mrd. € Einnahmen durch die Umsatzsteuer.
-  Wenn das alles durch den regulären Satz gemacht würde, würde eine Erhöhung
-  um 1% etwa 11 Mrd. € mehr einbringen.
-* **Erhöhung der Lohnsteuer**: 2023 gab es 236.2 Mrd. € Einnahmen durch die
-  Lohnsteuer und 73,4 Mrd EUR durch veranlagte Einkommensteuer, also 309.6 Mrd
-  EUR durch Einkommen. Wenn man also dumpf für alle die Einkommenssteuer
-  um 1% erhöht (nicht einen Prozentpunkt!), wäre das etwa 3.1 Mrd. € mehr.
+* **Erhöhung der Umsatzsteuer**: Der reguläre Satz beträgt 19 %, der ermäßigte
+  Satz 7 %. Im Jahr 2023 erzielte die Umsatzsteuer Einnahmen von 212,6
+  Milliarden Euro. Würde der reguläre Satz um einen Prozentpunkt erhöht, könnte
+  dies etwa 11 Milliarden Euro zusätzlich einbringen.
+* **Erhöhung der Lohnsteuer**: 2023 beliefen sich die Einnahmen aus Lohnsteuer
+  auf 236,2 Milliarden Euro und aus der veranlagten Einkommensteuer auf 73,4
+  Milliarden Euro. Insgesamt flossen so 309,6 Milliarden Euro aus
+  Einkommensteuern in die Staatskasse. Eine pauschale Erhöhung der
+  Einkommensteuer um 1 % würde zusätzliche Einnahmen von etwa 3,1 Milliarden
+  Euro generieren.
 
-Das sind die einzigen beiden bereits erhobenen Steuern, bei denen man relativ
-schnell relevante Summen zusammenbekommen kann.
+Diese beiden Steuerarten bieten die schnellste Möglichkeit, relevante Summen zu
+erzielen.
 
 ### Vermögenssteuer reaktivieren
 
-Wenn man um aktuell nicht erhobene Steuern redet, könnte man mit einer
-[Vermögenssteuer](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer) einiges
-bekommen. In der
+Ein dritter Ansatz wäre die Wiedereinführung der
+[Vermögenssteuer](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer). In Ländern wie der
 [Schweiz](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer#Schweiz), Italien,
-und [Spanien](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer#Spanien) machen
-Vermögenssteuern etwa 2-3% des BIP aus. Deutschland hatte eine Vermögenssteuer bis 1996.
-Sie wurde ausgesetzt, weil das Bundesverfassungsgericht die Vermögenssteuer wegen
-der Ungleichbehandlung von Immobilien und anderen Vermögensarten für verfassungswidrig
-erklärte ([Quelle](https://www.zdf.de/nachrichten/wirtschaft/vermoegen-steuer-deutschland-100.html)).
-Anstatt die Vermögenssteuer zu reformieren hat die Regierung Kohl sie ausgetzt.
+und [Spanien](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer#Spanien) trägt die Vermögenssteuer mit 2–3 % des BIP erheblich zu den Staatseinnahmen bei.
 
-Hier ein paar Schätzungen wie viel eine Vermögenssteuer einbringen könnte:
+Deutschland hatte bis 1996 eine Vermögenssteuer, die jedoch ausgesetzt wurde,
+nachdem das Bundesverfassungsgericht sie wegen der ungleichen Bewertung von
+Immobilien und anderen Vermögensarten für verfassungswidrig erklärte
+([Quelle](https://www.zdf.de/nachrichten/wirtschaft/vermoegen-steuer-deutschland-100.html)).
+Anstatt die Steuer zu reformieren, setzte die Regierung Kohl sie damals aus.
+
+Wie viel könnte eine Vermögenssteuer einbringen? Hier einige Schätzungen:
 
 * [verdi](https://www.verdi.de/themen/politik-wirtschaft/++co++ee49a8ae-fed7-11ed-9c41-001a4a16012a):
   20 Milliarden Euro, wenn 1% ab einer Million Vermögen, bis zu 2% bei mehr als
@@ -143,28 +147,28 @@ Hier ein paar Schätzungen wie viel eine Vermögenssteuer einbringen könnte:
 
 ### Geltendes Recht effektiv durchsetzen
 
-[Cum-Ex und Cum-Cum](https://de.wikipedia.org/wiki/Dividendenstripping), die
+Steuerbetrug und unvorhergesehene Steuervermeidung belasten die Staatskasse erheblich.
+Beispiele wie [Cum-Ex und Cum-Cum](https://de.wikipedia.org/wiki/Dividendenstripping), die
 [Güterstandsschaukel](https://www.schafeld-partner.de/die-gueterstandsschaukel-ein-geeignetes-instrument-zur-steuerfreien-vermoegensuebertragung/),
-[Share Deals](https://de.wikipedia.org/wiki/Anteilskauf#Immobilienwesen):
-Steuerbetrug und vom Gesetzgeber unvorhergesehene Steuervermeidung sind ein
-Problem.
-
-Die [Panama Papers](https://de.wikipedia.org/wiki/Panama_Papers#Deutschland) und
-die [Paradise Papers](https://de.wikipedia.org/wiki/Paradise_Papers) zeigen,
-dass wir auch ein Problem mit Geldwäsche haben.
+und [Share Deals](https://de.wikipedia.org/wiki/Anteilskauf#Immobilienwesen) zeigen, dass die bestehenden Regelungen gezielt umgangen werden. Hinzu kommen Probleme mit Geldwäsche, wie die Enthüllungen der
+ [Panama Papers](https://de.wikipedia.org/wiki/Panama_Papers#Deutschland) und
+der [Paradise Papers](https://de.wikipedia.org/wiki/Paradise_Papers) eindrucksvoll darlegen.
 
 > Der geschätzte Schaden aus CumCum-Geschäften in Deutschland liegt bei über 28
 > Milliarden Euro und damit mehr als doppelt so hoch wie bei den
 > CumEx-Geschäften ([Quelle](https://www.finanzwende.de/themen/cumex/cumcum))
 
-Also 42 Milliarden Euro Schaden nur durch Cum-Ex und Cum-Cum. Das müssen wir
-ändern. [Anne Brorhilker](https://de.wikipedia.org/wiki/Anne_Brorhilker),
-die  Oberstaatsanwältin welche die Cum-Ex Betrügereien untersucht hatte und nun
-den Vorsitz der [Bürgerbewegung Finanzwende](https://de.wikipedia.org/wiki/B%C3%BCrgerbewegung_Finanzwende)
-hat, [schlägt vor](https://youtu.be/fPR9BSnhpRw?si=7BrrGyHgISk4WiFr&t=1610):
+Allein die beiden Betrugsformen Cum-Cum/Cum-Ex verursachten einen Schaden von 42
+Milliarden Euro – eine alarmierende Summe, die dringend Maßnahmen erfordert.
 
-* **Experten** für die Finanzämter ausbilden
-* Eine **Zentrale Zuständigkeit auf Bundesebene** schaffen
+[Anne Brorhilker](https://de.wikipedia.org/wiki/Anne_Brorhilker), ehemalige Oberstaatsanwältin und Expertin in der Aufklärung von Cum-Ex-Betrügereien, hat in ihrer Funktion bei der
+[Bürgerbewegung Finanzwende](https://de.wikipedia.org/wiki/B%C3%BCrgerbewegung_Finanzwende)
+konkrete Maßnahmen vorgeschlagen ([Quelle](https://youtu.be/fPR9BSnhpRw?si=7BrrGyHgISk4WiFr&t=1610)):
+
+* **Fachpersonal ausbilden**: Finanzämter brauchen speziell geschulte Experten,
+  um komplexe Betrugsfälle effektiv zu verfolgen.
+* **Zentrale Zuständigkeit auf Bundesebene**: Eine zentrale Behörde könnte
+  besser koordiniert und effizienter handeln.
 * Moderne und einheitliche **IT-Infrastruktur**
 * **Kontrollinstrumente nicht Abschaffen**: Unter dem Deckmantel des
   Bürokratieabbaus geschieht das gerne
@@ -184,113 +188,108 @@ mit insgesamt etwa [97.603 Mitarbeiter in den Finanzämtern](https://www.sulzing
 
 ### Firmen brauchen Vermögen, um zu Investieren
 
-Firmen investieren, wenn sie sich einen Profit versprechen. Dann kann man ggf.
-auch Kredite aufnehmen. Wenn die Zinsen niedrig sind, ist das besonders
-attraktiv.
+Unternehmen investieren, wenn sie eine rentable Geschäftsmöglichkeit sehen –
+unabhängig davon, ob sie bereits über hohe Eigenkapitalreserven verfügen.
+Kredite können bei Bedarf aufgenommen werden, insbesondere bei niedrigen Zinsen.
 
-Einfach gesagt: Wenn ein Bäcker merkt, dass er seine Semmeln nicht los wird,
-wird er am nächsten Tag nicht mehr so viele backen. Wenn er jeden Tag um 7 Uhr
-ausverkauft ist, wird er vielleicht eine zweite Filiale eröffnen.
+Einfach ausgedrückt: Ein Bäcker, der seine Semmeln nicht verkauft bekommt, wird
+am nächsten Tag weniger backen. Ist er hingegen jeden Tag um 7 Uhr ausverkauft,
+wird er über eine Expansion – etwa eine zweite Filiale – nachdenken.
 
-[VW will drei Werke schließen](https://www.tagesschau.de/wirtschaft/unternehmen/vw-betriebsrat-werksschliessungen-100.html), weil sie die Autos nicht los werden.
-VW hat 2023 so viel Eigenkapital wie nie zuvor - über 189 Milliarden Euro ([Quelle](https://de.statista.com/statistik/daten/studie/181509/umfrage/eigenkapital-der-volkswagen-ag/)).
+Ein konkretes Beispiel: [VW plant Werksschließungen](https://www.tagesschau.de/wirtschaft/unternehmen/vw-betriebsrat-werksschliessungen-100.html), weil sie ihre Autos nicht los werden.
+Gleichzeitig hatte VW 2023 ein Rekord-Eigenkapital von über 189 Milliarden Euro ([Quelle](https://de.statista.com/statistik/daten/studie/181509/umfrage/eigenkapital-der-volkswagen-ag/)).
 
-Es mangelt nicht am Geld. Daher werden Steuersenkungen oder Zuschüsse für Firmen
-auch nichts bringen.
+Das Problem ist also nicht ein Mangel an finanziellen Mitteln. Daher bringen
+Steuersenkungen oder Zuschüsse für Unternehmen in solchen Fällen nichts.
 
+VW ist im Verhältnis zu anderen Anbietern einfach zu teuer. Ein neuer [VW
+Polo](https://de.wikipedia.org/wiki/VW_Polo) kostet über 21.000 EUR, ein
+[Mitsubishi Space Star](https://de.wikipedia.org/wiki/Mitsubishi_Space_Star)
+unter 14.000 EUR. Eine Unternehmenssteuersenkung ändert nichts am Preisunterschied.
 
 ### Wir sind die einzige Volkswirtschaft, die nicht wieder gewachsen ist
 
-Wenn man sich die inflationsbereinigten Pro-Kopf BIP-Werte anschaut, sieht man:
+Ein genauer Blick auf das inflationsbereinigte Pro-Kopf-BIP zeigt, dass die
+wirtschaftliche Entwicklung in der EU ähnlich verläuft.
 
 <iframe src="https://www.gapminder.org/tools/?embedded=true#$model$markers$line$data$filter$dimensions$geo$/$or@$geo$/$in@=usa&=deu&=fra&=aut&=ita&=esp&=jpn;;;;;;;;&encoding$y$scale$zoomed@=40000&=70000;;;&x$scale$zoomed@=2016&=2023;;;;;;;&chart-type=linechart&url=v2" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen></iframe>
 
-Die Entwicklungen in der EU sind also ähnlich. Und konkret hat Österreich
+Konkret hat beispielsweise Österreich
 in den letzten Jahren eine schlechtere Entwicklung als Deutschland gehabt ([Quelle](https://www.handelsblatt.com/politik/international/oesterreich-wirtschaftsforscher-erwarten-auch-2024-rezession-in-oesterreich/100076000.html))
 
-### Höheres BIP führt äquivalent zu größerem Haushalt
+### Höheres BIP führt äquivalent zu einem größeren Haushalt
 
-Die Schuldenbremse hat eine Konjugturkomponente. Wenn es der Wirtschaft schlecht
-geht, darf der Staat mehr Schulden machen. Wenn man also Wirtschaftswachstum
-erreicht hat man zwar mehr Einnahmen, darf aber gleichzeitig weniger Schulden
-machen. Daher ändert sich der Haushalt nicht so stark wie man denken könnte.
+Die Schuldenbremse enthält eine Konjunkturkomponente, die höhere Schulden
+erlaubt, wenn die Wirtschaft schwächelt. Umgekehrt begrenzt sie die Verschuldung
+in wirtschaftlich guten Zeiten.
+
+Das bedeutet, dass bei Wirtschaftswachstum zwar die Staatseinnahmen steigen,
+gleichzeitig aber auch die erlaubte Neuverschuldung sinkt. Der Haushalt wächst
+daher nicht im gleichen Maß, wie man es anhand des gestiegenen BIP erwarten
+könnte.
 
 ## Wahlprogramme
 
 ### CDU/CSU
 
-Die CDU/CSU will bei der nächsten Wahl den Bundeshaushalt mit 89 Milliarden
-zusätzlich belasten ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)):
+Die CDU/CSU plant laut ihrem Wahlprogramm, den Bundeshaushalt mit zusätzlichen **89 Milliarden**
+zu belasten ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)). Die größten Punkte sind:
 
-* Einkommensteuer (41 Mrd EUR): Spitzensteuersatz soll künftig erst ab 80.000 Euro greifen
-* Körperschafts- und Gewerbesteuer (20 Mrd EUR): Die Körperschaftssteuer soll auf zehn Prozent reduziert werden
-* Solidaritätszuschlag (13 Mrd EUR): Soll komplett abgeschafft werden. Dieser betrifft aktuell nur Einkommen über 148.000 EUR
+* **Einkommensteuer (41 Mrd EUR)**: Der Spitzensteuersatz soll erst ab einem
+  Einkommen von 80.000 Euro greifen.
+* **Körperschafts- und Gewerbesteuer (20 Mrd EUR)**: Die Körperschaftssteuer
+  soll auf 10 Prozent gesenkt werden.
+* **Solidaritätszuschlag (13 Mrd EUR)**: Der Soli soll vollständig abgeschafft
+  werden, was derzeit nur Einkommen über 148.000 Euro betrifft.
 
-Sie wollen keine neuen Schulden machen, keine Steuern erhöhen, und keine
-zusätzlichen Steuern einführen. Sie wünschen sich, dass das durch Wachstum
-finanziert wird.
+Die CDU/CSU verspricht, dabei keine neuen Schulden zu machen, keine Steuern zu
+erhöhen und keine zusätzlichen Steuern einzuführen. Das zusätzliche Geld soll
+allein durch Wirtschaftswachstum generiert werden.
 
-Schauen wir mal wie gut das klappt:
-
-* **Gesamt-BIP Deutschlands**: Das BIP Deutschlands lag 2023 bei etwa 4306 Mrd.
-  EUR ([Quelle](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Tabellen/bip-bubbles.html)). Jeder Prozentpunkt Wachstum wären also 43 Mrd. EUR zusätziches BIP.
-* **Steuerquote**: Aktuell hat Deutschland eine Steuerquote von 23.1% ([Quelle](https://de.statista.com/statistik/daten/studie/18522/umfrage/deutschland-anteil-steuereinnahmen-am-bruttoinlandsprodukt/)). Nehmen wir mal fälschlicherweise an, dass sich das trotz der Steuersenkungen nicht ändert.
-* **Steuereinnahmen**: 23.1% von 43 Mrd. EUR sind 9.9 Mrd EUR
-
-Die CDU/CSU erwartet also ein Wachstum von 9%. Das ist illusorisch. Das hatten
-nur in drei Jahren seit 1950: 1951, 1952, und 1955. Seit 1991 waren wir immer
-unter 5%, meist unter 3%.
-
-Selbst wenn man sehr optimistisch annimmt, dass die Ausgaben für das Bürgergeld
-von 37.39 Mrd EUR (2023) auf 23.89 EUR (stand von 2014, ohne Inflation) sinken
-würde, müsste man immer noch ein Wachstum von 7.6% erreichen. Die CDU/CSU
-lügt, wenn sie behaupten, dass das erreichbar wäre.
-
-Die CDU/CSU will bei der nächsten Wahl den Bundeshaushalt mit 89 Milliarden
-zusätzlich belasten ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)):
-
-* Einkommensteuer (41 Mrd EUR): Spitzensteuersatz soll künftig erst ab 80.000 Euro greifen
-* Körperschafts- und Gewerbesteuer (20 Mrd EUR): Die Körperschaftssteuer soll auf zehn Prozent reduziert werden
-* Solidaritätszuschlag (13 Mrd EUR): Soll komplett abgeschafft werden. Dieser betrifft aktuell nur Einkommen über 148.000 EUR
-
-Sie wollen keine neuen Schulden machen, keine Steuern erhöhen, und keine
-zusätzlichen Steuern einführen. Sie wünschen sich, dass das durch Wachstum
-finanziert wird.
-
-Schauen wir mal wie gut das klappt:
+**Realitätscheck**:
 
 * **Gesamt-BIP Deutschlands**: Das BIP Deutschlands lag 2023 bei etwa 4306 Mrd.
-  EUR ([Quelle](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Tabellen/bip-bubbles.html)). Jeder Prozentpunkt Wachstum wären also 43 Mrd. EUR zusätziches BIP.
-* **Steuerquote**: Aktuell hat Deutschland eine Steuerquote von 23.1% ([Quelle](https://de.statista.com/statistik/daten/studie/18522/umfrage/deutschland-anteil-steuereinnahmen-am-bruttoinlandsprodukt/)). Nehmen wir mal fälschlicherweise an, dass sich das trotz der Steuersenkungen nicht ändert.
-* **Steuereinnahmen**: 23.1% von 43 Mrd. EUR sind 9.9 Mrd EUR
+  EUR
+  ([Quelle](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Tabellen/bip-bubbles.html)).
+  Jeder Prozentpunkt Wirtschaftswachstum entspricht somit rund 43 Milliarden
+  Euro zusätzlichem BIP.
+* **Steuerquote**: Deutschland hat derzeit eine Steuerquote von 23,1 Prozent ([Quelle](https://de.statista.com/statistik/daten/studie/18522/umfrage/deutschland-anteil-steuereinnahmen-am-bruttoinlandsprodukt/)). Selbst bei der unrealistischen Annahme, dass diese durch Steuersenkungen unverändert bliebe, würden 43 Milliarden Euro BIP-Wachstum 9,9 Milliarden Euro Steuereinnahmen bringen.
+* **Benötigtes Wachstum**: Um 89 Milliarden Euro zu finanzieren, wäre ein
+  Wachstum von etwa **9 Prozent** notwendig – ein Wert, der nur in den Jahren 1951,
+  1952 und 1955 erreicht wurde. Seit 1991 blieb das Wachstum stets unter 5
+  Prozent, meist sogar unter 3 Prozent.
 
-Die CDU/CSU erwartet also ein Wachstum von 9%. Das ist illusorisch. Das hatten
-nur in drei Jahren seit 1950: 1951, 1952, und 1955. Seit 1991 waren wir immer
-unter 5%, meist unter 3%.
+Selbst unter optimistischen Annahmen, wie einer drastischen Senkung der Ausgaben
+für das Bürgergeld (von 37,39 Mrd. EUR auf den Stand von 2014 mit 23,89 Mrd.
+EUR), wäre ein Wachstum von 7,6 Prozent erforderlich – immer noch unrealistisch.
+Die CDU/CSU lügt, wenn sie behaupten, dass das erreichbar wäre.
 
-Selbst wenn man sehr optimistisch annimmt, dass die Ausgaben für das Bürgergeld
-von 37.39 Mrd EUR (2023) auf 23.89 EUR (stand von 2014, ohne Inflation) sinken
-würde, müsste man immer noch ein Wachstum von 7.6% erreichen. Die CDU/CSU
-lügt, wenn sie behaupten, dass das erreichbar wäre. Sogar mehr, wegen dem
-Wegfall der Konjunturnkomponente sowie der Reduktion der Steuerquote.
+**Eklatante Fehlanalyse**:
 
-Schlimmer ist jedoch, dass dieses Programm zu keinem Wachstum führen wird.
-Es ist eine eklatante Fehlanalyse, dass es der Wirtschaft schlecht geht, weil
-die Unternehmen kein Geld haben. VW hat so viel Eigenkapital wie nie zuvor -
-und dennoch werden Werke geschlossen.
+Die Annahme, dass das Problem der Wirtschaft ein Mangel an Kapital sei, ist
+falsch. Unternehmen wie VW haben 2023 so viel Eigenkapital wie nie zuvor – über
+189 Milliarden Euro – und planen dennoch Werksschließungen. Ursache sind
+fehlende Absatzmärkte, nicht fehlende Mittel.
+
+Das Programm der CDU/CSU wird nicht zu dem notwendigen Wachstum führen, sondern
+durch Steuerausfälle und unrealistische Annahmen den Bundeshaushalt belasten.
 
 ### SPD
 
-Das [Wahlprogramm der SPD](https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/2025_SPD_Regierungsprogramm.pdf) will den Bundeshaushalt mit 30 Milliarde Euro zusätzlich belasten ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)).
-Die größten Posten sind:
+Das [Wahlprogramm der SPD](https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/2025_SPD_Regierungsprogramm.pdf) sieht eine zusätzliche Belastung des Bundeshaushalts von **30 Milliarde Euro** vor ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)). Die größten Ausgabenposten sind:
 
-* Investitionsprämie (20 Mrd EUR)
-* Stromsteuer/Netzentgelte (10 Mrd EUR)
-* Einkommensteuer (8 Mrd EUR)
-* Umsatzsteuer (4 Mrd EUR)
+* **Investitionsprämie** (20 Mrd EUR)
+* **Stromsteuer/Netzentgelte** (10 Mrd EUR)
+* **Einkommensteuer** (8 Mrd EUR)
+* **Umsatzsteuer** (4 Mrd EUR)
 
-Allerdings soll mit der Kapitalertragsteuer, Erbschaftsteuer, und Vermögensteuer
-zusätzliches Geld reinkommen. Der Rest soll durch Schulden gedeckt werden.
+Zur Gegenfinanzierung plant die SPD höhere Einnahmen durch:
+
+* **Kapitalertragsteuer**
+* **Erbschaftsteuer**
+* **Vermögensteuer**
+
+Die verbleibenden Lücken sollen durch Schulden gedeckt werden.
 
 
 
@@ -298,20 +297,21 @@ zusätzliches Geld reinkommen. Der Rest soll durch Schulden gedeckt werden.
 
 ### Steuern abschaffen / tauschen
 
-Es gibt Steuern mit geringem Effekt auf den Bundeshaushalt. Bei diesen Steuern
-besteht die Gefahr, dass die Verwaltungskosten die Einnahmen auffressen:
+Es gibt Steuern, deren Beitrag zum Bundeshaushalt so gering ist, dass sie
+unverhältnismäßig hohe Verwaltungskosten verursachen. Einige könnten abgeschafft
+und durch effektivere Mechanismen ersetzt werden:
 
-* Alkohol: Eine Abschaffung der folgenden Steuern sowie eine Erhöhung der [Alkoholsteuer](https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer). Eine [Erhöhung der Alkoholsteuer hat viele Vorteile](https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates)
+* **Alkoholsteuern reformieren**: Die Abschaffung der folgenden Steuern könnte durch eine Erhöhung der allgemeinen [Alkoholsteuer](https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer). Eine [Erhöhung der Alkoholsteuer bietet viele Vorteile](https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates)
     * [Alkopopsteuer](https://de.wikipedia.org/wiki/Alkopopsteuergesetz_(Deutschland)): -5 Millionen EUR Steueraufkommen. Wir zahlen also aktiv drauf. Stattdessen sollten wir mit Werbeverboten, Verkaufsbeschränkungen, und Mindestpreisen arbeiten.
     * [Zwischenerzeugnissteuer](https://de.wikipedia.org/wiki/Zwischenerzeugnissteuer): 22 Millionen EUR Steueraufkommen
     * [Schaumweinsteuer](https://de.wikipedia.org/wiki/Schaumweinsteuer): 341 Millionen EUR Steueraufkommen
 * [pauschalierte Eingangsabgaben](https://www.zoll.de/DE/Privatpersonen/Reisen/Rueckkehr-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Ueberschreiten-Reisefreimengen/pauschalierte_abgabensaetze.html): 2 Milionen EUR
-* [Luftverkehrsteuer](https://de.wikipedia.org/wiki/Luftverkehrabgabe#Deutschland): 566 Millionen EUR - stattdessen sollte [Kerosin](https://de.wikipedia.org/wiki/Kerosinsteuer) EU-weit besteuert werden
+* [Luftverkehrsteuer](https://de.wikipedia.org/wiki/Luftverkehrabgabe#Deutschland): 566 Millionen EUR Steueraufkommen. Stattdessen sollte [Kerosin EU-weit besteuert](https://de.wikipedia.org/wiki/Kerosinsteuer)  werden, um internationale Wettbewerbsnachteile zu vermeiden.
 
 Die Abschaffung des
 [Soli](https://de.wikipedia.org/wiki/Solidarit%C3%A4tszuschlag) finde ich
 sinnvoll, aber hauptsächlich weil man den aufkommensneutral in die Lohnsteuer
-überführen könnte. Das würde die dauernde Debatte darum beenden.
+überführen könnte. Das würde die anhaltende Debatte beenden.
 
 ### Strom
 
@@ -322,14 +322,14 @@ einen Fehlanreiz sich für eine Gas- oder Ölheizung oder für einen Verbrenner 
 entscheiden. Das wird die Menschen in Zukunft teuer zu stehen kommen.
 
 Um langfristig Wohlstand zu schaffen müssen wir die richtigen Anreize schaffen.
-Wir müssen Strom günstig machen. Weg mit der Stromsteuer und den Netzentgelten.
+Wir müssen Strom günstig machen. **Weg mit der Stromsteuer und den Netzentgelten.**
 
 
 ### Beschäftigung erhöhen
 
 Die [Erwerbstätigenquote in
 Deutschland](https://www.destatis.de/DE/Themen/Arbeit/Arbeitsmarkt/Erwerbstaetigkeit/Tabellen/erwerbstaetigenquoten-gebietsstand-geschlecht-altergruppe-mikrozensus.html)
-ist 2023 bei 77.2% und damit höher als je zuvor. Dennoch ist der Unterschied
+lag 2023 bei 77.2% und damit höher als je zuvor. Dennoch ist der Unterschied
 zwischen Frauen (73.6%) und Männern (80.8%) immer noch groß. Einer der
 wichtigsten Faktoren ist Care-Arbeit: Kinderbetreuung und Pflege.
 Allein [in Bayern fehlen 70.100 Kita-Plätze](https://www.br.de/nachrichten/bayern/studie-in-bayern-fehlen-rund-70-000-kita-plaetze,TwsXEm6).
