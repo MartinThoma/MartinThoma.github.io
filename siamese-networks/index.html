@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Siamese Networks "/>
 <meta property="og:url" content="siamese-networks/" />
-<meta property="og:description" content="Siamese Networks are feature extractors trained to learn an embedding in \(\mathbb{R}^n\) where not the absolute output is important, but the relative one. Schema of a Siamese Network $m_1$. The original paper1 was about signature verification. You have one original signature and one that might be the …" />
+<meta property="og:description" content="Siamese Networks are feature extractors trained to learn an embedding in $\mathbb{R}^n$ where not the absolute output is important, but the relative one. Schema of a Siamese Network $m_1$. The original paper1 was about signature verification. You have one original signature and one that might be the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-04-27T20:00:00+02:00" />
 <meta name="twitter:title" content="Siamese Networks ">
-<meta name="twitter:description" content="Siamese Networks are feature extractors trained to learn an embedding in \(\mathbb{R}^n\) where not the absolute output is important, but the relative one. Schema of a Siamese Network $m_1$. The original paper1 was about signature verification. You have one original signature and one that might be the …">
+<meta name="twitter:description" content="Siamese Networks are feature extractors trained to learn an embedding in $\mathbb{R}^n$ where not the absolute output is important, but the relative one. Schema of a Siamese Network $m_1$. The original paper1 was about signature verification. You have one original signature and one that might be the …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Siamese Networks are feature extractors trained to learn an embedding in <span class="math">\(\mathbb{R}^n\)</span>
+            <p>Siamese Networks are feature extractors trained to learn an embedding in $\mathbb{R}^n$
 where not the absolute output is important, but the relative one.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2019/04/siamese-networks.png"><img alt="Schema of a Siamese Network" src="../images/2019/04/siamese-networks.png" style="width: 512px;"/></a>
@@ -120,17 +120,17 @@ where not the absolute output is important, but the relative one.</p>
 <p>The original paper<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> was about signature verification. You have one original
 signature and one that might be the same or might be a different one. Instead
 of having one output that directly says "same" or "different", they decided to
-have one network that maps the input to <span class="math">\(\mathbb{R}^{4 \times 19}\)</span> and then use
+have one network that maps the input to $\mathbb{R}^{4 \times 19}$ and then use
 euclidean distance with some threshold<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p>Today, the nicest usage I know is DeepFace<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. It is a neural network which maps
-faces to <span class="math">\(\mathbb{R}^{128}\)</span> by combining a lot of clever ideas.</p>
+faces to $\mathbb{R}^{128}$ by combining a lot of clever ideas.</p>
 <h2 id="key-idea">Key Idea</h2>
-<p>You have one network <span class="math">\(m_1\)</span> which is embedded into another network which
-combines two inputs of <span class="math">\(m_1\)</span>. So for training a triplet <span class="math">\((d_1, d_2, t)\)</span> is
-used, where <span class="math">\(d_1\)</span> and <span class="math">\(d_2\)</span> are both processed individually by <span class="math">\(m_1\)</span>. The two
-outputs <span class="math">\(d_{1}'\)</span> and <span class="math">\(d_{2}'\)</span> are then combined by another network <span class="math">\(m_2\)</span>. <span class="math">\(m_2\)</span>
+<p>You have one network $m_1$ which is embedded into another network which
+combines two inputs of $m_1$. So for training a triplet $(d_1, d_2, t)$ is
+used, where $d_1$ and $d_2$ are both processed individually by $m_1$. The two
+outputs $d_{1}'$ and $d_{2}'$ are then combined by another network $m_2$. $m_2$
 can simply be a merging layer. The loss is then calculated based on the output
-of <span class="math">\(m_2\)</span>.</p>
+of $m_2$.</p>
 <h2 id="applications">Applications</h2>
 <ul>
 <li>Signature Verification: Given two signatures, do they belong to the same person?</li>
@@ -332,13 +332,13 @@ I guess I made an error, but at the moment I can't find it:</p>
 <hr/>
 <ol>
 <li id="fn:1">
-<p>Bromley, Jane, et al. "Signature verification using a" siamese" time delay neural network." Advances in neural information processing systems. 1994.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Bromley, Jane, et al. "Signature verification using a" siamese" time delay neural network." Advances in neural information processing systems. 1994.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:2">
-<p>I'm actually not sure which metric they used to calculate the distance between to signature feature matrices. Please ping me if you know more.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>I'm actually not sure which metric they used to calculate the distance between to signature feature matrices. Please ping me if you know more.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:3">
-<p>Taigman, Yaniv, et al. "<a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deepface: Closing the gap to human-level performance in face verification.</a>" Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. (<a href="https://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Taigman, Yaniv, et al. "<a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deepface: Closing the gap to human-level performance in face verification.</a>" Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. (<a href="https://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
 </li>
 </ol>
 </div>

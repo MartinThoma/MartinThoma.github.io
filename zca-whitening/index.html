@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="ZCA Whitening "/>
 <meta property="og:url" content="zca-whitening/" />
-<meta property="og:description" content="Whitening is a transformation of data in such a way that its covariance matrix \(\Sigma\) is the identity matrix. Hence whitening decorrelates features. It is used as a preprocessing method. When you have \(N\) data points in \(\mathbb{R}^n\), then the covariance matrix \(\Sigma \in \mathbb{R}^{n \times …" />
+<meta property="og:description" content="Whitening is a transformation of data in such a way that its covariance matrix $\Sigma$ is the identity matrix. Hence whitening decorrelates features. It is used as a preprocessing method. When you have $N$ data points in $\mathbb{R}^n$, then the covariance matrix $\Sigma \in \mathbb{R}^{n \times …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-29T20:00:00+02:00" />
 <meta name="twitter:title" content="ZCA Whitening ">
-<meta name="twitter:description" content="Whitening is a transformation of data in such a way that its covariance matrix \(\Sigma\) is the identity matrix. Hence whitening decorrelates features. It is used as a preprocessing method. When you have \(N\) data points in \(\mathbb{R}^n\), then the covariance matrix \(\Sigma \in \mathbb{R}^{n \times …">
+<meta name="twitter:description" content="Whitening is a transformation of data in such a way that its covariance matrix $\Sigma$ is the identity matrix. Hence whitening decorrelates features. It is used as a preprocessing method. When you have $N$ data points in $\mathbb{R}^n$, then the covariance matrix $\Sigma \in \mathbb{R}^{n \times …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -111,18 +111,18 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Whitening is a transformation of data in such a way that its covariance matrix <span class="math">\(\Sigma\)</span>
+            <p>Whitening is a transformation of data in such a way that its covariance matrix $\Sigma$
 is the identity matrix. Hence whitening decorrelates features. It is used as a
 preprocessing method.</p>
-<p>When you have <span class="math">\(N\)</span> data points in <span class="math">\(\mathbb{R}^n\)</span>, then the covariance matrix
-<span class="math">\(\Sigma \in \mathbb{R}^{n \times n}\)</span> is estimated to be:</p>
-<div class="math">$$\hat{\Sigma}_{jk} = \frac{1}{N-1} \sum_{i=1}^N (x_{ij} - \bar{x}_j) \cdot (x_{ik} - \bar{x}_k)$$</div>
-<p>where <span class="math">\(\bar{x}_j\)</span> denotes the <span class="math">\(j\)</span>-th component of the estimated mean of the
-samples <span class="math">\(x\)</span>.</p>
-<p>Any matrix <span class="math">\(W \in \mathbb{R}^{n \times n}\)</span> which satisfies the condition</p>
-<div class="math">$$W^T W = C^{-1}$$</div>
+<p>When you have $N$ data points in $\mathbb{R}^n$, then the covariance matrix
+$\Sigma \in \mathbb{R}^{n \times n}$ is estimated to be:</p>
+<p>$$\hat{\Sigma}<em i="1">{jk} = \frac{1}{N-1} \sum</em>}^N (x_{ij} - \bar{x<em ik="">j) \cdot (x</em>_k)$$} - \bar{x</p>
+<p>where $\bar{x}_j$ denotes the $j$-th component of the estimated mean of the
+samples $x$.</p>
+<p>Any matrix $W \in \mathbb{R}^{n \times n}$ which satisfies the condition</p>
+<p>$$W^T W = C^{-1}$$</p>
 <p>whitens the data. <abbr title="Zero-phase Component Analysis">ZCA</abbr>
-whitening is the choice <span class="math">\(W = M^{- \frac{1}{2}}\)</span>. PCA is another choice.
+whitening is the choice $W = M^{- \frac{1}{2}}$. PCA is another choice.
 According to "Neural Networks: Tricks of the Trade" PCA and ZCA whitening
 differ only by a rotation.</p>
 <h2 id="how-to-do-it">How to do it</h2>
@@ -135,14 +135,14 @@ differ only by a rotation.</p>
 <span class="c1"># Apply ZCA whitening</span>
 <span class="n">whitex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">flat_x</span><span class="p">,</span> <span class="n">principal_components</span><span class="p">)</span>
 </code></pre></div>
-<p>So, at first you compute the covariance matrix <span class="math">\(\Sigma\)</span>. I'm not quite sure,
+<p>So, at first you compute the covariance matrix $\Sigma$. I'm not quite sure,
 but I think they should divide by <code>flat_x.shape[0] - 1</code> for the unbiased
 estimator.</p>
 <p>Then you apply singular value decomposition to the estimated covariance matrix.
-The matrix <span class="math">\(u \in \mathbb{R}^{n \times n}\)</span> is <a href="https://en.wikipedia.org/wiki/Unitary_matrix">unitary</a>
-and <span class="math">\(s \in \mathbb{R}^{n \times n}\)</span> is a diagonal matrix with non-negative real numbers on the diagonal.
+The matrix $u \in \mathbb{R}^{n \times n}$ is <a href="https://en.wikipedia.org/wiki/Unitary_matrix">unitary</a>
+and $s \in \mathbb{R}^{n \times n}$ is a diagonal matrix with non-negative real numbers on the diagonal.
 Those number are the <a href="https://en.wikipedia.org/wiki/Singular_value">singular values</a>
-of <span class="math">\(\Sigma\)</span>.</p>
+of $\Sigma$.</p>
 <p>Next, the principal components are calculated:
 [u \cdot \frac{1}{\sqrt{s + 10^{-7}}} I \cdot u^T]</p>
 <p>By adding <code>10e-7</code> one prevents division by zero.</p>

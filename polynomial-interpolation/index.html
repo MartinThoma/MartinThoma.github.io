@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Polynomial interpolation "/>
 <meta property="og:url" content="polynomial-interpolation/" />
-<meta property="og:description" content="Suppose you have a list of \(n+1\) given point \((x_i, y_i)\) with \(i \in \{0, \dots, n\}\) and \(\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j\). Now you want to find a polynomial \(\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x …" />
+<meta property="og:description" content="Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in {0, \dots, n}$ and $\forall i,j \in {0, \dots, n}: i \neq j \Rightarrow x_i \neq x_j$. Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-06-22T18:41:43+02:00" />
 <meta name="twitter:title" content="Polynomial interpolation ">
-<meta name="twitter:description" content="Suppose you have a list of \(n+1\) given point \((x_i, y_i)\) with \(i \in \{0, \dots, n\}\) and \(\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j\). Now you want to find a polynomial \(\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x …">
+<meta name="twitter:description" content="Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in {0, \dots, n}$ and $\forall i,j \in {0, \dots, n}: i \neq j \Rightarrow x_i \neq x_j$. Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x …">
 <meta property="og:image" content="2013/06/polynom.png" />
 <meta name="twitter:image" content="2013/06/polynom.png" >
 
@@ -111,35 +111,35 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Suppose you have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(i \in \{0, \dots, n\}\)</span> and <span class="math">\(\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j\)</span>.</p>
-<p>Now you want to find a polynomial <span class="math">\(\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i\)</span> that goes through all of the given points. This means:</p>
-<p><span class="math">\(\forall i \in \{0, \dots, n\}: p(x_i) = y_i\)</span></p>
+            <p>Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in {0, \dots, n}$ and $\forall i,j \in {0, \dots, n}: i \neq j \Rightarrow x_i \neq x_j$.</p>
+<p>Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i$ that goes through all of the given points. This means:</p>
+<p>$\forall i \in {0, \dots, n}: p(x_i) = y_i$</p>
 <h2 id="existence-and-uniqueness">Existence and uniqueness</h2>
-<p><strong>Theorem</strong>: When you have a list of <span class="math">\(n+1\)</span> points with mutually different <span class="math">\(x_i\)</span> there is exactly one polynom of degree <span class="math">\(\leq n\)</span> that fits those points.</p>
+<p><strong>Theorem</strong>: When you have a list of $n+1$ points with mutually different $x_i$ there is exactly one polynom of degree $\leq n$ that fits those points.</p>
 <p><strong>Proof</strong>:</p>
 <p>You can formulate a linear system of equations:</p>
-<div class="math">$$\underbrace{\begin{pmatrix}
- x_0^0 &amp; \cdots &amp; x_0^n \\
-\vdots &amp; \ddots &amp; \vdots \\
+<p>$$\underbrace{\begin{pmatrix}
+ x_0^0 &amp; \cdots &amp; x_0^n \
+\vdots &amp; \ddots &amp; \vdots \
  x_n^0 &amp; \cdots &amp; x_n^n
 \end{pmatrix}
 }_{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
 \begin{pmatrix}
-a_0 \\
-\vdots \\
+a_0 \
+\vdots \
 a_n
 \end{pmatrix}
 =
 \begin{pmatrix}
-y_0 \\
-\vdots \\
+y_0 \
+\vdots \
 y_n
-\end{pmatrix}$$</div>
-<p>A matrix of the form of <span class="math">\(A\)</span> is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points <span class="math">\(x_i\)</span> are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
-<p>This means, the solution <span class="math">\((a_0 \dots a_n)^T\)</span> of this linear equation gives the polynom <span class="math">\(p(x) = \sum_{i=0}^n a_i x^i\)</span></p>
-<p>So the solution exists and is unique <span class="math">\(\blacksquare\)</span></p>
+\end{pmatrix}$$</p>
+<p>A matrix of the form of $A$ is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points $x_i$ are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
+<p>This means, the solution $(a_0 \dots a_n)^T$ of this linear equation gives the polynom $p(x) = \sum_{i=0}^n a_i x^i$</p>
+<p>So the solution exists and is unique $\blacksquare$</p>
 <h2 id="straight-forward-interpolating-polynomials">Straight forward interpolating polynomials</h2>
-<p>For this algorithm, I'll find the polynomial in its monomial from <span class="math">\(p(x) = \sum_{i=0}^n a_i x^i\)</span>. I'll use the matrix <span class="math">\(A\)</span> from section "<a href="#Uniqueness">Uniqueness</a>".</p>
+<p>For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".</p>
 <p>You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -246,7 +246,7 @@ y_n
     <span class="c1"># Print result</span>
     <span class="n">pprintPolynomial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
-<p>It is also interesting to get the value of <span class="math">\(p(x)\)</span> at any given point <span class="math">\(x \in \mathbb{R}\)</span>:</p>
+<p>It is also interesting to get the value of $p(x)$ at any given point $x \in \mathbb{R}$:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">evaluatePolynomial</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">xi</span> <span class="o">=</span> <span class="mi">1</span>
@@ -255,23 +255,23 @@ y_n
         <span class="n">xi</span> <span class="o">*=</span> <span class="n">x</span>
     <span class="k">return</span> <span class="n">y</span>
 </code></pre></div>
-<p>Time complexity to get the polynomial: <span class="math">\(\frac{1}{3} n^3 + \mathcal{O}(n^2)\)</span> (where <span class="math">\(n\)</span> is the number of points)
-Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</span> (where <span class="math">\(n\)</span> is the number of points)</p>
-<p>Time complexity to evaluate the value of <span class="math">\(p(x)\)</span> for any <span class="math">\(x \in \mathbb{R}\)</span>: <span class="math">\(\mathcal{O}(n)\)</span>.</p>
+<p>Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)
+Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)</p>
+<p>Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n)$.</p>
 <h2 id="polynomials">Polynomials</h2>
-<p><span class="math">\(\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}\)</span></p>
-<p>So <span class="math">\(\mathbb{R}_n[X]\)</span> are all polynomials with real coefficients and degree not higher than latex]n<span class="math">\(. $\mathbb{R}_n[X]\)</span> forms a vector space for <span class="math">\(n \in \mathbb{N}_0\)</span>. The degree of that vector space is <span class="math">\(n+1\)</span>.</p>
+<p>$\displaystyle \mathbb{R}<em i="0">n[X] := \left {p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum</em> \right }$}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R</p>
+<p>So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}_n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1$.</p>
 <p>What does that mean?</p>
-<p>This means you can use different bases for polynomials. The base we usually use for <span class="math">\(\mathbb{R}_n[X]\)</span> is <span class="math">\(\{x^0, x^1, x^2, x^3, \dots\}\)</span>, but you can switch the base.</p>
+<p>This means you can use different bases for polynomials. The base we usually use for $\mathbb{R}_n[X]$ is ${x^0, x^1, x^2, x^3, \dots}$, but you can switch the base.</p>
 <h2 id="lagrange-interpolation">Lagrange interpolation</h2>
-<p>Define <span class="math">\(n+1\)</span> polynomials like this:</p>
-<p><span class="math">\(\displaystyle L_{i}(x) := \prod_{j=0 \atop j \neq i}^n \frac{x-x_j}{x_i - x_j}\)</span></p>
+<p>Define $n+1$ polynomials like this:</p>
+<p>$\displaystyle L_{i}(x) := \prod_{j=0 \atop j \neq i}^n \frac{x-x_j}{x_i - x_j}$</p>
 <p>This means:</p>
-<p><span class="math">\(\displaystyle L_{i}(x_i) := \prod_{j=0 \atop j \neq i}^n \frac{x_i-x_j}{x_i - x_j} = 1\)</span></p>
+<p>$\displaystyle L_{i}(x_i) := \prod_{j=0 \atop j \neq i}^n \frac{x_i-x_j}{x_i - x_j} = 1$</p>
 <p>and</p>
-<p><span class="math">\(\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in \{0, \dots, n\} \setminus \{i\}\)</span></p>
-<p>So the polynomial <span class="math">\(y_i \cdot L_{i}(x)\)</span> fits the point <span class="math">\((x_i, y_i)\)</span> and is zero for all other points. This implies that <span class="math">\(\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)\)</span> is an interpolation of our data points. The degree of <span class="math">\(p(x)\)</span> is not higher than <span class="math">\(n\)</span>. You can see that easily when you take a look at the definition of <span class="math">\(p(x)\)</span> and <span class="math">\(L_i(x)\)</span>.</p>
-<p>The polynomials <span class="math">\(L_i(x)\)</span> form another base for <span class="math">\(\mathbb{R}_n[X]\)</span>.</p>
+<p>$\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in {0, \dots, n} \setminus {i}$</p>
+<p>So the polynomial $y_i \cdot L_{i}(x)$ fits the point $(x_i, y_i)$ and is zero for all other points. This implies that $\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)$ is an interpolation of our data points. The degree of $p(x)$ is not higher than $n$. You can see that easily when you take a look at the definition of $p(x)$ and $L_i(x)$.</p>
+<p>The polynomials $L_i(x)$ form another base for $\mathbb{R}_n[X]$.</p>
 <p>Lagranges way to interpolate polynomials can be implemented like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lagrangeInterpolation</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>
@@ -296,27 +296,27 @@ Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</sp
         <span class="n">y</span> <span class="o">+=</span> <span class="n">Li</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">*</span> <span class="n">prod</span>
     <span class="k">return</span> <span class="n">y</span>
 </code></pre></div>
-<p>Time complexity to get the polynomial: <span class="math">\(n^2 + \mathcal{O}(n)\)</span> (where <span class="math">\(n\)</span> is the number of points)
-Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</span> (where <span class="math">\(n\)</span> is the number of points)</p>
-<p>Time complexity to evaluate the value of <span class="math">\(p(x)\)</span> for any <span class="math">\(x \in \mathbb{R}\)</span>: <span class="math">\(\mathcal{O}(n^2)\)</span>.</p>
+<p>Time complexity to get the polynomial: $n^2 + \mathcal{O}(n)$ (where $n$ is the number of points)
+Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)</p>
+<p>Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n^2)$.</p>
 <h2 id="newton-interpolation">Newton interpolation</h2>
 <p>Define</p>
-<p><span class="math">\(\displaystyle N_i(x) := \prod_{j=0}^{i-1} (x-x_j)\)</span></p>
+<p>$\displaystyle N_i(x) := \prod_{j=0}^{i-1} (x-x_j)$</p>
 <p>So you know that</p>
-<p><span class="math">\(N_i(x) = 0 \Leftrightarrow \exists p \in \{1, \dots, i\}: x = x_{i-p}\)</span></p>
+<p>$N_i(x) = 0 \Leftrightarrow \exists p \in {1, \dots, i}: x = x_{i-p}$</p>
 <p>So your polynomial is</p>
-<p><span class="math">\(\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)\)</span></p>
-<p>for the correct <span class="math">\(c_i\)</span>. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those <span class="math">\(c_i\)</span>, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.</p>
-<div class="math">$$\begin{pmatrix}
-1 &amp; &amp; &amp; &amp; 0 \\
-1 &amp; (x_1 - x_0) &amp; &amp; &amp; \\
-1 &amp; (x_2 - x_0) &amp; (x_2 - x_0)(x_2 - x_1) &amp; &amp; \\
-\vdots &amp; \vdots &amp; &amp; \ddots &amp; \\
-1 &amp; (x_n - x_0) &amp; \cdots &amp; &amp; \prod_{i=0}^{n-1}(x_n - x_i) \\
+<p>$\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)$</p>
+<p>for the correct $c_i$. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those $c_i$, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.</p>
+<p>$$\begin{pmatrix}
+1 &amp; &amp; &amp; &amp; 0 \
+1 &amp; (x_1 - x_0) &amp; &amp; &amp; \
+1 &amp; (x_2 - x_0) &amp; (x_2 - x_0)(x_2 - x_1) &amp; &amp; \
+\vdots &amp; \vdots &amp; &amp; \ddots &amp; \
+1 &amp; (x_n - x_0) &amp; \cdots &amp; &amp; \prod_{i=0}^{n-1}(x_n - x_i) \
 \end{pmatrix}
 \cdot
-  \begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}
-= \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$$</div>
+  \begin{pmatrix} c_0 \ \vdots \ c_n \end{pmatrix}
+= \begin{pmatrix} f_0 \ \vdots \ f_n \end{pmatrix}$$</p>
 <p>You can get this lower triangular matrix like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">getGaussSystemForNewton</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -332,8 +332,8 @@ Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</sp
                 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">A</span>
 </code></pre></div>
-<p>From my previous posts about <a href="../solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in <span class="math">\(\Theta(n^2)\)</span>.</p>
-<p>According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a> to evaluate this Polynom in <span class="math">\(\mathcal{O}(n)\)</span>. But I really don't want to implement this today.</p>
+<p>From my previous posts about <a href="../solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $\Theta(n^2)$.</p>
+<p>According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a> to evaluate this Polynom in $\mathcal{O}(n)$. But I really don't want to implement this today.</p>
 <h2 id="interactive-example">Interactive example</h2>
 <iframe height="700px" src="../html5/polynom-interpolation.htm" width="98%"></iframe>
 <ul>

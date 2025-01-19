@@ -119,36 +119,36 @@ classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence ea
 into 600 training emails and 400 test emails. The class C1 is 40% of the data,
 C2 is 10% of the data and C3 is 50% of the data in both, the training and the
 test set. Don't touch the test set until the very end.</p>
-<p>Let <span class="math">\(I_1 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails which belong
-to class C1, <span class="math">\(I_2 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails
-which belong to set C2 and <span class="math">\(I_3 \subsetneq 1, \dots, 600\)</span> be the set of emails
+<p>Let $I_1 \subsetneq 1, \dots, 600$ be the set of indices of emails which belong
+to class C1, $I_2 \subsetneq 1, \dots, 600$ be the set of indices of emails
+which belong to set C2 and $I_3 \subsetneq 1, \dots, 600$ be the set of emails
 which belong to set C3.</p>
 <h2 id="get-features">Get Features</h2>
-<p>Now you <strong>build a list of unique words</strong> <span class="math">\(w\)</span>. Let <span class="math">\(W \in \mathbb{N}\)</span> denote the total number of unique words in the training set. So you know which words appear in the documents in the training set. There are certainly words which you did not see in the training set. Don't worry about this.</p>
-<p>Let the count how often word <span class="math">\(w\)</span> appears in email <span class="math">\(i = 1, \dots, N\)</span> be denoted by <span class="math">\(n_{w,i} \in \mathbb{N}\)</span>. Let <span class="math">\(n_{w, \text{total}} = \sum_{i=1}^N n_{w,i}\)</span> be the count how often the word <span class="math">\(w\)</span> appears in all documents combined.</p>
+<p>Now you <strong>build a list of unique words</strong> $w$. Let $W \in \mathbb{N}$ denote the total number of unique words in the training set. So you know which words appear in the documents in the training set. There are certainly words which you did not see in the training set. Don't worry about this.</p>
+<p>Let the count how often word $w$ appears in email $i = 1, \dots, N$ be denoted by $n_{w,i} \in \mathbb{N}$. Let $n_{w, \text{total}} = \sum_{i=1}^N n_{w,i}$ be the count how often the word $w$ appears in all documents combined.</p>
 <h3 id="word-presence-feature">Word Presence Feature</h3>
 <p>For each word, you can have a binary feature: Either the word is in the e-mail or not. I call this the "word presence feature".</p>
-<p>Now you can calculate: If a word <span class="math">\(w\)</span> appears in a document, the probability that the e-mail belongs to class 1 is</p>
-<div class="math">$$P(C_1|w) = \frac{\sum_{i \in I_1} 1_{n_{w,i} \geq 1}}{n_{w, \text{u}} = \sum_{i \in I_1 \cup I_2 \cup I_3} 1_{n_{w,i} \geq 1}}$$</div>
-<p>Hence you divide the number of e-mails of the first class in which the word <span class="math">\(w\)</span> appeared at least once by the total count of e-mails in which the word <span class="math">\(w\)</span> appeared at least once.</p>
+<p>Now you can calculate: If a word $w$ appears in a document, the probability that the e-mail belongs to class 1 is</p>
+<p>$$P(C_1|w) = \frac{\sum_{i \in I_1} 1_{n_{w,i} \geq 1}}{n_{w, \text{u}} = \sum_{i \in I_1 \cup I_2 \cup I_3} 1_{n_{w,i} \geq 1}}$$</p>
+<p>Hence you divide the number of e-mails of the first class in which the word $w$ appeared at least once by the total count of e-mails in which the word $w$ appeared at least once.</p>
 <p>Ok, but you don't only have one feature, but many. You are interested in
-<span class="math">\(P(C_1 | w_1, \dots, w_N)\)</span>.</p>
+$P(C_1 | w_1, \dots, w_N)$.</p>
 <p>By applying Bayes Rule, we get:</p>
-<div class="math">\begin{align}
-  P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\\
+<p>\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\
   &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | w_2, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
-\end{align}</div>
-<p>Now, <span class="math">\(P(C_1) = 0.4\)</span> is called the a priori probability of the class <span class="math">\(C_1\)</span>. So
-if we knew nothing about the content of the e-mail, we would guess <span class="math">\(C_1\)</span> has
+\end{align}</p>
+<p>Now, $P(C_1) = 0.4$ is called the a priori probability of the class $C_1$. So
+if we knew nothing about the content of the e-mail, we would guess $C_1$ has
 a probability of 40% as it is the amout of e-mails in that class.</p>
 <p>The other terms are more difficult. We don't have enough data for this. So we
 make the simplifying (and wrong!) assumption that words are independant of each
 other. Then we get:</p>
-<div class="math">\begin{align}
+<p>\begin{align}
   P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | C_1) \dots \cdot P( w_{N} | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
-\end{align}</div>
+\end{align}</p>
 <p>As we know that</p>
-<div class="math">$$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$</div>
+<p>$$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$</p>
 <p>it is sufficient to calculate the nominators and divide each of the three
 denominators by the sum of all three.</p>
 <p>Congratulations, your first document classifier is working!</p>
@@ -157,12 +157,12 @@ denominators by the sum of all three.</p>
 the more often it appears the more important it is. But the longer the e-mail is,
 the less important it is. So we should divide by the total count of words of
 an e-mail. This is called the term frequency (Tf) of a word in a document (e-mail).
-Sometimes, this is also denoted by <span class="math">\(\text{tf}(w, d)\)</span> where <span class="math">\(w\)</span> is the word (term)
-and <span class="math">\(d\)</span> is the document (e-mail).</p>
+Sometimes, this is also denoted by $\text{tf}(w, d)$ where $w$ is the word (term)
+and $d$ is the document (e-mail).</p>
 <p>Next, we realize that some words contain more information than others. For
 example, the word "the" might occur in almost every document. We do so by dividing by</p>
-<div class="math">$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$</div>
-<p>where <span class="math">\(N = 600\)</span> is the total amount of documents we have in the training set.
+<p>$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$</p>
+<p>where $N = 600$ is the total amount of documents we have in the training set.
 The denominator is the total count of words in all documents in the training
 set combined.</p>
 <p>Hence we can get a Tf-idf feature for all words.</p>

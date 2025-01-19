@@ -112,10 +112,10 @@ MathJax.Hub.Queue(function() {
 
             
             <div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="../matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="../strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>
-<p>You can always multiply a matrix <span class="math">\(J \in \mathbb{R}^{n \times m}\)</span> with its transpose <span class="math">\(J^T\)</span>, because <span class="math">\(J^T \in \mathbb{R}^{m \times n}\)</span>. You will get a matrix <span class="math">\(C \in \mathbb{R}^{n \times n}\)</span>.</p>
-<p>Standard matrix multiplication of square matrices <span class="math">\(\in \mathbb{R}^{n \times n}\)</span> is in <span class="math">\(\mathcal{O}(n^3)\)</span>. With the Strassen algorithm you can multiply in <span class="math">\(\approx \cal O(n^{2.807})\)</span>. But this is for general matrix multiplication. When we do <span class="math">\(J \cdot J^T\)</span> we have more structure, so it might be possible to do this multiplication faster.</p>
-<p>One important property of the result matrix <span class="math">\(R = J \cdot J^T\)</span> is symmetry. So <span class="math">\(R_{i,j} = R_{j,i}\)</span>.
-If we used the ikj-algorithm for this multiplication, we needed <span class="math">\(n^2 \cdot m\)</span> operations. This way, we only need <span class="math">\(\frac{n^2 +n}{2} \cdot m\)</span> operations. Yes, I know, asymptotically it is irrelevant. But skipping almost half of the operations is still quite good.</p>
+<p>You can always multiply a matrix $J \in \mathbb{R}^{n \times m}$ with its transpose $J^T$, because $J^T \in \mathbb{R}^{m \times n}$. You will get a matrix $C \in \mathbb{R}^{n \times n}$.</p>
+<p>Standard matrix multiplication of square matrices $\in \mathbb{R}^{n \times n}$ is in $\mathcal{O}(n^3)$. With the Strassen algorithm you can multiply in $\approx \cal O(n^{2.807})$. But this is for general matrix multiplication. When we do $J \cdot J^T$ we have more structure, so it might be possible to do this multiplication faster.</p>
+<p>One important property of the result matrix $R = J \cdot J^T$ is symmetry. So $R_{i,j} = R_{j,i}$.
+If we used the ikj-algorithm for this multiplication, we needed $n^2 \cdot m$ operations. This way, we only need $\frac{n^2 +n}{2} \cdot m$ operations. Yes, I know, asymptotically it is irrelevant. But skipping almost half of the operations is still quite good.</p>
 <h2 id="python">Python</h2>
 <h3 id="numpy">NumPy</h3>
 <p>I guess doing this with NumPy is the best option:</p>

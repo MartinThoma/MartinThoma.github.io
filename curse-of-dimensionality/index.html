@@ -115,65 +115,63 @@ MathJax.Hub.Queue(function() {
 less often explained. At least not in detail. One just gets told that points
 are farer away from each other in high dimensional spaces.</p>
 <h2 id="maximum-minimal-distance">Maximum minimal distance</h2>
-<p>One approach to this is to calculate the maximum minimal distance of <span class="math">\(k\)</span> points
-in <span class="math">\([0, 1]^n\)</span>. So you try to place <span class="math">\(k\)</span> points in such a way, that the minimum
-over the pairwise distances of those <span class="math">\(k\)</span> points is maximal.
-Let's call this <span class="math">\(\alpha(n, k)\)</span>. However, it is not easily possible
-to calculate <span class="math">\(\alpha(n, k)\)</span> for arbitrary <span class="math">\(n &gt; 2\)</span> and <span class="math">\(k &gt; 2\)</span> (see <a href="http://math.stackexchange.com/q/1976250/6876">link</a>).
-But the special case <span class="math">\(k = 2\)</span> and <span class="math">\(k = 2^n\)</span> is easy:</p>
+<p>One approach to this is to calculate the maximum minimal distance of $k$ points
+in $[0, 1]^n$. So you try to place $k$ points in such a way, that the minimum
+over the pairwise distances of those $k$ points is maximal.
+Let's call this $\alpha(n, k)$. However, it is not easily possible
+to calculate $\alpha(n, k)$ for arbitrary $n &gt; 2$ and $k &gt; 2$ (see <a href="http://math.stackexchange.com/q/1976250/6876">link</a>).
+But the special case $k = 2$ and $k = 2^n$ is easy:</p>
 <ul>
-<li><span class="math">\(\alpha(n, 2) = \sqrt{n}\)</span></li>
-<li><span class="math">\(\alpha(n, 2^n) = 1\)</span></li>
+<li>$\alpha(n, 2) = \sqrt{n}$</li>
+<li>$\alpha(n, 2^n) = 1$</li>
 </ul>
 <p>So you can see that two points get can be farer apart in higher dimensions and
 that it needs much more points in higher dimensions to force at least two of
 them to have distance 1.</p>
 <h2 id="average-distance">Average distance</h2>
-<p>Another approach is to calculate the average distance of <span class="math">\(k\)</span> uniformly randomly
-sampled points in <span class="math">\([0, 1]^n\)</span>. Let's call it <span class="math">\(\beta(n, k)\)</span>.</p>
-<p>One first insight is that <span class="math">\(\beta(n, k) = \beta(n, j)\)</span> for and <span class="math">\(k, j \geq 2\)</span>.
-Hence we will only use <span class="math">\(\beta(n)\)</span> in the following.</p>
+<p>Another approach is to calculate the average distance of $k$ uniformly randomly
+sampled points in $[0, 1]^n$. Let's call it $\beta(n, k)$.</p>
+<p>One first insight is that $\beta(n, k) = \beta(n, j)$ for and $k, j \geq 2$.
+Hence we will only use $\beta(n)$ in the following.</p>
 <p>It is possible to
 calculate this, but it is rather tedious (<a href="http://math.stackexchange.com/a/1254154/6876">link</a>).</p>
-<p>Just two calculated solutions for <span class="math">\(k=2\)</span> points:</p>
+<p>Just two calculated solutions for $k=2$ points:</p>
 <ul>
-<li><span class="math">\(\beta(1) = \frac{1}{3}\)</span></li>
-<li><span class="math">\(\beta(2) = \frac{2+\sqrt{2}+5\operatorname{arcsinh}(1)}{15}=\frac{2+\sqrt{2}+5\log(1+\sqrt{2})}{15} \approx 0.52140543316472\ldots\)</span></li>
+<li>$\beta(1) = \frac{1}{3}$</li>
+<li>$\beta(2) = \frac{2+\sqrt{2}+5\operatorname{arcsinh}(1)}{15}=\frac{2+\sqrt{2}+5\log(1+\sqrt{2})}{15} \approx 0.52140543316472\ldots$</li>
 </ul>
 <p>However, it is pretty easy to simulate it.</p>
 <h2 id="density-of-hypercubes">Density of Hypercubes</h2>
-<p>One interesting question is how much of the <span class="math">\(n\)</span>-dimensional hypercube can be
-filled by one inscribed <span class="math">\(n\)</span>-dimensional hyperball.</p>
-<p>The volume of an <span class="math">\(n\)</span>-dimensional hypercube is <span class="math">\(V_C(a) = a^n\)</span> where <span class="math">\(a\)</span> is the
-cubes side length. So for 1 dimension it is <span class="math">\(a\)</span>, for 2 dimensions (a square) it
-is <span class="math">\(a^2\)</span>, for 3 dimensions it is <span class="math">\(a^3\)</span> (a cube).</p>
-<p>The volume of an <span class="math">\(n\)</span>-dimensional ball is
-</p>
-<div class="math">$$V_S(r) = r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}$$</div>
-<p>
+<p>One interesting question is how much of the $n$-dimensional hypercube can be
+filled by one inscribed $n$-dimensional hyperball.</p>
+<p>The volume of an $n$-dimensional hypercube is $V_C(a) = a^n$ where $a$ is the
+cubes side length. So for 1 dimension it is $a$, for 2 dimensions (a square) it
+is $a^2$, for 3 dimensions it is $a^3$ (a cube).</p>
+<p>The volume of an $n$-dimensional ball is
+$$V_S(r) = r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}$$
 Source: <a href="https://en.wikipedia.org/wiki/N-sphere#Closed_forms">Wikipedia</a><br/>
-So for 1 dimension it is <span class="math">\(r \frac{\sqrt{\pi}}{\Gamma(1.5)} = r \frac{\sqrt{\pi}}{0.5 \Gamma(0.5)} = 2r\)</span>,
-for 2 dimensions it is <span class="math">\(r^2 \frac{\pi}{\Gamma (2)} = r^2 \frac{\pi}{\Gamma (1)} = r^2 \pi\)</span>
-and for 3 dimensions it is <span class="math">\(r^3 \frac{\pi^{3/2}}{\Gamma (\frac{5}{2})} = r^3 \frac{\pi^{3/2}}{1.5 \cdot 0.5 \cdot \Gamma (\frac{1}{2})} = r^3 \frac{\pi}{\frac{3}{4}}\)</span>.</p>
+So for 1 dimension it is $r \frac{\sqrt{\pi}}{\Gamma(1.5)} = r \frac{\sqrt{\pi}}{0.5 \Gamma(0.5)} = 2r$,
+for 2 dimensions it is $r^2 \frac{\pi}{\Gamma (2)} = r^2 \frac{\pi}{\Gamma (1)} = r^2 \pi$
+and for 3 dimensions it is $r^3 \frac{\pi^{3/2}}{\Gamma (\frac{5}{2})} = r^3 \frac{\pi^{3/2}}{1.5 \cdot 0.5 \cdot \Gamma (\frac{1}{2})} = r^3 \frac{\pi}{\frac{3}{4}}$.</p>
 <p>This means the percentage of space of a unit hypercube which can be filled by
 the biggest inscribed hyperball is</p>
-<div class="math">$$
+<p>$$
 \begin{align}
 \frac{V_S(0.5)}{V_C(1)}
-&amp;= \frac{r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}}{1} \\
-&amp;= \frac{0.5^n \pi^{n/2}}{\Gamma (\frac{n}{2} + 1)} \\
-&amp;= \frac{0.5^n \pi^{n/2}}{\frac{n}{2} \cdot \Gamma (\frac{n}{2})} \\
-&amp;= \frac{0.5^n \cdot 2 \cdot \pi^{n/2}}{n \cdot \frac{2 \frac{n}{2}!}{n}} \\
+&amp;= \frac{r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}}{1} \
+&amp;= \frac{0.5^n \pi^{n/2}}{\Gamma (\frac{n}{2} + 1)} \
+&amp;= \frac{0.5^n \pi^{n/2}}{\frac{n}{2} \cdot \Gamma (\frac{n}{2})} \
+&amp;= \frac{0.5^n \cdot 2 \cdot \pi^{n/2}}{n \cdot \frac{2 \frac{n}{2}!}{n}} \
 &amp;= \frac{0.5^n \cdot \pi^{n/2}}{\frac{n}{2}!}
 \end{align}
-$$</div>
+$$</p>
 <p>You can see that this term goes to 0 with increasing dimension. This means most
-of the volume is not in the center, but in the edges of the <span class="math">\(n\)</span> dimensional
-hypercube. It also means that <span class="math">\(k\)</span> nearest neighbors with Euclidean Distance
+of the volume is not in the center, but in the edges of the $n$ dimensional
+hypercube. It also means that $k$ nearest neighbors with Euclidean Distance
 measure will need enormously large spheres to get to the next neighbours.</p>
 <h2 id="average-angle">Average angle</h2>
 <p>One interesting question is how the average angle between two points (and the
-origin) changes with higher dimensions. Suppose all points are in the <span class="math">\([-1, 1]^n\)</span>
+origin) changes with higher dimensions. Suppose all points are in the $[-1, 1]^n$
 hypercube.</p>
 <p>I thought about this for a while and came to the conclusion that it should be
 90&deg; in average due to symmetry. No matter how high the dimension is.</p>
@@ -307,16 +305,16 @@ about it.)</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Pr(d(p1, p2) &lt; 1) = </span><span class="si">%0.4f</span><span class="s2">; alpha(n=</span><span class="si">%i</span><span class="s2">, 2) = </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">max_d</span><span class="p">))</span>
 </code></pre></div>
 <p>One can easily see that points get spaced much farer away in average the higher
-the dimension <span class="math">\(n\)</span> is. Now lets try to calculate the probability that two points
+the dimension $n$ is. Now lets try to calculate the probability that two points
 in the unit hypercube have a distance of less than 1.</p>
 <p>Here are a couple of results. Just a short reminder:</p>
 <ul>
-<li><span class="math">\(\alpha(n, 2)\)</span> is the maximum distance two points can have in a unit cube in <span class="math">\(\mathbb{R}^n\)</span></li>
-<li><span class="math">\(\alpha'(n, 2)\)</span> is the maximum observed distance of two points, when all dimensions are independently sampled <span class="math">\(10^6\)</span> times.</li>
-<li><span class="math">\(\beta(n)\)</span> is the average distance of two points in <span class="math">\(\mathbb{R}^n\)</span></li>
-<li><span class="math">\(Pr(d(p_1, p_2) &lt; 1)\)</span> is the probability, that two uniformly randomly placed points have a distance
-  of less than 1 in <span class="math">\(\mathbb{R}^n\)</span></li>
-<li><span class="math">\(V_S(0.5)/V_C(1)\)</span> is the amount a unit ball can fill a unit cube</li>
+<li>$\alpha(n, 2)$ is the maximum distance two points can have in a unit cube in $\mathbb{R}^n$</li>
+<li>$\alpha'(n, 2)$ is the maximum observed distance of two points, when all dimensions are independently sampled $10^6$ times.</li>
+<li>$\beta(n)$ is the average distance of two points in $\mathbb{R}^n$</li>
+<li>$Pr(d(p_1, p_2) &lt; 1)$ is the probability, that two uniformly randomly placed points have a distance
+  of less than 1 in $\mathbb{R}^n$</li>
+<li>$V_S(0.5)/V_C(1)$ is the amount a unit ball can fill a unit cube</li>
 </ul>
 <table>
 <tr>

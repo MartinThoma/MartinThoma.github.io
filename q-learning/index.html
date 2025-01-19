@@ -135,8 +135,8 @@ So you have an environment <code>env</code> which has</p>
 <p>The following is a mixed introduction to RL / Q-Learning. You might want to
 have a look at my <a href="https://martin-thoma.com/reinforcement-learning/">Reinforcement Learning</a>
 post as well.</p>
-<p>If there is a limited set of observations <span class="math">\(\mathcal{S}\)</span> (states) and a limited
-set of actions <span class="math">\(\mathcal{A}\)</span>, then you have <span class="math">\(|\mathcal{S}| \cdot |\mathcal{A}|\)</span>
+<p>If there is a limited set of observations $\mathcal{S}$ (states) and a limited
+set of actions $\mathcal{A}$, then you have $|\mathcal{S}| \cdot |\mathcal{A}|$
 possibilities to rate. For some of the observations you also receive a reward.
 But rewards might be delayed:</p>
 <div class="highlight"><pre><span></span><code>                      a0 --- s3, r=10
@@ -156,23 +156,23 @@ completely on very high rewards in the very far future. Direct rewards are
 prefered, but if it is really high we wait a bit longer. This thought leads to
 the <strong>value</strong> of a state / action. The value of a state or a state/action pair
 is its current reward plus its reward in future. As we want to prefer rewards
-which come directly, we discount the future rewards with a factor <span class="math">\(\gamma \in [0, 1]\)</span>:</p>
-<div class="math">$$V(s) = \max_{a \in \mathcal{A}} (R(s, a) + \gamma \sum_{s'} V(s'))$$</div>
-<p>The <span class="math">\(\max_{a \in \mathcal{A}}\)</span> means we execute the optimal action all the
+which come directly, we discount the future rewards with a factor $\gamma \in [0, 1]$:</p>
+<p>$$V(s) = \max_{a \in \mathcal{A}} (R(s, a) + \gamma \sum_{s'} V(s'))$$</p>
+<p>The $\max_{a \in \mathcal{A}}$ means we execute the optimal action all the
 time.</p>
 <p>Most of the time, the environments are not deterministic. Then you need to take
-the transition probability from getting from state <span class="math">\(s\)</span> into state <span class="math">\(s'\)</span> when
-you execute action <span class="math">\(a\)</span> into account:</p>
-<div class="math">$$V(s) = \max_{a \in \mathcal{A}} (R(s, a) + \gamma \sum_{s' \in \mathcal{S}} T(s, a, s') V(s'))$$</div>
-<p>Ok, awesome! But now comes the tricky part: We don't have the function <span class="math">\(V\)</span>.
-If both, <span class="math">\(\mathcal{S}\)</span> and <span class="math">\(\mathcal{A}\)</span> are finite, we can simply:</p>
+the transition probability from getting from state $s$ into state $s'$ when
+you execute action $a$ into account:</p>
+<p>$$V(s) = \max_{a \in \mathcal{A}} (R(s, a) + \gamma \sum_{s' \in \mathcal{S}} T(s, a, s') V(s'))$$</p>
+<p>Ok, awesome! But now comes the tricky part: We don't have the function $V$.
+If both, $\mathcal{S}$ and $\mathcal{A}$ are finite, we can simply:</p>
 <ul>
 <li>Initialize a table which has the columns (state, value of action 1, value of
-  action 2, ..., value of action <span class="math">\(n\)</span>) and one row per state. You could
+  action 2, ..., value of action $n$) and one row per state. You could
   initialize it to zero.</li>
-<li>Run the agent. Update the <span class="math">\((state, action)\)</span> cell with a weighted average of
+<li>Run the agent. Update the $(state, action)$ cell with a weighted average of
   what was in the table + what was observed. The weighting factor is
-  <span class="math">\(\alpha \in (0, 1)\)</span>.</li>
+  $\alpha \in (0, 1)$.</li>
 </ul>
 <p>That's it.</p>
 <h2 id="code">Code</h2>

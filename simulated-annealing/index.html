@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Simulated Annealing "/>
 <meta property="og:url" content="simulated-annealing/" />
-<meta property="og:description" content="This article is not quite finished, but I recently wanted to share some ideas. Simulated Annealing is an optimization algorithm. It is well-suited for combinatoric problems. Confusion Matrix Ordering A confusion matrix contains the predictions of a classifier together with their ground truth. The cell \((i, j)\) gives the information …" />
+<meta property="og:description" content="This article is not quite finished, but I recently wanted to share some ideas. Simulated Annealing is an optimization algorithm. It is well-suited for combinatoric problems. Confusion Matrix Ordering A confusion matrix contains the predictions of a classifier together with their ground truth. The cell $(i, j)$ gives the information …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-11-28T20:00:00+01:00" />
 <meta name="twitter:title" content="Simulated Annealing ">
-<meta name="twitter:description" content="This article is not quite finished, but I recently wanted to share some ideas. Simulated Annealing is an optimization algorithm. It is well-suited for combinatoric problems. Confusion Matrix Ordering A confusion matrix contains the predictions of a classifier together with their ground truth. The cell \((i, j)\) gives the information …">
+<meta name="twitter:description" content="This article is not quite finished, but I recently wanted to share some ideas. Simulated Annealing is an optimization algorithm. It is well-suited for combinatoric problems. Confusion Matrix Ordering A confusion matrix contains the predictions of a classifier together with their ground truth. The cell $(i, j)$ gives the information …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -116,8 +116,8 @@ MathJax.Hub.Queue(function() {
 combinatoric problems.</p>
 <h2 id="confusion-matrix-ordering">Confusion Matrix Ordering</h2>
 <p>A confusion matrix contains the predictions of a classifier together with their
-ground truth. The cell <span class="math">\((i, j)\)</span> gives the information how often class <span class="math">\(i\)</span> was
-predicted to be class <span class="math">\(j\)</span>. So the diagonal <span class="math">\(i=j\)</span> contains the number of samples
+ground truth. The cell $(i, j)$ gives the information how often class $i$ was
+predicted to be class $j$. So the diagonal $i=j$ contains the number of samples
 where the classifier got it right.</p>
 <p>In this matrix, the order of classes is irrelevant. You can change it. So
 instead of the order [mouse, cat, dog] you can have [cat, dog, mouse]. But for
@@ -127,7 +127,7 @@ you can easier see the errors. An awesome side-effect is that classes which look
 similar to the classifier are closer together in the list.</p>
 <p>Changing the order of the classes can itself be seen as an optimization problem.
 For example, a matrix can be scored with</p>
-<div class="math">$$E(C) = \sum_{i=1}^n \sum_{j=1}^n (i - j)^2$$</div>
+<p>$$E(C) = \sum_{i=1}^n \sum_{j=1}^n (i - j)^2$$</p>
 <p>I've described the details in <a href="https://arxiv.org/pdf/1707.09725.pdf">Analysis and Optimization of Convolutional Neural Network Architectures, Chapter 5.2</a>.</p>
 <p>The simplest way to approach this problem is:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">optimize_brute_force</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
@@ -175,7 +175,7 @@ far:</p>
 <p>But this is still not good. This problem is of a structure that can lead to
 local optima, where a single swap does not improve anything, but only two or
 more swaps can. To fix this, one should allow at least equal solutions to change
-the currently stored one. So if two solutions <span class="math">\(s_1, s_2\)</span> both have a score of
+the currently stored one. So if two solutions $s_1, s_2$ both have a score of
 3141, then the <code>best_solution</code> should be allowed to switch between the two.</p>
 <p>You will quickly figure out that this is not enough. You need to allow the
 algorithm to make the solution temporarily worse. Still, you want to improve

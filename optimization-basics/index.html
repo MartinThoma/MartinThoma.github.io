@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Optimization Basics "/>
 <meta property="og:url" content="optimization-basics/" />
-<meta property="og:description" content="Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this: $$ \begin{align} &amp;\underset{x}{\operatorname{minimize}}&amp; &amp; f(x) \\ &amp;\operatorname{subject\;to} &amp; &amp;g_i(x) \leq 0, \quad i = 1,\dots,m \\ &amp;&amp;&amp;h_i(x) = 0, \quad i = 1, \dots …" />
+<meta property="og:description" content="Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this: $$ \begin{align} &amp;\underset{x}{\operatorname{minimize}}&amp; &amp; f(x) \ &amp;\operatorname{subject\;to} &amp; &amp;g_i(x) \leq 0, \quad i = 1,\dots,m \ &amp;&amp;&amp;h_i(x) = 0, \quad i = 1, \dots …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-07-06T20:00:00+02:00" />
 <meta name="twitter:title" content="Optimization Basics ">
-<meta name="twitter:description" content="Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this: $$ \begin{align} &amp;\underset{x}{\operatorname{minimize}}&amp; &amp; f(x) \\ &amp;\operatorname{subject\;to} &amp; &amp;g_i(x) \leq 0, \quad i = 1,\dots,m \\ &amp;&amp;&amp;h_i(x) = 0, \quad i = 1, \dots …">
+<meta name="twitter:description" content="Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this: $$ \begin{align} &amp;\underset{x}{\operatorname{minimize}}&amp; &amp; f(x) \ &amp;\operatorname{subject\;to} &amp; &amp;g_i(x) \leq 0, \quad i = 1,\dots,m \ &amp;&amp;&amp;h_i(x) = 0, \quad i = 1, \dots …">
 <meta property="og:image" content="logos/ai.png" />
 <meta name="twitter:image" content="logos/ai.png" >
 
@@ -112,32 +112,32 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this:</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-&amp;\underset{x}{\operatorname{minimize}}&amp; &amp; f(x) \\
+&amp;\underset{x}{\operatorname{minimize}}&amp; &amp; f(x) \
 &amp;\operatorname{subject\;to}
-&amp; &amp;g_i(x) \leq 0, \quad i = 1,\dots,m \\
+&amp; &amp;g_i(x) \leq 0, \quad i = 1,\dots,m \
 &amp;&amp;&amp;h_i(x) = 0, \quad i = 1, \dots,p
 \end{align}
-$$</div>
+$$</p>
 <p>where</p>
 <ul>
-<li><span class="math">\(f(x): \mathbb{R}^n \to \mathbb{R}\)</span> is the <strong>loss function (objective function)</strong> to be minimized over the variable <span class="math">\(x\)</span>,</li>
-<li><span class="math">\(g_i(x) \leq 0\)</span> are called <strong>inequality constraints</strong>, and</li>
-<li><span class="math">\(h_i(x) = 0\)</span> are called <strong>equality constraints</strong>.</li>
+<li>$f(x): \mathbb{R}^n \to \mathbb{R}$ is the <strong>loss function (objective function)</strong> to be minimized over the variable $x$,</li>
+<li>$g_i(x) \leq 0$ are called <strong>inequality constraints</strong>, and</li>
+<li>$h_i(x) = 0$ are called <strong>equality constraints</strong>.</li>
 </ul>
 <p>By convention, the standard form defines a <strong>minimization problem</strong>. A
 <strong>maximization problem</strong> can be treated by negating the objective function.</p>
 <p>(That was copied from <a href="https://en.wikipedia.org/w/index.php?title=Optimization_problem&amp;oldid=715562612#Continuous_optimization_problem">en.wikipedia.org/w/Optimization_problem</a> and only slightly edited.)</p>
-<p>I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to finde a solution <span class="math">\(x \in \mathbb{N}^n\)</span>. I will only focus on continuous optimization problems.</p>
+<p>I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to finde a solution $x \in \mathbb{N}^n$. I will only focus on continuous optimization problems.</p>
 <h2 id="simulated-annealing">Simulated Annealing</h2>
 <p>Simulated Annealing is a heuristical optimization algorithm. It starts at a
-random point <span class="math">\(x \in \mathbb{R}^n\)</span>. Then it takes a random point <span class="math">\(y\)</span> of the
-environment of <span class="math">\(x\)</span>:</p>
-<div class="math">$$y \in U(x)$$</div>
-<p>If <span class="math">\(f(y) \leq f(x)\)</span>, then the current position <span class="math">\(x\)</span> is overwritten with <span class="math">\(y\)</span>:</p>
-<div class="math">$$x \leftarrow y$$</div>
-<p>Otherwise, it might be overwritten with probability <span class="math">\(\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\)</span> where <span class="math">\(T: \mathbb{N}_0 \rightarrow \mathbb{R}_{&gt; 0}\)</span> is called the temperature at time <span class="math">\(t\)</span>.</p>
+random point $x \in \mathbb{R}^n$. Then it takes a random point $y$ of the
+environment of $x$:</p>
+<p>$$y \in U(x)$$</p>
+<p>If $f(y) \leq f(x)$, then the current position $x$ is overwritten with $y$:</p>
+<p>$$x \leftarrow y$$</p>
+<p>Otherwise, it might be overwritten with probability $\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )$ where $T: \mathbb{N}<em 0="" _="&gt;">0 \rightarrow \mathbb{R}</em>$ is called the temperature at time $t$.</p>
 <p>So the optimization algorithm is:</p>
 <ol>
 <li>Take a random point $x \in \mathbb{R}^n$</li>
@@ -149,91 +149,89 @@ environment of <span class="math">\(x\)</span>:</p>
 </ol>
 <p>See also my <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#simulated-annealing">German description</a>.</p>
 <h2 id="gradient-descent">Gradient descent</h2>
-<p>The gradient descent algorithm can easily be applied when the optimization problem has no constraints and the objective function <span class="math">\(f\)</span> is differentiable.
-The idea is to just take a random starting point <span class="math">\(x \in \mathbb{R}^n\)</span> and
+<p>The gradient descent algorithm can easily be applied when the optimization problem has no constraints and the objective function $f$ is differentiable.
+The idea is to just take a random starting point $x \in \mathbb{R}^n$ and
 iteratively improve it. There are many algorithms which follow this approach (Simulated annealing, L-BFGS, Newton's method, Quasi-Newtonian, Conjugate Gradient, ...).</p>
 <p>Instead of randomly going in other directions, the
-gradient <span class="math">\(\nabla f\)</span> is calculated at the position <span class="math">\(x\)</span>. The gradient points
+gradient $\nabla f$ is calculated at the position $x$. The gradient points
 in the direction of maximum increase, so we go in the opposite direction:</p>
-<div class="math">$$x_{\text{new}} = x - \nabla f(x)$$</div>
+<p>$$x_{\text{new}} = x - \nabla f(x)$$</p>
 <p>The problem with this approach is that the surface of the objective function
-might first go down in the direction of <span class="math">\(\nabla f(x)\)</span>, but if you go a bit
+might first go down in the direction of $\nabla f(x)$, but if you go a bit
 further it can go up by a lot. So we want to make very small steps. To achive
-this, we multiply the gradient with a factor <span class="math">\(\eta \in (0, 1]\)</span>. In machine
-learining, this <span class="math">\(\eta\)</span> is called the <em>learning rate</em> and typically one
-chooses <span class="math">\(\eta = 0.01\)</span>. However, there are <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#learning-rate-scheduling">learning rate scheduling algorithms</a> which adapt this parameter during training.</p>
+this, we multiply the gradient with a factor $\eta \in (0, 1]$. In machine
+learining, this $\eta$ is called the <em>learning rate</em> and typically one
+chooses $\eta = 0.01$. However, there are <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#learning-rate-scheduling">learning rate scheduling algorithms</a> which adapt this parameter during training.</p>
 <p>The update rule is:</p>
-<div class="math">$$x_{\text{new}} = x - \eta \nabla f(x)$$</div>
+<p>$$x_{\text{new}} = x - \eta \nabla f(x)$$</p>
 <h3 id="iterative-descent">Iterative Descent</h3>
 <p>A more general formulation of the Gradient descent algorithm is called
-iterative descent. The idea is to start at some arbitrary <span class="math">\(x_0\)</span> and iteratively
+iterative descent. The idea is to start at some arbitrary $x_0$ and iteratively
 update the current guess of the minimum to</p>
-<div class="math">$$x_{k+1} = x_k + \eta \cdot d_k$$</div>
-<p>where <span class="math">\(\eta \in (0, 1]\)</span> is the step length (learning rate) and</p>
-<div class="math">$$d_k = -D_k \nabla f(x_k)$$</div>
+<p>$$x_{k+1} = x_k + \eta \cdot d_k$$</p>
+<p>where $\eta \in (0, 1]$ is the step length (learning rate) and</p>
+<p>$$d_k = -D_k \nabla f(x_k)$$</p>
 <p>is the direction of the descent. The direction depends on the Gradient
-<span class="math">\(\nabla f(x_k)\)</span>, but also on a matrix <span class="math">\(D_k\)</span>:</p>
+$\nabla f(x_k)$, but also on a matrix $D_k$:</p>
 <ul>
 <li>$D_k = I$: Gradient descent</li>
 <li>$D_k = H_f^{-1}(x_k)$: Newtons method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
 </ul>
 <h2 id="linear-regression-with-mse_1">Linear Regression with MSE</h2>
-<p>In linear regression one is given a list of <span class="math">\(n\)</span> points <span class="math">\((x, y)\)</span> with <span class="math">\(x \in \mathbb{R}^m\)</span> and <span class="math">\(y \in \mathbb{R}\)</span>. The task is to find a matrix <span class="math">\(A \in \mathbb{1 \times m}\)</span> such that the predicted value <span class="math">\(\hat{y}\)</span> of the linear model</p>
-<div class="math">$$\hat{y}(x) = A \cdot x$$</div>
+<p>In linear regression one is given a list of $n$ points $(x, y)$ with $x \in \mathbb{R}^m$ and $y \in \mathbb{R}$. The task is to find a matrix $A \in \mathbb{1 \times m}$ such that the predicted value $\hat{y}$ of the linear model</p>
+<p>$$\hat{y}(x) = A \cdot x$$</p>
 <p>minimizes the term</p>
-<div class="math">$$\text{MSE} = \sum_{i=1}^n (y_i - \hat{y}(x_i))^2$$</div>
-<p>For convenience, one can write the list of points as a matrix <span class="math">\(\mathbf{X} \in \mathbb{R}^{n \times m}\)</span> and
-a vector <span class="math">\(\mathbf{y} \in \mathbb{R}^n\)</span>:</p>
-<div class="math">$$\text{MSE} = \|\mathbf{y} - \mathbf{X} A^T\|_2$$</div>
+<p>$$\text{MSE} = \sum_{i=1}^n (y_i - \hat{y}(x_i))^2$$</p>
+<p>For convenience, one can write the list of points as a matrix $\mathbf{X} \in \mathbb{R}^{n \times m}$ and
+a vector $\mathbf{y} \in \mathbb{R}^n$:</p>
+<p>$$\text{MSE} = |\mathbf{y} - \mathbf{X} A^T|_2$$</p>
 <p>with the Euclidean norm</p>
-<div class="math">$$\| v \|_2 := \sqrt{ ( v_1 )^2 + ( v_2 )^2 + \dotsb + ( v_n )^2 } = \left( \sum_{i=1}^n ( v_i )^2 \right)^{1/2}$$</div>
+<p>$$| v |<em i="1">2 := \sqrt{ ( v_1 )^2 + ( v_2 )^2 + \dotsb + ( v_n )^2 } = \left( \sum</em>$$}^n ( v_i )^2 \right)^{1/2</p>
 <p>Every part of the sum is non-negative, so exponentiating the Euclidean norm
 with a positive factor will not change the result of the minimization:</p>
-<div class="math">$$\operatorname{minimize}_{A} \|\mathbf{y} - \mathbf{X} A^T\|_2^2$$</div>
+<p>$$\operatorname{minimize}_{A} |\mathbf{y} - \mathbf{X} A^T|_2^2$$</p>
 <p>Now we can see that this is every element of the vector squared. So we can
 get rid of the norm and then use distributivity:</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-\operatorname{minimize}_{A}&amp;(\mathbf{y} - \mathbf{X} A^T)^T \cdot (\mathbf{y} - \mathbf{X} A^T)\\
-\Leftrightarrow \operatorname{minimize}_{A}&amp;(\mathbf{y}^T - A \mathbf{X}^T) \cdot (\mathbf{y} - \mathbf{X} A^T)\\
-\Leftrightarrow \operatorname{minimize}_{A}&amp;\mathbf{y}^T \mathbf{y} - A \mathbf{X}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} A^T + A\mathbf{X}^T \mathbf{X} A^T\\
+\operatorname{minimize}<em a="">{A}&amp;(\mathbf{y} - \mathbf{X} A^T)^T \cdot (\mathbf{y} - \mathbf{X} A^T)\
+\Leftrightarrow \operatorname{minimize}</em> A^T)\
+\Leftrightarrow \operatorname{minimize}_{A}&amp;\mathbf{y}^T \mathbf{y} - A \mathbf{X}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} A^T + A\mathbf{X}^T \mathbf{X} A^T\
 \end{align}
-$$</div>
+$$}&amp;(\mathbf{y}^T - A \mathbf{X}^T) \cdot (\mathbf{y} - \mathbf{X</p>
 <p>You need to know that</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-A \mathbf{X}^T \mathbf{y} &amp;= ((A \mathbf{X}^T \mathbf{y})^T)^T\\
-&amp;= (\mathbf{y}^T \mathbf{X} A^T)^T\\
-&amp;= \mathbf{y}^T \mathbf{X} A^T\\
+A \mathbf{X}^T \mathbf{y} &amp;= ((A \mathbf{X}^T \mathbf{y})^T)^T\
+&amp;= (\mathbf{y}^T \mathbf{X} A^T)^T\
+&amp;= \mathbf{y}^T \mathbf{X} A^T\
 \end{align}
-$$</div>
+$$</p>
 <p>You can get rid of the last transposing operation, because
-</p>
-<div class="math">$$(\mathbf{y}^T \mathbf{X} A^T) \in \mathbb{R}^{1 \times 1}$$</div>
+$$(\mathbf{y}^T \mathbf{X} A^T) \in \mathbb{R}^{1 \times 1}$$</p>
 <p>This simplifies the optimization problem to</p>
-<div class="math">$$\operatorname{minimize}_{A}\underbrace{\mathbf{y}^T \mathbf{y} - 2 A \mathbf{X}^T \mathbf{y} + A\mathbf{X}^T \mathbf{X} A^T}_{E_{X, y}(A)}$$</div>
-<p>Now you can calculate the gradient of this term with respect to <span class="math">\(A\)</span>:</p>
-<div class="math">$$\nabla E_{X, y}(A) = 2 X^T X A^T - X^T y - X^T y = 2 X^T (X A^T - y)$$</div>
+<p>$$\operatorname{minimize}<em e__x_="E_{X," y="">{A}\underbrace{\mathbf{y}^T \mathbf{y} - 2 A \mathbf{X}^T \mathbf{y} + A\mathbf{X}^T \mathbf{X} A^T}</em>$$}(A)</p>
+<p>Now you can calculate the gradient of this term with respect to $A$:</p>
+<p>$$\nabla E_{X, y}(A) = 2 X^T X A^T - X^T y - X^T y = 2 X^T (X A^T - y)$$</p>
 <p>A necessary condition of a minimum is the gradient to be 0:</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-\nabla E_{X, y}(A) &amp;\overset{!}{=} 0\\
-\Leftrightarrow 0 &amp;\overset{!}{=} 2 X^T (X A^T - y)\\
-\Leftrightarrow 0 &amp;\overset{!}{=} X^T X A^T - X^T y\\
-\Leftrightarrow A &amp;\overset{!}{=} ((X^T X)^{-1} X^T y)^T\\
+\nabla E_{X, y}(A) &amp;\overset{!}{=} 0\
+\Leftrightarrow 0 &amp;\overset{!}{=} 2 X^T (X A^T - y)\
+\Leftrightarrow 0 &amp;\overset{!}{=} X^T X A^T - X^T y\
+\Leftrightarrow A &amp;\overset{!}{=} ((X^T X)^{-1} X^T y)^T\
 \end{align}
-$$</div>
-<p>As <span class="math">\(H_{E_{X, y}} = \nabla^2 E_{X, y}(A) = 2 X^T X\)</span> is positive definite, this is a minimum. Hence, the optimal solution to this problem is:</p>
-<div class="math">$$A = ((X^T X)^{-1} X^T y)^T$$</div>
+$$</p>
+<p>As $H_{E_{X, y}} = \nabla^2 E_{X, y}(A) = 2 X^T X$ is positive definite, this is a minimum. Hence, the optimal solution to this problem is:</p>
+<p>$$A = ((X^T X)^{-1} X^T y)^T$$</p>
 <h2 id="lagrange-multipliers">Lagrange multipliers</h2>
 <p>Lagrange multipliers are a trick in optimization problems with constraints.
 They can be used to get rid of the constraints.</p>
 <p>The Lagrange function has the form</p>
-<div class="math">$$\mathcal{L} (x, \lambda_1, \dots, \lambda_n) = f(x) + \sum_{j=1}^n \lambda_j h_j(x)$$</div>
-<p>
-with the <em>Lagrange multipliers</em> <span class="math">\(\lambda_j \in \mathbb{R}\)</span> and <span class="math">\(h_j\)</span> are equality constraints.<br/>
+<p>$$\mathcal{L} (x, \lambda_1, \dots, \lambda_n) = f(x) + \sum_{j=1}^n \lambda_j h_j(x)$$
+with the <em>Lagrange multipliers</em> $\lambda_j \in \mathbb{R}$ and $h_j$ are equality constraints.<br/>
 <br/>
-Necessary conditions for a minimum <span class="math">\(x^*\)</span> is:</p>
+Necessary conditions for a minimum $x^*$ is:</p>
 <ul>
 <li>$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$</li>
 <li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>

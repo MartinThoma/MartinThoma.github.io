@@ -148,12 +148,12 @@ measures are suitable or not.</p>
 <p>We want to classify if a transaction is fraud. Let's say we have 99% non-fraud
 transactions and 1% fraud transactions. To keep things simple, let's say we
 have 1000 transactions. Then we know:</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-TP + FN &amp;= 10\\
+TP + FN &amp;= 10\
 TN + FP &amp;= 990
 \end{align}
-$$</div>
+$$</p>
 <h3 id="website-advertisement">Website Advertisement</h3>
 <p>You want to make advertisement and different websites send you information
 about users and the website they are currently surfing. You have to decide if
@@ -240,7 +240,7 @@ participants where you collected the data, only 10 had this type of cancer.</p>
 <p>The confusion matrix is not a metric, but a lot of metrics are based on it.
 TP, TN, FP, FN are all counts. Together, they sum up to the number of elements
 in the test set:</p>
-<div class="math">$$n := TP + TN + FP + FN$$</div>
+<p>$$n := TP + TN + FP + FN$$</p>
 <p>Optimally, everything is on the diagonal and FP and FN are zero.</p>
 <p>Please note that this gives you almost all of the information. The only kind
 of information that is hidden from the confusion matrix is the certainty of
@@ -279,8 +279,8 @@ most of the time the case: No fire, not alarm.</p>
 <figcaption class="text-center">Confusion matrix for the smoke detector case</figcaption>
 </figure>
 <h2 id="accuracy">Accuracy</h2>
-<p>The accuracy of a binary classifier <span class="math">\(C\)</span> is defined as</p>
-<div class="math">$$\text{accuracy}(C) := \frac{TP + TN}{FP + FN} \in [0, 1] \text{ (higher is better)}$$</div>
+<p>The accuracy of a binary classifier $C$ is defined as</p>
+<p>$$\text{accuracy}(C) := \frac{TP + TN}{FP + FN} \in [0, 1] \text{ (higher is better)}$$</p>
 <p>If the accuracy is high, then the classifier is right in many cases. If the
 accuracy is low, then the classifier is wrong in many cases.</p>
 <p><strong>Where it fails</strong>: In heavily inbalanced cases such as "Fraudulent
@@ -291,12 +291,12 @@ be useless.</p>
 gut feeling, I would say at most 70% / 30% of imbalance.</p>
 <p><strong>Baselines</strong></p>
 <ul>
-<li>Predict the most common class: accuracy <span class="math">\(= \max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)</span></li>
+<li>Predict the most common class: accuracy $= \max(\frac{TP + FN}{n}, \frac{TN + FP}{n})$</li>
 <li>Random classifier (each class with 50%): 50%</li>
 </ul>
 <h2 id="precision">Precision</h2>
 <p>Precision says how many of the predicted true elements are actually true:</p>
-<div class="math">$$\text{precision}(C) := \frac{TP}{TP + FP} \in [0, 1] \cup \{\text{undefined}\}] \text{ (higher is better)}$$</div>
+<p>$$\text{precision}(C) := \frac{TP}{TP + FP} \in [0, 1] \cup {\text{undefined}}] \text{ (higher is better)}$$</p>
 <p><strong>When it fails</strong>: When you have few positives.</p>
 <p><strong>When it's nice</strong>: When each try costs something, but missing a chance is not
 a big deal. For example, think of recruitement. Inviting a single recruit costs
@@ -308,13 +308,13 @@ classifier tells you that once it gives you a candidate, it is also likely you
 will not have to reject the candidate afterwards.</p>
 <p><strong>Baselines</strong></p>
 <ul>
-<li>Predict always false: accuracy <span class="math">\(= \max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)</span></li>
+<li>Predict always false: accuracy $= \max(\frac{TP + FN}{n}, \frac{TN + FP}{n})$</li>
 <li>Random classifier (each class with 50%): 50%</li>
 </ul>
 <h2 id="recall">Recall</h2>
 <p>Recall tells you how many of the actual true elements your classifier predicted
 to be true:</p>
-<div class="math">$$\text{recall}(C) := \begin{cases}\frac{TP}{TP + FN} &amp;\text{if } TP + FN &gt; 0\\\text{undefined} &amp;\text{otherwise}\end{cases}$$</div>
+<p>$$\text{recall}(C) := \begin{cases}\frac{TP}{TP + FN} &amp;\text{if } TP + FN &gt; 0\\text{undefined} &amp;\text{otherwise}\end{cases}$$</p>
 <p><strong>When it fails</strong>: When the classifier is biased towards positive.</p>
 <p><strong>When it's nice</strong>: When the cost of missing a positve one is high. For
 example, think of the rare cancer detection case. If the tests says yes, you
@@ -329,15 +329,15 @@ important constraints (e.g. not causing harm to people).</p>
 <h2 id="f1-score">F1-Score</h2>
 <p>The <a href="https://en.wikipedia.org/wiki/F1_score">F1-Score</a> is a combination of
 precision and recall.</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-F_1(C) :&amp;= 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{\mathrm{precision} + \mathrm{recall}}\\
-&amp;= 2 \cdot \frac{\frac{TP}{TP + FP} \cdot \frac{TP}{TP + FN}}{\frac{TP}{TP + FP} + \frac{TP}{TP + FN}}\\
-&amp;= 2 \cdot \frac{\frac{TP^2}{(TP + FP) (TP + FN)}}{\frac{TP (TP + FN) + TP (TP + FP)}{(TP + FP) (TP + FN)}}\\
-&amp;= 2 \cdot \frac{TP^2}{TP (TP+FN) + TP(TP+FP)}\\
+F_1(C) :&amp;= 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{\mathrm{precision} + \mathrm{recall}}\
+&amp;= 2 \cdot \frac{\frac{TP}{TP + FP} \cdot \frac{TP}{TP + FN}}{\frac{TP}{TP + FP} + \frac{TP}{TP + FN}}\
+&amp;= 2 \cdot \frac{\frac{TP^2}{(TP + FP) (TP + FN)}}{\frac{TP (TP + FN) + TP (TP + FP)}{(TP + FP) (TP + FN)}}\
+&amp;= 2 \cdot \frac{TP^2}{TP (TP+FN) + TP(TP+FP)}\
 &amp;= \frac{2 \cdot TP}{2 \cdot TP + FN + FP}
 \end{align}
-$$</div>
+$$</p>
 <p><strong>When it fails</strong>: The F1-Score does only consider TN indirectly by FP. If you
 change the dataset, then the F1 score changes as well. Or if you simply change
 the definition. Let's take the website advertisement case, where you predict if

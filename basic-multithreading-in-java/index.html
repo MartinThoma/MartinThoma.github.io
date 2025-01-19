@@ -209,7 +209,7 @@ MathJax.Hub.Queue(function() {
 <li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
 <li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
 </ul>
-<p>Ok, we can obviously get values in <span class="math">\([\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>.</p>
+<p>Ok, we can obviously get values in $[\text{BIG}_\text{NR}, \text{NR}_\text{THREADS} \cdot \text{BIG}_\text{NR}]$.</p>
 <p>Can we get smaller values? Yes, we can!</p>
 <p>Execute:</p>
 <div class="highlight"><pre><span></span><code>java<span class="w"> </span>Main<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="m">20000</span>
@@ -224,7 +224,7 @@ MathJax.Hub.Queue(function() {
 <li>Thread 1 executes and finishes.</li>
 <li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
 </ul>
-<p>You can get all values in <span class="math">\([2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>!</p>
+<p>You can get all values in $[2, \text{NR}_\text{THREADS} \cdot \text{BIG}_\text{NR}]$!</p>
 <p>Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.</p>
 <h2 id="playing-with-bash">Playing with BASH</h2>
 <p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:</p>
@@ -233,7 +233,7 @@ MathJax.Hub.Queue(function() {
 <li>$2: The maximum number of THREADS you would like to use</li>
 <li>$3: BIG_NR</li>
 </ul>
-<p>The script executes the program <span class="math">\($1 \cdot $2\)</span> times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
+<p>The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
 <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>raceCondition.tmp
 touch<span class="w"> </span>raceCondition.tmp
 

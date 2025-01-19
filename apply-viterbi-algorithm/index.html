@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to apply the Viterbi algorithm "/>
 <meta property="og:url" content="apply-viterbi-algorithm/" />
-<meta property="og:description" content="The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events. Lets say this is your HMM: A hidden Markov model (HMM) example We always start in \(x\) and always end in \(z\). Now you observed the sequence \(O_1 = BAB\). What is …" />
+<meta property="og:description" content="The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events. Lets say this is your HMM: A hidden Markov model (HMM) example We always start in $x$ and always end in $z$. Now you observed the sequence $O_1 = BAB$. What is …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-09-11T17:46:22+02:00" />
 <meta name="twitter:title" content="How to apply the Viterbi algorithm ">
-<meta name="twitter:description" content="The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events. Lets say this is your HMM: A hidden Markov model (HMM) example We always start in \(x\) and always end in \(z\). Now you observed the sequence \(O_1 = BAB\). What is …">
+<meta name="twitter:description" content="The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events. Lets say this is your HMM: A hidden Markov model (HMM) example We always start in $x$ and always end in $z$. Now you observed the sequence $O_1 = BAB$. What is …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -117,8 +117,8 @@ MathJax.Hub.Queue(function() {
 <a href="../images/2013/09/hidden-markov-model-abc-2.png"><img alt="A hidden Markov model (HMM) example" class="size-full wp-image-76518" src="../images/2013/09/hidden-markov-model-abc-2.png" style="max-width:512px;max-height:252px"/></a>
 <figcaption class="text-center">A hidden Markov model (HMM) example</figcaption>
 </figure>
-<p>We always start in <span class="math">\(x\)</span> and always end in <span class="math">\(z\)</span>.</p>
-<p>Now you observed the sequence <span class="math">\(O_1 = BAB\)</span>. What is the most likely sequence that would generate this path?</p>
+<p>We always start in $x$ and always end in $z$.</p>
+<p>Now you observed the sequence $O_1 = BAB$. What is the most likely sequence that would generate this path?</p>
 <p>Candidates are:</p>
 <ul>
 <li>xxyz</li>
@@ -131,7 +131,7 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">Scheme of the Viterbi algorithm</figcaption>
 </figure>
 <p>In this case, the bold path is the Viterbi path. You can see this when you get backwards from the last state:</p>
-<p><span class="math">\(\frac{1}{125} \cdot 1 \cdot 0.2 &gt; \frac{9}{2500} \cdot 0.8 \cdot 0.2\)</span>. After this step, you only have one choice. So the Viterbi path is xyzz.</p>
+<p>$\frac{1}{125} \cdot 1 \cdot 0.2 &gt; \frac{9}{2500} \cdot 0.8 \cdot 0.2$. After this step, you only have one choice. So the Viterbi path is xyzz.</p>
 <p>Please note that there might be multiple paths with the highest possibility.</p>
 <p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn't matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
 <h2 id="see-also">See also</h2>

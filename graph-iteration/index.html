@@ -117,10 +117,10 @@ acyclic graph.</p>
 <p>To make things simpler, lets just think about multilayer perceptrons. This
 means we only have connections between neighboring layers (and we have layers).</p>
 <h2 id="terms">Terms</h2>
-<p>A directed acyclic graph (DAG) is a finite graph <span class="math">\(G = (V, E)\)</span> with vertices <span class="math">\(V\)</span>
-and edges <span class="math">\(E \subseteq V \times V\)</span> where no cycle can be found. A cycle is a
-set of edges <span class="math">\(e_1, \dots, e_n\)</span> such that <span class="math">\(e_i = (v_i, v_{i+1})\)</span> with <span class="math">\(e_n =
-(v_n, v_1)\)</span>.</p>
+<p>A directed acyclic graph (DAG) is a finite graph $G = (V, E)$ with vertices $V$
+and edges $E \subseteq V \times V$ where no cycle can be found. A cycle is a
+set of edges $e_1, \dots, e_n$ such that $e_i = (v_i, v_{i+1})$ with $e_n =
+(v_n, v_1)$.</p>
 <h3 id="iteration">Iteration</h3>
 <p>Now, what does it mean to iterate over the graphs?</p>
 <p>One can iterate over all natural numbers like this:</p>
@@ -129,9 +129,9 @@ set of edges <span class="math">\(e_1, \dots, e_n\)</span> such that <span class
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
-<p>Resulting in the sequence <span class="math">\(1, 2, 3, \dots\)</span> which is guaranteed to reach any
-natural number <span class="math">\(k \in \mathbb{N}\)</span> at some point.</p>
-<p>Similar, one can iterate over <span class="math">\(\mathbb{Q}_0^+\)</span>:</p>
+<p>Resulting in the sequence $1, 2, 3, \dots$ which is guaranteed to reach any
+natural number $k \in \mathbb{N}$ at some point.</p>
+<p>Similar, one can iterate over $\mathbb{Q}_0^+$:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -149,15 +149,15 @@ natural number <span class="math">\(k \in \mathbb{N}\)</span> at some point.</p>
 <figcaption class="text-center">Iterate over $\mathbb{Q}_0^+$</figcaption>
 </figure>
 <h2 id="graph-iteration_1">Graph iteration</h2>
-<p>There are finitely many directed graphs <span class="math">\(G = (V, E)\)</span> with <span class="math">\(E \subseteq V \times V\)</span> with <span class="math">\(n = |V|\)</span> nodes. So if one wanted to iterate over all of them, one could iterate over all graphs with <span class="math">\(n=1\)</span> node (only one graph), then over all graphs with two nodes, ...</p>
+<p>There are finitely many directed graphs $G = (V, E)$ with $E \subseteq V \times V$ with $n = |V|$ nodes. So if one wanted to iterate over all of them, one could iterate over all graphs with $n=1$ node (only one graph), then over all graphs with two nodes, ...</p>
 <p>At this point, it should be obvious that it is possible. However, how can we
 iterate over the structures without unnecessary duplication? How can we take
 into account that we also need connected graphs with a fixed size for the
 first layer and a fixed size for the last layer?</p>
-<p>Similar to the iteration over <span class="math">\(\mathbb{Q}_0^+\)</span>, you first generate all MLPs
+<p>Similar to the iteration over $\mathbb{Q}_0^+$, you first generate all MLPs
 with exactly one neuron. Then all MLPs with exactly two neurons, ...</p>
-<p>To generate all MLPs with exactly <span class="math">\(n\)</span> neurons in <span class="math">\(k\)</span> layers, you first generate
-all MLPs with <span class="math">\(n-i\)</span> neurons in <span class="math">\(k-1\)</span> layers and add <span class="math">\(i\)</span> neurons to the <span class="math">\(k\)</span>-th
+<p>To generate all MLPs with exactly $n$ neurons in $k$ layers, you first generate
+all MLPs with $n-i$ neurons in $k-1$ layers and add $i$ neurons to the $k$-th
 layer:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>

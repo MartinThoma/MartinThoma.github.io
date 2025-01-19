@@ -321,15 +321,15 @@ way to do it.</p>
 <p>More might me in <a href="https://martin-thoma.com/ml-glossary/">my ML Glossary</a>.</p>
 <h3 id="smoothing">Smoothing</h3>
 <p>A common task in NLP is estimating the probability of a word given some other
-words: <span class="math">\(P(w_i | w_{i-1}, w_{i-2})\)</span>. You can do that by counting n-grams <span class="math">\((w_{i-2}, w_{i-1}, w_{i})\)</span>:</p>
-<div class="math">$$P(w_i | w_{i-1}, w_{i-2}) = \frac{N((w_{i-2}, w_{i-1}, w_i))}{N((w_{i-2}, w_{i-1}))}$$</div>
+words: $P(w_i | w_{i-1}, w_{i-2})$. You can do that by counting n-grams $(w_{i-2}, w_{i-1}, w_{i})$:</p>
+<p>$$P(w_i | w_{i-1}, w_{i-2}) = \frac{N((w_{i-2}, w_{i-1}, w_i))}{N((w_{i-2}, w_{i-1}))}$$</p>
 <p>But you will quite often have the case that you did not see a 3-gram. How do you deal with that?</p>
 <p>Smoothing is the answer. The simplest method is Laplace Smoothing (aka Add-one smoothing).</p>
 <p>How do you deal with words you've never seen? The Good-Turing smoothing method
 uses things you've seen once to estimate things you've never seen:</p>
-<div class="math">$$P^*_{GT}(\text{things never seen}) = \frac{N_1}{N}$$</div>
-<div class="math">$$P^*_{GT}(\text{thing seen}) = (\frac{(c+1) N_{c+1}}{N_c}) / N$$</div>
-<p>when <span class="math">\(c\)</span> bekomes "large" (depends on the dataset), just replace <span class="math">\(N_c\)</span> by a
+<p>$$P^<em>_{GT}(\text{things never seen}) = \frac{N_1}{N}$$
+$$P^</em><em c_1="c+1">{GT}(\text{thing seen}) = (\frac{(c+1) N</em>) / N$$}}{N_c</p>
+<p>when $c$ bekomes "large" (depends on the dataset), just replace $N_c$ by a
 best-fit power law.</p>
 <p>Other smoothing methods</p>
 <ul>
@@ -340,8 +340,8 @@ best-fit power law.</p>
 <p>Another important concept is the continuation probability. While some words (like "a", "to", "the", ...)
 can be followed / preceeded by many different words, others (like "San", "Angelo", "D.C.", "United States of", ...).
 The continuation probability quantifies how likely it is that a word is continued by something novel. Putting this together with absolute discounting gives the Kneser-Ney Smoothing algorithm:</p>
-<div class="math">$$P_{KN}(w_i | w_{i-1}) = \frac{\max( c(w_{i-1}, w_i) - d, 0)}{c(w_{i-1})} + \lambda (w_{i-1}) P_{continuation}(w_i)$$</div>
-<p>where <span class="math">\(\lambda \in \mathbb{R}\)</span> weights how important the continuation probability is,</p>
+<p>$$P_{KN}(w_i | w_{i-1}) = \frac{\max( c(w_{i-1}, w_i) - d, 0)}{c(w_{i-1})} + \lambda (w_{i-1}) P_{continuation}(w_i)$$</p>
+<p>where $\lambda \in \mathbb{R}$ weights how important the continuation probability is,</p>
 <h2 id="data-structures_1">Data structures</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filter</a>: a space-efficient probabilistic data structure that is used to test whether an element is a member of a set</li>

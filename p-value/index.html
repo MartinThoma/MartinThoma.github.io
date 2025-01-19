@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="The p value "/>
 <meta property="og:url" content="p-value/" />
-<meta property="og:description" content="The \(p\) value is often used in applications to determine if some improvement is significant or if it was just random chance. Loosely speaking, it defines how likely it is (under the assumption of an hypothesis \(H_0\)) to get more extreme results. This is interesting for studies in medicine and …" />
+<meta property="og:description" content="The $p$ value is often used in applications to determine if some improvement is significant or if it was just random chance. Loosely speaking, it defines how likely it is (under the assumption of an hypothesis $H_0$) to get more extreme results. This is interesting for studies in medicine and …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-02-21T20:00:00+01:00" />
 <meta name="twitter:title" content="The p value ">
-<meta name="twitter:description" content="The \(p\) value is often used in applications to determine if some improvement is significant or if it was just random chance. Loosely speaking, it defines how likely it is (under the assumption of an hypothesis \(H_0\)) to get more extreme results. This is interesting for studies in medicine and …">
+<meta name="twitter:description" content="The $p$ value is often used in applications to determine if some improvement is significant or if it was just random chance. Loosely speaking, it defines how likely it is (under the assumption of an hypothesis $H_0$) to get more extreme results. This is interesting for studies in medicine and …">
 <meta property="og:image" content="logos/mathematics.png" />
 <meta name="twitter:image" content="logos/mathematics.png" >
 
@@ -111,9 +111,9 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The <span class="math">\(p\)</span> value is often used in applications to determine if some improvement
+            <p>The $p$ value is often used in applications to determine if some improvement
 is <em>significant</em> or if it was just random chance. Loosely speaking, it defines
-how likely it is (under the assumption of an hypothesis <span class="math">\(H_0\)</span>) to get more
+how likely it is (under the assumption of an hypothesis $H_0$) to get more
 extreme results.</p>
 <p>This is interesting for studies in medicine and similar scenarios. You have a
 drug and a placebo. You want to figure out if the drug is better than the
@@ -121,39 +121,39 @@ placebo.</p>
 <h2 id="hypothesis-testing">Hypothesis testing</h2>
 <p>In statistics, hypothesis testing works as follows:</p>
 <ul>
-<li><strong>Define a statistical model</strong>: This means you have a sample <span class="math">\(\mathfrak{X}\)</span> and
-  an assumption about the distribution of the data. For example, <span class="math">\(\mathfrak{X} = \mathbb{R}^n\)</span> where <span class="math">\(n \in \mathbb{N}\)</span> is your sample size and <span class="math">\(X_1, \dots, X_n \stackrel{iid}{\sim} \mathcal{N}(\mu, \sigma^2)\)</span></li>
-<li><strong>Define a hypothesis and an alternative</strong>: For example <span class="math">\(H_0: \mu = 100\)</span> and
-  <span class="math">\(H_1: \mu &gt; 100\)</span> might be hypotheses if you want to check if a drug increases
+<li><strong>Define a statistical model</strong>: This means you have a sample $\mathfrak{X}$ and
+  an assumption about the distribution of the data. For example, $\mathfrak{X} = \mathbb{R}^n$ where $n \in \mathbb{N}$ is your sample size and $X_1, \dots, X_n \stackrel{iid}{\sim} \mathcal{N}(\mu, \sigma^2)$</li>
+<li><strong>Define a hypothesis and an alternative</strong>: For example $H_0: \mu = 100$ and
+  $H_1: \mu &gt; 100$ might be hypotheses if you want to check if a drug increases
   the IQ.</li>
-<li><strong>Controll errors</strong>: You can make two errors. Either <span class="math">\(H_0\)</span> is true and you
-  reject it or <span class="math">\(H_1\)</span> is true, but you don't reject <span class="math">\(H_0\)</span>. In statistics, the
+<li><strong>Controll errors</strong>: You can make two errors. Either $H_0$ is true and you
+  reject it or $H_1$ is true, but you don't reject $H_0$. In statistics, the
   first error is usually controlled. So the test is made in such a way that
-  the first error is less than some <span class="math">\(\alpha \in (0, 1)\)</span>. Usually, <span class="math">\(\alpha = 0.05\)</span>
-  or <span class="math">\(\alpha = 0.01\)</span> or even lower.</li>
+  the first error is less than some $\alpha \in (0, 1)$. Usually, $\alpha = 0.05$
+  or $\alpha = 0.01$ or even lower.</li>
 <li><strong>Test statistic</strong>: You have a value which indicates something about the parameters
-  in the hypotheses. For example <span class="math">\(T(X_1, \dots, X_n) = \frac{1}{n}\sum_{i=1} X_i\)</span>.</li>
-<li><strong>Test statistic distribution</strong>: <span class="math">\(T\)</span> itself is a random variable and you can calculate its distribution
-  (e.g. <span class="math">\(T \stackrel{H_0}{\sim} \mathcal{N}(\mu, \frac{\sigma^2}{n})\)</span>).</li>
-<li><strong>Calculate test decision</strong>: Hence you can calculate a <span class="math">\(c \in \mathbb{R}\)</span> such that
-  <span class="math">\(P_{H_0}(H_0 \text{ is rejected}) = P_{H_0}(T \leq c) \leq \alpha\)</span>.
-  It does not have to be <span class="math">\(T &lt; c\)</span>, but often it is.</li>
+  in the hypotheses. For example $T(X_1, \dots, X_n) = \frac{1}{n}\sum_{i=1} X_i$.</li>
+<li><strong>Test statistic distribution</strong>: $T$ itself is a random variable and you can calculate its distribution
+  (e.g. $T \stackrel{H_0}{\sim} \mathcal{N}(\mu, \frac{\sigma^2}{n})$).</li>
+<li><strong>Calculate test decision</strong>: Hence you can calculate a $c \in \mathbb{R}$ such that
+  $P_{H_0}(H_0 \text{ is rejected}) = P_{H_0}(T \leq c) \leq \alpha$.
+  It does not have to be $T &lt; c$, but often it is.</li>
 </ul>
 <h2 id="the-p-value">The p value</h2>
 <p>Now note that you could also make it the other way round. You could calculate</p>
-<div class="math">$$p^* = P_{H_0} (T(X) \geq T(x))$$</div>
-<p>If <span class="math">\(p^* \leq \alpha\)</span>, then <span class="math">\(H_0\)</span> can be rejected on Niveau <span class="math">\(\alpha\)</span>.</p>
+<p>$$p^* = P_{H_0} (T(X) \geq T(x))$$</p>
+<p>If $p^* \leq \alpha$, then $H_0$ can be rejected on Niveau $\alpha$.</p>
 <h2 id="interesting-statements">Interesting statements</h2>
 <p>I just came across the following statments which I think are interesting enough
 to share them. <strong>All of them are wrong.</strong></p>
 <p>The follwing was takine from a German statistics exam by Dr. Klar (KIT, WS 2013/2014).</p>
-<p>Assume for the following, that an experiment resulted in a <span class="math">\(p\)</span> value of <span class="math">\(0.01\)</span>.</p>
+<p>Assume for the following, that an experiment resulted in a $p$ value of $0.01$.</p>
 <ol>
-<li><span class="math">\(H_0\)</span> is certainly false.</li>
-<li><span class="math">\(H_0\)</span> is with probability <span class="math">\(0.01\)</span> false.</li>
-<li><span class="math">\(H_1\)</span> is certainly correct.</li>
-<li>You can calculate the probability that <span class="math">\(H_1\)</span> is correct with the <span class="math">\(p\)</span> value.</li>
-<li>If one decides to reject <span class="math">\(H_0\)</span>, then the <span class="math">\(p\)</span> value is the probability of
+<li>$H_0$ is certainly false.</li>
+<li>$H_0$ is with probability $0.01$ false.</li>
+<li>$H_1$ is certainly correct.</li>
+<li>You can calculate the probability that $H_1$ is correct with the $p$ value.</li>
+<li>If one decides to reject $H_0$, then the $p$ value is the probability of
    making the wrong decision.</li>
 <li>The experimental result is reliable, meaning that if the experiment is
    repeated often one would get a significant result in 99% of the cases.</li>

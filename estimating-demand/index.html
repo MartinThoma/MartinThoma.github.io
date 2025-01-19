@@ -118,20 +118,20 @@ them to tell us who can't bring a bike with them. Only 79 answered. Only 7 of
 them can bring their own bike.</p>
 <p><strong>How many bikes should we try to organize to be 95% sure that everybody will have a bike?</strong></p>
 <h2 id="modelling">Modelling</h2>
-<p>Let <span class="math">\(X\)</span> be the random variable which represents the number of people who will
+<p>Let $X$ be the random variable which represents the number of people who will
 not bring their own bikes. I will assume that the participants bring or bring
 not their bikes independent of each other. So have a binomial distribution:</p>
-<div class="math">$$X \sim Bin(n=91, p=\frac{79-7}{79})$$</div>
-<p>The sample of <span class="math">\(n=79\)</span> people who answered will be called <span class="math">\(S\)</span>. Let <span class="math">\(b \in \mathbb{N}_0\)</span> be our guess of the number of people of those <span class="math">\(91\)</span> who do not bring their bikes. The higher we estimate <span class="math">\(b\)</span>, the more conservative we are. This means a higher certainty (e.g. 99% instead of 95%) should result in a higher <span class="math">\(b\)</span>.</p>
-<p>We want to be <span class="math">\(95\%\)</span> confident that we have enough bikes.</p>
+<p>$$X \sim Bin(n=91, p=\frac{79-7}{79})$$</p>
+<p>The sample of $n=79$ people who answered will be called $S$. Let $b \in \mathbb{N}_0$ be our guess of the number of people of those $91$ who do not bring their bikes. The higher we estimate $b$, the more conservative we are. This means a higher certainty (e.g. 99% instead of 95%) should result in a higher $b$.</p>
+<p>We want to be $95\%$ confident that we have enough bikes.</p>
 <h2 id="the-task">The task</h2>
-<div class="math">$$
+<p>$$
 \begin{align}
-P(X \leq b) &amp;\geq 95\%\\
-\sum_{i=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;\geq 95\%\\
+P(X \leq b) &amp;\geq 95\%\
+\sum_{i=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;\geq 95\%\
 b &amp;= \lceil binom.ppf(95\%, n, p) \rceil
 \end{align}
-$$</div>
+$$</p>
 <p>I am lazy with calculating, so lets do it with Python:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
 

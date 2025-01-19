@@ -446,16 +446,15 @@ table. Just click on them to see them in full size:</p>
 and one which predicts seasonality effects.</p>
 <h2 id="combining-models">Combining models</h2>
 <p>The simplest way to combine two regression models is by</p>
-<div class="math">$$f(x) = f_1(x) + f_2(x)$$</div>
+<p>$$f(x) = f_1(x) + f_2(x)$$</p>
 <p>But I also want to simpify the training. So I decided to have the following
 training setup:</p>
 <ol>
-<li>Fit <span class="math">\(f_1\)</span> on the training dataset, where <span class="math">\(f_1\)</span> has to predict the global
+<li>Fit $f_1$ on the training dataset, where $f_1$ has to predict the global
    trend and thus solve the extrapolation problem. Lasso seems to be a good
    choice.</li>
-<li>Transform the training data <span class="math">\((X, y)\)</span>: <div class="math">$$y' = y - f_1(X)$$</div>
-</li>
-<li>Fit <span class="math">\(f_2\)</span> on <span class="math">\((X, y')\)</span>. So <span class="math">\(f_2\)</span> has to solve an interpolation problem.</li>
+<li>Transform the training data $(X, y)$: $$y' = y - f_1(X)$$</li>
+<li>Fit $f_2$ on $(X, y')$. So $f_2$ has to solve an interpolation problem.</li>
 </ol>
 <p>I call this model <code>TrendSeasonRegressor</code>. Let's try a few combinations:</p>
 <table class="table" id="combinedModelScores">

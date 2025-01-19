@@ -166,12 +166,12 @@ a similarity measure. You would then recommend the most similar products.</p>
 <li>5 Stars</li>
 <li>100 points</li>
 </ul>
-<p>So you want to find the utility function <span class="math">\(u: C \times I \rightarrow R\)</span> where
-<span class="math">\(C\)</span> is the set of customers, <span class="math">\(I\)</span> is the set of items and <span class="math">\(R\)</span> is the <em>ordered</em>
-set of ratings. By a simple transformation you can make it <span class="math">\(R = [0, 1]\)</span>.</p>
-<p>The utility function <span class="math">\(u\)</span> can be fully defined by a user-item rating matrix.
+<p>So you want to find the utility function $u: C \times I \rightarrow R$ where
+$C$ is the set of customers, $I$ is the set of items and $R$ is the <em>ordered</em>
+set of ratings. By a simple transformation you can make it $R = [0, 1]$.</p>
+<p>The utility function $u$ can be fully defined by a user-item rating matrix.
 Most elements of the matrix are not known, though.</p>
-<p>Based on the user-item rating matrix <span class="math">\(R\)</span> you build up a user-user similarity matrix.</p>
+<p>Based on the user-item rating matrix $R$ you build up a user-user similarity matrix.</p>
 <p>You look up similar users, generate candidates for recommendation, score and filter candidates (items the user already knows).</p>
 <p>See also: <a href="https://martin-thoma.com/collaborative-filtering/">Collaborative Filtering</a></p>
 <p>In some sense, bestellsers are a special case of collaborative filtering:
@@ -213,8 +213,8 @@ Simply recommending what got sold most.</p>
 </dl>
 <p>One line of work goes in the direction of matrix factorization with alternating
 least squares (ALS).[^5,^6] They have a training algorithm with has a time complexity
-of <span class="math">\(\mathcal{O}(MNK^2)\)</span> for one iteration, where <span class="math">\(M\)</span> is the number of users,
-<span class="math">\(N\)</span> is the number of items and <span class="math">\(K\)</span> is the dimension of the latent space.</p>
+of $\mathcal{O}(MNK^2)$ for one iteration, where $M$ is the number of users,
+$N$ is the number of items and $K$ is the dimension of the latent space.</p>
 <h2 id="evaluation">Evaluation</h2>
 <p>There are two conceptually very different ways to think about recommender systems<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>:</p>
 <ul>
@@ -224,7 +224,7 @@ of <span class="math">\(\mathcal{O}(MNK^2)\)</span> for one iteration, where <sp
 </ul>
 <h3 id="matrix-completion">Matrix Completion</h3>
 <p>One way to evaluate if recommendation systems work is by the typical train-test split.</p>
-<p>Possible Metrics, where <span class="math">\(y\)</span> is the real value and <span class="math">\(p(x)\)</span> is the predicted value:</p>
+<p>Possible Metrics, where $y$ is the real value and $p(x)$ is the predicted value:</p>
 <dl>
 <dt>Mean Absolute Error (MAE)</dt>
 <dd>$\frac{1}{n} \sum_{i=1}^n |y_i - p(x_i)| \in [0, 1]$, where lower is better</dd>
@@ -233,9 +233,9 @@ of <span class="math">\(\mathcal{O}(MNK^2)\)</span> for one iteration, where <sp
 </dl>
 <h3 id="ranking">Ranking</h3>
 <p>The problem with those two ways is that low-rated items don't matter much. If
-95% of the users look at <span class="math">\(n\)</span> items, then you want the Top-<span class="math">\(n\)</span> recommendations
+95% of the users look at $n$ items, then you want the Top-$n$ recommendations
 to be (1) more relevant than the rest for the user and (2) the order of the
-top-<span class="math">\(n\)</span> elements to be correct.</p>
+top-$n$ elements to be correct.</p>
 <p>Metrics for top-n recommenders:</p>
 <dl>
 <dt>Precision@k</dt>
@@ -322,25 +322,25 @@ achieving the surrogate goal.</p>
 </dl>
 <h2 id="matrix-factorization_1">Matrix Factorization</h2>
 <p>Matrix Factorization is factorization in the same way as with natural numbers:
-Take a matrix <span class="math">\(R\)</span> and factorize it in <span class="math">\(U\)</span> and <span class="math">\(V\)</span> such that <span class="math">\(R = U \cdot V\)</span>. If
-the complete matrix <span class="math">\(R\)</span> is given, <span class="math">\(R\)</span> can be factorized with Singular Value
+Take a matrix $R$ and factorize it in $U$ and $V$ such that $R = U \cdot V$. If
+the complete matrix $R$ is given, $R$ can be factorized with Singular Value
 Decomposition (SVD) or Probabilistic Latent Semantic Analysis (PLSA).</p>
 <p>Matrix Factorization is also one way to do collaborative filtering. It was done
 for the Netflix prize and is described in <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. A <a href="https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD">neat short description</a> is in
 SurpriseLib.</p>
-<p><strong>Input</strong>: The ratings of <span class="math">\(n\)</span> users for <span class="math">\(m\)</span> movies in a matrix <span class="math">\(R \in \mathbb{R}^{n \times m}\)</span>.</p>
-<p><strong>Algorithm</strong>: Singular value decomposition (SVD) takes <span class="math">\(R\)</span> and gives three matrices <span class="math">\(U \in \mathbb{R}^{n \times r}\)</span>, a descendingly sorted diagonal matrix <span class="math">\(\Sigma \in \mathbb{R}^{r \times r}\)</span> and <span class="math">\(V \in \mathbb{R}^{r \times m}\)</span>
-such that <span class="math">\(R = U \cdot \Sigma \cdot V\)</span>.</p>
-<p>The rows in <span class="math">\(U\)</span> represent the users. It's called the "latent space". Latent is
+<p><strong>Input</strong>: The ratings of $n$ users for $m$ movies in a matrix $R \in \mathbb{R}^{n \times m}$.</p>
+<p><strong>Algorithm</strong>: Singular value decomposition (SVD) takes $R$ and gives three matrices $U \in \mathbb{R}^{n \times r}$, a descendingly sorted diagonal matrix $\Sigma \in \mathbb{R}^{r \times r}$ and $V \in \mathbb{R}^{r \times m}$
+such that $R = U \cdot \Sigma \cdot V$.</p>
+<p>The rows in $U$ represent the users. It's called the "latent space". Latent is
 math slang for "hidden" (see <a href="https://en.wikipedia.org/wiki/Latent_variable">latent variable</a>). This means we have a reasonable way to represent users.</p>
-<p>The rows in <span class="math">\(V\)</span> represent the movies in the latent space.</p>
-<p>You crop at some point of <span class="math">\(\Sigma\)</span> to the first <span class="math">\(k\)</span> singular features (with <span class="math">\(k &lt; r\)</span>).</p>
-<p>The problem is that many values of <span class="math">\(R\)</span> are missing. Simon Funk found a solution
+<p>The rows in $V$ represent the movies in the latent space.</p>
+<p>You crop at some point of $\Sigma$ to the first $k$ singular features (with $k &lt; r$).</p>
+<p>The problem is that many values of $R$ are missing. Simon Funk found a solution
 to that problem. Instead of imputing the values (filling the matrix), he re-formulated the problem
 to</p>
-<div class="math">$$\min_{u_i, v_i} \sum_{p_{ij}} \left ( p_{ij} - u_i \cdot v_j \right )^2 \text{ with } u_i \in \mathbb{R}^{1 \times r}, v_j \in \mathbb{R}^{r \times 1}$$</div>
+<p>$$\min_{u_i, v_i} \sum_{p_{ij}} \left ( p_{ij} - u_i \cdot v_j \right )^2 \text{ with } u_i \in \mathbb{R}^{1 \times r}, v_j \in \mathbb{R}^{r \times 1}$$</p>
 <p>This is a minimization problem that can be solved by gradient descent. As you
-only consider values <span class="math">\(p_{ij}\)</span> that are not zero, you don't have to invent the
+only consider values $p_{ij}$ that are not zero, you don't have to invent the
 remainding ones.</p>
 <h2 id="code">Code</h2>
 <ul>
@@ -378,25 +378,25 @@ remainding ones.</p>
 <hr/>
 <ol>
 <li id="fn:1">
-<p>Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:2">
-<p>Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:3">
-<p>Ruslan Salakhutdinov and Andriy Mnih: <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a>, 2008.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Ruslan Salakhutdinov and Andriy Mnih: <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a>, 2008.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:4">
-<p>C. C. Aggarwal: Recommender systems, 2016. Springer International Publishing. Pages 1-28.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+<p>C. C. Aggarwal: Recommender systems, 2016. Springer International Publishing. Pages 1-28.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:5">
-<p>Xiangnan He, Hanwang Zhang, Min-Yen Kan, Tat-Seng Chua: <a href="https://arxiv.org/pdf/1708.05024.pdf">Fast Matrix Factorization for Online Recommendation with Implicit Feedback</a>, 2017.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">↩</a></p>
+<p>Xiangnan He, Hanwang Zhang, Min-Yen Kan, Tat-Seng Chua: <a href="https://arxiv.org/pdf/1708.05024.pdf">Fast Matrix Factorization for Online Recommendation with Implicit Feedback</a>, 2017.&nbsp;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:6">
-<p>Yifan Hu, Yehuda Koren, Chris Volinsky: <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>, 2008. (<a href="https://www.shortscience.org/paper?bibtexKey=koren:icdm08&amp;a=martinthoma">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">↩</a></p>
+<p>Yifan Hu, Yehuda Koren, Chris Volinsky: <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>, 2008. (<a href="https://www.shortscience.org/paper?bibtexKey=koren:icdm08&amp;a=martinthoma">summary</a>)&nbsp;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:7">
-<p>Robert M. Bell, Yehuda Koren and Chris Volinsky: <a href="https://www.netflixprize.com/assets/ProgressPrize2007_KorBell.pdf">The BellKor solution to the Netflix Prize</a>, 2007.&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">↩</a></p>
+<p>Robert M. Bell, Yehuda Koren and Chris Volinsky: <a href="https://www.netflixprize.com/assets/ProgressPrize2007_KorBell.pdf">The BellKor solution to the Netflix Prize</a>, 2007.&nbsp;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&larrhk;</a></p>
 </li>
 </ol>
 </div>

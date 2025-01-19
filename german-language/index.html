@@ -121,13 +121,13 @@ For this, I collected 1000 paragraphs from random Wikipedia articles, including
 the German one. One thing I was interested in is which script defines the language.
 While most people will probably say that German is written in the <a href="https://en.wikipedia.org/wiki/Latin_script">Latin script</a> (so: <code>A-Z</code> and <code>a-z</code>) with some extra characters (<code>&szlig;</code>, <code>&auml;&ouml;&uuml;</code>, <code>&Auml;&Ouml;&Uuml;</code>),
 I wanted to derive this from the data. So I counted each unicode code point, sorted them descending
-by frequency and added characters for some thresholds <span class="math">\(\theta\)</span>:</p>
+by frequency and added characters for some thresholds $\theta$:</p>
 <ul>
-<li><span class="math">\(C_{0.50} = \{\text{SPACE}, e, n, r, i, t\}\)</span>: Yes, only 6 characters make up 50% of the texts! And the most common one is one that isn't even mentioned in the usual lists!</li>
-<li><span class="math">\(C_{0.75} = C_{0.50} \cup \{s, a, d, h, u, l, o\}\)</span>: We get the remaining vocals</li>
-<li><span class="math">\(C_{0.90} = C_{0.75} \cup \{c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1\}\)</span>: The first capital letter, first punctuation marks and the first digit joins</li>
-<li><span class="math">\(C_{0.99} = C_{0.90} \cup \{&uuml;, D, B, A, &auml;, M, 0, G, 9, K, F, E, P, W, 2, L, -, H, &ouml;, R, 8, V, I, T, J, N ,), (, 5, y, &szlig;, 6, 7, 4, Z, C, 3\}\)</span>: Now we have <code>a-z</code> and <code>&auml;&ouml;&uuml;&szlig;</code> but not <code>jqx</code>. We have <code>A-C</code> but not <code>OQUXY</code>. We have the punctuation marks <code>,.()-</code>, <code>SPACE</code> and the digits <code>0-9</code>. 64 characters in total</li>
-<li><span class="math">\(C_{1.00}\)</span> contains 247 characters in total, including <code>їышхдЬСРОВ&tau;&sigmaf;&epsilon;ːˈżşśŁğ&euml;&aelig;&acirc;&Agrave;&pound;濱滨春川區区ንሣሞሎیِنمظسرداשלכואҐящчфжбЯЮЩЧУТНИЖЇІ&phi;&omicron;&iota;&alpha;ίήέʿʃɛ&scaron;&oelig;ňńİēčČ&yacute;&ucirc;&uacute;&oslash;&Uacute;&Aacute;&cent;#</code>.</li>
+<li>$C_{0.50} = {\text{SPACE}, e, n, r, i, t}$: Yes, only 6 characters make up 50% of the texts! And the most common one is one that isn't even mentioned in the usual lists!</li>
+<li>$C_{0.75} = C_{0.50} \cup {s, a, d, h, u, l, o}$: We get the remaining vocals</li>
+<li>$C_{0.90} = C_{0.75} \cup {c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1}$: The first capital letter, first punctuation marks and the first digit joins</li>
+<li>$C_{0.99} = C_{0.90} \cup {&uuml;, D, B, A, &auml;, M, 0, G, 9, K, F, E, P, W, 2, L, -, H, &ouml;, R, 8, V, I, T, J, N ,), (, 5, y, &szlig;, 6, 7, 4, Z, C, 3}$: Now we have <code>a-z</code> and <code>&auml;&ouml;&uuml;&szlig;</code> but not <code>jqx</code>. We have <code>A-C</code> but not <code>OQUXY</code>. We have the punctuation marks <code>,.()-</code>, <code>SPACE</code> and the digits <code>0-9</code>. 64 characters in total</li>
+<li>$C_{1.00}$ contains 247 characters in total, including <code>&yicy;&ycy;&shcy;&khcy;&dcy;&SOFTcy;&Scy;&Rcy;&Ocy;&Vcy;&tau;&sigmaf;&epsilon;ːˈ&zdot;&scedil;&sacute;&Lstrok;&gbreve;&euml;&aelig;&acirc;&Agrave;&pound;濱滨春川區区ንሣሞሎیِنمظسرداשלכואҐ&yacy;&shchcy;&chcy;&fcy;&zhcy;&bcy;&YAcy;&YUcy;&SHCHcy;&CHcy;&Ucy;&Tcy;&Ncy;&Icy;&ZHcy;&YIcy;&Iukcy;&phi;&omicron;&iota;&alpha;ίήέʿʃɛ&scaron;&oelig;&ncaron;&nacute;&Idot;&emacr;&ccaron;&Ccaron;&yacute;&ucirc;&uacute;&oslash;&Uacute;&Aacute;&cent;#</code>.</li>
 </ul>
 <h2 id="lower-and-upper-case">Lower and upper case</h2>
 <p>One might think that you could actually just write everything in lower case,

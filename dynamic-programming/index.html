@@ -125,12 +125,12 @@ iterating over a sequence of numbers.</p>
 <h3 id="memoization">Memoization</h3>
 <p>It happens very often that you need to solve the same sub-problem multiple times.
 Think of the Fibonacci sequence, where you might calculate</p>
-<div class="math">\begin{align}
-f(7) &amp;= f(6) + f(5)\\
-&amp;= f(5) + f(4) + f(5)\\
-&amp;= f(4) + f(3) + f(4) + f(4) + f(3)\\
+<p>\begin{align}
+f(7) &amp;= f(6) + f(5)\
+&amp;= f(5) + f(4) + f(5)\
+&amp;= f(4) + f(3) + f(4) + f(4) + f(3)\
 &amp;=\dots
-\end{align}</div>
+\end{align}</p>
 <p>In order to prevent this, you can memoize it. That means you store the
 parameters of a function call and its result. Once you see these parameters
 again, you can directly return the result without recalculating the function.</p>
@@ -154,12 +154,12 @@ solved independently.</p>
 <p>For Dynamic Programming, two subproblems A and B might share a sub-subproblem C.</p>
 <h2 id="fibonacci-sequence_1">Fibonacci Sequence</h2>
 <p>The Fibonacci sequence is defined as:</p>
-<div class="math">$$
+<p>$$
 f(n) := \begin{cases}
-n               &amp;\text{if } n \leq 1\\
+n               &amp;\text{if } n \leq 1\
 f(n-1) + f(n-2) &amp;\text{otherwise}
 \end{cases}
-$$</div>
+$$</p>
 <p>The inefficient, but straight-forward implementation is</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
@@ -192,7 +192,7 @@ if you are interested in more details.</p>
 Please note that a sub-sequence does not have to be contiguous.</p>
 <p>For this example, I want a strictly increasing subsequence.</p>
 <p>The brute-force solution is to generate all sub-sequences and check if they are
-increasing. The generate-and-check pattern is in <span class="math">\(\mathcal{O}(2^n)\)</span>. It is easy
+increasing. The generate-and-check pattern is in $\mathcal{O}(2^n)$. It is easy
 to implement with Python:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">combinations</span>
 
@@ -211,8 +211,8 @@ to implement with Python:</p>
 <span class="k">def</span> <span class="nf">is_increasing</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">e1</span> <span class="o">&lt;</span> <span class="n">e2</span> <span class="k">for</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
 </code></pre></div>
-<p>The following Dynamic Programming approach takes <span class="math">\(\mathcal{O}(n^2)\)</span> in time
-and additionally <span class="math">\(\mathcal{O}(n)\)</span> space.</p>
+<p>The following Dynamic Programming approach takes $\mathcal{O}(n^2)$ in time
+and additionally $\mathcal{O}(n)$ space.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
@@ -245,7 +245,7 @@ and additionally <span class="math">\(\mathcal{O}(n)\)</span> space.</p>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_endswith</span><span class="p">)</span>
 </code></pre></div>
 <p>Using <a href="https://en.wikipedia.org/wiki/Patience_sorting">Patience sorting</a> is
-a <span class="math">\(\mathcal{O}(n \log(n))\)</span> solution with additional <span class="math">\(\mathcal{O}(n)\)</span> space (<a href="https://www.youtube.com/watch?v=22s1xxRvy28">video</a>).</p>
+a $\mathcal{O}(n \log(n))$ solution with additional $\mathcal{O}(n)$ space (<a href="https://www.youtube.com/watch?v=22s1xxRvy28">video</a>).</p>
 <h2 id="edit-distance">Edit Distance</h2>
 <p>The edit distance, also known as <a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a>,
 calculates the number of operations two words are apart. Typically, one allows
@@ -253,26 +253,26 @@ removal of characters, adding characters or changing a character. And typically,
 all of them have a count of 1.</p>
 <p>A real-world application of the edit distance is in automatic speech recognition (ASR).
 There the edit distance is used to calcuate the word error rate (WER): <a href="https://martin-thoma.com/word-error-rate-calculation/">Word Error Rate Calculation</a></p>
-<div class="math">\begin{align}
-m &amp;:= |w_1|\\
-n &amp;:= |w_2|\\
-\end{align}</div>
-<p>We want to compute a distance matrix <span class="math">\(d \in \mathbb{N}_0^{m \times n}\)</span>:</p>
-<div class="math">\begin{align}
-D_{0, 0} &amp;= 0\\
-D_{i, 0} &amp;= i, \text{ for } 1 \leq i \leq m\\
+<p>\begin{align}
+m &amp;:= |w_1|\
+n &amp;:= |w_2|\
+\end{align}</p>
+<p>We want to compute a distance matrix $d \in \mathbb{N}_0^{m \times n}$:</p>
+<p>\begin{align}
+D_{0, 0} &amp;= 0\
+D_{i, 0} &amp;= i, \text{ for } 1 \leq i \leq m\
 D_{0, j} &amp;= j, \text{ for } 1 \leq j \leq n
-\end{align}</div>
-<div class="math">$$
-\text{For } 1 \leq i\leq m, 1\leq j \leq n\\
+\end{align}</p>
+<p>$$
+\text{For } 1 \leq i\leq m, 1\leq j \leq n\
 D_{i, j} = \min \begin{cases}
-D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\\
-D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \\
-D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \\
+D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\
+D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \
+D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \
 D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
 \end{cases}
-$$</div>
-<p>Each cell <span class="math">\((i, j)\)</span> of the matrix <span class="math">\(D\)</span> is a sub-problem of the original one:</p>
+$$</p>
+<p>Each cell $(i, j)$ of the matrix $D$ is a sub-problem of the original one:</p>
 <div class="highlight"><pre><span></span><code><span class="n">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">[:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">w2</span><span class="p">[:</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
 </code></pre></div>
 <p>The complete code looks as follows:</p>
@@ -447,8 +447,8 @@ weight you can carry. What is the maximum value you can get?</p>
                 <span class="n">c</span><span class="p">[</span><span class="n">item_index</span><span class="p">][</span><span class="n">remaining_weight</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">not_adding</span><span class="p">,</span> <span class="n">adding_it</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">max_weight</span><span class="p">]</span>
 </code></pre></div>
-<p>You can see that the solution has a time complexity of <span class="math">\(\mathcal{O}(n \cdot m)\)</span>
-where <span class="math">\(n\)</span> is the number of items and <span class="math">\(m\)</span> is the maximum weight. It also has this
+<p>You can see that the solution has a time complexity of $\mathcal{O}(n \cdot m)$
+where $n$ is the number of items and $m$ is the maximum weight. It also has this
 space complexity.</p>
 <p>You can also see that this solution would fail if <code>max_weight</code> was
 not an integer. While one could simply multiply everything with large enough
@@ -501,15 +501,15 @@ for the starting numbers:</p>
     <span class="k">return</span> <span class="n">a</span>
 </code></pre></div>
 <h2 id="egg-drop_1">Egg Drop</h2>
-<p>Given <span class="math">\(n\)</span> eggs and <span class="math">\(m\)</span> floors, how often do you need to let an egg drop to know
+<p>Given $n$ eggs and $m$ floors, how often do you need to let an egg drop to know
 for sure the highest floor at which the eggs still don't break?</p>
 <p>Some clarifications:</p>
 <ul>
 <li>Floors start at zero.</li>
 <li>The eggs are guaranteed not to break at floor 0.</li>
-<li>The eggs are guaranteed to break from floor <span class="math">\(m +1\)</span>.</li>
-<li>If an egg does not break at floor <span class="math">\(i\)</span>, it will not break at floor <span class="math">\(i-1\)</span>.</li>
-<li>If an egg breaks at floor <span class="math">\(i\)</span>, it will also break at floor <span class="math">\(i+1\)</span>.</li>
+<li>The eggs are guaranteed to break from floor $m +1$.</li>
+<li>If an egg does not break at floor $i$, it will not break at floor $i-1$.</li>
+<li>If an egg breaks at floor $i$, it will also break at floor $i+1$.</li>
 </ul>
 <p>I know this sounds very simple and a was about to just drop the problem. I
 thought it was simply binary search, hence with applying the logarithm you
@@ -578,8 +578,8 @@ is that the searched floor is the 9th one:</p>
             <span class="n">s</span><span class="p">[</span><span class="n">floor</span><span class="p">][</span><span class="n">n_egg</span><span class="p">]</span> <span class="o">=</span> <span class="n">best_choice</span>
     <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="n">floors</span><span class="p">][</span><span class="n">eggs</span><span class="p">]</span>
 </code></pre></div>
-<p>This algorithm has a time complexity of <span class="math">\(\mathcal{O}(m^2 \cdot n)\)</span> and need
-<span class="math">\(\mathcal{O}(n \cdot m)\)</span> in additional space. You can improve the runtime by
+<p>This algorithm has a time complexity of $\mathcal{O}(m^2 \cdot n)$ and need
+$\mathcal{O}(n \cdot m)$ in additional space. You can improve the runtime by
 looking at the sequence of worst_case. It should go down and then up again. If
 you notice that it went down but starts to go up again, you can abort the
 <code>chosen_floor</code> loop. I don't think that changes the worst-case
@@ -596,8 +596,8 @@ search and more eggs will not result in less egg drops.</p>
 <ul>
 <li>Wikipedia: Some example for Dynamic Programming algorithms<ul>
 <li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's algorithm</a>: single-source shortest path (SSSP)</li>
-<li><a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman&ndash;Ford algorithm</a>: single-source shortest-path algorithm (SSSP), <span class="math">\(\mathcal{O}(V^2 E)\)</span></li>
-<li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: all-pairs shortest path algorithm, <span class="math">\(\mathcal{O}(V^3)\)</span></li>
+<li><a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman&ndash;Ford algorithm</a>: single-source shortest-path algorithm (SSSP), $\mathcal{O}(V^2 E)$</li>
+<li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: all-pairs shortest path algorithm, $\mathcal{O}(V^3)$</li>
 <li><a href="https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem">Knapsack problem</a></li>
 </ul>
 </li>

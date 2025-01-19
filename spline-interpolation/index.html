@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Spline interpolation "/>
 <meta property="og:url" content="spline-interpolation/" />
-<meta property="og:description" content="Just like before with polynomial interpolation, we have a list of \(n+1\) given point \((x_i, y_i)\) with \(x_0 &lt; x_1 &lt; \dots &lt; x_n\). We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …" />
+<meta property="og:description" content="Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 &lt; x_1 &lt; \dots &lt; x_n$. We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-06-30T13:58:20+02:00" />
 <meta name="twitter:title" content="Spline interpolation ">
-<meta name="twitter:description" content="Just like before with polynomial interpolation, we have a list of \(n+1\) given point \((x_i, y_i)\) with \(x_0 &lt; x_1 &lt; \dots &lt; x_n\). We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …">
+<meta name="twitter:description" content="Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 &lt; x_1 &lt; \dots &lt; x_n$. We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …">
 <meta property="og:image" content="2013/06/spline-thumb.png" />
 <meta name="twitter:image" content="2013/06/spline-thumb.png" >
 
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Just like before with polynomial interpolation, we have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(x_0 &lt; x_1 &lt; \dots &lt; x_n\)</span>.</p>
+            <p>Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 &lt; x_1 &lt; \dots &lt; x_n$.</p>
 <p>We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.</p>
 <h2 id="polynomial-interpolation">Polynomial interpolation</h2>
 <p>The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&amp;evaluationSteps=0.01&amp;X_MIN=-1.5&amp;X_MAX=1.5&amp;Y_MAX=1.2&amp;Y_MIN=-1.2&amp;X_TICKS_STEPS=0.2&amp;Y_TICKS_STEPS=0.2&amp;X_FROM=-1&amp;X_TO=1&amp;N_EVALUATION_POINTS=10&amp;points=%5B%5D&amp;tschebyscheffSwitch=true&amp;equallySwitch=true">interactive example</a>):</p>
@@ -122,37 +122,37 @@ MathJax.Hub.Queue(function() {
 <p>As you can see, polynomial interpolation with equally spaced points is very, very bad at the ends of the interval. Tschebyscheff spaced points are much better, but you can still see that the interpolated function is different from the original.</p>
 <h2 id="splines">Splines</h2>
 <p>A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth.</p>
-<p>More formally: Let <span class="math">\(s: [x_0,x_n] \rightarrow \mathbb{R}\)</span> be a spline. Then:</p>
+<p>More formally: Let $s: [x_0,x_n] \rightarrow \mathbb{R}$ be a spline. Then:</p>
 <ol style="list-style-type: none;">
 <li>(S1) <strong>cubic</strong>: $\forall i \in \{1, \dots, n\}: s|_{x_{i-1}, x_i}$ is a cubic function</li>
 <li>(S2) <strong>interpolation</strong>: $\forall i \in \{0, \dots, n\}: s(x_i) = y_i$</li>
 <li>(S3) <strong>smooth</strong>: $s \in C^2([x_0, x_n])$ and $\int_{x_0}^{x_n} s''(x)^2 \mathrm{d}x$ is minimal</li>
 </ol>
-<p>When you use a cubic function <span class="math">\(a x^3 + b x^2 + cx + d\)</span> for each of the <span class="math">\(n\)</span> intervals that we got by our <span class="math">\(n+1\)</span> points, you have <span class="math">\(4n\)</span> variables that you need to calculate.</p>
-<p>Condition (S2) gives two equations per interval which makes <span class="math">\(2n\)</span> equations of the form:</p>
-<div class="math">$$
+<p>When you use a cubic function $a x^3 + b x^2 + cx + d$ for each of the $n$ intervals that we got by our $n+1$ points, you have $4n$ variables that you need to calculate.</p>
+<p>Condition (S2) gives two equations per interval which makes $2n$ equations of the form:</p>
+<p>$$
 \begin{align}
-y_i     &amp;= a_i x_i^3     &amp;&amp;+ b_i x_i^2     &amp;&amp;+ c_i x_i     &amp;&amp;+ d_i\\
+y_i     &amp;= a_i x_i^3     &amp;&amp;+ b_i x_i^2     &amp;&amp;+ c_i x_i     &amp;&amp;+ d_i\
 y_{i+1} &amp;= a_i x_{i+1}^3 &amp;&amp;+ b_i x_{i+1}^2 &amp;&amp;+ c_i x_{i+1} &amp;&amp;+ d_i
 \end{align}
-$$</div>
-<p>At first glance condition (S3) - <span class="math">\(s \in C^2([x_0, x_n])\)</span> - seems to be redundant with (S1) - <span class="math">\(s\)</span> is piecewise cubic. Every polynomial is in <span class="math">\(C^\infty(\mathbb{R})\)</span>, so it certainly is in <span class="math">\(C^2([x_0, x_n])\)</span>.<br/>
-That's correct. But <span class="math">\(s\)</span> is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us <span class="math">\(2n-2\)</span> more equations:</p>
-<div class="math">$$\displaystyle
+$$</p>
+<p>At first glance condition (S3) - $s \in C^2([x_0, x_n])$ - seems to be redundant with (S1) - $s$ is piecewise cubic. Every polynomial is in $C^\infty(\mathbb{R})$, so it certainly is in $C^2([x_0, x_n])$.<br/>
+That's correct. But $s$ is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us $2n-2$ more equations:</p>
+<p>$$\displaystyle
 \begin{align}
-s_i' (x_{i}) &amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\\
+s_i' (x_{i}) &amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\
 s_i''(x_{i}) &amp;= s_{i+1}''(x_{i}) \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$$</div>
+$$</p>
 <p>which is equivalent to</p>
-<div class="math">$$\displaystyle
+<p>$$\displaystyle
 \begin{align}
-3a_i x_i^2 + 2b_i x_i + c_i &amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\\
+3a_i x_i^2 + 2b_i x_i + c_i &amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\
 6a_i x_i + 2b_i &amp;= 6a_{i+1} x_i + 2b_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$$</div>
-<p>All equations we have are linear. Please note that the variables we want to determine are <span class="math">\(a_i, b_i, c_i, d_i\)</span>. So <span class="math">\(x_i^3\)</span> is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
-<p>But at the moment, we only have <span class="math">\(2n+2\cdot(n-1) = 4n -2\)</span> equations, but we have <span class="math">\(4n\)</span> variables. So we need ancillary conditions to solve this linear system of equations.</p>
+$$</p>
+<p>All equations we have are linear. Please note that the variables we want to determine are $a_i, b_i, c_i, d_i$. So $x_i^3$ is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
+<p>But at the moment, we only have $2n+2\cdot(n-1) = 4n -2$ equations, but we have $4n$ variables. So we need ancillary conditions to solve this linear system of equations.</p>
 <h2 id="possible-ancillary-conditions">Possible ancillary conditions</h2>
 <ul>
 <li><strong>natural splines</strong>: $s''(x_0) =0, \;\;\; s''(x_n) = 0$</li>
