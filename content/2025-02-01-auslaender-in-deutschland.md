@@ -10,9 +10,13 @@ featured_image: logos/germany.png
 status: draft
 ---
 Seit dem [Bürgerkrieg in Syrien 2011](https://de.wikipedia.org/wiki/B%C3%BCrgerkrieg_in_Syrien_seit_2011) und der damit verbundenen
-[Flüchtlingskrise in Europa 2015/2016](https://de.wikipedia.org/wiki/Fl%C3%BCchtlingskrise_in_Europa_2015/2016) nehme ich in Deutschland
-eine zunehmende eskalation der Diskussion um Ausländer wahr.
-Ich möchte in diesem Artikel meine Gedanken dazu teilen.
+[Flüchtlingskrise in Europa 2015/2016](https://de.wikipedia.org/wiki/Fl%C3%BCchtlingskrise_in_Europa_2015/2016)
+sehe ich in Deutschland immer wieder sehr unstrukturierte und undifferenzierte
+Diskussionen rund um Ausländer. Es gibt keine klare Problembenennung und als
+Lösung sieht man unterschwellig kommuniziert nur "Ausländer raus", wie z.B.
+an dem von der CDU eingebrachten Zustrombegrenzungsgesetz welches den Fokus
+auf die Begrenzung des Zuzugs von Ausländern legt, während wir in Deutschland
+eine alternde Bevölkerung haben. Ohne Zuwanderung wird Deutschland schrumpfen.
 
 
 ## Ausländer: Flüchtlinge, Migranten, Kinder
@@ -20,10 +24,10 @@ Ich möchte in diesem Artikel meine Gedanken dazu teilen.
 Politiker und Medien werfen zwei (ggf. drei) Gruppen von Menschen im
 öffentlichen Diskurs in einen Topf:
 
-* **Flüchtlinge** sind Menschen, die aus einem Land fliehen, weil sie dort verfolgt
-  werden. Das kann politische Verfolgung sein, aber auch Verfolgung aufgrund von
-  Religion, Geschlecht, sexueller Orientierung oder Ethnie. Krieg ist
-  offensichtlich auch eine Fluchtursache. Ihr Leben ist in ihrer Heimat in
+* **Flüchtlinge** sind Menschen, die aus ihrem   Land fliehen, weil sie dort verfolgt
+  werden. Dies kann aus politischen, religiösen, ethnischen oder
+geschlechtsspezifischen Gründen geschehen. Auch Kriege und bewaffnete Konflikte
+zwingen Menschen zur Flucht. Ihr Leben ist in ihrer Heimat in
   Gefahr. Sobald ein Flüchtling einen Antrag stellen will, wird er als
   Asylsuchender bezeichnet. Wenn der Antrag vom Bundesamt erfasst wurde, wird er
   als Asylantragstellender bezeichnet. Sobald der Asylantrag positiv beschieden
@@ -31,16 +35,10 @@ Politiker und Medien werfen zwei (ggf. drei) Gruppen von Menschen im
   obwohl sie nicht die Genfer Flüchtlingskonvention erfüllen. Das sind Menschen,
   die zB. wegen Blasphemie oder ihrer sexuellen Orientierung in ihrem Heimatland
   verfolgt werden. In Deutschland leben 3.48 Millionen Flüchtlinge,  ([Stand 2024](https://www.tagesschau.de/inland/zahl-gefluechtete-deutschland-100.html)) (4.1% der [Einwohner Deutschlands](https://de.wikipedia.org/wiki/Demografie_Deutschlands)), davon 1.18 Millionen aus der Ukraine.
-* **Migranten** sind Menschen, die in ein anderes Land ziehen, um dort zu leben.
-  Das kann aus wirtschaftlichen Gründen sein, aber auch aus familiären Gründen,
-  oder aus Fluchtgründen. Flüchtlinge sind also eine Untergruppe der Migranten.
-  Wenn man von "Menschen mit Migrationshintergrund" spricht, meint man sowohl
-  die Migranten selbst als auch ihre Kinder und Kindeskinder. Wir hatten 2023
-  rund 10 Millionen Migranten ohne Fluchthintergrund in Deutschland.
+* **Migranten** sind Menschen, die aus verschiedenen Gründen in ein anderes Land ziehen, z. B. wegen besserer wirtschaftlicher Perspektiven oder familiärer Bindungen. Flüchtlinge sind eine Untergruppe der Migranten. Der Begriff "Menschen mit Migrationshintergrund" umfasst sowohl Migranten selbst als auch deren Kinder und Enkel. 2023 lebten in Deutschland etwa 10&nbsp;Millionen Migranten ohne Fluchthintergrund.
 
-Sowohl Flüchtlinge als auch Migranten bekommen natürlich auch **Kinder**.
-Seit 2000 kann in Deutschland in manchen Fällen das Geburtsortprinzip angewandt werden ([§ 4 Abs. 3 StAG](https://www.gesetze-im-internet.de/stag/__4.html)), allerdings kann es auch passieren,
-dass Kinder in Deutschland geboren werden und [Staatenlos](https://de.wikipedia.org/wiki/Staatenloser) werden.
+Sowohl Flüchtlinge als auch Migranten bekommen natürlich **Kinder**. In Deutschland kann seit 2000 in bestimmten Fällen das Geburtsortsprinzip angewandt werden ([§ 4 Abs. 3 StAG](https://www.gesetze-im-internet.de/stag/__4.html)), allerdings kann es auch passieren,
+dass Kinder in Deutschland geboren werden und [Staatenlos](https://de.wikipedia.org/wiki/Staatenloser) werden ([Quelle](https://verfassungsblog.de/staatenlos-ab-geburt/)).
 
 Flüchtlinge werden durch die [Genfer Flüchtlingskonvention](https://de.wikipedia.org/wiki/Abkommen_%C3%BCber_die_Rechtsstellung_der_Fl%C3%BCchtlinge) geschützt.
 Insbesondere beinhaltet es völkerrechtlich das [Verbot der Ausweisung und
@@ -52,11 +50,11 @@ Migration kann man regulieren und begrenzen. Hier hat man Gestaltungsspielraum.
 Bei Flüchtlingen ist es wesentlich schwieriger, wenn man sich an geltendes
 Völkerrecht halten möchte.
 
-Eine wichtige Gruppe sind irreguläre Migranten, also Menschen die sich ohne
-legalen Aufenthaltsstatus in Deutschland befinden. 2022 gab es 56.000
-dokumentierte Fälle. Hinzu kommen 304.308 ausreisepflichtige Menschen in
-Deutschland, von denen aber 82% der "Ausreisepflichtigen" eine Duldung besitzen;
-sie können also nicht abgeschoben werden
+Eine im politischen Diskurs wichtige Gruppe sind irreguläre Migranten, also
+Menschen die sich ohne legalen Aufenthaltsstatus in Deutschland befinden. 2022
+gab es 56.000 dokumentierte Fälle. Hinzu kommen 304.308 ausreisepflichtige
+Menschen in Deutschland, von denen aber 82% der "Ausreisepflichtigen" eine
+Duldung besitzen; sie können also nicht abgeschoben werden
 ([Quelle](https://mediendienst-integration.de/migration/irregulaere.html)).
 Geduldete fallen somit nicht unter die Kategorie der Papierlosen/ Irregulären.
 Die Zahl der "unmittelbar Ausreisepflichtigen" – also Personen, die tatsächlich
@@ -70,11 +68,10 @@ Meine Antwort darauf ist:
 * **Wohlstandsverlust**: Steigende Mieten, Lebensmittelpreise, Energiepreise,
   Sozialabgaben für die Krankenversicherung und die Rante
   bei gleichzeitig nicht so stark steigenden Löhnen führen zu einem
-  Reallohnverlust. Insbesondere wenn man schon wenig verdient, ist das ein
-  großes Problem. Der Wohlstandsverlust wurde in den letzten Jahren vor allem durch die [COVID-19 Pandemie 2020 - 2023](https://de.wikipedia.org/wiki/COVID-19-Pandemie_in_Deutschland)
+  Reallohnverlust. Dies trifft insbesondere Geringverdiener hart. Der Wohlstandsverlust wurde in den letzten Jahren vor allem durch die [COVID-19 Pandemie 2020 - 2023](https://de.wikipedia.org/wiki/COVID-19-Pandemie_in_Deutschland)
   und den [Ukraine-Krieg 2022](https://de.wikipedia.org/wiki/Russisch-Ukrainischer_Krieg)
-  verursacht. Unsere Während der Merkel-Regierung geschaffene Abhängigkeit von
-  Russischem Gas, die [Hochwasserkatastrophen 2021](https://de.wikipedia.org/wiki/Hochwasser_in_West-_und_Mitteleuropa_2021), sowie die [Ever Given Blockade des Suezkanals 2021](https://de.wikipedia.org/wiki/Ever_Given#2021_im_Suezkanal) haben ihr übriges getan.
+  verursacht. Die während der Merkel-Regierung geschaffene Abhängigkeit von
+  russischem Erdgas, die [Hochwasserkatastrophen 2021](https://de.wikipedia.org/wiki/Hochwasser_in_West-_und_Mitteleuropa_2021), sowie die [Ever Given Blockade des Suezkanals 2021](https://de.wikipedia.org/wiki/Ever_Given#2021_im_Suezkanal) haben ihr übriges getan.
   In Zukunft wird der Klimawandel durch Ernteverluste, Fluten, Dürren, und Flucht
   von Menschen aus den Tropenländern zu weiteren Wohlstandsverlusten führen.
   Der [Demographische Wandel in Deutschland](https://de.wikipedia.org/wiki/Demografischer_Wandel#Trends_in_Deutschland) wird dazu führen dass immer
@@ -87,7 +84,7 @@ Meine Antwort darauf ist:
   Zeitraum Infrastruktur-Schulden gemacht haben. Ein Zeichen dafür ist der
   [Einsturz der Carolabrücke 2024](https://de.wikipedia.org/wiki/Carolabr%C3%BCcke_(Dresden)).
   Ich kann mich aber auch daran erinnern, dass es Monatelang in meiner Schule
-  durch die Decke getropft hatte, weil wohl kein Geld für eine Reparatur da war.
+  durch die Decke getropft hatte.
 
 Zur Erhöhung des Wohlstands gibt es viele Möglichkeiten, die man grob in zwei
 Kategorien teilen kann: Umverteilung und Produktionssteigerungen (sowohl von
@@ -153,160 +150,18 @@ Wohnraum im Besitz haben, um den Markt zu regulieren. Wohnraum können wir
 günstig durch [serielles](https://www.dw-systembau.de/serielles-bauen.html) und
 [modulares Bauen](https://de.wikipedia.org/wiki/Modulares_Bauen) schaffen.
 
-## Rechte Sprache und Fehlerhafte Problemanalyse
 
-Die AfD und inzwischen auch die CDU/CSU legen klar den Fokus auf Ausländer, wenn
-es um die zu adressierenden Probleme geht.
+## Migrationsspezische Probleme
 
-Nicht primär auf die Probleme die der Zuzug von Menschen mit sich bringt,
-sondern auf die Menschen selbst. Es wird nicht gesagt, dass steigende
-Mieten, ein Reallohnverlust, eine schlechte Infrastruktur oder eine
-schlechte Bildungspolitik die Probleme sind. Es wird suggeriert, dass die
-Ausländer das Problem sind.
+Der Zuzug von Menschen kann Probleme verursachen, die gelöst werden müssen.
+Es sind definitiv nicht die großen Probleme unserer Gesellschaft, aber wir
+tun uns auch keinen Gefallen wenn wir sie ignorieren. Ich würde mir wünschen,
+dass wir die politische Energie angemessen Verteilen: Wohlstand von finanziell
+schwachen Menschen steigern sollte absolute priorität haben. Migration ist
+ein Nebenschauplatz. Weil es aber nun so stark diskutiert wird, will ich die
+auf die Probleme eingehen, die Migration verursachen kann.
 
-Probleme müssen beseitigt werden. Im besten Fall kommen beim Beseitigen
-von Ausländern Parolen wie "Ausländer raus", im schlimmsten Fall landen wir
-bei Vernichtungslagern. Das erinnert an ["Wir misten aus"-Plakate der NSDAP](https://www.bpb.de/themen/deutschlandarchiv/555824/deutsche-erinnerungskultur-rituale-tendenzen-defizite/#node-content-title-2),
-an ["Asylbetrüger raus"-Plakate der NPD](https://www.fr.de/politik/kann-negativ-ueberraschung-sorgen-11511550.html). Aktuell wirbt die CDU mit
-["Deutschen Pass nicht Verramschen"](https://emmi-zeulner.de/der-deutsche-pass-ist-keine-ramschware/)
-und die AfD will das ["Verramschen deutscher Pässe beenden"](https://afd-fraktion-sachsen.de/schnelle-einbuergerungen-kein-verramschen-deutscher-paesse/). Wer da keine Parallelen
-sieht ist blind.
-
-Menschen sind keine Probleme. Man sollte sie niemals als solche bezeichnen.
-Sprache ist mächtig, weil sie unsere Gedanken formt. Nicht umsonst gab es zu
-NS-Zeiten ein [Propagandaministerium](https://de.wikipedia.org/wiki/Reichsministerium_f%C3%BCr_Volksaufkl%C3%A4rung_und_Propaganda).
-
-Im aktuellen CDU-Wahlprogramm steht: "Großangelegter Sozialleistungsmissbrauch,
-im Inland und von im Ausland lebenden Menschen, muss beendet werden".
-2022 wurde der Schaden auf 273 Millionen Euro geschätzt ([Quelle](https://www.zdf.de/nachrichten/wirtschaft/sozialbetrug-clans-ausmass-100.html)). Für Cum-Cum/Cum-Ex beträgt das Volumen hingegen [mindestens 35 Milliarden in
-Deutschland](https://www.zdf.de/nachrichten/politik/deutschland/cum-ex-skandal-backgroundcheck-100.html) - also 128x so viel.
-Die ehemalige Staatsanwältin [Anne Brohiker klärt auf dem 38C3
-auf](https://www.youtube.com/watch?v=fPR9BSnhpRw&t=2257s) und bringt konkrete
-Vorschläge. Nichts davon findet sich im CDU-Wahlprogramm. Natürlich sollte beides
-bekämpft werden. Die Priorität sollte aber klar sein.
-
-Weitere Beispiele für unangebrachte der Sprache, welche den Blick auf die
-tatächlichen Probleme trübt:
-
-* Friedrich Merz, 27.09.2022: Wirft Ukrainischen Flüchtlingen "Sozialtourismus"
-  vor ([Videoquelle auf YouTube](https://www.youtube.com/watch?v=hG0LDtljwm4)
-  der "Welt")
-* Friedrich Merz, 11.01.2023: Nennt 8-Jährige Kinder aus dem arabischen Raum
-  "kleine Paschas" und will diese abschieben, wenn sie sich in der Schule
-  daneben benehmen ([Videoquelle auf
-  YouTube](https://www.youtube.com/watch?v=mhImgqj_HL4))
-
-Wenn man für die oben genannten tatsächlichen Probleme sich den Einfluss von
-Zuzug durch Flüchtlinge und Migranten anschaut, dann kann es nur bei zwei
-Punkten Effekte geben:
-
-* **Mietpreise und Wohnungsmangel**: Wenn mehr Menschen in eine Stadt ziehen,
-  steigen die Mieten. Das ist ein klassisches Angebot-Nachfrage-Problem. Die
-  interessante Frage ist wie stark der Effekt ist. 2023 in München hatten
-  [30.1%](https://stadt.muenchen.de/dam/jcr:9f3738d7-e415-4477-8a62-50a4e3aafc34/mb240101.pdf) der Einwohner keinen deutschen Pass. 2008 waren es noch [23.4%](https://stadt.muenchen.de/dam/jcr:8b80cc69-c027-4133-a07e-c00462cf055b/mb090401.pdf). 2024 waren es
-  [9.167 Flüchtlinge](https://stadt.muenchen.de/infos/unterkuenfte-fuer-gefluechtete.html)
-  auf [1.5 Millionen Einwohner in München](https://de.wikipedia.org/wiki/M%C3%BCnchen).
-  Das sind 0.6%. Der Rest sind Migranten - Altenpfleger, Ärzte, Ingenieure,
-  Software-Entwickler, Studenten. Von den Ausländern in München kommen etwa 42%
-  aus dem EU-Ausland, 8% aus der Türkei, 5% aus der Ukraine, 5% aus Afrika, 4%
-  aus Amerika, und 19% aus Asien. Der Rest kommt aus anderen Ländern Europas.
-* **Belastung der Sozialsysteme**: Wenn Menschen in ein Land kommen, die nicht
-  arbeiten, sondern Sozialleistungen beziehen, dann belasten sie die
-  Sozialsysteme. Natürlich. Flüchtlinge haben erst mal keine Arbeitserlaubnis.
-  Eine gute Forderung wäre also die Arbeitserlaubnis abzuschaffen. Wer arbeiten
-  will, sollte arbeiten dürfen und damit auch in die Sozialsysteme einzahlen.
-  Es ist auffällig, dass der Anteil von Ausländern unter den Arbeitslosen
-  höher ist als der Anteil von Ausländern an der Bevölkerung. Auch die
-  SGB-II-Hilfequote ist bei der Ausländischen Bevölkerung höher als bei der
-  Deutschen. Insbesondere natürlich bei den Flüchtlingen - vermutlich weil sie
-  schlicht nicht arbeiten dürfen.
-
-## Friedrich Merz
-
-In der letzten Woche gab es zwei Abstimmungen, die mich dazu bewogen haben, diesen
-Artikel zu schreiben:
-
-* [Merz 5-Punkte-Plan zur Verschärfung der Migrationspolitik](https://www.tagesschau.de/inland/innenpolitik/merz-antraege-100.html) am Mittwoch ([Ergebnisse](https://www.swr.de/swraktuell/baden-wuerttemberg/migration-verschaerfung-merz-bundestag-reaktionen-landtag-bw-100.html)). Die 5-Punkte des Antrags sind:
-    * **Dauerhafte Grenzkontrollen** zu allen Nachbarstaaten: Das ist Europarechtlich
-      nicht möglich. Deutschland ist Mitglied des Schengen-Raums. Das bedeutet,
-      dass es keine Grenzkontrollen zu anderen Schengen-Staaten gibt. Es gibt
-      nur Kontrollen an den Außengrenzen. Das ist auch gut so, denn das
-      erleichtert den Handel und den Tourismus
-    * **Einreiseverbot** für alle Personen, die keine gültigen Einreisedokumente
-      besitzen, unabhängig davon, ob sie ein Schutzgesuch äußern oder nicht -
-      die europäischen Nachbarstaaten seien bereits sichere Staaten für
-      Verfolgte.
-    * **Inhaftierung vollziehbar Ausreisepflichtigen**, auch
-      in leerstehende Kasernen und Containerbauten. Abschiebungen müssten
-      "täglich stattfinden", regelmäßig auch nach Afghanistan und Syrien.
-    * Unterstützung für die Länder beim **Vollzug der Ausreisepflicht**. Die
-      Bundespolizei soll Haftbefehle für Abschiebehaft oder Ausreisegewahrsam
-      beantragen können.
-    * Ausreisepflichtige Straftäter und Gefährder sollen in einem **zeitlich
-      unbefristeten Ausreisearrest** bleiben, bis sie freiwillig in ihr Heimatland
-      zurückkehren oder die Abschiebung vollzogen werden könne.
-* [Zustrombegrenzungsgesetz](https://www.tagesschau.de/inland/bundestagswahl/migrationsgesetz-abgelehnt-100.html) am Freitag ([Ergebnisse](https://www.abgeordnetenwatch.de/bundestag/20/abstimmungen/zustrombegrenzungsgesetz)), mit folgenden Kernpunkten ([Quelle](https://www.tagesschau.de/inland/innenpolitik/faq-abstimmung-bundestag-merz-gesetzentwurf-100.html)):
-    * Im Aufenthaltsgesetz soll nicht nur die Steuerung, sondern auch die
-      "Begrenzung" des Zuzugs von Ausländern erneut als übergeordnetes Ziel
-      festgeschrieben werden. Das Wort "Begrenzung" war 2023 gestrichen worden.
-    * Der Familiennachzug für subsidiär Schutzbedürftige soll eingestellt
-      werden. Gemeint sind Menschen, die kein Asyl bekommen, aber aus anderen
-      Gründen vorerst in Deutschland bleiben können. Der subsidiäre Schutz war
-      bereits zwischen 2016 und 2018 ausgesetzt worden. Seit 2018 dürfen aus
-      humanitären Gründen pro Monat 1.000 Angehörige von subsidiär
-      Schutzberechtigten nach Deutschland kommen.
-    * Die Bundespolizei soll eine eigene Zuständigkeit für "aufenthaltsbeendende
-      Maßnahmen" an den deutschlandweit 5.700 Bahnhöfen erhalten, für die sie
-      mit zuständig ist. Die Beamtinnen und Beamten sollen künftig auch selbst
-      Anträge auf Haft und Gewahrsam stellen können, um die Abschiebung nicht
-      aufenthaltsberechtigter Ausländer zu gewährleisten. Bisher müssen sich die
-      Bundespolizisten dafür an die jeweilige Landespolizei wenden.
-
-
-Meine Gedanken zu dem Thema werden recht gut durch folgendes Video repräsentiert:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bnHoheqszKE?si=13iDrj8eS7SLjmNl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-Konkret sehe ich eine Dammbruch bzgl. folgender Aussagen:
-
-
-* Friedrich Merz, 23.12.2021: "Wenn irgendjemand von uns die Hand hebt, um
-  mit der AfD zusammenzuarbeiten, dann steht am nächsten Tag ein
-  Parteiausschlussverfahren an."
-* Friedrich Merz, 12.11.2024: "Ich möchte dass wir jetzt nur noch die Dinge auf
-  die Tagesordnung setzen, die wir vorher im Konsenz zwischen Oposition und
-  restlicher Regierung vereinbart haben um uns alle - die Regierung und uns -
-  davor zu Bewahren, dass wir plötzlich zufallsmehrheiten im Saal mit der AfD
-  oder den Linken haben. Ich will das nicht." (Quelle: Phoenix vor Ort, auf
-  [YouTube](https://www.youtube.com/watch?v=xBAFj4Bp4aY)).
-
-Die Ampel hat keine Showanträge eingebracht um die Union nicht vorzuführen ([Video](https://youtu.be/bnHoheqszKE?si=irXsfvf3E3RK5541&t=904)). Man
-hat sich seit dieser Aussage auf einige Gesetzesvorhaben gemeinsam geeinigt:
-
-* [Finanzierung des Deutschlandtickets](https://www.tagesschau.de/inland/gesellschaft/deutschlandticket-finanzierung-104.html)
-* [Schutz des Bundesverfassungsgerichts](https://www.zdf.de/nachrichten/heute-19-uhr/bundesverfassungsgericht-schutz-bundestag-100.html)
-* [Kalte Progression bekämpfen und mehr Kindergeld](https://www.tagesschau.de/inland/innenpolitik/kalte-progression-kindergeld-100.html)
-
-Dass die Union den Antrag zur Migrationspolitik unabgestimmt eingebracht hat,
-deutet auf eine Bereitschaft der Zusammenarbeit mit der AfD hin. Entgegen der
-versprochenen Absprachen vor der nächsten Bundestagswahl, testet man jetzt die
-Reaktionen aus - um ggf. dann mit Duldung der AfD eine Minderheitsregierung zu
-führen. Oder im Schlimmsten Fall sogar eine Koalition mit der AfD einzugehen.
-
-Die CDU entgegnet [wenn die Ampel dem Antrag zugestimmt hätte, hätten wir die
-Stimmen der AfD nicht
-gebraucht](https://youtu.be/XZYbFHr2me8?si=eZF8dHySAuMlV2Xy&t=120) und lenkt
-damit vom Problem ab: Wenn es der CDU in den Kram passt, arbeitet sie mit der
-AfD zusammen und bricht gleichzeitig ihr Wort. Das hat nichts mit der Ampel zu
-tun.
-
-## Politische Fragen
-
-Folgende Fragen muss man politisch klären, sehe ich jedoch nicht unter den
-Top-10 der wichtigsten Fragen für Deutschland.
-
-### Verteilung in Europa
+### Flüchtlings-Verteilung in Europa
 
 **Wie verteilen wir Flüchtlinge und die finanzielle Belastung in Europa?**
 
@@ -331,7 +186,7 @@ ziehen. So hat der [EuGH Ungarn 2024 zu 200 Millionen + täglich 1 Millionen Zwa
 nicht umgesetzt wurden.
 
 
-### Verteilung in Deutschland
+### Flüchtlings-Verteilung in Deutschland
 
 Flüchtlinge werden in Deutschland mit dem [EASY-System](https://www.bamf.de/DE/Themen/AsylFluechtlingsschutz/AblaufAsylverfahrens/Erstverteilung/erstverteilung-node.html) verteilt.
 Im Grunde gibt es eine Quote die auf dem Königsteiner Schlüssel basiert. Dabei
@@ -342,9 +197,16 @@ Bayern hat das beispielsweise in [§ 3 der Asyldurchführungsverordnung](https:/
 
 Eine [interaktive Karte](https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/03/PD23_125_125.html) zeigt die tatsächliche Verteilung.
 
-### Sorgen und Lösungen für Kommuen
+### Föderalismus: Sorgen und Lösungen für Kommuen
 
-[23% der Kommunen geben an mit der **Unterbringung** überlastet zu sein](https://www.mdr.de/wissen/psychologie-sozialwissenschaften/kommunen-weiter-am-limit-lage-im-osten-deutlich-entspannter-100.html), bei 6% verursacht das keine Problem und 71% sehen es als machbare Herausforderung.
+In Deutschland haben wir das bizarre System, dass der Bund und die Länder vieles
+Entscheiden können, was die Kommunen dann umsetzen müssen - und was sie auch
+finanzieren müssen.
+
+[23% der Kommunen geben an mit der **Unterbringung** überlastet zu
+sein](https://www.mdr.de/wissen/psychologie-sozialwissenschaften/kommunen-weiter-am-limit-lage-im-osten-deutlich-entspannter-100.html),
+bei 6% verursacht das keine Problem und 71% sehen es als machbare
+Herausforderung.
 
 Würden wir mit seriellem und modularem Bauen günstigen Gemeinschaftswohnraum
 schaffen, könnten wir die Wirtschaft ankurbeln und diese Herausforderung
@@ -394,7 +256,6 @@ gar keine. Bei dem Aufenthalt zwecks humanitärer Zwecke (Flucht) oder
 Familiennachzug reden wir häufiger über Menschen welche keine Arbeitserlaubnis
 bekommen oder die Sprache nicht sprechen. Hier ist als mit einer hohen
 Arbeitslosigkeit zu rechnen.
-
 
 
 ### Kriminalität und Terrorismus
@@ -473,3 +334,120 @@ Unterkünften vor.
 Bevor man das Thema erneut aufgreift würde ich mir wünschen dass man zuerst die
 genauen Gründe für die gescheiterten Abschiebungen analysiert. Nur mit einer
 vernünftigen Problemanalyse kann zuverlässig funktionierende Lösungen finden.
+
+
+## Friedrich Merz
+
+In der letzten Woche gab es zwei Abstimmungen, die mich dazu bewogen haben, diesen
+Artikel zu schreiben:
+
+* [Merz 5-Punkte-Plan zur Verschärfung der Migrationspolitik](https://www.tagesschau.de/inland/innenpolitik/merz-antraege-100.html) am Mittwoch ([Ergebnisse](https://www.swr.de/swraktuell/baden-wuerttemberg/migration-verschaerfung-merz-bundestag-reaktionen-landtag-bw-100.html)). Die 5-Punkte des Antrags sind:
+    * <span style="color: blue"><b>Dauerhafte Grenzkontrollen</b> zu allen Nachbarstaaten</span>: Das ist europarechtlich
+      nicht möglich. Deutschland ist Mitglied des [Schengen-Raums](https://de.wikipedia.org/wiki/Schengen-Raum). Das bedeutet,
+      dass es keine Grenzkontrollen zu anderen Schengen-Staaten gibt ([Verordnung (EU) 2016/399, Artikel 22](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0399)). Es gibt
+      nur Kontrollen an den Außengrenzen. Das ist auch gut so, denn das
+      erleichtert den Handel und den Tourismus
+    * <span style="color: blue"><b>Einreiseverbot</b> für alle Personen, die
+      keine gültigen Einreisedokumente besitzen, unabhängig davon, ob sie ein
+      Schutzgesuch äußern oder nicht - die europäischen Nachbarstaaten seien
+      bereits sichere Staaten für Verfolgte.</span> Das würde massive Kosten
+      verursachen, selbst wenn man es nur temporär über Kontrollen machen will.
+      Und was hindert die Personen einfach sofort wieder am nächsten Tag
+      einzureisen? Wollen wir wegen 56.163 irregulärer Migranten, welche
+      vermutlich keine Sozialleistungen beziehen und uns daher nichts kosten,
+      die Europäische Union gefährden? Wer das leichtfertig mit "ja" beantwortet,
+      der sollte mal einen Blick auf den [Brexit](https://de.wikipedia.org/wiki/EU-Austritt_des_Vereinigten_K%C3%B6nigreichs)
+      werfen.
+    * <span style="color: blue"><b>Inhaftierung vollziehbar Ausreisepflichtigen</b>, auch
+      in leerstehende Kasernen und Containerbauten. Abschiebungen müssten
+      "täglich stattfinden", regelmäßig auch nach Afghanistan und Syrien.</span>
+      Hier bin ich mir unsicher, was das bedeuten würde. Hört sich für mich
+      erst mal nicht verkehrt an - das würde aber sicher wieder deutliche
+      Kosten verursachen. Vielleicht kann mir jemand mehr dazu schreiben.
+    * <span style="color: blue">Unterstützung für die Länder beim <b>Vollzug der Ausreisepflicht</b>. Die
+      Bundespolizei soll Haftbefehle für Abschiebehaft oder Ausreisegewahrsam
+      beantragen können.</span> Auch das kann ich schwer beurteilen.
+    * <span style="color: blue">Ausreisepflichtige Straftäter und Gefährder sollen in einem <b>zeitlich
+      unbefristeten Ausreisearrest</b> bleiben, bis sie freiwillig in ihr Heimatland
+      zurückkehren oder die Abschiebung vollzogen werden könne.</span>. Einze
+      zeitlich unbegrenzte Inhaftierung hört sich nicht legal an. Insbesondere
+      scheint man hier keinen Unterschied zwischen geflüchteten und Migranten
+      ohne Fluchtursache zu machen. Und solange das Schwarzfahren eine Straftat
+      ist, wegen der Menschen tatsächlich inhaftiert werden, sehe ich solche
+      allgemeinen Aussagen kritisch.
+* [Zustrombegrenzungsgesetz](https://www.tagesschau.de/inland/bundestagswahl/migrationsgesetz-abgelehnt-100.html) am Freitag ([Ergebnisse](https://www.abgeordnetenwatch.de/bundestag/20/abstimmungen/zustrombegrenzungsgesetz)), mit folgenden Kernpunkten ([Quelle](https://www.tagesschau.de/inland/innenpolitik/faq-abstimmung-bundestag-merz-gesetzentwurf-100.html)):
+    * <span style="color: blue">Im Aufenthaltsgesetz soll nicht nur die Steuerung, sondern auch die
+      "Begrenzung" des Zuzugs von Ausländern erneut als übergeordnetes Ziel
+      festgeschrieben werden. Das Wort "Begrenzung" war 2023 gestrichen worden.</span> Hat das mehr als Symbolwirkung?
+    * <span style="color: blue">Der Familiennachzug für subsidiär
+      Schutzbedürftige soll eingestellt werden. Gemeint sind Menschen, die kein
+      Asyl bekommen, aber aus anderen Gründen vorerst in Deutschland bleiben
+      können. Der subsidiäre Schutz war bereits zwischen 2016 und 2018
+      ausgesetzt worden. Seit 2018 dürfen aus humanitären Gründen pro Monat
+      1.000 Angehörige von subsidiär Schutzberechtigten nach Deutschland
+      kommen.</span> Man will also nicht mal mehr 1000 Härtefälle pro Monat
+      erlauben? Wie viel von diesem Kontingent wird aktuell genutzt? Ich stelle
+      mir hier minderjährige Kinder vor die nachziehen. Ist diese Vorstellung
+      richtig?
+    * <span style="color: blue">Die Bundespolizei soll eine eigene Zuständigkeit
+      für "aufenthaltsbeendende Maßnahmen" an den deutschlandweit 5.700
+      Bahnhöfen erhalten, für die sie mit zuständig ist. Die Beamtinnen und
+      Beamten sollen künftig auch selbst Anträge auf Haft und Gewahrsam stellen
+      können, um die Abschiebung nicht aufenthaltsberechtigter Ausländer zu
+      gewährleisten. Bisher müssen sich die Bundespolizisten dafür an die
+      jeweilige Landespolizei wenden.</span> Das kann ich nicht einordnen.
+      Bedeutet das mehr Arbeit für die Polizei oder weniger Bürokratie?
+
+
+Meine Gedanken zu dem Thema werden recht gut durch folgendes Video repräsentiert:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bnHoheqszKE?si=13iDrj8eS7SLjmNl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+Konkret sehe ich einen Dammbruch durch den offensichtlichen Wortbruch folgender
+Aussagen:
+
+* Friedrich Merz, 23.12.2021: "Wenn irgendjemand von uns die Hand hebt, um
+  mit der AfD zusammenzuarbeiten, dann steht am nächsten Tag ein
+  Parteiausschlussverfahren an."
+* Friedrich Merz, 12.11.2024: "Ich möchte dass wir jetzt nur noch die Dinge auf
+  die Tagesordnung setzen, die wir vorher im Konsenz zwischen Oposition und
+  restlicher Regierung vereinbart haben um uns alle - die Regierung und uns -
+  davor zu Bewahren, dass wir plötzlich zufallsmehrheiten im Saal mit der AfD
+  oder den Linken haben. Ich will das nicht." (Quelle: Phoenix vor Ort, auf
+  [YouTube](https://www.youtube.com/watch?v=xBAFj4Bp4aY)).
+
+Die Ampel hat keine Showanträge eingebracht um die Union nicht vorzuführen
+([Video](https://youtu.be/bnHoheqszKE?si=irXsfvf3E3RK5541&t=904)). Man hat sich
+seit dieser Aussage auf einige Gesetzesvorhaben gemeinsam geeinigt:
+
+* [Finanzierung des Deutschlandtickets](https://www.tagesschau.de/inland/gesellschaft/deutschlandticket-finanzierung-104.html)
+* [Schutz des Bundesverfassungsgerichts](https://www.zdf.de/nachrichten/heute-19-uhr/bundesverfassungsgericht-schutz-bundestag-100.html)
+* [Kalte Progression bekämpfen und mehr Kindergeld](https://www.tagesschau.de/inland/innenpolitik/kalte-progression-kindergeld-100.html)
+
+Dass die Union den Antrag zur Migrationspolitik unabgestimmt eingebracht hat,
+deutet auf eine Bereitschaft der Zusammenarbeit mit der AfD hin. Entgegen der
+versprochenen Absprachen vor der nächsten Bundestagswahl, testet man jetzt die
+Reaktionen aus - um ggf. dann mit Duldung der AfD eine Minderheitsregierung zu
+führen. Oder im Schlimmsten Fall sogar eine Koalition mit der AfD einzugehen.
+
+Die CDU entgegnet [wenn die Ampel dem Antrag zugestimmt hätte, hätten wir die
+Stimmen der AfD nicht
+gebraucht](https://youtu.be/XZYbFHr2me8?si=eZF8dHySAuMlV2Xy&t=120) und lenkt
+damit vom Problem ab: Wenn es der CDU in den Kram passt, arbeitet sie mit der
+AfD zusammen und bricht gleichzeitig ihr Wort. Das hat nichts mit der Ampel zu
+tun.
+
+
+## Fehlerhafte Problemanalyse
+
+Im aktuellen CDU-Wahlprogramm steht: "Großangelegter Sozialleistungsmissbrauch,
+im Inland und von im Ausland lebenden Menschen, muss beendet werden".
+2022 wurde der Schaden auf 273 Millionen Euro geschätzt ([Quelle](https://www.zdf.de/nachrichten/wirtschaft/sozialbetrug-clans-ausmass-100.html)). Für Cum-Cum/Cum-Ex beträgt das Volumen hingegen [mindestens 35 Milliarden in
+Deutschland](https://www.zdf.de/nachrichten/politik/deutschland/cum-ex-skandal-backgroundcheck-100.html) - also 128x so viel.
+Die ehemalige Staatsanwältin [Anne Brohiker klärt auf dem 38C3
+auf](https://www.youtube.com/watch?v=fPR9BSnhpRw&t=2257s) und bringt konkrete
+Vorschläge. Nichts davon findet sich im CDU-Wahlprogramm. Natürlich sollte beides
+bekämpft werden. Die Priorität sollte aber klar sein. Und letzteres wird zumindest
+nicht explizit erwähnt. Auch von Share-Deals und andere "Steuergestaltungsmöglichkeiten"
+fasst man nicht an.
