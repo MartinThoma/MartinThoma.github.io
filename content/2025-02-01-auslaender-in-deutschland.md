@@ -5,7 +5,7 @@ slug: auslaender-in-deutschland
 author: Martin Thoma
 date: 2025-02-01 20:00
 category: My bits and bytes
-tags: germany,german,politics
+tags: germany,German posts,politics
 featured_image: logos/germany.png
 ---
 Seit dem [Bürgerkrieg in Syrien 2011](https://de.wikipedia.org/wiki/B%C3%BCrgerkrieg_in_Syrien_seit_2011) und der damit verbundenen
@@ -118,6 +118,8 @@ Konsumanteil haben.
    Menschen mit geringen Einkommen bei einer Senkung. Das sind z.B.:
     * **Steuern auf Lebensmittel senken**
     * **Steuern auf Energie senken**
+    * **Vermögensteuer wieder einführen**
+    * **Millionen-Erbschaften und Schenkungen effektiv besteuern**
 2. **Zuschüsse des Staates zur gesetzlichen Krankenversicherung erhöhen**: Ein
    Systemwechsel zum Beveridge-Modell erscheint mir wünschenswert.
    Jeder sollte für die gesetzliche Krankenversicherung zahlen und auch auf die
@@ -184,7 +186,7 @@ Ein paar der Probleme sind tatsächlich schon gelöst ✅, andere haben Lösungs
 
 Wir haben ein [Gemeinsames Europäisches
 Asylsystem](https://de.wikipedia.org/wiki/Asylpolitik_der_Europ%C3%A4ischen_Union).
-Das sollten wir nutzen um Folgendes zu erreichen: (1) Effektive Erfassung an den
+Das sollten wir nutzen um Folgendes zu erreichen: (1) Effektive Erfassung Einreisender an den
 EU-Außengrenzen (2) Verteilung mit einem Fokus auf die Integration - wer die
 Sprache spricht oder bereits Verwandte in einem Land hat, sollte dort hin (3)
 Faire Verteilung aller Kosten - also Kosten für die Erfassung, Unterbringung,
@@ -241,8 +243,11 @@ z.B. Fluten, Kriegen, oder Pandemien machen.
 
 57% der Ausländerbehörden geben an überlastet zu sein. Das liegt unter anderem
 daran, dass sie sich mit Arbeitserlaubnissen auseinandersetzen müssen. Würden
-wir pauschal allen anerkannten Flüchtlingen eine **Arbeitserlaubnis** geben, wäre
-auf einen Schlag ein großer Teil der Arbeit weg.
+wir pauschal allen anerkannten Flüchtlingen eine **Arbeitserlaubnis** geben,
+wäre auf einen Schlag ein großer Teil der Arbeit weg. Es könnte [auch](https://www.migazin.de/2024/07/24/asylbewerber-koennen-nicht-einfach-in-die-arbeitsmigration-wechseln/)
+[andere Probleme](https://www.focus.de/finanzen/news/nach-einem-jahr-arbeit-ahmad-wird-arbeitserlaubnis-entzogen-ex-chef-das-ist-menschenverachtend_id_259751497.html) verhindern. Im [November 2023](https://www.zdf.de/nachrichten/politik/bundesregierung-asyl-fluechtlinge-gesetz-100.html) hat man beschlossen, dass
+Geflüchtete nur noch ein 6-monatiges Arbeitsverbot haben; zuvor waren es
+9&nbsp;Monate.
 
 Für die Kinderbetreuung könnte man sicherlich auch innerhalb der Geflüchteten
 selbst Lösungen finden. So könnten ein paar einen Job bekommen und andere
@@ -370,12 +375,17 @@ bekämpft werden. Die Priorität sollte aber klar sein. Und letzteres wird zumin
 nicht explizit erwähnt. Auch von Share-Deals und andere "Steuergestaltungsmöglichkeiten"
 fasst man nicht an.
 
-
 Eine ähnlich fehlerhafte Problemanalyse bzw. Lösungsfindung sieht man häufiger
 nach Anschlägen. Da macht ein jahrelang in Deutschland ansässiger Arzt einen
 Anschlag und die Lösung ist dann, dass die Grenzen kontrolliert werden sollen.
 Das nennt man [Security-Theater](https://en.wikipedia.org/wiki/Security_theater):
 Maßnahmen, die nur gemacht werden, um den Eindruck von Sicherheit zu erwecken.
+
+Man kann die fehlende Effektivität auch anders betrachten: Wir hatten 2024
+etwa [2760 Verkehrstote und 2.510.000 Unfälle in Deutschland](https://www.adac.de/news/bilanz-verkehrstote/). [Geschwindigkeitsbegrenzungen halbierten die Unfallzahlen](https://www.mdr.de/nachrichten/deutschland/panorama/tempolimit-autobahn-hundert-unfaelle-halbiert-100.html)
+auf der A4 bei Dresden. Wenn wir so einfach ohne nennenswerte Kosten hunderte
+von Menschen retten könnten, geht es Merz offensichtlich nicht um Menschenleben.
+Sonst müsste er ein generelles Tempolimit fordern.
 
 ## 2 Wortbrüche = 1 Dammbruch?
 
@@ -387,7 +397,12 @@ diesen Artikel zu schreiben:
       nicht möglich. Deutschland ist Mitglied des [Schengen-Raums](https://de.wikipedia.org/wiki/Schengen-Raum). Das bedeutet,
       dass es keine Grenzkontrollen zu anderen Schengen-Staaten gibt ([Verordnung (EU) 2016/399, Artikel 22](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0399)). Es gibt
       nur Kontrollen an den Außengrenzen. Das ist auch gut so, denn das
-      erleichtert den Handel und den Tourismus
+      erleichtert den Handel und den Tourismus. Deutschland hat außerdem
+      [3876&nbsp;km Außengrenzen](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Tabellen/gemeinsame-grenzen-deutschlands.html). Die Grenze zwischen
+      den USA und Mexiko ist nur [3145&nbsp;km](https://de.wikipedia.org/wiki/Grenze_zwischen_den_Vereinigten_Staaten_und_Mexiko) lang und kann schon
+      nicht effektiv kontrolliert werden. Will Merz wie Trump eine Mauer bauen?
+      Oder will er Tausende von zusätzlichen Polizisten dafür einstellen?
+      Welche Steuern will er dafür erhöhen?
     * <span style="color: blue"><b>Einreiseverbot</b> für alle Personen, die
       keine gültigen Einreisedokumente besitzen, unabhängig davon, ob sie ein
       Schutzgesuch äußern oder nicht - die europäischen Nachbarstaaten seien
@@ -458,6 +473,12 @@ eigentliche Skandal der Wortbruch bzgl. folgender zwei Aussagen:
   davor zu Bewahren, dass wir plötzlich Zufallsmehrheiten im Saal mit der AfD
   oder den Linken haben. Ich will das nicht." (Quelle: Phoenix vor Ort, auf
   [YouTube](https://www.youtube.com/watch?v=xBAFj4Bp4aY)).
+* [Thorsten Frei](https://de.wikipedia.org/wiki/Thorsten_Frei), 16.12.2024: "Wir werden deshalb nach der Vertrauensfrage in
+  keine großen Verhandlungen einsteigen, sondern mit Rot-Grün nur über Vorhaben
+  sprechen, die dringlich und zwingend geregelt werden müssen"
+  ([Quelle](https://www.tagesschau.de/inland/union-gesetze-nach-vertrauensfrage-100.html)).
+  Mit der Begründung wurde das [Kraftwerkssicherheitsgesetz von der Union blockiert](https://www.youtube.com/watch?v=Bz2g6G8uck4),
+  mit dem wasserstofffähige Gaskraftwerke ausgeschrieben werden sollten ([Quelle](https://www.bmwk.de/Redaktion/DE/Meldung/2024/20240911-kraftwerkssicherheitsgesetz.html)).
 
 Die Ampel hat keine Showanträge eingebracht, um die Union nicht vorzuführen
 ([Video](https://youtu.be/bnHoheqszKE?si=irXsfvf3E3RK5541&t=904)). Man hat sich
@@ -480,6 +501,36 @@ gebraucht](https://youtu.be/XZYbFHr2me8?si=eZF8dHySAuMlV2Xy&t=120) zeigt damit:
 Wenn es der CDU in den Kram passt, arbeitet sie mit der
 AfD zusammen und bricht gleichzeitig ihr Wort.
 
+## Was gewinnt Merz?
+
+Man kann bei geplanten Abstimmungen wohl ausschließen, dass die Vorgänge spontan
+oder unüberlegt waren. Dass ehrliche Sorge um Deutschland der Grund für sie ist,
+ist wohl ausgeschlossen, weil man sonst ja mit der SPD und den Grünen eine
+gemeinsame Lösung gesucht hätte, die dann auch umgesetzt wird. Warum hat man
+ also den Antrag eingebracht? Ich sehe folgende Gründe:
+
+1. **Wahlkampf um Rechte Stimmen**: Die AfD hat bei dem Antrag am Mittwoch und
+  dem Zustrombegrenzungsgesetz am Freitag gejubelt. Bei den Wählern sieht es
+  sicher ähnlich aus. Um Julia Klöckner zu zitieren: [Für das, was Ihr wollt, müsst Ihr nicht AfD wählen. Dafür gibt es eine demokratische Alternative: die CDU.](https://www.tagesschau.de/inland/regional/rheinlandpfalz/swr-wirbel-um-aussagen-von-julia-kloeckner-cdu-zur-afd-102.html).
+2. **Vorbereitung auf Minderheitsregierung**: Die CDU/CSU könnte aus machtpolitischen
+   Gründen eine [Minderheitsregierung](https://de.wikipedia.org/wiki/Minderheitsregierung#Deutschland) unter Duldung der AfD anstreben. Mit den Grünen will Söder nicht zusammenarbeiten
+   und auch die SPD mit Scholz schließt Söder aus ([Quelle](https://www.tagesschau.de/inland/innenpolitik/soeder-union-koalition-spd-100.html)). Da wirds schon eng.
+3. **Vorbereitung auf Koalition mit der AfD**: Im Prinzip ein ähnlicher Gedanke
+   wie der vorherige. Das hängt sehr von der Stimmung im Land und von der
+   Stärke der AfD ab. Aktuell halte ich das für unwahrscheinlich. Noch, am
+   [2. Februar 2025](https://youtu.be/FXSAAttjI2s?si=UDngwRkeSSWn9gbX&t=49), schließt
+   Merz eine Zusamenarbeit mit der AfD aus. Allerdings behauptet er auch noch, dass
+   die CDU nie mit ihr zusammengearbeitet hat.
+4. **Vorbereitung auf AfD-Verbot**: Die AfD könnte nach der Wahl verboten werden
+   ([Quelle](https://netzpolitik.org/2025/verdachtsfall-rechtsextremismus-wir-veroeffentlichen-das-1-000-seitige-verfassungsschutz-gutachten-zur-afd/)).
+   Das [Parteiverbot](https://de.wikipedia.org/wiki/Parteiverbot) führt zu einem
+   sofortigem Mandatsverlust. Das bedeutet, dass sich die Mehrheitsverhältnisse
+   ändern. Hätte die Union bei der Wahl 37% der Sitze und die AfD 27% durch die
+   5%-Hürde, so würde ein Verbot der AfD bedeuten, dass die Union bei 51% wäre.
+
+
+
+
 ## Psychologische Aspekte
 
 Wir haben Millionen Ausländer in Deutschland, die unsere Pflegeheime am laufen
@@ -494,12 +545,25 @@ Bild von Deutschland in der Welt:
 
 * Friedrich Merz, 27.09.2022: Wirft ukrainischen Flüchtlingen "Sozialtourismus"
   vor ([Videoquelle auf YouTube](https://www.youtube.com/watch?v=hG0LDtljwm4)
-  der "Welt")
+  der "Welt"); am 30.01.2024 hat er behauptet, dass die Einwanderung "fast außschließlich in die sozialen Sicherungssysteme erfolgt" und damit das Narrativ das faulen
+  Ausländers bedient ([Quelle](https://www.youtube.com/watch?v=bzgg9erfNaU)).
 * Friedrich Merz, 11.01.2023: Nennt 8-jährige Kinder aus dem arabischen Raum
   "kleine Paschas" und will diese abschieben, wenn sie sich in der Schule
   daneben benehmen ([Videoquelle auf
   YouTube](https://www.youtube.com/watch?v=mhImgqj_HL4))
 
+Das ist bereits im Osten ein Problem
+([1](https://www.mdr.de/nachrichten/sachsen/dresden/dresden-radebeul/familie-westen-osten-alltag-rassismus-wegzug-fachkraefte-100.html),
+[2](https://www.zdf.de/nachrichten/politik/deutschland/landtagswahlen-herbst-afd-diskriminierung-100.html),
+[3](https://www.rnd.de/wirtschaft/warum-rassismus-fuer-ostdeutschlands-wirtschaft-zum-problem-wird-ULFEZGPHDBAVDIQVIIUFOHIPYA.html),
+[4](https://www.mdr.de/nachrichten/podcast/mdr-investigativ/podcast-ost-rassismus-investigativ100.html),
+[5](https://www.tiktok.com/@vylogs7/video/7465427595769826582)).
+
 Wer will in ein solches Land kommen? Wenn wir uns weiter entscheiden Ausländer
 prinzipiell als Problem zu diskutieren, bekommen die Rechten
 irgendwann was sie wollen: Ein Land, in das niemand mehr kommen will.
+
+## Siehe auch
+
+* BPB: [Demografie von Asylsuchenden in Deutschland](https://www.bpb.de/themen/migration-integration/zahlen-zu-asyl/265710/demografie-von-asylsuchenden-in-deutschland/#node-content-title-2), 10.01.2024.
+* Tagesschau.de: [Asylbewerber, Flüchtlinge, Migranten - was sind die Unterschiede?](https://www.tagesschau.de/inland/fluechtlinge-531.html), 07.08.2015.
