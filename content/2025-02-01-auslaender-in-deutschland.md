@@ -364,6 +364,11 @@ vernünftigen Problemanalyse kann zuverlässig funktionierende Lösungen finden.
 
 ## Fehlerhafte Problemanalyse
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/02/keks.jpg"><img src="../images/2025/02/keks.jpg" alt="Abegwandelte Karrikatur; ursprünglich von Denis Lushch" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Abegwandelte Karrikatur; ursprünglich von <a href="https://www.instagram.com/d.lushch.art/">Denis Lushch</a></figcaption>
+</figure>
+
 Im aktuellen CDU-Wahlprogramm steht: "Großangelegter Sozialleistungsmissbrauch,
 im Inland und von im Ausland lebenden Menschen, muss beendet werden".
 2022 wurde der Schaden auf 273 Millionen Euro geschätzt ([Quelle](https://www.zdf.de/nachrichten/wirtschaft/sozialbetrug-clans-ausmass-100.html)). Für Cum-Cum/Cum-Ex beträgt das Volumen hingegen [mindestens 35 Milliarden in
@@ -386,6 +391,18 @@ etwa [2760 Verkehrstote und 2.510.000 Unfälle in Deutschland](https://www.adac.
 auf der A4 bei Dresden. Wenn wir so einfach ohne nennenswerte Kosten hunderte
 von Menschen retten könnten, geht es Merz offensichtlich nicht um Menschenleben.
 Sonst müsste er ein generelles Tempolimit fordern.
+
+Und wenn es um psychisch kranke Menschen geht:
+
+* In Deutschland sitzen derzeit etwa 45.000 Personen in Justizvollzuganstalten
+  ein. Schätzungen zu Folge leiden bis zu 88 % dieser Personen unter einer oder
+  mehreren psychischen Erkrankungen ([Quelle](https://www.dgppn.de/presse/pressemitteilungen/pressemitteilungen-2022/psychisch-erkrankte-straftaeter.html)).
+* Gerade auf dem Land fehlen Therapeuten, es gibt Wartezeit von bis zu einem Jahr ([Quelle](https://www.tagesschau.de/inland/gesellschaft/psychotherapie-platz-101.html))
+* Es ist unbekannt wie viele Menschen eine Therapie benötigen, aber keine
+  bekommen. Oder sich nicht trauen überhaupt danach zu suchen, weil
+  [Linnemann ein Zwangsregister für psychisch kranke will](https://www.zdf.de/nachrichten/politik/deutschland/linnemann-register-psychisch-kranke-gewalttaeter-cdu-kommentar-100.html)
+  und [Berufsverbote drohen](https://www.aerztezeitung.de/Wirtschaft/Psychische-Krankheit-kann-zu-Berufsverbot-fuehren-218005.html).
+
 
 ## 2 Wortbrüche = 1 Dammbruch?
 
@@ -417,13 +434,21 @@ diesen Artikel zu schreiben:
     * <span style="color: blue"><b>Inhaftierung vollziehbar
       Ausreisepflichtigen</b>, auch in leerstehende Kasernen und
       Containerbauten. Abschiebungen müssten "täglich stattfinden", regelmäßig
-      auch nach Afghanistan und Syrien.</span> Hier bin ich mir unsicher, was
-      das bedeuten würde. Hört sich für mich erst mal sinnvoll an - das würde
-      aber sicher wieder deutliche Kosten verursachen. Vielleicht kann mir
-      jemand mehr dazu schreiben.
+      auch nach Afghanistan und Syrien.</span> Kasernen und Containerbauten sind
+      keine Gefängnisse, man müsste also für teures Geld Umbaumaßnahmen
+      durchführen. Ob und wann Abschiebungen stattfinden ist nicht nur von
+      Deutschland abhängig, sondern auch vom Zielland. Nehmen wir mal optimistisch
+      an, dass es im Schnitt 20 Tage wären. Seit 2014 haben wir im Schnitt etwa
+      [20.000 Menschen pro Jahr](https://de.statista.com/statistik/daten/studie/451861/umfrage/abschiebungen-aus-deutschland/) abgeschoben. Ein Tag im Gefängnis kostet
+      im Schnitt [110€/Tag](https://fragdenstaat.de/anfrage/inhaftierungskosten-in-justizvollzugsanstalten/), also würden wir jährlich
+      2.2&nbsp;Millionen EUR nur dafür ausgeben. Zusätzlich muss man sagen, dass in
+      [Afghanistan](https://de.wikipedia.org/wiki/Afghanistan) die Taliban
+      herrschen und [in Syrien ist der IS stark](https://www.auswaertiges-amt.de/de/service/laender/syrien-node/syriensicherheit-204278). Menschenrechte verbieten, dass wir
+      Menschen in solche Länder abschieben - auch wenn sie dort geboren sind
+      und auch wenn sie hier straffällig geworden sind.
     * <span style="color: blue">Unterstützung für die Länder beim <b>Vollzug der Ausreisepflicht</b>. Die
       Bundespolizei soll Haftbefehle für Abschiebehaft oder Ausreisegewahrsam
-      beantragen können.</span> Auch das kann ich schwer beurteilen.
+      beantragen können.</span> Hier bin ich mir unsicher, was das bedeuten würde. Hört sich für mich erst mal sinnvoll an. Vielleicht kann mir jemand mehr dazu schreiben.
     * <span style="color: blue">Ausreisepflichtige Straftäter und Gefährder sollen in einem <b>zeitlich
       unbefristeten Ausreisearrest</b> bleiben, bis sie freiwillig in ihr Heimatland
       zurückkehren oder die Abschiebung vollzogen werden könne.</span>. Einze
@@ -533,6 +558,8 @@ gemeinsame Lösung gesucht hätte, die dann auch umgesetzt wird. Warum hat man
 
 ## Psychologische Aspekte
 
+<img src="../images/2025/02/asian-elderly-care-worker.jpg" style="width: 500px;" />
+
 Wir haben Millionen Ausländer in Deutschland, die unsere Pflegeheime am laufen
 halten, unsere Kranken versorgen, unsere Kinder betreuen, an den Kassen im Aldi
 sitzen und unsere Pakete ausliefern. Millionen Menschen, die gute und wichtige
@@ -557,11 +584,28 @@ Das ist bereits im Osten ein Problem
 [2](https://www.zdf.de/nachrichten/politik/deutschland/landtagswahlen-herbst-afd-diskriminierung-100.html),
 [3](https://www.rnd.de/wirtschaft/warum-rassismus-fuer-ostdeutschlands-wirtschaft-zum-problem-wird-ULFEZGPHDBAVDIQVIIUFOHIPYA.html),
 [4](https://www.mdr.de/nachrichten/podcast/mdr-investigativ/podcast-ost-rassismus-investigativ100.html),
-[5](https://www.tiktok.com/@vylogs7/video/7465427595769826582)).
+[5](https://www.tiktok.com/@vylogs7/video/7465427595769826582)). Und jetzt
+wird es verschärft. [Deutsche Kinder mit Migrationshintergrund bekommen Angst](https://vm.tiktok.com/ZNeojTASp/).
 
 Wer will in ein solches Land kommen? Wenn wir uns weiter entscheiden Ausländer
 prinzipiell als Problem zu diskutieren, bekommen die Rechten
 irgendwann was sie wollen: Ein Land, in das niemand mehr kommen will.
+
+
+## Über wen reden wir?
+
+Aleksa Muncan, Auszubildender für Altenpflege, unterstützt seine Familie in
+Deutschland:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DI913gTxprU?si=NtyTut5Fj29ZQQ9X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+"Geduldete":
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kUQdzM6L6bc?si=cGgOu2K4mzKFltly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Syrer, die ihre ganze Kindheit in Deutschland verbracht haben:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pWAsYcqXdQQ?si=GjZoDf1sJYwmV26y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Siehe auch
 
