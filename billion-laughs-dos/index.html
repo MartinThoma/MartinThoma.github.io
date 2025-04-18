@@ -150,12 +150,12 @@ MathJax.Hub.Queue(function() {
 </ul>
 <p>So, how do you do this with Python?</p>
 <p>The resource restriction is easiest:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">resource</span>
-<span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">resource</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
 
 
 <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">limit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Temporarily limit a resource."""</span>
     <span class="n">soft_limit</span><span class="p">,</span> <span class="n">hard_limit</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">getrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">)</span>
     <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="n">hard_limit</span><span class="p">))</span>  <span class="c1"># set soft limit</span>
@@ -165,7 +165,7 @@ MathJax.Hub.Queue(function() {
         <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource_type</span><span class="p">,</span> <span class="p">(</span><span class="n">soft_limit</span><span class="p">,</span> <span class="n">hard_limit</span><span class="p">))</span>  <span class="c1"># restore</span>
 
 
-<span class="k">def</span> <span class="nf">dangerous_call</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dangerous_call</span><span class="p">():</span>
     <span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">5</span><span class="p">)]</span>
 
 

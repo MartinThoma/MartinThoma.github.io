@@ -150,13 +150,13 @@ completely when you try to investigate them. As an example, imagine a bank
 account. You have one process P-in which receives ingoing transactions and
 another process P-out that handles outgoing transactions:</p>
 <p>P1:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">pay_amount</span><span class="p">):</span>  <span class="c1"># L0</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">transfer_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">pay_amount</span><span class="p">):</span>  <span class="c1"># L0</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L1</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">-</span> <span class="n">pay_amount</span>  <span class="c1"># L2</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L3</span>
 </code></pre></div>
 <p>P2:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L5</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">+</span> <span class="n">get_amount</span>  <span class="c1"># L6</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L7</span>

@@ -150,7 +150,7 @@ MathJax.Hub.Queue(function() {
 <p>Input validation and proper escaping are the keys to prevent SQL injections. Preventing SQL injections in this case also helps the poor users who actually wanted to have a ' within their username/password. Never blindly trust user input. Don&rsquo;t use simple string concatenation to build SQL queries with parameters supplied by the user.</p>
 <p>You might be tempted to think that removing the quotes is enough. This, however, might cause problems within your application. Then you could escape the quotes. This is certainly a good step, but you have to watch out that the escaping isn&rsquo;t broken and that you don&rsquo;t forget anything.</p>
 <p>Instead of doing this manually, you should use <a href="https://docs.sqlalchemy.org/en/13/core/tutorial.html#bind-parameter-objects">parameter binding</a>. In Python, it looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy.sql</span> <span class="kn">import</span> <span class="n">text</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">text</span>
 
 <span class="c1"># Create a connection conn</span>
 <span class="n">stmt</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span>
@@ -160,14 +160,14 @@ MathJax.Hub.Queue(function() {
 <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">prams</span><span class="o">=</span><span class="p">{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">})</span>
 </code></pre></div>
 <p>Another way to prevent SQL injections is to use an ORM which does the input sanitation for you:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.ext.declarative</span><span class="w"> </span><span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">sessionmaker</span>
 
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"users"</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">password</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>

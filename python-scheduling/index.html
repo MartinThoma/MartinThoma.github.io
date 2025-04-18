@@ -136,10 +136,10 @@ often. For each website. Lets say we have</p>
 
 <span class="sd">"""Example for a notification on Ubuntu 16.04."""</span>
 
-<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
 
-<span class="k">def</span> <span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"notify-send"</span><span class="p">,</span> <span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
     <span class="k">return</span>
 
@@ -162,10 +162,10 @@ often. For each website. Lets say we have</p>
 
 <span class="sd">"""How to receive the last-modified header."""</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 
-<span class="k">def</span> <span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Get the Last-Modified header of an URL."""</span>
     <span class="n">header</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
     <span class="k">if</span> <span class="s2">"Last-Modified"</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
@@ -194,14 +194,14 @@ edit all entries independently.</p>
 
 <span class="sd">"""How to receive the last-modified header."""</span>
 
-<span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Process</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
@@ -211,19 +211,19 @@ edit all entries independently.</p>
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">"notify-send"</span><span class="p">,</span> <span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
     <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">";"</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">'"'</span><span class="p">)</span>
         <span class="n">data_read</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">data_read</span>
 
 
-<span class="k">def</span> <span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Get the Last-Modified header of an URL."""</span>
     <span class="n">header</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
     <span class="k">if</span> <span class="s2">"Last-Modified"</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
@@ -232,7 +232,7 @@ edit all entries independently.</p>
         <span class="k">return</span> <span class="kc">None</span>
 
 
-<span class="k">def</span> <span class="nf">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">line_nr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"line_nr=</span><span class="si">{line_nr}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">)</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Start job for '</span><span class="si">{name}</span><span class="s2">'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]))</span>
@@ -241,7 +241,7 @@ edit all entries independently.</p>
     <span class="k">return</span> <span class="n">p</span>
 
 
-<span class="k">def</span> <span class="nf">job_runner</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">job_runner</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
     <span class="n">intervall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"intervall"</span><span class="p">])</span>
@@ -271,7 +271,7 @@ edit all entries independently.</p>
             <span class="k">return</span>
 
 
-<span class="k">def</span> <span class="nf">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">last_modified_website</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">last_modified_website</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
     <span class="c1"># Race conditions!</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span>
@@ -292,7 +292,7 @@ edit all entries independently.</p>
             <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">csv_filepath</span> <span class="o">=</span> <span class="s2">"jobs.csv"</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobs</span><span class="p">):</span>

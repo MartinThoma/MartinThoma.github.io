@@ -172,15 +172,15 @@ possibilities.</p>
 contains publication data from almost 2 million publications.</p>
 <p>Use <a href="https://github.com/IsaacChanghau/DBLPParser">DBLPParser</a> to create a CSV
 file.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">progressbar</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">progressbar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
 
-<span class="kn">import</span> <span class="nn">clana.io</span>
-<span class="kn">import</span> <span class="nn">clana.visualize_cm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.visualize_cm</span>
 
 <span class="c1"># Load the data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"articles.csv"</span><span class="p">)</span>
@@ -201,7 +201,7 @@ file.</p>
 <span class="n">unique_authors</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">author_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
 
-<span class="k">def</span> <span class="nf">get_biggest_clusters</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_biggest_clusters</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">:</span>
@@ -217,7 +217,7 @@ file.</p>
     <span class="k">return</span> <span class="n">components</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">create_matrix</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_matrix</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">):</span>
     <span class="n">n2i</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">node</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">))])</span>
     <span class="c1"># node to index</span>
     <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
@@ -279,15 +279,15 @@ together (click on it to see large version):</p>
 <p>Thoma, Martin. "Analysis and optimization of convolutional neural network architectures." <a href="https://arxiv.org/pdf/1707.09725.pdf">arXiv preprint arXiv:1707.09725</a> (2017). Chapter 5.2.</p>
 </blockquote>
 <h2 id="movielens-20m_1">MovieLens 20M</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">progressbar</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">progressbar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
 
-<span class="kn">import</span> <span class="nn">clana.io</span>
-<span class="kn">import</span> <span class="nn">clana.visualize_cm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">clana.visualize_cm</span>
 
 <span class="c1"># Load the data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"movies.csv"</span><span class="p">)</span>
@@ -307,7 +307,7 @@ together (click on it to see large version):</p>
 <span class="n">unique_genres</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">value_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 
 
-<span class="k">def</span> <span class="nf">get_biggest_clusters</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_biggest_clusters</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">authorset</span> <span class="ow">in</span> <span class="n">edges</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">authorset</span><span class="p">:</span>
@@ -323,7 +323,7 @@ together (click on it to see large version):</p>
     <span class="k">return</span> <span class="n">components</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">create_matrix</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_matrix</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">):</span>
     <span class="n">n2i</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">node</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nodes</span><span class="p">))])</span>
     <span class="c1"># node to index</span>
     <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>

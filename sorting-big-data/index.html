@@ -248,10 +248,10 @@ processes:</p>
 </ul>
 <h3 id="heap-sort">Heap Sort</h3>
 <p>Basically the same idea as with merge sort, but using heapq:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">heapq</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">heapq</span>
 
 
-<span class="k">def</span> <span class="nf">merge_files</span><span class="p">(</span><span class="n">filepath1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">filepath2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">outpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_files</span><span class="p">(</span><span class="n">filepath1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">filepath2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">outpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Using heapq to merge two files.</span>
 
@@ -284,8 +284,8 @@ deal of the sorting which makes the combining step trivial.</p>
 <p>Most of the time is spent on sorting. However, I only used one core. So we can
 improve the wall-clock execution time by running on multiple cores!</p>
 <p>To do so, we make a minor adjustment:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sort_chunks</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-    <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sort_chunks</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
 
     <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
     <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sort_chunk</span><span class="p">,</span> <span class="n">state</span><span class="p">[</span><span class="s2">"chunks_to_sort"</span><span class="p">])</span>
@@ -346,8 +346,8 @@ but didn't receive an answer so far.</p>
 <h3 id="dask">Dask</h3>
 <p>I wanted to give <a href="https://dask.org/">Dask</a> a try and got some help from. However, I interrupted the
 execution of the following solution after 5 hours:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dask</span>
-<span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">dask</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dd</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="s2">"numbers-large.txt"</span>
 <span class="n">output_file</span> <span class="o">=</span> <span class="s2">"numbers-large-sorted-dask.txt"</span>
@@ -371,10 +371,10 @@ and use SQL to sort:</p>
 <div class="highlight"><pre><span></span><code><span class="sd">"""Sort a huge amount of data by inserting it into SQLite."""</span>
 
 <span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
     <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
@@ -385,7 +385,7 @@ and use SQL to sort:</p>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">db_filepath</span> <span class="o">=</span> <span class="s2">"numbers-large.sqlite"</span>
     <span class="n">output_filepath</span> <span class="o">=</span> <span class="s2">"sqlite-sorted-numbers.txt"</span>
 
@@ -401,7 +401,7 @@ and use SQL to sort:</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sorting and writing with sqlite finished in </span><span class="si">{</span><span class="n">t1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">create_db</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">db_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_db</span><span class="p">(</span><span class="n">big_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">db_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">):</span>
     <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">)</span>
 
     <span class="c1"># Create the table</span>
@@ -428,7 +428,7 @@ and use SQL to sort:</p>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Finished creation of SQLiteDB"</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">read_sort_write</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_sort_write</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filepath</span><span class="p">)</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT i FROM numbers ORDER BY i ASC"</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>

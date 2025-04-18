@@ -156,12 +156,12 @@ xxxx     unsigned byte   ??               pixel
 </ul>
 <p>As the training and the testing dataset is structured the same way, we can
 create a method thad retrives the data for both files.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">float32</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">struct</span><span class="w"> </span><span class="kn">import</span> <span class="n">unpack</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">float32</span>
 
 
-<span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Read input-vector (image) and target class (label, 0-9) and return</span>
 <span class="sd">       it as list of tuples.</span>
 <span class="sd">    """</span>
@@ -208,10 +208,10 @@ create a method thad retrives the data for both files.</p>
 <h2 id="viewing-data">Viewing data</h2>
 <p>You might want to take a look at an image. This is easily possible with
 <a href="http://wiki.scipy.org/PyLab">PyLab</a> (which is a part of Matplotlib):</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
 
 
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""View a single image."""</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
@@ -254,16 +254,16 @@ layer and an output layer.</p>
 Every training step is followed by an evaluation step.</p>
 <p>By the way, <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html"><code>numpy.ravel</code></a>
 simply flattens a list.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ravel</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">ravel</span>
 
-<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
-<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
-<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
-<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
-<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassificationDataSet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">percentError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.tools.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">buildNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.supervised.trainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">BackpropTrainer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.structure.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">SoftmaxLayer</span>
 
 
-<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span>
     <span class="n">training</span><span class="p">,</span>
     <span class="n">testing</span><span class="p">,</span>
     <span class="n">HIDDEN_NEURONS</span><span class="p">,</span>
@@ -322,24 +322,24 @@ the data.</p>
 
 <span class="sd">"""Train NN with PyBrain."""</span>
 
-<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">float32</span><span class="p">,</span> <span class="n">ravel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">struct</span><span class="w"> </span><span class="kn">import</span> <span class="n">unpack</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">float32</span><span class="p">,</span> <span class="n">ravel</span>
 
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
 
-<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
-<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
-<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
-<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
-<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassificationDataSet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">percentError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.tools.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">buildNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.supervised.trainers</span><span class="w"> </span><span class="kn">import</span> <span class="n">BackpropTrainer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pybrain.structure.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">SoftmaxLayer</span>
 
-<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-<span class="kn">import</span> <span class="nn">os.path</span>
-<span class="kn">import</span> <span class="nn">cPickle</span> <span class="k">as</span> <span class="nn">pickle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cPickle</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pickle</span>
 
 
-<span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">,</span> <span class="n">picklename</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">,</span> <span class="n">picklename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Read input-vector (image) and target class (label, 0-9).</span>
 
@@ -395,14 +395,14 @@ the data.</p>
     <span class="k">return</span> <span class="n">data</span>
 
 
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""View a single image."""</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
     <span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span>
     <span class="n">training</span><span class="p">,</span>
     <span class="n">testing</span><span class="p">,</span>
     <span class="n">HIDDEN_NEURONS</span><span class="p">,</span>

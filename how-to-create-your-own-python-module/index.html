@@ -112,13 +112,13 @@ MathJax.Hub.Queue(function() {
 
             
             <p>A python module is a container for some definitions and statements. You generally call it like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 </code></pre></div>
 <p>or like that</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">ceil</span>
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mymath</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mymath</span>
 </code></pre></div>
 <p>Python modules can also be written in C or C++, but I'll only explain how to write the module in Python. Modules can be written in C++ for performance reasons. Just take a look at <code>/usr/lib/python3.1/lib-dynload</code> with all the *.so files (shared libraries).</p>
 <h2 id="python-paths">Python Paths</h2>
@@ -129,7 +129,7 @@ MathJax.Hub.Queue(function() {
 <li>the default search path</li>
 </ul>
 <p>You get your PYTHONPATH and your default search path like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"PATH"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"PYTHONPATH"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="p">)</span>
@@ -141,8 +141,8 @@ MathJax.Hub.Queue(function() {
 <span class="sd">"""</span>
 
 
-<span class="k">def</span> <span class="nf">miller_rabin</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">miller_rabin</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="w">    </span><span class="sd">""" Source: http://en.literateprograms.org/</span>
 <span class="sd">                    Miller-Rabin_primality_test_(Python)</span>
@@ -163,7 +163,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="kc">True</span>
 
 
-<span class="k">def</span> <span class="nf">miller_rabin_pass</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">miller_rabin_pass</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">a_to_power</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">a_to_power</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
@@ -174,7 +174,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">a_to_power</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">getPrimeFactors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">getPrimeFactors</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the prime factors of n.</span>
 
 <span class="sd">    If the result is small enough to fit in an int, return an int.</span>
@@ -186,7 +186,7 @@ MathJax.Hub.Queue(function() {
 <span class="sd">    &gt;&gt;&gt; getPrimeFactors(36)</span>
 <span class="sd">    [2, 2, 3, 3]</span>
 <span class="sd">    """</span>
-    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"n must be &gt;= 0"</span><span class="p">)</span>
@@ -224,7 +224,7 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </code></pre></div>

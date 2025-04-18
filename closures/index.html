@@ -118,22 +118,22 @@ first-class functions.</p>
 <p>This post is triggered by <a href="https://stackoverflow.com/q/52481607/562769">this question</a>
 and the nice answer by Martijn Pieters.</p>
 <p>Here is a super short example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cons</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">pair</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cons</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pair</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">pair</span>
 
 
-<span class="k">def</span> <span class="nf">car</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">return_first</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">return_first</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span>
 
     <span class="k">return</span> <span class="n">pair</span><span class="p">(</span><span class="n">return_first</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">cdr</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">return_last</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cdr</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">return_last</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">b</span>
 
     <span class="k">return</span> <span class="n">pair</span><span class="p">(</span><span class="n">return_last</span><span class="p">)</span>
@@ -162,28 +162,28 @@ you explain it?</p>
    context of <code>cons</code>. Then <code>return_first</code> is called within that context.</li>
 </ol>
 <p>Once you print some intermediate results you get a better understanding:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">cons</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cons</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"cons called with a=</span><span class="si">{}</span><span class="s2">, b=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">pair</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pair</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"pair called with a=</span><span class="si">{}</span><span class="s2">, b=</span><span class="si">{}</span><span class="s2">, f=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">pair</span>
 
 
-<span class="k">def</span> <span class="nf">car</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">car</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"car called with pair=</span><span class="si">{}</span><span class="s2"> (a, b are undefined)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">return_first</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">return_first</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"return_first called with x=</span><span class="si">{}</span><span class="s2">, y=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">x</span>
 
     <span class="k">return</span> <span class="n">pair</span><span class="p">(</span><span class="n">return_first</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">cdr</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">return_last</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cdr</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">return_last</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">b</span>
 
     <span class="k">return</span> <span class="n">pair</span><span class="p">(</span><span class="n">return_last</span><span class="p">)</span>
@@ -211,8 +211,8 @@ but closures are super popular in JavaScript.</p>
 can be used to create simpler functions where some of the arguments are already
 filled.</p>
 <p>It's implementation is roughly:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">partial</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">newfunc</span><span class="p">(</span><span class="o">*</span><span class="n">fargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fkeywords</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">partial</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">newfunc</span><span class="p">(</span><span class="o">*</span><span class="n">fargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fkeywords</span><span class="p">):</span>
         <span class="n">newkeywords</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">newkeywords</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fkeywords</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="n">fargs</span><span class="p">,</span> <span class="o">**</span><span class="n">newkeywords</span><span class="p">)</span>
@@ -223,10 +223,10 @@ filled.</p>
     <span class="k">return</span> <span class="n">newfunc</span>
 </code></pre></div>
 <p>And you can use it like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 
 
-<span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
 
 

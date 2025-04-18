@@ -117,7 +117,7 @@ programming language. This mini article shows two examples how to use them.</p>
 <a href="https://docs.python.org/3/library/re.html"><code>re</code></a>.</p>
 <h2 id="matches">Matches</h2>
 <p>The simplest applicataion of <code>re</code> is to check if a pattern matches a text:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"ipsum"</span>
@@ -131,7 +131,7 @@ programming language. This mini article shows two examples how to use them.</p>
 you need <code>pattern = ".+ipsum.+"</code>... or use <code>search</code></p>
 <h2 id="search">Search</h2>
 <p>Check if a pattern is within a text:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"ipsum"</span>
@@ -144,7 +144,7 @@ you need <code>pattern = ".+ipsum.+"</code>... or use <code>search</code></p>
 <h2 id="replacing-spaces">Replacing Spaces</h2>
 <p>Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a
 single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
 <span class="n">replaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -154,20 +154,20 @@ single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):
 This has also the advantage that you can specify that you want to match newline
 characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
 <a href="https://docs.python.org/3/library/re.html#re.DOTALL"><code>re.DOTALL</code></a> flag.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
 <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="unquoting">Unquoting</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 
-<span class="k">def</span> <span class="nf">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Remove 'test'."""</span>
 
-    <span class="k">def</span> <span class="nf">unquote</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unquote</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">" </span><span class="si">%s</span><span class="s2"> "</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 
     <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">" '([^ ]+?.*[^ ]+?)' "</span><span class="p">)</span>
@@ -180,7 +180,7 @@ characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
 <h2 id="all-paragraphs">All paragraphs</h2>
 <p>If you want to get the content within all paragraph tags (<code>&lt;p&gt; ... &lt;/p&gt;</code> in
 arbitrary spacing) you can use:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"&lt;p&gt;(.*?)&lt;/p&gt;"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>

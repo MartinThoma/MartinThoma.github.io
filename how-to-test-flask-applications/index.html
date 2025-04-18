@@ -136,19 +136,19 @@ MathJax.Hub.Queue(function() {
 <h2 id="how-to-test-routes">How to test Routes</h2>
 <p>Routes typically look like this in Flask:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
-<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask_sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">SQLAlchemy</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_app</span><span class="p">():</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
     <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
     <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/square"</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">square</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">():</span>
         <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"number"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -160,11 +160,11 @@ MathJax.Hub.Queue(function() {
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
 <p>The documentation of Flask contains <a href="https://flask.palletsprojects.com/en/1.1.x/testing/">Testing Flask Applications</a> which covers this topic. It especially contains an example how to create a pytest fixture. Imagine a fixture like a way to set things up before your tests and to clean up after the test run. In this simple example, we assume that your application is a proper Python package and called flaskr . You can download an example from Github <a href="https://github.com/pallets/flask/tree/1.1.2/examples/tutorial/flaskr">flask/examples/tutorial/flaskr</a> . The fixture in this simple case looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span>
     <span class="c1"># Prepare before your test</span>
     <span class="n">flaskr</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">with</span> <span class="n">flaskr</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
@@ -176,21 +176,21 @@ MathJax.Hub.Queue(function() {
 <p>pytest fixtures are a bit magical. You can give them as a parameter to the test, but you don&rsquo;t have to execute it. The fixture just has to be discoverable by pytest.</p>
 <p>The complete test then looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">create_app</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">app</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_app</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">client</span>
 
 
-<span class="k">def</span> <span class="nf">test_square</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_square</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/square?number=8"</span><span class="p">)</span>
     <span class="k">assert</span> <span class="sa">b</span><span class="s2">"64"</span> <span class="o">==</span> <span class="n">rv</span><span class="o">.</span><span class="n">data</span>
 </code></pre></div>
@@ -208,15 +208,15 @@ create and interact with (see
 <a href="https://martin-thoma.com/key-value-stores/#benchmark_1">benchmark</a>).</p>
 <p>You can adjust the client fixture like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">mini_app.app</span> <span class="kn">import</span> <span class="n">create_app</span><span class="p">,</span> <span class="n">db</span>
-<span class="kn">from</span> <span class="nn">mini_app.models</span> <span class="kn">import</span> <span class="n">Author</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mini_app.app</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_app</span><span class="p">,</span> <span class="n">db</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mini_app.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Author</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
 
     <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">"TESTING"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -235,7 +235,7 @@ create and interact with (see
     <span class="k">yield</span> <span class="n">client</span>
 </code></pre></div>
 <p>Now you can easily run your tests against the fake database:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_author</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_author</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/author/1"</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">json</span> <span class="o">==</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"first_name"</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"last_name"</span><span class="p">:</span> <span class="s2">"bar"</span><span class="p">}</span>
 </code></pre></div>
@@ -247,10 +247,10 @@ create and interact with (see
 <h3 id="basic-access-authentication">Basic Access Authentication</h3>
 <p>You can provide the necessary credentials in the header within the test:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="kn">import</span> <span class="n">b64encode</span>
 
 
-<span class="k">def</span> <span class="nf">test_protected_route</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_protected_route</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
     <span class="n">credentials</span> <span class="o">=</span> <span class="n">b64encode</span><span class="p">(</span><span class="sa">b</span><span class="s2">"user:password"</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
     <span class="n">route</span> <span class="o">=</span> <span class="s2">"protected/route"</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Basic "</span> <span class="o">+</span> <span class="n">credentials</span><span class="p">})</span>
@@ -288,7 +288,7 @@ cause. This is what happens most often to me.</p>
 <h3 id="status-code-testing">Status Code Testing</h3>
 <p>By calling a view and making sure that the <code>assert rv.status_code == 200</code> you
 can already capture Problem 1 and 2:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_main_route_status_code</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_main_route_status_code</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">route</span> <span class="o">=</span> <span class="s2">"/"</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">rv</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
@@ -298,19 +298,19 @@ can already capture Problem 1 and 2:</p>
 <h3 id="testing-the-template-context">Testing the Template Context</h3>
 <p>This one needed a lot of trail and error, but I finally managed to get some pytest fixtures with which you have a better control over the variables passed to the templates. I love it 😍</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">template_rendered</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">template_rendered</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">mini_app.app</span> <span class="kn">import</span> <span class="n">create_app</span><span class="p">,</span> <span class="n">db</span>
-<span class="kn">from</span> <span class="nn">mini_app.models</span> <span class="kn">import</span> <span class="n">Author</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mini_app.app</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_app</span><span class="p">,</span> <span class="n">db</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mini_app.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Author</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">app</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Create application for the tests."""</span>
     <span class="n">_app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
     <span class="n">_app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
@@ -335,16 +335,16 @@ can already capture Problem 1 and 2:</p>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span>
     <span class="k">yield</span> <span class="n">client</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">captured_templates</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">captured_templates</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
     <span class="n">recorded</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">record</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">extra</span><span class="p">):</span>
         <span class="n">recorded</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">template</span><span class="p">,</span> <span class="n">context</span><span class="p">))</span>
 
     <span class="n">template_rendered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
@@ -354,7 +354,7 @@ can already capture Problem 1 and 2:</p>
         <span class="n">template_rendered</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
 </code></pre></div>
 <p>And this is how you can use it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_main_route_status_code_number3</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">captured_templates</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_main_route_status_code_number3</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">captured_templates</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">route</span> <span class="o">=</span> <span class="s2">"/?number=3"</span>
     <span class="n">rv</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">route</span><span class="p">)</span>
 
@@ -387,14 +387,14 @@ applications for load testing. Being a Python user, I prefer to stay in Python
 and for this reason I&rsquo;ll briefly present <a href="https://locust.io/">Locust</a>. You can
 create a <code>locustfile.py</code> with this content:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
-<span class="kn">from</span> <span class="nn">locust</span> <span class="kn">import</span> <span class="n">HttpUser</span><span class="p">,</span> <span class="n">between</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">locust</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpUser</span><span class="p">,</span> <span class="n">between</span><span class="p">,</span> <span class="n">task</span>
 
 
-<span class="k">class</span> <span class="nc">MyWebsiteUser</span><span class="p">(</span><span class="n">HttpUser</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyWebsiteUser</span><span class="p">(</span><span class="n">HttpUser</span><span class="p">):</span>
     <span class="n">wait_time</span> <span class="o">=</span> <span class="n">between</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 
     <span class="nd">@task</span>
-    <span class="k">def</span> <span class="nf">load_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
 </code></pre></div>
 <p>Then you run</p>

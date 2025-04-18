@@ -144,14 +144,14 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <span class="c1"># Based on: http://en.wikipedia.org/wiki/File:Collatz-graph-all-30-no27.svg</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">writeDotfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">explored</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">writeDotfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">explored</span><span class="p">):</span>
     <span class="n">dotfile</span> <span class="o">=</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
 
     <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"digraph {</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -169,8 +169,8 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">createPng</span><span class="p">(</span><span class="n">dotfile</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">os</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">createPng</span><span class="p">(</span><span class="n">dotfile</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
     <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s2">" -Tsvg "</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s2">" -o "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".svg"</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
@@ -182,7 +182,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">argparse</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Graph for small Collatz sequences"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
@@ -205,7 +205,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="n">writeDotfile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
     <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
 </code></pre></div>

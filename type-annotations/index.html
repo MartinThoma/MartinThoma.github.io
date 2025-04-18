@@ -114,7 +114,7 @@ MathJax.Hub.Queue(function() {
             <p>One reason why Python is so easy to get started with is that it has dynamic types. You don&rsquo;t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an undocumented function without types and maybe crappy variable naming, new developers will have a hard time. Luckily, variable annotations were added in Python 3.6 with <a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> 🎉</p>
 <p>This article is written in such a way that you can easily stop after the &ldquo;mypy&rdquo; section and take only a look at individual section then.</p>
 <h2 id="hello-typed-annotated-world">Hello, Typed Annotated World!</h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -126,7 +126,7 @@ MathJax.Hub.Queue(function() {
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>So you can simply use the pattern</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">param_name</span><span class="p">:</span> <span class="n">typename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">return_type_name</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">some_function</span><span class="p">(</span><span class="n">param_name</span><span class="p">:</span> <span class="n">typename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">return_type_name</span><span class="p">:</span>
     <span class="o">...</span>  <span class="c1"># whatever the function does</span>
 </code></pre></div>
 <p>Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use cPython, pypy or something more exotic.</p>
@@ -153,10 +153,10 @@ Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w">
 <p>It is important to note that the Python community and also mypy assumes that you come from a non-type annotated code base. They want to make it easy to you to switch to an annotated code and thus support <a href="https://en.wikipedia.org/wiki/Gradual_typing">gradual typing</a>. However, this means that you might miss errors if you don&rsquo;t annotate your code! Mypy has a lot of flags to help you to make the move. You don&rsquo;t need to annotate everything.</p>
 <h2 id="typing-list-dict-tuple-any">typing: List, Dict, Tuple, Any</h2>
 <p>The <a href="https://docs.python.org/3/library/typing.html">typing</a> module adds support for type hints. It contains some of the types you will use most often: List, Dict, and Tuple.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 
-<span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="n">fib_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">fib_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fib_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
@@ -173,10 +173,10 @@ Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w">
 <h1 id="type-ingore-explicitly-tell-the-typechecker-to-ignore-that-line">type: ingore : Explicitly tell the typechecker to ignore that line</h1>
 <h2 id="typing-union-and-optional">typing: Union and Optional</h2>
 <p>Pretty often, you want to accept multiple types. Then you use Union:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 
 
-<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]:</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
@@ -194,26 +194,26 @@ Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w">
 <p>Not all strings contain the same type of content. They can represent anuser_id , a user_name , a password_hash , &hellip;</p>
 <p>Especially for IDs I have seen this to become messy. I think it&rsquo;s pretty ridiculous to create an own class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?</p>
 <p>Don&rsquo;t worry, <a href="https://docs.python.org/3/library/typing.html#newtype">typing.NewType</a> got you covered!</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NewType</span>
 
 <span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"UserId"</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="typingoverload">typing.overload</h2>
 <p>typing.Union is actually an anti-pattern sometimes, because you can also <a href="https://docs.python.org/3/library/typing.html#typing.overload">overload</a> a function as <a href="https://github.com/python/mypy/issues/1693#issuecomment-618404849">Josh Reed</a> shows:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">overload</span>
 
 
 <span class="nd">@overload</span>
-<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="o">...</span>
 
 
 <span class="nd">@overload</span>
-<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
     <span class="o">...</span>
 
 
-<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
@@ -229,20 +229,20 @@ help. The solution was simple:
 This is <code>True</code> when running a type checker, but <code>False</code> during normal runs ❤️</p>
 <h2 id="protocols">Protocols</h2>
 <p><a href="https://www.python.org/dev/peps/pep-0544/">PEP 544</a> introduced structural subtyping and was introduced in Python 3.8. It feels like Interfaces in Java and works like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span>
 
 
-<span class="k">class</span> <span class="nc">SupportsClose</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SupportsClose</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="o">...</span>
 
 
-<span class="k">def</span> <span class="nf">finish_it</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">SupportsClose</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">finish_it</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">SupportsClose</span><span class="p">):</span>
     <span class="n">obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">close</span><span class="p">():</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">():</span>
         <span class="k">pass</span>
 
 
@@ -253,10 +253,10 @@ This is <code>True</code> when running a type checker, but <code>False</code> du
 <p>The cool part is that the class Foo has no explicit relationship to SupportsClose ! It is only related by its structure!</p>
 <h2 id="type-comments">Type comments</h2>
 <p>Type hints which are given as comments like this are outdated since Python 3.6:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span>
 
 
-<span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="c1"># type: (int) -&gt; Sequence[str]</span>
     <span class="n">fib_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -271,7 +271,7 @@ This is <code>True</code> when running a type checker, but <code>False</code> du
 </code></pre></div>
 <h2 id="stub-files">Stub files</h2>
 <p>Stub files end in .pyi . If mypy finds a .py file and a .pyi file, it only loads the .pyi file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis ... :</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="o">...</span>
 </code></pre></div>
 <h2 id="pyright-pyre-pytype">pyright, pyre, pytype</h2>
@@ -294,15 +294,15 @@ $<span class="w"> </span>pytype<span class="w"> </span>.
 <h2 id="pydantic">pydantic</h2>
 <p>Variable annotations can also be used to remove a lot of boilerplate code. For example, <a href="https://pydantic-docs.helpmanual.io/">pydantic</a> can help you with serialization / deserialization:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 <span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">pydantic.json</span>
-<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">parse_obj_as</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydantic.json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">parse_obj_as</span>
 
 
-<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
 

@@ -303,10 +303,10 @@ floatX=float32
 <p>To test your installation, save the following as <code>theanotest.py</code> and execute
 it with <code>python theanotest.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">function</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">shared</span><span class="p">,</span> <span class="n">sandbox</span>
-<span class="kn">import</span> <span class="nn">theano.tensor</span> <span class="k">as</span> <span class="nn">T</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">theano</span><span class="w"> </span><span class="kn">import</span> <span class="n">function</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">shared</span><span class="p">,</span> <span class="n">sandbox</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">theano.tensor</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="n">vlen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">768</span>  <span class="c1"># 10 x #cores x # threads per core</span>
 <span class="n">iters</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -377,31 +377,31 @@ $<span class="w"> </span>python<span class="w"> </span>setup.py<span class="w"> 
 it and evaluates the result for a single image:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">lasagne</span>
-<span class="kn">from</span> <span class="nn">lasagne</span> <span class="kn">import</span> <span class="n">layers</span>
-<span class="kn">from</span> <span class="nn">lasagne.updates</span> <span class="kn">import</span> <span class="n">nesterov_momentum</span>
-<span class="kn">from</span> <span class="nn">nolearn.lasagne</span> <span class="kn">import</span> <span class="n">NeuralNet</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lasagne</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lasagne</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lasagne.updates</span><span class="w"> </span><span class="kn">import</span> <span class="n">nesterov_momentum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nolearn.lasagne</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeuralNet</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 
 
 <span class="n">PY2</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
 
 <span class="k">if</span> <span class="n">PY2</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlretrieve</span>
 
-    <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
 
 <span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlretrieve</span>
 
-    <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
 
 
@@ -409,7 +409,7 @@ it and evaluates the result for a single image:</p>
 <span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s2">"mnist.pkl.gz"</span>
 
 
-<span class="k">def</span> <span class="nf">_load_data</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">DATA_FILENAME</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_data</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">DATA_FILENAME</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Load data from `url` and store the result in `filename`."""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Downloading MNIST dataset"</span><span class="p">)</span>
@@ -419,7 +419,7 @@ it and evaluates the result for a single image:</p>
         <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"latin-1"</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Get data with labels, split into training, validation and test set."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">_load_data</span><span class="p">()</span>
     <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -444,7 +444,7 @@ it and evaluates the result for a single image:</p>
     <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">net1</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">(</span>
         <span class="n">layers</span><span class="o">=</span><span class="p">[</span>
             <span class="p">(</span><span class="s2">"input"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
@@ -473,7 +473,7 @@ it and evaluates the result for a single image:</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Predicted: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_train"</span><span class="p">]))</span>
     <span class="n">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>

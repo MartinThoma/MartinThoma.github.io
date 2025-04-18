@@ -148,20 +148,20 @@ SQL</a>, for example.</p>
 </figure>
 <p>For an author page, we are given the <code>authors.id</code> and want to see a list of
 all <code>books.title</code> written by that author:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 <span class="c1"># You need to install the driver pymysql via &ldquo;pip install pymysql&rdquo;</span>
-<span class="kn">import</span> <span class="nn">pymysql.cursors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pymysql.cursors</span>
 
 
-<span class="k">def</span> <span class="nf">db_connection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">db_connection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Supply the decorated function with a database connection.</span>
 <span class="sd">    Commit/rollback and close the connection after the function call.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">with_connection_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_connection_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">con</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
             <span class="n">host</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span>
             <span class="n">user</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_USER"</span><span class="p">],</span>
@@ -184,7 +184,7 @@ all <code>books.title</code> written by that author:</p>
 
 
 <span class="nd">@db_connection</span>
-<span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SELECT * FROM books WHERE author_id = %s"</span><span class="p">,</span> <span class="n">author_id</span><span class="p">)</span>
     <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
@@ -284,18 +284,18 @@ Java has <a href="http://www.querydsl.com/">QueryDSL</a> and <a href="http://www
 <p><a href="https://github.com/kayak/pypika">Pypika</a> is an example for a Query Builder in
 Python. The example query from above can be built and executed like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 <span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">pymysql.cursors</span>
-<span class="kn">from</span> <span class="nn">pypika</span> <span class="kn">import</span> <span class="n">Query</span><span class="p">,</span> <span class="n">Table</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pymysql.cursors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypika</span><span class="w"> </span><span class="kn">import</span> <span class="n">Query</span><span class="p">,</span> <span class="n">Table</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">raw_sql</span> <span class="kn">import</span> <span class="n">db_connection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">raw_sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">db_connection</span>
 
 
 <span class="nd">@db_connection</span>
-<span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">books</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span>
     <span class="n">q</span> <span class="o">=</span> <span class="n">Query</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">books</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">books</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
@@ -325,25 +325,25 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 <p>ORMs are extremely popular in many languages: Java has <a href="http://hibernate.org/">Hibernate</a>, PHP has <a href="https://laravel.com/docs/5.0/eloquent">Eloquent</a>, Ruby has <a href="https://guides.rubyonrails.org/active_record_basics.html">activerecord</a>, JavaScript has <a href="https://sequelize.org/">Sequelize</a> and <a href="https://typeorm.io/">TypeORM</a>, and Python has <a href="https://www.sqlalchemy.org/">SQLAlchemy</a>.</p>
 <p>Here is how the book example looks with SQLAlchemy:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 <span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">sqlalchemy</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlalchemy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.ext.declarative</span><span class="w"> </span><span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">sessionmaker</span>
 
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">db_connection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">db_connection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Supply the decorated function with a database connection.</span>
 <span class="sd">    Commit/rollback and close the connection after the function call.</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="nf">with_connection_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_connection_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># https://martin-thoma.com/sql-connection-strings/</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_USER"</span><span class="p">]</span>
         <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"DB_PASSWORD"</span><span class="p">]</span>
@@ -365,7 +365,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
     <span class="k">return</span> <span class="n">with_connection_</span>
 
 
-<span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"books"</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
@@ -373,7 +373,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 
 
 <span class="nd">@db_connection</span>
-<span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">books</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Book</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Book</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">book</span><span class="o">.</span><span class="n">title</span> <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">books</span><span class="p">]</span>
 
@@ -382,9 +382,9 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_titles_by_author</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 <p>A cool point about ORMs is that they sometimes help with changes. In Python, there is <a href="https://alembic.sqlalchemy.org/en/latest/">Alembic</a> which can automatically detect when your models changed compared to the last known state of the database. Alembic can then create schema migration files for you. They look like that:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
-<span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">op</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.dialects</span> <span class="kn">import</span> <span class="n">mysql</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sa</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">alembic</span><span class="w"> </span><span class="kn">import</span> <span class="n">op</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.dialects</span><span class="w"> </span><span class="kn">import</span> <span class="n">mysql</span>
 
 <span class="c1"># revision identifiers, used by Alembic.</span>
 <span class="n">revision</span> <span class="o">=</span> <span class="s2">"1cdeb9f52797"</span>
@@ -393,7 +393,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 <span class="n">depends_on</span> <span class="o">=</span> <span class="kc">None</span>
 
 
-<span class="k">def</span> <span class="nf">upgrade</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upgrade</span><span class="p">():</span>
     <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">"confirmed_on"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
     <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">"registered_on"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
     <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span>
@@ -408,7 +408,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
     <span class="n">op</span><span class="o">.</span><span class="n">drop_column</span><span class="p">(</span><span class="s2">"users"</span><span class="p">,</span> <span class="s2">"email_confirmed_at"</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">downgrade</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">downgrade</span><span class="p">():</span>
     <span class="n">op</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span>
         <span class="s2">"users"</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s2">"email_confirmed_at"</span><span class="p">,</span> <span class="n">mysql</span><span class="o">.</span><span class="n">DATETIME</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
     <span class="p">)</span>
@@ -420,21 +420,21 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 <h3 id="over-fetching-problem">Over-fetching Problem</h3>
 <p>When you fire Queries with ORMs, you tend to get more than you need. For example, if you wanted to use the ORM directly for the book query from above, you would define the foreign key like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 <span class="c1"># Third party modules</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.ext.declarative</span><span class="w"> </span><span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">relationship</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">orms</span> <span class="kn">import</span> <span class="n">db_connection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">orms</span><span class="w"> </span><span class="kn">import</span> <span class="n">db_connection</span>
 
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Author</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"authors"</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">first_name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
@@ -442,7 +442,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
     <span class="n">books</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">"Book"</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">"books"</span>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
@@ -451,7 +451,7 @@ addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.</p>
 
 
 <span class="nd">@db_connection</span>
-<span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">author</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Author</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Author</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">author_id</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">book</span><span class="o">.</span><span class="n">title</span> <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">author</span><span class="o">.</span><span class="n">books</span><span class="p">]</span>
 

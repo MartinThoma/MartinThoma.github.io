@@ -147,18 +147,18 @@ can install them via <code>pip install -r requirements.txt</code>.</p>
 <span class="sd">"""Start a GUI to classify symbols."""</span>
 
 <span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">eel</span>
-<span class="kn">import</span> <span class="nn">hwrt</span>
-<span class="kn">from</span> <span class="nn">hwrt</span> <span class="kn">import</span> <span class="n">classify</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">eel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hwrt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hwrt</span><span class="w"> </span><span class="kn">import</span> <span class="n">classify</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_json_result</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_json_result</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the top `n` results as a JSON list.</span>
 <span class="sd">    &gt;&gt;&gt; results = [{'probability': 0.65,</span>
 <span class="sd">    ...             'whatever': 'bar'},</span>
@@ -182,7 +182,7 @@ can install them via <code>pip install -r requirements.txt</code>.</p>
 
 
 <span class="nd">@eel</span><span class="o">.</span><span class="n">expose</span>
-<span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">strokelist</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">(</span><span class="n">strokelist</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Classify the drawn symbol."""</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">classify</span><span class="o">.</span><span class="n">classify_segmented_recording</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">strokelist</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">get_json_result</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>

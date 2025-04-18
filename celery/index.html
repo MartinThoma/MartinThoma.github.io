@@ -262,12 +262,12 @@ it simple.</p>
 <h3 id="apppy">app.py</h3>
 <p>I followed the application factory pattern (<code>create_app</code>). On the global level
 of <code>app.py</code> (not hidden in a function), I've added:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">celery</span><span class="w"> </span><span class="kn">import</span> <span class="n">Celery</span>
 
 <span class="n">celery</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">broker</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">CELERY_BROKER_URL</span><span class="p">)</span>
 </code></pre></div>
 <p>and within the <code>create_app</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_app</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># some stuff ...</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">template_folder</span><span class="o">=</span><span class="s2">"templates"</span><span class="p">,</span> <span class="n">static_folder</span><span class="o">=</span><span class="s2">"static"</span><span class="p">)</span>
     <span class="c1"># some stuff ...</span>
@@ -275,7 +275,7 @@ of <code>app.py</code> (not hidden in a function), I've added:</p>
 </code></pre></div>
 <h3 id="celery_workerpy">celery_worker.py</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">my_project.app</span> <span class="kn">import</span> <span class="n">celery</span><span class="p">,</span> <span class="n">create_app</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_project.app</span><span class="w"> </span><span class="kn">import</span> <span class="n">celery</span><span class="p">,</span> <span class="n">create_app</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">()</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
@@ -297,19 +297,19 @@ of <code>app.py</code> (not hidden in a function), I've added:</p>
 </code></pre></div>
 <h3 id="tasks">Tasks</h3>
 <p>In one of the <code>routes.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">my_project.app</span> <span class="kn">import</span> <span class="n">celery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">my_project.app</span><span class="w"> </span><span class="kn">import</span> <span class="n">celery</span>
 
 
 <span class="nd">@backup</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/videos/&lt;vid&gt;/convert"</span><span class="p">)</span>
 <span class="nd">@login_required</span>
-<span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">vid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">vid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Convert a video. This can take time"""</span>
     <span class="n">flash</span><span class="p">(</span><span class="s2">"Started converting video"</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">)</span>
     <span class="n">convert_video</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="n">vid</span><span class="p">)</span>  <span class="c1"># returns almost instantly</span>
 
 
 <span class="nd">@celery</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"convert_video"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">convert_video</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_video</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
     <span class="c1"># Executing this is what takes long</span>
     <span class="c1"># ... put the file conversion in here!</span>
     <span class="k">return</span> <span class="mi">42</span>

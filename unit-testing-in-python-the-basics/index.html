@@ -115,14 +115,14 @@ MathJax.Hub.Queue(function() {
 <p>In this article, you will learn how to write and run unit tests in Python as well as some interesting pytest plugins I usually use. Let&rsquo;s get started.</p>
 <h2 id="the-most-basic-unit-test">The most basic Unit Test</h2>
 <p>A unit test is atomic- it just tests one unit of code. Typically one function or one method of a class. As an example, let&rsquo;s say we want to test math_functions.py which contains the Fibonacci function and a function for the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz sequence</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
     <span class="k">return</span> <span class="n">a</span>
 
 
-<span class="k">def</span> <span class="nf">next_collatz_element</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">next_collatz_element</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">else</span><span class="p">:</span>
@@ -130,27 +130,27 @@ MathJax.Hub.Queue(function() {
 </code></pre></div>
 <p>We want to test this function. I will explain the reasons for testing and what testing means later. For now, let&rsquo;s just say we want to avoid programming errors.</p>
 <p>First, create a file test_math_functions.py :</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math_functions</span> <span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">next_collatz_element</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">math_functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">next_collatz_element</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_basic_initial</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_basic_initial</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_2</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_2</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_3</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_3</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 
 
-<span class="k">def</span> <span class="nf">test_collatz_1</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_collatz_1</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">next_collatz_element</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
 
 
-<span class="k">def</span> <span class="nf">test_collatz_2</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_collatz_2</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">next_collatz_element</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
 </code></pre></div>
 <p>Now, you have to install pytest:</p>
@@ -206,7 +206,7 @@ FAILED<span class="w"> </span>test_math_functions.py::test_fib_3<span class="w">
 <p>I hope at this point we agree that having tests is a good idea. But how many tests do you need? When did you test everything?</p>
 <p>A group of measures for this is the <em>test coverage</em>. There are two relevant types of test coverage: Line coverage and branch coverage.</p>
 <p>If you look at the Collatz function from above, there are 4 lines to test:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">next_collatz_element</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">next_collatz_element</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">else</span><span class="p">:</span>
@@ -214,7 +214,7 @@ FAILED<span class="w"> </span>test_math_functions.py::test_fib_3<span class="w">
 </code></pre></div>
 <p>If I execute next_collatz_element(4) , then it will execute lines 1&ndash;3. Line 4 and 5 will not be hit. This means a unit test like that could not detect an issue on line 4 or 5. It only covers 3 of 5 lines. One says that it has 60% line coverage.</p>
 <p>But sometimes 100% line coverage is not enough. Take a look at this example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">fist_name</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">fist_name</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">last_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
@@ -244,7 +244,7 @@ FAILED<span class="w"> </span>test_math_functions.py::test_fib_3<span class="w">
 <p>There is also <a href="https://pypi.org/project/pytest-mccabe/">pytest-mccabe</a> which tries to find sections in the cod which are to complex. This makes it easier for coworkers / your future self to understand the code. An alternative to pytest-mccabe outside of pytest is <a href="https://pypi.org/project/radon/">radon</a>. However, a lot of people don&rsquo;t like this type of test.</p>
 <h2 id="doctests">Doctests</h2>
 <p><a href="https://docs.python.org/3/library/doctest.html">Doctests</a> are a weird but pretty awesome part of Python. Python has Docstrings &mdash; the first string within a function/class which comes directly after the signature and which is not assigned. This is not just a comment, it has meaning and can be read through the execution:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    The fibonacci function.</span>
 <span class="sd">    Parameters</span>
@@ -261,7 +261,7 @@ FAILED<span class="w"> </span>test_math_functions.py::test_fib_3<span class="w">
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </code></pre></div>

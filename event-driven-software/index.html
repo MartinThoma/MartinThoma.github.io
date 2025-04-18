@@ -120,8 +120,8 @@ MathJax.Hub.Queue(function() {
 <p><img alt="A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory." src="../images/2024/02/flitz-file-explorer.png"/><em>A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.</em></p>
 <p>For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an &ldquo;up&rdquo; button. When it is clicked the current path shown in the URL bar is changed + the shown documents in the details pane are changed.</p>
 <p>Conceptionally, the code could look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FileExplorer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FileExplorer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
 
         <span class="c1"># Show the UI widgets</span>
@@ -130,12 +130,12 @@ MathJax.Hub.Queue(function() {
         <span class="n">up_button</span> <span class="o">=</span> <span class="n">UpButton</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">UrlBar</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UrlBar</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">on_keypress_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_keypress_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Let the main application know that the path changed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
@@ -143,15 +143,15 @@ MathJax.Hub.Queue(function() {
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">details_view</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">UpButton</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UpButton</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
 
-    <span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_press</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Let the main application know that the path changed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="o">.</span><span class="n">parent</span>
 
@@ -160,14 +160,14 @@ MathJax.Hub.Queue(function() {
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">url_bar</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">DetailsView</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">():</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DetailsView</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">"""Show the files from the root.current_path."""</span>
 </code></pre></div>
 <p>You can see that there is logic duplication in UpButton.on_press and UrlBar.on_keypress_enter . Such parts become harder to maintain the bigger the application becomes. At some point, somebody will forget to update/refresh one GUI widget of the application.</p>
 <p>Instead, you can define an set_current_pathfunction:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FileExplorer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FileExplorer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
 
         <span class="c1"># Show the UI widgets</span>
@@ -175,46 +175,46 @@ MathJax.Hub.Queue(function() {
         <span class="bp">self</span><span class="o">.</span><span class="n">url_bar</span> <span class="o">=</span> <span class="n">UrlBar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">up_button</span> <span class="o">=</span> <span class="n">UpButton</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">set_current_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_path</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_current_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_path</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="n">current_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">details_view</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url_bar</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">UrlBar</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UrlBar</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">on_keypress_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_keypress_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">set_current_path</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
 
 
-<span class="k">class</span> <span class="nc">UpButton</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UpButton</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
 
-    <span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_press</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">set_current_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">DetailsView</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">():</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DetailsView</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">"""Show the files from the root.current_path."""</span>
 </code></pre></div>
 <p>The next part we want to improve is the <strong>locality of the code</strong>. Meaning, that one component should have all of its code in one place. Having several unrelated lines in set_current_path makes it harder to change those components and inspect if they do the right thing. I mean, how do you know if there is a component that should be touched in set_current_path without checking the code of every single component?</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># events.py</span>
-<span class="k">class</span> <span class="nc">Event</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Event</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">listeners</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">consumed_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listener</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">consumed_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listener</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">listeners</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">produce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">produce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">listener</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listeners</span><span class="p">:</span>
             <span class="n">listener</span><span class="p">()</span>
 
@@ -222,8 +222,8 @@ MathJax.Hub.Queue(function() {
 <span class="n">current_path_changed</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="s2">"current_path_changed"</span><span class="p">)</span>
 
 <span class="c1"># Remaining code:</span>
-<span class="k">class</span> <span class="nc">FileExplorer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FileExplorer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">event_registry</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Event registry to hold component listeners</span>
 
@@ -232,40 +232,40 @@ MathJax.Hub.Queue(function() {
         <span class="bp">self</span><span class="o">.</span><span class="n">url_bar</span> <span class="o">=</span> <span class="n">UrlBar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">up_button</span> <span class="o">=</span> <span class="n">UpButton</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">set_current_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_path</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_current_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_path</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="n">current_path</span>
         <span class="n">current_path_changed</span><span class="o">.</span><span class="n">produce</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">UrlBar</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UrlBar</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="p">)</span>
         <span class="n">current_path_changed</span><span class="o">.</span><span class="n">consumed_by</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">on_keypress_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_keypress_enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">set_current_path</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">url_bar</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"UrlBar refreshed"</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">UpButton</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UpButton</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
 
-    <span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_press</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">set_current_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
 
 
-<span class="k">class</span> <span class="nc">DetailsView</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DetailsView</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span>
         <span class="n">current_path_changed</span><span class="o">.</span><span class="n">consumed_by</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Show the files from the root.current_path."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Refreshing details view with files from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">current_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 

@@ -130,7 +130,7 @@ For example, a matrix can be scored with</p>
 <p>$$E(C) = \sum_{i=1}^n \sum_{j=1}^n (i - j)^2$$</p>
 <p>I've described the details in <a href="https://arxiv.org/pdf/1707.09725.pdf">Analysis and Optimization of Convolutional Neural Network Architectures, Chapter 5.2</a>.</p>
 <p>The simplest way to approach this problem is:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">optimize_brute_force</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">optimize_brute_force</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="c1"># initialize</span>
     <span class="n">best_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
     <span class="n">best_score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">)</span>
@@ -153,7 +153,7 @@ For example, a matrix can be scored with</p>
 sub-structures which you destroy all the time. Instead of creating complete new
 permutations, you could simply swap two elements of the best permutation so
 far:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">optimize_greedy_swap</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">optimize_greedy_swap</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="c1"># initialize</span>
     <span class="n">best_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
     <span class="n">best_score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">)</span>
@@ -189,7 +189,7 @@ stable setting, the setting has to be closer to the current setting.</p>
 later, it might only be possible to make it worse from 1234 to 1300. Even later
 maybe only to 1250. And in the end it has to be strictly better.</p>
 <p>How does that look in code?</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">optimize_greedy_swap</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="mf">0.995</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">optimize_greedy_swap</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="mf">0.995</span><span class="p">):</span>
     <span class="c1"># initialize</span>
     <span class="n">best_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
     <span class="n">best_score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">)</span>

@@ -144,11 +144,11 @@ how we design the functions behavior:</p>
 <li>factorize(-n) = [-1] + factorize(n) for n &gt; 1</li>
 </ul>
 <p>An implementation might look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 
-<span class="k">def</span> <span class="nf">factorize</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">factorize</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">number</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -178,10 +178,10 @@ how we design the functions behavior:</p>
 </code></pre></div>
 <p>so you write a test to check for the important cases:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">factorize</span> <span class="kn">import</span> <span class="n">factorize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">factorize</span><span class="w"> </span><span class="kn">import</span> <span class="n">factorize</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
@@ -197,7 +197,7 @@ how we design the functions behavior:</p>
         <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>  <span class="c1"># Multiple times the same prime</span>
     <span class="p">],</span>
 <span class="p">)</span>
-<span class="k">def</span> <span class="nf">test_factorize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_factorize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
 <p>If the test parametrization is unfamiliar, you might want to
@@ -214,15 +214,15 @@ number itself. We can put in any integer, but if the integers become too big,
 the runtime will be too long. So let&rsquo;s constrain them in a reasonable range of
 +/- one million:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party</span>
-<span class="kn">import</span> <span class="nn">hypothesis.strategies</span> <span class="k">as</span> <span class="nn">s</span>
-<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hypothesis.strategies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">s</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span>
 
 <span class="c1"># First party</span>
-<span class="kn">from</span> <span class="nn">factorize</span> <span class="kn">import</span> <span class="n">factorize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">factorize</span><span class="w"> </span><span class="kn">import</span> <span class="n">factorize</span>
 
 
 <span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">),</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">test_factorize_multiplication_property</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_factorize_multiplication_property</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""The product of the integers returned by factorize(n) needs to be n."""</span>
     <span class="n">factors</span> <span class="o">=</span> <span class="n">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
@@ -245,7 +245,7 @@ number. After adding the following line, the tests run just fine:</p>
 <p>A curious thing to notice in the failed example is that it is the smallest positive integer where it fails. This is no coincidence. The property-testing framework tries to find a simple example which makes the test fail. This process is called <a href="https://hypothesis.readthedocs.io/en/latest/data.html#shrinking">shrinking</a>.</p>
 <h2 id="what-did-hypothesis-generate">What did hypothesis generate?</h2>
 <p>You can have a look at examples like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
 
 <span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">())</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">sorted</span><span class="p">)</span><span class="o">.</span><span class="n">example</span><span class="p">()</span>
 </code></pre></div>
@@ -276,18 +276,18 @@ first. If you want to check if a text contains a given string, you can add
 random text around that string and then check.</p>
 <h2 id="example-testing-data-structures">Example: Testing Data Structures</h2>
 <p>I&rsquo;ve implemented an interval data structure which has a method <code>issubset</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
-<span class="kn">from</span> <span class="nn">mpu.datastructures</span> <span class="kn">import</span> <span class="n">Interval</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpu.datastructures</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span>
 
 
 <span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">sorted</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">test_interval_issubset</span><span class="p">(</span><span class="n">integer_list</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_interval_issubset</span><span class="p">(</span><span class="n">integer_list</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">integer_list</span>
     <span class="k">assert</span> <span class="n">Interval</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
 
 
 <span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">sorted</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">test_interval_issubset_not</span><span class="p">(</span><span class="n">integer_list</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_interval_issubset_not</span><span class="p">(</span><span class="n">integer_list</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">integer_list</span>
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">d</span>
     <span class="k">assert</span> <span class="ow">not</span> <span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">d</span>
@@ -298,19 +298,19 @@ random text around that string and then check.</p>
 <p><code>hypothesis</code> can generate some special strings, for example email addresses and
 IP addresses. This means you can easily check the positive cases for functions
 which decide if something is an IP address or an email address:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hypothesis.strategies</span> <span class="k">as</span> <span class="nn">s</span>
-<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hypothesis.strategies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">s</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span>
 
-<span class="kn">import</span> <span class="nn">mpu.string</span>  <span class="c1"># Martins Python Utilities</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mpu.string</span>  <span class="c1"># Martins Python Utilities</span>
 
 
 <span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">emails</span><span class="p">())</span>
-<span class="k">def</span> <span class="nf">test_is_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_is_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">mpu</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">is_email</span><span class="p">(</span><span class="n">email</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"is_email(</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">) returned False"</span>
 
 
 <span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ip_addresses</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">test_is_ipv4</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_is_ipv4</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">mpu</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">is_ipv4</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ip</span><span class="p">)),</span> <span class="sa">f</span><span class="s2">"is_ipv4(</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">) returned False"</span>
 </code></pre></div>
 <h2 id="invertible-functions">Invertible functions</h2>
@@ -322,12 +322,12 @@ which decide if something is an IP address or an email address:</p>
 serialize / deserialize function, you can test them together. The testing
 strategy should then just give values within the domain.</p>
 <p>For example, if we wanted to test b64encode / b64decode , the test would be:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">s</span>
-<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">s</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
 
 
 <span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">binary</span><span class="p">())</span>
-<span class="k">def</span> <span class="nf">test_base64_encode_decode_together</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_base64_encode_decode_together</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">b64decode</span><span class="p">(</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">==</span> <span class="n">data</span>
 </code></pre></div>
 <p>This test now also documents that those two functions belong together and are
@@ -352,13 +352,13 @@ can be used to generate random objects of that class. As a data scientist
 working on Machine Learning topics, I usually want this in my preprocessing /
 postprocessing steps, where the objects of interest might be rather
 complicated. Here is how hypothesis can support and generate those:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
 
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">PdfInfo</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PdfInfo</span><span class="p">:</span>
     <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">is_errornous</span><span class="p">:</span> <span class="nb">bool</span>
     <span class="n">is_encrypted</span><span class="p">:</span> <span class="nb">bool</span>

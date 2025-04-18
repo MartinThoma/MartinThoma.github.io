@@ -123,10 +123,10 @@ state to explicit dependency of on a parameter.</p>
 <h3 id="time">Time</h3>
 <p>I often write functions which depend on the current time / date. Let's say
 we want to just get a filename. The simple solution is</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
 
-<span class="k">def</span> <span class="nf">get_filename</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_filename</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Get something like '2020-06-10-13-06-31.txt'."""</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d-%H-%M-%S</span><span class="si">}</span><span class="s2">.txt"</span>
@@ -134,10 +134,10 @@ we want to just get a filename. The simple solution is</p>
 <p>That is super straight forward, but maybe you want to test it. Then you
 suddenly have to use mocking for datetime.</p>
 <p>Or, you make the function a bit different:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
 
-<span class="k">def</span> <span class="nf">get_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Get something like '2020-06-10-13-06-31.txt'."""</span>
     <span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
@@ -152,7 +152,7 @@ code path. Instead, the dependency on an explicitly set parameter <code>now</cod
 added.</p>
 <p>More details to this in <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <h3 id="query-builder">Query Builder</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">execute_query</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">sql</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">execute_query</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">sql</span><span class="p">):</span>
     <span class="n">connection</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
     <span class="n">connection</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 </code></pre></div>
@@ -181,10 +181,10 @@ dependency injection compared to having global state are:</p>
 </ul>
 <h2 id="when-not-to-use-it">When not to use it</h2>
 <p>You can apply dependency injection when some kind of global state is involved:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 
 
-<span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">output_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">(</span><span class="n">output_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="n">output_function</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 

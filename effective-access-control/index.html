@@ -247,7 +247,7 @@ might not change that quickly.</p>
 could look like this with <a href="https://pypi.org/project/Flask-User/">Flask-User</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/analytics"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"GET"</span><span class="p">])</span>
 <span class="nd">@roles_required</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">analytics_route</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analytics_route</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">"some"</span><span class="p">:</span> <span class="s2">"analytics_data"</span><span class="p">}</span>
 </code></pre></div>
 <p>When this route is called, the <code>@roles_required</code> decorator first executes the
@@ -268,15 +268,15 @@ error responses, and not repeat code. A good compromise could be this pattern:</
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/article/&lt;article_id&gt;"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"PATCH"</span><span class="p">])</span>  <span class="c1"># execute (1)</span>
 <span class="nd">@get_article</span>  <span class="c1"># execute (2)</span>
 <span class="nd">@attribute_required</span><span class="p">(</span><span class="n">is_author</span><span class="p">)</span>  <span class="c1"># execute (3)</span>
-<span class="k">def</span> <span class="nf">edit_article</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">):</span>  <span class="c1"># execute (4)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">edit_article</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">):</span>  <span class="c1"># execute (4)</span>
     <span class="o">...</span>  <span class="c1"># update the article</span>
 </code></pre></div>
 <p>The get_article decorator simply uses the ORM:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
 
 
-<span class="k">def</span> <span class="nf">get_article</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_article</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Make the variable "article" available.</span>
 
@@ -293,7 +293,7 @@ error responses, and not repeat code. A good compromise could be this pattern:</
 <span class="sd">    """</span>
 
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">article_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">"article_id"</span><span class="p">]</span>
         <span class="n">article</span> <span class="o">=</span> <span class="n">get_article_from_db</span><span class="p">(</span><span class="n">article_id</span><span class="p">)</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s2">"article"</span><span class="p">]</span> <span class="o">=</span> <span class="n">article</span>
@@ -302,7 +302,7 @@ error responses, and not repeat code. A good compromise could be this pattern:</
     <span class="k">return</span> <span class="n">wrapper</span>
 </code></pre></div>
 <p>The is_author function then is pretty straight forward:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_author</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_author</span><span class="p">(</span><span class="n">article</span><span class="p">:</span> <span class="n">Article</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">article</span><span class="o">.</span><span class="n">author_id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
 </code></pre></div>
 <p>More complicated is the design of attribute_required , but in principle, it works similarly to the decorator above.</p>
@@ -315,13 +315,13 @@ error responses, and not repeat code. A good compromise could be this pattern:</
 <li><strong>Description text</strong>: Set by seller, editable by seller</li>
 </ul>
 <p>You could implement the change_descripion_text function like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">auction</span><span class="o">.</span><span class="n">seller_id</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">PermissionDeniedException</span><span class="p">(</span><span class="s2">"Only the seller may edit"</span><span class="p">)</span>
 </code></pre></div>
 <p>Then you realize that admins should always be able to change it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
     <span class="n">is_seller</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">auction</span><span class="o">.</span><span class="n">seller_id</span>
     <span class="n">is_admin</span> <span class="o">=</span> <span class="n">is_admin</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
@@ -337,7 +337,7 @@ developers can get things wrong.</p>
 <p>Instead, you can use roles. For example, seller sounds like a role. The roles
 can be context-dependent.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@requires_role</span><span class="p">([</span><span class="n">SellerRole</span><span class="p">(</span><span class="nb">id</span><span class="p">),</span> <span class="n">AdminRole</span><span class="p">(),</span> <span class="n">ModeratorRole</span><span class="p">()])</span>
-<span class="k">def</span> <span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">change_descripion_text</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="tricks-to-make-access-control-effective_1">Tricks to make Access Control Effective</h2>

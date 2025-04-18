@@ -128,11 +128,11 @@ last commit is from July 2015.</p>
 <span class="sd">"""MNIST example with skdata."""</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">skdata.mnist.view</span> <span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">skdata.mnist.view</span><span class="w"> </span><span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="c1"># Fallback, if you have an old version</span>
-    <span class="kn">from</span> <span class="nn">skdata.mnist.views</span> <span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">skdata.mnist.views</span><span class="w"> </span><span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 
 <span class="c1"># Load the data</span>
 <span class="n">view</span> <span class="o">=</span> <span class="n">OfficialVectorClassification</span><span class="p">()</span>
@@ -153,8 +153,8 @@ last commit is from July 2015.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Fitted DecisionTreeClassifier has test accuracy of </span><span class="si">%0.4f</span><span class="s2">."</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">)</span>
 </code></pre></div>
 <p>However, it is inteded to be used like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">skdata.mnist.view</span> <span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">skdata.mnist.view</span><span class="w"> </span><span class="kn">import</span> <span class="n">OfficialVectorClassification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 
 <span class="c1"># Load the data</span>
 <span class="n">mnist_view</span> <span class="o">=</span> <span class="n">OfficialVectorClassification</span><span class="p">()</span>
@@ -163,7 +163,7 @@ last commit is from July 2015.</p>
 <span class="n">test_idx</span> <span class="o">=</span> <span class="n">mnist_view</span><span class="o">.</span><span class="n">tst_idxs</span>
 
 <span class="c1"># Fit a simple classifier</span>
-<span class="kn">from</span> <span class="nn">skdata.base</span> <span class="kn">import</span> <span class="n">SklearnClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skdata.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SklearnClassifier</span>
 
 <span class="n">learning_algo</span> <span class="o">=</span> <span class="n">SklearnClassifier</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">)</span>
 <span class="n">mnist_view</span><span class="o">.</span><span class="n">protocol</span><span class="p">(</span><span class="n">learning_algo</span><span class="p">)</span>
@@ -172,11 +172,11 @@ last commit is from July 2015.</p>
 <p>... but this doesn't work (for me)</p>
 <h2 id="other-data-loading-projects">Other Data-Loading Projects</h2>
 <p>You can access R data with <a href="https://rpy2.bitbucket.io/?"><code>rpy2</code></a>.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">r</span>
-<span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">pandas2ri</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rpy2.robjects</span><span class="w"> </span><span class="kn">import</span> <span class="n">r</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rpy2.robjects</span><span class="w"> </span><span class="kn">import</span> <span class="n">pandas2ri</span>
 
 
-<span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">data</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">pandas2ri</span><span class="o">.</span><span class="n">ri2py</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
 
 
@@ -188,7 +188,7 @@ last commit is from July 2015.</p>
 <li><a href="https://github.com/mila-udem/fuel">fuel</a></li>
 </ul>
 <p>You can also load <code>mnist</code>, <code>cifar10</code>,<code>cifar100</code>, <code>imdb</code>, <code>reuters</code> with keras:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">keras.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">mnist</span>
 
 <span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </code></pre></div>

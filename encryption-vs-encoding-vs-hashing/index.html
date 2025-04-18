@@ -143,7 +143,7 @@ Translates to: abcdefghijklmnopqrstuvwxyz
 <div class="highlight"><pre><span></span><code><span class="n">alphabet</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">derive_key</span><span class="p">(</span><span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">derive_key</span><span class="p">(</span><span class="n">sentence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">key</span> <span class="o">=</span> <span class="s2">""</span>
     <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">sentence</span> <span class="o">+</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">alphabet</span><span class="p">):</span>
@@ -152,14 +152,14 @@ Translates to: abcdefghijklmnopqrstuvwxyz
     <span class="k">return</span> <span class="n">key</span>
 
 
-<span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">plain_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">encrypt</span><span class="p">(</span><span class="n">plain_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">plain_char</span><span class="p">:</span> <span class="n">cipher_char</span> <span class="k">for</span> <span class="n">plain_char</span><span class="p">,</span> <span class="n">cipher_char</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">plain_char</span><span class="p">]</span> <span class="k">for</span> <span class="n">plain_char</span> <span class="ow">in</span> <span class="n">plain_text</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">cipher_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">decrypt</span><span class="p">(</span><span class="n">cipher_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">cipher_char</span><span class="p">:</span> <span class="n">plain_char</span> <span class="k">for</span> <span class="n">plain_char</span><span class="p">,</span> <span class="n">cipher_char</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">)</span>
     <span class="p">}</span>

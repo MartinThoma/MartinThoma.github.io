@@ -143,8 +143,8 @@ transform a list of labels to an array of one-hot encoded targets:</p>
 
 <span class="sd">"""Mini-demo how the one hot encoder works."""</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># The most intuitive way to label a dataset "X"</span>
 <span class="c1"># (list of features, where X[i] are the features for a datapoint i)</span>
@@ -156,7 +156,7 @@ transform a list of labels to an array of one-hot encoded targets:</p>
 <span class="n">enc</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -212,18 +212,18 @@ a first hidden layer and 2&nbsp;output neurons. All neurons have biases.</p>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Martin Thoma"</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">"info@martin-thoma.de"</span>
 
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span>
 
 
-<span class="k">def</span> <span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">analyze_classifier</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">XOR_X</span><span class="p">,</span> <span class="n">XOR_T</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_classifier</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">XOR_X</span><span class="p">,</span> <span class="n">XOR_T</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Visualize the classification."""</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Epoch </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span>

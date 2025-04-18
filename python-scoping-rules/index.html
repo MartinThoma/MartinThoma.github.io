@@ -129,14 +129,14 @@ article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"enclosing"</span>
 
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">"""Bar is enclosed by 'foo'"""</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
-    <span class="k">def</span> <span class="nf">baz</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">baz</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">"""Baz is also enclosed by 'foo'"""</span>
         <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
@@ -155,7 +155,7 @@ article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
 <h1 id="the-scope-of-a-variable-is-defined-at-compile-time">The scope of a variable is defined at compile-time!</h1>
 </blockquote>
 <p>For this reason, the following code throws an exception:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
     <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
 
@@ -176,7 +176,7 @@ statement:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">x</span>
     <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
 
@@ -189,7 +189,7 @@ use the globals() dictionary. In this case, I would rather use:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="nb">globals</span><span class="p">()[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"local"</span>
 
 
@@ -201,10 +201,10 @@ use the globals() dictionary. In this case, I would rather use:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"global"</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="s2">"enclosed"</span>
 
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">():</span>
         <span class="k">nonlocal</span> <span class="n">x</span>
         <span class="n">x</span> <span class="o">=</span> <span class="s2">"local"</span>
 
@@ -220,7 +220,7 @@ use the globals() dictionary. In this case, I would rather use:</p>
 <div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># OK</span>
 
 
@@ -230,7 +230,7 @@ use the globals() dictionary. In this case, I would rather use:</p>
 <div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="n">xs</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>  <span class="c1"># UnboundLocalError: local variable 'xs'</span>
     <span class="c1"># referenced before assignment</span>
 
@@ -242,7 +242,7 @@ function of <code>xs</code>. It never assigns a value to <code>xs</code>. The se
 <div class="highlight"><pre><span></span><code><span class="n">xs</span> <span class="o">=</span> <span class="p">[]</span>
 
 
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="n">xs</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">+</span> <span class="p">[</span><span class="mi">42</span><span class="p">]</span>
 
 
@@ -260,7 +260,7 @@ Hence we don&rsquo;t face any issue, because it is defined in the global scope.<
 </code></pre></div>
 <p>but the same does not work in a local scope</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># UnboundLocalError: local variable 'min' referenced before assignment</span>
-<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
     <span class="nb">min</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="s2">"local"</span>
 

@@ -180,7 +180,7 @@ potential side effect, they could allow <strong>arbitrary code execution</strong
 <span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'cat</span><span class="nv"> </span><span class="s">/etc/passwd'</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 <p>And execute this Python code:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># pip install pyyaml is required</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>  <span class="c1"># pip install pyyaml is required</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"example.yaml"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -205,7 +205,7 @@ RAM by repeated
 referencing</em>medium.com</a></p>
 <h3 id="attacking-pickle-deserialization">Attacking Pickle Deserialization</h3>
 <p>Marco Slaviero has shown that deserialization of pickle files allows arbitrary code execution in his paper &ldquo;<a href="https://media.blackhat.com/bh-us-11/Slaviero/BH_US_11_Slaviero_Sour_Pickles_WP.pdf">Sour Pickles</a>&rdquo;. It was summarized nicely by <a href="https://stackoverflow.com/a/10302328/562769">Charles Menguy</a> in an example similar to this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
 
 <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="sa">b</span><span class="s2">"cos</span><span class="se">\n</span><span class="s2">system</span><span class="se">\n</span><span class="s2">(S'cat /etc/passwd'</span><span class="se">\n</span><span class="s2">tR."</span><span class="p">)</span>
 </code></pre></div>

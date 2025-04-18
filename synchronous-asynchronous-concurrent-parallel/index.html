@@ -207,13 +207,13 @@ you only have 4 cores and the level of parallelism is limited. It&rsquo;s by far
 <p>What you have at this point are blocking I/O calls &mdash; I/O is short for
 input/output. It essentially means we need to wait for the network or a disk
 to give our code the data to continue:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_website</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_website</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Here we have to wait; IO blocks us</span>
     <span class="n">links</span> <span class="o">=</span> <span class="n">get_links</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="n">add_to_db</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 </code></pre></div>
 <p>Instead, you could do something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_website</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_website</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">content</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">links</span> <span class="o">=</span> <span class="n">get_links</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="n">add_to_db</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>

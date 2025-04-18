@@ -214,15 +214,15 @@ the MNIST dataset.</p>
 <span class="sd">Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).</span>
 <span class="sd">"""</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Orchestrate the retrival of data, training and testing."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
 
     <span class="c1"># Get classifier</span>
-    <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.svm</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVC</span>
 
     <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0073</span><span class="p">)</span>  <span class="c1"># cache_size=200,</span>
 
@@ -235,7 +235,7 @@ the MNIST dataset.</p>
     <span class="n">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Analyze how well a classifier performs on data.</span>
 
@@ -245,7 +245,7 @@ the MNIST dataset.</p>
 <span class="sd">    data : dict</span>
 <span class="sd">    """</span>
     <span class="c1"># Get confusion matrix</span>
-    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span>
 
     <span class="n">predicted</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span>
@@ -263,7 +263,7 @@ the MNIST dataset.</p>
     <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    View a single image.</span>
 
@@ -273,14 +273,14 @@ the MNIST dataset.</p>
 <span class="sd">        Make sure this is of the shape you want.</span>
 <span class="sd">    label : str</span>
 <span class="sd">    """</span>
-    <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">cm</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">cm</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
     <span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get data ready to learn with.</span>
 
@@ -290,8 +290,8 @@ the MNIST dataset.</p>
 <span class="sd">    """</span>
     <span class="n">simple</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">simple</span><span class="p">:</span>  <span class="c1"># Load the simple, but similar digits dataset</span>
-        <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
-        <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_digits</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">shuffle</span>
 
         <span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
         <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">]</span>
@@ -306,7 +306,7 @@ the MNIST dataset.</p>
 
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cross_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
         <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
@@ -316,8 +316,8 @@ the MNIST dataset.</p>
             <span class="s2">"test"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"X"</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y_test</span><span class="p">},</span>
         <span class="p">}</span>
     <span class="k">else</span><span class="p">:</span>  <span class="c1"># Load the original dataset</span>
-        <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_mldata</span>
-        <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_mldata</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">shuffle</span>
 
         <span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_mldata</span><span class="p">(</span><span class="s2">"MNIST original"</span><span class="p">)</span>
 
@@ -329,7 +329,7 @@ the MNIST dataset.</p>
 
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cross_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
         <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>

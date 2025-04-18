@@ -118,7 +118,7 @@ a consistent <strong>version string on PyPI</strong> and <strong>accessible via
 <code>[yourpackage].__version__</code></strong> - and preferably make sure it is the same as used
 in <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"><code>git tag</code></a>.</p>
 <p><code>setup.py</code> should have the version string in the setup function:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
 </code></pre></div>
@@ -133,7 +133,7 @@ for "single-sourcing the package version". So it is a know problem with known
 solutions. I only wrap them up here.</p>
 <h2 id="the-manual-approach">The Manual Approach</h2>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">"0.1.2"</span><span class="p">)</span>
 </code></pre></div>
@@ -151,14 +151,14 @@ solutions. I only wrap them up here.</p>
 </ul>
 <h2 id="version-python-file">Version Python File</h2>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"[yourpackage]/_version.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
 </code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">yourpackage._version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
 </code></pre></div>
 <p>[yourpackage]/_version.py:</p>
 <div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
@@ -180,10 +180,10 @@ solutions. I only wrap them up here.</p>
 <p>Similar to the solution above, we use a text file which only contains the
 version string.</p>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 
-<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Read a text file and return the content as a string."""</span>
     <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>
@@ -194,7 +194,7 @@ version string.</p>
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">"[yourpackage]/version.txt"</span><span class="p">))</span>
 </code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">yourpackage._version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
 </code></pre></div>
 <p>[yourpackage]/_version.py:</p>
 <div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
@@ -219,9 +219,9 @@ don't think they the first two look reliable enough to give them a try. And
 <code>zest.releaser</code> looks a bit complicated.</p>
 <h2 id="package-import">Package import</h2>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
-<span class="kn">import</span> <span class="nn">yourpackage</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yourpackage</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">yourpackage</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </code></pre></div>
@@ -242,12 +242,12 @@ don't think they the first two look reliable enough to give them a try. And
 <p>You can use <a href="https://pypi.org/project/setuptools_scm/"><code>setuptools_scm</code></a>
 and do the following:</p>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_scm_version</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">"setuptools_scm"</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
 </code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pkg_resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>

@@ -163,20 +163,20 @@ structure unit testing code in Python.</p>
 <p>On module level, you can add a docstring to tell the reader what should be within this test module. Do you test a specific module of the code base? Is it some common types of test you want to apply for different modules? Are there common issues that should be tested?</p>
 <p>Test level docstrings are used in a good way in parts of
 <a href="https://github.com/sympy/sympy/blob/master/sympy/solvers/tests/test_recurr.py#L78">sympy</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">recurrence_term</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">recurrence_term</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Compute RHS of recurrence in f(n) with coefficients in c."""</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
 </code></pre></div>
 <p>There are tons of negative examples like this from Flask, where the docstring
 adds no value:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_jsonify_basic_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_value</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_jsonify_basic_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_value</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Test jsonify with basic types."""</span>
 
 
 <span class="o">...</span>
 
 
-<span class="k">def</span> <span class="nf">test_scriptinfo</span><span class="p">(</span><span class="n">test_apps</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_scriptinfo</span><span class="p">(</span><span class="n">test_apps</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Test of ScriptInfo."""</span>
 </code></pre></div>
 <p>I&rsquo;ve also checked my own code and I&rsquo;ve mainly seen neutral or negative uses of test level docstrings 😱</p>
@@ -224,38 +224,38 @@ various methods for the single tests.</p>
 tests which needed some common preparation &mdash; I thought there was no way around
 setUp and tearDown . I&rsquo;ve been wrong.</p>
 <p>Pytest fixtures can do exactly that. Their structure looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">():</span>
     <span class="c1"># setUp()</span>
     <span class="n">obj</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># whatever you want to pass</span>
     <span class="k">yield</span> <span class="n">obj</span>
     <span class="c1"># tearDown()</span>
 
 
-<span class="k">def</span> <span class="nf">test_awesomeness</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_awesomeness</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
 <p>Note that the argument to test_awesomeness is called just like the fixture. That is no coincidence. It has to be the same name so that pytest passes the fixture.</p>
 <p>I usually define the fixtures in tests/conftest.py . Pytest will register them and supply them to your test automatically. No need to import the conftest.py anywhere.</p>
 <p>Here is an example to demonstrate that the tests are isolated:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<span class="k">def</span> <span class="nf">show_isolation</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_isolation</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
     <span class="k">yield</span> <span class="n">a</span>
     <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">test_foo</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">show_isolation</span> <span class="o">==</span> <span class="mi">42</span>
 
 
-<span class="k">def</span> <span class="nf">test_bar</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_bar</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">show_isolation</span> <span class="o">==</span> <span class="mi">42</span>
 </code></pre></div>
 <p>If you want real examples, have a look at my tutorial <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">how to test Flask Applications</a>. There I show how to use fixtures to mock the database.</p>
@@ -265,48 +265,48 @@ setUp and tearDown . I&rsquo;ve been wrong.</p>
 </figure>
 <h2 id="parametrizing-test-functions">Parametrizing test functions</h2>
 <p>Have a look at the Fibonacci function:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
     <span class="k">return</span> <span class="n">a</span>
 </code></pre></div>
 <p>Testing the first seven Fibonacci numbers seems like a good idea. You could create one test for each of them in <code>test_fib_many.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">fib</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_0</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_0</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_1</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_1</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_2</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_2</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_3</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_3</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_4</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_4</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_5</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_5</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_6</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_6</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
 </code></pre></div>
 <p>Or you could test them all in <code>test_fib_one.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">fib</span>
 
 
-<span class="k">def</span> <span class="nf">test_fib_first_seven</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fib_first_seven</span><span class="p">():</span>
     <span class="n">n2expected</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">n2expected</span><span class="p">:</span>
         <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
@@ -322,14 +322,14 @@ examples were wrong.</p>
 verbose.</p>
 <p>There is a better way to test to combine both advantages: <a href="https://docs.pytest.org/en/stable/parametrize.html">Parametrizing test
 functions</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">fib</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
     <span class="s2">"n,expected"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
 <span class="p">)</span>
-<span class="k">def</span> <span class="nf">test_route_status</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_route_status</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
 <p>The parametrization example looks similar to the <code>test_fib_one.py</code>, but it will

@@ -243,18 +243,18 @@ that difference is not relevant.</figcaption>
 <h2 id="now-what-is-nox">Now&hellip; what is nox?</h2>
 <p><a href="https://nox.thea.codes/en/stable/">nox</a> is a spin-off of tox. Instead of using a tox.ini configuration file, it uses a noxfile.py Python file. It&rsquo;s pretty similar to tox, but more flexible as it uses Python code:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party</span>
-<span class="kn">import</span> <span class="nn">nox</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nox</span>
 
 
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="p">[</span><span class="s2">"3.6"</span><span class="p">,</span> <span class="s2">"3.7"</span><span class="p">,</span> <span class="s2">"3.8"</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
     <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">".[all]"</span><span class="p">)</span>
     <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"-r"</span><span class="p">,</span> <span class="s2">"requirements-dev.txt"</span><span class="p">)</span>
     <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"pytest"</span><span class="p">)</span>
 
 
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span><span class="n">python</span><span class="o">=</span><span class="s2">"3.8"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">lint</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lint</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
     <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"-r"</span><span class="p">,</span> <span class="s2">"requirements-lint.txt"</span><span class="p">)</span>
     <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"flake8"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)</span>
     <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"black"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">,</span> <span class="s2">"--check"</span><span class="p">)</span>

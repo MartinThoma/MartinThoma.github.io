@@ -119,19 +119,19 @@ at the first part of this series: <a href="https://medium.com/swlh/unit-testing-
 <h2 id="the-abstract-pattern-of-the-problem">The Abstract Pattern of the Problem</h2>
 <p>A dependency of the function we want to test can have an effect in three different ways: By side-effects, return values or exceptions.</p>
 <p>Problem 1: A dependencies side-effect</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">a_function</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">a_function</span><span class="p">():</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
     <span class="n">a_dependency</span><span class="p">()</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
 </code></pre></div>
 <p>Problem 2: A dependencies return value</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">a_function</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">a_function</span><span class="p">():</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
     <span class="n">foo</span> <span class="o">=</span> <span class="n">a_dependency</span><span class="p">()</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested; it might use foo</span>
 </code></pre></div>
 <p>Problem 3: A dependency throws an Exception</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">a_function</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">a_function</span><span class="p">():</span>
     <span class="o">...</span>  <span class="c1"># Application code to be tested</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">foo</span> <span class="o">=</span> <span class="n">a_dependency</span><span class="p">()</span>
@@ -149,30 +149,30 @@ real applications away.</p>
 return anything, but we change the state of our system. And we want to be sure
 that we don&rsquo;t actually change our production system when the unit tests are
 running!</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bcrypt</span>
-<span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">db</span><span class="p">,</span> <span class="n">User</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">bcrypt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">models</span><span class="w"> </span><span class="kn">import</span> <span class="n">db</span><span class="p">,</span> <span class="n">User</span>
 
 
-<span class="k">def</span> <span class="nf">insert_user_into_db</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">insert_user_into_db</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
     <span class="n">password_hash</span> <span class="o">=</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">hashpw</span><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="n">bcrypt</span><span class="o">.</span><span class="n">gensalt</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">password_hash</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div>
 <p>Example 2: Generate a file name based on the current date. You can see that the dependency datetime returns a value:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
 
-<span class="k">def</span> <span class="nf">generate_filename</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_filename</span><span class="p">():</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">.png"</span>
 </code></pre></div>
 <p>Similarly, you could imagine a function which returns the weather in an English sentence and uses an API to get the actual weather (<a href="https://gist.github.com/MartinThoma/5c7224ceae47e74645e0145d26dc03ec">example</a>).</p>
 <p>Example 3: In my project <a href="https://github.com/MartinThoma/edapy">edapy</a> I looked at metadata from PDF files. I use the dependency PdfFileReader and have the file itself as an dependency. As the PDF file could be broken, PyPDF2 might throw an exception. So you can imagine code like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">PyPDF2.utils</span>
-<span class="kn">from</span> <span class="nn">PyPDF2</span> <span class="kn">import</span> <span class="n">PdfFileReader</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">PyPDF2.utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyPDF2</span><span class="w"> </span><span class="kn">import</span> <span class="n">PdfFileReader</span>
 
 
-<span class="k">def</span> <span class="nf">get_pdf_info</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pdf_info</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">):</span>
     <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">pdf_toread</span> <span class="o">=</span> <span class="n">PdfFileReader</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -198,10 +198,10 @@ running!</p>
 <p>The overall strategy to test this is always the same: Replace the external dependency that is causing headaches by something in your control. The act of replacing the dependency is called <strong><em>patching</em></strong>, the replacement is called a <strong><em>mock</em></strong>. Depending on what exactly the mock does, you might also hear this being called a Test Double, Test Stub, Test Spy or a Fake Object. In practice in Python, the distinction does not matter. If you&rsquo;re interested, I recommend <a href="https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs#TheDifferenceBetweenMocksAndStubs">Martin Fowler: The Difference Between Mocks and Stubs</a>. I will call all of them just mocks.</p>
 <p>Let&rsquo;s make a tiny example how to use patch!</p>
 <p><code>fraud_example.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">external_dependency</span> <span class="kn">import</span> <span class="n">dark_magic</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">external_dependency</span><span class="w"> </span><span class="kn">import</span> <span class="n">dark_magic</span>
 
 
-<span class="k">def</span> <span class="nf">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">):</span>
     <span class="n">fraud_probability</span> <span class="o">=</span> <span class="n">dark_magic</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">fraud_probability</span> <span class="o">&gt;</span> <span class="mf">0.99</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
@@ -209,30 +209,30 @@ running!</p>
         <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
 <p><code>external_dependency.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dark_magic</span><span class="p">(</span><span class="n">transaction</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dark_magic</span><span class="p">(</span><span class="n">transaction</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
 </code></pre></div>
 <p>No matter which transaction you would use, the function is_credit_card_fraud would throw a ValueError.</p>
 <p>This is how you patch that dependency away with a decorator <code>@patch</code>:</p>
 <p><code>test_fraud_example.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span><span class="p">,</span> <span class="n">MagicMock</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span><span class="p">,</span> <span class="n">MagicMock</span>
 
 
-<span class="k">def</span> <span class="nf">the_mock</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">the_mock</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.999</span>
 
 
 <span class="nd">@patch</span><span class="p">(</span><span class="s2">"fraud_example.dark_magic"</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">test_is_credit_card_fraud</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">fraud_example</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_is_credit_card_fraud</span><span class="p">():</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">fraud_example</span>
 
     <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"amount_usd"</span><span class="p">:</span> <span class="s2">"9999.99"</span><span class="p">,</span> <span class="s2">"overnight_shipping"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
     <span class="n">is_fraud</span> <span class="o">=</span> <span class="n">fraud_example</span><span class="o">.</span><span class="n">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">is_fraud</span> <span class="o">==</span> <span class="kc">True</span>
 </code></pre></div>
 <p>And this is how you patch the dependency fraud_example.dark_magic away with a context handler ( with ... ):</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_is_credit_card_fraud_context_handler</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">fraud_example</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_is_credit_card_fraud_context_handler</span><span class="p">():</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">fraud_example</span>
 
     <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"amount_usd"</span><span class="p">:</span> <span class="s2">"9999.99"</span><span class="p">,</span> <span class="s2">"overnight_shipping"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
     <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"fraud_example.dark_magic"</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">):</span>
@@ -244,20 +244,20 @@ running!</p>
 <h2 id="direct-replacement-dont-do-this">Direct replacement: Don&rsquo;t do this!</h2>
 <p>The following is an example which does not use patch and seems to work, but it has a big flaw. If you directly replace datetime.datetime instead of patching it, it will be overwritten in all other contexts after that as well! ⚠️</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">mock</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unittest</span><span class="w"> </span><span class="kn">import</span> <span class="n">mock</span>
 
 <span class="c1"># First party modules</span>
-<span class="kn">from</span> <span class="nn">mock_example</span> <span class="kn">import</span> <span class="n">generate_filename</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mock_example</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_filename</span>
 
 
-<span class="k">class</span> <span class="nc">NewDate</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NewDate</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">now</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">test_generate_filename</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_generate_filename</span><span class="p">():</span>
     <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">NewDate</span>
     <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"1990-04-28.png"</span>
 </code></pre></div>
@@ -271,21 +271,21 @@ running!</p>
 <div class="highlight"><pre><span></span><code><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="n">autospec</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>Or you can create a Mock like this:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">Mock</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">datetime</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mock</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">datetime</span><span class="p">)</span>
 
 <span class="c1"># Not Ok!</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">foo</span>
-<span class="n">Traceback</span><span class="w"> </span><span class="p">(</span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">last</span><span class="p">):</span>
-<span class="w">  </span><span class="n">File</span><span class="w"> </span><span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="n">File</span><span class="w"> </span><span class="s2">"/home/moose/.pyenv/versions/3.8.1/lib/python3.8/unittest/mock.py"</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">635</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="fm">__getattr__</span>
-<span class="w">    </span><span class="k">raise</span><span class="w"> </span><span class="n">AttributeError</span><span class="p">(</span><span class="s2">"Mock object has no attribute </span><span class="si">%r</span><span class="s2">"</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
-<span class="n">AttributeError</span><span class="p">:</span><span class="w"> </span><span class="n">Mock</span><span class="w"> </span><span class="nb">object</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="s1">'foo'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">foo</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">"/home/moose/.pyenv/versions/3.8.1/lib/python3.8/unittest/mock.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">635</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__getattr__</span>
+    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">"Mock object has no attribute </span><span class="si">%r</span><span class="s2">"</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="n">Mock</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'foo'</span>
 
 <span class="c1"># That is ok:</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="n">datetime</span>
-<span class="o">&lt;</span><span class="n">Mock</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">'mock.datetime'</span><span class="w"> </span><span class="nb">id</span><span class="o">=</span><span class="s1">'139883597784544'</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">datetime</span>
+<span class="o">&lt;</span><span class="n">Mock</span> <span class="n">name</span><span class="o">=</span><span class="s1">'mock.datetime'</span> <span class="nb">id</span><span class="o">=</span><span class="s1">'139883597784544'</span><span class="o">&gt;</span>
 </code></pre></div>
 <p>The next parameter of patchis autospec. Where spec looks at the mocked object, autospec also looks at the attributes of that object (and their attributes and those attributes, &hellip;).</p>
 <p>Finally, there is spec_set . That one prevents you from setting attributes that don&rsquo;t exist.</p>
@@ -293,9 +293,9 @@ running!</p>
 <h2 id="pytests-monkeypatch">pytests monkeypatch</h2>
 <p>monkeypatch is a fixture from pytest. I will explain what a fixture is in the next article. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don&rsquo;t even need to import anything.</p>
 <p>For the credit card fraud example, it looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_is_credit_card_fraud_monkeypatch</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_is_credit_card_fraud_monkeypatch</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
     <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">"fraud_example.dark_magic"</span><span class="p">,</span> <span class="n">the_mock</span><span class="p">)</span>
-    <span class="kn">import</span> <span class="nn">fraud_example</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">fraud_example</span>
 
     <span class="n">transaction</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"amount_usd"</span><span class="p">:</span> <span class="s2">"9999.99"</span><span class="p">,</span> <span class="s2">"overnight_shipping"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
     <span class="n">is_fraud</span> <span class="o">=</span> <span class="n">fraud_example</span><span class="o">.</span><span class="n">is_credit_card_fraud</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
@@ -305,21 +305,21 @@ running!</p>
 <h2 id="external-packages">External Packages</h2>
 <p>There are a couple of packages designed for simplifying the patching and giving better mocks for well-known dependencies.</p>
 <p>For example, you can use <a href="https://pypi.org/project/freezegun/">freezegun</a> for mocking the system time:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">freezegun</span>
-<span class="kn">from</span> <span class="nn">mock_example</span> <span class="kn">import</span> <span class="n">generate_filename</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">freezegun</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mock_example</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_filename</span>
 
 
-<span class="k">def</span> <span class="nf">test_generate_filename</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_generate_filename</span><span class="p">():</span>
     <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s2">"1990-04-28"</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"1990-04-28"</span>
 </code></pre></div>
 <p>For boto3 / botocore (Cloud-stuff), there is <a href="https://pypi.org/project/moto/">moto</a>.</p>
 <p>For <a href="https://pypi.org/project/requests/">requests</a> , there is <a href="https://pypi.org/project/responses/">responses</a> :</p>
 <p><code>requests_example.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 
-<span class="k">def</span> <span class="nf">get_ip</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_ip</span><span class="p">():</span>
     <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://ip.jsontest.com/"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
@@ -328,12 +328,12 @@ running!</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">get_ip</span><span class="p">())</span>
 </code></pre></div>
 <p><code>test_requests_example.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">requests_example</span> <span class="kn">import</span> <span class="n">get_ip</span>
-<span class="kn">import</span> <span class="nn">responses</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">requests_example</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_ip</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">responses</span>
 
 
 <span class="nd">@responses</span><span class="o">.</span><span class="n">activate</span>
-<span class="k">def</span> <span class="nf">test_get_ip</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_get_ip</span><span class="p">():</span>
     <span class="n">responses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
         <span class="n">responses</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span>
         <span class="s2">"http://ip.jsontest.com/"</span><span class="p">,</span>
@@ -344,20 +344,20 @@ running!</p>
 </code></pre></div>
 <h2 id="dependency-injection">Dependency Injection</h2>
 <p>If the above sounded complicated, there is a simpler alternative: Dependency Injection. Essentially adding the external state explicitly as a parameter which makes it easy to adjust in tests. For example, the code from above could be:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
 
-<span class="k">def</span> <span class="nf">generate_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">now</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">now</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">.png"</span>
 </code></pre></div>
 <p>Now testing is trivial:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">mock_example</span> <span class="kn">import</span> <span class="n">generate_filename</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mock_example</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_filename</span>
 
 
-<span class="k">def</span> <span class="nf">test_generate_filename</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_generate_filename</span><span class="p">():</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">generate_filename</span><span class="p">(</span><span class="n">now</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"1990-04-28.png"</span>
 </code></pre></div>
@@ -392,18 +392,18 @@ that.</p>
 <h2 id="dependency-injection-randomness">Dependency Injection: Randomness</h2>
 <p>Just like adding a time parameter for functions which use by default the current time might make your code way easier to test, adding a random_state parameter or a seed parameter to functions which use randomness helps.</p>
 <p>Here are some ways to seed random number generators:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">random</span><span class="o">.</span><span class="kp">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.8444218515250481</span>
 
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="kp">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.5488135039273248</span>
 
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">random_state</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="kp">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">random_state</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 <span class="mf">0.5488135039273248</span>
 </code></pre></div>
 <p>Setting a random state / seed is also very helpful for debugging. If you

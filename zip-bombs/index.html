@@ -118,12 +118,12 @@ MathJax.Hub.Queue(function() {
 <p>Unpacking such an archive can lead in various systems to problems which are all connected to running either out of memory or out of disk space. For example, an anti-virus scanner might unpack the ZIP file and thus get killed due to memory exhaustion. A backend server might fill up its disk and no longer be able to operate.</p>
 <h2 id="how-to-create-a-zip-bomb">How to create a ZIP bomb</h2>
 <p>The simplest ZIP bombs are super easy to create. You can simply use the packages found within Python:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">mkstemp</span>
-<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZIP_LZMA</span><span class="p">,</span> <span class="n">ZipFile</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">mkstemp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZIP_LZMA</span><span class="p">,</span> <span class="n">ZipFile</span>
 
 
-<span class="k">def</span> <span class="nf">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">handle</span><span class="p">,</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">".txt"</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"zip-txt-"</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
@@ -131,7 +131,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">filepath</span>
 
 
-<span class="k">def</span> <span class="nf">create_zipbomb</span><span class="p">(</span><span class="n">inner_file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span> <span class="n">nb_inner_files</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_zipbomb</span><span class="p">(</span><span class="n">inner_file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span> <span class="n">nb_inner_files</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">filepath</span> <span class="o">=</span> <span class="n">create_txt_file</span><span class="p">(</span><span class="n">size_in_byte</span><span class="o">=</span><span class="n">inner_file_size</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s2">"zipbomb.zip"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">ZIP_LZMA</span><span class="p">)</span> <span class="k">as</span> <span class="n">myzip</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_inner_files</span><span class="p">):</span>
@@ -160,10 +160,10 @@ MathJax.Hub.Queue(function() {
 <li>2020: Wireshark (<a href="https://nvd.nist.gov/vuln/detail/CVE-2020-25866">CVE-2020&ndash;25866</a>)</li>
 </ul>
 <h2 id="get-the-size-of-a-zip-file-without-extracting-data">Get the size of a ZIP file without extracting data</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">zipfile</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
 
 
-<span class="k">def</span> <span class="nf">get_extracted_size</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_extracted_size</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Get the extracted size in bytes."""</span>
     <span class="n">zp</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">zinfo</span><span class="o">.</span><span class="n">file_size</span> <span class="k">for</span> <span class="n">zinfo</span> <span class="ow">in</span> <span class="n">zp</span><span class="o">.</span><span class="n">filelist</span><span class="p">])</span>
@@ -181,7 +181,7 @@ MathJax.Hub.Queue(function() {
 </ul>
 <h3 id="clamav">ClamAV</h3>
 <p>The first release of <a href="https://en.wikipedia.org/wiki/Clam_AntiVirus">ClamAV</a> was in 2001, it was developed by Cisco and is open-source now. I&rsquo;ve installed ClamAV 0.102.4/25962 . I try it with the <a href="https://pypi.org/project/clamd/">clamd</a> binding:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">clamd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">clamd</span>
 
 <span class="n">cd</span> <span class="o">=</span> <span class="n">clamd</span><span class="o">.</span><span class="n">ClamdUnixSocket</span><span class="p">()</span>
 <span class="n">cd</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s2">"/home/martin-thoma/bomb.zip"</span><span class="p">)</span>

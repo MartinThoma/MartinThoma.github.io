@@ -168,10 +168,10 @@ MathJax.Hub.Queue(function() {
 <p>Supplying the secrets via environment variables has two major drawbacks: (1) Every process can access them (2) Developers might want to log environment variables and thus leak secrets into the logs.</p>
 <p>Having a dedicated store for secrets and only getting the secrets once it&rsquo;s necessary is one solution to this problem.</p>
 <p>AWS SSM is a very common solution. Here is how you use it with Python:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
 
 
-<span class="k">def</span> <span class="nf">get_ssm_param</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_ssm_param</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">"ssm"</span><span class="p">)</span>
     <span class="n">param</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="n">Name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">WithDecryption</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">param</span><span class="p">[</span><span class="s2">"Parameter"</span><span class="p">][</span><span class="s2">"Value"</span><span class="p">]</span>
