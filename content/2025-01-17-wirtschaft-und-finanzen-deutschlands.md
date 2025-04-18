@@ -5,7 +5,7 @@ slug: wirtschaft-und-staatsfinanzen-in-deutschland
 author: Martin Thoma
 date: 2025-01-17 20:00
 category: My bits and bytes
-tags: germany,german,politics
+tags: germany,German posts,politics
 featured_image: logos/germany.png
 ---
 In Deutschland herrscht weitgehend Einigkeit – sowohl unter den Bürgern als auch

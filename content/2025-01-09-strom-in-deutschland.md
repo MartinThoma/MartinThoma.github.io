@@ -231,10 +231,20 @@ Um dieses Ziel zu erreichen, müssen wir:
 
 * **Elektrifizierung vorantreiben**: Wärmepumpen und Elektrofahrzeuge sind
   effizienter und umweltfreundlicher als fossile Alternativen. Ein schneller
-  Ausbau dieser Technologien ist essenziell.
+  Ausbau dieser Technologien ist essenziell. Weniger Verbrennung führt außerdem
+  zu weniger Feinstaub und Stickoxiden. Das ist wichtig für die Luftqualität
+  und die Gesundheit der Menschen.
+* **Verbrauch senken**: Insbesondere die Gebäude müssen besser
+  isoliert werden.
 * **Erneuerbare Energien massiv ausbauen**: Vor allem Windkraft benötigt
   weiteren Schub, insbesondere durch schnellere Genehmigungsverfahren.
-* **Speicherlösungen etablieren:**: Es werden gerade [sehr viele Genehmigungsanträge für Großspeicher](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) gestellt.
+* **Speicherlösungen etablieren**: Es werden gerade [sehr viele Genehmigungsanträge für Großspeicher](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) gestellt. Diese benötigen wir um die verfügbare
+  Energie des Tages in die Nacht zu bringen. Sie ergänzen also die PV-Anlagen.
+* **Wasserstofffähige Gaskraftwerke**: Bei länger anhaltenden Dunkelflauten
+  brauchen wir einen Ersatz für Windkraft und Solarstrom. Gaskraftwerke können
+  innerhalb von etwa 30 Minuten hochgefahren werden. Sobald grüner Wasserstoff
+  in ausreichenden Mengen verfügbar ist, können diese Gaskraftwerke auch
+  klimaneutral betrieben werden.
 * **Stromnetze modernisieren**: Wir brauchen mehr Leitungen, um den Strom von
   Norddeutschland nach Süddeutschland zu transportieren ([Quelle](https://www.sueddeutsche.de/projekte/artikel/politik/deutschland-stromnetz-paradox-ausbau-e410878/?reduced=true)). [Es geht voran](https://www.bundesregierung.de/breg-de/aktuelles/netzausbau-suedlink-2222762). Eines der
   Kernprojekte ist [Suedlink](https://de.wikipedia.org/wiki/Suedlink).
@@ -248,11 +258,4 @@ Um dieses Ziel zu erreichen, müssen wir:
 * [**Power-to-X**](https://de.wikipedia.org/wiki/Power-to-X): Wir können nicht
   nur Strom speichern, sondern auch Wasserstoff für die Stahlproduktion oder
   [E-Fuels für Flugzeuge](https://www.br.de/nachrichten/wissen/gruenes-fliegen-wie-luftfahrt-klimafreundlicher-werden-kann,TqUWv6Q) und
-  [Methanol für Schiffe](https://www.faz.net/aktuell/wirtschaft/klima-nachhaltigkeit/gruene-schifffahrt-methanol-schiff-ane-maersk-erstmals-in-hamburg-19616628.html) herstellen.
-
-
-
-<!-- <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/genehmigte-windenergieleistung.jpg"><img src="../images/2025/01/genehmigte-windenergieleistung.jpg" alt="Genehmigte Windenergieleistung" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Genehmigte Windenergieleistung (<a href="https://www.threads.net/@die_gruenen/post/DEiLX9BNVA5">Bildquelle</a>)</figcaption>
-</figure> -->
+  [Methanol für Schiffe](https://www.faz.net/aktuell/wirtschaft/klima-nachhaltigkeit/gruene-schifffahrt-methanol-schiff-ane-maersk-erstmals-in-hamburg-19616628.html) herstellen. [turn2x](https://turn2x.com/) ist hier interessant.

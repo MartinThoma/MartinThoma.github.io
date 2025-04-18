@@ -5,7 +5,7 @@ slug: kosten-krankenversorgung-in-deutschland
 author: Martin Thoma
 date: 2025-01-12 20:00
 category: My bits and bytes
-tags: germany,german,politics, health
+tags: germany,German posts,politics, health
 featured_image: logos/germany.png
 ---
 Aktuell erhöhen sehr viele Krankenkassen ihre Beiträge. Das wird aufgrund des

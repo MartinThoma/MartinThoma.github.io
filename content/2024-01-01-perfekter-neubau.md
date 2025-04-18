@@ -9,14 +9,31 @@ tags: house
 featured_image: logos/house.png
 ---
 Ich habe mir einen Altbau gekauft, aber ein Neubau wäre schon echt cool. In
-diesem Artikel sammel ich mal ein paar Ideen, wie für mich das perfekte Haus
+diesem Artikel sammle ich mal ein paar Ideen, wie für mich das perfekte Haus
 aussehen würde. Und ich habe mal mit Bing Image Creator gespielt um zu schauen
 wie gut ich meine Vorstellungen visualisieren kann.
 
-Kernideen bei meinem Traum-Neubau sind **autarikie** und **wenig Arbeit**.
+Kernideen bei meinem Traum-Neubau sind **autarkie** und **wenig Arbeit**.
 Das Haus soll möglichst ohne Wartung und mit geringem Reinigungsaufwand bewohnt
 werden können. Und es soll auch alles nicht riesig sein; also sagen wir mal so
 um die 120m² - 160m² Wohnfläche.
+
+## Grundprinzipien
+
+Ein Neubau sollte Sicherheit bieten und möglichst wenig Arbeit machen. Das
+heißt:
+
+* **Autarkie**: Insbesondere die Abhängigkeit von Energiepreisen sollte
+  minimiert werden.
+* **Wartungsarmut**: Wenn man schon was neues baut, dann will man nicht direkt
+  ärger mit Wartung und Reparaturen haben.
+* **Altersgerechtigkeit**: Man gewöhnt sich ans Haus - und sollte nicht
+  ausziehen müssen, wenn man älter wird.
+
+## Wandaufbau
+
+Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
+0,15&nbsp;W/m²K) erreichen, luftdicht sein und Wärmebrücken vermeiden.
 
 
 ## Technik
@@ -115,13 +132,18 @@ Alternativen zur Luft-Wasser-Wärmepumpe:
     <figcaption class="text-center">Haustür</figcaption>
 </figure>
 
-Haustür: Aus Aluminium, Bolzen zum verschluss, mechanisches Automatik-Schloss, Türspion
+Haustür:
+
+* Aus Aluminium
+* Bolzen zum Verschluss
+* mechanisches Automatik-Schloss
+* Türspion
 
 Innentüren:
 
 * Vollspan: Deutlich hochwertiger als Röhrenspan; hat bessere
   Schallschutz-Werte.
-* CPL (Continuous Pressure Laminate) ist eine wiederstandsfähige Beschichtung.
+* CPL (Continuous Pressure Laminate) ist eine widerstandsfähige Beschichtung.
 * Hohe Türen
 * Verdeckte Bänder
 
@@ -321,6 +343,11 @@ Bei Feinsteinzeug-Fließen:
   und kein Öl oder Gas.
 * Das Grundstück soll vom Haus aus leicht abfallen, damit Regen/Schmelzwasser
   weggeleitet wird.
+* Wände relativ dick, damit man keine zusätzlichen Dämmstoffe braucht. Das
+  sollte gut für die Wohngesundheit, gut gegen die Hitze im Sommer und für die
+  Kälte im Winter, sowie gut für den Schallschutz sein. Damit ist der Wandaufbau
+  recht einfach: Außenputz, Wand (z.B. Ziegel oder Poroton?), Kalk-Putz mit
+  Kalk-Farbe.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten" style="max-height: 512px"/></a>
@@ -333,6 +360,17 @@ Bei Feinsteinzeug-Fließen:
   manuellen Notbetrieb, der von innen erreichbar ist (durchs geöffnete Fenster)
 * 3-fach verglast
 * Insekten-Rollo (Plissee) in den Fenstern
+* Rollos:
+    * Solar-Rollos ohne Gurt, aber mit Akku + USB-C-Ladebuchse: Keine Verbindung
+    von außen nach innen, keine Kabel.
+    * Die Steuerung über einen Funktaster nahe am Fenster. Der Taster sollte mit
+    dem Rollo gekoppelt sein und eine Neuverkoppelung sollte über einen Knopf
+    bei der Ladebuchse möglich sein. Als offener Standard wäre Zigbee Sub-GHz
+    geeignet:
+        * Sub-GHz => kommt besser durch Wände
+        * Zigbee: Offener Standard der im SmartHome-Bereich üblich ist
+        * Mesh-Networking: More stable
+    * App-Steuerung
 
 
 ## Küche
@@ -382,7 +420,8 @@ Luxus:
 * Beheizbarer Handtuchhalter
 * **Dusche**: Bodengleich, mit Regendusche und Handbrause. Mit Ablage für
   Shampoo und Duschgel. Mit Sitzgelegenheit. Mit Dusch-WC. Nieschen-Dusche mit
-  Pendeltür. Mindestens 90x90cm, besser 120x120cm.
+  Pendeltür. Mindestens 90x90cm, besser 120x120cm. Eine Revisionsdusche, also
+  eine Dusche bei der man ohne großen Aufwand an die Rohre kommt.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" style="max-height: 512px"/></a>

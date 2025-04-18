@@ -8,6 +8,12 @@ category: My bits and bytes
 tags: germany,German posts,politics
 featured_image: logos/germany.png
 ---
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/02/auslaender-in-deutschland.png"><img src="../images/2025/02/auslaender-in-deutschland.png" alt="Verteilung der Ausländer in Deutschland" style="max-height: 512px"/></a>
+    <figcaption class="text-center"><a href="https://www.deutschlandatlas.bund.de/DE/Karten/Wer-wir-sind/Auslaendische-Bevoelkerung.html">Menschen ohne Deutsche Staatsangehörigkeit in Deutschland</a>: 12.3 Millionen Menschen oder 14.6% der Menschen in Deutschland</figcaption>
+</figure>
+
 Seit dem [Bürgerkrieg in Syrien 2011](https://de.wikipedia.org/wiki/B%C3%BCrgerkrieg_in_Syrien_seit_2011) und der damit verbundenen
 [Flüchtlingskrise in Europa 2015/2016](https://de.wikipedia.org/wiki/Fl%C3%BCchtlingskrise_in_Europa_2015/2016)
 sehe ich in Deutschland immer wieder sehr unstrukturierte und undifferenzierte
@@ -16,6 +22,29 @@ Lösung sieht man unterschwellig kommuniziert nur "Ausländer raus", wie z.B.
 an dem von der CDU eingebrachten Zustrombegrenzungsgesetz, welches den Fokus
 auf die Begrenzung des Zuzugs von Ausländern legt, während wir in Deutschland
 eine alternde Bevölkerung haben. Ohne Zuwanderung wird Deutschland schrumpfen.
+
+
+## Über wen reden wir?
+
+Aleksa Muncan, Auszubildender für Altenpflege, unterstützt seine Familie in
+Deutschland:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DI913gTxprU?si=NtyTut5Fj29ZQQ9X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+"Geduldete":
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kUQdzM6L6bc?si=cGgOu2K4mzKFltly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Syrer, die ihre ganze Kindheit in Deutschland verbracht haben:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pWAsYcqXdQQ?si=GjZoDf1sJYwmV26y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Wir renden hier von hunderttausenden von Menschen, die in Deutschland leben,
+arbeiten und steuern zahlen. Menschen, die in Deutschland geboren sind und
+teilweise die deutsche Staatsbürgerschaft haben. Kinder, Auszubildende,
+Kollegen. Menschen, denen wir mit
+der Art wie wir über sie reden, das Gefühl geben, dass sie nicht willkommen
+sind. Menschen, denen wir Angst um ihre Zukunft machen.
 
 
 ## Ausländer: Flüchtlinge, Migranten, Kinder
@@ -591,21 +620,6 @@ Wer will in ein solches Land kommen? Wenn wir uns weiter entscheiden Ausländer
 prinzipiell als Problem zu diskutieren, bekommen die Rechten
 irgendwann was sie wollen: Ein Land, in das niemand mehr kommen will.
 
-
-## Über wen reden wir?
-
-Aleksa Muncan, Auszubildender für Altenpflege, unterstützt seine Familie in
-Deutschland:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DI913gTxprU?si=NtyTut5Fj29ZQQ9X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-"Geduldete":
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kUQdzM6L6bc?si=cGgOu2K4mzKFltly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-Syrer, die ihre ganze Kindheit in Deutschland verbracht haben:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pWAsYcqXdQQ?si=GjZoDf1sJYwmV26y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Siehe auch
 

@@ -229,7 +229,7 @@ Und es wird wohl auch so weitergehen:
   Arbeitskräften mit KI-Unterstützung erledigt werden. Dann werden weniger Jobs
   in dem Bereich benötigt. Und irgendwann werden manche dieser Jobs auch
   komplett verschwinden. Wir reden immer vom Fachkräftemangel als wäre es ein
-  allgemeiner Arbeitskräftemangel. Ist es nicht. Wir haben [2.6 Millionen Arbeitslose](https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Lange-Reihen/Arbeitsmarkt/lrarb003ga.html), aber nur etwa [0.7 Millionen offene Stellen](https://de.statista.com/statistik/daten/studie/2903/umfrage/jahresdurchschnittswerte-des-bestands-an-offenen-arbeitsstellen/).
+  allgemeiner Arbeitskräftemangel. Ist es nicht. Wir haben [2.6 Millionen Arbeitslose](https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Lange-Reihen/Arbeitsmarkt/lrarb003ga.html), aber nur etwa [1.3 Millionen offene Stellen](https://iab.de/das-iab/befragungen/iab-stellenerhebung/) (die Zahlen der Bundesagentur für Arbeit sind deutlich niedriger, weil nicht jede Firma offene Stellen der Bundesagentur meldet).
   Das wird noch extremer werden. Wenn wir weiter das Märchen über "die faulen Arbeitslosen"
   erzählen und glauben, werden die sozialen Spannungen weiter zunehmen.
 
