@@ -21,7 +21,7 @@ My collegues at Netlight and Johannes helped me with some of them (thank you
     <dd>Make short examples of HTML+CSS+JS easy to share / execute</dd>
     <dt><a href="https://www.regexpal.com">RegEx Pal</a></dt>
     <dd>Test regular expressions (I miss a possiblity to store and share them).<br/>
-        Alternatives: <a href="https://regex101.com/">regex101.com</a></dd>
+        Alternatives: <a href="https://regex101.com/">regex101.com</a>, <a href="https://extendsclass.com/regex-tester.html">extendsclass.com</a></dd>
     <dt><a href="https://gist.github.com/">Gist</a> <span class="label label-default">Sharing</span></dt>
     <dd>Share single-file snippets of code / text.<br/>
         Alternatives: <a href="https://pastebin.com">Pastebin</a></dd>
