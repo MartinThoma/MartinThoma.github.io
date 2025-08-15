@@ -316,6 +316,13 @@ Ein gesunder Start in den Tag.
       <td>0,89&nbsp;€</td>
       <td>0,09&nbsp;€</td>
     </tr>
+    <tr>
+      <td><a href="https://www.dm.de/dmbio-sonnenblumenkerne-p4067796063295.html">Sonnenblumenkerne</a></td>
+      <td>6 Monate</td>
+      <td>500&nbsp;g</td>
+      <td>1,35&nbsp;€</td>
+      <td>0,03&nbsp;€</td>
+    </tr>
   </tbody>
   <tfoot style="font-weight:600; background:#fafafa;">
     <tr>
@@ -323,7 +330,7 @@ Ein gesunder Start in den Tag.
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td>0,95&nbsp;€</td>
+      <td>0,98&nbsp;€</td>
     </tr>
   </tfoot>
 </table>
