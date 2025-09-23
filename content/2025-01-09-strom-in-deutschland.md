@@ -244,7 +244,7 @@ Um dieses Ziel zu erreichen, müssen wir:
   brauchen wir einen Ersatz für Windkraft und Solarstrom. Gaskraftwerke können
   innerhalb von etwa 30 Minuten hochgefahren werden. Sobald grüner Wasserstoff
   in ausreichenden Mengen verfügbar ist, können diese Gaskraftwerke auch
-  klimaneutral betrieben werden.
+  klimaneutral betrieben werden. Etwa [21 Gigawatt (GW) werden benötigt](https://www.pv-magazine.de/2023/03/06/mckinsey-warnt-vor-30-gigawatt-stromluecke-bis-2030/).
 * **Stromnetze modernisieren**: Wir brauchen mehr Leitungen, um den Strom von
   Norddeutschland nach Süddeutschland zu transportieren ([Quelle](https://www.sueddeutsche.de/projekte/artikel/politik/deutschland-stromnetz-paradox-ausbau-e410878/?reduced=true)). [Es geht voran](https://www.bundesregierung.de/breg-de/aktuelles/netzausbau-suedlink-2222762). Eines der
   Kernprojekte ist [Suedlink](https://de.wikipedia.org/wiki/Suedlink).

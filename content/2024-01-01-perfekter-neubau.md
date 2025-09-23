@@ -38,7 +38,8 @@ Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
 
 ## Technik
 
-* PV-Anlage mit Inselfunktion, damit man für Stromausfälle etwas gewappnet ist.
+* PV-Anlage mit Inselfunktion und Notstromlösung, damit man für Stromausfälle
+  etwas gewappnet ist.
 * Trinkwasser- und Grauwasser-Leitungen. Die Grauwasser-Leitungen gehen zu den
   Toiletten. Ein Großteil des Wasserbedarfs ist dort.
 * Wasserbehälter für Regenwasser. Damit kann man dann das Garten- und
@@ -51,6 +52,7 @@ Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
 * Verschiebbare Holz-Laden zum Sonnenschutz an der Außenfassade
 * Regen-Notüberlauf an der Regenrinne, damit bei Verstopfung / zu viel Regen das
   Wasser geordnet abgeleitet wird.
+* Technik-Raum für Strom und Internet (Glasfaser-Anschluss, USV, Switch, Netzwerk-Kabel in alle Etagen, WLAN-Access-Points in jedem Stockwerk, )
 
 <style>
 .good {
@@ -76,7 +78,7 @@ Fußbodenheizung.
 Ein Hygienespeicher kann als zusätzlicher Speicher für Warmwasser dienen: Der
 Heizstab erhitzt das Wasser im Hygienespeicher. Wenn man dann Warmwasser
 benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und
-so erwärmt.
+so erwärmt. (kein Schichtenspeicher, damit man keine Probleme mit Legionellen bekommt)
 
 Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen Schornstein.
 Daher gibt es auch keine Kosten für Schornsteinfeger.
@@ -346,13 +348,20 @@ Bei Feinsteinzeug-Fließen:
 * Wände relativ dick, damit man keine zusätzlichen Dämmstoffe braucht. Das
   sollte gut für die Wohngesundheit, gut gegen die Hitze im Sommer und für die
   Kälte im Winter, sowie gut für den Schallschutz sein. Damit ist der Wandaufbau
-  recht einfach: Außenputz, Wand (z.B. Ziegel oder Poroton?), Kalk-Putz mit
+  recht einfach: Außenputz, Wand (z.B. Ziegel oder Poroton?), Kalk-Putz (z.B. <a href="https://www.terralilia.de/produkte/terra-calce/">Terra Calce</a> oder <a href="https://www.alpenkalk.de/products/rollputz-fein-24-kg">AlpenKalk</a>) mit
   Kalk-Farbe.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/house.jpg"><img src="../images/2024/01/house.jpg" alt="Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten" style="max-height: 512px"/></a>
     <figcaption class="text-center">Ein Neubau mit Satteldach und großen Glasflächen, einer Photovoltaik-Anlage, großem Dachüberstand, und schönem Garten</figcaption>
 </figure>
+
+### Wandaufbau
+
+* Poroton (Ytong)-Ziegel sind glatt. Das macht das Verputzen einfacher.
+* Poroton-Zigel sind mit 60cm länge deutlich länger als die üblichen Hochlochziegel
+* Hochlochziegel sind instabiler, weil sie hohl sind
+
 
 ### Fenster
 
@@ -552,6 +561,13 @@ Mit Glasbrocken (Gambionen) in Türkis und LEDs kann man sehr schöne Sachen mac
 * Wasser-Ablauf im Boden, falls mal was kaputt geht
 
 ## Besondere Räume
+
+Zwei Räume auf die ich in einem Neubau nicht verzichten möchte:
+
+* Technikraum: Strom und Internet.
+* Putzraum: Ein sehr kleiner Raum mit dem Staubsauger und Putzzeug. Der sollte
+  in jedem Stockwerk sein, damit man nicht immer die Treppe hoch und runter
+  muss, um den Staubsauger zu holen.
 
 Meine Frau findet Ankleidezimmer toll:
 

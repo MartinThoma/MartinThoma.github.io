@@ -301,7 +301,7 @@ Es gibt Steuern, deren Beitrag zum Bundeshaushalt so gering ist, dass sie
 unverhältnismäßig hohe Verwaltungskosten verursachen. Einige könnten abgeschafft
 und durch effektivere Mechanismen ersetzt werden:
 
-* **Alkoholsteuern reformieren**: Die Abschaffung der folgenden Steuern könnte durch eine Erhöhung der allgemeinen [Alkoholsteuer](https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer). Eine [Erhöhung der Alkoholsteuer bietet viele Vorteile](https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates)
+* **Alkoholsteuern reformieren**: Die Abschaffung der folgenden Steuern könnte durch eine Erhöhung der allgemeinen [Alkoholsteuer](https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer) aufkommensneutral finanziert werden. Eine [Erhöhung der Alkoholsteuer bietet zusätzlich viele Vorteile](https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates)
     * [Alkopopsteuer](https://de.wikipedia.org/wiki/Alkopopsteuergesetz_(Deutschland)): -5 Millionen EUR Steueraufkommen. Wir zahlen also aktiv drauf. Stattdessen sollten wir mit Werbeverboten, Verkaufsbeschränkungen, und Mindestpreisen arbeiten.
     * [Zwischenerzeugnissteuer](https://de.wikipedia.org/wiki/Zwischenerzeugnissteuer): 22 Millionen EUR Steueraufkommen
     * [Schaumweinsteuer](https://de.wikipedia.org/wiki/Schaumweinsteuer): 341 Millionen EUR Steueraufkommen
