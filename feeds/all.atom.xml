@@ -1,5 +1,867 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/all.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2025-08-15T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Rezept: Schoko-Power-Müsli mit Banane</title><link href="https://martin-thoma.com/schoko-power-muesli-mit-banane/" rel="alternate"></link><published>2025-08-15T20:00:00+02:00</published><updated>2025-08-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-08-15:/schoko-power-muesli-mit-banane/</id><summary type="html">&lt;p&gt;Ein gesunder Start in den Tag.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/all.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2025-09-23T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Wirtschaftlichkeitsberechnung einer Photovoltaikanlage</title><link href="https://martin-thoma.com/wirtschaftlichkeitsberechnung-pv-anlage/" rel="alternate"></link><published>2025-09-23T20:00:00+02:00</published><updated>2025-09-23T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-09-23:/wirtschaftlichkeitsberechnung-pv-anlage/</id><summary type="html">&lt;p&gt;Ich habe seit etwa 2 Jahren mein eigenes Haus und seit Mai 2025 eine W&amp;auml;rmepumpe.
+Die Kombination aus W&amp;auml;rmepumpe und Photovoltaikanlage (PV-Anlage) ist reizvoll,
+weil man damit unabh&amp;auml;ngiger von steigenden Energiepreisen wird, etwas gutes f&amp;uuml;r
+die Umwelt tut und ggf. auch gegen kurzfristige Stromausf&amp;auml;lle gewappnet ist.&lt;/p&gt;
+&lt;p&gt;In diesem Artikel m&amp;ouml;chte …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ich habe seit etwa 2 Jahren mein eigenes Haus und seit Mai 2025 eine W&amp;auml;rmepumpe.
+Die Kombination aus W&amp;auml;rmepumpe und Photovoltaikanlage (PV-Anlage) ist reizvoll,
+weil man damit unabh&amp;auml;ngiger von steigenden Energiepreisen wird, etwas gutes f&amp;uuml;r
+die Umwelt tut und ggf. auch gegen kurzfristige Stromausf&amp;auml;lle gewappnet ist.&lt;/p&gt;
+&lt;p&gt;In diesem Artikel m&amp;ouml;chte ich berechnen, ab welchem Preis eine PV-Anlage f&amp;uuml;r mich
+wirtschaftlich ist.&lt;/p&gt;
+&lt;h2 id="strompreis"&gt;Strompreis&lt;/h2&gt;
+&lt;p&gt;Ich habe aktuell zwei Stromz&amp;auml;hler und zwei Tarife:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hausstrom: 0.2505&amp;euro;/kWh + 126,43 &amp;euro;/Jahr&lt;/li&gt;
+&lt;li&gt;W&amp;auml;rmepumpen-Tarif: 0.205&amp;euro;/kWh + 93,88 &amp;euro;/Jahr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ich gehe von ca. 2% j&amp;auml;hrlichen Preissteigerungen aus.&lt;/p&gt;
+&lt;h2 id="dachflache"&gt;Dachfl&amp;auml;che&lt;/h2&gt;
+&lt;p&gt;Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dachneigung&lt;/strong&gt;: 30&amp;deg; (0&amp;deg; = flach, mehr als 60&amp;deg; ist ungew&amp;ouml;hnlich, &lt;a href="https://solar.red/photovoltaik-neigungswinkel/"&gt;Tool&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ausrichtung&lt;/strong&gt;: S&amp;uuml;d-West (ca. 50&amp;deg;, also etwas westlicher als S&amp;uuml;d, &lt;a href="https://www.rechnerphotovoltaik.de/rechner/dachausrichtung"&gt;Tool&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dachfl&amp;auml;che: ca 6m x 12m&lt;/strong&gt; (72m&amp;sup2; pro Seite)&lt;ul&gt;
+&lt;li&gt;10m x 10m Korpus, d.h. 10m x 5m f&amp;uuml;r das rechtwinklige Dreieck&lt;/li&gt;
+&lt;li&gt;Dach&amp;uuml;berstand von ca. 1m&lt;/li&gt;
+&lt;li&gt;Hypothenuse = 6m / cos(30&amp;deg;) = 6.93m&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="ertragsschatzung"&gt;Ertragssch&amp;auml;tzung&lt;/h2&gt;
+&lt;p&gt;Mit &lt;a href="https://www.solarserver.de/pv-anlage-online-berechnen/"&gt;solarserver.de&lt;/a&gt;
+kann man berechnen, wie viel Strom eine PV-Anlage an einem bestimmten Ort,
+mit einer bestimmten Ausrichtung und Neigung erzeugt.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Monat&lt;/th&gt;
+&lt;th&gt;kWh/kWp&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Januar&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;40 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Februar&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;60 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;M&amp;auml;rz&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;100 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;April&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;125 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mai&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;130 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Juni&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;135 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Juli&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;138 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;August&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;124 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;September&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;98 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Oktober&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;70 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;November&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;45 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dezember&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;30 kWh/kWp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Summe&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;1.080 kWh/kWp&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Auch interessant:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.rechnerphotovoltaik.de/photovoltaik/voraussetzungen/dachneigung"&gt;Zusammenhang zwischen Neigung, Ausrichtung und Ertrag&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="stromverbrauch-und-kosten"&gt;Stromverbrauch und Kosten&lt;/h2&gt;
+&lt;p&gt;F&amp;uuml;r den Stromverbrauch gibt es ein paar wichtige Faktoren:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Heizung&lt;/strong&gt;: Das Heizen, insbesondere in Altbauten, macht den gr&amp;ouml;&amp;szlig;ten Teil
+   des Energieverbrauchs aus. Nat&amp;uuml;rlich ist das hier nur f&amp;uuml;r den Strom relevant,
+   wenn man eine W&amp;auml;rmepumpe, Infrarotheizung oder einen Nachtspeicherofen hat.
+   Gro&amp;szlig;verbraucher sind:&lt;/li&gt;
+&lt;li&gt;Herd und Ofen&lt;/li&gt;
+&lt;li&gt;K&amp;uuml;hl- und Gefrierschrank&lt;/li&gt;
+&lt;li&gt;Waschmaschine und Trockner&lt;/li&gt;
+&lt;li&gt;Heizl&amp;uuml;fter&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warmwasser&lt;/strong&gt;: Auch die Warmwasserbereitung macht einiges aus.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Haushalt&lt;/strong&gt;: Wieder W&amp;auml;rme (K&amp;uuml;hl- und Gefrierschrank, hei&amp;szlig;es Wasser f&amp;uuml;r
+   Sp&amp;uuml;lmaschine und Waschmaschine, Herd und Ofen). Die Beleuchtung spielt nur
+   dann eine Rolle wenn man noch alte
+   Gl&amp;uuml;hbirngen/Halogenlampen/Energiesparlampen hat. Oder wenn man viele LEDs hat
+   die man lange brennen l&amp;auml;sst. Laptops und Smartphones spielen keine Rolle.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Personen&lt;/strong&gt; im Haushalt: Je mehr Personen, desto h&amp;ouml;her der Verbrauch.
+   Haupts&amp;auml;chlich wegen Warmwasser und h&amp;auml;ufigerem Waschen/Sp&amp;uuml;len/Trocknen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Es gibt Tabellen was &amp;uuml;blich ist. Ich habe meine Daten teilweise erfasst und
+die in Klammern stehenden Werte sind gesch&amp;auml;tzt. Die Daten sind f&amp;uuml;r ca. 200m&amp;sup2;
+beheizte Fl&amp;auml;che und 2 Personen (mit halbwegs regelm&amp;auml;&amp;szlig;ig 2 weiteren G&amp;auml;sten) sowie
+2 Katzen.&lt;/p&gt;
+&lt;p&gt;Der Stromverbrauch ist jeweils &lt;strong&gt;pro Tag&lt;/strong&gt;:&lt;/p&gt;
+&lt;style&gt;
+.border-right {
+    border-right: 1px solid black;
+}
+&lt;/style&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class="border-right"&gt;Monat&lt;/th&gt;
+&lt;th&gt;Haushalt&lt;/th&gt;
+&lt;th&gt;Warmwasser&lt;/th&gt;
+&lt;th class="border-right"&gt;Heizung&lt;/th&gt;
+&lt;th&gt;Kosten Haushalt&lt;br/&gt;im Monat&lt;/th&gt;
+&lt;th&gt;Kosten Warmwasser&lt;br/&gt;im Monat&lt;/th&gt;
+&lt;th&gt;Kosten Heizung&lt;br/&gt;im Monat&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Januar&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;8.7 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(2.4 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(38 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;67.56 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;15.25 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;241.49 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Februar&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;8.5 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(2.0 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(30 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;59.62 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;11.48 &amp;euro;&lt;/td&gt;
+&lt;td "="" style="text-align: right; background-color: #ff0000;"&gt;172.20 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;M&amp;auml;rz&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;10.3 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(1.8 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(11 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;79.98 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;11.44 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;69.91 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;April&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;8.5 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(1.5 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(4 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;63.88 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;9.23 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;24.60 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Mai&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;8.5 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1.2 kWh/Tag&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(3 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;66.00 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;7.63 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;19.07 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Juni&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;6.1 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1.2 kWh/Tag&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;1.0 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;45.84 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;7.38 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;6.15 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Juli&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;5.9 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1.1 kWh/Tag&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;0.3 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;47.37 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;6.99 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1.91 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;August&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;6.8 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1.2 kWh/Tag&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;0.3 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;52.80 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;7.63 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1.91 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;September&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;7.7 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(1.2 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(2.7 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;57.87 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;7.38 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;16.61 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Oktober&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;7.5 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(1.8 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(9 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;58.24 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;11.44 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;57.20 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;November&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;10.3 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(2.0 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(25 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;77.40 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;12.30 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;153.75 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Dezember&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;10.0 kWh/Tag&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;(2.4 kWh/Tag)&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;(40 kWh/Tag)&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ffdd22;"&gt;77.66 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;15.25 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;254.20 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Summe&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;3.005 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;ca. 602 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td class="border-right" style="text-align: right;"&gt;&lt;strong&gt;ca. 4.971 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;754.22 &amp;euro;&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;123.40 &amp;euro;&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;1019.00 &amp;euro;&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Durchschnitt&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;8.2 kWh/Tag&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;1.6 kWh/Tag&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;13.6 kWh/Tag&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;2.06&amp;euro;/Tag&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;0.34&amp;euro;/Tag&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;2.79&amp;euro;/Tag&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Ich bezahle also aktuell vermutlich:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Haushaltsstrom: 879.18 &amp;euro;/Jahr&lt;/li&gt;
+&lt;li&gt;W&amp;auml;rmepumpenstrom: 1236.34 &amp;euro;/Jahr&lt;/li&gt;
+&lt;li&gt;Erster Stromz&amp;auml;hler (Bezug/Einspeisung): 30 &amp;euro;/Jahr&lt;/li&gt;
+&lt;li&gt;Zweiter Stromz&amp;auml;hler (HT/NT): 30 &amp;euro;/Jahr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Insgesamt zahle ich f&amp;uuml;r Strom also ca. 2.175,52 &amp;euro;/Jahr.&lt;/p&gt;
+&lt;h2 id="einspeisevergutung"&gt;Einspeiseverg&amp;uuml;tung&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html"&gt;Laut Bundesnetzagentur&lt;/a&gt; gibt es im September 2025 f&amp;uuml;r
+Teileinspeisung bei Anlagen zwischen 10 und 40 kWp eine Verg&amp;uuml;tung von 0.068 &amp;euro;/kWh.&lt;/p&gt;
+&lt;p&gt;Der Verg&amp;uuml;tungsanspruch nach dem EEG besteht f&amp;uuml;r die Dauer von 20 Jahren. Die
+20-Jahre-Frist beginnt ab der Inbetriebnahme zu laufen.&lt;/p&gt;
+&lt;h2 id="wirtschaftlichkeitsberechnung"&gt;Wirtschaftlichkeitsberechnung&lt;/h2&gt;
+&lt;h3 id="worst-case-volleinspeisung"&gt;Worst-Case: Volleinspeisung&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Verg&amp;uuml;tung:  0.068 &amp;euro;/kWh&lt;/li&gt;
+&lt;li&gt;Ertrag: 1000 kWh/kWp/Jahr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;=&amp;gt; 68 &amp;euro;/kWp pro Jahr an Einnahmen. Bei Z&amp;auml;hlerzusammenlegung sogar h&amp;ouml;here Ausgaben.&lt;/p&gt;
+&lt;h3 id="best-case-volleigenverbrauch-mit-einspeisevergutung"&gt;Best-Case: Volleigenverbrauch mit Einspeiseverg&amp;uuml;tung&lt;/h3&gt;
+&lt;p&gt;Ich gehe hier von einer Z&amp;auml;hlerzusammenlegung aus, d.h. der Strom kostet dann
+0.2505 &amp;euro;/kWh + 126,43 &amp;euro;/Jahr.&lt;/p&gt;
+&lt;p&gt;Ich gehe von einer 10kWp Anlage aus.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class="border-right"&gt;Monat&lt;/th&gt;
+&lt;th&gt;Strombedarf&lt;/th&gt;
+&lt;th class="border-right"&gt;PV-Ertrag&lt;/th&gt;
+&lt;th&gt;Einspeisung&lt;/th&gt;
+&lt;th class="border-right"&gt;Netzbezug&lt;/th&gt;
+&lt;th&gt;Verg&amp;uuml;tung&lt;/th&gt;
+&lt;th&gt;Kosten Strom&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Januar&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1522 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;400 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1122 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;281.06 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Februar&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1134 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;600 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;534 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;133.77 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;M&amp;auml;rz&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;716 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1000 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;284 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;19.31 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;April&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;420 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1250 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;830 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;54.44 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Mai&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;394 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1300 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;906 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;61.61 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Juni&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;249 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1350 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1101 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;74.87 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Juli&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;226 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1380 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1154 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;78.47 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;August&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;257 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1240 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;983 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;66.84 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;September&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;348 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;980 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;632 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;42.98 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Oktober&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;568 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;700 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;132 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;9.98 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;November&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1119 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;450 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;669 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;167.59 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="border-right"&gt;Dezember&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;1625 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;300 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 kWh&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;1325 kWh&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;0 &amp;euro;&lt;/td&gt;
+&lt;td style="text-align: right; background-color: #ff0000;"&gt;331.92 &amp;euro;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Summe&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;8.578 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;&lt;strong&gt;10.800 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;6.022 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td class="border-right;" style="text-align: right;"&gt;&lt;strong&gt;3.650 kWh&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;408.50 &amp;euro;&lt;/strong&gt;&lt;/td&gt;
+&lt;td style="text-align: right;"&gt;&lt;strong&gt;914.34 &amp;euro;&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Die Kosten w&amp;auml;ren also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Strombezug: -1040.77 &amp;euro;/Jahr&lt;/li&gt;
+&lt;li&gt;Verg&amp;uuml;tung: +408.50 &amp;euro;/Jahr&lt;/li&gt;
+&lt;li&gt;Z&amp;auml;hlerkosten: -30 &amp;euro;/Jahr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also w&amp;uuml;rde ich 662.27 &amp;euro;/Jahr zahlen. Oder mir 1513.25&amp;euro;/Jahr sparen.
+Wenn man mit 20 Jahren lebensdauer rechnet w&amp;auml;ren das 30.265 &amp;euro;.&lt;/p&gt;
+&lt;p&gt;Was die wirtschaftlichkeit reduziert:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Es wird auch im Sommer Tage geben, an denen ich Strom zukaufen muss. Eine Batterie
+  mildert das ab.&lt;/li&gt;
+&lt;li&gt;Die Panele k&amp;ouml;nnen durch Alterung oder Verschmutzung an Leistung verlieren.&lt;/li&gt;
+&lt;li&gt;Teile der Anlage k&amp;ouml;nnen kaputt gehen oder Wartung ben&amp;ouml;tigen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Was die Wirtschaftlichkeit erh&amp;ouml;ht:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Die Strompreise werden sicher steigen.&lt;/li&gt;
+&lt;li&gt;Die Anlage h&amp;auml;lt ggf. l&amp;auml;nger als 20 Jahre.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="My bits and bytes"></category><category term="house"></category><category term="diy"></category></entry><entry><title>Einbau-Spots</title><link href="https://martin-thoma.com/einbau-spots/" rel="alternate"></link><published>2025-09-11T20:00:00+02:00</published><updated>2025-09-11T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-09-11:/einbau-spots/</id><summary type="html">&lt;p&gt;Ich werde hoffentlich noch dieses Jahr meine K&amp;uuml;che renovieren und dabei einige
+Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Sinn machen&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Fassung&lt;/th&gt;
+&lt;th&gt;Leuchtmittel&lt;/th&gt;
+&lt;th&gt;Fassung&lt;/th&gt;
+&lt;th&gt;Volt&lt;/th&gt;
+&lt;th&gt;Preis Leuchtmittel&lt;/th&gt;
+&lt;th&gt;Lumen&lt;/th&gt;
+&lt;th&gt;Watt&lt;/th&gt;
+&lt;th&gt;Lumen/Watt&lt;/th&gt;
+&lt;th&gt;Bemerkungen&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/ledscom-Deckeneinbaurahmen-Einbaurahmen-Halogen-PAR16-wei%C3%9F-matt/dp/B07KB34D3H/"&gt;2.89&amp;euro;&lt;/a&gt;: 51mm Lochdurchmesser, 81mm Rahmendurchmesser, 65mm Einbautiefe&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/Amazon-Basics-LED-Leuchtmittel-MR16-Spots-35-W-Gl%C3%BChbirne/dp/B071RMD93K/"&gt;Amazon Basics LED MR16&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;MR16 (GU5 …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;Ich werde hoffentlich noch dieses Jahr meine K&amp;uuml;che renovieren und dabei einige
+Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Sinn machen&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Fassung&lt;/th&gt;
+&lt;th&gt;Leuchtmittel&lt;/th&gt;
+&lt;th&gt;Fassung&lt;/th&gt;
+&lt;th&gt;Volt&lt;/th&gt;
+&lt;th&gt;Preis Leuchtmittel&lt;/th&gt;
+&lt;th&gt;Lumen&lt;/th&gt;
+&lt;th&gt;Watt&lt;/th&gt;
+&lt;th&gt;Lumen/Watt&lt;/th&gt;
+&lt;th&gt;Bemerkungen&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/ledscom-Deckeneinbaurahmen-Einbaurahmen-Halogen-PAR16-wei%C3%9F-matt/dp/B07KB34D3H/"&gt;2.89&amp;euro;&lt;/a&gt;: 51mm Lochdurchmesser, 81mm Rahmendurchmesser, 65mm Einbautiefe&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/Amazon-Basics-LED-Leuchtmittel-MR16-Spots-35-W-Gl%C3%BChbirne/dp/B071RMD93K/"&gt;Amazon Basics LED MR16&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;MR16 (GU5.3)&lt;/td&gt;
+&lt;td&gt;12V&lt;/td&gt;
+&lt;td&gt;2.09&amp;euro;/St&amp;uuml;ck&lt;/td&gt;
+&lt;td&gt;345 Lumen&lt;/td&gt;
+&lt;td&gt;4.5 Watt&lt;/td&gt;
+&lt;td&gt;77 Lumen/Watt&lt;/td&gt;
+&lt;td&gt;15.000 Stunden Lebenszeit, 4cm hoch (mit Fassung wohl 5cm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/ledscom-Deckeneinbaurahmen-Einbaurahmen-Halogen-PAR16-wei%C3%9F-matt/dp/B07KB34D3H/"&gt;2.89&amp;euro;&lt;/a&gt;: 51mm Lochdurchmesser, 81mm Rahmendurchmesser, 65mm Einbautiefe&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/Amazon-Basics-ersetzt-warmwei%C3%9F-dimmbar/dp/B0716CJ5RZ/"&gt;Amazon Basics LED GU10&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GU10&lt;/td&gt;
+&lt;td&gt;230V&lt;/td&gt;
+&lt;td&gt;2.09&amp;euro;/St&amp;uuml;ck&lt;/td&gt;
+&lt;td&gt;345 Lumen&lt;/td&gt;
+&lt;td&gt;5.5 Watt&lt;/td&gt;
+&lt;td&gt;63 Lumen/Watt&lt;/td&gt;
+&lt;td&gt;15.000 Stunden Lebenszeit, 5cm hoch (mit Fassung wohl 6cm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/ledscom-Einbaurahmen-flach-107mm-Lochkreis-10-Leuchten-ohne-Leuchtmittel/dp/B07H8LP99M/"&gt;3&amp;euro;: 87mm Lochdurchmesser, 107mm Rahmendurchmesser, 40mm Einbautiefe&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/ledscom-St%C3%BCck-Leuchtmittel-warmwei%C3%9F-509lm/dp/B082PXY3DT/"&gt;ledscom 509lm&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GX53&lt;/td&gt;
+&lt;td&gt;230V&lt;/td&gt;
+&lt;td&gt;4.49&amp;euro;/St&amp;uuml;ck&lt;/td&gt;
+&lt;td&gt;509 Lumen&lt;/td&gt;
+&lt;td&gt;6.2 Watt&lt;/td&gt;
+&lt;td&gt;82 Lumen/Watt&lt;/td&gt;
+&lt;td&gt;15.000 Stunden Lebenszeit, 2.8cm hoch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/Paulmann-Einbauleuchte-schwenkbar-3-Stufen-Dimmbar-spr%C3%BChwassergesch%C3%BCtzt/dp/B07TTP52R9/"&gt;23&amp;euro;&lt;/a&gt;: 84mm Lochdurchmesser, 45mm Einbautiefe&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.amazon.de/Paulmann-94306-Einbauleuchte-Einzel-Coin-Deckeneinbaustrahler/dp/B0866MKS36/"&gt;Paulmann 94306&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;230V&lt;/td&gt;
+&lt;td&gt;13.59&amp;euro;/St&amp;uuml;ck&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;4 Watt&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;45mm Einbautiefe, keine Ahnung wie hell das ist&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="deckenhohe"&gt;Deckenh&amp;ouml;he&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;50mm f&amp;uuml;r ein Uw-Profil&lt;/li&gt;
+&lt;li&gt;12mm f&amp;uuml;r die Trockenbauplatte&lt;/li&gt;
+&lt;li&gt;3mm f&amp;uuml;r Putz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;=&amp;gt; 50mm + 12mm + 3mm = 65mm&lt;/p&gt;
+&lt;h2 id="gx53"&gt;GX53&lt;/h2&gt;
+&lt;p&gt;F&amp;uuml;r GX53 spricht:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mit einem Handgriff ohne Werkzeug zu wechseln&lt;/li&gt;
+&lt;li&gt;Kein Trafo n&amp;ouml;tig - wenn also was kaputt geht, muss nur das Leuchtmittel gewechselt werden&lt;/li&gt;
+&lt;li&gt;Sehr geringe Einbautiefe&lt;/li&gt;
+&lt;li&gt;Mit 87mm Durchmesser vom Loch (107mm Durchmesser vom Rahmen) kann man ggf. auch leichter die Kabel verlegen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="gu-10"&gt;GU 10&lt;/h2&gt;
+&lt;p&gt;GU10 ist hingegen weiter verbreitet. Die Leuchtmittel sind g&amp;uuml;nstiger und
+einfacher zu finden. Auch die Rahmen sind g&amp;uuml;nstiger.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Durchmesser Leuchtmittel: 50mm&lt;/li&gt;
+&lt;li&gt;H&amp;ouml;he von der oberkante des Glases des Leuchtmittels bis zur Unterkante der Fassung: 54mm&lt;/li&gt;
+&lt;li&gt;Sockelh&amp;ouml;he: ca. 7mm (+ ca. 3mm f&amp;uuml;r die Kabel)&lt;/li&gt;
+&lt;li&gt;Die Sockelh&amp;ouml;he betr&amp;auml;gt typischerweise 16mm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;=&amp;gt; 54mm + 16mm - 7mm + 3mm = 66mm&lt;/p&gt;
+&lt;p&gt;Man ben&amp;ouml;tigt dann eine 51mm-Lochs&amp;auml;ge-Aufsatz f&amp;uuml;r den Bohrer.&lt;/p&gt;
+&lt;h2 id="gu53-mr16"&gt;GU5.3 / MR16&lt;/h2&gt;
+&lt;p&gt;F&amp;uuml;r GU5.3 spricht eigentlich nichts, au&amp;szlig;er man ist in Feuchtr&amp;auml;umen.&lt;/p&gt;</content><category term="My bits and bytes"></category><category term="house"></category><category term="diy"></category></entry><entry><title>Rezept: Rohkostsalat</title><link href="https://martin-thoma.com/rohkostsalat/" rel="alternate"></link><published>2025-08-17T20:00:00+02:00</published><updated>2025-08-17T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-08-17:/rohkostsalat/</id><summary type="html">&lt;p&gt;Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und leckere Beilage. Hier ist ein einfaches Rezept:&lt;/p&gt;
+&lt;h2 id="mikronahrstoffe"&gt;Mikron&amp;auml;hrstoffe&lt;/h2&gt;
+&lt;style&gt;
+.green {
+    background-color: #c8e6c9;
+}
+.red {
+    background-color: #ffcdd2;
+}
+&lt;/style&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Mikron&amp;auml;hrstoff&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.aok.de/pk/magazin/ernaehrung/lebensmittel/wie-gesund-sind-karotten/"&gt;Karotte (100g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.zentrum-der-gesundheit.de/pdf/tabelle_gurke.pdf"&gt;Gurke (100g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.eismann.de/lebensmittel-lexikon/details/artikel/mais"&gt;Mais (100g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.yazio.com/de/kalorientabelle/oliven-oel-olivenoel.html"&gt;Oliven&amp;ouml;l (20g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.yazio.com/de/kalorientabelle/essig-branntweinessig-weissweinessig.html"&gt;Essig (10g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.yazio.com/de/kalorientabelle/cherry-tomaten-cocktail-tomate-frisch.html"&gt;Cherry-Tomaten (100g)&lt;/a&gt;, &lt;a href="https://www.zentrum-der-gesundheit.de/pdf/tabelle_tomate.pdf"&gt;[2]&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;Gesamt&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.aok.de/pk/magazin/ernaehrung/gesunde-ernaehrung/mineralstoffe-in-lebensmitteln-essenziell-fuer-die-gesundheit/"&gt;Tagesbedarf&lt;/a&gt;, &lt;a href="https://www.dkv.com/gesundheit-themenwelt-ernaehrung-taglicher-bedarf-an-vitaminen.html"&gt;[2]&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Brennwert (kcal)&lt;/td&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;95&lt;/td&gt;
+&lt;td&gt;177 …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und leckere Beilage. Hier ist ein einfaches Rezept:&lt;/p&gt;
+&lt;h2 id="mikronahrstoffe"&gt;Mikron&amp;auml;hrstoffe&lt;/h2&gt;
+&lt;style&gt;
+.green {
+    background-color: #c8e6c9;
+}
+.red {
+    background-color: #ffcdd2;
+}
+&lt;/style&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Mikron&amp;auml;hrstoff&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.aok.de/pk/magazin/ernaehrung/lebensmittel/wie-gesund-sind-karotten/"&gt;Karotte (100g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.zentrum-der-gesundheit.de/pdf/tabelle_gurke.pdf"&gt;Gurke (100g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.eismann.de/lebensmittel-lexikon/details/artikel/mais"&gt;Mais (100g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.yazio.com/de/kalorientabelle/oliven-oel-olivenoel.html"&gt;Oliven&amp;ouml;l (20g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.yazio.com/de/kalorientabelle/essig-branntweinessig-weissweinessig.html"&gt;Essig (10g)&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.yazio.com/de/kalorientabelle/cherry-tomaten-cocktail-tomate-frisch.html"&gt;Cherry-Tomaten (100g)&lt;/a&gt;, &lt;a href="https://www.zentrum-der-gesundheit.de/pdf/tabelle_tomate.pdf"&gt;[2]&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;Gesamt&lt;/th&gt;
+&lt;th&gt;&lt;a href="https://www.aok.de/pk/magazin/ernaehrung/gesunde-ernaehrung/mineralstoffe-in-lebensmitteln-essenziell-fuer-die-gesundheit/"&gt;Tagesbedarf&lt;/a&gt;, &lt;a href="https://www.dkv.com/gesundheit-themenwelt-ernaehrung-taglicher-bedarf-an-vitaminen.html"&gt;[2]&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Brennwert (kcal)&lt;/td&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;95&lt;/td&gt;
+&lt;td&gt;177&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;329&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fett (g)&lt;/td&gt;
+&lt;td&gt;0,2&lt;/td&gt;
+&lt;td&gt;0,2&lt;/td&gt;
+&lt;td&gt;1,2&lt;/td&gt;
+&lt;td&gt;20,0&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;0,1&lt;/td&gt;
+&lt;td&gt;21,7&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Protein (Eiweis, g)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;3,3&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;0,2&lt;/td&gt;
+&lt;td&gt;5,5&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ballaststoffe (g)&lt;/td&gt;
+&lt;td&gt;3,6&lt;/td&gt;
+&lt;td&gt;0,9&lt;/td&gt;
+&lt;td&gt;2,8&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;1,0&lt;/td&gt;
+&lt;td&gt;8.3&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kohlenhydrate (g)&lt;/td&gt;
+&lt;td&gt;4,8&lt;/td&gt;
+&lt;td&gt;1,8&lt;/td&gt;
+&lt;td&gt;15,7&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;0,0&lt;/td&gt;
+&lt;td&gt;2,8&lt;/td&gt;
+&lt;td&gt;25,1&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/gesunde-ernaehrung/faq/ausgewaehlte-fragen-und-antworten-zu-vitamin-a/"&gt;Vitamin A (&amp;micro;g RAE)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;1660&lt;/td&gt;
+&lt;td&gt;66&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;42&lt;/td&gt;
+&lt;td&gt;1778&lt;/td&gt;
+&lt;td class="green"&gt;800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Beta-Carotin (&amp;beta;-Carotin, &amp;micro;g)&lt;/td&gt;
+&lt;td&gt;9960&lt;/td&gt;
+&lt;td&gt;393&lt;/td&gt;
+&lt;td&gt;923&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;506&lt;/td&gt;
+&lt;td&gt;11782&lt;/td&gt;
+&lt;td&gt;15.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vitamin B1 (Thiamin, &amp;micro;g)&lt;/td&gt;
+&lt;td&gt;109&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;150&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;339&lt;/td&gt;
+&lt;td&gt;1300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/wissenschaft/referenzwerte/riboflavin/"&gt;Vitamin B2 (Riboflavin, &amp;micro;g)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;120&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;195&lt;/td&gt;
+&lt;td&gt;1400&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/wissenschaft/referenzwerte/niacin/"&gt;Vitamin B3 (Niacin, &amp;micro;g)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;604&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;1700&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1,1&lt;/td&gt;
+&lt;td&gt;2505,1&lt;/td&gt;
+&lt;td&gt;15000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/wissenschaft/referenzwerte/vitamin-b6/"&gt;Vitamin B6 (Pyridoxin, &amp;micro;g)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;165&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;220&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;td&gt;1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/wissenschaft/referenzwerte/folat/"&gt;Vitamin B9 (Fols&amp;auml;ure, Folat, &amp;micro;g)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;39&lt;/td&gt;
+&lt;td&gt;98&lt;/td&gt;
+&lt;td&gt;300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/gesunde-ernaehrung/faq/vitamin-b12/"&gt;Vitamin B12 (&amp;micro;g)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td class="red"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vitamin C (Ascorbins&amp;auml;ure, mg)&lt;/td&gt;
+&lt;td&gt;2,7&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;24,5&lt;/td&gt;
+&lt;td&gt;47,2&lt;/td&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/wissenschaft/referenzwerte/vitamin-d/"&gt;Vitamin D (&amp;micro;g)&lt;/a&gt;, &lt;small&gt;Versorgung erfolgt vorwiegend &amp;uuml;ber die Bildung durch Sonnenlicht in der Haut&lt;/small&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td class="red"&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vitamin E (Tocopherol&amp;auml;quivalent, &amp;micro;g)&lt;/td&gt;
+&lt;td&gt;482&lt;/td&gt;
+&lt;td&gt;63&lt;/td&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;td&gt;2400&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;813&lt;/td&gt;
+&lt;td&gt;4258&lt;/td&gt;
+&lt;td&gt;13.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.dge.de/wissenschaft/referenzwerte/vitamin-k/"&gt;Vitamin K (&amp;micro;g)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;38&lt;/td&gt;
+&lt;td&gt;70&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Calcium (Kalzium, mg)&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;1,5&lt;/td&gt;
+&lt;td&gt;18&lt;/td&gt;
+&lt;td&gt;61,5&lt;/td&gt;
+&lt;td class="red"&gt;1000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kalium (mg)&lt;/td&gt;
+&lt;td&gt;389&lt;/td&gt;
+&lt;td&gt;141&lt;/td&gt;
+&lt;td&gt;289&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;242&lt;/td&gt;
+&lt;td&gt;1070&lt;/td&gt;
+&lt;td&gt;4000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Magnesium (mg)&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;61&lt;/td&gt;
+&lt;td&gt;350&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Eisen (mg)&lt;/td&gt;
+&lt;td&gt;0,4&lt;/td&gt;
+&lt;td&gt;0,5&lt;/td&gt;
+&lt;td&gt;0,4&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0,5&lt;/td&gt;
+&lt;td&gt;1,8&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Zink (&amp;micro;g)&lt;/td&gt;
+&lt;td&gt;300&lt;/td&gt;
+&lt;td&gt;160&lt;/td&gt;
+&lt;td&gt;560&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;1220&lt;/td&gt;
+&lt;td class="red"&gt;15.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="erganzungen"&gt;Erg&amp;auml;nzungen&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lachs oder Garnelen&lt;/li&gt;
+&lt;li&gt;Avocado&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="rezepte"&gt;Rezepte&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.chefkoch.de/rezepte/1992841322820110/Schneller-Avocado-Garnelen-Salat.html"&gt;Schneller Avocado-Garnelen Salat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="My bits and bytes"></category><category term="recipe"></category></entry><entry><title>Rezept: Schoko-Power-Müsli mit Banane</title><link href="https://martin-thoma.com/schoko-power-muesli-mit-banane/" rel="alternate"></link><published>2025-08-15T20:00:00+02:00</published><updated>2025-08-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-08-15:/schoko-power-muesli-mit-banane/</id><summary type="html">&lt;p&gt;Ein gesunder Start in den Tag.&lt;/p&gt;
 &lt;h2 id="zutaten"&gt;Zutaten&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;50g Haferflocken&lt;/li&gt;
@@ -285,8 +1147,8 @@
 &lt;td&gt;Banane&lt;/td&gt;
 &lt;td&gt;3&amp;ndash;5 Tage&lt;/td&gt;
 &lt;td&gt;&amp;nbsp;&amp;nbsp;1&amp;nbsp;kg&lt;/td&gt;
-&lt;td&gt;1,59&amp;nbsp;&amp;euro;&lt;/td&gt;
-&lt;td&gt;0,19&amp;nbsp;&amp;euro;&lt;/td&gt;
+&lt;td&gt;1,69&amp;nbsp;&amp;euro;&lt;/td&gt;
+&lt;td&gt;0,20&amp;nbsp;&amp;euro;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Kakaopulver&lt;/td&gt;
@@ -344,7 +1206,7 @@
 &lt;td&gt;&amp;mdash;&lt;/td&gt;
 &lt;td&gt;&amp;mdash;&lt;/td&gt;
 &lt;td&gt;&amp;mdash;&lt;/td&gt;
-&lt;td&gt;0,91&amp;nbsp;&amp;euro;&lt;/td&gt;
+&lt;td&gt;0,92&amp;nbsp;&amp;euro;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tfoot&gt;
 &lt;/table&gt;
@@ -415,8 +1277,8 @@ anzuschaffen um den Strom flexibler nutzen zu k&amp;ouml;nnen.&lt;/p&gt;
 &lt;td&gt;1200 W (kombiniert 2300 W)&lt;/td&gt;
 &lt;td class="red"&gt;LFP (4000 Zyklen)&lt;/td&gt;
 &lt;td&gt;IP65&lt;/td&gt;
-&lt;td&gt;255 x 254 x 458 mm (21.5 kg)&lt;/td&gt;
-&lt;td class="red"&gt;1 x 500 W max., 11 - 60 V (130 Min)&lt;/td&gt;
+&lt;td&gt;255 &amp;times; 254 &amp;times; 458 mm (21.5 kg)&lt;/td&gt;
+&lt;td class="red"&gt;1&amp;times; 500 W max., 11 - 60 V (130 Min)&lt;/td&gt;
 &lt;td&gt;Hat USB-A und USB-C Ausg&amp;auml;nge, kann auch &amp;uuml;bers Auto geladen werden... macht eher den Eindrcuk einer Campign-L&amp;ouml;sung&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -427,8 +1289,8 @@ anzuschaffen um den Strom flexibler nutzen zu k&amp;ouml;nnen.&lt;/p&gt;
 &lt;td&gt;800W&lt;/td&gt;
 &lt;td&gt;LiFePO4 (6000 Zyklen)&lt;/td&gt;
 &lt;td&gt;IP65&lt;/td&gt;
-&lt;td&gt;T295 x B175 x H350mm (20kg)&lt;/td&gt;
-&lt;td&gt;2x 12V~59V, 13.5 A, 800W MAX&lt;/td&gt;
+&lt;td&gt;T295 &amp;times; B175 &amp;times; H350mm (20kg)&lt;/td&gt;
+&lt;td&gt;2&amp;times; 12V~59V, 13.5 A, 800W MAX&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -439,28 +1301,35 @@ anzuschaffen um den Strom flexibler nutzen zu k&amp;ouml;nnen.&lt;/p&gt;
 &lt;td&gt;800W&lt;/td&gt;
 &lt;td&gt;LFP (6000 Zyklen)&lt;/td&gt;
 &lt;td&gt;IP66&lt;/td&gt;
-&lt;td&gt;T235 x B406 x H270mm (23kg)&lt;/td&gt;
-&lt;td&gt;2x 16 - 60 V⎓ ,26 A, 900 W MAX&lt;/td&gt;
+&lt;td&gt;T235 &amp;times; B406 &amp;times; H270mm (23kg)&lt;/td&gt;
+&lt;td&gt;2&amp;times; 16 - 60 V⎓ ,26 A, 900 W MAX&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id="rentabilitat-berechnen"&gt;Rentabilit&amp;auml;t berechnen&lt;/h2&gt;
 &lt;p&gt;Im Grunde ist das ganz einfach. Es muss gelten:&lt;/p&gt;
-&lt;p&gt;Gewinn in der Lebenszeit = 0.9x Zyklen in der Lebenszeit * Kapazit&amp;auml;t in kWh * Preis pro kWh - Anschaffungspreis&lt;/p&gt;
+&lt;p&gt;Gewinn in der Lebenszeit = 0.9 &amp;middot; Zyklen in der Lebenszeit &amp;middot; Kapazit&amp;auml;t in kWh &amp;middot; Preis pro kWh - Anschaffungspreis&lt;/p&gt;
 &lt;p&gt;Bei dem Marstek Solarbank B2500-D&lt;/p&gt;
-&lt;p&gt;0.9 * 6000 * 2.2 kWh * 0.25 &amp;euro;/kWh - 380&amp;euro; = 2590 &amp;euro;&lt;/p&gt;
+&lt;p&gt;0.9 &amp;middot; 6000 &amp;middot; 2.2 kWh &amp;middot; 0.25 &amp;euro;/kWh - 380&amp;euro; = 2590 &amp;euro;&lt;/p&gt;
 &lt;p&gt;Umso gr&amp;ouml;&amp;szlig;er das Ergebnis, desto besser.&lt;/p&gt;
-&lt;p&gt;Amortisationszeit in Jahren =
-= Anschaffungspreis / Ersparnis pro Jahr
-= Anschaffungspreis / (J&amp;auml;hrlicher &amp;Uuml;berschuss in kWh * Preis pro kWh)&lt;/p&gt;
-&lt;p&gt;In meinem Fall habe ich eine Ersparnis von 208kWh/Jahr * 0.25&amp;euro;/kWh = 52&amp;euro;/Jahr.
+&lt;p&gt;$$
+\begin{align&lt;em&gt;}
+\text{Amortisationszeit in Jahren} &amp;amp; = \frac{\text{Anschaffungspreis}}{\text{Ersparnis pro Jahr}} \
+&amp;amp; = \frac{\text{Anschaffungspreis}}{\text{J&amp;auml;hrlicher &amp;Uuml;berschuss in kWh} \cdot \text{Preis pro kWh}}
+\end{align&lt;/em&gt;}
+$$&lt;/p&gt;
+&lt;p&gt;In meinem Fall habe ich eine Ersparnis von 208kWh/Jahr &amp;middot; 0.25&amp;euro;/kWh = 52&amp;euro;/Jahr.
 Der Akku sollte also definitiv nicht mehr als 624&amp;euro; kosten, damit er sich innerhalb
 von 12 Jahren amortisieren kann.&lt;/p&gt;
-&lt;p&gt;Oder auch: Lebenszeit in Jahren =
-= Zyklen * Kapazit&amp;auml;t [kWh] / &amp;Uuml;berschuss [kWh/Jahr]
-= 6000 * 2.2 kWh / 208 kWh/Jahr
-= 63 Jahre&lt;/p&gt;</content><category term="My bits and bytes"></category><category term="reviews"></category><category term="energy"></category><category term="photovoltaics"></category></entry><entry><title>Home Security Cameras 2025</title><link href="https://martin-thoma.com/home-security-cameras-2025/" rel="alternate"></link><published>2025-05-11T20:00:00+02:00</published><updated>2025-05-11T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-05-11:/home-security-cameras-2025/</id><summary type="html">&lt;p&gt;When I'm not at home, I still want to know if anything is happening. Especially
+&lt;p&gt;Oder auch:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{align&lt;em&gt;}
+\text{Lebenszeit in Jahren} &amp;amp; = \frac{\text{Zyklen} \cdot \text{Kapazit&amp;auml;t [kWh]}}{\text{&amp;Uuml;berschuss [kWh/Jahr]}} \
+&amp;amp; = \frac{6000 \cdot 2.2 \text{ kWh}}{208 \text{ kWh/Jahr}} \
+&amp;amp; = 63 \text{ Jahre}
+\end{align&lt;/em&gt;}
+$$&lt;/p&gt;</content><category term="My bits and bytes"></category><category term="reviews"></category><category term="energy"></category><category term="photovoltaics"></category></entry><entry><title>Home Security Cameras 2025</title><link href="https://martin-thoma.com/home-security-cameras-2025/" rel="alternate"></link><published>2025-05-11T20:00:00+02:00</published><updated>2025-05-11T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2025-05-11:/home-security-cameras-2025/</id><summary type="html">&lt;p&gt;When I'm not at home, I still want to know if anything is happening. Especially
 when a person is in an unexpected place, but also e.g. when somebody is at the
 door.&lt;/p&gt;
 &lt;p&gt;In this article, I will compare different home security cameras systems.&lt;/p&gt;
@@ -2297,7 +3166,7 @@ durch Steuerausf&amp;auml;lle und unrealistische Annahmen den Bundeshaushalt bel
 unverh&amp;auml;ltnism&amp;auml;&amp;szlig;ig hohe Verwaltungskosten verursachen. Einige k&amp;ouml;nnten abgeschafft
 und durch effektivere Mechanismen ersetzt werden:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Alkoholsteuern reformieren&lt;/strong&gt;: Die Abschaffung der folgenden Steuern k&amp;ouml;nnte durch eine Erh&amp;ouml;hung der allgemeinen &lt;a href="https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer"&gt;Alkoholsteuer&lt;/a&gt;. Eine &lt;a href="https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates"&gt;Erh&amp;ouml;hung der Alkoholsteuer bietet viele Vorteile&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Alkoholsteuern reformieren&lt;/strong&gt;: Die Abschaffung der folgenden Steuern k&amp;ouml;nnte durch eine Erh&amp;ouml;hung der allgemeinen &lt;a href="https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer"&gt;Alkoholsteuer&lt;/a&gt; aufkommensneutral finanziert werden. Eine &lt;a href="https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates"&gt;Erh&amp;ouml;hung der Alkoholsteuer bietet zus&amp;auml;tzlich viele Vorteile&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Alkopopsteuergesetz_(Deutschland)"&gt;Alkopopsteuer&lt;/a&gt;: -5 Millionen EUR Steueraufkommen. Wir zahlen also aktiv drauf. Stattdessen sollten wir mit Werbeverboten, Verkaufsbeschr&amp;auml;nkungen, und Mindestpreisen arbeiten.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Zwischenerzeugnissteuer"&gt;Zwischenerzeugnissteuer&lt;/a&gt;: 22 Millionen EUR Steueraufkommen&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Schaumweinsteuer"&gt;Schaumweinsteuer&lt;/a&gt;: 341 Millionen EUR Steueraufkommen&lt;/li&gt;
@@ -11717,6 +12586,20 @@ Beitragsh&amp;ouml;he nicht zumutbar ist. Das sind politische Entscheidungen.&lt
 &lt;p&gt;Man k&amp;ouml;nnte auch eine automatisch angepasste Mischung zwischen umlagebasierter
 und Kapitalgedeckter Rente machen, die abh&amp;auml;ngig von der Anzahl der Kinder der
 generation ist.&lt;/p&gt;
+&lt;h2 id="was-wir-machen-sollten"&gt;Was wir machen sollten&lt;/h2&gt;
+&lt;p&gt;Der Wechsel zu einem Kapitalgest&amp;uuml;tzdem System mag charmant erscheinen, ist
+praktisch aber nicht umsetzbar und l&amp;ouml;st die aktuellen Probleme nicht.&lt;/p&gt;
+&lt;p&gt;Daher sollte Deutschland:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Renteneintrittsalter erh&amp;ouml;hen&lt;/strong&gt;: Das Renteneintrittsalter an die
+   Lebenserwartungen einer Generation anpassen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solidargemeinschaft st&amp;auml;rken&lt;/strong&gt;: Jeder muss einzahlen, jeder bekommt etwas.
+   Beamte, Selbstst&amp;auml;ndige, Abgeordnete m&amp;uuml;ssen ebenfalls einzahlen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beitragssatz fest setzen&lt;/strong&gt;: Es kann nicht sein, dass die Arbeitenden immer
+   h&amp;ouml;here Rentenbeitr&amp;auml;ge zahlen m&amp;uuml;ssen. Ab einem gewissen Punkt muss die Rente
+   sinken. Und wenn es zum Leben nicht mehr reicht, muss der Staat mit dem
+   Staatshaushalt eingreifen.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id="siehe-auch"&gt;Siehe auch&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;YouTube&lt;ul&gt;
@@ -20460,546 +21343,4 @@ anything. But when the tool complains, it is important.&lt;/p&gt;
 &lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
 &lt;li&gt;Backups 😇&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="InfoSec"></category><category term="SCA"></category></entry><entry><title>Email Spoofing 😈</title><link href="https://martin-thoma.com/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" rel="alternate"></link><published>2020-12-02T20:00:00+01:00</published><updated>2020-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-12-02:/https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf</id><summary type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Email spoofing is the creation of emails with a forged sender address. Faking the senders&amp;rsquo; address is often a part of a &lt;strong&gt;phishing&lt;/strong&gt; attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security &lt;a href="mailto:something@phishy.com"&gt;something@phishy.com&lt;/a&gt; , or spoofing the email address.&lt;/p&gt;
-&lt;h2 id="why-it-matters"&gt;Why it Matters&lt;/h2&gt;
-&lt;p&gt;Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&amp;rsquo;ve found are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;2014&lt;/strong&gt;: The drug company Upsher-Smith Laboratories lost &lt;strong&gt;$50 million USD&lt;/strong&gt; by CEO fraud (&lt;a href="https://www.fox9.com/news/ceo-spoofing-costs-drug-company-50-million"&gt;source&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2015&lt;/strong&gt;: The networking company Ubiquiti Networks lost &lt;strong&gt;$46.7 million USD&lt;/strong&gt; to a scammer who impersonated employees (&lt;a href="https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201"&gt;source&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;In &lt;strong&gt;2018&lt;/strong&gt;, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over &lt;strong&gt;$1.2 billion&lt;/strong&gt;&amp;rdquo; (&lt;a href="https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf"&gt;source&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="how-are-emails-spoofed"&gt;How are Emails spoofed?&lt;/h2&gt;
-&lt;p&gt;Emails are transferred via the &lt;a href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol"&gt;SMTP&lt;/a&gt; protocol. This protocol has an envelope that contains the sender (&lt;strong&gt;MAIL FROM&lt;/strong&gt;) and the recipient (&lt;strong&gt;RCPT TO&lt;/strong&gt;). The sender is typically not verified and not displayed. Instead, the content of the mail contains additional metadata. One item there is the &lt;strong&gt;reply-to&lt;/strong&gt; and the &lt;strong&gt;sender&lt;/strong&gt;. It&amp;rsquo;s interesting that reply-to and sender are different.&lt;/p&gt;
-&lt;p&gt;As an attacker, one can manipulate everything. Just like with normal mail:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Write a wrong MAIL FROM&lt;/li&gt;
-&lt;li&gt;Claim within the mail you&amp;rsquo;re another person (sender)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A key difference here is that typically, a lot is handled in the background.&lt;/p&gt;
-&lt;p&gt;To make it clear that this is super easy and the attackers are not doing rocket science, here is how an email can be sent with Python:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;smtplib&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;email.message&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;EmailMessage&lt;/span&gt;
-
-&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;EmailMessage&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You've been a good boy"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"Subject"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Ho-ho-ho"&lt;/span&gt;
-&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
-    &lt;span class="s2"&gt;"From"&lt;/span&gt;
-&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"[santa.clause@christm.as](mailto:santa.clause@christm.as)"&lt;/span&gt;  &lt;span class="c1"&gt;# The fake sender&lt;/span&gt;
-&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"To"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"victim@example.com"&lt;/span&gt;  &lt;span class="c1"&gt;# The actual receiver&lt;/span&gt;
-&lt;span class="c1"&gt;# msg.add_header("reply-to", "[phishy@phising.com](mailto:phishy@phising.com)")  # The attackers address&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Send the message via our own SMTP server.&lt;/span&gt;
-&lt;span class="c1"&gt;# On Ubuntu, you need to install sendmail:&lt;/span&gt;
-&lt;span class="c1"&gt;#     $ apt-get install sendmail&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;smtplib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SMTP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"localhost"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;send_message&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Which then looks like this in Gmail:&lt;/p&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2020/12/email-spoofing-gmail-1.png"&gt;&lt;img alt="Spoofed Email in Gmail" src="../images/2020/12/email-spoofing-gmail-1.png" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;Spoofed Email in Gmail&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;When I click on it, I see this:&lt;/p&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2020/12/email-spoofing-gmail-1-full.png"&gt;&lt;img alt="Spoofed Email in Gmail - full view" src="../images/2020/12/email-spoofing-gmail-1-full.png" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;Spoofed Email in Gmail - full view&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Even when I go on the details, I see:&lt;/p&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2020/12/gmail-show-original.png"&gt;&lt;img alt="'Show original' in Gmail" src="../images/2020/12/gmail-show-original.png" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;'Show original' in Gmail&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2020/12/gmail-original-mail.png"&gt;&lt;img alt="Original view of email" src="../images/2020/12/gmail-original-mail.png" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;Original view of email&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;The attacker might also put a reply-to in the mail:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_header&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"reply-to"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"phishy@phising.com"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The attacker can also add a name to the email address:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;email.utils&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;formataddr&lt;/span&gt;
-
-&lt;span class="n"&gt;fake_address&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"santa.clause@christm.as"&lt;/span&gt;
-&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"From"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;formataddr&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s2"&gt;"Santa Clause"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fake_address&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Interestingly, that triggered Gmails spam detection:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2976/1*Z6XyVCcysdDbLdMlhEkaxw.png"/&gt;&lt;em&gt;Screenshot taken by Martin Thoma&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id="how-can-i-prevent-email-spoofing"&gt;How can I prevent Email Spoofing?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework"&gt;&lt;strong&gt;SPF&lt;/strong&gt;&lt;/a&gt; (Sender
-  Policy Framework), is an email authentication method designed to detect
-  forging sender addresses in emails. Domain owners (e.g. me for
-  martin-thoma.com) can publish SPF records to DNS. In that record, they
-  &lt;strong&gt;whitelist IP addresses&lt;/strong&gt; that can send emails for their domain. Email
-  servers can then perform an SPF lookup when they receive an email for the
-  (claimed) sender's domain. That prevents spammers from using your domains
-  &lt;strong&gt;in the email envelope&lt;/strong&gt;. When spammers do, the receiving email server
-  &lt;strong&gt;can&lt;/strong&gt; check the SPF record and either reject the email completely or mark
-  it as spam. More information can be found at
-  &lt;a href="http://www.open-spf.org/SPF_Record_Syntax/"&gt;open-spf.org&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail"&gt;&lt;strong&gt;DKIM&lt;/strong&gt;&lt;/a&gt;
-  (DomainKeys Identified Mail), is an email authentication method designed to
-  detect forged sender addresses in emails. It works by &lt;strong&gt;cryptographically
-  signing sent emails&lt;/strong&gt; from a given domain. This is not a signature per
-  person, but a signature for your organization. The corresponding public key
-  is published to the DNS records where email servers that receive those mails
-  can get it and verify it. DKIM makes sure that nobody tampered with the email
-  after it was sent. Imagine DKIM like a seal. SPF then is the knowledge which
-  seal should be used.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/DMARC"&gt;&lt;strong&gt;DMARC&lt;/strong&gt;&lt;/a&gt; (Domain-based Message
-  Authentication, Reporting, and Conformance), is an email authentication
-  protocol. DMARC uses SPF and DKIM and gives &lt;strong&gt;policies&lt;/strong&gt; on how to deal with
-  error cases. The domain owner creates a DMARC DNS record that contains
-  instructions on what to do with messages that failed the SPF / DKIM test.
-  Received emails that failed can on the receiver side either be rejected or
-  quarantined. If that happens, DMARC can be configured to send a report back.
-  DMARC enforces an &lt;strong&gt;alignment&lt;/strong&gt; of the MAIL FROM and the sender. This can be
-  problematic for newsletters but represents also what users expect.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As a domain owner, you can validate your SPF record like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;dig&lt;span class="w"&gt; &lt;/span&gt;google.com&lt;span class="w"&gt; &lt;/span&gt;txt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;spf
-google.com.&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="m"&gt;3600&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;IN&lt;span class="w"&gt; &lt;/span&gt;TXT&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"v=spf1 include:_spf.google.com ~all"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To verify DKIM, look in an email you received for this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=medium.com; \
-h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; \
-s=m1; bh=NY62YFtbfuXkL/SNoiClZV8gaZxkiYhFD4J77gUHGEY=; \
-b=EL3HbaL iSgAJsE6LO8L10T52+rYyump4R1aMAV9nCwyXLENaxbS0xgZvksgoplu8Rjo/wWV J0jDEFRe+UsOnIhaCTBXa1H7LVdjkRyOu9+9Qwd7hlWY5fx/mtRQXvWRDfe9KEsS 9WH8o0lRbOAq7AJXPLID/tZokm+KIMmMc/H0=
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The record is structured in tag=version pairs which are separated by &lt;code&gt;;&lt;/code&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;v&lt;/code&gt;: DKIM &lt;strong&gt;version&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;a&lt;/code&gt;: The signature &lt;strong&gt;algorithm&lt;/strong&gt;, typically rsa-sha256&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;c&lt;/code&gt;: The &lt;strong&gt;canonicalization&lt;/strong&gt; algorithm. The first value is for the header, the second one for the body of the email.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;d&lt;/code&gt;: The used &lt;strong&gt;domain&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;h&lt;/code&gt;: The &lt;strong&gt;headers&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;s&lt;/code&gt;: The DKIM &lt;strong&gt;selector&lt;/strong&gt; record name.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;b&lt;/code&gt;: The base64 encoded hash value of the headers h .&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;bh&lt;/code&gt;: The hash of the body of the email.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can look up your DMARC record like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;dig&lt;span class="w"&gt; &lt;/span&gt;_dmarc.google.com&lt;span class="w"&gt; &lt;/span&gt;txt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;DMARC
-_dmarc.google.com.&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;290&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;IN&lt;span class="w"&gt; &lt;/span&gt;TXT&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;"v=DMARC1; p=reject; \&lt;/span&gt;
-&lt;span class="s2"&gt;    rua=[mailauth-reports@google.com](mailto:mailauth-reports@google.com)"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The record is structured in tag=value pairs which are separated by &lt;code&gt;;&lt;/code&gt; (&lt;a href="https://dmarc.org/overview/"&gt;source&lt;/a&gt;):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;v&lt;/code&gt;: The protocol &lt;strong&gt;version.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;p&lt;/code&gt;: The &lt;strong&gt;policy&lt;/strong&gt;. It typically should be reject , but can also be quarantine&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rua&lt;/code&gt;: The reporting URI for &lt;strong&gt;aggregate reports&lt;/strong&gt; (how the domain is used)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ruf&lt;/code&gt;: The reporting URI for &lt;strong&gt;forensic reports&lt;/strong&gt;
- (showing when validation failed)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pct&lt;/code&gt;: How many percent of mails get handled with DMARC. You can set this to an integer from 0 to 100. For the beginning, you can set it low for testing. It should become 100 over time. If you don&amp;rsquo;t use the tag at all, it&amp;rsquo;s by default 100%.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Spoofing emails is easy.&lt;/p&gt;
-&lt;p&gt;As a system administrator, you can protect your company by setting an &lt;a href="https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide"&gt;anti-phishing-policy in Office 365&lt;/a&gt; or review the &lt;a href="https://support.google.com/a/answer/9157861?hl=en"&gt;advanced phishing and malware settings of G Suite&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;As a domain owner, make sure you have SPF, DKIM, and DMARC configured correctly to protect your customers or clients.&lt;/p&gt;
-&lt;h2 id="whats-next"&gt;What&amp;rsquo;s next?&lt;/h2&gt;
-&lt;p&gt;In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Part 1: &lt;a href="https://medium.com/faun/sql-injections-e8bc9a14c95"&gt;SQL Injections&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 2: &lt;a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80"&gt;Don&amp;rsquo;t leak Secrets&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 3: &lt;a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f"&gt;Cross-Site Scripting (XSS)&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 4: &lt;a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"&gt;Password Hashing&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 5: &lt;a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112"&gt;ZIP Bombs&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 6: &lt;a href="https://medium.com/plain-and-simple/captcha-500991bd90a3"&gt;CAPTCHA&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 7: &lt;a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf"&gt;Email Spoofing&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 8: &lt;a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e"&gt;Software Composition Analysis&lt;/a&gt; (SCA) 😇&lt;/li&gt;
-&lt;li&gt;Part 9: &lt;a href="https://medium.com/faun/xxe-attacks-750e91448e8f"&gt;XXE attacks&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 10: &lt;a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff"&gt;Effective Access Control&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 11: &lt;a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139"&gt;DOS via a Billion Laughs&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 12: &lt;a href="https://medium.com/faun/full-disk-encryption-2090489f9760"&gt;Full Disk Encryption&lt;/a&gt; 😇&lt;/li&gt;
-&lt;li&gt;Part 13: &lt;a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e"&gt;Insecure Deserialization&lt;/a&gt; 😈&lt;/li&gt;
-&lt;li&gt;Part 14: &lt;a href="https://levelup.gitconnected.com/docker-security-5f4df118948c"&gt;Docker Security&lt;/a&gt; 😇&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And this is about to come:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CSRF 😈&lt;/li&gt;
-&lt;li&gt;DOS 😈&lt;/li&gt;
-&lt;li&gt;ReDoS 😈&lt;/li&gt;
-&lt;li&gt;Credential Stuffing 😈&lt;/li&gt;
-&lt;li&gt;Cryptojacking 😈&lt;/li&gt;
-&lt;li&gt;Single-Sign-On 😇&lt;/li&gt;
-&lt;li&gt;Two-Factor Authentication 😇&lt;/li&gt;
-&lt;li&gt;Backups 😇&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="email"></category><category term="InfoSec"></category><category term="CyberSecurity"></category></entry><entry><title>Pythons Scoping Rules</title><link href="https://martin-thoma.com/https://towardsdatascience.com/but-its-not-declared-40501fb1e943" rel="alternate"></link><published>2020-11-23T20:00:00+01:00</published><updated>2020-11-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-11-23:/https://towardsdatascience.com/but-its-not-declared-40501fb1e943</id><summary type="html">&lt;p&gt;It&amp;rsquo;s obvious that you cannot access a variable before it was declared. But if
-it was declared inside a loop, can you access it outside a loop? If it was
-declared in a function, can you access the variable outside of the function?&lt;/p&gt;
-&lt;p&gt;This kind of &amp;ldquo;variable lifetime&amp;rdquo; is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It&amp;rsquo;s obvious that you cannot access a variable before it was declared. But if
-it was declared inside a loop, can you access it outside a loop? If it was
-declared in a function, can you access the variable outside of the function?&lt;/p&gt;
-&lt;p&gt;This kind of &amp;ldquo;variable lifetime&amp;rdquo; is known as scoping. After reading this
-article, you will know the scoping rules of Python. Let&amp;rsquo;s start!&lt;/p&gt;
-&lt;h2 id="the-3-scopes-of-python"&gt;The 3 Scopes of Python&lt;/h2&gt;
-&lt;p&gt;Python has 3 scopes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Global&lt;/strong&gt;: In the main part of the script. By default, this already contains
-  the built-ins. You can access all global variables with &lt;code&gt;globals()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Enclosed&lt;/strong&gt;: In the outer function, if this is a nested function&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Local&lt;/strong&gt;: Within the current function. You can access all local variables
-  with &lt;code&gt;locals()&lt;/code&gt;. Within the main script, &lt;code&gt;locals() == globals()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can see all three in action here:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="nb"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"enclosing"&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="sd"&gt;"""Bar is enclosed by 'foo'"""&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;baz&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="sd"&gt;"""Baz is also enclosed by 'foo'"""&lt;/span&gt;
-        &lt;span class="nb"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-
-    &lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="n"&gt;baz&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-
-&lt;span class="nb"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"global"&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;There is a crucial point here:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h1 id="the-scope-of-a-variable-is-defined-at-compile-time"&gt;The scope of a variable is defined at compile-time!&lt;/h1&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;For this reason, the following code throws an exception:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-    &lt;span class="nb"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;throws the exception:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Traceback (most recent call last):
-  File "example.py", line 5, in &amp;lt;module&amp;gt;
-    foo()
-  File "example.py", line 2, in foo
-    print(min([1, 2, 3]))
-UnboundLocalError: local variable 'min' referenced before assignment
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="the-global-statement"&gt;The &amp;ldquo;global&amp;rdquo; statement&lt;/h2&gt;
-&lt;p&gt;You can assign a value to a global variable in a function with the global
-statement:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"global"&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
-    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# gives "local"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I need this very rarely. To make sure that I don&amp;rsquo;t confuse anything, I like to
-use the globals() dictionary. In this case, I would rather use:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"global"&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="nb"&gt;globals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s2"&gt;"x"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# gives "local"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="the-nonlocal-statement"&gt;The &amp;ldquo;nonlocal&amp;rdquo; statement&lt;/h2&gt;
-&lt;p&gt;You can assign a value to an enclosed variable with the nonlocal statement:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"global"&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"enclosed"&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;nonlocal&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
-        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-
-    &lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# gives "local"&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# gives "local"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="confusing-examples"&gt;Confusing Examples&lt;/h2&gt;
-&lt;h3 id="append-element-vs-element"&gt;Append element vs &amp;lsquo;+= [element]&amp;rsquo;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;xs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# OK&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;vs&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# UnboundLocalError: local variable 'xs'&lt;/span&gt;
-    &lt;span class="c1"&gt;# referenced before assignment&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The reason why the first works but not the second is that the first one calls a
-function of &lt;code&gt;xs&lt;/code&gt;. It never assigns a value to &lt;code&gt;xs&lt;/code&gt;. The second one is equal to&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-
-
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When Python parses the assignment &lt;code&gt;xs = ...&lt;/code&gt;, the xs is assigned the local
-scope. But in the local scope, &lt;code&gt;xs&lt;/code&gt; does not exist before &lt;code&gt;xs = xs + [42]&lt;/code&gt; is
-executed. Hence the error.&lt;/p&gt;
-&lt;p&gt;In the first example with &lt;code&gt;xs.append(42)&lt;/code&gt;, the global scope of xs is used.
-Hence we don&amp;rsquo;t face any issue, because it is defined in the global scope.&lt;/p&gt;
-&lt;h3 id="global-scope-does-fall-back-to-built-ins"&gt;Global scope DOES fall back to built-ins&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# prints 1&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-&lt;span class="nb"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;but the same does not work in a local scope&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# UnboundLocalError: local variable 'min' referenced before assignment&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-    &lt;span class="nb"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"local"&lt;/span&gt;
-
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The reason is that &lt;code&gt;locals() == globals()&lt;/code&gt; within the global scope. Although built-ins are a bit special, they kind of live in the global scope.&lt;/p&gt;
-&lt;h3 id="assignment"&gt;Assignment&lt;/h3&gt;
-&lt;p&gt;This one is confusing to people with a Java, C, or C++ background. This is
-valid Python code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# prints 12&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;But in Java you need to declare it upfront to be able to use the variable after
-the loop:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Main&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;static&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id="mypy"&gt;mypy&lt;/h3&gt;
-&lt;p&gt;mypy is a wide-spread &lt;a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d"&gt;type-checker for Python&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;external_service&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;
-    &lt;span class="c1"&gt;# error: Incompatible types in assignment (expression has type "str", variable has type "int")&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So mypy doesn&amp;rsquo;t like that you assign the string &amp;ldquo;foo&amp;rdquo; to y , because it first
-read took the &lt;code&gt;bool(external_service()) == True&lt;/code&gt; path and assumed that y would
-be an integer.&lt;/p&gt;
-&lt;p&gt;Then you might want to do this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;external_service&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;
-    &lt;span class="c1"&gt;# error: Name 'y' already defined on line 2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You can see that mypy assumes the y should be the same type in both cases. It&amp;rsquo;s
-reasonable because otherwise the following analysis might get extremely
-complicated.&lt;/p&gt;
-&lt;p&gt;The next try might be:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Union&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
-&lt;span class="c1"&gt;# error: Incompatible types in assignment&lt;/span&gt;
-&lt;span class="c1"&gt;# (expression has type "None", variable has type "Union[str, int]")&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;external_service&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;That should have been expected. Assigning None is not possible to a type which
-does not include None &amp;mdash; and adding None to that type might cause many more
-issues down the road.&lt;/p&gt;
-&lt;p&gt;You can do this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;external_service&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Union&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;But I can also see when this feels strange. What might be cleaner is this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Union&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;external_service&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"foo"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="summary_1"&gt;Summary&lt;/h2&gt;
-&lt;p&gt;We have seen the three types of scopes in Python: Local, Enclosed, and global.
-We&amp;rsquo;ve seen that you can access globals with the global keyword or over the
-globals() dictionary. Locals can be accessed with the locals() dictionary and
-enclosed variables with the nonlocal keyword. Keep that in mind and Python
-scoping should make sense 🙂&lt;/p&gt;</content><category term="Code"></category><category term="Code"></category><category term="Python"></category><category term="Scope"></category></entry><entry><title>ebook readers</title><link href="https://martin-thoma.com/ebook-readers/" rel="alternate"></link><published>2020-11-14T20:00:00+01:00</published><updated>2020-11-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-11-14:/ebook-readers/</id><summary type="html">&lt;table&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Kindle Paperwhite 4&lt;/th&gt;
-&lt;th&gt;Tolino Vision 5&lt;/th&gt;
-&lt;th&gt;Tolino Epos 2&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Price&lt;/td&gt;
-&lt;td&gt;137 &amp;euro;&lt;/td&gt;
-&lt;td&gt;149 &amp;euro;&lt;/td&gt;
-&lt;td&gt;299 &amp;euro;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Release&lt;/td&gt;
-&lt;td&gt;2018&lt;/td&gt;
-&lt;td&gt;Oktober 2019&lt;/td&gt;
-&lt;td&gt;Oktober 2019&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Display&lt;/td&gt;
-&lt;td&gt;300 ppi, 16-level gray scale, 1072&amp;times;1448&lt;/td&gt;
-&lt;td&gt;300 ppi, 16-level gray scale, 1264&amp;times;1680&lt;/td&gt;
-&lt;td&gt;300 ppi, 16-level gray scale, 1440&amp;times;1920&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Screen size&lt;/td&gt;
-&lt;td&gt;6 Zoll&lt;/td&gt;
-&lt;td&gt;7 Zoll&lt;/td&gt;
-&lt;td&gt;8 Zoll&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Device …&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><content type="html">&lt;table&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;Kindle Paperwhite 4&lt;/th&gt;
-&lt;th&gt;Tolino Vision 5&lt;/th&gt;
-&lt;th&gt;Tolino Epos 2&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Price&lt;/td&gt;
-&lt;td&gt;137 &amp;euro;&lt;/td&gt;
-&lt;td&gt;149 &amp;euro;&lt;/td&gt;
-&lt;td&gt;299 &amp;euro;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Release&lt;/td&gt;
-&lt;td&gt;2018&lt;/td&gt;
-&lt;td&gt;Oktober 2019&lt;/td&gt;
-&lt;td&gt;Oktober 2019&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Display&lt;/td&gt;
-&lt;td&gt;300 ppi, 16-level gray scale, 1072&amp;times;1448&lt;/td&gt;
-&lt;td&gt;300 ppi, 16-level gray scale, 1264&amp;times;1680&lt;/td&gt;
-&lt;td&gt;300 ppi, 16-level gray scale, 1440&amp;times;1920&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Screen size&lt;/td&gt;
-&lt;td&gt;6 Zoll&lt;/td&gt;
-&lt;td&gt;7 Zoll&lt;/td&gt;
-&lt;td&gt;8 Zoll&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Device size&lt;/td&gt;
-&lt;td&gt;116mm x 167mm x 8.2mm&lt;/td&gt;
-&lt;td&gt;144mm x 159mm x 5.2mm&lt;/td&gt;
-&lt;td&gt;159 x 178 x 6,7 mm&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Device weight&lt;/td&gt;
-&lt;td&gt;182g&lt;/td&gt;
-&lt;td&gt;195g&lt;/td&gt;
-&lt;td&gt;195g&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Stores&lt;/td&gt;
-&lt;td&gt;Amazon&lt;/td&gt;
-&lt;td&gt;Thalia&lt;/td&gt;
-&lt;td&gt;Thalia&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Formats&lt;/td&gt;
-&lt;td&gt;Amazon Formats (AZW3, AZW, unprotected MOBI), TXT, PDF, PRC nativ; HTML, DOC, DOCX, JPEG, GIF, PNG; Audible (AAX)&lt;/td&gt;
-&lt;td colspan="2"&gt;EPUB (with/without DRM), PDF (with/without DRM), TXT; Onleihe&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Missing Formats&lt;/td&gt;
-&lt;td&gt;Onleihe&lt;/td&gt;
-&lt;td colspan="2"&gt;Kindle&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Usable Storage&lt;/td&gt;
-&lt;td&gt;6 GB&lt;/td&gt;
-&lt;td&gt;6 GB&lt;/td&gt;
-&lt;td&gt;6 GB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Battery&lt;/td&gt;
-&lt;td&gt;1500mAh&lt;/td&gt;
-&lt;td&gt;1200mAh&lt;/td&gt;
-&lt;td&gt;1200mAh&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Charging&lt;/td&gt;
-&lt;td&gt;Micro-USB&lt;/td&gt;
-&lt;td&gt;Micro-USB&lt;/td&gt;
-&lt;td&gt;Micro-USB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Connectivity&lt;/td&gt;
-&lt;td&gt;Micro-USB&amp;nbsp;2.0, WLAN&amp;nbsp;802.11b/g/n, Bluetooth&lt;/td&gt;
-&lt;td&gt;Micro-USB&amp;nbsp;2.0, WLAN&amp;nbsp;802.11b/g/n&lt;/td&gt;
-&lt;td&gt;Micro-USB&amp;nbsp;2.0, WLAN&amp;nbsp;802.11b/g/n&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Background Lights&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CPU&lt;/td&gt;
-&lt;td&gt;800 MHz&lt;/td&gt;
-&lt;td&gt;NXP&amp;nbsp;i.MX6, 1&amp;nbsp;GHz&lt;/td&gt;
-&lt;td&gt;1-GHz-NXP-i.MX6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RAM&lt;/td&gt;
-&lt;td&gt;512 MB&lt;/td&gt;
-&lt;td&gt;512 MB&lt;/td&gt;
-&lt;td&gt;512 MB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Durability&lt;/td&gt;
-&lt;td&gt;IPX8&lt;/td&gt;
-&lt;td&gt;IPX8&lt;/td&gt;
-&lt;td&gt;IPX8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.thalia.de/shop/home/artikeldetails/ID145609994.html"&gt;tolino epos 2&lt;/a&gt;: Tech Specs&lt;/li&gt;
-&lt;/ul&gt;</content><category term="My bits and bytes"></category><category term="devices"></category></entry></feed>
+&lt;p&gt;Let me know if you are interested in more articles around AppSec / InfoSec!&lt;/p&gt;</content><category term="Security"></category><category term="Security"></category><category term="Cybersecurity"></category><category term="InfoSec"></category><category term="SCA"></category></entry></feed>

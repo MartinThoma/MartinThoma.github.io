@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="house, diy, My bits and bytes, " />
+
+<meta property="og:title" content="Wirtschaftlichkeitsberechnung einer Photovoltaikanlage "/>
+<meta property="og:url" content="wirtschaftlichkeitsberechnung-pv-anlage/" />
+<meta property="og:description" content="Ich habe seit etwa 2 Jahren mein eigenes Haus und seit Mai 2025 eine Wärmepumpe. Die Kombination aus Wärmepumpe und Photovoltaikanlage (PV-Anlage) ist reizvoll, weil man damit unabhängiger von steigenden Energiepreisen wird, etwas gutes für die Umwelt tut und ggf. auch gegen kurzfristige Stromausfälle gewappnet ist. In diesem Artikel möchte …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2025-09-23T20:00:00+02:00" />
+<meta name="twitter:title" content="Wirtschaftlichkeitsberechnung einer Photovoltaikanlage ">
+<meta name="twitter:description" content="Ich habe seit etwa 2 Jahren mein eigenes Haus und seit Mai 2025 eine Wärmepumpe. Die Kombination aus Wärmepumpe und Photovoltaikanlage (PV-Anlage) ist reizvoll, weil man damit unabhängiger von steigenden Energiepreisen wird, etwas gutes für die Umwelt tut und ggf. auch gegen kurzfristige Stromausfälle gewappnet ist. In diesem Artikel möchte …">
+<meta property="og:image" content="logos/home.png" />
+<meta name="twitter:image" content="logos/home.png" >
+
+        <title>Wirtschaftlichkeitsberechnung einer Photovoltaikanlage  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../wirtschaftlichkeitsberechnung-pv-anlage/">Wirtschaftlichkeitsberechnung einer Photovoltaikanlage</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#strompreis" title="Strompreis">Strompreis</a></li><li><a class="toc-href" href="#dachflache" title="Dachfl&auml;che">Dachfl&auml;che</a></li><li><a class="toc-href" href="#ertragsschatzung" title="Ertragssch&auml;tzung">Ertragssch&auml;tzung</a></li><li><a class="toc-href" href="#stromverbrauch-und-kosten" title="Stromverbrauch und Kosten">Stromverbrauch und Kosten</a></li><li><a class="toc-href" href="#einspeisevergutung" title="Einspeiseverg&uuml;tung">Einspeiseverg&uuml;tung</a></li><li><a class="toc-href" href="#wirtschaftlichkeitsberechnung" title="Wirtschaftlichkeitsberechnung">Wirtschaftlichkeitsberechnung</a><ul><li><a class="toc-href" href="#worst-case-volleinspeisung" title="Worst-Case: Volleinspeisung">Worst-Case: Volleinspeisung</a></li><li><a class="toc-href" href="#best-case-volleigenverbrauch-mit-einspeisevergutung" title="Best-Case: Volleigenverbrauch mit Einspeiseverg&uuml;tung">Best-Case: Volleigenverbrauch mit Einspeiseverg&uuml;tung</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Ich habe seit etwa 2 Jahren mein eigenes Haus und seit Mai 2025 eine W&auml;rmepumpe.
+Die Kombination aus W&auml;rmepumpe und Photovoltaikanlage (PV-Anlage) ist reizvoll,
+weil man damit unabh&auml;ngiger von steigenden Energiepreisen wird, etwas gutes f&uuml;r
+die Umwelt tut und ggf. auch gegen kurzfristige Stromausf&auml;lle gewappnet ist.</p>
+<p>In diesem Artikel m&ouml;chte ich berechnen, ab welchem Preis eine PV-Anlage f&uuml;r mich
+wirtschaftlich ist.</p>
+<h2 id="strompreis">Strompreis</h2>
+<p>Ich habe aktuell zwei Stromz&auml;hler und zwei Tarife:</p>
+<ul>
+<li>Hausstrom: 0.2505&euro;/kWh + 126,43 &euro;/Jahr</li>
+<li>W&auml;rmepumpen-Tarif: 0.205&euro;/kWh + 93,88 &euro;/Jahr</li>
+</ul>
+<p>Ich gehe von ca. 2% j&auml;hrlichen Preissteigerungen aus.</p>
+<h2 id="dachflache">Dachfl&auml;che</h2>
+<p>Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):</p>
+<ul>
+<li><strong>Dachneigung</strong>: 30&deg; (0&deg; = flach, mehr als 60&deg; ist ungew&ouml;hnlich, <a href="https://solar.red/photovoltaik-neigungswinkel/">Tool</a>)</li>
+<li><strong>Ausrichtung</strong>: S&uuml;d-West (ca. 50&deg;, also etwas westlicher als S&uuml;d, <a href="https://www.rechnerphotovoltaik.de/rechner/dachausrichtung">Tool</a>)</li>
+<li><strong>Dachfl&auml;che: ca 6m x 12m</strong> (72m&sup2; pro Seite)<ul>
+<li>10m x 10m Korpus, d.h. 10m x 5m f&uuml;r das rechtwinklige Dreieck</li>
+<li>Dach&uuml;berstand von ca. 1m</li>
+<li>Hypothenuse = 6m / cos(30&deg;) = 6.93m</li>
+</ul>
+</li>
+</ul>
+<h2 id="ertragsschatzung">Ertragssch&auml;tzung</h2>
+<p>Mit <a href="https://www.solarserver.de/pv-anlage-online-berechnen/">solarserver.de</a>
+kann man berechnen, wie viel Strom eine PV-Anlage an einem bestimmten Ort,
+mit einer bestimmten Ausrichtung und Neigung erzeugt.</p>
+<table>
+<thead>
+<tr>
+<th>Monat</th>
+<th>kWh/kWp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Januar</td>
+<td style="text-align: right;">40 kWh/kWp</td>
+</tr>
+<tr>
+<td>Februar</td>
+<td style="text-align: right;">60 kWh/kWp</td>
+</tr>
+<tr>
+<td>M&auml;rz</td>
+<td style="text-align: right;">100 kWh/kWp</td>
+</tr>
+<tr>
+<td>April</td>
+<td style="text-align: right;">125 kWh/kWp</td>
+</tr>
+<tr>
+<td>Mai</td>
+<td style="text-align: right;">130 kWh/kWp</td>
+</tr>
+<tr>
+<td>Juni</td>
+<td style="text-align: right;">135 kWh/kWp</td>
+</tr>
+<tr>
+<td>Juli</td>
+<td style="text-align: right;">138 kWh/kWp</td>
+</tr>
+<tr>
+<td>August</td>
+<td style="text-align: right;">124 kWh/kWp</td>
+</tr>
+<tr>
+<td>September</td>
+<td style="text-align: right;">98 kWh/kWp</td>
+</tr>
+<tr>
+<td>Oktober</td>
+<td style="text-align: right;">70 kWh/kWp</td>
+</tr>
+<tr>
+<td>November</td>
+<td style="text-align: right;">45 kWh/kWp</td>
+</tr>
+<tr>
+<td>Dezember</td>
+<td style="text-align: right;">30 kWh/kWp</td>
+</tr>
+<tr>
+<td><strong>Summe</strong></td>
+<td style="text-align: right;"><strong>1.080 kWh/kWp</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Auch interessant:</p>
+<ul>
+<li><a href="https://www.rechnerphotovoltaik.de/photovoltaik/voraussetzungen/dachneigung">Zusammenhang zwischen Neigung, Ausrichtung und Ertrag</a></li>
+</ul>
+<h2 id="stromverbrauch-und-kosten">Stromverbrauch und Kosten</h2>
+<p>F&uuml;r den Stromverbrauch gibt es ein paar wichtige Faktoren:</p>
+<ol>
+<li><strong>Heizung</strong>: Das Heizen, insbesondere in Altbauten, macht den gr&ouml;&szlig;ten Teil
+   des Energieverbrauchs aus. Nat&uuml;rlich ist das hier nur f&uuml;r den Strom relevant,
+   wenn man eine W&auml;rmepumpe, Infrarotheizung oder einen Nachtspeicherofen hat.
+   Gro&szlig;verbraucher sind:</li>
+<li>Herd und Ofen</li>
+<li>K&uuml;hl- und Gefrierschrank</li>
+<li>Waschmaschine und Trockner</li>
+<li>Heizl&uuml;fter</li>
+<li><strong>Warmwasser</strong>: Auch die Warmwasserbereitung macht einiges aus.</li>
+<li><strong>Haushalt</strong>: Wieder W&auml;rme (K&uuml;hl- und Gefrierschrank, hei&szlig;es Wasser f&uuml;r
+   Sp&uuml;lmaschine und Waschmaschine, Herd und Ofen). Die Beleuchtung spielt nur
+   dann eine Rolle wenn man noch alte
+   Gl&uuml;hbirngen/Halogenlampen/Energiesparlampen hat. Oder wenn man viele LEDs hat
+   die man lange brennen l&auml;sst. Laptops und Smartphones spielen keine Rolle.</li>
+<li><strong>Personen</strong> im Haushalt: Je mehr Personen, desto h&ouml;her der Verbrauch.
+   Haupts&auml;chlich wegen Warmwasser und h&auml;ufigerem Waschen/Sp&uuml;len/Trocknen.</li>
+</ol>
+<p>Es gibt Tabellen was &uuml;blich ist. Ich habe meine Daten teilweise erfasst und
+die in Klammern stehenden Werte sind gesch&auml;tzt. Die Daten sind f&uuml;r ca. 200m&sup2;
+beheizte Fl&auml;che und 2 Personen (mit halbwegs regelm&auml;&szlig;ig 2 weiteren G&auml;sten) sowie
+2 Katzen.</p>
+<p>Der Stromverbrauch ist jeweils <strong>pro Tag</strong>:</p>
+<style>
+.border-right {
+    border-right: 1px solid black;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th class="border-right">Monat</th>
+<th>Haushalt</th>
+<th>Warmwasser</th>
+<th class="border-right">Heizung</th>
+<th>Kosten Haushalt<br/>im Monat</th>
+<th>Kosten Warmwasser<br/>im Monat</th>
+<th>Kosten Heizung<br/>im Monat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border-right">Januar</td>
+<td style="text-align: right;">8.7 kWh/Tag</td>
+<td style="text-align: right;">(2.4 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(38 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">67.56 &euro;</td>
+<td style="text-align: right;">15.25 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">241.49 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Februar</td>
+<td style="text-align: right;">8.5 kWh/Tag</td>
+<td style="text-align: right;">(2.0 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(30 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">59.62 &euro;</td>
+<td style="text-align: right;">11.48 &euro;</td>
+<td "="" style="text-align: right; background-color: #ff0000;">172.20 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">M&auml;rz</td>
+<td style="text-align: right;">10.3 kWh/Tag</td>
+<td style="text-align: right;">(1.8 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(11 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">79.98 &euro;</td>
+<td style="text-align: right;">11.44 &euro;</td>
+<td style="text-align: right; background-color: #ffdd22;">69.91 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">April</td>
+<td style="text-align: right;">8.5 kWh/Tag</td>
+<td style="text-align: right;">(1.5 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(4 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">63.88 &euro;</td>
+<td style="text-align: right;">9.23 &euro;</td>
+<td style="text-align: right;">24.60 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Mai</td>
+<td style="text-align: right;">8.5 kWh/Tag</td>
+<td style="text-align: right;">1.2 kWh/Tag</td>
+<td class="border-right" style="text-align: right;">(3 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">66.00 &euro;</td>
+<td style="text-align: right;">7.63 &euro;</td>
+<td style="text-align: right;">19.07 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Juni</td>
+<td style="text-align: right;">6.1 kWh/Tag</td>
+<td style="text-align: right;">1.2 kWh/Tag</td>
+<td class="border-right" style="text-align: right;">1.0 kWh/Tag</td>
+<td style="text-align: right;">45.84 &euro;</td>
+<td style="text-align: right;">7.38 &euro;</td>
+<td style="text-align: right;">6.15 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Juli</td>
+<td style="text-align: right;">5.9 kWh/Tag</td>
+<td style="text-align: right;">1.1 kWh/Tag</td>
+<td class="border-right" style="text-align: right;">0.3 kWh/Tag</td>
+<td style="text-align: right;">47.37 &euro;</td>
+<td style="text-align: right;">6.99 &euro;</td>
+<td style="text-align: right;">1.91 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">August</td>
+<td style="text-align: right;">6.8 kWh/Tag</td>
+<td style="text-align: right;">1.2 kWh/Tag</td>
+<td class="border-right" style="text-align: right;">0.3 kWh/Tag</td>
+<td style="text-align: right; background-color: #ffdd22;">52.80 &euro;</td>
+<td style="text-align: right;">7.63 &euro;</td>
+<td style="text-align: right;">1.91 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">September</td>
+<td style="text-align: right;">7.7 kWh/Tag</td>
+<td style="text-align: right;">(1.2 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(2.7 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">57.87 &euro;</td>
+<td style="text-align: right;">7.38 &euro;</td>
+<td style="text-align: right;">16.61 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Oktober</td>
+<td style="text-align: right;">7.5 kWh/Tag</td>
+<td style="text-align: right;">(1.8 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(9 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">58.24 &euro;</td>
+<td style="text-align: right;">11.44 &euro;</td>
+<td style="text-align: right; background-color: #ffdd22;">57.20 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">November</td>
+<td style="text-align: right;">10.3 kWh/Tag</td>
+<td style="text-align: right;">(2.0 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(25 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">77.40 &euro;</td>
+<td style="text-align: right;">12.30 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">153.75 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Dezember</td>
+<td style="text-align: right;">10.0 kWh/Tag</td>
+<td style="text-align: right;">(2.4 kWh/Tag)</td>
+<td class="border-right" style="text-align: right;">(40 kWh/Tag)</td>
+<td style="text-align: right; background-color: #ffdd22;">77.66 &euro;</td>
+<td style="text-align: right;">15.25 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">254.20 &euro;</td>
+</tr>
+<tr>
+<td><strong>Summe</strong></td>
+<td style="text-align: right;"><strong>3.005 kWh</strong></td>
+<td style="text-align: right;"><strong>ca. 602 kWh</strong></td>
+<td class="border-right" style="text-align: right;"><strong>ca. 4.971 kWh</strong></td>
+<td style="text-align: right;"><strong>754.22 &euro;</strong></td>
+<td style="text-align: right;"><strong>123.40 &euro;</strong></td>
+<td style="text-align: right;"><strong>1019.00 &euro;</strong></td>
+</tr>
+<tr>
+<td><strong>Durchschnitt</strong></td>
+<td style="text-align: right;"><strong>8.2 kWh/Tag</strong></td>
+<td style="text-align: right;"><strong>1.6 kWh/Tag</strong></td>
+<td style="text-align: right;"><strong>13.6 kWh/Tag</strong></td>
+<td style="text-align: right;"><strong>2.06&euro;/Tag</strong></td>
+<td style="text-align: right;"><strong>0.34&euro;/Tag</strong></td>
+<td style="text-align: right;"><strong>2.79&euro;/Tag</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ich bezahle also aktuell vermutlich:</p>
+<ul>
+<li>Haushaltsstrom: 879.18 &euro;/Jahr</li>
+<li>W&auml;rmepumpenstrom: 1236.34 &euro;/Jahr</li>
+<li>Erster Stromz&auml;hler (Bezug/Einspeisung): 30 &euro;/Jahr</li>
+<li>Zweiter Stromz&auml;hler (HT/NT): 30 &euro;/Jahr</li>
+</ul>
+<p>Insgesamt zahle ich f&uuml;r Strom also ca. 2.175,52 &euro;/Jahr.</p>
+<h2 id="einspeisevergutung">Einspeiseverg&uuml;tung</h2>
+<p><a href="https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html">Laut Bundesnetzagentur</a> gibt es im September 2025 f&uuml;r
+Teileinspeisung bei Anlagen zwischen 10 und 40 kWp eine Verg&uuml;tung von 0.068 &euro;/kWh.</p>
+<p>Der Verg&uuml;tungsanspruch nach dem EEG besteht f&uuml;r die Dauer von 20 Jahren. Die
+20-Jahre-Frist beginnt ab der Inbetriebnahme zu laufen.</p>
+<h2 id="wirtschaftlichkeitsberechnung">Wirtschaftlichkeitsberechnung</h2>
+<h3 id="worst-case-volleinspeisung">Worst-Case: Volleinspeisung</h3>
+<ul>
+<li>Verg&uuml;tung:  0.068 &euro;/kWh</li>
+<li>Ertrag: 1000 kWh/kWp/Jahr</li>
+</ul>
+<p>=&gt; 68 &euro;/kWp pro Jahr an Einnahmen. Bei Z&auml;hlerzusammenlegung sogar h&ouml;here Ausgaben.</p>
+<h3 id="best-case-volleigenverbrauch-mit-einspeisevergutung">Best-Case: Volleigenverbrauch mit Einspeiseverg&uuml;tung</h3>
+<p>Ich gehe hier von einer Z&auml;hlerzusammenlegung aus, d.h. der Strom kostet dann
+0.2505 &euro;/kWh + 126,43 &euro;/Jahr.</p>
+<p>Ich gehe von einer 10kWp Anlage aus.</p>
+<table>
+<thead>
+<tr>
+<th class="border-right">Monat</th>
+<th>Strombedarf</th>
+<th class="border-right">PV-Ertrag</th>
+<th>Einspeisung</th>
+<th class="border-right">Netzbezug</th>
+<th>Verg&uuml;tung</th>
+<th>Kosten Strom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border-right">Januar</td>
+<td style="text-align: right;">1522 kWh</td>
+<td class="border-right;" style="text-align: right;">400 kWh</td>
+<td style="text-align: right;">0 kWh</td>
+<td class="border-right;" style="text-align: right;">1122 kWh</td>
+<td style="text-align: right;">0 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">281.06 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Februar</td>
+<td style="text-align: right;">1134 kWh</td>
+<td class="border-right;" style="text-align: right;">600 kWh</td>
+<td style="text-align: right;">0 kWh</td>
+<td class="border-right;" style="text-align: right;">534 kWh</td>
+<td style="text-align: right;">0 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">133.77 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">M&auml;rz</td>
+<td style="text-align: right;">716 kWh</td>
+<td class="border-right;" style="text-align: right;">1000 kWh</td>
+<td style="text-align: right;">284 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">19.31 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">April</td>
+<td style="text-align: right;">420 kWh</td>
+<td class="border-right;" style="text-align: right;">1250 kWh</td>
+<td style="text-align: right;">830 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">54.44 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Mai</td>
+<td style="text-align: right;">394 kWh</td>
+<td class="border-right;" style="text-align: right;">1300 kWh</td>
+<td style="text-align: right;">906 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">61.61 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Juni</td>
+<td style="text-align: right;">249 kWh</td>
+<td class="border-right;" style="text-align: right;">1350 kWh</td>
+<td style="text-align: right;">1101 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">74.87 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Juli</td>
+<td style="text-align: right;">226 kWh</td>
+<td class="border-right;" style="text-align: right;">1380 kWh</td>
+<td style="text-align: right;">1154 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">78.47 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">August</td>
+<td style="text-align: right;">257 kWh</td>
+<td class="border-right;" style="text-align: right;">1240 kWh</td>
+<td style="text-align: right;">983 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">66.84 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">September</td>
+<td style="text-align: right;">348 kWh</td>
+<td class="border-right;" style="text-align: right;">980 kWh</td>
+<td style="text-align: right;">632 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">42.98 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Oktober</td>
+<td style="text-align: right;">568 kWh</td>
+<td class="border-right;" style="text-align: right;">700 kWh</td>
+<td style="text-align: right;">132 kWh</td>
+<td class="border-right;" style="text-align: right;">0 kWh</td>
+<td style="text-align: right;">9.98 &euro;</td>
+<td style="text-align: right;">0 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">November</td>
+<td style="text-align: right;">1119 kWh</td>
+<td class="border-right;" style="text-align: right;">450 kWh</td>
+<td style="text-align: right;">0 kWh</td>
+<td class="border-right;" style="text-align: right;">669 kWh</td>
+<td style="text-align: right;">0 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">167.59 &euro;</td>
+</tr>
+<tr>
+<td class="border-right">Dezember</td>
+<td style="text-align: right;">1625 kWh</td>
+<td class="border-right;" style="text-align: right;">300 kWh</td>
+<td style="text-align: right;">0 kWh</td>
+<td class="border-right;" style="text-align: right;">1325 kWh</td>
+<td style="text-align: right;">0 &euro;</td>
+<td style="text-align: right; background-color: #ff0000;">331.92 &euro;</td>
+</tr>
+<tr>
+<td><strong>Summe</strong></td>
+<td style="text-align: right;"><strong>8.578 kWh</strong></td>
+<td class="border-right;" style="text-align: right;"><strong>10.800 kWh</strong></td>
+<td style="text-align: right;"><strong>6.022 kWh</strong></td>
+<td class="border-right;" style="text-align: right;"><strong>3.650 kWh</strong></td>
+<td style="text-align: right;"><strong>408.50 &euro;</strong></td>
+<td style="text-align: right;"><strong>914.34 &euro;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Die Kosten w&auml;ren also:</p>
+<ul>
+<li>Strombezug: -1040.77 &euro;/Jahr</li>
+<li>Verg&uuml;tung: +408.50 &euro;/Jahr</li>
+<li>Z&auml;hlerkosten: -30 &euro;/Jahr</li>
+</ul>
+<p>Also w&uuml;rde ich 662.27 &euro;/Jahr zahlen. Oder mir 1513.25&euro;/Jahr sparen.
+Wenn man mit 20 Jahren lebensdauer rechnet w&auml;ren das 30.265 &euro;.</p>
+<p>Was die wirtschaftlichkeit reduziert:</p>
+<ul>
+<li>Es wird auch im Sommer Tage geben, an denen ich Strom zukaufen muss. Eine Batterie
+  mildert das ab.</li>
+<li>Die Panele k&ouml;nnen durch Alterung oder Verschmutzung an Leistung verlieren.</li>
+<li>Teile der Anlage k&ouml;nnen kaputt gehen oder Wartung ben&ouml;tigen.</li>
+</ul>
+<p>Was die Wirtschaftlichkeit erh&ouml;ht:</p>
+<ul>
+<li>Die Strompreise werden sicher steigen.</li>
+<li>Die Anlage h&auml;lt ggf. l&auml;nger als 20 Jahre.</li>
+</ul>
+            
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2025-09-23T20:00:00+02:00">Sep 23, 2025</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#diy-ref">diy
+                    <span>6</span>
+</a></li>
+                <li><a href="../tags.html#house-ref">house
+                    <span>29</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
