@@ -53,7 +53,7 @@ Ein gesunder Start in den Tag.
       <td>5,5</td>
     </tr>
     <tr>
-      <td>Kakaopulver (ungesüßt)</td>
+      <td>Kakaopulver</td>
       <td>15&nbsp;g</td>
       <td>34,2</td>
       <td>2,9</td>
@@ -270,9 +270,9 @@ Ein gesunder Start in den Tag.
     <tr>
       <td>Banane</td>
       <td>3–5 Tage</td>
-      <td>1kg</td>
-      <td>1,59&nbsp;€</td>
-      <td>0,19&nbsp;€</td>
+      <td>&nbsp;&nbsp;1&nbsp;kg</td>
+      <td>1,69&nbsp;€</td>
+      <td>0,20&nbsp;€</td>
     </tr>
     <tr>
       <td>Kakaopulver</td>
@@ -284,42 +284,42 @@ Ein gesunder Start in den Tag.
     <tr>
       <td>Chiasamen</td>
       <td>12 Monate</td>
-      <td>300&nbsp;g</td>
+      <td>300&nbsp;g (30× 10g)</td>
       <td>3,99&nbsp;€</td>
       <td>0,13&nbsp;€</td>
     </tr>
     <tr>
       <td>H-Milch 1,5&nbsp;%</td>
       <td>3 Monate</td>
-      <td>1L</td>
+      <td>&nbsp;&nbsp;&nbsp;1L (8× 125ml)</td>
       <td>0,99&nbsp;€</td>
       <td>0,13&nbsp;€</td>
     </tr>
     <tr>
       <td>Magerquark</td>
       <td>10 Tage</td>
-      <td>500&nbsp;g</td>
+      <td>500&nbsp;g (10× 50g)</td>
       <td>1,19&nbsp;€</td>
       <td>0,12&nbsp;€</td>
     </tr>
     <tr>
       <td>Leinsamen</td>
       <td>12 Monate</td>
-      <td>500&nbsp;g</td>
-      <td>2,49&nbsp;€</td>
-      <td>0,10&nbsp;€</td>
+      <td>500&nbsp;g (25× 20g)</td>
+      <td>1,55&nbsp;€</td>
+      <td>0,06&nbsp;€</td>
     </tr>
     <tr>
       <td>Haferflocken</td>
       <td>6 Monate</td>
-      <td>500&nbsp;g</td>
-      <td>0,89&nbsp;€</td>
-      <td>0,09&nbsp;€</td>
+      <td>500&nbsp;g (10× 50g)</td>
+      <td>0,69&nbsp;€</td>
+      <td>0,07&nbsp;€</td>
     </tr>
     <tr>
       <td><a href="https://www.dm.de/dmbio-sonnenblumenkerne-p4067796063295.html">Sonnenblumenkerne</a></td>
       <td>6 Monate</td>
-      <td>500&nbsp;g</td>
+      <td>500&nbsp;g (50× 10g)</td>
       <td>1,35&nbsp;€</td>
       <td>0,03&nbsp;€</td>
     </tr>
@@ -330,7 +330,7 @@ Ein gesunder Start in den Tag.
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td>0,98&nbsp;€</td>
+      <td>0,92&nbsp;€</td>
     </tr>
   </tfoot>
 </table>
@@ -340,7 +340,7 @@ Ein gesunder Start in den Tag.
 
 * Obst: Anstelle von Banane können auch Beeren, Apfelstücke, Pfirsiche, oder
   andere Früchte und Beeren verwendet werden.
-* Süßungsmittel: Kakaopulver,Honig, Agavendicksaft oder ein Süßstoff können
+* Süßungsmittel: Kakaopulver, Honig, Agavendicksaft oder ein Süßstoff können
   hinzugefügt werden.
 * Milch: Statt Kuhmilch kann auch pflanzliche Milch wie Mandel-, Soja- oder
   Hafermilch verwendet werden.
