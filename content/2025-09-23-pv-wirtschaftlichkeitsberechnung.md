@@ -15,10 +15,11 @@ steigenden Strompreisen, schont die Umwelt und kann im Idealfall sogar eine
 gewisse Absicherung gegen kurzfristige Stromausfälle bieten.
 
 In diesem Artikel gehe ich der Frage nach, ab welchem Preis sich eine PV-Anlage
-für mich wirtschaftlich lohnt.
+für mich wirtschaftlich lohnt. Dabei analysiere ich meine aktuellen Stromkosten,
+die verfügbare Dachfläche, den zu erwartenden Ertrag sowie verschiedene Betriebsszenarien.
 
 
-## Strompreis
+## Aktuelle Strompreise und Tarife
 
 Ich habe aktuell zwei Stromzähler und zwei Tarife:
 
@@ -28,7 +29,9 @@ Ich habe aktuell zwei Stromzähler und zwei Tarife:
 Ich gehe von ca. 2% jährlichen Preissteigerungen aus.
 
 
-## Dachfläche
+## Verfügbare Dachfläche und Ausrichtung
+
+Für die Dimensionierung einer PV-Anlage sind die verfügbare Dachfläche und deren Ausrichtung entscheidend.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/09/efh-with-solar.jpg"><img src="../images/2025/09/efh-with-solar.jpg" alt="ChatGPT rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein." style="max-height: 512px"/></a>
@@ -45,8 +48,10 @@ Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):
     * Dachüberstand von ca. 1m
     * Hypothenuse = 6m / cos(30°) = 6.93m
 
-## Ertragsschätzung
 
+## Ertragsprognose
+
+Basierend auf den Dachparametern lässt sich der zu erwartende Stromertrag berechnen.
 Mit [solarserver.de](https://www.solarserver.de/pv-anlage-online-berechnen/)
 kann man berechnen, wie viel Strom eine PV-Anlage an einem bestimmten Ort,
 mit einer bestimmten Ausrichtung und Neigung erzeugt.
@@ -114,18 +119,20 @@ mit einer bestimmten Ausrichtung und Neigung erzeugt.
     </tbody>
 </table>
 
-Auch interessant:
+Die Gesamtleistung pro Jahr beträgt somit **1.080 kWh/kWp**.
+
+Weitere hilfreiche Informationen zum Thema:
 
 * [Zusammenhang zwischen Neigung, Ausrichtung und Ertrag](https://www.rechnerphotovoltaik.de/photovoltaik/voraussetzungen/dachneigung)
 
-## Stromverbrauch und Kosten
+
+## Analyse des Stromverbrauchs
 
 Für den Stromverbrauch im Haushalt spielen folgende Faktoren eine zentrale Rolle:
 
 1. **Heizung**: Der größte Anteil am Energiebedarf entfällt auf das Heizen –
-   insbesondere in älteren Gebäuden. Relevant für den Stromverbrauch ist das
-   jedoch nur, wenn eine Wärmepumpe, Infrarotheizung oder ein Nachtspeicherofen
-   eingesetzt wird. Typische Großverbraucher sind außerdem:
+   insbesondere in älteren Gebäuden. Relevant für den Stromverbrauch ist dies
+   jedoch nur bei elektrischen Heizsystemen wie Wärmepumpen, Infrarotheizungen oder Nachtspeicheröfen. Weitere typische Großverbraucher sind:
     * Herd und Backofen
     * Waschmaschine und Trockner
     * Heizlüfter
@@ -133,16 +140,18 @@ Für den Stromverbrauch im Haushalt spielen folgende Faktoren eine zentrale Roll
    Strombedarf verursachen.
 3. **Haushalt**: Wieder Wärme (Kühl- und Gefrierschrank, heißes Wasser für
    Spülmaschine und Waschmaschine, Herd und Ofen). Die Beleuchtung spielt nur
-   dann eine Rolle wenn man noch alte
-   Glühbirngen/Halogenlampen/Energiesparlampen hat. Oder wenn man viele LEDs hat
+   dann eine Rolle, wenn man noch alte
+   Glühbirnen/Halogenlampen/Energiesparlampen hat. Oder wenn man viele LEDs hat,
    die man lange brennen lässt. Laptops und Smartphones spielen keine Rolle.
-4. **Personen** im Haushalt: Je mehr Personen, desto höher der Verbrauch.
-   Hauptsächlich wegen Warmwasser und häufigerem Waschen/Spülen/Trocknen.
+4. **Anzahl der Personen** im Haushalt: Je mehr Personen, desto höher der Verbrauch –
+   hauptsächlich aufgrund von Warmwasser und häufigerem Waschen/Spülen/Trocknen.
 
 Es gibt Tabellen mit typischen Verbrauchswerten. Einen Teil meiner Daten habe
 ich selbst gemessen, die in Klammern angegebenen Werte sind dagegen Schätzungen.
 Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
 2&nbsp;Personen (plus gelegentlich 2&nbsp;Gäste) sowie 2&nbsp;Katzen.
+
+### Monatlicher Stromverbrauch im Detail
 
 
 <style>
@@ -180,7 +189,7 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(30 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">59.62 €</td>
             <td style="text-align: right;">11.48 €</td>
-            <td style="text-align: right; background-color: #ff0000;"">172.20 €</td>
+            <td style="text-align: right; background-color: #ff0000;">172.20 €</td>
         </tr>
         <tr>
             <td class="border-right">März</td>
@@ -293,7 +302,9 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
     </tbody>
 </table>
 
-Ich bezahle also aktuell vermutlich:
+### Gesamtkosten im Überblick
+
+Basierend auf den oben genannten Verbrauchswerten bezahle ich aktuell:
 
 * Haushaltsstrom: 879.18 €/Jahr
 * Wärmepumpenstrom: 1236.34 €/Jahr
@@ -302,7 +313,10 @@ Ich bezahle also aktuell vermutlich:
 
 Insgesamt zahle ich für Strom also ca. 2&thinsp;175.52 €/Jahr.
 
-## Einspeisevergütung
+
+## Einspeisevergütung nach dem EEG
+
+Die Höhe der Einspeisevergütung ist ein wichtiger Faktor für die Wirtschaftlichkeitsberechnung.
 
 [Laut Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html) gibt es im September 2025 für
 Teileinspeisung bei Anlagen zwischen 10 und 40 kWp eine Vergütung von 0.068 €/kWh.
@@ -310,22 +324,26 @@ Teileinspeisung bei Anlagen zwischen 10 und 40 kWp eine Vergütung von 0.068 €
 Der Vergütungsanspruch nach dem EEG besteht für die Dauer von 20 Jahren. Die
 20-Jahre-Frist beginnt ab der Inbetriebnahme zu laufen.
 
+
 ## Wirtschaftlichkeits&shy;berechnung
 
-### Worst-Case: Volleinspeisung
+Um die Rentabilität einer PV-Anlage zu bewerten, betrachte ich zwei Szenarien:
+das ungünstigste (Volleinspeisung) und das günstigste (maximaler Eigenverbrauch).
 
-* Vergütung:  0.068 €/kWh
-* Ertrag: 1000 kWh/kWp/Jahr
+### Worst-Case-Szenario: Volleinspeisung
 
-⇒ 68 €/kWp pro Jahr an Einnahmen. Bei Zählerzusammenlegung sogar höhere Ausgaben.
+* Vergütung: 0.068 €/kWh
+* Ertrag: 1.080 kWh/kWp/Jahr
+
+⇒ 73,44 €/kWp pro Jahr an Einnahmen. Bei Zählerzusammenlegung entstehen sogar höhere Ausgaben, da ich dann auf den bezogenen Strom den höheren Verbrauchspreis zahlen muss.
 
 
-### Best-Case: Volleigenverbrauch mit Einspeise&shy;vergütung
+### Best-Case-Szenario: Maximaler Eigenverbrauch mit Einspeisevergütung
 
 Ich gehe hier von einer Zählerzusammenlegung aus, d.h. der Strom kostet dann
 0.2505 €/kWh + 126.43 €/Jahr.
 
-Ich gehe von einer 10kWp Anlage aus.
+Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
 
 <table>
     <thead>
@@ -460,21 +478,25 @@ Ich gehe von einer 10kWp Anlage aus.
     </tbody>
 </table>
 
-Die Kosten wären also:
+### Kostenaufstellung mit PV-Anlage
+
+Die Kosten mit einer 10 kWp PV-Anlage wären also:
 
 * Strombezug: -1040.77 €/Jahr
 * Vergütung: +408.50 €/Jahr
 * Zählerkosten: -30 €/Jahr
 
-Also würde ich 662.27 €/Jahr zahlen. Oder mir 1513.25 €/Jahr sparen.
-Wenn man mit 20 Jahren lebensdauer rechnet wären das 30&thinsp;265 €.
+**Gesamtkosten: 662.27 €/Jahr**
 
-Was die wirtschaftlichkeit reduziert:
+Das entspricht einer **Ersparnis von 1513.25 €/Jahr** gegenüber dem aktuellen Zustand.
+Bei einer Lebensdauer von 20 Jahren wären das **30&thinsp;265 €** an eingesparten Kosten.
+
+Was die Wirtschaftlichkeit reduziert:
 
 * Es wird auch im Sommer Tage geben, an denen ich Strom zukaufen muss. Eine Batterie
   mildert das ab.
-* Die Panele können durch Alterung oder Verschmutzung an Leistung verlieren.
-* Teile der Anlage können kaputt gehen oder Wartung benötigen.
+* Die Module können durch Alterung oder Verschmutzung an Leistung verlieren.
+* Teile der Anlage können kaputtgehen oder Wartung benötigen.
 
 Was die Wirtschaftlichkeit erhöht:
 
@@ -496,5 +518,5 @@ Faktoren eine Rolle:
   * Inselfähigkeit: Kann der Wechselrichter auch bei Stromausfall Strom
     liefern? Hier ist zwischen Notstrombetrieb (nur wenige Steckdosen),
     Ersatzstrombetrieb (gesamter Haushalt) und Inselbetrieb (getrenntes Netz) zu
-    unterscheiden. Die Schwarzstartfähigkeit ist eine Notwendige, aber keine Hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
+    unterscheiden. Die Schwarzstartfähigkeit ist eine notwendige, aber keine hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
     Für den Notstrombetrieb ist sie nicht notwendig.
