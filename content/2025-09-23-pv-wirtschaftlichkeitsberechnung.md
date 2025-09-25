@@ -5,29 +5,36 @@ slug: wirtschaftlichkeitsberechnung-pv-anlage
 author: Martin Thoma
 date: 2025-09-23 20:00
 category: My bits and bytes
-tags: house,diy
-featured_image: logos/home.png
+tags: house,photovoltaics
+featured_image: logos/house.png
 ---
-Ich habe seit etwa 2 Jahren mein eigenes Haus und seit Mai 2025 eine Wärmepumpe.
-Die Kombination aus Wärmepumpe und Photovoltaikanlage (PV-Anlage) ist reizvoll,
-weil man damit unabhängiger von steigenden Energiepreisen wird, etwas gutes für
-die Umwelt tut und ggf. auch gegen kurzfristige Stromausfälle gewappnet ist.
+Ich besitze seit rund zwei Jahren ein eigenes Haus und habe im Mai 2025 eine
+Wärmepumpe installieren lassen. Besonders spannend wird diese in Kombination mit
+einer Photovoltaikanlage (PV-Anlage): Sie reduziert die Abhängigkeit von
+steigenden Strompreisen, schont die Umwelt und kann im Idealfall sogar eine
+gewisse Absicherung gegen kurzfristige Stromausfälle bieten.
 
-In diesem Artikel möchte ich berechnen, ab welchem Preis eine PV-Anlage für mich
-wirtschaftlich ist.
+In diesem Artikel gehe ich der Frage nach, ab welchem Preis sich eine PV-Anlage
+für mich wirtschaftlich lohnt.
 
 
 ## Strompreis
 
 Ich habe aktuell zwei Stromzähler und zwei Tarife:
 
-* Hausstrom: 0.2505€/kWh + 126,43 €/Jahr
-* Wärmepumpen-Tarif: 0.205€/kWh + 93,88 €/Jahr
+* Hausstrom: 0.2505€/kWh + 126.43 €/Jahr
+* Wärmepumpen-Tarif: 0.205€/kWh + 93.88 €/Jahr
 
 Ich gehe von ca. 2% jährlichen Preissteigerungen aus.
 
 
 ## Dachfläche
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/09/efh-with-solar.jpg"><img src="../images/2025/09/efh-with-solar.jpg" alt="ChatGPT rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein." style="max-height: 512px"/></a>
+    <figcaption class="text-center">ChatGPT rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein.</figcaption>
+</figure>
+
 
 Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):
 
@@ -113,17 +120,17 @@ Auch interessant:
 
 ## Stromverbrauch und Kosten
 
-Für den Stromverbrauch gibt es ein paar wichtige Faktoren:
+Für den Stromverbrauch im Haushalt spielen folgende Faktoren eine zentrale Rolle:
 
-1. **Heizung**: Das Heizen, insbesondere in Altbauten, macht den größten Teil
-   des Energieverbrauchs aus. Natürlich ist das hier nur für den Strom relevant,
-   wenn man eine Wärmepumpe, Infrarotheizung oder einen Nachtspeicherofen hat.
-   Großverbraucher sind:
-   * Herd und Ofen
-   * Kühl- und Gefrierschrank
-   * Waschmaschine und Trockner
-   * Heizlüfter
-2. **Warmwasser**: Auch die Warmwasserbereitung macht einiges aus.
+1. **Heizung**: Der größte Anteil am Energiebedarf entfällt auf das Heizen –
+   insbesondere in älteren Gebäuden. Relevant für den Stromverbrauch ist das
+   jedoch nur, wenn eine Wärmepumpe, Infrarotheizung oder ein Nachtspeicherofen
+   eingesetzt wird. Typische Großverbraucher sind außerdem:
+    * Herd und Backofen
+    * Waschmaschine und Trockner
+    * Heizlüfter
+2. **Warmwasser**: Auch die Warmwasserbereitung kann einen erheblichen
+   Strombedarf verursachen.
 3. **Haushalt**: Wieder Wärme (Kühl- und Gefrierschrank, heißes Wasser für
    Spülmaschine und Waschmaschine, Herd und Ofen). Die Beleuchtung spielt nur
    dann eine Rolle wenn man noch alte
@@ -132,13 +139,11 @@ Für den Stromverbrauch gibt es ein paar wichtige Faktoren:
 4. **Personen** im Haushalt: Je mehr Personen, desto höher der Verbrauch.
    Hauptsächlich wegen Warmwasser und häufigerem Waschen/Spülen/Trocknen.
 
-Es gibt Tabellen was üblich ist. Ich habe meine Daten teilweise erfasst und
-die in Klammern stehenden Werte sind geschätzt. Die Daten sind für ca. 200m²
-beheizte Fläche und 2 Personen (mit halbwegs regelmäßig 2 weiteren Gästen) sowie
-2 Katzen.
+Es gibt Tabellen mit typischen Verbrauchswerten. Einen Teil meiner Daten habe
+ich selbst gemessen, die in Klammern angegebenen Werte sind dagegen Schätzungen.
+Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
+2&nbsp;Personen (plus gelegentlich 2&nbsp;Gäste) sowie 2&nbsp;Katzen.
 
-
-Der Stromverbrauch ist jeweils **pro Tag**:
 
 <style>
 .border-right {
@@ -295,7 +300,7 @@ Ich bezahle also aktuell vermutlich:
 * Erster Stromzähler (Bezug/Einspeisung): 30 €/Jahr
 * Zweiter Stromzähler (HT/NT): 30 €/Jahr
 
-Insgesamt zahle ich für Strom also ca. 2.175,52 €/Jahr.
+Insgesamt zahle ich für Strom also ca. 2&thinsp;175.52 €/Jahr.
 
 ## Einspeisevergütung
 
@@ -305,20 +310,20 @@ Teileinspeisung bei Anlagen zwischen 10 und 40 kWp eine Vergütung von 0.068 €
 Der Vergütungsanspruch nach dem EEG besteht für die Dauer von 20 Jahren. Die
 20-Jahre-Frist beginnt ab der Inbetriebnahme zu laufen.
 
-## Wirtschaftlichkeitsberechnung
+## Wirtschaftlichkeits&shy;berechnung
 
 ### Worst-Case: Volleinspeisung
 
 * Vergütung:  0.068 €/kWh
 * Ertrag: 1000 kWh/kWp/Jahr
 
-=> 68 €/kWp pro Jahr an Einnahmen. Bei Zählerzusammenlegung sogar höhere Ausgaben.
+⇒ 68 €/kWp pro Jahr an Einnahmen. Bei Zählerzusammenlegung sogar höhere Ausgaben.
 
 
-### Best-Case: Volleigenverbrauch mit Einspeisevergütung
+### Best-Case: Volleigenverbrauch mit Einspeise&shy;vergütung
 
 Ich gehe hier von einer Zählerzusammenlegung aus, d.h. der Strom kostet dann
-0.2505 €/kWh + 126,43 €/Jahr.
+0.2505 €/kWh + 126.43 €/Jahr.
 
 Ich gehe von einer 10kWp Anlage aus.
 
@@ -445,10 +450,10 @@ Ich gehe von einer 10kWp Anlage aus.
         </tr>
         <tr>
             <td><strong>Summe</strong></td>
-            <td style="text-align: right;"><strong>8.578 kWh</strong></td>
-            <td style="text-align: right;" class="border-right;"><strong>10.800 kWh</strong></td>
-            <td style="text-align: right;"><strong>6.022 kWh</strong></td>
-            <td style="text-align: right;" class="border-right;"><strong>3.650 kWh</strong></td>
+            <td style="text-align: right;"><strong>8&thinsp;578 kWh</strong></td>
+            <td style="text-align: right;" class="border-right;"><strong>10&thinsp;800 kWh</strong></td>
+            <td style="text-align: right;"><strong>6&thinsp;022 kWh</strong></td>
+            <td style="text-align: right;" class="border-right;"><strong>3&thinsp;650 kWh</strong></td>
             <td style="text-align: right;"><strong>408.50 €</strong></td>
             <td style="text-align: right;"><strong>914.34 €</strong></td>
         </tr>
@@ -461,8 +466,8 @@ Die Kosten wären also:
 * Vergütung: +408.50 €/Jahr
 * Zählerkosten: -30 €/Jahr
 
-Also würde ich 662.27 €/Jahr zahlen. Oder mir 1513.25€/Jahr sparen.
-Wenn man mit 20 Jahren lebensdauer rechnet wären das 30.265 €.
+Also würde ich 662.27 €/Jahr zahlen. Oder mir 1513.25 €/Jahr sparen.
+Wenn man mit 20 Jahren lebensdauer rechnet wären das 30&thinsp;265 €.
 
 Was die wirtschaftlichkeit reduziert:
 
@@ -475,3 +480,21 @@ Was die Wirtschaftlichkeit erhöht:
 
 * Die Strompreise werden sicher steigen.
 * Die Anlage hält ggf. länger als 20 Jahre.
+
+## Weiteres
+
+Neben den kWp der Module und der Kapazität des Speichers spielen weitere
+Faktoren eine Rolle:
+
+* **Lebensdauer**: Garantien auf die verschiedenen Komponenten variieren stark:
+    * Solarmodule: 25 Jahre auf Leistung, 10 Jahre auf Produkt
+    * Wechselrichter: 5 bis 12 Jahre
+    * Speicher: 10 Jahre auf Leistung, 2 bis 5 Jahre auf Produkt
+* **Wechselrichter**: Der Wechselrichter wandelt den von den Solarmodulen
+  erzeugten Gleichstrom in Wechselstrom um, der im Haushalt genutzt werden kann.
+  * Effizienz
+  * Inselfähigkeit: Kann der Wechselrichter auch bei Stromausfall Strom
+    liefern? Hier ist zwischen Notstrombetrieb (nur wenige Steckdosen),
+    Ersatzstrombetrieb (gesamter Haushalt) und Inselbetrieb (getrenntes Netz) zu
+    unterscheiden. Die Schwarzstartfähigkeit ist eine Notwendige, aber keine Hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
+    Für den Notstrombetrieb ist sie nicht notwendig.

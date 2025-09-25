@@ -119,7 +119,7 @@ access / write /
 
 See [my Germany article about roting algorithms](https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/)
 
-=> Link article: https://en.wikiversity.org/wiki/Algorithms/Overview
+⇒ Link article: https://en.wikiversity.org/wiki/Algorithms/Overview
 
 
 

@@ -509,10 +509,10 @@ Hence binary search needs 10 egg drops for 2 eggs and 20 floors
 Now consider this:
 
 * 1st egg is dropped from 7th floor
-    * It breaks: 2nd egg needs to be dropped from floor 1,2,3,4,5,6 => 7 egg drops
+    * It breaks: 2nd egg needs to be dropped from floor 1,2,3,4,5,6 ⇒ 7 egg drops
     * It doesn't break: 1st egg is dropped from floor 14
-        * It breaks: 2nd egg needs to be dropped from floor 8, 9, 10, 11, 12, 13 => 8 egg drops
-        * It doesn't break: Try floor 15, 16, 17, 18, 19 => 7 egg drops
+        * It breaks: 2nd egg needs to be dropped from floor 8, 9, 10, 11, 12, 13 ⇒ 8 egg drops
+        * It doesn't break: Try floor 15, 16, 17, 18, 19 ⇒ 7 egg drops
 
 Obviously, binary search is not the best solution.
 

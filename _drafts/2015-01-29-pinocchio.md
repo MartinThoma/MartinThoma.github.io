@@ -17,11 +17,11 @@ There a two ways hte nose growing mechanism (NGM) might work:
 
 In the first case, there is no paradox. In the second case there seems to be a paradox. But be careful, it works like this:
 
-Pinocchio lies => nose grows
+Pinocchio lies ⇒ nose grows
 
 Nobody ever said the other implication was true:
 
-Nose grows => pinocchio lies
+Nose grows ⇒ pinocchio lies
 
 As the NGM is true, the universe solves the problem by letting pinnochios nose grow - without him having lied. Now lets also assume it is an equivalence:
 

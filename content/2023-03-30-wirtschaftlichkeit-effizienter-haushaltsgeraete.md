@@ -169,12 +169,12 @@ effiziente sein.
 
 Hier ein paar Beispiele:
 
-* [Tuoplyh](https://www.amazon.de/Tuoplyh-ersetzt-Warmwei%C3%9F-Gl%C3%BChfaden-Kerzenlampe/dp/B088TFVRTF/): 2€/Stück, 4W für 400lm => 100lm/W, dimmbar, Kerzenform
-* [Wenscha](https://www.amazon.de/Wenscha-Kugelform-Halogenlampe-Fadenlampe-Leuchtmittel/dp/B08ZMR18NM/): 2.33€/Stück, 4W für 450lm => 112.5lm/W, Birnenform
-* [LVWIT](https://www.amazon.de/Gl%C3%BChfaden-Gl%C3%BChlampe-ultrahell-Rustikalampe-Filamentstil/dp/B07FNDRQ7Z/): 2.00€/Stück, 4W für 470lm => 117.5 lm/W, Birnenform
-* [Osram](https://www.amazon.de/Osram-Kerzenform-E14-Sockel-Filementstil-Warmwei%C3%9F/dp/B073QTJJNT/): 2.31€/Stück, 4W für 470lm => 117.5lm/W, Kerzenform
-* [Osram](https://www.amazon.de/Osram-Tropfenform-E14-Sockel-Filamentstil-Warmwei%C3%9F/dp/B073QSXXC8/): 0.99€/Stück, 4W für 470lm => 117.5 lm/W, Tropfenform
-* [GY](https://www.amazon.de/GY-Leuchtmittel-Energiesparlampe-Halogenlampe-Energieeffizienzklasse/dp/B0C5J4XVYT/): 2.67€/Stück, 4.9W für 807lm => 165lm/W, Kerzenform
+* [Tuoplyh](https://www.amazon.de/Tuoplyh-ersetzt-Warmwei%C3%9F-Gl%C3%BChfaden-Kerzenlampe/dp/B088TFVRTF/): 2€/Stück, 4W für 400lm ⇒ 100lm/W, dimmbar, Kerzenform
+* [Wenscha](https://www.amazon.de/Wenscha-Kugelform-Halogenlampe-Fadenlampe-Leuchtmittel/dp/B08ZMR18NM/): 2.33€/Stück, 4W für 450lm ⇒ 112.5lm/W, Birnenform
+* [LVWIT](https://www.amazon.de/Gl%C3%BChfaden-Gl%C3%BChlampe-ultrahell-Rustikalampe-Filamentstil/dp/B07FNDRQ7Z/): 2.00€/Stück, 4W für 470lm ⇒ 117.5 lm/W, Birnenform
+* [Osram](https://www.amazon.de/Osram-Kerzenform-E14-Sockel-Filementstil-Warmwei%C3%9F/dp/B073QTJJNT/): 2.31€/Stück, 4W für 470lm ⇒ 117.5lm/W, Kerzenform
+* [Osram](https://www.amazon.de/Osram-Tropfenform-E14-Sockel-Filamentstil-Warmwei%C3%9F/dp/B073QSXXC8/): 0.99€/Stück, 4W für 470lm ⇒ 117.5 lm/W, Tropfenform
+* [GY](https://www.amazon.de/GY-Leuchtmittel-Energiesparlampe-Halogenlampe-Energieeffizienzklasse/dp/B0C5J4XVYT/): 2.67€/Stück, 4.9W für 807lm ⇒ 165lm/W, Kerzenform
 
 
 ## Fazit

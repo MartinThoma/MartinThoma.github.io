@@ -448,7 +448,7 @@ Using this [getsize](https://stackoverflow.com/a/30316760/562769) implementation
 
 ```text
 Raw float    :   8 B ("double")
-Raw string   :   1 B per char => 13B
+Raw string   :   1 B per char ⇒ 13B
 Raw data     :  29 B = 8B + 8B + 13B
 
 Float object :  24 B

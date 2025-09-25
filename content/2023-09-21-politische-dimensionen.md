@@ -81,13 +81,13 @@ vorgegebenes) politisches Ziel verlangt.
 
 Liberalismus:
 
-* Niedrige Steuern => Schwacher Staat, d.h. geringe Sicherung durch Arbeitslosengeld / Krankenversicherung
+* Niedrige Steuern ⇒ Schwacher Staat, d.h. geringe Sicherung durch Arbeitslosengeld / Krankenversicherung
 * Regulierung: Was nicht verboten ist, ist erlaubt (z.B. Medikamente / Nahrungsmittelzusätze auf dem Markt)
 * Monopole: ??
 
 Sozialismus:
 
-* Hohe Steuern => Starker Staat, d.h. gute Sicherung durch Arbeitslosengeld / Krankenversicherung
+* Hohe Steuern ⇒ Starker Staat, d.h. gute Sicherung durch Arbeitslosengeld / Krankenversicherung
 * Regulierung: Was nicht erlaubt ist, ist verboten (z.B. Medikamente / Nahrungsmittelzusätze auf dem Markt)
 * Monopole: ?
 

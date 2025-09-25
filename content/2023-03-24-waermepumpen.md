@@ -270,7 +270,7 @@ Vorlauftemperatur von 55°C.
         <td>20 Jahre (<a href="https://praxistipps.focus.de/lebensdauer-einer-heizung-informationen-zu-verschleiss-und-haltbarkeit_98439">Quelle</a>)</td>
         <td>1500 €</td>
         <td>160€/Jahr für die Heizung (<a href="https://www.heizspiegel.de/heizkosten-senken/heizungswartung/">Quelle</a>)<br/>+ 110€/Jahr für den Schornsteinfeger</td>
-        <td>9.8 kWh/L; 1.15 €/L => 1800€/Jahr</td>
+        <td>9.8 kWh/L; 1.15 €/L ⇒ 1800€/Jahr</td>
         <td>80k €</td>
         <td>Öltank verbraucht Platz, es muss ein Zugang von der Straße zum Öltank freigehalten werden, das Öl hat zumindest im Heizraum einen Starken geruch, man ist abhängig von schwankenden Ölpreisen und deren Verfügbarkeit</td>
     </tr>
@@ -282,7 +282,7 @@ Vorlauftemperatur von 55°C.
         <td>15 Jahre (<a href="https://m-tec.at/blog/10-mythen-zum-thema-waermepumpen/">Quelle</a>)</td>
         <td>15.000€  (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>140 €/Jahr (<a href="https://www.heizspiegel.de/heizkosten-senken/heizungswartung/">Quelle</a>)</td>
-        <td>COP von 4.2, 0.33€/kWh => 1200 €/Jahr</td>
+        <td>COP von 4.2, 0.33€/kWh ⇒ 1200 €/Jahr</td>
         <td>90k €</td>
         <td>Einfache Installation, dezentral, kann im Sommer kühlen; ggf. störender Lärm (typisch sind 35 dB(A))</td>
     </tr>
@@ -292,7 +292,7 @@ Vorlauftemperatur von 55°C.
         <td>15 Jahre (<a href="https://m-tec.at/blog/10-mythen-zum-thema-waermepumpen/">Quelle</a>)</td>
         <td>4.000€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>50 - 100€, alle 1-3 Jahre (<a href="https://blog.kelag.at/waermepumpe-wartung">Quelle</a>)</td>
-        <td>SCOP=4.2 (<a href="https://www.bosch-thermotechnology.com/ocsmedia/optimized/full/o473837v272_Folder_Compress7800iW_EK_1220_web.pdf">5.4 möglich</a>), 0.33€/kWh => 1200 €/Jahr</td>
+        <td>SCOP=4.2 (<a href="https://www.bosch-thermotechnology.com/ocsmedia/optimized/full/o473837v272_Folder_Compress7800iW_EK_1220_web.pdf">5.4 möglich</a>), 0.33€/kWh ⇒ 1200 €/Jahr</td>
         <td>75k €</td>
         <td>Man kann ggf. bestehende Heizungen verwenden, insbesondere wenn Fußbodenheizungen vorliegen</td>
     </tr>
@@ -302,7 +302,7 @@ Vorlauftemperatur von 55°C.
         <td>25 Jahre (<a href="https://m-tec.at/blog/10-mythen-zum-thema-waermepumpen/">Quelle</a>)</td>
         <td>10.000€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>50 - 100€, alle 1-3 Jahre (<a href="https://blog.kelag.at/waermepumpe-wartung">Quelle</a>)</td>
-        <td><a href="https://www.nibe.eu/assets/documents/26254/531075-1.pdf">SCOP=4.3</a>, 0.33€/kWh => 1200€/Jahr</td>
+        <td><a href="https://www.nibe.eu/assets/documents/26254/531075-1.pdf">SCOP=4.3</a>, 0.33€/kWh ⇒ 1200€/Jahr</td>
         <td>49k €</td>
         <td>Großer Flächenbedarf; tief wurzelnde Bäume wachsen ggf. schlechter</td>
     </tr>
@@ -312,7 +312,7 @@ Vorlauftemperatur von 55°C.
         <td>100 Jahre (<a href="https://www.waermepumpe.de/uploads/tx_bcpageflip/Leitfaden_Erdwaerme_2018_Web.pdf">Quelle</a>)</td>
         <td>16.500€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>50 - 100€, alle 1-3 Jahre (<a href="https://blog.kelag.at/waermepumpe-wartung">Quelle</a>)</td>
-        <td><a href="https://www.nibe.eu/assets/documents/26254/531075-1.pdf">SCOP=4.3</a>, 0.33€/kWh => 1200€/Jahr</td>
+        <td><a href="https://www.nibe.eu/assets/documents/26254/531075-1.pdf">SCOP=4.3</a>, 0.33€/kWh ⇒ 1200€/Jahr</td>
         <td>69k €</td>
         <td>Für die Gesamtkosten habe ich 30 Jahre Laufzeit angenommen.</td>
     </tr>
@@ -322,7 +322,7 @@ Vorlauftemperatur von 55°C.
         <td>25 Jahre (<a href="https://www.steininger.st/heizung/waermepumpe/grundwasser-waermepumpe">Quelle</a>)</td>
         <td>12.000€ (<a href="https://www.heizungsfinder.de/waermepumpe/kosten-preise/wasser-wasser">Quelle</a>, <a href="https://www.energie-fachberater.de/heizung-lueftung/heizung/waermepumpe/grundwasserwaermepumpe-alles-zu-funktion-bedingungen-und-kosten.php">Quelle</a>)</td>
         <td>100€/Jahr (<a href="https://www.energie-fachberater.de/heizung-lueftung/heizung/waermepumpe/grundwasserwaermepumpe-alles-zu-funktion-bedingungen-und-kosten.php">Quelle</a>)</td>
-        <td>SCOP=4.15 (<a href="https://www.mtec-systems.com/wp-content/uploads/sites/19/wplk-2021-finale_DoppelseiteWEB.pdf">Quelle</a>), 0.33€/kWh => 1200€</td>
+        <td>SCOP=4.15 (<a href="https://www.mtec-systems.com/wp-content/uploads/sites/19/wplk-2021-finale_DoppelseiteWEB.pdf">Quelle</a>), 0.33€/kWh ⇒ 1200€</td>
         <td>66k €</td>
         <td></td>
     </tr>

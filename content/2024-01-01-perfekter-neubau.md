@@ -376,7 +376,7 @@ Bei Feinsteinzeug-Fließen:
     dem Rollo gekoppelt sein und eine Neuverkoppelung sollte über einen Knopf
     bei der Ladebuchse möglich sein. Als offener Standard wäre Zigbee Sub-GHz
     geeignet:
-        * Sub-GHz => kommt besser durch Wände
+        * Sub-GHz ⇒ kommt besser durch Wände
         * Zigbee: Offener Standard der im SmartHome-Bereich üblich ist
         * Mesh-Networking: More stable
     * App-Steuerung

@@ -8,7 +8,14 @@ category: My bits and bytes
 tags: recipe
 featured_image: logos/cooking.png
 ---
-Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und leckere Beilage. Hier ist ein einfaches Rezept:
+Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und leckere Beilage.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/09/salat.jpg"><img src="../images/2025/09/salat.jpg" alt="ChatGPT rendering eines Rohkostsalats. Der Salat besteht aus frischen, bunten Gemüsesorten." style="max-height: 512px"/></a>
+    <figcaption class="text-center">ChatGPT rendering eines Rohkostsalats. Der Salat besteht aus frischen, bunten Gemüsesorten.</figcaption>
+</figure>
+
+Hier ist ein einfaches Rezept:
 
 ## Mikronährstoffe
 
