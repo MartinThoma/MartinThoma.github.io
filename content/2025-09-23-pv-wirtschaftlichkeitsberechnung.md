@@ -491,32 +491,68 @@ Die Kosten mit einer 10 kWp PV-Anlage wären also:
 Das entspricht einer **Ersparnis von 1513.25 €/Jahr** gegenüber dem aktuellen Zustand.
 Bei einer Lebensdauer von 20 Jahren wären das **30&thinsp;265 €** an eingesparten Kosten.
 
-Was die Wirtschaftlichkeit reduziert:
+**Faktoren, die die Wirtschaftlichkeit reduzieren:**
 
-* Es wird auch im Sommer Tage geben, an denen ich Strom zukaufen muss. Eine Batterie
-  mildert das ab.
+* Auch im Sommer wird es Tage geben, an denen Strom zugekauft werden muss. Ein Batteriespeicher kann dies abmildern.
 * Die Module können durch Alterung oder Verschmutzung an Leistung verlieren.
 * Teile der Anlage können kaputtgehen oder Wartung benötigen.
 
-Was die Wirtschaftlichkeit erhöht:
+**Faktoren, die die Wirtschaftlichkeit erhöhen:**
 
-* Die Strompreise werden sicher steigen.
-* Die Anlage hält ggf. länger als 20 Jahre.
+* Die Strompreise werden voraussichtlich weiter steigen.
+* Die Anlage hält möglicherweise länger als 20 Jahre.
+* Durch geschickte Steuerung der Verbraucher (z.B. Wärmepumpe, Waschmaschine) lässt sich der Eigenverbrauchsanteil erhöhen.
+* Ein Energie-Management-System (EMS) kann mit einem dynamischem Stromtarif
+  zu günstigen Zeiten Strom kaufen.
 
-## Weiteres
 
-Neben den kWp der Module und der Kapazität des Speichers spielen weitere
-Faktoren eine Rolle:
+## Technische Aspekte und weitere Überlegungen
 
-* **Lebensdauer**: Garantien auf die verschiedenen Komponenten variieren stark:
-    * Solarmodule: 25 Jahre auf Leistung, 10 Jahre auf Produkt
-    * Wechselrichter: 5 bis 12 Jahre
-    * Speicher: 10 Jahre auf Leistung, 2 bis 5 Jahre auf Produkt
-* **Wechselrichter**: Der Wechselrichter wandelt den von den Solarmodulen
-  erzeugten Gleichstrom in Wechselstrom um, der im Haushalt genutzt werden kann.
-  * Effizienz
-  * Inselfähigkeit: Kann der Wechselrichter auch bei Stromausfall Strom
+Neben der Anzahl der kWp der Module und der Kapazität eines eventuellen Speichers spielen weitere
+Faktoren eine wichtige Rolle:
+
+### Lebensdauer und Garantien
+
+Die Garantien auf die verschiedenen Komponenten variieren stark:
+
+* **Solarmodule**: 25 Jahre Leistungsgarantie (meist 80% der Nennleistung), 10-12 Jahre Produktgarantie
+* **Wechselrichter**: 5 bis 12 Jahre Garantie, oft erweiterbar
+* **Batteriespeicher**: 10 Jahre Leistungsgarantie, 2 bis 10 Jahre Produktgarantie
+
+### Wechselrichter-Eigenschaften
+
+Der Wechselrichter ist das Herzstück der Anlage und wandelt den von den Solarmodulen
+erzeugten Gleichstrom in Wechselstrom um, der im Haushalt genutzt werden kann.
+
+Wichtige Eigenschaften:
+
+* **Effizienz**: Moderne Wechselrichter erreichen Wirkungsgrade von über 95%
+* **Notstromfähigkeit**: Kann der Wechselrichter auch bei Stromausfall Strom
     liefern? Hier ist zwischen Notstrombetrieb (nur wenige Steckdosen),
     Ersatzstrombetrieb (gesamter Haushalt) und Inselbetrieb (getrenntes Netz) zu
     unterscheiden. Die Schwarzstartfähigkeit ist eine notwendige, aber keine hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
     Für den Notstrombetrieb ist sie nicht notwendig.
+
+### Kosten und Amortisation
+
+Eine wichtige Frage, die in diesem Artikel nicht beantwortet wird, ist: **Ab welchen Anschaffungskosten lohnt sich die Investition?**
+
+Bei einer jährlichen Ersparnis von ca. 1.640 € und einer angenommenen Lebensdauer von 20 Jahren könnte eine Investition von bis zu **32.800 €** noch wirtschaftlich vertretbar sein (ohne Berücksichtigung von Zinsen und Inflation).
+
+Realistische Kosten für eine 10 kWp-Anlage mit Speicher liegen aktuell zwischen 15.000 und 25.000 €, was eine Amortisation in 9-15 Jahren bedeuten würde.
+
+
+## Fazit
+
+Die Wirtschaftlichkeitsberechnung zeigt deutlich, dass eine Photovoltaikanlage unter den gegebenen Bedingungen eine sehr rentable Investition darstellt:
+
+* **Jährliche Ersparnis**: ca. 1.640 € pro Jahr
+* **Gesamtersparnis über 20 Jahre**: ca. 32.800 €
+* **Amortisationszeit**: 9-15 Jahre bei realistischen Anschaffungskosten
+
+Besonders vorteilhaft wirken sich aus:
+- Der hohe Eigenverbrauchsanteil durch die Wärmepumpe
+- Die günstige Süd-West-Ausrichtung des Dachs
+- Die zu erwartenden weiteren Strompreissteigerungen
+
+Die Berechnung basiert auf konservativen Annahmen. In der Praxis könnte die Rentabilität durch intelligente Verbrauchssteuerung und eventuelle Förderungen noch besser ausfallen.
