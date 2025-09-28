@@ -23,8 +23,27 @@ die verfügbare Dachfläche, den zu erwartenden Ertrag sowie verschiedene Betrie
 
 Ich habe aktuell zwei Stromzähler und zwei Tarife:
 
-* Hausstrom: 0.2505€/kWh + 126.43 €/Jahr
-* Wärmepumpen-Tarif: 0.205€/kWh + 93.88 €/Jahr
+<table>
+  <thead>
+    <tr>
+      <th>Tarif</th>
+      <th>Arbeitspreis</th>
+      <th>Grundgebühr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wärmepumpen-Tarif (HT/NT)</td>
+      <td style="text-align: right;">0.205&nbsp;€/kWh</td>
+      <td style="text-align: right;">93.88&nbsp;€/Jahr</td>
+    </tr>
+    <tr>
+      <td>Hausstrom</td>
+      <td style="text-align: right;">0.2505&nbsp;€/kWh</td>
+      <td style="text-align: right;">126.43&nbsp;€/Jahr</td>
+    </tr>
+  </tbody>
+</table>
 
 Ich gehe von ca. 2% jährlichen Preissteigerungen aus.
 
@@ -54,7 +73,9 @@ Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):
 Basierend auf den Dachparametern lässt sich der zu erwartende Stromertrag berechnen.
 Mit [solarserver.de](https://www.solarserver.de/pv-anlage-online-berechnen/)
 kann man berechnen, wie viel Strom eine PV-Anlage an einem bestimmten Ort,
-mit einer bestimmten Ausrichtung und Neigung erzeugt.
+mit einer bestimmten Ausrichtung und Neigung erzeugt. Der
+[Zusammenhang zwischen Neigung, Ausrichtung und Ertrag](https://www.rechnerphotovoltaik.de/photovoltaik/voraussetzungen/dachneigung)
+zeigt, dass eine Neigung von 30° gar nicht so schlecht ist.
 
 <table>
     <thead>
@@ -121,10 +142,6 @@ mit einer bestimmten Ausrichtung und Neigung erzeugt.
 
 Die Gesamtleistung pro Jahr beträgt somit **1.080 kWh/kWp**.
 
-Weitere hilfreiche Informationen zum Thema:
-
-* [Zusammenhang zwischen Neigung, Ausrichtung und Ertrag](https://www.rechnerphotovoltaik.de/photovoltaik/voraussetzungen/dachneigung)
-
 
 ## Analyse des Stromverbrauchs
 
@@ -169,18 +186,20 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <th class="border-right">Heizung</th>
             <th>Kosten Haushalt<br/>im Monat</th>
             <th>Kosten Warmwasser<br/>im Monat</th>
-            <th>Kosten Heizung<br/>im Monat</th>
+            <th class="border-right">Kosten Heizung<br/>im Monat</th>
+            <th>Nächtlicher Haushalt&shy;strom&shy;verbrauch</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td class="border-right">Januar</td>
             <td style="text-align: right;">8.7 kWh/Tag</td>
-            <td style="text-align: right;">(2.4 kWh/Tag)</td>
+            <td style="text-align: right;">(2.4&nbsp;kWh/Tag)</td>
             <td style="text-align: right;" class="border-right">(38 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">67.56 €</td>
             <td style="text-align: right;">15.25 €</td>
-            <td style="text-align: right; background-color: #ff0000;">241.49 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">241.49 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">Februar</td>
@@ -189,16 +208,18 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(30 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">59.62 €</td>
             <td style="text-align: right;">11.48 €</td>
-            <td style="text-align: right; background-color: #ff0000;">172.20 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">172.20 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">März</td>
-            <td style="text-align: right;">10.3 kWh/Tag</td>
+            <td style="text-align: right;">10.3&nbsp;kWh/Tag</td>
             <td style="text-align: right;">(1.8 kWh/Tag)</td>
             <td style="text-align: right;" class="border-right">(11 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">79.98 €</td>
             <td style="text-align: right;">11.44 €</td>
-            <td style="text-align: right; background-color: #ffdd22;">69.91 €</td>
+            <td style="text-align: right; background-color: #ffdd22;" class="border-right">69.91 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">April</td>
@@ -207,7 +228,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(4 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">63.88 €</td>
             <td style="text-align: right;">9.23 €</td>
-            <td style="text-align: right;">24.60 €</td>
+            <td style="text-align: right;" class="border-right">24.60 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">Mai</td>
@@ -216,7 +238,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(3 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">66.00 €</td>
             <td style="text-align: right;">7.63 €</td>
-            <td style="text-align: right;">19.07 €</td>
+            <td style="text-align: right;" class="border-right">19.07 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">Juni</td>
@@ -225,7 +248,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">1.0 kWh/Tag</td>
             <td style="text-align: right;">45.84 €</td>
             <td style="text-align: right;">7.38 €</td>
-            <td style="text-align: right;">6.15 €</td>
+            <td style="text-align: right;" class="border-right">6.15 €</td>
+            <td style="text-align: right;">0.7 kWh - 1.7 kWh<br/>median=0.8 kWh</td>
         </tr>
         <tr>
             <td class="border-right">Juli</td>
@@ -234,7 +258,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">0.3 kWh/Tag</td>
             <td style="text-align: right;">47.37 €</td>
             <td style="text-align: right;">6.99 €</td>
-            <td style="text-align: right;">1.91 €</td>
+            <td style="text-align: right;" class="border-right">1.91 €</td>
+            <td style="text-align: right;">0.6 kWh - 1.7 kWh<br/>median=0.8 kWh</td>
         </tr>
         <tr>
             <td class="border-right">August</td>
@@ -243,7 +268,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">0.3 kWh/Tag</td>
             <td style="text-align: right; background-color: #ffdd22;">52.80 €</td>
             <td style="text-align: right;">7.63 €</td>
-            <td style="text-align: right;">1.91 €</td>
+            <td style="text-align: right;" class="border-right">1.91 €</td>
+            <td style="text-align: right;">0.8 kWh - 1.3 kWh<br/>median=1.0 kWh</td>
         </tr>
         <tr>
             <td class="border-right">September</td>
@@ -252,7 +278,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(2.7 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">57.87 €</td>
             <td style="text-align: right;">7.38 €</td>
-            <td style="text-align: right;">16.61 €</td>
+            <td style="text-align: right;" class="border-right">16.61 €</td>
+            <td style="text-align: right;">0.7 kWh - 2.8 kWh<br/>median=1.2 kWh</td>
         </tr>
         <tr>
             <td class="border-right">Oktober</td>
@@ -261,7 +288,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(9 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">58.24 €</td>
             <td style="text-align: right;">11.44 €</td>
-            <td style="text-align: right; background-color: #ffdd22;">57.20 €</td>
+            <td style="text-align: right; background-color: #ffdd22;" class="border-right">57.20 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">November</td>
@@ -270,7 +298,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(25 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">77.40 €</td>
             <td style="text-align: right;">12.30 €</td>
-            <td style="text-align: right; background-color: #ff0000;">153.75 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">153.75 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">Dezember</td>
@@ -279,7 +308,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right">(40 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">77.66 €</td>
             <td style="text-align: right;">15.25 €</td>
-            <td style="text-align: right; background-color: #ff0000;">254.20 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">254.20 €</td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td><strong>Summe</strong></td>
@@ -288,7 +318,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;" class="border-right"><strong>ca. 4.971 kWh</strong></td>
             <td style="text-align: right;"><strong>754.22 €</strong></td>
             <td style="text-align: right;"><strong>123.40 €</strong></td>
-            <td style="text-align: right;"><strong>1019.00 €</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>1019.00 €</strong></td>
+            <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td><strong>Durchschnitt</strong></td>
@@ -297,21 +328,41 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;"><strong>13.6 kWh/Tag</strong></td>
             <td style="text-align: right;"><strong>2.06€/Tag</strong></td>
             <td style="text-align: right;"><strong>0.34€/Tag</strong></td>
-            <td style="text-align: right;"><strong>2.79€/Tag</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>2.79€/Tag</strong></td>
+            <td style="text-align: right;">TODO</td>
         </tr>
     </tbody>
 </table>
 
 ### Gesamtkosten im Überblick
 
-Basierend auf den oben genannten Verbrauchswerten bezahle ich aktuell:
+Basierend auf den oben genannten Verbrauchswerten bezahle ich ohne
+Photovoltaik-Anlage voraussichtlich:
 
-* Haushaltsstrom: 879.18 €/Jahr
-* Wärmepumpenstrom: 1236.34 €/Jahr
-* Erster Stromzähler (Bezug/Einspeisung): 30 €/Jahr
-* Zweiter Stromzähler (HT/NT): 30 €/Jahr
-
-Insgesamt zahle ich für Strom also ca. 2&thinsp;175.52 €/Jahr.
+<table>
+    <tbody>
+        <tr>
+          <td>Haushaltsstrom</td>
+          <td style="text-align: right;">879.18 €/Jahr</td>
+        </tr>
+        <tr>
+          <td>Wärmepumpenstrom</td>
+          <td style="text-align: right;">1236.34 €/Jahr</td>
+        </tr>
+        <tr>
+          <td>Erster Stromzähler (Bezug/Einspeisung)</td>
+          <td style="text-align: right;">30 €/Jahr</td>
+        </tr>
+        <tr>
+          <td>Zweiter Stromzähler (HT/NT)</td>
+          <td style="text-align: right;">30 €/Jahr</td>
+        </tr>
+        <tr>
+            <th>Gesamt</th>
+            <th style="text-align: right;">2&thinsp;175.52 €/Jahr</th>
+        </tr>
+    </tbody>
+</table>
 
 
 ## Einspeisevergütung nach dem EEG
@@ -319,7 +370,34 @@ Insgesamt zahle ich für Strom also ca. 2&thinsp;175.52 €/Jahr.
 Die Höhe der Einspeisevergütung ist ein wichtiger Faktor für die Wirtschaftlichkeitsberechnung.
 
 [Laut Bundesnetzagentur](https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html) gibt es im September 2025 für
-Teileinspeisung bei Anlagen zwischen 10 und 40 kWp eine Vergütung von 0.068 €/kWh.
+Teileinspeisung:
+
+<table>
+    <thead>
+        <tr>
+            <th>Leistung</th>
+            <th>Vergütung</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: right;">bis 10 kWp</td>
+            <td style="text-align: right;">0.078&nbsp;€/kWh</td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">10 kWp - 40 kWp</td>
+            <td style="text-align: right;">0.068&nbsp;€/kWh</td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">40 kWp - 750 kWp</td>
+            <td style="text-align: right;">0.0556&nbsp;€/kWh</td>
+        </tr>
+    </tbody>
+</table>
+
+Dabei wird eine Mischkalkulation angewendet, d.h. wenn ich eine 12 kWp Anlage
+habe, erhalte ich für die ersten 10 kWp 0.078 €/kWh und für die restlichen 2 kWp
+0.068 €/kWh. Pro eingespeister kWh erhalte ich somit (10 * 0.078 + 2 * 0.068) / 12 = 0.0753 €/kWh.
 
 Der Vergütungsanspruch nach dem EEG besteht für die Dauer von 20 Jahren. Die
 20-Jahre-Frist beginnt ab der Inbetriebnahme zu laufen.
@@ -330,12 +408,43 @@ Der Vergütungsanspruch nach dem EEG besteht für die Dauer von 20 Jahren. Die
 Um die Rentabilität einer PV-Anlage zu bewerten, betrachte ich zwei Szenarien:
 das ungünstigste (Volleinspeisung) und das günstigste (maximaler Eigenverbrauch).
 
+Ich gehe pessimistisch von einer Lebensdauer der PV-Anlage von 20 Jahren aus.
+
+### Null-Szenario: Keine PV-Anlage
+
+* Jährliche Kosten ohne PV-Anlage: 2&thinsp;175.52 €
+* Jährliche Kostensteigerung: 2%
+* Kummulative Kosten in 20 Jahren: $\sum_{i=0}^{n=19} 2175.52 \cdot (1 + 0.02)^i = 52859$ EUR
+
+Wenn man von 20.000 EUR Investitionskosten für die PV-Anlage ausgeht und diese
+als Alternative zur PV-Anlage mit 3% Wertsteigerung anlegt und am Ende mit
+26.375% versteuert, dann hat man:
+
+$$\begin{align*}
+\text{Investment} &= 20000 + 20000 \cdot (1.03^{20}-1) \cdot (1 - 0.26375)\\
+&= 20000 + 20000 \cdot 0.8061 \cdot 0.73625\\
+&= 20000 + 11879.5\\
+&= 31879.5 \text{ EUR}
+\end{align*}$$
+
+Das heißt nach 20 Jahren bin ich **-20979.5 EUR** ärmer als heute, wenn ich
+keine PV-Anlage installiere.
+
 ### Worst-Case-Szenario: Volleinspeisung
 
-* Vergütung: 0.068 €/kWh
+* Vergütung: 0.078 €/kWh
 * Ertrag: 1.080 kWh/kWp/Jahr
 
-⇒ 73,44 €/kWp pro Jahr an Einnahmen. Bei Zählerzusammenlegung entstehen sogar höhere Ausgaben, da ich dann auf den bezogenen Strom den höheren Verbrauchspreis zahlen muss.
+⇒ 84.24 €/kWp pro Jahr an Einnahmen. Bei Zählerzusammenlegung entstehen sogar
+höhere Ausgaben, da ich dann auf den bezogenen Strom den höheren Verbrauchspreis
+zahlen muss.
+
+Nach 20 Jahren habe ich also 52859 EUR an Stromkosten bezahlt und  1684.80 EUR
+an Einnahmen durch die Einspeisevergütung erhalten.
+
+Ich bin also **-51174.20 EUR** ärmer als heute, wenn ich eine PV-Anlage installiere
+und den gesamten Strom einspeise, aber nur die Vergütung für Teileinspeisung
+erhalte.
 
 
 ### Best-Case-Szenario: Maximaler Eigenverbrauch mit Einspeisevergütung
@@ -382,7 +491,7 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;">1000 kWh</td>
             <td style="text-align: right;">284 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">19.31 €</td>
+            <td style="text-align: right;">22.15 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -391,7 +500,7 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;">1250 kWh</td>
             <td style="text-align: right;">830 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">54.44 €</td>
+            <td style="text-align: right;">64.74 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -400,7 +509,7 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;">1300 kWh</td>
             <td style="text-align: right;">906 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">61.61 €</td>
+            <td style="text-align: right;">70.67 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -418,7 +527,7 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;">1380 kWh</td>
             <td style="text-align: right;">1154 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">78.47 €</td>
+            <td style="text-align: right;">85.88 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -427,7 +536,7 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;">1240 kWh</td>
             <td style="text-align: right;">983 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">66.84 €</td>
+            <td style="text-align: right;">76.67 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -436,7 +545,7 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;">980 kWh</td>
             <td style="text-align: right;">632 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">42.98 €</td>
+            <td style="text-align: right;">49.30 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -472,28 +581,53 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
             <td style="text-align: right;" class="border-right;"><strong>10&thinsp;800 kWh</strong></td>
             <td style="text-align: right;"><strong>6&thinsp;022 kWh</strong></td>
             <td style="text-align: right;" class="border-right;"><strong>3&thinsp;650 kWh</strong></td>
-            <td style="text-align: right;"><strong>408.50 €</strong></td>
+            <td style="text-align: right;"><strong>454.26 €</strong></td>
             <td style="text-align: right;"><strong>914.34 €</strong></td>
         </tr>
     </tbody>
 </table>
 
-### Kostenaufstellung mit PV-Anlage
 
 Die Kosten mit einer 10 kWp PV-Anlage wären also:
 
-* Strombezug: -1040.77 €/Jahr
-* Vergütung: +408.50 €/Jahr
-* Zählerkosten: -30 €/Jahr
+<table>
+    <thead>
+        <tr>
+            <th>Kostenart</th>
+            <th style="text-align: right;">Betrag</th>
+            <th style="text-align: right;">Kummuliert über 20 Jahre<br/>(incl. 2% Steigerung p.a.)</th>
+        </tr>
+    <tbody>
+        <tr>
+          <td>Strombezug</td>
+          <td style="text-align: right;">-914.34 €/Jahr - 126.43€/Jahr</td>
+          <td style="text-align: right;">-25&thinsp;287.97 €</td>
+        </tr>
+        <tr>
+          <td>Vergütung</td>
+          <td style="text-align: right;">454.26 €/Jahr</td>
+          <td style="text-align: right;">9&thinsp;085.20 €</td>
+        </tr>
+        <tr>
+          <td>Zählerkosten</td>
+          <td style="text-align: right;">-30 €/Jahr</td>
+            <td style="text-align: right;">-600 €</td>
+        </tr>
+        <tr>
+            <th>Gesamt</th>
+            <th style="text-align: right;">490.08 €/Jahr</th>
+            <th style="text-align: right;">-16&thinsp;802.77 €</th>
+        </tr>
+    </tbody>
+</table>
 
-**Gesamtkosten: 662.27 €/Jahr**
-
-Das entspricht einer **Ersparnis von 1513.25 €/Jahr** gegenüber dem aktuellen Zustand.
-Bei einer Lebensdauer von 20 Jahren wären das **30&thinsp;265 €** an eingesparten Kosten.
+Ich wäre nach 20 Jahren also **-16&thinsp;802.77 EUR** ärmer als heute, wenn ich
+eine 10 kWp PV-Anlage installiere und den Eigenverbrauch maximiere.
 
 **Faktoren, die die Wirtschaftlichkeit reduzieren:**
 
-* Auch im Sommer wird es Tage geben, an denen Strom zugekauft werden muss. Ein Batteriespeicher kann dies abmildern.
+* Auch im Sommer wird es Tage geben, an denen Strom zugekauft werden muss. Ein
+  Batteriespeicher kann dies abmildern.
 * Die Module können durch Alterung oder Verschmutzung an Leistung verlieren.
 * Teile der Anlage können kaputtgehen oder Wartung benötigen.
 
@@ -533,26 +667,22 @@ Wichtige Eigenschaften:
     unterscheiden. Die Schwarzstartfähigkeit ist eine notwendige, aber keine hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
     Für den Notstrombetrieb ist sie nicht notwendig.
 
-### Kosten und Amortisation
-
-Eine wichtige Frage, die in diesem Artikel nicht beantwortet wird, ist: **Ab welchen Anschaffungskosten lohnt sich die Investition?**
-
-Bei einer jährlichen Ersparnis von ca. 1.640 € und einer angenommenen Lebensdauer von 20 Jahren könnte eine Investition von bis zu **32.800 €** noch wirtschaftlich vertretbar sein (ohne Berücksichtigung von Zinsen und Inflation).
-
-Realistische Kosten für eine 10 kWp-Anlage mit Speicher liegen aktuell zwischen 15.000 und 25.000 €, was eine Amortisation in 9-15 Jahren bedeuten würde.
-
 
 ## Fazit
 
-Die Wirtschaftlichkeitsberechnung zeigt deutlich, dass eine Photovoltaikanlage unter den gegebenen Bedingungen eine sehr rentable Investition darstellt:
-
-* **Jährliche Ersparnis**: ca. 1.640 € pro Jahr
-* **Gesamtersparnis über 20 Jahre**: ca. 32.800 €
-* **Amortisationszeit**: 9-15 Jahre bei realistischen Anschaffungskosten
+Die Wirtschaftlichkeitsberechnung zeigt deutlich, dass eine Photovoltaikanlage
+unter den gegebenen Bedingungen eine sehr rentable Investition darstellt. Da ich
+einige konservative Annahmen getroffen habe, ist die tatsächliche Rentabilität
+hoffentlich höher. Bei einer Investition von 20.000 EUR in eine 10 kWp Anlage mit
+einem Batteriespeicher von 10 kWh könnte ich nach 20 Jahren etwa 4176 EUR
+Gewinn über dem Vergleichsszenario ohne PV-Anlage erzielen.
 
 Besonders vorteilhaft wirken sich aus:
 - Der hohe Eigenverbrauchsanteil durch die Wärmepumpe
 - Die günstige Süd-West-Ausrichtung des Dachs
 - Die zu erwartenden weiteren Strompreissteigerungen
 
-Die Berechnung basiert auf konservativen Annahmen. In der Praxis könnte die Rentabilität durch intelligente Verbrauchssteuerung und eventuelle Förderungen noch besser ausfallen.
+## Offene Fragen
+
+1. Muss ich die Einspeisevergütung versteuern?
+2. Kann ich die PV-Anlage von der Steuer absetzen?
