@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Hilfreiche Bürokratie
 slug: hilfreiche-buerokratie
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: politics
 featured_image: logos/house.png
 ---
-
 Wir schimpfen oft über Bürokratie und fordern ihren Abbau. Dabei wird häufig übersehen, dass Bürokratie auch viele Vorteile und wichtige Funktionen hat.
 
 Vor Kurzem ist mir ein Beispiel begegnet, das zeigt, wie zusätzliche Bürokratie sogar zu mehr gesamtwirtschaftlicher Effizienz führen kann.

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wirtschaft und Staatsfinanzen in Deutschland
 slug: wirtschaft-und-staatsfinanzen-in-deutschland
 author: Martin Thoma

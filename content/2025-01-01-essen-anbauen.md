@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Essen im Garten anbauen
 slug: gemuesegarten
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: house
 featured_image: logos/house.png
 status: draft
 ---
-
 ## Karotten
 
 ## Kartoffeln

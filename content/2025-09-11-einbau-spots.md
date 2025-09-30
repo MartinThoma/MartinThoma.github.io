@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Einbau-Spots
 slug: einbau-spots
 author: Martin Thoma

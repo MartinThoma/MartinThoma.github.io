@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Kosten der Krankenversorgung in Deutschland
 slug: kosten-krankenversorgung-in-deutschland
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Rezept: Rohkostsalat
 slug: rohkostsalat
 author: Martin Thoma

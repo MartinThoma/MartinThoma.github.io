@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Bundestagswahl 2025
 slug: bundestagswahl-2025
 author: Martin Thoma

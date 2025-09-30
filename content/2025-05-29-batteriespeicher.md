@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Batteriespeicher
 slug: batteriespeicher
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: German posts,energy
 featured_image: logos/germany.png
 status: draft
 ---
-
 Die Idee ist die Solarzellen an die Batterie anzuschließen. Die Batterie
 ist dann über einen Wechselrichter an das Hausnetz angeschlossen.
 

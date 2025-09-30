@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Homeserver
 slug: homeserver
 author: Martin Thoma
@@ -9,8 +10,6 @@ tags: digital sovereignty, self-hosted, cloud
 featured_image: logos/earth.png
 status: draft
 ---
-
-
 ## Hardware
 
 I have a Mini PC:

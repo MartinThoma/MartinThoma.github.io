@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Steckersolar-Batterien 2025
 slug: steckersolar-batterien-2025
 author: Martin Thoma

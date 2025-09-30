@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wirtschaftlichkeitsberechnung einer Photovoltaikanlage
 slug: wirtschaftlichkeitsberechnung-pv-anlage
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Strom in Deutschland: Auf dem richtigen Weg in eine nachhaltige Zukunft
 slug: strom-in-deutschland
 author: Martin Thoma

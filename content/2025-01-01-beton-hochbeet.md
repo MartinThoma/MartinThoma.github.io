@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Beton Hochbeet
 slug: beton-hochbeet
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: house, money, plants, diy
 status: draft
 featured_image: logos/house.png
 ---
-
 Wir wollen einen weißen Sichtbeton bekommen.
 
 ## Materialien

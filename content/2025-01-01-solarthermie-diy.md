@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: DIY Solarthermie Anlage
 slug: diy-solarthermie
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: diy,energy
 featured_image: logos/star.png
 status: draft
 ---
-
 * https://www.heizung.de/solarthermie/wissen/solarfluessigkeit-das-traegermedium-der-sonnenwaerme.html
     * Glykol kann als Frostschutzmittel verwendet werden, besser ist aber ein Auffangbehälter und reines Wasser
 

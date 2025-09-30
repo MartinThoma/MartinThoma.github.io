@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Rezept: Schoko-Power-Müsli mit Banane
 slug: schoko-power-muesli-mit-banane
 author: Martin Thoma

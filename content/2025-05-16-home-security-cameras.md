@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Home Security Cameras 2025
 slug: home-security-cameras-2025
 author: Martin Thoma

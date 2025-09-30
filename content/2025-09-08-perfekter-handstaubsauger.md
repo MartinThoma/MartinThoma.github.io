@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Perfect Design: Handstaubsauger
 slug: perfekter-handstaubsauger
 author: Martin Thoma

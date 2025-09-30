@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: DIY Gewächshaus
 slug: diy-gewaechshaus
 author: Martin Thoma
@@ -9,8 +10,6 @@ tags: house, money, diy
 status: draft
 featured_image: logos/house.png
 ---
-
-
 ## Material
 
 * Gewächshausfolie

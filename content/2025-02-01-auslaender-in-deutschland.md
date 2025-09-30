@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Ausländer in Deutschland
 slug: auslaender-in-deutschland
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: germany,German posts,politics
 featured_image: logos/germany.png
 ---
-
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/02/auslaender-in-deutschland.png"><img src="../images/2025/02/auslaender-in-deutschland.png" alt="Verteilung der Ausländer in Deutschland" style="max-height: 512px"/></a>
     <figcaption class="text-center"><a href="https://www.deutschlandatlas.bund.de/DE/Karten/Wer-wir-sind/Auslaendische-Bevoelkerung.html">Menschen ohne Deutsche Staatsangehörigkeit in Deutschland</a>: 12.3 Millionen Menschen oder 14.6% der Menschen in Deutschland</figcaption>

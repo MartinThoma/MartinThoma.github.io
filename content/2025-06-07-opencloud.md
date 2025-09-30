@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Self-Hosted Cloud Solutions
 slug: self-hosted-cloud-solutions
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: digital sovereignty, self-hosted, cloud, ownCloud, NextCloud, OpenCloud
 featured_image: logos/earth.png
 status: draft
 ---
-
 ## Features
 
 * File Administration: Google Drive / Dropbox
