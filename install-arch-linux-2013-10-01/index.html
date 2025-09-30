@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Linux, ArchLinux, Cyberculture, " />
+
+<meta property="og:title" content="How to install Arch Linux 2013.10.01 "/>
+<meta property="og:url" content="install-arch-linux-2013-10-01/" />
+<meta property="og:description" content="I&#39;ve watched the following video which explains pretty much everything there is to know: You might also want to read the Arch Linux Installation Guide. The German guide is also very good. I just like to add some notes. They are primarily for myself, so you really should read the …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-10-07T03:19:05+02:00" />
+<meta name="twitter:title" content="How to install Arch Linux 2013.10.01 ">
+<meta name="twitter:description" content="I&#39;ve watched the following video which explains pretty much everything there is to know: You might also want to read the Arch Linux Installation Guide. The German guide is also very good. I just like to add some notes. They are primarily for myself, so you really should read the …">
+<meta property="og:image" content="2013/10/ArchLinux-logo.png" />
+<meta name="twitter:image" content="2013/10/ArchLinux-logo.png" >
+
+        <title>How to install Arch Linux 2013.10.01  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<!-- article.html -->
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../install-arch-linux-2013-10-01/">How to install Arch Linux 2013.10.01</a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#keyboard-layout" title="Keyboard layout">Keyboard layout</a></li><li><a class="toc-href" href="#partitioning-and-mounting" title="Partitioning and mounting">Partitioning and mounting</a></li><li><a class="toc-href" href="#getting-internet" title="Getting internet">Getting internet</a></li><li><a class="toc-href" href="#install-base-system" title="Install base system">Install base system</a></li><li><a class="toc-href" href="#install-gnome" title="Install GNOME">Install GNOME</a></li><li><a class="toc-href" href="#mate" title="MATE">MATE</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>I've watched the following video which explains pretty much everything there is to know:</p>
+<iframe allowfullscreen="" frameborder="0" height="288" src="//www.youtube.com/embed/BMgGUBDxCjo" width="512"></iframe>
+<p>You might also want to read the <a href="https://wiki.archlinux.org/index.php/Installation_Guide">Arch Linux Installation Guide</a>. The <a href="https://wiki.archlinux.de/title/Anleitung_f&uuml;r_Einsteiger">German guide</a> is also very good.</p>
+<p>I just like to add some notes. They are primarily for myself, so you really should read the installation guide or watch the video.</p>
+<p>The Arch Linux installation setup is command line based.</p>
+<h2 id="keyboard-layout">Keyboard layout</h2>
+<p>You can switch to a German keyboard layout with this command:</p>
+<div class="highlight"><pre><span></span><code>loadkeys<span class="w"> </span>de
+</code></pre></div>
+<h2 id="partitioning-and-mounting">Partitioning and mounting</h2>
+<p>You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).</p>
+<p>Check the result with</p>
+<div class="highlight"><pre><span></span><code>parted<span class="w"> </span>/dev/sda<span class="w"> </span>print
+fdisk<span class="w"> </span>-l
+</code></pre></div>
+<p>Afterwards:</p>
+<div class="highlight"><pre><span></span><code>mkfs.ext4<span class="w"> </span>/dev/sda1
+mkfs.ext4<span class="w"> </span>/dev/sda3
+mkswap<span class="w"> </span>/dev/sda2
+swapon<span class="w"> </span>/dev/sda2
+mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt
+mkdir<span class="w"> </span>/mnt/home
+mount<span class="w"> </span>/dev/sda3<span class="w"> </span>/mnt/home/
+</code></pre></div>
+<h2 id="getting-internet">Getting internet</h2>
+<p>I only have WLAN at the moment, which makes things more difficult:</p>
+<div class="highlight"><pre><span></span><code>wpa_passphrase<span class="w"> </span><span class="s2">"SSID"</span><span class="w"> </span>PASSWORD<span class="w"> </span>&gt;<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant<span class="w"> </span>-i<span class="w"> </span>wlp4so<span class="w"> </span>-D<span class="w"> </span>wext<span class="w"> </span>-c<span class="w"> </span>/etc/wpa_supplicant/wpa_supplicant.conf<span class="w"> </span>-B
+dhcpcd<span class="w"> </span>wlp4s0
+</code></pre></div>
+<p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
+<p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
+<h2 id="install-base-system">Install base system</h2>
+<div class="highlight"><pre><span></span><code>packstrap<span class="w"> </span>-i<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base<span class="w"> </span>base-devel
+</code></pre></div>
+<p>After accepting all defaults (by pressing enter) and letting it download:</p>
+<div class="highlight"><pre><span></span><code>genfstab<span class="w"> </span>-U<span class="w"> </span>-p<span class="w"> </span>/mnt<span class="w">  </span>:<span class="w">  </span>sed<span class="w"> </span><span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/mnt/etc/fstab
+arch-chroot<span class="w"> </span>/mnt
+nano<span class="w"> </span>/etc/locale.gen
+</code></pre></div>
+<p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
+<div class="highlight"><pre><span></span><code><span class="nv">locale</span><span class="o">=</span>gen
+<span class="nb">echo</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span>&gt;<span class="w"> </span>/etc/locale.conf
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/zoneinfo/Europe/Berlin<span class="w"> </span>/etc/localtime
+hwclock<span class="w"> </span>--systohc<span class="w"> </span>--utc
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>dhcpcd.service
+</code></pre></div>
+<p>Now edit and uncomment multilib. Then:</p>
+<div class="highlight"><pre><span></span><code>mkinitcpio<span class="w"> </span>-p<span class="w"> </span>linux
+</code></pre></div>
+<p>Now set the password by entering <code>passwd</code>.
+Create your user:</p>
+<div class="highlight"><pre><span></span><code>useradd<span class="w"> </span>-m<span class="w"> </span>-g<span class="w"> </span>users<span class="w"> </span>-G<span class="w"> </span>wheel<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>moose
+passwd<span class="w"> </span>moose
+</code></pre></div>
+<p>Synchronise caches:</p>
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-Syy
+</code></pre></div>
+<p>Install grub:</p>
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>grub-bios
+pacman<span class="w"> </span>-S<span class="w"> </span>os-prober
+grub-install<span class="w"> </span>/dev/sda
+grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+<span class="nb">exit</span>
+restart
+</code></pre></div>
+<p>Give yourself sudo:</p>
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>sudo
+nano<span class="w"> </span>/etc/sudoers
+</code></pre></div>
+<p>Add your user to the bottom section "User privilege specification"</p>
+<h2 id="install-gnome">Install GNOME</h2>
+<div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-S<span class="w"> </span>gnome<span class="w"> </span>xorg
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>gdm.service
+</code></pre></div>
+<h2 id="mate">MATE</h2>
+<p>Add the following to your /etc/pacman.conf:</p>
+<div class="highlight"><pre><span></span><code>[mate]
+SigLevel = Optional TrustAll
+Server = http://repo.mate-desktop.org/archlinux/$arch
+</code></pre></div>
+<p>Run</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pacman -Syy</span>
+<span class="c1"># pacman -S mate mate-extras</span>
+</code></pre></div>
+<p>Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.</p>
+            
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-10-07T03:19:05+02:00">Okt 7, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#archlinux-ref">ArchLinux
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#linux-ref">Linux
+                    <span>17</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by
+            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
+            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
+            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : https://elegant.oncrashreboot.com -->
+</html>
