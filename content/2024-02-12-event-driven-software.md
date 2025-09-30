@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: Designing Event-Driven Systems in Local Python Applications
 slug: event-driven-software
-url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4
+lang: en
 author: Martin Thoma
-date: 2024-01-24 20:00
+date: 2024-02-12 20:00
 category: Code
 tags: software architecture
 featured_image: logos/star.png
+url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4
 ---
 ![An event-driven system decouples producers of events and the effects that those events should have on the remaining softwaresystem.](../images/2024/02/event-driven-software.png)*An event-driven system decouples producers of events and the effects that those events should have on the remaining softwaresystem.*
 

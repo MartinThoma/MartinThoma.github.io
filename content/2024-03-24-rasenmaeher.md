@@ -1,10 +1,10 @@
 ---
 layout: post
-lang: de
 title: Rasenmäher
 slug: rasenmaeher
+lang: de
 author: Martin Thoma
-date: 2024-03-09 20:00
+date: 2024-03-24 20:00
 category: German posts
 tags: house
 featured_image: logos/house.png
@@ -18,11 +18,11 @@ Notizen bei der Suche.
 Ich will keinen **Benzin-Rasenmäher** weil der Garten nicht so groß ist und ich
 keine Lust habe Benzin zu kaufen und zu lagern.
 
-Ich will auch keinen **Mähroboter**, weil ich zweifel bei der Qualität habe und
+Ich will auch keinen **Mähroboter**, weil ich Zweifel bei der Qualität habe und
 die Preise sehr hoch sind.
 
 Ich will keinen **Spindel-Rasenmäher** (auch Trommel-Mäher genannt), weil ich
-nicht so häufig rasen mähe. Ich habe gehört, dass die Spindel-Mäher deutlich
+nicht so häufig Rasen mähe. Ich habe gehört, dass die Spindel-Mäher deutlich
 wartungsaufwändiger sind. Vielleicht kaufe ich mir das mal als
 **Hand-Rasenmäher**.
 

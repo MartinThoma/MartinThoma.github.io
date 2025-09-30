@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Steckersolargeräte (Balkonkraftwerke)
 slug: steckersolar
+lang: de
 author: Martin Thoma
 date: 2024-12-28 20:00
 category: German posts
@@ -41,7 +41,7 @@ Seit 2024 muss man das nur noch im Marktstammdatenregister anmelden.
 
 ## Ertrag
 
-Ich habe die Anlage seit Juni 2025 in Betrieb. Das frühjahr war ab März dieses
+Ich habe die Anlage seit Juni 2024 in Betrieb. Das Frühjahr war ab März dieses
 Jahr allerdings super hell und sonnig, daher gehe ich hier mal recht
 optimistisch an die geschätzten Werte für März-Mai ran:
 

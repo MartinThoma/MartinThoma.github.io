@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Interior Design Styles
 slug: interior-design-styles
+lang: en
 author: Martin Thoma
 date: 2024-01-20 20:00
-category: German posts
-tags: money, house
+category: My bits and bytes
+tags: house, money
 featured_image: logos/house.png
 ---
 Interior design styles help to describe how things look like in your home. If
@@ -62,7 +62,7 @@ design and the organic shapes found in Japanese design.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/japandi-bathroom.jpg"><img src="../images/2024/01/japandi-bathroom.jpg" alt="Japandi-style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/japandi-bathroom.jpg"><img src="../images/2024/01/japandi-bathroom.jpg" alt="Japandi-style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Japandi-style bathroom</figcaption>
 </figure>
 
@@ -128,7 +128,7 @@ Neutral color palettes with occasional pops of color.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/transitional-bathroom.jpg"><img src="../images/2024/01/transitional-bathroom.jpg" alt="Transitional style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/transitional-bathroom.jpg"><img src="../images/2024/01/transitional-bathroom.jpg" alt="Transitional style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Transitional style bathroom</figcaption>
 </figure>
 

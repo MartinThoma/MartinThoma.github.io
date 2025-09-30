@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Hauswert Bestimmen
 slug: hauswert-bestimmen
+lang: de
 author: Martin Thoma
 date: 2024-11-08 20:00
-category: My bits and bytes
-tags: house,finances
+category: German posts
+tags: finances, house
 featured_image: logos/house.png
 ---
 Es gibt ein paar Eckdaten, die den Wert eines Einfamilienhauses samt Grundstück
@@ -15,7 +15,7 @@ bestimmen. Hier im Artikel gehe ich auf die wichtigsten ein.
 # Fundamentale Daten
 
 * **Grundstücksfläche**: Die steht im Grundbuch.
-* **Wohnfläche**: Da gibts leider verschiedene Standard
+* **Wohnfläche**: Da gibt es leider verschiedene Standards
   ([WoFlV](https://de.wikipedia.org/wiki/Wohnfl%C3%A4chenverordnung) und [DIN
   277](https://de.wikipedia.org/wiki/DIN_277)).
 * **Baujahr**: Das Alter des Gebäudes lässt einfache Rückschlüsse auf den Zustand zu.
@@ -42,12 +42,12 @@ Dabei gibt es drei relevante Faktoren:
 * **Dichtheit** (Lüftungsverluste): Wenn der Wind durch das Haus pfeift, wird es teuer.
 * **Dämmung** (Transmissionsverluste): Wenn man heißes Essen in eine Plastiktüte
   packt, wird es dennoch schnell kalt. Genauso ist es mit einem Haus. Eine hohe
-  Dichtheit ist nicht alles, weil die Wärme auch durch abgestrahlt wird.
+  Dichtheit ist nicht alles, weil die Wärme auch abgestrahlt wird.
 * **Heizsystem**: Lüftungs- und Transmissionswärmeverluste müssen ausgeglichen
   werden. Sie definieren die Heizlast. Die benötigten kWh an Wärme kann man
   durch unterschiedliche Heizsysteme bereitstellen. Die kosten pro kWh Wärme
   sind dabei massiv unterschiedlich. Aktuell in meiner Region bei angenommenen
-  20.000 kWh pro Jahr:
+  20000 kWh pro Jahr:
     * Wärmepumpe mit <abbr title="bis zu 6 ist möglich">SCOP=3.5</abbr> (0.2407 €/kWh): 1375€/Jahr
     * Gas (0.08 €/kWh + 84€/Jahr): 1684€/Jahr
     * Super Heizöl (0.9804 €/L): 2000€/Jahr

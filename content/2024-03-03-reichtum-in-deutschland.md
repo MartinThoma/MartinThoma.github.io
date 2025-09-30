@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Reichtum in Deutschland
 slug: reichtum-in-deutschland
+lang: de
 author: Martin Thoma
 date: 2024-03-03 20:00
 category: German posts
@@ -33,7 +33,7 @@ Beispiel:
 * Kind 2 verdient 0€ / Monat brutto und erhält 100€ Kindergeld
 
 Dann wäre das Haushaltseinkommen 8110€ / Monat brutto und das Haushaltseinkommen
-pro Person 2027,50€ / Monat brutto.
+pro Person 2027.50€ / Monat brutto.
 
 ### Verfügbares Einkommen
 

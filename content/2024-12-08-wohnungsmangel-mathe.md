@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: Die Mathematik hinter dem Wohnungsmangel
 slug: wohnungsmangel-mathe
+lang: de
 author: Martin Thoma
 date: 2024-12-08 20:00
 category: My bits and bytes
 tags: mathematics, politics
 featured_image: logos/mathematics.png
 ---
-Der Wohnngsmangel ist eines der heißesten Themen in der deutschen Politik.
+Der Wohnungsmangel ist eines der heißesten Themen in der deutschen Politik.
 Ich habe schon mal über [den Wohnungsmangel in Deutschland](https://martin-thoma.com/wohnungsmangel/) geschrieben.
 
 Wir machen keinen Fortschritt, weil wir uns zu sehr auf den privaten Wohnungsbau
@@ -31,7 +31,7 @@ höhere Kosten haben.
 
 ### Leerstand
 
-Wir haben über 43,4 Millionen Wohnungen mit Durchschnittlich 92.2m² in Deutschland ([destatis.de](https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/07/PD23_297_31231.html), 2022). Davon standen 1,9 Millionen Wohnungen leer ([deutschlandatlas.bund.de](https://www.deutschlandatlas.bund.de/DE/Karten/Wie-wir-wohnen/046-Wohnungsleerstand.html)).
+Wir haben über 43.4 Millionen Wohnungen mit durchschnittlich 92.2m² in Deutschland ([destatis.de](https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/07/PD23_297_31231.html), 2022). Davon standen 1.9 Millionen Wohnungen leer ([deutschlandatlas.bund.de](https://www.deutschlandatlas.bund.de/DE/Karten/Wie-wir-wohnen/046-Wohnungsleerstand.html)).
 
 Leider sind diese nicht gleichmäßig verteilt:
 
@@ -39,10 +39,10 @@ Leider sind diese nicht gleichmäßig verteilt:
 
 Schaut man sich z.B. nur Nordrhein-Westfalen (NRW) an:
 
-* 18.190.422 [Einwohner in NRW](https://de.wikipedia.org/wiki/Nordrhein-Westfalen)
-* [9,1 Millionen Wohnungen](https://www.mieterbund-nrw.de/startseite/news-details/leerstand-wohnungen)
-    * Davon 310.000 am Stichtag Leerstehend
-    * Davon ca. 48% mehr als in Jahr ungenutzt
+* 18190422 [Einwohner in NRW](https://de.wikipedia.org/wiki/Nordrhein-Westfalen)
+* [9.1 Millionen Wohnungen](https://www.mieterbund-nrw.de/startseite/news-details/leerstand-wohnungen)
+    * Davon 310000 am Stichtag leerstehend
+    * Davon ca. 48% mehr als ein Jahr ungenutzt
         * 24% der Wohnungen wegen Baumaßnahmen oder Sanierungen ungenutzt
         * 4%: Gebäude-Abriss geplant
 
@@ -64,12 +64,12 @@ In gewisser weiße ist hier also kein Risiko, weil das Geld nur in ein Haus
 "umgewandelt" wird, das soviel wert sein sollte wie man dafür bezahlt hat.
 Was jedoch einfach verschwindet sind die Hauskaufnebenkosten:
 
-* Grunderwerbsteuer: 3,5% in Bayern, bis zu 6,5% in anderen Bundesländern
-* Notar: 1,5%
-* Grundbuch: 0,5%
-* Makler: 3,57%
+* Grunderwerbsteuer: 3.5% in Bayern, bis zu 6.5% in anderen Bundesländern
+* Notar: 1.5%
+* Grundbuch: 0.5%
+* Makler: 3.57%
 
-Insgesamt also mindestens 9,07% des Kaufpreises. Damit wir uns richtig
+Insgesamt also mindestens 9.07% des Kaufpreises. Damit wir uns richtig
 verstehen: Das kommt oben drauf. Das ist nicht inbegriffen. Und die Bank
 erwartet, dass man das aus Eigenkapital zahlt. Dafür bekommt man keinen Kredit.
 Weil noch ein paar "kleinere" Sachen anfallen rechnen wir mal mit 10%.
@@ -424,32 +424,32 @@ machen.
     <tr>
         <td>2.500€/m²</td>
         <td>2.5%</td>
-        <td>14,25€/m²</td>
+        <td>14.25€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>3.0%</td>
-        <td>18,27€/m²</td>
+        <td>18.27€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>3.5%</td>
-        <td>23,27€/m²</td>
+        <td>23.27€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>4.0%</td>
-        <td>29,61€/m²</td>
+        <td>29.61€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>4.5%</td>
-        <td>37,64€/m²</td>
+        <td>37.64€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>5.0%</td>
-        <td>47,78€/m²</td>
+        <td>47.78€/m²</td>
 </table>
 
 ## Schlussfolgerungen

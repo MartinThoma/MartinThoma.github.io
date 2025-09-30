@@ -1,20 +1,20 @@
 ---
 layout: post
-lang: de
 title: 365 Hauptgerichte
 slug: 365-main-dishes-gpt
+lang: de
 author: Martin Thoma
-date: 2023-12-27 20:00
+date: 2024-12-27 20:00
 category: German posts
 tags: food
 featured_image: logos/food.png
 ---
-Falls jemand etwas inspiration Sucht: Hier sind 365 Hauptgerichte. Das wurde mit
-ChatGPT im April 2023 generiert; ich habs strutkuriert und kategorisiert.
+Falls jemand etwas Inspiration sucht: Hier sind 365 Hauptgerichte. Das wurde mit
+ChatGPT im April 2023 generiert; ich habe es strukturiert und kategorisiert.
 Irgendwann will ich die alle mal machen 😄
 
 Ich versuche mit der Zeit eine bessere Sortierung zu finden und Duplikate durch
-neues zu Ersetzen. Auch Variationen würde ich lieber als solche Kennzeichnen
+neues zu ersetzen. Auch Variationen würde ich lieber als solche kennzeichnen
 und stattdessen neue Gerichte hinzufügen. Für Vorschläge bin ich offen.
 
 "Vegan" und "vegetarisch" hab ich als Präfix entfernt. Auch "vollkorn" und

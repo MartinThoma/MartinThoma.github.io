@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: de
 title: Zeitdilatation
 slug: zeitdilatation
+lang: de
 author: Martin Thoma
 date: 2024-12-22 20:00
-category: My bits and bytes
+category: German posts
 tags: mathematics, space
 featured_image: logos/space.png
 ---
@@ -76,7 +76,7 @@ $$
 \begin{align}
 a &= \frac{\Delta v}{\Delta t}\\
   &= \frac{0.3c}{15\text{15 Jahre}}\\
-  &= \frac{0.3 \cdot 300 000 000 m/s}{15 \cdot 365.25 \cdot 24 \cdot 3600 s}\\
+  &= \frac{0.3 \cdot 300000000 m/s}{15 \cdot 365.25 \cdot 24 \cdot 3600 s}\\
   &= 0.19 \frac{m}{s^2}
 \end{align}
 $$

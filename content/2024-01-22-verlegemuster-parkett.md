@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Parkett-Verlegemuster
 slug: parkett-verlegemuster
+lang: de
 author: Martin Thoma
 date: 2024-01-22 20:00
 category: German posts
-tags: money, house
+tags: house, money
 featured_image: logos/house.png
 status: draft
 ---
@@ -28,7 +28,7 @@ status: draft
 * 90° angle
 * 45° cuts
 
-Leads to a waivy pattern
+Leads to a wavy pattern
 
 ## Wood Strip
 

@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: de
 title: Politik gegen Wohnungsmangel
 slug: wohnungsmangel
+lang: de
 author: Martin Thoma
 date: 2024-08-18 20:00
-category: My bits and bytes
-tags: politics, Germany
+category: German posts
+tags: Germany, politics
 featured_image: logos/mathematics.png
 ---
 Deutschland hat zu wenig Wohnungen. 439.500 Personen waren 2024 wohnungslos,
 aber das ist tatsächlich nicht die Zahl auf die man sich fokusieren sollte.
-Interessanter wäre es zu sehen wie viele Menschen einen Job nicht angenmmen
+Interessanter wäre es zu sehen wie viele Menschen einen Job nicht angenommen
 haben, weil sie keine Wohnung gefunden haben. Oder wie viele Menschen mehr als
 33% ihres Netto-Einkommens für die Miete ausgeben. Oder in wie vielen Städten
 der Leerstand unter 3% liegt.
@@ -50,7 +50,7 @@ Neue Wohnungen pro Jahr:
 * 2021: 293.400
 * 2022: 295.300
 * 2023: 294.400, davon 257.200 Neubauwohnungen in Wohngebäuden. Auf
-        Einfamilienhäuser entfielen davon 69 900 Wohnungen
+        Einfamilienhäuser entfielen davon 69900 Wohnungen
 
 
 ## Aktuelle Politik
@@ -160,7 +160,7 @@ direkt bei einer der finanziell schwächsten Gruppen ansetzen.
 fünftgrößte Stadt Deutschlands
 
 * Einwohner: 775.790 (31. Dez. 2023)
-* Fläche: 248,31 km²
+* Fläche: 248.31 km²
 * Gebäude mit Wohnungen: 81.129
 * Wohnungen: 410.235
 * Studierende: 64.953

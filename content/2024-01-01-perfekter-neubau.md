@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Der perfekte Neubau
 slug: perfekter-neubau
+lang: de
 author: Martin Thoma
 date: 2024-01-01 20:00
 category: German posts
@@ -14,7 +14,7 @@ diesem Artikel sammle ich mal ein paar Ideen, wie für mich das perfekte Haus
 aussehen würde. Und ich habe mal mit Bing Image Creator gespielt um zu schauen
 wie gut ich meine Vorstellungen visualisieren kann.
 
-Kernideen bei meinem Traum-Neubau sind **autarkie** und **wenig Arbeit**.
+Kernideen bei meinem Traum-Neubau sind **Autarkie** und **wenig Arbeit**.
 Das Haus soll möglichst ohne Wartung und mit geringem Reinigungsaufwand bewohnt
 werden können. Und es soll auch alles nicht riesig sein; also sagen wir mal so
 um die 120m² - 160m² Wohnfläche.
@@ -34,7 +34,7 @@ heißt:
 ## Wandaufbau
 
 Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
-0,15&nbsp;W/m²K) erreichen, luftdicht sein und Wärmebrücken vermeiden.
+0.15 W/m²K) erreichen, luftdicht sein und Wärmebrücken vermeiden.
 
 
 ## Technik
@@ -202,7 +202,7 @@ Die Spachtel-Methoden benötigen eine Versiegelung.
 ### Klassisch
 
 Zusammenaddiert durch alle Schichten der Fußbodenheizung sollte der
-Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
+Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
 überschreiten.
 
 
@@ -233,7 +233,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
     </tr>
     <tr>
         <th>Preis</th>
-        <td>25&euro;/m&sup2; (21,49&nbsp;&euro;&nbsp;/ m&sup2; -&nbsp;70 &euro;&nbsp;/ m&sup2;)</td>
+        <td>25&euro;/m&sup2; (21.49&nbsp;&euro;&nbsp;/ m&sup2; -&nbsp;70 &euro;&nbsp;/ m&sup2;)</td>
         <td>30 &euro;/m&sup2; - 60&euro;/m&sup2;</td>
         <td>40&euro;/m&sup2; (16.50&euro;/m&sup2; - 47&euro;/m&sup2;)</td>
         <td>16&euro;/m&sup2; (10&euro;/m&sup2; - 25&euro;/m&sup2;)</td>
@@ -260,12 +260,12 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m2K/W nicht
     </tr>
     <tr>
         <th>Fu&szlig;bodenheizung geeignet</th>
-        <td class="good">Ja (Wärmedurchlasswiederstand 0,012)</td>
-        <td>M&ouml;glich (Wärmedurchlasswiederstand 0,04 - 0,15)</td>
-        <td class="bad">Sehr eingeschr&auml;nkt (Wärmedurchlasswiederstand 0,13)</td>
-        <td>M&ouml;glich (Wärmedurchlasswiederstand 0,010)</td>
-        <td>M&ouml;glich (Wärmedurchlasswiederstand 0,015)</td>
-        <td>Ja (Wärmedurchlasswiederstand 0,010 – 0,04)</td>
+        <td class="good">Ja (Wärmedurchlasswiederstand 0.012)</td>
+        <td>M&ouml;glich (Wärmedurchlasswiederstand 0.04 - 0.15)</td>
+        <td class="bad">Sehr eingeschr&auml;nkt (Wärmedurchlasswiederstand 0.13)</td>
+        <td>M&ouml;glich (Wärmedurchlasswiederstand 0.010)</td>
+        <td>M&ouml;glich (Wärmedurchlasswiederstand 0.015)</td>
+        <td>Ja (Wärmedurchlasswiederstand 0.010 – 0.04)</td>
     </tr>
     <tr>
         <th>Optik</th>

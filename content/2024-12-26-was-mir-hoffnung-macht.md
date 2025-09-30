@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Was mir Hoffnung macht
 slug: was-mir-hoffnung-macht
+lang: de
 author: Martin Thoma
 date: 2024-12-26 20:00
 category: My bits and bytes
@@ -19,26 +19,26 @@ Wir sind nun endlich soweit, dass Endverbraucher einfach durch ihr Kaufverhalten
 den Klimawandel stoppen können. Die Klima-Optimale Variante ist oder wird
 absehbar auch die günstigste Variante:
 
-* **Wärmewende**: 65.5% der Neubau-Wohnungen nutzen 2024 Wärmepumpen<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small> , 23% nutzen
-  Fernwärme, 2% Strom-Direktheizungen (vermutlich Infrarot weil sie sehr gut
+* **Wärmewende**: 65.5% der Neubau-Wohnungen nutzen 2024 Wärmepumpen<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>, 23% nutzen
+  Fernwärme, 2% Strom-Direktheizungen (vermutlich Infrarot, weil sie sehr gut
   gedämmt sind). Nur 0.1% nutzen Heizöl und 5.4% Gas.
-* **Verkehrswende**: Norwegen lässt ab 2025 keine Verbrenner mehr zu<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small> . Das
+* **Verkehrswende**: Norwegen lässt ab 2025 keine Verbrenner mehr zu<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small>. Das
   zeigt deutlich, dass das kalte Wetter und weite Strecken ohne Infrastruktur
-  kein Hindernis mehr sind. Selbst am Polarkreis fahren Elektrobusse<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small> . Auch
+  kein Hindernis mehr sind. Selbst am Polarkreis fahren Elektrobusse<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>. Auch
   Island, Schweden, Dänemark und Finnland schreiten deutlich voran. Der
-  Technische Fortschritt und Skaleneffekte werden die Wahl immer klarer machen:
+  technische Fortschritt und Skaleneffekte werden die Wahl immer klarer machen:
   Die Reichweiten steigen, die Ladezeiten sinken, die Anschaffungskosten sinken.
   Und die Reparaturkosten sowie die Betriebskosten waren schon immer geringer
   als bei Verbrennern. Und auch der Ausbau an Ladepunkten kommt voran. In
-  [London kann man an Straßenlaternen landen](https://edison.media/laden-an-laternen-in-london/25202454/), [bei IKEA konnte man kostenlos laden](https://www.golem.de/news/mehr-ladepunkte-ikea-beendet-kostenloses-e-auto-laden-2403-183086.html), und
+  [London kann man an Straßenlaternen laden](https://edison.media/laden-an-laternen-in-london/25202454/), [bei IKEA konnte man kostenlos laden](https://www.golem.de/news/mehr-ladepunkte-ikea-beendet-kostenloses-e-auto-laden-2403-183086.html), und
   die Ladepunkte bei [Aldi](https://www.e-ladestation.aldi-sued.de/)/[Lidl](https://www.lidl.de/c/e-ladesaeulen/s10007751) sind inzwischen wirklich überall.
 * **Energiewende**: Der Ausbau an Photovoltaik-Anlagen geht immer schneller
-  voran. Schneller als jeder erwartet hat.<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small> Und der Ausbau wird immer
+  voran. Schneller als jeder erwartet hat<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>. Und der Ausbau wird immer
   günstiger und einfacher. In Deutschland merken wir das bei Steckerkraftwerken
   (Balkon-Solaranlagen). Ähnlich wie bei der Photovoltaik geht es auch bei den
-  Batterien voran. Immer mehr Menschen haben Heimspeicher. Die Batterie-Syteme
-  werden immer günstiger.<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>  Die Anschlussbegehren für Großspeicherprojekte
-  summieren sich aktuell auf 161 GW.<small><sup><a href="#ref8" name="anchor8">[8]</a></sup></small>
+  Batterien voran. Immer mehr Menschen haben Heimspeicher. Die Batterie-Systeme
+  werden immer günstiger<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>. Die Anschlussbegehren für Großspeicherprojekte
+  summieren sich aktuell auf 161 GW<small><sup><a href="#ref8" name="anchor8">[8]</a></sup></small>.
 
 Das ist ein riesiger Fortschritt. Wenn die Politik nun zumindest nicht aktiv
 gegensteuert und alles so lässt wie es ist, werden sich E-Autos bis 2030 auch in
@@ -115,7 +115,7 @@ wie gut ich versorgt werde.
 * 4<a name="ref4" href="#anchor4">&uarr;</a> bdew: [Entwicklung der Beheizungsstruktur im Neubau - Baugenehmigungen](https://www.bdew.de/service/daten-und-grafiken/entwicklung-beheizungsstruktur-baugenehmigungen/), 09.12.2024.
 * 5<a name="ref5" href="#anchor5">&uarr;</a> Katja Evers: [Verbrenneraus 2025: Wie Norwegen es fast geschafft hat](https://www.mdr.de/wissen/umwelt-klima/verbrenneraus-warum-Norwegen-es-fast-geschafft-hat100.html) auf mdr.de, 29.12.2024.
 * 6<a name="ref6" href="#anchor6">&uarr;</a> Sebastian Schaal: [E-Bus-Einsatz im Polarkreis geht in den zweiten Winter](https://www.electrive.net/2024/11/20/e-bus-einsatz-im-polarkreis-geht-in-den-zweiten-winter/)], 20.11.2024.
-* 7<a name="ref7" href="#anchor7">&uarr;</a> destatis.de: [14,6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html), 10.09.2024.
+* 7<a name="ref7" href="#anchor7">&uarr;</a> destatis.de: [14.6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html), 10.09.2024.
 * 8<a name="ref8" href="#anchor8">&uarr;</a> Christian Stöcker: [Ein Batterie-Tsunami rollt heran](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) in Spiegel Wissenschaft, 17.11.2024.
 * 9<a name="ref9" href="#anchor9">&uarr;</a> Plusminus: [Warum es Dienstleistungen noch immer nicht online gibt](https://www.youtube.com/watch?v=Sna99E9jKsw) im MDR.
 * 10<a name="ref10" href="#anchor10">&uarr;</a> Christina Hertel: [MVG stellt Weichen für autonom fahrende U-Bahnen in München](https://www.abendzeitung-muenchen.de/muenchen/mvg-stellt-weichen-fuer-autonom-fahrende-u-bahnen-in-muenchen-art-946721), 15.12.2023.

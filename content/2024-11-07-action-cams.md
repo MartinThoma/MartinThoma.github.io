@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Action Cams
 slug: action-cams
+lang: en
 author: Martin Thoma
 date: 2024-11-07 20:00
 category: My bits and bytes
@@ -38,10 +38,10 @@ Categories to compare them are:
     * 1080P @ 60fps
     * Elektronische Bildstabilisierung (EIS)
 * Image:
-    * 20MP (Magapixel)
+    * 20MP (Megapixel)
     * CMOS
-    * Max Brennweite: 3.06
-    * Max Blende: 2.8f
+    * Max focal length: 3.06
+    * Max aperture: f/2.8
 * Battery: ?
 * Storage: Micro SD
 * Robustheit: waterproof up to 40m
@@ -56,7 +56,7 @@ Categories to compare them are:
     * mechanische 3-Achsen-Stabilisierung
 * Image:
     * 1" CMOS Sensor
-    * Aperture: f/2,0
+    * Aperture: f/2.0
 * Battery: 1300mAh (30W USB-C charger), up to 166 minutes
 * Storage: Micro SD (up to 512GB)
 * Display: 2" with a resolution of 314 × 556, Touchscreen, 700 cd/m²

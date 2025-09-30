@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Food Processors
 slug: food-processors
+lang: de
 author: Martin Thoma
 date: 2024-08-12 20:00
 category: My bits and bytes
@@ -14,7 +14,7 @@ die Recherche gegangen. Hier sind die Ergebnisse.
 
 ## Ninja 3-in-1
 
-* Preis 153€ ([Amazon](https://www.amazon.de/Ninja-1-K%C3%BCchenmaschine-BN800EU-8-l-Beh%C3%A4lter-1-l-Kanne/dp/B08HSF4FY6/), 4.6 Sterne bei 1968)
+* Preis: 153€ ([Amazon](https://www.amazon.de/Ninja-1-K%C3%BCchenmaschine-BN800EU-8-l-Beh%C3%A4lter-1-l-Kanne/dp/B08HSF4FY6/), 4.6 Sterne bei 1968 Bewertungen)
 * Leistung: 1200 Watt
 * Behälter:
     * 1.8L Schüssel

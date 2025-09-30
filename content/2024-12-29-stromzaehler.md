@@ -2,10 +2,11 @@
 layout: post
 title: Stromzähler
 slug: stromzaehler
+lang: de
 author: Martin Thoma
 date: 2024-12-29 20:00
-category: My bits and bytes
-tags: house,finances
+category: German posts
+tags: finances, house
 featured_image: logos/house.png
 ---
 Weil ich es immer wieder nachschlagen muss, hier ein paar Informationen zu Stromzählern.
