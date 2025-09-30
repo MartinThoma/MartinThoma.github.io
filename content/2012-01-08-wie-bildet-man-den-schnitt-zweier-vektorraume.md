@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie bildet man den Schnitt zweier Vektorräume?
 author: Martin Thoma
 date: 2012-01-08 20:27:37.000000000 +01:00

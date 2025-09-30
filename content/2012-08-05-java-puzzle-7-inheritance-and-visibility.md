@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Java Puzzle #7: Inheritance and Visibility
 author: Martin Thoma
 date: 2012-08-05 17:00:38.000000000 +02:00

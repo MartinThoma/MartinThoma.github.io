@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Nobel Prize in Physics 2009
 author: Martin Thoma
 date: 2012-09-01 11:09:36.000000000 +02:00

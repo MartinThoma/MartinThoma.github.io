@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Bachelor Informatik, 1. Semester: Was bisher geschah
 author: Martin Thoma
 date: 2012-01-08 20:38:41.000000000 +01:00

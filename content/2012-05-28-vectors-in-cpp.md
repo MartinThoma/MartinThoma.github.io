@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Vectors in C++
 slug: vectors-in-cpp
 author: Martin Thoma

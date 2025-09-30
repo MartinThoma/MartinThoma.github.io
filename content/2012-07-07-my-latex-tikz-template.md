@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: My LaTeX Tikz Template
 author: Martin Thoma
 date: 2012-07-07 17:38:13.000000000 +02:00

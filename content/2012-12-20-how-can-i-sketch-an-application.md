@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How can I sketch an application?
 author: Martin Thoma
 date: 2012-12-20 01:54:57.000000000 +01:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Java Generics
 author: Martin Thoma
 date: 2012-10-10 12:18:42.000000000 +02:00

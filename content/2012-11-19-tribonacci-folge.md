@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Tribonacci-Folge
 author: Martin Thoma
 date: 2012-11-19 20:52:00.000000000 +01:00

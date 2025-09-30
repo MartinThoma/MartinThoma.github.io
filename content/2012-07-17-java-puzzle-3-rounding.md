@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Java Puzzle #3: Rounding
 author: Martin Thoma
 date: 2012-07-17 17:00:53.000000000 +02:00

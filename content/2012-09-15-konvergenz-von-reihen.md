@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Konvergenz von Reihen
 author: Martin Thoma
 date: 2012-09-15 09:02:02.000000000 +02:00

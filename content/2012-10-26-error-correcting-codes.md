@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Error correcting Codes
 author: Martin Thoma
 date: 2012-10-26 22:29:51.000000000 +02:00

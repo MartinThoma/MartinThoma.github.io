@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: C++ Operator overloading
 slug: cpp-operator-overloading
 author: Martin Thoma

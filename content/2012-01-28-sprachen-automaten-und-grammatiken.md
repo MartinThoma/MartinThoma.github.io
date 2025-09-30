@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Sprachen, Automaten und Grammatiken: Ein Überblick
 slug: sprachen-automaten-und-grammatiken
 author: Martin Thoma

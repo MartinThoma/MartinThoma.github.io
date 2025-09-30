@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: &Uuml;bersicht &uuml;ber Datenstrukturen
 author: Martin Thoma
 date: 2012-07-22 17:38:04.000000000 +02:00

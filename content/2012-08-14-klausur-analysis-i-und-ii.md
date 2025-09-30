@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Klausur Analysis I und II
 author: Martin Thoma
 date: 2012-08-14 17:13:24.000000000 +02:00

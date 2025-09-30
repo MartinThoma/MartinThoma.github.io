@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Eigenschaften von Abbildungsmatrizen
 author: Martin Thoma
 date: 2012-03-26 17:30:44.000000000 +02:00

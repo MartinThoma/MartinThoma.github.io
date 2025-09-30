@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Amazing Animals
 author: Martin Thoma
 date: 2012-04-07 02:39:26.000000000 +02:00

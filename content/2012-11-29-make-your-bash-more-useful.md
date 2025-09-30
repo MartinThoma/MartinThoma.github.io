@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Make your Bash more useful
 author: Martin Thoma
 date: 2012-11-29 11:15:56.000000000 +01:00

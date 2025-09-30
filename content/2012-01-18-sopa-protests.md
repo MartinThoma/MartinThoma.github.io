@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: SOPA protests
 author: Martin Thoma
 date: 2012-01-18 08:29:42.000000000 +01:00

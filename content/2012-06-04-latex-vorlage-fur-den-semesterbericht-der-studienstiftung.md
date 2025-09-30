@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: LaTeX-Vorlage für den Semesterbericht der Studienstiftung
 author: Martin Thoma
 date: 2012-06-04 07:31:36.000000000 +02:00

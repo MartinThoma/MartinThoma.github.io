@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to write music with LaTeX
 author: Martin Thoma
 date: 2012-08-01 10:45:49.000000000 +02:00

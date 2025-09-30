@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Definitionen aus Digitaltechnik
 author: Martin Thoma
 date: 2012-11-07 13:33:53.000000000 +01:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Briefe mit LaTeX schreiben
 author: Martin Thoma
 date: 2012-03-03 17:48:38.000000000 +01:00

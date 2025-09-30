@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Puzzle #2: None and False
 author: Martin Thoma
 date: 2012-08-01 17:00:55.000000000 +02:00

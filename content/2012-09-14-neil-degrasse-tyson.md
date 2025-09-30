@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Neil deGrasse Tyson
 author: Martin Thoma
 date: 2012-09-14 18:26:00.000000000 +02:00

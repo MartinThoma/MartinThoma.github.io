@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Abschlussaufgaben Programmieren
 author: Martin Thoma
 date: 2012-03-10 16:00:13.000000000 +01:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Entwurfsmuster-Beispiele
 author: Martin Thoma
 date: 2012-08-11 17:00:03.000000000 +02:00

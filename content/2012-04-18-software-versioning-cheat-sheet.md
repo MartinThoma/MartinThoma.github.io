@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Software Versioning Cheat Sheet
 author: Martin Thoma
 date: 2012-04-18 07:00:59.000000000 +02:00

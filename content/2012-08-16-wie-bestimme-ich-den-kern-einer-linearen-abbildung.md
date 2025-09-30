@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie bestimme ich den Kern einer linearen Abbildung?
 author: Martin Thoma
 date: 2012-08-16 15:54:15.000000000 +02:00

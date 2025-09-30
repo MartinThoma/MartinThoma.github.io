@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Sets in C++
 author: Martin Thoma
 date: 2012-05-28 12:08:58.000000000 +02:00

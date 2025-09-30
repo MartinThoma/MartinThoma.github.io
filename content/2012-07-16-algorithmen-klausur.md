@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Algorithmen-Klausur
 author: Martin Thoma
 date: 2012-07-16 09:00:25.000000000 +02:00

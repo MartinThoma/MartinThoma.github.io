@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Karlsruhe: Oberb&uuml;rgermeisterwahl 2012
 author: Martin Thoma
 date: 2012-11-27 14:17:39.000000000 +01:00

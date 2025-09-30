@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Java Puzzle #8: Interfaces and Visibility
 author: Martin Thoma
 date: 2012-08-09 17:00:42.000000000 +02:00

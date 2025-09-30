@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Peg Solitaire
 author: Martin Thoma
 date: 2012-08-19 17:00:58.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: TGI-Klausur
 author: Martin Thoma
 date: 2012-02-18 16:57:30.000000000 +01:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Flags of the Earth
 author: Martin Thoma
 date: 2012-08-07 17:00:47.000000000 +02:00

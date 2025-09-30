@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Perfect number check and ROT-13 encryption in MIPS-assembly code
 author: Martin Thoma
 date: 2012-06-22 10:43:49.000000000 +02:00

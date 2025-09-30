@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Integration durch Substitution
 author: Martin Thoma
 date: 2012-09-16 11:32:43.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Stacks in C++
 slug: stacks-in-cpp
 author: Martin Thoma

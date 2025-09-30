@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Complex LaTeX visualizations (Tikz)
 author: Martin Thoma
 date: 2012-06-29 18:38:27.000000000 +02:00

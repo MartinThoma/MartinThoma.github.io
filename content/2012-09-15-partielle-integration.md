@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Partielle Integration
 author: Martin Thoma
 date: 2012-09-15 19:02:03.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 7 mind-blowing artists you didn't know
 author: Martin Thoma
 date: 2012-02-23 19:56:14.000000000 +01:00

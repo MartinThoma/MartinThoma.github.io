@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Google Code Jam 2012 &ndash; Round 1C 2012
 author: Martin Thoma
 date: 2012-05-06 14:03:54.000000000 +02:00

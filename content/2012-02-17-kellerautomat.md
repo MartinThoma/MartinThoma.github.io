@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Kellerautomat
 author: Martin Thoma
 date: 2012-02-17 20:17:01.000000000 +01:00

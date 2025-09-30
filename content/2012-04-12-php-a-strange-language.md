@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: PHP: A strange language
 author: Martin Thoma
 date: 2012-04-12 16:24:32.000000000 +02:00
@@ -7,7 +8,6 @@ category: Code
 tags: Programming, PHP
 featured_image: 2011/10/PHP-logo.png
 ---
-
 ## Automatic conversion
 
 ### Strings to numbers

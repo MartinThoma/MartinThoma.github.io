@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to fill holes in your wall / ceiling
 author: Martin Thoma
 date: 2012-03-05 22:08:41.000000000 +01:00

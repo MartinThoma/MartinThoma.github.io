@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: What is a fractal?
 author: Martin Thoma
 date: 2012-07-07 19:00:09.000000000 +02:00

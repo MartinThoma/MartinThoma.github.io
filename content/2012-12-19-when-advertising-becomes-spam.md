@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: When advertising becomes spam
 author: Martin Thoma
 date: 2012-12-19 12:24:20.000000000 +01:00

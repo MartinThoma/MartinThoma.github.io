@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie bestimme ich die Basiswechselmatrix?
 author: Martin Thoma
 date: 2012-03-16 17:06:11.000000000 +01:00

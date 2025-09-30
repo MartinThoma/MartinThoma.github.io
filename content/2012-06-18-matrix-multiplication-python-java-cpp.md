@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Part I: Performance of Matrix multiplication in Python, Java and C++
 slug: matrix-multiplication-python-java-cpp
 author: Martin Thoma

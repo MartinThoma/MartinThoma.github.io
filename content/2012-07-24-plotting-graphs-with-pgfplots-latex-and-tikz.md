@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Plotting graphs with PGFplots (LaTeX and Tikz)
 author: Martin Thoma
 date: 2012-07-24 17:00:28.000000000 +02:00

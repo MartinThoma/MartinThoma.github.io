@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wahrscheinlichkeitstheorie - Klausur (Info)
 slug: wt-klausur
 author: Martin Thoma

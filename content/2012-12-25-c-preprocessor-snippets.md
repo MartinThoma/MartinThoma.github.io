@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: C++ Preprocessor Snippets
 author: Martin Thoma
 date: 2012-12-25 19:32:31.000000000 +01:00

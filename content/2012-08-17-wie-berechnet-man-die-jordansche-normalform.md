@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie berechnet man die Jordan'sche Normalform?
 author: Martin Thoma
 date: 2012-08-17 12:59:27.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: 31. BwInf - Runde 1, Aufgabe 2
 author: Martin Thoma
 date: 2012-12-12 12:12:58.000000000 +01:00

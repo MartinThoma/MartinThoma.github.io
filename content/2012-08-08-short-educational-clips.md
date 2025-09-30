@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Short Educational Clips
 author: Martin Thoma
 date: 2012-08-08 17:00:37.000000000 +02:00

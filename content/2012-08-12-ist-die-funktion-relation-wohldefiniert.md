@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Ist die Funktion / Relation wohldefiniert?
 author: Martin Thoma
 date: 2012-08-12 17:00:14.000000000 +02:00

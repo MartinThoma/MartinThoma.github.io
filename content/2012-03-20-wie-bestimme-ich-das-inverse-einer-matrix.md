@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie bestimme ich das Inverse einer Matrix?
 author: Martin Thoma
 date: 2012-03-20 16:07:50.000000000 +01:00

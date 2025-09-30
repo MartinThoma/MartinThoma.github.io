@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Creating pdf-forms with LaTeX
 author: Martin Thoma
 date: 2012-02-29 15:11:07.000000000 +01:00

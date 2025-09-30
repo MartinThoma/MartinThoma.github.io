@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Blender Open Movies
 author: Martin Thoma
 date: 2012-12-22 17:00:46.000000000 +01:00

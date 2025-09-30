@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to create UML class diagrams
 author: Martin Thoma
 date: 2012-05-06 20:38:01.000000000 +02:00

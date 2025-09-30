@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Linux Scheduler
 author: Martin Thoma
 date: 2012-11-26 23:25:15.000000000 +01:00

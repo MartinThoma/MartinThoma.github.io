@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Reflecting a point over a line
 author: Martin Thoma
 date: 2012-12-02 15:32:41.000000000 +01:00

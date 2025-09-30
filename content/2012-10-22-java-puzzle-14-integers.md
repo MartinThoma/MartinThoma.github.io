@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Java Puzzle #14: Integers
 author: Martin Thoma
 date: 2012-10-22 12:00:44.000000000 +02:00

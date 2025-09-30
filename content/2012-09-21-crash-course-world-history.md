@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Crash Course: World History
 author: Martin Thoma
 date: 2012-09-21 19:19:52.000000000 +02:00

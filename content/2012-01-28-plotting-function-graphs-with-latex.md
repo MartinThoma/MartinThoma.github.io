@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Plotting function graphs with LaTeX
 author: Martin Thoma
 date: 2012-01-28 00:17:26.000000000 +01:00

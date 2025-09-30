@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Puzzle #1: List multiplication
 author: Martin Thoma
 date: 2012-06-18 15:06:48.000000000 +02:00

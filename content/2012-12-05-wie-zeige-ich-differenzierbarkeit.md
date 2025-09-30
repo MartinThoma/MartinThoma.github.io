@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie zeige ich Differenzierbarkeit?
 author: Martin Thoma
 date: 2012-12-05 11:59:08.000000000 +01:00

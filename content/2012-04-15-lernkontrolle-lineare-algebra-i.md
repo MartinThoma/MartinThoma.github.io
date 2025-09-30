@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Lernkontrolle: Lineare Algebra I
 author: Martin Thoma
 date: 2012-04-15 16:50:31.000000000 +02:00

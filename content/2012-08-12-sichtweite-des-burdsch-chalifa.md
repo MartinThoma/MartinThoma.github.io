@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Sichtweite des Burdsch Chalifa
 author: Martin Thoma
 date: 2012-08-12 13:37:17.000000000 +02:00

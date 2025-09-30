@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Review des Acer Travelmate 5744Z
 author: Martin Thoma
 date: 2012-10-19 18:57:30.000000000 +02:00

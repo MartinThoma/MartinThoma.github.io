@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wie berechnet man die Cholesky-Zerlegung?
 author: Martin Thoma
 date: 2012-07-03 19:09:22.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python one-liners for Project Euler
 author: Martin Thoma
 date: 2012-06-13 17:00:14.000000000 +02:00

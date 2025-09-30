@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Programmieren Tutorium
 author: Martin Thoma
 date: 2012-10-21 20:59:33.000000000 +02:00

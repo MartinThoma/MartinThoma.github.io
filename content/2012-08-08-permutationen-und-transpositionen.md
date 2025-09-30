@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Permutationen und Transpositionen
 author: Martin Thoma
 date: 2012-08-08 10:36:06.000000000 +02:00

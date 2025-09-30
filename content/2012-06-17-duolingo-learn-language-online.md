@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Duolingo - Learn a Language Online
 author: Martin Thoma
 date: 2012-06-17 12:02:19.000000000 +02:00

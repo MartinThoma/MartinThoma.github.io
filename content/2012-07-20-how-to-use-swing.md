@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Swing I: How to use Swing
 slug: how-to-use-swing
 author: Martin Thoma

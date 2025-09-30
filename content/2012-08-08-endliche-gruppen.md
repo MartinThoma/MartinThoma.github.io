@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Endliche Gruppen
 author: Martin Thoma
 date: 2012-08-08 12:03:42.000000000 +02:00

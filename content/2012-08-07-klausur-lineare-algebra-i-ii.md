@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Klausur Lineare Algebra I + II
 author: Martin Thoma
 date: 2012-08-07 09:35:33.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Balanzan Theme
 author: Martin Thoma
 date: 2012-10-09 18:20:35.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Konvergenz von Folgen
 author: Martin Thoma
 date: 2012-08-26 18:04:36.000000000 +02:00

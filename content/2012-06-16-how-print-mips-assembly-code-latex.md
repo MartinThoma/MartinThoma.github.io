@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to print MIPS assembly code in LaTeX
 slug: how-print-mips-assembly-code-latex
 author: Martin Thoma

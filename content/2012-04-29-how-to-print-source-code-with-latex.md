@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to print Source Code with LaTeX
 author: Martin Thoma
 date: 2012-04-29 12:04:32.000000000 +02:00

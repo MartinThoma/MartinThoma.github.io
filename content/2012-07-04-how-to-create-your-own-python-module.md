@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to create your own Python module
 author: Martin Thoma
 date: 2012-07-04 16:11:54.000000000 +02:00
