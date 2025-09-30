@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Challenge Websites
 author: Martin Thoma
 date: 2011-10-11 21:57:21.000000000 +02:00

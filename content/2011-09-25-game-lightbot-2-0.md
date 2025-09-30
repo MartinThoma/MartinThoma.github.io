@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Game: Lightbot 2.0
 author: Martin Thoma
 date: 2011-09-25 10:08:27.000000000 +02:00
@@ -7,7 +8,6 @@ category: The Web
 tags: Flashgames, learning
 featured_image: 2011/09/Lightbot-2.0-300x171.png
 ---
-
 <figure class="aligncenter">
     <img src="../images/2011/09/Lightbot-2.0-300x171.png" style="max-width: 300px; max-height: 171px;" class="size-medium wp-image-2171"/>
     <figcaption>Lightbot 2.0</figcaption>

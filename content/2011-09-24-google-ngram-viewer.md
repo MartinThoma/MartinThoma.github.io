@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Google Ngram Viewer
 author: Martin Thoma
 date: 2011-09-24 19:02:34.000000000 +02:00

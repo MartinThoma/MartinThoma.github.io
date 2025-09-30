@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Compare Planet Sizes
 author: Martin Thoma
 date: 2011-10-01 11:29:45.000000000 +02:00

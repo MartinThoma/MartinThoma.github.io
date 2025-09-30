@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Converting Files with Linux
 author: Martin Thoma
 date: 2011-09-21 22:10:08.000000000 +02:00

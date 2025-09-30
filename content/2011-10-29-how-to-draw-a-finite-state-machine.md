@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to draw a finite-state machine
 author: Martin Thoma
 date: 2011-10-29 09:37:50.000000000 +02:00

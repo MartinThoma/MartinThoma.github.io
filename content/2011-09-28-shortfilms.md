@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Shortfilms
 author: Martin Thoma
 date: 2011-09-28 12:05:29.000000000 +02:00

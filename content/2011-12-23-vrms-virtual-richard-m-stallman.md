@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: vrms - virtual Richard M. Stallman
 author: Martin Thoma
 date: 2011-12-23 01:38:37.000000000 +01:00

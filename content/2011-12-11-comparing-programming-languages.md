@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Comparing programming languages
 author: Martin Thoma
 date: 2011-12-11 11:50:59.000000000 +01:00

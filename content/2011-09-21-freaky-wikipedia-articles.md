@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Freaky Wikipedia Articles
 author: Martin Thoma
 date: 2011-09-21 19:44:21.000000000 +02:00

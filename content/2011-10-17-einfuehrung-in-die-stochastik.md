@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Einf&uuml;hrung in die Stochastik
 author: Martin Thoma
 date: 2011-10-17 21:19:55.000000000 +02:00

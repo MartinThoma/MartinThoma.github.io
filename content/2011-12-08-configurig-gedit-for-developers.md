@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Configurig gEdit for developers
 author: Martin Thoma
 date: 2011-12-08 23:10:19.000000000 +01:00

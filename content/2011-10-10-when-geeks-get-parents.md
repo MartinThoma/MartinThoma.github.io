@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: When Geeks become Parents
 author: Martin Thoma
 date: 2011-10-10 07:54:07.000000000 +02:00

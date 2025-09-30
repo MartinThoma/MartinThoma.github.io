@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Polyglots - Crazy Programming Stuff
 author: Martin Thoma
 date: 2011-09-21 19:28:02.000000000 +02:00

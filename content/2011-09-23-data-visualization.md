@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Visualization
 author: Martin Thoma
 date: 2011-09-23 19:32:15.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Using Wikipedia as a Newssstream
 author: Martin Thoma
 date: 2011-09-24 23:21:23.000000000 +02:00

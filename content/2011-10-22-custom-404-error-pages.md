@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Custom 404 error pages
 author: Martin Thoma
 date: 2011-10-22 20:50:47.000000000 +02:00

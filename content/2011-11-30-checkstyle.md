@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Checkstyle
 author: Martin Thoma
 date: 2011-11-30 21:59:40.000000000 +01:00
@@ -7,7 +8,6 @@ category: Code
 tags: KIT, Java
 featured_image: 2011/11/java-programming.png
 ---
-	<li></li>
 I have to go to a programming course at KIT at the moment where we are taught how to program with Java. They create exercises which get evaluated automatically. One part of the evaluation is checkstyle.
 
 So it is a good idea to test the files on my machine before uploading them.

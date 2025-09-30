@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Adding a ppa in Ubuntu
 author: Martin Thoma
 date: 2011-12-24 15:30:06.000000000 +01:00

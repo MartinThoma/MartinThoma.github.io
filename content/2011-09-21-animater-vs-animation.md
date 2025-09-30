@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Animator vs. Animation
 author: Martin Thoma
 date: 2011-09-21 19:56:55.000000000 +02:00

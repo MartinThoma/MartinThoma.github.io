@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Order categories in WordPress
 author: Martin Thoma
 date: 2011-10-08 14:18:19.000000000 +02:00

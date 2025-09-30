@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Game: QWERTY Warriors 2
 author: Martin Thoma
 date: 2011-10-08 21:44:24.000000000 +02:00

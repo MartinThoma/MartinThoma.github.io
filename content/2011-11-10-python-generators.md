@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Generators
 author: Martin Thoma
 date: 2011-11-10 08:24:00.000000000 +01:00

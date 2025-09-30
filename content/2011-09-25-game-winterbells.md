@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Game: Winterbells
 author: Martin Thoma
 date: 2011-09-25 10:12:43.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: What seems to be wrong in the U.S. - some caricatures
 author: Martin Thoma
 date: 2011-12-28 14:23:30.000000000 +01:00

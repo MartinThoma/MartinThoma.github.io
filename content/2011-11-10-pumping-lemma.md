@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Eine Sprache ist nicht regul&auml;r - Beweis mit dem Pumping-Lemma
 slug: pumping-lemma
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: MD5 cracking
 author: Martin Thoma
 date: 2011-10-17 07:36:15.000000000 +02:00

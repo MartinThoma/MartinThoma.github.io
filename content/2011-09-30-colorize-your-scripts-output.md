@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Colorize your scripts output
 author: Martin Thoma
 date: 2011-09-30 08:59:59.000000000 +02:00

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: DVD menu in YouTube
 author: Martin Thoma
 date: 2011-10-28 19:25:46.000000000 +02:00

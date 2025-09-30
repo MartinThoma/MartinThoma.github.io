@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Kitchen renovation - Part 1
 author: Martin Thoma
 date: 2011-10-08 12:01:40.000000000 +02:00

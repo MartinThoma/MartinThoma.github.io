@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Joke: Electrical Engineering vs. Computer Science
 author: Martin Thoma
 date: 2011-09-24 22:29:05.000000000 +02:00

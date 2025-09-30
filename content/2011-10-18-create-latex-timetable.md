@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Create LaTeX timetable
 author: Martin Thoma
 date: 2011-10-18 16:10:55.000000000 +02:00

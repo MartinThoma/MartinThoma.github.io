@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 8 Animal Memes in Cyberculture
 author: Martin Thoma
 date: 2011-09-21 21:43:12.000000000 +02:00

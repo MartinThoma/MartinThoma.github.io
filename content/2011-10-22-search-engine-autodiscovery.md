@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Search Engine Autodiscovery
 author: Martin Thoma
 date: 2011-10-22 11:12:07.000000000 +02:00

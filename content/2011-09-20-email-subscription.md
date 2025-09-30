@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Subscribe via Email
 slug: email-subscription
 author: Martin Thoma

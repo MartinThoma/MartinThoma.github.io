@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Cleverbot vs. Wolfram|Alpha
 author: Martin Thoma
 date: 2011-09-23 11:46:31.000000000 +02:00

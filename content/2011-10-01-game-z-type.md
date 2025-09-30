@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Game: Z-Type
 author: Martin Thoma
 date: 2011-10-01 10:36:41.000000000 +02:00
