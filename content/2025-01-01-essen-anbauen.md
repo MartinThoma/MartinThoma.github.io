@@ -47,7 +47,7 @@ Quellen:
 * Boden: Humus- und nährstoffreich
 * Pflanzzeit: ??
 * Erntezeitpunkt: ??
-* Saattiefe: 0,5-1 cm
+* Saattiefe: 0.5-1 cm
 * Gute Nachbarn: Knoblauch, Kohl, Kohlrabi, Salat,
 * Schlechte Nachbarn: Fenchel, Gurke, Kartoffeln, Erbsen
 

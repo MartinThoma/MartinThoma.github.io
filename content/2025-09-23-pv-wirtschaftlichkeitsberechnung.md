@@ -53,8 +53,8 @@ Ich gehe von ca. 2% jährlichen Preissteigerungen aus.
 Für die Dimensionierung einer PV-Anlage sind die verfügbare Dachfläche und deren Ausrichtung entscheidend.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/efh-with-solar.jpg"><img src="../images/2025/09/efh-with-solar.jpg" alt="ChatGPT rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein." style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein.</figcaption>
+    <a href="../images/2025/09/efh-with-solar.jpg"><img src="../images/2025/09/efh-with-solar.jpg" alt="ChatGPT-Rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein." style="max-height: 512px"/></a>
+    <figcaption class="text-center">ChatGPT-Rendering eines Einfamilienhauses mit Solaranlage. Die Dachneigung könnte bei 45° sein.</figcaption>
 </figure>
 
 
@@ -62,7 +62,7 @@ Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):
 
 * **Dachneigung**: 30° (0° = flach, mehr als 60° ist ungewöhnlich, [Tool](https://solar.red/photovoltaik-neigungswinkel/))
 * **Ausrichtung**: Süd-West (ca. 50°, also etwas westlicher als Süd, [Tool](https://www.rechnerphotovoltaik.de/rechner/dachausrichtung))
-* **Dachfläche: ca 6m x 12m** (72m² pro Seite)
+* **Dachfläche: ca. 6m x 12m** (72m² pro Seite)
     * 10m x 10m Korpus, d.h. 10m x 5m für das rechtwinklige Dreieck
     * Dachüberstand von ca. 1m
     * Hypothenuse = 6m / cos(30°) = 6.93m
@@ -313,9 +313,9 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
         </tr>
         <tr>
             <td><strong>Summe</strong></td>
-            <td style="text-align: right;"><strong>3.005 kWh</strong></td>
+            <td style="text-align: right;"><strong>3005 kWh</strong></td>
             <td style="text-align: right;"><strong>ca. 602 kWh</strong></td>
-            <td style="text-align: right;" class="border-right"><strong>ca. 4.971 kWh</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>ca. 4971 kWh</strong></td>
             <td style="text-align: right;"><strong>754.22 €</strong></td>
             <td style="text-align: right;"><strong>123.40 €</strong></td>
             <td style="text-align: right;" class="border-right"><strong>1019.00 €</strong></td>
@@ -359,7 +359,7 @@ Photovoltaik-Anlage voraussichtlich:
         </tr>
         <tr>
             <th>Gesamt</th>
-            <th style="text-align: right;">2&thinsp;175.52 €/Jahr</th>
+            <th style="text-align: right;">2175.52 €/Jahr</th>
         </tr>
     </tbody>
 </table>
@@ -412,7 +412,7 @@ Ich gehe pessimistisch von einer Lebensdauer der PV-Anlage von 20 Jahren aus.
 
 ### Null-Szenario: Keine PV-Anlage
 
-* Jährliche Kosten ohne PV-Anlage: 2&thinsp;175.52 €
+* Jährliche Kosten ohne PV-Anlage: 2175.52 €
 * Jährliche Kostensteigerung: 2%
 * Kummulative Kosten in 20 Jahren: $\sum_{i=0}^{n=19} 2175.52 \cdot (1 + 0.02)^i = 52859$ EUR
 
@@ -577,10 +577,10 @@ Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
         </tr>
         <tr>
             <td><strong>Summe</strong></td>
-            <td style="text-align: right;"><strong>8&thinsp;578 kWh</strong></td>
-            <td style="text-align: right;" class="border-right;"><strong>10&thinsp;800 kWh</strong></td>
-            <td style="text-align: right;"><strong>6&thinsp;022 kWh</strong></td>
-            <td style="text-align: right;" class="border-right;"><strong>3&thinsp;650 kWh</strong></td>
+            <td style="text-align: right;"><strong>8578 kWh</strong></td>
+            <td style="text-align: right;" class="border-right;"><strong>10800 kWh</strong></td>
+            <td style="text-align: right;"><strong>6022 kWh</strong></td>
+            <td style="text-align: right;" class="border-right;"><strong>3650 kWh</strong></td>
             <td style="text-align: right;"><strong>454.26 €</strong></td>
             <td style="text-align: right;"><strong>914.34 €</strong></td>
         </tr>
@@ -601,12 +601,12 @@ Die Kosten mit einer 10 kWp PV-Anlage wären also:
         <tr>
           <td>Strombezug</td>
           <td style="text-align: right;">-914.34 €/Jahr - 126.43€/Jahr</td>
-          <td style="text-align: right;">-25&thinsp;287.97 €</td>
+          <td style="text-align: right;">-25287.97 €</td>
         </tr>
         <tr>
           <td>Vergütung</td>
           <td style="text-align: right;">454.26 €/Jahr</td>
-          <td style="text-align: right;">9&thinsp;085.20 €</td>
+          <td style="text-align: right;">9085.20 €</td>
         </tr>
         <tr>
           <td>Zählerkosten</td>
@@ -616,12 +616,12 @@ Die Kosten mit einer 10 kWp PV-Anlage wären also:
         <tr>
             <th>Gesamt</th>
             <th style="text-align: right;">490.08 €/Jahr</th>
-            <th style="text-align: right;">-16&thinsp;802.77 €</th>
+            <th style="text-align: right;">-16802.77 €</th>
         </tr>
     </tbody>
 </table>
 
-Ich wäre nach 20 Jahren also **-16&thinsp;802.77 EUR** ärmer als heute, wenn ich
+Ich wäre nach 20 Jahren also **-16802.77 EUR** ärmer als heute, wenn ich
 eine 10 kWp PV-Anlage installiere und den Eigenverbrauch maximiere.
 
 **Faktoren, die die Wirtschaftlichkeit reduzieren:**

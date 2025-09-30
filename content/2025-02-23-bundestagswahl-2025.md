@@ -29,7 +29,7 @@ um die Koalition zu sprengen.
   während [Musk kritische Untersuchungen von Tesla/Space-X mit DOGE verhindert](https://www.zdf.de/nachrichten/politik/ausland/usa-musk-regierung-interessenkonflikt-100.html) und die Sozialsysteme torpediert werden.
   Wir beobachten den Aufbau einer Autokratie: [Militärische Führung wird ausgetauscht](https://edition.cnn.com/2025/02/21/politics/trump-fires-top-us-general-cq-brown/index.html), [Journalisten werden unter Druck gesetzt](https://www.reuters.com/world/us/ap-sues-trump-aides-restricting-access-over-gulf-mexico-name-2025-02-21/), [Bundesanwälte werden ausgetauscht](https://www.sueddeutsche.de/politik/usa-trump-us-justiz-li.3205480). [Trump hat sich als König bezeichnet](https://www.theguardian.com/us-news/2025/feb/19/trump-backlash-social-media-king).
 * **Russland**: Der [Ukraine-Krieg](https://de.wikipedia.org/wiki/Russisch-Ukrainischer_Krieg) dauert an.
-* **Deuschland**: Wir sehen eine Häufung der Berichterstattung über Anschläge
+* **Deutschland**: Wir sehen eine Häufung der Berichterstattung über Anschläge
   von Migranten, insbesondere Messerattacken. Über die Messerattacken von
   Deutschen wird weniger berichtet. Das hat den Diskurs im Wahlkampf stark
   beeinflusst. Merz und die AfD markieren sich als Law-and-Order-Parteien, ohne
@@ -59,7 +59,7 @@ um die Koalition zu sprengen.
     </tr>
     <tr>
         <th>Mindestlohn</th>
-        <td>Mindestlohnkomission macht das</td>
+        <td>Entscheidung durch Mindestlohnkommission</td>
         <td>Mindestlohn auf 15 EUR</td>
         <td>Mindestlohn auf 15 EUR</td>
         <td>Mindestlohn auf 15 EUR</td>

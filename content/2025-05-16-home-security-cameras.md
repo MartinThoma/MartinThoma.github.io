@@ -35,7 +35,7 @@ I excluded those vendors:
   subscription for motion
   detection](https://support.blinkforhome.com/en_GB/subscriptions-faq/subscription-faq),
   so that's a no-go for me.
-* For [Ring](https://en.wikipedia.org/wiki/Ring_(company)) (Amazon, premium otipn), it was
+* For [Ring](https://en.wikipedia.org/wiki/Ring_(company)) (Amazon, premium option), it was
   rather hard to find what you can/cannot do without a subscription. There seems
   to be "Ring Edge" to allow you to store the recordings locally.
 * [Google Nest](https://de.wikipedia.org/wiki/Google_Nest) offers just a few cameras. They seem to be
@@ -50,7 +50,7 @@ In the following table, "local" means your phone is connected to the same WiFi
 network as the camera. "Remote" means your phone is connected to the Internet
 but not to the same WiFi network as the camera.
 
-Accessing the camera means to see its setting.
+Accessing the camera means being able to see its settings.
 
 <table border="1" cellpadding="5" cellspacing="0">
   <thead>

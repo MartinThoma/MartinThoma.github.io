@@ -8,7 +8,7 @@ category: German posts
 tags: money, house, climate change
 featured_image: logos/house.png
 ---
-Im Hinblick auf die steigenden Energiekosten und die vergangende
+Im Hinblick auf die steigenden Energiekosten und die vergangene
 [Gas-Krise](https://www.tagesschau.de/wirtschaft/gasversorgung-energiekrise-101.html)
 ist die Suche nach effizienten und umweltfreundlichen Heizungsalternativen zu Öl
 und Gas von großer Bedeutung. Eine Möglichkeit hierbei sind Wärmepumpen. Sie
@@ -18,11 +18,11 @@ wir Ihnen als Hausbesitzer einen Überblick über diese innovative Heiztechnolog
 geben und aufzeigen, welche Vorteile und Herausforderungen mit ihrer Nutzung
 verbunden sind.
 
-Im Folgenden Vergleiche ich Wärmepumpen vor allem mit Öl-Heizungen. Insbesondere
+Im Folgenden vergleiche ich Wärmepumpen vor allem mit Öl-Heizungen. Insbesondere
 bei Fernwärme / Nahwärme würden die Vergleiche deutlich anders aussehen.
 
 
-## Warum Wärmepumpen geil sind
+## Warum Wärmepumpen vorteilhaft sind
 
 Wärmepumpen sind für Hausbesitzer eine attraktive Heizoption aus folgenden
 Gründen:
@@ -44,7 +44,7 @@ Gründen:
 
 Auch wenn die Anschaffungskosten für eine Wärmepumpe zunächst höher sein können
 als für konventionelle Heizsysteme, so können sich die Investitionen langfristig
-durch die Ersparnis bei den Heizkosten amortisieren.
+durch die Einsparungen bei den Heizkosten amortisieren.
 
 ## Was ist eine Wärmepumpe?
 
@@ -70,7 +70,7 @@ der genutzten Energiequelle und der verwendeten Technologie unterscheiden.
 erzeugte Wärme direkt an die Raumluft ab. Ein Quick-Connect System macht die
 Installation einfacher. Nach EU Verordnung 517/2014 darf nur ein zertifiziertes
 Unternehmen Klimageräte in Betrieb nehmen. Eingebaut werden können solche
-Wärmepumpen von Klimaanlagen-Bauern / Kältetechnikern, aber auch Heizungsbauer.
+Wärmepumpen von Klimaanlagen-Fachbetrieben / Kältetechnikern, aber auch von Heizungsbauern.
 Man benötigt einen "Kälteschein".
 
 **Luft-Wasser-Wärmepumpen** nutzen die Energie der Umgebungsluft und sind am

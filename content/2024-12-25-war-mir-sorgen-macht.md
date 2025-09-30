@@ -17,7 +17,7 @@ machen. Ich muss mir das von der Seele schreiben.
 [Die steigenden Wassertemperaturen in den Meeren führen zu immer stärkeren Stürmen. Zugleich nehmen Dürren zu](https://www.jungewelt.de/artikel/490582.klimawandel-tief-in-der-schei%C3%9Fe.html).
 Das hat Auswirkungen auf die [Lebensmittelversorgung](https://www.mdr.de/nachrichten/deutschland/panorama/versorgungssicherheit-lebensmittel-weihnachten-100.html).
 
-Hier noch ein paar examplarische Artikel:
+Hier noch ein paar exemplarische Artikel:
 
 * 25.12.2024: [Grönlands Eis schmilzt jedes Jahr um fast 200 Kubikkilometer](https://www.zeit.de/wissen/umwelt/2024-12/klimawandel-groenland-eis-schmelze)
 * 24.12.2024: [Klimawandel: 2024 wird das wärmste Jahr seit Beginn der Aufzeichnungen](https://deutsche-wirtschafts-nachrichten.de/713064/klimawandel-2024-wird-das-waermste-jahr-seit-beginn-der-aufzeichnungen)
@@ -30,7 +30,7 @@ massive Auswirkungen auf die Wirtschaft:
   2024 hingen 773.000 Arbeitsplätze in Deutschland direkt an der
   Autoindustrie.<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small> Zählt man noch die Zulieferer dazu, sind es 1,75 Millionen
   Arbeitsplätze.<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small> Das sind etwa 4% der deutschen Arbeitsplätze. Allerdings
-  sind diese 4% überduchschnittlich gut bezahlt. Mit dem Festklammern an
+  sind diese 4% überdurchschnittlich gut bezahlt. Mit dem Festklammern an
   Verbrennern können wir zwar unsere Marktsegmente bei den Verbrennern halten,
   allerdings wird der Markt für Verbrenner schrumpfen. Das ist unser Nokia /
   Kodak Moment.
@@ -54,20 +54,20 @@ massive Auswirkungen auf die Wirtschaft:
   Kobalt, Nickel und Graphit benötigt. Niemand weiß welche Erze in Zukunft
   wichtig sein werden. Ähnlich wie in der Autoindustrie wird es hier eine
   Verlagerung von Öl- und Gas zu den Batterie-Rohstoffen geben. Mit der Zeit
-  wird recycling wichtiger werden.
+  wird Recycling wichtiger werden.
 
 Der Rückgang der Kohleförderung und die Krise der Stahlindustrie hat im
 Ruhrgebiet zu einer massiven Arbeitslosigkeit geführt. Das hat die Region bis
 heute nicht überwunden. Ähnliches werden wir nun weltweit erleben. China hat
 sich mit der Förderung der Solarindustrie und Elektroautos gut positioniert.
-In Deutschland schießen wir uns mit dem Festhalten an Verbrennern, aprupten
+In Deutschland schießen wir uns mit dem Festhalten an Verbrennern, abrupten
 neuen Förderungen und deren plötzlichen Streichungen ins Knie:
 
 * [Altmaier-Knick](https://www.fraunhofer.de/de/forschung/aktuelles-aus-der-forschung/energie.html) (2012): Die Deckelung und Reform des Erneuerbare-Energien-Gesetzes (EEG) hat zu einem Einbruch im Ausbau der Erneuerbaren Energien geführt. Das hat die deutsche Solarindustrie zerstört.
 * [10H-Regelung](https://de.wikipedia.org/wiki/10H-Regelung) (2014): Horst
   Seehofer hat diese Regelung eingeführt, um den Ausbau von Windkraftanlagen zu
   bremsen. Diese Regelung brachte den Windkraftausbau in Bayern praktisch zum
-  erliegen.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small>
+  Erliegen.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small>
 * [E-Auto-Förderstopp](https://www.tagesschau.de/wirtschaft/verbraucher/e-autos-foerderstopp-faq-100.html) (2023): Die Bundesregierung hat die Förderung von Elektroautos gestoppt. Das hat zu einem Einbruch der Verkaufszahlen geführt.
 * Deutschland als unzuverlässiger Partner (2024): Wir verhalten uns weder intern
   noch nach außen verlässlich. Dieses Wackelverhalten ist als "German Vote"

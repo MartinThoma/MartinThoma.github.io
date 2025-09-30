@@ -29,9 +29,10 @@ long grain.
 
 Countersinks are nice.
 
-* Einschraubmuffe: Man macht ein Loch ins holz, schraubt das Metallgewinde
-  rein. Dann kann man eine Schraube sicher in das Metallgewinde schrauben.
-* Exzenterverbinder
+* Threaded inserts (metal threaded sleeves): Drill a hole in the wood and
+  screw in the metal thread. Then you can securely screw a screw into the
+  metal thread.
+* Cam connectors (Exzenterverbinder)
 
 ## Pocket-Hole Jigs
 
@@ -40,18 +41,18 @@ Countersinks are nice.
     <figcaption class="text-center">Industrial-style living room</figcaption>
 </figure>
 
-Pocket screws have a flat hat that functions as a minature clamp.
+Pocket screws have a flat head that functions as a miniature clamp.
 
-Construction screws have a conical hat bores into the wood so that the screw sits flush.
+Construction screws have a conical head that bores into the wood so that the screw sits flush.
 
 ## Threaded Inserts
 
 Easy to assemble and disassemble.
 
-## Busikits
+## Biscuits
 
-Compressed piece of wood. You use a busikit to join two pieces of wood.
-You need a "slot" in the wood.
+Compressed pieces of wood (biscuits). You use a biscuit to join two pieces of wood.
+You need a slot in the wood.
 
 Good for small projects like picture frames
 
@@ -63,21 +64,21 @@ self-centering jig that clamps to the wood to get the holes straight.
 
 ## Festool Domino
 
-Like a thick Busikit. You need a special machine to use it.
+Like a thick biscuit. You need a special machine to use it.
 
 ## Interlocking Joints
 
-* [Gehrung](https://de.wikipedia.org/wiki/Gehrung) (Miter joint)
-    * Nut-Feder-Verbindung (Miter joint with spline)
-    * Frame mitre joint vs Case mitre joint
+* Miter joint
+    * Miter joint with spline
+    * Frame miter joint vs Case miter joint
 
 
 ### Dovetails
 
 Looks really nice.
 
-* [Schwalbenschwanzverbindung](https://de.wikipedia.org/wiki/Schwalbenschwanzverbindung) (Dovetail joint)
+* Dovetail joint
     * Through dovetail
     * Half-blind dovetail
-    * Secret mitred dovetail
+    * Secret mitered dovetail
     * Sliding dovetail

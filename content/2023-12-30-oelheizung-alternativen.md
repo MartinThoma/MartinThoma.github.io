@@ -8,22 +8,22 @@ category: German posts
 tags: House
 featured_image: logos/house.png
 ---
-Ich habe eine alte Ölheizung und überlege mir gerade, was die alternativen dazu
+Ich habe eine alte Ölheizung und überlege mir gerade, was die Alternativen dazu
 sind. Ich will die so lange wie möglich laufen lassen und insbesondere das
 Rest-Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
 
 ## Was nicht geht
 
-* [**Ölheizung**](https://de.wikipedia.org/wiki/%C3%96lheizung): Etwa 20.000 EUR für eine neue Ölheizung (inclusive Abbau /
+* [**Ölheizung**](https://de.wikipedia.org/wiki/%C3%96lheizung): Etwa 20.000 EUR für eine neue Ölheizung (inklusive Abbau /
   Entsorgung der alten sowie Aufbau der neuen) + 10.000 EUR für neue Öltanks
   macht keinen Sinn.
 * [**Gasheizung**](https://de.wikipedia.org/wiki/Gasheizung): Ich habe ja noch nichtmal einen Gas-Anschluss in der Nähe
 * Fernwärme: Es gibt leider keine Leitung in der Nähe
 * [**Pelletheizung**](https://de.wikipedia.org/wiki/Pelletheizung) /
   [**Hackschnitzelheizung**](https://de.wikipedia.org/wiki/Hackschnitzelheizung):
-  Ich glaube dafür wäre nicht genug Platz ... eventuell überlege ich mir
-  das nochmals in einem anderen Artikel. Hackschnitzel benötigt grob 3x so viel Platz
-  wie eine Pallet-Heizung. Je 10.000kWh benötigen 10-12m³ ([Quelle](https://www.youtube.com/watch?v=BXL6qUc7rag))
+  Dafür wäre wahrscheinlich nicht genügend Platz vorhanden … eventuell überlege ich mir
+  das nochmals in einem anderen Artikel. Hackschnitzel benötigen grob 3x so viel Platz
+  wie eine Pellet-Heizung. Je 10.000kWh benötigen 10-12m³ ([Quelle](https://www.youtube.com/watch?v=BXL6qUc7rag))
 * **Stromdirekt-Heizung**: Egal ob
   [Nachtspeicherheizung](https://de.wikipedia.org/wiki/Nachtspeicherheizung),
   [Heizlüfter](https://de.wikipedia.org/wiki/Heizl%C3%BCfter), oder
@@ -63,7 +63,7 @@ Der Akku-Doktor hat diese Lösung bekannt gemacht:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wB8rq-D9PAQ?si=KEw_f8cMgbaB2-2A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 * LL-WPs, z.B. LG S12 4kW Heizleistung + Mitsubishi MSZ42 5.4 kW Heizleistung + Panasonic Etherea
-* Brauchwasser-Wärmepumpe (BW-WP) für Warwasser: 300L-Tank,
+* Brauchwasser-Wärmepumpe (BW-WP) für Warmwasser: 300L-Tank,
 
 
 ### Vergleich
@@ -94,5 +94,5 @@ Pro LL-WP:
 * Heizkreislauf kann komplett entfernt werden, das bedeutet, dass hier keine
   Wartungskosten mehr anfallen (Rohre, Heizkörper, Thermostate)
 * Heizkörpernieschen können mit Dämmmaterial gefüllt werden. Damit kann ich
-  Wärmeverluste vermeiden. Und es sieht etwas schöner auf / ist leichter zu
+  Wärmeverluste vermeiden. Und es sieht etwas schöner aus / ist leichter zu
   reinigen.

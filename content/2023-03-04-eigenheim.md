@@ -8,9 +8,9 @@ category: German posts
 tags: house, money
 featured_image: logos/house.png
 ---
-Wer sich zum ersten Mal über ein Eigenheim Gedanken macht ist erst mal überfordert.
+Wer sich zum ersten Mal über ein Eigenheim Gedanken macht, ist erst mal überfordert.
 Es gibt einfach zu viele Themen, die man abdecken muss. Daher hier mal eine
-Schritt-für-Schritt Anleitung.
+Schritt-für-Schritt-Anleitung.
 
 Ich bin kein Profi, sondern nur ein interessierter Laie, der sich 2022 intensiv
 mit dem Thema Hausbau / Hauskauf und Finanzierung auseinandergesetzt hat.
@@ -64,7 +64,7 @@ Finanzierungsbedarf von 350k EUR. In der Altersgruppe von 35-39 ist ein Haushalt
 ohne Partner damit in den Top-20% ([faz.net](https://www.faz.net/aktuell/wirtschaft/wie-reich-bin-ich-vermoegen-im-vergleich-17016897.html)).
 
 Wenn man also einen **350.000 EUR Kredit** aufnimmt und
-einen **4% Zins** von bekommt, so muss man eine Rate von 6% von 350.000 pro Jahr
+einen **4% Zins** bekommt, so muss man eine Rate von 6% von 350.000 pro Jahr
 leisten können. Das sind 21k EUR / Jahr oder **1750 EUR/Monat**.
 
 Damit die Bank einen solchen Kredit gibt, muss man also ein regelmäßiges Netto-Einkommen
@@ -90,7 +90,7 @@ wohl eher nicht, weil man ihn in der Lebenszeit kaum abbezahlen kann.
 
 **Wo bekomme ich die Finanzierung?**
 
-Es gibt zwei Portale bieten kostenlos eine Finanzierungsvermittlung:
+Es gibt zwei Portale, die kostenlos eine Finanzierungsvermittlung anbieten:
 
 * [Dr Klein](https://www.drklein.de/)
 * [Interhyp](https://www.interhyp.de/)
@@ -100,13 +100,13 @@ Die Portale bekommen bei der Vermittlung eine Provision von der Bank.
 ## 2. Flächenbedarf Berechnen
 
 Bevor man das Haus plant, sollte man wissen, wie viel Haus man braucht. Hier
-eine sehr grobe Einordnung:
+eine sehr grobe Einschätzung:
 
 * 47.7m²/Person ist 2021 der Durchschnitt in Deutschland ([Quelle](https://de.statista.com/statistik/daten/studie/36495/umfrage/wohnflaeche-je-einwohner-in-deutschland-von-1989-bis-2004/))
 * 70m² für zwei Personen würde ich als komfortabel einordnen.
 * 140m² für vier Personen funktioniert auch gut
 
-Ob ein konkretes Haus allerdings für die gewünschte Personenzahl gut funktioniert
+Ob ein konkretes Haus allerdings für die gewünschte Personenzahl gut funktioniert,
 ist stark vom Schnitt der Wohnung / des Hauses abhängig.
 
 Hier ein paar einzelne "ideale" Raumgrößen:
@@ -126,9 +126,9 @@ Theoretisch kann man auch einen Neubau versuchen... aber das ist einfach viel
 zu teuer. Zusätzlich sind Handwerker aktuell ziemlich rar. Und von Lieferzeiten
 wollen wir mal gar nicht reden.
 
-Beim Neubau ist man ca. bei 700k EUR, beim Altbau bei 500k EUR. Ist natürlich
-extremst vereinfacht und ein unfairer vergleich, aber das soll ja auch nur eine
-Größenordnung geben.
+Beim Neubau ist man ca. bei 700k EUR, beim Altbau bei 500k EUR. Das ist natürlich
+extrem vereinfacht und ein unfairer Vergleich, aber das soll ja auch nur eine
+Größenordnung vermitteln.
 
 ### Neubau
 
@@ -187,16 +187,16 @@ mit 140m² so ist man für den Neubau bei 490.000 EUR. Ohne Grundstück.
 Sucht man auf [immobilienscout24](https://www.immobilienscout24.de/) nach
 Einfamilienhäusern in Bayern, so findet man im März 2023 [über 1000 Ergebnisse](https://www.immobilienscout24.de/Suche/de/bayern/einfamilienhaus-kaufen?price=10000.0-&livingspace=90.0-&energyefficiencyclasses=a,b,c,d,e,a_plus&fulltext=-Erbbauzins,%20-Erbbaurecht,%20-Erbbau,%20-Nie%C3%9Fbrauchbasis,%20-erbpacht,%20-Zwangsversteigerung&exclusioncriteria=projectlisting,foreclosure,unbuilthome&sorting=4&pagenumber=2).
 
-Die Preise variiren von 165.000 EUR für 159m² Wohnfläche / 309m² Grundstück in
+Die Preise variieren von 165.000 EUR für 159m² Wohnfläche / 309m² Grundstück in
 Freyung-Grafenau bis zu 10.9 Millionen EUR für 357m² Wohnfläche / 324m² Grundstück
 in München (Altbogenhausen).
 
-Ich würde sagen, dass man unter 300k EUR wohl nichts vernünftiges finden wird.
-Ab 500k EUR findet man einiges; über 700k wird es leicht.
+Ich würde sagen, dass man unter 300k EUR wohl nichts Vernünftiges finden wird.
+Ab 500k EUR findet man einiges; über 700k EUR wird es leicht.
 
 ## 4. Finanzierung vorbereiten
 
-Der Finanzierungsberater sagt was er braucht, aber mit folgendem muss man rechnen:
+Der Finanzierungsberater sagt, was er braucht, aber mit folgendem muss man rechnen:
 
 Über den/die Kreditnehmer:
 

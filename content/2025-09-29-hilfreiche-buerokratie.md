@@ -11,7 +11,7 @@ featured_image: logos/house.png
 
 Wir schimpfen oft über Bürokratie und fordern ihren Abbau. Dabei wird häufig übersehen, dass Bürokratie auch viele Vorteile und wichtige Funktionen hat.
 
-Vor Kurzem ist mir ein Beispiel begegnet, wie zusätzliche Bürokratie sogar zu mehr gesamtwirtschaftlicher Effizienz führen kann.
+Vor Kurzem ist mir ein Beispiel begegnet, das zeigt, wie zusätzliche Bürokratie sogar zu mehr gesamtwirtschaftlicher Effizienz führen kann.
 
 Aktuell plane ich eine Photovoltaikanlage (PV-Anlage) auf meinem Dach und lasse mir dazu Angebote von verschiedenen Firmen geben.
 
@@ -42,7 +42,7 @@ Seriöse Anbieter gehen dabei alle ähnlich vor: Sie kommen persönlich vorbei, 
 Am Ende werde ich jedoch nur ein Angebot annehmen. Die anderen Anbieter haben ihre Zeit und Ressourcen investiert, ohne dass daraus ein Auftrag entsteht.
 
 Effizienter wäre es, wenn es ein standardisiertes Formular gäbe, in das ich alle
-relevanten Informationen eintragen kann. So könnten die Anbieter Angebote
+relevanten Informationen eintragen könnte. So könnten die Anbieter Angebote
 erstellen, ohne jedes Mal einen Vor-Ort-Termin zu vereinbaren. Das würde Zeit
 und Kosten für alle Beteiligten sparen.
 
@@ -50,7 +50,7 @@ und Kosten für alle Beteiligten sparen.
 Der Staat könnte hier unterstützend eingreifen, indem er:
 
 1. Ein standardisiertes Formular für PV-Angebote entwickelt.
-2. Anbieter verpflichtet, dieses Formular zu verwenden und dem Kunden als
+2. Anbieter dazu verpflichtet, dieses Formular zu verwenden und dem Kunden als
    Protokoll auszuhändigen.
 3. Einen angemessenen Mindestpreis für die fachgerechte Erstellung der
    Anforderungen festlegt.

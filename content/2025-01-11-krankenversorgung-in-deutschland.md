@@ -17,7 +17,7 @@ Wir haben noch andere Probleme in der Krankenversorgung, wie z.B. die
 Verfügbarkeit von Apotheken und Hausärzten auf dem Land. Aber in diesem Artikel
 möchte ich mich auf die Kosten konzentrieren.
 
-## Aktuelle Krankenversorg in Deutschland
+## Aktuelle Krankenversorgung in Deutschland
 
 ### Deutschland im Vergleich
 
@@ -25,8 +25,8 @@ Wenn wir beurteilen wollen wie teuer das deutsche Gesundheitssystem ist, müsste
 wir im Ländervergleich auf [kaufkraftbereinigte Kosten pro Kopf](https://www.statistik-bw.de/Service/Veroeff/Monatshefte/PDF/Beitrag15_01_03.pdf) schauen. 2012 war Deutschland
 ein gutes Stück günstiger als Norwegen, die Schweiz, und die Niederlande.
 Die kaufkraftbereinigten Gesundheitsausgaben pro Kopf waren vergleichbar mit
-Österreich, Dänemark, und Belgin. Ein gutes Stück günstiger waren Finnland,
-Island, Italien, Ungarn, und Polen.
+Österreich, Dänemark und Belgien. Ein gutes Stück günstiger waren Finnland,
+Island, Italien, Ungarn und Polen.
 
 Schauen wir uns Zahlen von 2022 an und betrachten die Gesundheitsausgaben in %
 vom BIP, sehen wir, dass Deutschland mit 12.61% stark über dem Durchschnitt
@@ -37,12 +37,12 @@ liegt.
     <figcaption class="text-center">Gesundheitsausgaben in der EU, 2022 (<a href="https://ec.europa.eu/eurostat/databrowser/view/hlth_sha11_hc__custom_13673948/bookmark/table?lang=de&bookmarkId=8cec15e6-717d-448f-b59c-d23bb0c52f1c">Datenquelle</a>)</figcaption>
 </figure>
 
-Diese 12.61% des BIP sind [488,7 Milliarden Euro](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitsausgaben/_inhalt.html). Davon waren 4.1 Mrd EUR für Corona.
-In der Corona-Pandemie kaufte der Bund 5,7 Milliarden Corona-Masken für 5,9 Milliarden Euro. [...] Mehr als die Hälfte wurde nicht gebraucht und daher vernichtet. ([Quelle](https://www.deutschlandfunk.de/spahn-corona-masken-beschaffung-kosten-100.html)). 13,1 Milliarden Euro wurden
+Diese 12.61% des BIP sind [488.7 Milliarden Euro](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitsausgaben/_inhalt.html). Davon waren 4.1 Mrd EUR für Corona.
+In der Corona-Pandemie kaufte der Bund 5.7 Milliarden Corona-Masken für 5.9 Milliarden Euro. [...] Mehr als die Hälfte wurde nicht gebraucht und daher vernichtet. ([Quelle](https://www.deutschlandfunk.de/spahn-corona-masken-beschaffung-kosten-100.html)). 13.1 Milliarden Euro wurden
 für Impfdosen ausgegeben ([Quelle](https://www.tagesschau.de/investigativ/ndr-wdr/corona-impfstoff-kosten-101.html)).
 
 Im Jahr 2021 beliefen sich die Kosten deutscher Krankenhäuser auf insgesamt rund
-109,3 Milliarden Euro ([Quelle](https://de.statista.com/statistik/daten/studie/3182/umfrage/kosten-deutscher-krankenhaeuser-seit-1996/)).
+109.3 Milliarden Euro ([Quelle](https://de.statista.com/statistik/daten/studie/3182/umfrage/kosten-deutscher-krankenhaeuser-seit-1996/)).
 
 
 ### Privat vs Gesetzlich
@@ -60,20 +60,20 @@ versichert sind:
 
 ### Ausgaben der Krankenkassen
 
-[Krankheitskosten laut Robert Koch Insitut (RKI)](https://www.rki.de/DE/Content/Gesundheitsmonitoring/Gesundheitsberichterstattung/Themenhefte/Krankheitskosten_inhalt.html) (Stand 2006):
+[Krankheitskosten laut Robert Koch Institut (RKI)](https://www.rki.de/DE/Content/Gesundheitsmonitoring/Gesundheitsberichterstattung/Themenhefte/Krankheitskosten_inhalt.html) (Stand 2006):
 
 * Im Jahr 2006 wurden in Deutschland für den Erhalt der Gesundheit und die
   Linderung von Krankheitsfolgen [...] 236 Milliarden Euro [ausgegeben].
 * Die höchsten Kosten entstanden durch **Krankheiten des Kreislaufsystems** mit
-  insgesamt **35,2 Milliarden Euro**
-* An zweiter Stelle mit **32,7 Milliarden Euro** stehen die Kosten für
+  insgesamt **35.2 Milliarden Euro**
+* An zweiter Stelle mit **32.7 Milliarden Euro** stehen die Kosten für
   **Krankheiten des Verdauungssystems** (insbesondere Zahnkaries).
 * Den dritten Rang bei den Kosten für Krankheitsklassen nehmen **psychische und
-  Verhaltensstörungen** mit **26,7 Milliarden Euro** ein. Fast gleichhoch waren
+  Verhaltensstörungen** mit **26.7 Milliarden Euro** ein. Fast gleichhoch waren
   die Ausgaben für **Krankheiten des Muskel-Skelett-Systems**.
 * Ein Zehntel der Krankheitskosten entstanden in Pflegeeinrichtungen
 
-[Krankheitskosten laut Statistischem Bundesamt](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Krankheitskosten/_inhalt.html) (Stand 2022): Gesamt: 432 Mrd EUR
+[Krankheitskosten laut Statistischen Bundesamt](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Krankheitskosten/_inhalt.html) (Stand 2022): Gesamt: 432 Mrd EUR
 
 * 13% Krankheiten des Kreislaufsystems: [Koronare Herzkrankheit](https://de.wikipedia.org/wiki/Koronare_Herzkrankheit#Epidemiologie), [Herzinsuffizienz](https://de.wikipedia.org/wiki/Herzinsuffizienz), [Schlaganfall](https://de.wikipedia.org/wiki/Schlaganfall)
 * 13% Psychische Krankheiten und Verhaltensstörungen: [Depressionen](https://de.wikipedia.org/wiki/Depression), [Suchtkrankheiten](https://de.wikipedia.org/wiki/Abh%C3%A4ngigkeit_(Medizin)) wie [Alkoholabhängigkeit](https://de.wikipedia.org/wiki/Alkoholkrankheit), [Demenzen](https://de.wikipedia.org/wiki/Demenz)
@@ -89,7 +89,7 @@ Kurz und gut:
   Krankenversicherung führt zu größerer Solidarität und geringeren Kosten.
   Jeder sollte Zugang zu einer guten Krankenversorgung haben und jeder sollte
   Interesse daran haben, dass dieses System funktioniert.
-* **Schädlichen Konsum reduziern**: Alkohol, Tabak und Zucker sind schädlich und
+* **Schädlichen Konsum reduzieren**: Alkohol, Tabak und Zucker sind schädlich und
   verursachen hohe Kosten. Wir sollten den Konsum senken.
 
 

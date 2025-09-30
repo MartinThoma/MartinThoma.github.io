@@ -119,7 +119,7 @@ remove the -1 caused by the queen there. So I thought about something different:
 * -1: 1 queen can attack this field
 * -2: 2 queens can attack this field:
 * -3: 3 queens can attack this field
-* ...
+* …
 
 This way we can use a simple 2D array to figure out if a position is valid.
 We will only check if queens from above can capture queens from below:

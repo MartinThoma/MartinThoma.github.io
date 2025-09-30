@@ -59,9 +59,9 @@ Wie gro&szlig; ist die Schwankung relativ zum Durchschnitt?
 $$\tilde x := \begin{cases} x_{\frac{n+1}{2}}, & \mbox{wenn }   n \mbox{ ungerade} \\
                                  \frac{1}{2} (x_\frac{n}{2} + x_{\frac{n}{2} + 1}), & \mbox{wenn } n \mbox{ gerade} \end{cases}$$
 
-<strong>Quantil</strong>: Das Quantil unterteilt die Verteilung der Werte der Zufallsvariablen in zwei Bereiche: Links vom $\alpha$-Quantil liegen $100 \cdot p$ Prozent aller Beobachtungswerte bzw. $100 \cdot p$ Prozent der Gesamtzahl der Zufallswerte. Rechts davon liegen $100 \cdot (1-p)$ Prozent aller Beobachtungswerte bzw. $100 \cdot (1-p)$ Prozent der Gesamtzahl der Zufallswerte.
+<strong>Quantil</strong>: Das $p$-Quantil unterteilt die Verteilung der Werte der Zufallsvariablen in zwei Bereiche: Links vom $p$-Quantil liegen $100 \cdot p$ Prozent aller Beobachtungswerte bzw. $100 \cdot p$ Prozent der Gesamtzahl der Zufallswerte. Rechts davon liegen $100 \cdot (1-p)$ Prozent aller Beobachtungswerte bzw. $100 \cdot (1-p)$ Prozent der Gesamtzahl der Zufallswerte.
 
-Das Quartil ist das 0,25-Quantil.
+Die Quartile sind die 0,25- und 0,75-Quantile.
 
 $\alpha$-getrimmtes Stichprobenmittel: $\overline x_\alpha := \frac{1}{n-2k} \cdot (x_{n+1} + ... + x_{n-k})$
 Spezialfall: $\overline x = \overline x_0$
