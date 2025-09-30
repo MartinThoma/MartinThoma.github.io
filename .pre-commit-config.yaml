@@ -1,22 +1,40 @@
-# pre-commit run --all-files
+# Pre-commit configuration for blog quality assurance
+# Run with: pre-commit run --all-files
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  # Blog-specific auto-fixes
+  - repo: local
+    hooks:
+      - id: auto-fix-blog
+        name: Auto-fix Blog Articles
+        entry: python scripts/auto_fix_blog.py
+        language: system
+        files: '^content/.*\.md$'
+        description: 'Auto-fix numbers, tags, formatting in blog articles'
+        pass_filenames: false
+
+  # Standard pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-    -   id: check-added-large-files
-    -   id: check-byte-order-marker
-    -   id: check-case-conflict
-    -   id: check-json
+      - id: check-added-large-files
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-json
         files: \.(json)$
-    -   id: check-yaml
-    -   id: mixed-line-ending
-    -   id: end-of-file-fixer
+      - id: check-yaml
+        files: '^(?!content/).*\.ya?ml$'  # Exclude content files (front matter)
+      - id: mixed-line-ending
+      - id: end-of-file-fixer
         exclude: polyglot.py$
-    -   id: trailing-whitespace
+        files: '^content/.*\.md$'
+      - id: trailing-whitespace
         exclude: polyglot.py$
--   repo: https://github.com/asottile/blacken-docs
+        files: '^content/.*\.md$'
+
+  # Python code formatting
+  - repo: https://github.com/asottile/blacken-docs
     rev: v1.10.0
     hooks:
-    -   id: blacken-docs
+      - id: blacken-docs
         additional_dependencies: [black==19.10b0]
         args: [-t, py38]

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Einbau-Spots
 slug: einbau-spots
+lang: de
 author: Martin Thoma
 date: 2025-09-11 20:00
 category: My bits and bytes
