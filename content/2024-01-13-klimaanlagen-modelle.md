@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wärmepumpen: Klimaanlangen Modelle
 slug: klimaanlagen-modelle
+lang: de
 author: Martin Thoma
 date: 2024-01-13 20:00
 category: German posts
@@ -223,8 +223,8 @@ Etherea CS-Z35ZKEW + CU-Z35ZKE:
 LG Inverter, Deluxe Dualcool, Wandgeräte, DC12RH NSJ + DC12RH UL2:
 
 * [2950 €](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/lg-inverter-deluxe-dualcool-wandgeraete-dc12rh-nsj-dc12rh-ul2-fuer-ca-25m-35m-inkl-montage.html) mit Montage
-* SCOP: 4,6
-* SEER: 7,6
+* SCOP: 4.6
+* SEER: 7.6
 * Nennheizleistung 4.0 kW
 * R32
 
@@ -244,7 +244,7 @@ Wind-Free Elite AR09CXCAAWKN + AR09TXCAAWKX:
 * SCOP: 5.1 (-15 °C bis 24 °C)
 * SEER: 8.8 (-10 °C bis 46 °C)
 * Mit Bewegungssensor, [Produktseite](https://www.samsung.com/at/business/climate/windfree/)
-* Heizleistung: 3,2 kW (0,80 - 7,10)
+* Heizleistung: 3.2 kW (0.80 - 7.10)
 
 ### Toshiba
 
@@ -266,7 +266,7 @@ Edge RAS-B13G3KVSG-E + RAS-13J2AVSG-E1
 Haori RAS-B13N4KVRG-E + RAS-13J2AVSG-E1:
 
 * [1.511 €](https://www.climamarket.eu/de/split-toshiba-ras-b13n4kvrg-e-ras-13j2avsg-e1)
-* SEER / SCOP: 8,6 / 5,10
+* SEER / SCOP: 8.6 / 5.10
 * Heizleistung: 4.2 kW
 * Empfohlene Fläche: 25 - 35 m²
 * Kältemittel: R-32
@@ -288,12 +288,12 @@ Haori RAS-B13N4KVRG-E + RAS-13J2AVSG-E1:
         * MUZ: Mitsubishi Unit Zone; das Außengerät
     * Block 2
         * Präfix: Design-Serie
-            * [RW](https://www.mitsubishi-les.com/de-de/msz-rw-8259.html): SCOP bis 5,2/SEER bis 11,2
-            * [LN](https://www.mitsubishi-les.com/de-de/msz-ln-1896.html): SCOP bis 5,2/ SEER bis 10,5 (Diamond Wandgeräte)
-            * [AY](https://www.mitsubishi-les.com/de-de/msz-ay-8256.html): SCOP bis 4,8/SEER bis 8,7
-            * [FT](https://www.mitsubishi-les.com/de-de/msz-ft-8258.html): SCOP bis 4,8/SEER bis 8,6
-            * [EF](https://www.mitsubishi-les.com/de-de/msz-ef-1915.html): SCOP bis 4,7/SEER bis 9,1 (PREMIUM DESIGN-WANDGERÄTE; auch [Kirigamine ZEN](https://innovations.mitsubishi-les.com/files/pdf/de/ME-M-Serie-MSZ-EF-Broschuere-DE.pdf) genannt)
-            * [AP](https://www.mitsubishi-les.com/de-de/msz-ap-8320.html): SCOP bis 4,6/SEER bis 7.4
+            * [RW](https://www.mitsubishi-les.com/de-de/msz-rw-8259.html): SCOP bis 5.2/SEER bis 11.2
+            * [LN](https://www.mitsubishi-les.com/de-de/msz-ln-1896.html): SCOP bis 5.2/ SEER bis 10.5 (Diamond Wandgeräte)
+            * [AY](https://www.mitsubishi-les.com/de-de/msz-ay-8256.html): SCOP bis 4.8/SEER bis 8.7
+            * [FT](https://www.mitsubishi-les.com/de-de/msz-ft-8258.html): SCOP bis 4.8/SEER bis 8.6
+            * [EF](https://www.mitsubishi-les.com/de-de/msz-ef-1915.html): SCOP bis 4.7/SEER bis 9.1 (PREMIUM DESIGN-WANDGERÄTE; auch [Kirigamine ZEN](https://innovations.mitsubishi-les.com/files/pdf/de/ME-M-Serie-MSZ-EF-Broschuere-DE.pdf) genannt)
+            * [AP](https://www.mitsubishi-les.com/de-de/msz-ap-8320.html): SCOP bis 4.6/SEER bis 7.4
             * [HR](https://www.mitsubishi-les.com/de-de/dam-upload/aktionsflyer-cool-clever-fuer-fachhaendler.pdf?rev=199063): SCOP 4.3
         * 25/35 steht für die Kühlleistung, also 2.5 kW oder 3.5 kW
         * Suffix: VGK/VG2/VGW: Invertertechnologie und andere technische Merkmale
@@ -436,8 +436,8 @@ SOYAL 12 GWH12AKC-K6DNA1A
             * S: High
             * G: Highest
         * Zahl:
-            * 20: 20,000 BTU/h
-            * 35: 35,000 BTU/h
+            * 20: 20.000 BTU/h
+            * 35: 35.000 BTU/h
         * Major Design Category: A
         * Power Supply
             * V1: Einphasig

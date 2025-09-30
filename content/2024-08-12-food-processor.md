@@ -5,7 +5,7 @@ slug: food-processors
 lang: de
 author: Martin Thoma
 date: 2024-08-12 20:00
-category: My bits and bytes
+category: German posts
 tags: review
 featured_image: logos/star.png
 ---

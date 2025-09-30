@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Heizungsvergleich
 slug: heizungsvergleich
+lang: de
 author: Martin Thoma
 date: 2024-01-07 20:00
 category: German posts

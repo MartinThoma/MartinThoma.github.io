@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: de
 title: Textilien
 slug: textilien
+lang: de
 author: Martin Thoma
 date: 2024-12-07 20:00
-category: My bits and bytes
+category: German posts
 tags: stuff
 featured_image: logos/star.png
 ---

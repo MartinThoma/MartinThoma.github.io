@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: de
 title: Was mir Sorgen macht
 slug: was-mir-sorgen-macht
+lang: de
 author: Martin Thoma
 date: 2024-12-25 20:00
-category: My bits and bytes
+category: German posts
 tags: politics, Climate Change, Germany, United States
 featured_image: logos/star.png
 ---
@@ -29,7 +29,7 @@ massive Auswirkungen auf die Wirtschaft:
 
 * **Batterie-Elektrische Autos (BEVs) werden Verbrenner (ICEs) verdrängen**:
   2024 hingen 773.000 Arbeitsplätze in Deutschland direkt an der
-  Autoindustrie.<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small> Zählt man noch die Zulieferer dazu, sind es 1,75 Millionen
+  Autoindustrie.<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small> Zählt man noch die Zulieferer dazu, sind es 1.75 Millionen
   Arbeitsplätze.<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small> Das sind etwa 4% der deutschen Arbeitsplätze. Allerdings
   sind diese 4% überdurchschnittlich gut bezahlt. Mit dem Festklammern an
   Verbrennern können wir zwar unsere Marktsegmente bei den Verbrennern halten,

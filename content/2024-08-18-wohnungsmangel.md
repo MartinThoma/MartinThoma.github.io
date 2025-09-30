@@ -61,7 +61,7 @@ Das SPD-Bundestagswahlprogramm 2021 spricht von
 konnte mit diesem Ansatz keinen Erfolg erreichen.
 
 Auch die CDU/CSU erkennt "bezahlbaren Wohnraum" in ihrem Wahlprogramm als eine
-Herausforderung des Jahrzehnts an. Sie wollten von 2021 bis 2025 1,5 Millionen
+Herausforderung des Jahrzehnts an. Sie wollten von 2021 bis 2025 1.5 Millionen
 Wohnungen bauen. Dabei wollen sie durch schnellere Abschreibungsmöglichkeiten
 Investitionsanreize schaffen und Bauantragsgenehmigungen beschleunigen. Außerdem
 wollen sie den ÖPNV stärken um so Ballungsgebiete zu entlasten.
@@ -117,7 +117,7 @@ Wie viel Wohnfläche wäre das in etwa?
 * 45m² für die Sanitäranlagen pro Flur
 * 30m² für die Gemeinschaftsräume pro Flur
 
-Das wären 5400m² Wohnfläche. Bei 2500€/m² an Baukosten wären das 13,5 Millionen
+Das wären 5400m² Wohnfläche. Bei 2500€/m² an Baukosten wären das 13.5 Millionen
 Euro pro Haus. Also 70k Euro pro Student.
 
 Man könnte nun bundespolitisch für jede Stadt für jeden Studenten über 10 Jahre
@@ -146,7 +146,7 @@ Die Verwaltung des Wohnheims könnte - genau wie beim Hadiko - von Studenten
 * Stuttgart 21: 12.000 Millionen EUR
 * Elbphilharmonie Hamburg: 866 Millionen EUR
 * Frankfurt Main Tower: 350 Millionen EUR
-* Wohngeld für 12.826 Haushalte in Frankfurt 2023: 36,6 Millionen Euro
+* Wohngeld für 12826 Haushalte in Frankfurt 2023: 36.6 Millionen Euro
 
 
 Das wäre ein konkreter Plan. Er wäre umsetzbar, würde sowohl kurzfristig als

@@ -60,7 +60,7 @@ Categories to compare them are:
 * Battery: 1300mAh (30W USB-C charger), up to 166 minutes
 * Storage: Micro SD (up to 512GB)
 * Display: 2" with a resolution of 314 × 556, Touchscreen, 700 cd/m²
-* Portability: 179g, 139.7W × 42.2H × 33,5D (mm)
+* Portability: 179g, 139.7W × 42.2H × 33.5D (mm)
 * Connectivity: WiFi, Bluetooth (BLE 5.2), USB-C
 * Apps: [Apple](https://apps.apple.com/us/app/dji-mimo/id1431720653) / [Android](https://play.google.com/store/apps/details?id=dji.go.v5)
 * Kein GPS
@@ -71,7 +71,7 @@ Categories to compare them are:
 [GoPro HERO12 Black](https://www.amazon.de/GoPro-HERO12-Black-9-Zoll-Bildsensor-Live-Streaming/dp/B0CF3VVTLG/): 335€ ([Wikipedia](https://en.wikipedia.org/wiki/GoPro#HERO12), [specs](https://gopro.com/en/us/shop/cameras/hero12-black/CHDHX-121-master.html))
 
 * Video:
-    * 5,3K @ 60fps
+    * 5.3K @ 60fps
     *  1080 @ 60
     * HyperSmooth 6.0-Stabilisierung
 * Image:

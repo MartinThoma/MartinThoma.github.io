@@ -5,7 +5,7 @@ slug: was-mir-hoffnung-macht
 lang: de
 author: Martin Thoma
 date: 2024-12-26 20:00
-category: My bits and bytes
+category: German posts
 tags: Germany, politics, climate change, health
 featured_image: logos/star.png
 ---

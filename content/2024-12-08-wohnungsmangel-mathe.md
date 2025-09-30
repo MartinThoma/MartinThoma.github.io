@@ -5,7 +5,7 @@ slug: wohnungsmangel-mathe
 lang: de
 author: Martin Thoma
 date: 2024-12-08 20:00
-category: My bits and bytes
+category: German posts
 tags: mathematics, politics
 featured_image: logos/mathematics.png
 ---

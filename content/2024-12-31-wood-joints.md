@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Wood Joints
 slug: wood-joints
+lang: en
 author: Martin Thoma
 date: 2024-12-01 20:00
 category: My bits and bytes
