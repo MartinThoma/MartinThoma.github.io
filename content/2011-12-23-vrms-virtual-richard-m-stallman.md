@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: vrms - virtual Richard M. Stallman
+slug: vrms-virtual-richard-m-stallman
 author: Martin Thoma
 date: 2011-12-23 01:38:37.000000000 +01:00
 category: Code

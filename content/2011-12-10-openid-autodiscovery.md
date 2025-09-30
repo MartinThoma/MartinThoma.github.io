@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: OpenID autodiscovery
+slug: openid-autodiscovery
 author: Martin Thoma
 date: 2011-12-10 11:08:56.000000000 +01:00
 category: The Web

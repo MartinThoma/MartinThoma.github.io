@@ -1,5 +1,6 @@
 ---
 layout: page
+lang: de
 title: Fahrrad
 slug: sell/fahrrad
 status: draft
@@ -9,7 +10,6 @@ date: 2012-01-01 22:30
 category: Sell
 tags: Sell, Bike
 ---
-
 <div itemscope itemtype="http://schema.org/Product">
   <span itemprop="name">22 Zoll Kennhill Fahrrad</span>
   <img src="../../images/2016/05/fahrrad-1.jpg" alt="Fahrrad" />

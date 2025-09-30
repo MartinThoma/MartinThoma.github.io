@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie f&uuml;hre ich einen sauberen Beweis?
+slug: wie-fuhre-ich-einen-sauberen-beweis
 author: Martin Thoma
 date: 2011-10-23 13:07:29.000000000 +02:00
 category: German posts

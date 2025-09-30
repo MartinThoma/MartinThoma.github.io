@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Epic Translation Fails
+slug: epic-translation-fails
 author: Martin Thoma
 date: 2011-09-21 21:45:47.000000000 +02:00
 category: Cyberculture

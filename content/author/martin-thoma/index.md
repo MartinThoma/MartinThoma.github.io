@@ -1,5 +1,6 @@
 ---
 layout: page
+lang: en
 title: About Martin Thoma
 slug: author/martin-thoma
 save_as: author/martin-thoma/index.html

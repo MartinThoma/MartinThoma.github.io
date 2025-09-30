@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Joke: Electrical Engineering vs. Computer Science
+slug: joke-electrical-engineering-vs-computer-science
 author: Martin Thoma
 date: 2011-09-24 22:29:05.000000000 +02:00
 category: Code

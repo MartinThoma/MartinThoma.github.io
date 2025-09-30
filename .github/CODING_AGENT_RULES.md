@@ -21,11 +21,22 @@ Diese Datei enthält spezifische Regeln und Richtlinien für AI Coding Agents, d
 ---
 layout: post
 title: Beispiel Artikel
+slug: beispiel-artikel
 lang: de
 category: German posts
 tags: German, example
 ---
 ```
+
+### Slug-Tags
+**Regel:** Jeder Artikel muss ein `slug` Tag haben
+- **Ableitung:** Aus Dateinamen ohne Datums-Präfix und .md-Suffix
+- **Position:** Im YAML Front Matter nach `title`
+
+**Beispiele:**
+- `2025-09-23-pv-wirtschaftlichkeitsberechnung.md` → `slug: pv-wirtschaftlichkeitsberechnung`
+- `2024-12-31-wood-joints.md` → `slug: wood-joints`
+- `simple-filename.md` → `slug: simple-filename`
 
 ## 📊 Zahlenformatierung
 

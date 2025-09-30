@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: 5 Online Comic Websites
+slug: online-comic-websites
 author: Martin Thoma
 date: 2011-09-21 19:53:03.000000000 +02:00
 category: Cyberculture

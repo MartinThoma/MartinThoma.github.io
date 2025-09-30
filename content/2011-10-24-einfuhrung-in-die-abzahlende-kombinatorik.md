@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Einf&uuml;hrung in die abz&auml;hlende Kombinatorik
+slug: einfuhrung-in-die-abzahlende-kombinatorik
 author: Martin Thoma
 date: 2011-10-24 20:53:41.000000000 +02:00
 category: German posts

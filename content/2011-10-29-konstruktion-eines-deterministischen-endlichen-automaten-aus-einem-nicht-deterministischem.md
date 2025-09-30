@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem
+slug: konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem
 author: Martin Thoma
 date: 2011-10-29 10:21:43.000000000 +02:00
 category: German posts

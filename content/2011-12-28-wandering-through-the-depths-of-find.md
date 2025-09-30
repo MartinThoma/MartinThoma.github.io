@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Wandering through the depths of find
+slug: wandering-through-the-depths-of-find
 author: Martin Thoma
 date: 2011-12-28 16:01:18.000000000 +01:00
 category: Code

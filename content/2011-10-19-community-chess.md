@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Community Chess
+slug: community-chess
 author: Martin Thoma
 date: 2011-10-19 12:30:01.000000000 +02:00
 category: The Web

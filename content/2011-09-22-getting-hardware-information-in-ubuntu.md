@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Getting Hardware Information in Ubuntu
+slug: getting-hardware-information-in-ubuntu
 author: Martin Thoma
 date: 2011-09-22 20:44:21.000000000 +02:00
 category: Code

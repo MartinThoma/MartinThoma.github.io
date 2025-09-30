@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Python: Check Wiki-references for citation template
+slug: python-check-wiki-references-for-citation-template
 author: Martin Thoma
 date: 2011-09-24 11:39:40.000000000 +02:00
 category: Code

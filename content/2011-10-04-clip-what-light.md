@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Clip: What Light
+slug: clip-what-light
 author: Martin Thoma
 date: 2011-10-04 23:07:51.000000000 +02:00
 category: The Web

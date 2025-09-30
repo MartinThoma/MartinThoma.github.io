@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to use magic rescue
+slug: how-to-use-magic-rescue
 author: Martin Thoma
 date: 2011-12-17 13:02:47.000000000 +01:00
 category: Code

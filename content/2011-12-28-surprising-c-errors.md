@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Surprising C errors
+slug: surprising-c-errors
 author: Martin Thoma
 date: 2011-12-28 15:18:43.000000000 +01:00
 category: Code

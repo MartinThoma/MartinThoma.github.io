@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Improvements for my University's Website
+slug: improvements-for-my-universitys-website
 author: Martin Thoma
 date: 2011-10-22 20:55:05.000000000 +02:00
 category: The Web

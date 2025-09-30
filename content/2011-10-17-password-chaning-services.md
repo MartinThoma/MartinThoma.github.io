@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Password Changing Services
+slug: password-chaning-services
 author: Martin Thoma
 date: 2011-10-17 08:10:43.000000000 +02:00
 category: The Web

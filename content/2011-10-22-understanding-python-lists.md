@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Understanding Python Lists
+slug: understanding-python-lists
 author: Martin Thoma
 date: 2011-10-22 23:01:55.000000000 +02:00
 category: Code

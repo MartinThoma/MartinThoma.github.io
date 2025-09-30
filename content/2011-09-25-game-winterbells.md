@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Game: Winterbells
+slug: game-winterbells
 author: Martin Thoma
 date: 2011-09-25 10:12:43.000000000 +02:00
 category: The Web

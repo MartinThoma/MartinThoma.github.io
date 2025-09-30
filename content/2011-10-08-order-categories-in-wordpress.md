@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Order categories in WordPress
+slug: order-categories-in-wordpress
 author: Martin Thoma
 date: 2011-10-08 14:18:19.000000000 +02:00
 category: The Web

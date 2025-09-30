@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: WarLight: An online Risk clone
+slug: warlight-an-online-risk-clone
 author: Martin Thoma
 date: 2011-10-21 06:36:09.000000000 +02:00
 category: The Web

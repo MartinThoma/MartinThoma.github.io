@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie f&uuml;hre ich einen Induktionsbeweis?
+slug: wie-fuhre-ich-einen-induktionsbeweis
 author: Martin Thoma
 date: 2011-11-01 01:29:35.000000000 +01:00
 category: German posts

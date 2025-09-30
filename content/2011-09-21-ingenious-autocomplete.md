@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Ingenious Autocomplete
+slug: ingenious-autocomplete
 author: Martin Thoma
 date: 2011-09-21 21:48:03.000000000 +02:00
 category: Cyberculture

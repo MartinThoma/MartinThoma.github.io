@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Motion of the sun
+slug: motion-of-the-sun
 author: Martin Thoma
 date: 2011-10-02 09:25:07.000000000 +02:00
 category: The Web

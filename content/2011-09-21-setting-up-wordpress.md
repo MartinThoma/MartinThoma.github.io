@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Setting up WordPress
+slug: setting-up-wordpress
 author: Martin Thoma
 date: 2011-09-21 19:36:18.000000000 +02:00
 category: The Web

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Polyglots - Crazy Programming Stuff
+slug: polyglots-crazy-programming-stuff
 author: Martin Thoma
 date: 2011-09-21 19:28:02.000000000 +02:00
 category: Code

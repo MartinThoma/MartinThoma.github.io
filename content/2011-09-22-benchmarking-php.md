@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Benchmarking PHP
+slug: benchmarking-php
 author: Martin Thoma
 date: 2011-09-22 13:06:12.000000000 +02:00
 category: Code

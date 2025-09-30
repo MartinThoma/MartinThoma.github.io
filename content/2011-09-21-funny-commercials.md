@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Funny Commercials
+slug: funny-commercials
 author: Martin Thoma
 date: 2011-09-21 22:24:17.000000000 +02:00
 category: The Web

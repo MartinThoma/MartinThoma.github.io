@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Pr&auml;dikatenlogik: Aussagen formalisieren
+slug: pradikatenlogik-aussagen-formalisieren
 author: Martin Thoma
 date: 2011-10-29 15:12:33.000000000 +02:00
 category: German posts

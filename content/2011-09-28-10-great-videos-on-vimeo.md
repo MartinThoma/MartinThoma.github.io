@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: 10 Great Videos on Vimeo
+slug: 10-great-videos-on-vimeo
 author: Martin Thoma
 date: 2011-09-28 11:55:23.000000000 +02:00
 category: The Web

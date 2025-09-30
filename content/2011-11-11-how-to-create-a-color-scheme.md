@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to create a color scheme
+slug: how-to-create-a-color-scheme
 author: Martin Thoma
 date: 2011-11-11 08:22:09.000000000 +01:00
 category: The Web

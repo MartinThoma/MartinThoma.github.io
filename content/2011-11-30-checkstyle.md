@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Checkstyle
+slug: checkstyle
 author: Martin Thoma
 date: 2011-11-30 21:59:40.000000000 +01:00
 category: Code

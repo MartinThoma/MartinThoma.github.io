@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Browser Wars
+slug: browser-wars
 author: Martin Thoma
 date: 2011-09-21 22:18:48.000000000 +02:00
 category: The Web

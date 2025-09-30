@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: for loops in different programming languages
+slug: for-loops-in-different-programming-languages
 author: Martin Thoma
 date: 2011-12-04 11:19:54.000000000 +01:00
 category: Code
