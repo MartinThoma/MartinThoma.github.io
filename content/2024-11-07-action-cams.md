@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Action Cams
 slug: action-cams
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: products
 featured_image: logos/star.png
 status: draft
 ---
-
 Action Cams are small, robust cameras which are often used for sports. They are
 often mounted on helmets, bikes, or cars. The most famous brand is GoPro.
 

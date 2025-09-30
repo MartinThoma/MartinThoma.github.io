@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: JSON encoding/decoding with Python
 slug: json-encoding-decoding
 URL: https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a

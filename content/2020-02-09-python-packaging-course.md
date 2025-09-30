@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Packaging Course
 slug: python-packaging-course
 author: Martin Thoma

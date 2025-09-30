@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Eisspeicher
 slug: eisspeicher
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Politische Dimensionen
 slug: politische-dimensionen
 author: Martin Thoma

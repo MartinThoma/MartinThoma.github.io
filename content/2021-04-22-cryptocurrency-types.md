@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The 7 Types of Cryptocurrencies You Must Know
 subtitle: Coins, Utility and Security tokens, Stablecoins and NFTs: Bringing order to an ecosystem
 slug: cryptocurrency-types

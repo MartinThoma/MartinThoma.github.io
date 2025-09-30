@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: 365 Hauptgerichte
 slug: 365-main-dishes-gpt
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: German posts
 tags: food
 featured_image: logos/food.png
 ---
-
 Falls jemand etwas inspiration Sucht: Hier sind 365 Hauptgerichte. Das wurde mit
 ChatGPT im April 2023 generiert; ich habs strutkuriert und kategorisiert.
 Irgendwann will ich die alle mal machen 😄

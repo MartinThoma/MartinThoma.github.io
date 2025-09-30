@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Full Disk Encryption 😇
 subtitle: Keep your data private, even if you lose your device
 slug: full-disk-encryption

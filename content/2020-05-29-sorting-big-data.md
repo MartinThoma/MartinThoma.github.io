@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Sorting Big Data
 slug: sorting-big-data
 author: Martin Thoma

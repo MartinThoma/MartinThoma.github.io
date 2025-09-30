@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Coronavirus disease 2019
 slug: covid-19
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pythons super() function
 slug: pythons-super
 author: Martin Thoma

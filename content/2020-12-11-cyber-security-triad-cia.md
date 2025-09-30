@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The Cyber Security Triad
 subtitle: It’s the CIA 🕵 — but maybe not what you think
 slug: cyber-security-triad-cia

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 5 Applications of Digital Signatures
 subtitle: Learn what they are and how they are used
 slug: digital-signatures

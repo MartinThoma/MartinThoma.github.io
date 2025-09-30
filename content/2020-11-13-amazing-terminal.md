@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to get an amazing Terminal
 subtitle: In Windows and Linux; including prompts, fonts, and colors
 slug: amazing-terminal

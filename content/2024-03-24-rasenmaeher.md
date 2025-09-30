@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Rasenmäher
 slug: rasenmaeher
 author: Martin Thoma

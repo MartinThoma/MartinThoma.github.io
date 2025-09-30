@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Maximum Fixed-Length Contiguous Subarray
 slug: maximum-fixed-length-contiguous-subarray
 author: Martin Thoma

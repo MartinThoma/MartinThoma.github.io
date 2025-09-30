@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Interior Design Styles
 slug: interior-design-styles
 author: Martin Thoma

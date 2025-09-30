@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Politik gegen Wohnungsmangel
 slug: wohnungsmangel
 author: Martin Thoma

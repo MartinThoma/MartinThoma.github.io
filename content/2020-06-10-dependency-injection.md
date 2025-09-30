@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Dependency Injection
 slug: dependency-injection
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: House Building
 slug: house-building
 author: Martin Thoma

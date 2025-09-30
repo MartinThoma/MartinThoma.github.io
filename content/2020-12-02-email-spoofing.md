@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Email Spoofing 😈
 subtitle: Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC
 slug: email-spoofing

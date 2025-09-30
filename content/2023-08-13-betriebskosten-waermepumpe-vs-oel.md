@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Betriebskosten: Wärmepumpe vs Ölheizung
 slug: betriebskosten-waermepumpe-vs-oelheizung
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Localization vs Internationalization
 slug: localization-vs-internationalization
 URL: https://medium.com/plain-and-simple/localization-vs-internationalization-fd2561dfdbcb

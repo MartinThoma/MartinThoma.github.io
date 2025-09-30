@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How I moved a library from Python 2 to 3
 slug: python-2to3-library
 URL: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1

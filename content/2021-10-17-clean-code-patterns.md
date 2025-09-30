@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 9 Clean Code Patterns I wish I knew earlier
 slug: clean-code-patterns
 URL: https://towardsdatascience.com/9-clean-code-patterns-i-wish-i-knew-earlier-57ee56c5892

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Leaking Secrets 😇
 slug: leaking-secrets
 URL: https://levelup.gitconnected.com/leaking-secrets-240a3484cb80

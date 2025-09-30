@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Zeitdilatation
 slug: zeitdilatation
 author: Martin Thoma

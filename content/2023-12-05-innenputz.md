@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Innenputz
 slug: innenputz
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: house
 featured_image: logos/house.png
 ---
-
 <table>
     <thead>
         <tr>

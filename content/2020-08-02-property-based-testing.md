@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Property-based Testing
 slug: https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119
 author: Martin Thoma

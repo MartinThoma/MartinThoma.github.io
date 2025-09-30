@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Heizlastberechnung
 slug: heizlastberechnung
 author: Martin Thoma

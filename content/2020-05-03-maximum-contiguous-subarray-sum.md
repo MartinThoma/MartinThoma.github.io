@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Maximum Contiguous Subarray Sum
 slug: maximum-subarray-sum
 author: Martin Thoma

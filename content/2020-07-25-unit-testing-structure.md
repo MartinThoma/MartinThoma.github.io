@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Structuring Unit Tests
+slug: unit-testing-structure
 URL: https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923
 author: Martin Thoma
 date: 2020-07-25 20:00

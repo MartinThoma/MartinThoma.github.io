@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Earth to Moon
 slug: earth-to-moon
 author: Martin Thoma

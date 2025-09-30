@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Application
 slug: python-applications
 author: Martin Thoma
@@ -9,8 +10,6 @@ category: Code
 tags: Python
 featured_image: logos/star.png
 ---
-
-
 ## Create Executables
 
 [pex](https://pex.readthedocs.io/en/stable/) provides a general purpose Python

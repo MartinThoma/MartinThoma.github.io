@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Is it worth changing the Lightbulb?
 subtitle: Switching for a more efficient lightbulb for economic reasons
 slug: is-it-worth-changing-the-lightbulb
@@ -10,7 +11,6 @@ category: Cyberculture
 tags: Rating
 featured_image: logos/lightbulb-on.png
 ---
-
 ![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](https://cdn-images-1.medium.com/max/2112/1*YJLn3Pu-nEKaURU-MaxMjw.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
 
 Electricity is pretty expensive in Germany. We pay around 0.30 EUR/kWh. A normal two person household uses around 2500 kWh/year which makes 750 EUR per year for electricity. This means it’s worth to think about reducing the cost.

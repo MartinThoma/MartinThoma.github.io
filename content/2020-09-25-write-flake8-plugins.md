@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to write Flake8 plugins 😍
 slug: write-flake8-plugins
 URL: https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2

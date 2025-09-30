@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Designing Event-Driven Systems in Local Python Applications
 slug: event-driven-software
 url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4

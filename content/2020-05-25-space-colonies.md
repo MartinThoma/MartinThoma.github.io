@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Self-sustaining Space Colonies
 slug: space-colonies
 author: Martin Thoma

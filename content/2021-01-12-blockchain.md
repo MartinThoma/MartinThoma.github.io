@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The Blockchain
 subtitle: An Introduction to Blockchain, Bitcoin ₿, and related concepts
 slug: blockchain

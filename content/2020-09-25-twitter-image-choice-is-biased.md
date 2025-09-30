@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How Twitter’s Image Choice is Biased
 slug: twitter-image-choice-is-biased
 URL: https://towardsdatascience.com/how-twitters-image-choice-is-biased-8d3f0ba63379

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Matrix Multiplication: 2020 Update
 slug: matrix-multiplication-2020
 author: Martin Thoma

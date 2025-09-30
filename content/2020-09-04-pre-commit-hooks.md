@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pre-commit hooks
 slug: pre-commit-hooks
 URL: https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e

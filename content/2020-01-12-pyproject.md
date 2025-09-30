@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: pyproject.toml
 slug: pyproject-toml
 author: Martin Thoma

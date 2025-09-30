@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Wood Joints
 slug: wood-joints
 author: Martin Thoma

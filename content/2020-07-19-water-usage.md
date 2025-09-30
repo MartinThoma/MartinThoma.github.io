@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Water Usage
 slug: water-usage
 author: Martin Thoma

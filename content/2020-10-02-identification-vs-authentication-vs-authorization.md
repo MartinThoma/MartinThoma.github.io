@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Identification vs Authentication vs Authorization
 slug: identification-authentication-authorization
 URL: https://medium.com/plain-and-simple/identification-vs-authentication-vs-authorization-e1f03a0ca885

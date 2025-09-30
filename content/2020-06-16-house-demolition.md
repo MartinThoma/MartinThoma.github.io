@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: House Demolition
 slug: house-demolition
 author: Martin Thoma

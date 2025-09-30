@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Dämmstoffe
 slug: daemstoffe
 author: Martin Thoma

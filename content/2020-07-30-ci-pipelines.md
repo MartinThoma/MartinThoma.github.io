@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: CI Pipelines
 slug: ci-pipelines
 URL: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38

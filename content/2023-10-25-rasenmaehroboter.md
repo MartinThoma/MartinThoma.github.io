@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Rasenmähroboter
 slug: rasenmaehroboter
 author: Martin Thoma

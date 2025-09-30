@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Hooks vs Callbacks vs Webhooks
 subtitle: How do I use them and where is the difference?
 slug: hooks-vs-callbacks-vs-webhooks

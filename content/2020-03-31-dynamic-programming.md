@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Dynamic Programming
 slug: dynamic-programming
 author: Martin Thoma

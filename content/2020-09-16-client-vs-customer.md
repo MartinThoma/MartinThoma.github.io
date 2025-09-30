@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Client vs Customer
 slug: client-vs-customer
 URL: https://medium.com/plain-and-simple/client-vs-customer-df3d6a9011a8

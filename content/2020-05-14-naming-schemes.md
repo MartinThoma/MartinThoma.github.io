@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Naming Styles
 slug: naming-styles
 author: Martin Thoma

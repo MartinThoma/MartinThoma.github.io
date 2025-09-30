@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Alternativen für die alte Ölheizung
 slug: oelheizung-alternativen
 author: Martin Thoma

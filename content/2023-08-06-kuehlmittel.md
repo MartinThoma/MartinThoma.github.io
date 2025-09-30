@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Kühlmittel
 slug: kuehlmittel
 author: Martin Thoma

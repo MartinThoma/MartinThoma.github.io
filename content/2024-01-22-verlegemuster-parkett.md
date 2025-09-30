@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Parkett-Verlegemuster
 slug: parkett-verlegemuster
 author: Martin Thoma
@@ -9,9 +10,6 @@ tags: money, house
 featured_image: logos/house.png
 status: draft
 ---
-
-
-
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/rustikales-eichenparkett-schiffsbodenmuster.jpg"><img src="../images/2024/01/rustikales-eichenparkett-schiffsbodenmuster.jpg" alt="Rustikales Eichenparkett im Schiffsbodenmuster verlegt" style="max-height: 512px"/></a>
     <figcaption class="text-center">Rustikales Eichenparkett im Schiffsbodenmuster verlegt</figcaption>

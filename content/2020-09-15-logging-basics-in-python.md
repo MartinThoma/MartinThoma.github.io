@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Logging Basics in Python
 slug: logging-basics-in-python
 URL: https://towardsdatascience.com/logging-basics-in-python-d0db13e538f9

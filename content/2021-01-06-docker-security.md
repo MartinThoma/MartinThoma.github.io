@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Docker Security 😇
 subtitle: A hands-on guide to security for Docker
 slug: docker-security

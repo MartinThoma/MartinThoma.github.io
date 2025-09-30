@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Reichtum in Deutschland
 slug: reichtum-in-deutschland
 author: Martin Thoma

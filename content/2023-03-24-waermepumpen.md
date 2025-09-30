@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wärmepumpen
 slug: waermepumpen
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: In-Ear Headphones
 slug: in-ear-headphones
 author: Martin Thoma

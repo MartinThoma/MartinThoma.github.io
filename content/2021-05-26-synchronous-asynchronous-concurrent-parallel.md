@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Synchronous vs Asynchronous vs Concurrent vs Parallel
 subtitle: What is the difference and why does it matter?
 slug: synchronous-asynchronous-concurrent-parallel

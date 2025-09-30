@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How I reduced my Hosting Costs
 slug: reduce-hosting-costs
 author: Martin Thoma

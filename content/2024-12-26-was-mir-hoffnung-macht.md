@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Was mir Hoffnung macht
 slug: was-mir-hoffnung-macht
 author: Martin Thoma

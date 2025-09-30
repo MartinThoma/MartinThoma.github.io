@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Customer Segmentation
 slug: customer-segmentation
 author: Martin Thoma

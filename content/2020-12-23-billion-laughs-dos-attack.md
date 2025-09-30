@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: DOS via a billion laughs 😈
 subtitle: Consume arbitrary much RAM by repeated referencing
 slug: billion-laughs-dos

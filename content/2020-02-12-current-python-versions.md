@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Current Python Versions
 slug: current-python-versions
 author: Martin Thoma

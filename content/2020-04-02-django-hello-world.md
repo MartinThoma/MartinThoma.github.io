@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Django Hello World
 slug: django-hello-world
 author: Martin Thoma

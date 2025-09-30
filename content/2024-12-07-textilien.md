@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Textilien
 slug: textilien
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: File Encryption
 slug: file-encryption
 author: Martin Thoma

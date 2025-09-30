@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Betriebskosten: Betriebskosten einer Holz-Heizung
 slug: betriebskosten-holz-heizung
 author: Martin Thoma

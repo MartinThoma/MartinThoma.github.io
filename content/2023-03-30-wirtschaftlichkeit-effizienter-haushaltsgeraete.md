@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wirtschaftlichkeit von effizienten Haushaltsgeräten
 slug: wirtschaftlichkeit-effizienter-haushaltsgeraete
 author: Martin Thoma

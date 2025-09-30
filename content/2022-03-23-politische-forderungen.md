@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Politische Forderungen
 slug: politische-forderungen
 status: draft

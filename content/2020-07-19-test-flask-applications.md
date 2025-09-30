@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to Test Flask Applications
+slug: test-flask-applications
 URL: https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c
 author: Martin Thoma
 date: 2020-07-19 20:00

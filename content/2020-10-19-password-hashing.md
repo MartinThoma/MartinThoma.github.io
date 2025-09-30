@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Password Hashing  😇
 slug: password-hashing
 URL: https://levelup.gitconnected.com/password-hashing-eb3b97684636

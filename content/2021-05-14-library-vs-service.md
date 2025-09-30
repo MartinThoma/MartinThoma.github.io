@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Library vs Service: 7 Arguments to consider
 subtitle: Learn what the difference is and when to use which
 slug: library-vs-service

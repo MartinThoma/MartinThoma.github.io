@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Weißbrot
 slug: weissbrot-rezept
 author: Martin Thoma

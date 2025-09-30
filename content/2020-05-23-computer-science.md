@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Computer Science
 slug: computer-science
 author: Martin Thoma

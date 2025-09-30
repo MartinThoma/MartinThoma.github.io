@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Hauswert Bestimmen
 slug: hauswert-bestimmen
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Brauchwasser Wärmepumpe
 slug: brauchwasser-waermepumpe
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: German posts
 tags: house, money
 featured_image: logos/house.png
 ---
-
 ## Kriterien
 
 * Wasservolumen (in Liter): ca. 250L-300L?

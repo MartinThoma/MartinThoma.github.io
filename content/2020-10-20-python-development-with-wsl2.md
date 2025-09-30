@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: A Beginner’s Guide to Python Development on Windows 10
 slug: python-development-with-wsl2
 URL: https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483

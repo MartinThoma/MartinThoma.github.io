@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Haus-Projekte
 slug: haus-projekte
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: diy,house
 featured_image: logos/star.png
 ---
-
 ## Haus
 
 1. Sockel neu machen

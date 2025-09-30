@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Raw SQL vs Query Builder vs ORM
+slug: raw-sql-vs-query-builder-vs-orm
 URL: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
 author: Martin Thoma
 date: 2020-05-17 20:00

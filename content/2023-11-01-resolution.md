@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Resolutions
 slug: resolutions
 author: Martin Thoma

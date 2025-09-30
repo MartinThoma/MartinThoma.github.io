@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: HTTPS vs SSL vs TLS
 subtitle: What they are and what the differences are
 slug: https-ssl-tls
@@ -10,7 +11,6 @@ category: Code
 tags: Protocols, HTTPS, AppSec, InfoSec
 featured_image: logos/star.png
 ---
-
 ![Image by Martin Thoma](https://cdn-images-1.medium.com/max/4810/1*BsJuDWE_7AozmMmahpJ47A.png)*Image by Martin Thoma*
 
 HTTPS, SSL, and TLS are all related to encrypted (“secure”) internet connections. The problem they solve is that a [man in the middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) could read the data you receive or send. It is clearly an issue when you log in to your bank or when you send messages via Twitter / Facebook that should be private. Similarly, you might not want people to know what you are interested in or what you don’t know when you use Wikipedia.

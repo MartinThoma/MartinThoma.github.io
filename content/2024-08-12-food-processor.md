@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Food Processors
 slug: food-processors
 author: Martin Thoma

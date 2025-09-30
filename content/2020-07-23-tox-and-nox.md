@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Unit Testing in Python  —  tox and nox
+slug: tox-and-nox
 URL: https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729
 author: Martin Thoma
 date: 2020-07-23 20:00

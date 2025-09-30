@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Game Consoles
 slug: game-consoles
 author: Martin Thoma

@@ -1,8 +1,9 @@
 ---
 layout: post
+lang: en
 title: Unit Testing in Python — Patching, Mocks and Dependency Injection
+slug: unit-testing-patching
 URL: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
-alias: unit-testing-basics
 author: Martin Thoma
 date: 2020-07-09 17:00
 category: Code

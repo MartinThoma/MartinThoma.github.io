@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Migrate to Python 3
 slug: migrate
 author: Martin Thoma

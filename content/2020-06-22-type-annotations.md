@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Type Annotations in Python 3.8
 URL: https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d
 slug: type-annotations

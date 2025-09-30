@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Insecure Deserialization 😈🐝
 slug: insecure-deserialization
 URL: https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e

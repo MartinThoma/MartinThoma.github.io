@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Safe vs Secure
 slug: safe-vs-secure
 URL: https://medium.com/plain-and-simple/safe-vs-secure-456ba5ebe95b

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Static Code Analysis for Python
 slug: static-code-analysis
 URL: https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287

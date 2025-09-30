@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Der perfekte Neubau
 slug: perfekter-neubau
 author: Martin Thoma

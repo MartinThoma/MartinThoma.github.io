@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Bundestagswahl 2021
 slug: bundestagswahl-2021
 author: Martin Thoma

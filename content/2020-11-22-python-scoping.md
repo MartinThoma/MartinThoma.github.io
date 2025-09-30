@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pythons Scoping Rules
 subtitle: The extraordinary short guide to Pythons crazy scoping rules
 slug: python-scoping-rules

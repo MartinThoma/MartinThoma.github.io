@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Software Architecture
 slug: software-architecture
 author: Martin Thoma

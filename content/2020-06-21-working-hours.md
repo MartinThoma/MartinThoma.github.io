@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Working Hours
 slug: working-hours
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The UTXO model
 subtitle: A technical cornerstone of Bitcoin
 slug: utxo-model

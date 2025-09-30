@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Nebenkosten
 slug: Hausgeld
 author: Martin Thoma

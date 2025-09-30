@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Floyds Algorithm
 slug: floyds-algorithm
 author: Martin Thoma

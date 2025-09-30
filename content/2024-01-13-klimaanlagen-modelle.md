@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Wärmepumpen: Klimaanlangen Modelle
 slug: klimaanlagen-modelle
 author: Martin Thoma

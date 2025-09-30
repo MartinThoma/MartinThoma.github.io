@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Code Golf: Brackets Check
 slug: brackets-check
 author: Martin Thoma

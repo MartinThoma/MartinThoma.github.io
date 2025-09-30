@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Authentication vs Authorization
 slug: authentication-vs-authorization
 author: Martin Thoma

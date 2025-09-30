@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: ebook readers
 slug: ebook-readers
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: devices
 featured_image: logos/star.png
 ---
-
 <table>
     <tr>
         <th></th>

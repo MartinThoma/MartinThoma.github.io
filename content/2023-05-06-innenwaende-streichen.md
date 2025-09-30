@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Innenwände Streichen
 slug: innenwaende-streichen
 author: Martin Thoma

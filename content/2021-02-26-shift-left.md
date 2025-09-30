@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Shift Left: 7 Stages to Speed up Application Development while Improving Quality
 subtitle: Let’s do it in an agile way
 slug: shift-left

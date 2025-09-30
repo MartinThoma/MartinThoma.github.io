@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Abandoned domains are a security issue
 slug: abandoned-domains
 author: Martin Thoma

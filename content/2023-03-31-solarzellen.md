@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Solaranlagen
 slug: solaranlagen
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: house, money
 status: draft
 featured_image: logos/house.png
 ---
-
 ## Photovoltaik vs Solarthermie
 
 Solaranlagen sind eine zunehmend beliebte Methode, um umweltfreundliche und

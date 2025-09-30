@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Packaging in Python: Tools and Format
 subtitle: 16 solutions to 9 problems — which ones do you know?
 slug: python-packaging-tools-and-formats

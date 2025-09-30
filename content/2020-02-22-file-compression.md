@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: File Compression
 slug: file-compression
 author: Martin Thoma

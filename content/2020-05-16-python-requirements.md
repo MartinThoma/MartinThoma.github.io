@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Requirements
 slug: python-requirements
 author: Martin Thoma

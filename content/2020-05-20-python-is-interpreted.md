@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python is interpreted
 slug: python-is-interpreted
 author: Martin Thoma

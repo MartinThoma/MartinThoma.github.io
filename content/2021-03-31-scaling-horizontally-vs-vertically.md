@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Scaling Vertically vs Scaling Horizontally
 subtitle: Be smart or throw money at the problem
 URL: https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925

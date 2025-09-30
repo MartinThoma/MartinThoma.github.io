@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Stromtarife
 slug: stromtarife
 author: Martin Thoma
@@ -8,8 +9,6 @@ category: German posts
 tags: house, money
 featured_image: logos/house.png
 ---
-
-
 ## Stromnetz Grundlagen
 
 Das Stromnetz ist das System aus Leitungen, Umspannwerken und anderen

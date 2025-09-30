@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to build reliable Software
 slug: reliable-software
 author: Martin Thoma

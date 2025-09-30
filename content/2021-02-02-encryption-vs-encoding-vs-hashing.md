@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Encryption vs Encoding vs Hashing
 subtitle: They might appear in the same context, but they are vastly different
 slug: encryption-vs-encoding-vs-hashing
@@ -10,7 +11,6 @@ category: Code
 tags: hash, encryption, security, encoding
 featured_image: logos/star.png
 ---
-
 **Encryption is about keeping a secret** and being able to restore it. **Hashing is about fingerprinting** — you don’t need to restore the original, but you need to make sure it is identical. **Encoding is about data representation to enable information exchange**. Encoding does not involve keeping secrets.
 
 This was my Twitter-length explanation. Let’s dive into details!

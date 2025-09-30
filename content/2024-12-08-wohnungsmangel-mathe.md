@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Die Mathematik hinter dem Wohnungsmangel
 slug: wohnungsmangel-mathe
 author: Martin Thoma

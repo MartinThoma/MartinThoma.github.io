@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 6 Alternatives to Classes in Python
 subtitle: Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine
 slug: 6-alternatives-to-classes

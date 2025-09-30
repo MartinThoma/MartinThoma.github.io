@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Der Weg zum Eigenheim
 slug: eigenheim
 author: Martin Thoma

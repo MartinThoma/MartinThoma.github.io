@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Mutation Testing
+slug: mutation-testing
 URL: https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8
 author: Martin Thoma
 date: 2020-08-10 20:00

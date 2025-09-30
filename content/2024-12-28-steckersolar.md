@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Steckersolargeräte (Balkonkraftwerke)
 slug: steckersolar
 author: Martin Thoma

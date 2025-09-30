@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pytest Plugins to Love ❤️
 slug: pytest-plugins
 URL: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22

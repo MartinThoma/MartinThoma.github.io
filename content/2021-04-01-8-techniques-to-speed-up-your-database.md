@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 8 Techniques To Speed up Your Database
 subtitle: “If everything seems under control, you’re not going fast enough”
 slug: 8-techniques-to-speed-up-your-db

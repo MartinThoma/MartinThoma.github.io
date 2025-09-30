@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Online-Schule
 slug: online-schule
 author: Martin Thoma

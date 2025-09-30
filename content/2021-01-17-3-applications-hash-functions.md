@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The 3 Applications of Hash Functions
 subtitle: What they are, what the options are, and why they matter
 slug: 3-applications-of-hash-functions

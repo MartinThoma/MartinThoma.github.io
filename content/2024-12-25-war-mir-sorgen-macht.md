@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Was mir Sorgen macht
 slug: was-mir-sorgen-macht
 author: Martin Thoma

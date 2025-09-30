@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Merkle Trees
 subtitle: The concept and applications - plain and simple!
 slug: merkle-trees

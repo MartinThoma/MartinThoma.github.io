@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: SQL Injections 😈
 slug: sql-injections
 URL: https://medium.com/faun/sql-injections-e8bc9a14c95

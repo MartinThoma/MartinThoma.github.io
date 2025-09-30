@@ -1,8 +1,9 @@
 ---
 layout: post
+lang: en
 title: Killer Features by Python Version
+slug: python-killer-features
 URL: https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8
-alias: python-killer-features
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: My bits and bytes
