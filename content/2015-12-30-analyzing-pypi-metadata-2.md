@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Analyzing PyPI Data - 2
 slug: analyzing-pypi-metadata-2
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Code
 tags: Python, Community, SQL, PyPI
 featured_image: logos/python.png
 ---
-
 <div class="info">This is part two of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
 
 I've recently got a request to expand my analysis of the Python Package Index

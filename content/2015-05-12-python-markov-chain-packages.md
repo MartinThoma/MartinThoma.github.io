@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Python Markov Chain Packages
+slug: python-markov-chain-packages
 author: Martin Thoma
 date: 2015-05-12 20:45
 category: Code

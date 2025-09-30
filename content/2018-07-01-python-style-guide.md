@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Style Guide
 slug: python-style-guide
 author: Martin Thoma

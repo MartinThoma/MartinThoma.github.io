@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Shortfilms, Part II
+slug: shortfilms-part-ii
 author: Martin Thoma
 date: 2012-08-02 23:59:53.000000000 +02:00
 category: The Web

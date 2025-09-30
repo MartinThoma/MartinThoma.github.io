@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Puzzle #11: Change argument of foreach
+slug: java-puzzle-11-change-argument-of-foreach
 author: Martin Thoma
 date: 2012-10-14 21:15:43.000000000 +02:00
 category: Code

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Classification with PyBrain
+slug: classification-with-pybrain
 author: Martin Thoma
 date: 2014-06-16 01:02
 category: Machine Learning
 tags: Python, PyBrain, Neural Networks, Classification, AI, Machine Learning
 featured_image: logos/pybrain.png
 ---
-
 PyBrain is a Python library for machine learning. It's in version 0.31 and
 the last change is 2 months ago ([source](https://github.com/pybrain/pybrain)).
 The source code is licensed under [BSD 3 Clause License](https://tldrlegal.com/license/bsd-3-clause-license-(revised)). The [documentation](http://pybrain.org/docs/) is usable, but for

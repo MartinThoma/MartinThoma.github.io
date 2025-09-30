@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Projects
 slug: python-projects
 author: Martin Thoma

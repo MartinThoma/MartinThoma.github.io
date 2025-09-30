@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Code Optimization
 slug: code-optimization
 author: Martin Thoma

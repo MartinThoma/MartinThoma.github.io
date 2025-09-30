@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How do I calculate a Histogram equalization?
 slug: calculate-histogram-equalization
 author: Martin Thoma

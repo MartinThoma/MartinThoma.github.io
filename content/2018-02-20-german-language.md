@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: German Language
 slug: german-language
 author: Martin Thoma

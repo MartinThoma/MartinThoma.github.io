@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to parse command line arguments in Python
+slug: how-to-parse-command-line-arguments-in-python
 author: Martin Thoma
 date: 2012-07-18 17:00:03.000000000 +02:00
 category: Code

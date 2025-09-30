@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Packaging with Python
+slug: python-packaging
 author: Martin Thoma
 date: 2014-12-29 21:05
 category: Code
 tags: Python
 featured_image: logos/python.png
 ---
-
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.
 
 I wrote this when I did not know much about packaging. I wrote a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well. In 2020, I gave a <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a> which is better structured, up-to-date and has way more details.</div>

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Make Python Objects JSON serializable
 slug: make-json-serializable
 author: Martin Thoma

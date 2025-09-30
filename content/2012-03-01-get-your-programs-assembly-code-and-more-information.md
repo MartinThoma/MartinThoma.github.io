@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Get your programs assembly code and more information
+slug: get-your-programs-assembly-code-and-more-information
 author: Martin Thoma
 date: 2012-03-01 19:40:43.000000000 +01:00
 category: Code

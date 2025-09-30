@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Document Classification
 slug: document-classification
 author: Martin Thoma

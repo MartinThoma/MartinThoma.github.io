@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Abschlussaufgaben Programmieren
+slug: abschlussaufgaben-programmieren
 author: Martin Thoma
 date: 2012-03-10 16:00:13.000000000 +01:00
 category: German posts

@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Programmieren Tutorium
+slug: programmieren-tutorium
 author: Martin Thoma
 date: 2012-10-21 20:59:33.000000000 +02:00
 category: German posts

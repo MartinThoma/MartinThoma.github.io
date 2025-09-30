@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Puzzle #1: Pre- and Postincrement
+slug: java-puzzle-1-pre-and-postincrement
 author: Martin Thoma
 date: 2012-07-11 16:07:02.000000000 +02:00
 category: Code

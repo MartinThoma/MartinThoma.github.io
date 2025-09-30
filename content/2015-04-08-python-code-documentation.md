@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Python Code Documentation
+slug: python-code-documentation
 author: Martin Thoma
 date: 2015-04-08 19:39
 category: Code

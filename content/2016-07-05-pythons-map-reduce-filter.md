@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pythons map, reduce and filter as list comprehensions
 slug: python-map-reduce-filter
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Amazons Power
 slug: amazons-power
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: &Uuml;bersicht der Pfeile in UML
+slug: ubersicht-der-pfeile-in-uml
 author: Martin Thoma
 date: 2012-08-04 09:23:29.000000000 +02:00
 category: German posts

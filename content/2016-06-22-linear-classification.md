@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Linear Classification
 slug: linear-classification
 author: Martin Thoma

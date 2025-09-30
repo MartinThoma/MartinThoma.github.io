@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Forecasting
 slug: forecasting
 author: Martin Thoma

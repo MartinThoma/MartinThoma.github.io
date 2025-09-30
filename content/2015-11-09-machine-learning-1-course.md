@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Machine Learning 1
 slug: machine-learning-1-course
 author: Martin Thoma

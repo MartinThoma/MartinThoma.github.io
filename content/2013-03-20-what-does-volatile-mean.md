@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: What does volatile mean?
+slug: what-does-volatile-mean
 author: Martin Thoma
 date: 2013-03-20 22:19:41.000000000 +01:00
 category: Code

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Tensor Flow - A quick impression
 slug: tensor-flow-quick
 author: Martin Thoma

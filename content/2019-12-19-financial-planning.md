@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Financial Planning
 slug: financial-planning
 author: Martin Thoma

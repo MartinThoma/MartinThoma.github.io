@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Analysetechniken für große Datenbestände
 slug: analysetechniken-grosser-datenbestaende
 author: Martin Thoma

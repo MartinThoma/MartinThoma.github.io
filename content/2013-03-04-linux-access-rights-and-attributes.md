@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Linux access rights and attributes
+slug: linux-access-rights-and-attributes
 author: Martin Thoma
 date: 2013-03-04 22:29:42.000000000 +01:00
 category: Cyberculture

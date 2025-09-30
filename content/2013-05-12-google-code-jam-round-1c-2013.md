@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Google Code Jam &ndash; Round 1C 2013
+slug: google-code-jam-round-1c-2013
 author: Martin Thoma
 date: 2013-05-12 15:01:15.000000000 +02:00
 category: Code

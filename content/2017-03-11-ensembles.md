@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Ensembles
 slug: ensembles
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: LaTeX + Versioning = A great Experience
+slug: latex-versioning-a-great-experience
 author: Martin Thoma
 date: 2012-06-29 22:52:03.000000000 +02:00
 category: Cyberculture

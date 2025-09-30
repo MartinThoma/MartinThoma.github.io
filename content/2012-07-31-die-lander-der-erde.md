@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Die L&auml;nder der Erde
+slug: die-lander-der-erde
 author: Martin Thoma
 date: 2012-07-31 17:00:57.000000000 +02:00
 category: Cyberculture

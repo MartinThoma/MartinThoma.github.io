@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Amazing Animals
+slug: amazing-animals
 author: Martin Thoma
 date: 2012-04-07 02:39:26.000000000 +02:00
 category: My bits and bytes

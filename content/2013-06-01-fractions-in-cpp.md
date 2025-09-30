@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Fractions in C++
 slug: fractions-in-cpp
 author: Martin Thoma

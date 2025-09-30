@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Optimization Basics
 slug: optimization-basics
 author: Martin Thoma

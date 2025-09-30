@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Rename Script
+slug: rename-script
 author: Martin Thoma
 date: 2015-09-16 16:15
 category: Cyberculture

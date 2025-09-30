@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Testing in Python
 slug: testing-python-code
 author: Martin Thoma

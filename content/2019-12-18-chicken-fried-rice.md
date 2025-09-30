@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Chicken Fried Rice
 slug: chicken-fried-rice
 author: Martin Thoma

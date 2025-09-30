@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Flask Plugins
 slug: flask-plugins
 author: Martin Thoma

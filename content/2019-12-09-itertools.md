@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Itertools
 slug: itertools
 author: Martin Thoma

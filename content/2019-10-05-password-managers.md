@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Password Managers
 slug: password-managers
 author: Martin Thoma

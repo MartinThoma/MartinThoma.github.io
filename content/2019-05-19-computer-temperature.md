@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Computer Temperature
 slug: computer-temperature
 author: Martin Thoma

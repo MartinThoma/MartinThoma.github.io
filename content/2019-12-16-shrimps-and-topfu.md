@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Shrimps and Tofu
 slug: shrimps-and-tofu
 author: Martin Thoma

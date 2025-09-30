@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Markovsche Ketten - Klausur
+slug: markovketten-klausur
 author: Martin Thoma
 date: 2015-04-13 13:42
 category: German posts

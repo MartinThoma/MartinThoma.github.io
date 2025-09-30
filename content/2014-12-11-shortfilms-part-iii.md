@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Shortfilms, Part III
+slug: shortfilms-part-iii
 author: Martin Thoma
 date: 2014-12-11 22:54
 category: The Web

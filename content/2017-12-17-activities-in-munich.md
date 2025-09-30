@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Activities in Munich
 slug: activities-in-munich
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: activities
 featured_image: logos/munich.png
 ---
-
 ## Swimming
 
 The [Hallenbad Grünwald](https://www.gruenwalder-freizeitpark.de/) ([maps](https://goo.gl/maps/q5PAWoXhdwG2))

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Configuration files in Python
+slug: configuration-files-in-python
 author: Martin Thoma
 date: 2014-07-27 15:46
 category: Code
 tags: Python, YAML, JSON, XML, INI, Configuration
 featured_image: logos/python.png
 ---
-
 Most interesting programs need some kind of configuration:
 
 * Content Management Systems like WordPress blogs, WikiMedia and Joomla need

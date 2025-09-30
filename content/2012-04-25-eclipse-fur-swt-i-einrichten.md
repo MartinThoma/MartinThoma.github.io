@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Eclipse f&uuml;r SWT I einrichten
+slug: eclipse-fur-swt-i-einrichten
 author: Martin Thoma
 date: 2012-04-25 22:25:11.000000000 +02:00
 category: German posts

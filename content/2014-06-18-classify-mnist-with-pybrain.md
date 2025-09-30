@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Classify MNIST with PyBrain
+slug: classify-mnist-with-pybrain
 author: Martin Thoma
 date: 2014-06-18 02:31
 category: Code
 tags: Python, PyBrain, MNIST, AI, Machine Learning, Neural Networks, Classification
 featured_image: logos/pybrain.png
 ---
-
 The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr>
 database is a huge database of handwritten digits that is commonly used for
 training, evaluating and comparing classifiers.

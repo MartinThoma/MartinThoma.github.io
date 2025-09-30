@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Academic Writing
 slug: academic-writing
 author: Martin Thoma

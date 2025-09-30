@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Generating many prime numbers
+slug: generating-many-prime-numbers
 author: Martin Thoma
 date: 2013-05-21 22:50:10.000000000 +02:00
 category: Cyberculture

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Kollisionsresistente Hashfunktionen und Einwegfunktionen
+slug: kollisionsresistente-hashfunktionen-und-einwegfunktionen
 author: Martin Thoma
 date: 2013-07-23 10:05:24.000000000 +02:00
 category: German posts

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How many Homomorphisms exist between Z/nZ and Z/mZ?
+slug: how-many-homomorphisms-exist-between-znz-and-zmz
 author: Martin Thoma
 date: 2013-08-27 15:26:38.000000000 +02:00
 category: Mathematics

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pythons str vs repr
 slug: str-vs-repr
 author: Martin Thoma

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Function Approximation
+slug: function-approximation
 author: Martin Thoma
 date: 2016-01-18 20:00
 category: Machine Learning
 tags: Machine Learning, Regression
 featured_image: logos/ml.png
 ---
-
 I was recently quite disappointed by how bad neural networks are for function
 approximation (see [How should a neural network for unbound function approximation be structured?](http://datascience.stackexchange.com/q/9495/8820)). However, I've just found that
 Gaussian processes are great for function approximation!

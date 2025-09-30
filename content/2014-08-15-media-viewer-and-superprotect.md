@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: MediaViewer and Superprotect
+slug: media-viewer-and-superprotect
 author: Martin Thoma
 date: 2014-08-15 14:35
 category: Cyberculture
 tags: Wikipedia, Community, WMF, superprotect, MediaViewer
 featured_image: logos/wikipedia.png
 ---
-
 Recently, a heated discussion started on the German Wikipedia about Superprotect.
 This article should give a very short summary how it came to this discussion.
 

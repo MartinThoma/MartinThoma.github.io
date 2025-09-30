@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: The Collatz sequence
+slug: the-collatz-sequence
 author: Martin Thoma
 date: 2013-05-16 23:58:45.000000000 +02:00
 category: Code

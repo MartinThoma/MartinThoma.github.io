@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Software Stacks
 slug: software-stacks
 author: Martin Thoma

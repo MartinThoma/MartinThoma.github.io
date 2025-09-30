@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Scraping with Selenium
 slug: scraping-with-selenium
 author: Martin Thoma

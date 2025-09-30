@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Why everybody should know about conditional probability
+slug: why-everybody-should-know-about-conditional-probability
 author: Martin Thoma
 date: 2013-07-23 15:37:39.000000000 +02:00
 category: Mathematics

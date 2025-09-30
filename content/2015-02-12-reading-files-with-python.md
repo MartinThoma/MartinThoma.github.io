@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Reading and Writing Files with Python
+slug: reading-files-with-python
 author: Martin Thoma
 date: 2015-02-12 22:11
 category: Code

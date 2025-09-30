@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Interpreters and Shells
+slug: interpreters-and-shells
 author: Martin Thoma
 date: 2014-03-08 11:49
 category: Code

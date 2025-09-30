@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Change password in ATIS
+slug: change-password-in-atis
 author: Martin Thoma
 date: 2014-07-12 17:24
 category: My bits and bytes
 tags: ATIS, Linux, bug, SSH, KIT
 featured_image: logos/atis.png
 ---
-
 Recently, the [Heartbleed bug](https://en.wikipedia.org/wiki/Heartbleed) was
 discovered. It works like this:
 

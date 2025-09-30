@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Languages for Back Ends
+slug: languages-for-back-ends
 author: Martin Thoma
 date: 2015-06-24 12:43
 category: Code

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Down Jackets
 slug: down-jackets
 author: Martin Thoma

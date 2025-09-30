@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Mathematische Strukturen
+slug: mathematische-strukturen
 author: Martin Thoma
 date: 2013-06-16 18:14:57.000000000 +02:00
 category: German posts

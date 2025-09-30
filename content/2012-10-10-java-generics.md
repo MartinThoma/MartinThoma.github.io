@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Generics
+slug: java-generics
 author: Martin Thoma
 date: 2012-10-10 12:18:42.000000000 +02:00
 category: Code

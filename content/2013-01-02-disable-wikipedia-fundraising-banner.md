@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Disable Wikipedia fundraising banner
+slug: disable-wikipedia-fundraising-banner
 author: Martin Thoma
 date: 2013-01-02 15:10:34.000000000 +01:00
 category: The Web

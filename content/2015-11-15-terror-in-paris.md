@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Terror in Paris
+slug: terror-in-paris
 author: Martin Thoma
 date: 2015-11-15 10:29
 category: My Bits and Bytes

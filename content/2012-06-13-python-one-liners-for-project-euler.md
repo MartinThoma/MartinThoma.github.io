@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Python one-liners for Project Euler
+slug: python-one-liners-for-project-euler
 author: Martin Thoma
 date: 2012-06-13 17:00:14.000000000 +02:00
 category: Cyberculture

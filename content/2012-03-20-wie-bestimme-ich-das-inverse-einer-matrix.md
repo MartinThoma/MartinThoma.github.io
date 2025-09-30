@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie bestimme ich das Inverse einer Matrix?
+slug: wie-bestimme-ich-das-inverse-einer-matrix
 author: Martin Thoma
 date: 2012-03-20 16:07:50.000000000 +01:00
 category: German posts

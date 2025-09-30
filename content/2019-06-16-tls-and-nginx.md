@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: TLS and Nginx
 slug: tls-and-nginx
 author: Martin Thoma

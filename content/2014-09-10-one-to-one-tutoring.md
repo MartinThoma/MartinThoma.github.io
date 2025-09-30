@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: One-on-One Tutoring
+slug: one-to-one-tutoring
 author: Martin Thoma
 date: 2014-09-10 10:03
 category: My bits and bytes
 tags: KIT
 featured_image: logos/kit.png
 ---
-
 I have heard that the famous universities in England have One-on-One tutoring.
 <small>I'm not sure if that is actually the case, but that doesn't matter for
 the idea I want to explain.</small> That means one tutor helps one student

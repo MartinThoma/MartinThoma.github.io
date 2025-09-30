@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The Reuters Dataset
 slug: nlp-reuters
 author: Martin Thoma

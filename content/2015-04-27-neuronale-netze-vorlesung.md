@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Neuronale Netze - Klausur
 slug: neuronale-netze-vorlesung
 author: Martin Thoma

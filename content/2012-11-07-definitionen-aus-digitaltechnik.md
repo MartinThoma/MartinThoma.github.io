@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Definitionen aus Digitaltechnik
+slug: definitionen-aus-digitaltechnik
 author: Martin Thoma
 date: 2012-11-07 13:33:53.000000000 +01:00
 category: German posts

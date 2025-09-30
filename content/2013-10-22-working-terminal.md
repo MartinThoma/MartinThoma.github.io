@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Working with Terminal
 slug: working-terminal
 author: Martin Thoma

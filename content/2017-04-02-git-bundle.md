@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Git Bundle
 slug: git-bundle
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Code
 tags: git
 featured_image: logos/git.png
 ---
-
 Sometimes you need to share code via E-Mail / stick. If the code you need to
 share is a git repository, creating a bundle is a pretty good way to do it.
 

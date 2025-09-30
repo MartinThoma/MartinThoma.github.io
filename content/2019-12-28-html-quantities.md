@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: HTML Quantities
 slug: html-quantities
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: The Web
 tags: HTML, Semantic Web
 featured_image: logos/html.png
 ---
-
 The web is constantly evolving, and so it the language of it: HTML. Many
 changes users notice are around JavaScript, but we also got [semantic tags](https://www.w3schools.com/html/html5_semantic_elements.asp) such
 as `<article>`, `<section>`, `<header>`, `<footer>`. With rich markup one can

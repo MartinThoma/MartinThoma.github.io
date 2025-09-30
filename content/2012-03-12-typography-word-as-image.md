@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Typography: Word as Image
+slug: typography-word-as-image
 author: Martin Thoma
 date: 2012-03-12 14:06:34.000000000 +01:00
 category: Cyberculture

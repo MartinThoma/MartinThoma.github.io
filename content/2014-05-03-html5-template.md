@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: HTML5 Template
+slug: html5-template
 author: Martin Thoma
 date: 2014-05-03 20:43
 category: Code
 tags: HTML5, Sublime
 featured_image: logos/html.png
 ---
-
 Once in a while I need to create simple HTML pages. This is the template
 I use:
 

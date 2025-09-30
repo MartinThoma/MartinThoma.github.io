@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: ZCA Whitening
 slug: zca-whitening
 author: Martin Thoma

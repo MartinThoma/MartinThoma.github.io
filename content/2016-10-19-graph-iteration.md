@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Iterating over Graphs
 slug: graph-iteration
 author: Martin Thoma

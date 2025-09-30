@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to install the latest LaTeX Version
+slug: how-to-install-the-latest-latex-version
 author: Martin Thoma
 date: 2012-03-28 11:29:41.000000000 +02:00
 category: My bits and bytes

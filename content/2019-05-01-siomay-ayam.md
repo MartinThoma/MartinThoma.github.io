@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Siomay Ayam
 slug: siomay-ayam
 author: Martin Thoma

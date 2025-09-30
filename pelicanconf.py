@@ -47,7 +47,7 @@ CUSTOM_CSS = "static/custom.css"
 
 ARTICLE_URL = "{slug}/"
 ARTICLE_SAVE_AS = "{slug}/index.html"
-ARTICLE_LANG_URL = "{slug}.html"
+ARTICLE_LANG_URL = "{slug}/"
 ARTICLE_LANG_SAVE_AS = "{slug}/index.html"
 AUTHOR_URL = "author/{slug}/"
 PAGE_URL = "pages/{slug}/"

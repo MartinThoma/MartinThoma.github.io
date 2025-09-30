@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Paid Reviews
+slug: paid-reviews
 author: Martin Thoma
 date: 2016-03-15 16:15
 category: Cyberculture

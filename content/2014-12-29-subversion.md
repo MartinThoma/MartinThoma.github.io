@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Subversion
+slug: subversion
 author: Martin Thoma
 date: 2014-12-29 20:57
 category: Code
 tags: cheat sheet
 featured_image:
 ---
-
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
 Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.

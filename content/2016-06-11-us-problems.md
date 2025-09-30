@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: US problems
 slug: us-problems
 author: Martin Thoma

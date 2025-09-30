@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Maps in C++
+slug: maps-in-cpp
 author: Martin Thoma
 date: 2013-05-16 08:52:54.000000000 +02:00
 category: Code

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Reference Management with JabRef
+slug: reference-management-with-jabref
 author: Martin Thoma
 date: 2014-06-15 20:51
 category: Science
 tags: Science, References, Software, LaTeX
 featured_image: logos/jabref.png
 ---
-
 Keeping track of papers, articles and books or more general sources you can
 cite is a task you will have to tackle when you're writing your thesis. One
 way to store information is via BibTeX files.

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: GPUs - Supercomputers for your home
+slug: gpu-supercomputers-for-your-home
 author: Martin Thoma
 date: 2014-08-20 23:26
 category: Machine Learning
 tags: Python, Theano, GPU, nVidea, CUDA, AI, Machine Learning
 featured_image: logos/nvidia.png
 ---
-
 A few days ago I got some of my neural net code to work with a GPU.
 The GPU is called "Tesla C2075". It is able to get 515 GFlops peak performance.
 It has 448 CUDA cores that work with 1.15 GHz and it has 6GB GDDR5 memory.

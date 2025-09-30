@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Package Versions
 slug: python-package-versions
 author: Martin Thoma

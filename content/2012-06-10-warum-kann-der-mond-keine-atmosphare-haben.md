@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Warum kann der Mond keine Atmosph&auml;re haben?
+slug: warum-kann-der-mond-keine-atmosphare-haben
 author: Martin Thoma
 date: 2012-06-10 15:22:02.000000000 +02:00
 category: German posts

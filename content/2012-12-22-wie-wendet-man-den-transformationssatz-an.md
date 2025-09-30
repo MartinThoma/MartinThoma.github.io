@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Wie wendet man den Transformationssatz an?
+slug: wie-wendet-man-den-transformationssatz-an
 author: Martin Thoma
 date: 2012-12-22 22:43:11.000000000 +01:00
 category: Cyberculture

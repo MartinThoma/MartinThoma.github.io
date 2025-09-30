@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Word Error Rate Calculation
+slug: word-error-rate-calculation
 author: Martin Thoma
 date: 2013-11-15 08:59:15.000000000 +01:00
 category: Cyberculture

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Formale Systeme Klausur
 slug: formale-systeme
 author: Martin Thoma

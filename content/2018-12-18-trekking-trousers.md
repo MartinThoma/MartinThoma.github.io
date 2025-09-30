@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Trekking Trousers
 slug: trekking-trousers
 author: Martin Thoma

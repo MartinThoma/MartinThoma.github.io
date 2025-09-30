@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Creating Gantt Charts
+slug: creating-gantt-charts
 author: Martin Thoma
 date: 2012-12-13 00:02:19.000000000 +01:00
 category: The Web

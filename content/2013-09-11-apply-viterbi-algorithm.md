@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to apply the Viterbi algorithm
 slug: apply-viterbi-algorithm
 author: Martin Thoma

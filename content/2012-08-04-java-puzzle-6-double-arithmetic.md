@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Puzzle #6: Double Arithmetic
+slug: java-puzzle-6-double-arithmetic
 author: Martin Thoma
 date: 2012-08-04 17:00:27.000000000 +02:00
 category: Code

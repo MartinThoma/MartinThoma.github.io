@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to analyze Mailman archives
+slug: how-to-analyze-mailman-archives
 author: Martin Thoma
 date: 2013-08-18 21:23:49.000000000 +02:00
 category: Cyberculture

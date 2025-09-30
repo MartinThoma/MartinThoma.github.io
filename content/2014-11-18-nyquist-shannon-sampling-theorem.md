@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Nyquist–Shannon sampling theorem
+slug: nyquist-shannon-sampling-theorem
 author: Martin Thoma
 date: 2014-11-18 17:41
 category: Code

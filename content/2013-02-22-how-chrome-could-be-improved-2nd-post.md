@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How Chrome could be improved - 2nd Post
+slug: how-chrome-could-be-improved-2nd-post
 author: Martin Thoma
 date: 2013-02-22 09:55:07.000000000 +01:00
 category: Cyberculture

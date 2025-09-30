@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Crispy Thuna and Tofu
 slug: crispy-thuna
 author: Martin Thoma

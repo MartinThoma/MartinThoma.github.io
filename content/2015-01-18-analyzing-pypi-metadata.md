@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Analyzing PyPI Metadata
+slug: analyzing-pypi-metadata
 author: Martin Thoma
 date: 2015-01-18 20:19
 category: Code
 tags: Python, Community, SQL, PyPI
 featured_image: logos/python.png
 ---
-
 <div class="info">This is part one of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
 
 PyPI, the Python Package Index, gives a very crappy but simple interface to

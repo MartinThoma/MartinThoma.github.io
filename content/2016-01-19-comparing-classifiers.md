@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Comparing Classifiers
+slug: comparing-classifiers
 author: Martin Thoma
 date: 2016-01-19 20:13
 category: Machine Learning

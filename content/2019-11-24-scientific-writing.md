@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Scientific Writing
 slug: scientific-writing
 author: Martin Thoma

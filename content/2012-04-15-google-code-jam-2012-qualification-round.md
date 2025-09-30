@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Google Code Jam 2012 - Qualification Round
+slug: google-code-jam-2012-qualification-round
 author: Martin Thoma
 date: 2012-04-15 13:35:40.000000000 +02:00
 category: Code

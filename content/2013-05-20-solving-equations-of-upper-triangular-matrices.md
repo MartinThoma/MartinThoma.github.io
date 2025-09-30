@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Solving equations of upper triangular matrices
+slug: solving-equations-of-upper-triangular-matrices
 author: Martin Thoma
 date: 2013-05-20 10:41:49.000000000 +02:00
 category: Code

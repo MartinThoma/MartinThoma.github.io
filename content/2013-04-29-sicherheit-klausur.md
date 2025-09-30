@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Sicherheit-Klausur
+slug: sicherheit-klausur
 author: Martin Thoma
 date: 2013-04-29 10:19:05.000000000 +02:00
 category: German posts

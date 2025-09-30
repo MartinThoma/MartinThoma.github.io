@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Applications
 slug: data-applications
 author: Martin Thoma

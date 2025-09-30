@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: PDF-Printing on Windows 7
+slug: pdf-printing-on-windows-7
 author: Martin Thoma
 date: 2012-12-31 17:23:10.000000000 +01:00
 category: Cyberculture

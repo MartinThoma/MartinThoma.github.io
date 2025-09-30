@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Code Challenges in ML
 slug: code-challenges-in-ml
 author: Martin Thoma

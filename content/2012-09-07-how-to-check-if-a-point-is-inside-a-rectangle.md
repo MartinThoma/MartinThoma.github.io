@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to check if a point is inside a rectangle
+slug: how-to-check-if-a-point-is-inside-a-rectangle
 author: Martin Thoma
 date: 2012-09-07 21:28:38.000000000 +02:00
 category: Code

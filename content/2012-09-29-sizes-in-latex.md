@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Sizes in LaTeX
+slug: sizes-in-latex
 author: Martin Thoma
 date: 2012-09-29 18:23:38.000000000 +02:00
 category: Code

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Alpspitze via ferrata
 slug: alpspitze-via-ferrata
 author: Martin Thoma

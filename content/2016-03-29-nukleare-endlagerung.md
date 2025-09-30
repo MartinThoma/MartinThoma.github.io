@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Nukleare Endlagerung
+slug: nukleare-endlagerung
 author: Martin Thoma
 date: 2016-03-29 11:13
 category: Cyberculture

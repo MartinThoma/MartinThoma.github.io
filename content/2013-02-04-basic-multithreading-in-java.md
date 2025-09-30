@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Basic Multithreading in Java
+slug: basic-multithreading-in-java
 author: Martin Thoma
 date: 2013-02-04 00:44:11.000000000 +01:00
 category: Code

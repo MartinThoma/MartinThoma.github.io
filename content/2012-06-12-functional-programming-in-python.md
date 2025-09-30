@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Functional Programming in Python
+slug: functional-programming-in-python
 author: Martin Thoma
 date: 2012-06-12 17:00:09.000000000 +02:00
 category: Code

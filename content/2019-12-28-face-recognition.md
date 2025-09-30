@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Face Recognition
 slug: face-recognition
 author: Martin Thoma

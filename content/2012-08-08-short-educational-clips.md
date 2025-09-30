@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Short Educational Clips
+slug: short-educational-clips
 author: Martin Thoma
 date: 2012-08-08 17:00:37.000000000 +02:00
 category: Cyberculture

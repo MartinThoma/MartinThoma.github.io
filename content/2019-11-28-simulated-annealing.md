@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Simulated Annealing
 slug: simulated-annealing
 author: Martin Thoma

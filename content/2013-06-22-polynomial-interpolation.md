@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Polynomial interpolation
+slug: polynomial-interpolation
 author: Martin Thoma
 date: 2013-06-22 18:41:43.000000000 +02:00
 category: Code

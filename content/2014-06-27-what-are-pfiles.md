@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: What are pfiles?
+slug: what-are-pfiles
 author: Martin Thoma
 date: 2014-06-27 06:39
 category: Code
 tags: ASR, pfile, Machine Learning
 featured_image: logos/ai.png
 ---
-
 pfile is a binary file format that is used in
 <abbr title="Automatic Speech Recognition">ASR</abbr>
 for storing feature vectors and their corresponding labels.

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: SQL Injections
 slug: sql-injections-old
 author: Martin Thoma

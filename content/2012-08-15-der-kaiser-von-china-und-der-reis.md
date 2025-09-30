@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Der Kaiser von China und der Reis
+slug: der-kaiser-von-china-und-der-reis
 author: Martin Thoma
 date: 2012-08-15 17:00:54.000000000 +02:00
 category: German posts

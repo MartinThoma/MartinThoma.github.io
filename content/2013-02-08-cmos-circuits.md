@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: CMOS circuits
+slug: cmos-circuits
 author: Martin Thoma
 date: 2013-02-08 23:39:26.000000000 +01:00
 category: Cyberculture

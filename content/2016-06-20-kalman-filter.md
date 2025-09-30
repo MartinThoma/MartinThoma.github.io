@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Kalman Filter
 slug: kalman-filter
 author: Martin Thoma

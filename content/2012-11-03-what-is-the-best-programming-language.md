@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: What is the best programming language?
+slug: what-is-the-best-programming-language
 author: Martin Thoma
 date: 2012-11-03 11:48:36.000000000 +01:00
 category: Code

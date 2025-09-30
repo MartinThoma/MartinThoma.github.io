@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: TOP 5: Worst Website Designs
+slug: top-5-worst-website-designs
 author: Martin Thoma
 date: 2012-12-07 08:27:28.000000000 +01:00
 category: The Web

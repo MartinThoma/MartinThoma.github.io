@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: API Design
 slug: api-design
 author: Martin Thoma

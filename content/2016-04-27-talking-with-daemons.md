@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Talking with Daemons
+slug: talking-with-daemons
 author: Martin Thoma
 date: 2016-04-27 23:26
 category: Code

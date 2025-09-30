@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: E.i.d. Algebra und Zahlentheorie-Klausur
 slug: eaz-klausur
 author: Martin Thoma

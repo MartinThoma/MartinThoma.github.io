@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: A practical approach to floats
+slug: a-practical-approach-to-floats
 author: Martin Thoma
 date: 2012-10-23 12:40:45.000000000 +02:00
 category: Code

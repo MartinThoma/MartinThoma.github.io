@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Datenbanksysteme-Klausur
+slug: datenbanksysteme-klausur
 author: Martin Thoma
 date: 2013-04-20 13:35:01.000000000 +02:00
 category: German posts

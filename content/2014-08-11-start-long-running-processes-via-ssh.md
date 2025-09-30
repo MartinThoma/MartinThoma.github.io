@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Start long running processes via SSH
+slug: start-long-running-processes-via-ssh
 author: Martin Thoma
 date: 2014-08-11 14:51
 category: Code
 tags: SSH, screen, nohup, Software Development
 featured_image: logos/shell.png
 ---
-
 ## Screen
 
 [`screen`](https://en.wikipedia.org/wiki/GNU_Screen) is a nice tool that can be

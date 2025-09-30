@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Cantuccini
 slug: cantuccini
 author: Martin Thoma

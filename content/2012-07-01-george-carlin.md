@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: George Carlin
+slug: george-carlin
 author: Martin Thoma
 date: 2012-07-01 19:49:23.000000000 +02:00
 category: My bits and bytes

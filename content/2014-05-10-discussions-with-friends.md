@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Discussions with friends
+slug: discussions-with-friends
 author: Martin Thoma
 date: 2014-05-10 02:04
 category: My bits and bytes
 tags: Discussions, Friendship, Politics, Progress
 featured_image:
 ---
-
 I've recently had a very interesting discussion with some friends. We talked
 about a lot of stuff and I don't want to go into detail about the topics we've
 discussed, but rather some thoughts about discussions.

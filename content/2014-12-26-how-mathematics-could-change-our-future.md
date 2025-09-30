@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: How mathematics could change our future
+slug: how-mathematics-could-change-our-future
 author: Martin Thoma
 date: 2014-12-26 00:56
 category: Cyberculture
 tags: Mathematics, AI, algorithms
 featured_image: logos/ai.png
 ---
-
 Can you think of a solution for a problem that concerns the whole or most of
 humanity and could be solved for the next ten years or even forever with less
 than 1 million dollars?

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Puzzle #5: Parallel Programming, Part 2
+slug: java-puzzle-5-parallel-programming-part-2
 author: Martin Thoma
 date: 2012-08-03 17:00:58.000000000 +02:00
 category: Code

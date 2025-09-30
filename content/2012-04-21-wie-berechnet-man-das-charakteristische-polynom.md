@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie berechnet man das charakteristische Polynom?
+slug: wie-berechnet-man-das-charakteristische-polynom
 author: Martin Thoma
 date: 2012-04-21 13:41:39.000000000 +02:00
 category: German posts

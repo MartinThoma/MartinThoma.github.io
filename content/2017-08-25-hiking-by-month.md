@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Backpacking Tours by Month
 slug: backpacking-by-month
 author: Martin Thoma

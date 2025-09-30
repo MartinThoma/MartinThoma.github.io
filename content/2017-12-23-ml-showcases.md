@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: ML Showcases
 slug: ml-showcases
 author: Martin Thoma

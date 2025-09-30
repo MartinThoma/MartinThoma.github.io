@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Improve German Public Transportation
+slug: improve-german-public-transportation
 author: Martin Thoma
 date: 2013-07-06 20:45:32.000000000 +02:00
 category: Cyberculture

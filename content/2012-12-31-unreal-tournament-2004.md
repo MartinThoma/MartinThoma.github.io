@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Unreal Tournament 2004
+slug: unreal-tournament-2004
 author: Martin Thoma
 date: 2012-12-31 13:49:40.000000000 +01:00
 category: Cyberculture

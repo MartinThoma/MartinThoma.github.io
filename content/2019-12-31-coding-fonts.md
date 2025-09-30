@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Coding Fonts
 slug: coding-fonts
 author: Martin Thoma

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to sort with Java
+slug: how-to-sort-with-java
 author: Martin Thoma
 date: 2013-01-08 21:49:47.000000000 +01:00
 category: Code

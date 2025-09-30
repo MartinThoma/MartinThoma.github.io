@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Gradient Boosting
 slug: gradient-boosting
 author: Martin Thoma

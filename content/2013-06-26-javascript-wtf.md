@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: JavaScript: WTF?!?
+slug: javascript-wtf
 author: Martin Thoma
 date: 2013-06-26 22:51:52.000000000 +02:00
 category: Code

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Software Handover
 slug: software-handover
 author: Martin Thoma

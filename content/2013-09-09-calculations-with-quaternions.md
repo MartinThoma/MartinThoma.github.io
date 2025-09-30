@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Calculations with quaternions
+slug: calculations-with-quaternions
 author: Martin Thoma
 date: 2013-09-09 14:45:17.000000000 +02:00
 category: Mathematics

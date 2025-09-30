@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Project Glooseberry
+slug: project-glooseberry
 author: Martin Thoma
 date: 2014-03-25 12:32
 category: Cyberculture
 tags: Blender, Video, movie
 featured_image: logos/blender-open-movie.png
 ---
-
 Blender is an open source software that allows you to create animations.
 The [Blender Foundation](https://en.wikipedia.org/wiki/Blender_Foundation)
 is a non-profit organization that helps to develop blender.

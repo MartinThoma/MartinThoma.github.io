@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Schlagsahne vs Saure Sahne
 slug: schlagsahne-vs-saure-sahne
 author: Martin Thoma

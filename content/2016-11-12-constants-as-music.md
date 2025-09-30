@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Constants as Music
 slug: constants-as-music
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Cyberculture
 tags: Python, music
 featured_image: logos/music.png
 ---
-
 I've just seen the following video
 
 <iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/wK7tq7L0N8E?rel=0" frameborder="0" allowfullscreen></iframe>

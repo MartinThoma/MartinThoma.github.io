@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Awesome Robots
+slug: awesome-robots
 author: Martin Thoma
 date: 2014-06-22 22:39
 category: Cyberculture
 tags: Robots, Quadcopter, Neural Networks, Differential Equations
 featured_image: logos/robot.png
 ---
-
 Robots are mechanical devices that are controlled by computer programs. Some
 of them act unexpectedly intelligent due to recent improvements in processing
 speed (hardware) and [neural nets](https://en.wikipedia.org/wiki/Neural_net)

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: German Politics
 slug: german-politics-2018
 author: Martin Thoma

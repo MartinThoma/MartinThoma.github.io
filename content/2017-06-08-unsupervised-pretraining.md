@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Unsupervised Pretraining
 slug: unsupervised-pretraining
 author: Martin Thoma

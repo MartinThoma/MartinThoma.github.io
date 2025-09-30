@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Check File Systems maximum path depth
+slug: check-file-systems-maximum-path-depth
 author: Martin Thoma
 date: 2013-03-03 20:51:24.000000000 +01:00
 category: Code

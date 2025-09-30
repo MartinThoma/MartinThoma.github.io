@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How Chrome could be improved
+slug: how-chrome-could-be-improved
 author: Martin Thoma
 date: 2012-04-06 14:19:31.000000000 +02:00
 category: The Web

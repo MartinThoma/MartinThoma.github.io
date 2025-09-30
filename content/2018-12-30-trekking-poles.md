@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Trekking Poles
 slug: trekking-poles
 author: Martin Thoma

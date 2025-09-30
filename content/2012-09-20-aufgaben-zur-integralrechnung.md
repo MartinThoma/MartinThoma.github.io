@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Aufgaben zur Integralrechnung
+slug: aufgaben-zur-integralrechnung
 author: Martin Thoma
 date: 2012-09-20 08:56:07.000000000 +02:00
 category: German posts

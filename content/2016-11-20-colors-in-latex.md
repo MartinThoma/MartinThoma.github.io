@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Colors in LaTeX
 slug: colors-in-latex
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Cyberculture
 tags: LaTeX
 featured_image: logos/latex.png
 ---
-
 LaTeX knows the following colors without any packages:
 
 <table>

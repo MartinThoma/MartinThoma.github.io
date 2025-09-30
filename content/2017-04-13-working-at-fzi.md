@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Working at FZI
 slug: working-at-fzi
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Cyberculture
 tags: Command line
 featured_image: logos/star.png
 ---
-
 If you are writing your Bachelors or Masters thesis or if you're a HiWi at [FZI](https://en.wikipedia.org/wiki/Forschungszentrum_Informatik), you might find the following useful.
 
 

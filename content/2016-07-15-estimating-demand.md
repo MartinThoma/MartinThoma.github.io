@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Estimating Demand
 slug: estimating-demand
 author: Martin Thoma

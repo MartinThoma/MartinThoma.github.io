@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Colors in Vim
+slug: colors-in-vim
 author: Martin Thoma
 date: 2013-04-09 17:36:31.000000000 +02:00
 category: Code

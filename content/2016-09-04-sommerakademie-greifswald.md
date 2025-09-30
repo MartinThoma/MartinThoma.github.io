@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Sommerakademie Greifswald
 slug: sommerakademie-greifswald
 author: Martin Thoma

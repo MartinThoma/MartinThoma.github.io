@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Partielle Integration
+slug: partielle-integration
 author: Martin Thoma
 date: 2012-09-15 19:02:03.000000000 +02:00
 category: German posts

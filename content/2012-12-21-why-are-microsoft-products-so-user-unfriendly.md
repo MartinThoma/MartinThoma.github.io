@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Why are Microsoft products so User unfriendly?
+slug: why-are-microsoft-products-so-user-unfriendly
 author: Martin Thoma
 date: 2012-12-21 17:00:31.000000000 +01:00
 category: Code

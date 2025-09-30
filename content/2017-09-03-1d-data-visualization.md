@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: 1D Data Visualization
 slug: 1d-data-visualization
 author: Martin Thoma

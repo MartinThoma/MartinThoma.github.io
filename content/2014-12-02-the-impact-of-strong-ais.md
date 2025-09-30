@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: The Impact of strong AIs
+slug: the-impact-of-strong-ais
 author: Martin Thoma
 date: 2014-12-02 15:18
 category: Cyberculture
 tags: AI, Politics
 featured_image: logos/ai.png
 ---
-
 An artificial intelligence (AI) is a computer program which acts - according
 to its developers - intelligent. That could be anything. Typical examples
 are route finding algorithms, chess programs, ego shooter computer opponents

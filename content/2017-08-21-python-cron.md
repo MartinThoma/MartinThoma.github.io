@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Scheduling
 slug: python-scheduling
 author: Martin Thoma

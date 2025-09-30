@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Regression
 slug: regression
 author: Martin Thoma

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Why I prefer Linux over Windows
+slug: why-i-prefer-linux-over-windows
 author: Martin Thoma
 date: 2014-12-30 21:25
 category: The Web
 tags: Linux, Windows 7
 featured_image: 2012/12/tux-vs-windows.png
 ---
-
 <div class="info">This is a quick article I had for quite a while as a draft.It might not be finished or have other problems, but I still want to share it.</div>
 
 Some friends wondered why I prefer Linux over Windows. As I am currently using

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Probabilistische Planung
 slug: probabilistische-planung
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Sankey Diagrams
 slug: sankey-diagrams
 author: Martin Thoma

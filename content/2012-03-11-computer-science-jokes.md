@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Computer Science Jokes
+slug: computer-science-jokes
 author: Martin Thoma
 date: 2012-03-11 00:04:54.000000000 +01:00
 category: Cyberculture

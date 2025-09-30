@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Jordansche Normalform: 2x2 Matrizen
+slug: jordansche-normalform-2x2-matrizen
 author: Martin Thoma
 date: 2012-08-17 21:49:41.000000000 +02:00
 category: German posts

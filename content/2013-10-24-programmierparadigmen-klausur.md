@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Programmierparadigmen Klausur
+slug: programmierparadigmen-klausur
 author: Martin Thoma
 date: 2013-10-24 12:46:16.000000000 +02:00
 category: German posts

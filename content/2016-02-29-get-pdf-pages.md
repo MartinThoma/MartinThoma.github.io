@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Get PDF pages
+slug: get-pdf-pages
 author: Martin Thoma
 date: 2016-02-29 09:51
 category: Cyberculture
 tags: PDF
 featured_image: logos/pdf.png
 ---
-
 Once in a while, I want to get the total number of PDF pages of a document.
 You can do that with the command
 

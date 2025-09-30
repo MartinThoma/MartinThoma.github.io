@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Evaluation of binary classifiers
 slug: binary-classifier-evaluation
 author: Martin Thoma

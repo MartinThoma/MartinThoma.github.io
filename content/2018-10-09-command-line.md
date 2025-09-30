@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Command Line
 slug: command-line
 author: Martin Thoma

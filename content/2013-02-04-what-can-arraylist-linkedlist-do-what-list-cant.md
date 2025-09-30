@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: What can ArrayList / LinkedList do what List can't?
+slug: what-can-arraylist-linkedlist-do-what-list-cant
 author: Martin Thoma
 date: 2013-02-04 11:50:45.000000000 +01:00
 category: Code

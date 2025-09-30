@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Ideen zur Verbesserung des KIT
 slug: kit-thoughts
 author: Martin Thoma

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Inverting matrices
+slug: inverting-matrices
 author: Martin Thoma
 date: 2013-06-02 14:01:57.000000000 +02:00
 category: Code

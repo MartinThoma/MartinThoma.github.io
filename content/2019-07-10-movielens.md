@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Movielens Data Set
 slug: movielens-data-set
 author: Martin Thoma

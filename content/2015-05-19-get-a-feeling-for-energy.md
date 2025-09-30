@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Getting a Feeling for Energy
+slug: get-a-feeling-for-energy
 author: Martin Thoma
 date: 2015-05-19 19:17
 category: Cyberculture

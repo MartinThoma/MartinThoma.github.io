@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: de
 title: Warum ist Q abzählbar?
+slug: warum-ist-q-abzaehlbar
 author: Martin Thoma
 date: 2014-12-30 21:27
 category: German posts
 tags: analysis, mathematics
 featured_image:
 ---
-
 <div class="info">This is a quick article I had for quite a while as a draft.
 It might not be finished or have other problems, but I still want to share
 it.</div>

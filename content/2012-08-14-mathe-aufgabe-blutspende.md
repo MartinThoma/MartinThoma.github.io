@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Mathe-Aufgabe: Blutspende
+slug: mathe-aufgabe-blutspende
 author: Martin Thoma
 date: 2012-08-14 17:00:16.000000000 +02:00
 category: German posts

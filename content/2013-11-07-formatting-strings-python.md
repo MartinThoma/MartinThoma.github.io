@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Formatting Strings in Python
 slug: formatting-strings-python
 author: Martin Thoma

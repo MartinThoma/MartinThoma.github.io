@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Triglav National Park
 slug: triglav-national-park
 author: Martin Thoma

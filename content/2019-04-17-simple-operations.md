@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Simple Operations and Basic Numbers
 slug: simple-operations
 author: Martin Thoma

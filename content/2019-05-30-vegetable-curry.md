@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Vegetable Curry
 slug: vegetable-curry
 author: Martin Thoma

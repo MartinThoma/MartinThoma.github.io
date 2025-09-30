@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Bug Reporting - A users perspective
+slug: bug-reporting
 author: Martin Thoma
 date: 2015-01-21 14:54
 category: Cyberculture

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Code Quality
 slug: code-quality
 author: Martin Thoma

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Simquadrat
+slug: simquadrat
 author: Martin Thoma
 date: 2013-07-21 18:18:12.000000000 +02:00
 category: German posts

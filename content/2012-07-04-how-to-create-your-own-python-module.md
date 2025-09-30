@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to create your own Python module
+slug: how-to-create-your-own-python-module
 author: Martin Thoma
 date: 2012-07-04 16:11:54.000000000 +02:00
 category: Code

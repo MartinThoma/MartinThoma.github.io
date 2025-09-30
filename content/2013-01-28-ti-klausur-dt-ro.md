@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: TI-Klausur (DT & RO)
+slug: ti-klausur-dt-ro
 author: Martin Thoma
 date: 2013-01-28 00:25:14.000000000 +01:00
 category: German posts

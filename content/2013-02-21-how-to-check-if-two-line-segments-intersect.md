@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to check if two line segments intersect
+slug: how-to-check-if-two-line-segments-intersect
 author: Martin Thoma
 date: 2013-02-21 12:19:05.000000000 +01:00
 category: Code

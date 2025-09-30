@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Why Trump might be Good
 slug: why-trump-might-be-good
 author: Martin Thoma

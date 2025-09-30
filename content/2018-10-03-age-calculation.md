@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How old am I?
 slug: age-calculation
 author: Martin Thoma

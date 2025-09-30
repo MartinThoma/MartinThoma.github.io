@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Average Distance of Random Points in a Unit Hypercube
 slug: curse-of-dimensionality
 author: Martin Thoma

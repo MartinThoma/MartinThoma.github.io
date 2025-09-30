@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Learning Java
+slug: learning-java
 author: Martin Thoma
 date: 2012-10-15 17:00:04.000000000 +02:00
 category: Code

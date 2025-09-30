@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Python and Encodings
+slug: python-and-encodings
 author: Martin Thoma
 date: 2015-02-14 14:28
 category: Code

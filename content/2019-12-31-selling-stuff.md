@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Selling Stuff
 slug: selling-stuff
 author: Martin Thoma

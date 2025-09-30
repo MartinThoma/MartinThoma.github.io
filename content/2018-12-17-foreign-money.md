@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to get foreign currencies
 slug: foreign-money
 author: Martin Thoma

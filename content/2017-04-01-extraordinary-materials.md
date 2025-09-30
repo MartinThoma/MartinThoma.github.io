@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Extraordinary Materials
 slug: extraordinary-materials
 author: Martin Thoma
@@ -8,8 +9,6 @@ category: My bits and bytes
 tags: Engineering, cool, science, polymer, carbon nanotubes
 featured_image: logos/education.png
 ---
-
-
 ## Line-X
 
 Line-X is a protective polymer coating.

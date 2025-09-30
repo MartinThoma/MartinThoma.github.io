@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Distribution of Random Variables when max gets applied
+slug: max-distribution
 author: Martin Thoma
 date: 2015-01-22 11:07
 category: Mathematics
 tags: Probability Theory, Python, numpy, matplotlib
 featured_image: logos/mathematics.png
 ---
-
 I just wanted to solve an exercise where I had random variables $X_1, \dots, X_n$
 which were all $U([0, 1])$ distributed and $Y_n = \max(X_1, \dots, X_n)$.
 

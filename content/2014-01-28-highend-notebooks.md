@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Highend Notebooks
+slug: highend-notebooks
 author: Martin Thoma
 date: 2014-01-28 16:00
 category: Cyberculture

@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Minimierung eines Automaten mittels Äquivalenzklassenkonstruktion
+slug: minimierung-eines-automaten-mittels-aquivalenzklassenkonstruktion
 author: Martin Thoma
 date: 2012-02-10 22:18:38.000000000 +01:00
 category: German posts

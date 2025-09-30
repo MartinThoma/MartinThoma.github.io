@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Impact of SOPA protests
+slug: impact-of-sopa-protests
 author: Martin Thoma
 date: 2012-01-24 08:06:41.000000000 +01:00
 category: The Web

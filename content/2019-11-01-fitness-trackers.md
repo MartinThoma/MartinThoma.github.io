@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Fitness Trackers
 slug: fitness-trackers
 author: Martin Thoma

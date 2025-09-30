@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to search for mathematical symbols in LaTeX
+slug: how-to-search-for-mathematical-symbols-in-latex
 author: Martin Thoma
 date: 2012-07-14 19:00:44.000000000 +02:00
 category: My bits and bytes

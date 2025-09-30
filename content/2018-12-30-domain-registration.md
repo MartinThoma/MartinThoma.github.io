@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Domain Registration
 slug: domain-registration
 author: Martin Thoma

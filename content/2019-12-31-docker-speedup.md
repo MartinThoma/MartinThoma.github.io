@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to Speed up Docker
 slug: docker-speedup
 author: Martin Thoma

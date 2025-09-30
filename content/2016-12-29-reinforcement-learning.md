@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Reinforcement Learning
 slug: reinforcement-learning
 author: Martin Thoma

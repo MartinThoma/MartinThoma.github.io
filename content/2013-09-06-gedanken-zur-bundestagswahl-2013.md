@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Gedanken zur Bundestagswahl 2013
+slug: gedanken-zur-bundestagswahl-2013
 author: Martin Thoma
 date: 2013-09-06 11:54:58.000000000 +02:00
 category: German posts

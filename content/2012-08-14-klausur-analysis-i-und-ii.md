@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Klausur Analysis I und II
+slug: klausur-analysis-i-und-ii
 author: Martin Thoma
 date: 2012-08-14 17:13:24.000000000 +02:00
 category: German posts

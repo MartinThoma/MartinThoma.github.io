@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Git Contribution Statistics
 slug: git-contribution-statistics
 author: Martin Thoma

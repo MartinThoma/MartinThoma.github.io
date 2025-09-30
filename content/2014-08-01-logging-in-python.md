@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Logging in Python
+slug: logging-in-python
 author: Martin Thoma
 date: 2014-08-01 21:15
 category: Code
 tags: Python, Logging
 featured_image: logos/python.png
 ---
-
 Python has a nice logging module. You can use it like this:
 
 

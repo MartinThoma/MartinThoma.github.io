@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Hardshell Jackets
 slug: hardshell-jackets
 author: Martin Thoma

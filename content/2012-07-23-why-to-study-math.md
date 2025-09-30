@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Why to study math?
+slug: why-to-study-math
 author: Martin Thoma
 date: 2012-07-23 01:14:24.000000000 +02:00
 category: Cyberculture

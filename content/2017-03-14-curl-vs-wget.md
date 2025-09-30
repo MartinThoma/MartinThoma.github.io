@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: curl vs wget
 slug: curl-vs-wget
 author: Martin Thoma

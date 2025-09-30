@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Execute Python on Apache2
+slug: execute-python-on-apache2
 author: Martin Thoma
 date: 2015-02-01 15:11
 category: Code
 tags: Python, Apache
 featured_image: logos/python.png
 ---
-
 I have to run a very simple Python script on an Apache2 web server. These were
 the steps with which I made it work:
 

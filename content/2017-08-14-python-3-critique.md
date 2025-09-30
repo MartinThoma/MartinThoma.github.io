@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Critique of Python 3
 slug: python-3-critique
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Code
 tags: Python, Consistency, Programming
 featured_image: logos/python.png
 ---
-
 Consistency is an important quality property of a language. One of my main
 points of critic agains PHP was inconsistency (see [PHP: A strange language](//martin-thoma.com/php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
 

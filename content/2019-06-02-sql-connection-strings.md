@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: SQL Connection Strings
 slug: sql-connection-strings
 author: Martin Thoma

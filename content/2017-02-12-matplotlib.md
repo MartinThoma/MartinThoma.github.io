@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Matplotlib Markers
 slug: matplotlib-markers
 author: Martin Thoma

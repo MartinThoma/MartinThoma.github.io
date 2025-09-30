@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie bildet man den Schnitt zweier Vektorräume?
+slug: wie-bildet-man-den-schnitt-zweier-vektorraume
 author: Martin Thoma
 date: 2012-01-08 20:27:37.000000000 +01:00
 category: German posts

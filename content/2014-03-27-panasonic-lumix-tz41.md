@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Panasonic Lumix DMC-TZ41
 slug: panasonic-lumix-tz41
 author: Martin Thoma
@@ -9,7 +10,6 @@ tags: Review, Camera
 featured_image: 2014/03/panasonic-lumix-tz41.jpg
 itemtype: http://schema.org/Review
 ---
-
 <figure class="alignright">
             <a href="../images/2014/03/panasonic-lumix-tz41.jpg"><img src="../images/2014/03/panasonic-lumix-tz41.jpg" alt="Panasonic Lumix TZ41" style="max-width:128px;" class=""/></a>
             <figcaption class="text-center">Panasonic Lumix TZ41</figcaption>

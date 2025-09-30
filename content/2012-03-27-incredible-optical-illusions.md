@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Incredible Optical Illusions
+slug: incredible-optical-illusions
 author: Martin Thoma
 date: 2012-03-27 12:05:01.000000000 +02:00
 category: The Web

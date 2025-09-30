@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Science Project Guide
 slug: ds-project-guide
 author: Martin Thoma

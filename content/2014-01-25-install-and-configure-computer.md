@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Install and configure computer
+slug: install-and-configure-computer
 author: Martin Thoma
 date: 2014-01-25 10:14
 category: Cyberculture

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Best Advertising Campaigns
+slug: the-best-advertising-campaigns
 author: Martin Thoma
 date: 2012-04-08 22:15:57.000000000 +02:00
 category: Cyberculture

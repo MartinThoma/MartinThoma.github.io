@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Q-Learning
 slug: q-learning
 author: Martin Thoma

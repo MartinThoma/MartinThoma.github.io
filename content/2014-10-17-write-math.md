@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: On-line Handwriting Recognition of Mathematical Symbols
 slug: write-math
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Code
 tags: Python, Project Management
 featured_image: logos/write-math.png
 ---
-
 On-line handwriting recognition systems get the information how a symbol is
 written. In contrast, OCR only gets the pixel map.
 

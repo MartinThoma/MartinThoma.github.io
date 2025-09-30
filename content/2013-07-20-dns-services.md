@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: DNS-Services
+slug: dns-services
 author: Martin Thoma
 date: 2013-07-20 14:46:34.000000000 +02:00
 category: The Web

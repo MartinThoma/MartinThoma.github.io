@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Linux Memory Consumption
+slug: linux-memory-consumption
 author: Martin Thoma
 date: 2012-02-10 21:04:45.000000000 +01:00
 category: Code

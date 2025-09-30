@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Frauenquote am KIT
+slug: frauenquote-am-kit
 author: Martin Thoma
 date: 2012-01-07 23:57:47.000000000 +01:00
 category: German posts

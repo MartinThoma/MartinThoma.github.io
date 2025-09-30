@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Image Classification
 slug: image-classification
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Autofill Phishing
 slug: autofill-phishing
 author: Martin Thoma

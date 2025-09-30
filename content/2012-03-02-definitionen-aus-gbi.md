@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Definitionen aus GBI
+slug: definitionen-aus-gbi
 author: Martin Thoma
 date: 2012-03-02 16:16:02.000000000 +01:00
 category: German posts

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Web Frameworks
 slug: web-frameworks
 author: Martin Thoma

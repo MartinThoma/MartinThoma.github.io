@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: File Sizes
 slug: file-sizes
 author: Martin Thoma

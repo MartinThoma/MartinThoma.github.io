@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: GUI programming with Python
+slug: gui-programming-with-python
 author: Martin Thoma
 date: 2015-01-23 14:39
 category: Code
 tags: Python, GTK, Qt, tkinter
 featured_image: logos/gui-programming.png
 ---
-
 A graphical user interface (GUI) is essential for applications which should be
 used by standard computer users (non-developers, not computer scientists, ...).
 However, I have almost no experience with GUI development outside of the web.

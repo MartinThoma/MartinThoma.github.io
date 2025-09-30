@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Beweise aus der booleschen Algebra
+slug: beweise-aus-der-booleschen-algebra
 author: Martin Thoma
 date: 2012-11-08 13:18:09.000000000 +01:00
 category: German posts

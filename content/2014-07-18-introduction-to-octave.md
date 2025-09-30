@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Introduction to Octave
+slug: introduction-to-octave
 author: Martin Thoma
 date: 2014-07-18 17:40
 category: Code
 tags: Octave, Machine Learning
 featured_image: logos/octave.png
 ---
-
 [GNU Octave](https://en.wikipedia.org/wiki/GNU_Octave) is a really neat
 prototyping language for machine learning tasks. It is dynamically typed.
 

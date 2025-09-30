@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Graphic filters
+slug: graphic-filters
 author: Martin Thoma
 date: 2013-07-04 18:21:19.000000000 +02:00
 category: Code

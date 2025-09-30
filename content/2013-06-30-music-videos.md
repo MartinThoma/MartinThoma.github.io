@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Music videos
+slug: music-videos
 author: Martin Thoma
 date: 2013-06-30 21:21:51.000000000 +02:00
 category: Cyberculture

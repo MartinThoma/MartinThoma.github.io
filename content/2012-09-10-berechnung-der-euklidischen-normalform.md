@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Berechnung der euklidischen Normalform
+slug: berechnung-der-euklidischen-normalform
 author: Martin Thoma
 date: 2012-09-10 07:57:50.000000000 +02:00
 category: German posts

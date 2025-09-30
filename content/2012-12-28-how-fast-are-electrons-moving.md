@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How fast are electrons moving?
+slug: how-fast-are-electrons-moving
 author: Martin Thoma
 date: 2012-12-28 07:04:47.000000000 +01:00
 category: Cyberculture

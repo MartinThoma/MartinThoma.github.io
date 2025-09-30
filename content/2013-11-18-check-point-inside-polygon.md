@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to check if a point is inside of a polygon?
+slug: check-point-inside-polygon
 author: Martin Thoma
 date: 2013-11-18 21:36:09.000000000 +01:00
 category: Code

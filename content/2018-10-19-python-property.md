@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python property
 slug: python-property
 author: Martin Thoma

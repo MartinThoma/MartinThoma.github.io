@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Education platform
 slug: education-platform
 author: Martin Thoma

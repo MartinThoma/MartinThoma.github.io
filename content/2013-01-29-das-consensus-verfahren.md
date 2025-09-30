@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Das Consensus-Verfahren
+slug: das-consensus-verfahren
 author: Martin Thoma
 date: 2013-01-29 16:23:14.000000000 +01:00
 category: German posts

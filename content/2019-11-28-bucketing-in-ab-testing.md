@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Bucketing in A/B-Testing
 slug: bucketing-in-ab-testing
 author: Martin Thoma

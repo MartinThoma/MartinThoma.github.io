@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: ASR Services
 slug: asr-services
 author: Martin Thoma

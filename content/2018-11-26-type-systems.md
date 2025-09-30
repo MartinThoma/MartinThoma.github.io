@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Type Systems
 slug: type-systems
 author: Martin Thoma

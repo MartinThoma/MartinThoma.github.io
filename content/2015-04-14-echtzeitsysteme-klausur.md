@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Echtzeitsysteme - Klausur
+slug: echtzeitsysteme-klausur
 author: Martin Thoma
 date: 2015-04-14 20:43
 category: German posts

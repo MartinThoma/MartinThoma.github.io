@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Solving linear equations with Gaussian elimination
+slug: solving-linear-equations-with-gaussian-elimination
 author: Martin Thoma
 date: 2013-05-26 00:01:30.000000000 +02:00
 category: Code

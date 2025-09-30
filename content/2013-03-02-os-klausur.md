@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Betriebssysteme Klausur
 slug: os-klausur
 author: Martin Thoma

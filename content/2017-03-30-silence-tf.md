@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to silence TensorFlow
 slug: silence-tf
 author: Martin Thoma

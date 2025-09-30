@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Add a new font to ImageMagick
+slug: add-a-new-font-to-imagemagick
 author: Martin Thoma
 date: 2013-03-06 23:15:26.000000000 +01:00
 category: Cyberculture

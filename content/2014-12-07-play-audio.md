@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Play Audio
+slug: play-audio
 author: Martin Thoma
 date: 2014-12-07 00:31
 category: Cyberculture
 tags: Audio, Senses, HTML5
 featured_image: logos/signal.png
 ---
-
 Our senses have a limited capability to distinguish signals. This might not be
 surpristing. However, we also have a limited capability to tell in which
 order signals arrived at our sensory organs.

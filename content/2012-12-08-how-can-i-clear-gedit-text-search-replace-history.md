@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How can I clear gedit text search / replace history?
+slug: how-can-i-clear-gedit-text-search-replace-history
 author: Martin Thoma
 date: 2012-12-08 13:48:28.000000000 +01:00
 category: My bits and bytes

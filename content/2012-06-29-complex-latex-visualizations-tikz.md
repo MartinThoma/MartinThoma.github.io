@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Complex LaTeX visualizations (Tikz)
+slug: complex-latex-visualizations-tikz
 author: Martin Thoma
 date: 2012-06-29 18:38:27.000000000 +02:00
 category: Code

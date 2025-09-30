@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to hold good Presentations
 slug: presentations
 author: Martin Thoma

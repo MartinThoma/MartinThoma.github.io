@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Carrot Soup
 slug: carrot-soup
 author: Martin Thoma

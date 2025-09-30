@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Roles in Software Development
 slug: roles-in-software-development
 author: Martin Thoma

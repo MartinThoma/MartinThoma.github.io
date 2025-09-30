@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Collaborative Filtering
+slug: collaborative-filtering
 author: Martin Thoma
 date: 2016-02-10 21:35
 category: Machine Learning
 tags: Rating
 featured_image: logos/ai.png
 ---
-
 Suppose you are in the Netflix setting: You have <span markdown="0">$M$</span>
 movies, <span markdown="0">$N$</span> users and integer ratings
 <span markdown="0">$1, \dots, K$</span> for some movies by some users.

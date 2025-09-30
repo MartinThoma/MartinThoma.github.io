@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to typeset chess games with LaTeX
 slug: typeset-chess-games
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie zeige ich Differenzierbarkeit?
+slug: wie-zeige-ich-differenzierbarkeit
 author: Martin Thoma
 date: 2012-12-05 11:59:08.000000000 +01:00
 category: German posts

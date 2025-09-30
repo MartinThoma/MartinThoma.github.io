@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Lectures on YouTube
 slug: lectures-on-youtube
 author: Martin Thoma

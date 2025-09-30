@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Pandas: Merge, join, concatenate
 slug: pandas-merge-join-concatenate
 author: Martin Thoma

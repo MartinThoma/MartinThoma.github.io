@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to create a digital signature
+slug: how-to-create-a-digital-signature
 author: Martin Thoma
 date: 2013-02-16 11:34:54.000000000 +01:00
 category: Cyberculture

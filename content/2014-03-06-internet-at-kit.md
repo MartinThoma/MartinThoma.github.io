@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Internet at KIT
+slug: internet-at-kit
 author: Martin Thoma
 date: 2014-03-06 11:35
 category: Cyberculture

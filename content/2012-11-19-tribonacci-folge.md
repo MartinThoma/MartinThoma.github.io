@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Tribonacci-Folge
+slug: tribonacci-folge
 author: Martin Thoma
 date: 2012-11-19 20:52:00.000000000 +01:00
 category: Code

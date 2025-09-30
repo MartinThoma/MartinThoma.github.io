@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Digital Process Automation
 slug: digital-process-automation
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Cyberculture
 tags: Automation, Shell, Productivity, Software Development
 featured_image: logos/star.png
 ---
-
 Many people work a significant amount of their time in front of a computer
 today. And for many there are repetitive tasks. If the task is shared by many
 people, this is a chance to develop dedicated software for it. Tabular

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Python Puzzle #3: Associativity
+slug: python-puzzle-3-associativity
 author: Martin Thoma
 date: 2012-10-02 21:31:50.000000000 +02:00
 category: Code

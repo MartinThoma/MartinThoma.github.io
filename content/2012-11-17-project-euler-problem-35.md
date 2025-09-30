@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Project Euler: Problem 35
+slug: project-euler-problem-35
 author: Martin Thoma
 date: 2012-11-17 13:23:01.000000000 +01:00
 category: Code

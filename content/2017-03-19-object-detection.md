@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Object Detection
 slug: object-detection
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Puzzle #12: Control-flow
+slug: java-puzzle-12-control-flow
 author: Martin Thoma
 date: 2012-10-17 17:00:19.000000000 +02:00
 category: Code

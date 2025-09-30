@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Wie berechnet man die Jordan'sche Normalform?
+slug: wie-berechnet-man-die-jordansche-normalform
 author: Martin Thoma
 date: 2012-08-17 12:59:27.000000000 +02:00
 category: German posts

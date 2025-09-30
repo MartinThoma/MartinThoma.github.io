@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Flipflops und Latches
+slug: flipflops-und-latches
 author: Martin Thoma
 date: 2013-01-30 13:12:04.000000000 +01:00
 category: German posts

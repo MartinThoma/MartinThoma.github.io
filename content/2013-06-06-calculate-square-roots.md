@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Calculate square roots
+slug: calculate-square-roots
 author: Martin Thoma
 date: 2013-06-06 20:54:10.000000000 +02:00
 category: Cyberculture

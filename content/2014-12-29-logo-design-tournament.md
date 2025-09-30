@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Logo Design Tournament
+slug: logo-design-tournament
 author: Martin Thoma
 date: 2014-12-29 19:54
 category: Cyberculture
 tags: Competition, Crowdsourcing
 featured_image: logos/logotournament.png
 ---
-
 The website logotournament.com offers a service for designers and owners of
 companies. You can define how much money you would like to spend for a new
 logo-set and how this logo should look like.

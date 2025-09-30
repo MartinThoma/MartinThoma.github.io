@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to create UML class diagrams
+slug: how-to-create-uml-class-diagrams
 author: Martin Thoma
 date: 2012-05-06 20:38:01.000000000 +02:00
 category: My bits and bytes

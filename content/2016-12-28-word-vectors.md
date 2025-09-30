@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Word Vectors
 slug: word-vectors
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Code
 tags: Machine Learning, Python
 featured_image: logos/ml.png
 ---
-
 The idea behind word vectors is to represent natural language words like "king"
 in $\mathbb{R}^n$ in such a way, that you can do arithmetic. For example,
 

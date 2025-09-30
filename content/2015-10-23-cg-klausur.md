@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Computergrafik - Klausur
 slug: cg-klausur
 author: Martin Thoma

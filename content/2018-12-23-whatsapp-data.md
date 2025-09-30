@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: WhatsApp Data
 slug: whatsapp-data
 author: Martin Thoma

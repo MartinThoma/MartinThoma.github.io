@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Defaults of Configuration Files
 slug: cfg-files-defaults
 author: Martin Thoma

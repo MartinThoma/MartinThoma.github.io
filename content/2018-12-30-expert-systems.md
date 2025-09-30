@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Expert Systems
 slug: expert-systems
 author: Martin Thoma

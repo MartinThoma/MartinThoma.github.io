@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Astonishing Places
 slug: astonishing-places
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: When is matrix multiplication commutative?
+slug: when-is-matrix-multiplication-commutative
 author: Martin Thoma
 date: 2012-07-14 10:49:48.000000000 +02:00
 category: Mathematics

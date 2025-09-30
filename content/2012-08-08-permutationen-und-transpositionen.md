@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Permutationen und Transpositionen
+slug: permutationen-und-transpositionen
 author: Martin Thoma
 date: 2012-08-08 10:36:06.000000000 +02:00
 category: German posts

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: GOTO in Python, Java and C++
+slug: goto-in-python-java-and-cpp
 author: Martin Thoma
 date: 2012-07-12 22:04:01.000000000 +02:00
 category: Code

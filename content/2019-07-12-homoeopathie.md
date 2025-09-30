@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Homöopathie
 slug: homoeopathie
 author: Martin Thoma

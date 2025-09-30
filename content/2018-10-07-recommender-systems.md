@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Recommender Systems
 slug: recommender-systems
 author: Martin Thoma

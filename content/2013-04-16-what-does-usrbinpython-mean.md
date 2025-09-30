@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: What does #!/usr/bin/env python mean?
+slug: what-does-usrbinpython-mean
 author: Martin Thoma
 date: 2013-04-16 18:23:17.000000000 +02:00
 category: Code

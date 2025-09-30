@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: How to use Sublime Text via SSH
+slug: sublime-via-ssh
 author: Martin Thoma
 date: 2014-03-20 21:09
 category: Code
 tags: Sublime Text, SSH, Software Development
 featured_image: logos/sublime-text.png
 ---
-
 Sublime Text is the best editor I have ever used. One argument for vim and against
 SSH could be that you can't simply use Sublime Text when you're accessing a
 computer via SSH. But there is a way!

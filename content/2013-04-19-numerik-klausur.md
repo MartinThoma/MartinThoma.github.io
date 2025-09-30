@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Numerik-Klausur
+slug: numerik-klausur
 author: Martin Thoma
 date: 2013-04-19 20:05:19.000000000 +02:00
 category: German posts

@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Eigenwerte, Eigenvektoren und Eigenr&auml;ume
+slug: eigenwerte-eigenvektoren-und-eigenraume
 author: Martin Thoma
 date: 2012-04-16 08:15:32.000000000 +02:00
 category: German posts

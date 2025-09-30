@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Statistik - Klausur
 slug: statistik-vorlesung
 author: Martin Thoma

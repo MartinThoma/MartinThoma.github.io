@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Debugging a C program
+slug: debugging-a-c-program
 author: Martin Thoma
 date: 2012-11-30 17:00:15.000000000 +01:00
 category: Code

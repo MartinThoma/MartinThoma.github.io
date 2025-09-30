@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Google Code Jam Templates
+slug: google-code-jam-templates
 author: Martin Thoma
 date: 2013-04-26 11:17:35.000000000 +02:00
 category: Code

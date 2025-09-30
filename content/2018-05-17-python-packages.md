@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Python Packages
+slug: python-packages
 author: Martin Thoma
 date: 2018-05-17 20:00
 category: My bits and bytes

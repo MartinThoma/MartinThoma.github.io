@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Manipulating PDF files
+slug: manipulating-pdf-files
 author: Martin Thoma
 date: 2012-10-13 10:24:01.000000000 +02:00
 category: Cyberculture

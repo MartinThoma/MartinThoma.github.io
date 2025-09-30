@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: William Shatner
+slug: william-shatner
 author: Martin Thoma
 date: 2014-08-06 07:42
 category: My bits and bytes
 tags: William Shatner, Star Trek
 featured_image: logos/scifi.png
 ---
-
 [William Shatner](https://en.wikipedia.org/wiki/William_Shatner) is the actor
 that played James Tiberius Kirk in the science fiction television series Star
 Trek. You can imagine how famous he is from these Twitter answers:

@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: &Uuml;bersicht &uuml;ber Sortieralgorithmen
+slug: ubersicht-uber-sortieralgorithmen
 author: Martin Thoma
 date: 2012-07-15 15:00:12.000000000 +02:00
 category: German posts

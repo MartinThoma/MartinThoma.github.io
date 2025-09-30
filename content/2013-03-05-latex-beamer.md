@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: LaTeX Beamer
+slug: latex-beamer
 author: Martin Thoma
 date: 2013-03-05 11:25:20.000000000 +01:00
 category: Cyberculture

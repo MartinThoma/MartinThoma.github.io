@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Mouse clicking games
+slug: mouse-clicking-games
 author: Martin Thoma
 date: 2014-08-23 14:15
 category: Cyberculture
 tags: Python, Games, Cheat
 featured_image: logos/cookie-clicker.png
 ---
-
 Do you know games like [cookie clicker](http://orteil.dashnet.org/cookieclicker/)
 where you only have to click a lot?
 

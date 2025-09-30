@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to parse command line arguments in Java
+slug: how-to-parse-command-line-arguments-in-java
 author: Martin Thoma
 date: 2012-07-19 17:00:04.000000000 +02:00
 category: Code

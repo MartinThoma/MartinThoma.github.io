@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: de
 title: Prüfungsverwaltung am KIT
+slug: pruefungsanmeldungen-am-kit
 author: Martin Thoma
 date: 2014-04-08 16:09
 category: German posts
 tags: KIT
 featured_image: logos/kit.png
 ---
-
 <!-- <div class="info">This article is about an idea how to give students the
 possibility to proof that they were registered for an exam.</div> -->
 

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Adressierung
+slug: adressierung
 author: Martin Thoma
 date: 2013-01-11 17:15:56.000000000 +01:00
 category: German posts

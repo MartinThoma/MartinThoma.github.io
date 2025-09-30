@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Citations with LaTeX
 slug: citations-with-latex
 author: Martin Thoma

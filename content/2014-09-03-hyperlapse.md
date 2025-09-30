@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Hyperlapse
+slug: hyperlapse
 author: Martin Thoma
 date: 2014-09-03 04:31
 category: Cyberculture
 tags: Microsoft, research, kd-tree, structure from motion, spline
 featured_image: logos/microsoft.png
 ---
-
 [Johannes Kopf](http://research.microsoft.com/en-us/people/kopf/), a researcher
 at Microsoft, has recently published a stunning video about a software project
 he seems to have participated in. The video is about the automatic creation

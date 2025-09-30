@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: The Absolute Value Function
 slug: abs-function
 author: Martin Thoma

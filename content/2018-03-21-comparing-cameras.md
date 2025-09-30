@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Comparing Cameras
 slug: comparing-cameras
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Visualization with Python
 slug: python-data-visualization
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Fibonacci, recursion and decorators
 slug: fibonacci-recursion-decorators
 author: Martin Thoma

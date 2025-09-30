@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Phở
 slug: pho
 author: Martin Thoma

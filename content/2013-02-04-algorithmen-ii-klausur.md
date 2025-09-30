@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Algorithmen II - Klausur
+slug: algorithmen-ii-klausur
 author: Martin Thoma
 date: 2013-02-04 20:03:14.000000000 +01:00
 category: German posts

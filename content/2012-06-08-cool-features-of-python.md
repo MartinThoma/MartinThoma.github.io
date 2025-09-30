@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Cool features of Python
+slug: cool-features-of-python
 author: Martin Thoma
 date: 2012-06-08 17:30:10.000000000 +02:00
 category: Code

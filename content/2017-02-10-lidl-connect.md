@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Lidl Connect
 slug: lidl-connect
 author: Martin Thoma

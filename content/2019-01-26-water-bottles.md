@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Water Bottles
 slug: water-bottles
 author: Martin Thoma

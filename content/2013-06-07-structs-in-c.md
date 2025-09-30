@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Structs in C++
+slug: structs-in-c
 author: Martin Thoma
 date: 2013-06-07 16:25:18.000000000 +02:00
 category: Code

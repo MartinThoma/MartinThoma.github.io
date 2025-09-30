@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Check x-in-a-row for board games
+slug: check-x-in-a-row-for-board-games
 author: Martin Thoma
 date: 2013-01-21 21:59:28.000000000 +01:00
 category: Code

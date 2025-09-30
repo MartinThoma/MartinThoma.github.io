@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Label Correction Algorithm
 slug: label-correction-algorithm
 author: Martin Thoma

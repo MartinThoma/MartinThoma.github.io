@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Web Engineering
+slug: web-engineering
 author: Martin Thoma
 date: 2013-01-03 13:57:06.000000000 +01:00
 category: German posts

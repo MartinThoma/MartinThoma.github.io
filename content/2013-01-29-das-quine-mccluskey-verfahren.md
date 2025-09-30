@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Das Quine-McCluskey-Verfahren
+slug: das-quine-mccluskey-verfahren
 author: Martin Thoma
 date: 2013-01-29 14:34:06.000000000 +01:00
 category: German posts

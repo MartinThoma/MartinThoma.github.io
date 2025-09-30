@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Paper List
 slug: paper-list
 author: Martin Thoma

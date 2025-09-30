@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: A.I. in Computer Games
+slug: ai-in-computer-games
 author: Martin Thoma
 date: 2014-07-01 23:52
 category: Machine Learning
 tags: AI, games, Machine Learning
 featured_image: logos/ai.png
 ---
-
 Artificial Intelligences (A.I.s) are computer programs that are able to adjust
 their behaviour according to data they see. So A.I.s are able to adjust to
 the data a human player generates.

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Stages of Software Development
 slug: software-development-stages
 author: Martin Thoma

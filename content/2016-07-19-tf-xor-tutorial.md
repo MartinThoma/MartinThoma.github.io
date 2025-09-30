@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: XOR tutorial with TensorFlow
 slug: tf-xor-tutorial
 author: Martin Thoma

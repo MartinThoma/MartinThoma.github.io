@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to analyze Set Data
 slug: analyze-set-data
 author: Martin Thoma

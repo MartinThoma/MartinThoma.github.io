@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Sleeping Bags
 slug: sleeping-bags
 author: Martin Thoma

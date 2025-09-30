@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Machine Learning Glossary
 slug: ml-glossary
 author: Martin Thoma

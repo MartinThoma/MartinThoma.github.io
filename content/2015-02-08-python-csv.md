@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python and CSV
 slug: python-csv
 author: Martin Thoma

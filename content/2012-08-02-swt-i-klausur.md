@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: SWT I Klausur
+slug: swt-i-klausur
 author: Martin Thoma
 date: 2012-08-02 20:16:12.000000000 +02:00
 category: German posts

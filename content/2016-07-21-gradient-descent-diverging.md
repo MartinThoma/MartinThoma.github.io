@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Diverging Gradient Descent
 slug: diverging-gradient-descent
 author: Martin Thoma

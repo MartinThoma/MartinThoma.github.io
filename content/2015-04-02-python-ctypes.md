@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Python ctypes
+slug: python-ctypes
 author: Martin Thoma
 date: 2015-04-02 22:06
 category: Code
 tags: Python, Rust
 featured_image: logos/python.png
 ---
-
 One pseudo-problem people often mention when talking about Python is that
 Python is (too) slow. What they seem to forget or don't know is that you can
 call C code from Python with [`ctypes`](https://docs.python.org/3/library/ctypes.html).

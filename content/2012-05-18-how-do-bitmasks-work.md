@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How do Bitmasks work?
+slug: how-do-bitmasks-work
 author: Martin Thoma
 date: 2012-05-18 23:02:55.000000000 +02:00
 category: Code

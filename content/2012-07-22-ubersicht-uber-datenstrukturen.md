@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: &Uuml;bersicht &uuml;ber Datenstrukturen
+slug: ubersicht-uber-datenstrukturen
 author: Martin Thoma
 date: 2012-07-22 17:38:04.000000000 +02:00
 category: German posts

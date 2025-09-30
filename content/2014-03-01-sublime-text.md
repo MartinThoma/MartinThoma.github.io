@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Sublime Text
+slug: sublime-text
 author: Martin Thoma
 date: 2014-03-01 17:01
 category: Code

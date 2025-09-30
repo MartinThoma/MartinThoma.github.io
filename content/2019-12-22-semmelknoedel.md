@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Semmelknödel
 slug: semmelknoedel
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: PHP: A strange language
+slug: php-a-strange-language
 author: Martin Thoma
 date: 2012-04-12 16:24:32.000000000 +02:00
 category: Code

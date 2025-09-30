@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Die Landau-Symbole
+slug: die-landau-symbole
 author: Martin Thoma
 date: 2012-07-26 08:41:08.000000000 +02:00
 category: German posts

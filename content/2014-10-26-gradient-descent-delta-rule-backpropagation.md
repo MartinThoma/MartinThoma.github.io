@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Gradient Descent, the Delta Rule and Backpropagation
+slug: gradient-descent-delta-rule-backpropagation
 author: Martin Thoma
 date: 2014-10-26 21:06
 category: Machine Learning
 tags: Machine Learning, AI
 featured_image: logos/ai.png
 ---
-
 If you learn about machine learning you will stumble over three terms that are
 related:
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Scientist Interviews
 slug: ds-interview
 author: Martin Thoma

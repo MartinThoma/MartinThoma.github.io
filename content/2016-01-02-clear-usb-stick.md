@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to clear a USB stick
+slug: clear-usb-stick
 author: Martin Thoma
 date: 2016-01-02 22:57
 category: Cyberculture

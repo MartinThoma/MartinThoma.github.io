@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Portal - Still Alive typography clip
+slug: portal-still-alive-typography-clip
 author: Martin Thoma
 date: 2012-02-23 21:29:48.000000000 +01:00
 category: Cyberculture

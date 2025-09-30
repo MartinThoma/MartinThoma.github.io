@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Online Banking
 slug: online-banking
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: My bits and bytes
 tags: Banking, N26
 featured_image: logos/money.png
 ---
-
 Online banking is something I have to do. I have to have a bank account for my
 salary, to pay my rent and to pay Amazon orders. Once in a year I need the
 documents for my tax declaration.

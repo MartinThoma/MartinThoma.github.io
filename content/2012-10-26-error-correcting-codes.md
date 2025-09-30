@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Error correcting Codes
+slug: error-correcting-codes
 author: Martin Thoma
 date: 2012-10-26 22:29:51.000000000 +02:00
 category: My bits and bytes

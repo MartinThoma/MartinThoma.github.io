@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Google Reader Alternatives
+slug: google-reader-alternatives
 author: Martin Thoma
 date: 2013-03-15 23:09:04.000000000 +01:00
 category: The Web

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Make a Webservice
 slug: make-a-webservice
 author: Martin Thoma

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Citizen Science Projects
+slug: citizen-science-projects
 author: Martin Thoma
 date: 2014-08-21 13:27
 category: Cyberculture
 tags: Science, CMU, Computer Science, Gamification
 featured_image: logos/galaxy.png
 ---
-
 "Citizen Science Projects" are research projects that crowdsource a part of
 the research work. The idea behind that is quite simple: Some tasks of
 researchers are very simple. Everybody can do them.

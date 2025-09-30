@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: URL shortener
+slug: url-shortener
 author: Martin Thoma
 date: 2012-04-16 15:12:57.000000000 +02:00
 category: The Web

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Profiling C programs
+slug: profiling-c-programs
 author: Martin Thoma
 date: 2012-12-01 17:00:58.000000000 +01:00
 category: Code

@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: de
 title: Wasserrohrbruch in Karlsruhe
+slug: wasserrohrbruch-karlsruhe
 author: Martin Thoma
 date: 2016-02-20 11:29
 category: German posts
 tags: Water, Karlsruhe, Networks
 featured_image: logos/water.png
 ---
-
 Seit 10:00 Uhr (20.02.2016) geht bei mir (Parkstraße, Oststadt, Karlsruhe)
 das Wasser nicht mehr.
 

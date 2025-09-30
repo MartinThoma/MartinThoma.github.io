@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Python Shell autocomplete
+slug: python-shell-autocomplete
 author: Martin Thoma
 date: 2015-02-05 09:58
 category: Code

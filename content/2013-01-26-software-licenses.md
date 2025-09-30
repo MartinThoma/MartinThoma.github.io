@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Software Licenses
+slug: software-licenses
 author: Martin Thoma
 date: 2013-01-26 09:59:46.000000000 +01:00
 category: Code

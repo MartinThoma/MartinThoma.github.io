@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Git Repository Managers
 slug: git-repository-managers
 author: Martin Thoma

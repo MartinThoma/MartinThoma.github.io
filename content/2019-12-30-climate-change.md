@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Climate Change
 slug: climate-change
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Funny Machine Learning
 slug: funny-ml
 author: Martin Thoma

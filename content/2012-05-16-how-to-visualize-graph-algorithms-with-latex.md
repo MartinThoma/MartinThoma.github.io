@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to visualize Graph algorithms with LaTeX
+slug: how-to-visualize-graph-algorithms-with-latex
 author: Martin Thoma
 date: 2012-05-16 13:16:29.000000000 +02:00
 category: Code

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Learn how to type
+slug: learn-how-to-type
 author: Martin Thoma
 date: 2012-03-26 17:40:58.000000000 +02:00
 category: The Web

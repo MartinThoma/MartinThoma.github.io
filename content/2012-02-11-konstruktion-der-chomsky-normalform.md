@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: Konstruktion der Chomsky-Normalform
+slug: konstruktion-der-chomsky-normalform
 author: Martin Thoma
 date: 2012-02-11 17:25:36.000000000 +01:00
 category: German posts

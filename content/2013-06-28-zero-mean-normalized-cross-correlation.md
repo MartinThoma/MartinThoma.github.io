@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Zero Mean Normalized Cross-Correlation
+slug: zero-mean-normalized-cross-correlation
 author: Martin Thoma
 date: 2013-06-28 22:15:45.000000000 +02:00
 category: Code

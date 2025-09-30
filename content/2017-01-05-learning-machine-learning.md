@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Learning Machine Learning
 slug: learning-machine-learning
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Cyberculture
 tags: Machine Learning
 featured_image: logos/ml.png
 ---
-
 There is plenty of material online for learning machine learning. I like to
 share some links in this post to what I know. Feel free to add comments with
 other material.

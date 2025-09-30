@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: How to reverse engineer a function
+slug: how-to-reverse-engineer-a-function
 author: Martin Thoma
 date: 2012-08-27 09:49:58.000000000 +02:00
 category: Cyberculture

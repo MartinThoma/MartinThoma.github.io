@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How do hash functions work?
+slug: how-do-hash-functions-work
 author: Martin Thoma
 date: 2013-05-11 20:07:07.000000000 +02:00
 category: Code

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to calculate the Legendre symbol
+slug: calculate-legendre-symbol
 author: Martin Thoma
 date: 2013-09-01 13:05:46.000000000 +02:00
 category: Mathematics

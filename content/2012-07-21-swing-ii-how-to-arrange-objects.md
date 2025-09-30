@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Swing II: How to arrange Objects
+slug: swing-ii-how-to-arrange-objects
 author: Martin Thoma
 date: 2012-07-21 17:00:44.000000000 +02:00
 category: Code

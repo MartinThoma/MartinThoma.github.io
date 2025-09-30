@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Fix zypper readline error
+slug: fix-zypper-libreadline-error
 author: Martin Thoma
 date: 2014-07-14 11:34
 category: Code
 tags: openSUSE
 featured_image: logos/open-suse.png
 ---
-
 In case you work on a openSUSE system and you get the following error
 
 ```bash

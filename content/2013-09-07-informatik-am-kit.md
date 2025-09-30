@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Informatik am KIT
+slug: informatik-am-kit
 author: Martin Thoma
 date: 2013-09-07 11:41:05.000000000 +02:00
 category: German posts

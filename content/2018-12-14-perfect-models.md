@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Perfect Models
 slug: perfect-models
 author: Martin Thoma

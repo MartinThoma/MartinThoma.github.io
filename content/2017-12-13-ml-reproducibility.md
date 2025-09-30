@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Reproducibility in Machine Learning
 slug: ml-reproducibility
 author: Martin Thoma

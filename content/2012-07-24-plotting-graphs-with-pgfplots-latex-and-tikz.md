@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Plotting graphs with PGFplots (LaTeX and Tikz)
+slug: plotting-graphs-with-pgfplots-latex-and-tikz
 author: Martin Thoma
 date: 2012-07-24 17:00:28.000000000 +02:00
 category: Code

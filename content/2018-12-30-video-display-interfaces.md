@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Video Display Interfaces
 slug: video-display-interfaces
 author: Martin Thoma

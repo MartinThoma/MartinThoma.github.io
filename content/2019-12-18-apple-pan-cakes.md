@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Apple Pancakes
 slug: apple-pancakes
 author: Martin Thoma

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Working Remotely
 slug: working-remotely
 author: Martin Thoma

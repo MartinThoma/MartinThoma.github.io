@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: B&uuml;rokratie am KIT
+slug: burokratie-am-kit
 author: Martin Thoma
 date: 2012-10-17 18:06:31.000000000 +02:00
 category: German posts

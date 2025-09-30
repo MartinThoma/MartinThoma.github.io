@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Triangle area
+slug: triangle-area
 author: Martin Thoma
 date: 2013-04-25 10:13:15.000000000 +02:00
 category: My bits and bytes

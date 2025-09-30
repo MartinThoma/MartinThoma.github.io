@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: de
 title: Hörspiele
+slug: horspiele
 author: Martin Thoma
 date: 2014-12-30 21:51
 category: German posts
 tags: smartphone
 featured_image: 2013/04/die-drei-fragezeichen-logo.png
 ---
-
 <div class="info">This is a quic article I had for quite a while as a draft. It
 might not be finished or have other problems, but I still want to share
 it.</div>

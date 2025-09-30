@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Universal Rating System
+slug: universal-rating-system
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Cyberculture

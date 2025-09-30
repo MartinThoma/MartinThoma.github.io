@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Internet Traffic
 slug: internet-traffic
 author: Martin Thoma

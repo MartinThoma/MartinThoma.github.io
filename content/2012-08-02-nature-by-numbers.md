@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Nature by Numbers
+slug: nature-by-numbers
 author: Martin Thoma
 date: 2012-08-02 17:00:22.000000000 +02:00
 category: Cyberculture

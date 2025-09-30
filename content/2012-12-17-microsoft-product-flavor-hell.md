@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Microsoft product flavor hell
+slug: microsoft-product-flavor-hell
 author: Martin Thoma
 date: 2012-12-17 13:05:32.000000000 +01:00
 category: Cyberculture

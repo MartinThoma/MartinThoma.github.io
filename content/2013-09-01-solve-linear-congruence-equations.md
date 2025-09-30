@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to solve linear congruence equations
 slug: solve-linear-congruence-equations
 author: Martin Thoma

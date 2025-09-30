@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Data Backup Strategies
+slug: data-backup-strategies
 author: Martin Thoma
 date: 2013-07-08 08:48:50.000000000 +02:00
 category: Cyberculture

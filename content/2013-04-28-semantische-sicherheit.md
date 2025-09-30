@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Semantische Sicherheit
+slug: semantische-sicherheit
 author: Martin Thoma
 date: 2013-04-28 15:06:53.000000000 +02:00
 category: German posts

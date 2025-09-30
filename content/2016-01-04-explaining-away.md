@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Explaining Away
+slug: explaining-away
 author: Martin Thoma
 date: 2016-01-04 23:52
 category: Cyberculture
 tags: Mathematics
 featured_image: logos/statistics.png
 ---
-
 Explaining away is an effect where which is explained in Pearl (1988) with
 an example similar to the following one:
 

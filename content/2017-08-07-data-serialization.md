@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Serialization
 slug: data-serialization
 author: Martin Thoma

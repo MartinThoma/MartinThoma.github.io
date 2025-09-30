@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: How to find new Papers
+slug: find-papers
 author: Martin Thoma
 date: 2015-12-03 07:30
 category: Science

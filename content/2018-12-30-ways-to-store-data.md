@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Ways to store Data
 slug: ways-to-store-data
 author: Martin Thoma

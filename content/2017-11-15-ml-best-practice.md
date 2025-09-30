@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Best practice for Machine Learning Projects
 slug: ml-best-practice
 author: Martin Thoma

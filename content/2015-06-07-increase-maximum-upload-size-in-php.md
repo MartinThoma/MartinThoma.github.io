@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Increase the maximum file upload size in PHP
+slug: increase-maximum-upload-size-in-php
 author: Martin Thoma
 date: 2015-06-07 09:13
 category: Cyberculture
 tags: PHP, apache
 featured_image: logos/php.png
 ---
-
 Create a `test.php` with the following content to check your current maximum
 upload size.
 

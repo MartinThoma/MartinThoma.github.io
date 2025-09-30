@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Microsoft Vision API
+slug: microsoft-vision-api
 author: Martin Thoma
 date: 2016-03-31 14:49
 category: Cyberculture

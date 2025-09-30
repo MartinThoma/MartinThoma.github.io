@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Why is the stabilizer subgroup a subgroup?
 slug: stabilizer-subgroup-subgroup
 author: Martin Thoma

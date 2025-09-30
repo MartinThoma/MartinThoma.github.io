@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Globetrotter
+slug: globetrotter
 author: Martin Thoma
 date: 2012-08-06 17:00:06.000000000 +02:00
 category: Cyberculture

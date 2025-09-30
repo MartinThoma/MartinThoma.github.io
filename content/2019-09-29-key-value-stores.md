@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Key-Value Stores
 slug: key-value-stores
 author: Martin Thoma

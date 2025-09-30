@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Techniques for Analyzing ML models
 slug: model-analysis
 author: Martin Thoma

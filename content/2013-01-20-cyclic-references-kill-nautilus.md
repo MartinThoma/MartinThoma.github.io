@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Cyclic references kill Nautilus
+slug: cyclic-references-kill-nautilus
 author: Martin Thoma
 date: 2013-01-20 21:46:34.000000000 +01:00
 category: Code

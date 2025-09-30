@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Java Puzzle #10: Multiple Interfaces
+slug: java-puzzle-10-multiple-interfaces
 author: Martin Thoma
 date: 2012-08-16 17:00:25.000000000 +02:00
 category: Code

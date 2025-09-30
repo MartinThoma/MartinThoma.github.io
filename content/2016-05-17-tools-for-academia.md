@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Tools for Academia
 slug: tools-for-academia
 author: Martin Thoma

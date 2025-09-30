@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Project Euler: Problem 142
+slug: project-euler-problem-142
 author: Martin Thoma
 date: 2012-04-08 22:40:43.000000000 +02:00
 category: Code

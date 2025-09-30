@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Check Computer / Hardware for Linux-compatibility
+slug: check-computer-hardware-for-linux-compatibility
 author: Martin Thoma
 date: 2012-01-27 20:42:21.000000000 +01:00
 category: Cyberculture

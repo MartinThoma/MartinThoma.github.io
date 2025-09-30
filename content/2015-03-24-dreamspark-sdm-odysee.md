@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Dreamspark SDM Odysee
+slug: dreamspark-sdm-odysee
 author: Martin Thoma
 date: 2015-03-24 13:04
 category: Cyberculture

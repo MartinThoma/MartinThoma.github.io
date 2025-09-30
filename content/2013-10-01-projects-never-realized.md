@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Projects I never realized
+slug: projects-never-realized
 author: Martin Thoma
 date: 2013-10-01 23:41:37.000000000 +02:00
 category: Cyberculture

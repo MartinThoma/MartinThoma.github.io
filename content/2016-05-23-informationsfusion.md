@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Informationsfusion
 slug: informationsfusion
 author: Martin Thoma

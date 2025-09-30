@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Thoughts about Language
 slug: thoughts-about-language
 author: Martin Thoma

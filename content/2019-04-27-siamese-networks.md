@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Siamese Networks
 slug: siamese-networks
 author: Martin Thoma

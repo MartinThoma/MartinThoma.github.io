@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Data Science - An Overview
 slug: data-science
 author: Martin Thoma

@@ -2,6 +2,7 @@
 layout: post
 lang: en
 title: Creating pdf-forms with LaTeX
+slug: creating-pdf-forms-with-latex
 author: Martin Thoma
 date: 2012-02-29 15:11:07.000000000 +01:00
 category: My bits and bytes

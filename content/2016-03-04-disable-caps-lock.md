@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Disable Caps Lock
+slug: disable-caps-lock
 author: Martin Thoma
 date: 2016-03-04 10:59
 category: Cyberculture

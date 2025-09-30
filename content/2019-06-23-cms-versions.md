@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: CMS Page Versions
 slug: cms-page-versions
 author: Martin Thoma

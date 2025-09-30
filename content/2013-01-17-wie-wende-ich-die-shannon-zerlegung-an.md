@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: Wie wende ich die Shannon-Zerlegung an?
+slug: wie-wende-ich-die-shannon-zerlegung-an
 author: Martin Thoma
 date: 2013-01-17 17:46:27.000000000 +01:00
 category: German posts

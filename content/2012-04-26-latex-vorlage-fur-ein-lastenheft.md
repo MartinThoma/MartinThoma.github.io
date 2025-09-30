@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: LaTeX-Vorlage f&uuml;r ein Lastenheft
+slug: latex-vorlage-fur-ein-lastenheft
 author: Martin Thoma
 date: 2012-04-26 13:51:07.000000000 +02:00
 category: German posts

@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: Spline interpolation
+slug: spline-interpolation
 author: Martin Thoma
 date: 2013-06-30 13:58:20.000000000 +02:00
 category: Code

@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: de
 title: Krankenkasse
 slug: krankenkasse
 author: Martin Thoma

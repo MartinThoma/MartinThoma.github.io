@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: en
 title: three.js is AWESOME!
+slug: three-js-is-awesome
 author: Martin Thoma
 date: 2013-07-01 16:21:44.000000000 +02:00
 category: Code

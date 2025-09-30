@@ -1,6 +1,8 @@
 ---
 layout: post
+lang: de
 title: KV-Diagramme
+slug: kv-diagramme
 author: Martin Thoma
 date: 2013-03-25 23:37:00.000000000 +01:00
 category: German posts

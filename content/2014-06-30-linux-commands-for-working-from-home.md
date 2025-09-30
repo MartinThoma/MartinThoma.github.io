@@ -1,13 +1,14 @@
 ---
 layout: post
+lang: en
 title: Linux Commands for Working from home
+slug: linux-commands-for-working-from-home
 author: Martin Thoma
 date: 2014-06-30 13:41
 category: Code
 tags: SSH, Shell, Software Development
 featured_image: logos/shell.png
 ---
-
 This article is just a collection of commands and shortcuts I need quite often.
 
 ## Creating a single archive file from a complete folder

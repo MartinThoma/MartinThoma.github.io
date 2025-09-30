@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: Python Puzzle 4
 slug: python-puzzle-4
 author: Martin Thoma

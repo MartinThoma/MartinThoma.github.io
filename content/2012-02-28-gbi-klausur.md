@@ -2,6 +2,7 @@
 layout: post
 lang: de
 title: GBI-Klausur
+slug: gbi-klausur
 author: Martin Thoma
 date: 2012-02-28 19:30:01.000000000 +01:00
 category: German posts

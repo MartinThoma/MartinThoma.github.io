@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: en
 title: How to download ImageNet
 slug: download-data
 author: Martin Thoma
@@ -8,7 +9,6 @@ category: Machine Learning
 tags: download, machine learning
 featured_image: logos/ml.png
 ---
-
 Machine Learning algorithms for computer vision need huge amounts of data.
 Here are a few remarks on how to download them.
 
