@@ -34,7 +34,7 @@ Ich habe aktuell zwei Stromzähler und zwei Tarife:
   <tbody>
     <tr>
       <td>Wärmepumpen-Tarif (HT/NT)</td>
-      <td style="text-align: right;">0.205&nbsp;€/kWh</td>
+      <td style="text-align: right;">0.2050&nbsp;€/kWh</td>
       <td style="text-align: right;">93.88&nbsp;€/Jahr</td>
     </tr>
     <tr>
@@ -630,6 +630,7 @@ eine 10 kWp PV-Anlage installiere und den Eigenverbrauch maximiere.
   Batteriespeicher kann dies abmildern.
 * Die Module können durch Alterung oder Verschmutzung an Leistung verlieren.
 * Teile der Anlage können kaputtgehen oder Wartung benötigen.
+* Mehrkosten für die Gebäudeversicherung.
 
 **Faktoren, die die Wirtschaftlichkeit erhöhen:**
 
@@ -667,6 +668,16 @@ Wichtige Eigenschaften:
     unterscheiden. Die Schwarzstartfähigkeit ist eine notwendige, aber keine hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
     Für den Notstrombetrieb ist sie nicht notwendig.
 
+### Schnittstellen und Kommunikation
+
+Ich will die Anlage in mein bestehendes Smart Home (Home Assistant) integrieren.
+
+Eventuell will ich auch ein unabhängiges Energie-Management-System (EMS)
+einsetzen, z.B. [Optimapower](https://optimapower.ai/).
+
+Das EMS sollte mit dem Wechselrichter / dem Batteriespeicher kommunizieren können,
+ohne dass ich dafür Internet benötige.
+
 
 ## Fazit
 
@@ -686,3 +697,13 @@ Besonders vorteilhaft wirken sich aus:
 
 1. Muss ich die Einspeisevergütung versteuern?
 2. Kann ich die PV-Anlage von der Steuer absetzen?
+3. Wie war das mit der 60% Regelung des Solarspitzengesetz?
+    * Es wird keine Einspeisevergütung mehr gezahlt, wenn der Strompreis an der
+      Börse ins Negative fällt.
+    * Es besteht für den Messstellenbetreiber die Pflicht zum Einbau eines
+      intelligenten Messsystems (Smart Meter) und einer Steuerbox, wenn die
+      Anlage mindestens 7 kW Leistung hat.
+    * Bis diese Technik eingebaut und getestet wird, darf die Einspeiseleistung
+      nur 60 % der installierten Leistung betragen. Für Anlagen zwischen 25 und
+      100 kW ist bis zum Einbau der Technik zusätzlich eine Fernsteuerbarkeit
+      (z.B. über Rundsteuerempfänger) verpflichtend.
