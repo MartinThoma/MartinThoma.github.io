@@ -1,57 +1,57 @@
 ---
 layout: post
-lang: en
 title: Home Security Cameras 2025
 slug: home-security-cameras-2025
+lang: en
 author: Martin Thoma
 date: 2025-05-11 20:00
 category: My bits and bytes
 tags: cameras, review, Smart Home, Home Assistant
 featured_image: logos/money.png
 ---
-When I'm not at home, I still want to know if anything is happening. Especially
-when a person is in an unexpected place, but also e.g. when somebody is at the
-door.
+When I'm not at home, I still want to know if anything is happening. This is especially
+important when a person is in an unexpected location, but also for situations like
+someone being at the door.
 
-In this article, I will compare different home security cameras systems.
+In this article, I will compare different home security camera systems.
 
 ## General Notes
 
-I am in Germany so the prices and availability are for Germany.
+I am located in Germany, so prices and availability reflect the German market.
 
-What I want:
+**My requirements:**
 
 * At least one option for an **indoor camera** (cable-powered) and one for an
-  **outdoor camera** (battery-powered, with solar panel and IP65-rating or
-  better, the power should be USB-C that can also be used for charging the
+  **outdoor camera** (battery-powered, with solar panel and IP65 rating or
+  better; power should be USB-C that can also be used for charging the
   battery directly)
-* I hate subscription models. I just want to buy the stuff and own it.
-* It should have a decent **Home Assistant integration** as well as a reasonable app
-* The camera should have a **local storage** option (microSD card or similar)
+* I dislike subscription models. I prefer to buy the equipment and own it outright.
+* The system should have decent **Home Assistant integration** as well as a reasonable mobile app
+* The cameras should have **local storage** options (microSD card or similar)
 * A **smart hub** that works without internet and syncs with the cameras is a plus
 
-I excluded those vendors:
+**Excluded vendors:**
 
-* [Blink](https://en.wikipedia.org/wiki/Blink_Home) (Amazon, basic option) [needs a
+* [Blink](https://en.wikipedia.org/wiki/Blink_Home) (Amazon, basic option): [Requires a
   subscription for motion
   detection](https://support.blinkforhome.com/en_GB/subscriptions-faq/subscription-faq),
-  so that's a no-go for me.
-* For [Ring](https://en.wikipedia.org/wiki/Ring_(company)) (Amazon, premium option), it was
-  rather hard to find what you can/cannot do without a subscription. There seems
-  to be "Ring Edge" to allow you to store the recordings locally.
-* [Google Nest](https://de.wikipedia.org/wiki/Google_Nest) offers just a few cameras. They seem to be
+  which is a deal-breaker for me.
+* [Ring](https://en.wikipedia.org/wiki/Ring_(company)) (Amazon, premium option): It's
+  difficult to determine what you can/cannot do without a subscription. There appears
+  to be "Ring Edge" for local storage of recordings.
+* [Google Nest](https://de.wikipedia.org/wiki/Google_Nest): Offers only a few cameras that seem
   [overpriced](https://www.amazon.de/Google-Indoor-Kabel-%C3%9Cberwachungskamera-Hause/dp/B09TN65LQF/)
-  (74€ for one indoor camera) and it's unclear how much you can do [without a
+  (74€ for one indoor camera), and it's unclear how much functionality is available [without a
   subscription](https://www.reddit.com/r/Nest/comments/ry8t7i/are_nest_cameras_worthless_without_nest_aware/).
 
 
 ### Offline Access
 
 In the following table, "local" means your phone is connected to the same WiFi
-network as the camera. "Remote" means your phone is connected to the Internet
+network as the camera. "Remote" means your phone is connected to the internet
 but not to the same WiFi network as the camera.
 
-Accessing the camera means being able to see its settings.
+"Accessing the camera" refers to being able to view its settings and controls.
 
 <table border="1" cellpadding="5" cellspacing="0">
   <thead>
@@ -105,7 +105,6 @@ Accessing the camera means being able to see its settings.
       <td>✅</td>
       <td>&nbsp;</td>
     </tr>
-    </tr>
     <tr>
       <td>Record to SD card</td>
       <td>✅</td>
@@ -144,10 +143,11 @@ Accessing the camera means being able to see its settings.
   </tbody>
 </table>
 
-## IP-Ratings
+## IP Ratings
 
-IP ratings are a measure of how well a device is protected against dust and water.
+IP ratings measure how well a device is protected against dust and water.
 The first digit indicates the level of protection against solid objects, while the
+second digit indicates protection against liquids.
 second digit indicates the level of protection against liquids.
 
 The letter "X" can be used in place of a digit to indicate that the device has

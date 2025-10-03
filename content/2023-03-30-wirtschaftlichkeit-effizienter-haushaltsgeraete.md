@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wirtschaftlichkeit von effizienten Haushaltsgeräten
 slug: wirtschaftlichkeit-effizienter-haushaltsgeraete
+lang: de
 author: Martin Thoma
 date: 2023-03-30 20:00
 category: German posts
@@ -10,20 +10,20 @@ tags: money, house
 featured_image: logos/house.png
 ---
 Ich frage mich immer wieder, wann sich ein Neukauf eines Haushaltsgeräts aus
-effizienzgewinngründen lohnt bzw. welcher Aufpreis sich aufgrund höherer Effizienz
+Effizienzgewinnsgründen lohnt bzw. welcher Aufpreis sich aufgrund höherer Effizienz
 lohnt. Hier ein paar Gedanken dazu.
 
-Ein paar Sachen Vorweg:
+Ein paar Sachen vorab:
 
-* Strompreis: ich nehme einen Arbeitrspreis von 30ct/kWh an.
-* Marken / Funktionen: Natürlich spielt mehr als die effizienz eine Rolle. Man
+* Strompreis: Ich nehme einen Arbeitspreis von 30ct/kWh an.
+* Marken / Funktionen: Natürlich spielt mehr als die Effizienz eine Rolle. Man
   bezahlt nicht selten für einen Markennamen. Und selbst unter ökonomischen
   Aspekten spielt die Lebensdauer und Reparierbarkeit natürlich eine große Rolle.
 
 ## Spülmaschinen
 
-Ich gehe davon aus, dass wir ca. jeden zweiten Tag die Spülmaschine anmachen. Also
-182x im Jahr. Ich gehe von einer Lebensdauer von 5 Jahren aus.
+Ich gehe davon aus, dass wir etwa jeden zweiten Tag die Spülmaschine anmachen.
+Also 182-mal im Jahr. Ich gehe von einer Lebensdauer von 5 Jahren aus.
 
 Ich habe folgende Stand-Geschirrspüler gesucht:
 
@@ -70,12 +70,12 @@ Ich habe folgende Stand-Geschirrspüler gesucht:
 </table>
 
 Man sieht hier, dass die Lebensdauerbetrachtung das Zünglein an der Waage sein
-kann. Aber eine Effizienz von A, B, oder C lohnt sich wohl nicht. Dafür ist
+kann. Aber eine Effizienz von A, B oder C lohnt sich wohl nicht. Dafür ist
 der Unterschied nicht groß genug.
 
 ## Backöfen
 
-Ich gehe davon aus, dass ich im Jahr ca. 100x das Umluft-Programm nutze.
+Ich gehe davon aus, dass ich im Jahr etwa 100-mal das Umluft-Programm nutze.
 Ich gehe von einer Lebenszeit von 14 Jahren aus ([Quelle](https://www.ersatzteilshop.de/blog/lebensdauer-von-haushaltsgeraeten/)).
 
 Ich suche:
@@ -148,7 +148,7 @@ Ich gehe von einer Lebenszeit von 14 Jahren aus ([Quelle](https://www.ersatzteil
         <td>1222€</td>
     </tr>
     <tr>
-        <td>Amica KGC 384 110 E (93L+45L)</td>
+        <td>Amica KGC 384110 E (93L+45L)</td>
         <td>441€</td>
         <td>118 kWh/a (C)</td>
         <td>36€</td>

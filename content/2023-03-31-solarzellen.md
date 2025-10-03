@@ -1,20 +1,20 @@
 ---
 layout: post
-lang: de
 title: Solaranlagen
 slug: solaranlagen
+lang: de
 author: Martin Thoma
 date: 2023-03-31 20:00
 category: German posts
-tags: house, money
-status: draft
+tags: house, money, photovoltaik
 featured_image: logos/house.png
+status: draft
 ---
 ## Photovoltaik vs Solarthermie
 
 Solaranlagen sind eine zunehmend beliebte Methode, um umweltfreundliche und
 erneuerbare Energie für den Hausgebrauch zu erzeugen. Dabei gibt es zwei
-Haupttypen von Solaranlagen:Photovoltaik (PV) und Solarthermie.
+Haupttypen von Solaranlagen: Photovoltaik (PV) und Solarthermie.
 
 **Photovoltaik-Anlagen** wandeln Sonnenlicht direkt in elektrische Energie um,
 während **Solarthermie-Anlagen** Sonnenenergie nutzen, um Wasser oder Luft zu
@@ -34,9 +34,9 @@ zu maximieren.
 
 Die Installationskosten für Solaranlagen variieren je nach Größe, Art des Systems und Standort. Im Allgemeinen sind die Kosten für Photovoltaik-Anlagen höher als für Solarthermie-Anlagen.
 
-Für Photovoltaik-Anlagen liegen die Kosten in Deutschland im Durchschnitt zwischen 1.200 und 1.800 Euro pro Kilowattpeak (kWp) installierter Leistung. Bei einem Einfamilienhaus in Bayern mit einer durchschnittlichen Anlagengröße von 5 kWp können die Installationskosten demnach zwischen 6.000 und 9.000 Euro liegen.
+Für Photovoltaik-Anlagen liegen die Kosten in Deutschland im Durchschnitt zwischen 1200€ und 1800€ pro Kilowattpeak (kWp) installierter Leistung. Bei einem Einfamilienhaus in Bayern mit einer durchschnittlichen Anlagengröße von 5 kWp können die Installationskosten demnach zwischen 6000€ und 9000€ liegen.
 
-Solarthermie-Anlagen sind in der Regel günstiger. Die Kosten für eine Solarthermie-Anlage zur Warmwasserbereitung und Heizungsunterstützung in einem Einfamilienhaus liegen etwa zwischen 4.000 und 8.000 Euro. Diese Preisspanne hängt von verschiedenen Faktoren ab, wie der Größe der Kollektorfläche, dem verwendeten System (Flach- oder Röhrenkollektoren) und dem individuellen Wärmebedarf des Hauses.
+Solarthermie-Anlagen sind in der Regel günstiger. Die Kosten für eine Solarthermie-Anlage zur Warmwasserbereitung und Heizungsunterstützung in einem Einfamilienhaus liegen etwa zwischen 4000€ und 8000€. Diese Preisspanne hängt von verschiedenen Faktoren ab, wie der Größe der Kollektorfläche, dem verwendeten System (Flach- oder Röhrenkollektoren) und dem individuellen Wärmebedarf des Hauses.
 
 Es ist wichtig zu beachten, dass diese Preise nur eine grobe Schätzung sind und von Projekt zu Projekt variieren können. Außerdem können staatliche Förderungen und Zuschüsse, wie das Programm der KfW-Bank oder das Bundesamt für Wirtschaft und Ausfuhrkontrolle (BAFA), die Kosten für Hausbesitzer reduzieren.
 
@@ -53,7 +53,7 @@ Photovoltaik-Anlagen:
    meist zwischen 1% und 3% der Anschaffungskosten pro Jahr.
 2. Wechselrichter-Austausch: Der Wechselrichter, der Gleichstrom in Wechselstrom
    umwandelt, hat in der Regel eine Lebensdauer von 10 bis 15 Jahren. Ein Ersatz
-   kann zwischen 1.000 und 2.000 Euro kosten, abhängig von der Größe und
+   kann zwischen 1000€ und 2000€ kosten, abhängig von der Größe und
    Qualität des Wechselrichters.
 3. Versicherung: Eine optionale Versicherung kann Schäden an der Anlage
    abdecken. Die Kosten variieren je nach Anbieter und Versicherungsumfang.
@@ -68,7 +68,7 @@ Solarthermie-Anlagen:
 2. Frostschutzmittel-Austausch: In Solarthermie-Anlagen wird ein
    Frostschutzmittel verwendet, um das System vor Kälte zu schützen. Dieses muss
    in der Regel alle 3 bis 5 Jahre ausgetauscht werden. Die Kosten hierfür sind
-   relativ gering und liegen meist unter 100 Euro.
+   relativ gering und liegen meist unter 100€.
 3. Versicherung: Ähnlich wie bei PV-Anlagen können Hausbesitzer auch eine
    Versicherung für ihre Solarthermie-Anlage abschließen, um Schäden abzudecken.
    Die Kosten variieren je nach Anbieter und Versicherungsumfang.

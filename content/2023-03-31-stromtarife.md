@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Stromtarife
 slug: stromtarife
+lang: de
 author: Martin Thoma
 date: 2023-03-31 20:00
 category: German posts
@@ -41,8 +41,8 @@ Insgesamt wird unser Stromnetz immer komplexer, da mehr erneuerbare Energien in
 das System integriert werden. Um die Netzstabilität zu gewährleisten, müssen
 auch die Stromerzeuger und -verbraucher stärker miteinander vernetzt werden.
 
-**Smart Grids** sind hier das Stichwort: Man muss Stomerzeugung, Verbrauch, und
-Speicherung auf einander abstimmen.
+**Smart Grids** sind hier das Stichwort: Man muss Stromerzeugung, Verbrauch und
+Speicherung aufeinander abstimmen.
 
 ## Messung des Stromverbrauchs
 
@@ -71,7 +71,7 @@ Es gibt mehrere Typen von Stromzählern, die in der Energieversorgung verwendet 
    zu optimieren und den Einsatz von erneuerbaren Energien im Stromnetz zu
    erleichtern.
 
-Es gibt noch weitere typen wie Prepaid-Zähler oder Zeit- und Lastzonen-Zähler.
+Es gibt noch weitere Typen wie Prepaid-Zähler oder Zeit- und Lastzonen-Zähler.
 
 Die Wahl des Stromzählers hängt von verschiedenen Faktoren ab, wie dem
 Verbrauchsprofil des Kunden, den Anforderungen des Stromnetzes und den
@@ -79,7 +79,7 @@ regulatorischen Anforderungen der Regierung.
 
 ## Schätzung des Verbrauchs
 
-Die Schätzung des Verbrauchs hängt von mehreren Faktoren ab, wie z.B. der Anzahl
+Die Schätzung des Verbrauchs hängt von mehreren Faktoren ab, wie zum Beispiel der Anzahl
 der Personen im Haushalt, ob es eine Wohnung in einem Mehrfamilienhaus ist oder
 ein Einfamilienhaus, und ob das warme Wasser mit Strom erhitzt wird.
 Nachtspeicheröfen oder Wärmepumpen treiben den Stromverbrauch natürlich auch

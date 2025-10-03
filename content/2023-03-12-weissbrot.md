@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Weißbrot
 slug: weissbrot-rezept
+lang: de
 author: Martin Thoma
 date: 2023-03-12 20:00
 category: German posts
@@ -28,53 +28,53 @@ Das sind ca. 12 Scheiben. Eine Mahlzeit für eine Person sind ca. 3 Scheiben.
     <tr>
         <td>Weizenmehl (Type 405 oder 550)</td>
         <td>500g</td>
-        <td>0.40 EUR</td>
+        <td>0.40€</td>
     </tr>
     <tr>
         <td>Oliven&ouml;l</td>
         <td>12g (1 EL)</td>
-        <td>0.09 EUR</td>
+        <td>0.09€</td>
     </tr>
     <tr>
         <td>Trockenhefe</td>
         <td>7g (1 Packung)</td>
-        <td>0.09 EUR</td>
+        <td>0.09€</td>
     </tr>
     <tr>
         <td>Salz</td>
         <td>12g (2 TL)</td>
-        <td>0.01 EUR</td>
+        <td>0.01€</td>
     </tr>
     <tr>
         <td>Zucker</td>
         <td>6g (1 TL)</td>
-        <td>0.01 EUR</td>
+        <td>0.01€</td>
     </tr>
     <tr>
         <td>Wasser</td>
         <td>350ml</td>
-        <td>0.01 EUR</td>
+        <td>0.01€</td>
     </tr>
     <tr>
         <td>Energie</td>
         <td>1.1 kWh</td>
-        <td>0.37 EUR</td>
+        <td>0.37€</td>
     </tr>
     </tbody>
     <tfoot>
     <tr>
         <th>Summe</th>
         <th>800g Weißbrot</th>
-        <th>0.98 EUR</th>
+        <th>0.98€</th>
     </tr>
     </tfoot>
 </table>
 
 ## Zubereitung
 
-1. Alles zu einem glattem Teig kneten
+1. Alles zu einem glatten Teig kneten
 2. 45 min ruhen lassen
-3. In eine Silikon-Kastenform geben und in den Ofen stellen. Ofen auf 190 °C (Umluft).
+3. In eine Silikon-Kastenform geben und in den Ofen stellen. Ofen auf 190°C (Umluft).
    Stelle auch ein Backblech mit Wasser in den Ofen.
 4. Sobald 190°C erreicht sind, für weitere 40 min im Ofen lassen
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Eisspeicher
 slug: eisspeicher
+lang: de
 author: Martin Thoma
 date: 2023-03-11 20:00
 category: German posts
@@ -38,8 +38,8 @@ Erdbodens. Allerdings sind Bohrungen für eine
 Erdsonde nicht immer möglich und können kostspielig sein.
 
 Als Alternative kann ein Eisspeicher installiert werden. Dies ist ein
-Betonzylinder mit einem Fassungsvermögen von ca. 10m³ Wasser. Im
-Sommer wird dem Wasser Wärme zugeführt, so dass der Eisspeicher zum Kühlen
+Betonzylinder mit einem Fassungsvermögen von etwa 10m³ Wasser. Im
+Sommer wird dem Wasser Wärme zugeführt, sodass der Eisspeicher zum Kühlen
 verwendet werden kann. Im Winter kann die im Eisspeicher gespeicherte Wärme dann
 wieder zum Heizen abgezogen werden.
 
@@ -47,12 +47,12 @@ wieder zum Heizen abgezogen werden.
 
 ### Wassermenge
 
-Von wie viel Wasser reden wird?
+Von wie viel Wasser reden wir?
 
 * 10m³ = 10.000 L
 * Eis hat eine Dichte von 0.918 kg/L.
 
-Also sind 10.000L bei 9180kg.
+Also sind 10.000L gleich 9180kg.
 
 ### Wärme Grundlagen
 
@@ -60,8 +60,8 @@ Also sind 10.000L bei 9180kg.
 * Schmelzwärme von Wasser: 344 kJ / kg
 * 1 kWh = 3600 kJ
 
-Man benötigt also 4190 Joule um 1 kg Wasser um 1 Kelvin zu erwärmen.
-Man benötigt jeodhc 344 kJ um 1 kg Eis zu schmelzen. Also genauso viel Energie
+Man benötigt also 4190 Joule, um 1 kg Wasser um 1 Kelvin zu erwärmen.
+Man benötigt jedoch 344 kJ, um 1 kg Eis zu schmelzen. Also genauso viel Energie
 wie um 1 kg Wasser von 0°C auf 82°C zu erhitzen!
 
 ### Konkrete Wärmespeicher
@@ -99,27 +99,27 @@ Folgendes habe ich hier nicht berücksichtigt:
   Man kann also vermutlich mehr als die 973 kWh extrahieren.
 * Der Wärmespeicher ist nicht perfekt isoliert - daher habe ich auch "nur" mit
   9°C gerechnet. Im Sommer dürfte die [Bodentemperatur](https://de.wikipedia.org/wiki/Bodentemperatur)
-  in den 4m tiefe wohl eher höher sein.
+  in 4m Tiefe wohl eher höher sein.
 * Der Heizbedarf ist nicht nur im Winter. Auch im Frühling oder in kühlen
   Sommernächten muss man heizen. Auch das spricht für eine höhere Abdeckung.
 
 
 ## Wirtschaftlichkeit
 
-Der Eisspeicher kostet ca. 7000€ - 12000€ ([Quelle](https://www.heizung.de/waermepumpe/eisspeicher.html)).
-Gehen wir mal von 10.000 EUR aus - und das ist vermutlich wesentlich zu niedrig.
+Der Eisspeicher kostet etwa 7000€ bis 12000€ ([Quelle](https://www.heizung.de/waermepumpe/eisspeicher.html)).
+Gehen wir mal von 10.000€ aus - und das ist vermutlich wesentlich zu niedrig.
 
-Angegeben wird von Viessmann ein COP-Wert von bis zu 5 ([Quelle](https://www.baulinks.de/webplugin/2022/0265.php4)). Eine Luftwärmepumpe ist eher be 4.
+Angegeben wird von Viessmann ein COP-Wert von bis zu 5 ([Quelle](https://www.baulinks.de/webplugin/2022/0265.php4)). Eine Luftwärmepumpe liegt eher bei 4.
 
-Angenommen das würde für die benötigten 14880 kWh gelten (was es nicht tut, es
+Angenommen, das würde für die benötigten 14880 kWh gelten (was es nicht tut, es
 wird weniger/schlechter sein), dann würde man 2976 kWh Strom anstelle von
 3720 kWh Strom pro Jahr für die Heizung bezahlen. Man spart sich also 744 kWh
 Strom.
 
-Bei einem Strompreis von 0.34 EUR/kWh sind das ca. 250€/Jahr.
+Bei einem Strompreis von 0.34€/kWh sind das etwa 250€/Jahr.
 
-Die Amortisationszeit wäre also bei 10.000 EUR/ (250 EUR/Jahr) = 40 Jahren - und
-das obwohl ich Wartungskosten nicht berücksichtigt habe.
+Die Amortisationszeit wäre also bei 10.000€ / (250€/Jahr) = 40 Jahren - und
+das, obwohl ich Wartungskosten nicht berücksichtigt habe.
 
 Investiert man in den S&P 500, so bekommt man im Schnitt pro Jahr relativ
 sicher 5% Wertsteigerung. Das muss jede andere Investition schlagen. Das

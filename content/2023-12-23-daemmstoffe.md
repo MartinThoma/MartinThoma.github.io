@@ -1,55 +1,55 @@
 ---
 layout: post
-lang: de
 title: Dämmstoffe
 slug: daemstoffe
+lang: de
 author: Martin Thoma
 date: 2023-12-23 23:00
 category: German posts
 tags: House
 featured_image: logos/house.png
 ---
-Dämmstoffe haben neben ihrer Dämmwirkung noch ein paar relevenate Eigenschaften:
+Dämmstoffe haben neben ihrer Dämmwirkung noch weitere relevante Eigenschaften:
 
 * Preis
 * Schimmelanfälligkeit
 * Wasserdurchlässigkeit
-* Wasserdampfdiffusionswiderstand: Gibt an um welchen Faktor der Stoff
-  diffusionsdicher ist als gleichdicke Luft. Der Wert kann nicht unter 1 sein,
+* Wasserdampfdiffusionswiderstand: Gibt an, um welchen Faktor der Stoff
+  diffusionsdichter ist als gleichdicke Luft. Der Wert kann nicht unter 1 liegen,
   geht aber beliebig hoch. Glas hat z.B. einen Wert von unendlich.
-* Kapillaraktivität: Kann feuchtigkeit wegtransportieren.
+* Kapillaraktivität: Kann Feuchtigkeit wegtransportieren.
 * Wasseraufnahme
 * Brandklasse
 
 
 ## Anwendung
 
-Gebiete sind:
+Anwendungsgebiete sind:
 
 * Wände (innen)
-* Wände (außen; aka: Fassade)
+* Wände (außen; auch: Fassade)
 * Decken
 * Dach (innen): Zwischensparren, Untersparren
 * Dach (außen): Aufsparren
 
-Je nach Anwendungsgebiet gibt es andere Anforderungen an den Umgang mit
+Je nach Anwendungsgebiet gibt es unterschiedliche Anforderungen an den Umgang mit
 Feuchtigkeit und mechanischen Belastungen.
 
 ## Wärmeleitfähigkeit
 
-* λ-Wert = W/(m K): Je kleiner der Lambda-Wert, umso weniger Wärme lässt das Material bei
+* **λ-Wert** = W/(m·K): Je kleiner der Lambda-Wert, umso weniger Wärme lässt das Material bei
   gleicher Dicke passieren.
-* R-Wert = d / λ = (m² K) / W: Je höher der Wärmedurchlasswiderstand eines Bauteils, umso
+* **R-Wert** = d / λ = (m²·K) / W: Je höher der Wärmedurchlasswiderstand eines Bauteils, umso
   weniger lässt es Wärme entweichen.
-* U-Wert = 1 / R = W/(m² K),: Je kleiner der U-Wert, umso besser ist der Wärmeschutz.
+* **U-Wert** = 1 / R = W/(m²·K): Je kleiner der U-Wert, umso besser ist der Wärmeschutz.
 
-Den Lambda-Wert gibt man für Baustoffe an. Den U-Wert für Bauteile.
+Den Lambda-Wert gibt man für Baustoffe an, den U-Wert für Bauteile.
 
 Die Verlustleistung $Q$ (in Watt) berechnet sich aus:
 
-* $U$: Dem U-Wert in W/(m² K)
+* $U$: Dem U-Wert in W/(m²·K)
 * $A$: Der Fläche des Bauteils in m²
-* $\Delta T$: Der Temperaturdifferenz innen und Außen in Kelvin.
+* $\Delta T$: Der Temperaturdifferenz zwischen innen und außen in Kelvin
 
 Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir wollen
 +23°C erreichen, haben also $\Delta T = 36$.
@@ -162,7 +162,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>Expandiertes Polystyrol (EPS), Extrudiertes Polystyrol (XPS), Polystyrol ("Styropor")</td>
         <td>B1 - B2</td>
         <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
-        <td class="good">0,032 - 0,040 W/mK</td>
+        <td class="good">0.032 - 0.040 W/mK</td>
         <td>3.2 - 4</td>
         <td>0.32 - 0.4</td>
         <td>31 - 39 kg/m&sup3;</td>
@@ -199,14 +199,14 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
 </table>
 
-Wenn man jetzt ein 11m x 11m Haus hat, sich überlegt ein Geschoss (2.5m) mit ca
-20% Fenstern zu dämmen und man aktuell ca. einen U-Wert von 1.7 W/(m²K) hat,
+Wenn man jetzt ein 11m × 11m Haus hat, sich überlegt ein Geschoss (2.5m) mit ca.
+20% Fenstern zu dämmen und man aktuell einen U-Wert von 1.7 W/(m²·K) hat,
 dann wäre der Verlust aktuell bei
 
 $$(11\text{m} + 11\text{m}) \cdot 2.5\text{m} \cdot 0.8 \cdot 1.7\frac{W}{\text{m}^2 \cdot K} \cdot 36 K = 2.7 kW$$
 
-Das könnte mit einer 10cm XPS-Platte auf die Mauer aufbringt, beträgt der neue
-U-Wert über die R-Werte berechnet werden:
+Das könnte mit einer 10cm XPS-Platte, die auf die Mauer aufgebracht wird, reduziert werden. Der neue
+U-Wert kann über die R-Werte berechnet werden:
 
 $$U_{neu} =\frac{1}{R_1 + R_2} = \frac{1}{\frac{1}{U_1} + \frac{1}{U_2}}$$
 
@@ -224,8 +224,8 @@ Bei den 44m² Fläche und 36K Temperaturdifferenz ist die Wärmeverlustleistung:
 * U-Wert 0.3: 0.5 kW
 * U-Wert 0.16: 0.3 kW
 
-Bei angenommenen 10 Tagen mit dieser Kälte und weitern 20 um für die vielen
-weniger kalten Tage welche dennoch Wärmeverlust haben zu rechnen, also 720h:
+Bei angenommenen 10 Tagen mit dieser Kälte und weiteren 20 Tagen, um für die vielen
+weniger kalten Tage zu rechnen, die dennoch Wärmeverlust haben, also 720h:
 
 * U-Wert 1.7: $2.7 kW \cdot 720h = 1944 kWh$
 * U-Wert 0.3: $0.5 kW \cdot 720h =  342 kWh$
@@ -233,9 +233,9 @@ weniger kalten Tage welche dennoch Wärmeverlust haben zu rechnen, also 720h:
 
 Heizöl kostet aktuell ca. 1.13€/L und bringt 9.8 kWh/L, d.h. 0.12€/kWh:
 
-* U-Wert 1.7: $2.7 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}= 233 kWh$
-* U-Wert 0.3: $0.5 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh} =  41 kWh$
-* U-Wert 0.16: $0.3 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}=  22 kWh$
+* U-Wert 1.7: $2.7 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}= 233€$
+* U-Wert 0.3: $0.5 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh} =  41€$
+* U-Wert 0.16: $0.3 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}=  22€$
 
 
 ## Einzelnachweise

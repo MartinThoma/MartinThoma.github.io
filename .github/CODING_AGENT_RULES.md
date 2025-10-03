@@ -76,6 +76,46 @@ tags: German, example
 ❌ Falsch:   1.000 (Punkt als Tausendertrennzeichen)
 ```
 
+### Währungsformatierung
+**Regel:** Währungszeichen immer NACH der Zahl platzieren
+- **Anwendung:** Für alle Währungen (€, $, £, etc.)
+- **Gilt für:** Alle Artikel (deutsche UND englische)
+
+**Beispiele:**
+```
+✅ Richtig:  72€
+✅ Richtig:  500$
+✅ Richtig:  1250£
+✅ Richtig:  15.99€
+✅ Richtig:  1000000€
+
+❌ Falsch:   €72
+❌ Falsch:   $500
+❌ Falsch:   £1250
+❌ Falsch:   €15.99
+❌ Falsch:   €1000000
+```
+
+### Dimensionsangaben
+**Regel:** Verwende × (Multiplikationszeichen) statt x für Dimensionen
+- **Symbol:** × (Unicode U+00D7)
+- **Anwendung:** Maße, Auflösungen, Größenangaben
+
+**Beispiele:**
+```
+✅ Richtig:  1920×1080 (Bildschirmauflösung)
+✅ Richtig:  200×150×100mm (Abmessungen)
+✅ Richtig:  A4: 210×297mm
+✅ Richtig:  5×3 Meter
+✅ Richtig:  1200×800 Pixel
+
+❌ Falsch:   1920x1080
+❌ Falsch:   200x150x100mm
+❌ Falsch:   A4: 210x297mm
+❌ Falsch:   5x3 Meter
+❌ Falsch:   1200x800 Pixel
+```
+
 ## ✍️ Sprachspezifische Regeln
 
 ### Deutsche Artikel
@@ -140,6 +180,18 @@ tags: German, example
 ```regex
 # Suchen: \b\d+,\d+\b
 # Ersetzen: [Komma durch Punkt ersetzen]
+```
+
+### Währungszeichen korrigieren
+```regex
+# Suchen: ([€$£])([0-9]+(?:\.[0-9]+)?)
+# Ersetzen: $2$1
+```
+
+### Dimensionen mit × korrigieren
+```regex
+# Suchen: (\d+)x(\d+)
+# Ersetzen: $1×$2
 ```
 
 ### Tausendertrennzeichen hinzufügen

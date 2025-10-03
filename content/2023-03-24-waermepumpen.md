@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wärmepumpen
 slug: waermepumpen
+lang: de
 author: Martin Thoma
 date: 2023-03-24 20:00
 category: German posts
@@ -10,9 +10,9 @@ tags: money, house, climate change
 featured_image: logos/house.png
 ---
 Im Hinblick auf die steigenden Energiekosten und die vergangene
-[Gas-Krise](https://www.tagesschau.de/wirtschaft/gasversorgung-energiekrise-101.html)
+[Gaskrise](https://www.tagesschau.de/wirtschaft/gasversorgung-energiekrise-101.html)
 ist die Suche nach effizienten und umweltfreundlichen Heizungsalternativen zu Öl
-und Gas von großer Bedeutung. Eine Möglichkeit hierbei sind Wärmepumpen. Sie
+und Gas von großer Bedeutung. Eine Möglichkeit sind hierbei Wärmepumpen. Sie
 gelten als moderne und nachhaltige Alternative zu herkömmlichen Heizsystemen und
 sind in den letzten Jahren immer beliebter geworden. In diesem Artikel wollen
 wir Ihnen als Hausbesitzer einen Überblick über diese innovative Heiztechnologie
@@ -101,7 +101,7 @@ eignen sich besonders für Neubauten, da der Einbau bei bereits bestehenden
 Gebäuden aufwändiger sein kann. Allerdings ist auch hier eine Heizlastberechnung
 notwendig, um die erforderliche Größe des Kollektorsystems zu bestimmen. Laut
 [bodenwelten.de](https://www.bodenwelten.de/content/energie-aus-dem-boden)
-benötigt man für eine Heizleistung von **6kW ca. eine Fläche von 300m².**
+benötigt man für eine Heizleistung von **6kW ca. eine Fläche von 300m²**.
 
 **Erdwärmekörbe** sind eine weitere Möglichkeit zur Nutzung der Erdwärme als
 Energiequelle für Wärmepumpen. Im Gegensatz zu Erdwärmekollektoren oder
@@ -147,7 +147,7 @@ industriellen Anwendungen genutzt.
     <tr>
         <td>100m</td>
         <td>12&deg;C</td>
-        <td>3.500€ bis 7.500€</td>
+        <td>3500€ bis 7500€</td>
     </tr>
     <tr>
         <td>200m</td>
@@ -177,19 +177,19 @@ industriellen Anwendungen genutzt.
     <tr>
         <td>3000m</td>
         <td>130 &deg;C</td>
-        <td>3.000.000 € (<a href="https://idw-online.de/de/news66770">Quelle</a>)</td>
+        <td>3000000€ (<a href="https://idw-online.de/de/news66770">Quelle</a>)</td>
     </tr>
     <tr>
         <td>5000m</td>
         <td>160 &deg;C</td>
-        <td>8.000.000 bis 13.000.000 € (<a href="https://structurae.net/de/produkte-services/innovatives-bohrverfahren-fuer-die-tiefengeothermie">Quelle</a>)</td>
+        <td>8000000€ bis 13000000€ (<a href="https://structurae.net/de/produkte-services/innovatives-bohrverfahren-fuer-die-tiefengeothermie">Quelle</a>)</td>
     </tr>
 </table>
 
 
 Diese Temperaturen können je nach geologischen Bedingungen und Standort variieren. Es ist wichtig zu beachten, dass die Temperaturen bei Tiefengeothermie-Systemen im Vergleich zu flacheren Systemen höher sind, was sie zu einer vielversprechenden Energiequelle für die Strom- und Wärmeerzeugung macht.
 
-Zusammenfassen kann man sagen: Man spricht je nach Tiefe von unterschiedlichen Technologien ([Quelle](https://www.lfu.bayern.de/geologie/geothermie/index.htm)):
+Zusammenfassend kann man sagen: Man spricht je nach Tiefe von unterschiedlichen Technologien ([Quelle](https://www.lfu.bayern.de/geologie/geothermie/index.htm)):
 
 * 0 - 20m: Erdwärme-Kollektoren / Zwei-Brunnen-System
 * 20 - 200m: Flache Erdwärme-Sonde

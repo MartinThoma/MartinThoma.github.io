@@ -1,21 +1,21 @@
 ---
 layout: post
-lang: de
 title: Heizlastberechnung
 slug: heizlastberechnung
+lang: de
 author: Martin Thoma
 date: 2023-08-12 20:00
 category: German posts
 tags: house, money
 featured_image: logos/house.png
 ---
-Ich will einige Energetische Sanierungsmaßnahmen an meinem Haus durchführen,
-falls es denn wirtschaftlich sinnvoll ist. Dafür muss ich wissen wie groß die
-Wärmepumpe dimensioniert sein muss. Ich muss das ggf. pro Raum wissen um beurteilen
+Ich möchte einige energetische Sanierungsmaßnahmen an meinem Haus durchführen,
+falls sie wirtschaftlich sinnvoll sind. Dafür muss ich wissen, wie groß die
+Wärmepumpe dimensioniert sein muss. Ich muss das gegebenenfalls pro Raum wissen, um beurteilen
 zu können, ob ich neue Heizkörper benötige.
 
-Die Heizlast ist die Wärmemenge, welche zur Aufrechterhaltung der Raumtemperatur
-nötig ist. Da ich wissen will wie viel Leistung die Wärmepumpe(n) bringen sollen,
+Die Heizlast ist die Wärmemenge, die zur Aufrechterhaltung der Raumtemperatur
+nötig ist. Da ich wissen möchte, wie viel Leistung die Wärmepumpe(n) bringen sollen,
 muss ich mir vor allem die Extremwerte ansehen.
 
 ## Normaußentemperatur
@@ -27,18 +27,18 @@ muss ich mir vor allem die Extremwerte ansehen.
 Quelle: [haustechnikverstehen.de](https://www.haustechnikverstehen.de/glossary/normaussentemperatur/)
 
 Es ist also insbesondere nicht die kälteste gemessene Temperatur. Es ist jedoch
-eine sinnvolle annahme für die Dimensionierung des Heizsystems.
+eine sinnvolle Annahme für die Dimensionierung des Heizsystems.
 
-Beispiel: In Müchen (PLZ 80939) ist die Norm-Außentemperatur bei -12.9°C, aber
+Beispiel: In München (PLZ 80939) liegt die Norm-Außentemperatur bei -12.9°C, aber
 die kälteste gemessene Temperatur bei -19.20°C ([Quelle](https://www.waermepumpe.de/normen-technik/klimakarte/)).
-Das Histogram zeigt, dass es in München zwischen 2005 und 2023 im Schnitt in einem
+Das Histogramm zeigt, dass es in München zwischen 2005 und 2023 im Schnitt in einem
 Jahr nur 5.8 Stunden unter -13°C hatte.
 
 Legt man seine Heiztechnik nun für -12.9°C aus, dann ist es in diesen 5.8
 Stunden im Jahr unterdimensioniert. In der Zeit verliert das Haus also Wärme,
-wenn man nicht gegensteuert. Das kann man z.B. einfach mit einem mobilen
-Heizlüfter für 20€. Allerdings sind diese 5 Stunden vermutlich eh in der Nacht.
-Und das Haus wird ja nicht sofort klirrend kalt, sonder kühlt allmählich ab.
+wenn man nicht gegensteuert. Das kann man zum Beispiel einfach mit einem mobilen
+Heizlüfter für 20€ lösen. Allerdings sind diese 5 Stunden vermutlich ohnehin in der Nacht.
+Und das Haus wird ja nicht sofort klirrend kalt, sondern kühlt allmählich ab.
 
 Wenn man hingegen die Heiztechnik nicht auf -12.9°C sondern auf -19.20°C auslegt,
 dann kann man mit einigen tausend Euro an Mehrkosten rechnen.
@@ -51,15 +51,15 @@ energiesparen](https://www.youtube.com/watch?v=iwjGjYLrSOM) ([Alex
 Boerger](https://www.linkedin.com/in/boerger/)) gelernt. Das Video und den Kanal
 kann ich sehr empfehlen.
 
-Das Hüllflächenverfahren ist eine einfache Methode zur berechnung der Heizlast
+Das Hüllflächenverfahren ist eine einfache Methode zur Berechnung der Heizlast
 pro Raum.
 
 Die Wärmeverluste lassen sich in zwei Kategorien aufteilen:
 
-* **Lüftungswärmeverluste**: Wärmeverluste duch Luftaustausch
-* **Transmissionswärmeverluste**: Wärmeverluste duch Abstrahlung
+* **Lüftungswärmeverluste**: Wärmeverluste durch Luftaustausch
+* **Transmissionswärmeverluste**: Wärmeverluste durch Abstrahlung
 
-Die Berechnung von beiden werde ich im folgenden erklären. Um ein intutives
+Die Berechnung von beiden werde ich im Folgenden erklären. Um ein intuitives
 Verständnis von diesen zu bekommen:
 
 Eine geschlossene Plastik-Tüte hat keinen Luftaustausch. Es gibt also keine
@@ -84,7 +84,7 @@ dass ich die Luft mit der Außentemperatur auf die Innentemperatur anheben muss.
 Ich brauche also:
 
 * **Raumvolumen $V$**: Typischerweise B×L×H. Bei einer Dachschräge oder nicht-Quaderförmigen
-  Räumen wirds komplizierter, aber das ist immer noch alles einfache Geometrie.
+  Räumen wird es komplizierter, aber das ist immer noch alles einfache Geometrie.
 * **Energie für 1m³ Luft**: 0.34 Wh / K
 * **Pro Stunde die Hälfte des Raumvolumens**
 * **Temperaturdifferenz $\Delta_T$**: Die gewünschte Innentemperatur minus die Norm-Außentemperatur
@@ -104,13 +104,14 @@ hinzuführen.
 
 ### Transmissionswärmeverluste
 
-Hier kommt es auf die Außenfläche an und der Wärmedurchgangskoeffzient (U-Wert)
-kommt ins spiel. Der U-Wert gibt an wie viel Energie verloren geht, wenn
+Hier kommt es auf die Außenfläche an und der Wärmedurchgangskoeffizient (U-Wert)
+kommt ins Spiel. Der U-Wert gibt an, wie viel Energie verloren geht, wenn
 draußen die Temperatur ein Grad kälter ist. Er wird in $\frac{W}{m^2 \cdot K}$ angegeben.
 
 Hier muss man jetzt sehr viele Flächen berechnen und die U-Werte der Bauteile
-kennen. Das Bundesministeriumfür Wirtschaft und Energie sowie das Bundesministeriumdes Innern, für Bau und Heimat
-haben für Altbauten Tabellen in einer [Bekanntmachung der Regeln zur Datenaufnahme und Datenverwendungim Wohngebäudebestand](https://www.bundesanzeiger.de/pub/publication/qzQUGd8A3unSCCbVMcf?0) aufgelistet.
+kennen. Das Bundesministerium für Wirtschaft und Energie sowie das
+Bundesministerium des Innern, für Bau und Heimat
+haben für Altbauten Tabellen in einer [Bekanntmachung der Regeln zur Datenaufnahme und Datenverwendung im Wohngebäudebestand](https://www.bundesanzeiger.de/pub/publication/qzQUGd8A3unSCCbVMcf?0) aufgelistet.
 
 Die wichtigsten Punkte:
 
@@ -119,13 +120,13 @@ Die wichtigsten Punkte:
 * **Außenwände / Decke**: z.B. $0.6 \frac{W}{m^2 \cdot K}$
 
 Angenommen der Raum hat ein Fenster mit den Maßen 1.10m × 1.20m. Dabei messe ich
-die Niesche, nicht nur das Glas. Der U-Wert gilt für das Bauteil insgesamt.
-Manchmal sieht man auch $U_W$ (w für window, also Fenster) und $U_G$ (g für glass, also das Fensterglaß).
-Der $U_W$ Wert bezieht sich auf das ganze Bauteil.
+die Nische, nicht nur das Glas. Der U-Wert gilt für das Bauteil insgesamt.
+Manchmal sieht man auch $U_W$ (w für window, also Fenster) und $U_G$ (g für glass, also das Fensterglas).
+Der $U_W$-Wert bezieht sich auf das ganze Bauteil.
 
 Dann habe ich nur für das Fenster einen Wärmeverlust von $2.7\frac{\text{W}}{\text{m}^2 \cdot K} \cdot (1.1\text{m} \cdot 1.2\text{m}) \cdot (22 - (-13))K \approx 125 \text{W}$.
 
-Die Rolladenfläche kann man einfach mit 10% der Fensterfläche annehmen. Dafür gibts dann
+Die Rolladenfläche kann man einfach mit 10% der Fensterfläche annehmen. Dafür gibt es dann
 $3.6 \cdot 0.132 \cdot 35 \text{W} \approx 17\text{W}$.
 
 Angenommen zwei Wände sind Außenwände. Interessant ist die Fläche von außen und
@@ -154,7 +155,7 @@ braucht man den Heizkörper-Typ. Dieser besteht aus zwei Ziffern:
 
 Das kann man einfach sehen, wenn man den Heizkörper von oben anschaut.
 
-Nun gibts Tabellen für die einzelnen Typen:
+Nun gibt es Tabellen für die einzelnen Typen:
 
 * [Typ 11](https://www.as-heizkoerper.de/contents/de/d57_din_en_442_bei_55_45_raum_20.html)
 * [Typ 21](https://www.as-heizkoerper.de/contents/de/d59_DIN_EN_442_bei_75_60C_Raum_20C.html)

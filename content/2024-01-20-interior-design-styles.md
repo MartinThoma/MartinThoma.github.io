@@ -9,17 +9,17 @@ category: My bits and bytes
 tags: house, money
 featured_image: logos/house.png
 ---
-Interior design styles help to describe how things look like in your home. If
-you see the pictures, you know what you like.
+Interior design styles help describe the aesthetic and atmosphere of your home. When you see the pictures, you'll know what appeals to you.
 
 ## Scandinavian Style
 
 Scandinavian design is known for its simplicity, functionality, and minimalism.
 
-Key features include clean lines, neutral colors, natural materials such as wood
-and stone, and an emphasis on light and airy spaces.
-
-Functionality is a priority, and clutter is kept to a minimum.
+**Key features include:**
+* Clean lines and neutral colors
+* Natural materials such as wood and stone
+* Emphasis on light and airy spaces
+* Prioritized functionality with minimal clutter
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/scandinavian-living-room.jpg"><img src="../images/2024/01/scandinavian-living-room.jpg" alt="Scandinavian-style living room" style="max-height: 512px"/></a>
@@ -39,17 +39,15 @@ Functionality is a priority, and clutter is kept to a minimum.
 
 ## Japandi
 
-Japandi is a fusion of Japanese and Scandinavian design elements, resulting in a
-harmonious blend of simplicity, functionality, and a touch of warmth.
+Japandi is a fusion of Japanese and Scandinavian design elements, creating a
+harmonious blend of simplicity, functionality, and warmth.
 
-It combines the clean lines and minimalism of Scandinavian design with the
-traditional craftsmanship and connection to nature found in Japanese design.
-
-Neutral color palettes, natural materials, and a focus on creating a calm and
-balanced environment are key aspects of Japandi.
-
-Furniture in Japandi style often features a combination of sleek Scandinavian
-design and the organic shapes found in Japanese design.
+**Key characteristics:**
+* Combines clean Scandinavian lines with traditional Japanese craftsmanship
+* Strong connection to nature
+* Neutral color palettes and natural materials
+* Focus on creating calm and balanced environments
+* Furniture featuring sleek Scandinavian design with organic Japanese shapes
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/japandi-living-room.jpg"><img src="../images/2024/01/japandi-living-room.jpg" alt="Japandi-style living room" style="max-height: 512px"/></a>
@@ -69,11 +67,12 @@ design and the organic shapes found in Japanese design.
 
 ## Modern
 
-Often confused with contemporary, modern design refers to a specific design era
-(mid-20th century).
+Often confused with contemporary design, modern style refers to a specific design era from the mid-20th century.
 
-Clean lines, open spaces, and a focus on functionality.
-Use of materials like steel, glass, and concrete.
+**Key features:**
+* Clean lines and open spaces
+* Focus on functionality
+* Use of materials like steel, glass, and concrete
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/modern-living-room.jpg"><img src="../images/2024/01/modern-living-room.jpg" alt="Modern living room" style="max-height: 512px"/></a>
@@ -92,9 +91,10 @@ Use of materials like steel, glass, and concrete.
 
 ## Contemporary
 
-Emphasizes clean lines, simplicity, and a lack of excessive ornamentation.
-Neutral color palettes with occasional bold accent colors.
-Innovative materials and modern furniture designs.
+**Key characteristics:**
+* Emphasizes clean lines, simplicity, and minimal ornamentation
+* Neutral color palettes with occasional bold accent colors
+* Innovative materials and modern furniture designs
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/contemporary-living-room.jpg"><img src="../images/2024/01/contemporary-living-room.jpg" alt="Contemporary living room" style="max-height: 512px"/></a>
@@ -113,9 +113,10 @@ Innovative materials and modern furniture designs.
 
 ## Transitional
 
-Strikes a balance between traditional and contemporary styles.
-Classic furniture shapes paired with more modern finishes and accessories.
-Neutral color palettes with occasional pops of color.
+**Key features:**
+* Strikes a balance between traditional and contemporary styles
+* Classic furniture shapes paired with modern finishes and accessories
+* Neutral color palettes with occasional pops of color
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/transitional-living-room.jpg"><img src="../images/2024/01/transitional-living-room.jpg" alt="Transitional style living room" style="max-height: 512px"/></a>
@@ -135,9 +136,10 @@ Neutral color palettes with occasional pops of color.
 
 ## Minimalist
 
-Strives for simplicity and the elimination of unnecessary elements.
-Neutral color palettes, clean lines, and a focus on functionality.
-Clutter-free spaces and a sense of calm.
+**Key principles:**
+* Strives for simplicity and elimination of unnecessary elements
+* Neutral color palettes, clean lines, and functional focus
+* Clutter-free spaces that promote a sense of calm
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/minimalist-living-room.jpg"><img src="../images/2024/01/minimalist-living-room.jpg" alt="Minimalist style living room" style="max-height: 512px"/></a>
@@ -158,8 +160,9 @@ Clutter-free spaces and a sense of calm.
 
 ## Mediterranean
 
-Warm colors, textured walls, and rustic elements.
-Use of wrought iron, terracotta, and vibrant patterns.
+**Key elements:**
+* Warm colors, textured walls, and rustic elements
+* Use of wrought iron, terracotta, and vibrant patterns
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/mediterranean-living-room.jpg"><img src="../images/2024/01/mediterranean-living-room.jpg" alt="Mediterranean style living room" style="max-height: 512px"/></a>

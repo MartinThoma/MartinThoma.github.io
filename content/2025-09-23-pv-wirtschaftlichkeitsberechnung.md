@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wirtschaftlichkeitsberechnung einer Photovoltaikanlage
 slug: wirtschaftlichkeitsberechnung-pv-anlage
+lang: de
 author: Martin Thoma
 date: 2025-09-23 20:00
 category: My bits and bytes
@@ -668,6 +668,10 @@ Wichtige Eigenschaften:
     Ersatzstrombetrieb (gesamter Haushalt) und Inselbetrieb (getrenntes Netz) zu
     unterscheiden. Die Schwarzstartfähigkeit ist eine notwendige, aber keine hinreichende Bedingung für den Ersatzstrombetrieb und Inselbetrieb.
     Für den Notstrombetrieb ist sie nicht notwendig.
+* **API**: Ich will eine offene lokale Schnittstelle, um programmatisch Daten
+    auszulesen und den Wechselrichter zu steuern. Damit kann ich sicherstellen,
+    dass ich den Wechselrichter noch voll nutzen kann, auch wenn der Hersteller
+    den Support einstellt.
 
 ### Schnittstellen und Kommunikation
 

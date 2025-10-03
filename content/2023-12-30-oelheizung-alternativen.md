@@ -1,35 +1,35 @@
 ---
 layout: post
-lang: de
 title: Alternativen für die alte Ölheizung
 slug: oelheizung-alternativen
+lang: de
 author: Martin Thoma
 date: 2023-12-30 23:00
 category: German posts
 tags: House
 featured_image: logos/house.png
 ---
-Ich habe eine alte Ölheizung und überlege mir gerade, was die Alternativen dazu
-sind. Ich will die so lange wie möglich laufen lassen und insbesondere das
-Rest-Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
+Ich habe eine alte Ölheizung und überlege mir gerade, welche Alternativen es dazu
+gibt. Ich will sie so lange wie möglich laufen lassen und insbesondere das
+Restliche Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
 
 ## Was nicht geht
 
-* [**Ölheizung**](https://de.wikipedia.org/wiki/%C3%96lheizung): Etwa 20.000 EUR für eine neue Ölheizung (inklusive Abbau /
-  Entsorgung der alten sowie Aufbau der neuen) + 10.000 EUR für neue Öltanks
+* [**Ölheizung**](https://de.wikipedia.org/wiki/%C3%96lheizung): Etwa 20000€ für eine neue Ölheizung (inklusive Abbau /
+  Entsorgung der alten sowie Aufbau der neuen) + 10000€ für neue Öltanks
   macht keinen Sinn.
-* [**Gasheizung**](https://de.wikipedia.org/wiki/Gasheizung): Ich habe ja noch nichtmal einen Gas-Anschluss in der Nähe
+* [**Gasheizung**](https://de.wikipedia.org/wiki/Gasheizung): Ich habe noch nicht einmal einen Gasanschluss in der Nähe
 * Fernwärme: Es gibt leider keine Leitung in der Nähe
 * [**Pelletheizung**](https://de.wikipedia.org/wiki/Pelletheizung) /
   [**Hackschnitzelheizung**](https://de.wikipedia.org/wiki/Hackschnitzelheizung):
-  Dafür wäre wahrscheinlich nicht genügend Platz vorhanden … eventuell überlege ich mir
-  das nochmals in einem anderen Artikel. Hackschnitzel benötigen grob 3x so viel Platz
-  wie eine Pellet-Heizung. Je 10.000kWh benötigen 10-12m³ ([Quelle](https://www.youtube.com/watch?v=BXL6qUc7rag))
+  Dafür wäre wahrscheinlich nicht genügend Platz vorhanden … eventuell überlege ich
+  das nochmals in einem anderen Artikel. Hackschnitzel benötigen grob 3× so viel Platz
+  wie eine Pelletheizung. Je 10000kWh benötigen 10-12m³ ([Quelle](https://www.youtube.com/watch?v=BXL6qUc7rag))
 * **Stromdirekt-Heizung**: Egal ob
   [Nachtspeicherheizung](https://de.wikipedia.org/wiki/Nachtspeicherheizung),
   [Heizlüfter](https://de.wikipedia.org/wiki/Heizl%C3%BCfter), oder
   [Infrarot-Heizung](https://de.wikipedia.org/wiki/Infrarotstrahler#Infrarotheizung) - der Betrieb ist viel zu teuer.
-* **Geothermie**: Die Installation ist zu teuer. Und es ist fraglich ob man
+* **Geothermie**: Die Installation ist zu teuer. Und es ist fraglich, ob man
   überhaupt die Bohrung machen darf.
 * **Wärmepumpen**:
     * [Erdwärmekollektor](https://de.wikipedia.org/wiki/Erdw%C3%A4rmekollektor) (Flach / Körbe): Ich habe nicht genug Fläche

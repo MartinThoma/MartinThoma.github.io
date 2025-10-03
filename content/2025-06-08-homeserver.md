@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Homeserver
 slug: homeserver
+lang: en
 author: Martin Thoma
 date: 2025-06-10 20:00
 category: My bits and bytes
@@ -12,51 +12,52 @@ status: draft
 ---
 ## Hardware
 
-I have a Mini PC:
+I use a Mini PC with the following specifications:
 
-* CPU: ...
-* RAM: 16 GB
-* Storage: ...
-* Network: Gigabit Ethernet
+* **CPU**: [Specific model to be added]
+* **RAM**: 16 GB
+* **Storage**: [Capacity and type to be added]
+* **Network**:
+    * Gigabit Ethernet
     * Wake on LAN (WoL) support
     * Wi-Fi 6 or better
 
-Probably any ThinClient or mini PC would do.
+Most thin clients or mini PCs would work well for this purpose.
 
-Raspberry Pi was too slow for me
+**Note**: A Raspberry Pi was too slow for my needs.
 
-## OS
+## Operating System
 
-I run mine on Ubuntu Mate
+I run Ubuntu MATE on my homeserver.
 
 ## Software
 
-What I run on my homeserver:
+### Currently Running
 
-* SSH / vim: Remote access
-* [Pi-hole](https://pi-hole.net/): Network-wide ad blocking
-* [Home Assistant](https://www.home-assistant.io/) on Docker: Home Automation
-* DuckDNS.org: Dynamic DNS service so that I can access my homeserver from outside my home network
+Services I currently run on my homeserver:
 
-Ideas:
+* **SSH / vim**: Remote access and administration
+* **[Pi-hole](https://pi-hole.net/)**: Network-wide ad blocking
+* **[Home Assistant](https://www.home-assistant.io/)** (Docker): Home automation platform
+* **DuckDNS.org**: Dynamic DNS service for external access to my homeserver
 
-* Unraid
-* [immich](https://immich.app/): Image and Video Management
-* [Kiwix](https://kiwix.org/en/applications/): Offline Wikipedia
-* [vaultwarden](https://vaultwarden.com/): Password Management
-* OpenSense: Firewall and Router
-* Baikal: Calendar and Contacts
-* Storage / File Server: ownCloud / NextCloud / Seafile
-    * https://www.seafile.com/en/home/
-    * with SAMBA?
-* Media Server: Jellyfin / Emby / Plex
-* VPN: WireGuard / OpenVPN
-* DNS Server: Unbound
-* Reverse Proxy: Nginx / Traefik
-* Monitoring: Prometheus / Grafana
-* Backup: Borg / Restic
-* Containerization: Docker / Podman
-* Virtualization: Proxmox / KVM
+### Ideas for Future Implementation
+
+* **Operating System**: Unraid
+* **Media Management**: [immich](https://immich.app/) - Image and video management
+* **Knowledge Base**: [Kiwix](https://kiwix.org/en/applications/) - Offline Wikipedia
+* **Password Management**: [vaultwarden](https://vaultwarden.com/) - Bitwarden-compatible server
+* **Network**: OpnSense - Firewall and router
+* **Calendar/Contacts**: Baikal server
+* **File Storage**: ownCloud / NextCloud / [Seafile](https://www.seafile.com/en/home/) with SAMBA
+* **Media Server**: Jellyfin / Emby / Plex
+* **VPN**: WireGuard / OpenVPN
+* **DNS Server**: Unbound
+* **Reverse Proxy**: Nginx / Traefik
+* **Monitoring**: Prometheus / Grafana
+* **Backup**: Borg / Restic
+* **Containerization**: Docker / Podman
+* **Virtualization**: Proxmox / KVM
 
 ## Configuration
 
@@ -72,13 +73,13 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 ### SSH Hardening
 
-```
+```bash
 # Allow SSH access via public key authentication:
 ssh-copy-id username@your-server-ip
 
-# Disallow password authentication:
+# Disable password authentication for improved security:
 sudo vim /etc/ssh/sshd_config
-# Set:
+# Set the following options:
 #    PasswordAuthentication no
 #    PubkeyAuthentication yes
 sudo systemctl reload sshd
