@@ -248,7 +248,7 @@
 &lt;iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453260838&amp;amp;color=ff5500" width="100%"&gt;&lt;/iframe&gt;
 &lt;div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"&gt;&lt;a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma"&gt;Martin Thoma&lt;/a&gt; &amp;middot; &lt;a href="https://soundcloud.com/martin-thoma-172139021/mark-twain-the-awful-german-language-by-espeak-ng" style="color: #cccccc; text-decoration: none;" target="_blank" title='eSpeak NG: "The Awful German Language" by Mark Twain'&gt;eSpeak NG: "The Awful German Language" by Mark Twain&lt;/a&gt;&lt;/div&gt;
 &lt;p&gt;This article guides you through the process of utilizing an improved text-to-speech system. Here, you will find complete, functional code that can be executed locally, as well as access to scientific publications for a deeper understanding. Audio examples will illustrate the notable advancements made in recent years. Without further ado, let&amp;rsquo;s delve into the topic at hand!&lt;/p&gt;
-&lt;h2 id="the-old-stuff-pyttsx3-and-espeak"&gt;The old Stuff: pyttsx3 and eSpeak&lt;/h2&gt;
+&lt;h2 id="the-old-stuff-pyttsx3-and-espeak"&gt;The Old Stuff: pyttsx3 and eSpeak&lt;/h2&gt;
 &lt;p&gt;After installing the necessary requirements for &lt;a href="https://github.com/nateshmbhat/pyttsx3#installation-"&gt;pyttsx3&lt;/a&gt;, you can use the following Python snippet to generate the audio sample from above:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;sys&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;pathlib&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
@@ -280,7 +280,7 @@
 &lt;/ul&gt;
 &lt;p&gt;You can see that the first parts &amp;mdash; text analysis and normalization &amp;mdash; are clearly natural language processing. Waveform generation is rather digital speech processing. And the rest is somewhere in between.&lt;/p&gt;
 &lt;h2 id="wavenet-what-google-speech-services-are-using"&gt;WaveNet: What Google Speech Services are using&lt;/h2&gt;
-&lt;p&gt;The &lt;a href="https://arxiv.org/abs/1609.03499"&gt;WaveNet paper&lt;/a&gt; was published in 2016 by Google (DeepMind) and it drastically improved audio synthesis and waveform generation. The change of approach is to use data to learn how text should sound, whereas formant synthesis uses knowledge and manual analysis to describe how the sounds are generated.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://arxiv.org/abs/1609.03499"&gt;WaveNet paper&lt;/a&gt; was published in 2016 by Google (DeepMind), and it drastically improved audio synthesis and waveform generation. The change of approach is to use data to learn how text should sound, whereas formant synthesis uses knowledge and manual analysis to describe how sounds are generated.&lt;/p&gt;
 &lt;p&gt;Listen for yourself:&lt;/p&gt;
 &lt;iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453260838&amp;amp;color=ff5500" width="100%"&gt;&lt;/iframe&gt;
 &lt;div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"&gt;&lt;a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma"&gt;Martin Thoma&lt;/a&gt; &amp;middot; &lt;a href="https://soundcloud.com/martin-thoma-172139021/mark-twain-the-awful-german-language-by-espeak-ng" style="color: #cccccc; text-decoration: none;" target="_blank" title='eSpeak NG: "The Awful German Language" by Mark Twain'&gt;eSpeak NG: "The Awful German Language" by Mark Twain&lt;/a&gt;&lt;/div&gt;
@@ -301,16 +301,16 @@
 &lt;p&gt;The core innovation of WaveNet compared to formant synthesis was to use a machine learning approach &amp;mdash; deep neural networks &amp;mdash; for generating raw audio waveforms. Please note that there were other breakthroughs between the two methods.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s good, but it&amp;rsquo;s an external service. You might want to actually generate it on your machine so that nobody else can get your data. Additionally, 2016 is already 8 years ago. A lot has happened in ML since.&lt;/p&gt;
 &lt;h2 id="end-to-end-deep-learning"&gt;End-to-End Deep Learning&lt;/h2&gt;
-&lt;p&gt;Deep learning has not only improved waveform generation but also the other parts. To cite from the Tacotron paper:&lt;/p&gt;
+&lt;p&gt;Deep learning has not only improved waveform generation but also the other parts. To quote from the Tacotron paper:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h1 id="tacotron-is-an-end-to-end-generative-text-to-speech-model-that-synthesizes-speech-directly-from-characters"&gt;Tacotron [is] an end-to-end generative text-to-speech model that synthesizes speech directly from characters.&lt;/h1&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;A few other papers in this context are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;2017 (Google): &lt;a href="https://arxiv.org/abs/1703.10135"&gt;Tacotron&lt;/a&gt; and &lt;a href="https://ai.googleblog.com/2017/12/tacotron-2-generating-human-like-speech.html"&gt;Tacotron 2&lt;/a&gt;. Tacotron takes a text sequence and outputs a feature vector sequence that can be given to WaveNet.&lt;/li&gt;
-&lt;li&gt;2017 (Baidu): &lt;a href="https://arxiv.org/abs/1710.07654"&gt;Deep Voice 3&lt;/a&gt; is a neural-network based approach for the acoustic model (the audio synthesis) just like Tacotron. Where Tacotron uses a recurrent neural network (RNN), Deep Voice 3 uses an attention-based approach.&lt;/li&gt;
+&lt;li&gt;2017 (Baidu): &lt;a href="https://arxiv.org/abs/1710.07654"&gt;Deep Voice 3&lt;/a&gt; is a neural network-based approach for the acoustic model (the audio synthesis) just like Tacotron. Where Tacotron uses a recurrent neural network (RNN), Deep Voice 3 uses an attention-based approach.&lt;/li&gt;
 &lt;li&gt;2019 (Microsoft): &lt;a href="https://arxiv.org/abs/1905.09263"&gt;FastSpeech&lt;/a&gt; improves the inference speed compared to Deep Voice 3.&lt;/li&gt;
-&lt;li&gt;2020 (Kakao): &lt;a href="https://arxiv.org/abs/2005.11129"&gt;Glow-TTS&lt;/a&gt; speeded-up the training method of the used neural network.&lt;/li&gt;
+&lt;li&gt;2020 (Kakao): &lt;a href="https://arxiv.org/abs/2005.11129"&gt;Glow-TTS&lt;/a&gt; sped up the training method of the neural network.&lt;/li&gt;
 &lt;li&gt;2021 (KAIST): &lt;a href="https://arxiv.org/pdf/2106.06103.pdf"&gt;VITS&lt;/a&gt; (Variational Inference with adversarial learning for end-to-end Text-to-Speech) improves the generated audio quality.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let&amp;rsquo;s judge VITS for yourself:&lt;/p&gt;
@@ -362,7 +362,7 @@
     &lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;model_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;get_text&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;out_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;out_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="summary"&gt;Summary&lt;/h2&gt;
-&lt;p&gt;In this article, you have learned the basics of text-to-speech systems. You have enough entry-points that you make a deep-dive and you have complete code so that you can play around with existing systems.&lt;/p&gt;
+&lt;p&gt;In this article, you have learned the basics of text-to-speech systems. You have enough entry points to make a deep dive, and you have complete code so that you can play around with existing systems.&lt;/p&gt;
 &lt;p&gt;Have fun!&lt;/p&gt;
 &lt;h2 id="additional-resources"&gt;Additional Resources&lt;/h2&gt;
 &lt;ul&gt;

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Command Line, Bash, Scripting, C, Code, " />
 
-<meta property="og:title" content="Colorize your scripts output "/>
+<meta property="og:title" content="Colorize Your Script Output "/>
 <meta property="og:url" content="colorize-your-scripts-output/" />
-<meta property="og:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color …" />
+<meta property="og:description" content="Bash is very useful when you want to know exactly what your scripts are doing. Unfortunately, it&#39;s almost always white text on a black background, without any emphasis. No bold text, nothing underlined, and no colors are used. You can change this standard behavior by adding color to your output …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-30T08:59:59+02:00" />
-<meta name="twitter:title" content="Colorize your scripts output ">
-<meta name="twitter:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color …">
+<meta name="twitter:title" content="Colorize Your Script Output ">
+<meta name="twitter:description" content="Bash is very useful when you want to know exactly what your scripts are doing. Unfortunately, it&#39;s almost always white text on a black background, without any emphasis. No bold text, nothing underlined, and no colors are used. You can change this standard behavior by adding color to your output …">
 <meta property="og:image" content="2011/09/Gnome-Terminal.png" />
 <meta name="twitter:image" content="2011/09/Gnome-Terminal.png" >
 
-        <title>Colorize your scripts output  · Martin Thoma
+        <title>Colorize Your Script Output  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -97,7 +97,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../colorize-your-scripts-output/">Colorize your scripts output</a></h1>
+    <h1><a href="../colorize-your-scripts-output/">Colorize Your Script Output</a></h1>
     </header>
 </div>
 
@@ -105,43 +105,46 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#a-quick-example" title="A quick example">A quick example</a></li><li><a class="toc-href" href="#the-sgr-attribuge" title="The sgr attribuge">The sgr attribuge</a></li><li><a class="toc-href" href="#the-setaf-attribute" title="The setaf attribute">The setaf attribute</a></li><li><a class="toc-href" href="#misc" title="Misc">Misc</a></li><li><a class="toc-href" href="#advanced-example" title="Advanced Example">Advanced Example</a></li><li><a class="toc-href" href="#colorize-c-c-output" title="Colorize C / C++ output">Colorize C / C++ output</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#a-quick-example" title="A Quick Example">A Quick Example</a></li><li><a class="toc-href" href="#the-sgr-attribute" title="The sgr Attribute">The sgr Attribute</a></li><li><a class="toc-href" href="#the-setaf-attribute" title="The setaf Attribute">The setaf Attribute</a></li><li><a class="toc-href" href="#miscellaneous-commands" title="Miscellaneous Commands">Miscellaneous Commands</a></li><li><a class="toc-href" href="#advanced-example" title="Advanced Example">Advanced Example</a></li><li><a class="toc-href" href="#colorize-cc-output" title="Colorize C/C++ Output">Colorize C/C++ Output</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used.</p>
-<p>You can change this standard behaviour. You can add color to your output.</p>
-<p>This is the way you do it:</p>
-<p>The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.</p>
-<h2 id="a-quick-example">A quick example</h2>
+            <p>Bash is very useful when you want to know exactly what your scripts are doing.
+Unfortunately, it's almost always white text on a black background, without any
+emphasis. No bold text, nothing underlined, and no colors are used.</p>
+<p>You can change this standard behavior by adding color to your output.</p>
+<p>Here's how you do it:</p>
+<p>The <code>tput</code> utility can initialize a terminal or query the terminfo database. If
+you want to know more about it, you can check the <a href="http://linux.die.net/man/1/tput">tput manual page</a>.</p>
+<h2 id="a-quick-example">A Quick Example</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Text color variables</span>
 <span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="w">    </span><span class="c1"># Red</span>
 <span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput<span class="w"> </span>sgr0<span class="k">)</span><span class="w">     </span><span class="c1"># Reset your text</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">"Roses are </span><span class="si">${</span><span class="nv">txtred</span><span class="si">}</span><span class="s2">red</span><span class="si">${</span><span class="nv">txtreset</span><span class="si">}</span><span class="s2">."</span>
 </code></pre></div>
-<p>Simply copy this example line by line and then you'll see the expected example.</p>
-<p>A shorter way would be</p>
+<p>Simply copy this example line by line and you'll see the expected result.</p>
+<p>A shorter way would be:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
 </code></pre></div>
-<h2 id="the-sgr-attribuge">The sgr attribuge</h2>
-<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w">     </span>turn<span class="w"> </span>off<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>on<span class="w"> </span>underline
-tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w">     </span>turn<span class="w"> </span>off<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>off<span class="w"> </span>underline
-tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w">     </span>turn<span class="w"> </span>on<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>on<span class="w"> </span>underline
-tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w">     </span>turn<span class="w"> </span>on<span class="w"> </span>standout<span class="p">;</span><span class="w"> </span>turn<span class="w"> </span>off<span class="w"> </span>underline
-tput<span class="w"> </span>sgr0<span class="w">        </span>short<span class="w"> </span><span class="k">for</span><span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+<h2 id="the-sgr-attribute">The sgr Attribute</h2>
+<div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="c1"># turn off standout; turn on underline</span>
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># turn off standout; turn off underline</span>
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="c1"># turn on standout; turn on underline</span>
+tput<span class="w"> </span>sgr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># turn on standout; turn off underline</span>
+tput<span class="w"> </span>sgr0<span class="w">        </span><span class="c1"># short for sgr 0 0</span>
 </code></pre></div>
-<h2 id="the-setaf-attribute">The setaf attribute</h2>
-<div class="highlight"><pre><span></span><code>setaf<span class="w"> </span><span class="m">1</span><span class="w"> </span>Red
-setaf<span class="w"> </span><span class="m">2</span><span class="w"> </span>Green
-setaf<span class="w"> </span><span class="m">3</span><span class="w"> </span>Yellow
-setaf<span class="w"> </span><span class="m">4</span><span class="w"> </span>Blue
-setaf<span class="w"> </span><span class="m">5</span><span class="w"> </span>Purple
-setaf<span class="w"> </span><span class="m">6</span><span class="w"> </span>Cyan
-setaf<span class="w"> </span><span class="m">7</span><span class="w"> </span>Gray
+<h2 id="the-setaf-attribute">The setaf Attribute</h2>
+<div class="highlight"><pre><span></span><code>setaf<span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># Red</span>
+setaf<span class="w"> </span><span class="m">2</span><span class="w">   </span><span class="c1"># Green</span>
+setaf<span class="w"> </span><span class="m">3</span><span class="w">   </span><span class="c1"># Yellow</span>
+setaf<span class="w"> </span><span class="m">4</span><span class="w">   </span><span class="c1"># Blue</span>
+setaf<span class="w"> </span><span class="m">5</span><span class="w">   </span><span class="c1"># Purple</span>
+setaf<span class="w"> </span><span class="m">6</span><span class="w">   </span><span class="c1"># Cyan</span>
+setaf<span class="w"> </span><span class="m">7</span><span class="w">   </span><span class="c1"># Gray</span>
 </code></pre></div>
-<h2 id="misc">Misc</h2>
+<h2 id="miscellaneous-commands">Miscellaneous Commands</h2>
 <p>Make your text bold:</p>
 <div class="highlight"><pre><span></span><code>tput<span class="w"> </span>bold
 </code></pre></div>
@@ -149,27 +152,31 @@ setaf<span class="w"> </span><span class="m">7</span><span class="w"> </span>Gra
 <div class="highlight"><pre><span></span><code>tput<span class="w"> </span>sgr0
 </code></pre></div>
 <h2 id="advanced-example">Advanced Example</h2>
-<p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
-<p>This is the way how "[ERROR]" gets red and bold:</p>
+<p>Imagine you have a script that generates a lot of output. All messages are important, but some are more important than others. You definitely want to see all "[ERROR]" output, so you want to apply red and bold formatting to make it stand out.</p>
+<p>Here's how to make "[ERROR]" red and bold:</p>
 <div class="highlight"><pre><span></span><code><span class="sb">`</span>tput<span class="w"> </span>setaf<span class="w"> </span><span class="m">1</span><span class="sb">``</span>tput<span class="w"> </span>bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput<span class="w"> </span>sgr0<span class="sb">`</span>
 </code></pre></div>
-<p>You can test it with</p>
+<p>You can test it with:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
 </code></pre></div>
-<p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
-<p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is</p>
+<p>I've created a little Python script called <code>output.py</code> for testing purposes. It simply outputs a long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
+<p>The next task is to replace the [ERROR] messages. The tool of choice is <code>sed</code>. See the <a href="http://linux.die.net/man/1/sed">sed manual page</a> for more information. The basic usage is:</p>
 <div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">'s/search/replace/'</span>
 </code></pre></div>
 <p>So we pipe the output to sed:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
 </code></pre></div>
-<p>And now we bring it all together:</p>
+<p>Now let's put it all together:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
 </code></pre></div>
-<p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
+<p>Doesn't work? Let's analyze it. Instead of executing <code>tput setaf 1</code>, it gets
+printed directly. This means something we did prevented bash from executing our
+command. If you look carefully at the command, you might notice that I used
+single quotes (<code>'</code>) instead of double quotes (<code>"</code>). If you change this,
+everything works fine:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>output.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
 </code></pre></div>
-<h2 id="colorize-c-c-output">Colorize C / C++ output</h2>
+<h2 id="colorize-cc-output">Colorize C/C++ Output</h2>
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -192,10 +199,11 @@ setaf<span class="w"> </span><span class="m">7</span><span class="w"> </span>Gra
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
-The numbers 30&ndash;37 change the color, 4 is a single underline.</p>
-<p>I guess these will also work for Java, but I didn't test it.</p>
-<p>Do you know what setaf or sgr stand for? Do you know further "terminal enhancement" tricks? Just leave a post!</p>
+<p><code>\033</code> is the ASCII 27 ESC character. It must be followed by <code>[</code>. After that,
+you can write one or two numbers separated by <code>;</code>. Then you must write <code>m</code>. You
+can return to standard output with <code>\033[0m</code>.</p>
+<p>The numbers 30&ndash;37 change the color, and 4 provides a single underline.</p>
+<p>I believe these will also work for Java, but I haven't tested it.</p>
             
         </div>
         <section>
