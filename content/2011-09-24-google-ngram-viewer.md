@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Google Ngram Viewer
 slug: google-ngram-viewer
+lang: en
 author: Martin Thoma
 date: 2011-09-24 19:02:34.000000000 +02:00
 category: The Web
@@ -23,7 +23,7 @@ Here is an example search:
         </figure>
 
 The x-axis shows the years, the y-axis shows the percentage of the specified ngram of all ngrams.
-Don't bother with the numbers. If one curve is higher than the other, more books contained the specified Ngram.
+Don't worry about the exact numbers. If one curve is higher than the other, more books contained the specified Ngram.
 
 My example shows that the term "France" was more often in books than "Germany". Why is this the case? My first thought was that in the time of the two world wars more books should have been written about Germany. The answer is simply that I wrote "germany" instead of "Germany". So it's case sensitive:
 
@@ -44,7 +44,7 @@ Quite interesting is also the interest in famous physicists:
             <figcaption class="text-center">Google Ngram Viewer: Famous physicists</figcaption>
         </figure>
 
-You can try all sort of things:
+You can try all sorts of things:
 <figure class="alignnone">
             <a href="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png"><img src="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png" alt="Google Ngram Viewer: Happy" style="max-width:300px;max-height:111px;" class="size-medium wp-image-2031"/></a>
             <figcaption class="text-center">Google Ngram Viewer: Happy</figcaption>
@@ -52,9 +52,8 @@ You can try all sort of things:
 
 Did you get some interesting results? Please post a link!
 
-<h2>Sources</h2>
-<ul>
-	<li><a title="Google Books" href="http://en.wikipedia.org/wiki/Google_Books">Google Books</a>. Received 24 September 2011.</li>
-	<li><a href="http://googleresearch.blogspot.com/2006/08/all-our-n-gram-are-belong-to-you.html">All Our N-gram are Belong to You</a>. Received 24 September 2011.</li>
-	<li>Video: <a href="http://www.ted.com/talks/what_we_learned_from_5_million_books.html">What we learned from 5 million books</a>.</li>
-</ul>
+## Sources
+
+- [Google Books](http://en.wikipedia.org/wiki/Google_Books). Received 24 September 2011.
+- [All Our N-gram are Belong to You](http://googleresearch.blogspot.com/2006/08/all-our-n-gram-are-belong-to-you.html). Received 24 September 2011.
+- Video: [What we learned from 5 million books](http://www.ted.com/talks/what_we_learned_from_5_million_books.html).

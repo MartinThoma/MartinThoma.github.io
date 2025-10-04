@@ -1,18 +1,20 @@
 ---
 layout: post
-lang: en
 title: How to draw a finite-state machine
 slug: how-to-draw-a-finite-state-machine
+lang: en
 author: Martin Thoma
 date: 2011-10-29 09:37:50.000000000 +02:00
 category: My bits and bytes
 tags: Computer science, LaTeX, Abstract machine, Tikz
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
-<a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).
+
+[Finite-state machines](http://en.wikipedia.org/wiki/Deterministic_finite-state_machine) are necessary to show that some problems are computable (or not).
 
 As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
-<h2>Nondeterministic finite-state machine</h2>
+
+## Nondeterministic finite-state machine
 <figure class="aligncenter">
             <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" style="max-width:365px;max-height:119px;" class="size-full wp-image-8141 "/></a>
             <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
@@ -45,7 +47,7 @@ To create a graph (or the picture of the nondeterministic finite-state machine) 
 dot -Tpng fsm.gv -o myFiniteStateMachine.png
 ```
 
-<h2>Deterministic finite-state machine</h2>
+## Deterministic Finite-State Machine
 
 <figure class="aligncenter">
             <a href="../images/2011/10/deterministic-finite-state-machine.png"><img src="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" style="max-width:528px;max-height:248px" class="size-full wp-image-8171"/></a>
@@ -81,8 +83,9 @@ digraph finite_state_machine {
 }
 ```
 
-<h2>LaTeX</h2>
-If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.
+## LaTeX
+
+If you want to draw finite-state machines with LaTeX, you might want to give [tikz](http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/) a try.
 
 This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:
 
@@ -142,7 +145,7 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
 \end{document}
 ```
 
-<h3>Markov models</h3>
+### Markov Models
 ```latex
 \documentclass{scrartcl}
 \usepackage{tikz}
@@ -167,9 +170,8 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
 \end{document}
 ```
 
-<h2>Further Reading</h2>
-<ul>
-    <li><a href="http://www.graphviz.org/doc/info/shapes.html">DOT Node Shape reference</a></li>
-    <li><a href="http://wiki.ubuntuusers.de/Graphviz">ubuntuusers.de</a> (German): Installation on Ubuntu</li>
-    <li><a href="http://www.wikischool.de/wiki/WikiSchool:Graphviz">Wikischool.de</a> (German): Many examples</li>
-</ul>
+## Further Reading
+
+- [DOT Node Shape reference](http://www.graphviz.org/doc/info/shapes.html)
+- [ubuntuusers.de](http://wiki.ubuntuusers.de/Graphviz) (German): Installation on Ubuntu
+- [Wikischool.de](http://www.wikischool.de/wiki/WikiSchool:Graphviz) (German): Many examples
