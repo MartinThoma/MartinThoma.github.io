@@ -47,8 +47,14 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr>
             <th>Batterie kWh</th>
             <td>10.24 kWh</td>
-            <td>11.20 kWh</td>
+            <td class="good">11.20 kWh</td>
             <td>11.00 kWh</td>
+        </tr>
+        <tr>
+            <th>Notfall-Lösung</th>
+            <td class="good">Ersatzstrom</td>
+            <td class="good">Ersatzstrom</td>
+            <td>nur Notstrom</td>
         </tr>
         <tr><th colspan="4" style="text-align: center;">Module</th></tr>
         <tr>
@@ -63,8 +69,13 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <td>445 Wp</td>
             <td>455 Wp</td>
         </tr>
+            <th>Zelltyp</th>
+            <td>108 Solarzellen, <a href="https://www.wegatech.de/ratgeber/photovoltaik/grundlagen/halbzellenmodule/">Halbzellen-Modul</a></td>
+            <td>144 Solarzellen</td>
+            <td>108 Solarzellen, 3 Bypass-Dioden</td>
+        </tr>
         <tr>
-            <th>Wirkungsgrad</th>
+            <th><span title="Nur wichtig wenn die Dachfläche begrenzt ist">Wirkungsgrad</span></th>
             <td>22.52%</td>
             <td>22.3%</td>
             <td>22.8%</td>
@@ -88,28 +99,22 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <td>2mm vorne und hinten</td>
         </tr>
         <tr>
-            <th>Strom</th>
-            <td>13.55A</td>
-            <td>TODO</td>
-            <td>TODO</td>
-        </tr>
-        <tr>
-            <th>Spannung</th>
+            <th>Betriebsspannung/Nennspannung</th>
             <td>33.23V</td>
-            <td>TODO</td>
-            <td>TODO</td>
+            <td>44.3</td>
+            <td>33.4V</td>
         </tr>
         <tr>
-            <th>Leerlaufspannung</th>
+            <th><a href="https://solarwissen.selfmade-energy.com/leerlaufspannung-was-ist-das/" title="Die maximale Spannung, die ein Solarmodul erzeugen kann, wenn kein Strom aus dem Modul entnommen wird. Sie tritt auf, wenn das Solarmodul mit offenen Anschlüssen betrieben wird und keine Last angeschlossen ist. Typischerweise 35V bis 45V">Leerlaufspannung</a></th>
             <td>39.79 V</td>
-            <td>TODO</td>
+            <td>52.6 V</td>
             <td>40.0 V</td>
         </tr>
         <tr>
             <th>Garantie</th>
             <td class="good">30 Jahre Produkt- und 30 Jahre Leistungsgarantie auf 87.4%</td>
             <td>25 Jahre Produkt- und 30 Jahre Leistungsgarantie auf 87.4%</td>
-            <td>25 Jahre Produkt- und 30 Jahre Leistungsgarantie</td>
+            <td>25 Jahre Produkt- und 30 Jahre Leistungsgarantie auf 90%</td>
         </tr>
         <tr><th colspan="4" style="text-align: center;">Batterie</th></tr>
         <tr>
@@ -133,7 +138,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr>
             <th>Wirkungsgrad</th>
             <td class="good">≥96%</td>
-            <td>TODO</td>
+            <td class="bad">unklar</td>
             <td>&le;95.9 %</td>
         </tr>
         <tr>
@@ -207,19 +212,19 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <th><a href="https://de.wikipedia.org/wiki/Schwarzstart">Schwarzstart</a></th>
             <td><a href="https://ger.sungrowpower.com/upload/file/20220202/DE%20FS%20Sungrow%203-phasiger%20Hybrid%20Factsheet%20FAQ%203.pdf">Ja</a></td>
             <td>Ja</td>
-            <td>TODO</td>
+            <td class="bad"><a href="https://www.sonnen.de/blog/schwarzstartfaehigkeit-automatisierter-schwarzstart">Nicht möglich</a></td>
         </tr>
         <tr>
             <th><a href="https://www.solaranlage-ratgeber.de/photovoltaik/photovoltaik-technik/photovoltaik-auch-bei-stromausfall-nutzen">Solare Nachladung</a></th>
             <td>TODO</td>
             <td>Ja</td>
-            <td>TODO</td>
+            <td class="bad"><a href="https://www.sonnen.de/notstrom-ersatzstrom/sonnenprotect-8000">Nicht</a> <a href="https://www.sonnen.de/stromspeicher/sonnenbatterie-10-hybrid">möglich</a></td>
         </tr>
         <tr>
             <th><a href="https://www.photovoltaik-web.de/photovoltaik/photovoltaik-quiz/quizfragen/schieflast-drehstromnetz">Schieflast</a></th>
             <td>TODO</td>
             <td><a href="https://docs.fenecon.de/de/home/home_10/betrieb_und_serviceanleitung/Betrieb_und_Serviceanleitung_Home_10.html">3333 VA</a></td>
-            <td>TODO</td>
+            <td class="bad">nicht im Datenblatt</td>
         </tr>
         <tr><th colspan="4" style="text-align: center;">Montage</th></tr>
         <tr>
@@ -230,6 +235,11 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         </tr>
 </table>
 
+
+Für alle Module gilt:
+
+* Die Betriebstemperatur der Zellen ist bei -40°C bis +85ºC
+* Sie nutzen monokristalline bifaziale N-Typ <a href="https://www.ise.fraunhofer.de/de/forschungsprojekte/topcon.html">TOPCon-Solarzellen</a>
 
 ## Meta
 
