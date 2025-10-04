@@ -1,34 +1,37 @@
 ---
 layout: post
-lang: de
 title: Wie bestimme ich den Kern einer linearen Abbildung?
 slug: wie-bestimme-ich-den-kern-einer-linearen-abbildung
+lang: de
 author: Martin Thoma
 date: 2012-08-16 15:54:15.000000000 +02:00
 category: German posts
 tags: mathematics, Linear algebra
 featured_image: 2012/03/Matrix-Inverses.png
 ---
-<h2>Definition</h2>
-Der Kern einer linearen Abbildung ist eine Menge von Vektoren. In diesem Artikel erkl&auml;re ich kurz und b&uuml;ndig, wie man den Kern einer linearen Abbildung bestimmt.
+## Definition
 
-<div class="definition">Sei $\Phi: V \rightarrow W$ eine lineare Abbildung. Der <strong>Kern</strong> von $\Phi$ ist die Menge aller Vektoren von V, die durch $\Phi$ auf den Nullvektor $0 \in W$ abgebildet werden, also:
+Der Kern einer linearen Abbildung ist eine Menge von Vektoren. In diesem Artikel erkläre ich kurz und bündig, wie man den Kern einer linearen Abbildung bestimmt.
 
-$\text{Kern } \Phi := \{v \in V | \Phi(v) = 0\}$</div>
+> **Definition**: Sei $\Phi: V \rightarrow W$ eine lineare Abbildung. Der **Kern** von $\Phi$ ist die Menge aller Vektoren von $V$, die durch $\Phi$ auf den Nullvektor $0 \in W$ abgebildet werden, also:
+>
+> $$\text{Kern } \Phi := \{v \in V \mid \Phi(v) = 0\}$$
 
-<h2>Vorgehen</h2>
-Jede lineare Abbildung $\Phi$ l&auml;sst sich in dieser Form beschreiben:
+## Vorgehen
 
-$\Phi: V \rightarrow W$ mit $\dim V = m$ und $\dim W = n$
-$\Phi(x) = A \cdot x, ~~~ A \in R^{n \times m}, x \in V$
+Jede lineare Abbildung $\Phi$ lässt sich in dieser Form beschreiben:
 
-Also muss man, um den Kern von $\Phi$ zu bestimmen, nur das folgende homogene Gleichungssystem nach x aufl&ouml;sen:
-$A \cdot x = 0$
+$$\Phi: V \rightarrow W \text{ mit } \dim V = m \text{ und } \dim W = n$$
+$$\Phi(x) = A \cdot x, \quad A \in \mathbb{R}^{n \times m}, x \in V$$
 
-In Wolfram|Alpha ben&ouml;tigt man daf&uuml;r &uuml;brigens das Schl&uuml;sselwort <code>null space</code>. Hier ist <a href="http://www.wolframalpha.com/input/?i=nullspace+%7B%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B3%2C0%2C2%2C1%2C2%7D%2C%7B0%2C1%2C1%2C1%2C0%7D%2C%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B2%2C1%2C3%2C3%2C2%7D%7D">Beispiel #2 in Wolfram|Alpha</a>.
+Also muss man, um den Kern von $\Phi$ zu bestimmen, nur das folgende homogene Gleichungssystem nach $x$ auflösen:
+$$A \cdot x = 0$$
 
-<h2>Beispiel #1</h2>
-<h3>Aufgabenstellung</h3>
+In Wolfram|Alpha benötigt man dafür übrigens das Schlüsselwort `null space`. Hier ist [Beispiel #2 in Wolfram|Alpha](http://www.wolframalpha.com/input/?i=nullspace+%7B%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B3%2C0%2C2%2C1%2C2%7D%2C%7B0%2C1%2C1%2C1%2C0%7D%2C%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B2%2C1%2C3%2C3%2C2%7D%7D).
+
+## Beispiel #1
+
+### Aufgabenstellung
 Sei $A \in \mathbb{R}^{3 \times 3}$ und definiert als
 
 $$A := \begin{pmatrix}
@@ -70,7 +73,7 @@ $$
 \end{pmatrix}
 $$
 
-Man sieht direkt, dass die Matrix den Rang 2 hat. Also muss der L&ouml;sungsraum 1-dimensional sein. Mit dem -1-Trick kommt nam auf den L&ouml;sungsraum:
+Man sieht direkt, dass die Matrix den Rang 2 hat. Also muss der Lösungsraum 1-dimensional sein. Mit dem "$-1$-Trick" kommt man auf den Lösungsraum:
 
 $$\mathcal{L} = \left [
 \begin{pmatrix}
@@ -90,8 +93,9 @@ $$\text{Kern } \Phi = \left [
 \end{pmatrix}
 \right ]$$
 
-<h2>Beispiel #2</h2>
-<h3>Aufgabenstellung</h3>
+## Beispiel #2
+
+### Aufgabenstellung
 Sei $A \in \mathbb{R}^{5 \times 5}$ und definiert als
 
 $$A := \begin{pmatrix}
@@ -165,8 +169,8 @@ $$\leadsto
  0 &  0 &  0 &  0 &  0
 \end{pmatrix}$$
 
-Die Matrix hat Rang 3, daraus folgt, dass die Dimension des L&ouml;sungsraumes 2 ist.
-Wieder &uuml;ber den -1-Trick kann man den L&ouml;sungsraum direkt ablesen:
+Die Matrix hat Rang 3, daraus folgt, dass die Dimension des Lösungsraumes 2 ist.
+Wieder über den "$-1$-Trick" kann man den Lösungsraum direkt ablesen:
 
 $$\mathcal{L} =
 \left [

@@ -1,23 +1,28 @@
 ---
 layout: post
-lang: en
-title: How to print Source Code with LaTeX
+title: How to Print Source Code with LaTeX
 slug: how-to-print-source-code-with-latex
+lang: en
 author: Martin Thoma
 date: 2012-04-29 12:04:32.000000000 +02:00
 category: Code
 tags: LaTeX, Documentation
 featured_image: 2012/01/latex-logo.png
 ---
-I often need to print source code. Some years ago for a German competition called "Bundeswettbewerb Informatik", now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I've also included example PDF files.
+> **Note**: This article is from 2012 and some information may be outdated. Modern LaTeX distributions include updated versions of these packages.
 
-<h2>listings</h2>
-<h3>Minimal example</h3>
+I often need to print source code. Years ago for a German competition called "Bundeswettbewerb Informatik", and now for projects at my university. If you use LaTeX, you can simply include source code into your document! Here are three examples with listings and minted. I've also included example PDF files.
+
+## listings
+
+### Minimal Example
+
 <figure class="aligncenter">
             <a href="../images/2012/04/latex-java-source-listings.png"><img src="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" style="max-width:590px;max-height:185px" class="size-full wp-image-23851"/></a>
             <figcaption class="text-center">LaTeX Java Source Code: listings</figcaption>
         </figure>
-Here is an minimal example how you could print Source Code with LaTeX:
+
+Here is a minimal example of how you can print source code with LaTeX:
 <a id="more"></a><a id="more-23541"></a>
 
 ```latex
@@ -42,8 +47,9 @@ Here is an minimal example how you could print Source Code with LaTeX:
 \end{document}
 ```
 
-<h3>My Template</h3>
-If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href='../images/2012/04/LaTeX-Source-Code.pdf'>PDF-file</a>.
+### My Template
+
+If you want to customize a bit more and get highlighted (colorized) source code, you can use the following template. It looks like this as a [PDF file](../images/2012/04/LaTeX-Source-Code.pdf).
 
 ```latex
 \documentclass[a4paper,12pt]{article}
@@ -58,9 +64,9 @@ If you want to customize a little bit more and if you want to get highlighted (c
 % the following is needed for syntax highlighting
 \usepackage{color}
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{dkgreen}{rgb}{0, 0.6, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}
 
 \lstset{ %
   language=Java,                  % the language of the code
@@ -118,40 +124,45 @@ If you want to customize a little bit more and if you want to get highlighted (c
 \end{document}
 ```
 
-<h3>Supported Languages</h3>
-The LaTeX listings package provides quite a lot of language and dialects. Each bold dialect is the default dialect:
+### Supported Languages
 
-First the interesting ones:
-<ul>
-<li>Assembler (Motorola68k, x86masm)</li>
-<li>bash</li>
-<li>C (<strong>ANSI</strong>, Handel, Objective, Sharp)</li>
-<li>C++ (ANSI, GNU, <strong>ISO</strong>, Visual)</li>
-<li>Java (empty, AspectJ)</li>
-<li>Python</li>
-<li>SQL</li>
-<li>TeX (AlLaTeX, common, LaTeX, <strong>plain</strong>, primitive)</li>
-<li>XML</li>
-</ul>
+The LaTeX listings package provides quite a lot of languages and dialects. Each bold dialect is the default dialect.
+
+First, the interesting ones:
+
+- Assembler (Motorola68k, x86masm)
+- bash
+- C (**ANSI**, Handel, Objective, Sharp)
+- C++ (ANSI, GNU, **ISO**, Visual)
+- Java (empty, AspectJ)
+- Python
+- SQL
+- TeX (AlLaTeX, common, LaTeX, **plain**, primitive)
+- XML
 
 And the rest:
-ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, <strong>R/3 6.10</strong>), ACSL, Ada (<strong>2005</strong>, 83, 95), Algol (60, <strong>68</strong>), Ant, Awk (<strong>gnu</strong>, POSIX), Basic (Visual), Caml (<strong>light</strong>, Objective), CIL, Clean, Cobol (1974, <strong>1985</strong>, ibm), Comal 80, command.com (WinXP), Comsol, csh, Delphi, Eiffel, Elan, erlang, Euphoria, Fortran (77, 90, <strong>95</strong>), GCL, Gnuplot, Haskell, HTML, IDL (empty, CORBA), inform, JVMIS, ksh, Lingo, Lisp (empty, Auto), Logo, make (empty, gnu), Mathematica (1.0, 3.0, <strong>5.2</strong>), Matlab, Mercury, MetaPost, Miranda, Mizar, ML, Modula-2, MuPAD, NASTRAN, Oberon-2, OCL (decorative, OMG), Octave, Oz, Pascal (Borland6, Standard, XSC), Perl, PHP, PL/I, Plasm, PostScript, POV, Prolog, Promela, PSTricks, R, Reduce, Rexx, RSL, Ruby, S (empty, PLUS), SAS, Scilab, sh, SHELXL, Simula (<strong>67</strong>, CII, DEC, IBM), SPARQL, tcl (empty, tk), VBScript, Verilog, VHDL (empty, AMS), VRML (97), XSLT
 
-<h2>minted</h2>
+ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, **R/3 6.10**), ACSL, Ada (**2005**, 83, 95), Algol (60, **68**), Ant, Awk (**gnu**, POSIX), Basic (Visual), Caml (**light**, Objective), CIL, Clean, Cobol (1974, **1985**, ibm), Comal 80, command.com (WinXP), Comsol, csh, Delphi, Eiffel, Elan, erlang, Euphoria, Fortran (77, 90, **95**), GCL, Gnuplot, Haskell, HTML, IDL (empty, CORBA), inform, JVMIS, ksh, Lingo, Lisp (empty, Auto), Logo, make (empty, gnu), Mathematica (1.0, 3.0, **5.2**), Matlab, Mercury, MetaPost, Miranda, Mizar, ML, Modula-2, MuPAD, NASTRAN, Oberon-2, OCL (decorative, OMG), Octave, Oz, Pascal (Borland6, Standard, XSC), Perl, PHP, PL/I, Plasm, PostScript, POV, Prolog, Promela, PSTricks, R, Reduce, Rexx, RSL, Ruby, S (empty, PLUS), SAS, Scilab, sh, SHELXL, Simula (**67**, CII, DEC, IBM), SPARQL, tcl (empty, tk), VBScript, Verilog, VHDL (empty, AMS), VRML (97), XSLT
+
+## minted
+
 Minted needs the package pygments:
 
 ```bash
 sudo apt-get install python-pygments
 ```
 
-<h3>Supported Languages</h3>
+> **Modern Note**: On newer systems, you might need to use `python3-pygments` or install via `pip install pygments`.
+
+### Supported Languages
+
 Minted supports quite a lot of languages. You can get the supported languages with this command:
 
 ```bash
-moose@pc07:~$ pygmentize -L lexers
+pygmentize -L lexers
 ```
 
-This is my output:
+This was my output in 2012 (current versions support many more languages):
 
 ```text
 Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
@@ -419,7 +430,7 @@ This is the <a href='../images/2012/04/minted-source-code.pdf'>PDF-file</a> prod
 
 \begin{document}
 \renewcommand{\theFancyVerbLine}{
-  \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
+  \sffamily\textcolor[rgb]{0.5.0.5.0.5}{\scriptsize\arabic{FancyVerbLine}}}
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]{java}{Othello.java}
 

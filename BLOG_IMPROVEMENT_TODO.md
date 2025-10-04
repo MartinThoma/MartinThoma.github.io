@@ -20,6 +20,33 @@ Diese TODO-Liste dokumentiert die systematische Verbesserung aller Artikel im Bl
   - 2023-12-30-oelheizung-alternativen.md
   - 2024-12-25-war-mir-sorgen-macht.md
 
+- **Artikel 2011/2012 (Oktober 2025):** 11 Artikel systematisch verbessert
+  - 2011-09-30-colorize-your-scripts-output.md (Englisch)
+  - 2011-09-21-setting-up-wordpress.md (Englisch)
+  - 2011-12-04-for-loops-in-different-programming-languages.md (Englisch)
+  - 2011-10-23-wie-fuhre-ich-einen-sauberen-beweis.md (Deutsch)
+  - 2012-04-29-how-to-print-source-code-with-latex.md (Englisch)
+  - 2012-08-16-wie-bestimme-ich-den-kern-einer-linearen-abbildung.md (Deutsch)
+  - 2012-03-26-learn-how-to-type.md (Englisch - erweitert)
+  - 2012-07-06-cpp-operator-overloading.md (Englisch)
+  - 2011-10-22-understanding-python-lists.md (Englisch)
+  - 2012-07-14-when-is-matrix-multiplication-commutative.md (Englisch)
+  - 2011-09-21-animater-vs-animation.md (Englisch)
+  - 2012-12-07-top-5-worst-website-designs.md (Englisch)
+
+  **Verbesserungen umfassten:**
+  - Grammatik- und Rechtschreibkorrekturen
+  - Konvertierung von HTML zu Markdown
+  - Modernisierung der Sprache und Terminologie
+  - Hinzufügung von Aktualisierungshinweisen für veraltete Inhalte
+  - Konsistente Formatierung und Struktur
+  - Verbesserung mathematischer Notation und Code-Beispiele
+  - Standardisierung von Metadaten und Kategorien
+  - Erweiterte Inhalte für zu kurze Artikel
+  - Modernisierung technischer Konzepte
+
+- **Verbleibende 2011/2012 Artikel:** ~255 von 266 Artikeln noch zu bearbeiten
+
 ## 📋 Ausstehende Aufgaben
 
 ### 1. 🇺🇸 Englische Artikel überarbeiten

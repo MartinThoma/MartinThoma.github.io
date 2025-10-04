@@ -229,8 +229,10 @@ def process_file(file_path: Path) -> bool:
         all_fixes = []
         
         # Apply all fixes
-        content, number_fixes = fix_number_formatting(content)
-        all_fixes.extend(number_fixes)
+
+        # Number formatting has false-positives, e.g. for lists in code
+        # content, number_fixes = fix_number_formatting(content)
+        # all_fixes.extend(number_fixes)
         
         content, front_matter_fixes = fix_front_matter(content)
         all_fixes.extend(front_matter_fixes)

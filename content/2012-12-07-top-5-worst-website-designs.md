@@ -1,15 +1,17 @@
 ---
 layout: post
-lang: en
-title: TOP 5: Worst Website Designs
+title: Top 5 Worst Website Designs
 slug: top-5-worst-website-designs
+lang: en
 author: Martin Thoma
 date: 2012-12-07 08:27:28.000000000 +01:00
 category: The Web
 tags: Design, TOP
 featured_image: 2012/12/dokimos-thumb.png
 ---
-Here are some screenshots of the worst websites I have ever seen. Most of them use too many colors, something moves or the background is black. One uses frames.
+> **Note**: This article is from 2012. Many of these websites have likely been updated or may no longer exist. This serves as a historical reference for web design practices of that era.
+
+Here are some screenshots of the worst websites I have ever seen. Most of them use too many colors, have moving elements, or use black backgrounds. One uses frames (which were already outdated by 2012).
 
 <figure class="aligncenter">
             <a href="../images/2012/12/dokimos-300x210.png"><img src="../images/2012/12/dokimos-300x210.png" alt="dokimos" style="max-width:300px;max-height:210px" class="size-medium wp-image-50041"/></a>
@@ -36,4 +38,22 @@ Here are some screenshots of the worst websites I have ever seen. Most of them u
             <figcaption class="text-center"><a href='http://www.5safepoints.com/'>5safepoints</a></figcaption>
         </figure>
 
-Do you know similar examples for bad website designs (Spambots might have a higher success rate for useful comments now. I'll have to check that 😉)
+Do you know similar examples of bad website designs?
+
+## What Makes a Website Design "Bad"?
+
+Looking at these examples from 2012, we can identify common problems:
+
+- **Too many colors**: Overwhelming color schemes that hurt readability
+- **Moving elements**: Distracting animations and scrolling text
+- **Poor contrast**: Dark backgrounds with poor text visibility
+- **Outdated technology**: Using frames and other deprecated HTML features
+- **Information overload**: Cramming too much content without proper organization
+- **Inconsistent navigation**: Making it hard for users to find what they need
+
+Modern web design has evolved significantly since 2012, emphasizing:
+- Clean, minimalist designs
+- Mobile responsiveness
+- Accessibility standards
+- Fast loading times
+- User-centered design principles

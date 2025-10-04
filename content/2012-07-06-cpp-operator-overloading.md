@@ -1,61 +1,64 @@
 ---
 layout: post
-lang: en
-title: C++ Operator overloading
+title: C++ Operator Overloading
 slug: cpp-operator-overloading
+alias: /c-operator-overloading/
+lang: en
 author: Martin Thoma
 date: 2012-07-06 16:00:22.000000000 +02:00
 category: Code
 tags: CPP
 featured_image: 2012/05/CPP-thumb.png
-alias: /c-operator-overloading/
 ---
-Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$ you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).
+Operator overloading is heavily used in mathematics. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$, you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus sign when you add matrices (which is obviously something different than adding single numbers).
 
-In some programming languages, like C++, you can overload operators by yourself.
+In some programming languages, like C++, you can overload operators yourself.
 
-<h2>First simple example</h2>
-Imagine you wanted to store some data - lets say the prename, surname and age - about people you know. This could be done in a <code>struct</code>. After you've stored it, you would like to print this information. Obviously, you don't want to do something like this:
+## First Simple Example
+
+Imagine you wanted to store some data—let's say the first name, surname, and age—about people you know. This could be done in a `struct`. After you've stored it, you would like to print this information. Obviously, you don't want to do something like this:
+
 ```cpp
-
-for (int i=0; i< 4; i++) {
+for (int i = 0; i < 4; i++) {
     cout << "Person(" << myArray[i].prename << " "
          << myArray[i].surname << ", " << myArray[i].age << ")";
 }
-
 ```
-If you wanted to print this information more than one time, you would have to add this long line every time.
 
-A <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#toString()">toString()</a> method like the one Java uses would be nice. In C++, you don't have toString, but you can overload the <code><<</code> operator!
+If you wanted to print this information more than once, you would have to add this long line every time.
+
+A [toString()](http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#toString()) method like the one Java uses would be nice. In C++, you don't have toString, but you can overload the `<<` operator!
 
 This is how it works:
+
 ```cpp
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-typedef struct person {
+struct Person {
     // attributes
     string prename;
     string surname;
     int age;
 
     // constructor
-    person(string p, string s, int age) :
+    Person(string p, string s, int age) :
         prename(p), surname(s), age(age) {}
-} Person;
+};
 
 // "toString" for C++
-std::ostream& operator<<(std::ostream &strm, const person &a) {
-  return strm << "Person(" << a.prename << " " << a.surname << ", "
-              << a.age << ")";
+std::ostream& operator<<(std::ostream &strm, const Person &a) {
+    return strm << "Person(" << a.prename << " " << a.surname << ", "
+                << a.age << ")";
 }
 
-int main(){
-    Person Martin ("Martin", "Thoma", 22);
-    Person Andreas ("Andreas", "Thoma", 22);
-    Person AndiOld ("Andreas", "Berger", 30);
-    Person AndiYoung ("Andreas", "Berger", 22);
+int main() {
+    Person Martin("Martin", "Thoma", 22);
+    Person Andreas("Andreas", "Thoma", 22);
+    Person AndiOld("Andreas", "Berger", 30);
+    Person AndiYoung("Andreas", "Berger", 22);
 
     Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
 

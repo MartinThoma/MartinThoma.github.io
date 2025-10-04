@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Learn how to type
+title: Learn How to Type
 slug: learn-how-to-type
+lang: en
 author: Martin Thoma
 date: 2012-03-26 17:40:58.000000000 +02:00
 category: The Web
@@ -13,4 +14,4 @@ featured_image: 2012/03/learn-how-to-type-thumb.png
             <figcaption class="text-center">keybr</figcaption>
         </figure>
 
-<a href="http://keybr.com/">keybr.com</a> is another service that helps you to learn how to type.
+[keybr.com](http://keybr.com/) is a service that helps you learn touch typing (ten-finger typing).

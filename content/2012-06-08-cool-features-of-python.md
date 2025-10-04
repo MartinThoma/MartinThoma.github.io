@@ -1,20 +1,21 @@
 ---
 layout: post
-lang: en
-title: Cool features of Python
+title: Cool Features of Python
 slug: cool-features-of-python
+lang: en
 author: Martin Thoma
 date: 2012-06-08 17:30:10.000000000 +02:00
 category: Code
 tags: Programming, Python
 featured_image: 2011/09/Python-Logo.png
 ---
-A friend wanted to know why I enjoy programming in Python so much more than programming in other languages. So I will describe some special features of Python which make it much easier to quickly implement algorithms.
+A friend wanted to know why I enjoy programming in Python so much more than programming in other languages. So I will describe some special features of Python that make it much easier to quickly implement algorithms.
 
-I also made drafts how the tasks would be solved in most programming languages. When I say most, I mean most languages that are widely spread (so C/C++/Java is much more important than almost any other languages combined). I know that those tasks would be solved completely different in functional programming languages.
+I also made drafts of how these tasks would be solved in most programming languages. When I say "most," I mean most languages that are widely spread (so C/C++/Java is much more important than almost any other languages combined). I know that these tasks would be solved completely differently in functional programming languages.
 
-<h2>Rapid, readable programming</h2>
-<h3>Intuitive looping through lists</h3>
+## Rapid, Readable Programming
+
+### Intuitive Looping Through Lists
 You can loop through every list-like datastructure like this:
 
 ```python
@@ -22,9 +23,11 @@ for element in list:
     print(element)
 ```
 
-<h3>Arbitrary Integer size</h3>
-<strong>Description</strong>: Print the sum of the digits of $2^{100000}$.
-<strong>Java</strong>:
+### Arbitrary Integer Size
+
+**Task**: Print the sum of the digits of $2^{100000}$.
+
+**Java**:
 ```java
 import java.math.BigInteger;
 
@@ -41,7 +44,7 @@ public class test {
 }
 ```
 
-<strong>Python</strong>: (was much faster in both computation and programming time!)
+**Python**: (was much faster in both computation and programming time!)
 ```python
 big = 2 ** 100000
 sumOfDigits = 0
@@ -51,112 +54,114 @@ for digit in str(big):
 print(sumOfDigits)
 ```
 
-Python has no need for a special class as it has arbitrary length integers (see <a href="http://docs.python.org/release/3.1.5/c-api/long.html">source</a>)
+Python has no need for a special class as it has arbitrary length integers (see [source](http://docs.python.org/release/3.1.5/c-api/long.html))
 
-<h3>Swich values of variables</h3>
-<strong>Description</strong>: You want to make sure, that variable a is smaller than b ($a < b$).
-<strong>Most languages</strong>:
+### Switch Values of Variables
+
+**Task**: You want to make sure that variable `a` is smaller than `b` ($a < b$).
+
+**Most languages**:
 ```python
 tmp = a
 a = min(a, b)
 b = max(tmp, b)
 ```
 
-<strong>Python</strong>:
+**Python**:
 ```python
 a, b = min(a, b), max(a, b)
 ```
 
-<h3>Return more than one variable</h3>
-<strong>Description</strong>: Evaluate $f: \mathbb{R}^2 \rightarrow \mathbb{R}^3, f(x, y) := (x^2, y^2, x+y)$
-<strong>Most languages</strong>:
+### Return More Than One Variable
 
+**Task**: Evaluate $f: \mathbb{R}^2 \rightarrow \mathbb{R}^3, f(x, y) := (x^2, y^2, x+y)$
+
+**Most languages**:
 ```java
-double function(double x, double y) {
-  double returnValues[3];
-  returnValues[0] = x*x;
-  returnValues[1] = y*y;
-  returnValues[2] = x + y;
-  return returnValues;
+double[] function(double x, double y) {
+    double[] returnValues = new double[3];
+    returnValues[0] = x * x;
+    returnValues[1] = y * y;
+    returnValues[2] = x + y;
+    return returnValues;
 }
 
-double values[3] = function(4, 5);
-printf("Part 1: %.2f", values[0]);
-printf("Part 3: %.2f", values[2]);
+double[] values = function(4, 5);
+System.out.printf("Part 1: %.2f%n", values[0]);
+System.out.printf("Part 3: %.2f%n", values[2]);
 ```
 
-<strong>Python</strong>:
+**Python**:
 ```python
 def function(x, y):
     return (x * x, y * y, x + y)
 
 
 a, b, c = function(4, 5)
-print("Part 1: %.2f" % a)
-print("Part 3: %.2f" % b)
+print(f"Part 1: {a:.2f}")
+print(f"Part 3: {c:.2f}")
 ```
 
-This is called "Argument Unpacking". In fact it does return only one variable (a tuple), but it creating the tuple is so easy that it does not feel like creating another variable.
+This is called "tuple unpacking". It actually returns only one variable (a tuple), but creating the tuple is so easy that it doesn't feel like creating another variable.
 
-<h3>Short initialisation</h3>
-<strong>Description</strong>: Get a string representation of a list from the standard library
-<strong>Java</strong>:
+### Short Initialization
+
+**Task**: Get a string representation of a list from the standard library
+
+**Java**:
 ```java
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.List;
 
 public class test {
     public static void main(String[] args) {
-        List<Integer> myList = new LinkedList<Integer>();
-        myList.add(1);
-        myList.add(3);
-        myList.add(3);
-        myList.add(7);
+        List<Integer> myList = Arrays.asList(1, 3, 3, 7);
         System.out.println(myList);
     }
 }
 ```
 
-<strong>Python</strong>:
+**Python**:
 ```python
-myList = [1, 3, 3, 7]
-print(myList)
+my_list = [1, 3, 3, 7]
+print(my_list)
 ```
 
 Both get the same result.
 
-<h3>Chaining Comparisons</h3>
-Description: You would like to check if $x \in [-5, 42]$.
-<strong>Most languages</strong>:
+### Chaining Comparisons
+
+**Task**: You would like to check if $x \in [-5, 42]$.
+
+**Most languages**:
 ```java
-if (-5 <= x &amp;&amp; x <= 42)
+if (-5 <= x && x <= 42)
 ```
 
-<strong>Python</strong>:
-
+**Python**:
 ```python
 if -5 <= x <= 42:
     pass
 ```
 
-<h3>Enumeration</h3>
-<strong>Description</strong>: You have a list and you would like to print it, prefixed with the index in the list.
-<strong>Java</strong>:
+### Enumeration
+
+**Task**: You have a list and you would like to print it, prefixed with the index in the list.
+
+**Java**:
 ```java
-List myList = (List initialisation and assignment, multiple lines)
-int i = 0;
-for (int element : myList) {
-    System.out.printf("%i: %i", i, element);
-    i++;
+List<Integer> myList = Arrays.asList(1, 3, 3, 7);
+for (int i = 0; i < myList.size(); i++) {
+    System.out.printf("%d: %d%n", i, myList.get(i));
 }
 ```
 
-<strong>Python</strong>:
+**Python**:
 ```python
-myList = [1, 3, 3, 7]
+my_list = [1, 3, 3, 7]
 
-for nr, element in enumerate(myList):
-    print("%i: %i" % (nr, element))
+for nr, element in enumerate(my_list):
+    print(f"{nr}: {element}")
 ```
 
 ### Named String formatting
@@ -166,8 +171,10 @@ print("The %(foo)s is %(bar)i." % {"foo": "answer", "bar": 42})
 ```
 
 ### any() and all()
-<strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
-<strong>Most languages</strong>:
+
+**Task**: You have a very long list and you want to know if a prime is in this list.
+
+**Java**:
 ```java
 List myList = (List initialisation and assignment of many values)
 boolean isPrimePresent = false;
@@ -183,21 +190,21 @@ if (!isPrimePresent) {
 }
 ```
 
-<strong>Python</strong>:
+**Python**:
 ```python
-myList = [4, 4, 9, 12]
+my_list = [4, 4, 9, 12]
 
-if not any(isPrime(x) for x in myList):
+if not any(is_prime(x) for x in my_list):
     print("The list did not contain a prime")
 ```
 
-See also: <a href="http://stackoverflow.com/questions/10958874/exists-keyword-in-python">StackOverflow answer from steveha</a>.
+See also: [StackOverflow answer from steveha](http://stackoverflow.com/questions/10958874/exists-keyword-in-python).
 
 
 ## Testing and Documentation
 
 ### Doctest
-You can write Documentation and Unit-Tests at the same time! Take a look at <a href="http://docs.python.org/library/doctest.html">doctest &mdash; Test interactive Python examples</a>.
+You can write documentation and unit tests at the same time! Take a look at [doctest — Test interactive Python examples](http://docs.python.org/library/doctest.html).
 
 ### Sphinx
 Documentation can be generated from partially docstrings, partially rst files
@@ -211,8 +218,10 @@ It can be uploaded to [pythonhosted.org](http://pythonhosted.org/) just like [ne
 I already wrote an article about <a href="../understanding-python-lists/" title="Understanding Python Lists">Python Lists</a> and <a href="../python-generators/" title="Python Generators">Python Generators</a>. I love Pythons lists ☺
 
 ### for ... else
-<strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
-<strong>Most languages</strong>:
+
+**Task**: You have a very long list and you want to know if a prime is in this list.
+
+**Java**:
 ```java
 List myList = (List initialisation and assignment of many values)
 boolean isPrimePresent = false;
@@ -224,27 +233,28 @@ for (int element : myList) {
 }
 
 if (!isPrimePresent) {
-    System.out.println("The list did not containe a prime.");
+    System.out.println("The list did not contain a prime.");
 }
 ```
 
-<strong>Python</strong>:
+**Python**:
 ```python
-myList = [1, 3, 3, 7]
+my_list = [1, 3, 3, 7]
 
-for element in myList:
-    if isPrime(element):
+for element in my_list:
+    if is_prime(element):
         break
 else:
-    print("The list did not containe a prime.")
+    print("The list did not contain a prime.")
 ```
 
-### Step through lists
-<strong>Description</strong>: Print only every n-th element of an iterable.
+### Step Through Lists
+
+**Task**: Print only every n-th element of an iterable.
 
 ```python
-for element in myList[::n]:
-    print(elemenet)
+for element in my_list[::n]:
+    print(element)
 ```
 
 ### Dynamically add properties to objects and classes
@@ -280,5 +290,6 @@ Python directly supports usage of imaginary numbers:
 
 Output: `(-3+4j)`
 
-## Read also
-<a href="http://docs.python.org/tutorial/introduction.html">An Informal Introduction to Python</a>
+## Read Also
+
+[An Informal Introduction to Python](http://docs.python.org/tutorial/introduction.html)

@@ -116,12 +116,12 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <th>Modell</th>
             <td><a href="https://bydbatterybox.com/uploads/downloads/220426%20BYD%20Battery-Box%20Premium%20HVS_HVM%20Datenblatt%20V1.6%20DE-626901ba4b60f.pdf">BYD HVS 10.2</a></td>
             <td><a href="https://docs.fenecon.de/pdfs/home-avu/2024/de/2024-01_FENECON_Home-10_Produktblatt_DE_Web-1.pdf">Fenecon Home 10</a></td>
-            <td><a href="https://www.sonnen.de/stromspeicher/sonnenbatterie-10-hybrid">Sonnenbatterie 10 hybrid</a></td>
+            <td><a href="https://www.sonnen.de/stromspeicher/sonnenbatterie-10-hybrid">Sonnenbatterie 10 hybrid</a> (<a href="https://cdn.prod.website-files.com/682c3fa25ad959798a619e74/682c3fa25ad959798a61a09a_4664d30ea942725961b658863d494015_Datenblatt-sonnenBatterie-10-hybrid_DE.pdf">1</a>)</td>
         </tr>
         <tr>
             <th>Garantie</th>
             <td>10 Jahre auf 80%</td>
-            <td>10 Jahre auf TODO Produktgarantie; 12 Jahre bzw. 6.000 Zyklen auf Kapazität</td>
+            <td>10 Jahre auf TODO Produktgarantie; 12 Jahre bzw. 6.000 Zyklen auf min 80% Kapazität</td>
             <td>10 Jahre auf TODO</td>
         </tr>
         <tr>
@@ -229,3 +229,8 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <td class="bad">Ziegel anschleifen - Gefahr von Undichtigkeiten ⚠️</td>
         </tr>
 </table>
+
+
+## Meta
+
+* Fenecon nutzt Goodwe Wechselrichter ([Quelle](https://youtu.be/GJcMaVMb9zI?si=Qluyrvkj6pyHaXZo&t=42))

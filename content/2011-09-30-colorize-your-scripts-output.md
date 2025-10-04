@@ -1,23 +1,26 @@
 ---
 layout: post
-lang: en
-title: Colorize your scripts output
+title: Colorize Your Script Output
 slug: colorize-your-scripts-output
+lang: en
 author: Martin Thoma
 date: 2011-09-30 08:59:59.000000000 +02:00
 category: Code
 tags: Command Line, Bash, Scripting, C
 featured_image: 2011/09/Gnome-Terminal.png
 ---
-The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used.
+Bash is very useful when you want to know exactly what your scripts are doing.
+Unfortunately, it's almost always white text on a black background, without any
+emphasis. No bold text, nothing underlined, and no colors are used.
 
-You can change this standard behaviour. You can add color to your output.
+You can change this standard behavior by adding color to your output.
 
-This is the way you do it:
+Here's how you do it:
 
-The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.
+The `tput` utility can initialize a terminal or query the terminfo database. If
+you want to know more about it, you can check the [tput manual page](http://linux.die.net/man/1/tput).
 
-<h2>A quick example</h2>
+## A Quick Example
 ```bash
 # Text color variables
 txtred=$(tput setaf 1)    # Red
@@ -25,34 +28,38 @@ txtreset=$(tput sgr0)     # Reset your text
 echo "Roses are ${txtred}red${txtreset}."
 ```
 
-Simply copy this example line by line and then you'll see the expected example.
+Simply copy this example line by line and you'll see the expected result.
 
-A shorter way would be
+A shorter way would be:
+
 ```bash
 echo "Roses are `tput setaf 1`red`tput sgr0`."
 ```
 
-<h2>The sgr attribuge</h2>
+## The sgr Attribute
+
 ```bash
-tput sgr 0 1     turn off standout; turn on underline
-tput sgr 0 0     turn off standout; turn off underline
-tput sgr 1 1     turn on standout; turn on underline
-tput sgr 1 0     turn on standout; turn off underline
-tput sgr0        short for sgr 0 0
+tput sgr 0 1     # turn off standout; turn on underline
+tput sgr 0 0     # turn off standout; turn off underline
+tput sgr 1 1     # turn on standout; turn on underline
+tput sgr 1 0     # turn on standout; turn off underline
+tput sgr0        # short for sgr 0 0
 ```
 
-<h2>The setaf attribute</h2>
+## The setaf Attribute
+
 ```bash
-setaf 1 Red
-setaf 2 Green
-setaf 3 Yellow
-setaf 4 Blue
-setaf 5 Purple
-setaf 6 Cyan
-setaf 7 Gray
+setaf 1   # Red
+setaf 2   # Green
+setaf 3   # Yellow
+setaf 4   # Blue
+setaf 5   # Purple
+setaf 6   # Cyan
+setaf 7   # Gray
 ```
 
-<h2>Misc</h2>
+## Miscellaneous Commands
+
 Make your text bold:
 ```bash
 tput bold
@@ -63,21 +70,24 @@ Reset your style:
 tput sgr0
 ```
 
-<h2>Advanced Example</h2>
-Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.
+## Advanced Example
 
-This is the way how "[ERROR]" gets red and bold:
+Imagine you have a script that generates a lot of output. All messages are important, but some are more important than others. You definitely want to see all "[ERROR]" output, so you want to apply red and bold formatting to make it stand out.
+
+Here's how to make "[ERROR]" red and bold:
 ```bash
 `tput setaf 1``tput bold`[ERROR]`tput sgr0`
 ```
-You can test it with
+
+You can test it with:
 ```bash
 echo "`tput setaf 1``tput bold`[ERROR]`tput sgr0`"
 ```
 
-I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.
+I've created a little Python script called `output.py` for testing purposes. It simply outputs a long [Lorem ipsum](http://en.wikipedia.org/wiki/Lorem_ipsum) text with some random [ERROR] messages.
 
-The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is
+The next task is to replace the [ERROR] messages. The tool of choice is `sed`. See the [sed manual page](http://linux.die.net/man/1/sed) for more information. The basic usage is:
+
 ```bash
 sed 's/search/replace/'
 ```
@@ -87,19 +97,25 @@ So we pipe the output to sed:
 python output.py | sed 's/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'
 ```
 
-And now we bring it all together:
+Now let's put it all together:
 ```bash
 python output.py | sed 's/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'
 ```
 
-Doesn't work? Well, lets analyse it. Instead of replacing `tput setaf 1` it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:
+Doesn't work? Let's analyze it. Instead of executing `tput setaf 1`, it gets
+printed directly. This means something we did prevented bash from executing our
+command. If you look carefully at the command, you might notice that I used
+single quotes (`'`) instead of double quotes (`"`). If you change this,
+everything works fine:
 
 ```bash
 python output.py | sed "s/$$ERROR$$/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"
 ```
 
-<h2>Colorize C / C++ output</h2>
-You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:
+## Colorize C/C++ Output
+
+You need [ANSI color codes](http://en.wikipedia.org/wiki/ANSI_escape_code):
+
 ```c
 #include <stdio.h>
 
@@ -123,9 +139,10 @@ int main()
 }
 ```
 
-\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
-The numbers 30&ndash;37 change the color, 4 is a single underline.
+`\033` is the ASCII 27 ESC character. It must be followed by `[`. After that,
+you can write one or two numbers separated by `;`. Then you must write `m`. You
+can return to standard output with `\033[0m`.
 
-I guess these will also work for Java, but I didn't test it.
+The numbers 30–37 change the color, and 4 provides a single underline.
 
-Do you know what setaf or sgr stand for? Do you know further "terminal enhancement" tricks? Just leave a post!
+I believe these will also work for Java, but I haven't tested it.
