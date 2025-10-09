@@ -34,7 +34,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr><th colspan="4" style="text-align: center;">Kerndaten</th></tr>
         <tr>
             <th>Preis</th>
-            <td>18.550 €</td>
+            <td>19.350 €</td>
             <td>18.600 €</td>
             <td>20.250 €</td>
         </tr>
@@ -52,7 +52,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         </tr>
         <tr>
             <th>Notfall-Lösung</th>
-            <td class="good">Ersatzstrom</td>
+            <td class="good">Ersatzstrom, 3-phasig</td>
             <td class="good">Ersatzstrom</td>
             <td>nur Notstrom</td>
         </tr>
@@ -151,7 +151,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <th>Schnittstellen</th>
             <td>WiNet-S Kommunikationsadapter (TODO! Nicht im Angebot gelistet!)<br/>CAN/<a href="https://de.wikipedia.org/wiki/EIA-485">RS485</a></td>
             <td>Internet via LAN, Modbus/TCP-API (lesend, optional schreibend), REST-API (lesend, optional schreibend)<br/>Komponenten: CAN/<a href="https://de.wikipedia.org/wiki/EIA-485">RS485</a></td>
-            <td>sonnenKNX Module, TODO</td>
+            <td>sonnenKNX Module, unklar ob/wie es eine lokale REST-API gibt</td>
         </tr>
         <tr>
             <th>Zelltechnologie</th>
@@ -233,7 +233,24 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <td>Marzari Solarblechpfanne</td>
             <td class="bad">Ziegel anschleifen - Gefahr von Undichtigkeiten ⚠️</td>
         </tr>
+        <tr>
+            <th>Montagesystem</th>
+            <td><a href="https://www.schletter-group.com/de/montagesysteme/ziegel/">Schletter-Montagesystem</a></td>
+            <td>Rostfreie Alu- und Edelstahlmaterialien</td>
+            <td><a href="https://k2-systems.com/produktloesungen/ziegeldach/">K2 Systems Ziegeldach Unterkonstruktion</a></td>
+        </tr>
+        <tr><th colspan="4" style="text-align: center;">Weiteres</th></tr>
+        <tr>
+            <th>Zahlungsmodalitäten</th>
+            <td>Zahlung nach Fertigstellung</td>
+            <td>Zahlbar bei Erhalt</td>
+            <td>40% nach Materiallieferung, 50% nach Modulmontage, 10% nach Einspeisebereitschaft</td>
+        </tr>
 </table>
+
+Für alle Wechselrichter gilt:
+
+* Hybrid-Wechselrichter (PV-Wechselrichter und Batterie-Wechselrichter sind bei hybriden Wechselrichtern in einem Gerät vereint)
 
 
 Für alle Module gilt:
