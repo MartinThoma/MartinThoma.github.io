@@ -448,7 +448,7 @@ und den gesamten Strom einspeise, aber nur die Vergütung für Teileinspeisung
 erhalte.
 
 
-### Best-Case-Szenario: Maximaler Eigenverbrauch mit Einspeisevergütung
+### Best-Case-Szenario: Maximaler Eigenverbrauch mit Einspeisevergütung, 10 kWp Anlage
 
 Ich gehe hier von einer Zählerzusammenlegung aus, d.h. der Strom kostet dann
 0.2505 €/kWh + 126.43 €/Jahr.
@@ -616,14 +616,195 @@ Die Kosten mit einer 10 kWp PV-Anlage wären also:
         </tr>
         <tr>
             <th>Gesamt</th>
-            <th style="text-align: right;">490.08 €/Jahr</th>
+            <th style="text-align: right;">-616.51 €/Jahr</th>
             <th style="text-align: right;">-16802.77 €</th>
         </tr>
     </tbody>
 </table>
 
-Ich wäre nach 20 Jahren also **-16802.77 EUR** ärmer als heute, wenn ich
-eine 10 kWp PV-Anlage installiere und den Eigenverbrauch maximiere.
+Ich wäre nach 20 Jahren also **-16802.77 EUR** ärmer als heute, wenn ich eine 10
+kWp PV-Anlage installiere und den Eigenverbrauch maximiere.
+
+
+### Best-Case-Szenario: Maximaler Eigenverbrauch mit Einspeisevergütung, 14.4 kWp Anlage
+
+Berechnen wir das ganze nochmals mit einer 14.4 kWp PV-Anlage. Die Einspeisevergütung wäre dann (10*0.078 + 4.4*0.068) / 14.4 = 0.07394 €/kWh.
+
+<table>
+    <thead>
+        <tr>
+            <th class="border-right">Monat</th>
+            <th>Strombedarf</th>
+            <th class="border-right">PV-Ertrag</th>
+            <th>Einspeisung</th>
+            <th class="border-right">Netzbezug</th>
+            <th>Vergütung</th>
+            <th>Kosten Strom</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border-right">Januar</td>
+            <td style="text-align: right;">1522 kWh</td>
+            <td style="text-align: right;" class="border-right;">576 kWh</td>
+            <td style="text-align: right;">0 kWh</td>
+            <td style="text-align: right;" class="border-right;">946 kWh</td>
+            <td style="text-align: right;">0 €</td>
+            <td style="text-align: right; background-color: #ff0000;">236.97 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">Februar</td>
+            <td style="text-align: right;">1134 kWh</td>
+            <td style="text-align: right;" class="border-right;">864 kWh</td>
+            <td style="text-align: right;">0 kWh</td>
+            <td style="text-align: right;" class="border-right;">270 kWh</td>
+            <td style="text-align: right;">0 €</td>
+            <td style="text-align: right; background-color: #ff0000;">67.64 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">März</td>
+            <td style="text-align: right;">716 kWh</td>
+            <td style="text-align: right;" class="border-right;">1440 kWh</td>
+            <td style="text-align: right;">724 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">53.533 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">April</td>
+            <td style="text-align: right;">420 kWh</td>
+            <td style="text-align: right;" class="border-right;">1800 kWh</td>
+            <td style="text-align: right;">1380 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">102.04 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">Mai</td>
+            <td style="text-align: right;">394 kWh</td>
+            <td style="text-align: right;" class="border-right;">1872 kWh</td>
+            <td style="text-align: right;">1478 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">109.28 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">Juni</td>
+            <td style="text-align: right;">249 kWh</td>
+            <td style="text-align: right;" class="border-right;">1944 kWh</td>
+            <td style="text-align: right;">1695 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">125.33 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">Juli</td>
+            <td style="text-align: right;">226 kWh</td>
+            <td style="text-align: right;" class="border-right;">1987 kWh</td>
+            <td style="text-align: right;">1761 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">130.21 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">August</td>
+            <td style="text-align: right;">257 kWh</td>
+            <td style="text-align: right;" class="border-right;">1785 kWh</td>
+            <td style="text-align: right;">1528 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">112.98 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">September</td>
+            <td style="text-align: right;">348 kWh</td>
+            <td style="text-align: right;" class="border-right;">1411 kWh</td>
+            <td style="text-align: right;">1063 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">78.60 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">Oktober</td>
+            <td style="text-align: right;">568 kWh</td>
+            <td style="text-align: right;" class="border-right;">1008 kWh</td>
+            <td style="text-align: right;">440 kWh</td>
+            <td style="text-align: right;" class="border-right;">0 kWh</td>
+            <td style="text-align: right;">32.53 €</td>
+            <td style="text-align: right;">0 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">November</td>
+            <td style="text-align: right;">1119 kWh</td>
+            <td style="text-align: right;" class="border-right;">648 kWh</td>
+            <td style="text-align: right;">0 kWh</td>
+            <td style="text-align: right;" class="border-right;">471 kWh</td>
+            <td style="text-align: right;">0 €</td>
+            <td style="text-align: right; background-color: #ff0000;">117.99 €</td>
+        </tr>
+        <tr>
+            <td class="border-right">Dezember</td>
+            <td style="text-align: right;">1625 kWh</td>
+            <td style="text-align: right;" class="border-right;">432 kWh</td>
+            <td style="text-align: right;">0 kWh</td>
+            <td style="text-align: right;" class="border-right;">1193 kWh</td>
+            <td style="text-align: right;">0 €</td>
+            <td style="text-align: right; background-color: #ff0000;">298.85 €</td>
+        </tr>
+        <tr>
+            <td><strong>Summe</strong></td>
+            <td style="text-align: right;"><strong>8578 kWh</strong></td>
+            <td style="text-align: right;" class="border-right;"><strong>15552 kWh</strong></td>
+            <td style="text-align: right;"><strong>10069 kWh</strong></td>
+            <td style="text-align: right;" class="border-right;"><strong>2880 kWh</strong></td>
+            <td style="text-align: right;"><strong>1150 €</strong></td>
+            <td style="text-align: right;"><strong>721.44 €</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+Die Kosten mit einer 14.4 kWp PV-Anlage wären also:
+
+<table>
+    <thead>
+        <tr>
+            <th>Kostenart</th>
+            <th style="text-align: right;">Betrag</th>
+            <th style="text-align: right;">Kummuliert über 20 Jahre<br/>(incl. 2% Steigerung p.a.)</th>
+        </tr>
+    <tbody>
+        <tr>
+          <td>Strombezug</td>
+          <td style="text-align: right;">-721.44 €/Jahr - 126.43€/Jahr</td>
+          <td style="text-align: right;">-20601.01 €</td>
+        </tr>
+        <tr>
+          <td>Vergütung</td>
+          <td style="text-align: right;">1150 €/Jahr</td>
+          <td style="text-align: right;">23000 €</td>
+        </tr>
+        <tr>
+          <td>Zählerkosten</td>
+          <td style="text-align: right;">-30 €/Jahr</td>
+            <td style="text-align: right;">-600 €</td>
+        </tr>
+        <tr>
+            <th>Gesamt</th>
+            <th style="text-align: right;">272.13 €/Jahr</th>
+            <th style="text-align: right;">1798.99 €</th>
+        </tr>
+    </tbody>
+</table>
+
+Ich wäre nach 20 Jahren also **1798.99 EUR** reicher als heute, wenn ich eine
+14.4 kWp PV-Anlage für 20000 EUR installiere und den Eigenverbrauch maximiere.
+
+Zur Erinnerung: Ohne PV-Anlage wäre ich nach 20 Jahren -20979.5 EUR ärmer als
+heute. Das Szenario outperformt also das Null-Szenario um 22778.49 EUR!
+
+
+## Verfeinerungen und Unsicherheiten
+
 
 **Faktoren, die die Wirtschaftlichkeit reduzieren:**
 

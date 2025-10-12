@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-10-11 20:00
 category: My bits and bytes
-tags: diy, bau, haus, trockenbau, renovation
+tags: diy, home improvement
 featured_image: logos/star.png
 ---
 
@@ -30,18 +30,66 @@ Diese Anleitung führt Sie Schritt für Schritt durch den gesamten Prozess.
     <figcaption class="text-center">Decke mit Profil</figcaption>
 </figure>
 
-Material:
+**Material**:
 
-* [UD-Profile](https://www.globus-baumarkt.de/p/knauf-ud-wandanschlussprofil-3000-x-28-x-27-mm-0779250252/) <abbr title="Das U steht für die Form, das D für Decke. UW-Profile sind für Wände">ℹ️</abbr>: ca. 2.40€ pro Meter
-* [CD-Profile](https://www.globus-baumarkt.de/p/knauf-cd-deckenprofil-2600-x-60-x-27-mm-0779250249/) <abbr title="Das C steht für die Form, das D für Decke. CW-Profile sind für Wände.">ℹ️</abbr>: ca. 2.94€ pro Meter
-* [Direktabhänger](https://www.globus-baumarkt.de/p/knauf-direktabhaenger-125-mm-fuer-cd-profil-60-27-100-stueck-0779250804/): ca. 0.41€ pro Stück
-* [Dichtungsband](https://www.globus-baumarkt.de/p/knauf-dichtungsband-30-m-rolle-3-cm-breit-anthrazit-0779250819/): ca. 0.26€ pro Meter
-* [Blechschrauben](https://www.globus-baumarkt.de/p/knauf-blechschrauben-3-5-x-9-mm-100-stk-0763020154/) (3,5 x 9,5 mm): ca. 8.20€ für 100 Stück
-* [Schlagdübel](https://www.amazon.de/dp/B08RJZWCPP) für Wandbefestigung: 7.94€ für 200 Stück
+<table>
+  <thead>
+      <tr>
+          <th>Bezeichnung</th>
+          <th>Preis pro Einheit</th>
+          <th>Benötigte Menge</th>
+          <th>Gesamtpreis</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+          <td><a href="https://www.globus-baumarkt.de/p/knauf-ud-wandanschlussprofil-3000-x-28-x-27-mm-0779250252/">UD-Profile</a> <abbr title="Das U steht für die Form, das D für Decke. UW-Profile sind für Wände">ℹ️</abbr></td>
+          <td>7.20€ für 3m</td>
+          <td>1m pro Meter Raumumfang</td>
+          <td>2.40€ pro Meter Raumumfang</td>
+      </tr>
+      <tr>
+          <td><a href="https://www.globus-baumarkt.de/p/knauf-dichtungsband-30-m-rolle-3-cm-breit-anthrazit-0779250819/">Dichtungsband</a></td>
+          <td>7.85€ für 30m</td>
+          <td>1m pro Meter Raumumfang</td>
+          <td>0.26€ pro Meter Raumumfang</td>
+      </tr>
+      <tr>
+            <td><a href="https://www.amazon.de/dp/B08RJZWCPP
+">Schlagdübel</a> für Wandbefestigung</td>
+            <td>7.94€ für 200 Stück</td>
+            <td>2 Stück pro Meter Raumumfang</td>
+            <td>0.08€ pro Meter Raumumfang</td>
+      </tr>
+      <tr>
+          <td><a href="https://www.globus-baumarkt.de/p/knauf-cd-deckenprofil-2600-x-60-x-27-mm-0779250249/">CD-Profile</a> <abbr title="Das C steht für die Form, das D für Decke. CW-Profile sind für Wände.">ℹ️</abbr></td>
+          <td>7.65€ für 2.6m</td>
+          <td>ca. 1m pro m² Decke; bei kleinen Decken gibt es viel Verschnitt</td>
+          <td>2.94€/m² Decke</td>
+      </tr>
+      <tr>
+          <td><a href="https://www.globus-baumarkt.de/p/knauf-direktabhaenger-125-mm-fuer-cd-profil-60-27-100-stueck-0779250804/">Direktabhänger</a></td>
+          <td>40.95€ für 100 Stück</td>
+          <td>1 Stück/m² Decke</td>
+          <td>0.41€/m² Decke</td>
+      </tr>
+      <tr>
+          <td><a href="https://www.globus-baumarkt.de/p/knauf-blechschrauben-3-5-x-9-mm-100-stk-0763020154/">Blechschrauben</a></td>
+            <td>8.20€ für 100 Stück</td>
+            <td>2 Stück/m² Decke</td>
+            <td>0.16€/m² Decke</td>
+      </tr>
+   </tbody>
+   <tfoot>
+      <tr>
+          <th colspan="3">Gesamt:</th>
+          <th>ca. 3.51€/m² Decke + 2.74€ pro Meter Raumumfang</th>
+      </tr>
+   </tfoot>
+</table>
 
-**Werkzeuge**: Linienlaser, Akkuschrauber, Blechschere (eine Metallsäge oder Winkelschleifer funktionieren auch), Schlagbohrmaschine, Maßband, Bleistift, Wasserwaage, Cuttermesser
 
-**Zusätzlich benötigt**: Staubsauger, Arbeitsleuchte, stabile Leiter/Gerüst
+**Werkzeuge**: Linienlaser, Akkuschrauber, Blechschere (eine Metallsäge oder Winkelschleifer funktionieren auch), Schlagbohrmaschine, Maßband, Bleistift, Wasserwaage, Cuttermesser, Bausauger, Arbeitsleuchte, stabile Leiter/Gerüst
 
 Vorgehen:
 
@@ -66,7 +114,7 @@ Vorgehen:
     <figcaption class="text-center">Decke mit Gipskartonplatten</figcaption>
 </figure>
 
-Material:
+**Material**:
 
 * [Gipskartonplatten](https://www.globus-baumarkt.de/p/knauf-gipskarton-ausbauplatte-gkb-200-x-60-cm-12-5-mm-0779250155/) (12,5 mm stark): ca. 4€/m²
 * [Trockenbauschrauben](https://www.globus-baumarkt.de/p/knauf-schnellbauschrauben-3-5-x-45-mm-ph-1-1000-stueck-0763031516/): ca. 0.01€/Stück
@@ -76,7 +124,7 @@ Material:
 
 **Hilfsmittel**: Atemschutzmaske bei staubigen Arbeiten, Schutzbrille
 
-Vorgehen:
+**Vorgehen**:
 
 1. Zunächst wird unter den Wandprofilen das Trennband an die Wand geklebt.
    Dies verhindert Risse, falls sich die Decke anders bewegt als die Wand.
@@ -105,7 +153,7 @@ armiert, um Risse zu vermeiden. Diese Qualitätsstufe ist für Bereiche
 ausreichend, die später gefliest oder mit grobstrukturierten Tapeten beklebt
 werden.
 
-Material:
+**Material**:
 
 * [Uniflott Spachtelmasse](https://www.globus-baumarkt.de/p/knauf-uniflott-fertigspachtel-20-kg-0779250675/): 40.99€ für 25kg Pulver
 * [Papier Fugendeckstreifen](https://www.globus-baumarkt.de/p/decotric-papier-fugendeckstreifen-ole-75-m-x-53-mm-0779251377/): 6.29€ für 75 m x 53 mm
@@ -144,7 +192,7 @@ Die Q2-Spachtelung baut auf Q1 auf und umfasst zusätzlich das Glätten der
 gespachtelten Bereiche. Die Oberfläche wird feiner und ist geeignet für
 mittelstrukturierte Tapeten oder Anstriche mit grobkörnigen Strukturputzen.
 
-Vorgehen:
+**Vorgehen**:
 
 Nach der vollständigen Trocknung der Q1-Spachtelung wird eine zweite Schicht
 Spachtelmasse aufgetragen. Diese wird breiter als beim ersten Durchgang
@@ -157,7 +205,7 @@ Die Q3-Spachtelung ist eine hochwertige Oberflächenbehandlung für feine
 Tapeten oder Anstriche. Zusätzlich zu Q2 werden alle gespachtelten Bereiche
 geschliffen und eine dritte, sehr dünne Spachtelschicht aufgetragen.
 
-Vorgehen:
+**Vorgehen**:
 
 1. Nach der Trocknung der Q2-Spachtelung werden alle gespachtelten Bereiche
    mit feinem Schleifpapier (220er Körnung) angeschliffen.
@@ -172,7 +220,7 @@ Die Q4-Spachtelung ist die höchste Qualitätsstufe und für hochwertige,
 glänzende Anstriche oder sehr feine Tapeten erforderlich. Die gesamte
 Oberfläche wird vollflächig gespachtelt und mehrfach geschliffen.
 
-Vorgehen:
+**Vorgehen**:
 
 1. Aufbauend auf Q3 wird die gesamte Fläche mit Fertigspachtelmasse
    vollflächig gespachtelt.
@@ -184,7 +232,7 @@ Vorgehen:
 
 ## Streichen
 
-Material:
+**Material**:
 
 * Grundierung (z.B. Tiefgrund): ca. 15€ für 5 Liter
 * Deckenfarbe (z.B. Dispersionsfarbe): ca. 25€ für 10 Liter
@@ -192,7 +240,7 @@ Material:
 * Pinsel für Ecken und Kanten: ca. 8€
 * Abdeckfolie und Malerkrepp: ca. 10€
 
-Vorgehen:
+**Vorgehen**:
 
 1. **Vorbereitung**: Den Raum abdecken und alle Kanten mit Malerkrepp
    abkleben. Besonders wichtig sind die Übergänge zu den Wänden.
