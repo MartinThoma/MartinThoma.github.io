@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: E.i.d. Algebra und Zahlentheorie-Klausur
 slug: eaz-klausur
+lang: de
 author: Martin Thoma
 date: 2013-04-23 22:49:50.000000000 +02:00
 category: German posts
 tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Einf&uuml;hrung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. K&uuml;hnlein im Sommersemester 2013 geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Kühnlein im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>
 <table>
@@ -63,7 +63,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>28.05.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Sylows&auml;tze; alternierende Gruppe $A_n$</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Sylowsätze; alternierende Gruppe $A_n$</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/media/eazskript.pdf#page=51">Kapitel 2.6</a></td>
@@ -98,7 +98,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <ul>
   <li><a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">Vorlesungswebsite</a></li>
   <li><a href="../anki/EAZ.apkg">Mein Anki-Deck</a> (digitale Karteikarten)</li>
-  <li><a href="../mathematische-strukturen/" title="Mathematische Strukturen">&Uuml;berblick &uuml;ber mathematische Strukturen</a></li>
+  <li><a href="../mathematische-strukturen/" title="Mathematische Strukturen">Überblick über mathematische Strukturen</a></li>
   <li>StackExchange
     <ul>
       <li>Das Urbild einer Gruppe unter einem Gruppenhomomorphismus ist eine Gruppe (<a href="http://math.stackexchange.com/q/476508/6876">Beweis</a>)</li>
@@ -113,7 +113,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     </ul>
   </li>
   <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/eaz">Gedanken zu den Klausurhinweisen</a></li>
-  <li>Eine sch&ouml;ne <a href="http://schickling.github.io/algorithms/">Skriptsammlung</a></li>
+  <li>Eine schöne <a href="http://schickling.github.io/algorithms/">Skriptsammlung</a></li>
 </ul>
 
 <h2>Aufbau der Klausur</h2>
@@ -124,24 +124,24 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Der Kleine Satz von Fermat / Homomorphiesatz</li>
 </ul>
 
-<h2>&Uuml;bungsbetrieb</h2>
+<h2>Übungsbetrieb</h2>
 <ul>
-<li>Wo sind die &Uuml;bungsbl&auml;tter: <a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">online</a></li>
+<li>Wo sind die Übungsblätter: <a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">online</a></li>
 <li>Abgabeform: handschriftlich</li>
-<li>Abgabe: Donnerstags, K&auml;sten in Geb&auml;ude 1C</li>
-<li>R&uuml;cknahme: in den Tutorien</li>
-<li>Turnus: w&ouml;chentlich</li>
-<li>&Uuml;bungsschein verpflichtend: Nein</li>
-<li>Bonus durch &Uuml;bungsschein: Nein</li>
+<li>Abgabe: Donnerstags, Kästen in Gebäude 1C</li>
+<li>Rücknahme: in den Tutorien</li>
+<li>Turnus: wöchentlich</li>
+<li>Übungsschein verpflichtend: Nein</li>
+<li>Bonus durch Übungsschein: Nein</li>
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: 05.09.2013, 11:00 Uhr - 13:00 Uhr<br/>
 <strong>Zeit</strong>: 2 Stunden<br/>
-<strong>Ort</strong>: H&ouml;rsaal am Fasanengarten<br/>
+<strong>Ort</strong>: Hörsaal am Fasanengarten<br/>
 <strong>Punkte</strong>: 60 Punkte<br/>
 <strong>Bestehensgrenze</strong>: 22 Punkte<br/>
-<strong>&Uuml;bungsschein</strong>: Gibt es (sogar benotet)<br/>
+<strong>Übungsschein</strong>: Gibt es (sogar benotet)<br/>
 <strong>Bonuspunkte</strong>: Nein<br/>
 
 <h2>Nicht vergessen</h2>
@@ -151,6 +151,6 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </ul>
 
 <h2>Ergebnisse</h2>
-Seit dem 12.09.2013 drau&szlig;en:
+Seit dem 12.09.2013 draußen:
 
-an den Informationstafeln bei den R&auml;umen 4A-21.1 und 4B-01
+an den Informationstafeln bei den Räumen 4A-21.1 und 4B-01

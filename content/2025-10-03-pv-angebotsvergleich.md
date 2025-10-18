@@ -226,6 +226,12 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <td><a href="https://docs.fenecon.de/de/home/home_10/betrieb_und_serviceanleitung/Betrieb_und_Serviceanleitung_Home_10.html">3333 VA</a></td>
             <td class="bad">nicht im Datenblatt</td>
         </tr>
+        <tr>
+            <th>Abmessungen (jeweils Wandmontage)</th>
+            <td>B460 × H540 × T170 mm</td>
+            <td>B415 × H516 × T180 mm</td>
+            <td>B700 × H500 T180 mm</td>
+        </tr>
         <tr><th colspan="4" style="text-align: center;">Montage</th></tr>
         <tr>
             <th>Dachziegel</th>

@@ -189,6 +189,22 @@ def fix_markdown_formatting(content: str) -> Tuple[str, List[str]]:
     fixes = []
     original_content = content
     
+    # Remove zero-width characters
+    zero_width_chars = [
+        '\u200B',  # Zero Width Space
+        '\u200C',  # Zero Width Non-Joiner
+        '\u200D',  # Zero Width Joiner
+        '\u2060',  # Word Joiner
+        '\uFEFF',  # Zero Width No-Break Space (BOM)
+    ]
+    
+    old_content = content
+    for char in zero_width_chars:
+        content = content.replace(char, '')
+    
+    if content != old_content:
+        fixes.append("Removed zero-width characters")
+    
     # Remove trailing whitespace (except in code blocks)
     lines = content.split('\n')
     in_code_block = False

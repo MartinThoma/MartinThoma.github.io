@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: KogSys-Klausur
 slug: kogsys-klausur
+lang: de
 author: Martin Thoma
 date: 2013-04-19 20:38:47.000000000 +02:00
 category: German posts
 tags: Klausur, KogSys, ASR
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>
 <h3>Vorlesung</h3>
@@ -17,7 +17,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td style="border-bottom:1px solid black;">15.04.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/KogSysSkript.pdf#page=5">Kapitel 1</a></td>
-<td style="border-bottom:1px solid black;">Einf&uuml;hrung</td>
+<td style="border-bottom:1px solid black;">Einführung</td>
 </tr>
 
 <tr>
@@ -29,13 +29,13 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td style="border-bottom:1px solid black;">29.04.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/05_06-Classification_2013.pdf">Klassifikation I</a></td>
-<td style="border-bottom:1px solid black;">Schablonenanpassung: <span class="hint" title="Skalierung, Perspektiven, Drehung, Verzerrung, Helligkeit">Probleme</span>, Statistische Auswertung immer wichtig da Signale ambig sind, Assoziative Netze, Bayes Decision Theorie, Gaussian Classificator - "Covarianzmatrix tut das Richtige [und eliminiert von einander Abh&auml;ngige Dimensionen]", Mahalanobis-Distanz; Gauss-Klassifikator ist quadratischer Form (Kreis, Ellipse, Linie), Overfitting = "Vorurteil" passiert, wenn man zu wenig Daten bzw. zu viele Dimensionen daf&uuml;r hat - "Fluch der Dimensionalit&auml;t"; Hauptachsentransformation reduziert Dimensionalit&auml;t</td>
+<td style="border-bottom:1px solid black;">Schablonenanpassung: <span class="hint" title="Skalierung, Perspektiven, Drehung, Verzerrung, Helligkeit">Probleme</span>, Statistische Auswertung immer wichtig da Signale ambig sind, Assoziative Netze, Bayes Decision Theorie, Gaussian Classificator - "Covarianzmatrix tut das Richtige [und eliminiert von einander Abhängige Dimensionen]", Mahalanobis-Distanz; Gauss-Klassifikator ist quadratischer Form (Kreis, Ellipse, Linie), Overfitting = "Vorurteil" passiert, wenn man zu wenig Daten bzw. zu viele Dimensionen dafür hat - "Fluch der Dimensionalität"; Hauptachsentransformation reduziert Dimensionalität</td>
 </tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">06.05.2013</td>
-<td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/07_08-MachineLearning_2013.pdf">Machine Lerning</a></td>
-<td style="border-bottom:1px solid black;">Klassifikation: Risikobetrachtung bei Klassifikatoren, Gaussian Mixtures, Parzan Windows (nicht-parametrisiert, &uuml;berwacht), Fisher Linear Discriminant (scatter matrix), Linear seperable, <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-nearest neighbors</a> (nicht-parametrisch, nicht-linear, &uuml;berwacht)</td>
+<td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/07_08-MachineLearning_2013.pdf">Machine Learning</a></td>
+<td style="border-bottom:1px solid black;">Klassifikation: Risikobetrachtung bei Klassifikatoren, Gaussian Mixtures, Parzen Windows (nicht-parametrisiert, überwacht), Fisher Linear Discriminant (scatter matrix), Linear separabel, <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-nearest neighbors</a> (nicht-parametrisch, nicht-linear, überwacht)</td>
 </tr>
 
 <tr>
@@ -54,30 +54,32 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <td style="border-bottom:1px solid black;">29.05.2013</td>
 <td style="border-bottom:1px solid black;"><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/10_Bildverarbeitung2-2013.pdf">Bildverarbeitung II</a></td>
 <td style="border-bottom:1px solid black;">Pixel-Transformation, Bildverarbeitung, Merkmalsextraktion, Form, Struktur, Klassifikation</td>
+</tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">03.06.2013</td>
-<td style="border-bottom:1px solid black;">(Nicht verf&uuml;gbar)</td>
-<td style="border-bottom:1px solid black;">2D-Bildverarbeitung: Schwellwert, Graustufen, Segmentierung, Kanten-/Knotenerkennung; Hough-Tranformation; Harris-Corner-Detector; <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>; Erosion / Dilatation; &Ouml;ffnen / Schlie&szlig;en</td>
+<td style="border-bottom:1px solid black;">(Nicht verfügbar)</td>
+<td style="border-bottom:1px solid black;">2D-Bildverarbeitung: Schwellwert, Graustufen, Segmentierung, Kanten-/Knotenerkennung; Hough-Transformation; Harris-Corner-Detector; <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>; Erosion / Dilatation; Öffnen / Schließen</td>
+</tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">10.06.2013</td>
-<td style="border-bottom:1px solid black;">(Nicht verf&uuml;gbar)</td>
+<td style="border-bottom:1px solid black;">(Nicht verfügbar)</td>
 <td style="border-bottom:1px solid black;">Spracherkennung: Lautbildung, Vokale werden durch 1., 2. Formante bestimmt</td>
 </tr>
 
 <tr>
 <td style="border-bottom:1px solid black;">24.06.2013</td>
-<td style="border-bottom:1px solid black;">(Nicht verf&uuml;gbar)</td>
+<td style="border-bottom:1px solid black;">(Nicht verfügbar)</td>
 <td style="border-bottom:1px solid black;">3D-Bildverarbeitung: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>; Partikelfilter; homogene Koordinaten</td>
 </tr>
 </table>
 
-Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen.
+Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen.
 
 <h3>Folien</h3>
-<h4>01: Einf&uuml;hrung</h4>
-Nichts interessantes.
+<h4>01: Einführung</h4>
+Nichts Interessantes.
 
 <h4>02, 03: Digital Signal Processing</h4>
 <ul>
@@ -94,7 +96,7 @@ Interessant, aber vermutlich nicht Klausurrelevant.
 
 <h4>05, 06: Klassifikation</h4>
 <ul>
-  <li>Schablonenanpassung: Wie &auml;hnlich ist das Muster einer Schablone?</li>
+  <li>Schablonenanpassung: Wie ähnlich ist das Muster einer Schablone?</li>
   <li>Normalisierung der Helligkeit</li>
   <li>Gauss-Klassifikation: Parametrisch</li>
   <li>Parzen Window: Nicht parametrisch</li>
@@ -112,14 +114,14 @@ Interessant, aber vermutlich nicht Klausurrelevant.
         </figure>
 
 <ul>
-  <li>Perceptron<: <a href="http://de.wikipedia.org/wiki/Sigmoidfunktion">Sigmoidfunktion</a>/li>
+  <li>Perceptron: <a href="http://de.wikipedia.org/wiki/Sigmoidfunktion">Sigmoidfunktion</a></li>
   <li>Classifier Discriminant Functions</li>
   <li>Linear Discriminant Functions</li>
 </ul>
 
 <h4>09: Bildverarbeitung I</h4>
 <ul>
-  <li>Bildrepr&auml;sentation als Monochrombild</li>
+  <li>Bildrepräsentation als Monochrombild</li>
   <li>RGB / HSI-Modell</li>
   <li>Bayer-Pattern</li>
   <li>Lochkamera-Modell</li>
@@ -131,9 +133,9 @@ q &\text{, falls } g > q\\
 g &\text{sonst}
 \end{cases}$
     <ul>
-      <li>Kontrasterh&ouml;hung: $b=0; a > 1$</li>
+      <li>Kontrasterhöhung: $b=0; a > 1$</li>
       <li>Kontrastverminderung: $b=0; a < 1$</li>
-      <li>Helligkeitserh&ouml;hung:  $b>0; a = 1$</li>
+      <li>Helligkeitserhöhung:  $b>0; a = 1$</li>
       <li>Helligkeitsverminderung:  $b<0; a = 1$</li>
       <li>Invertierung:  $b=q; a =-1$</li>
     </ul>
@@ -146,12 +148,12 @@ g &\text{sonst}
 <ul>
   <li>Fourier-Transformation</li>
   <li>2D Fourier-Transformation</li>
-  <li>Fourier-R&uuml;cktransformation</li>
+  <li>Fourier-Rücktransformation</li>
   <li>Ortsbereich / Frequenzbereich</li>
   <li>Tiefpassfilter
     <ul>
-      <li>Mittelwertfilter: Rauschunterdr&uuml;ckung</li>
-      <li><strong>Gau&szlig;-Filter</strong>: Rauschunterdr&uuml;ckung, Gl&auml;ttung</li>
+      <li>Mittelwertfilter: Rauschunterdrückung</li>
+      <li><strong>Gauß-Filter</strong>: Rauschunterdrückung, Glättung</li>
     </ul>
   </li>
   <li>Hochpassfilter
@@ -162,7 +164,7 @@ g &\text{sonst}
       <li>Roberts</li>
     </ul>
   </li>
-  <li>KOmbinierte Operatoren
+  <li>Kombinierte Operatoren
     <ul>
       <li>Laplacian of Gaussian</li>
     </ul>
@@ -172,9 +174,9 @@ g &\text{sonst}
 
 <h4>11: Bildverarbeitung III</h4>
 <ul>
-  <li>Segmentierung (Schwelltwert, Farbe)</li>
+  <li>Segmentierung (Schwellwert, Farbe)</li>
   <li>Morphologische Operatoren: Dilatation, Erosion</li>
-  <li>&Ouml;ffnen, Schlie&szlig;en</li>
+  <li>Öffnen, Schließen</li>
   <li>Hough-Transformation</li>
   <li>Sum of Squared Differences; Zero Mean Normalized Cross-Correlation</li>
   <li>Partikelfilter</li>
@@ -212,7 +214,7 @@ Vermutlich nichts Klausurrelevantes (offiziell ab Folie 25)
 <ul>
   <li>Satz, Wissensdatenbank, Deduktion</li>
   <li>Symbolmenge, Modellmenge, Syntax, Semantik</li>
-  <li>Korrektheit und vollst&auml;ndigkeit eines Deduktions-Algorithmus</li>
+  <li>Korrektheit und Vollständigkeit eines Deduktions-Algorithmus</li>
   <li>Algorithmen: <strong>Resolution, Horn-Klauseln, DPLL</strong></li>
   <li>Planungssprachen: <strong><abbr title="STanford Research Institute Problem Solver">STRIPS</abbr>, <abbr title="Action Description Language">ADL</abbr></strong></li>
   <li><strong>A*-Suche, Partial-Order-Planning, Planungsgraphen</strong></li>
@@ -222,7 +224,7 @@ Vermutlich nichts Klausurrelevantes (offiziell ab Folie 25)
 <ul>
   <li>Partial-Order-Planning</li>
   <li>Planungsgraphen</li>
-  <li>Kantenmodell, Oberfl&auml;chenmodell, Volumenmodell</li>
+  <li>Kantenmodell, Oberflächenmodell, Volumenmodell</li>
   <li>Freiraum, Hindernisraum, Konfigurationsraum</li>
   <li>Polygonzerlegung</li>
   <li>Sichtgraphen</li>
@@ -248,13 +250,13 @@ Offiziell nicht Klausurrelevant.
       <li><a href="//www.youtube.com/watch?v=46Jzu-xWIBk">The backpropagation algorithm</a></li>
     </ul>
   </li>
-  <li>Pseudocode f&uuml;r
+  <li>Pseudocode für
     <ul>
       <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/DPLL">DPLL-Verfahren</a></li>
       <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Resolutionsalgorithmus">Resolutions-Algorithmus</a></li>
     </ul>
   </li>
-  <li><a href="http://colorizer.org/">Colorizer</a>: Hier kann man ein bisschen mit Farbr&auml;umen rumspielen und die Unterschiede interaktiv feststellen.</li>
+  <li><a href="http://colorizer.org/">Colorizer</a>: Hier kann man ein bisschen mit Farbräumen rumspielen und die Unterschiede interaktiv feststellen.</li>
   <li>StackOverflow:
     <ul>
       <li><a href="http://math.stackexchange.com/q/487245/6876">Why is $(-1) \cdot j = j \cdot (-1)$ for quaternions?</a></li>
@@ -279,14 +281,14 @@ Offiziell nicht Klausurrelevant.
   </li>
 </ul>
 
-Das Passwort f&uuml;r kogsys darf ich auch im Jahr 2013 nicht verraten.
+Das Passwort für kogsys darf ich auch im Jahr 2013 nicht verraten.
 
 <h2>Aufbau der Klausur</h2>
 6 Aufgaben:
 <ul>
   <li>Bildverarbeitung</li>
   <li>Bildverarbeitung, Filter und Transformation</li>
-  <li>Logik, Wissensrepr&auml;sentation und Planung
+  <li>Logik, Wissensrepräsentation und Planung
     <ul>
       <li>Eine Aufgabe, in der man den Resolutionsalgorithmus / das DPLL-Verfahren anwenden muss</li>
       <li>A*-Algorithmus</li>
@@ -297,15 +299,15 @@ Das Passwort f&uuml;r kogsys darf ich auch im Jahr 2013 nicht verraten.
   <li>Klassifikation und Maschinelles Lernen</li>
 </ul>
 
-<h2>&Uuml;bungsbetrieb</h2>
+<h2>Übungsbetrieb</h2>
 <ul>
-<li>Wo sind die &Uuml;bungsbl&auml;tter: <a href="http://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/websubmit/student/blattuebersicht.php">Link</a></li>
-<li>Abgabeform: nur Handschriftlich</li>
-<li>Abgabe: teilweise online, teilweise offline, wenn offline m&uuml;ssen die &Uuml;bungsbl&auml;tter direkt vor der &Uuml;bung abgegeben werden, oder irgendwann davor im B&uuml;ro des &Uuml;bungsleiters in der Kinderklinik. Direkt im B&uuml;ro scheint ihm aber nicht so lieb zu sein.</li>
-<li>R&uuml;cknahme: gar nicht, empfohlen wird eine Kopie des Originals zu behalten</li>
-<li>Turnus: ? (6 Bl&auml;tter insgesammt)</li>
-<li>&Uuml;bungsschein verpflichtend: es gibt keinen &Uuml;bungsschein soweit ich wei&szlig;</li>
-<li>Bonus durch &Uuml;bungsschein: pro &Uuml;bungsblatt max. 1 Bonuspunkt &rarr; max. 6 Bonuspunkte (es gibt tats&auml;chlich 0,25-Punkte!)</li>
+<li>Wo sind die Übungsblätter: <a href="http://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/websubmit/student/blattuebersicht.php">Link</a></li>
+<li>Abgabeform: nur handschriftlich</li>
+<li>Abgabe: teilweise online, teilweise offline; wenn offline, müssen die Übungsblätter direkt vor der Übung abgegeben werden oder irgendwann davor im Büro des Übungsleiters in der Kinderklinik. Direkt im Büro scheint ihm aber nicht so lieb zu sein.</li>
+<li>Rücknahme: gar nicht; empfohlen wird, eine Kopie des Originals zu behalten</li>
+<li>Turnus: ? (6 Blätter insgesamt)</li>
+<li>Übungsschein verpflichtend: es gibt keinen Übungsschein, soweit ich weiß</li>
+<li>Bonus durch Übungsschein: pro Übungsblatt max. 1 Bonuspunkt &rarr; max. 6 Bonuspunkte (es gibt tatsächlich 0,25-Punkte!)</li>
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
@@ -313,8 +315,8 @@ Das Passwort f&uuml;r kogsys darf ich auch im Jahr 2013 nicht verraten.
 <strong>Ort</strong>: steht noch nicht fest (Stand: 12.09.2013)<br/>
 <strong>Punkte</strong>: 60<br/>
 <strong>Bestehensgrenze</strong>: 20<br/>
-<strong>&Uuml;bungsschein</strong>: Gibt es nicht<br/>
-<strong>Bonuspunkte</strong>: Ja, max 6<br/>
+<strong>Übungsschein</strong>: Gibt es nicht<br/>
+<strong>Bonuspunkte</strong>: Ja, max. 6<br/>
 <strong>Ergebnisse</strong>: ab 14.10.2013 im Websubmit und in 50.20. (Kinderklinik) am Eingang<br/>
 <strong>Einsicht</strong>: 24.10.2013 von 13:30 bis 14:30 Uhr (Kinderklinik, Raum 148)<br/>
 
@@ -325,4 +327,4 @@ Das Passwort f&uuml;r kogsys darf ich auch im Jahr 2013 nicht verraten.
 </ul>
 
 <h2>Ergebnisse</h2>
-Sind noch nicht drau&szlig;en (Stand: 18.09.2013)
+Sind noch nicht veröffentlicht (Stand: 18.09.2013)
