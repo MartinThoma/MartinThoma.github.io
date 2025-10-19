@@ -9,7 +9,7 @@ category: German posts
 tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner gehört.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit den Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner gehört.</div>
 
 <h2>Vorbereitung</h2>
 <strong>Themen</strong>:
@@ -42,7 +42,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Definition: Kreis, einfacher Kreis</li>
       <li>Kreisbasen, Kreisraum</li>
       <li>Matroide</li>
-      <li>Zertiﬁkat fur MCB</li>
+      <li>Zertifikat für MCB</li>
     </ul>
   </li>
   <li>Randomisierte Algorithmen
@@ -50,9 +50,9 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Las Vegas Algorithmus / Monte Carlo Algorithmus</li>
       <li>Monte Carlo Algorithmus für MinCut</li>
       <li>Fast Random MinCut</li>
-      <li>Maximum Satisﬁability Problem</li>
+      <li>Maximum Satisfiability Problem</li>
       <li>Random MaxCut</li>
-      <li>Maximum Satisﬁability Problem</li>
+      <li>Maximum Satisfiability Problem</li>
       <li><abbr title="Integer Quadratic Program">IQP</abbr></li>
     </ul>
   </li>

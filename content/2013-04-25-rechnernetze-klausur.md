@@ -26,7 +26,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>24.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">E-Mail, <span class="hint" title="hochgradig gecachetes hirarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalität, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
+<td rowspan="2" style="border-bottom:1px solid black;">E-Mail, <span class="hint" title="hochgradig gecachtes hierarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalität, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/02_Architekturen_Rechnernetze.pdf">Kapitel 2</a>, Folie 18</td>
@@ -34,7 +34,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>30.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="Service Data Unit">SDU</span>, <span class="hint" title="Protocoll Data Unit">PDU</span>, ISO / OSI-Architektur</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="Service Data Unit">SDU</span>, <span class="hint" title="Protocol Data Unit">PDU</span>, ISO / OSI-Architektur</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/02_Architekturen_Rechnernetze.pdf">Kapitel 2</a> bis wohin?</td>
@@ -82,7 +82,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>25.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird für jedes System erstellt; Hot-Potato; Potential des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-detection; Distanz-Vector-Routing; Link-State-Routing</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird für jedes System erstellt; Hot-Potato; Potenzial des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-Detection; Distanz-Vector-Routing; Link-State-Routing</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">7-44</td>
@@ -97,7 +97,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </tr>
 </table>
 
-Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
+Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
 <h3>Übersicht über Dienstprimitive</h3>
 <table>
@@ -179,9 +179,9 @@ Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (in
 
 Häufige Aufgabenstellungen sind:
 <ul>
-  <li>Berechnen einer Subnetzmaske bzw. ob eine IP-Adresse in einem gegebenem Subnetz enthalten ist</li>
-  <li>CRC berechnen / überprüfen ob CRC korrekt ist</li>
-  <li>Distanz-Vektor Algorithmus (Bellman-Ford) durchgehen</li>
+  <li>Berechnen einer Subnetzmaske bzw. ob eine IP-Adresse in einem gegebenen Subnetz enthalten ist</li>
+  <li>CRC berechnen / überprüfen, ob CRC korrekt ist</li>
+  <li>Distanz-Vektor-Algorithmus (Bellman-Ford) durchgehen</li>
   <li>Protokollablauf durchspielen</li>
 </ul>
 

@@ -183,7 +183,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 </tr>
 </table>
 
-Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
+Falls hier etwas fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
 <h2>Definitionen und Sätze</h2>
 <div class="definition">

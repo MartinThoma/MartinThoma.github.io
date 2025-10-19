@@ -55,15 +55,15 @@ featured_image: logos/klausur.png
 * **Muster**: Gesamtheit der beobachteten / gemessenen Werte einer einzelnen
   Stichprobe (eines einzelnen Objekts).
 * **Erkennung**: (Wieder)erkennung von etwas, was bereits bekannt ist.
-* **Merkmale**: eruirbare, charakteristische Eigenschaften, die als Basis für
-  die Untersuchung von Mustern dienen soll.
+* **Merkmale**: eruierbare, charakteristische Eigenschaften, die als Basis für
+  die Untersuchung von Mustern dienen sollen.
 * **Mustererkennungsschritte**: Sensierung ergibt Muster; Vorverarbeitung;
   Segmentierung; Merkmalsextraktion ergibt Merkmale; Klassifikation ergibt
   Äquivalenzklassen
-* **Überwachtes lernen**: Vorklassifizierte Beispiele sowie die Klassenstruktur
+* **Überwachtes Lernen**: Vorklassifizierte Beispiele sowie die Klassenstruktur
   sind gegeben; eventuell auch Auftrittswahrscheinlichkeiten $P(\omega_i)$ der
   Klassen
-* Gesamtstichprobe wird in die disjunkten Mengen Lernstrichprobe,
+* Gesamtstichprobe wird in die disjunkten Mengen Lernstichprobe,
   Validierungsstichprobe und Teststichprobe zerlegt.
 
 #### Merkmale
@@ -108,7 +108,7 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
         <th>Beispiele zugehörige Merkmale</th>
         <td>Telefonnummern, Kfz-Kennz., Typen, PLZ, Geschlecht</td>
         <td>Güteklassen, Härtegrad, Windstärke</td>
-        <td>Temp. in &deg;C, &deg;F, Kalenderzeit, geographische Höhe</td>
+        <td>Temp. in &deg;C, &deg;F, Kalenderzeit, geografische Höhe</td>
         <td>Masse, Länge, el. Strom</td>
         <td>Quantenzahlen, Teilchenanzahl, Fehlerzahl</td>
     </tr>
@@ -116,17 +116,17 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
         <th>Werte von m</th>
         <td>Zahlen, Namen, Symbole</td>
         <td>in der Regel natürliche Zahlen</td>
-        <td>in der Regel reele Zahlen</td>
-        <td>in der Regel reele Zahlen &gt; 0</td>
+        <td>in der Regel reelle Zahlen</td>
+        <td>in der Regel reelle Zahlen &gt; 0</td>
         <td>in der Regel natürliche Zahlen</td>
     </tr>
 </table>
 
 Der Merkmalsraum ist häufig ein $\mathbb{R}^n$ mit $n>3$. Er kann auf
 vorhandene Strukturen analysiert werden, indem er auf einen 2- oder
-3-dimensionalen unterraum projeziert wird. Dies kann bei einfachen Projektionen
-jedoch nicht erfolgreich sein, wenn beispielsweise zwei Klassen Schalenförmig
-um den Urspruch angeordnet sind.
+3-dimensionalen Unterraum projiziert wird. Dies kann bei einfachen Projektionen
+jedoch nicht erfolgreich sein, wenn beispielsweise zwei Klassen schalenförmig
+um den Ursprung angeordnet sind.
 
 Um Stichproben im Merkmalsraum zu vergleichen können Metriken benutzt werden.
 Eine [Metrik](https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition)
