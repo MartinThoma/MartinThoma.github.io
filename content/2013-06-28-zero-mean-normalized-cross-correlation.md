@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Zero Mean Normalized Cross-Correlation
 slug: zero-mean-normalized-cross-correlation
+lang: en
 author: Martin Thoma
 date: 2013-06-28 22:15:45.000000000 +02:00
 category: Code
@@ -96,5 +96,5 @@ if __name__ == "__main__":
   <li><a href="http://www.site.uottawa.ca/research/viva/projects/imagepairs/">Feature point image matching</a></li>
   <li><a href="http://www.cvlab.cs.tsukuba.ac.jp/index.php?CVLAB%20Home%20Page">Tsukuba University stereo images</a>: Just in case you want to try those algorithms</li>
   <li><a href="http://siddhantahuja.wordpress.com/tag/normalized-cross-correlation/">Correlation based similarity measures-Summary</a></li>
-  <li><a href="http://www.ti.uni-bielefeld.de/downloads/publications/diploma_theses/ba11_bboettcher_illuminationchange.pdf">Bachelorarbeit</a>: Bildvorverarbeitung und Bild&auml;hnlichkeitsfunktionen f&uuml;r beleuchtungstolerante visuelle Navigation (German)</li>
+  <li><a href="http://www.ti.uni-bielefeld.de/downloads/publications/diploma_theses/ba11_bboettcher_illuminationchange.pdf">Bachelorarbeit</a>: Bildvorverarbeitung und Bildähnlichkeitsfunktionen für beleuchtungstolerante visuelle Navigation (German)</li>
 </ul>

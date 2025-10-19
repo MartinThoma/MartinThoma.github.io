@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Sommerakademie Greifswald
 slug: sommerakademie-greifswald
+lang: de
 author: Martin Thoma
 date: 2016-09-04 13:00
 category: German posts
@@ -48,11 +48,11 @@ Werktags (Montag - Freitag) läuft die Akademie wie folgt ab:
 <table class='table table-borderless'>
     <tr>
         <td>7:30 - 8:30 Uhr</td>
-        <td>Fr&uuml;hst&uuml;ck</td>
+        <td>Frühstück</td>
     </tr>
     <tr>
         <td>9:00 - 12:30 Uhr</td>
-        <td>Kurs in Geb&auml;uden der Uni Greifswald</td>
+        <td>Kurs in Gebäuden der Uni Greifswald</td>
     </tr>
     <tr>
         <td>12:30 - 14:00 Uhr</td>
@@ -60,7 +60,7 @@ Werktags (Montag - Freitag) läuft die Akademie wie folgt ab:
     </tr>
     <tr>
         <td>19:30 - 20:00 Uhr</td>
-        <td>Ank&uuml;ndigungen</td>
+        <td>Ankündigungen</td>
     </tr>
     <tr>
         <td>20:00 - 21:00 Uhr</td>

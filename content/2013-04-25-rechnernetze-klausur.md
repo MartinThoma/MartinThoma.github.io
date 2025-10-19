@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Rechnernetze-Klausur
 slug: rechnernetze-klausur
+lang: de
 author: Martin Thoma
 date: 2013-04-25 09:32:06.000000000 +02:00
 category: German posts
@@ -231,7 +231,7 @@ Häufige Aufgabenstellungen sind:
   <th>Note</th>
   <th>von</th>
   <th>bis</th>
-  <th>Bereichsgrö&szlig;e</th>
+  <th>Bereichsgröße</th>
 </tr>
 <tr>
   <th>1,0</th>

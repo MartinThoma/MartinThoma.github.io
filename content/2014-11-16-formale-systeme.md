@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Formale Systeme Klausur
 slug: formale-systeme
+lang: de
 author: Martin Thoma
 date: 2014-11-16 17:05
 category: German posts
@@ -287,27 +287,27 @@ Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page
     <tr>
         <td></td>
         <td>A ist notwendigerweise wahr</td>
-        <td>A ist m&ouml;glicherweise wahr</td>
+        <td>A ist möglicherweise wahr</td>
     </tr>
     <tr>
         <td>Zeit</td>
-        <td>A ist zu jedem zuk&uuml;nfigem Zeitpunkt wahr</td>
-        <td>Es gibt einen zuk&uuml;nftigen Zeitpunkt zu dem A wahr ist</td>
+        <td>A ist zu jedem zukünfigem Zeitpunkt wahr</td>
+        <td>Es gibt einen zukünftigen Zeitpunkt zu dem A wahr ist</td>
     </tr>
     <tr>
         <td>Glauben</td>
         <td>Ein Agent p glaubt A</td>
-        <td>A ist konsistent mit den Aussagen, die p f&uuml;r wahr h&auml;lt</td>
+        <td>A ist konsistent mit den Aussagen, die p für wahr hält</td>
     </tr>
     <tr>
         <td>Wissen</td>
-        <td>Ein Agent p wei&szlig; A</td>
-        <td>p wei&szlig; nicht, dass A falsch ist</td>
+        <td>Ein Agent p weiß A</td>
+        <td>p weiß nicht, dass A falsch ist</td>
     </tr>
     <tr>
-        <td>Programmausf&uuml;hrung</td>
-        <td>Nach Ausf&uuml;hrung des Programs p gilt A</td>
-        <td>Es gibt eine Ausf&uuml;hrung des Programs p, nach der A wahr ist</td>
+        <td>Programmausführung</td>
+        <td>Nach Ausführung des Programs p gilt A</td>
+        <td>Es gibt eine Ausführung des Programs p, nach der A wahr ist</td>
     </tr>
 </table>
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Betriebskosten: Betriebskosten einer Holz-Heizung
 slug: betriebskosten-holz-heizung
+lang: de
 author: Martin Thoma
 date: 2023-08-15 20:00
 category: German posts
@@ -26,9 +26,9 @@ Erfahrung mit Heizungssystemen. Hier ein paar Zahlen.
     <tr>
         <td>Kosten</td>
         <td>278&euro; pro Raummeter (485 kg)</td>
-        <td>380&euro; f&uuml;r 1000kg (</td>
-        <td>188&euro; f&uuml;r 1000L (235kg,&nbsp;<br/><br/>5 % bis 50 % Restfeuchte)</td>
-        <td>549&euro; f&uuml;r 1000kg</td>
+        <td>380&euro; für 1000kg (</td>
+        <td>188&euro; für 1000L (235kg,&nbsp;<br/><br/>5 % bis 50 % Restfeuchte)</td>
+        <td>549&euro; für 1000kg</td>
     </tr>
     <tr>
         <td>Brennwert</td>

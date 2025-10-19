@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Krankenkasse
 slug: krankenkasse
+lang: de
 author: Martin Thoma
 date: 2019-05-07 20:00
 category: My bits and bytes
@@ -131,7 +131,7 @@ The comparison is in German, because I'm too lazy to translate it.
         <td>Professionelle Zahnreinigung (PZR)</td>
         <td style="background-color: #f2dede;">80%, max 20 EUR</td>
         <td>Gesundheitsdividende</td>
-        <td style="background-color: #c9f8c9;">bei Teilnehmenden &Auml;rzten</td>
+        <td style="background-color: #c9f8c9;">bei Teilnehmenden Ärzten</td>
         <td>max 40 EUR</td>
     </tr>
     <tr>

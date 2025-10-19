@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
-title: Gau&szlig;'sche Zahlen und verwandte Ringe
+title: Gauß'sche Zahlen und verwandte Ringe
 slug: gaussche-zahlen-und-verwandte-ringe
+lang: de
 author: Martin Thoma
 date: 2013-09-04 09:16:41.000000000 +02:00
 category: Mathematics

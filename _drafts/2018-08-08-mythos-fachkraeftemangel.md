@@ -2,12 +2,13 @@
 layout: post
 title: Mythos Fachkräftemangel
 slug: mythos-fachkraeftemangel
+lang: de
 author: Martin Thoma
-status: draft
 date: 2018-08-08 20:00
 category: German posts
 tags: politics, German
 featured_image: logos/star.png
+status: draft
 ---
 Immer wieder hört man vom Fachkräftemangel. Hier sind mal die ersten zehn
 Titel auf Google News:
@@ -36,7 +37,7 @@ Schlüsselstelle für 5:
     <tr>
         <th>#</th>
         <th>Branche</th>
-        <th>Ausl&ouml;ser</th>
+        <th>Auslöser</th>
     </tr>
     <tr>
         <td>1</td>
@@ -45,8 +46,8 @@ Schlüsselstelle für 5:
     </tr>
     <tr>
         <td>2</td>
-        <td>Pfleger, Lokf&uuml;hrer, Hochbauspezialisten</td>
-        <td>Fl&uuml;chtling</td>
+        <td>Pfleger, Lokführer, Hochbauspezialisten</td>
+        <td>Flüchtling</td>
     </tr>
     <tr>
         <td>3</td>
@@ -85,7 +86,7 @@ Schlüsselstelle für 5:
     </tr>
     <tr>
         <td>10</td>
-        <td>Bahn&nbsp;Streckenw&auml;rter,&nbsp;Lokf&uuml;hrer,&nbsp;Examinierte Altenpfleger, Friseurmeister, Apotheker, Physiotherapeuten, Gesundheits- und Krankenpfleger, spezialisierte Fachkrankenpfleger, Softwareentwickler, IT-Anwendungsberater, Meister und Techniker der Sanit&auml;r- und Heizungstechnik, Sanit&auml;r- und Heizungstechnik, Tiefbau</td>
+        <td>Bahn&nbsp;Streckenwärter,&nbsp;Lokführer,&nbsp;Examinierte Altenpfleger, Friseurmeister, Apotheker, Physiotherapeuten, Gesundheits- und Krankenpfleger, spezialisierte Fachkrankenpfleger, Softwareentwickler, IT-Anwendungsberater, Meister und Techniker der Sanitär- und Heizungstechnik, Sanitär- und Heizungstechnik, Tiefbau</td>
         <td></td>
     </tr>
 </table>
@@ -125,7 +126,7 @@ in verschiedenen Berufen in München verdient.
         <th><abbr title="Samstag und oder Sonntag arbeiten">S</abbr></th>
     </tr>
     <tr>
-        <td>K&uuml;chenhilfe</td>
+        <td>Küchenhilfe</td>
         <td>1850 - 2250</td>
         <td>Keine</td>
         <td><span style="color:red;">✓</span></td>
@@ -161,7 +162,7 @@ in verschiedenen Berufen in München verdient.
         <td><span style="color:red;">✓</span></td>
     </tr>
     <tr>
-        <td>Lokf&uuml;hrer</td>
+        <td>Lokführer</td>
         <td>3150 - 3750</td>
         <td>3 Jahre Ausbildung</td>
         <td><span style="color:red;">✓</span></td>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Jordansche Normalform: 4x4 Matrizen
 slug: jordansche-normalform-4x4-matrizen
+lang: de
 author: Martin Thoma
 date: 2012-09-10 11:28:08.000000000 +02:00
 category: German posts
@@ -33,7 +33,7 @@ Daraus folgt:
   <li>$\lambda = -1$ ist Eigenwert mit der algebraischen Vielfachheit 2.</li>
 </ul>
 
-Es gibt also genau drei Jordan-Bl&ouml;cke in der Jordannormalform. Zwei davon haben die Kantenlänge 1 und deshalb nur ein Jordan-Kästchen.
+Es gibt also genau drei Jordan-Blöcke in der Jordannormalform. Zwei davon haben die Kantenlänge 1 und deshalb nur ein Jordan-Kästchen.
 
 <strong>2. Anzahl der Jordankästchen bestimmen:</strong>
 
@@ -159,7 +159,7 @@ $$J_B =
   K_3(1) &= \text{Kern}(\Omega^3) = \mathbb{R}^4\\
 \end{align}
 
-$K_3(1) = \mathbb{R}^4$ ist das gr&ouml;&szlig;te Jordankästchen von der Gr&ouml;&szlig;e 3. Damit ergibt sich folgende Jordannormalform:
+$K_3(1) = \mathbb{R}^4$ ist das größte Jordankästchen von der Größe 3. Damit ergibt sich folgende Jordannormalform:
 
 $$J =
 \begin{pmatrix}
@@ -173,7 +173,7 @@ $$J =
 Für jedes Jordankästchen der Länge $i$ muss nun 1 Vektor gewählt werden und $i-1$ Vektoren müssen bestimmt werden. Dafür muss $\Omega(\lambda) := C - \lambda \cdot E$ bestimmt werden.
 
 <strong>Eigenwert 1:</strong>
-<strong>Kästchengr&ouml;&szlig;e 3</strong>
+<strong>Kästchengröße 3</strong>
 $$b_1 \in K_3(1) \land b_1 \notin K_2(1) \Rightarrow b_1 \in \left [ \begin{pmatrix}1\\0\\0\\0\end{pmatrix} \right ]$$
 Wähle $$b_1 = \begin{pmatrix}1\\0\\0\\0\end{pmatrix}$$
 
@@ -181,7 +181,7 @@ $$b_2 = \Omega(b_1) = \begin{pmatrix}0\\-1\\0\\1\end{pmatrix}$$
 
 $$b_3 = \Omega^2(b_1) = \Omega(b_2)= \begin{pmatrix}-1\\1\\1\\-1\end{pmatrix}$$
 
-<strong>Kästchengr&ouml;&szlig;e 1</strong>
+<strong>Kästchengröße 1</strong>
 $$b_4 = \begin{pmatrix}1\\-1\\0\\0\end{pmatrix}$$
 
 Das 1-er Kästchen soll zuerst kommen, also muss $b_4$ zuerst in die Basiswechselmatrix.

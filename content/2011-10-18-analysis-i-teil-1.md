@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Analysis I - Teil 1
 slug: analysis-i-teil-1
+lang: de
 author: Martin Thoma
 date: 2011-10-18 17:50:21.000000000 +02:00
 category: German posts
@@ -27,16 +27,16 @@ $f: \underbrace{M}_{\mathbb{D}} \to \underbrace{N}_{\mathbb{W}}$
 
 <h3>Logische Zeichen</h3>
 $\Rightarrow$: Implikation, z.B. $A \Rightarrow B$: Aus A folgt B<br/>
-$\Leftrightarrow$: &Auml;quivalenz. $A \Rightarrow B \wedge B \Rightarrow A$: Aus A folgt B und umgekehrt.<br/>
+$\Leftrightarrow$: Äquivalenz. $A \Rightarrow B \wedge B \Rightarrow A$: Aus A folgt B und umgekehrt.<br/>
 $\underbrace{: \Leftrightarrow}_\text{"genau dann"}$, z.B. $M \subseteq N : \Leftrightarrow \text{aus } x \in M \text{ folgt stets } x \in N$.<br/>
-$\forall$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Allquantor</a>, sprich "f&uuml;r alle" oder "f&uuml;r jedes"<br/>
+$\forall$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Allquantor</a>, sprich "für alle" oder "für jedes"<br/>
 $\exists$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Existenzquantor</a>, sprich "es gibt mindestens ein" oder "es existiert"
 
 <h2>Reele Zahlen</h2>
-Die Grundmenge der Analysis ist die Menge $\mathbb{R}$, die Menge der reelen Zahlen. Diese f&uuml;hren wir durch die folgenden 15 Axiome ein.
+Die Grundmenge der Analysis ist die Menge $\mathbb{R}$, die Menge der reelen Zahlen. Diese führen wir durch die folgenden 15 Axiome ein.
 
-<h3>K&ouml;rperaxiome</h3>
-In $\mathbb{R}$ seien zwei Verkn&uuml;pfungen "+" und "&middot;" gegeben. Sie ordnen jedem Paar $a, b \in \mathbb{R}$ genau ein $ab := a \cdot b \in \mathbb{R}$ zu. Dabei soll gelten:
+<h3>Körperaxiome</h3>
+In $\mathbb{R}$ seien zwei Verknüpfungen "+" und "&middot;" gegeben. Sie ordnen jedem Paar $a, b \in \mathbb{R}$ genau ein $ab := a \cdot b \in \mathbb{R}$ zu. Dabei soll gelten:
 
 $$\left. \begin{array}{lllll}
 A.1 & a+    (b+c)  & = & (a+b)+c      & \forall a, b, c \in \mathbb{R} \\
@@ -61,8 +61,8 @@ A.8 & \forall a \in \mathbb{R} \setminus {0} \exists -a^{-1} \in \mathbb{R} & : 
 
 $$\text{A.9 } a(b+c) = ab+ac \forall a, b, c \in \mathbb{R}$: Distributivgesetz$
 
-Schreibweisen: f&uuml;r $a, b \in \mathbb{R}: a -b := a + (-b)$
-f&uuml;r $b \neq 0: \frac{a}{b} := a \cdot b^{-1}$
+Schreibweisen: für $a, b \in \mathbb{R}: a -b := a + (-b)$
+für $b \neq 0: \frac{a}{b} := a \cdot b^{-1}$
 
 Alle Rechenregeln bzgl der Grundrechenarten lassen sich aus A.1 - A.9 herleiten. Diese Regeln seien von nun an bekannt.
 
@@ -94,9 +94,9 @@ $a \geq b: \Leftrightarrow b \geq a$
 $a \lt b: \Leftrightarrow a \leq b \land a \neq b$
 $a \gt b: \Leftrightarrow b \lt a$
 
-Alle Regeln f&uuml;r Ungleichungen lassen sich aus A.1 - A.14 herleiten. Diese Regeln seien nun bekannt.
+Alle Regeln für Ungleichungen lassen sich aus A.1 - A.14 herleiten. Diese Regeln seien nun bekannt.
 
-<strong>Definition</strong>: F&uuml;r $a \in \mathbb{R}$ sei
+<strong>Definition</strong>: Für $a \in \mathbb{R}$ sei
 $$|a| : =
 \left \{ \begin{array}{ll}
 a  & \text{, falls } a \geq 0 \\
@@ -117,7 +117,7 @@ $|a-b| \mathrel{\widehat{=}} \text{Abstand von a und b}$
   <li>$| |a| - |b| | \leq | a-b|$</li>
 </ul>
 
-<strong>Beweis</strong>: 1, 2, 3 leichte &Uuml;bung<br/>
+<strong>Beweis</strong>: 1, 2, 3 leichte Übung<br/>
 <strong>Beweis von 4.</strong>:<br/>
 Fall 1: $a+b \geq 0$. Dann $|a+b| = a + b \leq |a| + |b|$
 Fall 2: $a+b \lt 0$. Dann $|a+b| = -(a+b) = (-a) + (-b) \leq |a| + |b|$<br/>

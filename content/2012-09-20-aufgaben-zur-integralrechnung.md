@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: de
 title: Aufgaben zur Integralrechnung
 slug: aufgaben-zur-integralrechnung
+lang: de
 author: Martin Thoma
 date: 2012-09-20 08:56:07.000000000 +02:00
 category: German posts
 tags: mathematics, Integral calculus
 featured_image: 2012/09/partielle-integration.png
 ---
-Hier sind ein paar sch&ouml;ne Aufgaben und ausf&uuml;hrliche L&ouml;sungsfindungsbeschreibungen zur Integralrechnung.
+Hier sind ein paar schöne Aufgaben und ausführliche Lösungsfindungsbeschreibungen zur Integralrechnung.
 
-Diesen Artikel werde ich erg&auml;nzen, wenn ich weitere sch&ouml;ne Aufgaben finde.
+Diesen Artikel werde ich ergänzen, wenn ich weitere schöne Aufgaben finde.
 
 <h2>Aufgabe 1</h2>
 <strong>Aufgabenstellung</strong>:
@@ -85,4 +85,4 @@ Berechne das bestimmte Integral $\displaystyle \int_0^1 \frac{1}{(\sqrt[3]{x}+2)
 </ul>
 
 <strong>Rechnung</strong>:
-Kommt vielleicht sp&auml;ter noch.
+Kommt vielleicht später noch.

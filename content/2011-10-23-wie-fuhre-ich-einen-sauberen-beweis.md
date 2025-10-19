@@ -61,7 +61,7 @@ q.e.d.
 
 Der [Induktionsbeweis](../wie-fuhre-ich-einen-induktionsbeweis/) ist sehr nützlich, wenn man eine Aussage für Elemente zeigen muss, die einen festen Abstand haben, also z.B. eine Aussage für die natürlichen Zahlen oder die ganzen Zahlen.
 
-Der <a href="../pumping-lemma/">Widerspruchsbeweis</a> ist gut geeignet, wenn notwendige, aber nicht hinreichende Kriterien f&uuml;r das Gegenteil der Behauptung nicht erf&uuml;llt sind.
+Der <a href="../pumping-lemma/">Widerspruchsbeweis</a> ist gut geeignet, wenn notwendige, aber nicht hinreichende Kriterien für das Gegenteil der Behauptung nicht erfüllt sind.
 
 <h2>Siehe auch</h2>
 <ul>

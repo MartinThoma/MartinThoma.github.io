@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: 10 Great Videos on Vimeo
 slug: 10-great-videos-on-vimeo
+lang: en
 author: Martin Thoma
 date: 2011-09-28 11:55:23.000000000 +02:00
 category: The Web
@@ -37,7 +37,7 @@ Here are 10 Great Videos I've found on Vimeo:
 <h2>Aurora Borealis</h2>
 <iframe src="http://player.vimeo.com/video/16917950?title=0&amp;byline=0&amp;portrait=0" width="512" height="288" frameborder="0"></iframe>
 
-<h2>Iceland, Eyjafjallaj&ouml;kull</h2>
+<h2>Iceland, Eyjafjallajökull</h2>
 <iframe src="http://player.vimeo.com/video/11673745?title=0&amp;byline=0&amp;portrait=0" width="512" height="256" frameborder="0"></iframe>
 
 <h2>Rabbitkadabra!</h2>

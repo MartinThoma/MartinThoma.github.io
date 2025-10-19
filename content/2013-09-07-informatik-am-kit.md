@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Informatik am KIT
 slug: informatik-am-kit
+lang: de
 author: Martin Thoma
 date: 2013-09-07 11:41:05.000000000 +02:00
 category: German posts
@@ -11,7 +11,7 @@ featured_image: 2011/10/KIT-Logo.png
 ---
 Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich über Karlsruhe erzählen? Wieviel Praxis bekommt man in einem Informatik-Studium am KIT?
 
-Leider denke ich nicht, das ich wirklich gut darüber schreiben dann, da ich nur &bdquo;Informatik I&ldquo; an der Uni Augsburg gehört habe.  Sonst war ich nur am KIT. Auch über Karlsruhe kann ich nicht so viel erzählen, wie man sich vielleicht denkt. Ich bin meistens am studieren. Daher habe ich von Karlsruhe au&szlig;erhalb der Innenstadt bisher wenig gesehen.
+Leider denke ich nicht, das ich wirklich gut darüber schreiben dann, da ich nur &bdquo;Informatik I&ldquo; an der Uni Augsburg gehört habe.  Sonst war ich nur am KIT. Auch über Karlsruhe kann ich nicht so viel erzählen, wie man sich vielleicht denkt. Ich bin meistens am studieren. Daher habe ich von Karlsruhe außerhalb der Innenstadt bisher wenig gesehen.
 
 Ein paar Anhaltspunkte könnte die <a href="https://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">Wikipediaseite des KIT</a> sowie die <a href="http://www.einstieg-informatik.de/index.php?article_id=162&hid=55">einstieg-informatik.de-Seite</a> geben.
 
@@ -174,7 +174,7 @@ Die Praxis der Softwareentwicklung (PSE) ist übrigens eine tolle Sache am KIT-I
 Die Informatik-Proseminare sind leider sehr schlecht organisiert. Ich habe auf GitHub ein öffentliches Repository, wo ihr hoffentlich <a href="https://github.com/MartinThoma/kit/tree/master/Informatik/Proseminare">aktuelle Informationen über Info-Proseminare</a> finden (bzw. auch eintragen) könnt.
 
 <h3>Softstkills</h3>
-Von den 6 ECTS für Softskills sind ja schon 2 verpflichtend in Teamarbeit für die Softwareentwicklung (TSE - gehört zu PSE). Das ist nur ein Kniff mit dem Modulhandbuch, weil man wohl kein Stammmodul mit 8 ECTS machen konnte / wollte, also hat man PSE mit 6 ECTS und 2 ECTS für TSE. Praktisch bedeutet PSE auch so viel Arbeit, dass 8 ECTS angebracht sind (eher sogar mehr) und man muss im Team arbeiten. Man bekommt die Punkte also nicht geschenkt, aber man muss auch nichts au&szlig;erhalb von PSE dafür machen.
+Von den 6 ECTS für Softskills sind ja schon 2 verpflichtend in Teamarbeit für die Softwareentwicklung (TSE - gehört zu PSE). Das ist nur ein Kniff mit dem Modulhandbuch, weil man wohl kein Stammmodul mit 8 ECTS machen konnte / wollte, also hat man PSE mit 6 ECTS und 2 ECTS für TSE. Praktisch bedeutet PSE auch so viel Arbeit, dass 8 ECTS angebracht sind (eher sogar mehr) und man muss im Team arbeiten. Man bekommt die Punkte also nicht geschenkt, aber man muss auch nichts außerhalb von PSE dafür machen.
 
 Von den 4 übrigen Punkten kann man sich aus vielen interessanten <a href="http://www.hoc.kit.edu/lehrangebot.php">Kursen des HOC</a> etwas aussuchen, z.B. <a href="http://www.spz.kit.edu/">Kurse des Sprachenzentrums</a>. Diese sind deutlich besser als die Sprachkurse in der Schule. Ich habe mich für <a href="http://www.spz.kit.edu/englisch.php#List">English C1: Advanced</a> entschieden. Da ich aber auch ein Tutorium gehalten habe (was 4 ECTS und 8,67 Euro/Stunde gibt), hätte ich das nicht machen müssen. Der Kurs war aber so toll, dass ich es nicht bereue.
 
@@ -241,7 +241,7 @@ Man kann noch Analysis III und Funktionalanalysis / Hilberträume machen und ver
 <h3>Sonstiges</h3>
 Das KIT hat eine 24h-Bibliothek (ja, die ist wirklich 24h offen, auch Sonntags. Meines Wissens macht die nur an Weihnachten zu), die <a href="http://atis.informatik.kit.edu/">ATIS</a> (tolle Lernräume, viele Computer, Drucker, ein Scanner), ein <a href="http://www.scc.kit.edu/">Rechenzentrum</a>.
 
-Der Campus ist zusammenhängend. Das, was als &bdquo;Campus Nord&ldquo; bezeichnet wird ist ein Forschungsbereich. Dort werden keine Vorlesungen gehalten. Für Bachelor-Studenten ist der Campus Nord also irrelevant, au&szlig;er ihr wollt da einen Job.
+Der Campus ist zusammenhängend. Das, was als &bdquo;Campus Nord&ldquo; bezeichnet wird ist ein Forschungsbereich. Dort werden keine Vorlesungen gehalten. Für Bachelor-Studenten ist der Campus Nord also irrelevant, außer ihr wollt da einen Job.
 
 <h3>Tipps zum Studium</h3>
 <ul>
@@ -262,9 +262,9 @@ Der Campus ist zusammenhängend. Das, was als &bdquo;Campus Nord&ldquo; bezeichn
   <li><strong>Frage</strong>: Was lernt man in der Informatik, wenn nicht Programmieren?
      <strong>Antwort</strong>: Vieles. Algorithmen und Datenstrukturen, wie genau ein Rechner von einzelnen Transistoren, über Schaltungen, Schaltwerke, Maschinencode und Assembler funktioniert, was theoretische Berechnungsmodelle sind, was überhaupt berechenbar ist, wie Computer lernen können, wie man mit Ungenauigkeit in Berechnungen umgeht, wie man Programme/Probleme sinnvoll strukturiert, was Sicherheit in der Informatik ist und wie man verschiedene Sicherheitsbegriffe zeigen kann...</li>
    <li><strong>Frage</strong>: Was ist charakteristisch für die Informatik am KIT?
-       <strong>Antwort</strong>: Das KIT hat eine gro&szlig;e Informatik-Fakultät. Wenn man hier Informatik zu studieren beginnt, kann man sich in alle (oder zumindest viele) Richtungen weiterentwickeln. Au&szlig;erdem ist das Informatik-Studium am KIT sehr Mathematik-lastig.</li>
+       <strong>Antwort</strong>: Das KIT hat eine große Informatik-Fakultät. Wenn man hier Informatik zu studieren beginnt, kann man sich in alle (oder zumindest viele) Richtungen weiterentwickeln. Außerdem ist das Informatik-Studium am KIT sehr Mathematik-lastig.</li>
    <li><strong>Frage</strong>: Ich würde gerne XYZ lernen, aber das steht nicht im Modulhandbuch. Kann ich das trotzdem am KIT lernen?
-       <strong>Antwort</strong>: Es gibt einen E-Mail-Verteiler für Studenten. Dort kann man einfach mal fragen, ob andere auch interesse daran haben. Au&szlig;erdem gibt es <a href="http://www.kit.edu/studieren/studentische_einrichtungen.php">Hochschulgruppen</a>. Bei über 3000 Studenten wird sich schon jemand finden, der auch XYZ machen will / es kann.</li>
+       <strong>Antwort</strong>: Es gibt einen E-Mail-Verteiler für Studenten. Dort kann man einfach mal fragen, ob andere auch interesse daran haben. Außerdem gibt es <a href="http://www.kit.edu/studieren/studentische_einrichtungen.php">Hochschulgruppen</a>. Bei über 3000 Studenten wird sich schon jemand finden, der auch XYZ machen will / es kann.</li>
 </ul>
 
 <h2>Karlsruhe</h2>
@@ -281,7 +281,7 @@ Es gibt den <a href="http://www.scienceslam-karlsruhe.de/index/science_Slam_karl
 Falls man mehr über Karlsruhe wissen will: Auch dazu gibt es einen <a href="https://de.wikipedia.org/wiki/Karlsruhe">Wikipedia-Artikel</a>.
 
 <h3>Wohnungen</h3>
-Tja, eine Wohnung zu finden ist in Karlsruhe schwer. Mit der Wohnungssuche sollte man sehr früh beginnen. Es gibt zwar <a href="http://www.studentenwerk-karlsruhe.de/de/wohnen/wohnheime_ka/">einige Wohnheime</a>, aber auch die sind voll. Und die Qualität der Wohnheime ist sehr unterschiedlich. Ich habe gehört, dass das HaDiKo und die Insterburg nicht so toll sind, aber das an der Waldhornstra&szlig;e soll sehr gut sein. Es gibt neben den Wohnheimen in dieser Liste noch mindestens eine weiteres (das <a href="http://www.ev-studentinnenwohnheim.de/">evangelische Studentinnen-Wohnheim</a> in Rüpurr).
+Tja, eine Wohnung zu finden ist in Karlsruhe schwer. Mit der Wohnungssuche sollte man sehr früh beginnen. Es gibt zwar <a href="http://www.studentenwerk-karlsruhe.de/de/wohnen/wohnheime_ka/">einige Wohnheime</a>, aber auch die sind voll. Und die Qualität der Wohnheime ist sehr unterschiedlich. Ich habe gehört, dass das HaDiKo und die Insterburg nicht so toll sind, aber das an der Waldhornstraße soll sehr gut sein. Es gibt neben den Wohnheimen in dieser Liste noch mindestens eine weiteres (das <a href="http://www.ev-studentinnenwohnheim.de/">evangelische Studentinnen-Wohnheim</a> in Rüpurr).
 
 Die zentralen Wohnungen sind meistens Altbauwohnungen. Ich habe meine über studenten-wg.de gefunden.
 

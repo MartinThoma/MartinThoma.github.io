@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: Briefe mit LaTeX schreiben
 slug: briefe-mit-latex-schreiben
+lang: de
 author: Martin Thoma
 date: 2012-03-03 17:48:38.000000000 +01:00
 category: German posts
 tags: LaTeX, scrlttr2
 featured_image: 2012/01/latex-logo.png
 ---
-Ich muss immer wieder mal Kündigungsschreiben aufsetzen. Dafür will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage für Kündigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='../images/2012/03/kuendigung.pdf'>alt</a> und <a href='../images/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich gro&szlig; ist.
+Ich muss immer wieder mal Kündigungsschreiben aufsetzen. Dafür will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage für Kündigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='../images/2012/03/kuendigung.pdf'>alt</a> und <a href='../images/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich groß ist.
 
 Hier ist das <a href='../images/2012/03/kuendigung-archiv.zip'>Archiv</a> mit beiden LaTeX-Dateien, einer Make-Datei und beiden PDF-Dateien.
 
@@ -24,14 +24,14 @@ Hier ist das <a href='../images/2012/03/kuendigung-archiv.zip'>Archiv</a> mit be
 % Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vorname}{Martin}     % Vorname                         %
 \newcommand{\Nachname}{Thoma}     % Nachname                        %
-\newcommand{\Strasse}{Parkstra&szlig;e} % Deine Stra&szlig;e                    %
+\newcommand{\Strasse}{Parkstraße} % Deine Straße                    %
 \newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
 \newcommand{\PLZ}{76131}          % Deine PLZ                       %
 \newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
 \newcommand{\Kundennr}{123456}    % Deine Kundennummer              %
                                                                     %
 \newcommand{\Empfaenger}{DB Fernverkehr AG} % Der Empfänger         %
-\newcommand{\EStrasse}{BahnCard-Service}    % Stra&szlig;e des Empfängers %
+\newcommand{\EStrasse}{BahnCard-Service}    % Straße des Empfängers %
 \newcommand{\EPLZ}{60643}                   % PLZ des Empfängers    %
 \newcommand{\EOrt}{Frankfurt am Main}       % Ort des Empfängers    %
                                                                     %
@@ -64,9 +64,9 @@ Hier ist das <a href='../images/2012/03/kuendigung-archiv.zip'>Archiv</a> mit be
 	\Kundennr~ zum \Kuendigungsdatum.\\
 
     \noindent Ich bitte um eine Bestätigung der Kündigung.
-    \closing{Mit freundlichen Grü&szlig;en,}
+    \closing{Mit freundlichen Grüßen,}
     \end{letter}
 \end{document}
 ```
 
-Ach ja, wei&szlig; jemand wie man die Einrückung der Unterschrift verhindert?
+Ach ja, weiß jemand wie man die Einrückung der Unterschrift verhindert?

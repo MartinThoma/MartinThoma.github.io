@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: Numerik-Klausur
 slug: numerik-klausur
+lang: de
 author: Martin Thoma
 date: 2013-04-19 20:05:19.000000000 +02:00
 category: German posts
 tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Numerische Mathematik f&uuml;r die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Wei&szlig; im Sommersemester 2013 geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Numerische Mathematik für die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Weiß im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>
 <strong>Vorlesung</strong>:
@@ -37,7 +37,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>15.05.2013</td>
 <td><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/media/kapitel1.pdf#page=19">Kapitel 1.4</a></td>
-<td>Vorw&auml;rts- und R&uuml;ckw&auml;rtsanalyse</td>
+<td>Vorwärts- und Rückwärtsanalyse</td>
 </tr>
 <tr>
 <td>22.05.2013</td>
@@ -69,18 +69,18 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <h3>Skript</h3>
 Kapitel 1:
 <ul>
-  <li>Wann ist ein LGS eindeutig l&ouml;sbar? Wann gibt es unendlich viele L&ouml;sungen?</li>
-  <li>Gau&szlig;sches Eliminationsverfahren</li>
-  <li>Was versteht man unter Vorw&auml;rts / R&uuml;ckw&auml;rtssubstitution?</li>
-  <li>Beim Gau&szlig;'schen Eliminationsverfahren mit Spaltenpivotwahl tauscht man eine Zeile nach oben. Ist es das betragsm&auml;&szlig;ig gr&ouml;&szlig;te oder kleinste? Warum?</li>
+  <li>Wann ist ein LGS eindeutig lösbar? Wann gibt es unendlich viele Lösungen?</li>
+  <li>Gaußsches Eliminationsverfahren</li>
+  <li>Was versteht man unter Vorwärts / Rückwärtssubstitution?</li>
+  <li>Beim Gauß'schen Eliminationsverfahren mit Spaltenpivotwahl tauscht man eine Zeile nach oben. Ist es das betragsmäßig größte oder kleinste? Warum?</li>
   <li>Was ist eine Permutationsmatrix? Was eine Frobeniusmatrix?</li>
   <li>LR-Zerlegung</li>
   <li>Was ist eine unipotente Dreiecksmatrix? Was ist eine obere Dreiecksmatrix, was eine untere?</li>
-  <li>Was ist Stellenausl&ouml;schung? Nenne ein Beispiel!</li>
+  <li>Was ist Stellenauslöschung? Nenne ein Beispiel!</li>
 </ul>
 
-<h3>&Uuml;bungsbl&auml;tter</h3>
-Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/seite/uebnuminfing#%C3%9Cbungsbl%C3%A4tter">hier</a>.
+<h3>Übungsblätter</h3>
+Die Aufgabenblätter stehen <a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/seite/uebnuminfing#%C3%9Cbungsbl%C3%A4tter">hier</a>.
 
 <table>
 <tr>
@@ -93,7 +93,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 </tr>
 <tr>
   <td>2</td>
-  <td>Konditionszahl einer Matrix, Stellenausl&ouml;schung, relativer Fehler</td>
+  <td>Konditionszahl einer Matrix, Stellenauslöschung, relativer Fehler</td>
 </tr>
 <tr>
   <td>3</td>
@@ -101,7 +101,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 </tr>
 <tr>
   <td>4</td>
-  <td>LR-Zerlegung, Gau&szlig;-Elimination mit Spaltenpivotwahl</td>
+  <td>LR-Zerlegung, Gauß-Elimination mit Spaltenpivotwahl</td>
 </tr>
 <tr>
   <td>5</td>
@@ -153,7 +153,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 
 <h2>Aufbau der Klausur</h2>
 <ul>
-  <li>Aufgabe 1: LR-Zerlegung oder Cholesky-Zerlegung; Gau&szlig;-Elimination mit Spaltenpivotwahl; L&ouml;sen eines LGS</li>
+  <li>Aufgabe 1: LR-Zerlegung oder Cholesky-Zerlegung; Gauß-Elimination mit Spaltenpivotwahl; Lösen eines LGS</li>
   <li>Aufgabe 2: Nicht-lineare Gleichungssysteme, Fixpunktiteration, Newton-Verfahren</li>
   <li>Aufgabe 3:
     <ul>
@@ -161,19 +161,19 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
       <li>b) Newton-Darstellung des Polynoms bestimmen</li>
     </ul>
   </li>
-  <li>Aufgabe 4: Quadraturformel herleiten und Integral n&auml;herungsweise berechnen</li>
-  <li>Aufgabe 5: Ordnungsbedingungen, S&auml;tze 27 - 31</li>
+  <li>Aufgabe 4: Quadraturformel herleiten und Integral näherungsweise berechnen</li>
+  <li>Aufgabe 5: Ordnungsbedingungen, Sätze 27 - 31</li>
 </ul>
 
-<h2>&Uuml;bungsbetrieb</h2>
+<h2>Übungsbetrieb</h2>
 <ul>
-<li>Wo sind die &Uuml;bungsbl&auml;tter: <a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/seite/uebnuminfing">Link</a></li>
+<li>Wo sind die Übungsblätter: <a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/seite/uebnuminfing">Link</a></li>
 <li>Abgabeform: nur Handschriftlich</li>
 <li>Abgabe: Mittwochs, in der Vorlesung</li>
-<li>R&uuml;cknahme: Freitags, in der &Uuml;bung</li>
-<li>Turnus: w&ouml;chentlich</li>
-<li>&Uuml;bungsschein verpflichtend: Ja</li>
-<li>Bonus durch &Uuml;bungsschein: Nein</li>
+<li>Rücknahme: Freitags, in der Übung</li>
+<li>Turnus: wöchentlich</li>
+<li>Übungsschein verpflichtend: Ja</li>
+<li>Bonus durch Übungsschein: Nein</li>
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
@@ -182,16 +182,16 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 Klausureinteilung entsprechend des Anfangsbuchstabens des Nachnamens:
 <table>
   <tr>
-    <td>Benz-H&ouml;rsaal (10.21)</td><td>A-C</td>
+    <td>Benz-Hörsaal (10.21)</td><td>A-C</td>
   </tr>
   <tr>
-    <td>Daimler-H&ouml;rsaal (10.21)</td><td>D-G und <strong>I</strong></td>
+    <td>Daimler-Hörsaal (10.21)</td><td>D-G und <strong>I</strong></td>
   </tr>
   <tr>
     <td>Neue Chem. (30.46)</td><td>J-L</td>
   </tr>
   <tr>
-    <td>Gerthsen-H&ouml;rsaal (30.21)</td><td><strong>H</strong> und M-R</td>
+    <td>Gerthsen-Hörsaal (30.21)</td><td><strong>H</strong> und M-R</td>
   </tr>
   <tr>
     <td>HS. a. F. (50.35)</td><td>S-Z</td>
@@ -200,7 +200,7 @@ Klausureinteilung entsprechend des Anfangsbuchstabens des Nachnamens:
 
 <strong>Punkte</strong>: ?<br/>
 <strong>Bestehensgrenze</strong>: ?<br/>
-<strong>&Uuml;bungsschein</strong>: Verpflichtend (ist inzwischen auch eingetragen)<br/>
+<strong>Übungsschein</strong>: Verpflichtend (ist inzwischen auch eingetragen)<br/>
 <strong>Bonuspunkte</strong>: Gibt es nicht<br/>
 <strong>Einsicht</strong>: Termin noch nicht bekannt (Stand: 22.09.2013)<br/>
 
@@ -211,4 +211,4 @@ Klausureinteilung entsprechend des Anfangsbuchstabens des Nachnamens:
 </ul>
 
 <h2>Ergebnisse</h2>
-Sind noch nicht drau&szlig;en (Stand: 22.09.2013)
+Sind noch nicht draußen (Stand: 22.09.2013)

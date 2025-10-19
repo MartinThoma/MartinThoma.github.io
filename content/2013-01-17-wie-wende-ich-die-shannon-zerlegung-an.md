@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wie wende ich die Shannon-Zerlegung an?
 slug: wie-wende-ich-die-shannon-zerlegung-an
+lang: de
 author: Martin Thoma
 date: 2013-01-17 17:46:27.000000000 +01:00
 category: German posts
@@ -54,4 +54,4 @@ f(c,b,a) &:= ab \lor \bar c\\
 &= (abc \lor ab \bar c) \lor a \bar b \bar c \lor (\bar a b \bar c  \lor \bar a \bar b \bar c)
 \end{align}
 
-Man muss auch nicht immer Entwicklen, um das Ergebnis zu erhalten. Die Klammern im Ergebnis verdeutlichen, wie man den letzten Schritt durchf&uuml;hrt. Also wie man von einer Disjunktiven Form auf die Disjunktive Normalform kommt.
+Man muss auch nicht immer Entwicklen, um das Ergebnis zu erhalten. Die Klammern im Ergebnis verdeutlichen, wie man den letzten Schritt durchführt. Also wie man von einer Disjunktiven Form auf die Disjunktive Normalform kommt.

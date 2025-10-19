@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Integration durch Substitution
 slug: integration-durch-substitution
+lang: de
 author: Martin Thoma
 date: 2012-09-16 11:32:43.000000000 +02:00
 category: German posts
@@ -56,7 +56,7 @@ u  &= \sqrt x\\
 Es gilt:
 $\int_1^4 e^{\sqrt{x}} dx = \int_1^2 e^u 2 u \;\mathrm{d}u = 2 \int_1^2 u \cdot e^u \;\mathrm{d}u$.
 
-Nun wird eine <a href="../partielle-integration/" title="Partielle Integration">partielle Integration</a> durchgef&uuml;hrt mit $f'(u)=e^u$ und $g(u)=u$:
+Nun wird eine <a href="../partielle-integration/" title="Partielle Integration">partielle Integration</a> durchgeführt mit $f'(u)=e^u$ und $g(u)=u$:
 
 \begin{align}
 2 \int_1^2 u \cdot e^u \;\mathrm{d}u &= 2 ([e^u \cdot u]_1^2 - \int_1^2 e^u du) \\

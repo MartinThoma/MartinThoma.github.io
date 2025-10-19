@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: Konvergenz von Reihen
 slug: konvergenz-von-reihen
+lang: de
 author: Martin Thoma
 date: 2012-09-15 09:02:02.000000000 +02:00
 category: German posts
 tags: mathematics, analysis
 featured_image: 2012/08/limes-thumbnail.png
 ---
-Die folgenden Definitionen sind wortw&ouml;rtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript f&uuml;r Analysis I</a> bei Herrn Dr. Schmoeger &uuml;bernommen worden.
+Die folgenden Definitionen sind wortwörtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript für Analysis I</a> bei Herrn Dr. Schmoeger übernommen worden.
 
 <h2>Dreiecksungleichung</h2>
 <div class="definition">Ist $\sum_{n=1}^{\infty}a_n$ absolut konvergent, so ist $\sum_{n=1}^{\infty}a_n$ konvergent und es gilt:
@@ -25,7 +25,7 @@ $s = \sum_{n=0}^\infty (-1)^n a_n$.</div>
 <ol>
   <li>$\alpha < 1 \Rightarrow \sum_{n=1}^{\infty} a_n$ konvergiert absolut</li>
   <li>$\alpha > 1 \Rightarrow \sum_{n=1}^{\infty} a_n$ divergiert</li>
-  <li>$\alpha = 1 \Rightarrow$ keine Aussage &uuml;ber die Konvergenz von $\sum_{n=1}^{\infty} a_n$ m&ouml;glich</li>
+  <li>$\alpha = 1 \Rightarrow$ keine Aussage über die Konvergenz von $\sum_{n=1}^{\infty} a_n$ möglich</li>
 </ol>
 </div>
 
@@ -41,11 +41,11 @@ $\sum_{n=1}^{\infty} a_n$ ist divergent.</div>
 <div class="definition">Sei $(a_n)$ eine Folge in $\mathbb{R}$ und $a_n \ne 0 \text{ ffa } \mathbb{N}$. $\alpha_n := \frac{a_{n+1}}{a_n}$ (ffa $n \in \mathbb{N}$).
 <ul>
   <li>Ist $|\alpha_n| \ge 1 \text{ ffa } n \in \mathbb{N} \Rightarrow \sum a_n$ ist divergent.</li>
-  <li>Es sei $(\alpha_n)$ beschr&auml;nkt, $\beta := \liminf |\alpha_n|$ und $\alpha := \limsup |\alpha_n|$.</li>
+  <li>Es sei $(\alpha_n)$ beschränkt, $\beta := \liminf |\alpha_n|$ und $\alpha := \limsup |\alpha_n|$.</li>
    <ul>
     <li>Ist $\beta > 1 \Rightarrow \sum a_n$ ist divergent.</li>
     <li>Ist $\alpha < 1 \Rightarrow \sum a_n$ ist absolut konvergent.</li>
-    <li>Ist $\alpha = \beta = 1$, so ist keine allgemeine Aussage m&ouml;glich.</li>
+    <li>Ist $\alpha = \beta = 1$, so ist keine allgemeine Aussage möglich.</li>
    </ul>
   </li>
 </ul></div>

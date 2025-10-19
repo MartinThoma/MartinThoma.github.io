@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: Flipflops und Latches
 slug: flipflops-und-latches
+lang: de
 author: Martin Thoma
 date: 2013-01-30 13:12:04.000000000 +01:00
 category: German posts
 tags: Digitaltechnik, Latch, Flipflop
 featured_image: 2013/01/rs-flipflop.png
 ---
-Flipflops und Latches sind 1-bit Datenspeicher. Es gibt sie als synchrone und als asynchrone Varianten, wobei &bdquo;synchron&ldquo; nur bedeutet, dass das Bauteil zus&auml;tzlich einen Takteingang hat. Der wichtigste (und einzige?) Unterschied zwischen Flipflops und Latches ist, dass Flipflops Taktflankengesteuert sind und Latches Pegelgesteuert sind. Das hei&szlig;t, Flipflops k&ouml;nnen nur dann ihren Wert &auml;ndern, wenn der anliegende Takt von 0 auf 1 wechselt. Latches hingegen k&ouml;nnen ihren Wert immer &auml;ndern, wenn der anliegende Takt auf 1 ist. Beide haben die gleichen Ansteuertabellen, k&ouml;nnen aber unterschiedliche Zeitdiagramme haben.
+Flipflops und Latches sind 1-bit Datenspeicher. Es gibt sie als synchrone und als asynchrone Varianten, wobei &bdquo;synchron&ldquo; nur bedeutet, dass das Bauteil zusätzlich einen Takteingang hat. Der wichtigste (und einzige?) Unterschied zwischen Flipflops und Latches ist, dass Flipflops Taktflankengesteuert sind und Latches Pegelgesteuert sind. Das heißt, Flipflops können nur dann ihren Wert ändern, wenn der anliegende Takt von 0 auf 1 wechselt. Latches hingegen können ihren Wert immer ändern, wenn der anliegende Takt auf 1 ist. Beide haben die gleichen Ansteuertabellen, können aber unterschiedliche Zeitdiagramme haben.
 
 Interesannt sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von der Art, wie diese aufgeschrieben werden, verwirren lassen: $q^t$ ist der Zustand des Flipflops zum Zeitpunkt $t$. Analog dazu ist $q^{t+1}$ der Zustand des Flipflops zum Zeitpunkt $t+1$. Nun steht rechts in der Tabelle, welche Signale man braucht um den Zustand $q^{t+1}$ zu erreichen, wenn man im Zustand $q^t$ ist.
 
@@ -43,7 +43,7 @@ Interesannt sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von d
 <h2>D-Flipflops</h2>
 <abbr title="Delay-Flipflops">D-Flipflops</abbr> ignorieren im Prinzip den aktuellen Zustand und setzt den neuen Zustand einfach auf das d-Signal.
 
-D-Flipflops k&ouml;nnen aus D-Latches erstellt werden:
+D-Flipflops können aus D-Latches erstellt werden:
 <figure class="aligncenter">
             <a href="../images/2013/01/d-flipflop.png"><img src="../images/2013/01/d-flipflop.png" alt="D-Flipflop" style="max-width:542px;max-height:182px" class="size-full wp-image-55641"/></a>
             <figcaption class="text-center">D-Flipflop</figcaption>
@@ -92,9 +92,9 @@ D-Flipflops k&ouml;nnen aus D-Latches erstellt werden:
 
 
 <h2>RS-Flipflops</h2>
-Das <abbr title="Reset-Set-Flipflop">RS-Flipflop</abbr> bietet zwei M&ouml;glichkeiten: Entweder man resettet es, dann wird der neue Zustand 0, oder man setzt es. Dann ist der neue Zustand 1.
+Das <abbr title="Reset-Set-Flipflop">RS-Flipflop</abbr> bietet zwei Möglichkeiten: Entweder man resettet es, dann wird der neue Zustand 0, oder man setzt es. Dann ist der neue Zustand 1.
 
-Ein RS-Flipflop hat zwei Eing&auml;nge und einen oder zwei Ausg&auml;nge.
+Ein RS-Flipflop hat zwei Eingänge und einen oder zwei Ausgänge.
 
 <h3>Ansteuertabelle</h3>
 <table>
@@ -186,7 +186,7 @@ Ein RS-Flipflop hat zwei Eing&auml;nge und einen oder zwei Ausg&auml;nge.
 </table>
 
 <h2>JK-Flipflop</h2>
-<abbr title="Jump-/Kill-Flipflops">JK-Flipflops</abbr> haben zwei Eing&auml;nge, &bdquo;J&ldquo; und &bdquo;K&ldquo;. Warum die allerdings Jump und Kill genannt werden, ist mir nicht klar. Habt ihr eine Merkregel f&uuml;r die Ansteuertabelle dieses Flipflops?
+<abbr title="Jump-/Kill-Flipflops">JK-Flipflops</abbr> haben zwei Eingänge, &bdquo;J&ldquo; und &bdquo;K&ldquo;. Warum die allerdings Jump und Kill genannt werden, ist mir nicht klar. Habt ihr eine Merkregel für die Ansteuertabelle dieses Flipflops?
 
 <h3>Ansteuertabelle</h3>
 <table>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: How to fill holes in your wall / ceiling
 slug: how-to-fill-holes-in-your-wall-ceiling
+lang: en
 author: Martin Thoma
 date: 2012-03-05 22:08:41.000000000 +01:00
 category: My bits and bytes
@@ -49,7 +49,7 @@ The guy at the hardware store suggested to use acrylic paint. So I did. These we
 As I had a wall plug in my ceiling I needed to remove it before I could start. I could not simply push it into the wall (it didn't work, I've tried it). And removing this special wall plug isn't that easy. This is how it looks like in the wall:
 
 <figure class="aligncenter">
-            <a href="../images/2012/03/hohlraumduebel-zusammen-300x300.jpg"><img src="../images/2012/03/hohlraumduebel-zusammen-300x300.jpg" alt="Zusammengedr&uuml;ckter Hohlraumd&uuml;bel" style="max-width:300px;max-height:300px" class="size-medium wp-image-17281"/></a>
+            <a href="../images/2012/03/hohlraumduebel-zusammen-300x300.jpg"><img src="../images/2012/03/hohlraumduebel-zusammen-300x300.jpg" alt="Zusammengedrückter Hohlraumdübel" style="max-width:300px;max-height:300px" class="size-medium wp-image-17281"/></a>
             <figcaption class="text-center">Wall plug</figcaption>
         </figure>
 

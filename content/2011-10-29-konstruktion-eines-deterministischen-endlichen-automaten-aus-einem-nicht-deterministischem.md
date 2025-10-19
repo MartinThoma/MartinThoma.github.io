@@ -1,16 +1,16 @@
 ---
 layout: post
-lang: de
 title: Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem
 slug: konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem
+alias: /potenzmengenkonstruktion/index.html
+lang: de
 author: Martin Thoma
 date: 2011-10-29 10:21:43.000000000 +02:00
 category: German posts
 tags: Computer science, Abstract machine, Theoretical computer science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
-alias: /potenzmengenkonstruktion/index.html
 ---
-Der nicht-deterministische endliche Automat zu dem regul&auml;rem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:
+Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:
 $Q = \{S, q_1, q_2\}$
 $\Sigma = \{a, b\}$
 $\delta = \text{siehe Grafik}$
@@ -22,7 +22,7 @@ $NEA = \left( Q, \Sigma, \delta, S, F \right)$
             <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
         </figure>
 
-Will man daraus nun den endlichen Automaten konstruieren, l&auml;uft das im Prinzip &uuml;ber eine Potenzmengenkonstruktion.
+Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip über eine Potenzmengenkonstruktion.
 
 Zuerst defnieren wir:
 $\tilde{S} = E(S) = \{S\}$
@@ -43,7 +43,7 @@ Dann erstellen wir folgende Tabelle:
   </tr>
 </table>
 
-Dann &uuml;berpr&uuml;ft man, welche Zust&auml;nde erreicht werden k&ouml;nnen, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
+Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
 <table style="border:1px solid #000;">
   <tr>
     <th style="border:1px solid #000;">$\tilde{S}$</th>
@@ -62,7 +62,7 @@ Dann &uuml;berpr&uuml;ft man, welche Zust&auml;nde erreicht werden k&ouml;nnen, 
   </tr>
 </table>
 
-Nun geht man also jede Spalte, von links nach rechts durch. F&uuml;r jede Spalte wird jede Zeile, von oben nach unten, &uuml;berpr&uuml;ft. Mit jeder &Uuml;berpr&uuml;fung kann eine neue Zustandsmenge als Spalte hinzukommen.
+Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
 Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.
 
 Am Ende schaut die Tablle wie folgt aus:
@@ -96,7 +96,7 @@ Am Ende schaut die Tablle wie folgt aus:
 $\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}$
 $\tilde{F} = \{\{S\}, \{q_1, S\}\}$
 
-Die &Uuml;bergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:
+Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:
 
 <figure class="aligncenter">
             <a href="../images/2011/10/deterministic-fsm.png"><img src="../images/2011/10/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" style="max-width:512px;max-height:196px" class="size-full wp-image-8421"/></a>

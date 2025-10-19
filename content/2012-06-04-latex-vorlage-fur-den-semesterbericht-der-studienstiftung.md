@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: LaTeX-Vorlage für den Semesterbericht der Studienstiftung
 slug: latex-vorlage-fur-den-semesterbericht-der-studienstiftung
+lang: de
 author: Martin Thoma
 date: 2012-06-04 07:31:36.000000000 +02:00
 category: German posts
@@ -17,7 +17,7 @@ Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen müsse
 Im Daidalosnet steht dazu:
 
 <blockquote>Der Studienbericht bietet Gelegenheit, über die wesentlichen Inhalte und Erfahrungen des letzten Semesters nachzudenken sowie die beiden Leser - den Vertrauensdozenten und den Referenten - zu informieren und an Reflexionen und Bewertungen teilnehmen zu lassen. Ohne die Berichte wäre die Studienstiftung weniger oder kaum in der Lage, ein aktuelles Wissenschaftliches Programm zu bieten und die Stipendiaten verlässlich zu beraten.
-Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und au&szlig;erfachlichen Aktivitäten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
+Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und außerfachlichen Aktivitäten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
 
 <h2>Wer bekommt wann den Studienbericht?</h2>
 <blockquote>Stipendiaten, die in den ersten vier Fachsemestern (vor Antragsstellung auf Weiterförderung) aufgenommen werden, schreiben jeweils zum <strong>1.&nbsp;März</strong> und <strong>1.&nbsp;September</strong> Semesterberichte (im Jahr der Antragsstellung auf Weiterförderung: zusammen mit dem Antrag bereits zum 1.&nbsp;August); alle anderen Stipendiaten schreiben den Jahresbericht zum <strong>1.&nbsp;September</strong>.</blockquote>
@@ -82,7 +82,7 @@ LaTeX:
 \newcommand{\University}{KIT}
 \newcommand{\Nachname}{Thoma}
 \newcommand{\Vorname}{Martin}
-\newcommand{\Strasse}{Musterstra&szlig;e}
+\newcommand{\Strasse}{Musterstraße}
 \newcommand{\Hausnummer}{123}
 \newcommand{\PLZ}{76131}
 \newcommand{\Ort}{Karlsruhe}
@@ -134,7 +134,7 @@ sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
 rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
 ipsum dolor sit amet.
 
-\subsubsection*{2. Das war für mich au&szlig;erhalb des Studiums von gro&szlig;er Bedeutung:}
+\subsubsection*{2. Das war für mich außerhalb des Studiums von großer Bedeutung:}
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea

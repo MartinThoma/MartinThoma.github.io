@@ -32,12 +32,12 @@ Die mittlere Geschwindigkeit eines Gases berechnet sich wie folgt:
 $E_{Kin} = \bar E_i$
 $\Leftrightarrow \frac{1}{2} \cdot m \cdot v^2 = \frac{3}{2} \cdot k \cdot T$, wobei k die <a href="http://de.wikipedia.org/wiki/Boltzmann-Konstante">Boltzmann-Konstante</a> ist und T die thermodynamische Temperatur
 $\Leftrightarrow v^2 = \frac{3 \cdot k \cdot T}{m}$
-Da wir die mittlere Geschwindigkeit eines Gasteilchens wollen, m&uuml;ssen wir die <a href="http://de.wikipedia.org/wiki/Maxwell-Boltzmann-Verteilung">Maxwell-Geschwindigkeitsverteilung</a> beachten:
+Da wir die mittlere Geschwindigkeit eines Gasteilchens wollen, müssen wir die <a href="http://de.wikipedia.org/wiki/Maxwell-Boltzmann-Verteilung">Maxwell-Geschwindigkeitsverteilung</a> beachten:
 $\Rightarrow \bar v = \sqrt{\frac{8}{2 \cdot \pi}} \sqrt{\frac{3 \cdot k \cdot T}{m}}$
 $\Leftrightarrow \sqrt{\frac{12 \cdot k \cdot T}{\pi \cdot M \cdot u}}$, mit M als <a href="http://de.wikipedia.org/wiki/Atommasse">Atommasse</a> und u als <a href="http://de.wikipedia.org/wiki/Atomare_Masseneinheit">atomare Masseneinheit</a>.
 
 ### Berechnung der Fluchtgeschwindigkeit
-$v_{fl} = \sqrt{\frac{2 \cdot G \cdot m}{r}}$, wobei G die <a href="http://de.wikipedia.org/wiki/Gravitationskonstante">Gravitationskonstante</a>, m die Masse des Himmelsk&ouml;rpers und r dessen Radius. Siehe auch: <a href="http://de.wikipedia.org/wiki/Kosmische_Geschwindigkeiten">1. Kosmische Geschwindigkeit</a>.
+$v_{fl} = \sqrt{\frac{2 \cdot G \cdot m}{r}}$, wobei G die <a href="http://de.wikipedia.org/wiki/Gravitationskonstante">Gravitationskonstante</a>, m die Masse des Himmelskörpers und r dessen Radius. Siehe auch: <a href="http://de.wikipedia.org/wiki/Kosmische_Geschwindigkeiten">1. Kosmische Geschwindigkeit</a>.
 
 ### Berechnung
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Gedanken zur Bundestagswahl 2013
 slug: gedanken-zur-bundestagswahl-2013
+lang: de
 author: Martin Thoma
 date: 2013-09-06 11:54:58.000000000 +02:00
 category: German posts
@@ -49,7 +49,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
     <th>Wahlprogramm</th>
     <td>
       <ul>
-        <li><a href="https://www.piratenpartei.de/wp-content/uploads/2013/06/PP-Bund-BTW13v1.pdf">Vollständig als PDF</a> (recht gro&szlig;)</li>
+        <li><a href="https://www.piratenpartei.de/wp-content/uploads/2013/06/PP-Bund-BTW13v1.pdf">Vollständig als PDF</a> (recht groß)</li>
         <li><a href="http://www.piraten-zur-wahl.de/index.php/hoerbuch/">als Hörbuch</a></li>
       </ul>
     </td>
@@ -247,7 +247,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
     <th>Themen</th>
     <td>
       <ul>
-        <li>konservativ (im Gro&szlig;en und Ganzen soll sich nichts ändern)</li>
+        <li>konservativ (im Großen und Ganzen soll sich nichts ändern)</li>
         <li>mehr Kameraüberwachung</li>
         <li>Mieten sollen im öffentlichen Raum nicht weiter ansteigen</li>
       </ul>
@@ -303,7 +303,7 @@ Ich finde es interessant, welche Themen für die Parteien wichtig sind und welch
 
 ### Sozialer Ausgleich
 
-Ich denke, dass in Deutschland die viel zitierte &bdquo;Schere zwischen Arm und Reich&ldquo; zu gro&szlig; wird. Zu dem Thema gibt es in den Wiki-Artikeln <a href="https://de.wikipedia.org/wiki/Einkommensverteilung_in_Deutschland">Einkommensverteilung in Deutschland</a> und <a href="https://de.wikipedia.org/wiki/Verm%C3%B6gensverteilung_in_Deutschland">Vermögensverteilung in Deutschland</a> viele Informationen, z.B.:
+Ich denke, dass in Deutschland die viel zitierte &bdquo;Schere zwischen Arm und Reich&ldquo; zu groß wird. Zu dem Thema gibt es in den Wiki-Artikeln <a href="https://de.wikipedia.org/wiki/Einkommensverteilung_in_Deutschland">Einkommensverteilung in Deutschland</a> und <a href="https://de.wikipedia.org/wiki/Verm%C3%B6gensverteilung_in_Deutschland">Vermögensverteilung in Deutschland</a> viele Informationen, z.B.:
 <ul>
   <li>2008 betrug nach Zahlen des DIW das mittlere verfügbare Einkommen 1.252 Euro</li>
   <li>die ärmsten 50% haben 1,4% des Vermögens in Deutschland</li>
@@ -321,7 +321,7 @@ Es ist sehr einfach, was dagegen hilft:
   <li>Höhe Erbschaftsvermögen (um eine konkrete Zahl zu nennen: > 10,000,000 Euro) müssen stark mit Erbschaftssteuer eingeschränkt werden. Davor darf es keine &bdquo;Steuerflucht&ldquo; geben. (Existiert dieses Problem?)</li>
 </ul>
 
-Ich bin au&szlig;erdem davon überzeugt, dass viele Menschen, die eigentlich Anspruch auf Sozialleistungen hätten, diesen nicht in Anspruch nehmen. Zum einen, weil sie es nicht wollen (<a href="http://www.wdr2.de/aktuell/hartzvier122.html">Quelle</a>), zum anderen aber vermutlich auch, weil sie nicht wissen, dass sie Anspruch haben.
+Ich bin außerdem davon überzeugt, dass viele Menschen, die eigentlich Anspruch auf Sozialleistungen hätten, diesen nicht in Anspruch nehmen. Zum einen, weil sie es nicht wollen (<a href="http://www.wdr2.de/aktuell/hartzvier122.html">Quelle</a>), zum anderen aber vermutlich auch, weil sie nicht wissen, dass sie Anspruch haben.
 
 Hier mal ein paar Leistungen, die es gibt:
 <ul>
@@ -354,7 +354,7 @@ Hier kann man nicht davon ausgehen, dass irgendeine Partei eine belegbar gute L�
 <ul>
   <li>CDU / CSU:
     <ul>
-      <li>Für: Sparma&szlig;nahmen, Schuldenbremse, <a href="https://de.wikipedia.org/wiki/Stabilit%C3%A4ts-_und_Wachstumspakt">Stabilitätspakt</a>, Europäische Bankenunion</li>
+      <li>Für: Sparmaßnahmen, Schuldenbremse, <a href="https://de.wikipedia.org/wiki/Stabilit%C3%A4ts-_und_Wachstumspakt">Stabilitätspakt</a>, Europäische Bankenunion</li>
       <li>Gegen: Eurobonds</li>
     </ul>
   <li>SPD:
@@ -384,7 +384,7 @@ Das ist selbstverständlich keine vollständige Liste. Wenn es einen wirklich in
 ### Korruption und Transparenz
 Korruption kann dazu führen, dass Entscheidungen getroffen werden, die für den Staat nicht optimal sind. Dazu sollte Abgeordnetenbestechung zuerst einmal illegal sein, also ein &bdquo;Anti-Korruptionsgesetz&ldquo; eingeführt werden. Dagegen wehren sich aber CDU/CSU und FDP sehr. Es gab auch schon eine <a href="http://www.abgeordnetenwatch.de/schaerfere_regeln_gegen_abgeordnetenbestechung-605-525.html">Abstimmung Schärfere Regeln gegen Abgeordnetenbestechung</a> - kontrolliert doch selbst, wie eure Abgeordneten abgestimmt haben.
 
-Au&szlig;erdem führt der Verdacht auf bestechliche Politiker zu weiterer Politikverdrossenheit.
+Außerdem führt der Verdacht auf bestechliche Politiker zu weiterer Politikverdrossenheit.
 
 Siehe zu Abgeordnetenbestechung:
 <ul>
@@ -399,7 +399,7 @@ Die Versorgung mit Energie ist ein essentieller bestandteil der öffentlichen In
 Momentan geschieht dies in Form von <a href="https://de.wikipedia.org/wiki/Liste_von_Onshore-Windparks_in_Deutschland">On</a>- und <a href="https://de.wikipedia.org/wiki/Liste_der_Offshore-Windparks">Offshore Windkraftparks</a> sowie im <a href="https://de.wikipedia.org/wiki/Netzausbau">Netzausbau</a>. Das <a href="https://de.wikipedia.org/wiki/Erneuerbare-Energien-Gesetz">Erneuerbare-Energien-Gesetz</a> (EEG) soll dabei helfen und regelt die sog. <a href="https://de.wikipedia.org/wiki/Einspeiseverg%C3%BCtung">Einspeisevergütung</a>.
 
 ### Steuern
-Im Bezug auf Steuern sehe ich zwei gro&szlig;e Probleme:
+Im Bezug auf Steuern sehe ich zwei große Probleme:
 <ol>
   <li>Konzerne spielen Länder gegeneinander aus</li>
   <li>Steuern sind in Deutschland kompliziert</li>
@@ -407,11 +407,11 @@ Im Bezug auf Steuern sehe ich zwei gro&szlig;e Probleme:
 
 Das Konzerne Länder gegeneinander ausspielen, sieht man an Google (<a href="http://www.googlewatchblog.de/2012/11/frankreich-milliarden-euro-steuernachzahlung/">Quelle</a>). Versteht mich jetzt nicht falsch, ich finde Google super. Aber jedes Unternehmen wird, wenn es ihm auf legale Art möglich ist, versuchen Kosten (also auch Steuern) so niedrig wie möglich zu halten. Also sollte man sich doch innerhalb der Euro-Zone auf ein gemeinsames Steuersystem einigen können, oder?
 
-Au&szlig;erdem scheint es mir in Deutschland zu viele Steuern/Abgaben zu geben und diese auch zu kompliziert zu sein
+Außerdem scheint es mir in Deutschland zu viele Steuern/Abgaben zu geben und diese auch zu kompliziert zu sein
 Sinnvoll finde ich
 <ul>
   <li>Erbschaftssteuer: Sie sorgt dafür, dass sich Reichtum weniger stark anhäuft.</li>
-  <li><span class="hint" title="Mehrwertsteuer">Umsatzsteuer</span>: Sie stellt einen einfachen Weg dar, wie der Staat an Geld kommt. Sie betrifft alle gleichmä&szlig;ig. Ich finde es nicht sinnvoll, hier zwischen verschiedenen Klassen (Lebensmittel, Luxusgüter) zu unterscheiden. Wenn Lebensmittel mehr kosten würden, würde man ihren Wert vielleicht mehr schätzen.
+  <li><span class="hint" title="Mehrwertsteuer">Umsatzsteuer</span>: Sie stellt einen einfachen Weg dar, wie der Staat an Geld kommt. Sie betrifft alle gleichmäßig. Ich finde es nicht sinnvoll, hier zwischen verschiedenen Klassen (Lebensmittel, Luxusgüter) zu unterscheiden. Wenn Lebensmittel mehr kosten würden, würde man ihren Wert vielleicht mehr schätzen.
   </li>
   <li>Einkommensteuer: Auch mit der Lohnsteuer bekommt der Staat viel Geld. Aber im Gegensatz zur Umsatzsteuer kann man hier Leute, die viel Verdienen stärker belasten.</li>
   <li>Energiesteuern: Durch Energiesteuern kann man Anreize schaffen, sparsame Geräte / Infrastruktur zu entwickeln. Dies sollte für die Bürger auf lange Sicht von Vorteil sein.</li>
@@ -433,9 +433,9 @@ Steuern/Abgaben die ich nicht verstehe, sind:
   <li>Stromsteuer: Inwiefern unterscheided sie sich von der Energiesteuer?</li>
 </ul>
 
-Ganz allgemein sollte es wenig S1teuern geben. Die Steuer die es gibt, sollten einfach zu verstehen und zu berechnen sein. Au&szlig;erdem sollte es eine vollständige, aktuelle, frei verfügbare Liste der Steuern sowie der Berechnung selbiger geben.
+Ganz allgemein sollte es wenig S1teuern geben. Die Steuer die es gibt, sollten einfach zu verstehen und zu berechnen sein. Außerdem sollte es eine vollständige, aktuelle, frei verfügbare Liste der Steuern sowie der Berechnung selbiger geben.
 
-Ich wei&szlig; nicht, wie die Lohnsteuer berechnet wird. Sinnvoll würde ich folgende Berechnung finden:
+Ich weiß nicht, wie die Lohnsteuer berechnet wird. Sinnvoll würde ich folgende Berechnung finden:
 <ul>
   <li>Am Ende eines Jahres wird das Einkommen (Lohn, Kapitalerträge) berechnet.</li>
   <li>Sei dieses Gesamteinkommen $x$ (in Euro):
@@ -458,7 +458,7 @@ Hier mal eine Grafik über das Steueraufkommen in Deutschland:
             <figcaption class="text-center">Steueraufkommen in Deutschland (Stand: 2008)</figcaption>
         </figure>
 
-Es gibt noch den Ansatz der &bdquo;<a href="https://de.wikipedia.org/wiki/Flat_Tax">Flat Tax</a>&ldquo;, die Steuern einfacher machen soll. Ob das sinnvoll ist, kann ich nicht sagen. Aber eine Vereinfachung verbunden mit einer Europäischen Vereinheitlichung könnte Firmen entlasten und Steuerschlupflöcher schlie&szlig;en.
+Es gibt noch den Ansatz der &bdquo;<a href="https://de.wikipedia.org/wiki/Flat_Tax">Flat Tax</a>&ldquo;, die Steuern einfacher machen soll. Ob das sinnvoll ist, kann ich nicht sagen. Aber eine Vereinfachung verbunden mit einer Europäischen Vereinheitlichung könnte Firmen entlasten und Steuerschlupflöcher schließen.
 
 ### Bürgerrechte
 Im <a href="https://de.wikipedia.org/wiki/%C3%9Cberwachungs-_und_Spionageaff%C3%A4re_2013">Spähskandal</a> (NSA, Prism, Tempora, Xkeyscore, ...) hat die CDU/CSU bisher nichts gemacht, um für Aufklärung und Beendigung der illegalen Praktiken zu sorgen.
@@ -476,7 +476,7 @@ Aber auch die SPD scheint in dem NSA-Skandal nicht ganz unbeteiligt zu sein (<a 
 Die Grünen und Piraten sind gegen Videoüberwachung, wollen das Fernmeldegeheimnis zu einem Kommunikations- und Mediennutzungsgeheimnis ausweiten, gegen die Bestandsdatenauskunft vorgehen und Vorratsdatenspeicherung verhindern.
 
 ### Kleine Themen
-Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich das sie im gro&szlig;en und ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
+Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl sie für einzelne Leute sehr wichtig sein mögen, glaube ich das sie im großen und ganzen zu vernachlässigen sind. Verglichen mit den obigen Themen betreffen die folgenden Themen nur wenige Leute. Einiges davon habe ich aus dem <a href="http://www.wahl-o-mat.de">Wahl-o-mat</a>:
 
 <ul>
   <li>Adoptionsrecht / Gleichstellung für Homosexuelle</li>
@@ -493,7 +493,7 @@ Mit folgenden Themen scheinen die Parteien ihren Wahlkampf zu betreiben. Obwohl 
   <li>Autobahn-Maut für Ausländer</li>
 </ul>
 
-## Abschlie&szlig;ende Worte
+## Abschließende Worte
 
 Dieser Artikel stellt nur eine kurze Zusammenfassung von Gedanken dar, die mir wichtig oder interessant zu sein scheinen. Bitte denkt über die Themen nach und überlegt euch:
 <ul>

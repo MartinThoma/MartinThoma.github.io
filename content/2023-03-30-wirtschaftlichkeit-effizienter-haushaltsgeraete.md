@@ -47,7 +47,7 @@ Ich habe folgende Stand-Geschirrspüler gesucht:
         <td>933€</td>
     </tr>
     <tr>
-        <td>KKT KOLBE Geschirrsp&uuml;ler</td>
+        <td>KKT KOLBE Geschirrspüler</td>
         <td>450€</td>
         <td>85 kWh/100 Zyklen (D)</td>
         <td>46€</td>

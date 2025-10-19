@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Inverting matrices
 slug: inverting-matrices
+lang: en
 author: Martin Thoma
 date: 2013-06-02 14:01:57.000000000 +02:00
 category: Code
@@ -129,7 +129,7 @@ Lines 63-70:
 
 $\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=0}^{i-1} (\sum_{j=n}^{2n} 1) \right ) = \frac{1}{2} n^3 - \frac{1}{2} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+%28sum_%7Bk%3D0%7D%5E%7Bi-1%7D+%28sum_%7Bj%3Dn%7D%5E%7B2n%7D+1%29%29"))">Wolfram|Alpha</a>)
 
-So we need about $\frac{4}{3} n^3 + \mathcal{O}(n^2)$ operations to invert a matrix with Gau&szlig;-Elimination.
+So we need about $\frac{4}{3} n^3 + \mathcal{O}(n^2)$ operations to invert a matrix with Gauß-Elimination.
 
 <h3>Space complexity</h3>
 My algorithm needs space for the inverse matrix, so it is in $\mathcal{O}(n^2)$.

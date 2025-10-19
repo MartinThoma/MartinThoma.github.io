@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Getting Hardware Information in Ubuntu
 slug: getting-hardware-information-in-ubuntu
+lang: en
 author: Martin Thoma
 date: 2011-09-22 20:44:21.000000000 +02:00
 category: Code
@@ -159,7 +159,7 @@ The packages ddcprobe or xresprobe will help.
 ```bash
 df -H
 
-Dateisystem             Gr&ouml;&szlig;e   Benut  Verf Ben% Eingeh&auml;ngt auf
+Dateisystem             Größe   Benut  Verf Ben% Eingehängt auf
 /dev/sda1              307G    28G   264G  10% /
 none                   2,1G   320k   2,1G   1% /dev
 none                   2,1G   934k   2,1G   1% /dev/shm

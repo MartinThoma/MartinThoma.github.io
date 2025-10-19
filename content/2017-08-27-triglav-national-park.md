@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Triglav National Park
 slug: triglav-national-park
+lang: en
 author: Martin Thoma
 date: 2017-08-27 20:00
 category: My bits and bytes
@@ -256,7 +256,7 @@ Possible parking spots:
     </tr>
     <tr>
         <td lang="en">restaurant</td>
-        <td lang="de">Gastst&auml;tte</td>
+        <td lang="de">Gaststätte</td>
         <td lang="sl">restavracija</td>
     </tr>
     <tr>

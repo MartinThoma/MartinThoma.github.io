@@ -1,30 +1,30 @@
 ---
 layout: post
-lang: de
 title: Algorithmen II - Klausur
 slug: algorithmen-ii-klausur
+lang: de
 author: Martin Thoma
 date: 2013-02-04 20:03:14.000000000 +01:00
 category: German posts
 tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner gehört.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner gehört.</div>
 
 <h2>Vorbereitung</h2>
 <strong>Themen</strong>:
 <ul>
-  <li>Netzwerke und Fl&uuml;sse
+  <li>Netzwerke und Flüsse
     <ul>
       <li>Wert eines Flusses, s-t-Schnitt</li>
       <li>(Minimale) Schnitte, erhöhende Wege</li>
       <li>Max-Flow Min-Cut Theorem</li>
       <li>Ford-Fulkerson-Algorithmus:
         <ul>
-          <li>Erhöhende Wege, Vorwärts- und R&uuml;ckwärtskanten</li>
+          <li>Erhöhende Wege, Vorwärts- und Rückwärtskanten</li>
           <li>Spezialfall: Algorithmus von Edmonds und Karp
            <ul>
-             <li>K&uuml;rzeste erhöhende Wege</li>
+             <li>Kürzeste erhöhende Wege</li>
              <li>Laufzeit: $\mathcal{O}(|V| \cdot |E^2|)$</li>
            </ul>
           </li>
@@ -48,7 +48,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li>Randomisierte Algorithmen
     <ul>
       <li>Las Vegas Algorithmus / Monte Carlo Algorithmus</li>
-      <li>Monte Carlo Algorithmus f&uuml;r MinCut</li>
+      <li>Monte Carlo Algorithmus für MinCut</li>
       <li>Fast Random MinCut</li>
       <li>Maximum Satisﬁability Problem</li>
       <li>Random MaxCut</li>
@@ -60,7 +60,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     <ul>
       <li>Was ist ein einfaches Polygon, was ein konvexes Polygon?</li>
       <li>Sweep Line Algorithmus</li>
-      <li>Konvexe H&uuml;lle:
+      <li>Konvexe Hülle:
         <ul>
           <li>Graham Scan</li>
           <li>Gift Wrapping Algorithmus (Jarvis March) &rarr; <a href="http://codegolf.stackexchange.com/q/11035/5240">Code Golf</a></li>
@@ -71,7 +71,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     <ul>
       <li>Rabin & Karp</li>
       <li>Endlichen Automaten</li>
-      <li>Vorberechnungen f&uuml;r viele Suchanfragen:
+      <li>Vorberechnungen für viele Suchanfragen:
         <ul>
           <li>Suffixbäume</li>
           <li>Suffixarray</li>
@@ -163,7 +163,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </table>
 
 <h2>Komplexitätsklassen</h2>
-<div class="definition">Die Klasse $\mathcal{PP}$ (probabilistic polynomial) enthält alle Entscheidungsprobleme $\Pi$, f&uuml;r die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass f&uuml;r alle Instanzen $I$ von $\Pi$ gilt:
+<div class="definition">Die Klasse $\mathcal{PP}$ (probabilistic polynomial) enthält alle Entscheidungsprobleme $\Pi$, für die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass für alle Instanzen $I$ von $\Pi$ gilt:
 $
 \begin{cases}
 I    \in Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \ge \frac{1}{2} \\
@@ -171,7 +171,7 @@ I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \le \frac{1}{2}
 \end{cases}$
 </div>
 
-<div class="definition">Die Klasse $\mathcal{BPP}$ (bounded error PP) enthält alle Entscheidungsprobleme $\Pi$, f&uuml;r die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass f&uuml;r alle Instanzen $I$ von $\Pi$ gilt:
+<div class="definition">Die Klasse $\mathcal{BPP}$ (bounded error PP) enthält alle Entscheidungsprobleme $\Pi$, für die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass für alle Instanzen $I$ von $\Pi$ gilt:
 $
 \begin{cases}
 I    \in Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \geq \frac{3}{4} \\
@@ -179,7 +179,7 @@ I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \leq \frac{1}{4}
 \end{cases}$
 </div>
 
-<div class="definition">Die Klasse $\mathcal{RP}$ (randomisiert polynomial) enthält alle Entscheidungsprobleme $\Pi$, f&uuml;r die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass f&uuml;r alle Instanzen $I$ von $\Pi$ gilt:
+<div class="definition">Die Klasse $\mathcal{RP}$ (randomisiert polynomial) enthält alle Entscheidungsprobleme $\Pi$, für die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass für alle Instanzen $I$ von $\Pi$ gilt:
 $
 \begin{cases}
 I    \in Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \geq \frac{1}{2} \\
@@ -208,16 +208,16 @@ Es gilt: $\mathcal{RP} \subseteq \mathcal{BPP} \subseteq \mathcal{PP}$
   <li>Berechnung eines Matchings mit hilfe eines MAX-FLOW-Algorithmus.</li>
   <li>Wie benutze ich den Algorithmus von Stoer und Wagner?
     <ul>
-      <li>Funktioniert f&uuml;r negative Kantengewichte nicht, z.B. Graph mit 3 Knoten und 2 negativen Kanten.</li>
+      <li>Funktioniert für negative Kantengewichte nicht, z.B. Graph mit 3 Knoten und 2 negativen Kanten.</li>
     </ul>
   </li>
 </ul>
 
 <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebungsblatt3.pdf">Übungsblatt 3</a>, 20.02.2013: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebung3.pdf">Lösung</a>
 <ul>
-  <li>Algorithmus von de Pina ausf&uuml;hren (<a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/vorlesung7.pdf">Vorlesung Nr 7</a>)</li>
+  <li>Algorithmus von de Pina ausführen (<a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/vorlesung7.pdf">Vorlesung Nr 7</a>)</li>
   <li>Einiges zu Kreisbasen</li>
-  <li>Wie bekomme ich mit einem nicht-perfektem M&uuml;nzwurf eine 50%-Wahrscheinlichkeit? &rarr; <a href="http://math.stackexchange.com/q/309003/6876">Antwort</a></li>
+  <li>Wie bekomme ich mit einem nicht-perfektem Münzwurf eine 50%-Wahrscheinlichkeit? &rarr; <a href="http://math.stackexchange.com/q/309003/6876">Antwort</a></li>
 </ul>
 
 <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebungsblatt4.pdf">Übungsblatt 4</a>, 20.02.2013: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebung4.pdf">Lösung</a>
@@ -234,7 +234,7 @@ Es gilt: $\mathcal{RP} \subseteq \mathcal{BPP} \subseteq \mathcal{PP}$
 
 <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebungsblatt6.pdf">Übungsblatt 6</a>, 24.02.2013: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebung6.pdf">Lösung</a>
 <ul>
-  <li>Welcher Algorithmus f&uuml;r <span class="smallCaps">Vertex Cover</span> hat eine Approximationsg&uuml;te von 2?</li>
+  <li>Welcher Algorithmus für <span class="smallCaps">Vertex Cover</span> hat eine Approximationsgüte von 2?</li>
 </ul>
 
 <h2>Fakten und interessante Fragen</h2>
@@ -244,14 +244,14 @@ Es gilt: $\mathcal{RP} \subseteq \mathcal{BPP} \subseteq \mathcal{PP}$
 </ul>
 
 <div class="question">
-<span class="question">Was ist der Worst-Case f&uuml;r <span class="smallCaps">List Scheduling</span> mit $m$ Maschinen?</span>
+<span class="question">Was ist der Worst-Case für <span class="smallCaps">List Scheduling</span> mit $m$ Maschinen?</span>
 <div class="answer">
 Gegeben seien $n \cdot (m-1)$ Jobs &agrave; 1 Sekunde und ein Job mit $n$ Sekunden. Die Gesamtlaufzeit beträgt dann $2 \cdot n - 1$ Sekunden, die beste Laufzeit ist jedoch $n$ Sekunden.
 </div>
 </div>
 
 <div class="question">
-<span class="question">Was ist der Worst-Case f&uuml;r <span class="smallCaps">Next Fit</span>?</span>
+<span class="question">Was ist der Worst-Case für <span class="smallCaps">Next Fit</span>?</span>
 <div class="answer">
 $n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\frac{1}{2 \cdot n}$.
 </div>
@@ -272,7 +272,7 @@ $n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\f
 </ul>
 
 <h2>Ergebnisse</h2>
-Der Termin f&uuml;r die Klausureinsicht ist noch nicht bekannt (Stand: 01.03.2013)
+Der Termin für die Klausureinsicht ist noch nicht bekannt (Stand: 01.03.2013)
 
 Seit heute (07.03.2013) sind die Ergebnisse da:
 <ul>

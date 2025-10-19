@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Jordansche Normalform: 2x2 Matrizen
 slug: jordansche-normalform-2x2-matrizen
+lang: de
 author: Martin Thoma
 date: 2012-08-17 21:49:41.000000000 +02:00
 category: German posts
@@ -126,8 +126,8 @@ Gegeben sei die Matrix <span>$A \in \mathbb{R}^{2 \times 2}$</span>:
 3 & 6 - \lambda
 \end{pmatrix} = (1- \lambda) \cdot (6 - \lambda) - 6 = 6-6\lambda-\lambda+\lambda^2-6=\lambda^2-7\lambda = \lambda \cdot (\lambda - 7)$$</div>
 Daraus folgt: 0 und 1 sind Eigenwerte. Sie haben jeweils die algebraischen Vielfachheit 1.
-Daraus folgt: Die Jordansche Normalform hat genau zwei Jordanblöcke, die beide die Grö&szlig;e 1x1 haben.
-Daraus folgt: Beide Jordanblöcke haben genau ein Jordankästchen der Grö&szlig;e 1x1.
+Daraus folgt: Die Jordansche Normalform hat genau zwei Jordanblöcke, die beide die Größe 1x1 haben.
+Daraus folgt: Beide Jordanblöcke haben genau ein Jordankästchen der Größe 1x1.
 Daraus folgt: Die Jordansche Normalform der Matrix ist:
 
 <div>$$J = \begin{pmatrix}

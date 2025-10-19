@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wie berechnet man die Cholesky-Zerlegung?
 slug: wie-berechnet-man-die-cholesky-zerlegung
+lang: de
 author: Martin Thoma
 date: 2012-07-03 19:09:22.000000000 +02:00
 category: German posts
@@ -29,7 +29,7 @@ Eine Python-Implementierung sieht so aus:
 
 def getSD(A):
     """ @param A: eine quadratische, reele, positiv definite Matrix
-        @return: Die Matrizen S und D, f&uuml;r die gilt:
+        @return: Die Matrizen S und D, für die gilt:
                  A = S * D * S^T
     """
     n = len(A)
@@ -48,7 +48,7 @@ def getSD(A):
 ```
 
 <h3>Bibliotheken</h3>
-Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt beherrschen. NumPy kann es nat&uuml;rlich:
+Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt beherrschen. NumPy kann es natürlich:
 ```python
 from numpy import linalg
 
@@ -62,21 +62,21 @@ array([[ 2.23606798,  0.        ],
 
 Das ist NICHT die Zerlegung $A = S \cdot D \cdot S^T$, sondern $A = G \cdot G^T$.
 
-Interessanterweise hat NumPy das nicht direkt selbst implementiert (<a href="https://github.com/numpy/numpy/blob/master/numpy/linalg/linalg.py#L448">NumPy-Quelle</a>). Man greift auf <a href="http://de.wikipedia.org/wiki/LAPACK">LAPACK</a> zur&uuml;ck, was in FORTRAN 90 programmiert wurde (<a href="http://www.netlib.org/lapack/double/dpotrf.f">LAPACK-Quelle</a>)!
+Interessanterweise hat NumPy das nicht direkt selbst implementiert (<a href="https://github.com/numpy/numpy/blob/master/numpy/linalg/linalg.py#L448">NumPy-Quelle</a>). Man greift auf <a href="http://de.wikipedia.org/wiki/LAPACK">LAPACK</a> zurück, was in FORTRAN 90 programmiert wurde (<a href="http://www.netlib.org/lapack/double/dpotrf.f">LAPACK-Quelle</a>)!
 
 <h3>Wolfram|Alpha</h3>
 Auch Wolfram|Alpha kennt "cholesky decomposition": <a href="http://www.wolframalpha.com/input/?i=cholesky+decomposition+%7B%7B5%2C2%7D%2C%7B2%2C1%7D%7D">Beispiel</a>. Allerdings sieht es schon bei $3 \times 3$-Matrizen schlecht aus.
 
 <h2>Numerik</h2>
-In Numerik haben wir bei Herrn Dr. Wei&szlig; folgendes als Cholesky-Zerlegung kennen gelernt:
+In Numerik haben wir bei Herrn Dr. Weiß folgendes als Cholesky-Zerlegung kennen gelernt:
 
 Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = \bar L \cdot \bar{L}^T$, wobei $\bar L$ eine untere Dreiecksmatrix ist.
 
-Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchf&uuml;hrt, erh&auml;lt man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist.
+Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchführt, erhält man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist.
 
 Offensichtlich gilt: $\bar L = L \cdot D^{\frac{1}{2}}$.
 
-Die Cholesky-Zerlegung kann man folgenderma&szlig;en berechnen:
+Die Cholesky-Zerlegung kann man folgendermaßen berechnen:
 
 <figure class="aligncenter">
             <a href="../images/2012/07/cholesky-zerlegung-numerik.png"><img src="../images/2012/07/cholesky-zerlegung-numerik.png" alt="Berechnung der Cholesky-Zerlegung in Pseudocode" style="max-width:512px;max-height:390px" class="size-full wp-image-67881"/></a>

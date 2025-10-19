@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Myth: The Internet doesn''t forget
 slug: myth-the-internet-doesnt-forget
+lang: en
 author: Martin Thoma
 date: 2013-03-14 12:01:58.000000000 +01:00
 category: The Web
@@ -53,7 +53,7 @@ Let's see the stats:
       <td>Unfortunately, this SME-music-content is not available in Germany because GEMA has not granted the respective music publishing rights.</td>
     </tr>
     <tr>
-      <td><abbr title="Within Temptation - Running up that hill; Warlock - F&uuml;r Immer; Smells Like Teen Spirit Misheard; Metallica - Master Of Puppets; The Rasmus - Livin' in a world without you; The Fratellis - (13) Nobody's Favourite Actor; The Fratellis - My Friend John; Blink 182 - All The Small Things; Blink-182 - What's My Age Again?">9 songs</abbr></</td>
+      <td><abbr title="Within Temptation - Running up that hill; Warlock - Für Immer; Smells Like Teen Spirit Misheard; Metallica - Master Of Puppets; The Rasmus - Livin' in a world without you; The Fratellis - (13) Nobody's Favourite Actor; The Fratellis - My Friend John; Blink 182 - All The Small Things; Blink-182 - What's My Age Again?">9 songs</abbr></</td>
       <td>[...] UMG-music-content is not available in Germany because GEMA [...]</td>
     </tr>
     <tr>

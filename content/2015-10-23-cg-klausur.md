@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Computergrafik - Klausur
 slug: cg-klausur
+lang: de
 author: Martin Thoma
 date: 2015-10-23 11:30
 category: German posts
@@ -981,7 +981,7 @@ aber auch nicht :-/)
 ## Material und Links
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
-* [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
+* [Übungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * [E-Mail Verteiler](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/cg.cg)
 * [Inoffizielle Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen) für die Altklausuren
 

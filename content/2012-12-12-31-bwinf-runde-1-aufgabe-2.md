@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: 31. BwInf - Runde 1, Aufgabe 2
 slug: 31-bwinf-runde-1-aufgabe-2
+lang: de
 author: Martin Thoma
 date: 2012-12-12 12:12:58.000000000 +01:00
 category: German posts
@@ -10,23 +10,23 @@ tags: BwInf, GLPK
 featured_image: 2012/09/bwinf-thumb.png
 ---
 <h2>Die Aufgabenstellung</h2>
-<blockquote>Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter k&ouml;nnen Koffer mit M&uuml;nzen transportiert werden. Die Koffer enthalten M&uuml;nzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert.
+<blockquote>Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter können Koffer mit Münzen transportiert werden. Die Koffer enthalten Münzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert.
 
-Da kommt so einiges an Gewicht zusammen. Es ist daher notwendig, den Transporter gleichm&auml;&szlig;ig zu beladen, so dass er nicht zu einer Seite umkippen kann.
+Da kommt so einiges an Gewicht zusammen. Es ist daher notwendig, den Transporter gleichmäßig zu beladen, so dass er nicht zu einer Seite umkippen kann.
 
-Unser Transporter hat links und rechts je einen Kofferraum. F&uuml;r jeden Kofferraum lassen sich Gesamtwert und Gesamtgewicht der darin enthaltenen Koffer bestimmen. Damit der Transporter keine Schlagseite bekommt, m&uuml;ssen die Koffer so einger&auml;umt werden, dass die Differenz zwischen den beiden Gesamtgewichten minimal ist. Aus versicherungstechnischen Gr&uuml;nden d&uuml;rfen die beiden Gesamtwerte sich au&szlig;erdem um h&ouml;chstens 10.000 Euro unterscheiden.</blockquote>
+Unser Transporter hat links und rechts je einen Kofferraum. Für jeden Kofferraum lassen sich Gesamtwert und Gesamtgewicht der darin enthaltenen Koffer bestimmen. Damit der Transporter keine Schlagseite bekommt, müssen die Koffer so eingeräumt werden, dass die Differenz zwischen den beiden Gesamtgewichten minimal ist. Aus versicherungstechnischen Gründen dürfen die beiden Gesamtwerte sich außerdem um höchstens 10.000 Euro unterscheiden.</blockquote>
 
-<blockquote>Schreibe ein Programm zur Verteilung der Geldkoffer auf die beiden Kofferr&auml;ume. &Uuml;berpr&uuml;fe dein Programm mit den auf <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=1168">www.bundeswettbewerb-informatik.de</a> abgelegten Beispielen mit Angaben zu Werten und Gewichten der einzelnen Koffer.</blockquote>
+<blockquote>Schreibe ein Programm zur Verteilung der Geldkoffer auf die beiden Kofferräume. Überprüfe dein Programm mit den auf <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=1168">www.bundeswettbewerb-informatik.de</a> abgelegten Beispielen mit Angaben zu Werten und Gewichten der einzelnen Koffer.</blockquote>
 
 Quelle: <a href="http://www.bundeswettbewerb-informatik.de/fileadmin/templates/bwinf/aufgaben/bwinf31/Aufgabenblatt311_Aufgaben.pdf">www.bundeswettbewerb-informatik.de</a>
 
-<h2>Vollst&auml;ndiger Pseudocode</h2>
+<h2>Vollständiger Pseudocode</h2>
 <figure class="aligncenter">
             <a href="../images/2012/12/pseudocode-31.1.2-bwinf.png"><img src="../images/2012/12/pseudocode-31.1.2-bwinf.png" alt="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2" style="max-width:512px;max-height:412px" class="size-full wp-image-46861"/></a>
             <figcaption class="text-center">Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2</figcaption>
         </figure>
 
-<h2>L&ouml;sung mit GLPK</h2>
+<h2>Lösung mit GLPK</h2>
 Der folgende Code muss als partition.mod gespeichert werden:
 
 ```text
@@ -123,12 +123,12 @@ end;
 
 ```
 
-Jetzt muss man folgendes ausf&uuml;hren:
+Jetzt muss man folgendes ausführen:
 ```bash
 glpsol --output example.out --log example.log --math partition.mod
 ```
 
-Das ben&ouml;tigt f&uuml;r die gr&ouml;&szlig;te Eingabe etwa 18 Sekunden.
+Das benötigt für die größte Eingabe etwa 18 Sekunden.
 
 Wenn man nun in die example.out schaut, sieht man unter anderem folgendes:
 
@@ -146,4 +146,4 @@ Objective:  obj = 5 (MINimum)
 Die interessante Zahl ist die 5. Das ist das Minimum, das in dieser Aufgabe gesucht war. Wie es zu erreichen ist, sieht  man in der Ausgabe darunter.
 
 <h2>Weiteres</h2>
-Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es f&uuml;r MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man f&uuml;r eine konstante Anzahl an Koffern die optimale aufteilung und verteilt den rest mittels LIST SCHEDULING.
+Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es für MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man für eine konstante Anzahl an Koffern die optimale aufteilung und verteilt den rest mittels LIST SCHEDULING.

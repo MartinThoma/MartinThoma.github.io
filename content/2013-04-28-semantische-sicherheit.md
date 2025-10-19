@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Semantische Sicherheit
 slug: semantische-sicherheit
+lang: de
 author: Martin Thoma
 date: 2013-04-28 15:06:53.000000000 +02:00
 category: German posts
@@ -14,7 +14,7 @@ In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13
 <h2>Einwegfunktionen und <span markdown="0">$\mathcal{P} \neq \mathcal{NP}$</span></h2>
 <div class="definition">
 Sei <span markdown="0">$f:X \rightarrow Y$</span> eine Funktion.
-<span markdown="0">$f$</span> hei&szlig;t eine Einwegfunktion, genau dann wenn für alle <span markdown="0">$x \in X$</span> gilt:
+<span markdown="0">$f$</span> heißt eine Einwegfunktion, genau dann wenn für alle <span markdown="0">$x \in X$</span> gilt:
 <ul>
   <li><span markdown="0">$y := f(x)$</span> kann in Polynomialzeit berechnet werden</li>
   <li>Für die Berechnung eines Urbildes <span markdown="0">$x$</span> aus <span markdown="0">$y$</span> existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>

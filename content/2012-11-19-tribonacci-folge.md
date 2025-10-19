@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: de
 title: Tribonacci-Folge
 slug: tribonacci-folge
+lang: de
 author: Martin Thoma
 date: 2012-11-19 20:52:00.000000000 +01:00
 category: Code
 tags: Programming, Java
 ---
-Folgende Aufgabe gab es (sinngem&auml;&szlig;) f&uuml;r das Modul &bdquo;Programmieren&ldquo; im zweiten &Uuml;bungsblatt 2012:
+Folgende Aufgabe gab es (sinngemäß) für das Modul &bdquo;Programmieren&ldquo; im zweiten Übungsblatt 2012:
 
 Sei $(a_n)_{n \in \mathbb{N}}$ eine Folge und definiert durch:
 
@@ -17,15 +17,15 @@ $a_n := \begin{cases}
 a_{n-1} + a_{n-2} + a_{n-3} & \text{, falls } n \geq 3
 \end{cases}$.
 
-Ich werde im folgenden mal kurz m&ouml;gliche L&ouml;sungen in Python (und eine in Java) vorstellen. Python hat bei solchen Aufgaben den Vorteil, dass es viel kompakter ist und Ganzzahlen beliebig gro&szlig; werden k&ouml;nnen.
+Ich werde im folgenden mal kurz mögliche Lösungen in Python (und eine in Java) vorstellen. Python hat bei solchen Aufgaben den Vorteil, dass es viel kompakter ist und Ganzzahlen beliebig groß werden können.
 
-<h2>H&auml;ndische L&ouml;sung</h2>
-Bevor man irgendwas programmiert, sollte man sicherstellen, dass man es testen kann. Was w&auml;ren also die ersten paar Folgenglieder?
+<h2>Händische Lösung</h2>
+Bevor man irgendwas programmiert, sollte man sicherstellen, dass man es testen kann. Was wären also die ersten paar Folgenglieder?
 
 $a_0 = a_1 = a_2 = 1, a_3 = 3, a_4 = 5, a_5 = 9, a_6 = 17, a_7 = 31, a_8 = 57$
 
-<h2>Rekursive L&ouml;sung</h2>
-Solche Aufgaben lassen sich h&auml;ufig sehr einfach rekursiv l&ouml;sen:
+<h2>Rekursive Lösung</h2>
+Solche Aufgaben lassen sich häufig sehr einfach rekursiv lösen:
 
 ```python
 def tribonacci(n):
@@ -35,8 +35,8 @@ def tribonacci(n):
         return tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3)
 ```
 
-Allerdings hat diese rekursive L&ouml;sung den riesigen nachteil, dass viele Berechnungen redundant sind.
-Angenommen, wir wollen <code>tribonacci(5)</code> berechnen. Dann l&auml;uft folgendes ab:
+Allerdings hat diese rekursive Lösung den riesigen nachteil, dass viele Berechnungen redundant sind.
+Angenommen, wir wollen <code>tribonacci(5)</code> berechnen. Dann läuft folgendes ab:
 
 <ol>
   <li>Aufruf <code>tribonacci(5)</code>
@@ -71,7 +71,7 @@ Man sieht deutlich, dass z.B. <code>tribonacci(3)</code> mehrfach berechnet werd
 Wie kann man so was verbessern?
 
 <h2>Bottom-Up Ansatz</h2>
-Wir ben&ouml;tigen f&uuml;r ein neues Folgenglied immer nur das vorhergehende. Das kann dann so aussehen:
+Wir benötigen für ein neues Folgenglied immer nur das vorhergehende. Das kann dann so aussehen:
 
 ```python
 def tribonacciBottomUp(n):
@@ -87,7 +87,7 @@ def tribonacciBottomUp(n):
 ```
 
 <h2>Fill it</h2>
-Eine weitere M&ouml;glichkeit w&auml;re die schw&auml;che des rekursiven Ansatzes zu eliminieren, indem man alle bisher berechneten Werte in einem Array speichert.
+Eine weitere Möglichkeit wäre die schwäche des rekursiven Ansatzes zu eliminieren, indem man alle bisher berechneten Werte in einem Array speichert.
 
 <h2>Wertetabelle</h2>
 <table>
@@ -136,7 +136,7 @@ Eine weitere M&ouml;glichkeit w&auml;re die schw&auml;che des rekursiven Ansatze
 </table>
 
 <h2>Java</h2>
-Java-Nutzer m&uuml;ssen sich dar&uuml;ber im klaren sein, dass alle Elemente, die gr&ouml;&szlig;er als 36 sind, die <code>int</code>-Grenzen sprengen. Eine L&ouml;sung f&uuml;r das &Uuml;bungsblatt k&ouml;nnte ungef&auml;hr so aussehen:
+Java-Nutzer müssen sich darüber im klaren sein, dass alle Elemente, die größer als 36 sind, die <code>int</code>-Grenzen sprengen. Eine Lösung für das Übungsblatt könnte ungefähr so aussehen:
 
 ```java
 /** This class calculates numbers of the Tribonacci sequence. */

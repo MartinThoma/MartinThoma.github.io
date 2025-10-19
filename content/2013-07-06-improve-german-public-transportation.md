@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Improve German Public Transportation
 slug: improve-german-public-transportation
+lang: en
 author: Martin Thoma
 date: 2013-07-06 20:45:32.000000000 +02:00
 category: Cyberculture
@@ -26,7 +26,7 @@ I've bought two tickets to get from Karlsruhe to Augsburg (230 km) in about a mo
 <h2>Alternative companies</h2>
 Most people choose "Deutsche Bahn" (short: DB) because it is the biggest company that provides public transportation when you want to travel between cities. DB is well known and connects all big cities. However, there are alternatives.
 
-After a law (&sect; 13 Abs. 2 of the <a href="http://de.wikipedia.org/wiki/Personenbef%C3%B6rderungsgesetz_(Deutschland)">Personenbef&ouml;rderungsgesetz</a>) was annulled, bus companies provided alternatives to traveling by train. Some companies are:
+After a law (&sect; 13 Abs. 2 of the <a href="http://de.wikipedia.org/wiki/Personenbef%C3%B6rderungsgesetz_(Deutschland)">Personenbeförderungsgesetz</a>) was annulled, bus companies provided alternatives to traveling by train. Some companies are:
 
 <ul>
   <li><a href="http://meinfernbus.de/">MeinFernbus.de</a></li>
@@ -64,12 +64,12 @@ Google Transit is interesting as they provide <a href="https://developers.google
 My email from 06.07.2013 to kundencenter@avv-augsburg.de:
 <blockquote>Sehr geehrte Damen und Herren,
 
-ich habe gerade gesehen, dass Google die M&ouml;glichkeit anbietet, die Fahrplaninformationen in Google Maps einzubinden:
+ich habe gerade gesehen, dass Google die Möglichkeit anbietet, die Fahrplaninformationen in Google Maps einzubinden:
 http://maps.google.com/help/maps/mapcontent/transit/index.html
 
-K&ouml;nnten Sie das anbieten? Es ist vermutlich deutlich einfacher, die Fahrplanauskunft von Google zu nutzen als auf die AVV-Seite zu gehen.
+Könnten Sie das anbieten? Es ist vermutlich deutlich einfacher, die Fahrplanauskunft von Google zu nutzen als auf die AVV-Seite zu gehen.
 
-Mit freundlichen Gr&uuml;&szlig;en,
+Mit freundlichen Grüßen,
 Martin Thoma</blockquote>
 
 
@@ -85,16 +85,16 @@ My email from 06.07.2013:
 
 <blockquote>Sehr geehrte Damen und Herren,
 
-ich habe mich heute sehr &uuml;ber die Deutsche Bahn ge&auml;rgert und auf der Suche
-nach Alternativen meinfernbus.de gefunden. Allerdings habe ich zuerst &uuml;ber
+ich habe mich heute sehr über die Deutsche Bahn geärgert und auf der Suche
+nach Alternativen meinfernbus.de gefunden. Allerdings habe ich zuerst über
 Google Maps nach Busverbindungen zwischen Karlsruhe und Augsburg gesucht,
 wo mir leider nur die Bahn angeboten wurde.
 
 Haben Sie schon von Google
-Transit<http://maps.google.com/help/maps/mapcontent/transit/index.html>geh&ouml;rt?
+Transit<http://maps.google.com/help/maps/mapcontent/transit/index.html>gehört?
 Was halten Sie davon, an diesem Programm teilzunehmen?
 
-Mit freundlichen Gr&uuml;&szlig;en,
+Mit freundlichen Grüßen,
 Martin Thoma</blockquote>
 
 
@@ -102,13 +102,13 @@ Martin Thoma</blockquote>
 Answer from 08.07.2013:
 <blockquote>Sehr geehrter Herr Thoma,
 
-bitte entschuldigen Sie die sp&auml;te Antwort.
+bitte entschuldigen Sie die späte Antwort.
 
-Vielen Dank f&uuml;r Ihre Email, Ihre Kooperationsanfrage ist bei uns eingegangen. Wir freuen uns sehr, dass Sie mit MeinFernbus.de, dem Marktf&uuml;hrer im deutschen Fernbusverkehr, zusammenarbeiten m&ouml;chten.
+Vielen Dank für Ihre Email, Ihre Kooperationsanfrage ist bei uns eingegangen. Wir freuen uns sehr, dass Sie mit MeinFernbus.de, dem Marktführer im deutschen Fernbusverkehr, zusammenarbeiten möchten.
 
-Wir pr&uuml;fen gerne eine entsprechende Zusammenarbeit. Zu gegebener Zeit setzt sich unser Kooperationsmanager mit Ihnen in Verbindung. Aufgrund der Vielzahl eingehender Anfragen bitten wir Sie zun&auml;chst noch um etwas Geduld.
+Wir prüfen gerne eine entsprechende Zusammenarbeit. Zu gegebener Zeit setzt sich unser Kooperationsmanager mit Ihnen in Verbindung. Aufgrund der Vielzahl eingehender Anfragen bitten wir Sie zunächst noch um etwas Geduld.
 
-Vielen Dank f&uuml;r Ihr Verst&auml;ndnis, herzliche Gr&uuml;&szlig;e aus der Hauptstadt
+Vielen Dank für Ihr Verständnis, herzliche Grüße aus der Hauptstadt
 
 Friederike Freytag</blockquote>
 

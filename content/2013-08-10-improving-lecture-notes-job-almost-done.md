@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Improving lecture notes: Job (almost) done!
 slug: improving-lecture-notes-job-almost-done
+lang: en
 author: Martin Thoma
 date: 2013-08-10 15:50:09.000000000 +02:00
 category: My bits and bytes
@@ -142,7 +142,7 @@ I've learned quite a lot about LaTeX while correcting the document. My questions
 And some language questions:
 <ul>
   <li><a href="http://german.stackexchange.com/q/7027/655">Nummerierung im Text</a></li>
-  <li><a href="http://german.stackexchange.com/q/6589/655">Gibt es ein Verb f&uuml;r &ldquo;Ein Zeichen wird durch seine Escape-Sequenz ersetzt&rdquo;?</a></li>
+  <li><a href="http://german.stackexchange.com/q/6589/655">Gibt es ein Verb für &ldquo;Ein Zeichen wird durch seine Escape-Sequenz ersetzt&rdquo;?</a></li>
   <li><a href="http://german.stackexchange.com/q/6154/655">&ldquo;Theoretische Informatik&rdquo; oder &ldquo;theoretische Informatik&rdquo;</a></li>
 </ul>
 

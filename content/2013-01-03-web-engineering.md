@@ -1,25 +1,25 @@
 ---
 layout: post
-lang: de
 title: Web Engineering
 slug: web-engineering
+lang: de
 author: Martin Thoma
 date: 2013-01-03 13:57:06.000000000 +01:00
 category: German posts
 tags: Web Development, Klausur
 featured_image: 2012/07/web-graph-thumb.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer gehört.</div>
 
-<h2>&Uuml;ber die Vorlesung</h2>
-In der Vorlesung &bdquo;Web Engineering&ldquo; lernt man, welche besonderen Herausforderungen Web-Projekte beinhalten und wie man damit umgehen kann. Es wird zwar auch &uuml;ber technische Aspekte geredet (siehe Part 1), aber es geht vor allem um Projektplanung und -management. Insbesondere wird hier nichts konkret entwickelt. Daf&uuml;r gibt es vermutlich das Praktikum, das aber unabh&auml;ngig von der Vorlesung ist.
+<h2>Über die Vorlesung</h2>
+In der Vorlesung &bdquo;Web Engineering&ldquo; lernt man, welche besonderen Herausforderungen Web-Projekte beinhalten und wie man damit umgehen kann. Es wird zwar auch über technische Aspekte geredet (siehe Part 1), aber es geht vor allem um Projektplanung und -management. Insbesondere wird hier nichts konkret entwickelt. Dafür gibt es vermutlich das Praktikum, das aber unabhängig von der Vorlesung ist.
 
-Herr Dr. Nussbaumer h&auml;lt die Vorlesung sehr interaktiv. Er stellt viele Fragen, &uuml;ber die man in der Vorlesung diskutieren kann und ist auch immer nach der Vorlesung bereit etwas genauer zu erkl&auml;ren.
+Herr Dr. Nussbaumer hält die Vorlesung sehr interaktiv. Er stellt viele Fragen, über die man in der Vorlesung diskutieren kann und ist auch immer nach der Vorlesung bereit etwas genauer zu erklären.
 
 Die Struktur unter &bdquo;Vorbereitung&ldquo; richtet sich nach dem Aufbau der Folien.
 
 <h2>Vorbereitung</h2>
-Pr&uuml;fungsprotokolle sind bei der <a href="http://www.fsmi.uni-karlsruhe.de/Studium/Pruefungsprotokolle/">Fachschaft Informatik</a> zu erhalten. <a href="../images/2013/01/muendlich-we-2013-martin-thoma.pdf">Mein Pr&uuml;fungsprotokoll</a> ist hier und die <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/kit-muendlich-info">TeX-Quelldateien</a> bekommt ihr nat&uuml;rlich auch.
+Prüfungsprotokolle sind bei der <a href="http://www.fsmi.uni-karlsruhe.de/Studium/Pruefungsprotokolle/">Fachschaft Informatik</a> zu erhalten. <a href="../images/2013/01/muendlich-we-2013-martin-thoma.pdf">Mein Prüfungsprotokoll</a> ist hier und die <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/kit-muendlich-info">TeX-Quelldateien</a> bekommt ihr natürlich auch.
 
 Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
 
@@ -73,9 +73,9 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
       <li>Program Management: Wie bringe ich das Projekt zu einem erfolgreichem Abschluss?</li>
       <li>Architekture: Wie halte ich die Software erweiterbar, anpassbar und wartbar?</li>
       <li>Development: Wie schreibe ich den Code von Methode abc in Klasse xyz?</li>
-      <li>Test: Sind alle funktionalen und qualitativen Anforderungen erf&uuml;llt? Ist das System robust?</li>
+      <li>Test: Sind alle funktionalen und qualitativen Anforderungen erfüllt? Ist das System robust?</li>
       <li>User Experience: Passiert das, was der Nutzer erwartet? Kann man dem User die Bedienung der Software erleichtern?</li>
-      <li>Release / Operations: Wie halte ich die Software &uuml;ber Jahre am laufen?</li>
+      <li>Release / Operations: Wie halte ich die Software über Jahre am laufen?</li>
     </ul>
   </li>
   <li>Aufsplitten der Teams nach Funktionen oder Features
@@ -119,7 +119,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
     <ul>
      <li>Rollen:
        <ul>
-         <li>Product Management: Anwalt des Kunden, team&uuml;bergreifende Projekt-Vision, betriebswirtschaftliche Sicht auf das Projekt</li>
+         <li>Product Management: Anwalt des Kunden, teamübergreifende Projekt-Vision, betriebswirtschaftliche Sicht auf das Projekt</li>
          <li>Program Management: &bdquo;Projektleiter&ldquo;, Teamkommunikation, technische Sicht auf das Projekt</li>
          <li>Architecture, Development, Testing, Release / Operations</li>
          <li>User Experience: Anwalt des Benutzers</li>
@@ -157,7 +157,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
       <li>Validation</li>
     </ol>
   </li>
-  <li>Gather requirements (Interviewing, <a href="http://en.wikipedia.org/wiki/Job_shadowing">Shadowing</a>, surveys, brainstorming, user instructions - z.B. bei Atomkraftwerken gibt es wohl schon Prozessabl&auml;ufe)</li>
+  <li>Gather requirements (Interviewing, <a href="http://en.wikipedia.org/wiki/Job_shadowing">Shadowing</a>, surveys, brainstorming, user instructions - z.B. bei Atomkraftwerken gibt es wohl schon Prozessabläufe)</li>
   <li><a href="http://dropsafe.crypticide.com/article/1006">A11Y, L10N, I18N, G11N</a>: <a href="http://de.wikipedia.org/wiki/BITV">BITV</a></li>
   <li>RNA: Relationship-Navigation Analysis</li>
   <li><a href="http://de.wikipedia.org/wiki/Web_Accessibility_Initiative">WAI</a></li>
@@ -168,12 +168,12 @@ Logischer Entwurf (Abstrakt: Wireframes, Navigation patterns) &harr; Physikalisc
 
 <h4>Content Management Aspects</h4>
 <ul>
-  <li>Content-Typen m&uuml;ssen definiert werden, um Inhalte von der Darstellung trennen zu k&ouml;nnen</li>
-  <li>Content-Typen sind auch f&uuml;r die Suche relevant</li>
-  <li>Templates m&uuml;ssen erstellt werden</li>
+  <li>Content-Typen müssen definiert werden, um Inhalte von der Darstellung trennen zu können</li>
+  <li>Content-Typen sind auch für die Suche relevant</li>
+  <li>Templates müssen erstellt werden</li>
   <li>Welche Metadaten liegen vor?</li>
-  <li>Wie k&ouml;nnen Metadaten weitergegeben werden? &rarr; <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=99170">Rich Snippets</a></li>
-  <li>Welche <abbr title="Denglisch: Workflows">Arbeitsabl&auml;ufe</abbr> habe ich?</li>
+  <li>Wie können Metadaten weitergegeben werden? &rarr; <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=99170">Rich Snippets</a></li>
+  <li>Welche <abbr title="Denglisch: Workflows">Arbeitsabläufe</abbr> habe ich?</li>
   <li>Inhalt kann in flachen/strukturierten Dateien oder in Datenbanken liegen.</li>
   <li>Strukturierte Dateien: XML, RDF (&rarr; <a href="//www.youtube.com/watch?v=ldl0m-5zLz4">Video</a>), Microformats</li>
 </ul>
@@ -250,11 +250,11 @@ Diese Tutorials sollte man machen:
 <div class="question">
 <span class="question">Was ist das Endpoint-ABC?</span>
 <div class="answer">
-Wurde durch die WCF gepr&auml;gt und ist <a href="http://stackoverflow.com/q/8893128/562769">z.B. so in der Web.config</a>. Das ABC steht f&uuml;r ...
+Wurde durch die WCF geprägt und ist <a href="http://stackoverflow.com/q/8893128/562769">z.B. so in der Web.config</a>. Das ABC steht für ...
 <ul>
   <li>Address (Wo ist der Endpoint?)</li>
   <li>Binding (Wie verbinde ich? Protokoll? Encoding?)</li>
-  <li>Contract (Welche Informationen will ich &uuml;bertragen?)</li>
+  <li>Contract (Welche Informationen will ich übertragen?)</li>
 </ul>
 Siehe auch: <a href="http://fczaja.blogspot.de/2010/10/wcf-endpoint-abc.html">Filip's Technical Blog</a>
 </div>
@@ -292,7 +292,7 @@ Workshops &rarr; Notes from members &rarr; Briefing package with membership vote
 </div>
 
 <div class="question">
-<span class="question">Wie l&auml;uft ein HTTP-Request ab?</span>
+<span class="question">Wie läuft ein HTTP-Request ab?</span>
 <div class="answer">Siehe <a href="http://www.tecchannel.de/netzwerk/management/401210/hypertext_transfer_protocol/index2.html">TechChannel.de</a>
 </div>
 </div>
@@ -307,7 +307,7 @@ Workshops &rarr; Notes from members &rarr; Briefing package with membership vote
 </ul>
 
 <h2>Termine</h2>
-Web Engineering wird m&uuml;ndlich gepr&uuml;ft. Dazu muss man sich bei Herrn Matthias Keller (matthias.keller@kit.edu) melden und einen Termin ausmachen. Zus&auml;tzlich muss man sich &uuml;ber QISPOS anmelden.
+Web Engineering wird mündlich geprüft. Dazu muss man sich bei Herrn Matthias Keller (matthias.keller@kit.edu) melden und einen Termin ausmachen. Zusätzlich muss man sich über QISPOS anmelden.
 
 <strong>Datum</strong>: Dienstag, der 19. Februar 2013 um 14:30 Uhr (individuell, siehe Organisation)<br/>
 <strong>Ort</strong>: Geb. 20.21 (SCC), Raum 303 (individuell, siehe Organisation)<br/>

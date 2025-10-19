@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Sichtweite des Burdsch Chalifa
 slug: sichtweite-des-burdsch-chalifa
+lang: de
 author: Martin Thoma
 date: 2012-08-12 13:37:17.000000000 +02:00
 category: German posts
@@ -10,13 +10,13 @@ tags: mathematics, Physics, Geometry
 featured_image: 2012/08/skizze-math-thumb.png
 ---
 <h2>Aufgabenstellung</h2>
-Der Burdsch Chalifa war 2010 das h&ouml;chste Geb&auml;ude der Erde. Bis zur Spitze sind es 830 m.
+Der Burdsch Chalifa war 2010 das höchste Gebäude der Erde. Bis zur Spitze sind es 830 m.
 
-Angenommen, die Erde w&auml;re eine perfekte Kugel mit einem Radius von 6370 km und die Sicht w&auml;re nicht durch Nebel, Wolken oder sonstige Hindernisse eingeschr&auml;nkt. Aus welcher Entfernung, die man &uuml;ber die Erde direkt zum Burdsch Chalifa zur&uuml;cklegt, k&ouml;nnte man den Burdsch Chalifa maximal sehen?
+Angenommen, die Erde wäre eine perfekte Kugel mit einem Radius von 6370 km und die Sicht wäre nicht durch Nebel, Wolken oder sonstige Hindernisse eingeschränkt. Aus welcher Entfernung, die man über die Erde direkt zum Burdsch Chalifa zurücklegt, könnte man den Burdsch Chalifa maximal sehen?
 
 <h3>Situationsskizze</h3>
-<a href="../images/2012/08/earth-skizze.png"><img src="../images/2012/08/earth-skizze.png" alt="" title="Situationsskizze f&uuml;r die Berechnung" width="500" height="553" class="aligncenter size-full wp-image-39311" /></a>
-Gesucht ist die L&auml;nge des neongr&uuml;n hervorgehobenen Kreisbogens x.
+<a href="../images/2012/08/earth-skizze.png"><img src="../images/2012/08/earth-skizze.png" alt="" title="Situationsskizze für die Berechnung" width="500" height="553" class="aligncenter size-full wp-image-39311" /></a>
+Gesucht ist die Länge des neongrün hervorgehobenen Kreisbogens x.
 
 <h3>Rechenweg</h3>
 \begin{align}
@@ -27,23 +27,23 @@ Gesucht ist die L&auml;nge des neongr&uuml;n hervorgehobenen Kreisbogens x.
     \end{align}
 
 <h3>Antwort</h3>
-Bei optimalen, also unrealistischen, Bedingungen k&ouml;nnte man die Spitze des Burdsch Chalifa noch in 102,8 km entfernung sehen. Dies entspricht &uuml;brigens auch dem Punkt auf der Erdoberfl&auml;che, der vom Burdsch Chalifa am weitesten entfernt und zu sehen ist.
-Auch wenn nur die Luftlinie gemessen wird, sind es 102,8 km, da der Erdradius bedeutend gr&ouml;&szlig;er als der Burdsch Chalifa ist.
+Bei optimalen, also unrealistischen, Bedingungen könnte man die Spitze des Burdsch Chalifa noch in 102,8 km entfernung sehen. Dies entspricht übrigens auch dem Punkt auf der Erdoberfläche, der vom Burdsch Chalifa am weitesten entfernt und zu sehen ist.
+Auch wenn nur die Luftlinie gemessen wird, sind es 102,8 km, da der Erdradius bedeutend größer als der Burdsch Chalifa ist.
 
 Laut <a href="http://www.bild.de/lifestyle/bams/burj-chalifa/burj-chalifa-bei-dieser-story-wurde-uns-schwindelig-828-meter-11056462.bild.html">Bildzeitung</a> kann man die Spitze des Burdsch Chalifa noch in 95 km sehen.
 
 <h2>Erweiterung der Aufgabenstellung</h2>
-Das Dorf Mileiha liegt direkt &ouml;stlich vom Burdsch Chalifa (25&deg; 11' 50'' N, 55&deg; 16' 27'' O).
+Das Dorf Mileiha liegt direkt östlich vom Burdsch Chalifa (25&deg; 11' 50'' N, 55&deg; 16' 27'' O).
 
-Wie weit &ouml;stlich darf das Dorf maximal liegen, damit man die Spitze des Burdsch Chalifa bei optimalen Bedingungen noch sehen kann?
+Wie weit östlich darf das Dorf maximal liegen, damit man die Spitze des Burdsch Chalifa bei optimalen Bedingungen noch sehen kann?
 
 Hinweis: Es gelten noch immer die gleichen Voraussetzungen wie im ersten Teil der Aufgabe.
 
 <h3>Situationsskizze</h3>
 <a href="../images/2012/08/earth-skizze-21.png"><img src="../images/2012/08/earth-skizze-21.png" alt="" title="Skizze der Erde" width="500" height="299" class="aligncenter size-full wp-image-39411" /></a>
 
-Gesucht ist die gr&uuml;n eingezeichnete Kurve, die sich &uuml;ber die Erdoberfl&auml;che kr&uuml;mmt. Ihre L&auml;nge sei x.
-Um diese zu berechnen, m&uuml;ssen wir wissen welchen Radius die Kreisfl&auml;che hat, die entsteht, wenn man die Erde am 25. Breitengrad schneidet. Der Radius dieser Kreisfl&auml;che sei $r_{25}$.
+Gesucht ist die grün eingezeichnete Kurve, die sich über die Erdoberfläche krümmt. Ihre Länge sei x.
+Um diese zu berechnen, müssen wir wissen welchen Radius die Kreisfläche hat, die entsteht, wenn man die Erde am 25. Breitengrad schneidet. Der Radius dieser Kreisfläche sei $r_{25}$.
 
 <h3>Berechnung</h3>
 
@@ -63,7 +63,7 @@ x &= 2 \cdot r \cdot \pi \cdot \frac{\cos^{-1}(\frac{r}{r+h})}{360^\circ} \\
   &\approx 97,8 \text{km}
 \end{align}
 
-Nun sollte man noch ber&uuml;cksichtigen, dass die Beobachter wohl nicht auf der Erde kriechen, sondern ihre Augen in einer H&ouml;he von ca. 1,6m sind:
+Nun sollte man noch berücksichtigen, dass die Beobachter wohl nicht auf der Erde kriechen, sondern ihre Augen in einer Höhe von ca. 1,6m sind:
 
 \begin{align}
     x &= 2 \cdot 5764 \text{km} \cdot \frac{\pi}{360^\circ} \cdot ( \cos^{-1}(\frac{5764}{5764,83}) + \cos^{-1}(\frac{5764}{5764,0016}) \\
@@ -71,6 +71,6 @@ Nun sollte man noch ber&uuml;cksichtigen, dass die Beobachter wohl nicht auf der
 \end{align}
 
 <h3>Antwort</h3>
-Der am weitesten entfernte Punkt, der direkt &ouml;stlich vom Burdsch Chalifa steht und von dem aus die Spitze des Burdsch Chalifa unter optimalen Bedinungen noch erkannt werden kann, liegt ca. 102 km entfernt.
+Der am weitesten entfernte Punkt, der direkt östlich vom Burdsch Chalifa steht und von dem aus die Spitze des Burdsch Chalifa unter optimalen Bedinungen noch erkannt werden kann, liegt ca. 102 km entfernt.
 
-Anmerkung: Mileiha liegt ca. 60 km vom Burdsch Chalifa entfernt. Er m&uuml;sste also von Mileiha zu sehen sein.
+Anmerkung: Mileiha liegt ca. 60 km vom Burdsch Chalifa entfernt. Er müsste also von Mileiha zu sehen sein.

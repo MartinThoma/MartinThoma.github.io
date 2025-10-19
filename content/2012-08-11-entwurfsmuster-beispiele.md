@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Entwurfsmuster-Beispiele
 slug: entwurfsmuster-beispiele
+lang: de
 author: Martin Thoma
 date: 2012-08-11 17:00:03.000000000 +02:00
 category: German posts
@@ -34,8 +34,8 @@ public class Singleton {
 ```
 
 <h2>Bequemlichkeitsklasse</h2>
-<strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch &auml;nderbare default-Parameter einfacher.
-Das Bequemlichkeitsmuster ist einfach das &Uuml;berladen einer Methode:
+<strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch änderbare default-Parameter einfacher.
+Das Bequemlichkeitsmuster ist einfach das Überladen einer Methode:
 
 ```java
 public class Bequemlichkeitsklasse {

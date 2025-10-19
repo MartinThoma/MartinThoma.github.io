@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
-title: &Uuml;bersicht &uuml;ber Sortieralgorithmen
+title: Übersicht über Sortieralgorithmen
 slug: ubersicht-uber-sortieralgorithmen
+lang: de
 author: Martin Thoma
 date: 2012-07-15 15:00:12.000000000 +02:00
 category: German posts
 tags: algorithms, sorting, Big-O
 featured_image: 2012/07/insertion-sort-thumb.png
 ---
-Eine &Uuml;bersicht &uuml;ber g&auml;ngige Sortieralgorithmen:
+Eine Übersicht über gängige Sortieralgorithmen:
 
 <h2>Vergleichsbasiert</h2>
 <table>
@@ -82,7 +82,7 @@ Eine &Uuml;bersicht &uuml;ber g&auml;ngige Sortieralgorithmen:
 </tr>
 </table>
 
-Ich habe - bis auf Timsort - jeden dieser Algorithmen in Python implementiert, siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/sorting.py">Python-Code f&uuml;r Sortieralgorithmen</a>.
+Ich habe - bis auf Timsort - jeden dieser Algorithmen in Python implementiert, siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/sorting.py">Python-Code für Sortieralgorithmen</a>.
 
 <small>[1]</small>: Beispiel: A = [2, 2, 1]
 <small>[2]</small>: in der regel nicht in-place, kann aber auch in-place implementiert werden.
@@ -92,7 +92,7 @@ Es sei
 <ul>
   <li>$n$ die Anzahl der Zahlen, </li>
   <li>$d$ die maximale Anzahl der Stellen</li>
-  <li>$k$ die Anzahl der m&ouml;glichen Zeichen (die Basis).</li>
+  <li>$k$ die Anzahl der möglichen Zeichen (die Basis).</li>
 </ul>
 
 Dann gilt:

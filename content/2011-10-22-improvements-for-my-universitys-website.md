@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Improvements for my University's Website
 slug: improvements-for-my-universitys-website
+lang: en
 author: Martin Thoma
 date: 2011-10-22 20:55:05.000000000 +02:00
 category: The Web
@@ -27,7 +27,7 @@ Some more information about OpenID is here:
 It would help me a lot if I could customize my start page at studium.kit.edu by adding some links / text.
 
 <h2>Consistency</h2>
-The university was called "University of Karlsruhe" ("Universit&auml;t Karlsruhe" in German) a few years ago. Then they thought it was time to rename the university as they made major structural changes.
+The university was called "University of Karlsruhe" ("Universität Karlsruhe" in German) a few years ago. Then they thought it was time to rename the university as they made major structural changes.
 
 <h3>URLs - one Top-level domain</h3>
 They also got a new URL. Before the new one is kit.edu, but it seems as if many pages were still on the old <abbr title="top-level domain">TLD</abbr>:

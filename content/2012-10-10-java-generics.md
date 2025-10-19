@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Java Generics
 slug: java-generics
+lang: en
 author: Martin Thoma
 date: 2012-10-10 12:18:42.000000000 +02:00
 category: Code
@@ -83,7 +83,7 @@ public class Computer {
         // create main directories
         Directory v1 = new Directory("temp", "temporary files");
         platte1.addNode(v1);
-        v1.addNode(new Directory("asdf", "jkl&ouml;"));
+        v1.addNode(new Directory("asdf", "jklö"));
         Directory v2 = new Directory("Pictures", "Holiday pictures");
         platte1.addNode(v2);
 
@@ -115,7 +115,7 @@ public class Computer {
         File b3 = new File("SagradaFamilia.jpg", "Kirche");
         barcelona.addNode(b3);
 
-        File b4 = new File("CampNou.jpg", "Fu&szlig;ball");
+        File b4 = new File("CampNou.jpg", "Fußball");
         barcelona.addNode(b4);
 
         File m1 = new File("Strand.jpg", "Strand");

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Incredible Optical Illusions
 slug: incredible-optical-illusions
+lang: en
 author: Martin Thoma
 date: 2012-03-27 12:05:01.000000000 +02:00
 category: The Web
@@ -25,7 +25,7 @@ Some really great and short examples of illusions. If you want an explanation of
         </figure>
 <a href="http://en.wikipedia.org/wiki/Ebbinghaus_illusion">Ebbinghaus illusion</a>:  the first central circle seems to be smaller than the second central circle although they are of identical size.
 
-The <a href="http://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">M&uuml;ller-Lyer illusion</a> is simmilar.
+The <a href="http://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">Müller-Lyer illusion</a> is simmilar.
 
 
 <h2>Fraser spiral illusion</h2>
@@ -49,12 +49,12 @@ Dark dots seem to appear and disappear in the <a href="http://en.wikipedia.org/w
         </figure>
 In <a href="http://en.wikipedia.org/wiki/Jastrow_illusion">Jastow illusion</a>, the two figures are identical, although the lower one appears to be larger.
 
-<h2>Z&ouml;llner illusion</h2>
+<h2>Zöllner illusion</h2>
 <figure class="aligncenter">
-            <a href="../images/2012/03/zollner-illusion.png"><img src="../images/2012/03/zollner-illusion.png" alt="Z&ouml;llner illusion" style="max-width:225px;max-height:159px" class="size-full wp-image-20241"/></a>
-            <figcaption class="text-center">Z&ouml;llner illusion</figcaption>
+            <a href="../images/2012/03/zollner-illusion.png"><img src="../images/2012/03/zollner-illusion.png" alt="Zöllner illusion" style="max-width:225px;max-height:159px" class="size-full wp-image-20241"/></a>
+            <figcaption class="text-center">Zöllner illusion</figcaption>
         </figure>
-In the figure of <a href="http://en.wikipedia.org/wiki/Z%C3%B6llner_illusion">Z&ouml;llner illusion</a> the black lines seem to be unparallel, but in reality they are parallel.
+In the figure of <a href="http://en.wikipedia.org/wiki/Z%C3%B6llner_illusion">Zöllner illusion</a> the black lines seem to be unparallel, but in reality they are parallel.
 
 <h2>Hering illusion</h2>
 <figure class="aligncenter">

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Password Changing Services
 slug: password-chaning-services
+lang: en
 author: Martin Thoma
 date: 2011-10-17 08:10:43.000000000 +02:00
 category: The Web
@@ -18,7 +18,7 @@ Today I've changed my PayPal password, because I thought it was time to do so. N
 <strong>Client-side validation</strong>: The first time, I used a password which was considered as weak. A JavaScript informed me that it was weak, but I could submit the form. The form should be validated on the client. If it is not valid, don't let him submit the form. (The password has to be validated also on the server, of course.)
 
 <strong>Allow all characters</strong>: I was very negatively surprised as I was informed that PayPal doesn't allow "non-printable characters" like spaces. They informed me after I submitted, of course.
-It does make sense to warn the user if he uses special characters which might be difficult to type on other systems, like German umlauts (&auml;&ouml;&uuml;&Auml;&Ouml;&Uuml;&szlig;). But why the hell do they force me to use underscores instead of spaces? Do they print my password? Do they want that I print my password?
+It does make sense to warn the user if he uses special characters which might be difficult to type on other systems, like German umlauts (äöüÄÖÜß). But why the hell do they force me to use underscores instead of spaces? Do they print my password? Do they want that I print my password?
 
 
 <strong>Allow "weak" passwords</strong>:

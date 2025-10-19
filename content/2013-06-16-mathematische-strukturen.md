@@ -1,21 +1,21 @@
 ---
 layout: post
-lang: de
 title: Mathematische Strukturen
 slug: mathematische-strukturen
+lang: de
 author: Martin Thoma
 date: 2013-06-16 18:14:57.000000000 +02:00
 category: German posts
 tags: mathematics, Algebra
 featured_image: 2012/01/vector-space.png
 ---
-Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele k&ouml;nnen gerne in den Kommentaren genannt werden.
+Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele können gerne in den Kommentaren genannt werden.
 
 <h2>Magma</h2>
-<div class="definition">Sei $M$ eine Menge und $*:M \times M \rightarrow M$ eine auf $M$ abgeschlossene Abbildung. Dann hei&szlig;t $(M,*)$ ein <strong>Magma</strong>.</div>
+<div class="definition">Sei $M$ eine Menge und $*:M \times M \rightarrow M$ eine auf $M$ abgeschlossene Abbildung. Dann heißt $(M,*)$ ein <strong>Magma</strong>.</div>
 
 <div class="definition">Sei $(M,*)$ ein Magma.
-$(M,*)$ hei&szlig;t <strong>kommutativ</strong> $:\Leftrightarrow \forall a, b \in M: a*b = b*a$.</div>
+$(M,*)$ heißt <strong>kommutativ</strong> $:\Leftrightarrow \forall a, b \in M: a*b = b*a$.</div>
 
 Ein Synonym zu &bdquo;kommutativ&ldquo; ist &bdquo;abelsch&ldquo;.
 
@@ -36,9 +36,9 @@ Gegenbeispiele:
 
 <h2>Halbgruppe</h2>
 <div class="definition">Sei $(M, *)$ ein Magma.
-$(M, *)$ hei&szlig;t <strong>Halbgruppe</strong> $:\Leftrightarrow (M, *)$ ist assoziativ.</div>
+$(M, *)$ heißt <strong>Halbgruppe</strong> $:\Leftrightarrow (M, *)$ ist assoziativ.</div>
 
-Eine Verkn&uuml;pfung $*$ ist genau dann assoziativ auf einer Menge $M$, wenn gilt:
+Eine Verknüpfung $*$ ist genau dann assoziativ auf einer Menge $M$, wenn gilt:
 $\forall a,b,c \in M: (a*b)*c = a*(b*c)$
 
 Beispiele:
@@ -49,9 +49,9 @@ Beispiele:
 
 <h2>Monoid</h2>
 <div class="definition">Sei $(M, *)$ eine Halbgruppe.
-$(M, *)$ hei&szlig;t <strong>Monoid</strong> $:\Leftrightarrow (M, *)$ hat ein neutrales Element $e_M$</div>
+$(M, *)$ heißt <strong>Monoid</strong> $:\Leftrightarrow (M, *)$ hat ein neutrales Element $e_M$</div>
 
-Ein Element $e_M \in M$ hei&szlig;t genau dann neutral, wenn gilt:
+Ein Element $e_M \in M$ heißt genau dann neutral, wenn gilt:
 $\forall a \in M: e_M * a = a * e_M = a$
 
 Beispiele:
@@ -64,7 +64,7 @@ Beispiele:
 
 <h2>Gruppe</h2>
 <div class="definition">Sei $(M, *)$ ein Monoid.
-$(M, *)$ hei&szlig;t <strong>Gruppe</strong> $:\Leftrightarrow \forall a \in M: \exists a^{-1} \in M: a * a^{-1} = a^{-1} * a = e_M$ </div>
+$(M, *)$ heißt <strong>Gruppe</strong> $:\Leftrightarrow \forall a \in M: \exists a^{-1} \in M: a * a^{-1} = a^{-1} * a = e_M$ </div>
 
 Beispiele:
 <ul>
@@ -77,13 +77,13 @@ Beispiele:
 
 
 <h2>Ring</h2>
-<div class="definition">Sei $R$ eine Menge und $+:R \times R \rightarrow R$, $\cdot:R \times R \rightarrow R$ Verkn&uuml;pfungen darauf.
+<div class="definition">Sei $R$ eine Menge und $+:R \times R \rightarrow R$, $\cdot:R \times R \rightarrow R$ Verknüpfungen darauf.
 
-$(R, +, \cdot)$ hei&szlig;t <strong>Ring</strong> $:\Leftrightarrow$
+$(R, +, \cdot)$ heißt <strong>Ring</strong> $:\Leftrightarrow$
 <ul>
-  <li>$(R,+)$ ist eine kommutative Gruppe (das Neutralelement hei&szlig;e 0),</li>
+  <li>$(R,+)$ ist eine kommutative Gruppe (das Neutralelement heiße 0),</li>
   <li>$(R,\cdot)$ ist eine Halbgruppe und</li>
-  <li>die Distributivgesetze sind erf&uuml;llt.</li>
+  <li>die Distributivgesetze sind erfüllt.</li>
 </ul>
 </div>
 
@@ -95,26 +95,26 @@ und
 
 $\forall a,b,c,d \in R: a \cdot (c+d) = ac + ad$
 
-Au&szlig;erdem:
+Außerdem:
 
 <div class="definition">Sei $(R,+,\cdot)$ ein Ring.
-$(R,+,\cdot)$ hei&szlig;t <strong>Ring mit Eins</strong> $:\Leftrightarrow (R, \cdot)$ ist Monoid.
+$(R,+,\cdot)$ heißt <strong>Ring mit Eins</strong> $:\Leftrightarrow (R, \cdot)$ ist Monoid.
 </div>
 
 <div class="definition">Sei $(R,+,\cdot)$ ein Ring.
-$(R,+,\cdot)$ hei&szlig;t <strong>kommutativer Ring</strong> $:\Leftrightarrow (R, \cdot)$ ist kommutativ.
+$(R,+,\cdot)$ heißt <strong>kommutativer Ring</strong> $:\Leftrightarrow (R, \cdot)$ ist kommutativ.
 </div>
 
 Beispiele:
 <ul>
-  <li>Jeder K&ouml;rper ist auch ein Ring.</li>
-  <li>$(\mathbb{Z}, +, \cdot)$ ist ein kommutativer Ring mit Eins, aber kein K&ouml;rper. Es fehlen die Inversen bei der Multiplikation.</li>
+  <li>Jeder Körper ist auch ein Ring.</li>
+  <li>$(\mathbb{Z}, +, \cdot)$ ist ein kommutativer Ring mit Eins, aber kein Körper. Es fehlen die Inversen bei der Multiplikation.</li>
 </ul>
 
 
-<h2>K&ouml;rper</h2>
+<h2>Körper</h2>
 <div class="definition">Sei $(K, +, \cdot)$ ein kommutativer Ring mit Eins.
-$(K, +, \cdot)$ hei&szlig;t <strong>K&ouml;rper</strong> $:\Leftrightarrow$
+$(K, +, \cdot)$ heißt <strong>Körper</strong> $:\Leftrightarrow$
 <ul>
   <li>$(K,+)$ ist kommutativ.</li>
   <li>$(K \setminus \{0\}, \cdot)$ ist kommutative Gruppe.</li>
@@ -132,13 +132,13 @@ Beispiele:
 <h2>Modul</h2>
 <div class="definition">Sei $(R, +_R, \cdot_R)$ ein Ring und $(M, +_M)$ eine kommutative Gruppe.
 
-Au&szlig;erdem sei
+Außerdem sei
 
 $\cdot_V: R \times M \rightarrow M$
 
 eine Abbildung.
 
-$(M, R, \cdot_V)$ hei&szlig;t <strong>R-Modul</strong> $:\Leftrightarrow \forall \lambda, \mu \in R \; x,y \in M:$
+$(M, R, \cdot_V)$ heißt <strong>R-Modul</strong> $:\Leftrightarrow \forall \lambda, \mu \in R \; x,y \in M:$
 <ul>
   <li>$1_R \cdot x = x$</li>
   <li>$\lambda \cdot (\mu \cdot x) = (\lambda \cdot \mu) \cdot x$</li>
@@ -155,14 +155,14 @@ Beispiele:
 
 
 <h2>Vektorraum</h2>
-<div class="definition">Sei $(K, +_K, \cdot_K)$ ein K&ouml;rper und $(V,+_V)$ eine kommutative Gruppe.
-Au&szlig;erdem sei
+<div class="definition">Sei $(K, +_K, \cdot_K)$ ein Körper und $(V,+_V)$ eine kommutative Gruppe.
+Außerdem sei
 
 $\cdot_V: K \times V \rightarrow V$
 
 eine <strong>skalalre Multiplikation</strong>.
 
-$(V, K, \cdot_V)$ hei&szlig;t <strong>$K$-Vektorraum</strong> $:\Leftrightarrow \forall \lambda, \mu \in K \; x,y \in V:$
+$(V, K, \cdot_V)$ heißt <strong>$K$-Vektorraum</strong> $:\Leftrightarrow \forall \lambda, \mu \in K \; x,y \in V:$
 <ul>
   <li>$1_K \cdot x = x$</li>
   <li>$\lambda \cdot (\mu \cdot x) = (\lambda \cdot \mu) \cdot x$</li>
@@ -178,7 +178,7 @@ Beispiele:
 
 <h2>Weitere</h2>
 <h3>Ideal</h3>
-<div class="definition">Ein Ideal in einem Ring $(R, +, \cdot)$ ist eine Teilmenge $I \subseteq R$, die bez&uuml;glich der Addition eine Untergruppe ist und die folgende Eigenschaft hat:
+<div class="definition">Ein Ideal in einem Ring $(R, +, \cdot)$ ist eine Teilmenge $I \subseteq R$, die bezüglich der Addition eine Untergruppe ist und die folgende Eigenschaft hat:
 
 $\forall x \in I, r \in R: xr \in I \text{ und } rx \in I$</div>
 
@@ -197,27 +197,27 @@ Beispiele:
   <li>Jeder Ring ist eine $\mathbb{Z}$-Algebra.</li>
 </ul>
 
-<h3>Integrit&auml;tsring</h3>
+<h3>Integritätsring</h3>
 <div class="definition">Es sei $R$ ein vom Null-Ring verschiedener Ring.
 
-$R$ hei&szlig;t integrit&auml;tsring $:\Leftrightarrow R$ ist kommuativ und Nullteilerfrei.</div>
+$R$ heißt integritätsring $:\Leftrightarrow R$ ist kommuativ und Nullteilerfrei.</div>
 
 Beispiele:
 <ul>
-  <li>Zu dem Ring $(\mathbb{Z}, +, \cdot)$ ist $(\mathbb{Q}, +, \cdot)$ ein Quotientenk&ouml;rper.</li>
+  <li>Zu dem Ring $(\mathbb{Z}, +, \cdot)$ ist $(\mathbb{Q}, +, \cdot)$ ein Quotientenkörper.</li>
 </ul>
 
 <h3>Hauptidealring</h3>
-<div class="definition">Es sei $R$ ein Integrit&auml;tsring.
+<div class="definition">Es sei $R$ ein Integritätsring.
 
-$R$ hei&szlig;t Hauptidealring $:\Leftrightarrow$ Jedes Ideal $I \subseteq R$ ist ein Hauptideal.</div>
+$R$ heißt Hauptidealring $:\Leftrightarrow$ Jedes Ideal $I \subseteq R$ ist ein Hauptideal.</div>
 
-<h3>Quotientenk&ouml;rper</h3>
-<div class="definition">Es sei $R$ ein Integrit&auml;tsring. Der kleinste K&ouml;rper, in den $R$ eingebettet werden kann, wird der Quotientenk&ouml;rper des Integrit&auml;tsrings genannt.</div>
+<h3>Quotientenkörper</h3>
+<div class="definition">Es sei $R$ ein Integritätsring. Der kleinste Körper, in den $R$ eingebettet werden kann, wird der Quotientenkörper des Integritätsrings genannt.</div>
 
 Beispiele:
 <ul>
-  <li>Jeder K&ouml;rper ist ein Integrit&auml;tsring.</li>
+  <li>Jeder Körper ist ein Integritätsring.</li>
   <li>$(\mathbb{Z}, +, \cdot)$</li>
 </ul>
 
@@ -225,7 +225,7 @@ Beispiele:
 <h3>Ideal</h3>
 <div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subseteq R$.
 
-$I$ hei&szlig;t Ideal $:\Leftrightarrow$
+$I$ heißt Ideal $:\Leftrightarrow$
 <ol style="list-style-type:lower-roman">
   <li>$(I, +)$ ist eine Gruppe,</li>
   <li>$\forall r \in R \forall a \in I: r \cdot a \in I$ und</li>
@@ -240,7 +240,7 @@ Beispiele:
 <h3>Hauptideal</h3>
 <div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subseteq R$ ein Ideal.
 
-$I$ hei&szlig;t Hauptideal $:\Leftrightarrow I$ wird von einem Element erzeugt.</div>
+$I$ heißt Hauptideal $:\Leftrightarrow I$ wird von einem Element erzeugt.</div>
 
 Beispiele:
 <ul>
@@ -250,7 +250,7 @@ Beispiele:
 <h3>Primideal</h3>
 <div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subsetneq R$ ein Ideal.
 
-$I$ hei&szlig;t Primideal in $R :\Leftrightarrow \forall x, y \in R: xy \in I \Rightarrow x \in I \lor y \in I$</div>
+$I$ heißt Primideal in $R :\Leftrightarrow \forall x, y \in R: xy \in I \Rightarrow x \in I \lor y \in I$</div>
 
 Beispiele:
 <ul>
@@ -260,7 +260,7 @@ Beispiele:
 <h3>Maximales Ideal</h3>
 <div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subsetneq R$ ein Ideal.
 
-$I$ hei&szlig;t maximales Ideal in $R :\Leftrightarrow$ Es gibt kein Ideal $J$, f&uuml;r das gilt: $I \subsetneq J \subsetneq R$</div>
+$I$ heißt maximales Ideal in $R :\Leftrightarrow$ Es gibt kein Ideal $J$, für das gilt: $I \subsetneq J \subsetneq R$</div>
 
 Beispiele:
 <ul>

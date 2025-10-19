@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Mustererkennung - Klausur
 slug: mustererkennung-klausur
+lang: de
 author: Martin Thoma
 date: 2015-04-27 21:15
 category: German posts
@@ -85,19 +85,19 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
         <th>Nominal-</th>
         <th>Ordinal-</th>
         <th>Intervall-</th>
-        <th>Verh&auml;ltnis-</th>
+        <th>Verhältnis-</th>
         <th>Absolut</th>
     </tr>
     <tr>
         <th>Empirische Relation</th>
-        <td>~ &Auml;quivalenz</td>
-        <td>~ &Auml;quivalenz<br/>Ordnung</td>
-        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition</td>
-        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
-        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+        <td>~ Äquivalenz</td>
+        <td>~ Äquivalenz<br/>Ordnung</td>
+        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition</td>
+        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+        <td>~ Äquivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
     </tr>
     <tr>
-        <th>Zul&auml;ssige Transformationen</th>
+        <th>Zulässige Transformationen</th>
         <td>m' = f(m)<br/>f bijektiv</td>
         <td>m' = f(m)<br/>f streng monoton</td>
         <td>m' = am+b<br/>mit a&gt;0</td>
@@ -105,20 +105,20 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
         <td>m' = m</td>
     </tr>
     <tr>
-        <th>Beispiele zugeh&ouml;rige Merkmale</th>
+        <th>Beispiele zugehörige Merkmale</th>
         <td>Telefonnummern, Kfz-Kennz., Typen, PLZ, Geschlecht</td>
-        <td>G&uuml;teklassen, H&auml;rtegrad, Windst&auml;rke</td>
-        <td>Temp. in &deg;C, &deg;F, Kalenderzeit, geographische H&ouml;he</td>
-        <td>Masse, L&auml;nge, el. Strom</td>
+        <td>Güteklassen, Härtegrad, Windstärke</td>
+        <td>Temp. in &deg;C, &deg;F, Kalenderzeit, geographische Höhe</td>
+        <td>Masse, Länge, el. Strom</td>
         <td>Quantenzahlen, Teilchenanzahl, Fehlerzahl</td>
     </tr>
     <tr>
         <th>Werte von m</th>
         <td>Zahlen, Namen, Symbole</td>
-        <td>in der Regel nat&uuml;rliche Zahlen</td>
+        <td>in der Regel natürliche Zahlen</td>
         <td>in der Regel reele Zahlen</td>
         <td>in der Regel reele Zahlen &gt; 0</td>
-        <td>in der Regel nat&uuml;rliche Zahlen</td>
+        <td>in der Regel natürliche Zahlen</td>
     </tr>
 </table>
 

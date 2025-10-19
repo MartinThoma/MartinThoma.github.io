@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: House Building
 slug: house-building
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-02-03 20:00
 category: My bits and bytes
 tags: Machine Learning
 featured_image: logos/star.png
+status: draft
 ---
 Did you know that there are various differnt ways to build single-family
 houses? For sure you know that one can build houses from concrete and bricks as
@@ -147,14 +147,14 @@ The following professions are needed to build a house:
         <td></td>
     </tr>
     <tr>
-        <td>Haust&uuml;r einbauen</td>
+        <td>Haustür einbauen</td>
         <td>1,5% (3.504 EUR)</td>
         <td>14:86</td>
         <td>1/5</td>
         <td></td>
     </tr>
     <tr>
-        <td>Sanit&auml;r-Installation</td>
+        <td>Sanitär-Installation</td>
         <td>4% (9.344 EUR)</td>
         <td>40 : 60</td>
         <td>3/5</td>
@@ -168,7 +168,7 @@ The following professions are needed to build a house:
         <td></td>
     </tr>
     <tr>
-        <td>Haus verputzen - innen und au&szlig;en</td>
+        <td>Haus verputzen - innen und außen</td>
         <td>9% (21.024 EUR)</td>
         <td>60 : 40</td>
         <td>4/5</td>
@@ -196,14 +196,14 @@ The following professions are needed to build a house:
         <td>Maler</td>
     </tr>
     <tr>
-        <td>Fu&szlig;b&ouml;den verlegen</td>
+        <td>Fußböden verlegen</td>
         <td>2,5% (5.840 EUR)</td>
         <td>40 : 60</td>
         <td>3/5</td>
         <td></td>
     </tr>
     <tr>
-        <td>Innent&uuml;ren einbauen</td>
+        <td>Innentüren einbauen</td>
         <td>3,5% (8.176 EUR)</td>
         <td>55 : 45</td>
         <td>2/5</td>

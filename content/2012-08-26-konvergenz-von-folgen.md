@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Konvergenz von Folgen
 slug: konvergenz-von-folgen
+lang: de
 author: Martin Thoma
 date: 2012-08-26 18:04:36.000000000 +02:00
 category: German posts
@@ -11,12 +11,12 @@ featured_image: 2012/08/limes-thumbnail.png
 ---
 <div class="definition">Sei $(a_n)$ eine Folge.
 
-$(a_n)$ hei&szlig;t <strong>konvergent</strong> $:\Leftrightarrow \exists_{a \in \mathbb{R}} \forall_{ \varepsilon > 0} \exists_{n_0 = n_0(\varepsilon) \in \mathbb{N}}: |a_n - a | < \varepsilon~~~\forall n \geq n_0$.
+$(a_n)$ heißt <strong>konvergent</strong> $:\Leftrightarrow \exists_{a \in \mathbb{R}} \forall_{ \varepsilon > 0} \exists_{n_0 = n_0(\varepsilon) \in \mathbb{N}}: |a_n - a | < \varepsilon~~~\forall n \geq n_0$.
 
-In diesem Fall hei&szlig;t a der <strong>Grenzwert</strong> von $(a_n)$ und man schreibt:
+In diesem Fall heißt a der <strong>Grenzwert</strong> von $(a_n)$ und man schreibt:
 $\displaystyle \lim_{n \rightarrow \infty} (a_n) = a$.
 
-Ist $(a_n)$ nicht konvergent, so hei&szlig;t $(a_n)$ <strong>divergent</strong>.</div>
+Ist $(a_n)$ nicht konvergent, so heißt $(a_n)$ <strong>divergent</strong>.</div>
 
 Ich werde im Folgendem ein paar wichtige Hinweise geben, wie man konvergenz oder gegebenenfalls divergenz zeigen kann.
 
@@ -35,13 +35,13 @@ $a_n = n$.
 
 $a_n = (-1)^n$
 
-<h2>Beschr&auml;nktheit und Monotonie</h2>
-Wenn man zeigen kann, dass eine Folge beschr&auml;nkt ist und monoton steigt oder f&auml;llt (und die Schranke in der richtigen Richtung liegt), dann konvergiert die Folge.
+<h2>Beschränktheit und Monotonie</h2>
+Wenn man zeigen kann, dass eine Folge beschränkt ist und monoton steigt oder fällt (und die Schranke in der richtigen Richtung liegt), dann konvergiert die Folge.
 
 <strong>Beispiel:</strong>
 <div class="example">Sei $(a_n)_{n \in \mathbb{N}}$ eine Folge und definiert durch $a_n := 2 + \frac{1}{n}$.
 
-0 ist eine untere Schranke f&uuml;r $(a_n)_{n \in \mathbb{N}}$:
+0 ist eine untere Schranke für $(a_n)_{n \in \mathbb{N}}$:
 $\underbrace{2}_{\geq 0} + \underbrace{\frac{1}{n}}_{\geq 0} \Rightarrow a_n \geq 0$
 
 $(a_n)_{n \in \mathbb{N}}$ ist monoton fallend:
@@ -59,16 +59,16 @@ Beweis von $a_n \geq a_{n+1} ~~~ \forall_{n \in \mathbb{N}}$:
 
 $(a_n)_{n \in \mathbb{N}}$ ist also monoton fallend und hat eine untere Schranke. $(a_n)_{n \in \mathbb{N}}$ konvergiert also.
 
-<em>Beachte</em>: Ich habe nicht die gr&ouml;&szlig;te untere Schranke gew&auml;hlt. Hatte ich das gemacht (und bewiesen, dass es keine gr&ouml;&szlig;ere untere Schranke gibt), dann h&auml;tte ich sogar den Grenzwert bestimmt.</div>
+<em>Beachte</em>: Ich habe nicht die größte untere Schranke gewählt. Hatte ich das gemacht (und bewiesen, dass es keine größere untere Schranke gibt), dann hätte ich sogar den Grenzwert bestimmt.</div>
 
 <h2>Cauchy-Folgen</h2>
-In Banachr&auml;umen kann man auch nachweisen, dass eine Folge eine Cauchy-Folge ist um Konvergenz zu zeigen. Sie muss dazu dieser Bedingung gen&uuml;gen:
+In Banachräumen kann man auch nachweisen, dass eine Folge eine Cauchy-Folge ist um Konvergenz zu zeigen. Sie muss dazu dieser Bedingung genügen:
 
 $\forall_{\varepsilon > 0} \exists_{n_0 \in \mathbb{N}}: \forall_{n,m\in\mathbb{N}, n>n_0, m>n_0}: |a_m- a_n| < \varepsilon$
 
 <strong>Beispiel:</strong>
-Mir f&auml;llt gerade kein Beispiel ein, bei dem man die Konvergenz sch&ouml;ner &uuml;ber das Cauchy-Kriterium zeigen kann als
-&uuml;ber die Beschr&auml;nktheit / Monotonie. Falls dir eines einf&auml;llt, kannst du es ja in den Kommentar schreiben.
+Mir fällt gerade kein Beispiel ein, bei dem man die Konvergenz schöner über das Cauchy-Kriterium zeigen kann als
+über die Beschränktheit / Monotonie. Falls dir eines einfällt, kannst du es ja in den Kommentar schreiben.
 (mit <span class="code">&#091;latex&#093; \lim_{n \rightarrow \infty} 123 &#091;/latex&#093;</span> wird es auch als LaTeX dargestellt 😉)
 
 <h2>Weiteres</h2>

@@ -1,20 +1,20 @@
 ---
 layout: post
-lang: de
 title: Wie berechne ich das multiplikativ Inverse einer komplexen Zahl?
 slug: wie-berechne-ich-das-multiplikativ-inverse-einer-komplexen-zahl
+lang: de
 author: Martin Thoma
 date: 2012-04-04 16:57:06.000000000 +02:00
 category: German posts
 tags: Complex number
 ---
-Im Folgenden werde ich kurz und b&uuml;ndig erkl&auml;ren, wie man das multiplikativ Inverse einer komplexen Zahl berechnet.
+Im Folgenden werde ich kurz und bündig erklären, wie man das multiplikativ Inverse einer komplexen Zahl berechnet.
 
 <h2>Beispiel</h2>
 Berechne das multiplikativ Inverse zur komplexen Zahl $(\frac{1}{10} + \frac{1}{5}i)$.
 
 Das Ergebnis ist von der Form $(c + di) \in \mathbb{C}$.
-Es muss folgende Gleichung erf&uuml;llen:
+Es muss folgende Gleichung erfüllen:
 <a id="more"></a><a id="more-20591"></a>
 $(\frac{1}{10} + \frac{1}{5}i) \cdot (c + di) = 1$
 $\Leftrightarrow (\frac{1}{10} \cdot c - \frac{1}{5} d) + (\frac{1}{5} c + \frac{1}{10} d)i = 1$
@@ -56,7 +56,7 @@ Das multiplikativ Inverse zu $(\frac{1}{10} + \frac{1}{5}i)$ ist $(2 -4i)$.
 Berechne das multiplikativ Inverse zur komplexen Zahl $(a + bi)$.
 
 Das Ergebnis ist von der Form $(c + di) \in \mathbb{C}$.
-Es muss folgende Gleichung erf&uuml;llen:
+Es muss folgende Gleichung erfüllen:
 $(a + bi) \cdot (c + di) = 1$
 $\Leftrightarrow (a c - b d) + (b c + a d)i = 1$
 $\Leftrightarrow (a c - b d) = 1 \land (b c + a d) = 0$
@@ -105,7 +105,7 @@ $\implies c = 0 \land d = - \frac{1}{b}$
 Das multiplikativ Inverse zu $(bi)$ ist also in diesem Fall $(0 - \frac{1}{b}i)$ = (\frac{0}{0^2 + b^2} - \frac{b}{0^2 + b^2}i)$.
 
 <h3>Ergebnis</h3>
-Ganz allgemein kann man f&uuml;r das multiplikativ Inverse einer beliebigen komplexen Zahl also folgendes Angeben:
+Ganz allgemein kann man für das multiplikativ Inverse einer beliebigen komplexen Zahl also folgendes Angeben:
 $(\frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2}i)$.
 
 <h2>Siehe auch</h2>

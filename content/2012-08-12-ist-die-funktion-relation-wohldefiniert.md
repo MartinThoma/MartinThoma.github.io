@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: de
 title: Ist die Funktion / Relation wohldefiniert?
 slug: ist-die-funktion-relation-wohldefiniert
+lang: de
 author: Martin Thoma
 date: 2012-08-12 17:00:14.000000000 +02:00
 category: Cyberculture
 tags: mathematics
 featured_image: 2012/08/pi-thumbnail.png
 ---
-Ich verstehe unter einer wohldefinierten Funktion / Relation die Unabh&auml;ngigkeit von den Repr&auml;sentanten. Wikipedia sagt dazu:
+Ich verstehe unter einer wohldefinierten Funktion / Relation die Unabhängigkeit von den Repräsentanten. Wikipedia sagt dazu:
 
-<blockquote>Man kann in der Mathematik ein Objekt nicht nur durch eine Definitionsgleichung (explizit), sondern auch durch eine charakteristische Eigenschaft (implizit) definieren. W&auml;hrend eine explizite Definition immer zul&auml;ssig ist, ist eine implizite Definition nur unter der Bedingung zul&auml;ssig, dass es tats&auml;chlich genau ein Objekt mit der angegebenen Eigenschaft gibt. Diese Bedingung nennt man die Wohldefiniertheit der impliziten Definition.</blockquote>
+<blockquote>Man kann in der Mathematik ein Objekt nicht nur durch eine Definitionsgleichung (explizit), sondern auch durch eine charakteristische Eigenschaft (implizit) definieren. Während eine explizite Definition immer zulässig ist, ist eine implizite Definition nur unter der Bedingung zulässig, dass es tatsächlich genau ein Objekt mit der angegebenen Eigenschaft gibt. Diese Bedingung nennt man die Wohldefiniertheit der impliziten Definition.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/Wohldefiniertheit">Wohldefiniertheit</a>
 
 <h2>Beispiel 1</h2>
@@ -21,11 +21,11 @@ $f(\frac{p}{q}) := \frac{p}{q}$
 
 <strong>Frage</strong>: Ist $f$ wohldefiniert?
 <strong>Antwort</strong>: Ja.
-Es sei $\frac{p'}{q'}$ die vollst&auml;ndig gek&uuml;rzte Darstellung von $\frac{p}{q}$.
+Es sei $\frac{p'}{q'}$ die vollständig gekürzte Darstellung von $\frac{p}{q}$.
 Also gilt: $p = p' \cdot \lambda \land q = q' \cdot \lambda$ mit $\lambda \in \mathbb{R} \setminus \{0\}$.
 $\Rightarrow \frac{p}{q} = \frac{p' \cdot \lambda}{q' \cdot \lambda}$.
 $\Rightarrow f(\frac{p}{q}) = \frac{p' \cdot \lambda}{q' \cdot \lambda} = \frac{p'}{q'}$.
-$\Rightarrow f(\frac{p}{q})$ ist unabh&auml;ngig vom Repr&auml;sentanten.
+$\Rightarrow f(\frac{p}{q})$ ist unabhängig vom Repräsentanten.
 $\Rightarrow f$ ist wohldefiniert $\blacksquare$
 
 <h2>Beispiel 2</h2>
@@ -46,7 +46,7 @@ $f(\frac{p}{q}) := \frac{p-q}{p+q}$
 <strong>Frage</strong>: Ist $f$ wohldefiniert?
 <strong>Antwort</strong>: Ja.
 
-Es sei $\frac{p'}{q'}$ die vollst&auml;ndig gek&uuml;rzte Darstellung von $\frac{p}{q}$.
+Es sei $\frac{p'}{q'}$ die vollständig gekürzte Darstellung von $\frac{p}{q}$.
 Also gilt: $p = p' \cdot \lambda \land q = q' \cdot \lambda$ mit $\lambda \in \mathbb{R} \setminus \{0\}$.
 
 $\Rightarrow f(\frac{p}{q}) = f(\frac{\lambda \cdot p'}{\lambda \cdot q'}) = \frac{\lambda \cdot p' - \lambda \cdot q'}{\lambda \cdot p' + \lambda \cdot q'} = \frac{\lambda (p' - q')}{\lambda (p' + q')} = \frac{p' - q'}{p' + q'} \blacksquare$

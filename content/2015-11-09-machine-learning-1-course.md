@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Machine Learning 1
 slug: machine-learning-1-course
+lang: de
 author: Martin Thoma
 date: 2015-11-09 16:02
 category: German posts
@@ -33,12 +33,12 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center; border-right: solid;"><abbr title="deduktiv">ded.</abbr></td>
             <td style="text-align: center;"><abbr title="symbolisch">symb.</abbr></td>
             <td style="text-align: center; border-right: solid;"><abbr title="subsymbolisch">subsymb.</abbr></td>
-            <td style="text-align: center;">&uuml;berwacht</td>
-            <td style="text-align: center; border-right: solid;"><abbr title="unüberwacht">un&uuml;b.</abbr></td>
+            <td style="text-align: center;">überwacht</td>
+            <td style="text-align: center; border-right: solid;"><abbr title="unüberwacht">unüb.</abbr></td>
             <td style="text-align: center;"><abbr title="inkrementell">inkr.</abbr></td>
             <td style="text-align: center; border-right: solid;"><abbr title="nicht inkrementell">nicht inkr.</abbr></td>
             <td style="text-align: center;">gering</td>
-            <td style="text-align: center; border-right: solid;">gro&szlig;</td>
+            <td style="text-align: center; border-right: solid;">groß</td>
             <td style="text-align: center;"><abbr title="empirisch">emp.</abbr></td>
             <td style="text-align: center;"><abbr title="axiomatisch">axio.</abbr></td>
         </tr>
@@ -1442,7 +1442,7 @@ until c = c'
 ## Material und Links
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
-* [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
+* [Übungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
    * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)

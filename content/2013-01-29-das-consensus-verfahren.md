@@ -1,31 +1,31 @@
 ---
 layout: post
-lang: de
 title: Das Consensus-Verfahren
 slug: das-consensus-verfahren
+lang: de
 author: Martin Thoma
 date: 2013-01-29 16:23:14.000000000 +01:00
 category: German posts
 tags: Digitaltechnik
 ---
-Mithilfe des Consensus-Verfahrens k&ouml;nnen Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das &Uuml;berdeckungsproblem noch gel&ouml;st werden muss. Dies kann man z.B. mit der <a href="../das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.
+Mithilfe des Consensus-Verfahrens können Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das Überdeckungsproblem noch gelöst werden muss. Dies kann man z.B. mit der <a href="../das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.
 
 Dazu baut man eine Tabelle auf. Ich nenne sie mal Consensus-Tabelle. Diese hat 4 Spalten:
 <ul>
   <li>Nr.</li>
   <li>Gebildet aus</li>
-  <li>W&uuml;rfel - eine Spalte f&uuml;r jeden der $n$ Parameter der Schaltfunktion $f$</li>
+  <li>Würfel - eine Spalte für jeden der $n$ Parameter der Schaltfunktion $f$</li>
   <li>Gestrichen wegen</li>
 </ul>
 
 Nun ergibt jeder Minterm der DNF eine Zeile in der Consensus-Tabelle. Die Reihenfolge ist dabei egal. Die Nr. wird fortlaufend von 1 an gesetzt, die Spalte &bdquo;Gebildet aus&ldquo; bleibt erst mal leer. Nun zieht man eine Linie, um die folgenden Zeilen abzutrennen. Diesen abgetrennten Teil nennen ich nun &bdquo;Block&ldquo;.
 
-Man vergleicht nun jede Zeile mit den dar&uuml;ber liegenden Zeilen.
+Man vergleicht nun jede Zeile mit den darüber liegenden Zeilen.
 <ul>
-<li>*: Falls an einer bestimmten Stelle nur eine der Zeilen ein don't care hat, wird an dieser Stelle der Wert der anderen Zeile genommen. Diese Spalte z&auml;hlt also nicht als unterschiedlich.</li>
-<li>Unterscheiden sich zwei Zeilen nur an einer Stelle, schreibt man eine neue Zeile in den neuen Block. Diese Zeile hat ein don't care an der Stelle, an der sich die beiden Zeilen unterschieden, eine eigene Nummer. Eventuell &uuml;berdeckt die neue Zeile beide vorhergehenden. Wegen der don't care-Regelung (*) muss das jedoch nicht der Fall sein.</li>
+<li>*: Falls an einer bestimmten Stelle nur eine der Zeilen ein don't care hat, wird an dieser Stelle der Wert der anderen Zeile genommen. Diese Spalte zählt also nicht als unterschiedlich.</li>
+<li>Unterscheiden sich zwei Zeilen nur an einer Stelle, schreibt man eine neue Zeile in den neuen Block. Diese Zeile hat ein don't care an der Stelle, an der sich die beiden Zeilen unterschieden, eine eigene Nummer. Eventuell überdeckt die neue Zeile beide vorhergehenden. Wegen der don't care-Regelung (*) muss das jedoch nicht der Fall sein.</li>
 </ul>
-Sobald man alle Zeilen des vorhergehenden Block &uuml;berpr&uuml;ft hat, kann man wieder eine Linie machen.
+Sobald man alle Zeilen des vorhergehenden Block überprüft hat, kann man wieder eine Linie machen.
 
 Das sieht dann etwa so aus (aus Folien von Prof. Dr. Asfour):
 <figure class="aligncenter">
@@ -33,11 +33,11 @@ Das sieht dann etwa so aus (aus Folien von Prof. Dr. Asfour):
             <figcaption class="text-center">Consensus-Verfahren</figcaption>
         </figure>
 
-Wie man sieht, kann es auch sein, dass eine neue Zeile bereits von einer alten &uuml;berdeckt wird. Diese Zeilen kann man also direkt streichen.
-Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Die Zeilen, die nicht gestrichen wurden, sind Primimplikanten.
+Wie man sieht, kann es auch sein, dass eine neue Zeile bereits von einer alten überdeckt wird. Diese Zeilen kann man also direkt streichen.
+Sobald man keine neuen Zeilen / Blöcke mehr bilden kann, ist man fertig. Die Zeilen, die nicht gestrichen wurden, sind Primimplikanten.
 
 <h2>Code</h2>
-Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine f&uuml;r das Consensus-Verfahren:
+Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine für das Consensus-Verfahren:
 
 ```python
 #!/usr/bin/env python
@@ -115,7 +115,7 @@ def consensusIsIncludedIn(dictList, consensus):
 
 
 def printList(dictList, horizontalLinesAfter):
-    print("Nr\t Gebildet aus \t W&uuml;rfel\t Gestrichen wegen")
+    print("Nr\t Gebildet aus \t Würfel\t Gestrichen wegen")
     for line, element in enumerate(dictList):
         if element["gestrichen"] == False:
             element["gestrichen"] = ""
@@ -158,7 +158,7 @@ def consensus(terme):
 
             consensus = getConsensus(dictList[pointer1], dictList[pointer2])
 
-            # Wird der neue Konsensus-Term eventuell bereits &uuml;berdeckt?
+            # Wird der neue Konsensus-Term eventuell bereits überdeckt?
             gestrichen = consensusIsIncludedIn(dictList, consensus)
             if gestrichen == False:
                 nr = nextNumber
@@ -195,7 +195,7 @@ consensus(["-0-00", "--00-", "-1-00", "010-1", "1-11-", "110-1"])
 Ausgabe:
 ```text
 
-Nr	 Gebildet aus 	 W&uuml;rfel	 Gestrichen wegen
+Nr	 Gebildet aus 	 Würfel	 Gestrichen wegen
 1			-0-00	7
 2			--00-
 3			-1-00	7
@@ -219,4 +219,4 @@ Nr	 Gebildet aus 	 W&uuml;rfel	 Gestrichen wegen
 ```
 
 <h2>Quellen</h2>
-Die Folien von Dr. Asfour (DT-VL12) sowie die Vorlesung (auf <a href="//www.youtube.com/watch?v=K1NAj4ecPDw#t=31m18s">YouTube</a> verf&uuml;gbar. Der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw#t=47m30s">interessante Teil</a> beginnt erst sehr sp&auml;t.). Es wurde sogar <a href="//www.youtube.com/watch?v=4X1w0B4w65k#t=1h10m38s">sp&auml;ter nochmals von Herrn Prof. Dr. Asfour erkl&auml;rt</a>.
+Die Folien von Dr. Asfour (DT-VL12) sowie die Vorlesung (auf <a href="//www.youtube.com/watch?v=K1NAj4ecPDw#t=31m18s">YouTube</a> verfügbar. Der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw#t=47m30s">interessante Teil</a> beginnt erst sehr spät.). Es wurde sogar <a href="//www.youtube.com/watch?v=4X1w0B4w65k#t=1h10m38s">später nochmals von Herrn Prof. Dr. Asfour erklärt</a>.

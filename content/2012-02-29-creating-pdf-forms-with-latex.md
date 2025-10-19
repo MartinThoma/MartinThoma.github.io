@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Creating pdf-forms with LaTeX
 slug: creating-pdf-forms-with-latex
+lang: en
 author: Martin Thoma
 date: 2012-02-29 15:11:07.000000000 +01:00
 category: My bits and bytes
@@ -52,7 +52,7 @@ Prename: \TextField[name=vor,width=3cm,charsize=12pt]
 
 City: 			\>
 \ChoiceMenu[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]{\mbox{}}
-{Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M&uuml;nchen} \\
+{Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,München} \\
 
 Sex: 	\>
 \ChoiceMenu[radio,default=f,name=sex,charsize=14pt]{\mbox{}}{Male=m,Female=f}

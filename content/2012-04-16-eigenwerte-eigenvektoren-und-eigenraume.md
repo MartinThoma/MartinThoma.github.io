@@ -1,25 +1,25 @@
 ---
 layout: post
-lang: de
-title: Eigenwerte, Eigenvektoren und Eigenr&auml;ume
+title: Eigenwerte, Eigenvektoren und Eigenräume
 slug: eigenwerte-eigenvektoren-und-eigenraume
+lang: de
 author: Martin Thoma
 date: 2012-04-16 08:15:32.000000000 +02:00
 category: German posts
 tags: Linear algebra, Eigenwert, Eigenvektor, Eigenraum, Eigenwertproblem
 featured_image: 2012/01/vector-space.png
 ---
-<strong>Eigenwerte</strong> sind Elemente des K&ouml;rpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erf&uuml;llen:
+<strong>Eigenwerte</strong> sind Elemente des Körpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erfüllen:
 $\Phi(x) = \lambda x$ mit $x \in V$ und $x \neq 0$
 
 Alle Vektoren x sind <strong>Eigenvektoren</strong> zu diesem Eigenwert.
 
 Zusammen mit dem Null-Vektor bilden alle Eigenvektoren zu einem Eigenwert einer linearen Abbildung $\Phi$ einen <strong>Eigenraum</strong>. Diesen Eigenraum bezeichnet man mit $E_\lambda$.
 
-<h2>Interessante S&auml;tze</h2>
+<h2>Interessante Sätze</h2>
 <ul>
 <li>$E_{\lambda_1} \cap E_{\lambda_2} = \emptyset$</li>
-<li>Ein Endomorphismus $\Phi$ eines n-dimensionalen $\mathbb{K}$-Vektorraumes hat h&ouml;chstens n Eigenwerte.</li>
+<li>Ein Endomorphismus $\Phi$ eines n-dimensionalen $\mathbb{K}$-Vektorraumes hat höchstens n Eigenwerte.</li>
 <li>Eine lineare Abbildung $\Phi$ ist genau dann diagonalisierbar, wenn es eine Basis von V aus Eigenvektoren gibt.</li>
 <li>Wenn eine lineare Abbildung eines n-dimensionalen Vektorraums n verschiedene Eigenwerte hat, so ist sie diagonalisierbar.</li>
 </ul>
@@ -27,11 +27,11 @@ Zusammen mit dem Null-Vektor bilden alle Eigenvektoren zu einem Eigenwert einer 
 <h2>Beispiele</h2>
 <h3>Etwas einfaches</h3>
 Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := x $.
-Dann ist $\lambda = 1$ der einzige Eigenwert. Der gesamte $\mathbb{R}^3 \setminus \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ besteht ausschlie&szlig;lich aus Eigenvektoren zu diesem Eigenwert. Also ist der dazugeh&ouml;rige Eigenraum der gesamte $\mathbb{R}^3$.
+Dann ist $\lambda = 1$ der einzige Eigenwert. Der gesamte $\mathbb{R}^3 \setminus \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ besteht ausschließlich aus Eigenvektoren zu diesem Eigenwert. Also ist der dazugehörige Eigenraum der gesamte $\mathbb{R}^3$.
 
 <h3>Noch immer leicht</h3>
 Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := ax $ mit $a \in \mathbb{R} \setminus \{0\}$.
-Dann ist $\lambda = a$ der einzige Eigenwert. Der gesamte $\mathbb{R}^3 \setminus \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ besteht ausschlie&szlig;lich aus Eigenvektoren zu diesem Eigenwert. Also ist der dazugeh&ouml;rige Eigenraum der gesamte $\mathbb{R}^3$.
+Dann ist $\lambda = a$ der einzige Eigenwert. Der gesamte $\mathbb{R}^3 \setminus \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$ besteht ausschließlich aus Eigenvektoren zu diesem Eigenwert. Also ist der dazugehörige Eigenraum der gesamte $\mathbb{R}^3$.
 
 <h3>Etwas schwerer</h3>
 Sei $\Phi:\mathbb{R}^3 \rightarrow \mathbb{R}^3$ definiert durch $\Phi(x) := \begin{pmatrix} 1 & 2 & 3\\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} x $.
@@ -42,9 +42,9 @@ $\lambda_2 = \frac{3}{2} (5-\sqrt{33})$, Eigenvektor: $v_2 = \begin{pmatrix}-\fr
 $\lambda_3 = 0$, Eigenvektor: $v_3 = \begin{pmatrix}1 \\ -2 \\ 1\end{pmatrix}$ - der Kern von $\Phi$ (siehe <a href="http://www.wolframalpha.com/input/?i=NullSpace+%7B%7B1%2C2%2C3%7D%2C%7B4%2C5%2C6%7D%2C%7B7%2C8%2C9%7D%7D">Wolfram|Alpha</a>)
 
 <h2>Wozu das Ganze?</h2>
-Mit Eigenwerten (bzw. Vektoren) kann man &uuml;berpr&uuml;fen, ob eine lineare Abbildung diagonalisierbar ist. Eine lineare Abbildung in Form einer Diagonalmatrix ist besonders leicht zu berechnen. Es ist also w&uuml;nschenswert, die Abbildungsmatrix in Diagonalform zu bringen.
+Mit Eigenwerten (bzw. Vektoren) kann man überprüfen, ob eine lineare Abbildung diagonalisierbar ist. Eine lineare Abbildung in Form einer Diagonalmatrix ist besonders leicht zu berechnen. Es ist also wünschenswert, die Abbildungsmatrix in Diagonalform zu bringen.
 
-Kennt jemand noch weitere Gr&uuml;nde, warum Eigenwerte / Vektoren / R&auml;ume interessant sind?
+Kennt jemand noch weitere Gründe, warum Eigenwerte / Vektoren / Räume interessant sind?
 
 <h2>Siehe auch</h2>
 <ul>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Simquadrat
 slug: simquadrat
+lang: de
 author: Martin Thoma
 date: 2013-07-21 18:18:12.000000000 +02:00
 category: German posts
@@ -14,7 +14,7 @@ Simquadrat ist ein Dienst von <a href="http://en.wikipedia.org/wiki/Sipgate">sip
 <h2>Das Angebot</h2>
 Man geht auf <a href="https://www.simquadrat.de/">simquadrat.de</a>, bezahlt 4,95 Euro und bekommt eine <strong>Festnetznummer</strong> des Ortes, für den man die Postadresse angibt. Die meisten Leute, die ich kennen haben eine Festnetz-Flat. Das bedeutet, sie können mich kostenlos auf dem Handy anrufen. Toll, oder?
 
-Es ist ein <strong>Prepaid</strong>-Service. Das hei&szlig;t, ich habe ein Guthaben, das ich vertelefonieren kann. Wenn das Guthaben weg ist, kann ich nicht mehr telefonieren. Das hat für mich vor allem den Vorteil, dass es keine versteckten Kosten gibt (bzw. diese micht nicht so hart treffen).
+Es ist ein <strong>Prepaid</strong>-Service. Das heißt, ich habe ein Guthaben, das ich vertelefonieren kann. Wenn das Guthaben weg ist, kann ich nicht mehr telefonieren. Das hat für mich vor allem den Vorteil, dass es keine versteckten Kosten gibt (bzw. diese micht nicht so hart treffen).
 
 Für <strong>10 Euro</strong> bekommt man eine <strong>1-Monat-Festnetzflat</strong>.
 
@@ -98,7 +98,7 @@ Nach wenigen Tagen ist dann die Simkarte angekommen:
 </ul>
 
 
-Wie man sieht, bekommt man eine Simkarte, wo man sich die richtige Grö&szlig;e herausbrechen kann. Micro- und Mini-Simkarten gehen also (bei Nano-Sim fürs iPhone bin ich mir nicht sicher, aber ich glaube auch das konnte man angeben).
+Wie man sieht, bekommt man eine Simkarte, wo man sich die richtige Größe herausbrechen kann. Micro- und Mini-Simkarten gehen also (bei Nano-Sim fürs iPhone bin ich mir nicht sicher, aber ich glaube auch das konnte man angeben).
 
 <h2>Der Dienst</h2>
 Simquadrat hat sofort funktioniert. Ich konnte telefonieren und SMS schreiben (die aber nicht bei meiner Freundin angekommen sind ... aber das könnte auch gut an ihrem Handy/Anbieter liegen). Auch die Online-Benutzeroberfläche ist gut:

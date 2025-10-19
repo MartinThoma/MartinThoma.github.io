@@ -31,7 +31,7 @@ Das sind ca. 12 Scheiben. Eine Mahlzeit für eine Person sind ca. 3 Scheiben.
         <td>0.40€</td>
     </tr>
     <tr>
-        <td>Oliven&ouml;l</td>
+        <td>Olivenöl</td>
         <td>12g (1 EL)</td>
         <td>0.09€</td>
     </tr>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Permutationen und Transpositionen
 slug: permutationen-und-transpositionen
+lang: de
 author: Martin Thoma
 date: 2012-08-08 10:36:06.000000000 +02:00
 category: German posts
@@ -185,14 +185,14 @@ Man sieht nun, und das finde ich durchaus erstaunlich, man landet immer wieder i
 
 Man kann nun auch noch sehen, jedes Element aus <span markdown="0">$(S_3, \circ)$</span> ein inverses hat, da in jeder Zeile ein mal <span markdown="0">$\pi_1$</span> vorkommt.
 
-Au&szlig;erdem ist <span markdown="0">$(S_3, \circ)$</span> assoziativ.
+Außerdem ist <span markdown="0">$(S_3, \circ)$</span> assoziativ.
 
 Kurz: <span markdown="0">$(S_3, \circ)$</span> ist eine Gruppe, die jedoch nicht abelsch ist.
 
 Es wurde in der Vorlesung auch gezeigt, dass allgemein <span markdown="0">$(S_m, \circ)$</span> eine Gruppe ist.
 
 <h3>Die Fehlstandszahl</h3>
-<div class="definition">Es sei $\pi \in S_m$ eine Permutation. Die <strong>Fehlstandszahl</strong> <span markdown="0">$F(\pi)$</span> von <span markdown="0">$\pi$</span> ist die (eindeutige) Anzahl der Fälle, in denen für <span markdown="0">$i < k$</span> gilt <span markdown="0">$\pi(i) > \pi(k)$</span>. Die Permutationen mit gerader Fehlstandszahl <span markdown="0">$F(\pi)$</span> hei&szlig;en gerade, die Permutationen mit ungerader Fehlstandszahl hei&szlig;en ungerade.</div>
+<div class="definition">Es sei $\pi \in S_m$ eine Permutation. Die <strong>Fehlstandszahl</strong> <span markdown="0">$F(\pi)$</span> von <span markdown="0">$\pi$</span> ist die (eindeutige) Anzahl der Fälle, in denen für <span markdown="0">$i < k$</span> gilt <span markdown="0">$\pi(i) > \pi(k)$</span>. Die Permutationen mit gerader Fehlstandszahl <span markdown="0">$F(\pi)$</span> heißen gerade, die Permutationen mit ungerader Fehlstandszahl heißen ungerade.</div>
 
 <h4>Beispiele</h4>
 <span markdown="0">\(\pi_1 = \begin{pmatrix}
@@ -250,7 +250,7 @@ Gelesen wird das ganze von rechts nach links. Die Transposition <span markdown="
 Die Fehlstandszahl von <span markdown="0">$\sigma$</span> ist 13 und die Anzahl der Transpositionen ist ungerade.
 
 Interessanterweise gilt auch <span markdown="0">$\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2)$</span>.
-Au&szlig;erdem kann man beliebig häufig eine Transposition doppelt hinzufügen, da es ja die Identität ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.
+Außerdem kann man beliebig häufig eine Transposition doppelt hinzufügen, da es ja die Identität ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.
 
 <h2>Siehe auch</h2>
 Wikipedia: <a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a>

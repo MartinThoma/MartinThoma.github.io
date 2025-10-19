@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Sprachen, Automaten und Grammatiken: Ein Überblick
 slug: sprachen-automaten-und-grammatiken
+lang: de
 author: Martin Thoma
 date: 2012-01-28 10:52:34.000000000 +01:00
 category: German posts
@@ -11,9 +11,9 @@ featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:
 <ul>
-  <li>V: Die Menge der Nicht-Terminale. Für sie benutze ich Gro&szlig;buchstaben.</li>
+  <li>V: Die Menge der Nicht-Terminale. Für sie benutze ich Großbuchstaben.</li>
   <li>$\Sigma$: Die Menge der Terminale. Für sie benutze ich Kleinbuchstaben.</li>
-  <li>P: Die Produktion, also die Regeln mit denen die Grammatik die Sprache erzeugt. Nur diese hat unterschiedliche Bedingungen, je nach dem welchem Typ die Grammatik angeh&ouml;rt.</li>
+  <li>P: Die Produktion, also die Regeln mit denen die Grammatik die Sprache erzeugt. Nur diese hat unterschiedliche Bedingungen, je nach dem welchem Typ die Grammatik angehört.</li>
   <li>S: Das Startsymbol aus $\Sigma$.</li>
 </ul>
 
@@ -49,7 +49,7 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
-<td>(ND.?) L&auml;ngenbeschr&auml;nkter Automat</td>
+<td>(ND.?) Längenbeschränkter Automat</td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">2</td>
@@ -63,7 +63,7 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
 </tr>
 <tr>
 <td style="background-color:#90EE90;">3</td>
-<td><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Grammatik">regul&auml;r</a></td>
+<td><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Grammatik">regulär</a></td>
 <td>$A \rightarrow \varepsilon, A \rightarrow aB$</td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
@@ -88,12 +88,12 @@ ND.: "Nicht Deterministisch"
 
 <h2>Weitere Aussagen</h2>
 Sei L eine Sprache.
-$L \in {\cal L_3} \Leftrightarrow$ Es existiert ein regul&auml;rer Ausdruck für L.
-$L \in {\cal L_3} \Leftrightarrow$ Die Anzahl der &Auml;quivalenzklassen der <a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a> bzgl. der Sprache ist endlich.
-$L \in {\cal L_3} \Rightarrow$ Das <a href="../pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a> ist erfüllt.
+$L \in {\cal L_3} \Leftrightarrow$ Es existiert ein regulärer Ausdruck für L.
+$L \in {\cal L_3} \Leftrightarrow$ Die Anzahl der Äquivalenzklassen der <a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a> bzgl. der Sprache ist endlich.
+$L \in {\cal L_3} \Rightarrow$ Das <a href="../pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regulär (Pumping-Lemma)">Pumping-Lemma</a> ist erfüllt.
 
-Für regul&auml;re Sprachen ist das Leerheitsproblem ($L(G) \stackrel{?}{=} \emptyset$) entscheidbar.
-Für regul&auml;re Sprachen ist das Endlichkeitsproblem ($L(G) \stackrel{?}{<} \infty$) entscheidbar.
+Für reguläre Sprachen ist das Leerheitsproblem ($L(G) \stackrel{?}{=} \emptyset$) entscheidbar.
+Für reguläre Sprachen ist das Endlichkeitsproblem ($L(G) \stackrel{?}{<} \infty$) entscheidbar.
 
 Für kontextfreie Sprachen ist das Leerheitsproblem entscheidbar.
 Für kontextfreie Sprachen ist das Endlichkeitsproblem entscheidbar.
@@ -104,6 +104,6 @@ $L \in {\cal L_2} \Leftrightarrow L$ wird von einem nichtdeterministischem Kelle
 
 <h2>Quellen</h2>
 <ul>
-    <li>Uwe Sch&ouml;ning: <i>Theoretische Informatik- kurz gefasst</i>. 5.&nbsp;Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>
+    <li>Uwe Schöning: <i>Theoretische Informatik- kurz gefasst</i>. 5.&nbsp;Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>
     <li>Tutorium, Skript, Vorlesung: Theoretische Grundlagen der Informatik am KIT bei Prof. Dr. Dorothea Wagner</li>
 </ul>

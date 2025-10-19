@@ -78,19 +78,19 @@ Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q
 $Q_2 := Q_1 \cup \{q_0^2, q_E\}$, wobei $q_0^2$ der neue Anfangszustand von ${\cal K}_2$ ist.
 $\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$, wobei $Z_0^2$ den STACK initialisiert.
 
-Die Menge $\delta_2(q, a, Z)$ f&uuml;r $a \in \Sigma \cup \{\varepsilon\}$ und $Z \in \Gamma_2$ sei durch folgende Bedingungen festgelegt:
+Die Menge $\delta_2(q, a, Z)$ für $a \in \Sigma \cup \{\varepsilon\}$ und $Z \in \Gamma_2$ sei durch folgende Bedingungen festgelegt:
 
-Sorge f&uuml;r die gleiche Anfangssituation:
+Sorge für die gleiche Anfangssituation:
 $\delta_2(q_0^2, \varepsilon, Z_0^2) = \{(q_0^1, Z_0^1Z_0^2)\}$
 
 Falls der Zustand, das gelesene Zeichen und das STACK-Symbol im "alten" Automaten sind, dann wie gehabt:
-$\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{f&uuml;r } (q \in Q_1, a \neq \varepsilon, Z \in \Gamma_1) \lor (q \in Q_1 \setminus F_1, a = \varepsilon, Z \in \Gamma_1)$
+$\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{für } (q \in Q_1, a \neq \varepsilon, Z \in \Gamma_1) \lor (q \in Q_1 \setminus F_1, a = \varepsilon, Z \in \Gamma_1)$
 
-Sorge daf&uuml;r, dass die STACK-Leerungsregel aufgerufen wird, falls der Zustand akzeptierend ist:
-$\delta_2(q, \varepsilon, Z) = \delta_1(q, \varepsilon, Z) \cup \{(q_E, \varepsilon)\} \text{f&uuml;r } q \in F_1, Z \in \Gamma_2$
+Sorge dafür, dass die STACK-Leerungsregel aufgerufen wird, falls der Zustand akzeptierend ist:
+$\delta_2(q, \varepsilon, Z) = \delta_1(q, \varepsilon, Z) \cup \{(q_E, \varepsilon)\} \text{für } q \in F_1, Z \in \Gamma_2$
 
 Diese Regel leert den STACK:
-$\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ f&uuml;r } Z \in \Gamma_2$
+$\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ für } Z \in \Gamma_2$
 
 ### Leerer STACK → akzeptierender Endzustand
 
@@ -105,7 +105,7 @@ Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q
 $Q_2 := Q_1 \cup \{q_0^2, q_F\}$, wobei $q_0^2$ Anfangszustand von ${\cal K}_2$ ist und $F_2 := \{q_F\}$
 $\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$, wobei $Z_0^2$ Initialisierung des STACKS von ${\cal K}_2$ ist und $\delta_2$ festgelegt durch:
 
-Zuerst sorgen wir daf&uuml;r, dass $Z_0^2$ ganz unten im STACK ist:
+Zuerst sorgen wir dafür, dass $Z_0^2$ ganz unten im STACK ist:
 $$\delta_2(q_0^2, a, X) =
 \begin{cases}
 \{q_0^1, Z_0^1, Z_0^2\} & \text{falls } a= \varepsilon \text{ und } X = Z_0^2\\
@@ -116,7 +116,7 @@ Dann wie gehabt:
 $\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{, falls } q \in Q_1, a \in \Sigma \cup \{\varepsilon\} \text{ und } Z \in \Gamma_1$
 
 Und am Schluss auch akzeptieren:
-$\delta_2(q, \varepsilon, Z_0^2) = \{(q_F, \varepsilon)\} \text{ f&uuml;r } q \in Q_1$.
+$\delta_2(q, \varepsilon, Z_0^2) = \{(q_F, \varepsilon)\} \text{ für } q \in Q_1$.
 
 ## Dies und das
 

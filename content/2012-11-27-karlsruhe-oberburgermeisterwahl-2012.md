@@ -1,37 +1,37 @@
 ---
 layout: post
-lang: de
-title: Karlsruhe: Oberb&uuml;rgermeisterwahl 2012
+title: Karlsruhe: Oberbürgermeisterwahl 2012
 slug: karlsruhe-oberburgermeisterwahl-2012
+lang: de
 author: Martin Thoma
 date: 2012-11-27 14:17:39.000000000 +01:00
 category: German posts
 tags: politics
 featured_image: 2012/11/Karlsruhe.png
 ---
-Da ich mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier w&auml;hlen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberb&uuml;rgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gew&auml;hlt werden.
+Da ich mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier wählen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberbürgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gewählt werden.
 
 <h2>Die Kandidaten</h2>
-Die UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank daf&uuml;r!).
+Die UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank dafür!).
 
 Hier mal das Interessanteste:
 
-<h3>Dr. Frank Mentrup, SPD-Gr&uuml;ne-KAL</h3>
+<h3>Dr. Frank Mentrup, SPD-Grüne-KAL</h3>
 <table class="wikitable">
   <tr><td>Alter</td><td>48 Jahre</td></tr>
   <tr><td>In Karlsruhe</td><td>seit 2007</td></tr>
-  <tr><td>Beruf</td><td>Arzt f&uuml;r Kinder- und Jugendpsychiatrie</td></tr>
-  <tr><td>Politik</td><td>viel, vgl. Wikipedia<br/>2011: Staatssekret&auml;r im Ministerium f&uuml;r Kultus, Jugend und Sport</td></tr>
+  <tr><td>Beruf</td><td>Arzt für Kinder- und Jugendpsychiatrie</td></tr>
+  <tr><td>Politik</td><td>viel, vgl. Wikipedia<br/>2011: Staatssekretär im Ministerium für Kultus, Jugend und Sport</td></tr>
   <tr><td>Wikipedia</td><td><a href="http://de.wikipedia.org/wiki/Frank_Mentrup">Link</a></td></tr>
 </table>
 
 Ziele und Aussagen:
 <ul>
-  <li><strong>Wohnraummangel</strong>: &bdquo;[...] werde ich ein kommunales Wohnraumf&ouml;rderungsprogramm f&uuml;r Karlsruhe erarbeiten&ldquo;</li>
-  <li><strong>Studiticket</strong>: viel bla bla, durchaus gute und vern&uuml;nftige Begr&uuml;ndungen, aber in kurz: An den Preisen f&uuml;r das Studiticket kann der OB nichts machen</li>
-  <li><strong>Rad vs. Baustellen</strong>: &bdquo;Der weitere Ausbau von Radwegen, insbesondere auch auf studentischen Routen wie z.B. zwischen Wohnheimen und den Hochschulen muss z&uuml;gig erfolgen.&ldquo;</li>
-  <li><strong>Slacklinen</strong>: &bdquo;[ich werde] mich f&uuml;r die Einrichtung von Slacklineanlagen einsetzen.&ldquo;</li>
-  <li><strong>Sonstiges</strong>: Als Oberb&uuml;rgermeister werde ich eine ausgewogene Stadtentwicklungspolitik verfolgen, die Karlsruhe zu einer gr&uuml;nen Stadt machen wird mit einem durchgehenden Gr&uuml;nstreifen vom Rhein bis in die Bergd&ouml;rfer.</li>
+  <li><strong>Wohnraummangel</strong>: &bdquo;[...] werde ich ein kommunales Wohnraumförderungsprogramm für Karlsruhe erarbeiten&ldquo;</li>
+  <li><strong>Studiticket</strong>: viel bla bla, durchaus gute und vernünftige Begründungen, aber in kurz: An den Preisen für das Studiticket kann der OB nichts machen</li>
+  <li><strong>Rad vs. Baustellen</strong>: &bdquo;Der weitere Ausbau von Radwegen, insbesondere auch auf studentischen Routen wie z.B. zwischen Wohnheimen und den Hochschulen muss zügig erfolgen.&ldquo;</li>
+  <li><strong>Slacklinen</strong>: &bdquo;[ich werde] mich für die Einrichtung von Slacklineanlagen einsetzen.&ldquo;</li>
+  <li><strong>Sonstiges</strong>: Als Oberbürgermeister werde ich eine ausgewogene Stadtentwicklungspolitik verfolgen, die Karlsruhe zu einer grünen Stadt machen wird mit einem durchgehenden Grünstreifen vom Rhein bis in die Bergdörfer.</li>
 </ul>
 
 Insgesamt erwecken Mentrup einen soliden Eindruck. Die Antworten scheinen durchdacht zu sein und er spricht einige Projekte / Initiativen an, die es bereits gibt. Er scheint also mit der Politik der Stadt vertraut zu sein.
@@ -41,17 +41,17 @@ Insgesamt erwecken Mentrup einen soliden Eindruck. Die Antworten scheinen durchd
   <tr><td>Alter</td><td>52 Jahre</td></tr>
   <tr><td>In Karlsruhe</td><td>geboren</td></tr>
   <tr><td>Beruf</td><td>11 Jahre Richter am Landgericht und Oberlandgericht</td></tr>
-  <tr><td>Politik</td><td>viel, vgl. Wikipedia<br/>seit &uuml;ber 10 Jahren Bundestagsabgeordneter<br/>seit dreizehn Jahren im Stadtrat</td></tr>
+  <tr><td>Politik</td><td>viel, vgl. Wikipedia<br/>seit über 10 Jahren Bundestagsabgeordneter<br/>seit dreizehn Jahren im Stadtrat</td></tr>
   <tr><td>Wikipedia</td><td><a href="http://de.wikipedia.org/wiki/Ingo_Wellenreuther">Link</a></td></tr>
 </table>
 
 Ziele und Aussagen:
 <ul>
-  <li><strong>Wohnraummangel</strong>: &bdquo;[ich will] gezielt auf die Umlandgemeinden zugehen, [...] damit auch diese Wohnraum f&uuml;r Studenten schaffen&ldquo;</li>
-  <li><strong>Studiticket</strong>: &bdquo;Als Oberb&uuml;rgermeister w&uuml;rde ich mich f&uuml;r ein studierendenfreundliches Ergebnis stark machen.&ldquo;</li>
+  <li><strong>Wohnraummangel</strong>: &bdquo;[ich will] gezielt auf die Umlandgemeinden zugehen, [...] damit auch diese Wohnraum für Studenten schaffen&ldquo;</li>
+  <li><strong>Studiticket</strong>: &bdquo;Als Oberbürgermeister würde ich mich für ein studierendenfreundliches Ergebnis stark machen.&ldquo;</li>
   <li><strong>Rad vs. Baustellen</strong>: Sehr viel blah blah</li>
-  <li><strong>Slacklinen</strong>: &bdquo;[ich werde] mich beim Land f&uuml;r deren offizielle Genehmigung stark machen&ldquo;</li>
-  <li><strong>Sonstiges</strong>: &bdquo;Eine Vergr&ouml;&szlig;erung des KIT-Campus S&uuml;d auf dem Gel&auml;nde des Wildparkstadions halte ich f&uuml;r dringend notwendig. Dies w&uuml;rde durch einen <u>Stadionneubau in Autobahnn&auml;he</u> m&ouml;glich, f&uuml;r den ich mich seit vielen Jahren einsetze und der auch viele andere Probleme l&ouml;sen w&uuml;rde.&ldquo;</li>
+  <li><strong>Slacklinen</strong>: &bdquo;[ich werde] mich beim Land für deren offizielle Genehmigung stark machen&ldquo;</li>
+  <li><strong>Sonstiges</strong>: &bdquo;Eine Vergrößerung des KIT-Campus Süd auf dem Gelände des Wildparkstadions halte ich für dringend notwendig. Dies würde durch einen <u>Stadionneubau in Autobahnnähe</u> möglich, für den ich mich seit vielen Jahren einsetze und der auch viele andere Probleme lösen würde.&ldquo;</li>
 </ul>
 
 <h3>Fostiropoulos, Linke</h3>
@@ -64,31 +64,31 @@ Ziele und Aussagen:
 
 Ziele und Aussagen:
 <ul>
-  <li><strong>Wohnraummangel</strong>: setzt sich f&uuml;r ein kommunale Wohnungsprogramm ein</li>
-  <li><strong>Studiticket</strong>: &bdquo;&Ouml;PNV kostenlos und &uuml;ber Steuermittel finanziert&ldquo;</li>
+  <li><strong>Wohnraummangel</strong>: setzt sich für ein kommunale Wohnungsprogramm ein</li>
+  <li><strong>Studiticket</strong>: &bdquo;ÖPNV kostenlos und über Steuermittel finanziert&ldquo;</li>
   <li><strong>Rad vs. Baustellen</strong>: nichts konkretes</li>
-  <li><strong>Slacklinen</strong>: &bdquo;Daf&uuml;r ist das Land zust&auml;ndig.&ldquo;</li>
-  <li><strong>Sonstiges</strong>: Kostenfreie Kindertagesst&auml;tten f&uuml;r alle Kinder von 1 bis 6, kommunales Wohnungsprogramm</li>
+  <li><strong>Slacklinen</strong>: &bdquo;Dafür ist das Land zuständig.&ldquo;</li>
+  <li><strong>Sonstiges</strong>: Kostenfreie Kindertagesstätten für alle Kinder von 1 bis 6, kommunales Wohnungsprogramm</li>
 </ul>
 
-<h3>Friedemann Kalmbach, W&auml;hlerliste</h3>
+<h3>Friedemann Kalmbach, Wählerliste</h3>
 <table class="wikitable">
   <tr><td>Alter</td><td>58 Jahre</td></tr>
   <tr><td>In Karlsruhe</td><td>?</td></tr>
   <tr><td>Beruf</td><td>Technischer Zeichner in einer Maschinenbaufabrik<br/>Gymnasiallehrer (Physik, Geographie)</td></tr>
-  <tr><td>Politik</td><td>seit 2009 tr&auml;gt er politische Verantwortung im Gemeinderat</td></tr>
+  <tr><td>Politik</td><td>seit 2009 trägt er politische Verantwortung im Gemeinderat</td></tr>
 </table>
 
 Ziele und Aussagen:
 <ul>
-  <li><strong>Wohnraummangel</strong>: kommunales Wohnungsbauprogramm, Investoren, B&uuml;rofl&auml;chen in Wohnraum umwandeln</li>
-  <li><strong>Studiticket</strong>: &bdquo;[Ich werde] den Druck auf den KVV deutlich erh&ouml;hen, um eine moderatere Preisgestaltung zu erzielen.&ldquo;</li>
+  <li><strong>Wohnraummangel</strong>: kommunales Wohnungsbauprogramm, Investoren, Büroflächen in Wohnraum umwandeln</li>
+  <li><strong>Studiticket</strong>: &bdquo;[Ich werde] den Druck auf den KVV deutlich erhöhen, um eine moderatere Preisgestaltung zu erzielen.&ldquo;</li>
   <li><strong>Rad vs. Baustellen</strong>: Nichts konkretes</li>
   <li><strong>Slacklinen</strong>: ist nicht Sache des OB</li>
   <li><strong>Sonstiges</strong>: -</li>
 </ul>
 
-<h3>J&uuml;rgen Wenzel, freie W&auml;hler Karlsruhe</h3>
+<h3>Jürgen Wenzel, freie Wähler Karlsruhe</h3>
 <table class="wikitable">
   <tr><td>Alter</td><td>50 Jahre</td></tr>
   <tr><td>In Karlsruhe</td><td>geboren</td></tr>
@@ -96,32 +96,32 @@ Ziele und Aussagen:
   <tr><td>Politik</td><td>seit 2009 im Gemeinderat</td></tr>
 </table>
 
-<h3>Sascha Oehme, Unabh&auml;ngiger Kandidat</h3>
+<h3>Sascha Oehme, Unabhängiger Kandidat</h3>
 <table class="wikitable">
   <tr><td>Alter</td><td>42 Jahre</td></tr>
   <tr><td>In Karlsruhe</td><td>?</td></tr>
   <tr><td>Beruf</td><td>Logistikmeister</td></tr>
-  <tr><td>Politik</td><td>&ouml;ffentlichen Wohnbau, Abschaffung der Hundesteuer, freies W-LAN</td></tr>
+  <tr><td>Politik</td><td>öffentlichen Wohnbau, Abschaffung der Hundesteuer, freies W-LAN</td></tr>
   <tr><td>Wikipedia</td><td><a href="http://de.wikipedia.org/wiki/Ingo_Wellenreuther">Link</a></td></tr>
 </table>
 
-<h3>Michael B&ouml;hm, Unabh&auml;ngiger Kandidat</h3>
+<h3>Michael Böhm, Unabhängiger Kandidat</h3>
 alias &bdquo;Herr Kruscht&ldquo;
 <table class="wikitable">
   <tr><td>Alter</td><td>49 Jahre</td></tr>
   <tr><td>In Karlsruhe</td><td>geboren (Eggstein)</td></tr>
-  <tr><td>Beruf</td><td>Entr&uuml;mpler<br/>Besitzer eines Blechdosenmuseums</td></tr>
-  <tr><td>Politik</td><td>&ouml;ffentlichen Wohnbau, Abschaffung der Hundesteuer, freies W-LAN</td></tr>
+  <tr><td>Beruf</td><td>Entrümpler<br/>Besitzer eines Blechdosenmuseums</td></tr>
+  <tr><td>Politik</td><td>öffentlichen Wohnbau, Abschaffung der Hundesteuer, freies W-LAN</td></tr>
   <tr><td>Wikipedia</td><td><a href="http://de.wikipedia.org/wiki/Ingo_Wellenreuther">Link</a></td></tr>
 </table>
 
-Ist gegen die U-Bahn, m&ouml;chte das Karlsruher Rathaus auf den Werderplatz bauen.
-&bdquo;Das jetzige Rathaus soll eine Kindertagesst&auml;tte werden und die S&uuml;dstadt eine eigenst&auml;ndige Stadt.&ldquo;
+Ist gegen die U-Bahn, möchte das Karlsruher Rathaus auf den Werderplatz bauen.
+&bdquo;Das jetzige Rathaus soll eine Kindertagesstätte werden und die Südstadt eine eigenständige Stadt.&ldquo;
 Herabsenkung des Wahlalters auf 16 Jahre.
 
 <h2>Prognosen</h2>
 <ul>
-  <li>48,22%: Mentrup, SPD-GR&Uuml;-KAL</li>
+  <li>48,22%: Mentrup, SPD-GRÜ-KAL</li>
   <li>38,16%: Wellenreuther, CDU</li>
   <li>04,18%: Fostiropoulos, Linke</li>
   <li>04,05%: Kalmbach, GfK</li>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
-title: &Uuml;bersicht der Pfeile in UML
+title: Übersicht der Pfeile in UML
 slug: ubersicht-der-pfeile-in-uml
+lang: de
 author: Martin Thoma
 date: 2012-08-04 09:23:29.000000000 +02:00
 category: German posts
@@ -20,7 +20,7 @@ Die <a href="http://de.wikipedia.org/wiki/Vererbung_(Programmierung)">Vererbung<
 
 Beispiele sind:
 <ul>
-  <li><code>Tiger</code> ist eine <code>Gro&szlig;katze</code> ist eine <code>Katze</code> ist ein <code>Raubtier</code> ist ein <code>Tier</code>.</li>
+  <li><code>Tiger</code> ist eine <code>Großkatze</code> ist eine <code>Katze</code> ist ein <code>Raubtier</code> ist ein <code>Tier</code>.</li>
   <li><code>Auto</code> ist ein <code>Fortbewegungsmittel</code>.</li>
   <li><code>Auto</code> ist ein <code>Luxusgut</code>.</li>
 </ul>
@@ -35,11 +35,11 @@ Beachte dass <code>Auto</code> hier sowohl von <code>Luxusgut</code>, als auch v
 
 Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a>zeigt eine Verbindung an, z.B.:
 <ul>
-	<li>Person - Termin: Eine Person hat Termine; Termine geh&ouml;ren zu einer Person.</li>
-	<li>Lehrer - Sch&uuml;ler: Ein Sch&uuml;ler hat Lehrer; Lehrer haben Sch&uuml;ler.</li>
+	<li>Person - Termin: Eine Person hat Termine; Termine gehören zu einer Person.</li>
+	<li>Lehrer - Schüler: Ein Schüler hat Lehrer; Lehrer haben Schüler.</li>
 	<li>Auto - Fahrer: Ein Auto hat einen Fahrer; ein Fahrer hat ein Auto.</li>
 </ul>
-In einer Datenbank w&uuml;rde man f&uuml;r diese Relationen eine weitere Tabelle erstellen. Also eine Tabelle f&uuml;r Personen, eine f&uuml;r Termine und eine f&uuml;r Person-Termin-Verkn&uuml;pfungen.
+In einer Datenbank würde man für diese Relationen eine weitere Tabelle erstellen. Also eine Tabelle für Personen, eine für Termine und eine für Person-Termin-Verknüpfungen.
 <h3>Aggregation</h3>
 <figure class="alignright">
             <a href="../images/2012/07/UML-aggregation.png"><img src="../images/2012/07/UML-aggregation.png" alt="Aggregation" style="max-width:77px;max-height:155px;" class="size-full wp-image-32871 "/></a>
@@ -50,9 +50,9 @@ Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)#Aggregation">Aggrega
 
 Aggregationen sind z.B.:
 <ul>
-	<li>PKW hat R&auml;der</li>
+	<li>PKW hat Räder</li>
 	<li>Eltern haben Kinder</li>
-	<li>Buchladen hat B&uuml;cher</li>
+	<li>Buchladen hat Bücher</li>
 </ul>
 <h3>Komposition</h3>
 <figure class="alignright">
@@ -71,8 +71,8 @@ Beispiele sind:
 
 <h3>Weitere</h3>
 <ul>
-  <li>Die Benutzt-Relation wird als gestrichelter Pfeil mit nicht-ausgef&uuml;lltem Kopf dargestellt.</li>
-  <li>Eine Implementierung wird als gestrichelter Pfeil mit rundem, nicht ausgef&uuml;lltem Kopf dargestellt.</li>
+  <li>Die Benutzt-Relation wird als gestrichelter Pfeil mit nicht-ausgefülltem Kopf dargestellt.</li>
+  <li>Eine Implementierung wird als gestrichelter Pfeil mit rundem, nicht ausgefülltem Kopf dargestellt.</li>
 </ul>
 
 <h2>Objektdiagramme</h2>
@@ -87,8 +87,8 @@ Beispiele sind:
             <a href="../images/2012/07/sequenzdiagram.png"><img src="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" style="max-width:421px;max-height:259px" class="size-full wp-image-32951"/></a>
             <figcaption class="text-center">UML Sequenzdiagramm</figcaption>
         </figure>
-Der Pfeil mit der ausgef&uuml;llten Spitze ist eine Synchrone Nachricht, der gestrichelte mit der nicht-ausgef&uuml;llten Spitze ist eine Antwort  und der durchgezogenen Pfeil mit der nicht-ausgef&uuml;llten Spitze ist eine asynchrone Nachricht.
-<strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgef&uuml;llten Kopf, im gegensatz zu dem hier gezeigtem Bild!
+Der Pfeil mit der ausgefüllten Spitze ist eine Synchrone Nachricht, der gestrichelte mit der nicht-ausgefüllten Spitze ist eine Antwort  und der durchgezogenen Pfeil mit der nicht-ausgefüllten Spitze ist eine asynchrone Nachricht.
+<strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgefüllten Kopf, im gegensatz zu dem hier gezeigtem Bild!
 
 <h2>Siehe auch</h2>
 <ul>

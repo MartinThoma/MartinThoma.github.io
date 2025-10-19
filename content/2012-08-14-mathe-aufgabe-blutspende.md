@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Mathe-Aufgabe: Blutspende
 slug: mathe-aufgabe-blutspende
+lang: de
 author: Martin Thoma
 date: 2012-08-14 17:00:16.000000000 +02:00
 category: German posts
@@ -10,27 +10,27 @@ tags: mathematics
 featured_image: 2012/08/blood.png
 ---
 <h2>Aufgabenstellung</h2>
-Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet.
+Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur nächsten Blutspende ist wird dieses Blut wieder neu gebildet.
 
-Wie h&auml;ufig muss Blut gespendet werden, bis 95% des urspr&uuml;nglichen Blutes gespendet wurde?
+Wie häufig muss Blut gespendet werden, bis 95% des ursprünglichen Blutes gespendet wurde?
 
-Die nat&uuml;rliche Neubildung von Blut auch ohne Blutspende wird vernachl&auml;ssigt.
+Die natürliche Neubildung von Blut auch ohne Blutspende wird vernachlässigt.
 
 <h2>Berechnung</h2>
 <h3>Die ersten Werte</h3>
-$f: \mathbb{N}_0 \rightarrow \mathbb{R}_0^+$ sei die Menge des urspr&uuml;nglichen Blutes in Liter, das nach $x$ Spenden gespendet wurde:
+$f: \mathbb{N}_0 \rightarrow \mathbb{R}_0^+$ sei die Menge des ursprünglichen Blutes in Liter, das nach $x$ Spenden gespendet wurde:
 
 $f(0) = 0$
 
-Beim ersten mal Blutspenden wird ein halber Liter des urspr&uuml;nglichen Blutes gespendet:
+Beim ersten mal Blutspenden wird ein halber Liter des ursprünglichen Blutes gespendet:
 
 $f(1) = 0{,}5 + f(0)$
 
-Beim zweiten mal Blutspenden werden 0,45 Liter des urspr&uuml;nglichen Blutes gespendet:
+Beim zweiten mal Blutspenden werden 0,45 Liter des ursprünglichen Blutes gespendet:
 
 $f(2) = \frac{5-0{,}5}{5} \cdot 0{,}5 \text{ Liter} + f(1) + f(0) = 0{,}95 \text{ Liter}$
 
-Beim dritten mal Blutspenden werden 0,405 Liter des urspr&uuml;nglichen Blutes gespendet:
+Beim dritten mal Blutspenden werden 0,405 Liter des ursprünglichen Blutes gespendet:
 
 $f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}$
 
@@ -50,7 +50,7 @@ Dabei gilt:
   <li>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</li>
 </ul>
 
-<h3>Aufl&ouml;sen der Rekursion</h3>
+<h3>Auflösen der Rekursion</h3>
 $$
         \begin{align}
              f(4) &= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\\
@@ -61,7 +61,7 @@ $$
         \end{align}
 $$
 
-<h3>Aufl&ouml;sen des Summensymbols</h3>
+<h3>Auflösen des Summensymbols</h3>
 $$
         \begin{align}
             f(x) &= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\\
@@ -72,7 +72,7 @@ $$
         \end{align}
 $$
 
-<h2>L&ouml;sung</h2>
+<h2>Lösung</h2>
 $$
         \begin{align}
             0{,}95 \cdot 5 &= 5 \cdot (1- 0{,}9^{x+1})\\
@@ -85,4 +85,4 @@ $$
 $$
 
 <h2>Antwort</h2>
-Nach dem 28. mal Blutspenden wurden 95% des urspr&uuml;nglichen Blutes gespendet.
+Nach dem 28. mal Blutspenden wurden 95% des ursprünglichen Blutes gespendet.

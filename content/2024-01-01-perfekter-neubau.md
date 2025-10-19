@@ -250,7 +250,7 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
         <td class="bad">Cfl-s1</td>
     </tr>
     <tr>
-        <th>St&auml;rke</th>
+        <th>Stärke</th>
         <td>11mm</td>
         <td>11.5mm</td>
         <td>10.5mm</td>
@@ -259,17 +259,17 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
         <td>2.5 mm</td>
     </tr>
     <tr>
-        <th>Fu&szlig;bodenheizung geeignet</th>
+        <th>Fußbodenheizung geeignet</th>
         <td class="good">Ja (Wärmedurchlasswiederstand 0.012)</td>
-        <td>M&ouml;glich (Wärmedurchlasswiederstand 0.04 - 0.15)</td>
-        <td class="bad">Sehr eingeschr&auml;nkt (Wärmedurchlasswiederstand 0.13)</td>
-        <td>M&ouml;glich (Wärmedurchlasswiederstand 0.010)</td>
-        <td>M&ouml;glich (Wärmedurchlasswiederstand 0.015)</td>
+        <td>Möglich (Wärmedurchlasswiederstand 0.04 - 0.15)</td>
+        <td class="bad">Sehr eingeschränkt (Wärmedurchlasswiederstand 0.13)</td>
+        <td>Möglich (Wärmedurchlasswiederstand 0.010)</td>
+        <td>Möglich (Wärmedurchlasswiederstand 0.015)</td>
         <td>Ja (Wärmedurchlasswiederstand 0.010 – 0.04)</td>
     </tr>
     <tr>
         <th>Optik</th>
-        <td>Vielf&auml;ltig</td>
+        <td>Vielfältig</td>
         <td>Einseitig</td>
         <td class="bad">Sehr einseitig</td>
         <td class="good">Beliebig</td>

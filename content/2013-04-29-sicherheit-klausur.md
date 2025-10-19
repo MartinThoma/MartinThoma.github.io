@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Sicherheit-Klausur
 slug: sicherheit-klausur
+lang: de
 author: Martin Thoma
 date: 2013-04-29 10:19:05.000000000 +02:00
 category: German posts
@@ -160,7 +160,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>01.07.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Zugriffskontrolle (Bell-LaPadula, Chinese Wall), Analyse grö&szlig;erer Systeme</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Zugriffskontrolle (Bell-LaPadula, Chinese Wall), Analyse größerer Systeme</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL14.pdf">VL 14</a></td>
@@ -168,7 +168,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 
 <tr>
 <td>08.07.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Analyse grö&szlig;erer Systeme, häufige Sicherheitsprobleme</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Analyse größerer Systeme, häufige Sicherheitsprobleme</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL15.pdf">VL 15</a></td>
@@ -349,7 +349,7 @@ Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor d
 <div class="question">
 <span class="question">Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</span>
 <div class="answer">
-Ein Angreifer kann die Klartextnachricht ändern. Wenn er wei&szlig; (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
+Ein Angreifer kann die Klartextnachricht ändern. Wenn er weiß (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
 </div>
 </div>
 
@@ -433,9 +433,9 @@ Es gibt Übungsblätter auf der Vorlesungswebsite, aber keinen Übungsschein, ke
 </ul>
 
 <h2>Ergebnisse</h2>
-Sind noch nicht drau&szlig;en (Stand: 30.07.2013)
+Sind noch nicht draußen (Stand: 30.07.2013)
 
-Sind nun drau&szlig;en (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorläufige Ergebnisse als PDF</a>
+Sind nun draußen (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorläufige Ergebnisse als PDF</a>
 
 <figure class="aligncenter">
             <a href="../images/2013/04/ergebnis-sicherheit-300x227.png"><img src="../images/2013/04/ergebnis-sicherheit-300x227.png" alt="Ergebnis der Sicherheitsklausur" style="max-width:300px;max-height:227px" class="size-medium wp-image-75851"/></a>

@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: de
-title: Eine Sprache ist nicht regul&auml;r - Beweis mit dem Pumping-Lemma
+title: Eine Sprache ist nicht regulär - Beweis mit dem Pumping-Lemma
 slug: pumping-lemma
+lang: de
 author: Martin Thoma
 date: 2011-11-10 16:05:33.000000000 +01:00
 category: German posts
 tags: Computer science, mathematics, proof, Theoretical computer science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
-Regul&auml;re Sprachen k&ouml;nnen von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zust&auml;nden ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, müsste gez&auml;hlt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz dafür, dass es sich nicht um eine regul&auml;re Sprache handelt.
+Reguläre Sprachen können von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zuständen ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, müsste gezählt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz dafür, dass es sich nicht um eine reguläre Sprache handelt.
 
-Das <a href="http://de.wikipedia.org/wiki/Pumping-Lemma">Pumping-Lemma</a> ist ein notwendiges, aber kein hinreichendes Kriterium für regul&auml;re Sprachen. Daraus folgt, dass eine nicht-regul&auml;re Sprache eventuell durch das Lemma entlarvt werden kann. Allerdings muss nicht jede Sprache, die das Pumping-Lemma erfüllt, regul&auml;r sein.
+Das <a href="http://de.wikipedia.org/wiki/Pumping-Lemma">Pumping-Lemma</a> ist ein notwendiges, aber kein hinreichendes Kriterium für reguläre Sprachen. Daraus folgt, dass eine nicht-reguläre Sprache eventuell durch das Lemma entlarvt werden kann. Allerdings muss nicht jede Sprache, die das Pumping-Lemma erfüllt, regulär sein.
 
 Dies kann man durch einen Widerspruchsbeweis zeigen. Dabei nimmt man an, dass die Behauptung falsch ist. Dann zeigt man, dass man durch die Annahme zu einem Widerspruch kommt.
 
@@ -20,11 +20,11 @@ Dies kann man durch einen Widerspruchsbeweis zeigen. Dabei nimmt man an, dass di
 
 $L_2 = \{a^i b^j c^k | i \lt j \lt k\}$.
 
-<strong>Behauptung</strong>: $L_2$ ist nicht regul&auml;r.
+<strong>Behauptung</strong>: $L_2$ ist nicht regulär.
 
 <strong>Beweis</strong>: (durch Widerspruch)
 
-<strong>Annahme</strong>: $L_2$ sei regul&auml;r.
+<strong>Annahme</strong>: $L_2$ sei regulär.
 
 Aus dem Pumping-Lemma folgt:
 $\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}: $
@@ -42,7 +42,7 @@ $\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1 $
 $\Rightarrow uv^2x \notin L_2 $
 $\Rightarrow \text{Widerspruch} $
 $\Rightarrow \text{Die Annahme war falsch.} $
-$\Rightarrow L_2$ ist nicht regul&auml;r.
+$\Rightarrow L_2$ ist nicht regulär.
 
 <em>Bemerkung</em>: Eigentlich ist es ein Beweis durch Kontraposition. Man weiß, es gilt:
 

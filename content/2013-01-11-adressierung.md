@@ -1,21 +1,21 @@
 ---
 layout: post
-lang: de
 title: Adressierung
 slug: adressierung
+lang: de
 author: Martin Thoma
 date: 2013-01-11 17:15:56.000000000 +01:00
 category: German posts
 tags: OS, Operating Systems, TLB, Cache
 ---
-<div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
+<div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
 
 ## Allgemeines
-CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.
+CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.
 
-Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped
-cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tlich noch
-schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man
+Eine Möglichkeit das zu machen, ist ein sog. &bdquo;direct mapped
+cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch
+schnell von der Hardware umgesetzt werden können muss. Also unterteilt man
 gedanklich die Hauptspeicheradressen in 3 Teile:
 <ul>
 	<li>Tag</li>
@@ -24,14 +24,14 @@ gedanklich die Hauptspeicheradressen in 3 Teile:
 </ul>
 
 Der Index gibt direkt die Cache-Zeile an, in der die Daten einer
-Hauptspeicheradresse landen werden. Es w&auml;re also z.B. m&ouml;glich, die
+Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die
 Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu
 legen, der die entsprechende Cache-Zeile durchschaltet.
 
-Es gilt also: Index-L&auml;nge in Bit = $\log_2(\text{Cache-Zeilen})$
+Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$
 
 Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile
-landen. Um diese unterscheiden zu k&ouml;nnen, speichert man folgendes in einer
+landen. Um diese unterscheiden zu können, speichert man folgendes in einer
 Cache-Zeile:
 <ul>
 	<li>Tag</li>
@@ -40,32 +40,32 @@ Cache-Zeile:
 </ul>
 
 Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.
-Ben&ouml;tigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
+Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
 der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.
-Wenn dann die Tags &uuml;bereinstimmen, ist es die richtige Adresse und man
+Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man
 kann die Daten aus dem Cache entnehmen.
 
 Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen
 zusammenfasst, muss gelten:
 
-Gr&ouml;&szlig;e der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$
-Gr&ouml;&szlig;e des Inhalts einer Hauptspeicheradresse
+Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$
+Größe des Inhalts einer Hauptspeicheradresse
 
 Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.
 
-Der Tag muss aktiv im Cache gespeichert werden und die L&auml;nge des Tags im
-Cache muss mindestens so lang sein wie die Tag-L&auml;nge der Hauptspeicher-
-Adresse. Nat&uuml;rlich wird der Tag im Cache genau so lang sein wie der in der
+Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im
+Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-
+Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der
 Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.
 
-Bei einem Voll-Assoziativem Cache w&uuml;rde es also keinen Index geben. Eine
-Hauptspeicher-Adresse w&uuml;rde dann nur in Tag und Block-Offset geteilt
+Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine
+Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt
 werden.
 
-Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ S&auml;tze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:
+Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:
 
 <ol>
-	<li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird ben&ouml;tigt</li>
+	<li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird benötigt</li>
 	<li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br/>
 	Dieser Satz wird zu den $n$ Vergleichern durchgeschaltet</li>
 	<li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
@@ -74,13 +74,13 @@ Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ 
 </ol>
 
 <h2>Physical address and virtual address</h2>
-Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es m&ouml;glich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verf&uuml;gung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space k&ouml;nnen sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Au&szlig;erdem will man Speicherschutz herstellen.
-Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum ist sehr gro&szlig;. Der virtuelle Adressraum ist in Bl&ouml;cke (Pages) unterteilt und die Pages werden von langsamen, aber gro&szlig;en auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.
+Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
+Die virtuellen Adressen sind scheinbar zusammenhängend und der Adressraum ist sehr groß. Der virtuelle Adressraum ist in Blöcke (Pages) unterteilt und die Pages werden von langsamen, aber großen auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.
 
-Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, sollte man sich folgendes anschauen:
+Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:
 <ul>
   <li>/proc/swaps</li>
-  <li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erkl&auml;rungen zu meminfo</a></li>
+  <li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erklärungen zu meminfo</a></li>
   <li><code>vmstat -s</code></li>
 </ul>
 
@@ -91,15 +91,15 @@ Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf 
 Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.
 
 ### Virtually indexed, physically tagged
-Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag &uuml;berpr&uuml;fen kann.
+Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort überhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag überprüfen kann.
 
-<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugehörige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun müsste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
 
 ### Physically Indexed / Virtually Tagged
 Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.
 
 ### Virtually Indexed / Virtually Tagged
-Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)
+Kein MMU-Zugriff benötigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)
 
 ## Quellen
 

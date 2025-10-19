@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Endliche Gruppen
 slug: endliche-gruppen
+lang: de
 author: Martin Thoma
 date: 2012-08-08 12:03:42.000000000 +02:00
 category: German posts
@@ -17,14 +17,14 @@ $G_1 = (\mathbb{Z}/4\mathbb{Z}, +)$ und
 $G_2 = (\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}, +)$
 
 <h3>Beweis Teil 1: G<sub>1</sub> und G<sub>2</sub> sind Gruppen</h3>
-Eine Gruppe $(A, \circ)$ m&uuml;ssen drei Eigenschaften erf&uuml;llen:
+Eine Gruppe $(A, \circ)$ müssen drei Eigenschaften erfüllen:
 <ul>
-  <li>(G1) <strong>Assoziativit&auml;t</strong>: $\forall a,b,c \in A: (a \circ b) \circ c = a \circ (b \circ c)$</li>
+  <li>(G1) <strong>Assoziativität</strong>: $\forall a,b,c \in A: (a \circ b) \circ c = a \circ (b \circ c)$</li>
   <li>(G2) <strong>Neutrales Element</strong>: $\exists e \in A \forall a \in A: e \circ a = a \circ e = a$</li>
   <li>(G3) <strong>Inverses Element</strong>: $\forall a \in A \exists a^{-1} \in A: a \circ a^{-1} = a^{-1} \circ a = e$</li>
 </ul>
 
-Die Verkn&uuml;pfungstafel f&uuml;r $G_1$ lautet:
+Die Verknüpfungstafel für $G_1$ lautet:
 <table class="wikitable" style="width:300px">
   <tr>
     <th>+</th>
@@ -63,9 +63,9 @@ Die Verkn&uuml;pfungstafel f&uuml;r $G_1$ lautet:
   </tr>
 </table>
 
-Man sieht direkt an der Tabelle, dass <strong>0</strong> das neutrale Element ist und jedes Element ein Inverses hat. F&uuml;r die Assoziativit&auml;t f&auml;llt mir nichts besseres ein, als die 64 M&ouml;glichkeiten alle auszuprobieren. Geht das k&uuml;rzer?
+Man sieht direkt an der Tabelle, dass <strong>0</strong> das neutrale Element ist und jedes Element ein Inverses hat. Für die Assoziativität fällt mir nichts besseres ein, als die 64 Möglichkeiten alle auszuprobieren. Geht das kürzer?
 
-Die Verkn&uuml;pfungstafel f&uuml;r $G_2$ lautet:
+Die Verknüpfungstafel für $G_2$ lautet:
 <table class="wikitable" style="width:300px">
   <tr>
     <th>+</th>
@@ -107,7 +107,7 @@ Die Verkn&uuml;pfungstafel f&uuml;r $G_2$ lautet:
 Das neutrale Element ist hier also <strong>(0,0)</strong>.
 
 <h3>Beweis Teil 2: Es gibt keine weiteren Gruppen</h3>
-Hierf&uuml;r ist es sehr hilfreich zu wissen, dass die Verkn&uuml;pfungstafel einer Gruppe immer alle Elemente sowohl in jeder Spalte, als auch in jeder Zeile hat. Dann kann man es Sudoku-m&auml;&szlig;ig beweisen.
+Hierfür ist es sehr hilfreich zu wissen, dass die Verknüpfungstafel einer Gruppe immer alle Elemente sowohl in jeder Spalte, als auch in jeder Zeile hat. Dann kann man es Sudoku-mäßig beweisen.
 
 Folgendes Skelett gilt immer:
 <table class="wikitable" style="width:250px">
@@ -254,7 +254,7 @@ Wir haben nun folgende Tabelle:
 </tr>
 </table>
 
-Diese L&ouml;sung enstpricht $G_2$.
+Diese Lösung enstpricht $G_2$.
 
 <h4>#1.2: a auf (2, 2)</h4>
 <table>
