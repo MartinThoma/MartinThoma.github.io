@@ -447,6 +447,12 @@ Einrichtung:
 
 * **Handtücher**: 600 g/m² oder mehr, waschbar bei 60°C oder mehr; Walkfrottier
 
+### Dusche
+
+* Niesche mit Wänden, damit man nicht so viel putzen muss
+  * 1.05m breit, 1.75m tief: Damit braucht man nicht unbedingt eine Tür
+  * Tür: Wegen Wasserdampf und der Temperatur
+* Niesche zum abstellen von Shampoo und Duschgel: 60cm breit, 30cm hoch, die unterkante auf 1.20m Höhe.
 
 ## Wohnzimmer
 
