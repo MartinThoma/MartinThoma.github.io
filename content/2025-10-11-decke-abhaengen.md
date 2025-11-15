@@ -244,17 +244,14 @@ Oberfläche wird vollflächig gespachtelt und mehrfach geschliffen.
 
 1. **Vorbereitung**: Den Raum abdecken und alle Kanten mit Malerkrepp
    abkleben. Besonders wichtig sind die Übergänge zu den Wänden.
-
 2. **Grundierung auftragen**: Die gespachtelte Decke wird zunächst mit
    Tiefgrund grundiert. Dies sorgt für gleichmäßige Saugfähigkeit und
    bessere Haftung der Farbe.
-
 3. **Streichen**:
    - Zuerst werden die Ecken und Kanten mit dem Pinsel vorgestrichen
    - Anschließend wird die Fläche mit dem Farbroller in gleichmäßigen
      Bahnen gestrichen
    - Für ein gleichmäßiges Ergebnis sollte "nass in nass" gearbeitet werden
    - Bei Bedarf einen zweiten Anstrich auftragen
-
 4. **Nachbearbeitung**: Nach dem Trocknen das Malerkrepp vorsichtig entfernen
    und eventuelle Nachbesserungen vornehmen.

@@ -1,14 +1,13 @@
 ---
 layout: post
-title: Heizungspolitik
-slug: heizungspolitik
+title: Bildungspolitik: Ein Grund für teure Wärmepumpen
+slug: bildungspolitik-ein-grund-fuer-teure-waermepumpen
 lang: de
 author: Martin Thoma
 date: 2025-11-09 20:00
 category: My bits and bytes
 tags: politics, heating, heat pumps
-featured_image: logos/star.png
-status: draft
+featured_image: logos/germany.png
 ---
 Schlechte Bildungspolitik kann uns Volkswirtschaftlich teuer zu stehen kommen.
 Das ist mir klar geworden, als ich mir das Video vom Akku Doktor über
@@ -27,7 +26,7 @@ Aktuell sind [über 70% der verbauten Heizungen Verbrenner](https://de.statista.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/11/wie-neubauten-heizen.png"><img src="../images/2025/11/wie-neubauten-heizen.png" alt="Wie wir 2025 in Deutschland in Neubauten heizen" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Wie wir 2025 in Deutschland in Neubauten heizen</figcaption>
+    <figcaption class="text-center">Wie wir 2025 in Deutschland in Neubauten heizen (Quelle: <a href="https://www.bdew.de/energie/heizung-neubau-statistik/">bdew.de</a>)</figcaption>
 </figure>
 
 [70% der Neubauten in Deutschland werden mit Wärmepumpen beheizt](https://www.tagesschau.de/wirtschaft/energie/waermepumpen-anteil-wohngebaeude-erneuerbare-100.html) (Stand: Juni 2025).

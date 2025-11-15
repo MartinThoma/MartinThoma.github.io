@@ -69,6 +69,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
 <table>
     <tr>
         <th>Baustoff</th>
+        <th>Preis</th>
         <th>Brandschutzklasse</th>
         <th>Resistent gegen Insekten und Nagetiere</th>
         <th>Lambda (WLG)</th>
@@ -81,7 +82,22 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <th>Weiteres</th>
     </tr>
     <tr>
-        <td>Mineral&shy;faserplatten</td>
+        <td>Mineral&shy;wolle (Glaswolle als Rolle)</td>
+        <td>9.50&nbsp;€/m² für 10cm</td>
+        <td class="good">A1</td>
+        <td class="good">✔</td>
+        <td class="good">0.035&nbsp;W/mK</td>
+        <td>3.5</td>
+        <td>0.35</td>
+        <td>...</td>
+        <td>15.3 W/m&sup2;</td>
+        <td>1</td>
+        <td>0</td>
+        <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> - gut wenn es trocken ist, also nicht als Zwischensparrendämmung im Dach!<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+    </tr>
+    <tr>
+        <td>Mineral&shy;faserplatten (Steinwolle als Platte)</td>
+        <td><a href="https://www.bausep.de/isover-topdec-easyloft-dachbodendaemmung.html?361=675938">24&nbsp;€/m²</a></td>
         <td class="good">A1</td>
         <td class="good">✔</td>
         <td class="good">0.039&nbsp;W/mK</td>
@@ -95,6 +111,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Mineral&shy;dämmplatten</td>
+        <td><a href="https://www.bausep.de/multipor-tipwall-m4-mineraldaemmplatte.html?361=675938">40&nbsp;€/m² bei 10cm</a></td>
         <td class="good">A1</td>
         <td class="good">✔</td>
         <td class="good">0.042 - 0.045&nbsp;W/mK</td>
@@ -107,20 +124,8 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td class="good">schimmelresistent; unverrottbar</td>
     </tr>
     <tr>
-        <td>Mineral&shy;wolle (Steinwolle / Glaswolle)</td>
-        <td class="good">A1</td>
-        <td>?</td>
-        <td class="good">0.035 - 0.050&nbsp;W/mK</td>
-        <td>3.5 - 5</td>
-        <td>0.35 - 0.5</td>
-        <td>...</td>
-        <td>15.3 W/m&sup2;</td>
-        <td>1</td>
-        <td>0</td>
-        <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> - gut wenn es trocken ist, also nicht als Zwischenbarrendämmung im Dach!<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
-    </tr>
-    <tr>
         <td>Kalziumsilikatplatte ("CaSi Klimaplatte")</td>
+        <td>TODO €/m²</td>
         <td class="good">A1</td>
         <td class="good">✔</td>
         <td>0.070&nbsp;W/mK</td>
@@ -134,6 +139,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Poroton <abbr title="Poroton mit Perlite gefüll">T7</abbr></td>
+        <td><a href="https://www.baustoffshop.de/poroton-planziegel-t7-36-5-p-perlite.html">23&nbsp;€/m² bei 24.8cm Dicke</a></td>
         <td class="good">F 90-A </td>
         <td class="good">✔</td>
         <td>0.070&nbsp;W/(mK)</td>
@@ -147,9 +153,10 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Polyurethan Hartschaum (PUR)</td>
+        <td>19&nbsp;€/m² bei 10cm</td>
         <td>B2</td>
         <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
-        <td class="good">0.020 - 0.040&nbsp;W/mK</td>
+        <td class="good">0.023&nbsp;W/mK</td>
         <td>2 - 4</td>
         <td>0.2 - 0.4</td>
         <td>...</td>
@@ -160,6 +167,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Expandiertes Polystyrol (EPS), Extrudiertes Polystyrol (XPS), Polystyrol ("Styropor")</td>
+        <td>17&nbsp;€/m² für 12cm; </td>
         <td>B1 - B2</td>
         <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
         <td class="good">0.032 - 0.040 W/mK</td>
@@ -173,6 +181,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Holzfaserdämmplatten</td>
+        <td>23&nbsp;€/m² für 10cm Dicke</td>
         <td class="bad">E</td>
         <td class="good">✔<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
         <td class="good">0.040&nbsp;W/mK</td>
@@ -186,6 +195,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Beton</td>
+        <td>TODO €/m²</td>
         <td class="good">A1</td>
         <td class="good">✔</td>
         <td class="bad">1.4&nbsp;W/mK</td>
