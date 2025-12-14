@@ -185,9 +185,9 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <th>Haushalt</th>
             <th>Warmwasser</th>
             <th class="border-right">Heizung</th>
-            <th>Kosten Haushalt<br/>im Monat</th>
-            <th>Kosten Warmwasser<br/>im Monat</th>
-            <th class="border-right">Kosten Heizung<br/>im Monat</th>
+            <th>Kosten Haushalt<br/>im Monat <abbr title="Arbeitspreis von 0.2505€/kWh">ℹ️</abbr></th>
+            <th>Kosten Warmwasser<br/>im Monat <abbr title="Arbeitspreis von 0.205€/kWh">ℹ️</abbr></th>
+            <th class="border-right">Kosten Heizung<br/>im Monat <abbr title="Arbeitspreis von 0.205€/kWh">ℹ️</abbr></th>
             <th>Nächtlicher Haushalt&shy;strom&shy;verbrauch</th>
         </tr>
     </thead>
@@ -275,31 +275,31 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
         <tr>
             <td class="border-right">September</td>
             <td style="text-align: right;">7.7 kWh/Tag</td>
-            <td style="text-align: right;">(1.2 kWh/Tag)</td>
-            <td style="text-align: right;" class="border-right">(2.7 kWh/Tag)</td>
+            <td style="text-align: right;">1.3 kWh/Tag</td>
+            <td style="text-align: right;" class="border-right">4.5 kWh/Tag</td>
             <td style="text-align: right; background-color: #ffdd22;">57.87 €</td>
-            <td style="text-align: right;">7.38 €</td>
-            <td style="text-align: right;" class="border-right">16.61 €</td>
+            <td style="text-align: right;">7.99 €</td>
+            <td style="text-align: right;" class="border-right">27.67 €</td>
             <td style="text-align: right;">0.7 kWh - 2.8 kWh<br/>median=1.2 kWh</td>
         </tr>
         <tr>
             <td class="border-right">Oktober</td>
-            <td style="text-align: right;">7.5 kWh/Tag</td>
-            <td style="text-align: right;">(1.8 kWh/Tag)</td>
-            <td style="text-align: right;" class="border-right">(9 kWh/Tag)</td>
+            <td style="text-align: right;">7.5&nbsp;kWh/Tag</td>
+            <td style="text-align: right;">1.5&nbsp;kWh/Tag</td>
+            <td style="text-align: right;" class="border-right">13.1&nbsp;kWh/Tag</td>
             <td style="text-align: right; background-color: #ffdd22;">58.24 €</td>
-            <td style="text-align: right;">11.44 €</td>
-            <td style="text-align: right; background-color: #ffdd22;" class="border-right">57.20 €</td>
+            <td style="text-align: right;">9.53 €</td>
+            <td style="text-align: right; background-color: #ffdd22;" class="border-right">83.25 €</td>
             <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">November</td>
-            <td style="text-align: right;">10.3 kWh/Tag</td>
-            <td style="text-align: right;">(2.0 kWh/Tag)</td>
-            <td style="text-align: right;" class="border-right">(25 kWh/Tag)</td>
+            <td style="text-align: right;">10.3&nbsp;kWh/Tag</td>
+            <td style="text-align: right;">1.6&nbsp;kWh/Tag</td>
+            <td style="text-align: right;" class="border-right">28.6&nbsp;kWh/Tag</td>
             <td style="text-align: right; background-color: #ffdd22;">77.40 €</td>
-            <td style="text-align: right;">12.30 €</td>
-            <td style="text-align: right; background-color: #ff0000;" class="border-right">153.75 €</td>
+            <td style="text-align: right;">9.84 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">175.89 €</td>
             <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
@@ -318,18 +318,18 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;"><strong>ca. 602 kWh</strong></td>
             <td style="text-align: right;" class="border-right"><strong>ca. 4971 kWh</strong></td>
             <td style="text-align: right;"><strong>754.22 €</strong></td>
-            <td style="text-align: right;"><strong>123.40 €</strong></td>
-            <td style="text-align: right;" class="border-right"><strong>1019.00 €</strong></td>
+            <td style="text-align: right;"><strong>119.64 €</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>1078.25 €</strong></td>
             <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td><strong>Durchschnitt</strong></td>
             <td style="text-align: right;"><strong>8.2 kWh/Tag</strong></td>
             <td style="text-align: right;"><strong>1.6 kWh/Tag</strong></td>
-            <td style="text-align: right;"><strong>13.6 kWh/Tag</strong></td>
-            <td style="text-align: right;"><strong>2.06€/Tag</strong></td>
-            <td style="text-align: right;"><strong>0.34€/Tag</strong></td>
-            <td style="text-align: right;" class="border-right"><strong>2.79€/Tag</strong></td>
+            <td style="text-align: right;"><strong>13.6&nbsp;kWh/Tag</strong></td>
+            <td style="text-align: right;"><strong>2.06&nbsp;€/Tag</strong></td>
+            <td style="text-align: right;"><strong>0.33&nbsp;€/Tag</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>2.95&nbsp;€/Tag</strong></td>
             <td style="text-align: right;">TODO</td>
         </tr>
     </tbody>
@@ -802,6 +802,33 @@ Ich wäre nach 20 Jahren also **1798.99 EUR** reicher als heute, wenn ich eine
 Zur Erinnerung: Ohne PV-Anlage wäre ich nach 20 Jahren -20979.5 EUR ärmer als
 heute. Das Szenario outperformt also das Null-Szenario um 22778.49 EUR!
 
+## Tatsächlicher PV Ertrag
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Monat</th>
+            <th>Erzeugt (kWh)</th>
+            <th>Eingespeist (kWh)</th>
+            <th style="border-right: 1px solid #000;">Netzbezug (kWh)</th>
+            <th><span title="Netzbezug + (Erzeugt - Eingespeist)">Gesamtverbrauch</span> (kWh)</th>
+            <th><span title="Erzeugt / Gesamtverbrauch; also wie sehr ist man unabhängig vom Netz">Autarkiegrad</span></th>
+            <th><span title="(Erzeugt-Eingespeist) / Erzeugt; also wie gut nutzt man sein selbst erzeugten Strom. Ist der Wert niedrig und gleichzeitig der Autarkiegrad niedrig, dann lohnt sich ein Batteriespeicher">Eigenverbrauchsanteil</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>November</td>
+            <td style="text-align:right;">375.8&nbsp;kWh</td>
+            <td style="text-align:right;">53.7&nbsp;kWh</td>
+            <td style="text-align:right;border-right: 1px solid #000;">903&nbsp;kWh</td>
+            <td style="text-align:right;">1225.1&nbsp;kWh</td>
+            <td style="text-align:right;">30.7%</td>
+            <td style="text-align:right;">85.7%</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Verfeinerungen und Unsicherheiten
 
