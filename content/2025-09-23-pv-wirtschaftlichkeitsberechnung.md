@@ -195,21 +195,21 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
         <tr>
             <td class="border-right">Januar</td>
             <td style="text-align: right;">8.7 kWh/Tag</td>
-            <td style="text-align: right;">(2.4&nbsp;kWh/Tag)</td>
-            <td style="text-align: right;" class="border-right">(38 kWh/Tag)</td>
+            <td style="text-align: right;">2.1&nbsp;kWh/Tag</td>
+            <td style="text-align: right;" class="border-right">51 kWh/Tag</td>
             <td style="text-align: right; background-color: #ffdd22;">67.56 €</td>
-            <td style="text-align: right;">15.25 €</td>
-            <td style="text-align: right; background-color: #ff0000;" class="border-right">241.49 €</td>
+            <td style="text-align: right;">13.35 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">324.11 €</td>
             <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
             <td class="border-right">Februar</td>
             <td style="text-align: right;">8.5 kWh/Tag</td>
-            <td style="text-align: right;">(2.0 kWh/Tag)</td>
-            <td style="text-align: right;" class="border-right">(30 kWh/Tag)</td>
+            <td style="text-align: right;">(2.1 kWh/Tag)</td>
+            <td style="text-align: right;" class="border-right">(31 kWh/Tag)</td>
             <td style="text-align: right; background-color: #ffdd22;">59.62 €</td>
-            <td style="text-align: right;">11.48 €</td>
-            <td style="text-align: right; background-color: #ff0000;" class="border-right">172.20 €</td>
+            <td style="text-align: right;">12.05 €</td>
+            <td style="text-align: right; background-color: #ff0000;" class="border-right">177.94 €</td>
             <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
@@ -318,8 +318,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;"><strong>ca. 602 kWh</strong></td>
             <td style="text-align: right;" class="border-right"><strong>ca. 4971 kWh</strong></td>
             <td style="text-align: right;"><strong>754.22 €</strong></td>
-            <td style="text-align: right;"><strong>119.64 €</strong></td>
-            <td style="text-align: right;" class="border-right"><strong>1078.25 €</strong></td>
+            <td style="text-align: right;"><strong>113.31 €</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>1166.61 €</strong></td>
             <td style="text-align: right;">TODO</td>
         </tr>
         <tr>
@@ -328,8 +328,8 @@ Die Angaben beziehen sich auf ein Haus mit rund 200&nbsp;m² beheizter Fläche,
             <td style="text-align: right;"><strong>1.6 kWh/Tag</strong></td>
             <td style="text-align: right;"><strong>13.6&nbsp;kWh/Tag</strong></td>
             <td style="text-align: right;"><strong>2.06&nbsp;€/Tag</strong></td>
-            <td style="text-align: right;"><strong>0.33&nbsp;€/Tag</strong></td>
-            <td style="text-align: right;" class="border-right"><strong>2.95&nbsp;€/Tag</strong></td>
+            <td style="text-align: right;"><strong>0.31&nbsp;€/Tag</strong></td>
+            <td style="text-align: right;" class="border-right"><strong>3.20&nbsp;€/Tag</strong></td>
             <td style="text-align: right;">TODO</td>
         </tr>
     </tbody>

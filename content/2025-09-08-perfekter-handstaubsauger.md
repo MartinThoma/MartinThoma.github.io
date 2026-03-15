@@ -1,14 +1,13 @@
 ---
 layout: post
-lang: de
 title: Perfect Design: Handstaubsauger
 slug: perfekter-handstaubsauger
+lang: de
 author: Martin Thoma
 date: 2025-09-08 20:00
 category: My bits and bytes
 tags: foss, design, hardware
-featured_image: logos/star.png
-status: draft
+featured_image: logos/perfect-design.png
 ---
 Es stört mich, dass es so viele Geräte mit schlechtem Design gibt.
 Wer will soll sich das hier für Handstaubsauger nehmen. Wenn das wirklich jemand
