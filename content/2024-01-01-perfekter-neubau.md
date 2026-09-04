@@ -26,8 +26,8 @@ heißt:
 
 * **Autarkie**: Insbesondere die Abhängigkeit von Energiepreisen sollte
   minimiert werden.
-* **Wartungsarmut**: Wenn man schon was neues baut, dann will man nicht direkt
-  ärger mit Wartung und Reparaturen haben.
+* **Wartungsfreundlichkeit**: Wenn man schon was neues baut, dann will man nicht direkt
+  Ärger mit Wartung und Reparaturen haben. Und wenn doch Wartung anfällt, dann sollte sie so einfach wie möglich sein.
 * **Altersgerechtigkeit**: Man gewöhnt sich ans Haus - und sollte nicht
   ausziehen müssen, wenn man älter wird.
 
@@ -35,6 +35,15 @@ heißt:
 
 Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
 0.15 W/m²K) erreichen, luftdicht sein und Wärmebrücken vermeiden.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2026/05/ausenwand-maueraufbau.jpg"><img src="../images/2026/05/ausenwand-maueraufbau.jpg" alt="Außenwand Maueraufbau" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Außenwand Maueraufbau</figcaption>
+</figure>
+
+Der Keller sollte als weiße Wanne
+
+
 
 
 ## Technik
@@ -73,16 +82,48 @@ Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
     <figcaption class="text-center">Wärmepumpe</figcaption>
 </figure>
 
-Eine Luft-Wasser-Wärmepumpe sorgt für warmes Brauchwasser und versorgt die
-Fußbodenheizung.
+Ich habe lange überlegt, was aus meiner Sicht die beste Heizungsart für einen
+Neubau ist. Eine Fußbodenheizung ist natürlich sehr angenehm weil der Boden
+nicht ganz so kalt ist und luxuriös, weil man keine Heizkörper sieht. Allerdings
+ist es aus meiner Sicht nicht optimal, weil es schwer zu warten ist:
+
+* Das kalk aus den Rohren kann sich ablagern und die Rohre oder die Wärmepumpe beschädigen (z.B. den Durchfluss-Sensor verdrecken)
+* Die Rohre können beschädigt werden
+* Das System ist träge - wenn ich es jetzt wärmer will, dauert es ggf. einige
+  Stunden bis es warm ist.
+
+Stattdessen würde ich auf mehrere Klimasplitgeräte zur Raumheizung sowie eine
+Brauchwasser-Wärmepumpe setzen. Das hat einige Vorteile:
+
+1. **Individuelle Temperaturregelung**: Damit kann man ggf. Energie sparen und den Komfort erhöhen
+2. **Kühlen**: Klimasplitgeräte können auch zum Kühlen verwendet werden
+3. **Wartungsfreundlichkeit**: Es ist einfacher, ein defektes Klimasplitgerät zu
+   reparieren oder zu ersetzen als eine Fußbodenheizung.
+4. **Resilienz**: Wenn ein Klimasplitgerät ausfällt, betrifft das nur einen
+   Raum, während bei einer Zentralheizung das ganze System incl. Warmewasser
+   betroffen sein könnte.
+5. **Reaktionszeit**: Klimasplitgeräte reagieren innerhalb weniger Minuten,
+   während eine Fußbodenheizung einige Stunden braucht, um die Temperatur zu
+   ändern.
+6. **Entfeuchtung**: Die Brauchwasser-Wärmepumpe kann auch zur Entfeuchtung des
+   Hauses beitragen.
 
 Ein Hygienespeicher kann als zusätzlicher Speicher für Warmwasser dienen: Der
-Heizstab erhitzt das Wasser im Hygienespeicher. Wenn man dann Warmwasser
-benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und
-so erwärmt. (kein Schichtenspeicher, damit man keine Probleme mit Legionellen bekommt)
+Heizstab erhitzt das Wasser im Hygienespeicher.
 
-Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen Schornstein.
-Daher gibt es auch keine Kosten für Schornsteinfeger.
+![](../images/2026/05/hygienespeicher.jpg)
+
+Wenn man dann Warmwasser
+benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und
+so erwärmt (kein Schichtenspeicher, damit man keine Probleme mit Legionellen
+bekommt). Dieser Hygienespeicher dient gleichzeitig als günstige Batterie um
+überschüssigen Strom der PV-Anlage zu speichern. Das ist deutlich günstiger als
+eine Lithium-Ionen-Batterie. Damit kann man tagsüber effizient die Wärmepumpe
+und die PV-Anlage nutzen, und abends das Warmwasser nutzen, ohne Strom aus dem
+Netz zu beziehen.
+
+Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen
+Schornstein. Daher gibt es auch keine Kosten für Schornsteinfeger.
 
 Wenn man ein Kaminfeuer genießt, kann man auch ohne Schornstein einen Kamin auf
 Ethanol-Basis haben. Ein Liter Ethanol hat einen Brennwert von 5.9 kWh/L. Ein
@@ -91,12 +132,11 @@ ist darf man maximal 20L lagern. Für 120m² wären das nicht mal ein Tag. Für
 Notfälle ist das also eher nicht geeignet.
 
 
-Alternativen zur Luft-Wasser-Wärmepumpe:
+Alternativen zu den Klimasplitgeräten + Brauchwasser-Wärmepumpe:
 
-* Luft-Luft-WP: Erwärmt leider nicht das Brauchwasser. Man könnte zusätzlich
-  eine Brauchwasserwärmepumpe einbauen, aber das sorgt für mehr Arbeit. Die
-  Luft-Luft-WP (Klimasplitgeräte) können noch kühlen, aber das sollte man mit
-  sinnvoller verschattung auch schaffen.
+* Luft-Wasser Wärmepumpe: Siehe oben, aber mit Fußbodenheizung. Das ist die
+  klassische Lösung für Neubauten, aber ich finde es nicht so toll, weil es eben
+  Wartungsaufwand bedeutet.
 * Infrarot-Heizung: Besticht durch die Tatsache, dass sie in der Anschaffung
   günstig ist, leicht ersetzt werden kann, und keine Wartung benötigt. Die
   Lebensdauer ist auch gut. Gut für kleine Räume die meistens kühler sein
@@ -341,7 +381,7 @@ Bei Feinsteinzeug-Fließen:
     * Es kann rein regnen
     * Teuer - sowohl die Anschaffung, als auch die Reparatur
     * Insektengitter sind schlecht
-* Zentrale Lüftung mit Pollenfilter und Wärmerückgewinnung
+* Zentrale Kontrollierte Wohnraum-Lüftung (KWL) mit Pollenfilter und Wärmerückgewinnung
 * Kein Kamin, d.h. keine Kaminkehrer-Kosten. Damit gibts auch keinen Holzofen
   und kein Öl oder Gas.
 * Das Grundstück soll vom Haus aus leicht abfallen, damit Regen/Schmelzwasser
@@ -362,11 +402,17 @@ Bei Feinsteinzeug-Fließen:
 * Poroton (Ytong)-Ziegel sind glatt. Das macht das Verputzen einfacher.
 * Poroton-Zigel sind mit 60cm länge deutlich länger als die üblichen Hochlochziegel
 * Hochlochziegel sind instabiler, weil sie hohl sind
+* Kalkputz, damit Schimmel keine Chance hat. Darauf Kalkfarbe.
 
 
 ### Fenster
 
-* Rolländen: Überall und elektrisch, ohne verbindung nach innen. Aber mit einem
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2026/05/fenster.jpg"><img src="../images/2026/05/fenster.jpg" alt="Fenster eines Neubaus" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Fenster eines Neubaus</figcaption>
+</figure>
+
+* Rolländen: Überall und elektrisch, ohne Verbindung nach innen. Aber mit einem
   manuellen Notbetrieb, der von innen erreichbar ist (durchs geöffnete Fenster)
 * 3-fach verglast
 * Insekten-Rollo (Plissee) in den Fenstern
