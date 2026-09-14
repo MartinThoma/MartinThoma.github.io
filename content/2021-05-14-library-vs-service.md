@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Library vs Service: 7 Arguments to consider
-subtitle: Learn what the difference is and when to use which
 slug: library-vs-service
-URL: https://levelup.gitconnected.com/library-vs-service-7-arguments-to-consider-5088dced6022
+lang: en
 author: Martin Thoma
 date: 2021-05-14 20:00
 category: Code
 tags: Software Engineering, Architecture
 featured_image: logos/star.png
+subtitle: Learn what the difference is and when to use which
+URL: https://levelup.gitconnected.com/library-vs-service-7-arguments-to-consider-5088dced6022
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/05/library-vs-service.png"><img src="../images/2021/05/library-vs-service.png" alt="Shared code can be in a library or in a service" style="width: 512px;"/></a>
@@ -42,7 +42,6 @@ library and a service are and when you should use one or another. Let’s start!
     <a href="../images/2021/06/moon-jelly.jpg"><img src="https://cdn-images-1.medium.com/max/9216/0*7euF5Y587KTF-LS8" alt="differences" style="width: 512px;"/></a>
     <figcaption class="text-center">Photo by <a href="https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral">Denise Jones</a> on <a href="https://unsplash.com?utm_source=medium&utm_medium=referral">Unsplash</a></figcaption>
 </figure>
-![...]()*Photo by [Denise Jones](https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 A library is shared code that gets deployed with each application. So the
 library is part of the application and runs on the same machine as the
@@ -55,7 +54,7 @@ be rolled out without the users of the service noticing that there was a
 change at all.
 
 Typically, when I interact with a service I like to keep that interaction in
-one part of my code. I like to write an own module for each service I interact
+one part of my code. I like to write a dedicated module for each service I interact
 with. This module only takes care of the service interaction. In some cases,
 services provide such modules, e.g. the boto3 library for interacting with AWS
 services. What I want to say: If you create a service, you might end up
@@ -110,10 +109,10 @@ How do you make sure that only authorized users can access the new service?
 
 ## #5: Scalability
 
-You can [scale applications horizontally or vertically](https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925). Scaling vertically means buying a bigger machine, scaling horizontally means buying a second machine. Buying a bigger machine is trivial and cheap until a certain point. From that point it becomes impossible. If you’re lucky, you never feel the need to scale vertically. Scaling vertically is way more complicated and you need to spend development time on it, which typically makes it way more expensive.
+You can [scale applications horizontally or vertically](https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925). Scaling vertically means buying a bigger machine, scaling horizontally means buying a second machine. Buying a bigger machine is trivial and cheap until a certain point. From that point it becomes impossible. If you’re lucky, you never feel the need to scale horizontally. Scaling horizontally is way more complicated and you need to spend development time on it, which typically makes it way more expensive.
 
 If you have a separate service, you might already be closer to an architecture
-that allows you to scale vertically. However, this is not a strong argument
+that allows you to scale horizontally. However, this is not a strong argument
 for a service as you need to take care of the infrastructure of the service.
 You’re just paying the cost earlier — the infrastructure argument.
 
@@ -161,10 +160,10 @@ is not so clear. But there are simple cases:
 * **Pure algorithms, no shared state**: If you only want to share algorithms
   or maybe some constants (e.g. HTTP Status Codes, Country names/codes,
   currencies, timezones), it’s a pretty clear indicator that you want a
-  **library**. Examples that pop to my mind are [Numpy](https://numpy.org/),
-  [Scipy](https://www.scipy.org/), [Tensorflow](https://www.tensorflow.org/),
+  **library**. Examples that pop to my mind are [NumPy](https://numpy.org/),
+  [SciPy](https://www.scipy.org/), and [TensorFlow](https://www.tensorflow.org/).
 * **Algorithms with lots of data**: The [Google
-  maps](https://developers.google.com/maps) service has complex functionality
+  Maps](https://developers.google.com/maps) service has complex functionality
   such as “What is the address closest to this GPS point?” or “What is the
   fastest route from A to B?” combined with lots of data to fuel those
   algorithms. The service is heavy, needs regular updates of the data, the
@@ -177,11 +176,11 @@ is not so clear. But there are simple cases:
   needs a lot of memory, you might want to put it on its own machine. This way
   you might keep things vertically scalable for longer. And in some cases,
   like machine learning applications which only do predictions, it is trivial
-  to scale: Just spin up another machine and serve requested in a round-robin
+  to scale: Just spin up another machine and serve requests in a round-robin
   fashion (or similar). You don’t have a shared state, just the model which
   needs to be in memory. All translation and OCR **services** are good
   examples.
-* **Only shred state, no algorithms**: You might consider just giving **direct
+* **Only shared state, no algorithms**: You might consider just giving **direct
   database access**. Please note that this comes with its own problems and
   it’s very unlikely that this is a good solution in the long run. It might be
   an acceptable intermediate solution.
@@ -219,7 +218,7 @@ A transition I have seen a couple of times is to create a monolith first to
 get the business going. When the company grows, they structure the monolith by
 business functionality. For example, there might be modules dealing with
 accounting and others dealing with analytics. When the monolith becomes really
-hard to maintain because everything is dependant on everything else, (micro)
+hard to maintain because everything is dependent on everything else, (micro)
 services are factored out of the monolith.
 
 An intermediate solution I’m currently thinking about is the problem of the
@@ -232,7 +231,7 @@ synchronization mechanism has to be considered.
 
 ## Summary
 
-Libraries and Services allow you to keep your code DRY (**d**on’t **r**epeat
+Libraries and services allow you to keep your code DRY (**d**on’t **r**epeat
 **y**ourself). Libraries are more integrated into the application and building
 them comes with a lower upfront cost. Services provide a clear separation on
 the infrastructure level, but you need to think about the issues of network

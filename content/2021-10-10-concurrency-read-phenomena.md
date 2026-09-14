@@ -1,18 +1,18 @@
 ---
 layout: post
-lang: en
 title: Database Read Phenomena
 slug: db-read-phenomena
+lang: en
 author: Martin Thoma
-status: draft
 date: 2021-05-31 20:00
 category: Cyberculture
 tags: Rating
 featured_image: logos/star.png
+status: draft
 ---
 We have seen phenomenal improvements in the hardware in the last 30 years. Moore observed that the number of transistors in a dense integrated circuit (IC) doubles roughly every two years, the CPU clock rate increased from 740 kHz in 1970 to 4.9 GHz in 2021, and the types of instructions CPUs can execute got more complex over time. But there are limits to increasing the clock rate and adding more complex instructions. Instead of doing that, CPU manufacturers added the possibility to execute more stuff concurrently. This comes with its own set of problems.
 
-To me, the most interesting ones are in the context of web services. And most prominently, there are interactions with a central database and are related to transaction isolation. In this article, you will learn what the 3 best-known read phenomena are and which transaction isolation levels fix them. Let's start!
+To me, the most interesting ones are in the context of web services. And most prominently, they are interactions with a central database and are related to transaction isolation. In this article, you will learn what the 3 best-known read phenomena are and which transaction isolation levels fix them. Let's start!
 
 ## The Basics
 
@@ -20,7 +20,7 @@ Databases organize multiple operations in transactions. You can imagine a databa
 
 We want transactions to be atomic. If a transaction fails, the database is left in a consistent state. If a transaction succeeds, the database is left in a consistent state. If a transaction is not committed, the database is left in a consistent state. If a transaction is not committed, the database is left in a consistent state.
 
-We also want transaction isolation - concurrent executions of transaction don't lead to different results than serial executions. It should not matter if transactions are executed one after each other or in parallel.
+We also want transaction isolation - concurrent executions of transactions don't lead to different results than serial executions. It should not matter if transactions are executed one after each other or in parallel.
 
 The problems with concurrent execution are:
 

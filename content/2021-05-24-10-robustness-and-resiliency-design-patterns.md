@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: 10 Robustness and Resiliency Design Patterns to Learn Today
 slug: 10-robustness-resiliency-design-patterns
-url: https://levelup.gitconnected.com/10-robustness-and-resiliency-design-patterns-to-learn-today-c03776f73936
+lang: en
 author: Martin Thoma
 date: 2021-05-24 20:00
 category: Cyberculture
 tags: Rating
 featured_image: logos/star.png
+url: https://levelup.gitconnected.com/10-robustness-and-resiliency-design-patterns-to-learn-today-c03776f73936
 ---
 Software is correct if it acts as specified. It is robust if it can take a
 high load until it goes down. Software is resilient if it can go back to
@@ -56,7 +56,7 @@ To get to this improved fallback, the browser has to retry to get to the website
     <figcaption class="text-center">Image by <a href="https://commons.wikimedia.org/wiki/User:Revansx">Revansx</a> from <a href="https://commons.wikimedia.org/wiki/File:Screen_Shot_06-11-19_at_09.58_AM.png">Wikimedia Commons</a></figcaption>
 </figure>
 
-Yes, that is a pattern. A trivial one, but an important one. I‘ve used it when
+Yes, that is a pattern. A trivial one, but an important one. I've used it when
 sending web requests. If you receive an error, try again. The Python requests
 library has a built-in
 [max_retries](https://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter)
@@ -79,7 +79,7 @@ you might want to consider **capped exponential backoff**:
 ```python
 max_sleep = 300  # seconds
 base_sleep = 2  # seconds
-sleep_time = min(max_sleep, base ** attempts)
+sleep_time = min(max_sleep, base_sleep ** attempts)
 ```
 
 In order to prevent multiple services essentially hitting at the same time,
@@ -88,9 +88,9 @@ you can add a jitter:
 ```python
 max_sleep = 300  # seconds
 base_sleep = 2  # seconds
-jitter = random(0, 5)  # seconds
+jitter = random.uniform(0, 5)  # seconds
 
-sleep_time = min(max_sleep, base ** attempts) + jitter
+sleep_time = min(max_sleep, base_sleep ** attempts) + jitter
 ```
 
 ## 3. Timeout and other Resource Limitations
@@ -182,7 +182,7 @@ This assumes that a single server going down does not harm the others — which
 is unlikely, as the load will increase.
 
 You should also note that this is for services that run in parallel and can
-replace each other. If you have services that rely on each other the formula
+replace each other. If you have services that rely on each other, the formula
 changes to $p^n$:
 
 * n=1: The service is 99.0% available. That’s 3.65 days of downtime per year.
@@ -193,8 +193,8 @@ Spinning up such parallel machines is easy if you don’t need to store or
 modify state. It’s a lot harder for databases.
 
 I’ve mainly written about servers here, but you can also think of
-**error-correcting codes** in the case of network communication and storage
-also is the redundancy pattern.
+**error-correcting codes**: in network communication and storage, they
+implement the redundancy pattern as well.
 
 ## 7. Bulkhead
 
@@ -202,7 +202,7 @@ Bulkheads provide boundaries across which failures do not propagate. For
 example, think of YouTube. Users can upload videos and the videos get
 re-encoded. Executing this task on a separate machine guarantees that no
 issues with disk space, memory usage, CPU usage, and potential exploits in the
-used libraries affect the rest of the system. Having the software run of a
+used libraries affect the rest of the system. Having the software run on a
 separate machine is one form of sandboxing. We can guarantee by this strong
 isolation that this single feature will not affect others.
 
@@ -213,7 +213,7 @@ the load on your servers A LOT. They provide a nice fallback as well. On the
 other hand, you need to deal with inconsistencies introduced by caching. Maybe
 you need to explicitly invalidate the caches.
 
-[Adrian Hornsby](undefined) wrote a nice article about caching for resilience:
+Adrian Hornsby wrote a nice article about caching for resilience:
 [**Patterns for Resilient Architecture — Part 4**
 *Caching for Resiliency*medium.com](https://medium.com/the-cloud-architect/patterns-for-resilient-architecture-part-4-85afa66d6341)
 
@@ -256,11 +256,11 @@ healthy image is used.
 The presented design patterns can be grouped:
 
 * **Detection**: Get to know that something is wrong. `Timeouts` and
-  `Checksumsare` in this category.
+  `Checksums` are in this category.
 * **Containment**: Make sure the errors don’t affect other systems and limit
   the impact on the user. The patterns in this category are `Fallback`,
-  `Resource Limitation`, `Circuit Breaker`, `Bulkhead`, `Caching`
-* **Recovery**: Get back up. Retry and Rollback are in this category
+  `Resource Limitation`, `Circuit Breaker`, `Bulkhead`, `Caching`.
+* **Recovery**: Get back up. `Retry` and `Rollback` are in this category.
 * **Prevention**: Avoid getting into trouble in the first place. `Rate
   Limiting`, `Redundancy`, `Caching`, and `Boundary Validation` do that.
 
@@ -268,5 +268,5 @@ I hope this was helpful to you!
 
 ## Resources
 
-* [Sazzad Hissain Khan](undefined): “[Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance](https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49)”, 2019.
+* Sazzad Hissain Khan: “[Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance](https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49)”, 2019.
 * Saurabh Hukerikar, Christian Engelmann: “[Resilience Design Patterns: A Structured Approach to Resilience at Extreme Scale](https://www.osti.gov/servlets/purl/1407767)”

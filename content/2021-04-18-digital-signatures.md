@@ -1,19 +1,19 @@
 ---
 layout: post
-lang: en
 title: 5 Applications of Digital Signatures
-subtitle: Learn what they are and how they are used
 slug: digital-signatures
-URL: https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439
+lang: en
 author: Martin Thoma
 date: 2021-04-18 20:00
 category: Cyberculture
-tags: crypto,
+tags: crypto
 featured_image: logos/bitcoin.png
+subtitle: Learn what they are and how they are used
+URL: https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439
 ---
 We use signatures to show that we have read a contract and want to do our part
-of fulfilling it. They serve two purposes: Expressing an intend and being able
-to prove to the authorities that this intend was expressed in case one of the
+of fulfilling it. They serve two purposes: Expressing an intent and being able
+to prove to the authorities that this intent was expressed in case one of the
 parties does not follow the contract. For example, if you sign a rental
 agreement, your landlord has proof that you wanted to pay the stated rent each
 month. And you have the proof that you actually can use the apartment.
@@ -38,10 +38,10 @@ If you write your signature twice, it will look different. This is sometimes
 an issue if your identity document expires and you need a new one. If the
 issuing authority allows changes, then they need to track your changes.
 
-If you getting sick you might not be able to write that signature in the same way any longer.
+If you get sick, you might not be able to write that signature in the same way any longer.
 
 Another issue here is that you cannot just exchange the pencil and the medium
-on which you write. Even the table and the seat can influence how your
+on which you write. Even the table and the seat can influence what your
 handwriting looks like. Case in point: Signature pads when you accept packages
 and confirm that you have received them.
 
@@ -50,7 +50,7 @@ and confirm that you have received them.
 If somebody else knows your signature, they can probably create a very similar
 one after a few hours of practicing.
 
-### Problem #4: Prevent the signed document from tampering
+### Problem #4: Protect the signed document from tampering
 
 If you have multiple pages where you sign only the last one: How do you
 prevent people from changing the first pages?
@@ -86,7 +86,7 @@ Thus a digital signature is an asymmetrically encrypted file, where the
 decryption key is public. Everybody can decrypt it, but only the keyholder can
 encrypt a file such that the specific public key can decrypt it.
 
-The awesome part is that you can now proof clearly and securely that the
+The awesome part is that you can now prove clearly and securely that the
 holder of key A did sign the document. You just solved problems #2, #3, #4,
 and #5!
 
@@ -105,7 +105,7 @@ Please also note that if the file is signed by encrypting it with the private ke
 
 When you write e-mails, you don’t need to trust your email provider in terms
 of privacy and tampering. You can encrypt the mail with the recipient’s public
-key and sign it on your side. This way the sender knows for sure that there
+key and sign it on your side. This way the recipient knows for sure that there
 was no tampering and that the message comes from you. It could only happen
 that your provider does not deliver the message at all.
 
@@ -119,7 +119,7 @@ contributions. The maintainers of the projects need to ensure that all
 contributions are helpful, but they might lack the time to check each and
 every contribution. They need to be able to trust some people. Typically the
 first ones get checked thoroughly, but with time you might even become a
-contributor. People start to trust you. But they need to be sure that it’s the
+trusted contributor. People start to trust you. But they need to be sure that it’s the
 same person. They need to be sure that your contribution was not changed. For
 this reason, you sign every contribution.
 
@@ -148,9 +148,9 @@ A digital signature could help. You would need to have a digitally signed
 version of your diploma and be able to share the public key in a way that is
 trustworthy with your employer. For example, your university could simply put
 that key on their website. The future employer would then need to download
-your universities signature and run gpg --verify against your CV.
+your university's public key and run `gpg --verify` against your diploma.
 
-If you want to experiment with signing files, first install the Gnu Privacy Guard (short: GnuPG, even shorter: GPG) and create your own gpg key:
+If you want to experiment with signing files, first install the GNU Privacy Guard (short: GnuPG, even shorter: GPG) and create your own gpg key:
 [**GnuPG - User guides**
 *This page collects documents available as user guides for GnuPG. Thanks to the DocBook system, John Michael Ashley's…*www.gnupg.org](https://www.gnupg.org/documentation/guides.html)
 
@@ -161,16 +161,16 @@ Then you can run those commands:
 gpg --sign my-cv.pdf
 
 # Verify the signature:
-gpg --verify cv-curriculum-vitae.pdf.gpg
+gpg --verify my-cv.pdf.gpg
 # Prints:
 # gpg: Signature made Fr 16 Apr 2021 19:22:38 CEST
 # gpg:                using RSA key
 # D1E632346B642680EF360D696901E782EF663EC4
 # gpg: Good signature from "Martin Thoma (Generated on
-# 2021-01-15 for private use) <[info@martin-thoma.de](mailto:info@martin-thoma.de)>" [ultimate]
+# 2021-01-15 for private use) <info@martin-thoma.de>" [ultimate]
 
 # Get the contained document:
-gpg --output original.pdf --decrypt cv-curriculum-vitae.pdf.gpg
+gpg --output original.pdf --decrypt my-cv.pdf.gpg
 ```
 
 ## Application #5: Cryptocurrencies
@@ -183,7 +183,7 @@ the valid owner of the coin. After that, the valid owner is defined to be the
 owner of a private key, matching to a given public key.
 
 Please note that digital signatures only prove the ownership at a specific
-point in time. They do not solve the problem that an owner might just spent
+point in time. They do not solve the problem that an owner might just spend
 the coin twice — the double-spending problem.
 
 “Coin” is actually a misnomer. See my article about UTXO for more details:

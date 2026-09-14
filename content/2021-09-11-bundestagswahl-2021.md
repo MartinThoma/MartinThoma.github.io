@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Bundestagswahl 2021
 slug: bundestagswahl-2021
+lang: de
 author: Martin Thoma
 date: 2021-09-11 20:00
 category: German posts
@@ -18,7 +18,7 @@ dazu.
 
 Seit März 2020 dominiert die [COVID-19-Pandemie](https://de.wikipedia.org/wiki/COVID-19-Pandemie) das Weltgeschehen. Spätestens seit 2005 mit dem [Kyoto-Protokoll](https://de.wikipedia.org/wiki/Kyoto-Protokoll) muss auch jedem Politiker klar sein, dass die [globale Erwärmung](https://de.wikipedia.org/wiki/Globale_Erw%C3%A4rmung) ein riesiges Problem ist:
 
-* 216 Millionen Klima-Flüchtlinge bis 2050<sup id="fnref:25"><a class="footnote-ref" href="#fn:25">25</a></sup>. Das sind 216 Millionen Menschen die aktuell in Regionen leben, die durch den Klimawandel unbewohnbar werden. Bei der [Flüchtlingskrise 2015](https://de.wikipedia.org/wiki/Europ%C3%A4ische_Fl%C3%BCchtlingskrise) waren es gerade mal 627.000 Flüchtlinge. Wir reden also von 344x dieser Flüchtlingskrise!
+* 216 Millionen Klima-Flüchtlinge bis 2050<sup id="fnref:25"><a class="footnote-ref" href="#fn:25">25</a></sup>. Das sind 216 Millionen Menschen, die aktuell in Regionen leben, die durch den Klimawandel unbewohnbar werden. Bei der [Flüchtlingskrise 2015](https://de.wikipedia.org/wiki/Europ%C3%A4ische_Fl%C3%BCchtlingskrise) waren es gerade mal 627.000 Flüchtlinge. Wir reden also von 344x dieser Flüchtlingskrise!
 * Mehr Naturkatastrophen: [Hochwasser](https://de.wikipedia.org/wiki/Hochwasser_in_West-_und_Mitteleuropa_2021#Deutschland), [Dürren](https://de.wikipedia.org/wiki/D%C3%BCrre_in_Nordamerika_2020/21), [Hitzewellen](https://de.wikipedia.org/wiki/Hitzewelle_und_Waldbr%C3%A4nde_in_S%C3%BCdeuropa_und_der_T%C3%BCrkei_2021).
 * Ernteausfälle: Die Naturkatastrophen wirken sich natürlich auch auf die Nahrungsmittelversorgung aus.
 
@@ -26,65 +26,65 @@ Allerdings gibt es neben der COVID-19-Pandemie und der Klimakrise auch ein paar
 Dauerbrenner: Der allgemeine Wohlstand der Bevölkerung, damit verbunden die
 Kosten fürs Wohnen und die Rentensituation.
 
-Daneben gibt es noch ein paar kleinere Themen: Der Digitale Wandel wird von
+Daneben gibt es noch ein paar kleinere Themen: Der digitale Wandel wird von
 den Ü50ern wohl jetzt erst wahrgenommen und steht nun bei allen Parteien
 prominent im Programm. Die Bürgerversicherung wird nun auch mal wieder erwähnt.
 
 ### Klimakrise
 
 Die Klimakrise ist ein zentrales Problem unserer Zeit. Der Ausstoß von
-Treibhausgasen muss reduziert werden um eine Begrenzung der globalen Erwärmung
+Treibhausgasen muss reduziert werden, um eine Begrenzung der globalen Erwärmung
 zu erreichen. Treibhausgase werden in CO<sub>2</sub>-äquivalenten Tonnen
 gemessen. So hat z.B. Methan ein Treibhauspotenzial von 28. Eine Tonne Methan
 verursacht also einen so großen Treibhauseffekt wie 28 Tonnen CO<sub>2</sub>.
 
-Aus meiner Sicht gibt es nur einen wirklich sinnvollen Mechanismus um die
+Aus meiner Sicht gibt es nur einen wirklich sinnvollen Mechanismus, um die
 CO<sub>2</sub>-Emissionen zu regulieren: Den [Emissionsrechtehandel](https://de.wikipedia.org/wiki/EU-Emissionshandel).
 
 Die meisten anderen Maßnahmen, wie z.B. Verbrennungsmotoren nicht mehr zuzulassen,
 Tempolimits einzuführen, usw. können nur unterstützend sein.
 
-**Regelung**: Der Staat eine Maximalmenge an CO<sub>2</sub>-Äquivalenztonnen
+**Regelung**: Der Staat sollte eine Maximalmenge an CO<sub>2</sub>-Äquivalenztonnen
 definieren, welche ausgestoßen werden darf. 2018 hat Deutschland 753 Millionen
 Tonnen CO<sub>2</sub> ausgestoßen<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup>.
 Wenn man nun den Ausstoß auf 700 Millionen Tonnen CO<sub>2</sub> begrenzen will,
 gibt man Zertifikate in genau dieser Höhe aus. Bevor eine Firma Produkte
-verkaufen darf welche CO<sub>2</sub> ausstoßen, benötigt sie ein Zertifikat.
+verkaufen darf, welche CO<sub>2</sub> ausstoßen, benötigt sie ein Zertifikat.
 Wenn eine Firma zu viel CO<sub>2</sub> ausstößt, muss sie die Kosten zum
-entfernen des CO<sub>2</sub> bezahlen (die sind immens!).
+Entfernen des CO<sub>2</sub> bezahlen (die sind immens!).
 
 **Emissionen**: CO<sub>2</sub> wird vor allem bei der Energieerzeugung
 ausgestoßen, also wenn man Benzin, Diesel, Kerosin, Erdgas, Kohle oder Ähnliches
-verbrennt oder wenn Zement produziert wird<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Das heißt vor allem Firmen welche diese Produkte fördern müssen beim Verkauf
+verbrennt oder wenn Zement produziert wird<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup>. Das heißt, vor allem Firmen, welche diese Produkte fördern, müssen beim Verkauf
 nachweisen, dass sie über genügend viele Zertifikate verfügen. Da es
-überschaubar viele Firmen gibt welche Öl / Kohle / Gas fördern bzw. Zement
-brennen ist es auch kontrollierbar.
+überschaubar viele Firmen gibt, welche Öl / Kohle / Gas fördern bzw. Zement
+brennen, ist es auch kontrollierbar.
 
-Es gibt jedoch auch andere CO<sub>2</sub>-Emitenten, wie z.B. die Trockenlegung
+Es gibt jedoch auch andere CO<sub>2</sub>-Emittenten, wie z.B. die Trockenlegung
 von Mooren<sup id="fnref:18"><a class="footnote-ref" href="#fn:18">18</a></sup>.
 Auch solche Aktivitäten müssten selbstverständlich mit CO<sub>2</sub>-Zertifikaten
 abgedeckt werden.
 
 **Emissionsrechtehandel**: Emissionsrechte könnten über eine zentrale Plattform gehandelt
 werden. Zu Beginn ist der Staat im Besitz aller Zertifikate. Firmen können bis
-zu einer Frist gebote abgeben. Ein Gebot besteht aus einer Menge an Zertifikaten
+zu einer Frist Gebote abgeben. Ein Gebot besteht aus einer Menge an Zertifikaten
 die man kaufen will und einem Preis, welchen man zu bezahlen bereit ist. Sobald
-alle Gebote abgegeben wurden, werden zuerst die meistbietenden bedient.
-Irgendwann sind die Zertifikate vergeben und die wenigbietenden fallen leer aus.
-Danach entspricht es der typischen Preisbindung an einer Börse mit vielen
+alle Gebote abgegeben wurden, werden zuerst die Meistbietenden bedient.
+Irgendwann sind die Zertifikate vergeben und die Wenigbietenden gehen leer aus.
+Danach entspricht es der typischen Preisbildung an einer Börse mit vielen
 Anbietern / Abnehmern von Zertifikaten.
-Am Ende eines Jahres sollten Zertifikate verfallen und wieder Neue versteigert werden.
+Am Ende eines Jahres sollten Zertifikate verfallen und wieder neue versteigert werden.
 
 <b>Wir haben bereits das [EU-ETS](https://de.wikipedia.org/wiki/EU-Emissionshandel)
 bei dem ein Zertifikat zur Emission einer Tonne CO<sub>2</sub> berechtigt.</b>
-Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.<sup id="fnref:27"><a class="footnote-ref" href="#fn:27">27</a></sup>
+Aktuell kostet jede Tonne CO<sub>2</sub> 55 EUR.<sup id="fnref:28"><a class="footnote-ref" href="#fn:28">28</a></sup>
 
 Anhand des <a href="https://www.bmu.de/themen/klimaschutz-anpassung/klimaschutz/emissionshandel/nationaler-allokationsplan-nap">Nationalen Allokationsplanes (NAP)</a> werden
 die Zertifikate in Deutschland verteilt. Initial wurde der
 historische Verbrauch festgestellt und orientiert an diesem bekommen die
 Unternehmen erstmal so viele Zertifikate geschenkt. Das nennt sich <b>Grandfathering</b>.
 
-Ich habe allerdings leider keine Quelle finden können die klar erklärt
+Ich habe allerdings leider keine Quelle finden können, die klar erklärt,
 welche Firmen überhaupt daran teilnehmen müssen, wie kontrolliert wird, und wie
 viele Zertifikate ausgegeben wurden.
 
@@ -111,18 +111,18 @@ Netto-Monatseinkommen von 3920 EUR gewesen. Das entspricht einem Brutto-Gehalt
 von 6747 EUR/Monat<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>,
 das sind immerhin 24% der Gesamtbevölkerung<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.
 
-Intuitiv hätte ich erwartet, dass ca. 5% Arm sind. Und akzeptabel würde ich etwa
+Intuitiv hätte ich erwartet, dass ca. 5% arm sind. Und akzeptabel würde ich etwa
 1% finden. 19% ist definitiv zu viel.
 
 Wer ist arm?
 
-* 15% der über 60 Jährigen<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>
-* 3.8 Millionen Hartz IV-Empfänger<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>
+* 15% der über 60-Jährigen<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>
+* 3,8 Millionen Hartz-IV-Empfänger<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>
 
 Wir werden in den kommenden Jahren einen immer höheren Grad an Automatisierung sehen.
 Jobs fallen im Prinzip ersatzlos weg. Insbesondere selbstfahrende Autos machen
-mir im Bezug auf unseren Sozialstaat große Sorgen. Es wird nicht in den nächsten
-10 Jahren passieren, aber wir sollten darauf vorbereitet sein dass [500.000 Berufskraffahrer](https://de.statista.com/statistik/daten/studie/294128/umfrage/anzahl-der-berufskraftfahrer-im-gueterverkehr/)
+mir in Bezug auf unseren Sozialstaat große Sorgen. Es wird nicht in den nächsten
+10 Jahren passieren, aber wir sollten darauf vorbereitet sein, dass [500.000 Berufskraftfahrer](https://de.statista.com/statistik/daten/studie/294128/umfrage/anzahl-der-berufskraftfahrer-im-gueterverkehr/)
 nicht mehr als Busfahrer / Taxifahrer / LKW-Fahrer arbeiten können. Das wäre super,
 wenn der Sozialstaat es abfängt. Dafür muss man aber Konzepte zur effektiven
 Besteuerung der Unternehmen / Individuen haben und das Geld umverteilen. Starke
@@ -132,70 +132,70 @@ Grundeinkommen.
 ### Wohnen
 
 Die Mieten in großen Städten, insbesondere München, sind extrem hoch. Die Zahlen
-variieren sehr, aber wir sprechen von 12.05 EUR/m²<sup id="fnref:19"><a class="footnote-ref" href="#fn:19">19</a></sup> bis 20.07 EUR/m²<sup id="fnref:20"><a class="footnote-ref" href="#fn:20">20</a></sup>. Ich wohne in Germering, ca. 20km/40min vom Stadtzentrum entfernt und
-bezahle kalt 15.64 EUR/m² bei einer 78m² Wohnung.
+variieren sehr, aber wir sprechen von 12,05 EUR/m²<sup id="fnref:19"><a class="footnote-ref" href="#fn:19">19</a></sup> bis 20,07 EUR/m²<sup id="fnref:20"><a class="footnote-ref" href="#fn:20">20</a></sup>. Ich wohne in Germering, ca. 20km/40min vom Stadtzentrum entfernt und
+bezahle kalt 15,64 EUR/m² bei einer 78m² Wohnung.
 
 Dieses Problem kann nur durch **mehr Wohnraum** behoben werden. Ich halte wenig von
 Subventionen für den Wohnungsbau, weil das die Preise nur weiter nach oben drückt.
 Mehr Wohnfläche erschließen, die Planung oder den Bau strukturell vergünstigen.
 Man könnte z.B. mal die ganzen Bauvorschriften der Bundesländer angleichen. Es
-ist doch quatsch, dass Bayern andere Regeln haben kann als Baden-Württemberg.
+ist doch Quatsch, dass Bayern andere Regeln haben kann als Baden-Württemberg.
 **Sozialwohnungen** bauen. Das sind die Mittel der Wahl.
 
 Die Parteien müssen also folgende Fragen beantworten:
 
 * Mieten, Vermieten, Bauen, Renovieren: Wie schaffen wir es, Wohnraum in den
   Städten günstiger zu machen oder die Preissteigerungen zu begrenzen?
-* Wie können wir mehr Grundstücke erschließen ohne die Natur mehr zu belasten?
-* Wie schaffen wir es die Qualität existierender Wohnungen zu verbessern?
+* Wie können wir mehr Grundstücke erschließen, ohne die Natur mehr zu belasten?
+* Wie schaffen wir es, die Qualität existierender Wohnungen zu verbessern?
 
 ### Rente
 
 Das Renteneintrittsalter ist inzwischen bei 67 Jahren. Das bedeutet, dass viele
 Arbeitnehmer über 40 Jahre in die Rentenkasse einzahlen werden. Bei einer
-Lebenserwartung von 78.6 Jahren für Männer und 83.4 Jahren für Frauen<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">16</a></sup>
+Lebenserwartung von 78,6 Jahren für Männer und 83,4 Jahren für Frauen<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">16</a></sup>
 muss man also mit 16 Jahren Rente rechnen.
 
-Es gelten jetzt schon 15% der über 60 Jährigen als arm<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>.
-Da macht man sich natürlich sorgen wie sicher die Rente ist.
+Es gelten jetzt schon 15% der über 60-Jährigen als arm<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup>.
+Da macht man sich natürlich Sorgen, wie sicher die Rente ist.
 
 ### Demokratie & Korruption
 
 Eine stabile Demokratie sorgt für ein sicheres Leben in Wohlstand für möglichst
 viele Menschen. Daher ist die Stärkung demokratischer Strukturen / Denkmuster / Prozesse wünschenswert.
 
-Ein Punkt der das Vertrauen der Menschen erschüttert ist Korruption. Lobbyismus
+Ein Punkt, der das Vertrauen der Menschen erschüttert ist Korruption. Lobbyismus
 ist prinzipiell nicht schlecht. Es ist gut, wenn sich Menschen für ihre Interessen
 einsetzen und Politiker aufklären. Allerdings kann man ohne Regeln leicht Geschenke
-an Politiker machen, die man dann auf andere Art zurück bekommt. Wenn man mehr
+an Politiker machen, die man dann auf andere Art zurückbekommt. Wenn man mehr
 Geld hat, bekommt man plötzlich einen wesentlich größeren Einfluss auf die Politik.
-Und eventuell halt sogar ganz direkt "Eine Hand wäscht die Andere"-Situationen.
+Und eventuell halt sogar ganz direkt "Eine Hand wäscht die andere"-Situationen.
 Also Korruption.
 
 Transparenz der Einkünfte von Abgeordneten und eine Beschränkung ist daher wichtig.
 
 Sind die Nebeneinkünfte von Politikern sehr hoch, sehe ich drei mögliche Gründe:
 
-1. Überflieger: Es gibt immer ein paar Individuen, die sehr viel schaffen. Leute mit enorm viel Energie und genug Intelligenz, um an 10 Baustellen gleichzeitig sinnvoll zu arbeiten. Oder Leute die sich ein Geschäft aufgebaut haben, dass auch ohne ihr Eingreifen im großen und ganzen von selbst läuft.
-2. Politik ist Nebenjob: Der Politiker fokusiert sich auf etwas anderes. Das Bundestagsmandat ist nicht im Fokus, sondern die "neben"einkunft.
+1. Überflieger: Es gibt immer ein paar Individuen, die sehr viel schaffen. Leute mit enorm viel Energie und genug Intelligenz, um an 10 Baustellen gleichzeitig sinnvoll zu arbeiten. Oder Leute, die sich ein Geschäft aufgebaut haben, das auch ohne ihr Eingreifen im Großen und Ganzen von selbst läuft.
+2. Politik ist Nebenjob: Der Politiker fokussiert sich auf etwas anderes. Das Bundestagsmandat ist nicht im Fokus, sondern die "neben"einkunft.
 3. Korruption: Man lässt sich über sehr gut bezahlte Vorträge, über Vorstands-Positionen, oder ganz direkt über Spenden bestechen.
 
 Um das zu umgehen, sehe ich ein paar Möglichkeiten:
 
-1. Nebeneinkunftsobergrenze:  Wer als Abgeordneter mehr Nebeneinkünfte hat als über
-   die Obergrenze definitiert, der muss darauf 100% Einkommenssteuer bezahlen.
+1. Nebeneinkunftsobergrenze: Wer als Abgeordneter mehr Nebeneinkünfte hat als über
+   die Obergrenze definiert, der muss darauf 100% Einkommensteuer bezahlen.
    Das ist z.B. sinnvoll für Abgeordnete, die größere Betriebe besitzen. Die
    Grenze sollte in Abhängigkeit vom Netto-Median-Einkommen des vorhergehenden
    Jahres sein.
 2. Temporäres Berufsverbot: Manche Berufe/Positionen sind inhärent intransparent.
    Beispielsweise dürfen Anwälte und Berater ggf. nichts über ihre Kunden verraten.
-   Da ich von Bundestagsabgeordneten erwarte ihre Energie für Deutschland einzusetzen,
-   würde ich es akzeptabel finden die Ausübung des Berufes zeitweise zu verbieten.
+   Da ich von Bundestagsabgeordneten erwarte, ihre Energie für Deutschland einzusetzen,
+   würde ich es akzeptabel finden, die Ausübung des Berufes zeitweise zu verbieten.
    Wer das nicht will oder vertraglich bedingt nicht kann, der kann halt kein
    Abgeordneter werden.
 
-Eine weitere Maßnahme um Vertrauen zu schaffen ist die Einführung einer
-**legislativen Fußspur**. Das bedeutet, dass für jeden Gesetztesentwurf
+Eine weitere Maßnahme, um Vertrauen zu schaffen ist die Einführung einer
+**legislativen Fußspur**. Das bedeutet, dass für jeden Gesetzesentwurf
 dokumentiert werden muss, wer diesen geschrieben hat / wer beratend zur Seite
 gestanden hat oder anderweitig daran mitgewirkt hat.
 
@@ -206,7 +206,7 @@ Hierbei interessant:
 
 ### Digitaler Wandel
 
-* Wie bekommen wir eine schnelle, günstige, und zuverlässige Internetverbindung Flächendeckend in Deutschland?
+* Wie bekommen wir eine schnelle, günstige und zuverlässige Internetverbindung flächendeckend in Deutschland?
 * Wie nutzen wir neue Möglichkeiten in den Prozessen, z.B.
     * Allgemeine Behördengänge, z.B. Einwohnermeldeamt
     * Steuererklärung (Elster)
@@ -218,7 +218,7 @@ Hierbei interessant:
 
 Die [Bürgerversicherung](https://de.wikipedia.org/wiki/B%C3%BCrgerversicherung) ist eine Änderung der Struktur unserer Krankenversicherungen. Aktuell können Menschen mit hohem Einkommen aus der gesetzlichen Krankenversicherung austreten und sich ausschließlich privat versichern. Mit der Bürgerversicherung hätte jeder Mensch, unabhängig vom Einkommen, eine gesicherte medizinische Versicherung. In diese müsste dann auch jeder einzahlen. Private Versicherungen wären dann reine Zusatz- bzw. Komplementärversicherungen.
 
-✅ Gewünscht von SPD, [Grünen](https://www.gruene-bundestag.de/themen/gesundheit/die-gruene-buergerversicherung-fuer-gesundheit), und der [Linken](https://www.linksfraktion.de/themen/a-z/detailansicht/buergerinnenversicherung/)
+✅ Gewünscht von SPD, [Grünen](https://www.gruene-bundestag.de/themen/gesundheit/die-gruene-buergerversicherung-fuer-gesundheit) und der [Linken](https://www.linksfraktion.de/themen/a-z/detailansicht/buergerinnenversicherung/)
 
 ❌ Abgelehnt von CDU/CSU und FDP
 
@@ -312,7 +312,7 @@ In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:
 	        <td class="spd">SPD (Müntefering&nbsp;/ Scholz)</td>
 	        <td class="cdu">CDU (Jung,&nbsp;von der Leyen)</td>
 	        <td class="spd">SPD (Nahles /&nbsp;Barley)</td>
-	        <td class="cdu">CDU (Heil)</td>
+	        <td class="spd">SPD (Heil)</td>
 	    </tr>
 	    <tr>
 	        <td class="cdu">Ernährung, Landwirtschaft und Verbraucherschutz<br/>seit 2013: Ernährung und Landwirtschaft</td>
@@ -373,7 +373,7 @@ In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:
 	    <tr>
 	        <td class="cdu">Bundesminister für besondere Aufgaben</td>
 	        <td class="cdu">CDU (Maizi&egrave;re)</td>
-	        <td class="cdu">CDU (Profalla)</td>
+	        <td class="cdu">CDU (Pofalla)</td>
 	        <td class="cdu">CDU (Altmaier)</td>
 	        <td class="cdu">CDU (Braun)</td>
 	    </tr>
@@ -383,7 +383,7 @@ In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:
 
 Interessante Oppositionsarbeit hat zusätzlich noch [Die PARTEI](https://de.wikipedia.org/wiki/Die_PARTEI) geleistet.
 
-Im Folgenden will ich nun für die genannten Themen sehen was die Parteien planen und wie sie sich bisher in der Vergangenheit geschlagen haben.
+Im Folgenden will ich nun für die genannten Themen sehen, was die Parteien planen und wie sie sich bisher in der Vergangenheit geschlagen haben.
 
 Die Parlamentarier bezeichne ich im Folgenden als MdB - Mitglied des deutschen Bundestags.
 
@@ -443,11 +443,11 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="linke-bg">60.350</td>
     </tr>
     <tr>
-        <td>Mitgliedsbeiträge (Pro Monat)</td>
+        <td>Mitgliedsbeiträge (pro Monat)</td>
         <td class="cdu-bg">
             <a href="https://www.cdu.de/mitglied-werden">Nach Brutto-Einkommen</a>:<br/>
         - mindestens 6&nbsp;EUR<br/>
-        - über 2.5k&nbsp;EUR: 15&nbsp;EUR<br/>
+        - über 2,5k&nbsp;EUR: 15&nbsp;EUR<br/>
         - ab 4k&nbsp;EUR: 25&nbsp;EUR<br/>
         - ab 6k&nbsp;EUR: 50&nbsp;EUR
         </td>
@@ -463,16 +463,16 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td class="green-bg"><a href="https://www.gruene.de/mitglied-werden">1% des Netto-Einkommens</a></td>
         <td class="fdp-bg"><a href="https://mitgliedwerden.fdp.de/fragen-und-antworten-zur-mitgliedschaft#waskostetdas">Nach Brutto-Einkommen</a>:<br/>
         - Ausbildung: 5&nbsp;EUR<br/>
-        - bis 2.4&nbsp;EUR: 10&nbsp;EUR<br/>
-        - bis 3.6&nbsp;EUR: 12&nbsp;EUR<br/>
-        - bis 4.8&nbsp;EUR: 18&nbsp;EUR<br/>
-        - ab 4.8&nbsp;EUR: 24&nbsp;EUR
+        - bis 2,4k&nbsp;EUR: 10&nbsp;EUR<br/>
+        - bis 3,6k&nbsp;EUR: 12&nbsp;EUR<br/>
+        - bis 4,8k&nbsp;EUR: 18&nbsp;EUR<br/>
+        - ab 4,8k&nbsp;EUR: 24&nbsp;EUR
         </td>
-        <td class="linke-bg"><a href="https://www.die-linke.de/partei/grundsatzdokumente/bundesfinanzordnung/beitragstabelle/">Nach Netto-Einkommens</a>:<br/>
-        - ohne Einkommen: 1.50&nbsp;EUR<br/>
+        <td class="linke-bg"><a href="https://www.die-linke.de/partei/grundsatzdokumente/bundesfinanzordnung/beitragstabelle/">Nach Netto-Einkommen</a>:<br/>
+        - ohne Einkommen: 1,50&nbsp;EUR<br/>
         - bis 500 EUR: 3&nbsp;EUR<br/>
         - 2300 - 2500 EUR: 85&nbsp;EUR<br/>
-        - über 2.5&nbsp;EUR: 4%
+        - über 2,5k&nbsp;EUR: 4%
         </td>
     </tr>
     <tr>
@@ -494,8 +494,8 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
     <tr>
         <th>Klimakrise</th>
         <td class="cdu-bg">- Sie wollen Emissionshandel<br/>- Senkung der Strompreise</td>
-        <td class="spd-bg">- Bis 2040: Strom vollständig aus erneuerbaren Energien (2020 waren es 45%)<br/>- CO<sub>2</sub>-Bepreisung<br/>- Modernisierung der Bahn<br/>- Elektro attraktiver machen (incl. Wasserstoff)</td>
-        <td class="green-bg">- Energiegeld<br/>- Reduzierter Steuersatz für Pflanzliche Milch-Alternativen</td>
+        <td class="spd-bg">- Bis 2040: Strom vollständig aus erneuerbaren Energien (2020 waren es 45%)<br/>- CO<sub>2</sub>-Bepreisung<br/>- Modernisierung der Bahn<br/>- Elektro attraktiver machen (inkl. Wasserstoff)</td>
+        <td class="green-bg">- Energiegeld<br/>- Reduzierter Steuersatz für pflanzliche Milch-Alternativen</td>
         <td class="fdp-bg">Keine besonderen Förderungen</td>
         <td class="linke-bg">- Lufthansa + DB werden zusammengelegt</td>
     </tr>
@@ -517,7 +517,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
     </tr>
     <tr>
         <td>EU-ETS (Emissionshandel) verbessern</td>
-        <td class="cdu-bg">- Emissionshandel auf den Verkehr- und Wärmesektor ausweiten</td>
+        <td class="cdu-bg">- Emissionshandel auf den Verkehrs- und Wärmesektor ausweiten</td>
         <td class="spd-bg">?</td>
         <td class="green-bg">- deutliche Reduktion von Emissionszertifikaten</td>
         <td class="fdp-bg">- Emissionshandel auf alle Emissionen ausweiten</td>
@@ -527,7 +527,7 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         <td>Bis 2030</td>
         <td class="cdu-bg">CO<sub>2</sub>-Ausstoß um 65% reduziert</td>
         <td class="spd-bg"></td>
-        <td class="green-bg">bis: CO<sub>2</sub>-Ausstoß um 70% reduzieren<br/>ab: nur Emissionsfreie Autos zulassen</td>
+        <td class="green-bg">bis: CO<sub>2</sub>-Ausstoß um 70% reduzieren<br/>ab: nur emissionsfreie Autos zulassen</td>
         <td class="fdp-bg"></td>
         <td class="linke-bg">ab: Keine Zulassung / Export von Autos mit Verbrennungsmotoren</td>
     </tr>
@@ -601,19 +601,19 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         </td>
         <td class="fdp-bg">
             - Mehr Wohnraum schaffen<br/>
-            - 500.000 Euro Freibetrag für Grunderwerbssteuer<br/>
+            - 500.000 Euro Freibetrag für Grunderwerbsteuer<br/>
             - Baugenehmigungen beschleunigen
         </td>
         <td class="linke-bg">
             - Immobilienkonzerne von der Börse nehmen<br/>
-            - im Jahr mindestens 250,000 zusätzliche Wohnungen schaffen
+            - im Jahr mindestens 250.000 zusätzliche Wohnungen schaffen
         </td>
     </tr>
     <tr>
-        <td class="">Sozialwohnungen</th>
+        <td class="">Sozialwohnungen</td>
         <td class="cdu-bg">❌</td>
         <td class="spd-bg">
-        - einführung einer "neue[n] Wohnungsgemeinnützigkeit" (was auch immer das bedeutet)
+        - Einführung einer "neue[n] Wohnungsgemeinnützigkeit" (was auch immer das bedeutet)
         </td>
         <td class="green-bg">
         - Mittel für den sozialen Wohnungsbau deutlich erhöhen<br/>
@@ -621,15 +621,15 @@ Die AfD habe ich bewusst nicht mit aufgenommen, da sie den Klimawandel leugnet.
         </td>
         <td class="fdp-bg">❌</td>
         <td class="linke-bg">
-        - Ehemaldige Kasernen in Sozialwohnungen umwandeln<br/>
-        - bis zu 250,000 Sozialwohnungen pro Jahr über "neue Wohnungsgemeinnützigkeit"
+        - Ehemalige Kasernen in Sozialwohnungen umwandeln<br/>
+        - bis zu 250.000 Sozialwohnungen pro Jahr über "neue Wohnungsgemeinnützigkeit"
         </td>
     </tr>
     <tr>
         <td class="border-bottom">Mietpreisbremse / <a href="https://de.wikipedia.org/wiki/Mietendeckel">Mietendeckel</a></td>
         <td class="cdu-bg border-bottom">❌</td>
         <td class="spd-bg border-bottom">✅ Mietpreisbremse in Inflationshöhe</td>
-        <td class="green-bg border-bottom">✅ Mietpreisbremse (Ausnahmen für beim möblierten Wohnen werden abgeschafft)</td>
+        <td class="green-bg border-bottom">✅ Mietpreisbremse (Ausnahmen beim möblierten Wohnen werden abgeschafft)</td>
         <td class="fdp-bg border-bottom"><a href="https://www.fdp.de/mietendeckel-ist-ideologischer-populismus-auf-kosten-der-mieter">❌ Mietendeckel
 abschaffen</a></td>
         <td class="linke-bg border-bottom">✅ Mietendeckel überall in Deutschland</td>
@@ -640,7 +640,7 @@ abschaffen</a></td>
         <td class="spd-bg">- Beamte sollen in Rentenkasse einzahlen müssen</td>
         <td class="green-bg"></td>
         <td class="fdp-bg"></td>
-        <td class="linke-bg">- min 1200 EUR/Monat</td>
+        <td class="linke-bg">- min. 1200 EUR/Monat</td>
     </tr>
 	<tr>
 		<td class="border-bottom">Kapitalgedeckte Altersvorsorge</td>
@@ -692,7 +692,7 @@ abschaffen</a></td>
     </tr>
     <tr>
         <th>Staatshaushalt</th>
-        <td class="cdu-bg">- Entlastung für Hohe einkommen</td>
+        <td class="cdu-bg">- Entlastung für hohe Einkommen</td>
         <td class="spd-bg">- 250.000 EUR: +3% Einkommensteuer</td>
         <td class="green-bg">- Anhebung des Freibetrags</td>
         <td class="fdp-bg">- Maximale Abgabenquote von 40%<br/>- Abschaffung der Gewerbesteuer<br/>- Privatisierung von Post und Telekom (bzw. Beteiligungen abgeben)</td>
@@ -795,7 +795,7 @@ abschaffen</a></td>
                 <li><a href="https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag">Wirecard</a></li>
                 <li><a href="https://www.zeit.de/2021/30/philipp-amthor-cdu-korruption-lobbyismus-glaube">Lobbyaffäre Amthor</a> wurde nicht als Problem wahrgenommen</li>
                 <li><a href="https://de.wikipedia.org/wiki/Ursula_von_der_Leyen#Beschaffungsma%C3%9Fnahmen_der_Bundeswehr_und_%E2%80%9EBerater-Aff%C3%A4re%E2%80%9C">Berater-Affäre von der Leyen</a></li>
-                <li><a href="https://de.wikipedia.org/wiki/Andreas_Scheuer#Pkw-Maut_in_Deutschland_und_R%C3%BCcktrittsforderungen">PWK-Maut Affäre Scheuer</a></li>
+                <li><a href="https://de.wikipedia.org/wiki/Andreas_Scheuer#Pkw-Maut_in_Deutschland_und_R%C3%BCcktrittsforderungen">Pkw-Maut-Affäre Scheuer</a></li>
             </ol></td>
         <td class="spd-bg">
             <ol>
@@ -814,7 +814,7 @@ abschaffen</a></td>
             <a href="https://lobbypedia.de/wiki/CDU">2014-2018 (CDU)</a>:
             <ul>
                 <li><a href="https://lobbypedia.de/wiki/Deutsche_Verm%C3%B6gensberatung">DVAG</a>: 1.376.500 EUR</li>
-                <li>Hans-Joachim Langmann (Merck KgaA, Hauck & Aufhäuser): 925.000 EUR</li>
+                <li>Hans-Joachim Langmann (Merck KGaA, Hauck & Aufhäuser): 925.000 EUR</li>
                 <li>Familie Dommermuth (<a href="https://de.wikipedia.org/wiki/United_Internet">United Internet</a>): 700.000 EUR</li>
                 <li>Daimler: 500.000 EUR</li>
             </ul>
@@ -842,7 +842,7 @@ abschaffen</a></td>
             <ul>
                 <li><a href="https://lobbypedia.de/wiki/Gesamtmetall">Gesamtmetall</a>: 1.210.000 EUR</li>
                 <li><a href="https://lobbypedia.de/wiki/R%26W_Industriebeteiligungen">R&W Industriebeteiligungen</a>: 956.310 EUR</li>
-                <li><a href="https://de.wikipedia.org/wiki/Lutz_Helmig">Lutz Helmig</a>: 540.000</li>
+                <li><a href="https://de.wikipedia.org/wiki/Lutz_Helmig">Lutz Helmig</a>: 540.000 EUR</li>
                 <li><a href="https://lobbypedia.de/wiki/Deutsche_Verm%C3%B6gensberatung">DVAG</a>: 434.000 EUR</li>
                 <li><a href="https://lobbypedia.de/wiki/VCI_Verband_der_Chemischen_Industrie_e.V.">VCI Verband der Chemischen Industrie e.V.</a>: 283.000 EUR</li>
             </ul>
@@ -862,7 +862,7 @@ abschaffen</a></td>
                 <li>Peter Ramsauer (Gesellschafter des Familienbetriebs, Aufsichtsrat): 487.500 EUR</li>
                 <li>Olav Gutting (Rechtsanwalt): 450.000 EUR</li>
                 <li>Rudolf Henke: 234.500 EUR</li>
-                <li>Mark Hauptmann: 233.000	EUR</li>
+                <li>Mark Hauptmann: 233.000 EUR</li>
                 <li>Hans-Jürgen Irmer: 188.000 EUR</li>
                 <li>Josef Rief: 181.500 EUR</li>
                 <li>Bernhard Loos: 163.000 EUR</li>
@@ -873,10 +873,10 @@ abschaffen</a></td>
         <td class="spd-bg border-bottom">
             <ol>
                 <li>Kirsten Lühmann: 228.000 EUR</li>
-                <li>Martin Burkert: 191.000	EUR</li>
+                <li>Martin Burkert: 191.000 EUR</li>
                 <li>Sigmar Gabriel: 165.000 EUR</li>
                 <li>Ulla Schmidt: 151.500 EUR</li>
-                <li>Lars Klingbeil: 147.000  EUR</li>
+                <li>Lars Klingbeil: 147.000 EUR</li>
                 <li>Dietmar Nietan: 147.000 EUR</li>
             </ol>
         </td>
@@ -901,7 +901,7 @@ abschaffen</a></td>
         <td class="spd-bg">- 2030 vollständig digitalisierte Verwaltung<br/>- Sozialtarif für schnelles Internet<br/>- Schüler bekommen "digitales Endgerät"<br/>- Bildungscloud</td>
         <td class="green-bg">- Europäischer Cloud-Dienst<br/>- Zerschlagung von Unternehmen mit zu großer Marktmacht</td>
         <td class="fdp-bg">- Ministerium für digitale Transformation gründen<br/>- Behördengänge sollen digital möglich sein<br/>-&nbsp; Wahrung der Netzneutralität<br/>- Schnelles Internet<br/>- Datenschutz</td>
-        <td class="linke-bg">- Netzausbau verstaatlichen<br/>- Tablet / Notebook ausleihe für Schüler<br/>- Datenschutz ausbauen<br/>- Online-Kartellrecht und zerschlagung großer Internet-Firmen</td>
+        <td class="linke-bg">- Netzausbau verstaatlichen<br/>- Tablet / Notebook Ausleihe für Schüler<br/>- Datenschutz ausbauen<br/>- Online-Kartellrecht und Zerschlagung großer Internet-Firmen</td>
     </tr>
     <tr>
         <td>Sonstiges</td>
@@ -952,7 +952,7 @@ abschaffen</a></td>
 		<td class="linke-bg">✅</td>
 	</tr>
 	<tr>
-		<td>Drohnenmorde via Rammstein unterbinden<sup id="fnref:21"><a class="footnote-ref" href="#fn:21">21</a>,</sup><sup id="fnref:22"><a class="footnote-ref" href="#fn:22">22</a></sup></td>
+		<td>Drohnenmorde via Ramstein unterbinden<sup id="fnref:21"><a class="footnote-ref" href="#fn:21">21</a>,</sup><sup id="fnref:22"><a class="footnote-ref" href="#fn:22">22</a></sup></td>
 		<td class="cdu-bg">❌</td>
 		<td class="spd-bg">❌</td>
 		<td class="green-bg"><a href="https://www.gruene-bundestag.de/themen/sicherheitspolitik/ramstein-nicht-fuer-voelkerrechtswidrige-toetungen-nutzen">✅</a></td>
@@ -970,10 +970,10 @@ Schauen wir uns mal vergangene Wahlversprechen aus der Wahl 2017 an:
 
 * **Elektronisches Bürgerkonto**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:
   Die CDU/CSU wollte ein elektronisches Bürgerkonto einführen, über welches man
-  z.B. einen Antrag auf Kindergeld machen kann. Soweit ich weiß gibt es keinen
-  einzelnen Dienst über den man alles machen kann. Das für mich relevanteste
+  z.B. einen Antrag auf Kindergeld machen kann. Soweit ich weiß, gibt es keinen
+  einzelnen Dienst, über den man alles machen kann. Das für mich relevanteste
   Projekt ist [Elster](https://de.wikipedia.org/wiki/Elster_(Software)). Hier vermute ich mal, dass man es der CSU zuschreiben kann. Es wundert mich allerdings, dass sich die CSU nicht selbst mit diesen Federn schmückt; eventuell kommt es also doch woanders her?
-* **Flächendeckender Glasfaser-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: 8.3 Millionen Haushalte von 41.5 Millionen Haushalten haben aktuell Glasfaser-Zugang<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Für mich sieht es nicht so aus als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
+* **Flächendeckender Glasfaser-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: 8,3 Millionen Haushalte von 41,5 Millionen Haushalten haben aktuell Glasfaser-Zugang<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Das sind 20%. Allein 2019 ist es um 9 Prozentpunkte gestiegen<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Für mich sieht es nicht so aus, als könnte man das Ziel auch nur annähernd erreichen, allerdings werden große Fortschritte gemacht. Unklar ist, wie viel davon tatsächlich auf die Politik zurückzuführen ist.
 * **Vorreiter beim 5G-Ausbau**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> bis 2025: Hier bin ich überfragt. Aber es fühlt sich zumindest nicht so an.
 * **Bildungscloud**<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>: Sehr gute Ideen, allerdings ungenügende Umsetzung.
 
@@ -987,7 +987,7 @@ Skandale:
 * [Bundestrojaner](https://de.wikipedia.org/wiki/Online-Durchsuchung_(Deutschland))
 * [Wirecard](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag)
 
-Kanzlerkandidat ist Armin Laschet. Da hilft es auch nicht wenn er beim Besuch der [Flutopfer 2021](https://de.wikipedia.org/wiki/Hochwasser_in_West-_und_Mitteleuropa_2021) in Erftstadt in die Kamera lacht ([Video](https://www.youtube.com/watch?v=Uk-TsNQKDI0)).
+Kanzlerkandidat ist Armin Laschet. Da hilft es auch nicht, wenn er beim Besuch der [Flutopfer 2021](https://de.wikipedia.org/wiki/Hochwasser_in_West-_und_Mitteleuropa_2021) in Erftstadt in die Kamera lacht ([Video](https://www.youtube.com/watch?v=Uk-TsNQKDI0)).
 
 Kritikpunkte:
 
@@ -1016,33 +1016,33 @@ Die SPD hat kein eigenes Video mit ihrem Wahlprogramm, nur
 ich mal kurz an den
 [Brechmittel-Einsatz 2001](https://taz.de/Brechmitteleinsatz-in-Hamburg/!5143440/),
 die [Cum-Ex-Affäre der Warburg-Bank 2016](https://de.wikipedia.org/wiki/Olaf_Scholz#Cum-Ex-Gesch%C3%A4fte_der_Warburg_Bank),
-dem [Wirecard-Skandal 2018-2020](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag),
-sowie dem sich anbahnenden [FIU/Geldwäscheskandal 2021](https://www.t-online.de/nachrichten/deutschland/innenpolitik/id_90783220/opposition-wirft-scholz-mitverantwortung-in-geldwaesche-skandal-vor.html)
-bedenkt.  Das ist die Galionsfigur, die sich die SPD ausgesucht hat.
+den [Wirecard-Skandal 2018-2020](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag),
+sowie den sich anbahnenden [FIU/Geldwäscheskandal 2021](https://www.t-online.de/nachrichten/deutschland/innenpolitik/id_90783220/opposition-wirft-scholz-mitverantwortung-in-geldwaesche-skandal-vor.html)
+bedenkt. Das ist die Galionsfigur, die sich die SPD ausgesucht hat.
 
 Die [Tagesschau](https://www.youtube.com/watch?v=xkVb_bJv8aI) fasst das [Wahlprogramm der SPD](https://www.spd.de/zukunftsprogramm/) wie folgt zusammen:
 
 * Hohe Einkommen und Vermögen sollen stärker besteuert werden, Menschen mit kleinen und mittleren Einkommen hingegen weniger
-* Deutschland soll bis 2050 Klimaneutral werden:
+* Deutschland soll bis 2050 klimaneutral werden:
     * Wasserstoff
     * Power 2 Gas
 
-Im Wahlprogramm und dem Werbematerial liest man sehr häufig "Respekt". Keine Ahnung was das soll. Sieht für mich ziemlich planlos aus. Im Wahlprogramm finden sich jedoch auch konkrete Ziele:
+Im Wahlprogramm und dem Werbematerial liest man sehr häufig "Respekt". Keine Ahnung, was das soll. Sieht für mich ziemlich planlos aus. Im Wahlprogramm finden sich jedoch auch konkrete Ziele:
 
 * 15 Millionen E-Autos in Deutschland auf der Straße
 * "Bahnfahren durch ganz Europa soll zukünftig günstiger und attraktiver als Fliegen sein"
-* 2040 soll unser Strom vollständig aus erneuerbaren Energien
- Bis spätestens 2045 soll Deutschland klimaneutral sein
+* 2040 soll unser Strom vollständig aus erneuerbaren Energien kommen
+* Bis spätestens 2045 soll Deutschland klimaneutral sein
 * Mindestlohn von 12 EUR/h
 * Jährlich sollen 400.000 Wohnungen gebaut werden, davon sind 100.000 öffentlich gefördert. 2020 waren es 306.000 Wohnungen<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.
 * Mietpreisbremse in Inflationshöhe
 * Bürgerversicherung
 * Kostenloser ÖPNV für Kinder
-* Kindergeld wird automatisch ausgezahlt und abhängig von Einkommen der Eltern
+* Kindergeld wird automatisch ausgezahlt und abhängig vom Einkommen der Eltern
 * Rentenniveau bei 48% stabil halten und Renteneintrittsalter bei 67 Jahren belassen
 * In Führungspositionen sollen genauso viele Männer wie Frauen sitzen. Hier werden insbesondere auch Parlamente und Stadträte erwähnt.
 * Europäische Mindestlöhne - hier ist mir nicht klar, warum ein Plural gewählt wurde
-* "Um zu verhindern, dass einzelne EU-Mitglieder die anderen im Alleingang ausbremsen, ist es wichtig, dass wir noch mehr Fragen mit Mehrheiten entscheiden können, statt auf Einstimmigkeit zu setzen.
+* "Um zu verhindern, dass einzelne EU-Mitglieder die anderen im Alleingang ausbremsen, ist es wichtig, dass wir noch mehr Fragen mit Mehrheiten entscheiden können, statt auf Einstimmigkeit zu setzen."
 
 Das Rezo-Video ist in dem Kontext auch sehenswert. Er bezieht sich zwar auf die
 CDU, aber vieles davon gilt auch für die SPD.
@@ -1054,10 +1054,10 @@ CDU, aber vieles davon gilt auch für die SPD.
 Freiheit ist ein Kernmotiv der Politik der FDP.
 
 Das [Wahlprogramm der FDP](https://www.fdp.de/sites/default/files/2021-08/FDP_BTW2021_Wahlprogramm_1.pdf) ist von liberalen Werten geprägt. Das gilt sowohl
-für die Wirtschaft, als auch Einzelpersonen.
+für die Wirtschaft als auch für Einzelpersonen.
 
 Die FDP scheint von der [Trickle-down-Theorie](https://de.wikipedia.org/wiki/Trickle-down-Theorie)
-überzeugt zu sein: Wenn man Firmen steuern erlässt, dann wird das automatisch
+überzeugt zu sein: Wenn man Firmen Steuern erlässt, dann wird das automatisch
 investiert und kommt besser bei den Menschen an als wenn man durch Steuern
 umverteilt.
 
@@ -1085,12 +1085,12 @@ Das ist falsch. Exemplarisch wäre hier:
 * [Anderegg](http://www.anderegglab.net/), [Prall](https://www.eecg.utoronto.ca/~prall/), Harold et al: [Expert credibility in climate change.](https://www.pnas.org/content/107/27/12107.short), [Proceedings of the National Academy of Sciences](https://de.wikipedia.org/wiki/Proceedings_of_the_National_Academy_of_Sciences_of_the_United_States_of_America), 2010
 
 Allein diese offensichtliche Leugnung der Realität macht die Partei unwählbar.
-Wer nicht in der realen Welt lebt kann deren Probleme auch nicht lösen.
+Wer nicht in der realen Welt lebt, kann deren Probleme auch nicht lösen.
 Da will ich gar nicht weiter auf das rechtsradikale Gedankengut eingehen.
 
 ## Die Linke
 
-[Die Linke](https://de.wikipedia.org/wiki/Die_Linke) hat 2008 ein [100-Punkte Programm](https://www.linksfraktion.de/themen/positionspapiere/detail/das-100-punkte-programm-1/) veröffentlicht, welches immer noch verschiedene Grundgedanken gut zusammenfasst. Exemplarisch halte ich folgende für erwähnenswert:
+[Die Linke](https://de.wikipedia.org/wiki/Die_Linke) hat 2008 ein [100-Punkte-Programm](https://www.linksfraktion.de/themen/positionspapiere/detail/das-100-punkte-programm-1/) veröffentlicht, welches immer noch verschiedene Grundgedanken gut zusammenfasst. Exemplarisch halte ich folgende für erwähnenswert:
 
 > 1: Krieg ist kein Mittel der Politik.
 >
@@ -1120,9 +1120,9 @@ Da will ich gar nicht weiter auf das rechtsradikale Gedankengut eingehen.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XVehiXiyJ74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-"Gerechtigkeit" ist ein Kernmotiv linker Politik. Seit Jahren ist Altersarmut,
-die Unterstützung des "kleinen Mannes" (z.B. Geringverdiener, Mieter, Minderheiten),
-mehr Kontrolle von Privilegierten (Große Firmen, Personen mit hohem Einkommen).
+"Gerechtigkeit" ist ein Kernmotiv linker Politik. Seit Jahren sind Altersarmut,
+die Unterstützung des "kleinen Mannes" (z.B. Geringverdiener, Mieter, Minderheiten) und
+mehr Kontrolle von Privilegierten (große Firmen, Personen mit hohem Einkommen) zentrale Themen.
 Frieden ist auch seit Jahrzehnten ein großes Anliegen der Linken.
 
 Interessant ist auch:
@@ -1142,7 +1142,7 @@ Interessant ist auch:
 
 Weitere Ziele, die in der Tabelle oben nicht vorkommen:
 
-* Mehl Geld für Wissenschaft und Forschung
+* Mehr Geld für Wissenschaft und Forschung
 * Bildungsreform
 * Mehr Geld für Infrastruktur
 
@@ -1178,7 +1178,7 @@ In ihrer Wahlwerbung fokussieren sie sich auf 6 Punkte:
 Kritikpunkte:
 
 * Homöopathie: 2019 haben sie sich aus meiner Sicht zu dem Thema nicht gut
-  präsentiert<sup id="fnref:29"><a class="footnote-ref" href="#fn:29">29</a></sup>, aber das wurde 2020 beigelegt.<sup id="fnref:30"><a class="footnote-ref" href="#fn:29">30</a></sup>
+  präsentiert<sup id="fnref:29"><a class="footnote-ref" href="#fn:29">29</a></sup>, aber das wurde 2020 beigelegt.<sup id="fnref:30"><a class="footnote-ref" href="#fn:30">30</a></sup>
 * Enthaltung / Befürwortung von Urheberrechtsreform
 * Hambacher Forst
 
@@ -1186,9 +1186,9 @@ Kritikpunkte:
 ## Die Partei
 
 [Die PARTEI](https://de.wikipedia.org/wiki/Die_PARTEI) ist vor allem wegen der
-Arbeit von Martin Sonneborn im Europäischen Parlament bekann.
+Arbeit von Martin Sonneborn im Europäischen Parlament bekannt.
 
-Wenn man gegen die etablierten Parteien Protestieren will, ist die PARTEI eine
+Wenn man gegen die etablierten Parteien protestieren will, ist die PARTEI eine
 gute Wahl. Es nervt keiner so gut wie Sonneborn.
 
 * [Wahlprogramm](https://www.die-partei.de/btw21/)
@@ -1209,10 +1209,10 @@ Folgende Koalitionen könnten möglich sein:
 
 * Große Koalition "GroKo" (SPD+CDU/CSU): 50%
     * Kenia-Koalition (CDU/CSU+SPD+Grüne): 69%
-    * Deutschland-Union (CDU/CSU+SPD+FDP): 62%
+    * Deutschland-Koalition (CDU/CSU+SPD+FDP): 62%
 * Jamaika-Koalition (CDU/CSU+Grüne+FDP): 54%
 * SPD und Grüne:
-    * Rot-Rot-Grün / R2G (SPD+Linke+Grün): 53%
+    * Rot-Rot-Grün / R2G (SPD+Linke+Grüne): 53%
     * Ampel-Koalition (SPD+Grüne+FDP): 58%
 
 Siehe auch:
@@ -1237,7 +1237,7 @@ Siehe auch:
 [^3]: Deutscher Bundestag: [11,8 Prozent der Haushalte mit Glasfaseranschluss](https://www.bundestag.de/presse/hib/707096-707096), 2020.
 [^4]: dpa: [So viele neue Wohnungen wie seit 2001 nicht mehr](https://www.faz.net/aktuell/wirtschaft/wohnungsbau-in-deutschland-erreicht-hoechsten-stand-seit-2001-17360641.html), 2021.
 [^5]: [Wunschnettorechner](https://www.nettolohn.de/rechner/netto-brutto-ergebnis)
-[^6]: Insitut der deutschen Wirtschaft: [Wie wohlhabend bin ich im Vergleich?](https://www.iwkoeln.de/fileadmin/user_upload/HTML/2019/einkommensverteilung/index.html)
+[^6]: Institut der deutschen Wirtschaft: [Wie wohlhabend bin ich im Vergleich?](https://www.iwkoeln.de/fileadmin/user_upload/HTML/2019/einkommensverteilung/index.html)
 [^7]: Statista: [Hartz IV: Leistungsempfänger von Arbeitslosengeld II im Jahresdurchschnitt von 2013 bis 2021](https://de.statista.com/statistik/daten/studie/1396/umfrage/leistungsempfaenger-von-arbeitslosengeld-ii-jahresdurchschnittswerte/)
 [^8]: Bayerischer Rundfunk: [Warum Zement klimaschädlich ist](https://www.youtube.com/watch?v=IYqjKJOzG6g) auf YouTube, 2018.
 [^9]: [CO<sub>2</sub>-Ausstoß der Länder: Top-10 und Pro-Kopf-Verbrauch im Überblick](https://www.co2online.de/klima-schuetzen/klimawandel/co2-ausstoss-der-laender/)
@@ -1260,7 +1260,7 @@ Siehe auch:
 [^26]: Umweltbundesamt: [Klimaschutz durch
 Tempolimit](https://www.umweltbundesamt.de/sites/default/files/medien/1410/publikationen/2020-06-15_texte_38-2020_wirkung-tempolimit_bf.pdf), 2020.
 [^27]: Simplicissimus: [Warum deine Leberwurst 1,09€ kostet](https://www.youtube.com/watch?v=QTBg9la6RPE), 2021
-[^28]: Umwelt Bundesamt: [Der Europäische Emissionshandel](https://www.umweltbundesamt.de/daten/klima/der-europaeische-emissionshandel#teilnehmer-prinzip-und-umsetzung-des-europaischen-emissionshandels), 2021.
+[^28]: Umweltbundesamt: [Der Europäische Emissionshandel](https://www.umweltbundesamt.de/daten/klima/der-europaeische-emissionshandel#teilnehmer-prinzip-und-umsetzung-des-europaischen-emissionshandels), 2021.
 [^29]: Florian Staeck: [Grüne sind bei Homöopathie gespalten
 ](https://www.aerztezeitung.de/Politik/Gruene-sind-bei-Homoeopathie-gespalten-402464.html), 2019.
 [^30]: Florian Staeck: [Grüne distanzieren sich von Homöopathie](https://www.aerztezeitung.de/Politik/Gruene-distanzieren-sich-von-Homoeopathie-ein-bisschen-414943.html), 2020.

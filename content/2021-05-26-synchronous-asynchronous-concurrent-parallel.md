@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Synchronous vs Asynchronous vs Concurrent vs Parallel
-subtitle: What is the difference and why does it matter?
 slug: synchronous-asynchronous-concurrent-parallel
-url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2
+lang: en
 author: Martin Thoma
 date: 2021-05-26 20:00
 category: Cyberculture
 tags: Programming, Software Development, Software Engineering, Parallel Execution, Concurrency
 featured_image: logos/star.png
+subtitle: What is the difference and why does it matter?
+url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui"><img src="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui" alt="Photo by Edurne Chopeitia on Unsplash" style="width: 512px;"/></a>
@@ -72,7 +72,7 @@ interleaved execution model. It is not in parallel, but also not sequential.
 
 Think about something that is pretty CPU intensive, e.g. extracting a big ZIP
 archive. That might block your CPU for several minutes. If things were done
-strictly sequential, you could not do anything at that time. You could not
+strictly sequentially, you could not do anything at that time. You could not
 browse the web. You could not even move your mouse cursor. That feels not
 responsive.
 
@@ -143,7 +143,7 @@ For developers who want to understand how to use async/await in Python, I
 recommend “[Async IO in Python: A Complete
 Walkthrough](https://realpython.com/async-io-python/)” by Brad Solomon.
 
-For non-develpers, the important take-away is that it requires additional
+For non-developers, the important takeaway is that it requires additional
 development effort but you can get **good speedups if blocking IO is the
 issue**.
 
@@ -171,7 +171,7 @@ working on his stuff?
 
 Of course not. The obvious first improvement is to realize that you can run
 many processes/threads in parallel. The number of concurrent threads you can
-run is typically in the order of a few dozens. That means if you have hundreds
+run is typically in the order of a few dozen. That means if you have hundreds
 of requests hitting your server at the same time, **multiprocessing** or
 **multithreading** is not a solution.
 
@@ -183,17 +183,17 @@ services. It’s **blocked** by that and simply waits.
 
 Realizing this, you can keep a list of tasks you need to do. When one task is
 blocked, it just gives away its “right” to execute to other services. It’s
-acting cooperative. Welcome to **coroutines**.
+acting cooperatively. Welcome to **coroutines**.
 
 To phrase it in our example:
 
-* The website receives Alice requests. It parses the request and realizes that
+* The website receives Alice's request. It parses the request and realizes that
   it needs data from the database. It sends the request to the database. But
-  the program knows that this will take a bit of time, so it let’s other
+  the program knows that this will take a bit of time, so it lets other
   people continue.
-* The website receives Bob request. It parses the request, sends the DB
+* The website receives Bob's request. It parses the request, sends the DB
   request and returns the power to execute.
-* Alice DB request returned an answer. The response is crafted and Alice can continue
+* Alice's DB request returned an answer. The response is crafted and Alice can continue.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/05/asynchronous-response.png"><img src="../images/2021/05/asynchronous-response.png" alt="Asynchronous Response" style="width: 512px;"/></a>

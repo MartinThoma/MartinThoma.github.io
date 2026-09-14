@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: The UTXO model
-subtitle: A technical cornerstone of Bitcoin
 slug: utxo-model
-URL: https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853
+lang: en
 author: Martin Thoma
 date: 2021-02-17 20:00
 category: Blockchain
 tags: Blockchain, Bitcoin, Cryptocurrency, UTXO
 featured_image: logos/bitcoin.png
+subtitle: A technical cornerstone of Bitcoin
+URL: https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853
 ---
 ![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
 
@@ -35,12 +35,12 @@ If you want a longer introduction to Bitcoin / Blockchain, I’ve got you:
 ## How Bitcoins are created
 
 The first block of the blockchain is just defined in the code. All other
-blocks in bitcoin need to have a “proof of work”. This is a solution to an
+blocks in Bitcoin need to have a “proof of work”. This is a solution to an
 automatically generated mathematical puzzle that makes [clever use of hash
 functions](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d).
 Solving this hash puzzle is computationally intensive. This means you need to
 have good hardware and invest a lot of time and electricity to solve it.
-People wouldn’t do that just for fun on the current scale. They do it, because
+People wouldn’t do that just for fun on the current scale. They do it because
 of the **mining reward**. This reward is given to every solved hash puzzle.
 
 
@@ -50,7 +50,7 @@ When Bitcoin started in 2009, the mining reward was 50 Bitcoin (BTC). In 2012,
 the reward was halved to 25 Bitcoin. In 2016 the mining reward was halved to
 12.5 BTC. The last halving was in 2020 to 6.25 BTC.
 
-Halving happens after 210,000 mined bitcoins. It is a mechanism to keep the
+Halving happens every 210,000 blocks. It is a mechanism to keep the
 total supply of bitcoins in check. The maximum possible amount of Bitcoins is
 21 million. Then, miners will not receive a reward anymore. They will need to
 use transaction fees then — which they already do.
@@ -58,7 +58,7 @@ use transaction fees then — which they already do.
 
 ## Keys and Addresses
 
-Bitcoin makes use of ECDSA. [Blair Marshall](undefined) has written a nice article about it:
+Bitcoin makes use of ECDSA. Blair Marshall has written a nice article about it:
 [**How does ECDSA work in Bitcoin**
 *ECDSA (‘Elliptical Curve Digital Signature Algorithm’) is the cryptography behind private and public keys used in…*medium.com](https://medium.com/@blairlmarshall/how-does-ecdsa-work-in-bitcoin-7819d201a3ec)
 

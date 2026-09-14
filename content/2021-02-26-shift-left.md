@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Shift Left: 7 Stages to Speed up Application Development while Improving Quality
-subtitle: Let’s do it in an agile way
 slug: shift-left
-URL: https://levelup.gitconnected.com/shift-left-7-stages-to-speed-up-application-development-while-improving-quality-498d9a7b9393
+lang: en
 author: Martin Thoma
 date: 2021-02-26 20:00
 category: Cyberculture
 tags: DevOps, Software Engineering
 featured_image: logos/development.png
+subtitle: Let’s do it in an agile way
+URL: https://levelup.gitconnected.com/shift-left-7-stages-to-speed-up-application-development-while-improving-quality-498d9a7b9393
 ---
 ![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2820/1*AKoifR7QR7wABlw7rm4XKQ.png)*Image by Martin Thoma*
 
@@ -22,7 +22,7 @@ have to bother to learn this skill.
 
 In this article, you’ll learn strategies to catch errors in different
 development phases. At the very end, I’ll also point out what others typically
-mean with “shift left”. Let’s start!
+mean by “shift left”. Let’s start!
 
 ## Conceptual Phase: Planning and Design
 
@@ -35,7 +35,7 @@ end, Android, iOS, …), operational teams, marketing, …
 
 In order to communicate the idea, you can create two types of documents:
 
-* **Product design document**: Which problem of the user those the new feature
+* **Product design document**: Which problem of the user does the new feature
   solve? How will the user be impacted?
 * **Engineering design document**: What does the feature require? Which
   sub-systems need to be developed, how many requests need to be served, where
@@ -88,8 +88,8 @@ mistakes obvious.
 
 ![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2146/1*p-Wvxp7p8LTrlb5B3wH07Q.png)*Image by Martin Thoma*
 
-I am a software developer for more than 15 years now. I still make stupid
-mistakes like forgetting that it’s os.path.isfile and not os.isfile . Luckily,
+I have been a software developer for more than 15 years now. I still make stupid
+mistakes like forgetting that it’s `os.path.isfile` and not `os.isfile`. Luckily,
 we don’t need to remember all of the nitty-gritty details. Editors and IDEs do
 a lot for us. They can warn us if we use a variable we didn’t declare in that
 scope. They can tell us that we created a variable we didn’t use. They can
@@ -151,7 +151,7 @@ to share knowledge and they can also work if a less-experienced developer
 reviews something of a senior developer. A good merge request (or pull
 request) does exactly one thing and contains some context why it is proposed.
 
-On Github, it looks [like this](https://github.com/OpenShot/openshot-qt/pull/3738):
+On GitHub, it looks [like this](https://github.com/OpenShot/openshot-qt/pull/3738):
 
 ![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2966/1*NgfyhQZVFRj1JZlLVGX2xQ.png)*Image by Martin Thoma*
 
@@ -183,7 +183,7 @@ in the US. I might mix up something as I cannot find a reference, though.
 
 This procedure is called “canary release” or “canary testing”. To quote [Danilo Sato](https://martinfowler.com/bliki/CanaryRelease.html):
 
-> # **Canary release** is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.
+> **Canary release** is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.
 
 Of course, that only works if you have a certain scale. But releasing often
 and releasing smaller changes is a good idea.
@@ -191,7 +191,7 @@ and releasing smaller changes is a good idea.
 ## Now … what do others say?
 
 When I read about shift-left and the different phases you have (from
-right-to-left) it sounded very much like a waterfall approach. The authors
+right to left) it sounded very much like a waterfall approach. The authors
 probably didn’t intend that, but that is what I read when I only see “project
 phases” like (1) Requirements (2) Design (3) Code (4) Test (5) Acceptance (6)
 Production (7) Maintenance. Most documents focus on where the error appears,
@@ -200,7 +200,7 @@ management perspective, but I have a developer's perspective.
 
 ## What you have learned
 
-You have seen examples for 7 stages of testing before your awesome new feature hit the end customer:
+You have seen examples of 7 stages of testing before your awesome new feature hits the end customer:
 
 1. Strategies to communicate ideas internally
 2. How the editor can prevent typos and other stupid mistakes

@@ -1,21 +1,21 @@
 ---
 layout: post
-lang: en
 title: The 3 Applications of Hash Functions
-subtitle: What they are, what the options are, and why they matter
 slug: 3-applications-of-hash-functions
-URL: https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d
+lang: en
 author: Martin Thoma
 date: 2021-01-17 20:00
 category: Cyberculture
 tags: hash, Software Development
 featured_image: logos/star.png
+subtitle: What they are, what the options are, and why they matter
+URL: https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d
 ---
 ![Image by Martin Thoma](https://cdn-images-1.medium.com/max/4610/1*61uolxM5HsroqBFaQxsGxQ.png)*Image by Martin Thoma*
 
-Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.
+Hash functions take arbitrarily many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.
 
-After reading this article you will know three different applications of hash functions. All of them are crucial for modern software development. Let’s go!
+After reading this article, you will know three different applications of hash functions. All of them are crucial for modern software development. Let’s go!
 
 ## A trivial hash function
 
@@ -92,13 +92,13 @@ hash functions are:
 * **Avalanche effect**: If you change a single bit in the input, each bit in the
   output changes with 50% probability. This property is desirable because it
   indicates that you don’t get any information about the pre-image.
-* **Collision attack resistance**: It is infeasible to find to messages m1 and m2
-  that have the same hash value: hash(m1) == hash(m2) .
+* **Collision attack resistance**: It is infeasible to find two messages m1 and m2
+  that have the same hash value: `hash(m1) == hash(m2)`.
 * **Chosen-prefix attack resistance**: This is more general than the collision
   attack resistance. Given two prefixes p1 and p2 find two messages m1 and m2 such
   that their concatenation gives the same hash: `hash(p1+m1) == hash(p2+m2)` ([source](https://en.wikipedia.org/wiki/Collision_attack))
 
-If an attacker wants to apply a inverse_hash like given above, you want to
+If an attacker wants to apply an `inverse_hash` like given above, you want to
 make this a super time-intensive operation. Hence you push the execution time
 from maybe 100μs to 100ms by applying the hash function 1000 times.
 
@@ -108,7 +108,7 @@ For more details, read my article about password hashing:
 
 ## Application 2: Integrity Checks
 
-Sometimes you just want to know if two files can be possibly identical. For
+Sometimes you just want to know if two files could possibly be identical. For
 example, you might want to create a program that scans a directory and all
 subdirectories for duplicate files:
 
@@ -143,7 +143,7 @@ for duplicate_set in find_duplicates(Path(".")):
 
 In this application, we use the fact that two different hash values typically
 mean the input was different. Hash collisions are rare. You could then also
-compare the files in the duplicate_set to make sure they are actually
+compare the files in the `duplicate_set` to make sure they are actually
 duplicates.
 
 This method can also be used to ensure file integrity. Think of big files
@@ -201,9 +201,9 @@ If you want to get more context about how the proof of work is used in Blockchai
 
 ## Bonus: Dictionaries / Maps / Associative Arrays
 
-A **hash map** is a data structure that typically maps a string or a number to any object. They are called dictionaries in Python, associative arrays in PHP, HashMap/HashTable in Java, and simply map in C++. The concept is super cool; have a look at [the Wikipedia article](https://en.wikipedia.org/wiki/Hash_table).
+A **hash map** is a data structure that typically maps a string or a number to any object. They are called dictionaries in Python, associative arrays in PHP, HashMap/HashTable in Java, and `std::unordered_map` in C++. The concept is super cool; have a look at [the Wikipedia article](https://en.wikipedia.org/wiki/Hash_table).
 
-If you’re interested how Python does it, then [Praveen Gollakota](undefined) wrote an [awesome StackOverflow answer](https://stackoverflow.com/a/9022835/562769) and [Ian Clelland](undefined) explains [which hash functions are used by default](https://stackoverflow.com/a/8998010/562769).
+If you’re interested in how Python does it, then Praveen Gollakota wrote an [awesome Stack Overflow answer](https://stackoverflow.com/a/9022835/562769) and Ian Clelland explains [which hash functions are used by default](https://stackoverflow.com/a/8998010/562769).
 
 ## How common are collisions?
 
@@ -226,10 +226,10 @@ char_xor             466,422           993.9 ns/value    7 bit
 
 A couple of things are noteworthy here:
 
-* The hashes with 128-bit or more did not have any collision. The char_xor effectively only uses 7 bit and thus can only encode a maximum of 128 different words.
+* The hashes with 128 bits or more did not have any collision. The char_xor effectively only uses 7 bit and thus can only encode a maximum of 128 different words.
 * RIPEMD160 is way slower than the SHA hash functions. It’s very likely that the [Intel SHA extensions](https://en.wikipedia.org/wiki/Intel_SHA_extensions), hence direct hardware support, are the reason why those are so fast. SHA is extremely well-known and widespread. For this reason, I expect the implementation to be very efficient.
 
-In case you’re curious, there are the 23 collisions of CRC32:
+In case you’re curious, here are the 23 collisions of CRC32:
 
 ```text
 ('Audras', 'bermensch')

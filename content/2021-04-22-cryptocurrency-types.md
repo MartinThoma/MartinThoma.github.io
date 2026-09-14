@@ -1,34 +1,35 @@
 ---
 layout: post
-lang: en
 title: The 7 Types of Cryptocurrencies You Must Know
-subtitle: Coins, Utility and Security tokens, Stablecoins and NFTs: Bringing order to an ecosystem
 slug: cryptocurrency-types
-URL: https://levelup.gitconnected.com/the-7-types-of-cryptocurrencies-you-must-know-3b26b2ce0eb8
+lang: en
 author: Martin Thoma
 date: 2021-04-22 20:00
 category: Cyberculture
 tags: Crypto, Cryptocurrency, Blockchain
 featured_image: logos/bitcoin.png
+subtitle: Coins, Utility and Security tokens, Stablecoins and NFTs: Bringing order to an ecosystem
+URL: https://levelup.gitconnected.com/the-7-types-of-cryptocurrencies-you-must-know-3b26b2ce0eb8
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/04/cryptocurrency-types-banner.png"><img src="../images/2021/04/cryptocurrency-types-banner.png" alt="Cryptocurrency Types in Overview" style="width: 512px;"/></a>
     <figcaption class="text-center">Cryptocurrency Types in Overview</figcaption>
 </figure>
+
 ![Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma](https://cdn-images-1.medium.com/max/4890/1*a-ZKbfa176FmhIWOYZGPFQ.png)*Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma*
 
-The crypto ecosystem grew rapidly in the past years — so rapid, that it’s hard
-for outsiders to even understand the various use-cases in that space. After
+The crypto ecosystem grew rapidly in the past years — so rapidly that it’s hard
+for outsiders to even understand the various use cases in that space. After
 reading this article, you should have some mental models to compare the latest
 blockchain projects. Let’s go!
 
 ## Coins vs Tokens: A technical distinction
 
 **Coins** are assets on their native blockchain, whereas **tokens** are assets
-foreign to the blockchain they live on. Examples for coins are Bitcoin on the
-Bitcoin blockchain and Ether on the Ethereum blockchain. Examples for tokens
-are Tether as a second-layer token on multiple blockchains; Uniswaps “UNI”
-token and Chainlinks “LINK” token use the Ethereum blockchain. Building tokens
+foreign to the blockchain they live on. Examples of coins are Bitcoin on the
+Bitcoin blockchain and Ether on the Ethereum blockchain. Examples of tokens
+are Tether as a second-layer token on multiple blockchains; Uniswap’s “UNI”
+token and Chainlink’s “LINK” token use the Ethereum blockchain. Building tokens
 on top of Ethereum is super popular; most are so-called [ERC20
 tokens](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/).
 
@@ -36,7 +37,7 @@ Please note that in some conversations, articles, and videos the two terms are
 used interchangeably.
 
 While the distinction between coins and tokens is technical, we can group
-tokens and coins by their intended usage. While there are a lot of use-cases,
+tokens and coins by their intended usage. While there are a lot of use cases,
 two big distinct groups are *security tokens* and *utility tokens*.
 
 ## Security Tokens
@@ -51,7 +52,7 @@ This is often simplified to:
 3. Was there an expectation of profit?
 4. Are the profits solely from the efforts of the promoter or a third party?
 
-Examples for security tokens can be found by looking for security token
+Examples of security tokens can be found by looking for security token
 offerings (STOs): [icoholder.com](https://icoholder.com/en/stos/past),
 [coincodex.com](https://coincodex.com/sto-list/ethereum/).
 [SolarStake](https://coinmarketcap.com/de/currencies/solarcoin/) and
@@ -70,10 +71,10 @@ it!
 ### Asset-backed tokens
 
 The tokenization of assets makes them tradable. Instead of trading the asset
-itself, you trade the token. It was similar to paper money: Instead of trading
+itself, you trade the token. It is similar to paper money: Instead of trading
 gold, you trade paper which represents a certain amount of gold. The issue
 with asset-backed tokens is the lack of oversight. Of course, the issuer of
-the token can claim to back the asset is backed by anything. Without actual
+the token can claim that the token is backed by anything. Without actual
 checks, this claim isn’t worth anything.
 
 Assets that can be tokenized are:
@@ -93,7 +94,7 @@ Assets that can be tokenized are:
   tokens](https://coinmarketcap.com/view/real-estate/) around real estate and
   several countries which look into representing real estate as a crypto
   token. The [IHT Coin](https://ihtcoin.com/) seems to go in this direction,
-  but it also makes the impression that it’s not ready. The concept is nice,
+  but it also gives the impression that it’s not ready. The concept is nice,
   but there is no ready-to-use product as far as I can tell.
 
 ## Utility Tokens
@@ -140,7 +141,7 @@ Stablecoins are digital representations of fiat currencies. They fall into three
 * **Crypto-collateralized**: The crypto-currency is backed by a crypto-currency. An example is [DAI](https://coinmarketcap.com/de/currencies/multi-collateral-dai/).
 * **Non-collateralized** stablecoins rely on a smart contract to buy/sell the stablecoin in order to keep the price constant.
 
-I recommend the article by [HyperQuant](undefined) about this topic:
+I recommend the article by HyperQuant about this topic:
 
 [**Crypto-collateralized Stablecoins**
 *This is a four-part series that serves as a primer for understanding the fundamentals surrounding stablecoins.*medium.com](https://medium.com/hyperquant/crypto-collateralized-stablecoins-129df769b089)
@@ -152,9 +153,9 @@ Interestingly, several stablecoins are actually not coins, but tokens. Two
 examples of stablecoins are
 [TerraUSD](https://coinmarketcap.com/de/currencies/terrausd/) and [Steem
 Dollars](https://coinmarketcap.com/de/currencies/steem-dollars/). Two examples
-for “stable tokens” are
+of “stable tokens” are
 [Tether](https://coinmarketcap.com/de/currencies/tether/) and [USD
-Coi](https://coinmarketcap.com/de/currencies/usd-coin/)n. Both are ERC20
+Coin](https://coinmarketcap.com/de/currencies/usd-coin/). Both are ERC20
 tokens on the Ethereum blockchain.
 
 ## Summary

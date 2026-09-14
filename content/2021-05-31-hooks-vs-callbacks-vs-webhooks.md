@@ -1,18 +1,18 @@
 ---
 layout: post
-lang: en
 title: Hooks vs Callbacks vs Webhooks
-subtitle: How do I use them and where is the difference?
 slug: hooks-vs-callbacks-vs-webhooks
-url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
+lang: en
 author: Martin Thoma
 date: 2021-05-31 20:00
 category: Cyberculture
 tags: Programming, Software Development, Software Engineering, Software Architecture, Web Development
 featured_image: logos/star.png
+subtitle: How do I use them and where is the difference?
+url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Ima" style="width: 512px;"/></a>
+    <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Webhook banner" style="width: 512px;"/></a>
     <figcaption class="text-center">Photo by <a href="https://unsplash.com/@dancristianp?utm_source=medium&utm_medium=referral">Dan-Cristian Pădureț</a></figcaption>
 </figure>
 
@@ -22,12 +22,12 @@ points and desires. To be able to focus on the core product but allow
 additional functions we cannot take care of, we develop plugin systems. One
 way to do this is by giving hooks.
 
-> # A hook is a way to extend software.
+> A hook is a way to extend software.
 
-Think about an email client. The email client might define a hook pre_send
-that receives the current receiver, subject line, and content of the email.
+Think about an email client. The email client might define a hook `pre_send`
+that receives the current recipient, subject line, and content of the email.
 Developers can use this to extend the software. You could have one plugin that
-uses this hook and adds a signature if it’s missing. Another hook could look
+uses this hook and adds a signature if it’s missing. Another plugin could look
 for swear words and stop you from sending that email drunk at night, which you
 will regret.
 
@@ -54,7 +54,7 @@ every argument:
 parallel_for(get_content, many_urls)
 ```
 
-Please note that we don’t actually call get_content in the second example. We
+Please note that we don’t actually call `get_content` in the second example. We
 pass it as a parameter to a function. When you pass a function as a parameter
 to another function, you call it a *callback*.
 
@@ -70,7 +70,7 @@ email_client.register_pre_send_hook(add_signature)
 email_client.register_pre_send_hook(detect_swearwords)
 ```
 
-The developers of email_client need to provide the method
+The developers of `email_client` need to provide the method
 `register_pre_send_hook`. They need to tell you that this function expects a
 function as a parameter: A callback.
 
@@ -91,7 +91,7 @@ and overwrite the contents in any way.
 
 Webhooks are hooks used in web services. Just like with normal hooks, you can
 extend the functionality of a web service by using hooks. For example, Slack
-allows you to post messages to an URL
+allows you to post messages to a URL
 ([source](https://api.slack.com/messaging/webhooks#create_a_webhook)).
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -107,15 +107,15 @@ Let’s make it more concrete. You are certainly using
 monitoring system like [Sentry](https://sentry.io/welcome/). Now you want a
 Slack message in a certain channel whenever Sentry finds a new issue.
 
-The polling mechanism would be simple — slack would ask Sentry every few
+The polling mechanism would be simple — Slack would ask Sentry every few
 seconds if there is a new message. That would consume way more resources from
 Slack and Sentry than necessary. Instead of Slack pulling messages, we want
 Sentry to push messages to Slack.
 
 Web servers typically don’t know their clients. To be able to push information
 to Slack, this needs to change. The client (Slack) needs to subscribe to the
-server (Sentry). Slack needs to share an URL with Sentry. The code on the
-sentry might look like this:
+server (Sentry). Slack needs to share a URL with Sentry. The code on
+Sentry's side might look like this:
 
 ```python
 def subscribe(callback_url):
@@ -138,7 +138,7 @@ def handle_subscribers(event):
         post(subscriber.callback_url, event.data)
 ```
 
-The post method could also use the return value, but in the case of Slack,
+The `post` method could also use the return value, but in the case of Slack,
 it’s simply ignored as far as I know.
 
 ## Summary

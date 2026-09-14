@@ -1,19 +1,19 @@
 ---
 layout: post
-lang: en
 title: 6 YAML Features most programmers don’t know
-subtitle: Level-up your YAML knowledge to write cleaner YAML files
-URL: https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3
 slug: yaml-features
+lang: en
 author: Martin Thoma
 date: 2021-01-04 20:00
 category: Code
 tags: Software Development
 featured_image: logos/star.png
+subtitle: Level up your YAML knowledge to write cleaner YAML files
+URL: https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3
 ---
 ![](https://cdn-images-1.medium.com/max/3474/1*1zw7ZZTxnY5LiSnn9w6zlw.png)
 
-YAML is a file format commonly used for data serialization. There are a plethora of projects using YAML files for configuration, such as [Docker-compose](https://docs.docker.com/compose/), [pre-commit](https://pre-commit.com/#2-add-a-pre-commit-configuration), [TravisCI](https://docs.travis-ci.com/user/build-config-yaml), [AWS Cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html), [ESLint](https://eslint.org/docs/user-guide/configuring), [Kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods), [Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html), and many more. Knowing the features of YAML helps you with all of them.
+YAML is a file format commonly used for data serialization. There is a plethora of projects using YAML files for configuration, such as [Docker Compose](https://docs.docker.com/compose/), [pre-commit](https://pre-commit.com/#2-add-a-pre-commit-configuration), [Travis CI](https://docs.travis-ci.com/user/build-config-yaml), [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html), [ESLint](https://eslint.org/docs/user-guide/configuring), [Kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods), [Ansible](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html), and many more. Knowing the features of YAML helps you with all of them.
 
 Let’s cover the basics first: YAML is a superset of JSON ([source](https://yaml.org/spec/1.2/spec.html#id2759572)). Every valid JSON file is also a valid YAML file. This means you have all of the types you expect: Integers, floats, strings, bool, null. Also sequences and maps. Depending on your programming language, you might say “array” or “list” instead of sequence and “dictionary” instead of map.
 
@@ -40,7 +40,7 @@ YAML has a lot of equivalent ways to write stuff:
 list_by_dash:
   - foo
   - bar
-list_by_square_bracets: [foo, bar]
+list_by_square_brackets: [foo, bar]
 map_by_indentation:
   foo: bar
   bar: baz
@@ -60,12 +60,12 @@ Some words of caution here:
 language: no  # ISO 639-1 code for the Norwegian language
 ```
 
-This no is interpreted as false . You need to write "no" or 'no' .
+This `no` is interpreted as `false`. You need to write `"no"` or `'no'`.
 
-In general, I recommend using true and false just like JSON does for booleans,
+In general, I recommend using `true` and `false` just like JSON does for booleans,
 but [YAML supports 11 ways to write booleans](https://yaml.org/type/bool.html).
-If you want to use quotes for strings, I would also use " like JSON does. You
-still need to remember "no" , but at least the file looks a bit more familiar
+If you want to use quotes for strings, I would also use `"` like JSON does. You
+still need to remember `"no"`, but at least the file looks a bit more familiar
 to YAML beginners.
 
 ## Long Strings
@@ -98,7 +98,7 @@ This is equivalent to the JSON:
 ```
 
 Note how the leading whitespace is ignored. The first line (“Martin Thoma”)
-determines the number of ignored leading whitespace.
+determines the number of ignored leading whitespace characters.
 
 ## Anchor
 
@@ -113,19 +113,19 @@ This is equivalent to the following JSON:
 {"email": "info@example.de", "id": "info@example.de"}
 ```
 
-The `&` defined a variable emailAddress with the value `"info@example.de`.
-The `*` then indicated that the name of a variable follows.
+The `&` defines a variable `emailAddress` with the value `"info@example.de"`.
+The `*` then indicates that the name of a variable follows.
 
 You can do the same with mappings:
 
 ```yaml
-foo: &**default_settings**
+foo: &default_settings
   db:
     host: localhost
     name: main_db
     port: 1337
   email:
-    admin: [admin@example.com](mailto:admin@example.com)
+    admin: admin@example.com
 prod: *default_settings
 dev: *default_settings
 ```
@@ -137,18 +137,18 @@ which gives:
                   "localhost",
                   "name": "main_db",
                   "port": 1337},
-           "email": {"admin": "[admin@example.com](mailto:admin@example.com)"}},
+           "email": {"admin": "admin@example.com"}},
   "foo": { "db": {"host": "localhost",
                   "name": "main_db",
                   "port": 1337},
-           "email": {"admin": "[admin@example.com](mailto:admin@example.com)"}},
+           "email": {"admin": "admin@example.com"}},
   "prod": { "db": {"host": "localhost",
                    "name": "main_db",
                    "port": 1337},
-            "email": {"admin": "[admin@example.com](mailto:admin@example.com)"}}}
+            "email": {"admin": "admin@example.com"}}}
 ```
 
-Now you might want to insert a password to the dev and prod settings. You can
+Now you might want to add settings only to prod. You can
 do that by using the [merge key](https://yaml.org/type/merge.html) `<<`:
 
 ```yaml
@@ -158,11 +158,11 @@ foo: &default_settings
     name: main_db
     port: 1337
   email:
-    admin: [admin@example.com](mailto:admin@example.com)
+    admin: admin@example.com
 prod:
   <<: *default_settings
-**  app:
-    port: 80**
+  app:
+    port: 80
 dev: *default_settings
 ```
 
@@ -172,22 +172,22 @@ which is equivalent to this JSON:
 { "foo": { "db": {"host": "localhost",
                   "name": "main_db",
                   "port": 1337},
-           "email": {"admin": "[admin@example.com](mailto:admin@example.com)"}},
+           "email": {"admin": "admin@example.com"}},
   "prod": { "app": {"port": 80},
             "db": {"host": "localhost",
                    "name": "main_db",
                    "port": 1337},
-            "email": {"admin": "[admin@example.com](mailto:admin@example.com)"}},
+            "email": {"admin": "admin@example.com"}},
   "dev": { "db": {"host": "localhost",
                   "name": "main_db",
                   "port": 1337},
-           "email": {"admin": "[admin@example.com](mailto:admin@example.com)"}},}
+           "email": {"admin": "admin@example.com"}}}
 ```
 
 ## Type Casting
 
 The double bang `!!` has a special meaning in YAML. It is called “secondary tag
-handle” and a shorthand for `!tag:yaml.org,2002:`
+handle” and is a shorthand for `!tag:yaml.org,2002:`
 ([source](https://yaml.org/spec/1.2/spec.html#id2782457)).
 
 You can do simple conversions like that:
@@ -200,11 +200,11 @@ id: !!str 42
 Or more complex ones, e.g. map to default Python types that are not specified in YAML directly:
 
 ```yaml
-tuple_example: **!!python/tuple**
+tuple_example: !!python/tuple
   - 1337
   - 42
-set_example: **!!set** {1337, 42}
-date_example: **!!timestamp** 2020-12-31
+set_example: !!set {1337, 42}
+date_example: !!timestamp 2020-12-31
 ```
 
 You can read it like this:
@@ -218,8 +218,8 @@ with open("example.yaml") as fp:
 
 pp = pprint.PrettyPrinter(indent=4)
 
-pased = yaml.unsafe_load(data)
-pp.pprint(pased)
+parsed = yaml.unsafe_load(data)
+pp.pprint(parsed)
 ```
 
 And you will get this:
@@ -232,7 +232,7 @@ And you will get this:
 }
 ```
 
-This example uses the Python-specific tag !!python/tuple and some standard YAML tags. [PyYaml has a nice overview](https://pyyaml.org/wiki/PyYAMLDocumentation#yaml-tags-and-python-types):
+This example uses the Python-specific tag `!!python/tuple` and some standard YAML tags. [PyYaml has a nice overview](https://pyyaml.org/wiki/PyYAMLDocumentation#yaml-tags-and-python-types):
 
 ```text
 ## Standard YAML tags
@@ -274,7 +274,7 @@ YAML               Python 3
 
 Please note that loading non-standard tags is unsafe! It is possible to execute
 arbitrary code with `!!python/object/apply:module.f`. In PyYaml, you need
-`yaml.unsafe_load` to use it. Hence you should probably not use it!
+`yaml.unsafe_load` to use it. Hence, you should probably not use it!
 
 ## Multiple Documents in one YAML
 
@@ -297,13 +297,13 @@ with open("example.yaml") as fp:
 parsed = yaml.safe_load_all(data)  # parsed is a generator
 ```
 
-If you converted parsed to a list and print it, you get:
+If you convert `parsed` to a list and print it, you get:
 
 ```python
 [{"foo": "bar"}, {"fizz": "buzz"}]
 ```
 
-Please note that this is NOT an alternative notation to write lists. It’s
+Please note that this is NOT an alternative notation to write lists. They are
 different documents.
 
 The static site generator
@@ -314,5 +314,5 @@ application using this feature.
 ## What’s next?
 
 There are plenty of configuration file formats such as TOML, INI, JSON, XML,
-dotenv, and data serialization formats such as Pythons pickle, HDF5, Numpys
-NPZ, XML. Let me know if you’re interested in learning more about one of them!
+dotenv, and data serialization formats such as Python's pickle, HDF5, and NumPy's
+NPZ. Let me know if you’re interested in learning more about one of them!

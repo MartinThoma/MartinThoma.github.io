@@ -1,19 +1,19 @@
 ---
 layout: post
-lang: en
 title: Is it worth changing the Lightbulb?
-subtitle: Switching for a more efficient lightbulb for economic reasons
 slug: is-it-worth-changing-the-lightbulb
-url: https://medium.com/plain-and-simple/is-it-worth-changing-the-lightbulb-74cb0dea242e
+lang: en
 author: Martin Thoma
 date: 2021-09-18 20:00
 category: Cyberculture
 tags: Rating
 featured_image: logos/lightbulb-on.png
+subtitle: Switching for a more efficient lightbulb for economic reasons
+url: https://medium.com/plain-and-simple/is-it-worth-changing-the-lightbulb-74cb0dea242e
 ---
 ![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](https://cdn-images-1.medium.com/max/2112/1*YJLn3Pu-nEKaURU-MaxMjw.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
 
-Electricity is pretty expensive in Germany. We pay around 0.30 EUR/kWh. A normal two person household uses around 2500 kWh/year which makes 750 EUR per year for electricity. This means it’s worth to think about reducing the cost.
+Electricity is pretty expensive in Germany. We pay around 0.30 EUR/kWh. A normal two-person household uses around 2500 kWh/year which makes 750 EUR per year for electricity. This means it’s worth thinking about reducing the cost.
 
 After reading this article you will know how to get the perfect light bulbs for your home — and you’ll be able to calculate if it’s economically reasonable to replace perfectly working light bulbs with more efficient ones.
 
@@ -23,7 +23,7 @@ When you want to replace a light bulb, you need to make sure that the new light 
 
 * E27: [Edison Screw](https://en.wikipedia.org/wiki/Edison_screw) with 27mm diameter. This is the most common one for ceiling lamps.
 * E14: Edison Screw with 14mm diameter. Light bulbs with this socket typically have a candle-shape.
-* [GU10](https://en.wikipedia.org/wiki/Bi-pin_lamp_base#Types) and G5.3: Typically used for spot lights in the kitchen
+* [GU10](https://en.wikipedia.org/wiki/Bi-pin_lamp_base#Types) and GU5.3: Typically used for spotlights in the kitchen
 
 There are a lot of other sockets, but those three should cover most typical lamps.
 
@@ -39,9 +39,9 @@ The next dimension to consider is the **color temperature**. It’s measured in 
 * 4200K — 4500K: Daylight white — good for office
 * 5500K — 7000K: Cool white
 
-![Color temperature. Image Source: [Wikipedia Commons](https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg), created by [Bhutajata](https://commons.wikimedia.org/wiki/User:Bhutajata)](https://cdn-images-1.medium.com/max/2000/0*OgLVPXbeQkpftKfp.png)*Color temperature. Image Source: [Wikipedia Commons](https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg), created by [Bhutajata](https://commons.wikimedia.org/wiki/User:Bhutajata)*
+![Color temperature. Image Source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg), created by [Bhutajata](https://commons.wikimedia.org/wiki/User:Bhutajata)](https://cdn-images-1.medium.com/max/2000/0*OgLVPXbeQkpftKfp.png)*Color temperature. Image Source: [Wikimedia Commons](https://en.wikipedia.org/wiki/File:Color_temperature_black_body_800-12200K.svg), created by [Bhutajata](https://commons.wikimedia.org/wiki/User:Bhutajata)*
 
-Finally, you might want to consider the light bulbs **shape**:
+Finally, you might want to consider the light bulb's **shape**:
 
 * A: Arbitrary
 * B: Blunt Tip (Candle)
@@ -58,7 +58,7 @@ Now that you know which type of lamp you want, you can calculate energy savings.
 
 ![](https://cdn-images-1.medium.com/max/2622/1*s2vn_mx-uOyDfGxMQTcONw.png)
 
-Lets run through a simple example:
+Let’s run through a simple example:
 
 * Reduced Energy: 10W
 
@@ -81,13 +81,13 @@ I bought LED light bulbs recently:
 * 2W with 150 lumen: 1.82 EUR / piece
 * 13W with 1521 lumen: 3.66 EUR/piece
 
-So lets’ see how long it takes until the lamps paid for themselves:
+So let’s see how long it takes until the lamps paid for themselves:
 
 ![](https://cdn-images-1.medium.com/max/2000/1*0VCabyK_YIeGSsztNNtQiw.png)
 
-* 2W: Every hour I run the light bulb, I spend 23W less. Now how long does it take until that is more than 1.82 EUR? Simple: (1.82 EUR / (0.30 EUR / kWH))/23W = (1.82 EUR / 0.0003 EUR/Wh)/23W = 60.7 Wh / 23W = 264h. I probably run those lights about 1 hour per day, meaning it takes me **270 days until it was worth it**.
+* 2W: Every hour I run the light bulb, I spend 23W less. Now how long does it take until that is more than 1.82 EUR? Simple: (1.82 EUR / (0.30 EUR / kWh))/23W = (1.82 EUR / 0.0003 EUR/Wh)/23W = 6067 Wh / 23W = 264h. I probably run those lights about 1 hour per day, meaning it takes me **270 days until it was worth it**.
 * 13W: Going with the formula from above. (Unit price / Energy price) / Energy savings per hour = (3.66 EUR / 0.0003 EUR/Wh) / 87W = 140h.
-  As I run that one probably 8 hours per day its worth it **after 18 days**. Crazy.
+  As I run that one probably 8 hours per day, it’s worth it **after 18 days**. Crazy.
 
 ![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](https://cdn-images-1.medium.com/max/2112/1*YJLn3Pu-nEKaURU-MaxMjw.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
 
@@ -218,7 +218,7 @@ Savings of almost 180 EUR (a bit more than 200 USD) per year. Nice 😀
 
 ## TL;DR: Most of the time — Yes!
 
-Replace every non-LED lightbulb by an LED, with the exception of energy saving light bulbs. Most of the time, buying a more efficient LED which ues maybe 1W less is **not** worth it. In Germany, I would spend that much per LED:
+Replace every non-LED lightbulb with an LED, with the exception of energy-saving light bulbs. Most of the time, buying a more efficient LED which uses maybe 1W less is **not** worth it. In Germany, I would spend that much per LED:
 
 * Up to 150 Lumen: Not more than 2 EUR
 * Up to 500 Lumen: Not more than 3 EUR

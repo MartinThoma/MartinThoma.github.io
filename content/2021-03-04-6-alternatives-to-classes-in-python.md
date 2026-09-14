@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: 6 Alternatives to Classes in Python
-subtitle: Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine
 slug: 6-alternatives-to-classes
-URL: https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377
+lang: en
 author: Martin Thoma
 date: 2021-03-04 20:00
 category: Cyberculture
 tags: Python
 featured_image: logos/python.png
+subtitle: Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine
+URL: https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377
 ---
 ![Photo by the author.](https://cdn-images-1.medium.com/max/3180/1*ESvqnwbq8Lj4VNkVMWI9JA.png)*Photo by the author.*
 
@@ -71,7 +71,7 @@ def get_distance(p1: Position, p2: Position) -> float:
     pass
 ```
 
-You can see how we needed to write a boilerplate constructor __init__ . The code for the constructor does not necessarily always look that simple, but in a lot of cases, it is.
+You can see how we needed to write a boilerplate constructor `__init__`. The code for the constructor does not necessarily always look that simple, but in a lot of cases, it is.
 
 You can see that it’s possible to use positional arguments or keyword arguments. If you define a default value in the constructor, you can also leave the values out when you create an object from the class. This happened for pos2, where the address was not given to the constructor.
 
@@ -102,7 +102,7 @@ The editor's support depends on how thoroughly you annotate. In the example abov
 
 ## 2. Dictionaries
 
-Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by index is *fast*. Dicts are always mutable, but there is the third-party package [frozendict](https://pypi.org/project/frozendict/) to solve this.
+Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by key is *fast*. Dicts are always mutable, but there is the third-party package [frozendict](https://pypi.org/project/frozendict/) to solve this.
 
 ```python
 from typing import Any, Dict
@@ -123,7 +123,7 @@ For those reasons, the editor's support is even worse than for tuples.
 
 ## 3. Named Tuples
 
-[Named tuples](https://docs.python.org/3/library/collections.html#collections.namedtuple) were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function collections.namedtuple to generate the named tuple class, but I prefer to inherit from typing.NamedTuple and use inheritance combined with type annotations:
+[Named tuples](https://docs.python.org/3/library/collections.html#collections.namedtuple) were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function `collections.namedtuple` to generate the named tuple class, but I prefer to inherit from `typing.NamedTuple` and use inheritance combined with type annotations:
 
 ```python
 # Old style, before Python 3.7
@@ -133,13 +133,13 @@ attribute_names = ["longitude", "latitude", "address"]
 Position = namedtuple("Position", attribute_names, defaults=(None,))
 
 # Python 3.7 and later:
-from typing import NamedTuple
+from typing import NamedTuple, Optional
 
 
 class Position(NamedTuple):
-    longitude: int
-    latitude: int
-    address: int
+    longitude: float
+    latitude: float
+    address: Optional[str] = None
 
 
 # Both are used in the same way
@@ -171,7 +171,7 @@ True
 
 ## 4. attrs
 
-[attrs](https://pypi.org/project/attrs/) is a third-party library that reduces boilerplate code. Developers can use it by adding the @attrs.s decorator above the class. Attributes are assigned the attr.ib() function:
+[attrs](https://pypi.org/project/attrs/) is a third-party library that reduces boilerplate code. Developers can use it by adding the `@attr.s` decorator above the class. Attributes are assigned with the `attr.ib()` function:
 
 ```python
 from typing import Optional
@@ -213,6 +213,7 @@ You also can automatically run code on the input to the constructor. This is cal
 ...     x = attr.ib(converter=int)
 >>> o = C("1")
 >>> o.x
+1
 ```
 
 [Visual Studio Code](https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4) does not like the type annotations.
@@ -221,9 +222,9 @@ You also can automatically run code on the input to the constructor. This is cal
 
 Dataclasses were added in Python 3.7 with [PEP 557](https://www.python.org/dev/peps/pep-0557/). They are similar to attrs, but in the standard library. It’s especially important to note that dataclasses are “just” normal classes that happen to have lots of data in them.
 
-In contrast to attrs, data classes use type annotations instead of the attr.ib() notation. I think this increases readability a lot. Also, the editor support is better because you now have to annotate the attributes.
+In contrast to attrs, data classes use type annotations instead of the `attr.ib()` notation. I think this increases readability a lot. Also, the editor support is better because you now have to annotate the attributes.
 
-You can easily make it immutable by changing the decorator to @dataclass(frozen=True) — just like with attrs.
+You can easily make it immutable by changing the decorator to `@dataclass(frozen=True)` — just like with attrs.
 
 ```python
 from typing import Optional
@@ -245,7 +246,7 @@ def get_distance(p1: Position, p2: Position) -> float:
     pass
 ```
 
-One part that I’m lacking here is attribute validation. I can use __post_init__(self) to do it for the construction:
+One part that I’m lacking here is attribute validation. I can use `__post_init__(self)` to do it for the construction:
 
 ```python
 def __post_init__(self):
@@ -338,7 +339,7 @@ I don’t tend to consciously think about mutability a lot, but in many cases, I
 
 Having the option to mark classes as frozen to make their objects immutable is pretty nice.
 
-Implementing __hash__ for a mutable object is problematic because the hash might change when the object is changed. This means if the object is in a dictionary, the dictionary would need to know that the hash of the object has changed and store it in a different location. For this reason, both dataclasses and Pydantic prevent the hashing of mutable classes by default. They have unsafe_hash, though.
+Implementing `__hash__` for a mutable object is problematic because the hash might change when the object is changed. This means if the object is in a dictionary, the dictionary would need to know that the hash of the object has changed and store it in a different location. For this reason, both dataclasses and Pydantic prevent the hashing of mutable classes by default. They have `unsafe_hash`, though.
 
 ## Default String Representation
 
@@ -375,7 +376,7 @@ For the following, I will attempt to create Position(1234, 567). So both the lon
 
 ```text
 # Plain Class
-ValueError: Longitude was 11111, but has to be in [-180, 180]
+ValueError: longitude was 1234, but has to be in [-180, 180]
 
 # 4: attr
 ValueError: Longitude was 1234, but must be in [-180, +180]
@@ -428,14 +429,14 @@ print(json_str)
 This gives you:
 
 ```json
-{"id": 1, "squash": true, "web_url": "[http://foo](http://foo)", "title": "title", "author": {"id": 42, "username": "Joe"}}
+{"id": 1, "squash": true, "web_url": "http://foo", "title": "title", "author": {"id": 42, "username": "Joe"}}
 ```
 
 For dataclasses, [dataclasses.asdict](https://docs.python.org/3/library/dataclasses.html#dataclasses.asdict) goes a long way. Then you might be able to directly serialize the dictionary to JSON. It becomes interesting with DateTime or [decimal](https://docs.python.org/3/library/decimal.html) objects. [Something similar](https://www.attrs.org/en/stable/examples.html#converting-to-collections-types) is possible with attrs.
 
-## Unserialize From JSON
+## Deserialize From JSON
 
-Userializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:
+Deserializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:
 
 ```python
 mr = GitlabMr.parse_raw(json_str)
@@ -445,7 +446,7 @@ There are very dirty hacks to do [something similar with dataclasses](https://st
 
 ## Memory
 
-Using this [getsize](https://stackoverflow.com/a/30316760/562769) implementation on pos1 , I get:
+Using this [getsize](https://stackoverflow.com/a/30316760/562769) implementation on `pos1`, I get:
 
 ```text
 Raw float    :   8 B ("double")
@@ -467,7 +468,7 @@ Native class : 286 B
 ```
 
 The Pydantic base model has quite an overhead, but you always have to keep things in perspective. How many of those objects will you create? Let’s assume you have maybe 100 of those. Each of them might consume 500B more than a more efficient alternative. That would be 50kB. To quote [Donald Knuth](https://www.azquotes.com/quote/721020):
-> # “Premature optimization is the root of all evil.”
+> “Premature optimization is the root of all evil.”
 
 If memory becomes problematic, then you will not switch from Pydantic to dataclasses or attrs. You will switch to something more structured like NumPy arrays or pandas DataFrames.
 
@@ -494,7 +495,7 @@ Use what you need:
 
 Please note that I didn’t mention tuple and attrs. I simply cannot find a valid use case where you would prefer them for new code over the other choices. Please let me know if I missed one.
 
-I also didn’t mention plain classes. I think I would only use plain classes if I want to overwrite __init__, __eq__ , __str__, __repr__ , and__hash__ anyway. Or if I have to support old Python versions.
+I also didn’t mention plain classes. I think I would only use plain classes if I want to overwrite `__init__`, `__eq__`, `__str__`, `__repr__`, and `__hash__` anyway. Or if I have to support old Python versions.
 
 ## Resource
 

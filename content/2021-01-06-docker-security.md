@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Docker Security 😇
-subtitle: A hands-on guide to security for Docker
 slug: docker-security
-url: https://levelup.gitconnected.com/docker-security-5f4df118948c
+lang: en
 author: Martin Thoma
 date: 2021-02-06 20:00
 category: Security
 tags: Docker, AppSec
 featured_image: logos/docker.png
+subtitle: A hands-on guide to security for Docker
+url: https://levelup.gitconnected.com/docker-security-5f4df118948c
 ---
 ![Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9600/0*r4ZMVDm0J0WtgNKQ)*Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
@@ -21,16 +21,16 @@ All Docker containers run on a host system. The host needs to be secure AND the 
 
 There are various vulnerability scanning, auditing, and hardening tools for Linux systems:
 
-* [Lynis](https://cisofy.com/lynis/): Executesudo apt-get install lynis && sudo lynis audit system and wait for a couple of minutes and you get a pretty nice report indicating what you can do to harden your system.
-* [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux): Provides Mandatory Access Control (MAC) as a kernel-module. Thomas Cameron gave an [introduction to SELinux](https://www.youtube.com/watch?v=_WOKRaM-HI4). The key point for SELinux and AppArmor is the Access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. [Learn more about the differences](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff). [Luc Juggery](undefined) gave a nice introduction to [SELinux & Docker](https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621).
-* [AppArmor](https://en.wikipedia.org/wiki/AppArmor): Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. [Seth Arnold](http://sarnold.org/resume/sarnold.html) gave a nice talk about [AppArmor 3.0](https://www.youtube.com/watch?v=PRZ59lxLlOY). Again, [Luc Juggery](undefined) wrote a hands-on guide for [AppArmor & Docker](https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b).
+* [Lynis](https://cisofy.com/lynis/): Execute `sudo apt-get install lynis && sudo lynis audit system`, wait for a couple of minutes, and you get a pretty nice report indicating what you can do to harden your system.
+* [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux): Provides Mandatory Access Control (MAC) as a kernel module. Thomas Cameron gave an [introduction to SELinux](https://www.youtube.com/watch?v=_WOKRaM-HI4). The key point for SELinux and AppArmor is the access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. [Learn more about the differences](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff). Luc Juggery gave a nice introduction to [SELinux & Docker](https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621).
+* [AppArmor](https://en.wikipedia.org/wiki/AppArmor): Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. [Seth Arnold](http://sarnold.org/resume/sarnold.html) gave a nice talk about [AppArmor 3.0](https://www.youtube.com/watch?v=PRZ59lxLlOY). Again, Luc Juggery wrote a hands-on guide for [AppArmor & Docker](https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b).
 * Docker Daemon: Run the daemon as a non-privileged user. Especially not as root.
 
 You should run regular checks against vulnerability databases. If they find an
 issue, you need an effective way to get notified, e.g. by posting to a Slack
 channel.
 
-You could also use an OS that is optimized for containers, e.g. [Googles
+You could also use an OS that is optimized for containers, e.g. [Google's
 Container-Optimized OS](https://cloud.google.com/container-optimized-os)
 (COS).
 
@@ -39,28 +39,28 @@ focus of this article. If you’re interested, I’ll write a follow-up 🙂
 
 ## Base Image
 
-The base image is the foundation of your docker image. Within your Dockerfile,
-you define the base image with FROM . For me, it typically is
+The base image is the foundation of your Docker image. Within your Dockerfile,
+you define the base image with `FROM`. For me, it typically is
 [python:3.8.7-slim-buster](https://hub.docker.com/_/python) or similar. You
 need to ask yourself:
 
-* Do I trust the base images’ author to have good intentions?
-* Do I trust the base images’ author to have a secure development setup so that malware isn’t uploaded unintentionally, e.g. by leaking the credentials to the account or password re-use?
+* Do I trust the base image’s author to have good intentions?
+* Do I trust the base image’s author to have a secure development setup so that malware isn’t uploaded unintentionally, e.g. by leaking the credentials to the account or password re-use?
 
 You should also scan your base image for vulnerabilities. Even for very
 standard images, there are often vulnerabilities. Some can be fixed by
-directly running an update (e.g. RUN apt-get update && apt-get upgrade),
+directly running an update (e.g. `RUN apt-get update && apt-get upgrade`),
 others don’t have an update within the repository. But pretty often you also
 don’t need all the installed stuff.
 
-Be aware that alpine does only share vulnerabilities that they have already
+Be aware that Alpine only shares vulnerabilities that they have already
 fixed. So the scan might look better for them, although they are not better.
 Alpine images are smaller, though. So the attack surface is smaller.
 
 ## Harden Your Image
 
 Hardening is the process of reducing the attack surface or increasing the
-difficulty to find and use existing vulnerability. It reduces the blast radius
+difficulty to find and use existing vulnerabilities. It reduces the blast radius
 any ticking bomb in your system could have.
 
 ### Copy only necessary files
@@ -69,9 +69,9 @@ You can use the
 [.dockerignore](https://docs.docker.com/engine/reference/builder/#dockerignore-file)
 file to make sure that some files are not added.
 
-### Run non-privileged user in the container
+### Run as a non-privileged user in the container
 
-By default, the code you execute within a docker container runs with the user
+By default, the code you execute within a Docker container runs with the user
 ID 0 — with root. It is recommended not to do that. You can change that in
 multiple ways:
 
@@ -90,7 +90,7 @@ I have no name!@a70ba4f24042:/$ echo $UID
 1000
 ```
 
-In Kubernetes via RunAsUser in the securityContext
+In Kubernetes via `runAsUser` in the `securityContext`
 ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)).
 
 ### Multi-Stage Builds
@@ -109,7 +109,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
-COPY **--from=0** /go/src/github.com/alexellis/href-counter/app .
+COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
 CMD ["./app"]
 ```
 
@@ -117,7 +117,7 @@ CMD ["./app"]
 
 ### Read-Only Root File System
 
-This depends on how you run the docker image, but if you use docker run you can add the [--read-only flag](https://docs.docker.com/engine/reference/commandline/run/). This makes the root file system read-only. This means if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.
+This depends on how you run the Docker image, but if you use `docker run`, you can add the [--read-only flag](https://docs.docker.com/engine/reference/commandline/run/). This makes the root file system read-only. This means that if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.
 
 You should also be aware that some pretty standard tasks like creating a temporary file obviously don’t work anymore:
 
@@ -156,10 +156,10 @@ $ sudo docker run --rm -i -v=myvol2:/tmp/v busybox find /tmp/v
 /tmp/v/tmpbhw8djco
 ```
 
-Even better is using the host's temporary file system:
+Even better is using a tmpfs mount (an in-memory file system):
 
 ```bash
-$ sudo docker run -it **--tmpfs /tmp** --read-only python:3.9.1-buster
+$ sudo docker run -it --tmpfs /tmp --read-only python:3.9.1-buster
 ```
 
 ### Limit Capabilities
@@ -167,9 +167,9 @@ $ sudo docker run -it **--tmpfs /tmp** --read-only python:3.9.1-buster
 You can limit the [Linux kernel capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html):
 
 ```bash
-$ docker run **--cap-drop all** -it python:3.9.1-buster bash
+$ docker run --cap-drop all -it python:3.9.1-buster bash
 root@3c568219116e:/# groupadd -r noroot
-**groupadd: failure while writing changes to /etc/gshadow**
+groupadd: failure while writing changes to /etc/gshadow
 ```
 
 You can then grant the ones your application needs:
@@ -180,24 +180,24 @@ root@3c568219116e:/# groupadd -r noroot
 groupadd: failure while writing changes to /etc/gshadow
 ```
 
-In Kubernetes, this is done via capabilities in the securityContext
+In Kubernetes, this is done via `capabilities` in the `securityContext`
 ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)).
 
 ### no-new-privileges
 
-You might want to always set --security-opt=no-new-privileges . It disables
+You might want to always set `--security-opt=no-new-privileges`. It prevents
 container processes from gaining new privileges
 ([docs](https://docs.docker.com/engine/reference/run/#security-configuration)).
-In Kubernetes, this is called allowPrivilegeEscalation
+In Kubernetes, this is called `allowPrivilegeEscalation`
 ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)).
 
 ### Scanning for vulnerabilities
 
 [Clair](https://github.com/quay/clair) by quay seems to be a commonly used
-[tool to scan containers for vulnerabilities. I haven’t used it so far,
-[though.
+tool to scan containers for vulnerabilities. I haven’t used it so far,
+though.
 
-## Inter Container Communication
+## Inter-Container Communication
 
 A key thought of “defense in depth” is to make every single step as hard as
 possible for an attacker. If something is not strictly necessary for the
@@ -224,9 +224,9 @@ policies](https://kubernetes.io/docs/concepts/services-networking/network-polici
 Container Security is an extremely broad field. The [NIST Application
 Container Security
 Guide](https://www.nist.gov/publications/application-container-security-guide)
-is way more extensive than this article, the [OWASP Docker Cheat
+is way more extensive than this article; the [OWASP Docker Cheat
 Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)
-is of similar length. Tsvi Korren made a pretty good presentation container
+is of similar length. Tsvi Korren gave a pretty good presentation about container
 security:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/_5uZnM1yv0Y" frameborder="0" allowfullscreen></iframe></center>
@@ -236,13 +236,13 @@ In security, it is hard to recommend what to do. For maximum security, you want 
 * Make sure you use a well-known, trusted, maintained base image.
 * Install only software you need, copy only files you use. Try multi-stage builds if you need software to build the software.
 * Use a non-root user.
-* Restrict privileges / inter container communication.
+* Restrict privileges / inter-container communication.
 * Use a read-only file system.
 * Get a workflow that automatically scans for vulnerabilities and alerts you if anything new was found.
 
 ## What’s next?
 
-In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
+In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
 * Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
 * Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇

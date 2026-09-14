@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Encryption vs Encoding vs Hashing
-subtitle: They might appear in the same context, but they are vastly different
 slug: encryption-vs-encoding-vs-hashing
-url: https://medium.com/plain-and-simple/encryption-vs-encoding-vs-hashing-bb1e166cf15a
+lang: en
 author: Martin Thoma
 date: 2021-02-02 20:00
 category: Code
 tags: hash, encryption, security, encoding
 featured_image: logos/star.png
+subtitle: They might appear in the same context, but they are vastly different
+url: https://medium.com/plain-and-simple/encryption-vs-encoding-vs-hashing-bb1e166cf15a
 ---
 **Encryption is about keeping a secret** and being able to restore it. **Hashing is about fingerprinting** — you don’t need to restore the original, but you need to make sure it is identical. **Encoding is about data representation to enable information exchange**. Encoding does not involve keeping secrets.
 
@@ -29,7 +29,7 @@ As you can see, the “translation” is trivial: We build 6-bit blocks of the b
 
 Please note that this does not keep the content secret. Base64 does not use a secret key. Hence it is not encryption.
 
-Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF8, ASCII, Latin1.
+Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF-8, ASCII, and Latin-1.
 
 ## Encryption
 
@@ -62,7 +62,7 @@ Translates to: abcdefghijklmnopqrstuvwxyz
 
 Note that “space” translates to “d” and “z” translates to “space”.
 
-Putting it all together, the message secret translates to tchkca .
+Putting it all together, the message `secret` translates to `tchkca`.
 
 In Python, it looks like this:
 

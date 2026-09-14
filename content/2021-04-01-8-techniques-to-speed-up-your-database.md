@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: 8 Techniques To Speed up Your Database
-subtitle: “If everything seems under control, you’re not going fast enough”
 slug: 8-techniques-to-speed-up-your-db
-URL: https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739
+lang: en
 author: Martin Thoma
 date: 2021-04-01 20:00
 category: Code
 tags: Database
 featured_image: logos/db.png
+subtitle: “If everything seems under control, you’re not going fast enough”
+URL: https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739
 ---
 ![Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!](https://cdn-images-1.medium.com/max/10000/1*28TMGhQwjgRqkBU7mXcZcw.jpeg)*Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!*
 
@@ -66,9 +66,9 @@ A slightly different sub-category of the query optimization topic is [the n+1 pr
 ## 3. Business Changes and Partitioning
 
 When you’re growing a business, you want to please your clients. If they ask for a small new feature, you try to include it. This can lead to feature-creep. The UNIX philosophy indicates that this was a problem already quite a while ago:
-> # “Write programs that do one thing and do it well.” — Doug McIlroy
+> “Write programs that do one thing and do it well.” — Doug McIlroy
 
-Similarly, it might be OK to split your web services data by user groups. Maybe it makes sense to split them into regions? I’ve seen that at [AWS](https://aws.amazon.com/) and [Secure Code Warrior](https://www.securecodewarrior.com/). Maybe you can split it into “Private clients,” “Small business clients,” or “Large Business clients”? Maybe one part of the application can actually be its own service with its own database?
+Similarly, it might be OK to split your web service's data by user groups. Maybe it makes sense to split them into regions? I’ve seen that at [AWS](https://aws.amazon.com/) and [Secure Code Warrior](https://www.securecodewarrior.com/). Maybe you can split it into “Private clients,” “Small business clients,” or “Large Business clients”? Maybe one part of the application can actually be its own service with its own database?
 
 ## 4. Replication
 
@@ -104,7 +104,7 @@ PARTITION BY RANGE(id)
 You want the user of the database system to still be able to query the database with the typical queries, perhaps using the following:
 
 ```sql
-SELECT * FROM shopping_carts WHERE cart_id = 3
+SELECT * FROM shopping_carts WHERE id = 3
 ```
 
 One important thing to note here: Horizontal partitioning is completely unrelated to [scaling horizontally](https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925)!
@@ -121,7 +121,7 @@ One commonly done practice is to split metadata from the content. Here’s an im
 
 One important thing to note here: Vertical partitioning is completely unrelated to scaling vertically!
 
-Vertical partitioning can be useful when you avoid privacy or regulatory issues with it. Think of credit card information. That could logically fit well with other information, but most of the application does not need it. You might even put it in a completely different database and hide it behind a private microservice.
+Vertical partitioning can be useful when it helps you avoid privacy or regulatory issues. Think of credit card information. That could logically fit well with other information, but most of the application does not need it. You might even put it in a completely different database and hide it behind a private microservice.
 
 ## 7. Sharding — Taking Partitioning To the Next Level
 
@@ -137,7 +137,7 @@ A second big problem is JOINs across shards.
 
 The third problem is how shards are defined. To be truly scalable, you want to make a dynamic definition of the shards. Having a hierarchical structure can help to achieve this.
 
-If you still want to read more about sharding, I recommend the awesome article by [Jeeyoung Kim](undefined):
+If you still want to read more about sharding, I recommend the awesome article by Jeeyoung Kim:
 [**How Sharding Works**
 *This is a continuation of the last blog post, why I love databases.*medium.com](https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6)
 
@@ -147,7 +147,7 @@ This article by Digital Ocean is also very nice:
 
 ## 8. Database Clustering
 
-I only came across this term when looking at [Vitess](https://vitess.io/). The idea seems to hide the issues of sharding by, also, using replication under the hood:
+I only came across this term when looking at [Vitess](https://vitess.io/). The idea seems to be to hide the issues of sharding by, also, using replication under the hood:
 
 <iframe src="https://medium.com/media/1a53ea0ff3903084cb945c350fe1d8e1" frameborder=0></iframe>
 
@@ -167,12 +167,10 @@ The drawback is that you don’t know if the data you get is the most recent one
 
 Some topics are crucial for development, but not part of day-to-day work or computer science curriculum. In our professional software development series, you can learn about more topics.
 
-I am thinking about adding articles of these kind, so please let me know what you’re interested in:
+I am thinking about adding articles of this kind, so please let me know what you’re interested in:
 
 * Team Building
 * Code Reviews
 * Code Deployment: A [basic Docker article](https://makeitnew.io/docker-ab1a6bddf389) already exists, but there is way more to write about this topic
 * Infrastructure as Code (IaC)
 * Monitoring and Alerting
-
-Thank you for reading!
