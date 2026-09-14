@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Python Requirements "/>
 <meta property="og:url" content="python-requirements/" />
-<meta property="og:description" content="Pythons package management is a constant source of confusion. One part of the confusion is in which format dependencies should get denoted. It gets worse, because there are too many tools. xkcd shows this pretty well: xkcd The Python environmental protection agency wants to seal it in a cement chamber …" />
+<meta property="og:description" content="Python&#39;s package management is a constant source of confusion. One part of the confusion is in which format dependencies should be denoted. It gets worse because there are too many tools. xkcd shows this pretty well: xkcd The Python environmental protection agency wants to seal it in a cement chamber …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-05-16T20:00:00+02:00" />
 <meta name="twitter:title" content="Python Requirements ">
-<meta name="twitter:description" content="Pythons package management is a constant source of confusion. One part of the confusion is in which format dependencies should get denoted. It gets worse, because there are too many tools. xkcd shows this pretty well: xkcd The Python environmental protection agency wants to seal it in a cement chamber …">
+<meta name="twitter:description" content="Python&#39;s package management is a constant source of confusion. One part of the confusion is in which format dependencies should be denoted. It gets worse because there are too many tools. xkcd shows this pretty well: xkcd The Python environmental protection agency wants to seal it in a cement chamber …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -111,26 +111,26 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Pythons package management is a constant source of confusion. One part of the
-confusion is in which format dependencies should get denoted. It gets worse, because there are <a href="https://stackoverflow.com/q/25337706/562769">too many tools</a>. <a href="https://xkcd.com/1987/">xkcd</a> shows this pretty well:</p>
+            <p>Python's package management is a constant source of confusion. One part of the
+confusion is in which format dependencies should be denoted. It gets worse because there are <a href="https://stackoverflow.com/q/25337706/562769">too many tools</a>. <a href="https://xkcd.com/1987/">xkcd</a> shows this pretty well:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 512px;"/></a>
 <figcaption class="text-center">xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages. (<a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explanation</a>)</figcaption>
 </figure>
 <p>After reading this post, you will know the difference between abstract and concrete requirements, the relationship between setup.py, setup.cfg, requirements.txt, Pipfile, Pipfile.lock, and pyproject.toml.</p>
-<p>I will not cover at all anything related to Anaconda and it will not go into detail how to use various tools.</p>
+<p>I will not cover anything related to Anaconda at all, and I will not go into detail on how to use various tools.</p>
 <h2 id="how-code-is-shared">How Code is Shared</h2>
-<p>Back in the old days, code was shared as actual boxes which you borrowed from the library - the building, not some other software. I'm talking about <a href="https://en.wikipedia.org/wiki/Punched_card">punch cards</a>. Then people moved to sharing code on the internet as simple snippets / functions. Things became bigger and more organized. From simple archives (e.g. zip files) to archives with structure. The archive file contained code in pre-defined places, contained some meta data such as the author and especially the required dependencies. This special kind of archive file was then called a package.</p>
+<p>Back in the old days, code was shared as actual boxes which you borrowed from the library - the building, not some other software. I'm talking about <a href="https://en.wikipedia.org/wiki/Punched_card">punch cards</a>. Then people moved to sharing code on the internet as simple snippets / functions. Things became bigger and more organized. From simple archives (e.g. zip files) to archives with structure. The archive file contained code in pre-defined places, contained some metadata such as the author and especially the required dependencies. This special kind of archive file was then called a package.</p>
 <p>Packages need to be built. They can then be shared. Finally, they can be installed, used and removed.</p>
-<p>Packages exist on the Python ecosystem level where you have the installer <code>pip</code> and the package repository PyPI, on the Anaconda level with the installer <code>conda</code> and the repository Anaconda Cloud and on the operating system level where you have tools like <code>apt</code> and the Ubuntu repositories. Of course, there are many more.</p>
+<p>Packages exist on the Python ecosystem level where you have the installer <code>pip</code> and the package repository PyPI, on the Anaconda level with the installer <code>conda</code> and the repository Anaconda Cloud, and on the operating system level where you have tools like <code>apt</code> and the Ubuntu repositories. Of course, there are many more.</p>
 <p>Also, you have self-extracting archives and specialized installers. They are super common on Windows.</p>
 <h2 id="sharable-code-types">Sharable Code Types</h2>
-<p>There are two very different types of sharable code to write: <strong>Applications</strong> and <strong>libraries</strong>. An application can have a command line interface (CLI), a graphical interface (GUI), be running as a web service or a system service, or it can just run regularly when events happen.</p>
+<p>There are two very different types of sharable code to write: <strong>Applications</strong> and <strong>libraries</strong>. An application can have a command-line interface (CLI), a graphical interface (GUI), be running as a web service or a system service, or it can just run regularly when events happen.</p>
 <p>For libraries, the code never runs on its own. It is included in other code.</p>
 <p>Please note that for this post, I consider a <strong>framework</strong> to be a special kind of library.</p>
 <h2 id="abstract-dependencies">Abstract Dependencies</h2>
 <p>The simplest way to share dependencies is by stating the names of the packages your code expects to be present. Not where one can get the dependency from, no version.</p>
-<p>This is nice, because it allows the user of your code to have just any version of the dependency installed. The user might even be able to have an alternative implementation of the package installed, such as <code>Pillow</code> instead of <code>PIL</code> or <code>propy3</code> instead of <code>propy</code>. Just something that keeps the interfaces intact and you exposes the same names as imports.</p>
+<p>This is nice because it allows the user of your code to have just any version of the dependency installed. The user might even be able to have an alternative implementation of the package installed, such as <code>Pillow</code> instead of <code>PIL</code> or <code>propy3</code> instead of <code>propy</code>. Just something that keeps the interfaces intact and exposes the same names as imports.</p>
 <h2 id="concrete-dependencies">Concrete Dependencies</h2>
 <p>Abstract dependencies are nice, but sometimes the version is important. Sometimes interfaces break. Then you might want to point out which version range is acceptable. Or you might want to set an exact version.</p>
 <h2 id="abstract-or-concrete-when-to-use-which">Abstract or Concrete: When to use which?</h2>
@@ -155,19 +155,19 @@ enough.</p>
 <p>So, <strong>for application code, you specify concrete dependencies and you apply
 version pinning</strong>. That means you specify the exact version you need for all of
 your direct <strong>and</strong> indirect dependencies.</p>
-<div class="alert alert-warning">The reason why this whole topic is so confusing, is the fact that the two concepts (application vs library) are not strictly seperated and that the file formats and tools have grown over time.</div>
-<p>Practically, I suggest to keep dependencies in <code>setup.py</code> as loose as possible and add a <code>requirements.txt</code> which has pinned dependencies. This way one can install the package via pip and reasonably expect other things not to break while one can still use the <code>requirements.txt</code> and an virtual environment to isolate the application from the rest of the system.</p>
-<p>You might think this is a shortcomming of the Python community not to allow packages to distinguish those two concepts and install "application packages" automatically in an isolated virtual environment with all their pinned dependencies. It's not. It's a design decision. The positive side of this is that it can save resources. You don't need to have dozens of duplicates of the same package on your disk. Also, when you load two libraries A and B which both depend on C, you only have C once in memory. The downside of it is that if you update that shared version, you can break things in unexpected ways.</p>
-<p>Essentially you let the user decide what they want: Do they (a) want a small disk footprint or (b) isolation. If they want (a), they neey can install everything in the same environment. If they want (b), they need to use <code>venv</code> in some way, e.g. directly, via <code>virtualenv</code> or via <code>pipenv</code>.</p>
-<p>Sadly, within one running environment it is not so easy to have multiple versions of the same package (<a href="https://stackoverflow.com/q/60084441/562769">source</a>).</p>
+<div class="alert alert-warning">The reason why this whole topic is so confusing is the fact that the two concepts (application vs library) are not strictly separated and that the file formats and tools have grown over time.</div>
+<p>Practically, I suggest keeping dependencies in <code>setup.py</code> as loose as possible and adding a <code>requirements.txt</code> which has pinned dependencies. This way, one can install the package via pip and reasonably expect other things not to break, while one can still use the <code>requirements.txt</code> and a virtual environment to isolate the application from the rest of the system.</p>
+<p>You might think this is a shortcoming of the Python community not to allow packages to distinguish those two concepts and install "application packages" automatically in an isolated virtual environment with all their pinned dependencies. It's not. It's a design decision. The positive side of this is that it can save resources. You don't need to have dozens of duplicates of the same package on your disk. Also, when you load two libraries A and B which both depend on C, you only have C once in memory. The downside of it is that if you update that shared version, you can break things in unexpected ways.</p>
+<p>Essentially, you let the user decide what they want: Do they want (a) a small disk footprint or (b) isolation? If they want (a), they can install everything in the same environment. If they want (b), they need to use <code>venv</code> in some way, e.g. directly, via <code>virtualenv</code> or via <code>pipenv</code>.</p>
+<p>Sadly, within one running environment, it is not so easy to have multiple versions of the same package (<a href="https://stackoverflow.com/q/60084441/562769">source</a>).</p>
 <h2 id="distribution-formats">Distribution formats</h2>
-<p>Python packages are distributed in two relevant flavours: <strong>Source distributions</strong> (sdist) and <strong>built distributions</strong> (bdist, a special case is the "binary distribution").</p>
+<p>Python packages are distributed in two relevant flavors: <strong>Source distributions</strong> (sdist) and <strong>built distributions</strong> (bdist, a special case is the "binary distribution").</p>
 <h3 id="built-distributions">Built Distributions</h3>
-<p>A <strong>built distribution</strong> can either be in the <a href="https://setuptools.readthedocs.io/en/latest/formats.html">egg format</a> (deprecated) or in the <a href="https://www.python.org/dev/peps/pep-0427/">wheels format</a>. There is no reason to use/build eggs anymore; use and build just wheels. The wheels format is newer and learned from shortcommings of the egg format. Wheels is specified in <a href="https://www.python.org/dev/peps/pep-0427/">PEP 427</a>.</p>
+<p>A <strong>built distribution</strong> can either be in the <a href="https://setuptools.readthedocs.io/en/latest/formats.html">egg format</a> (deprecated) or in the <a href="https://www.python.org/dev/peps/pep-0427/">wheels format</a>. There is no reason to use/build eggs anymore; use and build just wheels. The wheels format is newer and learned from shortcomings of the egg format. Wheels is specified in <a href="https://www.python.org/dev/peps/pep-0427/">PEP 427</a>.</p>
 <h3 id="source-distributions">Source Distributions</h3>
-<p>A <strong>source distribution</strong> is just sharing the source. It doesn't build anything. The advantage of this is that it is the same for all platforms (Windows, Linux, Mac) and machines (32 Bit / 64 Bit). The disadvantage is that users have to build the package themselves. This might include building Fortran / C code (e.g. for numpy and scipy). This also includes to get the dependencies.</p>
-<p>Source distributions are typically created to use <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">setuptools</a> is it is around for a long time and installed on essentially every machine which has Python. <strong>If you want to install a source distribution using setuptools, you need a <code>setup.py</code> file</strong>. You can see the structure of such a file below.</p>
-<p>Similar as egg was created to solve an issue and later replaced by a specified version (wheels), the setuptools build solution is getting superseeded by <code>pyproject.toml</code>. This file allows you to specify the build system you want. This includes <code>setuptools</code> (with <code>setup.py</code>), but is not limited to it.</p>
+<p>A <strong>source distribution</strong> is just sharing the source. It doesn't build anything. The advantage of this is that it is the same for all platforms (Windows, Linux, Mac) and machines (32 Bit / 64 Bit). The disadvantage is that users have to build the package themselves. This might include building Fortran / C code (e.g. for numpy and scipy). This also includes getting the dependencies.</p>
+<p>Source distributions are typically created using <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">setuptools</a> as it has been around for a long time and installed on essentially every machine which has Python. <strong>If you want to install a source distribution using setuptools, you need a <code>setup.py</code> file</strong>. You can see the structure of such a file below.</p>
+<p>Similar to how egg was created to solve an issue and was later replaced by a specified format (wheels), the setuptools build solution is getting superseded by <code>pyproject.toml</code>. This file allows you to specify the build system you want. This includes <code>setuptools</code> (with <code>setup.py</code>), but is not limited to it.</p>
 <h2 id="version-pinning_1">Version pinning</h2>
 <p>Version pinning is the act of specifying the exact version of your
 dependencies. Not only the direct dependencies, but also the indirect ones.</p>
@@ -177,7 +177,7 @@ dependencies. Not only the direct dependencies, but also the indirect ones.</p>
 </code></pre></div>
 <p>This is the solution I would recommend.</p>
 <h3 id="virtualenv-pip-freeze">virtualenv + pip freeze</h3>
-<p>An alternative option is to create a virtual environment, install the package, make sure everything works and write the installed dependencies versions in a <code>requirements.txt</code> file:</p>
+<p>An alternative option is to create a virtual environment, install the package, make sure everything works and write the installed dependency versions in a <code>requirements.txt</code> file:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>virtualenv<span class="w"> </span>venv
 $<span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
 
@@ -215,11 +215,11 @@ Werkzeug==0.15.2
 widgetsnbextension==3.3.0
 wily==1.12.2
 </code></pre></div>
-<p>One line of the format <code>[package]==[version]</code>per requirement.</p>
-<p>It can be installed via</p>
+<p>One line of the format <code>[package]==[version]</code> per requirement.</p>
+<p>It can be installed via:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
-<p>There are nice tools like <code>piprot</code> which tells you how outdated the
+<p>There are nice tools like <code>piprot</code>, which tell you how outdated the
 requirements are. I would not create a <code>requirements.txt</code> manually, but instead
 a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-compile</code> create the
 <code>requirements.txt</code> with all the transitive dependencies. You can then also use
@@ -228,7 +228,7 @@ a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-comp
 <p>I usually end up using something like the following:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="sd">"""mpu: Martins Python Utilities."""</span>
+<span class="sd">"""mpu: Martin's Python Utilities."""</span>
 
 <span class="c1"># Core Library</span>
 <span class="kn">import</span> <span class="nn">io</span>
@@ -286,7 +286,7 @@ a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-comp
     <span class="n">platforms</span><span class="o">=</span><span class="p">[</span><span class="s2">"Linux"</span><span class="p">],</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">"https://github.com/MartinThoma/mpu"</span><span class="p">,</span>
     <span class="n">license</span><span class="o">=</span><span class="s2">"MIT"</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">"Martins Python Utilities"</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"Martin's Python Utilities"</span><span class="p">,</span>
     <span class="n">long_description</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">),</span>
     <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">"text/markdown"</span><span class="p">,</span>
     <span class="n">install_requires</span><span class="o">=</span><span class="p">[],</span>
@@ -327,7 +327,7 @@ a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-comp
 <span class="c1"># keep in sync with mpu/_version.py</span>
 <span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.21.0</span>
 
-<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Martins Python Utilities</span>
+<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Martin's Python Utilities</span>
 <span class="na">long_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file: README.md</span>
 <span class="na">long_description_content_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">text/markdown</span>
 <span class="na">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">utility,</span>
@@ -382,13 +382,13 @@ a <code>setup.py</code> or a <code>requirements.in</code> and let <code>pip-comp
 </ul>
 <p>Third Party tools:</p>
 <ul>
-<li><a href="https://github.com/MartinThoma/cookiecutter-python-package">cookiecutter</a>: Create a package sceleton. I can recomend cookicutter, although it is just a tiny tool. I use it with <a href="https://github.com/MartinThoma/cookiecutter-python-package">my own template</a>.</li>
-<li><a href="https://github.com/pyenv/pyenv">pyenv</a>: Manage different Python versions. I highly recommend to use it! Before, switching the Python version was a massive pain for me. After that, it just takes a minute to install a new version.</li>
+<li><a href="https://github.com/MartinThoma/cookiecutter-python-package">cookiecutter</a>: Create a package skeleton. I can recommend cookiecutter, although it is just a tiny tool. I use it with <a href="https://github.com/MartinThoma/cookiecutter-python-package">my own template</a>.</li>
+<li><a href="https://github.com/pyenv/pyenv">pyenv</a>: Manage different Python versions. I highly recommend using it! Before, switching the Python version was a massive pain for me. After that, it just takes a minute to install a new version.</li>
 <li><a href="https://github.com/pypa/pipenv">pipenv</a>: Manage virtual environments for us</li>
 </ul>
 <h2 id="comparison-with-other-languages">Comparison with other Languages</h2>
-<p>The concept of abstract and concrete dependencies is not unique to Python and thus other programming languages have similar concepts. They look sometimes way less confusiong, e.g. because the language is new and could learn from existing patterns (e.g. Rust).</p>
-<p>There are multiple ways to achieve the same thing in Python. For example, instead of using</p>
+<p>The concept of abstract and concrete dependencies is not unique to Python and thus other programming languages have similar concepts. They sometimes look way less confusing, e.g. because the language is new and could learn from existing patterns (e.g. Rust).</p>
+<p>There are multiple ways to achieve the same thing in Python.</p>
 <table class="table">
 <thead>
 <tr>

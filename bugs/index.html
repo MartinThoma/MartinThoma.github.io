@@ -123,45 +123,45 @@ studies. So let's summarize a few important things.</p>
 <div class="highlight"><pre><span></span><code>print("Please enter two numbers you would like to add:")
 n1 = input()
 n2 = input()
-print("The summ of those two numbers is {}".format(n1 + n2))
+print("The sum of those two numbers is {}".format(n1 + n2))
 </code></pre></div>
-<p>If you enter <code>42</code> and <code>1337</code> it will give <code>421337</code>. The reason for this
+<p>If you enter <code>42</code> and <code>1337</code>, it will give <code>421337</code>. The reason for this
 behavior is that <code>input()</code> returns a string, not a number. So clearly neither
 the developer nor the user want this behaviour. But it is not always that easy.
 Sometimes the design of the application might be misleading. Is that a bug as
 well? I tend to say "no" if the developer wanted the behaviour to be as it is.
 Then it is just bad design.</p>
 <h2 id="types-of-bugs">Types of Bugs</h2>
-<p>I would like to give you some ideas which types of bugs can happen and - if
+<p>I would like to give you some ideas of which types of bugs can happen and - if
 possible - how to prevent them.</p>
 <h3 id="functional-bugs">Functional Bugs</h3>
-<p><strong>Off by one errors</strong> are super common: Smaller or smaller equal? Greater or
-greater equal? Smaller or greater? They are a logic error which can often be
-covered by calling the function using it by example input and checking the
-actual output againts known example output. Those off-by-one errors can also
+<p><strong>Off by one errors</strong> are super common: <code>&lt;</code> or <code>&lt;=</code>? <code>&gt;</code> or <code>&gt;=</code>? Smaller or
+greater? They are logic errors which can often be
+caught by calling the function with example input and checking the
+actual output against known example output. Those off-by-one errors can also
 easily lead to infinite loops.</p>
 <p><strong>Units of measure</strong> are a common one as well. Is "time" measured in hours or
 seconds? Do we use miles or kilometers? Famously, NASA lost a 125,000,000 USD Mars orbiter due to this bug (<a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure">source</a>).
 Luckily, this one can be prevented
-by using unit libraries like <a href="https://pint.readthedocs.io/en/latest/">Pythons Pint</a>.</p>
+by using unit libraries like <a href="https://pint.readthedocs.io/en/latest/">Python's Pint</a>.</p>
 <p><strong>Race conditions</strong> are one of the ugly bugs that only appear sometimes, even
 if you call the program with exactly the same input. They might even disappear
 completely when you try to investigate them. As an example, imagine a bank
-account. You have one process P-in which receives ingoing transactions and
+account. You have one process P-in which receives incoming transactions and
 another process P-out that handles outgoing transactions:</p>
-<p>P1:</p>
+<p>P-out:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">pay_amount</span><span class="p">):</span>  <span class="c1"># L0</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L1</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">-</span> <span class="n">pay_amount</span>  <span class="c1"># L2</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L3</span>
 </code></pre></div>
-<p>P2:</p>
+<p>P-in:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L5</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">+</span> <span class="n">get_amount</span>  <span class="c1"># L6</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L7</span>
 </code></pre></div>
-<p>You have 3141 EUR on that account identified by 'FortKnox'. At midnight in the
+<p>You have 3141 EUR on that account identified by 'Martin'. At midnight in the
 beginning of year 2018, you receive 42 EUR from your awesome company as a gift
 for the New Year and you have to pay 1337 EUR in rent. Both happen pretty much
 at the same time. They are not really in parallel, but interleaved:</p>
@@ -230,33 +230,33 @@ at the same time. They are not really in parallel, but interleaved:</p>
 <td style="background-color: #ffa9a9;">3183</td>
 </tr>
 </table>
-<p>Two resources access the same data - the current value of the bank account.
+<p>Two processes access the same data - the current value of the bank account.
 This is problematic. You can prevent this by making both of the functions atomic, e.g. by locking
 or by using <a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)">atomic database operations</a>.
 Rust introduced the concept of ownership to solve this (<a href="https://doc.rust-lang.org/nomicon/races.html">details</a>).</p>
 <p><strong>Arithmetic errors</strong> are division by zero or taking the logarithm of something
 non-positive. It can be prevented in some cases by adding a small positive
-constant, but it depends a lot on the usecase if this is valid.</p>
-<p><strong>Uninitialized resources</strong> (e.g. Nullpointer Exception or <code>KeyError</code> in Python)
+constant, but it depends a lot on the use case if this is valid.</p>
+<p><strong>Uninitialized resources</strong> (e.g. <code>NullPointerException</code> or <code>KeyError</code> in Python)
 I think are mostly covered by line coverage in unit tests.</p>
 <h3 id="non-functional-bugs">Non-Functional Bugs</h3>
 <p>One of the most common non-functional bugs is that the code is <strong>too slow</strong>.
 You can get a grasp of this with <a href="https://pypi.org/project/pytest-benchmark/"><code>pytest-benchmark</code></a>,
 but the problem is that it depends on the hardware and what you run at the same
 time on the machine.</p>
-<p>Another one I see often with browsers is that it is <strong>too memory intensive</strong>.
+<p>Another one I see often with browsers is that they are <strong>too memory intensive</strong>.
 I guess that is a problem for smartphones as well.</p>
 <p>Speaking of smartphones, <strong>too power intensive</strong> is certainly another one.</p>
 <h2 id="bug-reporting_1">Bug reporting</h2>
 <p>When reporting bugs, please don't only say "it doesn't work" or "it's broken".
-That doesn't help. what does help, is answers to the following questions:</p>
+That doesn't help. What does help are answers to the following questions:</p>
 <ol>
 <li>What did you do?</li>
 <li>What did you expect to happen?</li>
 <li>What actually happened?</li>
 </ol>
-<p>Ideally, you can figure out a minimal setting how to reproduce it.</p>
-<p>If you have a Stacktrace or some error code that is good as well.</p>
+<p>Ideally, you can figure out a minimal example to reproduce it.</p>
+<p>If you have a stack trace or some error code, that is good as well.</p>
 <h2 id="logging">Logging</h2>
 <p>Developers have to think about the potential of bugs before they happen in
 production. Which information will be useful to see if a bug occurs?</p>
@@ -264,7 +264,7 @@ production. Which information will be useful to see if a bug occurs?</p>
 experienced the issue.</p>
 <h2 id="triaging-bugs">Triaging Bugs</h2>
 <p><a href="https://blog.codinghorror.com/not-all-bugs-are-worth-fixing/">Not all bugs are worth fixing</a>,
-as Jeff Atwood nicely formulated it in 2006. According to <a href="https://ericsink.com/articles/Four_Questions.html">Eric Sink</a>
+as Jeff Atwood nicely formulated it in 2006. According to <a href="https://ericsink.com/articles/Four_Questions.html">Eric Sink</a>,
 you should answer four questions if you want to figure out if a bug is worth
 being fixed:</p>
 <ul>
@@ -278,7 +278,7 @@ is important as well, the risk is harder to understand. What risk could fixing
 a bug potentially have?</p>
 <p>Regression bugs. By touching any code, you can break something. If you touch
 something that was super hard to get right or that inherently has risk (e.g.
-deleting stuff permanently), then any bug related to those has a high risk.</p>
+deleting stuff permanently), then fixing any bug related to those has a high risk.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/List_of_software_bugs">List of software bugs</a></li>

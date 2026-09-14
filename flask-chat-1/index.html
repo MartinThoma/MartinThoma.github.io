@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Flask Chat - Part I "/>
 <meta property="og:url" content="flask-chat-1/" />
-<meta property="og:description" content="Chat applications are everywhere nowadays. The two best-known ones are probably Slack and WhatsApp. If you keep the amount of users low (e.g. less than 100) and the number of features limited, then it is actually pretty easy to create such a chat app. I&#39;ve create a small proof …" />
+<meta property="og:description" content="Chat applications are everywhere nowadays. The two best-known ones are probably Slack and WhatsApp. If you keep the number of users low (e.g. less than 100) and the number of features limited, then it is actually pretty easy to create such a chat app. I&#39;ve created a small proof-of-concept …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-12-20T12:00:00+01:00" />
 <meta name="twitter:title" content="Flask Chat - Part I ">
-<meta name="twitter:description" content="Chat applications are everywhere nowadays. The two best-known ones are probably Slack and WhatsApp. If you keep the amount of users low (e.g. less than 100) and the number of features limited, then it is actually pretty easy to create such a chat app. I&#39;ve create a small proof …">
+<meta name="twitter:description" content="Chat applications are everywhere nowadays. The two best-known ones are probably Slack and WhatsApp. If you keep the number of users low (e.g. less than 100) and the number of features limited, then it is actually pretty easy to create such a chat app. I&#39;ve created a small proof-of-concept …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -112,10 +112,10 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Chat applications are everywhere nowadays. The two best-known ones are probably
-Slack and WhatsApp. If you keep the amount of users low (e.g. less than 100)
+Slack and WhatsApp. If you keep the number of users low (e.g. less than 100)
 and the number of features limited, then it is actually pretty easy to create
 such a chat app.</p>
-<p>I've create a small proof of concept chat app with Flask and jQuery. It runs in
+<p>I've created a small proof-of-concept chat app with Flask and jQuery. It runs in
 the browser.</p>
 <h2 id="architecture">Architecture</h2>
 <p>We will keep it simple for this tutorial:</p>
@@ -124,7 +124,7 @@ the browser.</p>
 <figcaption class="text-center">Chat App</figcaption>
 </figure>
 <p>We store the messages - and only that - in a single table in a SQLite database.
-We have an API which has one endpoint <code>messages</code> which allows to
+We have an API which has one endpoint <code>messages</code> which allows you to
 <code>GET</code> messages (filtered by id) and to <code>POST</code> a new
 message.</p>
 <p>The backend is done with Flask.</p>
@@ -154,12 +154,12 @@ message.</p>
 <code>wsgi.py</code> to start a <a href="https://en.wikipedia.org/wiki/Gunicorn">gunicorn</a>
 server. The <code>pyproject.toml</code> gives some basic configuration.</p>
 <p>Within the <code>app</code> directory, there is a single <a href="https://flask.palletsprojects.com/en/1.0.x/blueprints/">blueprint</a> called "main". The <code>models.py</code>
-defines the <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/">sqlalchemy database models</a>, the <code>api.py</code> defines the REST API with <a href="https://flask-restx.readthedocs.io/en/stable/">flask restx</a>.</p>
+defines the <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/">sqlalchemy database models</a>, the <code>api.py</code> defines the REST API with <a href="https://flask-restx.readthedocs.io/en/stable/">Flask-RESTX</a>.</p>
 <p>The front end is in the templates directory.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>When a new user opens the website, they get a session variable with a unique
 identifier. They receive all messages which were ever written (yes, in a
-productive system this is an awful idea) and they store the latest message ID
+production system this is an awful idea) and they store the latest message ID
 they have seen.</p>
 <p>Locally, jQuery asks every 500ms for new messages. For this request, it gives
 the latest message it has seen. This means most of the time the server returns
@@ -173,7 +173,7 @@ an empty response.</p>
 <li><code>message</code>: It can either be one you received or one you sent.</li>
 <li><code>conversation</code>: The block that contains the stream of messages.</li>
 </ul>
-<p>See <a href="https://codepen.io/swaibu/pen/QxJjwN">this codepen</a> for a nice the theme
+<p>See <a href="https://codepen.io/swaibu/pen/QxJjwN">this codepen</a> for a nice theme
 by Rumbiiha Swaibu.</p>
 <h3 id="new-messages">New Messages</h3>
 <p>A key point that took me a bit to implement is to add the most recent messages
@@ -184,11 +184,11 @@ didn't scroll up before.</p>
 <ul>
 <li>Registration and Authentication: It is important who writes something. So
   people want to know the sender. In the system above, it is super easy to
-  change the ID to somebody elses ID. To have arbitrary many IDs. It is hard to
+  change the ID to somebody else's ID, or to have arbitrarily many IDs. It is hard to
   know who writes something. This topic comes with a lot of other topics like
-  single sign on (SSO), 2FA / MFA, password recovery...</li>
+  single sign-on (SSO), 2FA / MFA, password recovery...</li>
 <li>Formatting: Allow users to format messages (bold, italic, links, math mode, ...)</li>
-<li>Chatrooms: People want to have private conversations. Conversations splitted
+<li>Chatrooms: People want to have private conversations. Conversations split
   by topic.</li>
 <li>Search: Once you have different rooms, you might want to search across rooms.</li>
 <li>Images</li>
@@ -198,8 +198,8 @@ didn't scroll up before.</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Voice_over_IP">Voice over IP</a> (calls) and <a href="https://en.wikipedia.org/wiki/Videotelephony">Videotelephony</a> (Video chat)</li>
 <li>Themes: Let users change the default looks</li>
-<li>Tennants: Besides chats / chatrooms, you might want to run the chat
-  appliction as a service for organizations. They have their own (seperate)
+<li>Tenants: Besides chats / chatrooms, you might want to run the chat
+  application as a service for organizations. They have their own (separate)
   users and chat rooms. Maybe have some possibilities for customization.</li>
 </ul>
 <p>Engineering:</p>
@@ -207,7 +207,7 @@ didn't scroll up before.</p>
 <li>Scalability: If the database comes to its limits, you have to get a bigger
   machine. Other databases like AWS DynamoDB might have better behaviour.</li>
 <li>Backups were not even mentioned</li>
-<li>Polling: Pining the server twice per second is no big deal if you have few
+<li>Polling: Pinging the server twice per second is no big deal if you have few
   users. But the more users you get, the worse this will become.</li>
 <li>Pagination: Getting all messages in the beginning is a really bad idea.</li>
 <li>Front Ends: You might want way more. For example, native apps for smartphones.</li>
@@ -235,7 +235,7 @@ $<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </s
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/RocketChat/Rocket.Chat">Rocketchat</a></td>
+<td><a href="https://github.com/RocketChat/Rocket.Chat">Rocket.Chat</a></td>
 <td class="text-center">MIT</td>
 <td class="text-center">JavaScript</td>
 <td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
@@ -267,7 +267,7 @@ $<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </s
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Slack_Technologies">Slack Technologies</a>, 2019-12-17.</li>
-<li>Rumbiiha swaibu: <a href="https://codepen.io/swaibu/pen/QxJjwN">WhatsApp in Pure CSS and JS</a></li>
+<li>Rumbiiha Swaibu: <a href="https://codepen.io/swaibu/pen/QxJjwN">WhatsApp in Pure CSS and JS</a></li>
 </ul>
             
         </div>

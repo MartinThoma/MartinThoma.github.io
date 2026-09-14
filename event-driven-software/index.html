@@ -116,13 +116,13 @@ MathJax.Hub.Queue(function() {
 <p><strong>An event-driven software architecture does not have to be that complicated.</strong></p>
 <p>The components of an event-driven system are straightforward: You have events, producers of those events, and consumers of the events. Then you need some glue code that forwards the events from the producers to the consumers. This is called the event registry.</p>
 <h2 id="building-event-driven-software">Building Event-Driven Software</h2>
-<p>I&rsquo;m recently building the <a href="https://pypi.org/project/flitz/">flitz file manager</a> to tip my toes into the development of graphical user interfaces with Python. I started with the Tkinter framework but recognized it was not a good match. Porting to Qt is hard as I have a tight coupling with Tkinter.</p>
+<p>I recently started building the <a href="https://pypi.org/project/flitz/">flitz file manager</a> to dip my toes into the development of graphical user interfaces with Python. I started with the Tkinter framework but recognized it was not a good match. Porting to Qt is hard as I have a tight coupling with Tkinter.</p>
 <p><img alt="A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory." src="../images/2024/02/flitz-file-explorer.png"/><em>A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.</em></p>
-<p>For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an &ldquo;up&rdquo; button. When it is clicked the current path shown in the URL bar is changed + the shown documents in the details pane are changed.</p>
-<p>Conceptionally, the code could look like this:</p>
+<p>For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an &ldquo;up&rdquo; button. When it is clicked, the current path shown in the URL bar is changed and the shown documents in the details pane are changed.</p>
+<p>Conceptually, the code could look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FileExplorer</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
 
         <span class="c1"># Show the UI widgets</span>
         <span class="n">details_view</span> <span class="o">=</span> <span class="n">DetailsView</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -161,14 +161,14 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">class</span> <span class="nc">DetailsView</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Show the files from the root.current_path."""</span>
 </code></pre></div>
 <p>You can see that there is logic duplication in <code>UpButton.on_press</code> and <code>UrlBar.on_keypress_enter</code>. Such duplicated code becomes harder to maintain as the application grows. At some point, someone will forget to update/refresh one GUI widget of the application.</p>
 <p>Instead, you can define a <code>set_current_path</code> function:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FileExplorer</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
 
         <span class="c1"># Show the UI widgets</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">details_view</span> <span class="o">=</span> <span class="n">DetailsView</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -199,10 +199,10 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">class</span> <span class="nc">DetailsView</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">refresh</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Show the files from the root.current_path."""</span>
 </code></pre></div>
-<p>The next part we want to improve is the <strong>locality of the code</strong>. Meaning, that one component should have all of its code in one place. Having several unrelated lines in set_current_path makes it harder to change those components and inspect if they do the right thing. I mean, how do you know if there is a component that should be touched in set_current_path without checking the code of every single component?</p>
+<p>The next part we want to improve is the <strong>locality of the code</strong>. Meaning that one component should have all of its code in one place. Having several unrelated lines in set_current_path makes it harder to change those components and inspect if they do the right thing. I mean, how do you know if there is a component that should be touched in set_current_path without checking the code of every single component?</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># events.py</span>
@@ -288,7 +288,7 @@ MathJax.Hub.Queue(function() {
 <p><strong>Disconnecting Consumers</strong></p>
 </li>
 <li>
-<p><strong>Attached data</strong>: In this simple example the event didn&rsquo;t come with any data. That is different in many use-cases.</p>
+<p><strong>Attached data</strong>: In this simple example the event didn&rsquo;t come with any data. That is different in many use cases.</p>
 </li>
 </ul>
 <h2 id="terminology-many-words-for-the-same-concepts">Terminology &mdash; many words for the same concepts</h2>

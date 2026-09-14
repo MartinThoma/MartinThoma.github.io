@@ -105,15 +105,15 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#hello-typed-annotated-world" title="Hello, Typed Annotated World!">Hello, Typed Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#many-more-types" title="Many more Types">Many more Types</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#type-checking-only-imports" title="Type checking only&nbsp;imports">Type checking only&nbsp;imports</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#hello-type-annotated-world" title="Hello, Type-Annotated World!">Hello, Type-Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#type-checking-only-imports" title="Type checking only&nbsp;imports">Type checking only&nbsp;imports</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>One reason why Python is so easy to get started with is that it has dynamic types. You don&rsquo;t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an undocumented function without types and maybe crappy variable naming, new developers will have a hard time. Luckily, variable annotations were added in Python 3.6 with <a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> 🎉</p>
-<p>This article is written in such a way that you can easily stop after the &ldquo;mypy&rdquo; section and take only a look at individual section then.</p>
-<h2 id="hello-typed-annotated-world">Hello, Typed Annotated World!</h2>
+<p>This article is written in such a way that you can easily stop after the &ldquo;mypy&rdquo; section and then only look at individual sections.</p>
+<h2 id="hello-type-annotated-world">Hello, Type-Annotated World!</h2>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -125,32 +125,32 @@ MathJax.Hub.Queue(function() {
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
-<p>So you can simply use the pattern</p>
+<p>So you can simply use the pattern:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">param_name</span><span class="p">:</span> <span class="n">typename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">return_type_name</span><span class="p">:</span>
     <span class="o">...</span>  <span class="c1"># whatever the function does</span>
 </code></pre></div>
-<p>Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use cPython, pypy or something more exotic.</p>
+<p>Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use CPython, PyPy, or something more exotic.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/06/mypy.svg"><img alt="mypy logo" src="../images/2020/06/mypy.svg" style="width: 512px;"/></a>
 <figcaption class="text-center">mypy logo</figcaption>
 </figure>
 <h2 id="type-checking-with-mypy">Type Checking with mypy</h2>
-<p>Install mypy via pip install mypy and run it:</p>
+<p>Install mypy via <code>pip install mypy</code> and run it:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>mypy<span class="w"> </span>.<span class="w"> </span>--ignore-missing-imports
 Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>file
 </code></pre></div>
-<p>The <a href="https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports">--ignore-missing-imports</a> flag is necessary, because otherwise you will get a lot of messages like this:</p>
+<p>The <a href="https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports">--ignore-missing-imports</a> flag is necessary because otherwise you will get a lot of messages like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">error</span><span class="o">:</span><span class="w"> </span><span class="n">Skipping</span><span class="w"> </span><span class="n">analyzing</span><span class="w"> </span><span class="s1">'setuptools'</span><span class="o">:</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">hints</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">stubs</span>
 </code></pre></div>
 <p>In order to make it more convenient, I usually add a setup.cfg file in which I specify that I always want this flag to be applied:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[mypy]</span>
 <span class="na">ignore_missing_imports</span><span class="o">=</span><span class="s">true</span>
 </code></pre></div>
-<p>Then you can pip install pytest-mypy and make sure mypy is always executed when you run pytest by adding this section to your setup.cfg:</p>
+<p>Then you can <code>pip install pytest-mypy</code> and make sure mypy is always executed when you run pytest by adding this section to your setup.cfg:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tool:pytest]</span>
 <span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">--mypy</span>
 </code></pre></div>
-<p>It is important to note that the Python community and also mypy assumes that you come from a non-type annotated code base. They want to make it easy to you to switch to an annotated code and thus support <a href="https://en.wikipedia.org/wiki/Gradual_typing">gradual typing</a>. However, this means that you might miss errors if you don&rsquo;t annotate your code! Mypy has a lot of flags to help you to make the move. You don&rsquo;t need to annotate everything.</p>
+<p>It is important to note that the Python community and also mypy assume that you come from a non-type-annotated code base. They want to make it easy for you to switch to annotated code and thus support <a href="https://en.wikipedia.org/wiki/Gradual_typing">gradual typing</a>. However, this means that you might miss errors if you don&rsquo;t annotate your code! Mypy has a lot of flags to help you to make the move. You don&rsquo;t need to annotate everything.</p>
 <h2 id="typing-list-dict-tuple-any">typing: List, Dict, Tuple, Any</h2>
 <p>The <a href="https://docs.python.org/3/library/typing.html">typing</a> module adds support for type hints. It contains some of the types you will use most often: List, Dict, and Tuple.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
@@ -165,12 +165,14 @@ Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w">
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib_list(10) = </span><span class="si">{</span><span class="n">fib_list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
-<p>Similarly, you can annotate that a dictionary maps strings to integers by Dict[str, int] . So List, Dict and Tuple are generics. Any is just a way to specify that you could have arbitrary data in those containers. It is reasonable to use Any in the beginning when you start to add type annotations to a bigger code base.</p>
+<p>Similarly, you can annotate that a dictionary maps strings to integers by <code>Dict[str, int]</code>. So <code>List</code>, <code>Dict</code>, and <code>Tuple</code> are generics. <code>Any</code> is just a way to specify that you could have arbitrary data in those containers. It is reasonable to use <code>Any</code> in the beginning when you start to add type annotations to a bigger code base.</p>
 <h2 id="stop-type-checking">Stop Type Checking</h2>
-<p>As mentioned before, mypy and Python support gradual typing. And sometimes you need to silence the type checker to be able to continue (and hopefully fix it later 🤞). There are a couple of ways to do this with typing :</p>
-<p>typing.Any : Every type is of type Any.</p>
-<p><a href="https://docs.python.org/3/library/typing.html#typing.cast">typing.cast</a>(SomeClass, variable) : Sometimes mypy is not smart enough, so you can tell it which type you have. I did that a couple of times before I knew about typing.overload . Alternatively, you can also add assert <a href="https://docs.python.org/3/library/functions.html#isinstance">isinstance</a>(variable, Someclass)</p>
-<h1 id="type-ingore-explicitly-tell-the-typechecker-to-ignore-that-line">type: ingore : Explicitly tell the typechecker to ignore that line</h1>
+<p>As mentioned before, mypy and Python support gradual typing. And sometimes you need to silence the type checker to be able to continue (and hopefully fix it later 🤞). There are a couple of ways to do this with <code>typing</code>:</p>
+<ul>
+<li><code>typing.Any</code>: Every type is compatible with <code>Any</code>.</li>
+<li><a href="https://docs.python.org/3/library/typing.html#typing.cast">typing.cast</a><code>(SomeClass, variable)</code>: Sometimes mypy is not smart enough, so you can tell it which type you have. I did that a couple of times before I knew about <code>typing.overload</code>. Alternatively, you can also add <code>assert isinstance(variable, SomeClass)</code>.</li>
+<li><code># type: ignore</code>: Explicitly tell the type checker to ignore that line.</li>
+</ul>
 <h2 id="typing-union-and-optional">typing: Union and Optional</h2>
 <p>Pretty often, you want to accept multiple types. Then you use Union:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
@@ -184,22 +186,21 @@ Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w">
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"need str or bytes"</span><span class="p">)</span>
 </code></pre></div>
-<p>As it happens pretty often that you need to accept some type and None , there is also typing.Optional . Optional[SomeType] is the same as Union[SomeType, None] .</p>
+<p>As it happens pretty often that you need to accept some type and <code>None</code>, there is also <code>typing.Optional</code>. <code>Optional[SomeType]</code> is the same as <code>Union[SomeType, None]</code>.</p>
 <h2 id="typing-list-vs-sequence">typing: List vs Sequence</h2>
-<p>The type typing.List actually represents list . A typing.Sequence is &ldquo;an iterable with random access&rdquo; as <a href="https://stackoverflow.com/a/2921465/562769">Jochen Ritzel</a> put it so nicely. For example, a string is a Sequence[Any] , but not a List[Any] .</p>
+<p>The type <code>typing.List</code> actually represents <code>list</code>. A <code>typing.Sequence</code> is &ldquo;an iterable with random access&rdquo; as <a href="https://stackoverflow.com/a/2921465/562769">Jochen Ritzel</a> put it so nicely. For example, a string is a <code>Sequence[Any]</code>, but not a <code>List[Any]</code>.</p>
 <h2 id="typing-dict-vs-mapping">typing: Dict vs Mapping</h2>
-<p>Similarly to the example List vs Sequence, the typing.Dict is meant mainly to represent a dict whereas typing.Mapping is more general. <a href="https://stackoverflow.com/a/52487800/562769">Stacksonstacks</a> gives a good answer.</p>
-<h2 id="many-more-types">Many more Types</h2>
+<p>Similarly to the example List vs Sequence, <code>typing.Dict</code> is meant mainly to represent a <code>dict</code>, whereas <code>typing.Mapping</code> is more general. <a href="https://stackoverflow.com/a/52487800/562769">Stacksonstacks</a> gives a good answer.</p>
 <h2 id="custom-types-not-all-strings-are-created-equal">Custom Types: Not all Strings are Created Equal</h2>
-<p>Not all strings contain the same type of content. They can represent anuser_id , a user_name , a password_hash , &hellip;</p>
-<p>Especially for IDs I have seen this to become messy. I think it&rsquo;s pretty ridiculous to create an own class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?</p>
-<p>Don&rsquo;t worry, <a href="https://docs.python.org/3/library/typing.html#newtype">typing.NewType</a> got you covered!</p>
+<p>Not all strings contain the same type of content. They can represent a <code>user_id</code>, a <code>user_name</code>, a <code>password_hash</code>, &hellip;</p>
+<p>Especially for IDs, I have seen this become messy. I think it&rsquo;s pretty ridiculous to create a separate class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?</p>
+<p>Don&rsquo;t worry, <a href="https://docs.python.org/3/library/typing.html#newtype">typing.NewType</a> has got you covered!</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
 
 <span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"UserId"</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="typingoverload">typing.overload</h2>
-<p>typing.Union is actually an anti-pattern sometimes, because you can also <a href="https://docs.python.org/3/library/typing.html#typing.overload">overload</a> a function as <a href="https://github.com/python/mypy/issues/1693#issuecomment-618404849">Josh Reed</a> shows:</p>
+<p><code>typing.Union</code> is actually an anti-pattern sometimes, because you can also <a href="https://docs.python.org/3/library/typing.html#typing.overload">overload</a> a function as <a href="https://github.com/python/mypy/issues/1693#issuecomment-618404849">Josh Reed</a> shows:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>
 
 
@@ -222,13 +223,13 @@ Success:<span class="w"> </span>no<span class="w"> </span>issues<span class="w">
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"need str or bytes"</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="type-checking-only-imports">Type checking only&nbsp;imports</h2>
-<p>I've recently seen myself in the position that I made a pretty heavy import on
+<p>I recently found myself in the position that I made a pretty heavy import on
 module level, just because of type checking. This felt wrong, so I asked for
 help. The solution was simple:
 <a href="https://mypy.readthedocs.io/en/stable/common_issues.html#import-cycles"><code>typing.TYPE_CHECKING</code></a>.
 This is <code>True</code> when running a type checker, but <code>False</code> during normal runs ❤️</p>
 <h2 id="protocols">Protocols</h2>
-<p><a href="https://www.python.org/dev/peps/pep-0544/">PEP 544</a> introduced structural subtyping and was introduced in Python 3.8. It feels like Interfaces in Java and works like this:</p>
+<p><a href="https://www.python.org/dev/peps/pep-0544/">PEP 544</a> introduced structural subtyping in Python 3.8. It feels like Interfaces in Java and works like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span>
 
 
@@ -242,15 +243,15 @@ This is <code>True</code> when running a type checker, but <code>False</code> du
 
 
 <span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">close</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
 
 <span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
 <span class="n">finish_it</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
 </code></pre></div>
-<p>Note that there is no function body. After that definition, you can then use SupportsClose like any type.</p>
-<p>The cool part is that the class Foo has no explicit relationship to SupportsClose ! It is only related by its structure!</p>
+<p>Note that there is no function body. After that definition, you can then use <code>SupportsClose</code> like any type.</p>
+<p>The cool part is that the class <code>Foo</code> has no explicit relationship to <code>SupportsClose</code>! It is only related by its structure!</p>
 <h2 id="type-comments">Type comments</h2>
 <p>Type hints which are given as comments like this are outdated since Python 3.6:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span>
@@ -270,7 +271,7 @@ This is <code>True</code> when running a type checker, but <code>False</code> du
 <div class="highlight"><pre><span></span><code><span class="c1"># type: ignore</span>
 </code></pre></div>
 <h2 id="stub-files">Stub files</h2>
-<p>Stub files end in .pyi . If mypy finds a .py file and a .pyi file, it only loads the .pyi file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis ... :</p>
+<p>Stub files end in <code>.pyi</code>. If mypy finds a <code>.py</code> file and a <code>.pyi</code> file, it only loads the <code>.pyi</code> file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis <code>...</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="o">...</span>
 </code></pre></div>
@@ -322,7 +323,7 @@ $<span class="w"> </span>pytype<span class="w"> </span>.
 <span class="k">[{"name": "user1", "age": 15}, {"name": "user2", "age": 28}]</span>
 </code></pre></div>
 <p><a href="https://fastapi.tiangolo.com/features/#pydantic-features">FastAPI</a> uses pydantic directly.</p>
-<p>A cool thing about pydantic are the <a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">constrained types</a>: PositiveFloat, NegativeInt, constr, &hellip;</p>
+<p>A cool thing about pydantic is the <a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">constrained types</a>: PositiveFloat, NegativeInt, constr, &hellip;</p>
 <h2 id="see-also">See also</h2>
 <ol>
 <li>Dustin Ingram: <a href="https://www.youtube.com/watch?v=2gBP1qN5T7I">Static Typing in Python</a> at PyGotham, 2019. On YouTube.</li>

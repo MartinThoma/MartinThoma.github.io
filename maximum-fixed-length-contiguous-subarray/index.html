@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Maximum Fixed-Length Contiguous Subarray "/>
 <meta property="og:url" content="maximum-fixed-length-contiguous-subarray/" />
-<meta property="og:description" content="I recently taught a course about improving code for performance. An obvious performance improvement is to not execute unnecessary operations. I lacked a good example when I gave the course, but here is one: Find value of the largest contiguous sub-array of fixed length in a huge array. This is …" />
+<meta property="og:description" content="I recently taught a course about improving code for performance. An obvious performance improvement is to not execute unnecessary operations. I lacked a good example when I gave the course, but here is one: Find the value of the largest contiguous sub-array of fixed length in a huge array. This …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-02-23T20:00:00+01:00" />
 <meta name="twitter:title" content="Maximum Fixed-Length Contiguous Subarray ">
-<meta name="twitter:description" content="I recently taught a course about improving code for performance. An obvious performance improvement is to not execute unnecessary operations. I lacked a good example when I gave the course, but here is one: Find value of the largest contiguous sub-array of fixed length in a huge array. This is …">
+<meta name="twitter:description" content="I recently taught a course about improving code for performance. An obvious performance improvement is to not execute unnecessary operations. I lacked a good example when I gave the course, but here is one: Find the value of the largest contiguous sub-array of fixed length in a huge array. This …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
             
             <p>I recently taught a course about improving code for performance. An obvious
 performance improvement is to not execute unnecessary operations. I lacked a
-good example when I gave the course, but here is one: Find value of the largest
+good example when I gave the course, but here is one: Find the value of the largest
 contiguous sub-array of fixed length in a huge array.</p>
 <p>This is a toy example, of course, but it shows the idea quite well.</p>
 <p>The <a href="https://github.com/MartinThoma/algorithms/tree/master/Python/continuous-subarray">Code is on GitHub</a>.</p>
@@ -145,7 +145,7 @@ easy to read and mostly pretty efficient:</p>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">m</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 <p>Except that it has one flaw: It makes too many additions and accesses list
-elements way more often than necessary</p>
+elements way more often than necessary.</p>
 <h2 id="efficient-solution">Efficient Solution</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
@@ -162,8 +162,8 @@ elements way more often than necessary</p>
 <p>The inefficient solution is in $\mathcal{O}((n - m) \cdot m)$, the efficient
 one is in $\mathcal{O}(n - m)$. So you will notice the difference clearly when
 you compare the execution times with big $m$.</p>
-<p>The inefficient solution changes its execution time like as shown in the image
-below for increasing m and contant n = 100,000:</p>
+<p>The inefficient solution changes its execution time as shown in the image
+below for increasing m and constant n = 100,000:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/02/total-execution-time.png"><img alt="Total execution time of find_biggest_subarray_slice" src="../images/2020/02/total-execution-time.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Total execution time of find_biggest_subarray_slice</figcaption>
@@ -173,7 +173,7 @@ below for increasing m and contant n = 100,000:</p>
 <a href="../images/2020/02/find_biggest_subarray_iterative.png"><img alt="Total execution time of the efficient solution" src="../images/2020/02/find_biggest_subarray_iterative.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Total execution time of the efficient solution</figcaption>
 </figure>
-<p>Two things to notice:</p>
+<p>Three things to notice:</p>
 <ul>
 <li><strong>Worst-Case</strong>: For the inefficient solution, it is $m = n/2$. For the
   efficient solution, it is $m = 1$.</li>

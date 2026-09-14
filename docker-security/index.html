@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#host-security" title="Host Security">Host Security</a></li><li><a class="toc-href" href="#base-image" title="Base Image">Base Image</a></li><li><a class="toc-href" href="#harden-your-image" title="Harden Your Image">Harden Your Image</a><ul><li><a class="toc-href" href="#copy-only-necessary-files" title="Copy only necessary files">Copy only necessary files</a></li><li><a class="toc-href" href="#run-non-privileged-user-in-the-container" title="Run non-privileged user in the container">Run non-privileged user in the container</a></li><li><a class="toc-href" href="#multi-stage-builds" title="Multi-Stage Builds">Multi-Stage Builds</a></li></ul></li><li><a class="toc-href" href="#harden-your-containers_1" title="Harden Your Containers">Harden Your Containers</a><ul><li><a class="toc-href" href="#read-only-root-file-system" title="Read-Only Root File System">Read-Only Root File System</a></li><li><a class="toc-href" href="#limit-capabilities" title="Limit Capabilities">Limit Capabilities</a></li><li><a class="toc-href" href="#no-new-privileges" title="no-new-privileges">no-new-privileges</a></li><li><a class="toc-href" href="#scanning-for-vulnerabilities" title="Scanning for vulnerabilities">Scanning for vulnerabilities</a></li></ul></li><li><a class="toc-href" href="#inter-container-communication_1" title="Inter Container Communication">Inter Container Communication</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#host-security" title="Host Security">Host Security</a></li><li><a class="toc-href" href="#base-image" title="Base Image">Base Image</a></li><li><a class="toc-href" href="#harden-your-image" title="Harden Your Image">Harden Your Image</a><ul><li><a class="toc-href" href="#copy-only-necessary-files" title="Copy only necessary files">Copy only necessary files</a></li><li><a class="toc-href" href="#run-as-a-non-privileged-user-in-the-container" title="Run as a non-privileged user in the container">Run as a non-privileged user in the container</a></li><li><a class="toc-href" href="#multi-stage-builds" title="Multi-Stage Builds">Multi-Stage Builds</a></li></ul></li><li><a class="toc-href" href="#harden-your-containers_1" title="Harden Your Containers">Harden Your Containers</a><ul><li><a class="toc-href" href="#read-only-root-file-system" title="Read-Only Root File System">Read-Only Root File System</a></li><li><a class="toc-href" href="#limit-capabilities" title="Limit Capabilities">Limit Capabilities</a></li><li><a class="toc-href" href="#no-new-privileges" title="no-new-privileges">no-new-privileges</a></li><li><a class="toc-href" href="#scanning-for-vulnerabilities" title="Scanning for vulnerabilities">Scanning for vulnerabilities</a></li></ul></li><li><a class="toc-href" href="#inter-container-communication_1" title="Inter-Container Communication">Inter-Container Communication</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -117,46 +117,46 @@ MathJax.Hub.Queue(function() {
 <p>All Docker containers run on a host system. The host needs to be secure AND the container needs to be secure.</p>
 <p>There are various vulnerability scanning, auditing, and hardening tools for Linux systems:</p>
 <ul>
-<li><a href="https://cisofy.com/lynis/">Lynis</a>: Executesudo apt-get install lynis &amp;&amp; sudo lynis audit system and wait for a couple of minutes and you get a pretty nice report indicating what you can do to harden your system.</li>
-<li><a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux">SELinux</a>: Provides Mandatory Access Control (MAC) as a kernel-module. Thomas Cameron gave an <a href="https://www.youtube.com/watch?v=_WOKRaM-HI4">introduction to SELinux</a>. The key point for SELinux and AppArmor is the Access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. <a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Learn more about the differences</a>. <a href="undefined">Luc Juggery</a> gave a nice introduction to <a href="https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621">SELinux &amp; Docker</a>.</li>
-<li><a href="https://en.wikipedia.org/wiki/AppArmor">AppArmor</a>: Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. <a href="http://sarnold.org/resume/sarnold.html">Seth Arnold</a> gave a nice talk about <a href="https://www.youtube.com/watch?v=PRZ59lxLlOY">AppArmor 3.0</a>. Again, <a href="undefined">Luc Juggery</a> wrote a hands-on guide for <a href="https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b">AppArmor &amp; Docker</a>.</li>
+<li><a href="https://cisofy.com/lynis/">Lynis</a>: Execute <code>sudo apt-get install lynis &amp;&amp; sudo lynis audit system</code>, wait for a couple of minutes, and you get a pretty nice report indicating what you can do to harden your system.</li>
+<li><a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux">SELinux</a>: Provides Mandatory Access Control (MAC) as a kernel module. Thomas Cameron gave an <a href="https://www.youtube.com/watch?v=_WOKRaM-HI4">introduction to SELinux</a>. The key point for SELinux and AppArmor is the access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. <a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Learn more about the differences</a>. Luc Juggery gave a nice introduction to <a href="https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621">SELinux &amp; Docker</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/AppArmor">AppArmor</a>: Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. <a href="http://sarnold.org/resume/sarnold.html">Seth Arnold</a> gave a nice talk about <a href="https://www.youtube.com/watch?v=PRZ59lxLlOY">AppArmor 3.0</a>. Again, Luc Juggery wrote a hands-on guide for <a href="https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b">AppArmor &amp; Docker</a>.</li>
 <li>Docker Daemon: Run the daemon as a non-privileged user. Especially not as root.</li>
 </ul>
 <p>You should run regular checks against vulnerability databases. If they find an
 issue, you need an effective way to get notified, e.g. by posting to a Slack
 channel.</p>
-<p>You could also use an OS that is optimized for containers, e.g. <a href="https://cloud.google.com/container-optimized-os">Googles
+<p>You could also use an OS that is optimized for containers, e.g. <a href="https://cloud.google.com/container-optimized-os">Google's
 Container-Optimized OS</a>
 (COS).</p>
 <p>There are many more things to say about the host system, but that is not the
 focus of this article. If you&rsquo;re interested, I&rsquo;ll write a follow-up 🙂</p>
 <h2 id="base-image">Base Image</h2>
-<p>The base image is the foundation of your docker image. Within your Dockerfile,
-you define the base image with FROM . For me, it typically is
+<p>The base image is the foundation of your Docker image. Within your Dockerfile,
+you define the base image with <code>FROM</code>. For me, it typically is
 <a href="https://hub.docker.com/_/python">python:3.8.7-slim-buster</a> or similar. You
 need to ask yourself:</p>
 <ul>
-<li>Do I trust the base images&rsquo; author to have good intentions?</li>
-<li>Do I trust the base images&rsquo; author to have a secure development setup so that malware isn&rsquo;t uploaded unintentionally, e.g. by leaking the credentials to the account or password re-use?</li>
+<li>Do I trust the base image&rsquo;s author to have good intentions?</li>
+<li>Do I trust the base image&rsquo;s author to have a secure development setup so that malware isn&rsquo;t uploaded unintentionally, e.g. by leaking the credentials to the account or password re-use?</li>
 </ul>
 <p>You should also scan your base image for vulnerabilities. Even for very
 standard images, there are often vulnerabilities. Some can be fixed by
-directly running an update (e.g. RUN apt-get update &amp;&amp; apt-get upgrade),
+directly running an update (e.g. <code>RUN apt-get update &amp;&amp; apt-get upgrade</code>),
 others don&rsquo;t have an update within the repository. But pretty often you also
 don&rsquo;t need all the installed stuff.</p>
-<p>Be aware that alpine does only share vulnerabilities that they have already
+<p>Be aware that Alpine only shares vulnerabilities that they have already
 fixed. So the scan might look better for them, although they are not better.
 Alpine images are smaller, though. So the attack surface is smaller.</p>
 <h2 id="harden-your-image">Harden Your Image</h2>
 <p>Hardening is the process of reducing the attack surface or increasing the
-difficulty to find and use existing vulnerability. It reduces the blast radius
+difficulty to find and use existing vulnerabilities. It reduces the blast radius
 any ticking bomb in your system could have.</p>
 <h3 id="copy-only-necessary-files">Copy only necessary files</h3>
 <p>You can use the
 <a href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">.dockerignore</a>
 file to make sure that some files are not added.</p>
-<h3 id="run-non-privileged-user-in-the-container">Run non-privileged user in the container</h3>
-<p>By default, the code you execute within a docker container runs with the user
+<h3 id="run-as-a-non-privileged-user-in-the-container">Run as a non-privileged user in the container</h3>
+<p>By default, the code you execute within a Docker container runs with the user
 ID 0 &mdash; with root. It is recommended not to do that. You can change that in
 multiple ways:</p>
 <p>Within the Dockerfile &mdash; I prefer that one:</p>
@@ -168,7 +168,7 @@ multiple ways:</p>
 I<span class="w"> </span>have<span class="w"> </span>no<span class="w"> </span>name!@a70ba4f24042:/$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$UID</span>
 <span class="m">1000</span>
 </code></pre></div>
-<p>In Kubernetes via RunAsUser in the securityContext
+<p>In Kubernetes via <code>runAsUser</code> in the <code>securityContext</code>
 (<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>
 <h3 id="multi-stage-builds">Multi-Stage Builds</h3>
 <p>If an attacker gets access to your container, you want them to have as few tools there as possible. Use <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi-stage builds</a> for that. Build your code in a build-container and use the built artifact in another container. As a bonus, your image size will be smaller.</p>
@@ -182,12 +182,12 @@ I<span class="w"> </span>have<span class="w"> </span>no<span class="w"> </span>n
 <span class="k">FROM</span><span class="w"> </span><span class="s">alpine:latest</span>
 <span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>--no-cache<span class="w"> </span>add<span class="w"> </span>ca-certificates
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root/</span>
-<span class="k">COPY</span><span class="w"> </span>**--from<span class="o">=</span><span class="m">0</span>**<span class="w"> </span>/go/src/github.com/alexellis/href-counter/app<span class="w"> </span>.
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span><span class="m">0</span><span class="w"> </span>/go/src/github.com/alexellis/href-counter/app<span class="w"> </span>.
 <span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"./app"</span><span class="p">]</span>
 </code></pre></div>
 <h2 id="harden-your-containers_1">Harden Your Containers</h2>
 <h3 id="read-only-root-file-system">Read-Only Root File System</h3>
-<p>This depends on how you run the docker image, but if you use docker run you can add the <a href="https://docs.docker.com/engine/reference/commandline/run/">--read-only flag</a>. This makes the root file system read-only. This means if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.</p>
+<p>This depends on how you run the Docker image, but if you use <code>docker run</code>, you can add the <a href="https://docs.docker.com/engine/reference/commandline/run/">--read-only flag</a>. This makes the root file system read-only. This means that if an attacker gets into the system, they cannot store anything on disk or change any of the executables. They can still change the memory.</p>
 <p>You should also be aware that some pretty standard tasks like creating a temporary file obviously don&rsquo;t work anymore:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--read-only<span class="w"> </span>python:3.9.1-buster
 Python<span class="w"> </span><span class="m">3</span>.9.1<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Jan<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">2021</span>,<span class="w"> </span><span class="m">16</span>:45:25<span class="o">)</span>
@@ -219,33 +219,33 @@ $<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </sp
 /tmp/v
 /tmp/v/tmpbhw8djco
 </code></pre></div>
-<p>Even better is using the host's temporary file system:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>**--tmpfs<span class="w"> </span>/tmp**<span class="w"> </span>--read-only<span class="w"> </span>python:3.9.1-buster
+<p>Even better is using a tmpfs mount (an in-memory file system):</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--tmpfs<span class="w"> </span>/tmp<span class="w"> </span>--read-only<span class="w"> </span>python:3.9.1-buster
 </code></pre></div>
 <h3 id="limit-capabilities">Limit Capabilities</h3>
 <p>You can limit the <a href="https://man7.org/linux/man-pages/man7/capabilities.7.html">Linux kernel capabilities</a>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>**--cap-drop<span class="w"> </span>all**<span class="w"> </span>-it<span class="w"> </span>python:3.9.1-buster<span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--cap-drop<span class="w"> </span>all<span class="w"> </span>-it<span class="w"> </span>python:3.9.1-buster<span class="w"> </span>bash
 root@3c568219116e:/#<span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>noroot
-**groupadd:<span class="w"> </span>failure<span class="w"> </span><span class="k">while</span><span class="w"> </span>writing<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>/etc/gshadow**
+groupadd:<span class="w"> </span>failure<span class="w"> </span><span class="k">while</span><span class="w"> </span>writing<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>/etc/gshadow
 </code></pre></div>
 <p>You can then grant the ones your application needs:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--cap-drop<span class="w"> </span>all<span class="w"> </span>--cap-add<span class="w"> </span>CHOWN<span class="w"> </span>-it<span class="w"> </span>python:3.9.1-buster<span class="w"> </span>bash
 root@3c568219116e:/#<span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>noroot
 groupadd:<span class="w"> </span>failure<span class="w"> </span><span class="k">while</span><span class="w"> </span>writing<span class="w"> </span>changes<span class="w"> </span>to<span class="w"> </span>/etc/gshadow
 </code></pre></div>
-<p>In Kubernetes, this is done via capabilities in the securityContext
+<p>In Kubernetes, this is done via <code>capabilities</code> in the <code>securityContext</code>
 (<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>
 <h3 id="no-new-privileges">no-new-privileges</h3>
-<p>You might want to always set --security-opt=no-new-privileges . It disables
+<p>You might want to always set <code>--security-opt=no-new-privileges</code>. It prevents
 container processes from gaining new privileges
 (<a href="https://docs.docker.com/engine/reference/run/#security-configuration">docs</a>).
-In Kubernetes, this is called allowPrivilegeEscalation
+In Kubernetes, this is called <code>allowPrivilegeEscalation</code>
 (<a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">docs</a>).</p>
 <h3 id="scanning-for-vulnerabilities">Scanning for vulnerabilities</h3>
 <p><a href="https://github.com/quay/clair">Clair</a> by quay seems to be a commonly used
-[tool to scan containers for vulnerabilities. I haven&rsquo;t used it so far,
-[though.</p>
-<h2 id="inter-container-communication_1">Inter Container Communication</h2>
+tool to scan containers for vulnerabilities. I haven&rsquo;t used it so far,
+though.</p>
+<h2 id="inter-container-communication_1">Inter-Container Communication</h2>
 <p>A key thought of &ldquo;defense in depth&rdquo; is to make every single step as hard as
 possible for an attacker. If something is not strictly necessary for the
 application to run, it is not allowed. Restricting the way the containers
@@ -266,9 +266,9 @@ policies</a>.</p>
 <p>Container Security is an extremely broad field. The <a href="https://www.nist.gov/publications/application-container-security-guide">NIST Application
 Container Security
 Guide</a>
-is way more extensive than this article, the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html">OWASP Docker Cheat
+is way more extensive than this article; the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html">OWASP Docker Cheat
 Sheet</a>
-is of similar length. Tsvi Korren made a pretty good presentation container
+is of similar length. Tsvi Korren gave a pretty good presentation about container
 security:</p>
 <p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_5uZnM1yv0Y" width="560"></iframe></center></p>
 <p>In security, it is hard to recommend what to do. For maximum security, you want to do everything. But a very short and actionable guide would be:</p>
@@ -276,12 +276,12 @@ security:</p>
 <li>Make sure you use a well-known, trusted, maintained base image.</li>
 <li>Install only software you need, copy only files you use. Try multi-stage builds if you need software to build the software.</li>
 <li>Use a non-root user.</li>
-<li>Restrict privileges / inter container communication.</li>
+<li>Restrict privileges / inter-container communication.</li>
 <li>Use a read-only file system.</li>
 <li>Get a workflow that automatically scans for vulnerabilities and alerts you if anything new was found.</li>
 </ul>
 <h2 id="whats-next">What&rsquo;s next?</h2>
-<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
 <li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>

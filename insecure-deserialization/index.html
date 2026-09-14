@@ -118,9 +118,9 @@ serialized and deserialized in applications to <strong>store</strong> or <strong
 In web applications, <strong>JSON</strong> or <strong>XML</strong> is often used for data exchange by
 many APIs and protocols. File formats like PNG/GIF/JPEG/MPEG use XML to store
 metadata. YAML became extremely popular for configuration files, e.g. in
-<a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html">Cloudformation
+<a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html">CloudFormation
 templates</a>
-or <a href="https://docs.gitlab.com/ee/ci/yaml/">GitlabCI configuration files</a>.</p>
+or <a href="https://docs.gitlab.com/ee/ci/yaml/">GitLab CI configuration files</a>.</p>
 <p>Some file formats allow you to do more than just (de)serializing basic data
 types. For example, imagine that you want to set up a CI pipeline. You might
 have one step for executing unit tests, one step for checking the types, one
@@ -134,7 +134,7 @@ case, this means that you want to include another file. For example, you could
 have a logging configuration that you want to use in multiple places. In more
 extreme cases, the external entities could be not in local files but only
 available over the internet. To be honest, I don&rsquo;t know why you would want
-that. Please leave a commend if you know!</p>
+that. Please leave a comment if you know!</p>
 <p>Most serialization formats are not powerful enough to represent arbitrary
 objects you can have. There are differences in how powerful those formats are.
 Some want to go very far in terms of compatibility with many languages. As a
@@ -144,35 +144,35 @@ potential side effect, they could allow <strong>arbitrary code execution</strong
 <li>Insecure deserialization was number 8 in the <strong>OWASP Top 10</strong>
   (<a href="https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization">source</a>) 🐝</li>
 <li>2013: The YAML node package
-  (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660">CVE-2013&ndash;4660</a>)
+  (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660">CVE-2013-4660</a>)
   allowed remote code execution. Remote code execution is as bad as it gets:
   People can take your data, install a backdoor, shut down your service,
   delete or encrypt your data, use your service for crypto-mining, potentially
   harm your hardware.</li>
-<li>2014: Android &lt; 5.0 an insecure deserialization can result in arbitrary code
-  execution (<a href="https://nvd.nist.gov/vuln/detail/CVE-2014-7911">CVE-2014&ndash;7911</a>)</li>
+<li>2014: In Android &lt; 5.0, an insecure deserialization can result in arbitrary code
+  execution (<a href="https://nvd.nist.gov/vuln/detail/CVE-2014-7911">CVE-2014-7911</a>)</li>
 <li>2015: Android &lt; 5.1.1 allows arbitrary code execution
-  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015&ndash;3837</a>)</li>
+  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015-3837</a>)</li>
 <li>
 <p>2015: ArcGIS allowed arbitrary code execution
-  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2002">CVE-2015&ndash;2002</a>)</p>
+  (<a href="https://nvd.nist.gov/vuln/detail/CVE-2015-2002">CVE-2015-2002</a>)</p>
 </li>
 <li>
-<p>2015: <a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-peles.pdf">One Class to Rule Them All: 0-Day Deserialization Vulnerabilities in Android</a> by Or Peles, Roee Hay, referencing <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015&ndash;3837</a></p>
+<p>2015: <a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-peles.pdf">One Class to Rule Them All: 0-Day Deserialization Vulnerabilities in Android</a> by Or Peles, Roee Hay, referencing <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3837">CVE-2015-3837</a></p>
 </li>
 <li>
-<p>2019: Kubernetes was vulnerable to a billion laughs DOS attack (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019&ndash;11253</a>)</p>
+<p>2019: Kubernetes was vulnerable to a billion laughs DoS attack (<a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11253">CVE-2019-11253</a>)</p>
 </li>
 <li>
-<p>2020: TYPO3 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11067">CVE-2020&ndash;11067</a>), IBM QRadar (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4280">CVE-2020&ndash;4280</a> ) allowed remote code execution.</p>
+<p>2020: TYPO3 (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11067">CVE-2020-11067</a>), IBM QRadar (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4280">CVE-2020-4280</a> ) allowed remote code execution.</p>
 </li>
 <li>
-<p>2020: Apache Tomcat allows remote code execution (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484">CVE-2020&ndash;9484</a>)</p>
+<p>2020: Apache Tomcat allows remote code execution (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484">CVE-2020-9484</a>)</p>
 </li>
 </ul>
 <h2 id="how-do-deserialization-attacks-work">How do Deserialization attacks work?</h2>
-<p>There is actually a multitude of deserialization attacks. One way to group them is by file format, e.g. YAML, XML, Python pickle files, and many others. Another way is by the objective the attacker wants to reach, e.g. Arbitrary Code execution or Denial of Service (DOS).</p>
-<p>The issue is that those file formats are too powerful. They either directly allow code execution or they allow to create references to the file system or references to elements within the document.</p>
+<p>There is actually a multitude of deserialization attacks. One way to group them is by file format, e.g. YAML, XML, Python pickle files, and many others. Another way is by the objective the attacker wants to reach, e.g. arbitrary code execution or Denial of Service (DoS).</p>
+<p>The issue is that those file formats are too powerful. They either directly allow code execution or they allow creating references to the file system or references to elements within the document.</p>
 <h3 id="attacking-a-yaml-deserializer">Attacking a YAML deserializer</h3>
 <p>Take this example.yaml file:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">!!python/object/apply:os.system</span>
@@ -194,7 +194,7 @@ is probably as bad as it can get.</p>
 <a href="https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3"><strong>6 YAML Features most programmers don&rsquo;t know</strong>
 <em>Level-up your YAML knowledge to write cleaner YAML files</em>levelup.gitconnected.com</a></p>
 <h3 id="attacking-xml-deserialization">Attacking XML Deserialization</h3>
-<p>XML allows referencing external entities such as files (e.g. /etc/passwd ) or
+<p>XML allows referencing external entities such as files (e.g. <code>/etc/passwd</code>) or
 websites. If you want to learn more about why this is an issue, read my
 article about XXE attacks <a href="https://medium.com/faun/xxe-attacks-750e91448e8f"><strong>XXE attacks 😈</strong> <em>PDF, Excel, SVG, ebooks &mdash; all
 use XML. They can be
@@ -213,7 +213,7 @@ referencing</em>medium.com</a></p>
 <p>Two measures you can almost always do:</p>
 <ul>
 <li><strong>Principle of least privilege</strong>: Run your code with as few privileges as
-  possible. You do for sure not need root privileges. Depending on your level
+  possible. You certainly do not need root privileges. Depending on your level
   of paranoia, you could create a specialized user which only does the
   deserialization. You could remove the right to use the network from that
   user.</li>
@@ -222,14 +222,14 @@ referencing</em>medium.com</a></p>
 </ul>
 <p>For some formats, you can tell the deserializer to ignore some of its features:</p>
 <ul>
-<li><strong>PyYAML</strong>: Use the yaml.safe_load function. At some point, they changed the
-  interface so that yaml.load points to yaml.safe_load . You can still use
-  yaml.unsafe_load . I love that they included &ldquo;unsafe&rdquo; in the function call.
+<li><strong>PyYAML</strong>: Use the <code>yaml.safe_load</code> function. At some point, they changed the
+  interface so that <code>yaml.load</code> points to <code>yaml.safe_load</code>. You can still use
+  <code>yaml.unsafe_load</code>. I love that they included &ldquo;unsafe&rdquo; in the function call.
   This makes it obvious that something might be dangerous.</li>
 <li><strong>XML</strong>: For Python, there is
   <a href="https://pypi.org/project/defusedxml">defusedxml</a> which sets various XML
   parsers of Python to safe defaults, preventing
-  <a href="https://medium.com/faun/xxe-attacks-750e91448e8f">XEE</a>, the billion laughs
+  <a href="https://medium.com/faun/xxe-attacks-750e91448e8f">XXE</a>, the billion laughs
   attack, and quadratic blowup.</li>
 </ul>
 <p>For other formats like pickle, you just have to be sure that your input does not cause harm.</p>

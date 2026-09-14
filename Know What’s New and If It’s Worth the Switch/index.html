@@ -118,7 +118,7 @@ MathJax.Hub.Queue(function() {
 <p>Python 3.10 <a href="https://www.python.org/downloads/release/python-3100/">was released</a> on the 4th of October 2021 according to <a href="https://www.python.org/dev/peps/pep-0619/">PEP 619</a>. Let&rsquo;s see what&rsquo;s in store for us.</p>
 <h2 id="type-annotations">Type Annotations</h2>
 <p>I absolutely love type annotations. Since Python 3.6, they are super useful. If you don&rsquo;t use them already, I highly recommend you to read <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">my introduction</a>.</p>
-<p>Python 3.10 has improved them again! Let&rsquo;s see how</p>
+<p>Python 3.10 has improved them again! Let&rsquo;s see how:</p>
 <h3 id="typeguards-conditional-type-narrowing">TypeGuards: Conditional Type Narrowing</h3>
 <p><a href="https://www.python.org/dev/peps/pep-0647/">PEP 647</a> introduces a new TypeGuard annotation. It&rsquo;s backported via <a href="https://pypi.org/project/typing-extensions/">typing_extensions</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypeGuard</span>  <span class="c1"># Before Python 3.10</span>
@@ -148,7 +148,7 @@ MathJax.Hub.Queue(function() {
 
 Found 1 error in 1 file (checked 1 source file)
 </code></pre></div>
-<p>Neat! Now you can get rid of a couple of cast andassert calls or comments like # type: ignore .</p>
+<p>Neat! Now you can get rid of a couple of <code>cast</code> and <code>assert</code> calls or comments like <code># type: ignore</code>.</p>
 <h3 id="syntactic-sugar-allow-writing-union-types-as-x-y">Syntactic Sugar: Allow writing union types as X | Y ✨</h3>
 <p><a href="https://www.python.org/dev/peps/pep-0020/">Readability counts</a>. The documentation is a lot of the reason why I love type annotations so much. <a href="https://www.python.org/dev/peps/pep-0604/">PEP 604</a> allows you to use a more concise syntax that is easier to read:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Before 3.10</span>
@@ -159,7 +159,7 @@ Found 1 error in 1 file (checked 1 source file)
     <span class="o">...</span>
 
 
-<span class="nb">isinstance</span><span class="p">(</span><span class="n">bar</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
 
 <span class="c1"># With 3.10</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
@@ -169,7 +169,7 @@ Found 1 error in 1 file (checked 1 source file)
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="parameter-specification-variables-type-annotations-for-decorators">Parameter Specification Variables: Type Annotations for Decorators</h3>
-<p>Non-trivial decorators are a pain to understand once they are written. And writing type-annotations has been pretty hard. <a href="https://www.python.org/dev/peps/pep-0612/">PEP 612</a> introduces typing.ParamSpec and typing.Concatenate .</p>
+<p>Non-trivial decorators are a pain to understand once they are written. And writing type-annotations has been pretty hard. <a href="https://www.python.org/dev/peps/pep-0612/">PEP 612</a> introduces <code>typing.ParamSpec</code> and <code>typing.Concatenate</code>.</p>
 <p>The PEP already gives a good example for those. Imagine you wrote a decorator add_logging which executed log_to_database before the decorated function is called. The function could have any parameters &mdash; the execution of the function should not be changed. How would you annotate that?</p>
 <p>With parameter specification variables you could do it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Awaitable</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">ParamSpec</span><span class="p">,</span> <span class="n">TypeVar</span>
@@ -196,7 +196,7 @@ Found 1 error in 1 file (checked 1 source file)
 </code></pre></div>
 <p>You can also add parameters or remove them with decorators. And now you can add proper types for that! Just have a look into <a href="https://www.python.org/dev/peps/pep-0612/">PEP 612</a>.</p>
 <h3 id="explicit-type-aliases">Explicit Type Aliases</h3>
-<p><a href="https://www.python.org/dev/peps/pep-0613/">PEP 613</a> introduces typing.TypeAlias . This helps the type checker to distinguish between module-level assignments to create constants and actual type aliases:</p>
+<p><a href="https://www.python.org/dev/peps/pep-0613/">PEP 613</a> introduces <code>typing.TypeAlias</code>. This helps the type checker to distinguish between module-level assignments to create constants and actual type aliases:</p>
 <div class="highlight"><pre><span></span><code><span class="n">StrCache</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="s2">"Cache[str]"</span>  <span class="c1"># a type alias</span>
 <span class="n">LOG_PREFIX</span> <span class="o">=</span> <span class="s2">"LOG[DEBUG]"</span>  <span class="c1"># a module constant</span>
 </code></pre></div>
@@ -216,7 +216,7 @@ Found 1 error in 1 file (checked 1 source file)
         current_room = current_room.neighbor(direction)
     # The rest of your commands go here
 </code></pre></div>
-<p>As you can see, the new keywords are match and case . The part after the match is what is evaluated. In this case, command.spit() returns a list of strings. An equivalent code before structural pattern matching would be:</p>
+<p>As you can see, the new keywords are <code>match</code> and <code>case</code>. The part after the <code>match</code> is what is evaluated. In this case, <code>command.split()</code> returns a list of strings. An equivalent code before structural pattern matching would be:</p>
 <div class="highlight"><pre><span></span><code><span class="n">val</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"quit"</span><span class="p">]:</span>
@@ -258,10 +258,10 @@ examples, but there are many more:</p>
 pyenv local 3.10.0
 </code></pre></div>
 <p>If you want to use it in production environments, you&rsquo;ll be interested in
-<a href="https://hub.docker.com/_/python">Docker</a>. The base image is3.10 , but be
-careful when you write this in YAML ⚠️ 3.10 might get interpreted as a float
-and get converted to 3.1 . Write "3.10" in YAML. And maybe be more specific,
-e.g. 3.10-slim-bullseye .</p>
+<a href="https://hub.docker.com/_/python">Docker</a>. The base image is <code>3.10</code>, but be
+careful when you write this in YAML ⚠️ <code>3.10</code> might get interpreted as a float
+and get converted to <code>3.1</code>. Write <code>"3.10"</code> in YAML. And maybe be more specific,
+e.g. <code>3.10-slim-bullseye</code>.</p>
 <p>By the way: <a href="https://www.pypy.org/download.html">PyPy is currently at 3.7</a> and <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html">AWS Lambda is at 3.9</a>.</p>
 <h2 id="what-happened-before-310">What Happened Before 3.10?</h2>
 <p>Many people do not use Python 3.9 yet. For this reason, you might be interested in other changes that were introduced with Python 3.9 or maybe even Python 3.8:

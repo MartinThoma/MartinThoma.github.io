@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Testing in Python "/>
 <meta property="og:url" content="testing-python-code/" />
-<meta property="og:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and youself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard to …" />
+<meta property="og:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and you yourself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-07-03T20:00:00+02:00" />
 <meta name="twitter:title" content="Testing in Python ">
-<meta name="twitter:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and youself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard to …">
+<meta name="twitter:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and you yourself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -114,13 +114,13 @@ MathJax.Hub.Queue(function() {
             <p>Testing code is important for the following reasons:</p>
 <ul>
 <li><strong>Trust</strong>: You checked at least some cases if they work. So others can have
-  more trust in the quality of your work and youself can also put more trust in
+  more trust in the quality of your work and you yourself can also put more trust in
   it.</li>
 <li><strong>Breaking Changes</strong>: For a bigger project, it is sometimes hard to have
   every part in mind. By writing tests, you make it easier to change something
   and see if / where things break.</li>
 <li><strong>Code Style</strong>: When you know that you have to write tests, you write some
-  things slightly different. Those slight differences usually improve the
+  things slightly differently. Those slight differences usually improve the
   coding style. Sometimes, they are crucial.</li>
 </ul>
 <p>When testing, there are two important measures:</p>
@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
 <p>Usually, I aim for more than 95% line coverage.</p>
 <h2 id="why-you-should-test">Why you should test</h2>
 <p>Besides trust, preventing breaking changes and code style, I want to give two
-concrete examples how writing tests with the aim of a high test coverage
+concrete examples of how writing tests with the aim of a high test coverage
 improved my code.</p>
 <h3 id="reproducibility">Reproducibility</h3>
 <p>Suppose you have to test a function</p>
@@ -160,7 +160,7 @@ everything.</p>
 <h3 id="complexity">Complexity</h3>
 <p>Imagine you have a function with 300&nbsp;lines of code, conditionally executed
 code in multiple levels and for loops. It will be a mess to test everything.</p>
-<p>A very extreme point of view is hold <a href="https://softwareengineering.stackexchange.com/a/195992/25699">here</a>:</p>
+<p>A very extreme point of view is held <a href="https://softwareengineering.stackexchange.com/a/195992/25699">here</a>:</p>
 <blockquote>
 <p>If, when describing the activity of the code to another programmer you use
 the word 'and', the method needs to be split into at least one more part.</p>
@@ -168,11 +168,11 @@ the word 'and', the method needs to be split into at least one more part.</p>
 <h2 id="how-to-test_1">How to Test</h2>
 <h3 id="doctests">Doctests</h3>
 <p>Python has a module called <a href="https://docs.python.org/3/library/doctest.html"><code>doctest</code></a>.
-It executes code which is after the promt <code>&gt;&gt;&gt;</code>.</p>
+It executes code which is after the prompt <code>&gt;&gt;&gt;</code>.</p>
 <p>A simple example:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Calculate the n-th fibonacci number.</span>
+<span class="sd">    Calculate the n-th Fibonacci number.</span>
 
 <span class="sd">    &gt;&gt;&gt; fibonacci(0)</span>
 <span class="sd">    0</span>
@@ -195,12 +195,12 @@ execution. Try it by changing <code>8</code> to something else.</p>
 <p>Why it is nice:</p>
 <ul>
 <li>It's simple</li>
-<li>You have written both, documentation and a test</li>
+<li>You have written both documentation and a test</li>
 <li>It's guaranteed not to get outdated (otherwise the tests will fail)</li>
 </ul>
 <p>The drawbacks of this solution:</p>
 <ul>
-<li>It compares directly the output as shown on the console. If this is not
+<li>It directly compares the output as shown on the console. If this is not
   deterministic (e.g. as with the set datatype), you need to check for
   equality.</li>
 <li>In many cases, it is hard to set things up.</li>
@@ -212,7 +212,7 @@ this is not a good solution anymore.</p>
 <p>Python comes with <a href="https://docs.python.org/3/library/unittest.html"><code>unittest</code></a>,
 which is the default module for unit testing. It is inspired by JUnit. The
 following text is partially directly copied from the documentation.</p>
-<p>Unit tests are the fundament of the testing pyramid. The should be isolated
+<p>Unit tests are the foundation of the testing pyramid. They should be isolated
 from other software, be fast to execute, relatively easy to write and thus
 rather cheap. If the test is not isolated, then it is an integration test. A
 typical integration test is when you interact with a database.</p>
@@ -221,7 +221,7 @@ typical integration test is when you interact with a database.</p>
 <dt>test case</dt>
 <dd>A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.</dd>
 <dt>test fixture</dt>
-<dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
+<dd>A test fixture represents the preparation needed to perform one or more tests, and any associated cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
 <dt>test suite</dt>
 <dd>A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.</dd>
 <dt>test runner</dt>
@@ -230,9 +230,9 @@ typical integration test is when you interact with a database.</p>
 <p>To put it into context:</p>
 <ul>
 <li>You write a test case.</li>
-<li>It might be neccessary or convenient to <code>setUp</code> things. This is the test
+<li>It might be necessary or convenient to <code>setUp</code> things. This is the test
   fixture.</li>
-<li>You combine tests to a test suite.</li>
+<li>You combine tests into a test suite.</li>
 <li>The test runner executes the tests.</li>
 </ul>
 <p>Your <a href="https://martin-thoma.com/python-projects/">project structure</a> should be:</p>
@@ -287,8 +287,8 @@ look like this:</p>
 <h3 id="pytest">pytest</h3>
 <p><a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> is a framework which makes
 testing with Python WAY easier. You can simply add files <code>test_&lt;modulename&gt;.py</code>
-with <code>text_xyz()</code> functions and assert statements:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">text_xy</span><span class="p">():</span>
+with <code>test_xyz()</code> functions and assert statements:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_xy</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">mymodule</span>
 
     <span class="k">assert</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
@@ -303,14 +303,14 @@ it runs your tests!</p>
   rather slow ones.</li>
 <li><a href="https://pypi.org/project/pytest-dependency/"><code>pytest-dependency</code></a>: I hate it
   when I break one thing and a thousand tests fail. This makes it hard to find
-  the root cause. By defining dependencies you can skip tests conditionally
+  the root cause. By defining dependencies, you can skip tests conditionally
   on the outcome of another test.</li>
 <li><a href="https://pytest-cov.readthedocs.io/en/latest/"><code>pytest-cov</code></a>: Creating coverage
   reports with pytest.</li>
 <li><a href="https://pypi.org/project/pytest-mccabe/"><code>pytest-mccabe</code></a>: Check which
   functions are too complex.</li>
 </ul>
-<p>I recommend to add the following to your <code>setup.cfg</code>:</p>
+<p>I recommend adding the following to your <code>setup.cfg</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tool:pytest]</span>
 <span class="na">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">./tests/ --doctest-modules --mccabe --cov=./mpu --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --pep8 --ignore=docs/</span>
 <span class="na">doctest_encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">utf-8</span>
@@ -339,7 +339,7 @@ your <code>setup.py</code>.</p>
 <p>The <a href="http://coverage.readthedocs.io/en/latest/"><code>coverage</code></a> package and its
 <a href="https://pytest-cov.readthedocs.io/en/latest/"><code>pytest-cov</code></a> plugin allow you
 to generate coverage reports.</p>
-<p>I recommend creating a <code>.coveragerc</code> file in your projects root directory:</p>
+<p>I recommend creating a <code>.coveragerc</code> file in your project's root directory:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[run]</span>
 <span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mpu</span><span class="w">  </span><span class="c1"># folder where your project is</span>
 <span class="na">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
@@ -374,7 +374,7 @@ and <a href="https://docs.python.org/3/library/unittest.mock.html"><code>unittes
 <h3 id="credentials">Credentials</h3>
 <p>Having credentials as environment variables seems to be the cleanest solution
 so far. You might want to have a look at <a href="https://direnv.net"><code>direnv</code></a>. To
-give later developers (including yourself) later a hint, you could create a
+give later developers (including yourself) a hint, you could create a
 <code>template.envrc</code> file which contains all relevant attributes, but not the
 values.</p>
 <p>For example:</p>
@@ -386,7 +386,7 @@ values.</p>
 <p>For AWS, there is <a href="https://aws.amazon.com/kms/">KMS</a> to store
 credentials.</p>
 <h2 id="mutation-testing_1">Mutation Testing</h2>
-<p>Mutation Testing is a nice idea how to test your tests. You "mutate" your code
+<p>Mutation Testing is a nice idea of how to test your tests. You "mutate" your code
 slightly and want at least one test to fail.</p>
 <p>So you change constants (off-by-one), you change the order of operations.</p>
 <p>There is <a href="https://github.com/sixty-north/cosmic-ray"><code>cosmic-ray</code></a>, but last

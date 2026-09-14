@@ -117,7 +117,7 @@ was experimenting with it today and want to share some insights.</p>
 <p>Think of YouTube. Users can upload videos, but before they are shown on the
 platform they need to get processed. Converting the format, checking for
 illegal content. This takes a considerable amount of time, so you don't want to
-let the user stare at a loading screen while you create the backup. So simply
+let the user stare at a loading screen while you process the video. So simply
 having a synchronous call is not working, as those tasks can easily take more
 than one minute and thus the user might get a timeout. And for sure the user
 would not like it, if he didn't get any feedback. Also, it might create
@@ -131,7 +131,7 @@ response.</p>
 <p>Then we need to somehow call that conversion server. There are several
 approaches to this:</p>
 <p><em>Synchronous call</em>: We could make a small REST API, but then we would again
-have the problem that the conversion can take arbitrary long.</p>
+have the problem that the conversion can take arbitrarily long.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2019/06/conversion-server-sync.png"><img alt="Communication by a synchronous request with a conversion server" src="../images/2019/06/conversion-server-sync.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Communication by a synchronous request with a conversion server</figcaption>
@@ -151,17 +151,17 @@ thus we might end up polling a lot of videos, putting unnecessary load on the
 </figure>
 <p><em>Callback</em>: Instead of having to ask again and again if the conversion is done,
 we could give the conversion server a callback URL. Once it is done, it calls
-the callback back. Hence callback. It works like this:</p>
+the callback URL. Hence the name. It works like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2019/06/conversion-server-callback.png"><img alt="Communication by a callback" src="../images/2019/06/conversion-server-callback.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Communication by a callback</figcaption>
 </figure>
 <h2 id="solution-2-message-queue">Solution 2: Message Queue</h2>
 <p>All three variants of the first solution have one fundamental problem: They
-don't scale well. Assume suddenly you get from several dozend users to tens of
+don't scale well. Assume you suddenly go from several dozen users to tens of
 thousands. You will have peak times during which you need to convert way more
 videos. So you would like to spin up new instances and basically be able to
-do double the work with double the amount of machines.</p>
+do double the work with double the number of machines.</p>
 <p>How would you do that, starting with a single conversion server?</p>
 <p>You would probably create a conversion service:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -172,18 +172,18 @@ do double the work with double the amount of machines.</p>
 "load balancer" would actually work.</p>
 <p>Just store the kind of work you want to do somewhere and let "workers" pick up
 the task. This means you need to pass messages between the web app which
-contains the upload form / the dashboard for the user and between the workers.</p>
+contains the upload form / the dashboard for the user and the workers.</p>
 <p>Instead of having the API and the load balancer, you can use a message broker system like
 <a href="https://en.wikipedia.org/wiki/RabbitMQ">RabbitMQ</a>,
 <a href="https://redis.io/topics/pubsub">Redis</a> or
 <a href="https://en.wikipedia.org/wiki/Amazon_Simple_Queue_Service">Amazon SQS</a> (<a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs-example-sending-receiving-msgs.html">code sample</a>). The core
 of those message broker systems is that you can send and receive messages.
-Sometimes you send it to a topic, in other system it is called a queue.
+Sometimes you send it to a topic, in other systems it is called a queue.
 Consumers / clients can read / listen to those queues / topics.</p>
 <h2 id="celery">Celery</h2>
-<p>Celery is a task queue. While not being to deep in the topic, I would say the
-main advantage of celery compared to usuing the message brokers directly is
-simplicity. It's easier to use than rabbitmq directly. Additionally, you get
+<p>Celery is a task queue. While I'm not too deep into the topic, I would say the
+main advantage of Celery compared to using the message brokers directly is
+simplicity. It's easier to use than RabbitMQ directly. Additionally, you get
 flexibility to change the message broker.</p>
 <p>It comes with a monitoring tool called <a href="https://flower.readthedocs.io/en/latest/">flower</a>.</p>
 <p>Structurally, my app looked like this:</p>
@@ -211,7 +211,7 @@ flexibility to change the message broker.</p>
     &boxur;&boxh;&boxh; setup.py
 </code></pre></div>
 <p>And I ran it either with <code>docker-compose up</code> or via</p>
-<div class="highlight"><pre><span></span><code>celery<span class="w"> </span>-A<span class="w"> </span>celery_worker.py<span class="w"> </span>worker<span class="w"> </span>--loglevel<span class="o">=</span>debug
+<div class="highlight"><pre><span></span><code>celery<span class="w"> </span>-A<span class="w"> </span>celery_worker.celery<span class="w"> </span>worker<span class="w"> </span>--loglevel<span class="o">=</span>debug
 </code></pre></div>
 <p>In the following, I give some details about how I adjusted the listed files.</p>
 <h3 id="setuppy">setup.py</h3>
@@ -250,7 +250,7 @@ flexibility to change the message broker.</p>
 <span class="nt">volumes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">rabbitmq_data</span><span class="p">:</span>
 </code></pre></div>
-<p>Of course, there is also the "web" service which I cropped out here for keeping
+<p>Of course, there is also the "web" service which I left out here to keep
 it simple.</p>
 <h3 id="configpy">config.py</h3>
 <p>I've added the following:</p>

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Movielens Data Set "/>
 <meta property="og:url" content="movielens-data-set/" />
-<meta property="og:description" content="I&#39;m recently thinking a lot about recommendations and about building the book recommendation portal I had in mind since 2013. However, for recommendation systems it is as hard as with any branch of machine learning to find a good overview over techniques, their respective strengths and drawbacks as well as …" />
+<meta property="og:description" content="I&#39;ve recently been thinking a lot about recommendations and about building the book recommendation portal I have had in mind since 2013. However, for recommendation systems it is as hard as with any branch of machine learning to find a good overview of techniques, their respective strengths and drawbacks as …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-07-10T20:00:00+02:00" />
 <meta name="twitter:title" content="Movielens Data Set ">
-<meta name="twitter:description" content="I&#39;m recently thinking a lot about recommendations and about building the book recommendation portal I had in mind since 2013. However, for recommendation systems it is as hard as with any branch of machine learning to find a good overview over techniques, their respective strengths and drawbacks as well as …">
+<meta name="twitter:description" content="I&#39;ve recently been thinking a lot about recommendations and about building the book recommendation portal I have had in mind since 2013. However, for recommendation systems it is as hard as with any branch of machine learning to find a good overview of techniques, their respective strengths and drawbacks as …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -111,15 +111,15 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>I'm recently thinking a lot about recommendations and about building the
+            <p>I've recently been thinking a lot about recommendations and about building the
 <a href="https://martin-thoma.com/projects-i-never-realized/#book-portal">book recommendation portal</a>
-I had in mind since 2013.</p>
+I have had in mind since 2013.</p>
 <p>However, for recommendation systems it is as hard as with any branch of machine
-learning to find a good overview over techniques, their respective strengths
+learning to find a good overview of techniques, their respective strengths
 and drawbacks as well as hard performance measures.</p>
 <p>So let's get started.</p>
 <h2 id="the-data">The Data</h2>
-<p>The <a href="https://grouplens.org/datasets/movielens/20m/">Movielens 20M</a> contains
+<p>The <a href="https://grouplens.org/datasets/movielens/20m/">MovieLens 20M</a> dataset contains
 20 million movie ratings. They were created by 138,000 users for 27,000 movies.</p>
 <p>The data looks like this:</p>
 <div class="highlight"><pre><span></span><code>     userId  movieId  rating   timestamp
@@ -135,14 +135,14 @@ and drawbacks as well as hard performance measures.</p>
 9         1      260     4.0  1112484826
 10        1      293     4.0  1112484703
 </code></pre></div>
-<p>There is genres and tags as well.</p>
+<p>There are genres and tags as well.</p>
 <h2 id="the-evaluation">The Evaluation</h2>
 <p>The task is to predict the ratings. To do so, the data gets sorted by
 timestamp. A 50% train data and 50% test data split is done. On the test data,
-the mean average error (MAE) is calculated. Lower is better. The results have
+the mean absolute error (MAE) is calculated. Lower is better. The results have
 to be given with exactly three decimal places.</p>
 <h2 id="baselines">Baselines</h2>
-<p>All of the following evaluations took roughly 43s on my Thinkpad T460p. The
+<p>All of the following evaluations took roughly 43s on my ThinkPad T460p. The
 memory consumption of all of them is not relevant.</p>
 <div class="warning">Most of the following recommenders are completely useless. The constant recommender does not order the movies at all, the median user rating does not order for a user. And the median movie rating recommender is not personalized, which indicates that a content-based approach might be better. Still, you can see the MAE / MSE score is vastly different. This is an indicator that the evaluating function should be changed.</div>
 <table class="table">
@@ -165,13 +165,13 @@ memory consumption of all of them is not relevant.</p>
 <td style="background-color: red">Constant 5</td>
 <td>1.603</td>
 <td>3.761</td>
-<td>Together with Constant 5, this gives the range in which all recommenders will be.</td>
+<td>Together with Constant 1, this gives the range in which all recommenders will be.</td>
 </tr>
 <tr>
 <td style="background-color: red">Constant 2.5</td>
 <td>1.217</td>
 <td>1.996</td>
-<td>Predicting the middle is the best if you have absolute no prior knowledge and MAE.</td>
+<td>Predicting the middle is the best if you have absolutely no prior knowledge and MAE.</td>
 </tr>
 <tr>
 <td style="background-color: red">Median User Rating</td>
@@ -206,7 +206,7 @@ memory consumption of all of them is not relevant.</p>
 
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">rating_filepath</span><span class="o">=</span><span class="s2">"ratings.csv"</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Load extracted movie lense data."""</span>
+<span class="w">    </span><span class="sd">"""Load extracted MovieLens data."""</span>
     <span class="n">nrows</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">rating_filepath</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
     <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"int16"</span><span class="p">)</span>
@@ -311,7 +311,7 @@ memory consumption of all of them is not relevant.</p>
 <h2 id="problems">Problems</h2>
 <ul>
 <li><strong>Ratings instead of Order</strong>: For applications, we are not interested in the
-  right rating but getting the order right. So a constant bias for a user is
+  right rating but in getting the order right. So a constant bias for a user is
   fine. MAE does not capture that fact.</li>
 </ul>
 <h2 id="publications">Publications</h2>

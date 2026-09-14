@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Bucketing in A/B-Testing "/>
 <meta property="og:url" content="bucketing-in-ab-testing/" />
-<meta property="og:description" content="Bucketing users in two groups is a key part in A/B testing. We need to randomly assign users to a bucket. And in practice, we need to make sure a user is assigned to the same bucket consistently. First, we need a user identifier. Database Solution We want to …" />
+<meta property="og:description" content="Bucketing users into two groups is a key part of A/B testing. We need to randomly assign users to a bucket. And in practice, we need to make sure a user is assigned to the same bucket consistently. First, we need a user identifier. Database Solution We want to …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-11-28T20:00:00+01:00" />
 <meta name="twitter:title" content="Bucketing in A/B-Testing ">
-<meta name="twitter:description" content="Bucketing users in two groups is a key part in A/B testing. We need to randomly assign users to a bucket. And in practice, we need to make sure a user is assigned to the same bucket consistently. First, we need a user identifier. Database Solution We want to …">
+<meta name="twitter:description" content="Bucketing users into two groups is a key part of A/B testing. We need to randomly assign users to a bucket. And in practice, we need to make sure a user is assigned to the same bucket consistently. First, we need a user identifier. Database Solution We want to …">
 <meta property="og:image" content="logos/data-science.png" />
 <meta name="twitter:image" content="logos/data-science.png" >
 
@@ -111,12 +111,12 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Bucketing users in two groups is a key part in A/B testing. We need to randomly
+            <p>Bucketing users into two groups is a key part of A/B testing. We need to randomly
 assign users to a bucket. And in practice, we need to make sure a user is
 assigned to the same bucket consistently.</p>
 <p>First, we need a user identifier.</p>
 <h2 id="database-solution">Database Solution</h2>
-<p>We want to store a variation per user in a database. Hence we have <a href="https://martin-thoma.com/key-value-stores/">key-value store</a> with the user-identifier as key and
+<p>We want to store a variation per user in a database. Hence, we need a <a href="https://martin-thoma.com/key-value-stores/">key-value store</a> with the user-identifier as key and
 the variation as value.</p>
 <p>The code then is as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
@@ -162,7 +162,7 @@ the variation as value.</p>
    Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)</li>
 </ol>
 <h2 id="seeding-solution">Seeding Solution</h2>
-<p>The above solution is nice, because it is absolutely clear how it works. It is
+<p>The above solution is nice because it is absolutely clear how it works. It is
 not so nice that you need to access a database.</p>
 <p>Instead, you can play around with the seed of the random number generator. This
 makes the database call obsolete. By seeding we can guarantee the output of
@@ -201,7 +201,7 @@ slightly, then as many users as possible keep what they have.</p>
 variant. So if you always choose the names "current" vs. "new", then some users
 will always end up in A/B&nbsp;tests. This is not good as the new variant might be
 brittle or have flaws.</p>
-<p>Instead, we can give the test an unique name and thus do:</p>
+<p>Instead, we can give the test a unique name and thus do:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 
@@ -227,7 +227,7 @@ brittle or have flaws.</p>
 <span class="sd">    """</span>
     <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
     <span class="n">seed</span> <span class="o">=</span> <span class="n">mmh3</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">user_id</span> <span class="o">+</span> <span class="n">test_name</span><span class="p">)</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
     <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
     <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
@@ -240,10 +240,10 @@ brittle or have flaws.</p>
 <p>We might want to generate the variations across multiple systems. Most of the
 code above is trivial to execute in any programming language. However, the
 output of <code>random.seed(0); random.random()</code> might differ between programming
-languages or even versions of a programming language. The reason are
+languages or even versions of a programming language. The reason is
 differences in the random number generators.</p>
 <p>A Pseudo-Random Number Generator (RNG) is a key component for the described
-solution. In the following is a list of the components:</p>
+solution. The following is a list of common RNGs:</p>
 <table class="table">
 <thead>
 <tr>
@@ -302,7 +302,7 @@ solution. In the following is a list of the components:</p>
 reading <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> and <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p>However, I tried <a href="https://pypi.org/project/java-random/"><code>java-random</code></a> and
 visualized the results (<a href="https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py">code</a>).
-What you see is 1000 random numbers generated. The colum is the seed, the row
+What you see is 1000 generated random numbers per seed. The column is the seed, the rows
 are 1000 consecutive random numbers. Clearly, the numpy and the Python version
 look better:</p>
 <table class="table">
@@ -320,7 +320,7 @@ look better:</p>
 </tr>
 <tr>
 <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
-<td colspan="2">This is how it should look like - no pattern to be seen.</td>
+<td colspan="2">This is what it should look like - no pattern to be seen.</td>
 </tr>
 <tr>
 <th>MT19937</th>
@@ -346,12 +346,12 @@ look better:</p>
 <p>Security in the sense of predictability of the sequence is also an important
 property in many contexts. In the context of A/B-Testing, however, it does not
 matter. State size is also interesting.</p>
-<p>PHP and Golang do either not at all or at least not clearly state what the
+<p>PHP and Go either don't state at all, or at least don't clearly state, what the
 default random number generator is.</p>
 <h2 id="tldr">TL;DR</h2>
 <p>Bucketing is easy as long as you have one system (OS and Programming language /
 library) where you execute the bucketing. Once you have more, you need to take
-care of how <code>random.random()</code> actually works</p>
+care of how <code>random.random()</code> actually works.</p>
 <h2 id="see-also">See also</h2>
 <div class="footnote">
 <hr/>

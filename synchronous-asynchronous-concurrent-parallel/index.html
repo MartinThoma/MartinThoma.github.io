@@ -165,7 +165,7 @@ combined time &ldquo;execution time&rdquo;. So the overall wall-clock time was r
 interleaved execution model. It is not in parallel, but also not sequential.</p>
 <p>Think about something that is pretty CPU intensive, e.g. extracting a big ZIP
 archive. That might block your CPU for several minutes. If things were done
-strictly sequential, you could not do anything at that time. You could not
+strictly sequentially, you could not do anything at that time. You could not
 browse the web. You could not even move your mouse cursor. That feels not
 responsive.</p>
 <p>Instead of doing it sequentially, we can give the mouse cursor a little bit of
@@ -221,7 +221,7 @@ to give our code the data to continue:</p>
 <p>For developers who want to understand how to use async/await in Python, I
 recommend &ldquo;<a href="https://realpython.com/async-io-python/">Async IO in Python: A Complete
 Walkthrough</a>&rdquo; by Brad Solomon.</p>
-<p>For non-develpers, the important take-away is that it requires additional
+<p>For non-developers, the important takeaway is that it requires additional
 development effort but you can get <strong>good speedups if blocking IO is the
 issue</strong>.</p>
 <h2 id="incoming-requests-asynchronous-vs-synchronous">Incoming Requests: Asynchronous vs synchronous</h2>
@@ -243,7 +243,7 @@ load? Does Bob have to wait for 5 seconds before the system even starts
 working on his stuff?</p>
 <p>Of course not. The obvious first improvement is to realize that you can run
 many processes/threads in parallel. The number of concurrent threads you can
-run is typically in the order of a few dozens. That means if you have hundreds
+run is typically in the order of a few dozen. That means if you have hundreds
 of requests hitting your server at the same time, <strong>multiprocessing</strong> or
 <strong>multithreading</strong> is not a solution.</p>
 <p>The next step is to start to think about which resources you run out of.
@@ -253,16 +253,16 @@ process. It&rsquo;s waiting for the response from the database or from other
 services. It&rsquo;s <strong>blocked</strong> by that and simply waits.</p>
 <p>Realizing this, you can keep a list of tasks you need to do. When one task is
 blocked, it just gives away its &ldquo;right&rdquo; to execute to other services. It&rsquo;s
-acting cooperative. Welcome to <strong>coroutines</strong>.</p>
+acting cooperatively. Welcome to <strong>coroutines</strong>.</p>
 <p>To phrase it in our example:</p>
 <ul>
-<li>The website receives Alice requests. It parses the request and realizes that
+<li>The website receives Alice's request. It parses the request and realizes that
   it needs data from the database. It sends the request to the database. But
-  the program knows that this will take a bit of time, so it let&rsquo;s other
+  the program knows that this will take a bit of time, so it lets other
   people continue.</li>
-<li>The website receives Bob request. It parses the request, sends the DB
+<li>The website receives Bob's request. It parses the request, sends the DB
   request and returns the power to execute.</li>
-<li>Alice DB request returned an answer. The response is crafted and Alice can continue</li>
+<li>Alice's DB request returned an answer. The response is crafted and Alice can continue.</li>
 </ul>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2021/05/asynchronous-response.png"><img alt="Asynchronous Response" src="../images/2021/05/asynchronous-response.png" style="width: 512px;"/></a>

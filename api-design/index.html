@@ -118,14 +118,14 @@ comments 😊</p>
 <p>An API is written because you want to make a public interface to your
 application. You will not know who is using your service. For this reason, you
 have to keep things running for quite a while. Changes in an endpoint could
-potentialy cause another service to crash. You want your stuff to be reliable,
+potentially cause another service to crash. You want your stuff to be reliable,
 so think about that in advance.</p>
-<p>Oh, and JSON is likely the most common way to return information in the web.
+<p>Oh, and JSON is likely the most common way to return information on the web.
 So make sure your responses are valid JSON and you include
 <code>Content-Type: application/json</code> in the header. Consequently, you can expect
 the payload to be valid JSON as well.</p>
 <h3 id="character-sets">Character Sets</h3>
-<p>Use UTF8. Always. Everywhere.</p>
+<p>Use UTF-8. Always. Everywhere.</p>
 <p>See also: <a href="https://softwareengineering.stackexchange.com/q/40063/25699">Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?</a></p>
 <h3 id="monitoring">Monitoring</h3>
 <p>You offer a service, so please make sure it is available. You could use services
@@ -140,11 +140,11 @@ Some examples of status pages:</p>
 <li><a href="https://status.bitbucket.org">status.bitbucket.org</a></li>
 </ul>
 <h3 id="server-time">Server Time</h3>
-<p>Make sure your server time is not too off. This makes comparing logs of
+<p>Make sure your server time is not too far off. This makes comparing logs of
 different systems easier. And it could be that you use the system time directly
 or indirectly as an API output. You can use an <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">NTP server</a>
 to sync the time.</p>
-<p>For manual checking.</p>
+<p>For manual checking:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>ntpq<span class="w"> </span>-pn
 <span class="w">     </span>remote<span class="w">           </span>refid<span class="w">      </span>st<span class="w"> </span>t<span class="w"> </span>when<span class="w"> </span>poll<span class="w"> </span>reach<span class="w">   </span>delay<span class="w">   </span>offset<span class="w">  </span><span class="nv">jitter</span>
 <span class="o">==============================================================================</span>
@@ -160,7 +160,7 @@ to sync the time.</p>
 -192.33.96.102<span class="w">   </span>.PPS.<span class="w">            </span><span class="m">1</span><span class="w"> </span>u<span class="w">  </span><span class="m">113</span><span class="w">  </span><span class="m">128</span><span class="w">  </span><span class="m">377</span><span class="w">   </span><span class="m">40</span>.525<span class="w">    </span><span class="m">3</span>.008<span class="w">   </span><span class="m">2</span>.11
 </code></pre></div>
 <h2 id="naming_1">Naming</h2>
-<p>Suppose we would have an API which lets us create / delete / receive users. I
+<p>Suppose we have an API which lets us create / delete / retrieve users. I
 would expect the following:</p>
 <ul>
 <li>GET <code>domain.io/api/users</code>: Returns a list of all users</li>
@@ -169,46 +169,46 @@ would expect the following:</p>
 <li>DELETE <code>domain.io/api/users/42</code>: Deletes the user with ID 42</li>
 </ul>
 <p>This kind of logic should be consistent through the complete API.</p>
-<p>For the filed names, I suggest to use <strong>camelCase</strong> as it is usually done with
+<p>For the field names, I suggest using <strong>camelCase</strong> as it is usually done with
 JSON.</p>
-<p>For the names, I suggest to use <strong>plural forms</strong>. The main point is to be
+<p>For the names, I suggest using <strong>plural forms</strong>. The main point is to be
 consistent.</p>
 <p>And, of course, there is the actual value of IDs. It might not be desirable
 that others can iterate through whatever has the ID in your system. UUID could
 be one alternative.</p>
 <h2 id="versioning">Versioning</h2>
-<p>Having an URL structure like <code>domain.io/api/v1/foobar</code> is really nice. This
+<p>Having a URL structure like <code>domain.io/api/v1/foobar</code> is really nice. This
 allows you to change some of the practices and be consistent. So you could
-follow some naming schemas vor <code>/v1/*</code> and others for <code>/v2/*</code>. Or change the
+follow some naming schemes for <code>/v1/*</code> and others for <code>/v2/*</code>. Or change the
 authentication.</p>
 <h2 id="list-returning-endpoints">List-returning Endpoints</h2>
 <p><strong>Please note</strong>: You might want to read <a href="https://blog.philipphauer.de/web-api-pagination-continuation-token/#offset-pagination">Web API Pagination with the 'Timestamp_Offset_Checksum' Continuation Token</a> - don't take the following as the best option for granted!</p>
-<p>Always when you return lists, make it paginated. Add a <strong>default sorting</strong>
+<p>Whenever you return lists, make them paginated. Add a <strong>default sorting</strong>
 and an <strong>offset parameter</strong>. You could also add an <strong>order</strong> and a <strong>limit</strong> parameter.</p>
-<p>The endpoint should return</p>
+<p>The endpoint should return:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s2">"continue"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="n">FOOBAR</span><span class="p">}</span>
 </code></pre></div>
 <p>where the value of <code>continue</code> is the next index to continue. So in case you
-decide that an limit of 100 returned elements is enough / reasonable, the
+decide that a limit of 100 returned elements is enough / reasonable,
 the first query that has more than 100 elements would return the <code>continue</code> of
-100. A call with an <code>offset=142</code> wuld have an <code>"continue": 242</code> in the
+100. A call with an <code>offset=142</code> would have a <code>"continue": 242</code> in the
 response, if there are at least 242 elements.</p>
-<p>It is done similar in the <a href="https://www.mediawiki.org/wiki/API:Query">MediaWiki API</a>.</p>
+<p>It is done similarly in the <a href="https://www.mediawiki.org/wiki/API:Query">MediaWiki API</a>.</p>
 <h2 id="documentation">Documentation</h2>
-<p>Add an <code>format</code> parameter to every <code>GET</code> query. If it is not specified, then
+<p>Add a <code>format</code> parameter to every <code>GET</code> query. If it is not specified, then
 you can return documentation and/or a formatted response.</p>
 <p>See <a href="https://en.wikipedia.org/w/api.php?action=query&amp;generator=allpages&amp;gaplimit=3&amp;gapfrom=Ba&amp;prop=links%7Ccategories&amp;format=jsonfm&amp;formatversion=2">MediaWiki as an example</a>.</p>
 <p>Also, you should be really careful about units:</p>
 <ul>
-<li><strong>Prices</strong>: Always document the currency. I suggest to use cents so that you
+<li><strong>Prices</strong>: Always document the currency. I suggest using cents so that you
   can use integers and don't have to deal with floating point precision
   problems.</li>
-<li><strong>Dates</strong>: There are timezones. I suggest to use the <a href="https://de.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with
-  datetime as used for ECMA consistently: <code>YYYY-MM-DDTHH:mm:ss+00:00</code> (UTC), e.g <code>2018-03-07T21:37:24+00:00</code>.</li>
+<li><strong>Dates</strong>: There are timezones. I suggest using <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with
+  datetime as used for ECMA consistently: <code>YYYY-MM-DDTHH:mm:ss+00:00</code> (UTC), e.g. <code>2018-03-07T21:37:24+00:00</code>.</li>
 <li><strong>SI Units</strong>: Use <a href="https://en.wikipedia.org/wiki/International_System_of_Units">SI units</a> as a default. If you don't use them, make a big warning sign.</li>
 </ul>
 <h2 id="errors">Errors</h2>
-<p>Help your API users by making nice error messages. Something like</p>
+<p>Help your API users by making nice error messages. Something like:</p>
 <div class="highlight"><pre><span></span><code>HTTP Status 400
 
 {
@@ -233,9 +233,9 @@ you can return documentation and/or a formatted response.</p>
 <h3 id="https">HTTPS</h3>
 <p>Use HTTPS.</p>
 <h3 id="authentication">Authentication</h3>
-<p>Give an concrete example how one should authenticate. Most likely, there will
+<p>Give a concrete example of how one should authenticate. Most likely, there will
 be a token system. Be absolutely clear when the tokens expire.</p>
-<p>If loosing the token could lead to people not being able to access your service
+<p>If losing the token could lead to people not being able to access your service
 for a while, make sure they know it! This could be the case if one account may
 only have one active token.</p>
 <p>See also:</p>
@@ -244,7 +244,7 @@ only have one active token.</p>
 <li><a href="https://jwt.io/introduction/">Introduction to JSON Web Tokens</a></li>
 </ul>
 <h3 id="input-validation">Input Validation</h3>
-<p>Don't let users input go directly to the database / be part of the execution.</p>
+<p>Don't let user input go directly to the database / be part of the execution.</p>
 <p>See <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a></p>
 <h2 id="other-stuff_1">Other Stuff</h2>
 <p>There are a couple of other rules, but I'm not sure how important they actually

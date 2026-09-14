@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="jq "/>
 <meta property="og:url" content="jq/" />
-<meta property="og:description" content="jq is a command line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea what you actually have. Installation # Ubuntu …" />
+<meta property="og:description" content="jq is a command-line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea of what you actually have. Installation # Ubuntu …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-11-03T12:00:00+01:00" />
 <meta name="twitter:title" content="jq ">
-<meta name="twitter:description" content="jq is a command line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea what you actually have. Installation # Ubuntu …">
+<meta name="twitter:description" content="jq is a command-line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea of what you actually have. Installation # Ubuntu …">
 <meta property="og:image" content="logos/jq.png" />
 <meta name="twitter:image" content="logos/jq.png" >
 
@@ -111,10 +111,10 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p><code>jq</code> is a command line tool for processing JSON data. It is useful when
+            <p><code>jq</code> is a command-line tool for processing JSON data. It is useful when
 executing small ad-hoc tasks. In this sense, it is similar to <code>sed</code>, <code>awk</code> and
 <code>grep</code>. It is very good for the first step in exploratory data analysis:
-Getting an idea what you actually have.</p>
+Getting an idea of what you actually have.</p>
 <h2 id="installation">Installation</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu</span>
 $<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>jq
@@ -178,7 +178,7 @@ $<span class="s2"> cat movies.json | jq '.[:5]'</span>
 <p>At this point, I would usually switch to Pandas. However, let's see how far
 we get with <code>jq</code>.</p>
 <p>I want to see the titles. To do so, I first extract each list element. Then
-I extract the <code>title</code> field from each of them. To allow me scolling through it,
+I extract the <code>title</code> field from each of them. To be able to scroll through it,
 I apply <code>less</code>:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | .title'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 <span class="s2">"After Dark in Central Park"</span>
@@ -236,7 +236,7 @@ actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_
 <a href="https://www.imdb.com/title/tt0449089/?ref_=nv_sr_1?ref_=nv_sr_1">RV</a>,
 <a href="https://www.imdb.com/title/tt0043766/?ref_=fn_al_tt_2">M</a> and
 <a href="https://www.imdb.com/title/tt3166542/?ref_=fn_al_tt_3">W</a> are actually titles!</p>
-<p>Ok, let's see which value range the year covers:</p>
+<p>OK, let's see which value range the year covers:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .year] | min'</span>
 <span class="m">1900</span>
 $<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'[.[] | .year] | max'</span>
@@ -286,12 +286,12 @@ $<span class="w"> </span>cat<span class="w"> </span>movies.json<span class="w"> 
 <span class="s2">"The Twilight Saga: Breaking Dawn - Part 2"</span>
 <span class="s2">"Anchorman 2: The Legend Continues"</span>
 </code></pre></div>
-<p>Now I would like to see for which actors we have most titles. Also, I would
+<p>Now I would like to see for which actors we have the most titles. Also, I would
 like to get a list of all actors in the dataset. However, I have no clue how to
 do this with <code>jq</code>.</p>
 <h2 id="workflows">Workflows</h2>
-<p>When I see json in the internet, I want my browser to display it in a nice way. <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=de">JSONView</a> is good for that, but fails if the JSON becomes huge.</p>
-<p>Also, usually I start with opening it in Sublime Text. <a href="https://packagecontrol.io/packages/JSON%20Reindent">JSON Reindent</a> helps me to see the structure.</p>
+<p>When I see JSON on the internet, I want my browser to display it in a nice way. <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=de">JSONView</a> is good for that, but fails if the JSON becomes huge.</p>
+<p>Also, I usually start by opening it in Sublime Text. <a href="https://packagecontrol.io/packages/JSON%20Reindent">JSON Reindent</a> helps me to see the structure.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://stedolan.github.io/jq/">Official Website</a> and <a href="https://github.com/stedolan/jq">git repository</a></li>

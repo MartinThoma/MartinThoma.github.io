@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Unit Testing in Python — tox and nox "/>
 <meta property="og:url" content="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729" />
-<meta property="og:description" content="Image derived by Martin Thoma from Andrea Caprotti (nox project) When I started developing Python packages, there was one mistake I did quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After reading this article, you will know how …" />
+<meta property="og:description" content="Image derived by Martin Thoma from Andrea Caprotti (nox project) When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After reading this article, you will know how …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-07-23T20:00:00+02:00" />
 <meta name="twitter:title" content="Unit Testing in Python — tox and nox ">
-<meta name="twitter:description" content="Image derived by Martin Thoma from Andrea Caprotti (nox project) When I started developing Python packages, there was one mistake I did quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After reading this article, you will know how …">
+<meta name="twitter:description" content="Image derived by Martin Thoma from Andrea Caprotti (nox project) When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version. After reading this article, you will know how …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -97,7 +97,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">Unit Testing in Python  —  tox and nox</a></h1>
+    <h1><a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">Unit Testing in Python — tox and nox</a></h1>
     </header>
 </div>
 
@@ -115,11 +115,11 @@ MathJax.Hub.Queue(function() {
 <a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" src="../images/2020/07/alice-full- Andrea-Caprotti.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Image derived by Martin Thoma from <a href="https://github.com/theacodes/nox/blob/master/docs/_static/alice-full.png">Andrea Caprotti</a> (nox project)</figcaption>
 </figure>
-<p>When I started developing Python packages, there was one mistake I did quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.</p>
+<p>When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.</p>
 <p>After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for Continuous Integration tools like Travis. I assume you already know <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">the basics of unit testing in Python</a> and <a href="https://packaging.python.org/tutorials/packaging-projects/">how to package your code</a>.</p>
 <h2 id="pyenv">pyenv</h2>
-<p><a href="https://github.com/pyenv/pyenv">pyenv</a> is a tool which lets you easily install and switch Python environments on your system. Take a look at <a href="https://github.com/pyenv/pyenv#installation">the official installation instructions</a>; it&rsquo;s not a Python package but hooks directly into your shell.</p>
-<p>Once it is installed, you can get a list of all available Python environments. In July 2020, there were 427 different versions! I&rsquo;ve shortened them here to show you the ones I think are interesting:</p>
+<p><a href="https://github.com/pyenv/pyenv">pyenv</a> is a tool which lets you easily install and switch Python versions on your system. Take a look at <a href="https://github.com/pyenv/pyenv#installation">the official installation instructions</a>; it&rsquo;s not a Python package but hooks directly into your shell.</p>
+<p>Once it is installed, you can get a list of all available Python versions. In July 2020, there were 427 different versions! I&rsquo;ve shortened them here to show you the ones I think are interesting:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span>--list
 Available<span class="w"> </span>versions:
 <span class="w">  </span><span class="o">[</span>...<span class="o">]</span>
@@ -145,7 +145,7 @@ Available<span class="w"> </span>versions:
 <p>Install a Python version:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.8.4
 Downloading<span class="w"> </span>Python-3.8.4.tar.xz...
--&gt;<span class="w"> </span><span class="o">[</span>https://www.python.org/ftp/python/3.8.4/Python-3.8.4.tar.xz<span class="o">](</span>https://www.python.org/ftp/python/3.8.4/Python-3.8.4.tar.xz<span class="o">)</span>
+-&gt;<span class="w"> </span>https://www.python.org/ftp/python/3.8.4/Python-3.8.4.tar.xz
 Installing<span class="w"> </span>Python-3.8.4...
 Installed<span class="w"> </span>Python-3.8.4<span class="w"> </span>to<span class="w"> </span>/home/moose/.pyenv/versions/3.8.4
 </code></pre></div>
@@ -159,21 +159,21 @@ $<span class="w"> </span>pip<span class="w"> </span>--version
 pip<span class="w"> </span><span class="m">20</span>.1.1<span class="w"> </span>from<span class="w"> </span>/home/moose/.pyenv/versions/3.8.4/lib/python3.8/site-packages/pip<span class="w"> </span><span class="o">(</span>python<span class="w"> </span><span class="m">3</span>.8<span class="o">)</span>
 </code></pre></div>
 <h2 id="virtual-environment-basics">Virtual environment basics</h2>
-<p>A virtual environment encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed c libraries and executables. The only difference is which packages are available.</p>
+<p>A virtual environment encapsulates the installed packages. Different virtual environments still share the same operating system, the same installed C libraries and executables. The only difference is which packages are available.</p>
 <p>You can create a new virtual environment called venv-tutorial like this:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv-tutorial
 </code></pre></div>
-<p>It creates a folder which contains all installed packages and few other things. To use it, you need to activate it:</p>
+<p>It creates a folder which contains all installed packages and a few other things. To use it, you need to activate it:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>venv-tutorial/bin/activate
 </code></pre></div>
-<p>This will add the prefix (venv-tutorial) in front of your prompt. It will make sure that later calls to python and pip use this environment. If you want to stop it again, type deactivate in the shell. If you delete this folder, the virtual environment is gone.</p>
+<p>This will add the prefix <code>(venv-tutorial)</code> in front of your prompt. It will make sure that later calls to <code>python</code> and <code>pip</code> use this environment. If you want to stop it again, type <code>deactivate</code> in the shell. If you delete this folder, the virtual environment is gone.</p>
 <h2 id="testing-multiple-python-versions-without-tox">Testing multiple Python versions without tox</h2>
-<p>When you claim that your project supports Python 2.7 and 3.5 to 3.8, then you better test those versions. In order to make sure that you install the packages properly, you should create a virtual environment. You might end up with creating a shell script which creates those virtual environments, starts the tests and deletes the virtual environments again.</p>
+<p>When you claim that your project supports Python 2.7 and 3.5 to 3.8, then you'd better test those versions. In order to make sure that you install the packages properly, you should create a virtual environment. You might end up creating a shell script which creates those virtual environments, starts the tests and deletes the virtual environments again.</p>
 <h2 id="how-to-use-tox">How to use tox</h2>
-<p>tox uses a tox.ini file which is in the package root directory. So your project structure might look like this:</p>
+<p>tox uses a <code>tox.ini</code> file which is in the package root directory. So your project structure might look like this:</p>
 <div class="highlight"><pre><span></span><code>your-awesome-project/            # The git repository
 &boxvr;&boxh;&boxh; README.md
-&boxvr;&boxh;&boxh; setup.py                     # Dependencies / Package Meta data
+&boxvr;&boxh;&boxh; setup.py                     # Dependencies / Package metadata
 &boxvr;&boxh;&boxh; your_awesome_package/        # Code of the package
 &boxv;   &boxvr;&boxh;&boxh; a_module.py
 &boxv;   &boxur;&boxh;&boxh; another_module.py
@@ -200,8 +200,8 @@ Python 3.6, Python 3.7 and Python 3.8 looks like this:</p>
 can do this with pyenv and make them available with the following command:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.8.4<span class="w"> </span><span class="m">3</span>.7.8<span class="w"> </span><span class="m">3</span>.6.11
 </code></pre></div>
-<p>Run tox within the root folder &mdash; the same folder that contains your tox.ini file.</p>
-<p>The next thing you might want to do is to break a couple of things out of the pytest run. For example, it&rsquo;s not necessary to run the linter flake8 and blackin every single environment. Instead, you can define a linter environment which is run once:</p>
+<p>Run tox within the root folder &mdash; the same folder that contains your <code>tox.ini</code> file.</p>
+<p>The next thing you might want to do is to break a couple of things out of the pytest run. For example, it&rsquo;s not necessary to run the linter flake8 and the formatter black in every single environment. Instead, you can define a linter environment which is run once:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[tox]</span>
 <span class="na">envlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">linter,py36,py37,py38</span>
 
@@ -238,10 +238,10 @@ that difference is not relevant." src="../images/2020/07/tox-parallel-run.png" s
 if you had run flake8 and black via pytest. It might be a tiny bit faster, but
 that difference is not relevant.</figcaption>
 </figure>
-<p>If you want to run just the linter, tox -e linter is your friend 🙂</p>
+<p>If you want to run just the linter, <code>tox -e linter</code> is your friend 🙂</p>
 <p>You can also create a matrix of different combinations of Python environments and dependencies you install. Thea Flowers showed this at PyCon 2019 (<a href="https://youtu.be/-BHverY7IwU?t=678">video</a>), but I never had the need to go down that rabbit hole.</p>
 <h2 id="now-what-is-nox">Now&hellip; what is nox?</h2>
-<p><a href="https://nox.thea.codes/en/stable/">nox</a> is a spin-off of tox. Instead of using a tox.ini configuration file, it uses a noxfile.py Python file. It&rsquo;s pretty similar to tox, but more flexible as it uses Python code:</p>
+<p><a href="https://nox.thea.codes/en/stable/">nox</a> is a spin-off of tox. Instead of using a <code>tox.ini</code> configuration file, it uses a <code>noxfile.py</code> Python file. It&rsquo;s pretty similar to tox, but more flexible as it uses Python code:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party</span>
 <span class="kn">import</span> <span class="nn">nox</span>
 

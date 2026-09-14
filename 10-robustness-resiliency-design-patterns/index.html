@@ -146,7 +146,7 @@ a good fallback. Better than the mini-game.</p>
 <a href="../images/2021/05/error-loading-data-server.png"><img alt="Image by Revansx from Wikimedia Commons" src="../images/2021/05/error-loading-data-server.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Image by <a href="https://commons.wikimedia.org/wiki/User:Revansx">Revansx</a> from <a href="https://commons.wikimedia.org/wiki/File:Screen_Shot_06-11-19_at_09.58_AM.png">Wikimedia Commons</a></figcaption>
 </figure>
-<p>Yes, that is a pattern. A trivial one, but an important one. I&lsquo;ve used it when
+<p>Yes, that is a pattern. A trivial one, but an important one. I've used it when
 sending web requests. If you receive an error, try again. The Python requests
 library has a built-in
 <a href="https://docs.python-requests.org/en/latest/api/?highlight=max_retries#requests.adapters.HTTPAdapter">max_retries</a>
@@ -164,15 +164,15 @@ might make it harder for the service to get back to normal. For this reason,
 you might want to consider <strong>capped exponential backoff</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">max_sleep</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># seconds</span>
 <span class="n">base_sleep</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># seconds</span>
-<span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_sleep</span><span class="p">,</span> <span class="n">base</span> <span class="o">**</span> <span class="n">attempts</span><span class="p">)</span>
+<span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_sleep</span><span class="p">,</span> <span class="n">base_sleep</span> <span class="o">**</span> <span class="n">attempts</span><span class="p">)</span>
 </code></pre></div>
 <p>In order to prevent multiple services essentially hitting at the same time,
 you can add a jitter:</p>
 <div class="highlight"><pre><span></span><code><span class="n">max_sleep</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># seconds</span>
 <span class="n">base_sleep</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># seconds</span>
-<span class="n">jitter</span> <span class="o">=</span> <span class="n">random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># seconds</span>
+<span class="n">jitter</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># seconds</span>
 
-<span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_sleep</span><span class="p">,</span> <span class="n">base</span> <span class="o">**</span> <span class="n">attempts</span><span class="p">)</span> <span class="o">+</span> <span class="n">jitter</span>
+<span class="n">sleep_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_sleep</span><span class="p">,</span> <span class="n">base_sleep</span> <span class="o">**</span> <span class="n">attempts</span><span class="p">)</span> <span class="o">+</span> <span class="n">jitter</span>
 </code></pre></div>
 <h2 id="3-timeout-and-other-resource-limitations">3. Timeout and other Resource Limitations</h2>
 <p>At some point, you need to accept that something is broken. But when do you do
@@ -243,7 +243,7 @@ with n:</p>
 <p>This assumes that a single server going down does not harm the others &mdash; which
 is unlikely, as the load will increase.</p>
 <p>You should also note that this is for services that run in parallel and can
-replace each other. If you have services that rely on each other the formula
+replace each other. If you have services that rely on each other, the formula
 changes to $p^n$:</p>
 <ul>
 <li>n=1: The service is 99.0% available. That&rsquo;s 3.65 days of downtime per year.</li>
@@ -253,14 +253,14 @@ changes to $p^n$:</p>
 <p>Spinning up such parallel machines is easy if you don&rsquo;t need to store or
 modify state. It&rsquo;s a lot harder for databases.</p>
 <p>I&rsquo;ve mainly written about servers here, but you can also think of
-<strong>error-correcting codes</strong> in the case of network communication and storage
-also is the redundancy pattern.</p>
+<strong>error-correcting codes</strong>: in network communication and storage, they
+implement the redundancy pattern as well.</p>
 <h2 id="7-bulkhead">7. Bulkhead</h2>
 <p>Bulkheads provide boundaries across which failures do not propagate. For
 example, think of YouTube. Users can upload videos and the videos get
 re-encoded. Executing this task on a separate machine guarantees that no
 issues with disk space, memory usage, CPU usage, and potential exploits in the
-used libraries affect the rest of the system. Having the software run of a
+used libraries affect the rest of the system. Having the software run on a
 separate machine is one form of sandboxing. We can guarantee by this strong
 isolation that this single feature will not affect others.</p>
 <h2 id="8-caching">8. Caching</h2>
@@ -268,7 +268,7 @@ isolation that this single feature will not affect others.</p>
 the load on your servers A LOT. They provide a nice fallback as well. On the
 other hand, you need to deal with inconsistencies introduced by caching. Maybe
 you need to explicitly invalidate the caches.</p>
-<p><a href="undefined">Adrian Hornsby</a> wrote a nice article about caching for resilience:
+<p>Adrian Hornsby wrote a nice article about caching for resilience:
 <a href="https://medium.com/the-cloud-architect/patterns-for-resilient-architecture-part-4-85afa66d6341"><strong>Patterns for Resilient Architecture &mdash; Part 4</strong>
 <em>Caching for Resiliency</em>medium.com</a></p>
 <h2 id="9-boundary-validation">9. Boundary Validation</h2>
@@ -303,18 +303,18 @@ healthy image is used.</p>
 <p>The presented design patterns can be grouped:</p>
 <ul>
 <li><strong>Detection</strong>: Get to know that something is wrong. <code>Timeouts</code> and
-  <code>Checksumsare</code> in this category.</li>
+  <code>Checksums</code> are in this category.</li>
 <li><strong>Containment</strong>: Make sure the errors don&rsquo;t affect other systems and limit
   the impact on the user. The patterns in this category are <code>Fallback</code>,
-  <code>Resource Limitation</code>, <code>Circuit Breaker</code>, <code>Bulkhead</code>, <code>Caching</code></li>
-<li><strong>Recovery</strong>: Get back up. Retry and Rollback are in this category</li>
+  <code>Resource Limitation</code>, <code>Circuit Breaker</code>, <code>Bulkhead</code>, <code>Caching</code>.</li>
+<li><strong>Recovery</strong>: Get back up. <code>Retry</code> and <code>Rollback</code> are in this category.</li>
 <li><strong>Prevention</strong>: Avoid getting into trouble in the first place. <code>Rate
   Limiting</code>, <code>Redundancy</code>, <code>Caching</code>, and <code>Boundary Validation</code> do that.</li>
 </ul>
 <p>I hope this was helpful to you!</p>
 <h2 id="resources">Resources</h2>
 <ul>
-<li><a href="undefined">Sazzad Hissain Khan</a>: &ldquo;<a href="https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49">Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance</a>&rdquo;, 2019.</li>
+<li>Sazzad Hissain Khan: &ldquo;<a href="https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49">Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance</a>&rdquo;, 2019.</li>
 <li>Saurabh Hukerikar, Christian Engelmann: &ldquo;<a href="https://www.osti.gov/servlets/purl/1407767">Resilience Design Patterns: A Structured Approach to Resilience at Extreme Scale</a>&rdquo;</li>
 </ul>
             

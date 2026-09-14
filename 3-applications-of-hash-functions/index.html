@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="The 3 Applications of Hash Functions  - What they are, what the options are, and why they matter "/>
 <meta property="og:url" content="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d" />
-<meta property="og:description" content="Image by Martin Thoma Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later. After reading …" />
+<meta property="og:description" content="Image by Martin Thoma Hash functions take arbitrarily many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later. After reading …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2021-01-17T20:00:00+01:00" />
 <meta name="twitter:title" content="The 3 Applications of Hash Functions  - What they are, what the options are, and why they matter ">
-<meta name="twitter:description" content="Image by Martin Thoma Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later. After reading …">
+<meta name="twitter:description" content="Image by Martin Thoma Hash functions take arbitrarily many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later. After reading …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -112,8 +112,8 @@ MathJax.Hub.Queue(function() {
 
             
             <p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/4610/1*61uolxM5HsroqBFaQxsGxQ.png"/><em>Image by Martin Thoma</em></p>
-<p>Hash functions take arbitrary many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.</p>
-<p>After reading this article you will know three different applications of hash functions. All of them are crucial for modern software development. Let&rsquo;s go!</p>
+<p>Hash functions take arbitrarily many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.</p>
+<p>After reading this article, you will know three different applications of hash functions. All of them are crucial for modern software development. Let&rsquo;s go!</p>
 <h2 id="a-trivial-hash-function">A trivial hash function</h2>
 <p>Let&rsquo;s say we want a hash function that takes arbitrary length input and generates a 128-bit output.</p>
 <p>The trivial way to compute a hash would be to look at 128-bit blocks of data. If the input is not a multiple of 128 bit, we just pad it with zeroes. Then we <a href="https://en.wikipedia.org/wiki/Exclusive_or#Truth_table">XOR</a> the blocks:</p>
@@ -172,20 +172,20 @@ hash functions are:</p>
 <li><strong>Avalanche effect</strong>: If you change a single bit in the input, each bit in the
   output changes with 50% probability. This property is desirable because it
   indicates that you don&rsquo;t get any information about the pre-image.</li>
-<li><strong>Collision attack resistance</strong>: It is infeasible to find to messages m1 and m2
-  that have the same hash value: hash(m1) == hash(m2) .</li>
+<li><strong>Collision attack resistance</strong>: It is infeasible to find two messages m1 and m2
+  that have the same hash value: <code>hash(m1) == hash(m2)</code>.</li>
 <li><strong>Chosen-prefix attack resistance</strong>: This is more general than the collision
   attack resistance. Given two prefixes p1 and p2 find two messages m1 and m2 such
   that their concatenation gives the same hash: <code>hash(p1+m1) == hash(p2+m2)</code> (<a href="https://en.wikipedia.org/wiki/Collision_attack">source</a>)</li>
 </ul>
-<p>If an attacker wants to apply a inverse_hash like given above, you want to
+<p>If an attacker wants to apply an <code>inverse_hash</code> like given above, you want to
 make this a super time-intensive operation. Hence you push the execution time
 from maybe 100&mu;s to 100ms by applying the hash function 1000 times.</p>
 <p>For more details, read my article about password hashing:
 <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636"><strong>Password Hashing 😇</strong>
 <em>Prepare to get hacked</em>levelup.gitconnected.com</a></p>
 <h2 id="application-2-integrity-checks">Application 2: Integrity Checks</h2>
-<p>Sometimes you just want to know if two files can be possibly identical. For
+<p>Sometimes you just want to know if two files could possibly be identical. For
 example, you might want to create a program that scans a directory and all
 subdirectories for duplicate files:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
@@ -217,7 +217,7 @@ subdirectories for duplicate files:</p>
 </code></pre></div>
 <p>In this application, we use the fact that two different hash values typically
 mean the input was different. Hash collisions are rare. You could then also
-compare the files in the duplicate_set to make sure they are actually
+compare the files in the <code>duplicate_set</code> to make sure they are actually
 duplicates.</p>
 <p>This method can also be used to ensure file integrity. Think of big files
 you&rsquo;ve downloaded. You can check if something went wrong during the download
@@ -267,8 +267,8 @@ Hence the more work you have to put into it.</p>
 <a href="https://medium.com/coinmonks/the-blockchain-473aac352e5"><strong>The Blockchain</strong>
 <em>An Introduction to Blockchain, Bitcoin ₿, and related concepts</em>medium.com</a></p>
 <h2 id="bonus-dictionaries-maps-associative-arrays">Bonus: Dictionaries / Maps / Associative Arrays</h2>
-<p>A <strong>hash map</strong> is a data structure that typically maps a string or a number to any object. They are called dictionaries in Python, associative arrays in PHP, HashMap/HashTable in Java, and simply map in C++. The concept is super cool; have a look at <a href="https://en.wikipedia.org/wiki/Hash_table">the Wikipedia article</a>.</p>
-<p>If you&rsquo;re interested how Python does it, then <a href="undefined">Praveen Gollakota</a> wrote an <a href="https://stackoverflow.com/a/9022835/562769">awesome StackOverflow answer</a> and <a href="undefined">Ian Clelland</a> explains <a href="https://stackoverflow.com/a/8998010/562769">which hash functions are used by default</a>.</p>
+<p>A <strong>hash map</strong> is a data structure that typically maps a string or a number to any object. They are called dictionaries in Python, associative arrays in PHP, HashMap/HashTable in Java, and <code>std::unordered_map</code> in C++. The concept is super cool; have a look at <a href="https://en.wikipedia.org/wiki/Hash_table">the Wikipedia article</a>.</p>
+<p>If you&rsquo;re interested in how Python does it, then Praveen Gollakota wrote an <a href="https://stackoverflow.com/a/9022835/562769">awesome Stack Overflow answer</a> and Ian Clelland explains <a href="https://stackoverflow.com/a/8998010/562769">which hash functions are used by default</a>.</p>
 <h2 id="how-common-are-collisions">How common are collisions?</h2>
 <p>For this example, let&rsquo;s just hash 466,550 English words. A pretty comprehensive dictionary.</p>
 <p>Let&rsquo;s first get the overview:</p>
@@ -285,10 +285,10 @@ char_xor             466,422           993.9 ns/value    7 bit
 </code></pre></div>
 <p>A couple of things are noteworthy here:</p>
 <ul>
-<li>The hashes with 128-bit or more did not have any collision. The char_xor effectively only uses 7 bit and thus can only encode a maximum of 128 different words.</li>
+<li>The hashes with 128 bits or more did not have any collision. The char_xor effectively only uses 7 bit and thus can only encode a maximum of 128 different words.</li>
 <li>RIPEMD160 is way slower than the SHA hash functions. It&rsquo;s very likely that the <a href="https://en.wikipedia.org/wiki/Intel_SHA_extensions">Intel SHA extensions</a>, hence direct hardware support, are the reason why those are so fast. SHA is extremely well-known and widespread. For this reason, I expect the implementation to be very efficient.</li>
 </ul>
-<p>In case you&rsquo;re curious, there are the 23 collisions of CRC32:</p>
+<p>In case you&rsquo;re curious, here are the 23 collisions of CRC32:</p>
 <div class="highlight"><pre><span></span><code>('Audras', 'bermensch')
 ('defeudalize', 'demobilisation')
 ('dyn', 'gigmanism')

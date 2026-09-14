@@ -136,20 +136,20 @@ is a Python Web Server Gateway Interface (WSGI) HTTP server.</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">)</span>
 </code></pre></div>
-<p>and an <code>wsgi.py</code>:</p>
+<p>and a <code>wsgi.py</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">exampleproject</span> <span class="kn">import</span> <span class="n">app</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
-<p>Run it with</p>
+<p>Run it with:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gunicorn<span class="w"> </span>--bind<span class="w"> </span><span class="m">0</span>.0.0.0:5000<span class="w"> </span>wsgi:app
 </code></pre></div>
 <h2 id="benchmarking-it">Benchmarking it</h2>
 <p>I want to see when this fails. So I test it with ApacheBench (<code>ab</code>):</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>apache2-utils
 </code></pre></div>
-<p>And then run 50&thinsp;000 requests with different concurrency.</p>
+<p>And then I run 50&thinsp;000 requests with different concurrency levels.</p>
 <h2 id="seen-errors">Seen Errors</h2>
 <h3 id="connection-reset-by-peer-104">Connection reset by peer (104)</h3>
 <p>I got a lot of <code>apr_socket_recv: Connection reset by peer (104)</code> with

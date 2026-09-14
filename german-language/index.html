@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="German Language "/>
 <meta property="og:url" content="german-language/" />
-<meta property="og:description" content="German is one of the many languages spoken in Europe. I&#39;ve been told that it also is a quite difficult one. In this this article I would like to share some funny or interesting facts about German with you. Script I recently published a paper about language identification. For this …" />
+<meta property="og:description" content="German is one of the many languages spoken in Europe. I&#39;ve been told that it is also quite a difficult one. In this article, I would like to share some funny or interesting facts about German with you. Script I recently published a paper about language identification. For this, I …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-02-20T20:00:00+01:00" />
 <meta name="twitter:title" content="German Language ">
-<meta name="twitter:description" content="German is one of the many languages spoken in Europe. I&#39;ve been told that it also is a quite difficult one. In this this article I would like to share some funny or interesting facts about German with you. Script I recently published a paper about language identification. For this …">
+<meta name="twitter:description" content="German is one of the many languages spoken in Europe. I&#39;ve been told that it is also quite a difficult one. In this article, I would like to share some funny or interesting facts about German with you. Script I recently published a paper about language identification. For this, I …">
 <meta property="og:image" content="logos/germany.png" />
 <meta name="twitter:image" content="logos/germany.png" >
 
@@ -105,27 +105,27 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#script" title="Script">Script</a></li><li><a class="toc-href" href="#lower-and-upper-case" title="Lower and upper case">Lower and upper case</a></li><li><a class="toc-href" href="#punctuation" title="Punctuation">Punctuation</a></li><li><a class="toc-href" href="#articles" title="Articles">Articles</a></li><li><a class="toc-href" href="#long-words" title="Long words">Long words</a></li><li><a class="toc-href" href="#missing-words" title="Missing Words">Missing Words</a></li><li><a class="toc-href" href="#micallenious" title="Micallenious">Micallenious</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#script" title="Script">Script</a></li><li><a class="toc-href" href="#lower-and-upper-case" title="Lower and upper case">Lower and upper case</a></li><li><a class="toc-href" href="#punctuation" title="Punctuation">Punctuation</a></li><li><a class="toc-href" href="#articles" title="Articles">Articles</a></li><li><a class="toc-href" href="#long-words" title="Long words">Long words</a></li><li><a class="toc-href" href="#missing-words" title="Missing Words">Missing Words</a></li><li><a class="toc-href" href="#miscellaneous" title="Miscellaneous">Miscellaneous</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p><a href="https://en.wikipedia.org/wiki/German_language">German</a> is one of the many
-languages spoken in Europe. I've been told that it also is a quite difficult
-one. In this this article I would like to share some funny or interesting
+languages spoken in Europe. I've been told that it is also quite a difficult
+one. In this article, I would like to share some funny or interesting
 facts about German with you.</p>
 <h2 id="script">Script</h2>
 <p>I recently published a <a href="https://arxiv.org/pdf/1801.07779.pdf">paper about language identification</a>.
 For this, I collected 1000 paragraphs from random Wikipedia articles, including
 the German one. One thing I was interested in is which script defines the language.
 While most people will probably say that German is written in the <a href="https://en.wikipedia.org/wiki/Latin_script">Latin script</a> (so: <code>A-Z</code> and <code>a-z</code>) with some extra characters (<code>&szlig;</code>, <code>&auml;&ouml;&uuml;</code>, <code>&Auml;&Ouml;&Uuml;</code>),
-I wanted to derive this from the data. So I counted each unicode code point, sorted them descending
+I wanted to derive this from the data. So I counted each Unicode code point, sorted them descending
 by frequency and added characters for some thresholds $\theta$:</p>
 <ul>
 <li>$C_{0.50} = {\text{SPACE}, e, n, r, i, t}$: Yes, only 6 characters make up 50% of the texts! And the most common one is one that isn't even mentioned in the usual lists!</li>
-<li>$C_{0.75} = C_{0.50} \cup {s, a, d, h, u, l, o}$: We get the remaining vocals</li>
-<li>$C_{0.90} = C_{0.75} \cup {c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1}$: The first capital letter, first punctuation marks and the first digit joins</li>
+<li>$C_{0.75} = C_{0.50} \cup {s, a, d, h, u, l, o}$: We get the remaining vowels</li>
+<li>$C_{0.90} = C_{0.75} \cup {c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1}$: The first capital letter, first punctuation marks and the first digit join</li>
 <li>$C_{0.99} = C_{0.90} \cup {&uuml;, D, B, A, &auml;, M, 0, G, 9, K, F, E, P, W, 2, L, -, H, &ouml;, R, 8, V, I, T, J, N ,), (, 5, y, &szlig;, 6, 7, 4, Z, C, 3}$: Now we have <code>a-z</code> and <code>&auml;&ouml;&uuml;&szlig;</code> but not <code>jqx</code>. We have <code>A-C</code> but not <code>OQUXY</code>. We have the punctuation marks <code>,.()-</code>, <code>SPACE</code> and the digits <code>0-9</code>. 64 characters in total</li>
 <li>$C_{1.00}$ contains 247 characters in total, including <code>&yicy;&ycy;&shcy;&khcy;&dcy;&SOFTcy;&Scy;&Rcy;&Ocy;&Vcy;&tau;&sigmaf;&epsilon;ːˈ&zdot;&scedil;&sacute;&Lstrok;&gbreve;&euml;&aelig;&acirc;&Agrave;&pound;濱滨春川區区ንሣሞሎیِنمظسرداשלכואҐ&yacy;&shchcy;&chcy;&fcy;&zhcy;&bcy;&YAcy;&YUcy;&SHCHcy;&CHcy;&Ucy;&Tcy;&Ncy;&Icy;&ZHcy;&YIcy;&Iukcy;&phi;&omicron;&iota;&alpha;ίήέʿʃɛ&scaron;&oelig;&ncaron;&nacute;&Idot;&emacr;&ccaron;&Ccaron;&yacute;&ucirc;&uacute;&oslash;&Uacute;&Aacute;&cent;#</code>.</li>
 </ul>
@@ -153,9 +153,9 @@ DE: Ungeheuer  |     rasen        |  er trank
 EN: monster    | drive (too) fast |  he drank
 </code></pre></div>
 <h2 id="punctuation">Punctuation</h2>
-<p>Just as with lower- and upper case, punctuation doesn't matter too much in most
+<p>Just as with lower and upper case, punctuation doesn't matter too much in most
 cases in German. And context is king. But if you are pedantic, ignore the
-context or just want to missunderstand the text, the following can be
+context or just want to misunderstand the text, the following can be
 misunderstood:</p>
 <p>Example 1:</p>
 <div class="highlight"><pre><span></span><code>EN: We eat, kids. (Talking to the children)
@@ -181,11 +181,11 @@ DE: Wir empfehlen ihm, zu folgen.
 DE: Wir empfehlen, ihm zu folgen.
 EN: We recommend to follow him.
 </code></pre></div>
-<p>Example 5: Even <a href="https://www.deepl.com/translate">deepl has problems with this</a></p>
+<p>Example 5: Even <a href="https://www.deepl.com/translate">DeepL has problems with this</a></p>
 <div class="highlight"><pre><span></span><code>EN: He doesn't want her.
 DE: Er will sie nicht.
 DE: Er will, sie nicht.
-EN: He likes, but she doesn't.
+EN: He wants to, but she doesn't.
 </code></pre></div>
 <h2 id="articles">Articles</h2>
 <p>Where you only have <code>the</code> in English, you have <code>der</code>, <code>die</code>, <code>das</code> in German.</p>
@@ -196,14 +196,14 @@ EN: It's the wallet.
 DE: Es ist die Geldb&ouml;rse.
 
 EN: It's the bread.
-DE: Es ist das Brot
+DE: Es ist das Brot.
 </code></pre></div>
-<p>The concept of <a href="https://en.wikipedia.org/wiki/Grammatical_gender">Grammatical gender</a> is pretty absurd: <code>der</code> is male, <code>die</code> is female and <code>das</code> is neuter. While you can say "die Anna" und "der Bob",
+<p>The concept of <a href="https://en.wikipedia.org/wiki/Grammatical_gender">grammatical gender</a> is pretty absurd: <code>der</code> is masculine, <code>die</code> is feminine and <code>das</code> is neuter. While you can say "die Anna" and "der Bob",
 many words have quite arbitrary grammatical gender:</p>
 <ul>
 <li>the girl: "das M&auml;dchen" - it's neuter</li>
-<li>the box: "die Box" - it's female</li>
-<li>the key: "der Schl&uuml;ssel" - male</li>
+<li>the box: "die Box" - it's feminine</li>
+<li>the key: "der Schl&uuml;ssel" - masculine</li>
 </ul>
 <p>And the article also changes for plural forms:</p>
 <div class="highlight"><pre><span></span><code>EN - Singular: the girl    | the box   | the key
@@ -221,47 +221,47 @@ DE: Es ist auf dem Schl&uuml;ssel.
 EN: I   give him the key.
 DE: Ich gebe ihm den Schl&uuml;ssel.
 </code></pre></div>
-<p>To summarize: The English word <code>the</code> can be translated to 9 different German
-words:</p>
+<p>To summarize: The English word <code>the</code> can be translated to 6 different German
+words (der, die, das, des, dem, den):</p>
 <table class="table">
 <tr>
 <th></th>
-<th>Male</th>
-<th>Female</th>
+<th>Masculine</th>
+<th>Feminine</th>
 <th>Neuter</th>
 <th>Plural</th>
 </tr>
 <tr>
 <td>Nominativ</td>
-<td>der&nbsp;</td>
+<td>der</td>
 <td>die</td>
 <td>das</td>
 <td>die</td>
 </tr>
 <tr>
 <td>Genitiv</td>
-<td>den</td>
-<td>die</td>
-<td>das</td>
-<td>die</td>
+<td>des</td>
+<td>der</td>
+<td>des</td>
+<td>der</td>
 </tr>
 <tr>
 <td>Dativ</td>
 <td>dem</td>
 <td>der</td>
 <td>dem</td>
-<td>denen</td>
+<td>den</td>
 </tr>
 <tr>
-<td>Akkussativ</td>
-<td>dessen</td>
-<td>deren</td>
-<td>dessen</td>
-<td>deren</td>
+<td>Akkusativ</td>
+<td>den</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
 </tr>
 </table>
 <h2 id="long-words">Long words</h2>
-<p>German has crazy long words. The longest one I've seen in 8th grade or so is</p>
+<p>German has crazy long words. The longest one I've seen in 8th grade or so is:</p>
 <div class="highlight"><pre><span></span><code>DE: Brandrodungswanderhackfeldbau
 EN: slash-and-burn migration hackfield cultivation
 </code></pre></div>
@@ -273,11 +273,11 @@ EN: slash-and-burn migration hackfield cultivation
   "feste" indicates that it's about your partner. And, of course, you can say
   "meine Partnerin", but that also has other meanings (e.g. hiking partner,
   partner at a law firm, ...)</li>
-<li><strong>Not thirsty</strong>: I think this one is also missing in English. When you are
-  hungry and you ate, you say in German "Ich bin satt". But when you are
-  thirsty and you drink, you can only negate: "Ich bin nicht mehr durstig".</li>
+<li><strong>Not thirsty</strong>: I think this one is also missing in English. When you were
+  hungry and have eaten, you say in German "Ich bin satt". But when you were
+  thirsty and have drunk something, you can only negate: "Ich bin nicht mehr durstig".</li>
 </ul>
-<h2 id="micallenious">Micallenious</h2>
+<h2 id="miscellaneous">Miscellaneous</h2>
 <ul>
 <li>You say "Gesundheit" (directly translated: "health") when somebody sneezes.
   But although it is very close to "get healthy", you don't say it when

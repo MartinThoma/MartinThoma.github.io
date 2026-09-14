@@ -115,16 +115,16 @@ MathJax.Hub.Queue(function() {
 <p>Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
 example, predicting the price of a house, estimating the <a href="http://www.u.arizona.edu/~kuchi/Courses/MAT167/Files/LH_LEC.0710.Models.Regression.pdf">age of the universe</a> or calculating the probability that an image shows a dog. The age of the universe
-example shows that it regression is not only used in machine learning and the
+example shows that regression is not only used in machine learning and the
 dog image example shows that regression and classification can be very similar.
 A <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>
 can be converted to a classifier by choosing a threshold value (e.g. 0.5).</p>
-<p>A big difference between regression and classification are scoring functions
-and targets. The targets in classification are just a few finite ones, while
+<p>Big differences between regression and classification are the scoring functions
+and the targets. The targets in classification are just a few finite ones, while
 you have infinite possible targets for regression. Below, you can see a list
 of scoring functions.</p>
 <h2 id="scoring-functions">Scoring functions</h2>
-<p>In the following, $y$ is the ordered list of target, $y^P$ is the list
+<p>In the following, $y$ is the ordered list of targets, $y^P$ is the list
 of predictions in the same order and $\bar{y}$ is the mean of $y$.</p>
 <table class="table">
 <thead>
@@ -150,7 +150,7 @@ of predictions in the same order and $\bar{y}$ is the mean of $y$.</p>
 </tr>
 <tr>
 <td>$R^2$</td>
-<td>$[0, 1]$</td>
+<td>$(-\infty, 1]$</td>
 <td>higher</td>
 <td>$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$</td>
 </tr>
@@ -168,7 +168,7 @@ of predictions in the same order and $\bar{y}$ is the mean of $y$.</p>
 </ul>
 <h2 id="regression-models">Regression Models</h2>
 <h3 id="trivial-models">Trivial Models</h3>
-<p>There are some straight-forward "models" for regression. They do learn, but
+<p>There are some straightforward "models" for regression. They do learn, but
 they ignore the input completely:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Arithmetic_mean">Arithmetic mean</a>: $\frac{1}{n}\sum_{i=1}^n {y_i}$</li>
@@ -180,11 +180,11 @@ they ignore the input completely:</p>
 </ul>
 <h3 id="linear-regression">Linear regression</h3>
 <p><a href="https://en.wikipedia.org/wiki/Linear_regression">Linear regression</a>
-tries to fit a line to the input by minimizing the squared quadradic distance
+tries to fit a line to the input by minimizing the squared distance
 between the input points and the line. This usually gives pretty good results.</p>
 <p>The model looks like this:</p>
 <p>$$\hat{y}(x) = \sum_{i=1}^n b_i \cdot x_i \text{ with }b_i \in \mathbb{R}$$</p>
-<p>If one defines $X \in \mathbb{R}^n$ one can also write it in a vectorized form:</p>
+<p>If one defines $X \in \mathbb{R}^{m \times n}$ (one row per sample), one can also write it in a vectorized form:</p>
 <p>$$\hat{y}(X) = X \cdot \beta \text{ with }\beta \in \mathbb{R}^n$$</p>
 <p>It can be "learned" (calculated) with</p>
 <p>$$\beta = {(X^T X)}^{-1} X^T y$$</p>
@@ -194,7 +194,7 @@ tries to fit the logistic function $y(x) = \frac{1}{1+e^{-x}}$ to the input.
 This function is nice as it is within $[0, 1]$ and thus can be used to
 represent a probability.</p>
 <h3 id="trees">Trees</h3>
-<p>You can also use trees for regression. One idea how to do that is by
+<p>You can also use trees for regression. One idea of how to do that is by
 "bucketing" observations and applying one of the trivial models to each bucket.
 Such models can only predict values between what they observed before.</p>
 <p>See also:</p>

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="File Encryption "/>
 <meta property="og:url" content="file-encryption/" />
-<meta property="og:description" content="I recently wondered how difficult it is to encrypt a file. In this article I will show you two ways to do it. I use a text file content.txt with the content This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG or …" />
+<meta property="og:description" content="I recently wondered how difficult it is to encrypt a file. In this article, I will show you two ways to do it. I use a text file content.txt with the content: This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG or …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-05-10T20:00:00+02:00" />
 <meta name="twitter:title" content="File Encryption ">
-<meta name="twitter:description" content="I recently wondered how difficult it is to encrypt a file. In this article I will show you two ways to do it. I use a text file content.txt with the content This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG or …">
+<meta name="twitter:description" content="I recently wondered how difficult it is to encrypt a file. In this article, I will show you two ways to do it. I use a text file content.txt with the content: This is a top secret message! Don&#39;t show it to others! Applications GNU Privacy Guard (GnuPG or …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -111,9 +111,9 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>I recently wondered how difficult it is to encrypt a file. In this article I
+            <p>I recently wondered how difficult it is to encrypt a file. In this article, I
 will show you two ways to do it. I use a text file <code>content.txt</code> with the
-content</p>
+content:</p>
 <div class="highlight"><pre><span></span><code>This is a top secret message!
 Don't show it to others!
 </code></pre></div>
@@ -125,7 +125,7 @@ software suite, and is compliant with RFC 4880, the IETF standards-track
 specification of OpenPGP.</p>
 </blockquote>
 <p>Check with <code>gpg --list-secret-keys</code> if you already have keys. If not, run</p>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>&ndash;-gen-key
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--gen-key
 </code></pre></div>
 <p>Encrypt file:</p>
 <div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>-e<span class="w"> </span>-r<span class="w"> </span>info@martin-thoma.de<span class="w"> </span>content.txt
@@ -136,8 +136,8 @@ specification of OpenPGP.</p>
 <h2 id="python">Python</h2>
 <p>In order to generate an encrypted file with Python, I use the <a href="https://cryptography.io/en/latest/fernet/">fernet</a> module of <a href="https://pypi.org/project/cryptography/">cryptography</a>.
 It's not part of the standard library (<a href="https://docs.python.org/3/library/crypto.html">source</a>), but
-it is super wide spread.</p>
-<p>It uses AES in CBC mode with a 128-bit key for encryption; using PKCS7 padding. Initialization vectors are generated using os.urandom().</p>
+it is super widespread.</p>
+<p>It uses AES in CBC mode with a 128-bit key for encryption, using PKCS7 padding. Initialization vectors are generated using <code>os.urandom()</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
 
 <span class="c1"># Generate a key</span>
@@ -192,13 +192,13 @@ elsewhere.</p>
 <p>Alice was sitting in a taxi, using her laptop and her phone at the same time.
 She just quickly put her laptop next to her and had a look at her phone.
 Thinking about the flight she needed to catch, she forgot the laptop. The
-taxidriver sold the laptop on ebay and Bob bought it. He wants to see if there
+taxi driver sold the laptop on eBay and Bob bought it. He wants to see if there
 is valuable information on it and tries to get access.</p>
-<p><strong>Assessment</strong>: To protect agains this, Alice should use full disk encryption
+<p><strong>Assessment</strong>: To protect against this, Alice should use full disk encryption
 (FDE). If Alice doesn't have FDE, encrypting a single file might help for that
 single file. But as it only protects one file, it's certainly worse than FDE.</p>
 <h3 id="root-access">Root Access</h3>
-<p>Alice catched a virus! No, not COVID-19, but one on her computer. Bob now has
+<p>Alice caught a virus! No, not COVID-19, but one on her computer. Bob now has
 remote access to her machine.</p>
 <p><strong>Assessment</strong>: In this case, I would say all hope is lost. The attacker can
 install a keylogger and will get the result he wants. Or a crypto trojan which
@@ -214,8 +214,8 @@ the file.</p>
 <h3 id="man-in-the-middle-e-mail">Man in the Middle: E-Mail</h3>
 <p>Alice sends data to Charlie via e-mail. Bob catches the message while it's
 transmitted.</p>
-<p>Bob is here the <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man in the Middle</a>
-and makes a Man in the Middle (MitM) attack.</p>
+<p>Here, Bob is the <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man in the Middle</a>
+and performs a Man-in-the-Middle (MitM) attack.</p>
 <p><strong>Assessment</strong>: The encryption of the e-mail would have helped. Using TLS would
 be preferable, though.</p>
 <h2 id="see-also_1">See also</h2>

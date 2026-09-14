@@ -145,9 +145,9 @@ MathJax.Hub.Queue(function() {
 <h2 id="3-business-changes-and-partitioning">3. Business Changes and Partitioning</h2>
 <p>When you&rsquo;re growing a business, you want to please your clients. If they ask for a small new feature, you try to include it. This can lead to feature-creep. The UNIX philosophy indicates that this was a problem already quite a while ago:</p>
 <blockquote>
-<h1 id="write-programs-that-do-one-thing-and-do-it-well-doug-mcilroy">&ldquo;Write programs that do one thing and do it well.&rdquo; &mdash; Doug McIlroy</h1>
+<p>&ldquo;Write programs that do one thing and do it well.&rdquo; &mdash; Doug McIlroy</p>
 </blockquote>
-<p>Similarly, it might be OK to split your web services data by user groups. Maybe it makes sense to split them into regions? I&rsquo;ve seen that at <a href="https://aws.amazon.com/">AWS</a> and <a href="https://www.securecodewarrior.com/">Secure Code Warrior</a>. Maybe you can split it into &ldquo;Private clients,&rdquo; &ldquo;Small business clients,&rdquo; or &ldquo;Large Business clients&rdquo;? Maybe one part of the application can actually be its own service with its own database?</p>
+<p>Similarly, it might be OK to split your web service's data by user groups. Maybe it makes sense to split them into regions? I&rsquo;ve seen that at <a href="https://aws.amazon.com/">AWS</a> and <a href="https://www.securecodewarrior.com/">Secure Code Warrior</a>. Maybe you can split it into &ldquo;Private clients,&rdquo; &ldquo;Small business clients,&rdquo; or &ldquo;Large Business clients&rdquo;? Maybe one part of the application can actually be its own service with its own database?</p>
 <h2 id="4-replication">4. Replication</h2>
 <p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*7uNbgHaB-3dSFOfMToqpig.png"/><em>Image by Martin Thoma</em></p>
 <p>Replication is an easy solution if reads are your problem and if a bit of time-delay of updates is not a big deal. Replication continuously copies the database to another machine. It speeds up reads and acts as a failover mechanism.</p>
@@ -168,7 +168,7 @@ MathJax.Hub.Queue(function() {
 <span class="p">);</span>
 </code></pre></div>
 <p>You want the user of the database system to still be able to query the database with the typical queries, perhaps using the following:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shopping_carts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cart_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shopping_carts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 </code></pre></div>
 <p>One important thing to note here: Horizontal partitioning is completely unrelated to <a href="https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925">scaling horizontally</a>!</p>
 <h2 id="6-vertical-partitioning">6. Vertical Partitioning</h2>
@@ -177,7 +177,7 @@ MathJax.Hub.Queue(function() {
 <p>One commonly done practice is to split metadata from the content. Here&rsquo;s an image:</p>
 <p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2646/1*f6PVSSxrlrr0P_v9FG3OqQ.png"/><em>Image by Martin Thoma</em></p>
 <p>One important thing to note here: Vertical partitioning is completely unrelated to scaling vertically!</p>
-<p>Vertical partitioning can be useful when you avoid privacy or regulatory issues with it. Think of credit card information. That could logically fit well with other information, but most of the application does not need it. You might even put it in a completely different database and hide it behind a private microservice.</p>
+<p>Vertical partitioning can be useful when it helps you avoid privacy or regulatory issues. Think of credit card information. That could logically fit well with other information, but most of the application does not need it. You might even put it in a completely different database and hide it behind a private microservice.</p>
 <h2 id="7-sharding-taking-partitioning-to-the-next-level">7. Sharding &mdash; Taking Partitioning To the Next Level</h2>
 <p>You have seen that the data can be grouped in two different ways. It might already make sense to partition the data on the same machine to help the database execute common queries faster. But if the database is maxing out the CPU or RAM, it might make sense to use different machines.</p>
 <p><em>Sharding</em> is partitioning a single logical dataset and distributing it over different machines.</p>
@@ -185,14 +185,14 @@ MathJax.Hub.Queue(function() {
 <p>The first obvious issue is that your application needs to know which shard contains the data you&rsquo;re looking for. Hence your application logic is affected, potentially in all places.</p>
 <p>A second big problem is JOINs across shards.</p>
 <p>The third problem is how shards are defined. To be truly scalable, you want to make a dynamic definition of the shards. Having a hierarchical structure can help to achieve this.</p>
-<p>If you still want to read more about sharding, I recommend the awesome article by <a href="undefined">Jeeyoung Kim</a>:
+<p>If you still want to read more about sharding, I recommend the awesome article by Jeeyoung Kim:
 <a href="https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6"><strong>How Sharding Works</strong>
 <em>This is a continuation of the last blog post, why I love databases.</em>medium.com</a></p>
 <p>This article by Digital Ocean is also very nice:
 <a href="https://www.digitalocean.com/community/tutorials/understanding-database-sharding"><strong>Understanding Database Sharding | DigitalOcean</strong>
 <em>Sharded databases have been receiving lots of attention in recent years, but many don't have a clear understanding of&hellip;</em>www.digitalocean.com</a></p>
 <h2 id="8-database-clustering">8. Database Clustering</h2>
-<p>I only came across this term when looking at <a href="https://vitess.io/">Vitess</a>. The idea seems to hide the issues of sharding by, also, using replication under the hood:</p>
+<p>I only came across this term when looking at <a href="https://vitess.io/">Vitess</a>. The idea seems to be to hide the issues of sharding by, also, using replication under the hood:</p>
 <iframe frameborder="0" src="https://medium.com/media/1a53ea0ff3903084cb945c350fe1d8e1"></iframe>
 <p>There is <a href="https://www.postgresql.org/docs/9.5/creating-cluster.html">documentation for PostgreSQL</a> as well and <a href="https://www.mysql.com/de/products/cluster/">MySQL Cluster</a> is another product.</p>
 <h2 id="bonus-query-caching">Bonus: Query Caching</h2>
@@ -202,7 +202,7 @@ MathJax.Hub.Queue(function() {
 <p><img alt="" src="https://cdn-images-1.medium.com/max/3678/1*MirP_rcEMVxBigZnLwciLA.png"/></p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>Some topics are crucial for development, but not part of day-to-day work or computer science curriculum. In our professional software development series, you can learn about more topics.</p>
-<p>I am thinking about adding articles of these kind, so please let me know what you&rsquo;re interested in:</p>
+<p>I am thinking about adding articles of this kind, so please let me know what you&rsquo;re interested in:</p>
 <ul>
 <li>Team Building</li>
 <li>Code Reviews</li>
@@ -210,7 +210,6 @@ MathJax.Hub.Queue(function() {
 <li>Infrastructure as Code (IaC)</li>
 <li>Monitoring and Alerting</li>
 </ul>
-<p>Thank you for reading!</p>
             
         </div>
         <section>

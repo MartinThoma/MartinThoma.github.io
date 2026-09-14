@@ -116,9 +116,9 @@ MathJax.Hub.Queue(function() {
 <figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
 </figure>
 <p>A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is
-a binary tree in which the value of an inner node is the hash of its leaf
+a binary tree in which the value of an inner node is the hash of its child
 nodes. The root node of that tree is called &ldquo;Merkle root&rdquo; or &ldquo;root hash&rdquo;.</p>
-<p>So much about the definition. To me, it&rsquo;s always helpful to know the problem
+<p>So much about the definition. To me, it&rsquo;s always helpful to know the problem a
 technology solves to really understand it.</p>
 <h2 id="bittorrent">BitTorrent</h2>
 <p>How do you send big amounts of data over a network which randomly introduces
@@ -140,7 +140,7 @@ meta-information, e.g. the total number of blocks, the hash of each block, and
 a hash of the metadata itself. If the metadata block is broken, you download
 it again. Then you download each block and verify it. If a block is broken,
 the block is downloaded again.</p>
-<p>Now the question is which block-size makes the most sense. The smaller the
+<p>Now the question is which block size makes the most sense. The smaller the
 block sizes, the less you have to download in case of an error. But the more
 blocks you have, the more metadata you need to store. Take the most extreme
 case: Every single bit has its own hash value. A typical hash value has 256
@@ -166,7 +166,7 @@ download double the data. This means additionally 100%:</p>
 <span class="w">  </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file size in bytes"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"suggested file name"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"piece length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typically 256 KiB"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"pices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"pieces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">   </span><span class="s2">"sha-1 hash of block #1"</span><span class="p">,</span>
 <span class="w">   </span><span class="s2">"sha-1 hash of block #2"</span><span class="p">,</span>
 <span class="w">   </span><span class="s2">"sha-1 hash of block #3"</span>
@@ -180,37 +180,37 @@ files over an unreliable network a lot.</p>
 <p>Suppose you wanted to show that a piece of data is part of your data
 structure. This is easy with Merkle trees.</p>
 <p><img alt='Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.' src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png"/><em>Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</em></p>
-<p>Merkle trees allow it to prove that a transaction is included. Suppose Alice
+<p>Merkle trees allow you to prove that a transaction is included. Suppose Alice
 wants to prove to Bob that transaction T happened. To do that, she provides:</p>
 <ul>
 <li>The transaction itself, for which Bob can easily create a hash.</li>
 <li>All hashes which are missing to calculate the root hash</li>
 </ul>
 <p>Bob then has to verify that the Merkle root is equal to the root he has. He
-also needs to hash the transaction and builds all hashes up to the Merkle
-root. As cryptographic hash functions make it impossible to find hash
-functions to forge an image (<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">collisions-attack
+also needs to hash the transaction and build all hashes up to the Merkle
+root. As cryptographic hash functions make it practically impossible to forge
+data with the same hash (<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">second-preimage
 resistance</a>),
 Bob does not have to have all the data. It&rsquo;s enough to know which root to use.</p>
 <p>The supplied hashes (the blue nodes) are called a <strong>Merkle proof</strong>. You prove
 that the data belongs to the Merkle tree. If you want to see another example,
-have a look at <a href="undefined">Belavadi Prahalad</a> article <a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle proofs
+have a look at Belavadi Prahalad's article <a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle proofs
 explained</a>.</p>
 <p>In the context of Bitcoin, this is called <strong>Simplified Payment Verification
-(SPV)</strong>. It&rsquo;s chapter 8 of <a href="https://bitcoin.org/bitcoin.pdf">the bitcoin
-paper</a>, or <a href="https://medium.com/coinmonks/spv-proofs-explained-f38f8bb8f580">SVP proofs
+(SPV)</strong>. It&rsquo;s chapter 8 of <a href="https://bitcoin.org/bitcoin.pdf">the Bitcoin
+paper</a>, or <a href="https://medium.com/coinmonks/spv-proofs-explained-f38f8bb8f580">SPV proofs
 explained</a> by
-<a href="undefined">Albert Acebr&oacute;n</a>.</p>
+Albert Acebr&oacute;n.</p>
 <h2 id="how-does-bitcoin-use-merkle-trees">How does Bitcoin use Merkle Trees?</h2>
 <p>Every single block contains a Merkle tree of transactions. The Bitcoin blocks
 have a size limitation of 4 MB for <a href="https://bitcoinmagazine.com/what-is-bitcoin/what-is-the-bitcoin-block-size-limit">various
 reasons</a>.
-Only the Merkle Trees root hash used to hash the block. This means that
+Only the Merkle tree's root hash is used to hash the block. This means that
 Bitcoin nodes can throw quite a bit of data away and still compute the same
 hash.</p>
 <h2 id="applications-of-merkle-trees">Applications of Merkle Trees</h2>
 <ul>
-<li><strong>Git</strong> uses a hash tree to store its data (<a href="https://git-scm.com/book/en/v2/Git-Internals-Git-Objects">source</a>). If you want to understand why read <a href="https://nextjournal.com/blog/git">Towards Reproducibility: git</a> by <a href="undefined">Martin Kavalar</a></li>
+<li><strong>Git</strong> uses a hash tree to store its data (<a href="https://git-scm.com/book/en/v2/Git-Internals-Git-Objects">source</a>). If you want to understand why, read <a href="https://nextjournal.com/blog/git">Towards Reproducibility: git</a> by Martin Kavalar</li>
 <li><strong>Database Systems</strong>: Apache Cassandra uses Merkle Trees to detect inconsistencies in replicas (<a href="https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/operations/opsRepairNodesManualRepair.html">source</a>, <a href="https://www.youtube.com/watch?v=1Sz_K8UID6E">video</a>)</li>
 <li><strong>Bitcoin &amp; IPFS, and <a href="https://storj.io/storj2014.pdf">Storj</a></strong>: The core data structure to store data</li>
 <li><strong>Ethereum</strong> also uses a Merkle Tree, but a different type than Bitcoin. Ethereum uses a Merkle Patricia Trie.</li>
@@ -227,9 +227,9 @@ hash.</p>
 <li>Merkle Patricia Tries</li>
 <li>Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it&rsquo;s so important</li>
 <li>Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.</li>
-<li>Smart contracts: What they are and how they work; e.g. with Etherium as an example</li>
+<li>Smart contracts: What they are and how they work; e.g. with Ethereum as an example</li>
 <li><a href="https://en.wikipedia.org/wiki/Initial_coin_offering">Initial Coin Offering</a> (ICO)</li>
-<li>Bitcoins consensus algorithm</li>
+<li>Bitcoin's consensus algorithm</li>
 <li>Bitcoin and the network: How do people connect?</li>
 <li>Bitcoin Wallets</li>
 <li>Peer-To-Peer Stuff: How Gossip Protocols work</li>

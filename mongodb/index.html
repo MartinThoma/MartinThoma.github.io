@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="MongoDB "/>
 <meta property="og:url" content="mongodb/" />
-<meta property="og:description" content="MongoDB is a document-oriented database system. It is used to store JSON objects. The problem it solves is working with heterogenous data which does not fit into a schema or where creating a schema would be overly complicated. If it fits into a schema, use a SQL database like MySQL …" />
+<meta property="og:description" content="MongoDB is a document-oriented database system. It is used to store JSON objects. The problem it solves is working with heterogeneous data which does not fit into a schema or where creating a schema would be overly complicated. If it fits into a schema, use a SQL database like MySQL …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-05-11T20:00:00+02:00" />
 <meta name="twitter:title" content="MongoDB ">
-<meta name="twitter:description" content="MongoDB is a document-oriented database system. It is used to store JSON objects. The problem it solves is working with heterogenous data which does not fit into a schema or where creating a schema would be overly complicated. If it fits into a schema, use a SQL database like MySQL …">
+<meta name="twitter:description" content="MongoDB is a document-oriented database system. It is used to store JSON objects. The problem it solves is working with heterogeneous data which does not fit into a schema or where creating a schema would be overly complicated. If it fits into a schema, use a SQL database like MySQL …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -113,9 +113,9 @@ MathJax.Hub.Queue(function() {
             
             <p><a href="https://en.wikipedia.org/wiki/MongoDB">MongoDB</a> is a document-oriented
 database system. It is used to store JSON objects.</p>
-<p>The problem it solves is working with heterogenous data which does not fit into
+<p>The problem it solves is working with heterogeneous data which does not fit into
 a schema or where creating a schema would be overly complicated. If it fits into
-a schema, use a SQL database like MySQL/MariaDB or Posgres. If you just need to
+a schema, use a SQL database like MySQL/MariaDB or Postgres. If you just need to
 store key/value pairs, use a <a href="https://martin-thoma.com/key-value-stores/">Key-Value Store</a>.</p>
 <h2 id="concepts">Concepts</h2>
 <dl>
@@ -124,10 +124,10 @@ store key/value pairs, use a <a href="https://martin-thoma.com/key-value-stores/
 <dt><dfn>Collection</dfn></dt>
 <dd>A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection have a similar or related purpose.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></dd>
 <dt><dfn>Database</dfn></dt>
-<dd>A physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.<sup id="fnref:3"><a class="footnote-ref" href="#fn:1">3</a></sup></dd>
+<dd>A physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></dd>
 </dl>
 <h2 id="db-installation">DB Installation</h2>
-<p>On Ubuntu, you can simply run</p>
+<p>On Ubuntu, you can simply run:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mongodb
 </code></pre></div>
 <h2 id="db-cli-tools">DB CLI Tools</h2>
@@ -218,7 +218,7 @@ system.version
 <div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>db.examplecollection.find<span class="o">({</span><span class="s1">'username'</span>:<span class="w"> </span>/oose$/<span class="o">})</span>
 <span class="o">{</span><span class="w"> </span><span class="s2">"_id"</span><span class="w"> </span>:<span class="w"> </span>ObjectId<span class="o">(</span><span class="s2">"5eb9146abea1517a1e9e8245"</span><span class="o">)</span>,<span class="w"> </span><span class="s2">"username"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"moose"</span>,<span class="w"> </span><span class="s2">"status"</span><span class="w"> </span>:<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"admin"</span>,<span class="w"> </span><span class="s2">"active"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">}</span>
 </code></pre></div>
-<p>Before we continue, we need to create a user</p>
+<p>Before we continue, we need to create a user:</p>
 <div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>db.createUser<span class="o">({</span>user:<span class="w"> </span><span class="s2">"testuser"</span>,<span class="w"> </span>pwd:<span class="w"> </span><span class="s2">"abc123"</span>,<span class="w"> </span>roles:<span class="w"> </span><span class="o">[{</span>role:<span class="w"> </span><span class="s2">"userAdminAnyDatabase"</span>,<span class="w"> </span>db:<span class="w"> </span><span class="s2">"admin"</span><span class="o">}]})</span>
 Successfully<span class="w"> </span>added<span class="w"> </span>user:<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="s2">"user"</span><span class="w"> </span>:<span class="w"> </span><span class="s2">"testuser"</span>,
@@ -247,9 +247,9 @@ Successfully<span class="w"> </span>added<span class="w"> </span>user:<span clas
     <span class="c1"># Delete the test user</span>
     <span class="n">db</span><span class="o">.</span><span class="n">examplecollection</span><span class="o">.</span><span class="n">delete_many</span><span class="p">({</span><span class="s2">"username"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">})</span>
 </code></pre></div>
-<p>There is of course a lot more to write about MongoDB, but those are the very basics.</p>
+<p>There is, of course, a lot more to write about MongoDB, but those are the very basics.</p>
 <h2 id="professional-setup">Professional Setup</h2>
-<p>You might want to run MongoDB at a trusted provider like <a href="https://aws.amazon.com/de/quickstart/architecture/mongodb/">AWS</a>,
+<p>You might want to run MongoDB at a trusted provider like <a href="https://aws.amazon.com/de/quickstart/architecture/mongodb/">AWS</a> or
 <a href="https://cloud.google.com/mongodb">Google Cloud</a>.</p>
 <p>The key things to think about are <a href="https://en.wikipedia.org/wiki/Replication_(computing)#Database_replication">database replications</a> and <a href="https://en.wikipedia.org/wiki/Shard_(database_architecture)">sharding</a>. Those topics are essentially about
 speed, load balancing, scalability, data loss / inconsistencies.</p>
@@ -260,8 +260,8 @@ speed, load balancing, scalability, data loss / inconsistencies.</p>
 </ul>
 </li>
 <li>Stack Exchange:<ul>
-<li><a href="https://stackoverflow.com/questions/tagged/mongodb">Stackoverflow Tag</a></li>
-<li><a href="https://serverfault.com/questions/tagged/mongodb">Serverfault Tag</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/mongodb">Stack Overflow Tag</a></li>
+<li><a href="https://serverfault.com/questions/tagged/mongodb">Server Fault Tag</a></li>
 <li><a href="https://security.stackexchange.com/questions/tagged/mongodb">Security Tag</a></li>
 </ul>
 </li>

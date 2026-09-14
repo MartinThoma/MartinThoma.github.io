@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Software Composition Analysis (SCA) "/>
 <meta property="og:url" content="sca/" />
-<meta property="og:description" content="The job as a software developer is pretty crazy: You need to learn constantly about new technologies, understand topics within the domain you’re working, estimate how long it will take to build stuff you have never built before, explain issues to people who have absolutely no clue. On top …" />
+<meta property="og:description" content="The job of a software developer is pretty crazy: You need to learn constantly about new technologies, understand topics within the domain you’re working in, estimate how long it will take to build stuff you have never built before, and explain issues to people who have absolutely no clue …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-12-04T20:00:00+01:00" />
 <meta name="twitter:title" content="Software Composition Analysis (SCA) ">
-<meta name="twitter:description" content="The job as a software developer is pretty crazy: You need to learn constantly about new technologies, understand topics within the domain you’re working, estimate how long it will take to build stuff you have never built before, explain issues to people who have absolutely no clue. On top …">
+<meta name="twitter:description" content="The job of a software developer is pretty crazy: You need to learn constantly about new technologies, understand topics within the domain you’re working in, estimate how long it will take to build stuff you have never built before, and explain issues to people who have absolutely no clue …">
 <meta property="og:image" content="logos/cybersecurity.png" />
 <meta name="twitter:image" content="logos/cybersecurity.png" >
 
@@ -111,25 +111,25 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The job as a software developer is pretty crazy: You need to learn constantly
-about new technologies, understand topics within the domain you&rsquo;re working,
-estimate how long it will take to build stuff you have never built before,
+            <p>The job of a software developer is pretty crazy: You need to learn constantly
+about new technologies, understand topics within the domain you&rsquo;re working in,
+estimate how long it will take to build stuff you have never built before, and
 explain issues to people who have absolutely no clue. On top of all that, you
 need to protect your software system against attackers. But the attackers are
 usually not a problem &mdash; until they are. This means it can happen that security
 receives little attention as it seems not to provide direct value. And when the
 value becomes apparent, it&rsquo;s too late.</p>
 <p>Considering that developers are so busy with many other topics and might have a
-hard time to justify the need for security improvements, the security
+hard time justifying the need for security improvements, the security
 improvements need to be part of the normal workflow. You want to have something
 running completely automatically which takes care of that for you.</p>
 <p>There are many different topics in security and many different tools. One group
-of tools do so-called <em>software composition analysis</em> &mdash; SCA in short. After
-reading this article you will understand what SCA is and how it helps you.</p>
+of tools does so-called <em>software composition analysis</em> &mdash; SCA for short. After
+reading this article, you will understand what SCA is and how it helps you.</p>
 <h2 id="problem-1-malicious-third-party-software">Problem 1: Malicious Third-Party Software</h2>
 <p>Software that is written to cause harm can get into your dependencies. Either
-by a typo and <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a>
-attacker or by a trojan horse. A trojan horse is software that seems to be
+through a typo and a <a href="https://en.wikipedia.org/wiki/Typosquatting">typosquatting</a>
+attacker or through a trojan horse. A trojan horse is software that seems to be
 useful but does something else.</p>
 <h2 id="problem-2-vulnerable-third-party-software">Problem 2: Vulnerable Third-Party Software</h2>
 <p>The more complex software becomes, the harder it is to have all relevant
@@ -155,30 +155,24 @@ package. Some important things to consider:</p>
 <li>Package authors can (technically) not give any license &mdash; that means you
   cannot use it!</li>
 <li>Package authors can give inconsistent licenses, e.g. in Python, there are at
-  least 3 different common ways where you can denote the license.</li>
+  least 3 different common ways in which you can denote the license.</li>
 </ul>
 <h2 id="prerequisite-bill-of-materials-bom">Prerequisite: Bill of Materials (BOM)</h2>
 <p>You need to know which third-party software you are using. For that, you create
 a so-called <em>Bill of Materials</em>. Sounds fancy, but it really is just a list of
-the software you use. The programming languages typically come already with
+the software you use. Programming languages typically already come with
 solutions for that:</p>
 <ul>
-<li>
-<p><strong>Java</strong>: pom.xml (see
-  <a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">dependencies</a>)</p>
-</li>
-<li>
-<p><strong>JavaScript</strong>: <a href="https://classic.yarnpkg.com/en/docs/yarn-lock/">yarn.lock</a></p>
-</li>
+<li><strong>Java</strong>: pom.xml (see
+  <a href="https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">dependencies</a>)</li>
+<li><strong>JavaScript</strong>: <a href="https://classic.yarnpkg.com/en/docs/yarn-lock/">yarn.lock</a></li>
 <li><strong>PHP</strong>: <a href="https://getcomposer.org/doc/02-libraries.md#lock-file">composer.lock</a></li>
-<li><strong>Python</strong>: requirements.txt files with transitively-pinned dependencies,
+<li><strong>Python</strong>: requirements.txt files with transitively pinned dependencies,
   e.g. via pip-compile from <a href="https://pypi.org/project/pip-tools">pip-tools</a></li>
 <li><strong>Ruby</strong>: <a href="https://bundler.io/rationale.html">Gemfile.lock</a></li>
-<li><strong>Rust</strong>: Cargo.tom &mdash; I&rsquo;m uncertain if that contains transitive dependencies
-  (see
-  <a href="https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html">dependencies</a>)</li>
+<li><strong>Rust</strong>: <a href="https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html">Cargo.lock</a></li>
 </ul>
-<p>Please let me know about how this is called in other languages &mdash; I will expand
+<p>Please let me know what this is called in other languages &mdash; I will expand
 this list then.</p>
 <h2 id="examples-for-sca-tools">Examples for SCA Tools</h2>
 <p>Free solutions:</p>
@@ -192,19 +186,19 @@ this list then.</p>
 </ul>
 <p>Commercial solutions:</p>
 <ul>
-<li><a href="https://www.blackducksoftware.com/">Blackduck</a></li>
-<li><a href="https://dependabot.com/">Dependabot</a>: I&rsquo;ve seen this on Github some times.</li>
+<li><a href="https://www.blackducksoftware.com/">Black Duck</a></li>
+<li><a href="https://dependabot.com/">Dependabot</a>: I&rsquo;ve seen this on GitHub a few times.</li>
 <li><a href="https://snyk.io/product/open-source-security-management/">Snyk</a> for
-  vulnerabilities: You can see it in Github pretty often. It&rsquo;s free for
+  vulnerabilities: You can see it on GitHub pretty often. It&rsquo;s free for
   open-source software.</li>
 </ul>
 <h2 id="summary">Summary</h2>
 <p>Software Composition Analysis (SCA) tools can help you a lot and usually stay
-in the background. Integrate them in your Continuous Integration (CI) pipeline,
+in the background. Integrate them into your Continuous Integration (CI) pipeline and
 run them regularly as a scheduled task. In most cases, you don&rsquo;t have to do
 anything. But when the tool complains, it is important.</p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
-<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
 <li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>

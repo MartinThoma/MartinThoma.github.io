@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Forecasting "/>
 <meta property="og:url" content="forecasting/" />
-<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results See the scoring functions are explained in the regression article. name training time testing time …" />
+<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. Its only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See GitHub. Results The scoring functions are explained in the regression article. name training time testing time MAE …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-04-16T20:00:00+02:00" />
 <meta name="twitter:title" content="Forecasting ">
-<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results See the scoring functions are explained in the regression article. name training time testing time …">
+<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. Its only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See GitHub. Results The scoring functions are explained in the regression article. name training time testing time MAE …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -112,12 +112,12 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Today, I played a bit with the <a href="https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&amp;display=line">International airline passengers dataset</a>.</p>
-<p>It's only feature is a date given by year and month. One should predict the
+<p>Its only feature is a date given by year and month. One should predict the
 number of passengers (in thousands).</p>
 <h2 id="code">Code</h2>
-<p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py">Github</a>.</p>
+<p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py">GitHub</a>.</p>
 <h2 id="results">Results</h2>
-<p>See the scoring functions are explained in the <a href="https://martin-thoma.com/regression/">regression article</a>.</p>
+<p>The scoring functions are explained in the <a href="https://martin-thoma.com/regression/">regression article</a>.</p>
 <table class="table">
 <tr>
 <th>name</th>
@@ -128,7 +128,7 @@ number of passengers (in thousands).</p>
 <th><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$R^2$</a></th>
 <th><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html">explained variance</a></th>
 <th><a href="https://en.wikipedia.org/wiki/Mean_squared_error" title="Mean squared error">MSE</a></th>
-<tr>
+</tr>
 <tr>
 <td>GradientBoostingRegressor</td>
 <td>11.6ms</td>
@@ -289,9 +289,9 @@ number of passengers (in thousands).</p>
 <td style="background-color: red;">0.1698</td>
 <td>5451.8</td>
 </tr>
-</tr></tr></table>
+</table>
 <p>I like the median absolute error best, because it tells me how many passengers
-my prediction is typically away from the true prediction.</p>
+my prediction is typically away from the true value.</p>
 <p>Please note that bad results here do not mean the regressor is bad. Some might
 just use their full potential with more data, some might be better suited to
 different regression problems, e.g. interpolation instead of extrapolation or
@@ -299,7 +299,7 @@ working with higher dimensional data.</p>
 <h2 id="graphs">Graphs</h2>
 <p>Plotting the prediction is crucial for extrapolation. What we can see in those
 images is that there are two things to match: A global trend and local
-seasonality-effects. To make it easier to digest, I already put them in the
+seasonality effects. To make it easier to digest, I already put them in the
 table. Just click on them to see them in full size:</p>
 <table class="table">
 <thead>
@@ -447,7 +447,7 @@ and one which predicts seasonality effects.</p>
 <h2 id="combining-models">Combining models</h2>
 <p>The simplest way to combine two regression models is by</p>
 <p>$$f(x) = f_1(x) + f_2(x)$$</p>
-<p>But I also want to simpify the training. So I decided to have the following
+<p>But I also want to simplify the training. So I decided to have the following
 training setup:</p>
 <ol>
 <li>Fit $f_1$ on the training dataset, where $f_1$ has to predict the global
@@ -571,18 +571,18 @@ training setup:</p>
 <p>This looks a lot better! Note how the best model before is now the worst!</p>
 <p>However, even with this combination the Gaussian Processes were really bad.
 Overshooting like hell.</p>
-<p>Next thing to improve: The scaling of the the seasonal trend is not captured so
+<p>Next thing to improve: The scaling of the seasonal trend is not captured so
 far.</p>
 <p>Another idea I want to dig into is that of residual learning. Where I have only
-one model learning the residual of another model, you can chain arbitary many.
+one model learning the residual of another model, you can chain arbitrarily many.
 The <code>ResidualRegressor</code> is a meta-regressor. If it is given one model, it
 behaves exactly like that model. If it is given two models, then it behaves
 exactly like the <code>TrendSeasonRegressor</code>.</p>
-<p>Sadly, for the given data and the models I've tried, three models behaved not
+<p>Sadly, for the given data and the models I've tried, three models did not perform
 better than two in the <code>ResidualRegressor</code>.</p>
 <h2 id="human-performance">Human Performance</h2>
-<p>An interesting excercise is to get a human baseline. This gives you some
-insights in how good the models are.</p>
+<p>An interesting exercise is to get a human baseline. This gives you some
+insights into how good the models are.</p>
 <table>
 <thead>
 <tr>
@@ -826,7 +826,7 @@ insights in how good the models are.</p>
 <p>Having the month as a single feature with values from 1 to 12 seems not to be
 the best choice. Either a one-hot encoding or a circular encoding (two features
 with the trigonometric functions <code>sin</code> and <code>cos</code>) seem to be the better choice.</p>
-<p>Using the circular encoding was interesting. It made the prediction to get
+<p>Using the circular encoding was interesting. It made the prediction get
 "bumps":</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Linear Regression with two circular-encoded features for the month" src="../images/2018/04/airline-passengers-train-LinearRegressionCircularBumps.png" style="width: 512px;"/>
@@ -847,7 +847,7 @@ encoding of a month for this dataset and all tried regressors.</p>
 <li>L2: Without hyperparameter optimization (e.g. <a href="https://martin-thoma.com/twiddle/">twiddling</a>),
   SVR is shitty.</li>
 <li>L3: Without scaling, linear SVR runs many hours for training. On a dataset with
-  3&nbsp;features and less than 150&nbsp;data points.</li>
+  3&nbsp;features and fewer than 150&nbsp;data points.</li>
 <li>L4: Visualizations are powerful for model evaluation and improvement in
       low-dimensional regression problems.</li>
 </ul>

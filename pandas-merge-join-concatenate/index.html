@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Pandas: Merge, join, concatenate "/>
 <meta property="og:url" content="pandas-merge-join-concatenate/" />
-<meta property="og:description" content="I always get confused about the different methods how to join Pandas dataframes. So here are some examples that should make it crystal clear. First, we create two dataframes: #!/usr/bin/env python import pandas as pd countries = [&#34;Germany&#34;, &#34;France&#34;, &#34;Indonesia&#34;] inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6 …" />
+<meta property="og:description" content="I always get confused about the different methods to join Pandas dataframes. So here are some examples that should make it crystal clear. First, we create two dataframes: #!/usr/bin/env python import pandas as pd countries = [&#34;Germany&#34;, &#34;France&#34;, &#34;Indonesia&#34;] inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6, 255 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-03-14T20:00:00+01:00" />
 <meta name="twitter:title" content="Pandas: Merge, join, concatenate ">
-<meta name="twitter:description" content="I always get confused about the different methods how to join Pandas dataframes. So here are some examples that should make it crystal clear. First, we create two dataframes: #!/usr/bin/env python import pandas as pd countries = [&#34;Germany&#34;, &#34;France&#34;, &#34;Indonesia&#34;] inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6 …">
+<meta name="twitter:description" content="I always get confused about the different methods to join Pandas dataframes. So here are some examples that should make it crystal clear. First, we create two dataframes: #!/usr/bin/env python import pandas as pd countries = [&#34;Germany&#34;, &#34;France&#34;, &#34;Indonesia&#34;] inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6, 255 …">
 <meta property="og:image" content="logos/pandas.png" />
 <meta name="twitter:image" content="logos/pandas.png" >
 
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>I always get confused about the different methods how to join Pandas
+            <p>I always get confused about the different methods to join Pandas
 dataframes. So here are some examples that should make it crystal clear.</p>
 <p>First, we create two dataframes:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -141,7 +141,7 @@ dataframes. So here are some examples that should make it crystal clear.</p>
 1     France    Paris   66900000.0
 2  Indonesia  Jakarta  255500000.0
 </code></pre></div>
-<p>and <code>df2</code> is</p>
+<p>and <code>df2</code> is:</p>
 <div class="highlight"><pre><span></span><code>   country capital    HDI
 0  Germany  Berlin  0.926
 1    Italy    Rome  0.897
@@ -155,7 +155,7 @@ tell you that it has the syntax:</p>
    country capital_x  inhabitant capital_y    HDI
 0  Germany    Berlin  82500000.0    Berlin  0.926
 </code></pre></div>
-<p>Please note that the column <code>capital</code> was duplicated as it is in both tables</p>
+<p>Please note that the column <code>capital</code> was duplicated as it is in both tables.</p>
 <p>Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT JOIN:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; df1.merge(df2, on='country', how='left')
      country capital_x   inhabitant capital_y    HDI
@@ -212,12 +212,12 @@ list.</p>
 </code></pre></div>
 <p>I would say join and merge look extremely similar. You can notice differences
 in the function signature when you look at the help, but the difference in the
-output is more subtile. It's the index: For merge, you still have the typical
+output is more subtle. It's the index: For merge, you still have the typical
 index where each element is unique. For join, if you merge on a column, you
 don't have that anymore.</p>
 <h2 id="concatenate">Concatenate</h2>
 <p><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html">Pandas Documentation</a>
-and the example</p>
+and the example:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; pd.concat([df1, df2])
      HDI  capital    country   inhabitant
 0    NaN   Berlin    Germany   82500000.0

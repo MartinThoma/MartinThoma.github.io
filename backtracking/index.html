@@ -136,12 +136,12 @@ for correctness, but not the others.</p>
 <h2 id="backtracking-vs-dfs">Backtracking vs DFS</h2>
 <p>When you apply Backtracking, you first define a solution space. This might
 happen implicitly, e.g. by defining a data structure. For example, in the
-n-queens problem the solution space is all permutations of the number from 0 to
+n-queens problem the solution space is all permutations of the numbers from 0 to
 (n-1). Everything else is guaranteed not to be a solution. And most of the
 permutations are also no solutions.</p>
 <p>Depth First Search (DFS) is a graph traversal algorithm. It is one way to
 search in the solution space for a solution that satisfies the constraints. It
-is the typical choice to iterate the solution space. Other search algorithms
+is the typical choice to iterate over the solution space. Other search algorithms
 are Breadth First Search (BFS) and A*.</p>
 <h2 id="backtracking-vs-bb">Backtracking vs B&amp;B</h2>
 <p>Branch-and-Bound (B&amp;B) is a concept to solve discrete constrained optimization
@@ -151,23 +151,23 @@ Breadth-First Search.</p>
 <p>B&amp;B is a <a href="https://martin-thoma.com/label-correction-algorithm/">label correction algorithm</a>.
 It is a search algorithm which uses a lower bound and an upper bound for the
 search. Think of a shortest-path problem.</p>
-<p>One part of the name, the bound, refers to the way B&amp;B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sup-tree can be discarded.</p>
+<p>One part of the name, the bound, refers to the way B&amp;B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sub-tree can be discarded.</p>
 <p>With the lower bound, the minimum length of a given partial solution from
 source to sink can be calculated. If that minimum length is longer than another
 answer which was already found, then the calculation at that point can be
 aborted.</p>
-<p>With the upper bound, one can extend the partial solutons. Essentially, one can
+<p>With the upper bound, one can extend the partial solutions. Essentially, one can
 make the pruning described before more efficient. We don't have to find a
 concrete solution anymore, but for partial solutions we already know the
 distance they will take at most.</p>
 <h2 id="runtime-complexity">Runtime Complexity</h2>
-<p>Assume that you have to go $n$ steps and at every step you have $a \geq 2$
-choices. This means the runtime is exponential - $\mathcal{O}(\alpha^n)$.</p>
-<p>If you add more rules to <code>is_valid</code> - excluding more solutions - you reduce
+<p>Assume that you have to go $n$ steps and at every step you have $\alpha \geq 2$
+choices. This means the runtime is exponential: $\mathcal{O}(\alpha^n)$.</p>
+<p>If you add more rules to <code>is_valid</code> &mdash; excluding more solutions &mdash; you reduce
 $\alpha$. This can mean a huge speedup.</p>
 <h2 id="n-queens">n Queens</h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">n Queens puzzle</a> is
-probably the most common example. You have a n&times;n chess board and n queens. You
+probably the most common example. You have an n&times;n chess board and n queens. You
 need to place the queens on the chess board in such a way that they don't
 threaten each other.</p>
 <p>A queen threatens another queen if it is&hellip;</p>
@@ -345,10 +345,10 @@ DFS can be seen as a specific form of backtracking
 </code></pre></div>
 <p>The reason why I used a tuple is to prevent modification. This way, I can be
 sure that the recursive calls work on copies.</p>
-<p>Once Python hits a recurision depth of about 500, you will see a
+<p>Once Python hits a recursion depth of about 1000 (the default limit), you will see a
 <a href="https://docs.python.org/3/library/exceptions.html#RecursionError">RecursionError</a>.
-So if we need to make more than 500 steps, this will not work anymore. Hence an
-iterative soltuion is better. Please note that it is still backtracking and
+So if we need to make more than 1000 steps, this will not work anymore. Hence, an
+iterative solution is better. Please note that it is still backtracking and
 that it is still DFS. It's just not recursive anymore:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 
@@ -377,7 +377,7 @@ that it is still DFS. It's just not recursive anymore:</p>
 
 
 <span class="k">class</span> <span class="nc">SudokuBoard</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]):</span>
         <span class="c1"># A board is a 9x9 matrix which has values in 1 to 9.</span>
         <span class="c1"># The value 0 denotes that the cell is empty</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
@@ -460,7 +460,7 @@ that it is still DFS. It's just not recursive anymore:</p>
             <span class="k">yield</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">di</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">dj</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">solve_sudoko</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">SudokuBoard</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SudokuBoard</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">solve_sudoku</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">SudokuBoard</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SudokuBoard</span><span class="p">]:</span>
     <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">board</span><span class="p">]</span>  <span class="c1"># we want a DFS</span>
     <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
         <span class="n">board</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>

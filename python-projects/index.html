@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Python Projects "/>
 <meta property="og:url" content="python-projects/" />
-<meta property="og:description" content="I recently thought a bit about what makes software good. Not from a functional perspective, but from a developers perspective. As I did quite some work with data science, machine learning and Python my view is a bit biased. Having said that, here is my personal &#34;best practices&#34; guide. Naming …" />
+<meta property="og:description" content="I recently thought a bit about what makes software good. Not from a functional perspective, but from a developer&#39;s perspective. As I did quite some work with data science, machine learning and Python, my view is a bit biased. Having said that, here is my personal &#34;best practices&#34; guide. Naming …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-01-18T20:00:00+01:00" />
 <meta name="twitter:title" content="Python Projects ">
-<meta name="twitter:description" content="I recently thought a bit about what makes software good. Not from a functional perspective, but from a developers perspective. As I did quite some work with data science, machine learning and Python my view is a bit biased. Having said that, here is my personal &#34;best practices&#34; guide. Naming …">
+<meta name="twitter:description" content="I recently thought a bit about what makes software good. Not from a functional perspective, but from a developer&#39;s perspective. As I did quite some work with data science, machine learning and Python, my view is a bit biased. Having said that, here is my personal &#34;best practices&#34; guide. Naming …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -105,15 +105,15 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#logging" title="Logging">Logging</a></li><li><a class="toc-href" href="#tests" title="Tests">Tests</a></li><li><a class="toc-href" href="#anti-patterns" title="Anti-Patterns">Anti-Patterns</a><ul><li><a class="toc-href" href="#print-vs-logging" title="Print vs Logging">Print vs Logging</a></li><li><a class="toc-href" href="#assert-vs-exception" title="assert vs Exception">assert vs Exception</a></li><li><a class="toc-href" href="#setuppy-vs-requirementstxt" title="setup.py vs requirements.txt">setup.py vs requirements.txt</a></li><li><a class="toc-href" href="#multiple-main" title="Multiple main">Multiple main</a></li><li><a class="toc-href" href="#comments" title="Comments">Comments</a></li><li><a class="toc-href" href="#outdated-dependencies" title="Outdated dependencies">Outdated dependencies</a></li><li><a class="toc-href" href="#bad-package-structure" title="Bad package structure">Bad package structure</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#logging" title="Logging">Logging</a></li><li><a class="toc-href" href="#tests" title="Tests">Tests</a></li><li><a class="toc-href" href="#anti-patterns" title="Anti-Patterns">Anti-Patterns</a><ul><li><a class="toc-href" href="#print-vs-logging" title="Print vs Logging">Print vs Logging</a></li><li><a class="toc-href" href="#assert-vs-exception" title="assert vs Exception">assert vs Exception</a></li><li><a class="toc-href" href="#setuppy-vs-requirementstxt" title="setup.py vs requirements.txt">setup.py vs requirements.txt</a></li><li><a class="toc-href" href="#multiple-__main__" title="Multiple __main__">Multiple __main__</a></li><li><a class="toc-href" href="#comments" title="Comments">Comments</a></li><li><a class="toc-href" href="#outdated-dependencies" title="Outdated dependencies">Outdated dependencies</a></li><li><a class="toc-href" href="#bad-package-structure" title="Bad package structure">Bad package structure</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>I recently thought a bit about what makes software good. Not from a functional
-perspective, but from a developers perspective. As I did quite some work with
-data science, machine learning and Python my view is a bit biased. Having said
+perspective, but from a developer's perspective. As I did quite some work with
+data science, machine learning and Python, my view is a bit biased. Having said
 that, here is my personal "best practices" guide.</p>
 <h2 id="naming">Naming</h2>
 <blockquote>
@@ -122,16 +122,16 @@ things, and off-by-1 errors.</p>
 </blockquote>
 <p>I prefer names which have the following properties:</p>
 <ul>
-<li>They can't be confused with something else and the name is available at PyPI.
+<li>They can't be confused with something else and the name is available on PyPI.
   I'm looking at you, GTK (<a href="https://stackoverflow.com/q/44213921/562769">source</a>).</li>
-<li>They are short, but can be googled. Looking at you <code>R</code>, <code>Go</code> and <code>C</code>.</li>
-<li>They are completely lowercase: Please don't make me think how to import your
+<li>They are short, but can be googled. Looking at you, <code>R</code>, <code>Go</code> and <code>C</code>.</li>
+<li>They are completely lowercase: Please don't make me think about how to import your
   package. Is it <code>pypdf2</code>, <code>PyPDF2</code>, <code>pyPDF2</code>?</li>
-<li>They are either max 4 letters or pronouncable. Something like <code>tensorflow</code> is
+<li>They are either max 4 letters or pronounceable. Something like <code>tensorflow</code> is
   longer, but that's ok because I remember it as one thing. <code>lidtk</code> is
   borderline as I remember it as <code>lid..tk</code> - how I say it.</li>
 </ul>
-<p>For now, assume your module is called <code>foo_module</code></p>
+<p>For now, assume your module is called <code>foo_module</code>.</p>
 <h2 id="project-structure">Project structure</h2>
 <div class="highlight"><pre><span></span><code>foo_module : the git repository root dir
 &boxvr;&boxh;&boxh; configs
@@ -157,13 +157,13 @@ things, and off-by-1 errors.</p>
 </code></pre></div>
 <ul>
 <li>Having a <code>Dockerfile</code> and a <code>docker-compose.yml</code> might be nice if you have
-  not purely Python dependencies. See <a href="https://martin-thoma.com/docker/">my Docker article</a>.</li>
+  non-Python dependencies. See <a href="https://martin-thoma.com/docker/">my Docker article</a>.</li>
 </ul>
-<p>the <code>foo_module/__init__.py</code> should look like this:</p>
+<p>The <code>foo_module/__init__.py</code> should look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">"lidtk"</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">"foo_module"</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="n">__version__</span> <span class="o">=</span> <span class="s2">"Not installed"</span>
 </code></pre></div>
@@ -244,8 +244,8 @@ things, and off-by-1 errors.</p>
 </code></pre></div>
 <h2 id="documentation">Documentation</h2>
 <p>Documentation is important as Python does not have type information directly
-visible in the code. So you want all functions to <strong>have a Docstring</strong> which
-documents which type the parameter and the return value has.
+visible in the code. So you want all functions to <strong>have a docstring</strong> which
+documents which types the parameters and the return value have.
 Decide on a format. I like the <a href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">numpydoc convention</a>.
 Stick to that.</p>
 <p>Every project should <strong>have a README.md</strong> which answers the following questions:</p>
@@ -255,13 +255,13 @@ Stick to that.</p>
 <li>Usage example</li>
 <li>Developer guide:<ol>
 <li>What are TODOs / where can I find them?</li>
-<li>How do I run the tests</li>
+<li>How do I run the tests?</li>
 </ol>
 </li>
 </ol>
 <h2 id="logging">Logging</h2>
 <p>Use the <a href="https://docs.python.org/3/library/logging.html"><code>logging</code></a> library.</p>
-<p>Add the logging configuration to the modules configuration file (<code>configs/module.yaml</code>):</p>
+<p>Add the logging configuration to the module's configuration file (<code>configs/module.yaml</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="nt">LOGGING</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">  </span><span class="nt">disable_existing_loggers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
@@ -312,7 +312,7 @@ Stick to that.</p>
 
 <span class="n">filepath</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">"foo_module"</span><span class="p">,</span> <span class="s2">"configs/module.yaml"</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
-    <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"LOGGING"</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="tests">Tests</h2>
@@ -321,9 +321,9 @@ Stick to that.</p>
 <li><em>Correctness</em>: Having more tests gives you more certainty that you actually
    did the right thing.</li>
 <li><em>Documentation</em>: If documentation is bad, developers can have a look at your
-   tests. They might show what was not directly doucmented.</li>
+   tests. They might show what was not directly documented.</li>
 <li><em>Flexibility</em>: Once another developer gets to see code which is used in
-   production, one hasitates to change it. You might break things. Having many
+   production, one hesitates to change it. You might break things. Having many
    tests and a high test coverage gives the project more flexibility as people
    see faster where things break. And keep in mind: That future developer might
    be yourself, after not having worked with your code for a while.</li>
@@ -348,12 +348,12 @@ The <code>tox.ini</code> should look like this:</p>
 <h2 id="anti-patterns">Anti-Patterns</h2>
 <h3 id="print-vs-logging">Print vs Logging</h3>
 <ul>
-<li><code>logging.XY(msg)</code> should be used, when there is information about the flow
+<li><code>logging.XY(msg)</code> should be used when there is information about the flow
   of the program. The reason for having logging is to analyze why something
   went wrong or if everything went right. So debugging / monitoring.</li>
-<li><code>print(msg)</code> should be used, when there is output by the program. So output
-  that is the purpose of the program. The purpose of <code>print(msg)</code> is as the
-  message is why the user called the program in the first place.</li>
+<li><code>print(msg)</code> should be used when there is output by the program. So output
+  that is the purpose of the program: The printed message is why the user
+  called the program in the first place.</li>
 </ul>
 <p>What I do quite often is to print stuff when I should actually use
 <code>logging.debug(msg)</code>. I want to change it.</p>
@@ -377,9 +377,9 @@ those and try to install them, if some are missing.</p>
 
 -e .
 </code></pre></div>
-<p>See <a href="https://caremad.io/posts/2013/07/setup-vs-requirement/">this blogpost</a> for
+<p>See <a href="https://caremad.io/posts/2013/07/setup-vs-requirement/">this blog post</a> for
 details.</p>
-<h3 id="multiple-main">Multiple <strong>main</strong></h3>
+<h3 id="multiple-__main__">Multiple <code>__main__</code></h3>
 <p>A Python package should at most contain one <code>__main__</code>. That should be the
 <code>bin/foo_module</code>. All other files should either be pure "library files" or be
 connected to the main command. I like <a href="http://click.pocoo.org/6/"><code>click</code></a> for

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Data Applications "/>
 <meta property="og:url" content="data-applications/" />
-<meta property="og:description" content="&#34;Data is the new oil&#34;, &#34;we need to be data driven&#34;, &#34;we need to apply AI to keep being competitive&#34; are some of the prashes I hear a lot. As I haven&#39;t seen yet a clear article pointing out what is done with the data ... here you are 🙂 Why it&#39;s …" />
+<meta property="og:description" content="&#34;Data is the new oil&#34;, &#34;we need to be data-driven&#34;, &#34;we need to apply AI to keep being competitive&#34; are some of the phrases I hear a lot. As I haven&#39;t seen a clear article yet pointing out what is done with the data ... here you are 🙂 Why it&#39;s complicated …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-12-02T20:00:00+01:00" />
 <meta name="twitter:title" content="Data Applications ">
-<meta name="twitter:description" content="&#34;Data is the new oil&#34;, &#34;we need to be data driven&#34;, &#34;we need to apply AI to keep being competitive&#34; are some of the prashes I hear a lot. As I haven&#39;t seen yet a clear article pointing out what is done with the data ... here you are 🙂 Why it&#39;s …">
+<meta name="twitter:description" content="&#34;Data is the new oil&#34;, &#34;we need to be data-driven&#34;, &#34;we need to apply AI to keep being competitive&#34; are some of the phrases I hear a lot. As I haven&#39;t seen a clear article yet pointing out what is done with the data ... here you are 🙂 Why it&#39;s complicated …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -111,25 +111,25 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>"Data is the new oil", "we need to be data driven",
-"we need to apply AI to keep being competitive" are some of the prashes I hear
-a lot. As I haven't seen yet a clear article pointing out what is done with
+            <p>"Data is the new oil", "we need to be data-driven",
+"we need to apply AI to keep being competitive" are some of the phrases I hear
+a lot. As I haven't seen a clear article yet pointing out what is done with
 the data ... here you are 🙂</p>
 <h2 id="why-its-complicated">Why it's complicated</h2>
-<p>Coorporations have a lot of data which is analyzed under different aspects
-all the time. Micro services are built which have their own data flows,
+<p>Corporations have a lot of data which is analyzed under different aspects
+all the time. Microservices are built which have their own data flows,
 applications and services are updated while they are running. Bugs get fixed.
-All of this makes the data very heterogenous.</p>
+All of this makes the data very heterogeneous.</p>
 <p>Data quality problems include:</p>
 <ul>
 <li><strong>Mixed attribute availability</strong>: Changes and bugs lead to NULL values.</li>
 <li><strong>Semantic Changes</strong>: The applications which produce the data might change.
-  Maybe you have "price" column somewhere. At one point it included tax, at
-  another it doesn't. Time might be local, server and UTC. Durations might be
-  seconds and milliseconds.</li>
+  Maybe you have a "price" column somewhere. At one point it included tax, at
+  another it doesn't. Time might be local, server, or UTC time. Durations might be
+  seconds or milliseconds.</li>
 <li><strong>Consistency</strong>: The data format might change. Maybe the user name is sometimes "FIRSTNAME
   LASTNAME" and in other cases "LASTNAME, FIRSTNAME".</li>
-<li><strong>Duplicates</strong>: Some entries might be duplicated, e.g. multiple form submission.</li>
+<li><strong>Duplicates</strong>: Some entries might be duplicated, e.g. multiple form submissions.</li>
 </ul>
 <p>Engineering problems include:</p>
 <ul>
@@ -137,8 +137,8 @@ All of this makes the data very heterogenous.</p>
   Maybe even bigger than what fits on a single machine.</li>
 <li><strong>Fast Data</strong>: The incoming data might need to be processed in a few
   milliseconds.</li>
-<li><strong>Privacy</strong>: How do we make the platform GDPR complient?</li>
-<li><strong>Security</strong>: Authentifiction and Authorization</li>
+<li><strong>Privacy</strong>: How do we make the platform GDPR compliant?</li>
+<li><strong>Security</strong>: Authentication and Authorization</li>
 </ul>
 <!--
 
@@ -164,22 +164,22 @@ as one needs to download the data from the warehouse. Then
 (<a href="https://www.youtube.com/watch?v=VUVqj7YsWmU">promo&nbsp;video</a>) and
 <a href="https://en.wikipedia.org/wiki/Qlik"><span class="label label-primary">QlikView</span></a>
 (<a href="https://www.youtube.com/watch?v=sqILcEwlHSI">promo&nbsp;video</a>) come into
-play. The Buzzword here are <span class="label label-danger">data driven</span> and <span class="label label-danger">self-service BI</span>. People using
+play. The buzzwords here are <span class="label label-danger">data driven</span> and <span class="label label-danger">self-service BI</span>. People using
 this software are often called <span class="label label-info">Business
-Analysts</span> and work in an <i>BI department</i>. They usually create
+Analysts</span> and work in a <i>BI department</i>. They usually create
 dashboards and reports which drive business decisions.</p>
 <p>If the company has a lot of very different data, a
 <span class="label label-primary">data dictionary</span> might help. In the
-simplest case, it could be a word document. A bit more advanced would be to
+simplest case, it could be a Word document. A bit more advanced would be to
 use the comment attribute for columns in databases. Then there are tools
 like <a href="https://dataedo.com/">dataedo</a> as well.</p>
 <h2 id="poc-model-creation">POC: Model creation</h2>
 <p>Sometimes, analysis of the past behavior is not enough. You need a predictive
 model for future cases. Maybe even have it as a part of a customer-facing
 product. Now you need a <span class="label label-info">Data Scientist</span>.
-The work starts at the warehouse. As the warehouses and QlikView / Tableaus
+The work starts at the warehouse. As the warehouses and QlikView / Tableau's
 options are too limited, the data scientist gets a dump of the relevant parts.
-This might include some aggregtions, filtering and unions in the warehouse
+This might include some aggregations, filtering and unions in the warehouse
 before, but at some point it will likely be imported in an environment where
 Python can be used. The Data Scientist analyzes the data, e.g. with a
 <a href="https://en.wikipedia.org/wiki/Project_Jupyter"><span class="label label-primary">Jupyter&nbsp;Notebook</span></a>. Usually
@@ -192,7 +192,7 @@ not in a state to be used directly in production, because a lot of the cables
 might not be connected. But it should be clear from the PoC if the data allows
 building the kind of model you want to have. A valid outcome of the PoC is that
 it is (currently) not possible.</p>
-<p>The two parts that can consume arbitrary much time are data cleaning and model
+<p>The two parts that can consume arbitrarily much time are data cleaning and model
 optimization. Even after the PoC. If you're interested in that topic, ping me
 in the comments.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -207,9 +207,9 @@ typically requires makes it necessary to get the data from a different source.
 If it should be event-based, it might be <a class="label label-primary" href="https://en.wikipedia.org/wiki/Apache_Kafka">Apache&nbsp;Kafka</a> for
 messaging or <a class="label label-primary" href="https://en.wikipedia.org/wiki/Apache_Flink">Apache&nbsp;Flink</a>.
 The important point to notice here is that machine learning models typically
-contain two seperate phases: Model training and model inference. At training
+contain two separate phases: Model training and model inference. At training
 time, one needs to process a lot of data and needs a lot of computational
-power. At inference time, each requests data is tiny. The amount of computation
+power. At inference time, each request's data is tiny. The amount of computation
 necessary is small. So it is a mixed execution mode: Regularly re-train a model
 in a batch-way and have a continuously running service for inference.
 They might build things like <a class="label label-danger" href="https://milinda.pathirage.org/kappa-architecture.com/">Kappa Architectures</a> or <a class="label label-danger" href="https://en.wikipedia.org/wiki/Lambda_architecture">Lambda Architectures</a>. To
@@ -221,13 +221,13 @@ the cloud:</p>
 <dl>
 <dt><dfn>AWS Lambda</dfn> <span class="label label-primary">Compute</span></dt>
 <dd>Running small and short scripts after a triggering event. Has a delay of a couple of seconds. Provides Computational Resources.</dd>
-<dt><dfn>AWS Cloudformation</dfn></dt>
+<dt><dfn>AWS CloudFormation</dfn></dt>
 <dd>Infrastructure as Code (IaC) Tool</dd>
 <dt><dfn>AWS EC2</dfn> <span class="label label-primary">Compute</span> (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html">AWS</a>)</dt>
 <dd>provides scalable computing capacity; </dd>
 <dt><dfn>AWS S3</dfn> <span class="label label-primary">Storage</span></dt>
 <dd>Store Files</dd>
-<dt><dfn>AWS InnoDB</dfn> <span class="label label-primary">Storage</span></dt>
+<dt><dfn>AWS DynamoDB</dfn> <span class="label label-primary">Storage</span></dt>
 <dd>Key-Value Store</dd>
 <dt><dfn>AWS SSM</dfn> <span class="label label-primary">Storage</span></dt>
 <dd>Store Passwords and configuration</dd>
@@ -241,7 +241,7 @@ the cloud:</p>
 <dd>deploy open source, big data frameworks like Apache Hadoop, Spark, Presto, HBase, and Flink</dd>
 </dl>
 <h2 id="see-also">See also</h2>
-<p>There are a couple of follow-up topics which might result in:</p>
+<p>There are a couple of follow-up topics which might result from this:</p>
 <ul>
 <li>How to deploy machine learning models</li>
 </ul>
@@ -260,7 +260,7 @@ the cloud:</p>
 <li><a href="https://medium.com/@anupam.ncsu/deploying-on-aws-fargate-using-cloudformation-3bf33cefbf18">Deploying on AWS Fargate using Cloudformation</a>, 2018.</li>
 <li>Jen Underwood: <a href="https://www.jenunderwood.com/2017/08/30/need-data-catalog-select-one/">Why You Need a Data Catalog and How to Select One</a></li>
 <li>Nick Schrock: <a href="https://medium.com/dagster-io/introducing-dagster-dbd28442b2b7">Introducing Dagster</a>, 2019.</li>
-<li>Github Issue: <a href="https://github.com/dagster-io/dagster/issues/1593">Dagster vs. Rest</a>, 2019.</li>
+<li>GitHub Issue: <a href="https://github.com/dagster-io/dagster/issues/1593">Dagster vs. Rest</a>, 2019.</li>
 </ul>
             
         </div>

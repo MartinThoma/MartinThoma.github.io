@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to use GPG  - Send and receive encrypted messages "/>
 <meta property="og:url" content="gpg/" />
-<meta property="og:description" content="Having full control over encrypted messages is sometimes just nice and crucial in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is a commonly used tool to encrypt, decrypt, and sign secrets. After reading this article, you will know how to use GPG. Let’s …" />
+<meta property="og:description" content="Having full control over encrypted messages is sometimes just nice and crucial in other situations and/or places in the world. GPG, the GNU Privacy Guard, is a commonly used tool to encrypt, decrypt, and sign secrets. After reading this article, you will know how to use GPG. Let’s …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2021-05-17T20:00:00+02:00" />
 <meta name="twitter:title" content="How to use GPG  - Send and receive encrypted messages ">
-<meta name="twitter:description" content="Having full control over encrypted messages is sometimes just nice and crucial in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is a commonly used tool to encrypt, decrypt, and sign secrets. After reading this article, you will know how to use GPG. Let’s …">
+<meta name="twitter:description" content="Having full control over encrypted messages is sometimes just nice and crucial in other situations and/or places in the world. GPG, the GNU Privacy Guard, is a commonly used tool to encrypt, decrypt, and sign secrets. After reading this article, you will know how to use GPG. Let’s …">
 <meta property="og:image" content="logos/security.png" />
 <meta name="twitter:image" content="logos/security.png" >
 
@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Having full control over encrypted messages is sometimes just nice and crucial
-in other situations and/or places in the world. GPG, the Gnu Privacy Guard, is
+in other situations and/or places in the world. GPG, the GNU Privacy Guard, is
 a commonly used tool to encrypt, decrypt, and sign secrets.</p>
 <p>After reading this article, you will know how to use GPG. Let&rsquo;s go!</p>
 <h2 id="asymmetric-cryptography-a-conceptual-overview">Asymmetric Cryptography: A conceptual overview</h2>
@@ -157,7 +157,7 @@ don&rsquo;t know what to take, just go with the default.</p>
 <p>In the end, you should see a message like this:</p>
 <div class="highlight"><pre><span></span><code>pub   rsa4096 2021-05-16 [SC]
       20E4E524CA0B5402260F01EB62EE7851D92F3ECE
-uid                      John Smith &lt;[johnsmith@gmail.com](mailto:megaselviana05@gmail.com)&gt;
+uid                      John Smith &lt;johnsmith@gmail.com&gt;
 sub   rsa4096 2021-05-16 [E]
 </code></pre></div>
 <p>You can verify that it worked by listing your keys:</p>
@@ -169,7 +169,7 @@ gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
 -----------------------------
 pub   rsa4096 2021-05-16 [SC]
       20E4E524CA0B5402260F01EB62EE7851D92F3ECE
-uid           [ultimate] John Smith &lt;[johnsmith@gmail.com](mailto:megaselviana05@gmail.com)&gt;
+uid           [ultimate] John Smith &lt;johnsmith@gmail.com&gt;
 sub   rsa4096 2021-05-16 [E]
 </code></pre></div>
 <p>The 20E4E524CA0B5402260F01EB62EE7851D92F3ECE is the ID of the keypair. To make
@@ -179,7 +179,7 @@ $ echo $GPGKEY
 20E4E524CA0B5402260F01EB62EE7851D92F3ECE
 </code></pre></div>
 <h2 id="create-a-backup">Create a Backup!</h2>
-<p>Losing your private key is a shame. Now you need to share it in a secure
+<p>Losing your private key is a shame. Now you need to share a new public key in a secure
 manner with all your contacts again. To prevent it, create a backup.</p>
 <p>The Bitcoin community has figured out a way to create a 12-word combination
 that generates the seed for generating the key pairs
@@ -213,15 +213,15 @@ olGdwDBQAAzBeETABsuGf/ALnExpZDlNpG9kJ4oCfJg+QEDVpMjytNOGGyj/A5h0
 <p>You can also pipe that block directly into a file:</p>
 <div class="highlight"><pre><span></span><code>$ gpg --export -a $GPGKEY &gt; public_key.asc
 </code></pre></div>
-<p>This pure text can easily be shared in a web form, e.g. Github uses this.</p>
+<p>This pure text can easily be shared in a web form, e.g. GitHub uses this.</p>
 <h3 id="share-public-key-via-key-server">Share public key via key server</h3>
 <div class="highlight"><pre><span></span><code>$ gpg --send-keys --keyserver keyserver.ubuntu.com $GPGKEY
 </code></pre></div>
 <p>Others can then search for a public key via</p>
-<div class="highlight"><pre><span></span><code>$ gpg --auto-key-locate keyserver --locate-keys [j](mailto:user@example.net)ohn@smith.com
+<div class="highlight"><pre><span></span><code>$ gpg --auto-key-locate keyserver --locate-keys john@smith.com
 </code></pre></div>
 <p>Please note that the keyserver does not validate that the user who generated
-the GPG key ever had access to john@smith.com !</p>
+the GPG key ever had access to john@smith.com!</p>
 <h2 id="encrypt-a-file_1">Encrypt a file</h2>
 <div class="highlight"><pre><span></span><code>$ gpg --output doc.gpg \
       --encrypt \
@@ -236,9 +236,8 @@ in person, e.g. at a <a href="https://en.wikipedia.org/wiki/Key_signing_party">k
 party</a>.</p>
 <h2 id="decrypt-a-file">Decrypt a file</h2>
 <div class="highlight"><pre><span></span><code>$ gpg --output decrypted.pdf \
-      --encrypt \
-      --recipient receiver@example.com \
-      message.txt
+      --decrypt \
+      doc.gpg
 </code></pre></div>
 <p>⚠️ The decrypted file can still be malware. Don&rsquo;t execute fishy stuff.</p>
 <h2 id="sign-a-file">Sign a file</h2>
@@ -247,17 +246,17 @@ everybody can decrypt it with your public key. And everybody knows that only
 you can possibly have encrypted it.</p>
 <div class="highlight"><pre><span></span><code>$ gpg --output signed-message.sig --sign message.txt
 </code></pre></div>
-<p>This produces a binary file called signed-message.sig . This is a binary file
-that is not readable without using your public key to decrypt and verify it:</p>
-<div class="highlight"><pre><span></span><code>$ gpg --output destination.path.txt --decrypt doc.sig
+<p>This produces a binary file called <code>signed-message.sig</code>. It contains the (compressed)
+message and the signature. You can extract and verify it with:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --output destination.path.txt --decrypt signed-message.sig
 gpg: Signature made So 16 Mai 2021 17:26:56 CEST
 gpg:                using RSA key D1E632346B642680EF360D696901E782EF663EC4
-gpg: Good signature from "Martin Thoma (Generated on 2021-01-15 for private use) &lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&gt;" [ultimate]
+gpg: Good signature from "Martin Thoma (Generated on 2021-01-15 for private use) &lt;info@martin-thoma.de&gt;" [ultimate]
 </code></pre></div>
 <h3 id="clearsign">Clearsign</h3>
 <p>If you have a text file, you can &ldquo;clearsign&rdquo; it. That means the message is
 readable in plain text and the signature is in the same file:</p>
-<div class="highlight"><pre><span></span><code>$ gpg --clearsing my-special-message.txt
+<div class="highlight"><pre><span></span><code>$ gpg --clearsign my-special-message.txt
 </code></pre></div>
 <p>It produces the following:</p>
 <div class="highlight"><pre><span></span><code>-----BEGIN PGP SIGNED MESSAGE-----
@@ -285,12 +284,11 @@ jpCE1lYIpqkwrpvKJ8VE8XeGcTz8oHqJa0ZJxvDAdDK9mp19MhU=
 =7cya
 -----END PGP SIGNATURE-----
 </code></pre></div>
-<p>To verify the message.txt.asc, you sadly need two steps:</p>
-<div class="highlight"><pre><span></span><code>$ gpg --detach-sign -o sig.gpg message.txt.asc
-$ gpg --verify sig.gpg message.txt.asc
+<p>To verify the clearsigned <code>message.txt.asc</code>, run:</p>
+<div class="highlight"><pre><span></span><code>$ gpg --verify message.txt.asc
 gpg: Signature made Mo 17 Mai 2021 23:25:16 CEST
 gpg:                using RSA key D1E632346B642680EF360D696901E782EF663EC4
-gpg: Good signature from "Martin Thoma (Generated on 2021-01-15 for private use) &lt;[info@martin-thoma.de](mailto:info@martin-thoma.de)&gt;" [ultimate]
+gpg: Good signature from "Martin Thoma (Generated on 2021-01-15 for private use) &lt;info@martin-thoma.de&gt;" [ultimate]
 </code></pre></div>
 <h2 id="dealing-with-breaches-revocation-certificates_1">Dealing with Breaches: Revocation Certificates</h2>
 <p>Any system will break eventually. The question is only when it will break and
@@ -326,7 +324,7 @@ $ gpg --list-keys
 ...
 pub   rsa4096 2021-05-17 [SC] [revoked: 2021-05-17]
       BDEF174F32387BC81C5CBACB48BFEEB144E2F28C
-uid           [ revoked] John Smith &lt;[j](mailto:themoosemind@gmail.com)ohn.smith@example.com&gt;
+uid           [ revoked] John Smith &lt;john.smith@example.com&gt;
 </code></pre></div>
 <p>And let the keyserver know:</p>
 <div class="highlight"><pre><span></span><code>$ gpg --keyserver keyserver.ubuntu.com --send-keys $GPGKEY

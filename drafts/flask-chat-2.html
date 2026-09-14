@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Flask Chat - Part II "/>
 <meta property="og:url" content="drafts/flask-chat-2.html" />
-<meta property="og:description" content="In the first part, we created a chat application with Flask and jQuery which used polling. In this part, we will have a look at WebSockets (WS). Web Sockets Basics WebSocket is a two-way communication protocol. WebSocket is fully usable since 2011. You can use WebSocket on all modern Browsers …" />
+<meta property="og:description" content="In the first part, we created a chat application with Flask and jQuery which used polling. In this part, we will have a look at WebSockets (WS). WebSocket Basics WebSocket is a two-way communication protocol. WebSocket is fully usable since 2011. You can use WebSocket on all modern browsers. It …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-12-20T20:00:00+01:00" />
 <meta name="twitter:title" content="Flask Chat - Part II ">
-<meta name="twitter:description" content="In the first part, we created a chat application with Flask and jQuery which used polling. In this part, we will have a look at WebSockets (WS). Web Sockets Basics WebSocket is a two-way communication protocol. WebSocket is fully usable since 2011. You can use WebSocket on all modern Browsers …">
+<meta name="twitter:description" content="In the first part, we created a chat application with Flask and jQuery which used polling. In this part, we will have a look at WebSockets (WS). WebSocket Basics WebSocket is a two-way communication protocol. WebSocket is fully usable since 2011. You can use WebSocket on all modern browsers. It …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#web-sockets-basics" title="Web Sockets Basics">Web Sockets Basics</a></li><li><a class="toc-href" href="#scaling" title="Scaling">Scaling</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#websocket-basics" title="WebSocket Basics">WebSocket Basics</a></li><li><a class="toc-href" href="#scaling" title="Scaling">Scaling</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -113,17 +113,17 @@ MathJax.Hub.Queue(function() {
             
             <p>In the first part, we created a chat application with Flask and jQuery which
 used polling. In this part, we will have a look at WebSockets (WS).</p>
-<h2 id="web-sockets-basics">Web Sockets Basics</h2>
+<h2 id="websocket-basics">WebSocket Basics</h2>
 <p><a href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> is a two-way communication protocol.</p>
 <p><a href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> is fully usable since 2011.
-You can use <a href="https://caniuse.com/#search=websocket">WebSocket on all modern Browsers</a></p>
-<p>It had an <a href="https://html.spec.whatwg.org/multipage/web-sockets.html">W3C / WHATWG standard</a>
+You can use <a href="https://caniuse.com/#search=websocket">WebSocket on all modern browsers</a>.</p>
+<p>It had a <a href="https://html.spec.whatwg.org/multipage/web-sockets.html">W3C / WHATWG standard</a>
 and was moved to <a href="https://tools.ietf.org/html/draft-hixie-thewebsocketprotocol-75">IETF</a>.</p>
 <h2 id="scaling">Scaling</h2>
-<p>A single server can handle $2^{16} = 65536$ sockets per single IP adress.[^1]
-You might want to limit the amount of connections your app makes. Otherwise,
-it could happen that you can't ssh your server anymore. For more details, see
-[^1],[^2],[^3].</p>
+<p>A single server can handle $2^{16} = 65536$ sockets per single IP address.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+You might want to limit the number of connections your app makes. Otherwise,
+it could happen that you can't ssh into your server anymore. For more details, see
+<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>,<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>,<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Martin Thoma: <a href="https://github.com/MartinThoma/flask-chat">flask-chat</a></li>
@@ -131,9 +131,20 @@ it could happen that you can't ssh your server anymore. For more details, see
 <li>Samhita Alla: <a href="https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minutes-f98de4adfa5d">Building your first Chat Application using Flask in 7 minutes</a>, 2018.</li>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
-<p>[^1] <a href="https://www.linkedin.com/in/konstantin-shamko-9b68862/">Konstantin Shamko</a>: <a href="https://dzone.com/articles/load-balancing-of-websocket-connections">Load Balancing of WebSocket Connections</a>, 2016.
-[^2] Nairi Haroutiounian: <a href="https://blog.jscrambler.com/scaling-node-js-socket-server-with-nginx-and-redis/">Scaling Node.js Socket Server with Nginx and Redis</a>, 2018.
-[^3] <a href="https://github.com/hendrikswan">Hendrik Swanepoel</a>: <a href="https://hackernoon.com/scaling-websockets-9a31497af051">How to Scale WebSockets</a>, 2017.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><a href="https://www.linkedin.com/in/konstantin-shamko-9b68862/">Konstantin Shamko</a>: <a href="https://dzone.com/articles/load-balancing-of-websocket-connections">Load Balancing of WebSocket Connections</a>, 2016.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:2">
+<p>Nairi Haroutiounian: <a href="https://blog.jscrambler.com/scaling-node-js-socket-server-with-nginx-and-redis/">Scaling Node.js Socket Server with Nginx and Redis</a>, 2018.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://github.com/hendrikswan">Hendrik Swanepoel</a>: <a href="https://hackernoon.com/scaling-websockets-9a31497af051">How to Scale WebSockets</a>, 2017.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+</ol>
+</div>
             
         </div>
         <section>

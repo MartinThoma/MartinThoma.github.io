@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#plain-classes" title="Plain Classes">Plain Classes</a></li><li><a class="toc-href" href="#1-tuples" title="1. Tuples">1. Tuples</a></li><li><a class="toc-href" href="#2-dictionaries" title="2. Dictionaries">2. Dictionaries</a></li><li><a class="toc-href" href="#3-named-tuples" title="3. Named Tuples">3. Named Tuples</a></li><li><a class="toc-href" href="#4-attrs" title="4. attrs">4. attrs</a></li><li><a class="toc-href" href="#5-dataclass" title="5. Dataclass">5. Dataclass</a></li><li><a class="toc-href" href="#6-pydantic" title="6. Pydantic">6. Pydantic</a></li><li><a class="toc-href" href="#mutability-and-hashability" title="Mutability and Hashability">Mutability and Hashability</a></li><li><a class="toc-href" href="#default-string-representation" title="Default String Representation">Default String Representation</a></li><li><a class="toc-href" href="#data-validation" title="Data Validation">Data Validation</a></li><li><a class="toc-href" href="#serialize-to-json" title="Serialize to JSON">Serialize to JSON</a></li><li><a class="toc-href" href="#unserialize-from-json" title="Unserialize From JSON">Unserialize From JSON</a></li><li><a class="toc-href" href="#memory" title="Memory">Memory</a></li><li><a class="toc-href" href="#execution-time" title="Execution Time">Execution Time</a></li><li><a class="toc-href" href="#so-when-do-i-use-what" title="So When Do I Use What?">So When Do I Use What?</a></li><li><a class="toc-href" href="#resource" title="Resource">Resource</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#plain-classes" title="Plain Classes">Plain Classes</a></li><li><a class="toc-href" href="#1-tuples" title="1. Tuples">1. Tuples</a></li><li><a class="toc-href" href="#2-dictionaries" title="2. Dictionaries">2. Dictionaries</a></li><li><a class="toc-href" href="#3-named-tuples" title="3. Named Tuples">3. Named Tuples</a></li><li><a class="toc-href" href="#4-attrs" title="4. attrs">4. attrs</a></li><li><a class="toc-href" href="#5-dataclass" title="5. Dataclass">5. Dataclass</a></li><li><a class="toc-href" href="#6-pydantic" title="6. Pydantic">6. Pydantic</a></li><li><a class="toc-href" href="#mutability-and-hashability" title="Mutability and Hashability">Mutability and Hashability</a></li><li><a class="toc-href" href="#default-string-representation" title="Default String Representation">Default String Representation</a></li><li><a class="toc-href" href="#data-validation" title="Data Validation">Data Validation</a></li><li><a class="toc-href" href="#serialize-to-json" title="Serialize to JSON">Serialize to JSON</a></li><li><a class="toc-href" href="#deserialize-from-json" title="Deserialize From JSON">Deserialize From JSON</a></li><li><a class="toc-href" href="#memory" title="Memory">Memory</a></li><li><a class="toc-href" href="#execution-time" title="Execution Time">Execution Time</a></li><li><a class="toc-href" href="#so-when-do-i-use-what" title="So When Do I Use What?">So When Do I Use What?</a></li><li><a class="toc-href" href="#resource" title="Resource">Resource</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -164,7 +164,7 @@ MathJax.Hub.Queue(function() {
 <span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div>
-<p>You can see how we needed to write a boilerplate constructor <strong>init</strong> . The code for the constructor does not necessarily always look that simple, but in a lot of cases, it is.</p>
+<p>You can see how we needed to write a boilerplate constructor <code>__init__</code>. The code for the constructor does not necessarily always look that simple, but in a lot of cases, it is.</p>
 <p>You can see that it&rsquo;s possible to use positional arguments or keyword arguments. If you define a default value in the constructor, you can also leave the values out when you create an object from the class. This happened for pos2, where the address was not given to the constructor.</p>
 <p>You can also see that the annotation for the get_distance function looks pretty clean. It is clear what is meant.</p>
 <p>The tooling support is as good as it gets because every editor has to support the plain classes and all of the important information is there.</p>
@@ -184,7 +184,7 @@ MathJax.Hub.Queue(function() {
 <p>The annotation for get_distance looks messy. A human should be given the information that p1 represents a location &mdash; not that the location contains two floats and an optional string. That is work the editor should do for you.</p>
 <p>The editor's support depends on how thoroughly you annotate. In the example above, you could also just write Tuple without specifying what the tuple contains. As people are lazy, I&rsquo;d say the editor support is not good. It&rsquo;s no fault of the editor, but it&rsquo;s often not possible to give good support.</p>
 <h2 id="2-dictionaries">2. Dictionaries</h2>
-<p>Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by index is <em>fast</em>. Dicts are always mutable, but there is the third-party package <a href="https://pypi.org/project/frozendict/">frozendict</a> to solve this.</p>
+<p>Dictionaries are a native data type and probably the most common way to throw data around in Python. Dicts have a bigger memory overhead compared to tuples, as you have to store the names somewhere, but they are still OK. Accessing elements by key is <em>fast</em>. Dicts are always mutable, but there is the third-party package <a href="https://pypi.org/project/frozendict/">frozendict</a> to solve this.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
 <span class="n">pos1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"longitude"</span><span class="p">:</span> <span class="mf">49.0127913</span><span class="p">,</span> <span class="s2">"latitude"</span><span class="p">:</span> <span class="mf">8.4231381</span><span class="p">,</span> <span class="s2">"address"</span><span class="p">:</span> <span class="s2">"Parkstra&szlig;e 17"</span><span class="p">}</span>
@@ -198,7 +198,7 @@ MathJax.Hub.Queue(function() {
 <p><a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">TypedDict</a> (<a href="https://www.python.org/dev/peps/pep-0589/">PEP 589</a>) has been around since Python 3.8, but I&rsquo;ve never seen that in any bigger code base. <a href="https://python.plainenglish.io/killer-features-by-python-version-c84ca12dba8">TypedDict is a killer feature</a>, but it&rsquo;s irrelevant, as we want to support legacy Python versions.</p>
 <p>For those reasons, the editor's support is even worse than for tuples.</p>
 <h2 id="3-named-tuples">3. Named Tuples</h2>
-<p><a href="https://docs.python.org/3/library/collections.html#collections.namedtuple">Named tuples</a> were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function collections.namedtuple to generate the named tuple class, but I prefer to inherit from typing.NamedTuple and use inheritance combined with type annotations:</p>
+<p><a href="https://docs.python.org/3/library/collections.html#collections.namedtuple">Named tuples</a> were added to Python 2.6, so they have been around for quite a while. They are actually tuples, but they have a name and a constructor that accepts keyword arguments. Most people use the factory function <code>collections.namedtuple</code> to generate the named tuple class, but I prefer to inherit from <code>typing.NamedTuple</code> and use inheritance combined with type annotations:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Old style, before Python 3.7</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 
@@ -206,13 +206,13 @@ MathJax.Hub.Queue(function() {
 <span class="n">Position</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">"Position"</span><span class="p">,</span> <span class="n">attribute_names</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,))</span>
 
 <span class="c1"># Python 3.7 and later:</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Optional</span>
 
 
 <span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
-    <span class="n">longitude</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">latitude</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">address</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="c1"># Both are used in the same way</span>
@@ -238,7 +238,7 @@ BMI(weight=60, size=170)
 True
 </code></pre></div>
 <h2 id="4-attrs">4. attrs</h2>
-<p><a href="https://pypi.org/project/attrs/">attrs</a> is a third-party library that reduces boilerplate code. Developers can use it by adding the @attrs.s decorator above the class. Attributes are assigned the attr.ib() function:</p>
+<p><a href="https://pypi.org/project/attrs/">attrs</a> is a third-party library that reduces boilerplate code. Developers can use it by adding the <code>@attr.s</code> decorator above the class. Attributes are assigned with the <code>attr.ib()</code> function:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 <span class="kn">import</span> <span class="nn">attr</span>
 
@@ -274,12 +274,13 @@ True
 ...     x = attr.ib(converter=int)
 &gt;&gt;&gt; o = C("1")
 &gt;&gt;&gt; o.x
+1
 </code></pre></div>
 <p><a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4">Visual Studio Code</a> does not like the type annotations.</p>
 <h2 id="5-dataclass">5. Dataclass</h2>
 <p>Dataclasses were added in Python 3.7 with <a href="https://www.python.org/dev/peps/pep-0557/">PEP 557</a>. They are similar to attrs, but in the standard library. It&rsquo;s especially important to note that dataclasses are &ldquo;just&rdquo; normal classes that happen to have lots of data in them.</p>
-<p>In contrast to attrs, data classes use type annotations instead of the attr.ib() notation. I think this increases readability a lot. Also, the editor support is better because you now have to annotate the attributes.</p>
-<p>You can easily make it immutable by changing the decorator to @dataclass(frozen=True) &mdash; just like with attrs.</p>
+<p>In contrast to attrs, data classes use type annotations instead of the <code>attr.ib()</code> notation. I think this increases readability a lot. Also, the editor support is better because you now have to annotate the attributes.</p>
+<p>You can easily make it immutable by changing the decorator to <code>@dataclass(frozen=True)</code> &mdash; just like with attrs.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 
@@ -298,7 +299,7 @@ True
 <span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Position</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">pass</span>
 </code></pre></div>
-<p>One part that I&rsquo;m lacking here is attribute validation. I can use <strong>post_init</strong>(self) to do it for the construction:</p>
+<p>One part that I&rsquo;m lacking here is attribute validation. I can use <code>__post_init__(self)</code> to do it for the construction:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
         <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span>
@@ -376,7 +377,7 @@ True
 <h2 id="mutability-and-hashability">Mutability and Hashability</h2>
 <p>I don&rsquo;t tend to consciously think about mutability a lot, but in many cases, I want my classes to be immutable. The big exceptions are database models, but they are a complete story on their own.</p>
 <p>Having the option to mark classes as frozen to make their objects immutable is pretty nice.</p>
-<p>Implementing <strong>hash</strong> for a mutable object is problematic because the hash might change when the object is changed. This means if the object is in a dictionary, the dictionary would need to know that the hash of the object has changed and store it in a different location. For this reason, both dataclasses and Pydantic prevent the hashing of mutable classes by default. They have unsafe_hash, though.</p>
+<p>Implementing <code>__hash__</code> for a mutable object is problematic because the hash might change when the object is changed. This means if the object is in a dictionary, the dictionary would need to know that the hash of the object has changed and store it in a different location. For this reason, both dataclasses and Pydantic prevent the hashing of mutable classes by default. They have <code>unsafe_hash</code>, though.</p>
 <h2 id="default-string-representation">Default String Representation</h2>
 <p>Having a reasonable string representation is super helpful (e.g. for logging). And let&rsquo;s be honest: A lot of people do print debugging.</p>
 <p>If we printed pos1 from the examples above, here is what we would get. The linebreaks and alignments were added to keep things nice to read. The original results are on one line:</p>
@@ -402,7 +403,7 @@ Plain class   : &lt;__main__.Position object at 0x7f1562750640&gt;
 <p>You have seen how data validation can be implemented for plain classes, attrs, dataclasses, and Pydantic. What you haven&rsquo;t seen is what the error messages look like.</p>
 <p>For the following, I will attempt to create Position(1234, 567). So both the longitude and latitude are wrong. Here are the error messages this triggers:</p>
 <div class="highlight"><pre><span></span><code># Plain Class
-ValueError: Longitude was 11111, but has to be in [-180, 180]
+ValueError: longitude was 1234, but has to be in [-180, 180]
 
 # 4: attr
 ValueError: Longitude was 1234, but must be in [-180, +180]
@@ -447,16 +448,16 @@ latitude
 <span class="nb">print</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
 </code></pre></div>
 <p>This gives you:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"squash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"web_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[http://foo](http://foo)"</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"title"</span><span class="p">,</span><span class="w"> </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">}}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"squash"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"web_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://foo"</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"title"</span><span class="p">,</span><span class="w"> </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">}}</span>
 </code></pre></div>
 <p>For dataclasses, <a href="https://docs.python.org/3/library/dataclasses.html#dataclasses.asdict">dataclasses.asdict</a> goes a long way. Then you might be able to directly serialize the dictionary to JSON. It becomes interesting with DateTime or <a href="https://docs.python.org/3/library/decimal.html">decimal</a> objects. <a href="https://www.attrs.org/en/stable/examples.html#converting-to-collections-types">Something similar</a> is possible with attrs.</p>
-<h2 id="unserialize-from-json">Unserialize From JSON</h2>
-<p>Userializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:</p>
+<h2 id="deserialize-from-json">Deserialize From JSON</h2>
+<p>Deserializing nested classes from a JSON string is trivial with Pydantic. Using the example above, you would write:</p>
 <div class="highlight"><pre><span></span><code><span class="n">mr</span> <span class="o">=</span> <span class="n">GitlabMr</span><span class="o">.</span><span class="n">parse_raw</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
 </code></pre></div>
 <p>There are very dirty hacks to do <a href="https://stackoverflow.com/a/53498623/562769">something similar with dataclasses</a>. The <a href="https://stackoverflow.com/q/44801927/562769">attrs way to deserialize</a> looks better, but I guess it also struggles with nested structures. And when it comes to DateTime or decimals, I&rsquo;m pretty certain that both show more problems than Pydantic. Serialization, deserialization, and validation are where Pydantic shines.</p>
 <h2 id="memory">Memory</h2>
-<p>Using this <a href="https://stackoverflow.com/a/30316760/562769">getsize</a> implementation on pos1 , I get:</p>
+<p>Using this <a href="https://stackoverflow.com/a/30316760/562769">getsize</a> implementation on <code>pos1</code>, I get:</p>
 <div class="highlight"><pre><span></span><code>Raw float    :   8 B ("double")
 Raw string   :   1 B per char &rArr; 13B
 Raw data     :  29 B = 8B + 8B + 13B
@@ -476,7 +477,7 @@ Native class : 286 B
 </code></pre></div>
 <p>The Pydantic base model has quite an overhead, but you always have to keep things in perspective. How many of those objects will you create? Let&rsquo;s assume you have maybe 100 of those. Each of them might consume 500B more than a more efficient alternative. That would be 50kB. To quote <a href="https://www.azquotes.com/quote/721020">Donald Knuth</a>:</p>
 <blockquote>
-<h1 id="premature-optimization-is-the-root-of-all-evil">&ldquo;Premature optimization is the root of all evil.&rdquo;</h1>
+<p>&ldquo;Premature optimization is the root of all evil.&rdquo;</p>
 </blockquote>
 <p>If memory becomes problematic, then you will not switch from Pydantic to dataclasses or attrs. You will switch to something more structured like NumPy arrays or pandas DataFrames.</p>
 <h2 id="execution-time">Execution Time</h2>
@@ -498,7 +499,7 @@ Native class : 286 B
 <li>Pydantic BaseModel when you need to deserialize data.</li>
 </ul>
 <p>Please note that I didn&rsquo;t mention tuple and attrs. I simply cannot find a valid use case where you would prefer them for new code over the other choices. Please let me know if I missed one.</p>
-<p>I also didn&rsquo;t mention plain classes. I think I would only use plain classes if I want to overwrite <strong>init</strong>, <strong>eq</strong> , <strong>str</strong>, <strong>repr</strong> , and__hash__ anyway. Or if I have to support old Python versions.</p>
+<p>I also didn&rsquo;t mention plain classes. I think I would only use plain classes if I want to overwrite <code>__init__</code>, <code>__eq__</code>, <code>__str__</code>, <code>__repr__</code>, and <code>__hash__</code> anyway. Or if I have to support old Python versions.</p>
 <h2 id="resource">Resource</h2>
 <ul>
 <li>Raymond Hettinger: &ldquo;<a href="https://www.youtube.com/watch?v=T-TwcmT6Rcw">Dataclasses: The code generator to end all code generators</a>&rdquo; at PyCon 2018, on YouTube.</li>

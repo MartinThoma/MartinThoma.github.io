@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="TLS and Nginx "/>
 <meta property="og:url" content="tls-and-nginx/" />
-<meta property="og:description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence we need encryption of our data at the transport layer level. The Problem of Internet Connections The internet …" />
+<meta property="og:description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence, we need encryption of our data at the transport layer level. The Problem of Internet Connections The internet …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-06-16T20:00:00+02:00" />
 <meta name="twitter:title" content="TLS and Nginx ">
-<meta name="twitter:description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence we need encryption of our data at the transport layer level. The Problem of Internet Connections The internet …">
+<meta name="twitter:description" content="Transport security is an important topic nowadays. We don&#39;t want a man in the middle (MITM) to be able to read our communication with banks, our e-mails, or our medical apps. Hence, we need encryption of our data at the transport layer level. The Problem of Internet Connections The internet …">
 <meta property="og:image" content="logos/nginx.png" />
 <meta name="twitter:image" content="logos/nginx.png" >
 
@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
             
             <p>Transport security is an important topic nowadays. We don't want a man in the
 middle (MITM) to be able to read our communication with banks, our e-mails, or our
-medical apps. Hence we need encryption of our data at the transport layer
+medical apps. Hence, we need encryption of our data at the transport layer
 level.</p>
 <h2 id="the-problem-of-internet-connections">The Problem of Internet Connections</h2>
 <p>The internet is a network. It is not connecting your machine with every other
@@ -125,10 +125,10 @@ you also have some attackers within the network:</p>
 </figure>
 <p>The internet is engineered in a way that very often you can imagine the
 connection between you and a service as a direct one, although it is not
-direct. That connection is not save. At the very least you can imagine people
+direct. That connection is not safe. At the very least you can imagine people
 reading your traffic (e.g. when you use a wireless connection that's called <a href="https://en.wikipedia.org/wiki/Packet_analyzer">WLAN Sniffing</a>, the same thing works
 when you're in the same network). In a worse case they might be able to change
-your communication. These types of attacks are called <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man-in-the-middle attack</a>:</p>
+your communication. These types of attacks are called <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man-in-the-middle attacks</a>:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2019/06/man-in-the-middle.png"><img alt="A Man in the Middle Attack" src="../images/2019/06/man-in-the-middle.png" style="width: 512px;"/></a>
 <figcaption class="text-center">A Man in the Middle Attack</figcaption>
@@ -137,42 +137,44 @@ your communication. These types of attacks are called <a href="https://en.wikipe
 <p>There is a super neat technique called <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">Public-key cryptography</a>.
 It enables you to generate two keys. We call one of them the public key and the
 other the private key.</p>
-<p>Imaginethem as a combination of keys / locks:
-* Stuff that is encrypted (locked) with the private key can only be decrypted
-  (unlocked) with the public key
-* Stuff that is encrypted with the public key can only be decrypted with the
-  private key.</p>
-<p>So we make the pulic key ... well, public. Meaning we share the public key with
+<p>Imagine them as a combination of keys / locks:</p>
+<ul>
+<li>Stuff that is encrypted (locked) with the private key can only be decrypted
+  (unlocked) with the public key</li>
+<li>Stuff that is encrypted with the public key can only be decrypted with the
+  private key.</li>
+</ul>
+<p>So we make the public key ... well, public. Meaning we share the public key with
 the world. Whenever somebody wants to send us a message, they can use our
 public key and only we will be able to read it as long as we keep the private
 key private.</p>
 <h2 id="the-problem-of-manipulating-mitm">The Problem of Manipulating MITM</h2>
 <p>Public-key cryptography is awesome, once we have shared the public key with the
-world. But we might not even get that far, if an attacker manages to intercept
+world. But we might not even get that far if an attacker manages to intercept
 our messages. The attacker could share his public key with the world instead.
-Then, when somebody wants to have a private communcation with us, they use the
-attackers public key. The attacker reads the message, decrypts it with our
-public key and we think everything was fine.</p>
+Then, when somebody wants to have a private communication with us, they use the
+attacker's public key. The attacker decrypts the message with their private key,
+reads it, re-encrypts it with our public key, and forwards it. We think everything was fine.</p>
 <h2 id="the-solution-certificate-authorities">The Solution: Certificate Authorities</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Certificate_authority">Certificate Authority</a>
 (CA) is a trusted third party. A certificate is a digital document which says
-"This public key belongs to that domain". It is bascially again public key
+"This public key belongs to that domain". It is basically again public-key
 cryptography, but with a trusted third party. The website owner sends their
 public key to the certificate authority. The authority makes sure that it was
-actually send from the domain. If that is the case, the CA signs the public key
+actually sent from the domain. If that is the case, the CA signs the public key
 with their private key. The public key of the CA is well known (e.g. delivered
 with the browser at installation).</p>
 <h2 id="the-problem-compromised-certificates">The Problem: Compromised Certificates</h2>
-<p>It can happen that an attacker gets temporary access to the web services server.
+<p>It can happen that an attacker gets temporary access to the web service's server.
 Then the attacker can copy the private key of the service.</p>
 <h2 id="the-solution-ocsp-stapling">The Solution: OCSP Stapling</h2>
 <p>The web service has to revoke the certificate. This means it has to tell the CA
-that the private key was compromized. But how does the client (user) get to
+that the private key was compromised. But how does the client (user) get to
 know about this?</p>
-<p>Three possibilities: CRL, OCSP,  &amp; <a href="https://en.wikipedia.org/wiki/OCSP_stapling">OCSP stapling</a>.</p>
+<p>Three possibilities: CRL, OCSP, and <a href="https://en.wikipedia.org/wiki/OCSP_stapling">OCSP stapling</a>.</p>
 <p>There is a pretty good video about <a href="https://www.youtube.com/watch?v=WXNKQ_otO_g">Revocation of digital certificates: CRL, OCSP, OCSP stapling</a>.</p>
-<p>Essentially, OCSP stapling means that the server lets the CA not only certify
-the private key, but also add a timestamp.</p>
+<p>Essentially, OCSP stapling means that the server regularly fetches a signed,
+timestamped OCSP response from the CA and "staples" it to the TLS handshake.</p>
 <h2 id="overview-of-certificate-authorities">Overview of Certificate Authorities</h2>
 <p>You can see the Certificate Authority in Chrome by clicking on the lock icon
 left of the URL:</p>
@@ -182,9 +184,9 @@ left of the URL:</p>
 </figure>
 <p>Commonly used Certificate Authorities are:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Let%27s_Encrypt">Let's Encrypt</a>: Used by BMW, StackOverflow, ccc.de, kit.edu</li>
+<li><a href="https://en.wikipedia.org/wiki/Let%27s_Encrypt">Let's Encrypt</a>: Used by BMW, Stack Overflow, ccc.de, kit.edu</li>
 <li><a href="https://en.wikipedia.org/wiki/DigiCert">DigiCert</a>: Used by Reddit, Twitter, Audi, Amazon, mozilla.org, Instagram, live.com, netflix.com, ebay.com, emirates.com, paypal.com, n26.com, deutsche-bank.de</li>
-<li><a href="https://en.wikipedia.org/wiki/GlobalSign">GlobalSign</a>: Used by Wikpedia, Baidu.com, qq.com, post.de</li>
+<li><a href="https://en.wikipedia.org/wiki/GlobalSign">GlobalSign</a>: Used by Wikipedia, Baidu.com, qq.com, post.de</li>
 <li><a href="https://en.wikipedia.org/wiki/GeoTrust">GeoTrust</a>: nokia.com, tk.de, sixt.com, qantas.com, mit.edu</li>
 <li><a href="https://en.wikipedia.org/wiki/Entrust">Entrust</a>: comdirect.com</li>
 <li><a href="https://en.wikipedia.org/wiki/Comodo_Group">Comodo</a>: namecheap.com</li>
@@ -197,7 +199,7 @@ left of the URL:</p>
 <li><a href="https://de.wikipedia.org/wiki/DFN-Verein">DFN-Verein</a>: tum.de, uni-muenchen.de, uni-heidelberg.de, charite.de, rwth-aachen.de, fernuni-hagen.de</li>
 </ul>
 <p>Microsoft and Google have their own CA. It's a bit weird that Microsoft uses
-Digicert for live.com.</p>
+DigiCert for live.com.</p>
 <p>You might also be interested in <a href="https://premium.wpmudev.org/blog/ssl-certificate-authorities-reviewed/">features of a CA</a>.</p>
 <table class="table">
 <tr>
@@ -207,7 +209,7 @@ Digicert for live.com.</p>
 <th>Employees</th>
 </tr>
 <tr>
-<th>Let's encrypt</th>
+<th>Let's Encrypt</th>
 <td>Free</td>
 <td>2014</td>
 <td>13</td>
@@ -243,19 +245,19 @@ Digicert for live.com.</p>
 <td>1200+</td>
 </tr>
 </table>
-<p>I was not happy with the usage numbers. Let's encrypt claims to have
+<p>I was not happy with the usage numbers. Let's Encrypt claims to have
 152&thinsp;288&thinsp;000 domains (2018-12-30, <a href="https://letsencrypt.org/stats/#growth">source</a>), but <a href="https://w3techs.com/technologies/overview/ssl_certificate/all">w3techs.com</a> says they have a market share of 0.1%. According
 to them, IdenTrust has a market share of 49.9%, Sectigo of 25.0% and Digicert of
 13.6%.</p>
 <h2 id="ssl-tls-and-https">SSL, TLS and HTTPS</h2>
-<p>Here are super short explanations what the important terms mean:</p>
+<p>Here are super short explanations of what the important terms mean:</p>
 <dl>
 <dt>SSL (Secure Sockets Layer)</dt>
 <dd>A cryptographic protocol used for network traffic</dd>
 <dt>TLS (Transport Layer Security)</dt>
 <dd>An updated version of SSL.</dd>
 <dt>HTTPS (Hypertext Transfer Protocol Secure)</dt>
-<dd>Using HTTP with transport layer encription (e.g. SSL or TLS)</dd>
+<dd>Using HTTP with transport layer encryption (e.g. SSL or TLS)</dd>
 <dt><a href="https://en.wikipedia.org/wiki/Public_key_certificate">Certificate</a></dt>
 <dd>An electronic document used to prove the ownership of a public key.</dd>
 </dl>

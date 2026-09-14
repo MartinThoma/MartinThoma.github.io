@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
 
             
             <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2021/05/webhook-banner.jpg"><img alt="Ima" src="../images/2021/05/webhook-banner.jpg" style="width: 512px;"/></a>
+<a href="../images/2021/05/webhook-banner.jpg"><img alt="Webhook banner" src="../images/2021/05/webhook-banner.jpg" style="width: 512px;"/></a>
 <figcaption class="text-center">Photo by <a href="https://unsplash.com/@dancristianp?utm_source=medium&amp;utm_medium=referral">Dan-Cristian P&abreve;dureț</a></figcaption>
 </figure>
 <p>The Unix programming philosophy is to do (just) one thing but do it well.
@@ -121,12 +121,12 @@ points and desires. To be able to focus on the core product but allow
 additional functions we cannot take care of, we develop plugin systems. One
 way to do this is by giving hooks.</p>
 <blockquote>
-<h1 id="a-hook-is-a-way-to-extend-software">A hook is a way to extend software.</h1>
+<p>A hook is a way to extend software.</p>
 </blockquote>
-<p>Think about an email client. The email client might define a hook pre_send
-that receives the current receiver, subject line, and content of the email.
+<p>Think about an email client. The email client might define a hook <code>pre_send</code>
+that receives the current recipient, subject line, and content of the email.
 Developers can use this to extend the software. You could have one plugin that
-uses this hook and adds a signature if it&rsquo;s missing. Another hook could look
+uses this hook and adds a signature if it&rsquo;s missing. Another plugin could look
 for swear words and stop you from sending that email drunk at night, which you
 will regret.</p>
 <p>Another way to extend software is by an event. An event just tells the plugin
@@ -143,7 +143,7 @@ flow &mdash; like preventing sending the email with swear words.</p>
 every argument:</p>
 <div class="highlight"><pre><span></span><code><span class="n">parallel_for</span><span class="p">(</span><span class="n">get_content</span><span class="p">,</span> <span class="n">many_urls</span><span class="p">)</span>
 </code></pre></div>
-<p>Please note that we don&rsquo;t actually call get_content in the second example. We
+<p>Please note that we don&rsquo;t actually call <code>get_content</code> in the second example. We
 pass it as a parameter to a function. When you pass a function as a parameter
 to another function, you call it a <em>callback</em>.</p>
 <h2 id="callbacks-and-hooks">Callbacks and Hooks</h2>
@@ -154,7 +154,7 @@ email example from above, you could implement it like this:</p>
 <span class="n">email_client</span><span class="o">.</span><span class="n">register_pre_send_hook</span><span class="p">(</span><span class="n">add_signature</span><span class="p">)</span>
 <span class="n">email_client</span><span class="o">.</span><span class="n">register_pre_send_hook</span><span class="p">(</span><span class="n">detect_swearwords</span><span class="p">)</span>
 </code></pre></div>
-<p>The developers of email_client need to provide the method
+<p>The developers of <code>email_client</code> need to provide the method
 <code>register_pre_send_hook</code>. They need to tell you that this function expects a
 function as a parameter: A callback.</p>
 <p>They need to tell you that they will run every given callback like this:</p>
@@ -168,7 +168,7 @@ and overwrite the contents in any way.</p>
 <h2 id="webhooks">Webhooks</h2>
 <p>Webhooks are hooks used in web services. Just like with normal hooks, you can
 extend the functionality of a web service by using hooks. For example, Slack
-allows you to post messages to an URL
+allows you to post messages to a URL
 (<a href="https://api.slack.com/messaging/webhooks#create_a_webhook">source</a>).</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2021/05/polling-vs-webhook.png"><img alt="Two models how the client can get new information" src="../images/2021/05/polling-vs-webhook.png" style="width: 512px;"/></a>
@@ -180,14 +180,14 @@ polling) from them.</p>
 <a href="https://en.wikipedia.org/wiki/Slack_(software)">Slack</a>. And maybe you have a
 monitoring system like <a href="https://sentry.io/welcome/">Sentry</a>. Now you want a
 Slack message in a certain channel whenever Sentry finds a new issue.</p>
-<p>The polling mechanism would be simple &mdash; slack would ask Sentry every few
+<p>The polling mechanism would be simple &mdash; Slack would ask Sentry every few
 seconds if there is a new message. That would consume way more resources from
 Slack and Sentry than necessary. Instead of Slack pulling messages, we want
 Sentry to push messages to Slack.</p>
 <p>Web servers typically don&rsquo;t know their clients. To be able to push information
 to Slack, this needs to change. The client (Slack) needs to subscribe to the
-server (Sentry). Slack needs to share an URL with Sentry. The code on the
-sentry might look like this:</p>
+server (Sentry). Slack needs to share a URL with Sentry. The code on
+Sentry's side might look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">callback_url</span><span class="p">):</span>
     <span class="c1"># callback_url could be</span>
     <span class="c1"># https://hooks.slack.com/services/T000/B000/XXXXXXXX</span>
@@ -203,7 +203,7 @@ In the end, it only matters that they agree.</p>
     <span class="k">for</span> <span class="n">subscriber</span> <span class="ow">in</span> <span class="n">subscribers</span><span class="p">:</span>
         <span class="n">post</span><span class="p">(</span><span class="n">subscriber</span><span class="o">.</span><span class="n">callback_url</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
-<p>The post method could also use the return value, but in the case of Slack,
+<p>The <code>post</code> method could also use the return value, but in the case of Slack,
 it&rsquo;s simply ignored as far as I know.</p>
 <h2 id="summary">Summary</h2>
 <ul>

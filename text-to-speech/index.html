@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Let your computer speak to you "/>
 <meta property="og:url" content="https://medium.com/@martinthoma/let-your-computer-speak-to-you-4a42994ed48f" />
-<meta property="og:description" content="A Text-to-Speech pipeline I recently injured my eye during a hike. Don’t worry, it’s be fine soon — but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand: Martin Thoma · eSpeak NG …" />
+<meta property="og:description" content="A Text-to-Speech pipeline I recently injured my eye during a hike. Don’t worry, it’ll be fine soon — but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand: Martin Thoma · eSpeak NG …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2023-02-28T20:00:00+01:00" />
 <meta name="twitter:title" content="Let your computer speak to you ">
-<meta name="twitter:description" content="A Text-to-Speech pipeline I recently injured my eye during a hike. Don’t worry, it’s be fine soon — but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand: Martin Thoma · eSpeak NG …">
+<meta name="twitter:description" content="A Text-to-Speech pipeline I recently injured my eye during a hike. Don’t worry, it’ll be fine soon — but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand: Martin Thoma · eSpeak NG …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -115,7 +115,7 @@ MathJax.Hub.Queue(function() {
 <a href="../images/2023/02/tts-pipeline.drawio.png"><img alt="A Text-to-Speech pipeline" src="../images/2023/02/tts-pipeline.drawio.png" style="width: 512px;"/></a>
 <figcaption class="text-center">A Text-to-Speech pipeline</figcaption>
 </figure>
-<p>I recently injured my eye during a hike. Don&rsquo;t worry, it&rsquo;s be fine soon &mdash; but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand:</p>
+<p>I recently injured my eye during a hike. Don&rsquo;t worry, it&rsquo;ll be fine soon &mdash; but it made me think about text-to-speech (TTS) software again. You probably all know the robotic voices that can read text, but are extremely hard to understand:</p>
 <iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453260838&amp;color=ff5500" width="100%"></iframe>
 <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma">Martin Thoma</a> &middot; <a href="https://soundcloud.com/martin-thoma-172139021/mark-twain-the-awful-german-language-by-espeak-ng" style="color: #cccccc; text-decoration: none;" target="_blank" title='eSpeak NG: "The Awful German Language" by Mark Twain'>eSpeak NG: "The Awful German Language" by Mark Twain</a></div>
 <p>This article guides you through the process of utilizing an improved text-to-speech system. Here, you will find complete, functional code that can be executed locally, as well as access to scientific publications for a deeper understanding. Audio examples will illustrate the notable advancements made in recent years. Without further ado, let&rsquo;s delve into the topic at hand!</p>
@@ -142,11 +142,11 @@ MathJax.Hub.Queue(function() {
 <h2 id="the-stages-of-the-text-to-speech-pipeline">The Stages of the Text-To-Speech Pipeline</h2>
 <p>A text-to-speech (TTS) pipeline contains the following steps:</p>
 <ul>
-<li><strong>Text Analysis</strong>: Find sentence boundaries. Part-of-speech tagging (POS tagging) means that every word gets categorized with its grammatical role in the sentence (subject, verb, object). This helps to distinguish homographs like wind (blowing air) and wind (turn or twist).</li>
-<li><strong>Text Normalisation</strong>: Convert abbreviations like &ldquo;e.g.&rdquo; and units like &ldquo;&deg;C&rdquo; into their full form.</li>
+<li><strong>Text Analysis</strong>: Find sentence boundaries. Part-of-speech tagging (POS tagging) means that every word gets categorized with its word class (noun, verb, adjective, &hellip;). This helps to distinguish homographs like wind (blowing air) and wind (turn or twist).</li>
+<li><strong>Text Normalization</strong>: Convert abbreviations like &ldquo;e.g.&rdquo; and units like &ldquo;&deg;C&rdquo; into their full form.</li>
 <li><strong>Phonetic Analysis</strong>: Generate a sequence of phonemes. Those are similar to letters, but describe sounds. For example, the word &ldquo;phoneme&rdquo; would be written as /ˈfoʊniːm/. The wind (blowing air) is /wɪnd/ whereas the wind (turn or twist) is /waɪnd/. The phonetic analysis might simply be a dictionary lookup (e.g. via <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict">CMUdict</a>), but if the word is not found it becomes more complex. Then letter-to-sound (LTS) rules kick in.</li>
 <li><strong>Prosodic Analysis</strong>: Figure out what to stress, how the intonation should be, and how the rhythm of the generated speech should be. The <a href="https://en.wikipedia.org/wiki/ToBI">ToBI</a> annotation system can be used.</li>
-<li><strong>Audio synthesis</strong>: The acoustic model typically generates mel-spectrograms as an input for the waveform generation. This is a high-level acoustic representation.</li>
+<li><strong>Audio Synthesis</strong>: The acoustic model typically generates mel-spectrograms as an input for the waveform generation. This is a high-level acoustic representation.</li>
 <li><strong>Waveform Generation</strong>: The vocoder takes the high-level acoustic representation and converts it into a waveform that can be played as sound.</li>
 </ul>
 <p>You can see that the first parts &mdash; text analysis and normalization &mdash; are clearly natural language processing. Waveform generation is rather digital speech processing. And the rest is somewhere in between.</p>
@@ -170,7 +170,7 @@ MathJax.Hub.Queue(function() {
 <span class="n">tts</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 <p>The core innovation of WaveNet compared to formant synthesis was to use a machine learning approach &mdash; deep neural networks &mdash; for generating raw audio waveforms. Please note that there were other breakthroughs between the two methods.</p>
-<p>It&rsquo;s good, but it&rsquo;s an external service. You might want to actually generate it on your machine so that nobody else can get your data. Additionally, 2016 is already 8 years ago. A lot has happened in ML since.</p>
+<p>It&rsquo;s good, but it&rsquo;s an external service. You might want to actually generate it on your machine so that nobody else can get your data. Additionally, 2016 is already 7 years ago. A lot has happened in ML since.</p>
 <h2 id="end-to-end-deep-learning">End-to-End Deep Learning</h2>
 <p>Deep learning has not only improved waveform generation but also the other parts. To quote from the Tacotron paper:</p>
 <blockquote>
@@ -184,7 +184,7 @@ MathJax.Hub.Queue(function() {
 <li>2020 (Kakao): <a href="https://arxiv.org/abs/2005.11129">Glow-TTS</a> sped up the training method of the neural network.</li>
 <li>2021 (KAIST): <a href="https://arxiv.org/pdf/2106.06103.pdf">VITS</a> (Variational Inference with adversarial learning for end-to-end Text-to-Speech) improves the generated audio quality.</li>
 </ul>
-<p>Let&rsquo;s judge VITS for yourself:</p>
+<p>Judge VITS for yourself:</p>
 <iframe allow="autoplay" frameborder="no" height="166" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1453478362&amp;color=ff5500" width="100%"></iframe>
 <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/martin-thoma-172139021" style="color: #cccccc; text-decoration: none;" target="_blank" title="Martin Thoma">Martin Thoma</a> &middot; <a href="https://soundcloud.com/martin-thoma-172139021/vits-the-awful-german-language-by-mark-twain" style="color: #cccccc; text-decoration: none;" target="_blank" title='VITS: "The Awful German Language" by Mark Twain'>VITS: "The Awful German Language" by Mark Twain</a></div>
 <p>Thanks to CoquiTTS (<a href="https://huggingface.co/spaces/coqui/CoquiTTS">web demo</a>) you can now use this as a complete TTS system to generate this on your machine:</p>
@@ -240,7 +240,6 @@ MathJax.Hub.Queue(function() {
 <li><a href="http://ttssamples.syntheticspeech.de/">German Text-to-Speech</a>: Lots of audio samples for many TTS systems.</li>
 <li>Andrew Gibiansky: <a href="https://andrew.gibiansky.com/wavenet-and-tacotron-arent-tts-systems/">WaveNet and Tacotron aren&rsquo;t TTS systems</a>, 2020.</li>
 </ul>
-<p>I love writing about software development and technology 🤩 Don&rsquo;t miss updates: <a href="https://martinthoma.medium.com/subscribe">**Get my free email newsletter</a>** 📧 or <a href="https://martinthoma.medium.com/membership">sign up for Medium</a> ✍️ if you haven&rsquo;t done it yet &mdash; both encourage me to write more 🤗</p>
             
         </div>
         <section>

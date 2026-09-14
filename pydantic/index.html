@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="pydantic  - The library you must know if you juggle data around "/>
 <meta property="og:url" content="https://towardsdatascience.com/pydantic-688e897cfd3a" />
-<meta property="og:description" content="Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although Python dictionaries are amazing, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in …" />
+<meta property="og:description" content="Having complex nested data structures is hard. The traditional approach to storing this kind of data in Python is nested dictionaries. Although Python dictionaries are amazing, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-11-02T20:00:00+01:00" />
 <meta name="twitter:title" content="pydantic  - The library you must know if you juggle data around ">
-<meta name="twitter:description" content="Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although Python dictionaries are amazing, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in …">
+<meta name="twitter:description" content="Having complex nested data structures is hard. The traditional approach to storing this kind of data in Python is nested dictionaries. Although Python dictionaries are amazing, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -111,14 +111,14 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Having complex nested data structures is hard. The traditional approach to store this kind of data in Python is nested dictionaries. Although <a href="https://www.youtube.com/watch?v=npw4s1QTmPg">Python dictionaries are amazing</a>, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in the passed dictionary and (2) how do I prevent typos?</p>
+            <p>Having complex nested data structures is hard. The traditional approach to storing this kind of data in Python is nested dictionaries. Although <a href="https://www.youtube.com/watch?v=npw4s1QTmPg">Python dictionaries are amazing</a>, there are two issues which typically arise: (1) How do I, as a developer, know which kind of data is to be expected in the passed dictionary, and (2) how do I prevent typos?</p>
 <p>If you use classes, your editor or mypy prevents typos in attribute names. For dictionaries, any valid string can be a key.</p>
 <p>A solution to both problems is using a library: <a href="https://pypi.org/project/pydantic/"><strong>pydantic</strong></a>. It is a validation and parsing library which maps your data to a Python class.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Install pydantic via</p>
+<p>Install pydantic via:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pydantic
 </code></pre></div>
-<p>For this article, I assume that your data is a network of people in <a href="https://gist.github.com/MartinThoma/517d20998501afc4fff72be032782d41">people.json</a>. They have an ID, a name, a list of friends given by their ID, a birthdate, and the amount of money on their bank account.</p>
+<p>For this article, I assume that your data is a network of people in <a href="https://gist.github.com/MartinThoma/517d20998501afc4fff72be032782d41">people.json</a>. They have an ID, a name, a list of friends given by their ID, a birthdate, and the amount of money in their bank account.</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
 <span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anna"</span><span class="p">,</span><span class="w"> </span><span class="nt">"friends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="nt">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-15"</span><span class="p">,</span><span class="w"> </span><span class="nt">"bank_account"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.3</span><span class="p">},</span>
 <span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob"</span><span class="p">,</span><span class="w"> </span><span class="nt">"friends"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nt">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1962-12-31"</span><span class="p">,</span><span class="w"> </span><span class="nt">"bank_account"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">},</span>
@@ -176,14 +176,14 @@ MathJax.Hub.Queue(function() {
 <p>The problems we want to approach are:</p>
 <ul>
 <li><strong>Ugly None</strong>: Having None as a value for friends is pretty ugly. In some cases, None is different from an empty list. In this case, let&rsquo;s just assume it means the same. Replacing missing data with something else is called <a href="https://en.wikipedia.org/wiki/Imputation_(statistics)">imputation</a> and there are several techniques.</li>
-<li><strong>Ugly Any</strong>: The type annotations have Dict[str, Any] , because it was considered too complicated or even impossible to know which values the dictionary representing a person can map too.</li>
-<li><strong>Ugly indexing</strong>: It&rsquo;s just syntax, but ["id"] is 50% longer than .id . This is the reason why <a href="https://pypi.org/project/bunch/">bunch</a>/<a href="https://pypi.org/project/munch/">munch</a> exists.</li>
-<li><strong>Typos</strong>: If you make a typo in any of the string indices of a dictionary, no static code analysis tool can help you to detect them. No auto-completion will work properly.</li>
-<li><strong>Late Errors</strong>: Good software modularizes responsibilities. There is one module responsible for the business logic and one for input/output. When I write &ldquo;module&rdquo; I mean a unit of code &mdash; it could be a Python module, a class, a function, a method. It is bad to have simply one function to deal with those different types of complexity. Getting the business logic right is inherently different from making sure your input/output looks as expected. One is about defining and validating proper interfaces, the other one is about understanding the domain.</li>
-<li><strong>Documentation</strong>: New developers regularly have to read the code of bigger applications. Usually, there is no time to explain every single part in great detail by somebody who knows everything about the application. Most of the time, there isn&rsquo;t even a single person who knows everything &mdash; even if the project was done by a single developer. I always forget parts of my code. Hence documenting is crucial. In Python, documenting expected parameter types and its return values is crucial. Having Dict[str, Any] is better than nothing, but way worse than Person .</li>
+<li><strong>Ugly Any</strong>: The type annotations have <code>Mapping[str, Any]</code>, because it was considered too complicated or even impossible to know which values the dictionary representing a person can map to.</li>
+<li><strong>Ugly indexing</strong>: It&rsquo;s just syntax, but <code>["id"]</code> is twice as long as <code>.id</code>. This is the reason why <a href="https://pypi.org/project/bunch/">bunch</a>/<a href="https://pypi.org/project/munch/">munch</a> exists.</li>
+<li><strong>Typos</strong>: If you make a typo in any of the string indices of a dictionary, no static code analysis tool can help you to detect it. No auto-completion will work properly.</li>
+<li><strong>Late Errors</strong>: Good software modularizes responsibilities. There is one module responsible for the business logic and one for input/output. When I write &ldquo;module&rdquo; I mean a unit of code &mdash; it could be a Python module, a class, a function, or a method. It is bad to have simply one function to deal with those different types of complexity. Getting the business logic right is inherently different from making sure your input/output looks as expected. One is about defining and validating proper interfaces, the other one is about understanding the domain.</li>
+<li><strong>Documentation</strong>: New developers regularly have to read the code of bigger applications. Usually, there is no time to explain every single part in great detail by somebody who knows everything about the application. Most of the time, there isn&rsquo;t even a single person who knows everything &mdash; even if the project was done by a single developer. I always forget parts of my code. Hence, documenting is crucial. In Python, documenting expected parameter types and return values is crucial. Having <code>Mapping[str, Any]</code> is better than nothing, but way worse than <code>Person</code>.</li>
 </ul>
 <h2 id="create-a-pydantic-model">Create a pydantic model</h2>
-<p>We create a new type for the ID of a person, simply because PersonId is so much more meaningful than just int . Then we subclass <a href="https://pydantic-docs.helpmanual.io/usage/models/#basic-model-usage">pydantic.BaseModel</a></p>
+<p>We create a new type for the ID of a person, simply because <code>PersonId</code> is so much more meaningful than just <code>int</code>. Then we subclass <a href="https://pydantic-docs.helpmanual.io/usage/models/#basic-model-usage">pydantic.BaseModel</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
@@ -213,23 +213,23 @@ MathJax.Hub.Queue(function() {
     <span class="n">people</span> <span class="o">=</span> <span class="n">parse_file_as</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">Person</span><span class="p">],</span> <span class="n">filepath</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="n">person</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">person</span> <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">}</span>
 </code></pre></div>
-<p>Please note that <a href="https://pydantic-docs.helpmanual.io/usage/types/#datetime-types">datetime</a> and Decimal are automatically parsed &mdash; you still should always look up how it is done. Doing data validation early is good so that errors also happen early and in a known place. This means pydantic nudges you into a good design. I love it 😍</p>
+<p>Please note that <a href="https://pydantic-docs.helpmanual.io/usage/types/#datetime-types">datetime</a> and Decimal are automatically parsed &mdash; you should still always look up how it is done. Doing data validation early is good so that errors also happen early and in a known place. This means pydantic nudges you into a good design. I love it 😍</p>
 <h2 id="constrained-types">Constrained Types</h2>
 <p><a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">Constrained types</a> are integers/floats in a certain value range or a string that matches a RegEx 😃</p>
 <h2 id="missing-data-use-default-values">Missing data: Use default values</h2>
-<p>If your JSON might miss some attributes which you want to have, you need to work with default values. A typical default is None which means that you need to change the type to Optional[what it was before] . This is typically pretty ugly as you need to check for None later in the code.</p>
-<p>Especially for Lists, you might want to consider using an empty list instead. You do it like this:</p>
+<p>If your JSON might miss some attributes which you want to have, you need to work with default values. A typical default is <code>None</code>, which means that you need to change the type to <code>Optional[what it was before]</code>. This is typically pretty ugly as you need to check for None later in the code.</p>
+<p>Especially for lists, you might want to consider using an empty list instead. You do it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
 
 
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">friends</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 </code></pre></div>
-<p>For immutable data types like strings, integers, floats, tuples, you can simply assign the value. For mutable ones, you need to use Field with the default_factory that generates a new list every time. <a href="https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments">Learn why mutable defaults are evil</a>, if you don&rsquo;t know it already.</p>
+<p>For immutable data types like strings, integers, floats, tuples, you can simply assign the value. For mutable ones, you need to use <code>Field</code> with a <code>default_factory</code> that generates a new list every time. <a href="https://docs.python-guide.org/writing/gotchas/#mutable-default-arguments">Learn why mutable defaults are evil</a>, if you don&rsquo;t know it already.</p>
 <h2 id="additional-data-ignore-allow-or-forbid">Additional data: Ignore, allow, or forbid</h2>
 <p>It&rsquo;s sometimes impossible to know at development time which attributes a JSON object has. Still, you need to pass those around. This is super unfortunate and should be challenged, but it can happen.</p>
-<p>Pydantic calls those <strong>extras</strong>. If you ignore them, the read pydantic model will not know them. <strong>Ignored extra arguments are dropped</strong>. Allowing them means to accept that this unfortunate design is necessary. <strong>Allowed extras will be part of the parsed object</strong>. Finally, to <strong>forbid</strong> extra arguments means an pydantic.ValidationError<strong> exception</strong> will be thrown if an extra argument occurs.</p>
-<p>This is configured by adding a subclass calledConfig to the pydantic model:</p>
+<p>Pydantic calls those <strong>extras</strong>. If you ignore them, the read pydantic model will not know them. <strong>Ignored extra arguments are dropped</strong>. Allowing them means accepting that this unfortunate design is necessary. <strong>Allowed extras will be part of the parsed object</strong>. Finally, <strong>forbidding</strong> extra arguments means a <code>pydantic.ValidationError</code> <strong>exception</strong> will be raised if an extra argument occurs.</p>
+<p>This is configured by adding an inner class called <code>Config</code> to the pydantic model:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
@@ -241,7 +241,7 @@ MathJax.Hub.Queue(function() {
         <span class="n">extra</span> <span class="o">=</span> <span class="s2">"forbid"</span>
 </code></pre></div>
 <h2 id="rename-attributes">Rename attributes</h2>
-<p>Names are important. <a href="https://www.python.org/dev/peps/pep-0020/">Readability counts</a>. In Python, variables should follow a snake_case naming scheme, while in JavaScript variables should follow a camelCase naming scheme. To fulfill both, pydantic offers <a href="https://pydantic-docs.helpmanual.io/usage/model_config/">allow_population_by_field_name</a> as a config parameter.</p>
+<p>Names are important. <a href="https://www.python.org/dev/peps/pep-0020/">Readability counts</a>. In Python, variables should follow a snake_case naming scheme, while in JavaScript, variables should follow a camelCase naming scheme. To fulfill both, pydantic offers <a href="https://pydantic-docs.helpmanual.io/usage/model_config/">allow_population_by_field_name</a> as a config parameter.</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="nb">id</span><span class="p">:</span> <span class="n">PersonId</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
@@ -289,8 +289,8 @@ MathJax.Hub.Queue(function() {
     <span class="n">name</span><span class="o">=</span><span class="s2">"samuel colvin"</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s2">"scolvin"</span><span class="p">,</span> <span class="n">password1</span><span class="o">=</span><span class="s2">"zxcvbns"</span><span class="p">,</span> <span class="n">password2</span><span class="o">=</span><span class="s2">"zxcvbn"</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>You can check pretty much anything as long as you just need the class itself. Please don&rsquo;t run queries against a database to do consistency checks; e.g. if you want a username to be unique or something similar. Although you can likely make this run, it will be unexpected to trigger a database query by creating a &ldquo;data container&rdquo;.</p>
-<p>In our case, we might want to prevent that people can be a friend of themselves:</p>
+<p>You can check pretty much anything as long as you just need the class itself. Please don&rsquo;t run queries against a database to do consistency checks, e.g. if you want a username to be unique or something similar. Although you can likely make this run, it will be unexpected to trigger a database query by creating a &ldquo;data container&rdquo;.</p>
+<p>In our case, we might want to prevent people from being friends with themselves:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">NewType</span><span class="p">,</span> <span class="n">Optional</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -383,10 +383,9 @@ MathJax.Hub.Queue(function() {
 <h2 id="more-neat-stuff">More neat stuff</h2>
 <p>Pydantic is pretty awesome:</p>
 <ul>
-<li>You can generate a schema from its models (<a href="https://pydantic-docs.helpmanual.io/usage/schema/">source</a>),</li>
-<li>a <a href="https://pydantic-docs.helpmanual.io/mypy_plugin/">mypy plugin</a> gives even better type checks</li>
-<li>Serialization to a dictionary can be done with the .dict() method, serialization to a JSON string can be done with the .json() method.</li>
-<li><a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">Constrained types</a> allow</li>
+<li>You can generate a schema from its models (<a href="https://pydantic-docs.helpmanual.io/usage/schema/">source</a>).</li>
+<li>A <a href="https://pydantic-docs.helpmanual.io/mypy_plugin/">mypy plugin</a> gives even better type checks.</li>
+<li>Serialization to a dictionary can be done with the <code>.dict()</code> method, serialization to a JSON string can be done with the <code>.json()</code> method.</li>
 </ul>
 <h2 id="operational-safety">Operational Safety</h2>
 <p><img alt="Photo by ThisisEngineering RAEng on Unsplash" src="https://cdn-images-1.medium.com/max/10944/0*fdsabhkbM69RDDI2"/><em>Photo by <a href="https://unsplash.com/@thisisengineering?utm_source=medium&amp;utm_medium=referral">ThisisEngineering RAEng</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
@@ -399,14 +398,14 @@ MathJax.Hub.Queue(function() {
 <p>✔️ Usage: <a href="https://fastapi.tiangolo.com/#example-upgrade">FastAPI</a> uses it. <a href="https://github.com/microsoft/onefuzz">Microsoft Onefuzz</a> uses it. <a href="https://github.com/awslabs/aws-lambda-powertools-python">AWS Lambda Powertools</a> as well. Many machine learning projects</p>
 </li>
 <li>
-<p>✘ <a href="https://pypi.org/project/pydantic/">PyPI project</a>: Sadly, this only has one maintainer. I always like it a bit better if there are two. Simply to prevent that one might lose their password.</p>
+<p>✘ <a href="https://pypi.org/project/pydantic/">PyPI project</a>: Sadly, this only has one maintainer. I always like it a bit better if there are two. Simply in case one of them loses their password.</p>
 </li>
 <li>
-<p>✔️Self-decided project status: The maintainer considers pydantic to be production-ready/stable.</p>
+<p>✔️ Self-decided project status: The maintainer considers pydantic to be production-ready/stable.</p>
 </li>
 </ul>
 <h2 id="summary">Summary</h2>
-<p>pydantic is an awesome data parsing and validation library. It can support you very well to get better <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations in Python</a>. Use it!</p>
+<p>pydantic is an awesome data parsing and validation library. It can help you a lot in getting better <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations in Python</a>. Use it!</p>
             
         </div>
         <section>

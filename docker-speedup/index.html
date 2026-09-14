@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to Speed up Docker "/>
 <meta property="og:url" content="docker-speedup/" />
-<meta property="og:description" content="Building a Docker container can take quite a while. However, there are some easy parts to speed them up. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or …" />
+<meta property="og:description" content="Building a Docker container can take quite a while. However, there are some easy ways to speed it up. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
 <meta name="twitter:title" content="How to Speed up Docker ">
-<meta name="twitter:description" content="Building a Docker container can take quite a while. However, there are some easy parts to speed them up. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or …">
+<meta name="twitter:description" content="Building a Docker container can take quite a while. However, there are some easy ways to speed it up. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or …">
 <meta property="og:image" content="logos/docker.png" />
 <meta name="twitter:image" content="logos/docker.png" >
 
@@ -112,15 +112,15 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Building a Docker container can take quite a while. However, there are some
-easy parts to speed them up.</p>
+easy ways to speed it up.</p>
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 <h2 id="install-early-copy-late">Install Early, Copy Late</h2>
-<p>Make sure you install dependencies early and copy code late during building
+<p>Make sure you install dependencies early and copy code late while building
 the container. This helps to cache the dependencies.</p>
 <p>You might also want to look at dependency pinning.</p>
 <h2 id="dockerignore">.dockerignore</h2>
 <p>Make sure you don't re-build the container with stuff you don't need.</p>
-<p>You can check the included files via</p>
+<p>You can check the included files via:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="nb">test</span><span class="w"> </span>.
 sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="w"> </span>/usr/bin/find<span class="w"> </span>-it<span class="w"> </span><span class="nb">test</span>
 sudo<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>^test

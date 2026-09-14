@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Pytest Plugins to Love ❤️ "/>
 <meta property="og:url" content="https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22" />
-<meta property="og:description" content="Plugins can modify and extend a lot of aspects of pylint, including how the output is done Pytest is extensible and has plenty of plugins. You don’t need to use any of them, but you might find some very useful. I love this because you have an easy time …" />
+<meta property="og:description" content="Plugins can modify and extend a lot of aspects of pytest, including how the output is done Pytest is extensible and has plenty of plugins. You don’t need to use any of them, but you might find some very useful. I love this because it&#39;s easy to get started …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-08-23T20:00:00+02:00" />
 <meta name="twitter:title" content="Pytest Plugins to Love ❤️ ">
-<meta name="twitter:description" content="Plugins can modify and extend a lot of aspects of pylint, including how the output is done Pytest is extensible and has plenty of plugins. You don’t need to use any of them, but you might find some very useful. I love this because you have an easy time …">
+<meta name="twitter:description" content="Plugins can modify and extend a lot of aspects of pytest, including how the output is done Pytest is extensible and has plenty of plugins. You don’t need to use any of them, but you might find some very useful. I love this because it&#39;s easy to get started …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -112,12 +112,12 @@ MathJax.Hub.Queue(function() {
 
             
             <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/08/pytest-sugar-big.png"><img alt="Plugins can modify and extend a lot of aspects of pylint, including how the output is done" src="../images/2020/08/pytest-sugar-big.png" style="width: 512px;"/></a>
-<figcaption class="text-center">Plugins can modify and extend a lot of aspects of pylint, including how the output is done</figcaption>
+<a href="../images/2020/08/pytest-sugar-big.png"><img alt="Plugins can modify and extend a lot of aspects of pytest, including how the output is done" src="../images/2020/08/pytest-sugar-big.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Plugins can modify and extend a lot of aspects of pytest, including how the output is done</figcaption>
 </figure>
 <p>Pytest is extensible and has plenty of plugins. You don&rsquo;t need to use any of
-them, but you might find some very useful. I love this because you have an easy
-time to <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">get started with unit
+them, but you might find some very useful. I love this because it's easy
+to <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">get started with unit
 testing</a>,
 while still finding amazing stuff when you&rsquo;re more experienced 🤩</p>
 <p>In this article, I&rsquo;ll show you examples of plugins I use and the plugins I
@@ -130,7 +130,7 @@ fixtures</a>.</p>
 are then already active. For example, when you install pytest-sugar via</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pytest-sugar
 </code></pre></div>
-<p>You can just execute pytest and the plugin will automatically work. Others need
+<p>you can just execute pytest and the plugin will automatically work. Others need
 to be used more directly. For example, after installing <code>pytest-timeout</code> you
 need to specify the timeout parameter you want to use:</p>
 <div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>--timeout<span class="o">=</span><span class="m">1</span>
@@ -139,29 +139,29 @@ need to specify the timeout parameter you want to use:</p>
 <h2 id="how-many-pytest-plugins-exist">How many Pytest plugins exist?</h2>
 <p>Searching on pypi.org for the trove classifier <code>Framework :: Pytest</code>, I found
 668 packages. A stunning 1053 packages have &ldquo;pytest&rdquo; in the name. 461 packages
-have both, the name and the trove classifier.</p>
-<p>I went through over 700 pytest-plugins for this article. I&rsquo;ve jumped over
+have both the name and the trove classifier.</p>
+<p>I went through over 700 pytest plugins for this article. I&rsquo;ve skipped
 plugins that consider themselves to be in planning, pre-alpha, or alpha stage.
 I&rsquo;ve also skipped packages where I&rsquo;ve seen a TODO in the readme or if the
-package had less than 10 stars on GitHub.</p>
+package had fewer than 10 stars on GitHub.</p>
 <p>The packages I&rsquo;ve found make pytest sparkle ✨, improve the speed 🏎, are
 specialized to specific packages, or just unique in their behavior ❄️</p>
 <p>Last but not least, there are some plugins where I&rsquo;m not sure if they are
 awesome or if they are a bad idea. Let&rsquo;s jump right into it and have a look
 yourself!</p>
 <blockquote>
-<p><strong>Side note</strong>: Maybe you remember my <a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287#9026">side note on typo squatting</a>? I found a <a href="https://github.com/pypa/warehouse/issues/8462">fixable issue on PyPI</a> while writing this article, hopefully improving security for the community🎉</p>
+<p><strong>Side note</strong>: Maybe you remember my <a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287#9026">side note on typosquatting</a>? I found a <a href="https://github.com/pypa/warehouse/issues/8462">fixable issue on PyPI</a> while writing this article, hopefully improving security for the community 🎉</p>
 </blockquote>
 <h2 id="the-shiny-ones">The shiny ones</h2>
 <p>The default output of pytest is already good, but some plugins make it amazing.
-<a href="https://github.com/Teemu/pytest-sugar">pytest-sugar</a> is one of those plugins❤</p>
+<a href="https://github.com/Teemu/pytest-sugar">pytest-sugar</a> is one of those plugins ❤</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/08/pytest-sugar.png"><img alt="Pytest sugar changes the dots to checkmarks and the percentage to a bar." src="../images/2020/08/pytest-sugar.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Pytest sugar changes the dots to checkmarks and the percentage to a bar.</figcaption>
 </figure>
-<p>If those dots or checkmarks are too decent for you,
+<p>If those dots or checkmarks are too subtle for you,
 give <a href="https://pypi.org/project/pytest-emoji/">pytest-emoji</a> and
-<a href="https://pypi.org/project/pytest-emoji-output/">pytest-emoji-out</a> a try 😃</p>
+<a href="https://pypi.org/project/pytest-emoji-output/">pytest-emoji-output</a> a try 😃</p>
 <p>The summary output now looks good, but the diffs between the expected value and
 the actual value can be improved.
 <a href="https://pypi.org/project/pytest-icdiff/">pytest-icdiff</a> is a plugin I&rsquo;ve only
@@ -170,7 +170,7 @@ found while researching this article &mdash; and it was love at first sight 🥰
 <a href="../images/2020/08/pytest-error-message-normal-vs-icdiff.png"><img alt="Normal pytest output vs pytest-icdiff" src="../images/2020/08/pytest-error-message-normal-vs-icdiff.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Normal pytest output vs pytest-icdiff</figcaption>
 </figure>
-<p>Very similar is <a href="https://pypi.org/project/pytest-clarity/">pytest-clarity</a> &mdash; be aware, that pytest-clarity is only active when you execute pytest -vv:</p>
+<p>Very similar is <a href="https://pypi.org/project/pytest-clarity/">pytest-clarity</a> &mdash; be aware that pytest-clarity is only active when you execute <code>pytest -vv</code>:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/08/pytest-error-message-normal-vs-clarity.png"><img alt="Comparison of the normal output with pytest-clarity" src="../images/2020/08/pytest-error-message-normal-vs-clarity.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Comparison of the normal output with pytest-clarity</figcaption>
@@ -191,19 +191,19 @@ with <a href="https://pypi.org/project/pytest-instafail/"><code>pytest-instafail
 executing all remaining tests. For tests which might take a long time or even
 result in an infinite loop in case of errors, I use
 <a href="https://pypi.org/project/pytest-timeout/"><code>pytest-timeout</code></a> ❤. That is
-especially helpful when you apply <a href="https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8">Mutation
+especially helpful when you apply <a href="https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8">mutation
 testing</a>.</p>
 <p>We also want to use our machine properly by using
 <a href="https://pypi.org/project/pytest-xdist/"><code>pytest-xdist</code></a>. Install it, execute
-<code>pytest -n auto</code> and your tests run in parallel!
+<code>pytest -n auto</code>, and your tests run in parallel!
 <a href="https://pypi.org/project/pytest-parallel/"><code>pytest-parallel</code></a> might also be
 worth a shot.</p>
 <p>The most extreme speedup is not to execute stuff you don&rsquo;t need.
 <a href="https://github.com/anapaulagomes/pytest-picked"><code>pytest-picked</code></a> executes tests
-that are related to unstaged files which can be way less than your complete
+that are related to unstaged files, which can be way fewer than your complete
 test suite.</p>
 <p>Going in a different direction, we want to make sure that the algorithms have
-some speed behavior. With
+a certain speed behavior. With
 <a href="https://pypi.org/project/pytest-benchmark/"><code>pytest-benchmark</code></a>, we can use
 the benchmark fixture to annotate parts of a test which we want to benchmark:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_argmax</span><span class="p">(</span><span class="n">benchmark</span><span class="p">):</span>
@@ -223,24 +223,24 @@ computation:</p>
 <p>Some plugins are unique and don&rsquo;t fit in any of the other categories:</p>
 <ul>
 <li><a href="https://pypi.org/project/pytest-cov">pytest-cov</a> : Get a test coverage
-  report 😍 ❤ I like to generate both, an HTML report and an output to the
+  report 😍 ❤ I like to generate both an HTML report and an output to the
   terminal. In some settings, an XML report is also helpful.</li>
 <li><a href="https://pypi.org/project/pytest-socket/">pytest-socket</a> : Make certain that
   you don&rsquo;t query anything non-local. Very nice ❤</li>
 <li><a href="https://github.com/pytest-dev/pytest-randomly">pytest-randomly</a> and
   <a href="https://pypi.org/project/pytest-rng/">pytest-rng</a>: If you use
-  <code>random.random</code>, then the outcome depends on the random seed. This plugin
-  changes the seed.</li>
+  <code>random.random</code>, then the outcome depends on the random seed. These plugins
+  control the seed.</li>
 <li><a href="https://pypi.org/project/pytest-random-order/">pytest-random-order</a> :
   Execute the tests in a random order, to make sure you see when a test leaves
   the system in a different state.</li>
-<li><a href="https://pypi.org/project/pytest-lazy-fixture/">pytest-lazy-fixtures</a> : Use
+<li><a href="https://pypi.org/project/pytest-lazy-fixture/">pytest-lazy-fixture</a> : Use
   fixtures in <code>@pytest.mark.parametrize</code>.</li>
 <li><a href="https://pypi.org/project/pytest-freezegun/">pytest-freezegun</a> : Freeze time!
   This is one I&rsquo;ve also mentioned in <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">my patching
   article</a>.</li>
 <li><a href="https://pypi.org/project/pytest-leaks/">pytest-leaks</a> : Find resource leaks.
-  This requires a debug-built of Python!</li>
+  This requires a debug build of Python!</li>
 <li><a href="https://github.com/tholo/pytest-flake8">pytest-flake8</a> : Run flake8 via
   pytest. I did that for a long time, but when I learned
   <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">how to use Continuous Integration pipelines</a>
@@ -257,7 +257,7 @@ computation:</p>
 <h2 id="17-specialized-plugins-youll-know-if-you-need-them">17 Specialized Plugins &mdash; You&rsquo;ll know if you need them</h2>
 <p>The following plugins are only interesting to you if you work with the applications for which they are written. They usually provide fixtures/mocks.</p>
 <ul>
-<li><a href="https://pypi.org/project/pytest-cookies/">pytest-cookie</a> : Supports testing
+<li><a href="https://pypi.org/project/pytest-cookies/">pytest-cookies</a> : Supports testing
   of <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> templates.</li>
 <li><a href="https://pypi.org/project/pytest-plt/">pytest-plt</a> and
   <a href="https://pypi.org/project/pytest-mpl/">pytest-mpl</a>: Provides fixtures for
@@ -272,7 +272,7 @@ computation:</p>
 <h3 id="web-development">Web Development</h3>
 <ul>
 <li><a href="https://pypi.org/project/pytest-djangoapp/">pytest-djangoapp</a> /
-  <a href="https://pypi.org/project/pytest-django-queries/">pytest-djangoqueries</a>:
+  <a href="https://pypi.org/project/pytest-django-queries/">pytest-django-queries</a>:
   Exposes tools for Django application developers to facilitate test authoring,
   including settings override, template tag testing, and user creation.</li>
 <li>
@@ -298,7 +298,7 @@ computation:</p>
   integration tests via a Localstack Docker container</li>
 </ul>
 <h2 id="plugins-im-uncertain-about_1">Plugins I&rsquo;m uncertain about</h2>
-<p>The following plugins sounded cool for me when I first read about them, but for
+<p>The following plugins sounded cool to me when I first read about them, but for
 various reasons, I&rsquo;m uncertain if they are really a good idea:</p>
 <ul>
 <li><a href="https://github.com/okken/pytest-check">pytest-check</a> : Allows multiple
@@ -323,23 +323,23 @@ various reasons, I&rsquo;m uncertain if they are really a good idea:</p>
   record network interactions via VCR.py, but I didn&rsquo;t get it to work.</li>
 <li><a href="https://github.com/RKrahl/pytest-dependency">pytest-dependency</a> allows you
   to specify which tests need to succeed for others to be able to succeed. Unit
-  tests should be independent and dependent code should be mocked&hellip;maybe. I&rsquo;m
+  tests should be independent and dependent code should be mocked&hellip; maybe. I&rsquo;m
   not certain about that.</li>
 </ul>
 <h2 id="tldr">TL;DR</h2>
 <p>pytest is the tool of choice to run tests in Python. While it has reasonable
-defaults, it&rsquo;s extensive plugin system lets you customize it to make it even
+defaults, its extensive plugin system lets you customize it to make it even
 better.</p>
 <p>I love <a href="https://github.com/Teemu/pytest-sugar"><code>pytest-sugar</code></a> and
 <a href="https://pypi.org/project/pytest-icdiff/"><code>pytest-icdiff</code></a>, because they make
 the output of pytest easier to read.
-<a href="https://pypi.org/project/pytest-cov/"><code>pytest-cov</code></a> generates line- and branch
+<a href="https://pypi.org/project/pytest-cov/"><code>pytest-cov</code></a> generates line and branch
 coverage and thus is a valuable tool to find spots that need better tests. The
 next step is to run the tests. You really don&rsquo;t want to accidentally hit the
 production environment. This is where
 <a href="https://pypi.org/project/pytest-socket/"><code>pytest-socket</code></a> comes into play. It
-just blocks everything and reports it to you. The other type of issue are
-long-running tests that are potentially in infinite loops.pytest-timeout kills
+just blocks everything and reports it to you. The other type of issue is
+long-running tests that are potentially in infinite loops. <code>pytest-timeout</code> kills
 those tests after the specified amount of time.</p>
 <p>There are so many other plugins; many add fixtures for specific packages which
 are typically hard to test. You should now have a good idea of the many

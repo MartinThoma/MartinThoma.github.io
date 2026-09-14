@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Key-Value Stores "/>
 <meta property="og:url" content="key-value-stores/" />
-<meta property="og:description" content="Key-value stores are specialized NoSQL databases. Essentially, they are dictionaries1. Database Properties ACID is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc: Atomicity: Either all statements are applied or none. This is important for SELECTs. C …" />
+<meta property="og:description" content="Key-value stores are specialized NoSQL databases. Essentially, they are dictionaries1. Database Properties ACID is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc: Atomicity: Either all statements are applied or none. This is important for transactions with …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-09-29T20:00:00+02:00" />
 <meta name="twitter:title" content="Key-Value Stores ">
-<meta name="twitter:description" content="Key-value stores are specialized NoSQL databases. Essentially, they are dictionaries1. Database Properties ACID is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc: Atomicity: Either all statements are applied or none. This is important for SELECTs. C …">
+<meta name="twitter:description" content="Key-value stores are specialized NoSQL databases. Essentially, they are dictionaries1. Database Properties ACID is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc: Atomicity: Either all statements are applied or none. This is important for transactions with …">
 <meta property="og:image" content="logos/db.png" />
 <meta name="twitter:image" content="logos/db.png" >
 
@@ -118,7 +118,7 @@ specialized NoSQL databases. Essentially, they are dictionaries<sup id="fnref:1"
 transactions intended to guarantee validity even in the event of errors, power
 failures, etc:</p>
 <ul>
-<li><strong>A</strong>tomicity: Either all statements are applied or none. This is important for SELECTs.</li>
+<li><strong>A</strong>tomicity: Either all statements are applied or none. This is important for transactions with multiple writes.</li>
 <li><strong>C</strong>onsistency: A transaction brings the DB from one valid state to another; see also <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a></li>
 <li><strong>I</strong>solation: concurrent execution of transactions leaves the database in
   the same state that would have been obtained if the transactions were
@@ -136,10 +136,10 @@ key.</p>
   (which can, of course, make it visible).</li>
 <li><strong>Type System</strong>: Enforcing types takes time and gives guarantees. Some
   databases have very simple type systems (e.g. SQLite) and some offer more
-  (e.g. MySQL)</li>
+  (e.g. MySQL).</li>
 <li><strong>Availability / Failover</strong>: Systems fail. The machine which contains your database could
-  simply be plugged out. How do you deal with that?<ul>
-<li><strong>Backup options</strong>: If this is relevant at all depends very much what you
+  simply be unplugged. How do you deal with that?<ul>
+<li><strong>Backup options</strong>: Whether this is relevant at all depends very much on what you
   use it for. If the key-value store is used as a cache, then backup
   options are probably not necessary. If it is used to store configuration,
   then it likely is.</li>
@@ -150,7 +150,7 @@ key.</p>
 </li>
 <li><strong>Scalability</strong>: Suppose you want to store more than you can do on the hardware
   of a single machine. Do you have to buy a better machine (scale vertically)
-  or is it possible to have another (cheap) machine and run the datase on two
+  or is it possible to have another (cheap) machine and run the database on two
   machines in a distributed way (scale horizontally)? This is done via <a href="https://www.digitalocean.com/community/tutorials/understanding-database-sharding">sharding</a>.</li>
 <li><strong>Users</strong>: Having a user system and different databases in the same database
   management system is nice, because it allows centralisation of the service
@@ -158,11 +158,11 @@ key.</p>
   database being up / being backed up and others just get a user.</li>
 </ul>
 <h2 id="use-cases">Use Cases</h2>
-<p><em>Configuration</em>: Suppose you have a product which makes use of micro services.
-In some cases, those micro services need some alignment in form of
+<p><em>Configuration</em>: Suppose you have a product which makes use of microservices.
+In some cases, those microservices need some alignment in the form of
 configuration.</p>
 <p><em>Caches</em>: Web services can contain all sorts of computations which might need
-longer than acceptable. Caching / pre-calculating those are a common approach
+longer than acceptable. Caching / pre-calculating those is a common approach
 for this problem.</p>
 <h2 id="other-benchmarks">Other Benchmarks</h2>
 <p><a href="https://www.flexera.com/blog/cloud/2007/11/mysql-performance-on-amazon-ec2/">MySQL Performance on Amazon EC2</a>, 2007:</p>
@@ -183,7 +183,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>p
 $<span class="w"> </span>sysbench<span class="w"> </span>oltp_read_write<span class="w"> </span>--db-driver<span class="o">=</span>pgsql<span class="w"> </span>--pgsql-db<span class="o">=</span>sbtest<span class="w"> </span>--pgsql-user<span class="o">=</span>example_user<span class="w"> </span>--pgsql-password<span class="o">=</span>example_password<span class="w"> </span>prepare
 $<span class="w"> </span>sysbench<span class="w"> </span>oltp_read_write<span class="w"> </span>--db-driver<span class="o">=</span>pgsql<span class="w"> </span>--pgsql-db<span class="o">=</span>sbtest<span class="w"> </span>--threads<span class="o">=</span><span class="m">16</span><span class="w"> </span>--events<span class="o">=</span><span class="m">100000</span><span class="w"> </span>--pgsql-user<span class="o">=</span>example_user<span class="w"> </span>--pgsql-password<span class="o">=</span>example_password<span class="w"> </span>run
 </code></pre></div>
-<p>On my Thinkpad T460p I get the following numbers. However, I'm not certain how
+<p>On my ThinkPad T460p, I get the following numbers. However, I'm not certain how
 valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <table class="table">
 <tr>
@@ -224,7 +224,7 @@ valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <th></th>
 <th>SQLite</th>
 <th>MariaDB</th>
-<th>Postgresql</th>
+<th>PostgreSQL</th>
 <th>Redis</th>
 <th>Memcached</th>
 </tr>
@@ -268,7 +268,7 @@ machine; you pay for the usage. This usually means:</p>
 <li><a href="https://en.wikipedia.org/wiki/Amazon_Aurora">Amazon Aurora Serverless</a></li>
 </ul>
 <h2 id="benchmark_1">Benchmark</h2>
-<p>This is not finished. You can find the <a href="https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark">code on Github</a>.</p>
+<p>This is not finished. You can find the <a href="https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark">code on GitHub</a>.</p>
 <p>If you don't make the <code>key</code> column a primary key, MariaDB is quite a
 bit faster.</p>
 <table class="table">

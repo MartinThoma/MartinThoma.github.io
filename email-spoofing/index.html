@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Email Spoofing 😈  - Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC "/>
 <meta property="og:url" content="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf" />
-<meta property="og:description" content="Email spoofing is the creation of emails with a forged sender address. Faking the senders’ address is often a part of a phishing attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …" />
+<meta property="og:description" content="Email spoofing is the creation of emails with a forged sender address. Faking the sender&#39;s address is often a part of a phishing attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-12-02T20:00:00+01:00" />
 <meta name="twitter:title" content="Email Spoofing 😈  - Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC ">
-<meta name="twitter:description" content="Email spoofing is the creation of emails with a forged sender address. Faking the senders’ address is often a part of a phishing attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …">
+<meta name="twitter:description" content="Email spoofing is the creation of emails with a forged sender address. Faking the sender&#39;s address is often a part of a phishing attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal …">
 <meta property="og:image" content="logos/devil.png" />
 <meta name="twitter:image" content="logos/devil.png" >
 
@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-emails-spoofed" title="How are Emails spoofed?">How are Emails spoofed?</a></li><li><a class="toc-href" href="#how-can-i-prevent-email-spoofing" title="How can I prevent Email Spoofing?">How can I prevent Email Spoofing?</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-it-matters" title="Why it Matters">Why it Matters</a></li><li><a class="toc-href" href="#how-are-emails-spoofed" title="How are emails spoofed?">How are emails spoofed?</a></li><li><a class="toc-href" href="#how-can-i-prevent-email-spoofing" title="How can I prevent Email Spoofing?">How can I prevent Email Spoofing?</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Email spoofing is the creation of emails with a forged sender address. Faking the senders&rsquo; address is often a part of a <strong>phishing</strong> attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like security@paypal.co instead of security@paypal.com , hiding the senders address like in Paypal Security <a href="mailto:something@phishy.com">something@phishy.com</a> , or spoofing the email address.</p>
+            <p>Email spoofing is the creation of emails with a forged sender address. Faking the sender's address is often a part of a <strong>phishing</strong> attack. There are different ways to fool the victim of a phishing attack about who is the real sender: Using slightly different sender domains like <code>security@paypal.co</code> instead of <code>security@paypal.com</code>, hiding the sender's address like in <code>PayPal Security &lt;something@phishy.com&gt;</code>, or spoofing the email address.</p>
 <h2 id="why-it-matters">Why it Matters</h2>
 <p>Business Email Compromise (BEC) is a form of fraud that uses a business email address. There are many examples of this, but they are not well documented. At least not publicly. Some of the bigger ones I&rsquo;ve found are:</p>
 <ul>
@@ -119,8 +119,8 @@ MathJax.Hub.Queue(function() {
 <li><strong>2015</strong>: The networking company Ubiquiti Networks lost <strong>$46.7 million USD</strong> to a scammer who impersonated employees (<a href="https://www.nbcnews.com/tech/security/ubiquiti-networks-says-it-was-victim-47-million-cyber-scam-n406201">source</a>)</li>
 <li>&ldquo;In <strong>2018</strong>, the IC3 received 20,373 BEC/E-mail Account Compromise (EAC) complaints with adjusted losses of over <strong>$1.2 billion</strong>&rdquo; (<a href="https://www.ic3.gov/Media/PDF/AnnualReport/2018_IC3Report.pdf">source</a>)</li>
 </ul>
-<h2 id="how-are-emails-spoofed">How are Emails spoofed?</h2>
-<p>Emails are transferred via the <a href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> protocol. This protocol has an envelope that contains the sender (<strong>MAIL FROM</strong>) and the recipient (<strong>RCPT TO</strong>). The sender is typically not verified and not displayed. Instead, the content of the mail contains additional metadata. One item there is the <strong>reply-to</strong> and the <strong>sender</strong>. It&rsquo;s interesting that reply-to and sender are different.</p>
+<h2 id="how-are-emails-spoofed">How are emails spoofed?</h2>
+<p>Emails are transferred via the <a href="https://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a> protocol. This protocol has an envelope that contains the sender (<strong>MAIL FROM</strong>) and the recipient (<strong>RCPT TO</strong>). The sender is typically not verified and not displayed. Instead, the content of the mail contains additional metadata. Two items there are the <strong>reply-to</strong> and the <strong>sender</strong>. It&rsquo;s interesting that reply-to and sender are different.</p>
 <p>As an attacker, one can manipulate everything. Just like with normal mail:</p>
 <ul>
 <li>Write a wrong MAIL FROM</li>
@@ -135,11 +135,9 @@ MathJax.Hub.Queue(function() {
 <span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="s2">"You've been a good boy"</span><span class="p">)</span>
 
 <span class="n">msg</span><span class="p">[</span><span class="s2">"Subject"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Ho-ho-ho"</span>
-<span class="n">msg</span><span class="p">[</span>
-    <span class="s2">"From"</span>
-<span class="p">]</span> <span class="o">=</span> <span class="s2">"[santa.clause@christm.as](mailto:santa.clause@christm.as)"</span>  <span class="c1"># The fake sender</span>
+<span class="n">msg</span><span class="p">[</span><span class="s2">"From"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"santa.clause@christm.as"</span>  <span class="c1"># The fake sender</span>
 <span class="n">msg</span><span class="p">[</span><span class="s2">"To"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"victim@example.com"</span>  <span class="c1"># The actual receiver</span>
-<span class="c1"># msg.add_header("reply-to", "[phishy@phising.com](mailto:phishy@phising.com)")  # The attackers address</span>
+<span class="c1"># msg.add_header("reply-to", "phishy@phising.com")  # The attacker's address</span>
 
 <span class="c1"># Send the message via our own SMTP server.</span>
 <span class="c1"># On Ubuntu, you need to install sendmail:</span>
@@ -158,7 +156,7 @@ MathJax.Hub.Queue(function() {
 <a href="../images/2020/12/email-spoofing-gmail-1-full.png"><img alt="Spoofed Email in Gmail - full view" src="../images/2020/12/email-spoofing-gmail-1-full.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Spoofed Email in Gmail - full view</figcaption>
 </figure>
-<p>Even when I go on the details, I see:</p>
+<p>Even when I look at the details, I see:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/12/gmail-show-original.png"><img alt="'Show original' in Gmail" src="../images/2020/12/gmail-show-original.png" style="width: 512px;"/></a>
 <figcaption class="text-center">'Show original' in Gmail</figcaption>
@@ -176,13 +174,13 @@ MathJax.Hub.Queue(function() {
 <span class="n">fake_address</span> <span class="o">=</span> <span class="s2">"santa.clause@christm.as"</span>
 <span class="n">msg</span><span class="p">[</span><span class="s2">"From"</span><span class="p">]</span> <span class="o">=</span> <span class="n">formataddr</span><span class="p">((</span><span class="s2">"Santa Clause"</span><span class="p">,</span> <span class="n">fake_address</span><span class="p">))</span>
 </code></pre></div>
-<p>Interestingly, that triggered Gmails spam detection:</p>
+<p>Interestingly, that triggered Gmail's spam detection:</p>
 <p><img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2976/1*Z6XyVCcysdDbLdMlhEkaxw.png"/><em>Screenshot taken by Martin Thoma</em></p>
 <h2 id="how-can-i-prevent-email-spoofing">How can I prevent Email Spoofing?</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Sender_Policy_Framework"><strong>SPF</strong></a> (Sender
-  Policy Framework), is an email authentication method designed to detect
-  forging sender addresses in emails. Domain owners (e.g. me for
+  Policy Framework) is an email authentication method designed to detect
+  forged sender addresses in emails. Domain owners (e.g. me for
   martin-thoma.com) can publish SPF records to DNS. In that record, they
   <strong>whitelist IP addresses</strong> that can send emails for their domain. Email
   servers can then perform an SPF lookup when they receive an email for the
@@ -192,7 +190,7 @@ MathJax.Hub.Queue(function() {
   it as spam. More information can be found at
   <a href="http://www.open-spf.org/SPF_Record_Syntax/">open-spf.org</a>.</li>
 <li><a href="https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail"><strong>DKIM</strong></a>
-  (DomainKeys Identified Mail), is an email authentication method designed to
+  (DomainKeys Identified Mail) is an email authentication method designed to
   detect forged sender addresses in emails. It works by <strong>cryptographically
   signing sent emails</strong> from a given domain. This is not a signature per
   person, but a signature for your organization. The corresponding public key
@@ -201,16 +199,16 @@ MathJax.Hub.Queue(function() {
   after it was sent. Imagine DKIM like a seal. SPF then is the knowledge which
   seal should be used.</li>
 <li><a href="https://en.wikipedia.org/wiki/DMARC"><strong>DMARC</strong></a> (Domain-based Message
-  Authentication, Reporting, and Conformance), is an email authentication
+  Authentication, Reporting, and Conformance) is an email authentication
   protocol. DMARC uses SPF and DKIM and gives <strong>policies</strong> on how to deal with
   error cases. The domain owner creates a DMARC DNS record that contains
   instructions on what to do with messages that failed the SPF / DKIM test.
   Received emails that failed can on the receiver side either be rejected or
   quarantined. If that happens, DMARC can be configured to send a report back.
   DMARC enforces an <strong>alignment</strong> of the MAIL FROM and the sender. This can be
-  problematic for newsletters but represents also what users expect.</li>
+  problematic for newsletters but also represents what users expect.</li>
 </ul>
-<p>As a domain owner, you can validate your SPF record like this:</p>
+<p>As a domain owner, you can look up your SPF record like this:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dig<span class="w"> </span>google.com<span class="w"> </span>txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>spf
 google.com.<span class="w">  </span><span class="m">3600</span><span class="w"> </span>IN<span class="w"> </span>TXT<span class="w"> </span><span class="s2">"v=spf1 include:_spf.google.com ~all"</span>
 </code></pre></div>
@@ -220,7 +218,7 @@ h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; \
 s=m1; bh=NY62YFtbfuXkL/SNoiClZV8gaZxkiYhFD4J77gUHGEY=; \
 b=EL3HbaL iSgAJsE6LO8L10T52+rYyump4R1aMAV9nCwyXLENaxbS0xgZvksgoplu8Rjo/wWV J0jDEFRe+UsOnIhaCTBXa1H7LVdjkRyOu9+9Qwd7hlWY5fx/mtRQXvWRDfe9KEsS 9WH8o0lRbOAq7AJXPLID/tZokm+KIMmMc/H0=
 </code></pre></div>
-<p>The record is structured in tag=version pairs which are separated by <code>;</code>:</p>
+<p>The record is structured in tag=value pairs which are separated by <code>;</code>:</p>
 <ul>
 <li><code>v</code>: DKIM <strong>version</strong></li>
 <li><code>a</code>: The signature <strong>algorithm</strong>, typically rsa-sha256</li>
@@ -228,29 +226,29 @@ b=EL3HbaL iSgAJsE6LO8L10T52+rYyump4R1aMAV9nCwyXLENaxbS0xgZvksgoplu8Rjo/wWV J0jDE
 <li><code>d</code>: The used <strong>domain</strong>.</li>
 <li><code>h</code>: The <strong>headers</strong>.</li>
 <li><code>s</code>: The DKIM <strong>selector</strong> record name.</li>
-<li><code>b</code>: The base64 encoded hash value of the headers h .</li>
-<li><code>bh</code>: The hash of the body of the email.</li>
+<li><code>b</code>: The base64-encoded signature of the headers listed in <code>h</code>.</li>
+<li><code>bh</code>: The base64-encoded hash of the body of the email.</li>
 </ul>
 <p>You can look up your DMARC record like this:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>dig<span class="w"> </span>_dmarc.google.com<span class="w"> </span>txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>DMARC
 _dmarc.google.com.<span class="w"> </span><span class="m">290</span><span class="w"> </span>IN<span class="w"> </span>TXT<span class="w"> </span><span class="s2">"v=DMARC1; p=reject; \</span>
-<span class="s2">    rua=[mailauth-reports@google.com](mailto:mailauth-reports@google.com)"</span>
+<span class="s2">    rua=mailto:mailauth-reports@google.com"</span>
 </code></pre></div>
 <p>The record is structured in tag=value pairs which are separated by <code>;</code> (<a href="https://dmarc.org/overview/">source</a>):</p>
 <ul>
-<li><code>v</code>: The protocol <strong>version.</strong></li>
-<li><code>p</code>: The <strong>policy</strong>. It typically should be reject , but can also be quarantine</li>
+<li><code>v</code>: The protocol <strong>version</strong>.</li>
+<li><code>p</code>: The <strong>policy</strong>. It should typically be <code>reject</code>, but can also be <code>quarantine</code> or <code>none</code>.</li>
 <li><code>rua</code>: The reporting URI for <strong>aggregate reports</strong> (how the domain is used)</li>
 <li><code>ruf</code>: The reporting URI for <strong>forensic reports</strong>
  (showing when validation failed)</li>
-<li><code>pct</code>: How many percent of mails get handled with DMARC. You can set this to an integer from 0 to 100. For the beginning, you can set it low for testing. It should become 100 over time. If you don&rsquo;t use the tag at all, it&rsquo;s by default 100%.</li>
+<li><code>pct</code>: The percentage of emails that get handled with DMARC. You can set this to an integer from 0 to 100. For the beginning, you can set it low for testing. It should become 100 over time. If you don&rsquo;t use the tag at all, it defaults to 100%.</li>
 </ul>
 <h2 id="summary">Summary</h2>
 <p>Spoofing emails is easy.</p>
-<p>As a system administrator, you can protect your company by setting an <a href="https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide">anti-phishing-policy in Office 365</a> or review the <a href="https://support.google.com/a/answer/9157861?hl=en">advanced phishing and malware settings of G Suite</a>.</p>
+<p>As a system administrator, you can protect your company by setting an <a href="https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide">anti-phishing policy in Office 365</a> or review the <a href="https://support.google.com/a/answer/9157861?hl=en">advanced phishing and malware settings of G Suite</a>.</p>
 <p>As a domain owner, make sure you have SPF, DKIM, and DMARC configured correctly to protect your customers or clients.</p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
-<p>In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
 <li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
 <li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>

@@ -120,7 +120,7 @@ MathJax.Hub.Queue(function() {
 <p><img alt="" src="https://cdn-images-1.medium.com/max/2150/1*xLjXcxEQETyNMAi9HrOJbg.png"/></p>
 <p>As you can see, the &ldquo;translation&rdquo; is trivial: We build 6-bit blocks of the binary data and look up the character in the table above. It&rsquo;s called base64 because there are 2⁶ = 64 digits. Hence it can be interpreted as a <a href="https://en.wikipedia.org/wiki/Positional_notation#Base_conversion">number base conversion</a>.</p>
 <p>Please note that this does not keep the content secret. Base64 does not use a secret key. Hence it is not encryption.</p>
-<p>Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF8, ASCII, Latin1.</p>
+<p>Character encodings are also extremely common. They map an integer to a character. The three which I stumble over most often are UTF-8, ASCII, and Latin-1.</p>
 <h2 id="encryption">Encryption</h2>
 <p><img alt="Photo by Mauro Sbicego on Unsplash" src="https://cdn-images-1.medium.com/max/12000/0*hFOeoYAJZ47-pd4B"/><em>Photo by <a href="https://unsplash.com/@maurosbicego?utm_source=medium&amp;utm_medium=referral">Mauro Sbicego</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
 <p>Encryption is about keeping secrets. You don&rsquo;t want to keep the method how you encrypt and decrypt secret. Instead, you should have a secret key that is necessary to decrypt. This is called Kerckhoffs&rsquo;s principle.</p>
@@ -138,7 +138,7 @@ Derived key: the quickbrownfxjmpsadglvyz
 Translates to: abcdefghijklmnopqrstuvwxyz
 </code></pre></div>
 <p>Note that &ldquo;space&rdquo; translates to &ldquo;d&rdquo; and &ldquo;z&rdquo; translates to &ldquo;space&rdquo;.</p>
-<p>Putting it all together, the message secret translates to tchkca .</p>
+<p>Putting it all together, the message <code>secret</code> translates to <code>tchkca</code>.</p>
 <p>In Python, it looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">alphabet</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>
 

@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#no1-explanatory-variables" title="&numero;1: Explanatory Variables">&numero;1: Explanatory Variables</a></li><li><a class="toc-href" href="#no2-follow-conventions-and-style-guides" title="&numero;2: Follow Conventions and Style Guides">&numero;2: Follow Conventions and Style Guides</a></li><li><a class="toc-href" href="#no3-type-checking" title="&numero;3: Type Checking">&numero;3: Type Checking</a></li><li><a class="toc-href" href="#no4-consistent-terminology" title="&numero;4 Consistent Terminology">&numero;4 Consistent Terminology</a></li><li><a class="toc-href" href="#no5-meaningful-names" title="&numero;5 Meaningful Names">&numero;5 Meaningful Names</a></li><li><a class="toc-href" href="#no6-the-step-down-rule" title="&numero;6 The step-down rule">&numero;6 The step-down rule</a></li><li><a class="toc-href" href="#no7-remove-dead-code" title="&numero;7 Remove Dead Code">&numero;7 Remove Dead Code</a></li><li><a class="toc-href" href="#no8-use-containers" title="&numero;8 Use containers">&numero;8 Use containers</a></li><li><a class="toc-href" href="#no9-avoid-surprises" title="&numero;9 Avoid Surprises">&numero;9 Avoid Surprises</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#no1-explanatory-variables" title="&numero;1: Explanatory Variables">&numero;1: Explanatory Variables</a></li><li><a class="toc-href" href="#no2-follow-conventions-and-style-guides" title="&numero;2: Follow Conventions and Style Guides">&numero;2: Follow Conventions and Style Guides</a></li><li><a class="toc-href" href="#no3-type-checking" title="&numero;3: Type Checking">&numero;3: Type Checking</a></li><li><a class="toc-href" href="#no4-consistent-terminology" title="&numero;4: Consistent Terminology">&numero;4: Consistent Terminology</a></li><li><a class="toc-href" href="#no5-meaningful-names" title="&numero;5: Meaningful Names">&numero;5: Meaningful Names</a></li><li><a class="toc-href" href="#no6-the-step-down-rule" title="&numero;6: The step-down rule">&numero;6: The step-down rule</a></li><li><a class="toc-href" href="#no7-remove-dead-code" title="&numero;7: Remove Dead Code">&numero;7: Remove Dead Code</a></li><li><a class="toc-href" href="#no8-use-containers" title="&numero;8: Use containers">&numero;8: Use containers</a></li><li><a class="toc-href" href="#no9-avoid-surprises" title="&numero;9: Avoid Surprises">&numero;9: Avoid Surprises</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -131,8 +131,8 @@ is hard to understand and you need a comment for it, try giving it a name.</p>
     <span class="k">return</span> <span class="n">string</span>
 
 <span class="c1"># Good</span>
-<span class="n">is_tripple_quoted_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_tripple_quoted_string</span> <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]):</span>
+<span class="n">is_triple_quoted_string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'"""'</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_triple_quoted_string</span> <span class="ow">and</span> <span class="s1">'"'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">]):</span>
     <span class="k">return</span> <span class="n">string</span>
 </code></pre></div>
 <p>This applies mostly to boolean expressions, but also to regular expressions,
@@ -153,9 +153,9 @@ follow them.</p>
 using them. There are also differences in how to use them.</p>
 <p>For example, if you have Dict[str, Any] you might want to consider using
 NamedTuple / TypedDict / pydantic / dataclasses instead.</p>
-<p>In some case, when you use str as the type you might want to consider using
-NewType to denote which kind of string you are using. Is it an AuthorId ? Is
-it an UserId ?</p>
+<p>In some cases, when you use <code>str</code> as the type you might want to consider using
+NewType to denote which kind of string you are using. Is it an <code>AuthorId</code>? Is
+it a <code>UserId</code>?</p>
 <p>Those two patterns apply to other languages as well. Let&rsquo;s phrase it like this:</p>
 <blockquote>
 <h1 id="make-good-use-of-the-type-system">Make good use of the type system.</h1>
@@ -164,10 +164,10 @@ it an UserId ?</p>
 <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d"><strong>Type Annotations in Python 3.8</strong>
 <em>Learn how to make Python code easier to read and less error-prone by gradual typing</em>medium.com</a></p>
 <p>If you want to know about the most recent improvements, read my <a href="https://betterprogramming.pub/python-3-10-is-released-know-whats-new-and-if-it-s-worth-the-switch-19c7a5738f7c">Python 3.10 article</a>.</p>
-<h2 id="no4-consistent-terminology">&numero;4 Consistent Terminology</h2>
+<h2 id="no4-consistent-terminology">&numero;4: Consistent Terminology</h2>
 <p>I work at the FinTech company <a href="https://cashlink.de/">Cashlink</a> as a Python backend developer. We handle digital securities, e.g. tokens that represent a real value like a part of a solar farm. Those tokens can be transferred. And here it starts to become interesting. Depending on the type of transfer, we must do different things. Either because of regulations or because of technical reasons. So we started to name different types of transfers differently to not be confused all the time:</p>
 <ul>
-<li><strong>Transfer</strong>: Any action that changes a balance. All terms below are some kind of transfer (although I would hesitate to call minting and burn a transfer).</li>
+<li><strong>Transfer</strong>: Any action that changes a balance. All terms below are some kind of transfer (although I would hesitate to call minting and burning a transfer).</li>
 <li><strong>Minting</strong>: The tokens are generated. This happens first.</li>
 <li><strong>Issuance</strong>: The transfer from the issuer to the investor. This happens second.</li>
 <li><strong>Move</strong>: A transfer from wallet A to wallet B, where A and B belong to the same investor.</li>
@@ -175,10 +175,10 @@ it an UserId ?</p>
 <li><strong>Burn</strong>: Removing tokens from an investor's account.</li>
 </ul>
 <p>Those things are important, but there are other examples where the terminology can be different. For example, internal product names and external ones. Marketing might have different needs than development. Try to get a vocabulary that fits most of the company.</p>
-<h2 id="no5-meaningful-names">&numero;5 Meaningful Names</h2>
+<h2 id="no5-meaningful-names">&numero;5: Meaningful Names</h2>
 <p>Think of your codebase like a book. The book has many, many different storylines. The variables are the characters. You can rely a bit on the context, but readers will be confused if you call everybody just &ldquo;the friend&rdquo;. They will be annoyed if they need to read half a page just for the name.</p>
 <ul>
-<li><strong>Avoid too short names </strong>like i orx . They are hard to search for. If you
+<li><strong>Avoid too short names</strong> like <code>i</code> or <code>x</code>. They are hard to search for. If you
   write a mathematical function, they might make sense, though.</li>
 <li><strong>Avoid too long names</strong> like
   InternalFrameInternalFrameTitlePaneInternalFrameTitlePaneMaximizeButtonWindowNotFocusedState.
@@ -189,17 +189,17 @@ it an UserId ?</p>
 <li><strong>Be consistent</strong> with the vocabulary from &numero;4. Also in spelling. Decide if
   you want to use American English or British English. Decide if you want to
   write display/show/present/print in your codebase.</li>
-<li><strong>Avoid data structures in names</strong> like user_dict . If you need that, it
+<li><strong>Avoid data structures in names</strong> like <code>user_dict</code>. If you need that, it
   might be that you&rsquo;re violating &numero;6. Try to use only one representation of one
   object. But keep in mind that this is a general rule. It does make sense
-  sometimes to use user_dict .</li>
+  sometimes to use <code>user_dict</code>.</li>
 <li><strong>Make use of context</strong>. For example, the
-  java.sql.SQLIntegrityContraintViolation could simply be a
-  java.sql.IntegrityError . Within the sql package, everything should be about
+  <code>java.sql.SQLIntegrityConstraintViolationException</code> could simply be a
+  <code>java.sql.IntegrityError</code>. Within the sql package, everything should be about
   SQL. And a ConstraintViolation simply is an Error.</li>
 </ul>
-<p>A pattern I like when iterating is to use the plural form for the iterator
-(ending in &ldquo;s&rdquo;) and the singular (without the final &ldquo;s&rdquo;)</p>
+<p>A pattern I like when iterating is to use the plural form for the iterable
+(ending in &ldquo;s&rdquo;) and the singular for the element (without the final &ldquo;s&rdquo;):</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Bad</span>
 <span class="k">for</span> <span class="n">tmp</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
     <span class="o">...</span>
@@ -209,16 +209,16 @@ it an UserId ?</p>
     <span class="o">...</span>
 </code></pre></div>
 <p>By the way: Please share if you&rsquo;ve seen <a href="https://www.reddit.com/r/ProgrammerHumor/comments/k1wdrt/whats_the_most_inappropriate_variable_name/">funny variable naming</a> in the wild 😄</p>
-<h2 id="no6-the-step-down-rule">&numero;6 The step-down rule</h2>
+<h2 id="no6-the-step-down-rule">&numero;6: The step-down rule</h2>
 <p>Keeping a function at one abstraction level helps you to focus on one topic.</p>
 <blockquote>
-<h1 id="separate-logic-data-collectiontransfer-presentation">Separate logic &harr; data collection/transfer &harr; presentation.</h1>
+<p>Separate logic &harr; data collection/transfer &harr; presentation.</p>
 </blockquote>
 <p>The presentation does not necessarily have to be visual. It can be print
 statements or it could be an API response.</p>
 <p>Marek Hudyma gives <a href="https://marekhudyma.com/code-style/2021/03/02/step-down-rule.html">a good example</a> of the step-down rule.</p>
 <p>In Python, you can sometimes see this when there is a lot of indentation.</p>
-<h2 id="no7-remove-dead-code">&numero;7 Remove Dead Code</h2>
+<h2 id="no7-remove-dead-code">&numero;7: Remove Dead Code</h2>
 <p>Code that isn&rsquo;t there is code that cannot break. It&rsquo;s code that will not cause
 security issues. It&rsquo;s code that doesn&rsquo;t need to be maintained. Instead of
 commenting code out, remove it.</p>
@@ -230,21 +230,20 @@ typically try to write a really thorough commit message, removing only those
 comments/files to be able to find it later if I need it. But there is YAGNI:
 <a href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it">You aren&rsquo;t gonna need
 it!</a></p>
-<h2 id="no8-use-containers">&numero;8 Use containers</h2>
+<h2 id="no8-use-containers">&numero;8: Use containers</h2>
 <p>If you pass the same few values around in several places of your codebase you might want to consider writing a container. That could be a class, in Python you can use a <a href="https://docs.python.org/3/library/dataclasses.html">dataclass</a>, a <a href="https://docs.python.org/3/library/typing.html#typing.NamedTuple">NamedTuple</a>, or a <a href="https://www.python.org/dev/peps/pep-0589/">TypedDict</a>. If you need to serialize it, a Pydantic class is pretty nice as well.</p>
 <p>A prime example where you should likely use a container format is
 configuration.</p>
-<h2 id="no9-avoid-surprises">&numero;9 Avoid Surprises</h2>
+<h2 id="no9-avoid-surprises">&numero;9: Avoid Surprises</h2>
 <p>This is a no-brainer, but it is sometimes easy to forget. One core part is to
 <strong>avoid side effects</strong>. It should be clear whether a function changes state.
 Another part is to <strong>document hacks</strong>. Sometimes it is necessary to have
 hacks, but at least leave a comment on why the hack is there.</p>
-<p>Don&rsquo;t try to do something smart. Follow the KISS principle &mdash; Keep it simple
-and stupid!</p>
+<p>Don&rsquo;t try to do something smart. Follow the KISS principle &mdash; Keep it simple,
+stupid!</p>
 <h2 id="summary">Summary</h2>
 <p>Writing good code is like writing good articles: It needs <strong>practice</strong> and you will always improve. Read a lot, <a href="https://codereview.stackexchange.com/">ask for feedback</a> and encourage people to also give small little notes in feedback. The ones that don&rsquo;t matter too much, but are just personal preferences.</p>
-<p>Finally, understand what you hate when you read code. Avoid <a href="https://cs.fit.edu/~kgallagher/Schtick/How%20To%20Write%20Unmaintainable%20Code.html">those patterns</a> 😄 &mdash; but <a href="https://github.com/zedr/clean-code-python/blob/master/README.md">apply this</a> 😍 Practice, be open to feedback, look critical at your code. Then you will be an awesome software engineer 🥂</p>
-<p>I love writing about software development and technology 🤩 Don&rsquo;t miss updates: <a href="https://martinthoma.medium.com/subscribe">**Get my free email newsletter</a>** 📧 or <a href="https://martinthoma.medium.com/membership">sign up for Medium</a> ✍️ if you haven&rsquo;t done it yet &mdash; both encourages me to write more 🤗</p>
+<p>Finally, understand what you hate when you read code. Avoid <a href="https://cs.fit.edu/~kgallagher/Schtick/How%20To%20Write%20Unmaintainable%20Code.html">those patterns</a> 😄 &mdash; but <a href="https://github.com/zedr/clean-code-python/blob/master/README.md">apply this</a> 😍 Practice, be open to feedback, look critically at your code. Then you will be an awesome software engineer 🥂</p>
             
         </div>
         <section>
