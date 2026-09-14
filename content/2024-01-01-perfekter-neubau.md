@@ -11,7 +11,7 @@ featured_image: logos/house.png
 ---
 Ich habe mir einen Altbau gekauft, aber ein Neubau wäre schon echt cool. In
 diesem Artikel sammle ich mal ein paar Ideen, wie für mich das perfekte Haus
-aussehen würde. Und ich habe mal mit Bing Image Creator gespielt um zu schauen
+aussehen würde. Und ich habe mal mit Bing Image Creator gespielt, um zu schauen,
 wie gut ich meine Vorstellungen visualisieren kann.
 
 Kernideen bei meinem Traum-Neubau sind **Autarkie** und **wenig Arbeit**.
@@ -26,7 +26,7 @@ heißt:
 
 * **Autarkie**: Insbesondere die Abhängigkeit von Energiepreisen sollte
   minimiert werden.
-* **Wartungsfreundlichkeit**: Wenn man schon was neues baut, dann will man nicht direkt
+* **Wartungsfreundlichkeit**: Wenn man schon was Neues baut, dann will man nicht direkt
   Ärger mit Wartung und Reparaturen haben. Und wenn doch Wartung anfällt, dann sollte sie so einfach wie möglich sein.
 * **Altersgerechtigkeit**: Man gewöhnt sich ans Haus - und sollte nicht
   ausziehen müssen, wenn man älter wird.
@@ -34,7 +34,7 @@ heißt:
 ## Wandaufbau
 
 Moderne Wandaufbauten von Passivhäusern müssen hohe Dämmwerte (U-Wert ≤
-0.15 W/m²K) erreichen, luftdicht sein und Wärmebrücken vermeiden.
+0,15 W/(m²K)) erreichen, luftdicht sein und Wärmebrücken vermeiden.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2026/05/ausenwand-maueraufbau.jpg"><img src="../images/2026/05/ausenwand-maueraufbau.jpg" alt="Außenwand Maueraufbau" style="max-height: 512px"/></a>
@@ -56,13 +56,13 @@ Der Keller sollte als weiße Wanne
   Toilettenwasser befüllen.
 * Wasserhähne mit Wandmontage. Damit sind die Spritzwasser-Flächen leichter zu
   reinigen.
-* Beleuchtung: E14 und E27 sind zu bevorzugen. Alles was leicht austauschbar
-  ist, ist ok. LED stripes sehen zwar toll aus, sind aber schwer auszutauschen.
+* Beleuchtung: E14 und E27 sind zu bevorzugen. Alles, was leicht austauschbar
+  ist, ist ok. LED-Stripes sehen zwar toll aus, sind aber schwer auszutauschen.
 * Platz in jedem Stockwerk für einen Staubsaugroboter.
-* Verschiebbare Holz-Laden zum Sonnenschutz an der Außenfassade
+* Verschiebbare Holzläden zum Sonnenschutz an der Außenfassade
 * Regen-Notüberlauf an der Regenrinne, damit bei Verstopfung / zu viel Regen das
   Wasser geordnet abgeleitet wird.
-* Technik-Raum für Strom und Internet (Glasfaser-Anschluss, USV, Switch, Netzwerk-Kabel in alle Etagen, WLAN-Access-Points in jedem Stockwerk, )
+* Technik-Raum für Strom und Internet (Glasfaser-Anschluss, USV, Switch, Netzwerk-Kabel in alle Etagen, WLAN-Access-Points in jedem Stockwerk)
 
 <style>
 .good {
@@ -83,14 +83,14 @@ Der Keller sollte als weiße Wanne
 </figure>
 
 Ich habe lange überlegt, was aus meiner Sicht die beste Heizungsart für einen
-Neubau ist. Eine Fußbodenheizung ist natürlich sehr angenehm weil der Boden
+Neubau ist. Eine Fußbodenheizung ist natürlich sehr angenehm, weil der Boden
 nicht ganz so kalt ist und luxuriös, weil man keine Heizkörper sieht. Allerdings
 ist es aus meiner Sicht nicht optimal, weil es schwer zu warten ist:
 
-* Das kalk aus den Rohren kann sich ablagern und die Rohre oder die Wärmepumpe beschädigen (z.B. den Durchfluss-Sensor verdrecken)
+* Der Kalk in den Rohren kann sich ablagern und die Rohre oder die Wärmepumpe beschädigen (z.B. den Durchfluss-Sensor verdrecken)
 * Die Rohre können beschädigt werden
 * Das System ist träge - wenn ich es jetzt wärmer will, dauert es ggf. einige
-  Stunden bis es warm ist.
+  Stunden, bis es warm ist.
 
 Stattdessen würde ich auf mehrere Klimasplitgeräte zur Raumheizung sowie eine
 Brauchwasser-Wärmepumpe setzen. Das hat einige Vorteile:
@@ -100,7 +100,7 @@ Brauchwasser-Wärmepumpe setzen. Das hat einige Vorteile:
 3. **Wartungsfreundlichkeit**: Es ist einfacher, ein defektes Klimasplitgerät zu
    reparieren oder zu ersetzen als eine Fußbodenheizung.
 4. **Resilienz**: Wenn ein Klimasplitgerät ausfällt, betrifft das nur einen
-   Raum, während bei einer Zentralheizung das ganze System incl. Warmewasser
+   Raum, während bei einer Zentralheizung das ganze System inkl. Warmwasser
    betroffen sein könnte.
 5. **Reaktionszeit**: Klimasplitgeräte reagieren innerhalb weniger Minuten,
    während eine Fußbodenheizung einige Stunden braucht, um die Temperatur zu
@@ -116,30 +116,30 @@ Heizstab erhitzt das Wasser im Hygienespeicher.
 Wenn man dann Warmwasser
 benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und
 so erwärmt (kein Schichtenspeicher, damit man keine Probleme mit Legionellen
-bekommt). Dieser Hygienespeicher dient gleichzeitig als günstige Batterie um
+bekommt). Dieser Hygienespeicher dient gleichzeitig als günstige Batterie, um
 überschüssigen Strom der PV-Anlage zu speichern. Das ist deutlich günstiger als
 eine Lithium-Ionen-Batterie. Damit kann man tagsüber effizient die Wärmepumpe
 und die PV-Anlage nutzen, und abends das Warmwasser nutzen, ohne Strom aus dem
 Netz zu beziehen.
 
-Es gibt keine Öl-, Gas-, oder Holz-Heizung. Das heißt es gibt auch keinen
+Es gibt keine Öl-, Gas- oder Holz-Heizung. Das heißt, es gibt auch keinen
 Schornstein. Daher gibt es auch keine Kosten für Schornsteinfeger.
 
 Wenn man ein Kaminfeuer genießt, kann man auch ohne Schornstein einen Kamin auf
-Ethanol-Basis haben. Ein Liter Ethanol hat einen Brennwert von 5.9 kWh/L. Ein
+Ethanol-Basis haben. Ein Liter Ethanol hat einen Brennwert von 5,9 kWh/L. Ein
 Neubau hat eine Heizlast von max. 50 Watt/m². Weil Ethanol so leicht entzündlich
-ist darf man maximal 20L lagern. Für 120m² wären das nicht mal ein Tag. Für
+ist, darf man maximal 20L lagern. Für 120m² wäre das nicht mal ein Tag. Für
 Notfälle ist das also eher nicht geeignet.
 
 
 Alternativen zu den Klimasplitgeräten + Brauchwasser-Wärmepumpe:
 
-* Luft-Wasser Wärmepumpe: Siehe oben, aber mit Fußbodenheizung. Das ist die
+* Luft-Wasser-Wärmepumpe: Siehe oben, aber mit Fußbodenheizung. Das ist die
   klassische Lösung für Neubauten, aber ich finde es nicht so toll, weil es eben
   Wartungsaufwand bedeutet.
 * Infrarot-Heizung: Besticht durch die Tatsache, dass sie in der Anschaffung
   günstig ist, leicht ersetzt werden kann, und keine Wartung benötigt. Die
-  Lebensdauer ist auch gut. Gut für kleine Räume die meistens kühler sein
+  Lebensdauer ist auch gut. Gut für kleine Räume, die meistens kühler sein
   können, z.B. Toilette oder Badezimmer.
 
 ### Smart Home
@@ -150,12 +150,12 @@ Alternativen zu den Klimasplitgeräten + Brauchwasser-Wärmepumpe:
 </figure>
 
 * Ethernet-Buchse in jedem Raum
-* Temperatur-, Feuchtigkeits, und Anwesenheits-Sensor (Radar) in jedem Raum.
-  Wenn niemand im Raum ist soll das Licht ausgehen.
-* Öffnungs-Sensoren an jedem Fenster und jeder Tür: Wenn Fenster offen sind soll
-  die Klimaanlage aus gehen.
-* Möglichkeit die Rolladen via Smart Home zu steuern
-* Smart Home erfasst verbrauch automatisch und schickt Warnung bei unerwartetem
+* Temperatur-, Feuchtigkeits- und Anwesenheitssensor (Radar) in jedem Raum.
+  Wenn niemand im Raum ist, soll das Licht ausgehen.
+* Öffnungs-Sensoren an jedem Fenster und jeder Tür: Wenn Fenster offen sind, soll
+  die Klimaanlage ausgehen.
+* Möglichkeit, die Rollläden via Smart Home zu steuern
+* Smart Home erfasst Verbrauch automatisch und schickt Warnung bei unerwartetem
   höherem Verbrauch.
 * Home Assistant im lokalen Betrieb
 
@@ -198,36 +198,36 @@ eher auf Split-Klimaanlagen setzen würde, ist dieser Vorteil nicht wichtig.
 Mit kalibrierten und rektifizierten Fliesen erreicht man kleine Fugengrößen. Das
 erleichtert die Reinigung. Abriebsklasse 4 oder 5 sorgt dafür, dass man keine
 Kratzer bekommt - bei Feinsteinzeug wäre das immer der Fall. Brandklasse A1.
-Die Rutschklasse gibt an wie glatt / rutschig die Fliese ist.
+Die Rutschklasse gibt an, wie glatt / rutschig die Fliese ist.
 
 
 Parkett muss regelmäßig gewachst und gebonert werden. Manche sind von Parkett
-begeistert; ich verstehe nicht wieso.
+begeistert; ich verstehe nicht, wieso.
 
 Was bei Fliesen die Abriebklasse ist, ist bei Vinyl wohl die Nutzklasse.
 
 
-Vinyl oder großflächige Fliesen. Eben etwas das Wasserresistent ist und leicht
+Vinyl oder großflächige Fliesen. Eben etwas, das wasserresistent ist und leicht
 zu reinigen ist.
 
 Alternativen:
 
-* Teppich: Fest verbauter Teppich wird dreckig und kann man dann nicht reinigen.
+* Teppich: Fest verbauter Teppich wird dreckig und lässt sich dann nicht reinigen.
 * Echtholzparkett: Französisches Fischgrät-Eichenparkett im Schlafzimmer, weil
-  es Fußwarm ist und der Boden im Schlafzimmer nur gering belastet wird.
+  es fußwarm ist und der Boden im Schlafzimmer nur gering belastet wird.
 * Klickparkett
 * Laminat
 
 ### Fugenloser Boden
 
-Fugenlose Böden kennt man eigentlich nur aus Garagen, Kellern, und Kaufhäusern.
+Fugenlose Böden kennt man eigentlich nur aus Garagen, Kellern und Kaufhäusern.
 Man kann sie aber auch im Wohnbereich nutzen. Die Optionen sind:
 
 * Gießen: Kunstharzbeläge
     * Epoxidharz (z.B. Murface Industrial)
     * Acryl (z.B. Murface Mono)
     * Polyurethan (PU)
-* Spachteln:  Steinteppich (Marmor- bzw. Quarzkies)
+* Spachteln: Steinteppich (Marmor- bzw. Quarzkies)
 * Gießen und spachteln möglich: Mineralischer Spachtelboden
     * Zement+Quarzsand
     * Microzement (Zement + Harze), auch Beton Ciré genannt. Nicht geeignet für
@@ -242,7 +242,7 @@ Die Spachtel-Methoden benötigen eine Versiegelung.
 ### Klassisch
 
 Zusammenaddiert durch alle Schichten der Fußbodenheizung sollte der
-Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
+Wärmedurchlasswiderstand einen Richtwert von max. 0,15 m²K/W nicht
 überschreiten.
 
 
@@ -264,18 +264,18 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
       <td></td>
       <td></td>
       <td></td>
-      <td>Laminat ist sehr trittlaut, dh man benötigt eine Dämmschicht. Es kommt nur
+      <td>Laminat ist sehr trittlaut, d.h. man benötigt eine Dämmschicht. Es kommt nur
   bedingt mit Feuchtigkeit klar.</td>
-      <td>Gibt es als "loses" Vinyl (billig), Klickvinyl (medium), und Hartvinyl
+      <td>Gibt es als "loses" Vinyl (billig), Klickvinyl (medium) und Hartvinyl
   (teuer, auch SPC-Vinyl genannt). Schwere Gegenstände können Druckstellen
   hinterlassen. Modernere Variante des PVC.</td>
       <td>Kann bei viel Nässe verrotten; besteht hauptsächlich aus Leinöl und Naturharzen</td>
     </tr>
     <tr>
         <th>Preis</th>
-        <td>25&euro;/m&sup2; (21.49&nbsp;&euro;&nbsp;/ m&sup2; -&nbsp;70 &euro;&nbsp;/ m&sup2;)</td>
+        <td>25&euro;/m&sup2; (21,49&nbsp;&euro;&nbsp;/ m&sup2; -&nbsp;70 &euro;&nbsp;/ m&sup2;)</td>
         <td>30 &euro;/m&sup2; - 60&euro;/m&sup2;</td>
-        <td>40&euro;/m&sup2; (16.50&euro;/m&sup2; - 47&euro;/m&sup2;)</td>
+        <td>40&euro;/m&sup2; (16,50&euro;/m&sup2; - 47&euro;/m&sup2;)</td>
         <td>16&euro;/m&sup2; (10&euro;/m&sup2; - 25&euro;/m&sup2;)</td>
         <td>26&euro;/m&sup2; (20&euro; - 60&euro;)</td>
         <td>24&euro;/m&sup2;</td>
@@ -292,20 +292,20 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
     <tr>
         <th>Stärke</th>
         <td>11mm</td>
-        <td>11.5mm</td>
-        <td>10.5mm</td>
+        <td>11,5mm</td>
+        <td>10,5mm</td>
         <td>8mm</td>
-        <td>3.5 mm - 4mm</td>
-        <td>2.5 mm</td>
+        <td>3,5 mm - 4mm</td>
+        <td>2,5 mm</td>
     </tr>
     <tr>
         <th>Fußbodenheizung geeignet</th>
-        <td class="good">Ja (Wärmedurchlasswiederstand 0.012)</td>
-        <td>Möglich (Wärmedurchlasswiederstand 0.04 - 0.15)</td>
-        <td class="bad">Sehr eingeschränkt (Wärmedurchlasswiederstand 0.13)</td>
-        <td>Möglich (Wärmedurchlasswiederstand 0.010)</td>
-        <td>Möglich (Wärmedurchlasswiederstand 0.015)</td>
-        <td>Ja (Wärmedurchlasswiederstand 0.010 – 0.04)</td>
+        <td class="good">Ja (Wärmedurchlasswiderstand 0.012)</td>
+        <td>Möglich (Wärmedurchlasswiderstand 0.04 - 0.15)</td>
+        <td class="bad">Sehr eingeschränkt (Wärmedurchlasswiderstand 0.13)</td>
+        <td>Möglich (Wärmedurchlasswiderstand 0.010)</td>
+        <td>Möglich (Wärmedurchlasswiderstand 0.015)</td>
+        <td>Ja (Wärmedurchlasswiderstand 0.010 – 0.04)</td>
     </tr>
     <tr>
         <th>Optik</th>
@@ -344,16 +344,16 @@ Wärmedurchlasswiderstand einen Richtwert von max. 0.15 m2K/W nicht
         <td>TODO</td>
     </tr>
     <tr>
-        <th><a href="https://de.wikipedia.org/wiki/W%C3%A4rmeleitf%C3%A4higkeit">Wärmeleitfähigkeit</a> λ<sup title="Die Wärmeleitfähigkeit bestimmt wie kalt wir einen Boden empfinden, weil sie
-aussagt, wie schnell wärme vom Fuß weg geleitet wird. Bei Fliesen ist sie hoch,
-bei Holz niedrig. Fußwarm sind Baustoffe mit einer Wärmeleitfähgikeit bis 0.2W/mK: Holz, Kork,
-Linoleoum, Teppich.">*</sup></th>
-        <td class="bad">1.05 W/(mK)</td>
-        <td class="good">0.11 - 0.21 W/(mK)</td>
-        <td class="good">0.079 W/(mK)</td>
-        <td class="good">0.17 W/(mK)</td>
-        <td class="good">0.17 W/(mK)</td>
-        <td class="good">0.17 W/(mK)</td>
+        <th><a href="https://de.wikipedia.org/wiki/W%C3%A4rmeleitf%C3%A4higkeit">Wärmeleitfähigkeit</a> λ<sup title="Die Wärmeleitfähigkeit bestimmt, wie kalt wir einen Boden empfinden, weil sie
+aussagt, wie schnell Wärme vom Fuß weggeleitet wird. Bei Fliesen ist sie hoch,
+bei Holz niedrig. Fußwarm sind Baustoffe mit einer Wärmeleitfähigkeit bis 0,2 W/mK: Holz, Kork,
+Linoleum, Teppich.">*</sup></th>
+        <td class="bad">1,05 W/(mK)</td>
+        <td class="good">0.11 - 0,21 W/(mK)</td>
+        <td class="good">0,079 W/(mK)</td>
+        <td class="good">0,17 W/(mK)</td>
+        <td class="good">0,17 W/(mK)</td>
+        <td class="good">0,17 W/(mK)</td>
     </tr>
   </tbody>
 </table>
@@ -362,10 +362,10 @@ Weitere:
 
 * PVC: Kommt besser mit Feuchtigkeit klar, aber eine Dampfsperre wird empfohlen.
   Enthält Weichmacher und bei Feuer gibt es giftige Gase. Da Vinyl als moderne
-  Variante gilt habe ich es nicht aufgenommen.
+  Variante gilt, habe ich es nicht aufgenommen.
 
 
-Bei Feinsteinzeug-Fließen:
+Bei Feinsteinzeug-Fliesen:
 
 * Durchgefärbt
 * Rektifiziert / kalibriert
@@ -374,15 +374,15 @@ Bei Feinsteinzeug-Fließen:
 
 ## Gebäudehülle / Fassade
 
-* Großer Dachüberstand, damit man trocken ums Haus herum laufen kann. Damit ist
+* Großer Dachüberstand, damit man trocken ums Haus herumlaufen kann. Damit ist
   die Fassade auch geschützt.
 * Möglichst keine Dachfenster
     * Blöd wenn es schneit
-    * Es kann rein regnen
-    * Teuer - sowohl die Anschaffung, als auch die Reparatur
+    * Es kann reinregnen
+    * Teuer - sowohl die Anschaffung als auch die Reparatur
     * Insektengitter sind schlecht
-* Zentrale Kontrollierte Wohnraum-Lüftung (KWL) mit Pollenfilter und Wärmerückgewinnung
-* Kein Kamin, d.h. keine Kaminkehrer-Kosten. Damit gibts auch keinen Holzofen
+* Zentrale kontrollierte Wohnraumlüftung (KWL) mit Pollenfilter und Wärmerückgewinnung
+* Kein Kamin, d.h. keine Kaminkehrer-Kosten. Damit gibt es auch keinen Holzofen
   und kein Öl oder Gas.
 * Das Grundstück soll vom Haus aus leicht abfallen, damit Regen/Schmelzwasser
   weggeleitet wird.
@@ -400,7 +400,7 @@ Bei Feinsteinzeug-Fließen:
 ### Wandaufbau
 
 * Poroton (Ytong)-Ziegel sind glatt. Das macht das Verputzen einfacher.
-* Poroton-Zigel sind mit 60cm länge deutlich länger als die üblichen Hochlochziegel
+* Poroton-Ziegel sind mit 60cm Länge deutlich länger als die üblichen Hochlochziegel
 * Hochlochziegel sind instabiler, weil sie hohl sind
 * Kalkputz, damit Schimmel keine Chance hat. Darauf Kalkfarbe.
 
@@ -412,7 +412,7 @@ Bei Feinsteinzeug-Fließen:
     <figcaption class="text-center">Fenster eines Neubaus</figcaption>
 </figure>
 
-* Rolländen: Überall und elektrisch, ohne Verbindung nach innen. Aber mit einem
+* Rollläden: Überall und elektrisch, ohne Verbindung nach innen. Aber mit einem
   manuellen Notbetrieb, der von innen erreichbar ist (durchs geöffnete Fenster)
 * 3-fach verglast
 * Insekten-Rollo (Plissee) in den Fenstern
@@ -425,7 +425,7 @@ Bei Feinsteinzeug-Fließen:
     geeignet:
         * Sub-GHz ⇒ kommt besser durch Wände
         * Zigbee: Offener Standard der im SmartHome-Bereich üblich ist
-        * Mesh-Networking: More stable
+        * Mesh-Networking: stabiler
     * App-Steuerung
 
 
@@ -436,7 +436,7 @@ Bei Feinsteinzeug-Fließen:
     <figcaption class="text-center">Küche</figcaption>
 </figure>
 
-* **Spülbecken**: Flächenbündig oder Unterbaubecken. Im Gegensatz zum Einbau-Spüle
+* **Spülbecken**: Flächenbündig oder Unterbaubecken. Im Gegensatz zur Einbauspüle
   kann man hier besser reinigen.
 * **Herd**:
     * Flächenbündig: Selbes Argument wie beim Spülbecken.
@@ -454,8 +454,8 @@ Bei Feinsteinzeug-Fließen:
   [Beton](https://homewithstefani.com/diy-concrete-countertops/) (auch in
   [Marmor-Optik](https://www.youtube.com/watch?v=4537Eh2ZNys)), weil es sonst
   mit dem flächenbündigen Einbau schwer wird. Aus Keramik würde wohl auch gehen,
-  aber da würde ich mir sorgen machen, dass was kaputt geht - Dekton ist da wohl
-  besser, aber auch viel teurer. Beton ist auch günstiger als Keramik. Quartz
+  aber da würde ich mir Sorgen machen, dass was kaputtgeht - Dekton ist da wohl
+  besser, aber auch viel teurer. Beton ist auch günstiger als Keramik. Quarz
   fühlt sich besser an als Keramik.
 * **Dunstabzug**: In die Herdplatte hinein. Das kann man (hoffentlich) besser
   reinigen.
@@ -471,13 +471,13 @@ Luxus:
 
 * **Badewanne**: Ein bisschen Luxus muss sein.
 * **Toilette**: Hängend. Optimalerweise so, dass ein Wischroboter durch kann.
-  Mit Bidet-Funktion (mit warmen Wasser). Beheizter Sitz.
-* **Wände und Böden**: Microcement. Keine Fugen im Nassbereich.
+  Mit Bidet-Funktion (mit warmem Wasser). Beheizter Sitz.
+* **Wände und Böden**: Mikrozement. Keine Fugen im Nassbereich.
 * Beheizbarer Handtuchhalter
 * **Dusche**: Bodengleich, mit Regendusche und Handbrause. Mit Ablage für
-  Shampoo und Duschgel. Mit Sitzgelegenheit. Mit Dusch-WC. Nieschen-Dusche mit
+  Shampoo und Duschgel. Mit Sitzgelegenheit. Mit Dusch-WC. Nischen-Dusche mit
   Pendeltür. Mindestens 90x90cm, besser 120x120cm. Eine Revisionsdusche, also
-  eine Dusche bei der man ohne großen Aufwand an die Rohre kommt.
+  eine Dusche, bei der man ohne großen Aufwand an die Rohre kommt.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/bathroom.jpg"><img src="../images/2024/01/bathroom.jpg" alt="Badezimmer" style="max-height: 512px"/></a>
@@ -495,10 +495,10 @@ Einrichtung:
 
 ### Dusche
 
-* Niesche mit Wänden, damit man nicht so viel putzen muss
-  * 1.05m breit, 1.75m tief: Damit braucht man nicht unbedingt eine Tür
+* Nische mit Wänden, damit man nicht so viel putzen muss
+  * 1,05m breit, 1,75m tief: Damit braucht man nicht unbedingt eine Tür
   * Tür: Wegen Wasserdampf und der Temperatur
-* Niesche zum abstellen von Shampoo und Duschgel: 60cm breit, 30cm hoch, die unterkante auf 1.20m Höhe.
+* Nische zum Abstellen von Shampoo und Duschgel: 60cm breit, 30cm hoch, die Unterkante auf 1,20m Höhe.
 
 ## Wohnzimmer
 
@@ -592,7 +592,7 @@ Und natürlich viele Hochbeete.
     <figcaption class="text-center">Hochbeet</figcaption>
 </figure>
 
-Mit Glasbrocken (Gambionen) in Türkis und LEDs kann man sehr schöne Sachen machen (Wege, Kräuterspirale, Mauern)
+Mit Glasbrocken (Gabionen) in Türkis und LEDs kann man sehr schöne Sachen machen (Wege, Kräuterspirale, Mauern)
 
 ## Vorratskeller
 
@@ -611,11 +611,11 @@ Mit Glasbrocken (Gambionen) in Türkis und LEDs kann man sehr schöne Sachen mac
 ## Waschzimmer
 
 * Platz für eine Waschmaschine und einen Trockner
-* Wasser-Ablauf im Boden, falls mal was kaputt geht
+* Wasser-Ablauf im Boden, falls mal was kaputtgeht
 
 ## Besondere Räume
 
-Zwei Räume auf die ich in einem Neubau nicht verzichten möchte:
+Zwei Räume, auf die ich in einem Neubau nicht verzichten möchte:
 
 * Technikraum: Strom und Internet.
 * Putzraum: Ein sehr kleiner Raum mit dem Staubsauger und Putzzeug. Der sollte
@@ -630,9 +630,9 @@ Meine Frau findet Ankleidezimmer toll:
 </figure>
 
 
-Wintergarten ist auch nice, aber ich bin mir nicht sicher was die Feuchtigkeit angeht.
+Wintergarten ist auch nice, aber ich bin mir nicht sicher, was die Feuchtigkeit angeht.
 
-Und eine Anliegerwohnung ist insgesamt eine gute Idee, z.B. um mit zwei
+Und eine Einliegerwohnung ist insgesamt eine gute Idee, z.B. um mit zwei
 Generationen im Haus leben zu können.
 
 ## Einordnung
@@ -651,7 +651,7 @@ Generationen im Haus leben zu können.
             <th>Bodenbeläge</th>
             <td>Alter Teppich, einfacher Linoleum</td>
             <td>Laminat, einfacher Teppich</td>
-            <td>Echtholzparkett (z.B. Bauwerk), Natursteinfliesen, Feinsteinzeug (z.B. Villeroy & Boch), großformatige Fließen</td>
+            <td>Echtholzparkett (z.B. Bauwerk), Natursteinfliesen, Feinsteinzeug (z.B. Villeroy & Boch), großformatige Fliesen</td>
         </tr>
         <tr>
             <th>Wände/Decken</th>
@@ -705,13 +705,13 @@ Generationen im Haus leben zu können.
             <td>Energieeffizienz</td>
             <td>Schlechte Dämmung, hohe Energiekosten</td>
             <td>Durchschnittliche Dämmung, Energieverbrauch &gt;100 kWh/m²a</td>
-            <td>Sehr gute Dämmung (z.B. Mineralwolle, Zellulose), niedriger Energieverbrauch (&lt;50 kWh/m²a),  energetisch optimierte Bauweise, Solaranlagen (z.B. SolarWorld)</td>
+            <td>Sehr gute Dämmung (z.B. Mineralwolle, Zellulose), niedriger Energieverbrauch (&lt;50 kWh/m²a), energetisch optimierte Bauweise, Solaranlagen (z.B. SolarWorld)</td>
         </tr>
     </tbody>
 </table>
 
 ## Einzelnachweise
 
-[^1] selfio.de: [Ratgeber Fußbodenheizung & BodenbelagRatgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/)
+[^1] selfio.de: [Ratgeber Fußbodenheizung & Bodenbelag](https://www.selfio.de/heizung/fussbodenheizung/ratgeber/fussbodenheizung-bodenbelag/)
 [^2] Der Bauladen: [Korkinfo](https://www.bauladen-kirchheim.de/boden/kork3.htm)
 [^3] VBG: [Bodenbeläge – Fußbodenmaterial](https://www.vbg.de/SharedDocs/Medien-Center/DE/Faltblatt/Themen/Arbeitsstaetten_gestalten/fi_boden_fussboden.pdf?__blob=publicationFile&v=9)

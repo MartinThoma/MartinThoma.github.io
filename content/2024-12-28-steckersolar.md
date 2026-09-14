@@ -55,15 +55,15 @@ optimistisch an die geschätzten Werte für März-Mai ran:
 * März (geschätzt): 60 kWh
 * April (geschätzt): 80 kWh
 * Mai (geschätzt): 80 kWh
-* Juni 2025: 84.17 kWh
-* Juli 2025: 74.52 kWh
-* August 2025: 86.64 kWh
-* September 2025: 60.85 kWh
-* Oktober 2025: 34.61 kWh
-* November 2025: 15.79 kWh
-* Dezember 2025: 10.27 kWh
+* Juni 2025: 84,17 kWh
+* Juli 2025: 74,52 kWh
+* August 2025: 86,64 kWh
+* September 2025: 60,85 kWh
+* Oktober 2025: 34,61 kWh
+* November 2025: 15,79 kWh
+* Dezember 2025: 10,27 kWh
 
-Das Diagram habe ich mit Python erstellt. Die Anzahl der Sonnenstunden findet
+Das Diagramm habe ich mit Python erstellt. Die Anzahl der Sonnenstunden findet
 man in [Klimatabellen](https://de.climate-data.org/europa/deutschland/bayern/muenchen-6426/).
 Konkret variiert das natürlich von Jahr zu Jahr.
 
@@ -143,8 +143,8 @@ In Summe: 630 kWh pro Jahr bei 2626.3 Sonnenstunden mit 1 kWp.
 
 ## Wirtschaftlichkeit
 
-* Strompreis (Arbeitspreis): 0.26 €/kWh
-* Jahresertrag (geschätzt): 630 kWh, also 163.80 €
+* Strompreis (Arbeitspreis): 0,26 €/kWh
+* Jahresertrag (geschätzt): 630 kWh, also 163,80 €
 
 Das Gerät kostet inzwischen nur noch [370€](https://epp.solar/product/1000w-balkonkraftwerk-mit-hoymiles-hms-800w-2t-upgradefahiger-wifi-wechselrichter-5/),
 die Aufständerung vielleicht nochmals 80€. In Summe also 450€. Das hätte man nach
@@ -162,10 +162,10 @@ $$
 \end{align}
 $$
 
-Wir hätten das Geld also zu einem Zins von 9.6% anlegen müssen um den selben
+Wir hätten das Geld also zu einem Zins von 9,6% anlegen müssen, um denselben
 Gewinn zu machen. Allerdings ist das noch konservativ gerechnet. Man könnte das
 gesparte Geld ja auch tatsächlich anlegen. Bei 5% pro Jahr wäre man dann nicht
-bei 2826€ nach 20 Jahren, sondern bei 5416.20€. Das wäre ein Zinssatz von 13.2%.
+bei 2826€ nach 20 Jahren, sondern bei 5416,20€. Das wäre ein Zinssatz von 13,2%.
 
 Selbst hier sind wir noch konservativ:
 
@@ -174,9 +174,9 @@ Selbst hier sind wir noch konservativ:
 
 ## Weiteres
 
-* Akku-Doktor:
+* Akkudoktor:
     * [PVTool Rechner](https://www.akkudoktor.net/pvtool-rechner/)
-    * [Microwechselrichter Liste](https://akkudoktor.net/pub/mikrowechselrichter-liste)
+    * [Mikrowechselrichter-Liste](https://akkudoktor.net/pub/mikrowechselrichter-liste)
 * [Wechselrichter: Test und Vergleich 2024](https://gruenes.haus/wechselrichter-test-vergleich/)
 * Lidl und Netto besser nicht: https://www.youtube.com/watch?v=2fDy71J2E_M
 * [Anker Solix](https://www.anker.com/eu-de/ankerpower/balkonkraftwerk-produkteinfuehrung) klang auch interessant. Einfach nur deshalb, weil Anker eine bekannte Marke ist.

@@ -16,6 +16,7 @@ Interior design styles help describe the aesthetic and atmosphere of your home. 
 Scandinavian design is known for its simplicity, functionality, and minimalism.
 
 **Key features include:**
+
 * Clean lines and neutral colors
 * Natural materials such as wood and stone
 * Emphasis on light and airy spaces
@@ -43,6 +44,7 @@ Japandi is a fusion of Japanese and Scandinavian design elements, creating a
 harmonious blend of simplicity, functionality, and warmth.
 
 **Key characteristics:**
+
 * Combines clean Scandinavian lines with traditional Japanese craftsmanship
 * Strong connection to nature
 * Neutral color palettes and natural materials
@@ -70,6 +72,7 @@ harmonious blend of simplicity, functionality, and warmth.
 Often confused with contemporary design, modern style refers to a specific design era from the mid-20th century.
 
 **Key features:**
+
 * Clean lines and open spaces
 * Focus on functionality
 * Use of materials like steel, glass, and concrete
@@ -92,6 +95,7 @@ Often confused with contemporary design, modern style refers to a specific desig
 ## Contemporary
 
 **Key characteristics:**
+
 * Emphasizes clean lines, simplicity, and minimal ornamentation
 * Neutral color palettes with occasional bold accent colors
 * Innovative materials and modern furniture designs
@@ -114,6 +118,7 @@ Often confused with contemporary design, modern style refers to a specific desig
 ## Transitional
 
 **Key features:**
+
 * Strikes a balance between traditional and contemporary styles
 * Classic furniture shapes paired with modern finishes and accessories
 * Neutral color palettes with occasional pops of color
@@ -137,6 +142,7 @@ Often confused with contemporary design, modern style refers to a specific desig
 ## Minimalist
 
 **Key principles:**
+
 * Strives for simplicity and elimination of unnecessary elements
 * Neutral color palettes, clean lines, and functional focus
 * Clutter-free spaces that promote a sense of calm
@@ -161,6 +167,7 @@ Often confused with contemporary design, modern style refers to a specific desig
 ## Mediterranean
 
 **Key elements:**
+
 * Warm colors, textured walls, and rustic elements
 * Use of wrought iron, terracotta, and vibrant patterns
 
@@ -175,7 +182,7 @@ Often confused with contemporary design, modern style refers to a specific desig
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/mediterranean-bathroom.jpg"><img src="../images/2024/01/mediterranean-bathroom.jpg" alt="Mediterranean style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/mediterranean-bathroom.jpg"><img src="../images/2024/01/mediterranean-bathroom.jpg" alt="Mediterranean style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Mediterranean style bathroom</figcaption>
 </figure>
 
@@ -227,7 +234,7 @@ mid-century modern style.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/midcentury-bathroom.jpg"><img src="../images/2024/01/midcentury-bathroom.jpg" alt="Mid-century style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/midcentury-bathroom.jpg"><img src="../images/2024/01/midcentury-bathroom.jpg" alt="Mid-century style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Mid-century style bathroom</figcaption>
 </figure>
 
@@ -249,7 +256,7 @@ Warm and inviting atmosphere.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/farmhouse-bathroom.jpg"><img src="../images/2024/01/farmhouse-bathroom.jpg" alt="Farmhouse style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/farmhouse-bathroom.jpg"><img src="../images/2024/01/farmhouse-bathroom.jpg" alt="Farmhouse style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Farmhouse style bathroom</figcaption>
 </figure>
 
@@ -260,7 +267,7 @@ Warm and inviting atmosphere.
 
 ## Hollywood Glam
 
-a blend of art décor and mid-century ultramodern
+A blend of Art Deco and mid-century modern.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2024/01/hollywood-glam-living-room.jpg"><img src="../images/2024/01/hollywood-glam-living-room.jpg" alt="Hollywood Glam living room" style="max-height: 512px"/></a>
@@ -273,11 +280,11 @@ a blend of art décor and mid-century ultramodern
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/hollywood-glam-bathroom.jpg"><img src="../images/2024/01/hollywood-glam-bathroom.jpg" alt="Hollywood Glam bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Hollywood Glam bathroom</figcaption>
 </figure>
 
-## Art deco
+## Art Deco
 
 Art Deco is characterized by luxury, glamour, and geometric shapes.
 
@@ -300,7 +307,7 @@ Furniture often features streamlined, elegant shapes with intricate detailing.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/artdeco-bathroom.jpg"><img src="../images/2024/01/artdeco-bathroom.jpg" alt="Art-deco style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/artdeco-bathroom.jpg"><img src="../images/2024/01/artdeco-bathroom.jpg" alt="Art-deco style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Art-deco style bathroom</figcaption>
 </figure>
 
@@ -341,7 +348,7 @@ Handcrafted and unique elements.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/boho-chic-bathroom.jpg"><img src="../images/2024/01/boho-chic-bathroom.jpg" alt="Boho-Chic style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Boho-Chic style bathroom</figcaption>
 </figure>
 
@@ -389,7 +396,7 @@ atmosphere.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/bohemian-bathroom.jpg"><img src="../images/2024/01/bohemian-bathroom.jpg" alt="Bohemian-style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/bohemian-bathroom.jpg"><img src="../images/2024/01/bohemian-bathroom.jpg" alt="Bohemian-style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Bohemian-style bathroom</figcaption>
 </figure>
 
@@ -418,7 +425,7 @@ Functional and practical furniture with a focus on simplicity and durability.
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2024/01/industrial-bathroom.jpg"><img src="../images/2024/01/industrial-bathroom.jpg" alt="Industrial-style kitchen" style="max-height: 512px"/></a>
+    <a href="../images/2024/01/industrial-bathroom.jpg"><img src="../images/2024/01/industrial-bathroom.jpg" alt="Industrial-style bathroom" style="max-height: 512px"/></a>
     <figcaption class="text-center">Industrial-style bathroom</figcaption>
 </figure>
 

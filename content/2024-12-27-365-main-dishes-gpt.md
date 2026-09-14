@@ -14,7 +14,7 @@ ChatGPT im April 2023 generiert; ich habe es strukturiert und kategorisiert.
 Irgendwann will ich die alle mal machen 😄
 
 Ich versuche mit der Zeit eine bessere Sortierung zu finden und Duplikate durch
-neues zu ersetzen. Auch Variationen würde ich lieber als solche kennzeichnen
+Neues zu ersetzen. Auch Variationen würde ich lieber als solche kennzeichnen
 und stattdessen neue Gerichte hinzufügen. Für Vorschläge bin ich offen.
 
 "Vegan" und "vegetarisch" hab ich als Präfix entfernt. Auch "vollkorn" und
@@ -90,7 +90,7 @@ Schichten von Nudeln mit einer Soße und Käse
 
 ### Auflauf
 
-Zutaten die in einer Ofenform geschichtet und gebacken werden
+Zutaten, die in einer Ofenform geschichtet und gebacken werden
 
 1. Linsen-Shepherd's-Pie
 1. Gebackener Blumenkohl-Auflauf mit Käse
@@ -101,7 +101,7 @@ Zutaten die in einer Ofenform geschichtet und gebacken werden
 
 ### Burger
 
-Brot, Patty, Soße, und Salat:
+Brot, Patty, Soße und Salat:
 
 1. Gegrillter Tofu-Burger mit Avocado und Koriander/Kimchi
 1. Hähnchen-Spinat-Feta-Burger
@@ -160,13 +160,13 @@ Teig auf einem Blech kross gebacken mit Belag
 1. Gebackene Süßkartoffel-Käse-Pfanne
 1. Gebackene Süßkartoffel-Quinoa-Pfanne
 1. Gemüse-Paella mit geräuchertem Tofu
-1. Griechische-Pfanne mit Oliven und Feta
+1. Griechische Pfanne mit Oliven und Feta
 1. Hähnchen-Gemüse-Paella
 1. Hähnchen-Paprika-Pfanne mit Couscous
 1. Hähnchen-Pilz-Pfanne mit braunem Reis
 1. Kichererbsen-Pfanne mit Spinat und Feta
 1. Maultaschen mit Pilz-Sahne-Soße
-1. Maultaschen mit Tomaten-Käse-Sahne Soße
+1. Maultaschen mit Tomaten-Käse-Sahne-Soße
 1. Mediterrane Hähnchenpfanne mit Oliven und getrockneten Tomaten
 1. Mediterrane Kabeljau-Pfanne mit Oliven und Kapern
 1. Pilz-Pfanne
@@ -217,13 +217,13 @@ Kaltspeise mit gemischten Zutaten
 1. Fisch-Taco-Bowls mit Avocado und Koriander
 1. Gebackene Falafel-Salat-Bowl mit Hummus
 1. Gebackene Kürbisspalten mit Quinoa-Salat
-1. Gegrillte Garnelen-Salat mit Avocado und Quinoa
+1. Gegrillter Garnelen-Salat mit Avocado und Quinoa
 1. Gerösteter Rosenkohl-Salat mit Granatapfel und Feta
 1. Grünkohl-Salat mit Quinoa und Avocado
 1. Hähnchen-Avocado-Bowl mit Quinoa und schwarzen Bohnen
 1. Hähnchen-Burrito-Bowl mit Avocado und schwarzen Bohnen
 1. Hähnchen-Pesto-Bowl mit Kirschtomaten und Spinat
-1. Hähnchen-Quinoa-Bowl mit Avocado und schwarzem Bohnen
+1. Hähnchen-Quinoa-Bowl mit Avocado und schwarzen Bohnen
 1. Hähnchen-Schawarma-Bowl mit braunem Reis
 1. Kichererbsen-Quinoa-Bowl
 1. Kichererbsen-Salat mit Feta und Oliven
@@ -334,7 +334,7 @@ Kaltspeise mit gemischten Zutaten
 
 1. Gebackene Süßkartoffel-Fritten mit Hähnchen-Salat
 1. Gebackene Süßkartoffeln mit Hähnchen und Avocado
-1. Gegrillte Hähnchen-Salat mit Erdbeeren und Feta
+1. Gegrillter Hähnchen-Salat mit Erdbeeren und Feta
 1. Gegrillte Hähnchen-Sandwiches mit Brot und Avocado
 1. Gegrillte Hähnchenbrust mit Mango-Avocado-Salsa
 1. Gegrillte Hähnchenkeulen mit Süßkartoffel-Salat

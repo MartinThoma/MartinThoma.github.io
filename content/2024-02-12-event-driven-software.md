@@ -20,18 +20,18 @@ The components of an event-driven system are straightforward: You have events, p
 
 ## Building Event-Driven Software
 
-I’m recently building the [flitz file manager](https://pypi.org/project/flitz/) to tip my toes into the development of graphical user interfaces with Python. I started with the Tkinter framework but recognized it was not a good match. Porting to Qt is hard as I have a tight coupling with Tkinter.
+I recently started building the [flitz file manager](https://pypi.org/project/flitz/) to dip my toes into the development of graphical user interfaces with Python. I started with the Tkinter framework but recognized it was not a good match. Porting to Qt is hard as I have a tight coupling with Tkinter.
 
 ![A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.](../images/2024/02/flitz-file-explorer.png)*A file explorer with an up-button, a URL bar showing the current path, and a details view showing the content of the current directory.*
 
-For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an “up” button. When it is clicked the current path shown in the URL bar is changed + the shown documents in the details pane are changed.
+For example, when changing the current path via the URL bar, I want the listed documents to be changed. Flitz also has an “up” button. When it is clicked, the current path shown in the URL bar is changed and the shown documents in the details pane are changed.
 
-Conceptionally, the code could look like this:
+Conceptually, the code could look like this:
 
 ```python
 class FileExplorer:
     def __init__(self):
-        current_path = Path(".")
+        self.current_path = Path(".")
 
         # Show the UI widgets
         details_view = DetailsView(self)
@@ -70,7 +70,7 @@ class UpButton:
 
 
 class DetailsView:
-    def refresh():
+    def refresh(self):
         """Show the files from the root.current_path."""
 ```
 
@@ -81,7 +81,7 @@ Instead, you can define a `set_current_path` function:
 ```python
 class FileExplorer:
     def __init__(self):
-        current_path = Path(".")
+        self.current_path = Path(".")
 
         # Show the UI widgets
         self.details_view = DetailsView(self)
@@ -112,11 +112,11 @@ class UpButton:
 
 
 class DetailsView:
-    def refresh():
+    def refresh(self):
         """Show the files from the root.current_path."""
 ```
 
-The next part we want to improve is the **locality of the code**. Meaning, that one component should have all of its code in one place. Having several unrelated lines in set_current_path makes it harder to change those components and inspect if they do the right thing. I mean, how do you know if there is a component that should be touched in set_current_path without checking the code of every single component?
+The next part we want to improve is the **locality of the code**. Meaning that one component should have all of its code in one place. Having several unrelated lines in set_current_path makes it harder to change those components and inspect if they do the right thing. I mean, how do you know if there is a component that should be touched in set_current_path without checking the code of every single component?
 
 ```python
 from pathlib import Path
@@ -207,7 +207,7 @@ Kafka is used in large distributed systems. That especially means that you have 
 
 * **Disconnecting Consumers**
 
-* **Attached data**: In this simple example the event didn’t come with any data. That is different in many use-cases.
+* **Attached data**: In this simple example the event didn’t come with any data. That is different in many use cases.
 
 ## Terminology — many words for the same concepts
 

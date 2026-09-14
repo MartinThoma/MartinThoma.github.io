@@ -14,7 +14,7 @@ Weil ich es immer wieder nachschlagen muss, hier ein paar Informationen zu Strom
 * Ferraris-Zähler: Die alten analogen Stromzähler mit einer Drehscheibe.
 * Moderne Messeinrichtung (mME): Ein digitaler Zähler, der den Verbrauch misst.
 * [Smart Meter Gateway](https://de.wikipedia.org/wiki/Smart-Meter-Gateway) (SMGW): Kommunikationseinheit
-* Intelligentes Messsystem: Eine Moderne Messeinrichtung + Smart Meter Gateway.
+* Intelligentes Messsystem: Eine moderne Messeinrichtung + Smart Meter Gateway.
 
 
 ## Siehe auch

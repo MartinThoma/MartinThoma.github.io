@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wärmepumpen: Klimaanlangen Modelle
+title: Wärmepumpen: Klimaanlagen-Modelle
 slug: klimaanlagen-modelle
 lang: de
 author: Martin Thoma
@@ -10,15 +10,15 @@ tags: money, house
 featured_image: logos/house.png
 ---
 Bei mir ist die Heizung am 26. Dezember ausgefallen. Es war am Ende eine
-Kleinigkeit und leicht zu beheben, aber nun mache ich mir Gedanken wie ich
-von der Öl-Heizung weg komme.
+Kleinigkeit und leicht zu beheben, aber nun mache ich mir Gedanken, wie ich
+von der Öl-Heizung wegkomme.
 
 Split-Klimaanlagen haben für mich einen besonderen Charme:
 
 1. **Geringe Anschaffungskosten**: Das einzelne
 2. **Geringe Betriebskosten**
 3. **Dezentral**: Mehrere Geräte zu haben bedeutet, dass es unwahrscheinlicher wird, dass alle auf einmal ausfallen.
-4. **Kühlen**: Im Gegensatz zu anderen Heizsystemen kann man mit den Klima-Anlagen halt auch kühlen
+4. **Kühlen**: Im Gegensatz zu anderen Heizsystemen kann man mit den Klimaanlagen halt auch kühlen
 
 
 ## Allgemeines
@@ -29,7 +29,7 @@ Split-Klimaanlagen haben für mich einen besonderen Charme:
 
 ## Betriebskosten
 
-Der SCOP (Seasonal Coefficient of Performance) gibt die Effizienz der Klimaanlage fürs Heizen an. Der SEER macht das selbe fürs kühlen.
+Der SCOP (Seasonal Coefficient of Performance) gibt die Effizienz der Klimaanlage fürs Heizen an. Der SEER macht dasselbe fürs Kühlen.
 
 Mein Haus hat einen geschätzten Heizbedarf von 17400 kWh/a, also ca. 1800L Öl
 pro Jahr. Nur fürs Heizen. Für Warmwasser kommen 600-800kWh pro Jahr und Person
@@ -53,7 +53,7 @@ Das Wohnzimmer macht vermutlich 1/3 des Gesamtbedarfs aus, also 5800 kWh/a.
         <th>Betriebskosten</th>
         <th>20 Jahre</th>
         <th>Delta zum vorhergehenden</th>
-        <th>Heizöl-Ersparnis<sup title="Wenn man von 1.20€/L Heizöl und 0.30€/kWh Strom bei einem Wärmebedarf von 5800kWh/a ausgeht, wie viel Spart man sich in 20 Jahren?">*</sup></th>
+        <th>Heizöl-Ersparnis<sup title="Wenn man von 1.20€/L Heizöl und 0.30€/kWh Strom bei einem Wärmebedarf von 5800kWh/a ausgeht, wie viel spart man sich in 20 Jahren?">*</sup></th>
         <th>Kommentar</th>
     </tr>
     </thead>
@@ -107,7 +107,7 @@ Das Wohnzimmer macht vermutlich 1/3 des Gesamtbedarfs aus, also 5800 kWh/a.
         <td></td>
     </tr>
     <tr>
-        <td class="Highlight">5.1</td>
+        <td class="highlight">5.1</td>
         <td>341.18&nbsp;€/a</td>
         <td>6823.60&nbsp;€</td>
         <td>Δ = 136.40&nbsp;€</td>
@@ -174,9 +174,9 @@ Das Wohnzimmer macht vermutlich 1/3 des Gesamtbedarfs aus, also 5800 kWh/a.
 </table>
 
 Die 20-Jahreskosten geben den Preis an, den man zum Heizen mit dieser Anlage
-verwenden wird. Wenn die Anlage länger hält natürlich mehr.
+verwenden wird. Wenn die Anlage länger hält, natürlich mehr.
 
-Beim Heizöl mit 1.20€/L wäre ich bei 710.20€/a und 14204€ in 20 Jahren.
+Beim Heizöl mit 1,20€/L wäre ich bei 710,20€/a und 14204€ in 20 Jahren.
 
 ## Dimensionierung
 
@@ -198,10 +198,10 @@ https://www.akkudoktor.net/forum/heizungssysteme/split-klimas-in-schweden/
 
 1. Panasonic - 20644 Beiträge
 2. Mitsubishi Electric - 8749 Beiträge
-3. Toshiba  - 7222 Beiträge
+3. Toshiba - 7222 Beiträge
 4. Fujitsu - 5650 Beiträge
-4. Daikin - 4712 Beiträge
-5. Sanyo - 3099 Beiträge
+5. Daikin - 4712 Beiträge
+6. Sanyo - 3099 Beiträge
 
 ### Panasonic
 
@@ -261,7 +261,7 @@ Edge RAS-B13G3KVSG-E + RAS-13J2AVSG-E1
 * SEER / SCOP: 8.6 / 5.10
 * Heizleistung: 4.2 kW
 * Kältemittel: R-32
-* Wifi: inclusive
+* WLAN: inklusive
 
 Haori RAS-B13N4KVRG-E + RAS-13J2AVSG-E1:
 
@@ -270,7 +270,7 @@ Haori RAS-B13N4KVRG-E + RAS-13J2AVSG-E1:
 * Heizleistung: 4.2 kW
 * Empfohlene Fläche: 25 - 35 m²
 * Kältemittel: R-32
-* Wifi: inclusive
+* WLAN: inklusive
 
 ## Mitsubishi
 
@@ -308,13 +308,13 @@ MUZ/MSZ-EF35VGK-W:
 * [1350€](https://www.climamarket.eu/de/split-klimaanlage-mitsubishi-electric-msz-ef35vgk-w-muz-ef35vg) - [1420 €](https://www.climamarket.eu/de/split-klimaanlage-mitsubishi-electric-msz-ef35vgk-b-muz-ef35vg)
 * SEER / SCOP: 8.8 / 5.6
 * Heizleistung: 4.0 kW
-* Wifi: inclusive
+* WLAN: inklusive
 * Empfohlene Fläche: 25 - 35 m²
 
 MUZ/MSZ-AY25VGK
 
 * [1215€](https://www.klimaworld.com/mitsubishi-klimaanlagen-set-muz-msz-ap25vgk-2-5-kw-1.html)
-* SCOP: 4.8 (Einsatzgrenze Heizen	-20 °C bis 24 °C)
+* SCOP: 4.8 (Einsatzgrenze Heizen -20 °C bis 24 °C)
 * SEER: 8.7 (Einsatzgrenze Kühlen -10 °C bis 46 °C)
 * Energieleistung Heizen G: 2.4 kW
 
@@ -341,8 +341,8 @@ MUZ/MSZ-LN35VG2:
 * SCOP: 4.5
 * SEER: 4.2
 * Energieleistung Heizen G: 2.93
-* Arbeitstemperatur kühlen	+16~32°C ⚠️ Wir hatten schon 35°C; gerade dann will man kühlen
-* Arbeitstemperatur heizen	-15~24 °C
+* Arbeitstemperatur kühlen +16~32°C ⚠️ Wir hatten schon 35°C; gerade dann will man kühlen
+* Arbeitstemperatur heizen -15~24 °C
 
 ### Gree
 
@@ -392,7 +392,7 @@ SOYAL 12 GWH12AKC-K6DNA1A
     * Gründung 1924
     * Sitz: Japan
     * Mitarbeiter: 88.698
-    * Umsatz: 23 Mrd. Euro  (2021)
+    * Umsatz: 23 Mrd. Euro (2021)
 * Control:
     * [Android App](https://play.google.com/store/apps/details?id=eu.daikin.remoapp&hl=de&gl=US)
     * [Home Assistant](https://www.home-assistant.io/integrations/daikin/):
@@ -462,7 +462,7 @@ FTXP35N5V1B + RXP35M:
 
 FTXJ20A2V1BW + RXJ20A5V1B:
 
-* [3292€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-emura3-wandgeraet-ftxj20mw-rxj20m-fuer-ca-10m-20m-inkl-montage.html) incl. Montage
+* [3292€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-emura3-wandgeraet-ftxj20mw-rxj20m-fuer-ca-10m-20m-inkl-montage.html) inkl. Montage
 * SCOP (-10°C): 5.15
 * Heizleistung: 2.02kW
 * SEER: 8.75
@@ -470,7 +470,7 @@ FTXJ20A2V1BW + RXJ20A5V1B:
 
 FTXJ25AW + RXJ25M:
 
-* [3750€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-emura3-wandgeraet-ftxj25mw-rxj25m-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
+* [3750€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-emura3-wandgeraet-ftxj25mw-rxj25m-fuer-ca-15m-25m-inkl-montage.html) inkl. Montage
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
 * Deklarierte Leistung bei -10 °C: 2.07 kW
@@ -512,14 +512,14 @@ FTXA25+RXA25A9:
 
 FTXA25BS + RXA25A:
 
-* [3640€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bs-rxa25a-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
+* [3640€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bs-rxa25a-fuer-ca-15m-25m-inkl-montage.html) inkl. Montage
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
 * Deklarierte Leistung bei -10 °C: 2.3 kW
 
 FTXA25BB + RXA25A:
 
-* [3580€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bb-rxa25a-fuer-ca-15m-25m-inkl-montage.html) incl. Montage
+* [3580€](https://www.klimageraete24.com/klimaanlagen--klimageraete--inverter--vrv--heizen--waermepumpen-/klimaanlage-mit-montage/daikin-inverter-stylish-wandgeraet-ftxa25bb-rxa25a-fuer-ca-15m-25m-inkl-montage.html) inkl. Montage
 * SCOP (-10°C): 5.15 (A+++)
 * SEER: 8.74
 * Deklarierte Leistung bei -10 °C: 2.3 kW
@@ -591,8 +591,8 @@ FTXZ25N+RXZ25N:
 * **SCOP: 5.9**
 * **SEER: 9.54**
 * Energieleistung Heizen G: 3.6 kW
-* Arbeitstemperatur kühlen	-10~43°C
-* Arbeitstemperatur heizen	-20~18 °C
+* Arbeitstemperatur kühlen -10~43°C
+* Arbeitstemperatur heizen -20~18 °C
 
 FTXZ35N+RXZ35N:
 
@@ -600,8 +600,8 @@ FTXZ35N+RXZ35N:
 * SCOP: 5.73
 * SEER: 9
 * Energieleistung Heizen G: 5.0 kW
-* Arbeitstemperatur kühlen	-10~43°C
-* Arbeitstemperatur heizen	-20~18 °C
+* Arbeitstemperatur kühlen -10~43°C
+* Arbeitstemperatur heizen -20~18 °C
 
 FTXZ50N+RXZ50N:
 
@@ -609,14 +609,14 @@ FTXZ50N+RXZ50N:
 * SCOP: 5.5
 * SEER: 8.6
 * Energieleistung Heizen G: 5.0 kW
-* Arbeitstemperatur heizen	-20~18 °C
-* rbeitstemperatur kühlen	-10~43°C
+* Arbeitstemperatur heizen -20~18 °C
+* Arbeitstemperatur kühlen -10~43°C
 
 
 ## Weiteres
 
 * Stiftung Warentest: [19 Klimageräte Splitgeräte 06/2021, 06/2022, 05/2023](https://www.test.de/Klimageraete-im-Test-4722766-0/)
-* Klimaanlagen (Luft-Luft Wärmepumpen) und Lüftungsanlagen sind zwei paar
+* Klimaanlagen (Luft-Luft Wärmepumpen) und Lüftungsanlagen sind zwei Paar
   Schuhe. Man kann mit der Klimaanlage Feuchtigkeit aus der Luft nehmen, aber
   die CO2-Konzentration/Schadstoffbelastung wird dadurch nicht geändert.
 * Truhengeräte haben eine schlechtere Effizienz als Wandgeräte

@@ -10,8 +10,8 @@ tags: Germany, politics
 featured_image: logos/mathematics.png
 ---
 Deutschland hat zu wenig Wohnungen. 439.500 Personen waren 2024 wohnungslos,
-aber das ist tatsächlich nicht die Zahl auf die man sich fokusieren sollte.
-Interessanter wäre es zu sehen wie viele Menschen einen Job nicht angenommen
+aber das ist tatsächlich nicht die Zahl, auf die man sich fokussieren sollte.
+Interessanter wäre es zu sehen, wie viele Menschen einen Job nicht angenommen
 haben, weil sie keine Wohnung gefunden haben. Oder wie viele Menschen mehr als
 33% ihres Netto-Einkommens für die Miete ausgeben. Oder in wie vielen Städten
 der Leerstand unter 3% liegt.
@@ -24,19 +24,19 @@ der Leerstand unter 3% liegt.
 Eine Leerstandsquote von 3%-5% wird als normal angesehen. Hier mal ein paar
 ausgewählte Städte:
 
-* Aschheim: 1.5%
-* Unterhaching: 1.7%
-* Niederalteich: 1.9%
-* München: 2.4%
-* Starnberg: 2.6%
-* Regensburg: 2.9%
-* Nürnberg/Würzburg: 3.1%
-* Augsburg: 3.9%
-* Landshut: 4.2%
-* Bayreuth: 4.9%
-* Passau: 5.7%
-* Bayrisch Eistenstein: 14%
-* Schirnding: 16.3%
+* Aschheim: 1,5%
+* Unterhaching: 1,7%
+* Niederalteich: 1,9%
+* München: 2,4%
+* Starnberg: 2,6%
+* Regensburg: 2,9%
+* Nürnberg/Würzburg: 3,1%
+* Augsburg: 3,9%
+* Landshut: 4,2%
+* Bayreuth: 4,9%
+* Passau: 5,7%
+* Bayerisch Eisenstein: 14%
+* Schirnding: 16,3%
 
 ### Neubau
 
@@ -50,28 +50,28 @@ Neue Wohnungen pro Jahr:
 * 2021: 293.400
 * 2022: 295.300
 * 2023: 294.400, davon 257.200 Neubauwohnungen in Wohngebäuden. Auf
-        Einfamilienhäuser entfielen davon 69900 Wohnungen
+  Einfamilienhäuser entfielen davon 69.900 Wohnungen
 
 
 ## Aktuelle Politik
 
-Das SPD-Bundestagswahlprogramm 2021 spricht von
-"überteuerten Wohnungen" und wollen "bezahlbaren Wohnraum" schaffen indem sie
+Die SPD spricht in ihrem Bundestagswahlprogramm 2021 von
+"überteuerten Wohnungen" und will "bezahlbaren Wohnraum" schaffen, indem sie
 "alle an einen Tisch bringen". [Klara Geywitz](https://de.wikipedia.org/wiki/Klara_Geywitz)
-konnte mit diesem Ansatz keinen Erfolg erreichen.
+konnte mit diesem Ansatz keinen Erfolg erzielen.
 
 Auch die CDU/CSU erkennt "bezahlbaren Wohnraum" in ihrem Wahlprogramm als eine
-Herausforderung des Jahrzehnts an. Sie wollten von 2021 bis 2025 1.5 Millionen
+Herausforderung des Jahrzehnts an. Sie wollten von 2021 bis 2025 1,5 Millionen
 Wohnungen bauen. Dabei wollen sie durch schnellere Abschreibungsmöglichkeiten
 Investitionsanreize schaffen und Bauantragsgenehmigungen beschleunigen. Außerdem
-wollen sie den ÖPNV stärken um so Ballungsgebiete zu entlasten.
+wollen sie den ÖPNV stärken, um so Ballungsgebiete zu entlasten.
 
-Die Grünen wollen bezahlbaren Wohngraum schaffen, indem sie die Mittel für den
+Die Grünen wollen bezahlbaren Wohnraum schaffen, indem sie die Mittel für den
 sozialen Wohnungsbau deutlich erhöhen.
 
 ## Politische Maßnahmen
 
-Folgendes ist vorstellbar um den Wohnungsbau voranzutreiben:
+Folgendes ist vorstellbar, um den Wohnungsbau voranzutreiben:
 
 * **Finanzielle Anreize**: Günstige Kredite, Steuererleichterungen.
 * **Infrastruktur**: Wenn es gute ÖPNV-Anbindungen gibt, ziehen Menschen eher
@@ -83,28 +83,28 @@ Folgendes ist vorstellbar um den Wohnungsbau voranzutreiben:
   man auch sicherstellen, dass die Mieten nicht absurd steigen. Als Stadt
   kann man dann auch direkt die Infrastruktur mitplanen.
 
-Folgendes ist vorstellbar um mehr Wohnungen dem Markt zuzuführen:
+Folgendes ist vorstellbar, um mehr Wohnungen dem Markt zuzuführen:
 
 * [Zweckentfremdungsverbot](https://de.wikipedia.org/wiki/Wohnraumzweckentfremdung):
   Wenn eine Wohnung mehr als 3 Monate leer steht, muss sie vermietet werden.
-  Ausnahmen wären Sarnierung.
-* **Grundsteuer**: Wenn die Steuer auf Wohnungen hoch ist haben Eigentümer einen
-  Anreiz die Wohnung zu vermieten. Als sozialen Ausgleich könnte man gemeldeten
+  Ausnahmen wären Sanierungen.
+* **Grundsteuer**: Wenn die Steuer auf Wohnungen hoch ist, haben Eigentümer einen
+  Anreiz, die Wohnung zu vermieten. Als sozialen Ausgleich könnte man gemeldeten
   Einwohnern (pro Person, unabhängig von der Wohnungsgröße und -anzahl) einen
   Mietzuschuss bezahlen.
 
 
 ## Schlaglicht: Studentenwohnheime
 
-Das Hans-Dickmann-Kollegs (HaDiKo) in Karlsruhe hat 6 Häuser mit 1102 Zimmern:
+Das Hans-Dickmann-Kolleg (HaDiKo) in Karlsruhe hat 6 Häuser mit 1102 Zimmern:
 
 * Im Schnitt sind in einem Haus also 184 Studenten untergebracht.
-* Wenn jedes Haus 6 Stockwerke hätte wären das 31 Studenten pro Stockwerk.
+* Wenn jedes Haus 6 Stockwerke hätte, wären das 31 Studenten pro Stockwerk.
 * Bei 4 Fluren pro Stockwerk wären das 8 Studenten pro Flur.
 
 Ein Flur teilt sich eine Küche und die Sanitäranlagen.
 
-Das Hadiko bietet noch weitere geteilte Infrasturktur wie Drucker,
+Das Hadiko bietet noch weitere geteilte Infrastruktur wie Drucker,
 Waschmaschinen, Gemeinschaftsräume, Musik- und Billardzimmer, ...
 
 Wenn man 8 Studenten pro Flur, 4 Flure pro Stockwerk, 6 Stockwerke pro Haus hat,
@@ -117,7 +117,7 @@ Wie viel Wohnfläche wäre das in etwa?
 * 45m² für die Sanitäranlagen pro Flur
 * 30m² für die Gemeinschaftsräume pro Flur
 
-Das wären 5400m² Wohnfläche. Bei 2500€/m² an Baukosten wären das 13.5 Millionen
+Das wären 5400m² Wohnfläche. Bei 2500€/m² an Baukosten wären das 13,5 Millionen
 Euro pro Haus. Also 70k Euro pro Student.
 
 Man könnte nun bundespolitisch für jede Stadt für jeden Studenten über 10 Jahre
@@ -132,7 +132,7 @@ günstiger als alle Mietwohnungen und würde somit den Wohnungsmarkt entlasten.
 
 Anstelle von 65.000 Ein-Zimmer-Wohnungen kann man auch 338 Gebäude dieser Art
 haben. Bei 410.235 Wohnungen in Frankfurt wären 16 Hadiko-Gebäude also eine
-Erhöhung um 0.7% der Wohnungen.
+Erhöhung um 0,7% der Wohnungen.
 
 In den Mietverträgen könnte man regeln, dass bei einer Exmatrikulation das
 Zimmer innerhalb von 2 Monaten verlassen werden muss.
@@ -146,7 +146,7 @@ Die Verwaltung des Wohnheims könnte - genau wie beim Hadiko - von Studenten
 * Stuttgart 21: 12.000 Millionen EUR
 * Elbphilharmonie Hamburg: 866 Millionen EUR
 * Frankfurt Main Tower: 350 Millionen EUR
-* Wohngeld für 12826 Haushalte in Frankfurt 2023: 36.6 Millionen Euro
+* Wohngeld für 12826 Haushalte in Frankfurt 2023: 36,6 Millionen Euro
 
 
 Das wäre ein konkreter Plan. Er wäre umsetzbar, würde sowohl kurzfristig als
@@ -157,20 +157,20 @@ direkt bei einer der finanziell schwächsten Gruppen ansetzen.
 ## Schlaglicht: Frankfurt
 
 [Frankfurt am Main](https://de.wikipedia.org/wiki/Frankfurt_am_Main) ist die
-fünftgrößte Stadt Deutschlands
+fünftgrößte Stadt Deutschlands:
 
 * Einwohner: 775.790 (31. Dez. 2023)
-* Fläche: 248.31 km²
+* Fläche: 248,31 km²
 * Gebäude mit Wohnungen: 81.129
 * Wohnungen: 410.235
 * Studierende: 64.953
     * [Johann Wolfgang Goethe-Universität Frankfurt am Main](https://de.wikipedia.org/wiki/Johann_Wolfgang_Goethe-Universit%C3%A4t_Frankfurt_am_Main): 41.783 (Wintersemester 2023/24)
     * [Frankfurt University of Applied Sciences](https://de.wikipedia.org/wiki/Frankfurt_University_of_Applied_Sciences): 15.036 (Wintersemester 2023/24)
-    * [Frankfurt School of Finance & Management](https://de.wikipedia.org/wiki/Frankfurt_School_of_Finance_%26_Management): 3.284 + ca. 2800 Teilnehmende der Ausbildungsakademie/dualen Berufsausbildung  (2024)
+    * [Frankfurt School of Finance & Management](https://de.wikipedia.org/wiki/Frankfurt_School_of_Finance_%26_Management): 3.284 + ca. 2800 Teilnehmende der Ausbildungsakademie/dualen Berufsausbildung (2024)
     * [Provadis School of International Management and Technology](https://de.wikipedia.org/wiki/Provadis_School_of_International_Management_and_Technology): 1.100 (2024)
     * [Hochschule für Musik und Darstellende Kunst Frankfurt am Main](https://de.wikipedia.org/wiki/Hochschule_f%C3%BCr_Musik_und_Darstellende_Kunst_Frankfurt_am_Main): 950 (2024)
 * Studentenwohnheimplätze: 3.511 in 27 Wohnheimen ([2024](https://studiwohnen.com/studentenwohnheime-in/frankfurt-am-main))
-* Auszubildende:  18.935 (2020)
+* Auszubildende: 18.935 (2020)
 * Rentner: ca. 16% über 65; über die Anzahl der Rentner in Frankfurt gibt es keine offiziellen Zahlen
 * Wohnungslose Personen: 3.892 ([2024](https://www.faz.net/aktuell/rhein-main/frankfurt/obdachlosenhilfe-in-frankfurt-niemand-muss-auf-der-strasse-schlafen-19435699.html))
 

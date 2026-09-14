@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hauswert Bestimmen
+title: Hauswert bestimmen
 slug: hauswert-bestimmen
 lang: de
 author: Martin Thoma
@@ -12,7 +12,7 @@ featured_image: logos/house.png
 Es gibt ein paar Eckdaten, die den Wert eines Einfamilienhauses samt Grundstück
 bestimmen. Hier im Artikel gehe ich auf die wichtigsten ein.
 
-# Fundamentale Daten
+## Fundamentale Daten
 
 * **Grundstücksfläche**: Die steht im Grundbuch.
 * **Wohnfläche**: Da gibt es leider verschiedene Standards
@@ -20,7 +20,7 @@ bestimmen. Hier im Artikel gehe ich auf die wichtigsten ein.
   277](https://de.wikipedia.org/wiki/DIN_277)).
 * **Baujahr**: Das Alter des Gebäudes lässt einfache Rückschlüsse auf den Zustand zu.
 
-# Lage
+## Lage
 
 Der Bodenrichtwert (in EUR/m²) gibt an, wie viel ein Quadratmeter Bauland in
 einer bestimmten Lage wert ist. Er wird von den Gutachterausschüssen für
@@ -31,7 +31,7 @@ Auf verschiedenen Portalen wie [immoportal.com](https://www.immoportal.com/immob
 kann man nachschauen, wie sich die Preise in der Umgebung entwickelt haben (in EUR/m² Wohnfläche).
 
 
-# Energieeffizienz
+## Energieeffizienz
 
 Die Energieeffizienzklasse gibt dem Käufer eine Vorstellung davon, wie viel
 Energie zum Heizen des Hauses benötigt wird. Die Skala reicht von A+ (sehr
@@ -45,16 +45,16 @@ Dabei gibt es drei relevante Faktoren:
   Dichtheit ist nicht alles, weil die Wärme auch abgestrahlt wird.
 * **Heizsystem**: Lüftungs- und Transmissionswärmeverluste müssen ausgeglichen
   werden. Sie definieren die Heizlast. Die benötigten kWh an Wärme kann man
-  durch unterschiedliche Heizsysteme bereitstellen. Die kosten pro kWh Wärme
+  durch unterschiedliche Heizsysteme bereitstellen. Die Kosten pro kWh Wärme
   sind dabei massiv unterschiedlich. Aktuell in meiner Region bei angenommenen
   20000 kWh pro Jahr:
-    * Wärmepumpe mit <abbr title="bis zu 6 ist möglich">SCOP=3.5</abbr> (0.2407 €/kWh): 1375€/Jahr
-    * Gas (0.08 €/kWh + 84€/Jahr): 1684€/Jahr
-    * Super Heizöl (0.9804 €/L): 2000€/Jahr
-    * Direkt-Strom, z.B. Infrarot oder Nachtspeicher (0.2407 €/kWh + <abbr title="Da man sowieso Strom benötigt, lasse ich den Grundpreis weg">200€/Jahr</abbr>): 4814€/Jahr
+    * Wärmepumpe mit <abbr title="bis zu 6 ist möglich">SCOP=3,5</abbr> (0,2407 €/kWh): 1375€/Jahr
+    * Gas (0,08 €/kWh + 84€/Jahr): 1684€/Jahr
+    * Super Heizöl (0,9804 €/L): 2000€/Jahr
+    * Direkt-Strom, z.B. Infrarot oder Nachtspeicher (0,2407 €/kWh + <abbr title="Da man sowieso Strom benötigt, lasse ich den Grundpreis weg">200€/Jahr</abbr>): 4814€/Jahr
 
 
-# Ausstattung
+## Ausstattung
 
 Hier ein Auszug aus dem [Bewertungsgesetz (BewG)](https://www.gesetze-im-internet.de/bewg/anlage_24.html):
 
@@ -344,7 +344,7 @@ Und noch ein paar weitere aus anderen Quellen:
   </tr>
 </table>
 
-Das will die Bank auch wissen wenn sie die Finanzierung prüft.
+Das will die Bank auch wissen, wenn sie die Finanzierung prüft.
 
 ## Einzelnachweise
 

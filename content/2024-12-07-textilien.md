@@ -9,7 +9,7 @@ category: German posts
 tags: stuff
 featured_image: logos/star.png
 ---
-Heute war es mal wieder so weit: ich habe einen deep-dive in ein neues Thema
+Heute war es mal wieder so weit: Ich habe einen Deep Dive in ein neues Thema
 gemacht. Diesmal ging es um Bettwäsche und ihre Qualitätsmerkmale.
 
 Zusammenfassend würde ich sagen, dass ich für den Winter Baumwoll-Biber gut
@@ -54,12 +54,12 @@ Elastizität, Reißfestigkeit, Feuchtigkeitsaufnahme.
                 * Double-Jersey (Interlock): Glatte Oberfläche, wenig dehnbar.
                   Ein doppelt gestrickter Baumwollstoff.
             * Rippenstrick: Hohe Elastizität quer zur Strickrichtung
-    * verkreuzte Fadensystemen:
+    * verkreuzte Fadensysteme:
         * [Gewebe](https://de.wikipedia.org/wiki/Gewebe_(Textil)): Festes,
           stabiles Textil durch Verweben von Kett- und Schussfäden.
             * [Leinwandbindung](https://de.wikipedia.org/wiki/Leinwandbindung)
                 * Perkal: Ein dicht gewebter Stoff mit glatter Oberfläche. Hat
-                  eine mattschwarze Optik und fühlt sich kühl und frisch an.
+                  eine matte Optik und fühlt sich kühl und frisch an.
                 * <a href="https://de.wikipedia.org/wiki/Biber_(Stoff)">Biber</a>
             * Atlasbindung:
                 * [Satin](https://de.wikipedia.org/wiki/Satin): Ein glänzender,
@@ -207,11 +207,11 @@ Webarten:
 
 * Frottee
     * Zwirnfrottee: fester und robuster
-    * Walkfrottee:  sehr weich und flauschig
-* Frottier: Optisch glatte oberfläche (weniger flauschig/weich als Frottee)
+    * Walkfrottee: sehr weich und flauschig
+* Frottier: Optisch glatte Oberfläche (weniger flauschig/weich als Frottee)
     * Walkfrottier: weich, flauschig und saugfähig
     * Zwirnfrottier: fester und robuster; z.B. Küche, Friseursalon oder Physiotherapie
-    * Velourfrottier: softe, samtartige Flor (typisch für Bademäntel)
+    * Velourfrottier: softer, samtartiger Flor (typisch für Bademäntel)
 
 Bei Frottier unterscheidet man Gewichtsklassen:
 
@@ -221,8 +221,8 @@ Bei Frottier unterscheidet man Gewichtsklassen:
 
 Marken:
 
-* Möve Superwuschel Uni: 50x100cm, weiß, 550g/m² für 13.60€. Ist toll.
-* ZOLLNER: 50x100 cm, weiß, 420g/m² für 7.25€ pro Handtuch. War OK.
+* Möve Superwuschel Uni: 50x100cm, weiß, 550g/m² für 13,60€. Ist toll.
+* ZOLLNER: 50x100 cm, weiß, 420g/m² für 7,25€ pro Handtuch. War OK.
 
 ## Siehe auch
 

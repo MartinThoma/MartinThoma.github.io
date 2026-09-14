@@ -9,19 +9,19 @@ category: German posts
 tags: Germany, politics, climate change, health
 featured_image: logos/star.png
 ---
-Nachdem ich vor kurzem [Was mir Angst macht](https://martin-thoma.com/was-mir-sorgen-macht/)
+Nachdem ich vor kurzem [Was mir Sorgen macht](https://martin-thoma.com/was-mir-sorgen-macht/)
 geschrieben habe, möchte ich heute über das schreiben, was mir Hoffnung macht.
 
 
 ## Klimawandel
 
-Wir sind nun endlich soweit, dass Endverbraucher einfach durch ihr Kaufverhalten
-den Klimawandel stoppen können. Die Klima-Optimale Variante ist oder wird
+Wir sind nun endlich so weit, dass Endverbraucher einfach durch ihr Kaufverhalten
+den Klimawandel stoppen können. Die klimaoptimale Variante ist oder wird
 absehbar auch die günstigste Variante:
 
-* **Wärmewende**: 65.5% der Neubau-Wohnungen nutzen 2024 Wärmepumpen<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>, 23% nutzen
+* **Wärmewende**: 65,5% der Neubau-Wohnungen nutzen 2024 Wärmepumpen<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>, 23% nutzen
   Fernwärme, 2% Strom-Direktheizungen (vermutlich Infrarot, weil sie sehr gut
-  gedämmt sind). Nur 0.1% nutzen Heizöl und 5.4% Gas.
+  gedämmt sind). Nur 0,1% nutzen Heizöl und 5,4% Gas.
 * **Verkehrswende**: Norwegen lässt ab 2025 keine Verbrenner mehr zu<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small>. Das
   zeigt deutlich, dass das kalte Wetter und weite Strecken ohne Infrastruktur
   kein Hindernis mehr sind. Selbst am Polarkreis fahren Elektrobusse<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>. Auch
@@ -41,54 +41,54 @@ absehbar auch die günstigste Variante:
   summieren sich aktuell auf 161 GW<small><sup><a href="#ref8" name="anchor8">[8]</a></sup></small>.
 
 Das ist ein riesiger Fortschritt. Wenn die Politik nun zumindest nicht aktiv
-gegensteuert und alles so lässt wie es ist, werden sich E-Autos bis 2030 auch in
+gegensteuert und alles so lässt, wie es ist, werden sich E-Autos bis 2030 auch in
 Deutschland durchsetzen (also: Mehr als 50% der Neuzulassungen ausmachen). Ab
-2035 gibts eh das Verbrenner-Neuzulassungsverbot und der CO2-Preis wird auch
+2035 gibt es eh das Verbrenner-Neuzulassungsverbot und der CO2-Preis wird auch
 steigen (siehe [BEHG](https://www.gesetze-im-internet.de/behg/BJNR272800019.html) / [EU-EHS](https://de.wikipedia.org/wiki/EU-Emissionshandel#Phase_IV_(2021%E2%80%932030))).
 
 
 ## Automatisierung
 
-Produktivitätssteigerungen erlauben es uns mehr Wohlstand zu erlangen. Durch
-ChatGPT haben wir gesehen, dass zuvor umöglich zu automatisierende Aufgaben nun
+Produktivitätssteigerungen erlauben es uns, mehr Wohlstand zu erlangen. Durch
+ChatGPT haben wir gesehen, dass zuvor unmöglich zu automatisierende Aufgaben nun
 automatisierbar sind.
 
 Ganz konkret denke ich an unser Gesundheitssystem:
 
-* **Pflege**: Demenzpatienten kosten sehr viel Zeit. Etwa 1.8 Millionen Menschen
- in Deutschland haben Demenz, 2050 werden es voraussichtlich 2.8 Millionen sein.
- Wir wären nun technisch in der Lage diese Patienten in einer Wohnung durch eine
- KI komplett zu überwachen, ihnen Tipps zu geben, und im Notfall Hilfe zu holen.
+* **Pflege**: Demenzpatienten kosten sehr viel Zeit. Etwa 1,8 Millionen Menschen
+ in Deutschland haben Demenz, 2050 werden es voraussichtlich 2,8 Millionen sein.
+ Wir wären nun technisch in der Lage, diese Patienten in einer Wohnung durch eine
+ KI komplett zu überwachen, ihnen Tipps zu geben und im Notfall Hilfe zu holen.
  Ja, es wäre nicht perfekt.
 * **Diagnose**: Ärzte haben oft wenig Zeit. Ein KI-System könnte die Diagnose
   unterstützen. Es könnte die Krankengeschichte des Patienten erfassen und den
   Patienten direkt an den Facharzt weiterleiten.
 
-Und auch in anderen Bereichen haben wir die Möglichkeit durch Automatisierung
+Und auch in anderen Bereichen haben wir die Möglichkeit, durch Automatisierung
 Arbeit einzusparen, allerdings schon seit langem:
 
-* **Berhörden-Kommunikation**: Wenn man von einem Bundesland in ein anderes
+* **Behörden-Kommunikation**: Wenn man von einem Bundesland in ein anderes
   zieht, druckt das Finanzamt die Dokumente aus, schickt sie per Post an den neuen
   Wohnort, wo das zuständige Finanzamt sie wieder abtippt.<small><sup><a href="#ref9" name="anchor9">[9]</a></sup></small> Solche absurden Beispiele gibt es sicher häufiger in
   Behörden und Ämtern.
-* **Autonomes Fahren**: Insbesondere bei U-Bahnen sollte es nicht so schwer sein
+* **Autonomes Fahren**: Insbesondere bei U-Bahnen sollte es nicht so schwer sein,
   autonom zu fahren. Das würde eine höhere Taktung erlauben und die Zuverlässigkeit
   steigern - wenn kein Fahrer da ist, kann auch keiner streiken. Allerdings
   muss dazu [CBTC](https://de.wikipedia.org/wiki/Communication-Based_Train_Control#Einsatz)
   umgesetzt werden.<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small>
-  Genauso gibt es schon autonome Shuttle-Busse in Kronach, Hof, und Rehau.<sup><sup><a href="#ref11" name="anchor11">[11]</a></sup></sup> Aktuell werden diese Shuttles mit einem
-  "Operator" (so was ähnliches wie dem Fahrer) betrieben. In Zukunft soll es
+  Genauso gibt es schon autonome Shuttle-Busse in Kronach, Hof und Rehau.<small><sup><a href="#ref11" name="anchor11">[11]</a></sup></small> Aktuell werden diese Shuttles mit einem
+  "Operator" (so etwas Ähnliches wie ein Fahrer) betrieben. In Zukunft soll es
   eine Tele-Leitstelle geben, welche die Shuttles überwacht und sich um ungeplante
-  Ereignisse kümmert. In Hamburg gibts [HEAT](https://www.hochbahn.de/de/projekte/das-projekt-heat) und [ab 2025 ID.Buzz von Moia](https://www.golem.de/news/autonomes-fahren-moia-testet-autonomen-id-buzz-2025-in-hamburg-2411-190631.html),
-  in Karlsruhe [Anna, Ella, und Vera](https://www.researchgate.net/figure/The-EVA-shuttles-Ella-Vera-and-Anna-have-been-deployed-in-Karlsruhe_fig1_376778923).
+  Ereignisse kümmert. In Hamburg gibt es [HEAT](https://www.hochbahn.de/de/projekte/das-projekt-heat) und [ab 2025 ID.Buzz von Moia](https://www.golem.de/news/autonomes-fahren-moia-testet-autonomen-id-buzz-2025-in-hamburg-2411-190631.html),
+  in Karlsruhe [Anna, Ella und Vera](https://www.researchgate.net/figure/The-EVA-shuttles-Ella-Vera-and-Anna-have-been-deployed-in-Karlsruhe_fig1_376778923).
   2030 will Hamburg [bis zu 10.000 autonome Fahrzeuge](https://www.golem.de/news/verkehr-hamburg-plant-autonome-fahrzeuge-im-oepnv-2212-170632.html) haben.
 
 ## Krankenhausreform
 
 Karl Lauterbach hat das [Krankenhausversorgungsverbesserungsgesetz (KHVVG)](https://www.recht.bund.de/bgbl/1/2024/400/VO.html) auf den Weg gebracht. Dieser Meilenstein sollte
-die Versorgung günstiger und besser machen indem Fehlanreize abgeschafft werden
+die Versorgung günstiger und besser machen, indem Fehlanreize abgeschafft werden
 und die Qualität überprüft wird. Krankenhäuser sollen pauschal dafür bezahlt
-werden, dass sie eine Leistung prinziell erbringen können. Wenn sie das zu
+werden, dass sie eine Leistung prinzipiell erbringen können. Wenn sie das zu
 selten machen oder die Versorgung schlecht ist, werden diese Pauschalen
 gestrichen.
 
@@ -114,8 +114,8 @@ wie gut ich versorgt werde.
 * 3<a name="ref3" href="#anchor3">&uarr;</a> Prof. Rupp im Geladen Podcast: [E-Auto-Batterien bald VIEL billiger? Akku-Rennen etwa vorbei?](https://www.youtube.com/watch?v=G9LXcvL1w8E) auf YouTube, 29.09.2024.
 * 4<a name="ref4" href="#anchor4">&uarr;</a> bdew: [Entwicklung der Beheizungsstruktur im Neubau - Baugenehmigungen](https://www.bdew.de/service/daten-und-grafiken/entwicklung-beheizungsstruktur-baugenehmigungen/), 09.12.2024.
 * 5<a name="ref5" href="#anchor5">&uarr;</a> Katja Evers: [Verbrenneraus 2025: Wie Norwegen es fast geschafft hat](https://www.mdr.de/wissen/umwelt-klima/verbrenneraus-warum-Norwegen-es-fast-geschafft-hat100.html) auf mdr.de, 29.12.2024.
-* 6<a name="ref6" href="#anchor6">&uarr;</a> Sebastian Schaal: [E-Bus-Einsatz im Polarkreis geht in den zweiten Winter](https://www.electrive.net/2024/11/20/e-bus-einsatz-im-polarkreis-geht-in-den-zweiten-winter/)], 20.11.2024.
-* 7<a name="ref7" href="#anchor7">&uarr;</a> destatis.de: [14.6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html), 10.09.2024.
+* 6<a name="ref6" href="#anchor6">&uarr;</a> Sebastian Schaal: [E-Bus-Einsatz im Polarkreis geht in den zweiten Winter](https://www.electrive.net/2024/11/20/e-bus-einsatz-im-polarkreis-geht-in-den-zweiten-winter/), 20.11.2024.
+* 7<a name="ref7" href="#anchor7">&uarr;</a> destatis.de: [14,6 % der in der EU neu zugelassenen Pkw im Jahr 2023 waren Elektroautos](https://www.destatis.de/DE/Presse/Pressemitteilungen/Zahl-der-Woche/2024/PD24_37_p002.html), 10.09.2024.
 * 8<a name="ref8" href="#anchor8">&uarr;</a> Christian Stöcker: [Ein Batterie-Tsunami rollt heran](https://www.spiegel.de/wissenschaft/mensch/energiewende-riesige-speicher-fuers-stromnetz-ein-batterietsunami-rollt-heran-a-59e79edc-91a7-421b-a1b8-8c3b5e39645b) in Spiegel Wissenschaft, 17.11.2024.
 * 9<a name="ref9" href="#anchor9">&uarr;</a> Plusminus: [Warum es Dienstleistungen noch immer nicht online gibt](https://www.youtube.com/watch?v=Sna99E9jKsw) im MDR.
 * 10<a name="ref10" href="#anchor10">&uarr;</a> Christina Hertel: [MVG stellt Weichen für autonom fahrende U-Bahnen in München](https://www.abendzeitung-muenchen.de/muenchen/mvg-stellt-weichen-fuer-autonom-fahrende-u-bahnen-in-muenchen-art-946721), 15.12.2023.

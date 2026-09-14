@@ -35,7 +35,7 @@ Key features to compare when evaluating action cameras:
 
 * **Video**:
     * 4K @ 30fps
-    * 1080P @ 60fps
+    * 1080p @ 60fps
     * Electronic Image Stabilization (EIS)
 * **Image**:
     * 20MP (Megapixels)
