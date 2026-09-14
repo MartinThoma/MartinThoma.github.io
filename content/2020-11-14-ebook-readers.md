@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
-title: ebook readers
+title: E-book Readers
 slug: ebook-readers
+lang: en
 author: Martin Thoma
 date: 2020-11-14 20:00
 category: My bits and bytes
@@ -25,26 +25,26 @@ featured_image: logos/star.png
     <tr>
         <td>Release</td>
         <td>2018</td>
-        <td>Oktober 2019</td>
-        <td>Oktober 2019</td>
+        <td>October 2019</td>
+        <td>October 2019</td>
     </tr>
     <tr>
         <td>Display</td>
-        <td>300 ppi, 16-level gray scale, 1072×1448</td>
-        <td>300 ppi, 16-level gray scale, 1264×1680</td>
-        <td>300 ppi, 16-level gray scale, 1440×1920</td>
+        <td>300 ppi, 16-level grayscale, 1072×1448</td>
+        <td>300 ppi, 16-level grayscale, 1264×1680</td>
+        <td>300 ppi, 16-level grayscale, 1440×1920</td>
     </tr>
     <tr>
         <td>Screen size</td>
-        <td>6 Zoll</td>
-        <td>7 Zoll</td>
-        <td>8 Zoll</td>
+        <td>6 inches</td>
+        <td>7 inches</td>
+        <td>8 inches</td>
     </tr>
     <tr>
         <td>Device size</td>
         <td>116mm x 167mm x 8.2mm</td>
         <td>144mm x 159mm x 5.2mm</td>
-        <td>159 x 178 x 6,7 mm</td>
+        <td>159mm x 178mm x 6.7mm</td>
     </tr>
     <tr>
         <td>Device weight</td>
@@ -60,7 +60,7 @@ featured_image: logos/star.png
     </tr>
     <tr>
         <td>Formats</td>
-        <td>Amazon Formats (AZW3, AZW, unprotected MOBI), TXT, PDF, PRC nativ; HTML, DOC, DOCX, JPEG, GIF, PNG; Audible (AAX)</td>
+        <td>Amazon Formats (AZW3, AZW, unprotected MOBI), TXT, PDF, PRC natively; HTML, DOC, DOCX, JPEG, GIF, PNG; Audible (AAX)</td>
         <td colspan="2">EPUB (with/without DRM), PDF (with/without DRM), TXT; Onleihe</td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ featured_image: logos/star.png
         <td>Micro-USB&nbsp;2.0, WLAN&nbsp;802.11b/g/n</td>
     </tr>
     <tr>
-        <td>Background Lights</td>
+        <td>Front Light</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
@@ -102,7 +102,7 @@ featured_image: logos/star.png
         <td>CPU</td>
         <td>800 MHz</td>
         <td>NXP&nbsp;i.MX6, 1&nbsp;GHz</td>
-        <td>1-GHz-NXP-i.MX6</td>
+        <td>NXP&nbsp;i.MX6, 1&nbsp;GHz</td>
     </tr>
     <tr>
         <td>RAM</td>
@@ -120,4 +120,4 @@ featured_image: logos/star.png
 
 ## See also
 
-* [tolino epos 2](https://www.thalia.de/shop/home/artikeldetails/ID145609994.html): Tech Specs
+* [Tolino Epos 2](https://www.thalia.de/shop/home/artikeldetails/ID145609994.html): Tech Specs

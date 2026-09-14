@@ -1,37 +1,37 @@
 ---
 layout: post
-lang: en
-title: Packaging in Python: Tools and Format
-subtitle: 16 solutions to 9 problems — which ones do you know?
+title: Packaging in Python: Tools and Formats
 slug: python-packaging-tools-and-formats
-URL: https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee
+lang: en
 author: Martin Thoma
 date: 2020-11-07 20:00
 category: My bits and bytes
-tags: Python, Packaging, pip, pyenv, venv, virtualenv, pipx, pipenv, pip-tools, setup.py, requirements.txt, requirementst.in, Pipfile, Pipfile.lock, twine, poetry, flint, hatch
+tags: Python, Packaging, pip, pyenv, venv, virtualenv, pipx, pipenv, pip-tools, setup.py, requirements.txt, requirements.in, Pipfile, Pipfile.lock, twine, poetry, flit, hatch
 featured_image: logos/python.png
+subtitle: 16 solutions to 9 problems — which ones do you know?
+URL: https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee
 ---
-A virtual environment is an isolated Python environment. It has it’s own
-installed site-packages which can be different from the systems site-packages.
+A virtual environment is an isolated Python environment. It has its own
+installed site-packages which can be different from the system's site-packages.
 Don’t worry, we will go into more detail later.
 
 After reading this article, you will understand what the following tools are
 and which problems they solve: pip, pyenv, venv, virtualenv, pipx, pipenv,
-pip-tools, setup.py, requirements.txt, requirementst.in, Pipfile, Pipfile.lock,
-twine, poetry, flint, and hatch.
+pip-tools, setup.py, requirements.txt, requirements.in, Pipfile, Pipfile.lock,
+twine, poetry, flit, and hatch.
 
 ## Package Types
 
 For this article, you need to distinguish two types of (packaged) code:
 
-* **Libraries **are** imported** by other libraries or applications. Libraries do not run on their own; they are always run by an application. Examples for libraries in Python are Numpy, SciPy, Pandas, Flask, Django, [click](https://pypi.org/project/click/),
-* **Applications **are **executed**. Examples for applications in Python are [awscli](https://pypi.org/project/awscli/), [Jupyter](https://pypi.org/project/jupyter/) (the notebooks), any website created with [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/).
+* **Libraries** are **imported** by other libraries or applications. Libraries do not run on their own; they are always run by an application. Examples of libraries in Python are NumPy, SciPy, Pandas, Flask, Django, and [click](https://pypi.org/project/click/).
+* **Applications** are **executed**. Examples of applications in Python are [awscli](https://pypi.org/project/awscli/), [Jupyter](https://pypi.org/project/jupyter/) (the notebooks), any website created with [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/).
 
-You can further distinguish those, e.g. libraries and frameworks. Or command line applications, applications with graphical user interfaces, services, and many more. But for this article, we only need to distinguish between libraries and applications.
+You can further distinguish those, e.g. libraries and frameworks. Or command-line applications, applications with graphical user interfaces, services, and many more. But for this article, we only need to distinguish between libraries and applications.
 
 Please note that some applications also contain code that can be imported or some libraries have a part of the functionality shipped as an application. In those cases, you can either use them as a library (including their code in your project) or as an application (just executing them). You are in command.
 
-## **The Basics: pip, site-packages, and the prompt**
+## The Basics: pip, site-packages, and the prompt
 
 Python has pip as a default package manager. You use it like this:
 
@@ -43,22 +43,22 @@ When you run it, you should see this message:
 
 ```text
 Collecting mpu
-  Using cached [https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl](https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl)
+  Using cached https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl
 Installing collected packages: mpu
 Successfully installed mpu-0.23.1
 ```
 
-In order to be able to show you both, the output and what I’ve inserted, I start the line which contains the command I’ve entered with $ :
+In order to be able to show you both the output and what I’ve entered, I start the line which contains the command with `$`:
 
 ```shell
 $ pip install mpu
 Collecting mpu
-  Using cached [https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl](https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl)
+  Using cached https://files.pythonhosted.org/packages/a6/3a/c4c04201c9cd8c5845f85915d644cb14b16200680e5fa424af01c411e140/mpu-0.23.1-py3-none-any.whl
 Installing collected packages: mpu
 Successfully installed mpu-0.23.1
 ```
 
-This $ is called the **prompt**. Within Python, the prompt is >>> :
+This `$` is called the **prompt**. Within Python, the prompt is `>>>`:
 
 ```shell
 $ python
@@ -67,20 +67,20 @@ $ python
 '/home/moose/venv/lib/python3.7/site-packages/mpu/__init__.py'
 ```
 
-This command shows you where the package mpu was installed to. By default, this
-is the systems Python location. This means that all Python packages share the
+This command shows you where the package `mpu` was installed. By default, this
+is the system's Python location. This means that all Python packages share the
 same set of installed libraries.
 
 ## Problem 1: Different Python Version Required
 
 We have Python 3.6 installed, but the application requires Python 3.8. We
-cannot upgrade our systems Python version, e.g. because we’re missing
+cannot upgrade our system's Python version, e.g. because we’re missing
 administrator privileges or because other things would break.
 
 ## Solution: pyenv
 
 [Pyenv](https://github.com/pyenv/pyenv) allows you to install any Python
-version you want. You can also easily switch between Python environments with
+version you want. You can also easily switch between Python versions with
 `pyenv`:
 
 ```shell
@@ -104,9 +104,9 @@ You typically don’t only use bare Python. As developers, we stand on the
 shoulders of giants — the whole ecosystem of freely available software. In the
 beginning of Python, people just copied files. A Python file, when imported, is
 also called a **module**. If we have multiple Python files in one folder with
-an __init__.py , they can import each other. This folder is then called a
+an `__init__.py`, they can import each other. This folder is then called a
 **package**. Packages can contain other packages — subfolders which also have
-an __init__.py and are then called **sub-packages**.
+an `__init__.py` and are then called **sub-packages**.
 
 Copying files and folders is inconvenient. If the author of that code makes an
 update, I might need to update dozens of files. I need to know that there is an
@@ -141,14 +141,14 @@ numpy~=3.1   # 3.1 or later, but not version 4.0 or later.
 numpy~=3.1.2 # 3.1.2 or later, but not version 3.2.0 or later.
 ```
 
-In order to create the source distribution, we run
+In order to create the source distribution, we run:
 
 ```shell
 $ python setup.py sdist
 ```
 
-I don’t like the setup.py file so much, because it is code. For metadata, I
-prefer to use a configuration file. Setuptools allows to use a setup.cfg file.
+I don’t like the setup.py file so much because it is code. For metadata, I
+prefer to use a configuration file. Setuptools allows you to use a setup.cfg file.
 You still need a setup.py, but it can be reduced to:
 
 ```python
@@ -171,7 +171,7 @@ maintainer_email = info@martin-thoma.de
 
 # keep in sync with mpu/_version.py
 version = 0.23.1
-description = Martins Python Utilities
+description = Martin's Python Utilities
 long_description = file: README.md
 long_description_content_type = text/markdown
 
@@ -233,7 +233,7 @@ want to be certain that nobody tampers with your package.
 
 ## Solution: twine
 
-Install [twine](https://pypi.org/project/twine/) via pip install twine and you
+Install [twine](https://pypi.org/project/twine/) via `pip install twine`, and you
 can upload your distribution files:
 
 ```shell
@@ -242,10 +242,10 @@ $ twine upload dist/*
 
 ## Problem 4: Dependency Conflicts
 
-You want to install youtube-downloader which needs the library requests in version 1.2.3 and vimeo-downloader which needs the library requests in version 3.2.1 . Hence the library requests is a dependency of both applications. Both applications need to be executed with Python 3.8. That is a problem as both applications store requests in the same site-packages directory. Once you install one version, the other one is gone. You need two different environments to run those two applications.
-> # A Python environment is the python executable, pip, and the set of installed packages. Different environments are isolated from each other and thus don’t influence each other.
+You want to install youtube-downloader which needs the library `requests` in version 1.2.3 and vimeo-downloader which needs the library `requests` in version 3.2.1. Hence, the library `requests` is a dependency of both applications. Both applications need to be executed with Python 3.8. That is a problem as both applications store `requests` in the same site-packages directory. Once you install one version, the other one is gone. You need two different environments to run those two applications.
+> **A Python environment is the python executable, pip, and the set of installed packages. Different environments are isolated from each other and thus don’t influence each other.**
 
-We solve this dependency conflict by creating a virtual environment. We call it *virtual* because they actually share the Python executable and other things like the shells' environment variables.
+We solve this dependency conflict by creating a virtual environment. We call it *virtual* because it actually shares the Python executable and other things like the shell's environment variables.
 
 ## Solution: venv
 
@@ -260,22 +260,22 @@ pip 20.1.1 from /home/moose/my-fresh-venv/lib/python3.8/site-packages/pip (pytho
 ```
 
 The environment is called “fresh” because there is nothing in it. Everything
-you install after source-ing the activate script will be installed in this
-local directory. This means when you install youtube-downloader in one such
+you install after sourcing the activate script will be installed in this
+local directory. This means that when you install youtube-downloader in one such
 virtual environment and vimeo-downloader in another, you can have both. You can
-go out of a virtual environment by executing deactivate .
+go out of a virtual environment by executing `deactivate`.
 
-If you want more details, I recommend to read [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/).
+If you want more details, I recommend reading [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/).
 
 ## Problem 5: Inconvenience
 
-You would still need to switch between the virtual environments all the time
+You would still need to switch between the virtual environments all the time,
 which is inconvenient.
 
 ## Solution: pipx
 
-[pipx](https://github.com/pipxproject/pipx) automatically installs packages
-into their own virtual environment. It also automatically executes the
+[pipx](https://github.com/pipxproject/pipx) automatically installs each package
+into its own virtual environment. It also automatically executes the
 applications within that environment 😍
 
 **Note**: This only makes sense for applications! You need libraries within the
@@ -285,7 +285,7 @@ pipx. Install applications (and indirectly the libraries) with pipx.
 ## Problem 6: Changing third-party code
 
 As an application developer, I want to be certain that my application keeps
-working. I want to be independent of potential breaking changes of third party
+working. I want to be independent of potential breaking changes of third-party
 software I use.
 
 For example, think about the youtube-downloader which needed requests in
@@ -303,14 +303,14 @@ scipy==1.2.3
 pandas==4.5.6
 ```
 
-However, this has a problem of its own if you do it in setup.py . You will
+However, this has a problem of its own if you do it in `setup.py`. You will
 force this version upon other packages in the same environment. Python is
 pretty messy here: Once another package installs one of your dependencies in
 another version in the same environment, it’s simply overwritten. Your
 dependencies might still work, but you don’t get the expected version.
 
 For applications, you can pin the dependencies like this in the setup.py and
-tell your users to use pipx to install them. This way you and your users can be
+tell your users to use pipx to install them. This way, you and your users can be
 happy 💕
 
 For libraries, you cannot do this. By definition, libraries are included by
@@ -319,7 +319,7 @@ pinned their dependencies, it would be very likely to get a dependency
 conflict. This makes library development hard if the developed library itself
 has several dependencies.
 
-It’s common practice to NOT pin dependencies in the setup.py file, but instead create a flat text file with pinned dependencies. [PEP 440](https://www.python.org/dev/peps/pep-0440/) defined the format or requirements files in 2013. It’s usually called requirements.txt or requirements-dev.txt and typically looks like this:
+It’s common practice to NOT pin dependencies in the setup.py file, but instead create a flat text file with pinned dependencies. [PEP 440](https://www.python.org/dev/peps/pep-0440/) defined the format of requirements files in 2013. It’s usually called requirements.txt or requirements-dev.txt and typically looks like this:
 
 ```text
 numpy==3.2.1
@@ -331,7 +331,7 @@ You can also specify locations where the packages can be downloaded (e.g. not
 only the name but a git repository) according to PEP 440.
 
 Packages within a requirements.txt (including their dependencies) can be
-installed with
+installed with:
 
 ```text
 $ pip install -r requirements.txt
@@ -339,13 +339,13 @@ $ pip install -r requirements.txt
 
 ## Problem 7: Changing Transitive Dependencies
 
-Imagine you write code which depends on the packages foo and bar . Those two
+Imagine you write code which depends on the packages `foo` and `bar`. Those two
 packages might themselves have dependencies as well. Those dependencies are
 called *transitive* dependencies of your code. They are indirect dependencies.
 The reason why you need to care is the following.
 
-Assume there are multiple versions of foo and bar published. foo and bar
-happened to both have exactly one dependency: fizz
+Assume there are multiple versions of `foo` and `bar` published. `foo` and `bar`
+both happen to have exactly one dependency: `fizz`.
 
 Here is the situation:
 
@@ -354,7 +354,7 @@ foo 1.0.0 requires fizz==1.0.0
 foo 1.2.0 requires fizz>=1.5.0, fizz<2.0.0
 foo 2.0.0 requires fizz>=1.5.0, fizz<3.0.0
 
-bar 1.0.0 requires fizz>2.0.0
+bar 1.0.0 requires fizz>=2.0.0
 bar 1.0.1 requires fizz==3.0.0
 
 fizz 1.0.0 is available
@@ -365,18 +365,18 @@ fizz 2.0.1 is available
 fizz 3.0.0 is available
 ```
 
-You might be tempted to just say “I need foo==2.0.0 and bar==1.0.0 . There are
+You might be tempted to just say “I need `foo==2.0.0` and `bar==1.0.0`.” There are
 two problems:
 
-1. **Dependency satisfaction can be hard**: The client needs to figure out that those two requirements can (only) be satisfied by fizz==2.0.0 orfizz==2.0.1 . This can be time-consuming as Python source distributions are not well designed and do not expose this information well ([example discussion](https://github.com/python-poetry/poetry/issues/2094)). The dependency resolver actually needs to download the package to find the dependencies.
-2. **Breaking transitive change**: The packages foo and bar could not state their dependencies. You install them and things work, because you happen to have foo==2.0.0 , bar==1.0.0 , fizz==2.0.1 . But after a while, fizz==3.0.0 is released. Without telling pip what to install, it will install the latest version of fizz . Nobody tested that before as it didn’t exist. Your user is the first one and it breaks for them 😢
+1. **Dependency satisfaction can be hard**: The client needs to figure out that those two requirements can (only) be satisfied by `fizz==2.0.0` or `fizz==2.0.1`. This can be time-consuming as Python source distributions are not well designed and do not expose this information well ([example discussion](https://github.com/python-poetry/poetry/issues/2094)). The dependency resolver actually needs to download the package to find the dependencies.
+2. **Breaking transitive change**: The packages `foo` and `bar` might not state their dependencies. You install them and things work because you happen to have `foo==2.0.0`, `bar==1.0.0`, `fizz==2.0.1`. But after a while, `fizz==3.0.0` is released. Without telling pip what to install, it will install the latest version of `fizz`. Nobody tested that before as it didn’t exist. Your user is the first one and it breaks for them 😢
 
 ## Solution: Pinning Transitive Dependencies
 
 You need to figure out the transitive dependencies as well and tell pip exactly
 what to install. To do so, I start either with a setup.py or a requirements.in
 file. The requirements.in file contains what I know must be fulfilled — it’s
-pretty similar to the setup.py file. In contrast to the setup.py file it is a
+pretty similar to the setup.py file. In contrast to the setup.py file, it is a
 flat text file.
 
 Then I use pip-compile from [pip-tools](https://pypi.org/project/pip-tools/) to
@@ -402,7 +402,7 @@ Typically, I have the following:
 * **requirements.txt**: One version combination that I know [works on my
   machine](https://blog.codinghorror.com/the-works-on-my-machine-certification-program/).
   For web services where I control the installation, this is also used to
-  install the dependencies via pip install -r requirements.txt
+  install the dependencies via `pip install -r requirements.txt`.
 * **requirements-dev.in**: Development tools I use. Things like pytest, flake8,
   flake8 plugins, mypy, black … see my [static code analysis
   post](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287).
@@ -411,11 +411,11 @@ Typically, I have the following:
   pipeline](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38).
   For applications, I also include the requirements.txt file in here. Please
   note that I create a combined requirements-dev.txt which includes the
-  requirements.txt . If I would install the requirements.txt before the
-  requirements-dev.txt, it could change the version. That would mean I would
-  not test against exactly the same package versions. If I would install the
-  requirements.txt after the requirements-dev.txt , I could break something for
-  the dev tools. Hence I create one combined file via `pip-compile
+  requirements.txt. If I installed the requirements.txt before the
+  requirements-dev.txt, it could change the versions. That would mean I would
+  not test against exactly the same package versions. If I installed the
+  requirements.txt after the requirements-dev.txt, I could break something for
+  the dev tools. Hence, I create one combined file via `pip-compile
   --output-file requirements-dev.txt requirements.txt`
 
 You can also add `--generate-hashes` if you want to be certain it’s exactly the
@@ -425,16 +425,16 @@ same.
 
 Packages like [cryptography](https://pypi.org/project/cryptography/) have code
 written in C. If you install the source distribution of cryptography, you need
-to be able to compile that code. You might not have a compile like gcc
+to be able to compile that code. You might not have a compiler like gcc
 installed and compiling takes quite a bit of time.
 
 ## Solution: Built Distributions (Wheels)
 
-Package creators can also upload built distributions, e.g. as wheels files.
+Package creators can also upload built distributions, e.g. as wheel files.
 This prevents you from having to compile stuff yourself. It is done like this:
 
 ```shell
-$ pip install wheels
+$ pip install wheel
 $ python setup.py bdist_wheel
 ```
 
@@ -445,12 +445,12 @@ For example, [NumPy](https://pypi.org/project/numpy/#files) does this:
 ## Problem 9: Specification of build-system
 
 The Python ecosystem is very strongly attached to setuptools. No matter how
-good setuptools are, there will always be features people are missing. But we
+good setuptools is, there will always be features people are missing. But we
 couldn’t change the build system for quite a while.
 
 ## Solution: pyproject.toml
 
-[PEP 517](https://www.python.org/dev/peps/pep-0517/) and [PEP 518](https://www.python.org/dev/peps/pep-0518) specified thepyproject.toml file format. It looks like this:
+[PEP 517](https://www.python.org/dev/peps/pep-0517/) and [PEP 518](https://www.python.org/dev/peps/pep-0518) specified the `pyproject.toml` file format. It looks like this:
 
 ```text
 [build-system]
@@ -461,14 +461,14 @@ build-backend = "poetry.core.masonry.api"
 Yes, it’s not much. It tells pip what is necessary to build your package. But
 it was a good step towards more flexibility.
 
-Other tools, like poetry and black, used this file for their configuration to
-the `pyproject.toml`, similar as `flake8`, `pytest`, `pylint` and many more
-allow you to add configuration to the `setup.cfg`.
+Other tools, like poetry and black, use this file for their configuration,
+similar to how `flake8`, `pytest`, `pylint`, and many more
+allow you to add configuration to `setup.cfg`.
 
 
 ## Honorable mentions
 
-The tools in this section are relatively wide-spread, but as of today, they
+The tools in this section are relatively widespread, but as of today, they
 don’t really solve any issue that one of the tools from above doesn’t solve.
 They might be more convenient to use than others.
 
@@ -476,7 +476,7 @@ They might be more convenient to use than others.
 
 The 3rd party tool [virtualenv](https://pypi.org/project/virtualenv/) existed
 before the core module [venv](https://docs.python.org/3/library/venv.html).
-They are not completely identical, but for me venv was always good enough. I’m
+They are not completely identical, but for me, venv was always good enough. I’m
 happy if somebody can show me a problem to which virtualenv (and not venv) is
 the solution 🙂
 
@@ -489,9 +489,9 @@ the solution 🙂
 and packaging. It introduces [two new files](https://github.com/pypa/pipfile):
 
 * **Pipfile**: A TOML file. Its content is similar in thought to the one of
-  requirements.in : Abstract dependencies.
-* **Pipfile.lock**: A TOML file. Its content is similar in thought to the one
-  of requirements.txt : Pinned concrete dependencies, including transitive
+  `requirements.in`: Abstract dependencies.
+* **Pipfile.lock**: A JSON file. Its content is similar in thought to the one
+  of `requirements.txt`: Pinned concrete dependencies, including transitive
   dependencies.
 
 Essentially, it wraps `venv`.
@@ -499,37 +499,37 @@ Essentially, it wraps `venv`.
 ### poetry
 
 [Poetry](https://pypi.org/project/poetry/) is a tool for dependency management
-and packaging. It combines a lot of tools, but it’s core functionality is
-identical to pipenv. The main difference is that it uses pyproject.toml and
+and packaging. It combines a lot of tools, but its core functionality is
+identical to pipenv's. The main difference is that it uses pyproject.toml and
 poetry.lock instead of `Pipfile` and `Pipfile.lock`. A [detailed comparison
-between poetry and pipenv](https://frostming.com/2019/01-04/pipenv-poetry) can be found in Frosts’ blog.
+between poetry and pipenv](https://frostming.com/2019/01-04/pipenv-poetry) can be found in Frost's blog.
 
 The projects poetry wraps or replaces are:
 
 * **Scaffolding**: poetry new project-name vs
   [cookie-cutter](https://github.com/MartinThoma/cookiecutter-python-package)
-* **Building Distributions**: poetry build vs python setup.py build sdist_build
+* **Building Distributions**: poetry build vs python setup.py sdist bdist_wheel
 * **Dependency Management**: poetry add foobar vs manually editing the setup.py
   / requirements.txt file. Poetry will then create a virtual environment, a
-  poetry.lock file which is identical in concept to the Pipfile.lock and update
-  the pyproject.toml . You can see an example of that below. They use their own
+  poetry.lock file which is identical in concept to the Pipfile.lock, and update
+  the `pyproject.toml`. You can see an example of that below. They use their own
   dependency section which will not be compatible with anything else. I hope
   they move to PEP 631 (see
   [issue](https://github.com/python-poetry/poetry/issues/3332) for updates).
 * **Upload to PyPI**: poetry publish vs twine upload dist/*
 * **Bump version**: poetry version minor vs manually editing setup.py /
   setup.cfg or using [bumpversion](https://pypi.org/project/bumpversion/). ⚠️
-  Although poetry generates an __init__.py in the scaffolding which contains a
+  Although poetry generates an `__init__.py` in the scaffolding which contains a
   version, poetry version does not change that!
 
-It goes away from the de-facto standard setup.py / setup.cfg for specifying dependencies. Instead, poetry expects dependencies to be within it’s configuration:
+It moves away from the de facto standard setup.py / setup.cfg for specifying dependencies. Instead, poetry expects dependencies to be within its configuration:
 
 ```toml
 [tool.poetry]
 name = "mpu"
 version = "0.1.0"
 description = ""
-authors = ["Martin Thoma <[info@martin-thoma.de](mailto:info@martin-thoma.de)>"]
+authors = ["Martin Thoma <info@martin-thoma.de>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -541,9 +541,9 @@ click = "^7.1.2"
 [tool.poetry.dev-dependencies]
 ```
 
-I hope that they will also implement [PEP 621](https://www.python.org/dev/peps/pep-0621/) and [PEP 631](https://www.python.org/dev/peps/pep-0631/) which gives metadata and dependencies an official place under the [project] section. Let’s see, [maybe they change that](https://github.com/python-poetry/poetry/issues/3332).
+I hope that they will also implement [PEP 621](https://www.python.org/dev/peps/pep-0621/) and [PEP 631](https://www.python.org/dev/peps/pep-0631/) which give metadata and dependencies an official place under the `[project]` section. Let’s see, [maybe they change that](https://github.com/python-poetry/poetry/issues/3332).
 
-Some people like to have one tool which does everything. I rather go with the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy):
+Some people like to have one tool which does everything. I'd rather go with the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy):
 > Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new “features”.
 
 As poetry combines a lot of tools, it’s also important what it doesn’t do:
@@ -569,26 +569,26 @@ I had a couple of errors when I tried hatch.
 ### Flit
 
 Flit is a way to put Python packages and modules on PyPI. It is a 3rd party
-replacement for setuptools. In that sense it’s similar to setuptools + twine or
+replacement for setuptools. In that sense, it’s similar to setuptools + twine or
 a part of poetry.
 
 ### Conda
 
 Conda is the package manager of Anaconda. It is way more powerful than pip and
-can build/install code of arbitrary languages. With the pyproject.toml , I
-wonder if conda will be necessary in future 🤔
+can build/install code of arbitrary languages. With `pyproject.toml`, I
+wonder if conda will be necessary in the future 🤔
 
 
 ## Red Herrings
 
-* easy_install : That is the oldest way to install stuff in Python. It is similar to pip , but you cannot (easily) uninstall things that were installed with easy_install
-* distutils : Although it’s core Python, it’s not used anymore. setuptools is more powerful and installed everywhere.
-* distribute : I’m not sure if that ever was a thing?
-* pyvenv : Deprecated in favor of venv .
+* `easy_install`: That is the oldest way to install stuff in Python. It is similar to `pip`, but you cannot (easily) uninstall things that were installed with `easy_install`.
+* `distutils`: Although it’s core Python, it’s not used anymore. setuptools is more powerful and installed everywhere.
+* `distribute`: I’m not sure if that was ever a thing.
+* `pyvenv`: Deprecated in favor of `venv`.
 
 ## Summary
 
-* pip is Pythons **package manager**. It goes to the Python **package index**
+* pip is Python's **package manager**. It goes to the Python **package index**
   PyPI.org to install your packages and their dependencies.
 * **Abstract dependencies** can be denoted with setup.py, requirements.in,
   Pipfile, or pyproject.toml. You only need one.
@@ -597,6 +597,6 @@ wonder if conda will be necessary in future 🤔
 * **Building packages** is done with setuptools or with poetry.
 * **Uploading packages** is done with twine or poetry.
 * **Virtual environments** are created with venv or with poetry / pipenv /
-  hatch / conda
+  hatch / conda.
 * **pipx** is cool if you want to install applications. Don’t use it for
   libraries.

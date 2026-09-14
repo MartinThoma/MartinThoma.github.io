@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: de
 title: Online-Schule
 slug: online-schule
+lang: de
 author: Martin Thoma
 date: 2020-12-29 20:00
 category: My bits and bytes
 tags: Education, Germany
 featured_image: logos/education.png
 ---
-<div class="info">The following article proposes to build an online school. It is a thought I have for many years. It has become way more important recently. It is written in German 🇩🇪, but you can use <a href="https://www.deepl.com/translator">deepl.com</a> to translate it.</div>
+<div class="info">The following article proposes to build an online school. It is a thought I have had for many years. It has become way more important recently. It is written in German 🇩🇪, but you can use <a href="https://www.deepl.com/translator">deepl.com</a> to translate it.</div>
 
 Die Corona-Pandemie hat die Welt hart getroffen. Bei vielen meiner Kunden habe
 ich in kurzer Zeit viele Anpassungen miterleben dürfen, sodass die Informatiker
@@ -21,8 +21,8 @@ der Unterricht bei Weitem nicht so reibungsfrei umgestellt werden konnte.
 
 Unter einer Online-Schule stelle ich mir eine Lehr- und Lernplattform vor.
 Diese kann unterschiedlichste Inhalte, Modi und Medien nutzen. Sie kann
-verschiedene Komponenten kombinieren um den Lerneffekt zu verbessern. Sie kann
-Lehrenden Werkzeuge bereitstellen um mit den Schülern zu kommunizieren und bei
+verschiedene Komponenten kombinieren, um den Lerneffekt zu verbessern. Sie kann
+Lehrenden Werkzeuge bereitstellen, um mit den Schülern zu kommunizieren und bei
 pädagogischen, technischen und rechtlichen Fragen unterstützen. Eine Plattform
 wird von zentraler Stelle bereitgestellt und gewartet, die Inhalte werden
 dezentral produziert.
@@ -30,15 +30,15 @@ dezentral produziert.
 ### Formen des Unterrichts
 
 In diesem Artikel geht es um Online-Kurse. Es gibt auch noch andere Konzepte.
-Alle haben Vor- und Nachteile. Es gibt keinen Grund sich exklusiv für ein
+Alle haben Vor- und Nachteile. Es gibt keinen Grund, sich exklusiv für ein
 Konzept zu entscheiden. Wir haben gute Angebote für synchronen Präsenzunterricht,
 jedoch kaum Angebote für die anderen Formen des Unterrichts:
 
 <table class="table">
     <tr>
         <th>&nbsp;</th>
-        <th>Präsenzunterricht (Vor Ort)</th>
-        <th><a href="https://de.wikipedia.org/wiki/Distanzunterricht">Distanzunterricht</a> (Räumlich Getrennt)</th>
+        <th>Präsenzunterricht (vor Ort)</th>
+        <th><a href="https://de.wikipedia.org/wiki/Distanzunterricht">Distanzunterricht</a> (räumlich getrennt)</th>
     </tr>
     <tr>
         <th>Synchron</th>
@@ -55,21 +55,21 @@ jedoch kaum Angebote für die anderen Formen des Unterrichts:
 
 Die Vorteile von asynchronen Online-Kursen im Vergleich zu klassischem
 Schulunterricht sind im Abschnitt [Warum benötigen wir eine Online-Schule?](https://martin-thoma.com/online-schule/#warum-benotigen-wir-eine-online-schule_1)
-verlinkt.
+beschrieben.
 
 Der klassische Schulunterricht hat auch Vorteile. Man sollte ihn nicht durch
-Online-Kurse ersetzten, sondern beide Unterrichtsformen parallel anbieten.
-Aktuell könnte er tatsächlich den Unterricht ersetzen, auf lange Sicht bieten
-Online-Kurse eine sinnvolle Ergänzung des klassischen Präsenzunterrichts.
+Online-Kurse ersetzen, sondern beide Unterrichtsformen parallel anbieten.
+Aktuell könnten Online-Kurse den Präsenzunterricht tatsächlich ersetzen, auf lange Sicht bieten
+sie eine sinnvolle Ergänzung des klassischen Präsenzunterrichts.
 
 
 ### Inhalte
 
 Es könnten die typischen MINT-Fächer (Mathematik, Informatik, Physik, Chemie,
-Biologie), geisteswissenschaftliche Fäche (Geschichte, Kunst, Religion,
+Biologie), geisteswissenschaftliche Fächer (Geschichte, Kunst, Religion,
 Literatur) und Sprachen (Deutsch, Englisch, Französisch) vermittelt werden.
 
-Allerdings gibt es keinen Grund hier eine harte Linie zu ziehen. Wenn man eine
+Allerdings gibt es keinen Grund, hier eine harte Linie zu ziehen. Wenn man eine
 funktionierende Plattform hat, dann kann man auch die Inhalte von
 Ausbildungsberufen oder Studienfächern auf so eine Plattform bringen. Genauso
 berufliche Weiterbildung.
@@ -86,7 +86,7 @@ werden und vom Schüler jederzeit abgerufen werden können.
 
 * **Textbuch**: Schriftliche Wissensvermittlung
 * **Arbeitsbuch**: Aufgaben zum praktischen Anwenden von Wissen
-* **Podcasts**: Können z.B. auch während dem Pendeln, von Blinden Personen,
+* **Podcasts**: Können z.B. auch während des Pendelns, von blinden Personen
   oder während der Hausarbeit konsumiert werden.
 * **Video-Clips**: Kurze Lerneinheiten / Arbeitsaufträge
 * **Video-Vorlesungen**: Lange Lerneinheiten; wird von Universitäten eingesetzt (z.B. [ocw.mit.edu](https://ocw.mit.edu/index.htm), [KIT Webcasts](https://www.youtube.com/c/KITWEBCAST/playlists))
@@ -94,7 +94,7 @@ werden und vom Schüler jederzeit abgerufen werden können.
 * **Chats**: Schriftliche Echtzeitkommunikation, z.B. [chat.stackexchange.com](https://chat.stackexchange.com/rooms/24938/language-overflow)
 * **Foren**: Schriftliche asynchrone Kommunikation, z.B. [chemiestudent.de](https://www.chemiestudent.de/forum/) oder [ell.stackexchange.com](https://ell.stackexchange.com/?tab=month)
 * **1-on-1 Video-Call**: Einzelunterricht
-* **Gruppen Video-Call**: Eine Klasse, nur online.
+* **Gruppen-Video-Call**: Eine Klasse, nur online.
 
 ### Komponenten
 
@@ -107,11 +107,11 @@ werden und vom Schüler jederzeit abgerufen werden können.
 * Chat-Systeme, z.B. [Mattermost](https://de.wikipedia.org/wiki/Mattermost)
 * Kollaborativer Editor, z.B. [Etherpad](https://etherpad.org/)
 * Umfrage- und Befragungssysteme, z.B. [lime-survey](https://github.com/LimeSurvey/LimeSurvey)
-* Feedback-Mechanismen für den Remote Live-Unterricht.
-* Die Möglichkeit Lerneinheiten zu erstellen.
-* Die Möglichkeit Lerneinheiten zu Unterrichtseinheiten zusammenzufassen.
-* Die Möglichkeit Unterrichtseinheiten zu Klassen/Kursen zusammenzufassen.
-* Die Möglichkeit Klassen/Kurse zu einem Lehrplan zusammenzufassen.
+* Feedback-Mechanismen für den Remote-Live-Unterricht.
+* Die Möglichkeit, Lerneinheiten zu erstellen.
+* Die Möglichkeit, Lerneinheiten zu Unterrichtseinheiten zusammenzufassen.
+* Die Möglichkeit, Unterrichtseinheiten zu Klassen/Kursen zusammenzufassen.
+* Die Möglichkeit, Klassen/Kurse zu einem Lehrplan zusammenzufassen.
 * Die Möglichkeit für die Schüler, erlangtes Wissen zu speichern.
 * ...
 
@@ -127,7 +127,7 @@ sie gerne hätten.
 Bildung ist ein Menschenrecht. Ich unterstelle mal, dass mehr Bildung zu
 mehr Innovation, zu neuen Erfindungen und Geschäftsideen führt. Bildung
 qualifiziert Menschen für kompliziertere Jobs. Bildung führt zu persönlicher
-Erfüllung, Wirtschaftswachstum und eventuell zu einem gesünderem Leben. Ich
+Erfüllung, Wirtschaftswachstum und eventuell zu einem gesünderen Leben. Ich
 kann mir vorstellen, dass Bildung zu mehr politischer Partizipation führt.
 
 Seit März 2020 ist klar, dass es noch andere gute Gründe für eine Online-Schule
@@ -139,8 +139,8 @@ Unterrichtseinheit verloren und der Ersatzlehrer nur eine Aufsichtsperson.
 Weitere Gründe für Online-Schulen sind:
 
 * **Mindestmaß an Qualität**: Jeder Schüler hat bei schlechten Lehrern die
-  Möglichkeit den Stoff online durchzugehen.
-* **Qualitätsicherung**: Schulstoff ändert sich zwar selten, aber es kommt vor.
+  Möglichkeit, den Stoff online durchzugehen.
+* **Qualitätssicherung**: Schulstoff ändert sich zwar selten, aber es kommt vor.
   Wenn die Inhalte von Millionen Schülern und tausenden Lehrern sowie Eltern
   konsumiert werden, dann fallen Fehler auf und können korrigiert werden.
   Schüler können ihren Unterricht mit dem Online-Angebot vergleichen und somit
@@ -152,20 +152,21 @@ Weitere Gründe für Online-Schulen sind:
 * **Geschwindigkeit**: Schüler lernen mit unterschiedlicher Geschwindigkeit.
   Ich habe mir mit der Informatik immer sehr leicht getan und die Inhalte
   verschlungen. Im Französischunterricht sah das anders aus. Wenn die Inhalte
-  online sind können die Schüler Stoff wiederholen, den sie nicht richtig
-  verstanden haben. Sie können bei Interesse auch weiter gehen als es der
+  online sind, können die Schüler Stoff wiederholen, den sie nicht richtig
+  verstanden haben. Sie können bei Interesse auch weitergehen, als es der
   Unterricht aktuell vorsieht.
-* **Schulwechsel**: Mit einer Online-Schule können sich Realschüler die aufs
-  Gymnasium wechseln wollen die fehlenden Inhalte anschauen. Bei einem Umzug
+* **Schulwechsel**: Mit einer Online-Schule können sich Realschüler, die aufs
+  Gymnasium wechseln wollen, die fehlenden Inhalte anschauen. Bei einem Umzug
   könnte man im besten Fall einfach die neue Klasse online auswählen und würde
   sofort sehen, wo man etwas nachholen muss und wo man der Klasse voraus ist.
-  Das lernen wird auch hier individualisiert.
+  Das Lernen wird auch hier individualisiert.
 * **Krankheit**: Auch ohne COVID-19 können Schüler länger krank sein und
   Unterricht verpassen. Mit einer Online-Schule könnten Lehrer einfach auf die
   verpassten Einheiten verweisen.
-* **Lehrer-Entlastung**: Es ist nicht nötig, das jeder Lehrer alles von anfang
+* **Lehrer-Entlastung**: Es ist nicht nötig, dass jeder Lehrer alles von Anfang
   an neu vorbereitet. Eine Anpassung an den Stil des Lehrers sollte natürlich
-  immer Möglich sein, aber es ist meist doch wesentlich einfacher
+  immer möglich sein, aber es ist meist doch wesentlich einfacher, bestehende
+  Inhalte anzupassen.
 
 
 ## Wie bekommen wir eine Online-Schule?
@@ -173,25 +174,25 @@ Weitere Gründe für Online-Schulen sind:
 Ich habe nun sehr viel über die Plattform geredet. Die Plattform ist aber schon
 der zweite Schritt. **Der erste Schritt sind die Inhalte**. Diese kann man jetzt
 schon über sehr einfache Mittel bereitstellen. Lehrende können alle Materialien
-auf Wikipedia Commons bereitstellen. Videos können auf YouTube jetzt schon
+auf Wikimedia Commons bereitstellen. Videos können auf YouTube jetzt schon
 leicht zugänglich gemacht werden.
 
-Konkret sehe ich folgende Möglichkeiten um freie Lehrmaterialien (insbesondere
+Konkret sehe ich folgende Möglichkeiten, um freie Lehrmaterialien (insbesondere
 Video-Clips) zu erhalten:
 
-* Preisausschreibungen
+* Preisausschreiben
 * Bezahlte Seminar- und Abschlussarbeiten
 * Lehrstellen
-* Öffentlich-Rechtliche Zusammenarbeit
+* Öffentlich-rechtliche Zusammenarbeit
 
 Ein wesentlicher Aspekt bei allen Maßnahmen ist die Lizenz der Inhalte. Die
-Inhalte müssen unter eine freie Lizenz, z.B. CC-0 oder CC-BY gestellt werden um
-im Zuge der folgenden Maßnahmen erstellt werden zu können. Mit freien Inhalten
+im Zuge der folgenden Maßnahmen erstellten Inhalte müssen unter einer freien
+Lizenz, z.B. CC0 oder CC-BY, stehen. Mit freien Inhalten
 können Schüler und andere Lehrende die Inhalte neu zusammenstellen und auf
-andere Art verbreiten. Beispielsweise könnte man so die Inhalte nutzen um eine
+andere Art verbreiten. Beispielsweise könnte man so die Inhalte nutzen, um eine
 neue Plattform zu erstellen.
 
-### Preisauschreibung
+### Preisausschreiben
 
 Das Bundesministerium für Bildung und Forschung sowie die Kultusministerien der
 Länder könnten jährliche Wettbewerbe ausschreiben.
@@ -208,7 +209,7 @@ Weise den gesamten Lehrplan abdecken.
 ### Abschlussarbeiten
 
 Die Aussicht auf Bezahlung der Abschlussarbeit ist attraktiv. Die
-Kultusministerien könnten hier eine weitere Möglichkeit schaffen um modern
+Kultusministerien könnten hier eine weitere Möglichkeit schaffen, um modern
 aufbereitete Inhalte bereitzustellen. Auch hier sollte eine Voraussetzung die
 freie Lizenz der erstellten Inhalte sein.
 
@@ -226,36 +227,36 @@ annähernd in dieselbe Größenordnung kommen. Persönlich hatte ich großes Gl�
 sehr häufig sehr motivierte und talentierte Lehrer zu haben. Allerdings ist
 wohl jedem klar, dass nicht jeder Schüler in jedem Fach dieses Glück hat. Auch
 Lehrer sind Menschen mit Vorlieben für verschiedene Inhalte. Wenn wir
-motivierten Lehrern die Möglichkeit geben Inhalte für die sie brennen
+motivierten Lehrern die Möglichkeit geben, Inhalte, für die sie brennen,
 aufzubereiten und potenziell allen Schülern zugänglich zu machen, dann
-verbessern wir das Bildungsangebot und die Möglichkeit unserer Schüler
+verbessern wir das Bildungsangebot und die Möglichkeiten unserer Schüler
 ungemein.
 
-Das Erstellen guter aufbereiteter Inhalte ist sehr zeitaufwendig. YouTube-Stars
+Das Erstellen gut aufbereiteter Inhalte ist sehr zeitaufwendig. YouTube-Stars
 machen das inzwischen als Vollzeit-Job. Ich wünsche mir, dass wir ausgewählten
 und motivierten Lehrern in einer Art "Online-Schule" die Möglichkeit geben,
 solche Inhalte in Vollzeit zu erstellen. Auch hier ist die freie Lizenz wieder
 ein Schlüsselelement. Die Steuerzahler sollen die Lehrer der Online-Schule
 dafür bezahlen, also sollen sie auch die Inhalte frei nutzen können.
 
-In Bayern gibt es 430 Gymnasien. NRW hat 177.378 Lehrer; Deutschlandweit kommen
+In Bayern gibt es 430 Gymnasien. NRW hat 177.378 Lehrer; deutschlandweit kommen
 wir auf über 782.000 Lehrer. Würden wir uns zu Beginn auf die 5 Fächer
-Mathematik, Informatik, Englisch, Geschichte, Wirtschaft- und Rechtslehre
-begrenzen und für die acht Klassenstufen (5 - 12) in Kombination jeweils 4
+Mathematik, Informatik, Englisch, Geschichte, Wirtschafts- und Rechtslehre
+begrenzen und für die acht Klassenstufen (5–12) in Kombination jeweils 4
 Lehrer ansetzen, dann würden wir 160 Lehrer benötigen und könnten trotzdem
-realistisch davon ausgehen nach einem Jahr die Inhalte als Clips online zu
-haben. 160 Lehrer entspricht 0.02% aller Lehrer, aber alle Schüler Deutschlands
+realistisch davon ausgehen, nach einem Jahr die Inhalte als Clips online zu
+haben. 160 Lehrer entsprechen 0,02 % aller Lehrer, aber alle Schüler Deutschlands
 würden profitieren. Lehre würde vergleichbarer sein.
 
 
-### Öffentlich-Rechtliche Zusammenarbeit
+### Öffentlich-rechtliche Zusammenarbeit
 
 Es gibt zahlreiche sehr gute Sendungen mit Lehrinhalten:
 
 * [Die Sendung mit der Maus](https://de.wikipedia.org/wiki/Die_Sendung_mit_der_Maus)
 * [Quarks und Co](https://de.wikipedia.org/wiki/Quarks_(Medienmarke))
-* [Mailab](https://www.youtube.com/channel/UCyHDQ5C6z1NDmJ4g6SerW8g)
-* Geschichstssendungen, z.B. [Die Deutschen](https://www.youtube.com/watch?v=IsLFiVxvyIk) oder [verschiedenes zum Ersten Weltkrieg](https://www.daserste.de/information/politik-weltgeschehen/erster-weltkrieg/index.html)
+* [maiLab](https://www.youtube.com/channel/UCyHDQ5C6z1NDmJ4g6SerW8g)
+* Geschichtssendungen, z.B. [Die Deutschen](https://www.youtube.com/watch?v=IsLFiVxvyIk) oder [Verschiedenes zum Ersten Weltkrieg](https://www.daserste.de/information/politik-weltgeschehen/erster-weltkrieg/index.html)
 
 Wieso gibt es das nicht auch gezielt für Schulinhalte?
 
@@ -263,17 +264,17 @@ Wieso gibt es das nicht auch gezielt für Schulinhalte?
 
 ### Videos
 
-* Länge: Optimalerweise sind Videos kurz. Es kann durchaus kürzer als eine
+* Länge: Optimalerweise sind Videos kurz. Ein Video kann durchaus kürzer als eine
   Minute sein und sollte selten länger als 10 Minuten sein. Sie behandeln genau
-  einen Aspekt. Das macht es leicht den Teil zu wiederholen, wenn man ihn nicht
+  einen Aspekt. Das macht es leicht, den Teil zu wiederholen, wenn man ihn nicht
   verstanden hat.
 * Inhalt: Die Videos haben keine Einleitung, sondern starten direkt. Das
   bedeutet, dass man Inhalte auch anders zusammenstellen kann. Eventuell
   benötigt man für eine Unterrichtseinheit dann ein kurzes einleitendes Video,
   das Kontext bereitstellt.
 * Auf eine Lerneinheit folgt eine Selbstkontrolle. Das kann z.B. eine
-  Multiple-Choice Frage sein. Oder eine Aufgabe, die gelöst werden muss. Etwas,
-  dass es dem Schüler erlaubt zu sehen, ob ein Inhalt verstanden wurde.
+  Multiple-Choice-Frage sein. Oder eine Aufgabe, die gelöst werden muss. Etwas,
+  das es dem Schüler erlaubt, zu sehen, ob ein Inhalt verstanden wurde.
 
 
 ### Podcasts
@@ -290,9 +291,9 @@ Wenn die Blätter zum Drucken gedacht sind, gibt es ein paar Probleme:
 * Nicht jeder hat einen Drucker
 * Nicht jeder hat einen Farbdrucker
 * Nicht jeder hat gerade Farbe / Papier im Drucker
-* Nicht jeder hat Word - benutze PDF, falls nichts ausgefüllt werden muss.
+* Nicht jeder hat Word – benutze PDF, falls nichts ausgefüllt werden muss.
 
-Wenn sie zum Online bearbeiten gedacht sind, kann man ggf. auch direkt eine
+Wenn sie zum Online-Bearbeiten gedacht sind, kann man ggf. auch direkt eine
 Webseite machen.
 
 
@@ -300,7 +301,7 @@ Webseite machen.
 
 Bitte gebt mir Feedback zu den verschiedenen Ideen. Insbesondere Lehrer und
 aktuelle Schüler: `info@martin-thoma.de`, in den Kommentaren unten, oder via
-Twitter an [`@_martinthoma`](https://twitter.com/_martinthoma). Als Hash-Tag
+Twitter an [`@_martinthoma`](https://twitter.com/_martinthoma). Als Hashtag
 schlage ich [`#SchuleOnlineRocks`](https://twitter.com/hashtag/SchuleOnlineRocks) vor;
 [schule-online.rocks](http://schule-online.rocks/) verweist hier her.
 
@@ -309,9 +310,9 @@ Motivierte Lehrer können mir gerne Links auf freie Inhalte (Link + Lizenz +
 Name des Autors) schicken.
 
 Politiker können sich für die verschiedenen vorgeschlagenen Maßnahmen
-(Lehrstellen in einer Online-Schule, Wettbewerbe zum erstellen von Inhalten,
-Öffentlich-Rechtliches Engagement, ...) stark machen. Ab einem gewissen Punkt
-macht es eventuell auch Sinn eine Petition zu starten.
+(Lehrstellen in einer Online-Schule, Wettbewerbe zum Erstellen von Inhalten,
+öffentlich-rechtliches Engagement, ...) stark machen. Ab einem gewissen Punkt
+ist es eventuell auch sinnvoll, eine Petition zu starten.
 
 ## Kurzfristige Pläne
 
@@ -323,15 +324,15 @@ gering.
 
 Allerdings hilft das aktuellen Schülern und Lehrern nicht. Für diese könnte man
 einen recht radikalen Umstieg von synchronem Unterricht auf asynchronen
-Unterricht machen. Man müsste für die Verschiedenen Schularten, Fächer, und
+Unterricht machen. Man müsste für die verschiedenen Schularten, Fächer und
 Klassenstufen die Lehrinhalte der nächsten Monate auf alle willigen Lehrer
-verteilen. So könnte sich z.B. ein Gymnasial-Chemielehrer darauf konzentrieren
+verteilen. So könnte sich z.B. ein Gymnasial-Chemielehrer darauf konzentrieren,
 eine Unterrichtseinheit über den [Atombau der
 Nebengruppen](http://www.martin-thoma.de/chemie/atombau_der_nebengruppen.htm)
 zu erstellen. Die Schüler würden dann potenziell täglich im Chemie-Unterricht
-einen anderen Lehrer sehen. Die Lehrer könnten ihre Clips unter CC0 / CC-BY
+einen anderen Lehrer sehen. Die Lehrer könnten ihre Clips unter CC0-/CC-BY-
 Lizenz auf YouTube bereitstellen. Die Kultusministerien würden die Vorbereitung
 der Unterrichtseinheiten auf die Lehrer verteilen und die Links zu den Videos
 gesammelt und strukturiert bereitstellen. Durch das Nutzen etablierter
-Plattformen wie z.B. YouTube für Videos wäre selbst bei einem plötzlichen sehr
-großem Interesse der Schüler gewährleistet, dass die Inhalte verfügbar bleiben.
+Plattformen wie z.B. YouTube für Videos wäre selbst bei einem plötzlichen, sehr
+großen Interesse der Schüler gewährleistet, dass die Inhalte verfügbar bleiben.

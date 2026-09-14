@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: Effective Access Control 😇
 slug: effective-access-control
-URL: https://levelup.gitconnected.com/effective-access-control-331f883cb0ff
+lang: en
 author: Martin Thoma
 date: 2020-12-23 20:00
 category: Security
 tags: InfoSec, AppSec, Security, Cybersecurity, OWASP
 featured_image: logos/cybersecurity.png
+URL: https://levelup.gitconnected.com/effective-access-control-331f883cb0ff
 ---
 Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.
 
@@ -17,7 +17,7 @@ In this article, I focus on web services. Access to physical systems like your n
 In the context of access control, one typically speaks of those entities:
 
 * **Subjects**: People like my girlfriend/Obama/my neighbor; organizations like
-  the NSA; companies like Github/Google/Facebook; software like bots
+  the NSA; companies like GitHub/Google/Facebook; software like bots
 * **Objects**: Partitions, files, databases, database schemas, database tables, …
 * **Rights**: Read, write, modify/alter, delete, add/insert, append, enter, execute, …
 
@@ -31,23 +31,23 @@ control. Let’s start!
 ## How can access control be broken?
 
 Many things can go wrong in access control and some of them are very hard to
-automatically check. This is the reason why broken access Control (BAC) is
-[number 4 in OWASP TOP-10
+automatically check. This is the reason why broken access control (BAC) is
+[number 5 in the OWASP Top 10
 2017](https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control).
 
 ### Hiding a system isn’t secure
 
-The (implicit) assumption that some systems or data don’t need access control,
+The (implicit) assumption that some systems or data don’t need access control
 because they are never (purposely) exposed to the public is a common mistake.
-I’m thinking here of AWS S3 buckets where people let just everybody upload. The
+I’m thinking here of AWS S3 buckets where people just let everybody upload. The
 thought here is that people need to know the name of the bucket and no one
 would just try `s3://company-data` or similar.
 
 Another attack that goes in this direction is called **insecure direct object
 reference (IDOR)**. Imagine you wanted to download an invoice from Amazon and
-found that it downloaded it fromhttps://amazon.com/invoice/1234/invoice.pdf .
+found that it was downloaded from `https://amazon.com/invoice/1234/invoice.pdf`.
 Wouldn’t you be curious about what
-[https://amazon.com/invoice/1233/invoice.pdf](https://amazon.com/invoice/1234/invoice.pdf)
+`https://amazon.com/invoice/1233/invoice.pdf`
 contained? It could very well be that this would be an invoice of a different
 person. And it could be that there is no more access control performed.
 
@@ -56,8 +56,8 @@ person. And it could be that there is no more access control performed.
 Many backend systems have dozens of routes. All of them need to apply access
 control. It depends on the implementation of your access control system, but it
 could be that you need to add code to every route which is not public. This
-makes it easy to forget. And to miss it in a code review that it was forgotten.
-Even if all people agree that the route needs access control.
+makes it easy to forget. And it's easy to miss in a code review that it was
+forgotten, even if everybody agrees that the route needs access control.
 
 ### Client-side access control
 
@@ -80,11 +80,11 @@ Typically, there are at least 3 levels of users:
 The admins are also registered but have more privileges than all other users.
 The system needs a way to distinguish the admin from normal users.
 
-Sometimes, this is done with an unsigned cookie. Hence we store the information
-if the user is an admin at the client. Non-malicious users will not tamper with
+Sometimes, this is done with an unsigned cookie. Hence, we store the information
+whether the user is an admin on the client. Non-malicious users will not tamper with
 that information and thus the browser tells us with every request “I’m not an
-admin”. But malicious users can change that cookie. By changing the is_admin
-cookie from `is_admin=false` to `is_admin=true` they perform a **privilege
+admin”. But malicious users can change that cookie. By changing the `is_admin`
+cookie from `is_admin=false` to `is_admin=true`, they perform a **privilege
 escalation**.
 
 There are two typical ways around it:
@@ -104,8 +104,8 @@ privileges will instantly be effective.
 Imagine this: Your company has a system for employees. Most employees can only
 see their payslip, but team leads can also see the payslip of their team. Team
 leads also can give rewards to well-performing employees. You are a team lead.
-You use that system daily and you never log-out. At some point, you get a
-promotion. You are no longer a team lead, though. Hence you should no longer be
+You use that system daily and you never log out. At some point, you get
+promoted. You are no longer a team lead. Hence, you should no longer be
 able to see your former team's payslips. But you do.
 
 If the system stores the authorization and the role in a token that never
@@ -122,7 +122,7 @@ couple of articles about authentication:
 
 * [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
 * Multi-factor authentication — yet to be written!
-* Single-sign on — it’s on my list, buddy 🤞
+* Single sign-on — it’s on my list, buddy 🤞
 * OAuth and OpenID — you guessed it… it’s on the way 😅
 
 ## Access Control Policies
@@ -131,12 +131,12 @@ The following access control policies deal with slightly different problems.
 I’m not talking about specific technologies here, but the abstract concepts
 which many implementations use.
 
-### **Discretionary Access Control (DAC)**
+### Discretionary Access Control (DAC)
 
 You can formally store all rights as tuples (Subject, Object, Right). You can
 store those tuples either as a matrix or as a list of tuples. Or you can do it
 object-centric and store a list of all subjects with their rights. For example,
-for the file foobar.txt you could store `Alice:read,write; Bob:read`. This is
+for the file `foobar.txt` you could store `Alice:read,write; Bob:read`. This is
 called an **Access Control List (ACL)**. You can also store that information
 subject-centric: For each user, store what the user can do. That is called a
 **Capability List (C-List)**. It’s still the same information, but another data
@@ -145,30 +145,30 @@ structure.
 The “discretionary” part is that the users are allowed to change the
 permissions of an object.
 
-### **Mandatory Access Control (MAC)**
+### Mandatory Access Control (MAC)
 
 In the case of DAC, the rights did not have any relation to each other. This is
-different in MAC. For MAC, the rights are ordered: `Public < confidential <
-secret <top secret`. Users have a clearance and objects have a classification.
+different in MAC. For MAC, the rights are ordered: `public < confidential <
+secret < top secret`. Users have a clearance and objects have a classification.
 If Bob has a “secret” clearance, he is allowed to read documents that are
 classified as “secret”, “confidential”, or “public”. MAC is used by SELinux and
 AppArmor.
 
-In contrast to DAC, in the MAC case users are not allowed to change the
+In contrast to DAC, in the MAC case, users are not allowed to change the
 permissions. The permissions are set by the system administrator.
 
-### **Role-based Access Control (RBAC)**
+### Role-based Access Control (RBAC)
 
 Assigning permissions to subjects directly might be a lot of administrative
 work. Instead, you can create a role, e.g. “team lead”, “quality assurance”,
-“developer”, “accounting”, “CTO”. Every subject can have an arbitrary amount of
-roles. Roles have rights for objects. For example, for the “others salary” the
+“developer”, “accounting”, “CTO”. Every subject can have an arbitrary number of
+roles. Roles have rights for objects. For example, for “others’ salaries”, the
 role “CTO” might have the right to “read” and “edit” it. For a given object,
 the rights of a subject are the set of all rights of all roles that the user
 has. RBAC is used by all content management systems (CMS) I know. Famous
-examples are Wikipedia, Reddit, and StackExchange.
+examples are Wikipedia, Reddit, and Stack Exchange.
 
-To apply RBAC, you need a role table (could also be called group ) and a table
+To apply RBAC, you need a role table (could also be called `group`) and a table
 that connects users with groups:
 
 ![Image by author](https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png)*Image by author*
@@ -201,11 +201,11 @@ that the objects (the routes) have some fixed roles they require. Only the
 developers can change them. They are fixed in the code, not in a database. The
 decorator `@roles_required("admin")` here is an ACL.
 
-### **Attribute-based Access Control (ABAC)**
+### Attribute-based Access Control (ABAC)
 
 One part that is missing for RBAC is context. You want to use the relationship
 between the subject and the object, e.g. if the subject is the creator of that
-object it might automatically grant the subject some rights. Or depending on
+object, it might automatically grant the subject some rights. Or depending on
 the time or location, the rights might change. For example, normal employees
 might not be allowed to access the office between 11 pm and 5 am.
 
@@ -220,7 +220,7 @@ def edit_article(article: Article):  # execute (4)
     ...  # update the article
 ```
 
-The get_article decorator simply uses the ORM:
+The `get_article` decorator simply uses the ORM:
 
 ```python
 from typing import Any, Callable
@@ -253,14 +253,14 @@ def get_article(func: Callable) -> Callable:
     return wrapper
 ```
 
-The is_author function then is pretty straight forward:
+The `is_author` function is then pretty straightforward:
 
 ```python
 def is_author(article: Article, user: User) -> bool:
     return article.author_id == user.id
 ```
 
-More complicated is the design of attribute_required , but in principle, it works similarly to the decorator above.
+More complicated is the design of `attribute_required`, but in principle, it works similarly to the decorator above.
 
 ### Why RBAC/ABAC with Decorators is great
 
@@ -271,10 +271,10 @@ Let’s say you build the e-commerce website eBay. One entity is an auction. It 
 * **Title**: Set by the user, immutable
 * **Description text**: Set by seller, editable by seller
 
-You could implement the change_descripion_text function like this:
+You could implement the `change_description_text` function like this:
 
 ```python
-def change_descripion_text(id):
+def change_description_text(id):
     auction = Auction.query.filter_by(Auction.id == id).first()
     if current_user.id != auction.seller_id:
         raise PermissionDeniedException("Only the seller may edit")
@@ -283,7 +283,7 @@ def change_descripion_text(id):
 Then you realize that admins should always be able to change it:
 
 ```python
-def change_descripion_text(id):
+def change_description_text(id):
     auction = Auction.query.filter_by(Auction.id == id).first()
     is_seller = current_user.id == auction.seller_id
     is_admin = is_admin(current_user)
@@ -303,7 +303,7 @@ can be context-dependent.
 
 ```python
 @requires_role([SellerRole(id), AdminRole(), ModeratorRole()])
-def change_descripion_text(id):
+def change_description_text(id):
     auction = Auction.query.filter_by(Auction.id == id).first()
 ```
 
@@ -346,7 +346,7 @@ In such a scenario, you will typically want to make a role-based system. There a
   need it. That might mean a bit more work and refactoring parts of the
   software. That’s ok.
 * **Minimize attack surface**: Whenever you can, try to remove features and
-  outdated code. Code you delete doesn’t need to get maintained. It cannot have
+  outdated code. Code you delete doesn’t need to be maintained. It cannot have
   security issues.
 * **Clustering objects around Rights**: If you have a few types of
   rights/roles, you could group your objects around that. For example, if your
@@ -362,13 +362,13 @@ In such a scenario, you will typically want to make a role-based system. There a
 
 ## Credits
 
-Steven Gorden summarized parts of the terminology really well:
+Steven Gordon summarized parts of the terminology really well:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" frameborder="0" allowfullscreen></iframe></center>
 
 ## What’s next?
 
-In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
+In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
 * Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
 * Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇

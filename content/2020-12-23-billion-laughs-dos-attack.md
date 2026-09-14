@@ -1,41 +1,41 @@
 ---
 layout: post
-lang: en
 title: DOS via a billion laughs 😈
-subtitle: Consume arbitrary much RAM by repeated referencing
 slug: billion-laughs-dos
-URL: https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139
+lang: en
 author: Martin Thoma
 date: 2020-12-23 20:00
 category: Security
 tags: InfoSec, AppSec, Security, Cybersecurity
 featured_image: logos/cybersecurity.png
+subtitle: Consume arbitrarily much RAM by repeated referencing
+URL: https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139
 ---
 ![Image by the author](https://cdn-images-1.medium.com/max/3708/1*Mlli4bOg_zK6Jbllje6bFQ.png)*Image by the author*
 
-The billion laughs attack is known since 2003 ([source](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564)). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.
+The billion laughs attack has been known since 2003 ([source](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564)). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a variation as a YAML bomb and git bomb. It is a type of denial of service (DOS) attack as it can bring a service down.
 
 ## Why you should care
 
 This is a bit too specific to be visible in many news articles. However, there are several big projects which were vulnerable over the years:
 
-* 2003: libxml2 was vulnerable ([CVE-2003–1564](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564))
-* 2015: MediaWiki was vulnerable ([CVE-2015–2942](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2942))
-* 2016: [libxml2](https://en.wikipedia.org/wiki/Libxml2) was vulnerable … again ([CVE-2016–3705](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3705))
-* 2016: HTTP/2 header compression was used to build an HPACK bomb ([CVE-2016–6581](https://nvd.nist.gov/vuln/detail/CVE-2016-6581))
-* 2019: Kubernetes was vulnerable ([source](https://github.com/kubernetes/kubernetes/issues/83253), [CVE-2019–11253](https://nvd.nist.gov/vuln/detail/CVE-2019-11253))
-* 2019: [c3p0](https://www.mchange.com/projects/c3p0/) (JDBC database drivers) was vulnerable ([CVE-2019–5427](https://nvd.nist.gov/vuln/detail/CVE-2019-5427))
+* 2003: libxml2 was vulnerable ([CVE-2003-1564](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1564))
+* 2015: MediaWiki was vulnerable ([CVE-2015-2942](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2942))
+* 2016: [libxml2](https://en.wikipedia.org/wiki/Libxml2) was vulnerable … again ([CVE-2016-3705](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3705))
+* 2016: HTTP/2 header compression was used to build an HPACK bomb ([CVE-2016-6581](https://nvd.nist.gov/vuln/detail/CVE-2016-6581))
+* 2019: Kubernetes was vulnerable ([source](https://github.com/kubernetes/kubernetes/issues/83253), [CVE-2019-11253](https://nvd.nist.gov/vuln/detail/CVE-2019-11253))
+* 2019: [c3p0](https://www.mchange.com/projects/c3p0/) (a JDBC connection pool) was vulnerable ([CVE-2019-5427](https://nvd.nist.gov/vuln/detail/CVE-2019-5427))
 
 ## How it works
 
-The following XML defines an entity laugh , then an entity ha2 which contains laugh twice. This pattern is repeated. This means ha5 contains laugh indirectly 16 times. You can see the exponential growth, can’t you?
+The following XML defines an entity `laugh`, then an entity `ha2` which contains `laugh` twice. This pattern is repeated. This means `ha5` contains `laugh` indirectly 16 times. You can see the exponential growth, can’t you?
 
 ```xml
 <?xml version="1.0"?>
 
 <!DOCTYPE root [
 <!ENTITY laugh "😆">
-<!ENTITY ha2 "&ha; &ha;">
+<!ENTITY ha2 "&laugh; &laugh;">
 <!ENTITY ha3 "&ha2; &ha2;">
 <!ENTITY ha4 "&ha3; &ha3;">
 <!ENTITY ha5 "&ha4; &ha4;">
@@ -44,7 +44,7 @@ The following XML defines an entity laugh , then an entity ha2 which contains la
 <root>&ha5;</root>
 ```
 
-With ha31, we would have 2³⁰ times 😆 . That is a billion laughs. Please note how asymmetric this is: With a document that is less than 1kB big the attacker can make the parser consume about Gigabytes of memory. This can easily consume all memory of a machine and thus render it unusable until the parser is killed or the machine is restarted.
+With `ha31`, we would have 2³⁰ times 😆. That is about a billion laughs. Please note how asymmetric this is: With a document that is less than 1 kB in size, the attacker can make the parser consume gigabytes of memory. This can easily consume all memory of a machine and thus render it unusable until the parser is killed or the machine is restarted.
 
 A slight variation of the **billion laughs attack** is called **quadratic blowup**.
 
@@ -52,11 +52,11 @@ Please notice that similar attacks are possible in other file formats such as YA
 
 ## How can I defend against a billion laughs?
 
-Assuming that you cannot control the input directly and prevent XMLs with attacks from reaching you at all, I can think of 4 measures:
+Assuming that you cannot control the input directly and prevent malicious XML documents from reaching you at all, I can think of 4 measures:
 
 * **Lazy evaluation of references**: Instead of evaluating the whole document at once, the references are only resolved when necessary. It might solve some issues.
 * **No evaluation of references**: Throwing the dangerous feature out of the window for sure means that you’re not vulnerable to the attack anymore. You need to make sure it doesn’t affect your users, though. Communicating this might be hard.
-* **Reference recursion depth limit**: The parser itself could be aware of this issue and have a threshold when it stops evaluating references. However, this might also lead to false-positives — documents that get not parsed, because the parser thinks it’s an attack.
+* **Reference recursion depth limit**: The parser itself could be aware of this issue and have a threshold when it stops evaluating references. However, this might also lead to false positives — documents that don't get parsed because the parser thinks it’s an attack.
 * **RAM restriction**: You can run the code that might execute the billion laughs attack under resource restrictions. This means the execution thread/process receives a (catchable) exception and can continue execution normally. It might especially mean that even if the exception is not thrown, the rest of your system might be fine. Only that thread/process might be killed.
 
 So, how do you do this with Python?
@@ -91,7 +91,7 @@ except MemoryError:
 ```
 
 Restricting the parser is sometimes possible, sometimes not. It depends on your
-parser. Some have parameters like resolve_entities
+parser. Some have parameters like `resolve_entities`
 ([lxml](https://lxml.de/api/lxml.etree.XMLParser-class.html)).
 
 Limiting the maximum decompression size was done against the HTTP/2 “HPACK”
@@ -100,13 +100,12 @@ bomb
 
 ## See also
 
-Kate Murphey wrote an awesome article about git bombs, check it out!
-[**Exploding Git Repositories**
-*If you are an adventurous sort (and can handle a potential reboot) I invite you to clone this tiny repo: $ git clone…*kate.io](https://kate.io/blog/git-bomb/)
+Kate Murphy wrote an awesome article about git bombs; check it out:
+[Exploding Git Repositories](https://kate.io/blog/git-bomb/)
 
 ## What’s next?
 
-In this series about application security (AppSec) we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
+In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
 * Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
 * Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
