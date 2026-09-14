@@ -11,7 +11,7 @@ featured_image: logos/house.png
 ---
 Ich habe eine alte Ölheizung und überlege mir gerade, welche Alternativen es dazu
 gibt. Ich will sie so lange wie möglich laufen lassen und insbesondere das
-Restliche Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
+restliche Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
 
 ## Was nicht geht
 
@@ -27,7 +27,7 @@ Restliche Heizöl noch verbrauchen, aber möglichst kein neues mehr kaufen.
   wie eine Pelletheizung. Je 10000kWh benötigen 10-12m³ ([Quelle](https://www.youtube.com/watch?v=BXL6qUc7rag))
 * **Stromdirekt-Heizung**: Egal ob
   [Nachtspeicherheizung](https://de.wikipedia.org/wiki/Nachtspeicherheizung),
-  [Heizlüfter](https://de.wikipedia.org/wiki/Heizl%C3%BCfter), oder
+  [Heizlüfter](https://de.wikipedia.org/wiki/Heizl%C3%BCfter) oder
   [Infrarot-Heizung](https://de.wikipedia.org/wiki/Infrarotstrahler#Infrarotheizung) - der Betrieb ist viel zu teuer.
 * **Geothermie**: Die Installation ist zu teuer. Und es ist fraglich, ob man
   überhaupt die Bohrung machen darf.
@@ -53,18 +53,18 @@ Natürliche Kältemittel:
 * R600a (Isobutan): GWP=3. Wird wohl in Kühlschränken eingesetzt.
 
 
-### Luft-Wasser Wärmepumpe
+### Luft-Wasser-Wärmepumpe
 
-Eine Luft-Wasser Wärmepumpe (LW-WP) ist wohl der Klassiker.
+Eine Luft-Wasser-Wärmepumpe (LW-WP) ist wohl der Klassiker.
 
-### Luft-Luft Wärmepumpe
+### Luft-Luft-Wärmepumpe
 
-Der Akku-Doktor hat diese Lösung bekannt gemacht:
+Der Akkudoktor hat diese Lösung bekannt gemacht:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wB8rq-D9PAQ?si=KEw_f8cMgbaB2-2A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-* LL-WPs, z.B. LG S12 4kW Heizleistung + Mitsubishi MSZ42 5.4 kW Heizleistung + Panasonic Etherea
-* Brauchwasser-Wärmepumpe (BW-WP) für Warmwasser: 300L-Tank,
+* LL-WPs, z.B. LG S12 4kW Heizleistung + Mitsubishi MSZ42 5,4 kW Heizleistung + Panasonic Etherea
+* Brauchwasser-Wärmepumpe (BW-WP) für Warmwasser: 300L-Tank
 
 
 ### Vergleich
@@ -87,13 +87,13 @@ Contra LW-WP:
 Pro LL-WP:
 
 * Gradueller Umstieg möglich
-* Einfacher einen Installateur zu finden
+* Einfacher, einen Installateur zu finden
 * Günstiger?
 * Dezentral, d.h. wenn ein Gerät ausfällt, dann ist nicht sofort das ganze Haus
   kalt.
 * Kühlen
 * Heizkreislauf kann komplett entfernt werden, das bedeutet, dass hier keine
   Wartungskosten mehr anfallen (Rohre, Heizkörper, Thermostate)
-* Heizkörpernieschen können mit Dämmmaterial gefüllt werden. Damit kann ich
+* Heizkörpernischen können mit Dämmmaterial gefüllt werden. Damit kann ich
   Wärmeverluste vermeiden. Und es sieht etwas schöner aus / ist leichter zu
   reinigen.

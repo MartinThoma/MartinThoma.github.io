@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Rasenmähroboter
 slug: rasenmaehroboter
+lang: de
 author: Martin Thoma
 date: 2023-10-25 20:00
 category: German posts
@@ -10,7 +10,7 @@ tags: politics, German
 featured_image: logos/star.png
 ---
 Rasenmähen ist eine regelmäßige Aufgabe. Für meine ca. 300m² benötige ich ca. 45
-Minuten (incl. reinigung des Rasenmähers). Es ist von April - Oktober etwa alle
+Minuten (inkl. Reinigung des Rasenmähers). Es ist von April - Oktober etwa alle
 14 Tage nötig. Pro Jahr sind das also 16 Mähvorgänge oder 12 Stunden im Jahr.
 
 Ein [Mähroboter](https://de.wikipedia.org/wiki/Rasenm%C3%A4hroboter) braucht
@@ -20,7 +20,7 @@ Eine Stunde Rasenmähen wäre mir ca. 12€ wert. Ich gehe von einer Lebensdauer
 
 ## Features
 
-* Dienstahlschutz: PIN eingeben um zu starten
+* Diebstahlschutz: PIN eingeben, um zu starten
 * Garten kartographieren
 * Wie viele Quadratmeter Garten werden unterstützt?
 * Unterstützte Schnitthöhe
@@ -34,7 +34,7 @@ Eine Stunde Rasenmähen wäre mir ca. 12€ wert. Ich gehe von einer Lebensdauer
     * Die Zahl am Ende sind die unterstützten Quadratmeter.
     * Schnitthöhe: 30-50mm
     * Schnittbreite: 19cm
-    * Mähwerk verklebt bei nassen rasen, bleibt stehen
+    * Mähwerk verklebt bei nassem Rasen, bleibt stehen
     * Steuerung: Google, Alexa, IFTTT
     * Lautstärke: 63 dB
     * Kein Regensensor
@@ -48,7 +48,7 @@ Eine Stunde Rasenmähen wäre mir ca. 12€ wert. Ich gehe von einer Lebensdauer
     * Schnittbreite: 22cm
     * Akkulaufzeit: 50min (1h Ladung)
     * Google + Alexa
-    * Smart-Mowing (Wettertime), hat GPS, Man kann Garten in Zonen einteilen, hat Scheinwerfer
+    * Smart-Mowing (Wetter-Timer), hat GPS, man kann den Garten in Zonen einteilen, hat Scheinwerfer
     * App zeigt die Position des Mähers an
 * Gardena Sileno City 600 (1100€)
     * 250 - 1500m²
@@ -57,23 +57,23 @@ Eine Stunde Rasenmähen wäre mir ca. 12€ wert. Ich gehe von einer Lebensdauer
     * Alexa
     * Akkulaufzeit: 65min (1h Ladung)
     * Lautstärke: 57 dB
-    * Sensor-control (wetter), GPS (loona-Technologie?), Mähzonen
+    * Sensor-Control (Wetter), GPS (loona-Technologie?), Mähzonen
     * App zeigt die Position des Mähers an
 * Einhell: Kommunikationsproblem mit Ladestation
-* Worx Landroid M700 Plus (1000€): Bester mäher
+* Worx Landroid M700 Plus (1000€): Bester Mäher
     * 300-1000m²
     * Schnitthöhe: 30 - 60mm
     * Schnittbreite: 18cm
     * Akku austauschbar
     * Lautstärke: laut
     * Wetter-Anpassung, Cut-to-Edge (sehr gute Kantentrimm-Funktion), Virtuelle Zonen, Steuerung über WLAN
-    * Sicherheit: Fährt wieder los, auch wenn er ausgeschlatet wird
+    * Sicherheit: Fährt wieder los, auch wenn er ausgeschaltet wird
 
 ## Fazit
 
 Das ist mir alles noch zu teuer / zu unausgereift. Man darf nicht vergessen,
 dass die Roboter ggf. komplett nutzlos werden, wenn die Server der Hersteller
-nicht laufen. Das Risiko ist mir zu hoch
+nicht laufen. Das Risiko ist mir zu hoch.
 
 
 ## Quellen

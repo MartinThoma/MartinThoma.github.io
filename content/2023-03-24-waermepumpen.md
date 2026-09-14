@@ -68,8 +68,8 @@ Es gibt verschiedene Arten von Wärmepumpen, die sich hauptsächlich in der Art
 der genutzten Energiequelle und der verwendeten Technologie unterscheiden.
 
 **Luft-Luft-Wärmepumpen** nutzen die Energie der Außenluft und geben die
-erzeugte Wärme direkt an die Raumluft ab. Ein Quick-Connect System macht die
-Installation einfacher. Nach EU Verordnung 517/2014 darf nur ein zertifiziertes
+erzeugte Wärme direkt an die Raumluft ab. Ein Quick-Connect-System macht die
+Installation einfacher. Nach EU-Verordnung 517/2014 darf nur ein zertifiziertes
 Unternehmen Klimageräte in Betrieb nehmen. Eingebaut werden können solche
 Wärmepumpen von Klimaanlagen-Fachbetrieben / Kältetechnikern, aber auch von Heizungsbauern.
 Man benötigt einen "Kälteschein".
@@ -197,7 +197,7 @@ Zusammenfassend kann man sagen: Man spricht je nach Tiefe von unterschiedlichen 
 * 2000m - 3000m: Hydrothermale Dublette
 * 4000m - 5000m: Hot-Dry-Rock
 
-## Die Auswahl der Richtigen Wärmepumpe
+## Die Auswahl der richtigen Wärmepumpe
 
 ### Benötigte Heizleistung berechnen
 
@@ -228,21 +228,21 @@ durchschnittlich gedämmtes Einfamilienhaus rechnen kann. Allerdings ist diese
 Faustformel nur als grobe Orientierung zu verstehen und ersetzt keinesfalls eine
 genaue Heizlastberechnung nach DIN 12831.
 
-Etwas besser geht es mit [waermepumpe.de](https://www.waermepumpe.de/normen-technik/heizlastrechner/). Dort würde ich bei meinem Haus auf 9.3 kWh nach Baualtersklasse
-und auf 7.2 kWh nach Jahresverbrauch kommen.
+Etwas besser geht es mit [waermepumpe.de](https://www.waermepumpe.de/normen-technik/heizlastrechner/). Dort würde ich bei meinem Haus auf 9,3 kW nach Baualtersklasse
+und auf 7,2 kW nach Jahresverbrauch kommen.
 
 [heizsparer.de](https://www.heizsparer.de/heizung/heiztechnik/heizleistung-berechnen)
 gibt auch eine Formel an:
 
 * Wohnfläche: 155m²
-* [Norm-Außentemperatur ermitteln](https://www.waermepumpe.de/normen-technik/klimakarte/): -13.3°C
+* [Norm-Außentemperatur ermitteln](https://www.waermepumpe.de/normen-technik/klimakarte/): -13,3°C
 * Wunschtemperatur: 25°C
-* U-Wert des Hauses: 2.83 W/(m² * K)
+* U-Wert des Hauses: 2,83 W/(m² * K)
 
 Ergibt:
 
-* Temperatur-Delta: (25°C - (-13.3°C) ) = 38.3°C = 38.3 K
-* **Benötigte Heizleistung**: 2.83 W/(m² * K) * 155m² * 38.3 K = **16.8 kW**
+* Temperatur-Delta: (25°C - (-13,3°C)) = 38,3°C = 38,3 K
+* **Benötigte Heizleistung**: 2,83 W/(m² * K) * 155m² * 38,3 K = **16,8 kW**
 
 ## Kosten
 
@@ -251,7 +251,7 @@ Wahl der passenden Wärmepumpe. Im Folgenden werden diese Kostenfaktoren im
 Vergleich der verschiedenen Wärmepumpentypen betrachtet.
 
 
-Ich runde im folgenden auf ganze 50€ auf. Mich interessiert der SCOP bei einer
+Ich runde im Folgenden auf ganze 50€ auf. Mich interessiert der SCOP bei einer
 Vorlauftemperatur von 55°C.
 
 <table>
@@ -273,15 +273,15 @@ Vorlauftemperatur von 55°C.
         <td>160€/Jahr für die Heizung (<a href="https://www.heizspiegel.de/heizkosten-senken/heizungswartung/">Quelle</a>)<br/>+ 110€/Jahr für den Schornsteinfeger</td>
         <td>9.8 kWh/L; 1.15 €/L ⇒ 1800€/Jahr</td>
         <td>80k €</td>
-        <td>Öltank verbraucht Platz, es muss ein Zugang von der Straße zum Öltank freigehalten werden, das Öl hat zumindest im Heizraum einen Starken geruch, man ist abhängig von schwankenden Ölpreisen und deren Verfügbarkeit</td>
+        <td>Öltank verbraucht Platz, es muss ein Zugang von der Straße zum Öltank freigehalten werden, das Öl hat zumindest im Heizraum einen starken Geruch, man ist abhängig von schwankenden Ölpreisen und deren Verfügbarkeit</td>
     </tr>
     <tr>
         <td>Luft-Luft-Wärmepumpe</td>
         <td>5250€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>):<br/>
-            5x LG S09 (2.5 kW, Schlafzimmer/Büro/Kinderzimmer/Bad/Küche) à 790€ oder Samsung AR35 à 590€  oder Panasonic CS-PZ25-VKE à 890 € oder Daikin Siesta ATXF25D à 1100€ oder <a href="https://www.klimaprofis.com/klimageraete/split-klimageraete/wandklimageraete/mitsubishi-electric-msz-ap42vgk-wifi-r32-kompakt-wandklimageraete-set-4-5-kw">Mitsubishi MSZ AP42VG</a> à 1600€<br/>
+            5x LG S09 (2.5 kW, Schlafzimmer/Büro/Kinderzimmer/Bad/Küche) à 790€ oder Samsung AR35 à 590€ oder Panasonic CS-PZ25-VKE à 890 € oder Daikin Siesta ATXF25D à 1100€ oder <a href="https://www.klimaprofis.com/klimageraete/split-klimageraete/wandklimageraete/mitsubishi-electric-msz-ap42vgk-wifi-r32-kompakt-wandklimageraete-set-4-5-kw">Mitsubishi MSZ AP42VG</a> à 1600€<br/>
             + 1x LG S18 (5.0 kW, Wohnzimmer) oder Mitsubishi MSZ-HR50VF R32 à 1300€</td>
         <td>15 Jahre (<a href="https://m-tec.at/blog/10-mythen-zum-thema-waermepumpen/">Quelle</a>)</td>
-        <td>15.000€  (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
+        <td>15.000€ (<a href="https://www.energieheld.de/heizung/waermepumpe/kosten">Quelle</a>)</td>
         <td>140 €/Jahr (<a href="https://www.heizspiegel.de/heizkosten-senken/heizungswartung/">Quelle</a>)</td>
         <td>COP von 4.2, 0.33€/kWh ⇒ 1200 €/Jahr</td>
         <td>90k €</td>
@@ -329,8 +329,8 @@ Vorlauftemperatur von 55°C.
     </tr>
 </table>
 
-Der Vergleich würde deutlich besser ausfallen, wenn man anstelle der 0.33€/kWh
-an Strom des Energieversorgers den eigenen Strom der Solarzelle nehemen würde.
+Der Vergleich würde deutlich besser ausfallen, wenn man anstelle der 0,33€/kWh
+an Strom des Energieversorgers den eigenen Strom der Solaranlage nehmen würde.
 Oder wenn man mit einer niedrigeren Vorlauftemperatur auskommen würde.
 
 [Laut Andreas Schmitz](https://youtu.be/BvI7A3NmY08?t=874) kann man die
@@ -360,9 +360,9 @@ Größe des zu beheizenden Gebäudes und der geplanten Maßnahme. Interessierte
 sollten sich daher im Vorfeld genau über die verschiedenen Fördermöglichkeiten
 informieren.
 
-Energetische Sanierungen kann man von der Einkommenssteuer absetzen -
+Energetische Sanierungen kann man von der Einkommensteuer absetzen -
 auch fürs Eigenheim. Das sind 20% und bis zu 40.000 €. Leider kann man nur
-entweder ein Förderprogram oder den Steuervorteil nutzen ([Quelle](https://www.finanztip.de/sanierungskosten-absetzen/)).
+entweder ein Förderprogramm oder den Steuervorteil nutzen ([Quelle](https://www.finanztip.de/sanierungskosten-absetzen/)).
 
 ### Wartungskosten
 
@@ -382,7 +382,7 @@ Wartungsarbeiten durchzuführen, um eine optimale Leistung und eine längere
 Lebensdauer der Wärmepumpe zu gewährleisten.
 
 Bei der Wartung muss das Kältemittel aufgefüllt/ausgetauscht werden, die
-Dichtigkeit geprüft werden, die Anlage gereinigt und Desinfiziert werden, und
+Dichtigkeit geprüft werden, die Anlage gereinigt und desinfiziert werden und
 ggf. Filter ausgetauscht werden.
 
 Bei Öl- und Gasheizungen muss der Schornsteinfeger regelmäßig kommen. Das fällt
@@ -401,7 +401,7 @@ Die Betriebskosten einer Wärmepumpe hängen von drei Faktoren ab:
 Die Effizienz einer Wärmepumpe wird durch den COP (Coefficient of Performance)
 angegeben, welcher das Verhältnis von abgegebener Wärme zu aufgenommener Energie
 angibt. Ein höherer COP bedeutet eine höhere Effizienz der Wärmepumpe, da mehr
-Wärme aus der selben Menge an Energie erzeugt wird. Die Effizienz einer
+Wärme aus derselben Menge an Energie erzeugt wird. Die Effizienz einer
 Wärmepumpe wird jedoch von verschiedenen Faktoren beeinflusst, wie
 beispielsweise der Außentemperatur, der Größe des zu beheizenden Raums, der Wahl
 der Wärmequelle und dem Systemdesign. Es ist daher wichtig, die Effizienz einer
@@ -409,13 +409,13 @@ Wärmepumpe sorgfältig zu bewerten, um sicherzustellen, dass sie die
 Energieeffizienz-Anforderungen des Hauses erfüllt.
 
 Der SCOP (Seasonal Coefficient of Performance) liefert hier realistischere
-Werte. Genau wie der COP sagt er wie viel Heizleistung man für den eingesetzten
+Werte. Genau wie der COP sagt er, wie viel Heizleistung man für den eingesetzten
 Strom bekommt. Ein SCOP=4 bedeutet also, dass man im Mittel für 1kWh Strom ganze
 4kWh Wärme bekommt.
 
-Luft-Luft Wärmepumpen haben einen SCOP von 4 bis 5.5. Die [Daikin Perfera
+Luft-Luft-Wärmepumpen haben einen SCOP von 4 bis 5,5. Die [Daikin Perfera
 25R](https://www.daikin.at/content/dam/DACE-AT/document-library/einzelblatter/ac/split/Daikin_Split_Perfera_FTXM-R.pdf)
-hat einen SCOP von 5.2
+hat einen SCOP von 5,2.
 
 Die Jahresarbeitszahl bezieht sich dann auf ein konkretes Haus. Das ist der wohl
 interessanteste Wert, allerdings kann man diesen naturgemäß nicht in Datenblättern
@@ -431,29 +431,29 @@ paar interessante Sachen gezeigt:
 * **Parallelbetrieb**: Er nutzt eine Öl-Heizung mit Luft-Luft-Wärmepumpen im
   Parallelbetrieb. Dadurch kann er die Öl-Heizung im ganzen Jahr im Sommer-Modus
   laufen lassen.
-* **Kachelofen**: Wenn es richtig kalt wird nutzt er einen Kachelofen. Das
-  bedeutet, er kann die wenigen Tage im Jahr die unter -10°C liegen und damit
-  die Effizienz der Wärmepumpe kaputt machen überbrücken.
+* **Kachelofen**: Wenn es richtig kalt wird, nutzt er einen Kachelofen. Das
+  bedeutet, er kann die wenigen Tage im Jahr, die unter -10°C liegen und damit
+  die Effizienz der Wärmepumpe kaputtmachen, überbrücken.
 * **Brauchwasserwärmepumpe**: Im Keller ist es ganzjährig deutlich über 0°C,
   aber es könnte auch ohne Probleme kälter sein. Man könnte z.B. einen Kühlraum
   machen. Die Stiebel Eltron Warmwasser-Wärmepumpe WWK 220 kostet z.B. 2600€.
-  Sollte die Ölheizung kaputt gehen kann man sie durch eine
+  Sollte die Ölheizung kaputtgehen, kann man sie durch eine
   Brauchwasserwärmepumpe ersetzen. Damit kann man den Öltank komplett leeren
-  bzw. die Lebensdauer der Ölheizung komplett ausreizen. Durch die Luft-Luft
-  Wärmepumpen wird man auf keinen Fall im kalten sitzen, aber ggf. eine Weile
+  bzw. die Lebensdauer der Ölheizung komplett ausreizen. Durch die
+  Luft-Luft-Wärmepumpen wird man auf keinen Fall im Kalten sitzen, aber ggf. eine Weile
   kalt duschen.
 
 
 ## Fazit
 
 Wärmepumpen sind ziemlich cool - sie verursachen keinen Feinstaub, verschmutzen
-nicht das Wasser, stinken nicht, und brauchen wenig Platz. Über den
+nicht das Wasser, stinken nicht und brauchen wenig Platz. Über den
 Geräuschpegel muss man sich bei der Platzierung von Split-Klimaanlagen Gedanken
 machen. Ach ja, sie können im Sommer kühlen!
 
 Die hohen Anschaffungskosten und die notwendige niedrige Vorlauftemperatur für
 wirklich gute SCOP-Werte machen die Sache wirtschaftlich für Altbauten leider
-nicht so eindeutig. Dabei ist allerdings noch nicht die Förderung berücksichtig.
+nicht so eindeutig. Dabei ist allerdings noch nicht die Förderung berücksichtigt.
 Mit Förderung ist es klar: Wärmepumpen lohnen sich auch im Altbau. Wenn man
 zusätzlich noch eine Fußbodenheizung und/oder Solarzellen hat, ist es eine
 runde Sache.

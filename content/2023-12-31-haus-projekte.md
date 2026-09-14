@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Haus-Projekte
 slug: haus-projekte
+lang: de
 author: Martin Thoma
 date: 2023-12-31 20:00
 category: My bits and bytes
@@ -40,7 +40,7 @@ Strom?
 ### Terrasse
 
 1. Pergola an Balkon anbauen
-2. Solarpanele auf Pergola montieren
+2. Solarmodule auf Pergola montieren
 
 ### Katzen-Gehege
 

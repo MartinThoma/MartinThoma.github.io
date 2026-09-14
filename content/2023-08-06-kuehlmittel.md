@@ -10,19 +10,19 @@ tags: house
 featured_image: logos/house.png
 ---
 Ich überlege mir eine oder mehrere Split-Klimaanlagen (Luft-Luft-Wärmepumpen) zum
-heizen in den Übgergangsmonaten September - November und März - Mai zu besorgen.
+Heizen in den Übergangsmonaten September - November und März - Mai zu besorgen.
 Ein Kernattribut ist das Kühlmittel.
 
 
-* **R32** (Difluormethan, CH2F2) . Es wird z.B. in Kältebringer KB51, der Danyon
-  DA-XA35QC, der Daikin Perfera, und der Mitsubishi SRC20ZS verwendet. Es hat den Siedepunkt bei
-  −51.7 °C. Es besitzt ein um 675-mal stärkeres Treibhauspotenzial (GWP) als CO2.
-  Es ist hochentzündliches, aber nicht giftig. Es ist schwer entflammbar (2L) und
-  die Toxizität ist nicht toxisch (A).
+* **R32** (Difluormethan, CH2F2). Es wird z.B. im Kältebringer KB51, im Danyon
+  DA-XA35QC, in der Daikin Perfera und in der Mitsubishi SRC20ZS verwendet. Es hat den Siedepunkt bei
+  −51,7 °C. Es besitzt ein 675-mal stärkeres Treibhauspotenzial (GWP) als CO2.
+  Es ist entzündlich, aber nicht giftig: Sicherheitsklasse A2L, d.h. schwer entflammbar (2L)
+  und nicht toxisch (A).
 * **R-134a** hat einen GWP von 1430.
 * **R-22** wurde durch R32 abgelöst, da der GWP von R22 1810 beträgt.
 * **R410A** wurde durch R32 abgelöst, da das Treibhauspotenzial von R410A mit 2088 zu hoch ist.
-* **R290** (Propan) hat GWP=3 und einen Sidepunkt von −42.1 °C. _Die Luft-Wasser Wärmepumpe von [LAMBDA](https://lambda-wp.at/luft/) verwendet 1.2kg R290.
+* **R290** (Propan) hat GWP=3 und einen Siedepunkt von −42,1 °C. Die Luft-Wasser-Wärmepumpe von [LAMBDA](https://lambda-wp.at/luft/) verwendet 1,2kg R290.
 * **R-600**
 
 
@@ -38,7 +38,7 @@ Ein Kernattribut ist das Kühlmittel.
         <td>Propan</td>
     </tr>
     <tr>
-        <th><abbr title="Global Warming Potential, das Treibhauspotential in vielfachem von CO2. Niedriger ist besser.">GWP</abbr></th>
+        <th><abbr title="Global Warming Potential, das Treibhauspotential als Vielfaches von CO2. Niedriger ist besser.">GWP</abbr></th>
         <td>675</td>
         <td>3.3</td>
     </tr>
@@ -49,13 +49,13 @@ Ein Kernattribut ist das Kühlmittel.
     </tr>
     <tr>
         <th>Entzündlichkeit</th>
-        <td>hochentzündlich</td>
-        <td>hochentzündlich</td>
+        <td>schwer entflammbar (A2L)</td>
+        <td>hochentzündlich (A3)</td>
     </tr>
     <tr>
         <th>Siedepunkt</th>
-        <td>&minus;51.7 &deg;C</td>
-        <td>&minus;42.1 &deg;C</td>
+        <td>&minus;51,7 &deg;C</td>
+        <td>&minus;42,1 &deg;C</td>
     </tr>
     <tr>
         <th>Zündtemperatur</th>
@@ -64,11 +64,11 @@ Ein Kernattribut ist das Kühlmittel.
     </tr>
     <tr>
         <th>Zündgrenze (Vol-%)</th>
-        <td>12.7% - 33.4%</td>
-        <td>2.12% - 9.35%</td>
+        <td>12,7% - 33,4%</td>
+        <td>2,12% - 9,35%</td>
     </tr>
 </table>
 
 
-R32 scheint bei weitem das häufigste zu sein, R290 ist interessant weil es
+R32 scheint bei Weitem das häufigste zu sein, R290 ist interessant, weil es
 ein so viel geringeres GWP hat.

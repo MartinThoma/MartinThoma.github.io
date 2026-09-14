@@ -10,7 +10,7 @@ tags: money, house
 featured_image: logos/house.png
 ---
 Ich frage mich immer wieder, wann sich ein Neukauf eines Haushaltsgeräts aus
-Effizienzgewinnsgründen lohnt bzw. welcher Aufpreis sich aufgrund höherer Effizienz
+Effizienzgründen lohnt bzw. welcher Aufpreis sich aufgrund höherer Effizienz
 lohnt. Hier ein paar Gedanken dazu.
 
 Ein paar Sachen vorab:
@@ -94,30 +94,30 @@ Ich suche:
     <tr>
         <td>Gorenje BPS 6737 E02B Einbau-Backofen, 77 Liter</td>
         <td>790€</td>
-        <td>0.71 kWh/Zyklus (A+)</td>
+        <td>0,71 kWh/Zyklus (A+)</td>
         <td>21€</td>
         <td>1084€</td>
     </tr>
     <tr>
         <td>Bauknecht BAR2 KH8V2, 71 Liter</td>
         <td>410€</td>
-        <td>0.69 kWh/Zyklus (A+)</td>
+        <td>0,69 kWh/Zyklus (A+)</td>
         <td>21€</td>
         <td>704€</td>
     </tr>
     <tr>
         <td>Privileg PBWR6 OH5V, 71 Liter</td>
         <td>269€</td>
-        <td>0.90 kWh/Zyklus (A)</td>
+        <td>0,90 kWh/Zyklus (A)</td>
         <td>27€</td>
         <td>647€</td>
     </tr>
 </table>
 
-Ich konnte keinen ineffizenteren Ofen als "A" finden. Die Energieeffizienz
+Ich konnte keinen ineffizienteren Ofen als "A" finden. Die Energieeffizienz
 ist also uninteressant für Öfen.
 
-Selbst wenn man bei alten Öfen einen Energieverbrauch von 1.6 kWh/Zyklus annimmt
+Selbst wenn man bei alten Öfen einen Energieverbrauch von 1,6 kWh/Zyklus annimmt
 ([Beispiel](https://www.mein-klimaschutz.de/zu-hause/a/kueche/wie-hoch-ist-der-stromverbrauch-beim-ofen/)),
 so rechtfertigt das immer noch keinen Neukauf.
 
@@ -129,7 +129,7 @@ Ich gehe von einer Lebenszeit von 14 Jahren aus ([Quelle](https://www.ersatzteil
     <tr>
         <th>Marke und Modell</th>
         <th>Kaufpreis</th>
-        <th>Effizienz (Umluft)</th>
+        <th>Effizienz</th>
         <th>Jahresstromkosten</th>
         <th>Lebenszeit-Kosten</th>
     </tr>
@@ -164,18 +164,18 @@ beim Energiebedarf.
 
 Siehe [Is it worth changing the Lightbulb](https://medium.com/plain-and-simple/is-it-worth-changing-the-lightbulb-74cb0dea242e)
 
-Kurz und gut: Wenn man eine Glühbirne, Halogenlampe, oder eine Energiesparlampe
+Kurz und gut: Wenn man eine Glühbirne, Halogenlampe oder eine Energiesparlampe
 hat, sollte man direkt eine LED kaufen. Irgendeine. Muss jetzt nicht eine super
 effiziente sein.
 
 Hier ein paar Beispiele:
 
 * [Tuoplyh](https://www.amazon.de/Tuoplyh-ersetzt-Warmwei%C3%9F-Gl%C3%BChfaden-Kerzenlampe/dp/B088TFVRTF/): 2€/Stück, 4W für 400lm ⇒ 100lm/W, dimmbar, Kerzenform
-* [Wenscha](https://www.amazon.de/Wenscha-Kugelform-Halogenlampe-Fadenlampe-Leuchtmittel/dp/B08ZMR18NM/): 2.33€/Stück, 4W für 450lm ⇒ 112.5lm/W, Birnenform
-* [LVWIT](https://www.amazon.de/Gl%C3%BChfaden-Gl%C3%BChlampe-ultrahell-Rustikalampe-Filamentstil/dp/B07FNDRQ7Z/): 2.00€/Stück, 4W für 470lm ⇒ 117.5 lm/W, Birnenform
-* [Osram](https://www.amazon.de/Osram-Kerzenform-E14-Sockel-Filementstil-Warmwei%C3%9F/dp/B073QTJJNT/): 2.31€/Stück, 4W für 470lm ⇒ 117.5lm/W, Kerzenform
-* [Osram](https://www.amazon.de/Osram-Tropfenform-E14-Sockel-Filamentstil-Warmwei%C3%9F/dp/B073QSXXC8/): 0.99€/Stück, 4W für 470lm ⇒ 117.5 lm/W, Tropfenform
-* [GY](https://www.amazon.de/GY-Leuchtmittel-Energiesparlampe-Halogenlampe-Energieeffizienzklasse/dp/B0C5J4XVYT/): 2.67€/Stück, 4.9W für 807lm ⇒ 165lm/W, Kerzenform
+* [Wenscha](https://www.amazon.de/Wenscha-Kugelform-Halogenlampe-Fadenlampe-Leuchtmittel/dp/B08ZMR18NM/): 2,33€/Stück, 4W für 450lm ⇒ 112,5lm/W, Birnenform
+* [LVWIT](https://www.amazon.de/Gl%C3%BChfaden-Gl%C3%BChlampe-ultrahell-Rustikalampe-Filamentstil/dp/B07FNDRQ7Z/): 2,00€/Stück, 4W für 470lm ⇒ 117,5 lm/W, Birnenform
+* [Osram](https://www.amazon.de/Osram-Kerzenform-E14-Sockel-Filementstil-Warmwei%C3%9F/dp/B073QTJJNT/): 2,31€/Stück, 4W für 470lm ⇒ 117,5lm/W, Kerzenform
+* [Osram](https://www.amazon.de/Osram-Tropfenform-E14-Sockel-Filamentstil-Warmwei%C3%9F/dp/B073QSXXC8/): 0,99€/Stück, 4W für 470lm ⇒ 117,5 lm/W, Tropfenform
+* [GY](https://www.amazon.de/GY-Leuchtmittel-Energiesparlampe-Halogenlampe-Energieeffizienzklasse/dp/B0C5J4XVYT/): 2,67€/Stück, 4,9W für 807lm ⇒ 165lm/W, Kerzenform
 
 
 ## Fazit

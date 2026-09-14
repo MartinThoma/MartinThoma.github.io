@@ -10,7 +10,7 @@ tags: house, money, photovoltaik
 featured_image: logos/house.png
 status: draft
 ---
-## Photovoltaik vs Solarthermie
+## Photovoltaik vs. Solarthermie
 
 Solaranlagen sind eine zunehmend beliebte Methode, um umweltfreundliche und
 erneuerbare Energie für den Hausgebrauch zu erzeugen. Dabei gibt es zwei
@@ -137,7 +137,7 @@ Energiebedarf gewährleisten.
 
 ## Balkonkraftwerke
 
-* 739 €: 820Wp PV-Leistung, 600 Watt SUN600G3-EU-230 - PV Wechselrichter: 3.2 Jahre
+* 739 €: 820Wp PV-Leistung, 600 Watt SUN600G3-EU-230 - PV-Wechselrichter: 3.2 Jahre
 
 ## Andreas Schmitz
 
@@ -151,13 +151,13 @@ Kosten für 10 kWp:
 
 Akku (22kWh):
 
-* 16x EVE 200Ah LiFePo4: 1200€ incl. Zoll+Versand von Shenzhen Basen
-* 16x EVE 230Ah LiFePo4: 1500€ incl. Zoll+Versand von Shenzhen Basen
+* 16x EVE 200Ah LiFePO4: 1200€ inkl. Zoll+Versand von Shenzhen Basen
+* 16x EVE 230Ah LiFePO4: 1500€ inkl. Zoll+Versand von Shenzhen Basen
 * Batterie-Managementsystem (BMS) JKBMS JK-B2A24S-15P: 1500
 
 Quellen:
 
-* [](https://www.youtube.com/watch?v=u5AHvMADN_I)
+* Andreas Schmitz (Der Akku Doktor): [DIY Solaranlage Amortisation = 4 Jahre](https://www.youtube.com/watch?v=u5AHvMADN_I)
 
 
 

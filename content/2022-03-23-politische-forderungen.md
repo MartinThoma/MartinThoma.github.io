@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: de
 title: Politische Forderungen
 slug: politische-forderungen
-status: draft
+lang: de
 author: Martin Thoma
 date: 2022-03-23 20:00
 category: German posts
 tags: Politik, Germany
 featured_image: logos/de.png
+status: draft
 ---
 Hier sind ein paar politische Ideen, die ich gerne umgesetzt hätte.
 
@@ -26,44 +26,44 @@ eine Vielzahl von Sendern / Angeboten gibt.
 
 Wenn man das Angebot als sinnvoll ansieht, kann man die Gebühren auch aus dem
 Staatshaushalt beziehen. Diese zweite Art der Steuereintreibung verursacht nur
-kosten
+Kosten.
 
-### KfZ-Steuer abschaffen
+### Kfz-Steuer abschaffen
 
-Es ist nicht wichtig wer wie viele Autos hat, sondern die CO2-Emissionen sind
-relevant. Die KfZ-Steuer sollte abgeschafft werden. Besteuert werden sollten
+Es ist nicht wichtig, wer wie viele Autos hat, sondern die CO2-Emissionen sind
+relevant. Die Kfz-Steuer sollte abgeschafft werden. Besteuert werden sollten
 die Kraftstoffe für die CO2-Emissionen und der Kauf des Autos über die
 Mehrwertsteuer.
 
 ### Konnexitätsprinzip
 
 Wer bestellt, zahlt. Wenn der Bund etwas beschließt, muss er für die Kosten
-aufkommen. Insbesondere sollte das für sozialausgaben gelten. Das würde die
+aufkommen. Insbesondere sollte das für Sozialausgaben gelten. Das würde die
 Kommunen massiv entlasten.
 
 ### Melde- und Ausländerbehörden zentralisieren
 
-Die Einwohnermeldeämter und Ausländerämter sind haben viel zu viel Arbeit.
+Die Einwohnermeldeämter und Ausländerämter haben viel zu viel Arbeit.
 Das liegt unter anderem daran, dass sie nicht die nötige digitale Infrastruktur
 haben.
 
-Einige Daten sollten Zentral gespeichert werden. Die Ämter sollten nur mit dem
+Einige Daten sollten zentral gespeichert werden. Die Ämter sollten nur mit dem
 menschlichen Aspekt zu tun haben. Sie sollten also in das zentrale System
 Daten eingeben und verifizieren. Sie sollten keine eigene Datenhaltung haben.
 
 Aktuell ist es so, dass der Antrag auf einen Aufenthaltstitel, welcher in Germering
-gestellt wurde nicht vom Amt im benachbarten München weiter bearbeitet werden
+gestellt wurde, nicht vom Amt im benachbarten München weiter bearbeitet werden
 kann. Man muss einen neuen Antrag stellen. Das ist mit Kosten verbunden und kann
 einige Monate dauern.
 
 ### Baurecht vereinheitlichen
 
-Ich sehe keinen grund für föderalismus im Bauwesen. Es sollte möglichst global
-bestimmungen bzgl. der Terminologie geben. Also zumindest Deutschlandweit,
-besser sogar Europaweit. Dort sollten dann auch mindeststandards geschaffen werden,
+Ich sehe keinen Grund für Föderalismus im Bauwesen. Es sollte möglichst globale
+Bestimmungen bzgl. der Terminologie geben. Also zumindest deutschlandweit,
+besser sogar europaweit. Dort sollten dann auch Mindeststandards geschaffen werden,
 die in einzelnen Fällen regional verschärft werden können.
 
-Konkret wünsche ich mir europaweite Prüfrichtlinien (Prüfnormen, Klassifizierungsnormen, und Produktnormen) für den Brandschutz.
+Konkret wünsche ich mir europaweite Prüfrichtlinien (Prüfnormen, Klassifizierungsnormen und Produktnormen) für den Brandschutz.
 
 ### Friedhofszwang bei Feuerbestattung abschaffen
 
@@ -82,18 +82,18 @@ Kosten:
 ### Kopplung von Politiker-Gehältern
 
 Die Diäten (Gehälter von Politikern) müssen an das Median-Einkommen gekoppelt
-werden, damit die richtigen anreize geschaffen werden. Auch die Abgaben müssen
+werden, damit die richtigen Anreize geschaffen werden. Auch die Abgaben müssen
 hier wie bei jedem normalen Arbeitnehmer berechnet werden.
 
 Im Jahr 2018 betrug der Median des Nettoäquivalenzeinkommens in Deutschland
-22.713 Euro pro Jahr<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+22.713 Euro pro Jahr<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.
 Die Mitglieder des Bundestages (MdB) erhalten eine monatliche
 „Abgeordnetenentschädigung“ in Höhe von 10.012,89 Euro (Stand 1. Juli 2021).
-Eine Kopplung wäre z.B. dass ein MdB in jedem Jahr das 5-fache des
+Eine Kopplung wäre z.B., dass ein MdB in jedem Jahr das 5-fache des
 Nettoäquivalenzeinkommens des Vorjahres erhält.
 
-Das gleiche Prinzip kann man für Beamte, Richter, und Soldaten ansetzen.
-Somit wäre man auch diesen Diskussionpunkt los.
+Das gleiche Prinzip kann man für Beamte, Richter und Soldaten ansetzen.
+Somit wäre man auch diesen Diskussionspunkt los.
 
 
 ### Lohnsteuerfreibetrag
@@ -109,14 +109,14 @@ Der Grundfreibetrag ist bei 9.984 Euro.
 
 TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Einsparen von Verwaltungskosten
 
-### Kapitalertragssteuer durch Einkommenssteuer ersetzen?
+### Kapitalertragsteuer durch Einkommensteuer ersetzen?
 
 
 ### Bekämpfung von Polizeigewalt
 
 1. Einführung von Identifikationsnummern für alle Polizisten in der Öffentlichkeit
 2. Einführung von Körperkameras ("Bodycams") bei Großeinsätzen
-3. Schaffen einer unabhängige Stelle für polizeiliches Fehlverhalten (Polizeibeschwerdestelle)
+3. Schaffen einer unabhängigen Stelle für polizeiliches Fehlverhalten (Polizeibeschwerdestelle)
     1. Unter der Leitung des Justizministeriums.
     2. Sollte eine Website haben, auf der die Menschen Kontakt aufnehmen können.
     3. Sollte mindestens in den 20 größten Städten Deutschlands mit mindestens
@@ -127,8 +127,8 @@ TODO: Freibetrag abschaffen und durch Flat Tax + Zuschüsse ersetzen? Ziel: Eins
 
 ### Wasser-Cent
 
-Die nutzung von Grundwasser durch Konzerne darf nicht kostenlos sein. Konzerne
-müssen zum Wasser sparen motiviert werden.
+Die Nutzung von Grundwasser durch Konzerne darf nicht kostenlos sein. Konzerne
+müssen zum Wassersparen motiviert werden.
 
 ### Bezahlung
 
@@ -140,13 +140,13 @@ Bonuszahlungen dürfen bis zu 40 Tage verzögert gezahlt werden.
 ## Korruption
 
 * (Öffentliches?) Immobilien-Register
-*  EU GRECO: 14 EU recommendations against corruption
+* EU GRECO: 14 EU recommendations against corruption
 * Petty corruption vs "High" corruption
 
 ## Soziale Leistungen
 
-1. Jeder soll auf Gesundheitsleistungen in Deutschland und Rente weltweit anspruch haben
-2. Jeder soll in gleicher weise einzahlen müssen. Wie in Österreich, wo auch
+1. Jeder soll auf Gesundheitsleistungen in Deutschland und Rente weltweit Anspruch haben
+2. Jeder soll in gleicher Weise einzahlen müssen. Wie in Österreich, wo auch
    jeder für die Rente einzahlt
 
 Das bedeutet insbesondere Änderungen für:
@@ -155,12 +155,12 @@ Das bedeutet insbesondere Änderungen für:
 * Selbstständige
 
 Gleichzeitig sollen Abgaben im US-Stil gemacht werden: Wer die deutsche
-Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt
+Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt.
 
 ## Entkriminalisierung
 
 * Fahren ohne Fahrtschein
-* Kinderpornographie unter bestimmten Umständen (ermessungsspielraum des Richters)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
+* Kinderpornographie unter bestimmten Umständen (Ermessensspielraum des Richters)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
 * [Legalisierung von Drogenkonsum](https://de.wikipedia.org/wiki/Legalisierung_von_Drogen)
 
 

@@ -28,44 +28,44 @@ Das sind ca. 12 Scheiben. Eine Mahlzeit für eine Person sind ca. 3 Scheiben.
     <tr>
         <td>Weizenmehl (Type 405 oder 550)</td>
         <td>500g</td>
-        <td>0.40€</td>
+        <td>0,40€</td>
     </tr>
     <tr>
         <td>Olivenöl</td>
         <td>12g (1 EL)</td>
-        <td>0.09€</td>
+        <td>0,09€</td>
     </tr>
     <tr>
         <td>Trockenhefe</td>
         <td>7g (1 Packung)</td>
-        <td>0.09€</td>
+        <td>0,09€</td>
     </tr>
     <tr>
         <td>Salz</td>
         <td>12g (2 TL)</td>
-        <td>0.01€</td>
+        <td>0,01€</td>
     </tr>
     <tr>
         <td>Zucker</td>
         <td>6g (1 TL)</td>
-        <td>0.01€</td>
+        <td>0,01€</td>
     </tr>
     <tr>
         <td>Wasser</td>
         <td>350ml</td>
-        <td>0.01€</td>
+        <td>0,01€</td>
     </tr>
     <tr>
         <td>Energie</td>
-        <td>1.1 kWh</td>
-        <td>0.37€</td>
+        <td>1,1 kWh</td>
+        <td>0,37€</td>
     </tr>
     </tbody>
     <tfoot>
     <tr>
         <th>Summe</th>
         <th>800g Weißbrot</th>
-        <th>0.98€</th>
+        <th>0,98€</th>
     </tr>
     </tfoot>
 </table>
@@ -96,7 +96,7 @@ ausgehen, also insbesondere:
     <tbody>
         <tr>
             <td>Energie</td>
-            <td>1310 kJ (=313 kCal)</td>
+            <td>1310 kJ (=313 kcal)</td>
             <td>2610 kJ</td>
             <td>26%<sup>[<a href="https://www.tk.de/techniker/magazin/ernaehrung/uebergewicht-und-diaet/wie-viele-kalorien-pro-tag-2006758">1</a>]</sup></td>
         </tr>
@@ -111,9 +111,9 @@ ausgehen, also insbesondere:
 
 Dazu kommt dann der Belag, z.B. für eine Scheibe:
 
-* 10g Magarine (222 kJ)
-* 25g Marmelade (238 kJ, 0.1g Eiweiß)
-* 1 Scheibe  Käse (547 kJ, 9.5g Eiweiß)
+* 10g Margarine (222 kJ)
+* 25g Marmelade (238 kJ, 0,1g Eiweiß)
+* 1 Scheibe Käse (547 kJ, 9,5g Eiweiß)
 
 ## Variationen
 

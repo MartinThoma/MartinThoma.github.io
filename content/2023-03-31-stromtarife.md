@@ -27,7 +27,7 @@ Man kann <a href="https://www.netzfrequenzmessung.de/">die aktuelle Netzfrequenz
 
 Die **Grundlast** ist der Strombedarf, der rund um die Uhr benötigt wird. Sie
 wird in der Regel von konventionellen Kraftwerken gedeckt, die kontinuierlich
-Strom produzieren können. Dazu zählen <a href="https://de.wikipedia.org/wiki/Liste_der_Kernreaktoren_in_Deutschland">Kernkraftwerke</a>, <a href="https://de.wikipedia.org/wiki/Liste_fossil-thermischer_Kraftwerke_in_Deutschland">Brau- und Steinkohlekraftwerke, Erdgaskraftwerke</a>,
+Strom produzieren können. Dazu zählen <a href="https://de.wikipedia.org/wiki/Liste_der_Kernreaktoren_in_Deutschland">Kernkraftwerke</a>, <a href="https://de.wikipedia.org/wiki/Liste_fossil-thermischer_Kraftwerke_in_Deutschland">Braun- und Steinkohlekraftwerke, Erdgaskraftwerke</a>,
 Biogaskraftwerke und Müllkraftwerke.
 
 Erneuerbare Energien wie Wind- oder Solarenergie sind hingegen wetterabhängig
@@ -60,14 +60,14 @@ Es gibt mehrere Typen von Stromzählern, die in der Energieversorgung verwendet 
    Stromverbrauch des Kunden messen und in Echtzeit anzeigen können. Sie haben
    jedoch keine direkte Kommunikation mit dem Energieversorger oder dem
    Stromnetz. Moderne Messeinrichtungen können in Verbindung mit anderen
-   Systemen wie Smart Home Geräten oder Stromspeichern eingesetzt werden, um den
+   Systemen wie Smart-Home-Geräten oder Stromspeichern eingesetzt werden, um den
    Stromverbrauch zu optimieren.
 4. **Intelligente Messsysteme (iMSys)** oder auch **Smart Metering Gateway**:
    iMSys sind intelligente digitale Stromzähler, die eine direkte Kommunikation
    zwischen dem Verbraucher, dem Energieversorger und dem Stromnetz ermöglichen.
    Sie bieten eine Vielzahl von Funktionen wie die Fernablesung, die Möglichkeit
-   zur Tarifumschaltung oder Laststeuerung, sowie zur Verbrauchsanalyse. iMSys
-   sind Teil der Smart Grid Infrastruktur und sollen helfen, den Stromverbrauch
+   zur Tarifumschaltung oder Laststeuerung sowie zur Verbrauchsanalyse. iMSys
+   sind Teil der Smart-Grid-Infrastruktur und sollen helfen, den Stromverbrauch
    zu optimieren und den Einsatz von erneuerbaren Energien im Stromnetz zu
    erleichtern.
 
@@ -337,7 +337,7 @@ Nachtstromtarife sind Stromtarife, bei denen der Stromverbrauch in der Nacht
 günstiger ist als tagsüber. Diese Tarife werden auch als "Niedertarif" oder
 "Heizstrom" bezeichnet und sind vor allem für Verbraucher interessant, die
 elektrische Speicherheizungen, Warmwasserboiler oder andere strombetriebene
-Geräte haben, die nachts genutzt werden können. Um sie nutzen zu können benötigt
+Geräte haben, die nachts genutzt werden können. Um sie nutzen zu können, benötigt
 man einen Stromzähler, welcher es erlaubt
 
 Nachtstromtarife gibt es aus historischen Gründen, da in der Vergangenheit vor
@@ -345,11 +345,11 @@ allem konventionelle Kraftwerke wie Kohle- oder Atomkraftwerke den Strombedarf
 gedeckt haben. Da diese Kraftwerke kontinuierlich Strom produzieren und nur
 schwer gedrosselt werden können, war es nachts oft günstiger, den überschüssigen
 Strom zu einem niedrigeren Preis anzubieten, als ihn einfach ungenutzt zu
-lassen. Außerdem konnte der Nachtstrom zur Speicherung in Wasserkraftwerken
+lassen. Außerdem konnte der Nachtstrom zur Speicherung in Pumpspeicherkraftwerken
 genutzt werden, um bei höherem Strombedarf tagsüber zusätzlichen Strom zur
 Verfügung zu stellen.
 
-Ich bin gespannt ob es diese Tarife in Zukunft noch geben wird, wenn wir nun
+Ich bin gespannt, ob es diese Tarife in Zukunft noch geben wird, wenn wir nun
 aufgrund der Photovoltaik tagsüber eine höhere Stromproduktion haben.
 
 
@@ -385,9 +385,9 @@ Stromnetz entlasten.
 
 ## Fazit
 
-Wir sollten nach- und nach überall intelligente Messsysteme einführen und alle
+Wir sollten nach und nach überall intelligente Messsysteme einführen und alle
 Tarife dynamisch machen. Zum einen scheint es mir ein faireres Angebot zu sein,
-bei dem der Anbieter keinen Risiko-Aufschlag mehr berücksichtigen muss. Zum
+bei dem der Anbieter keinen Risikoaufschlag mehr berücksichtigen muss. Zum
 anderen kann man so auch sehr schnell unerwartete Spitzen im Verbrauch sowie
 ggf. auch ineffiziente Verbraucher sehen.
 
@@ -400,7 +400,7 @@ Außerdem verlangen die meisten Stadtwerke für modernere Messeinrichtungen eine
 höhere Gebühr. Sehr schade. Ich würde mir wünschen, dass man sich einfach
 komplett selbst darum kümmern kann.
 
-Eine Alternative welche mehr in Richtung der dynamischen Strompreise geht bietet
+Eine Alternative, welche mehr in Richtung der dynamischen Strompreise geht, bietet
 z.B. [RABOT Charge](https://www.rabot-charge.de/) an. Hier wird der Verbrauch
 monatlich erfasst und man bezahlt für diesen. Ist kein intelligentes Messsystem
 vorhanden, so wird ein Standardlastprofil angenommen und der Abrechnungspreis

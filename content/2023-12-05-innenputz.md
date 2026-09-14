@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Innenputz
 slug: innenputz
+lang: de
 author: Martin Thoma
 date: 2023-12-05 20:00
 category: My bits and bytes
@@ -112,7 +112,7 @@ Außerdem:
 
 * Kalkgipsputz kann Schimmel tragen, schimmelt selber aber nicht
 * Gipsputze wirken feuchteregulierend.
-* Kalkputze haben einen höheren PH Wert.
+* Kalkputze haben einen höheren pH-Wert.
 
 ## Brandverhalten
 
@@ -144,7 +144,7 @@ Die Formel zur Berechnung lautet:
 
 sd = μ x d
 
-wobei μ für den Wasserdampfdiffusionswiderstand d die Dicke der Baustoffschicht
+wobei μ für den Wasserdampfdiffusionswiderstand und d für die Dicke der Baustoffschicht
 in Metern steht.
 
 
@@ -186,7 +186,7 @@ in Metern steht.
   gleicher Dicke passieren.
 * R-Wert = d / λ = (m² K) / W: Je höher der Wärmedurchlasswiderstand eines Bauteils, umso
   weniger lässt es Wärme entweichen.
-* U-Wert = 1 / R = W/(m² K),: Je kleiner der U-Wert, umso besser ist der Wärmeschutz.
+* U-Wert = 1 / R = W/(m² K): Je kleiner der U-Wert, umso besser ist der Wärmeschutz.
 
 
 ## Beton Ciré / Mikrozement
@@ -202,15 +202,15 @@ Kalkputz-Versiegelung in der Dusche muss jährlich erneuert werden.
 
 Kalkzement, Kalkmarmor, Beton Ciré, Tadelakt,
 
-## Qulitätsstufen von Innenputz-Auftrag
+## Qualitätsstufen von Innenputz-Auftrag
 
 * Q1: Grundverspachtelung
-    * vollständiges Füllen der Stoßfugen oder Gipsbauplatte
-    * überziehen der sichtbaren Teile der Befestigungsmittel
-    * Geeignet für Fliesen, Platten oder dickschichtigen Putzen mit Körnung > 2 mm
+    * vollständiges Füllen der Stoßfugen der Gipsbauplatten
+    * Überziehen der sichtbaren Teile der Befestigungsmittel
+    * Geeignet für Fliesen, Platten oder dickschichtige Putze mit Körnung > 2 mm
 * Q2: Standardverspachtelung
     * Es dürfen keine Bearbeitungsabdrücke und Spachtelgrate sichtbar sein.
-    * Oberfläche schleifen falls nötig
+    * Oberfläche schleifen, falls nötig
     * Geeignet für Raufasertapete
 * Q3: Sonderverspachtelung
 * Q4:
@@ -225,7 +225,7 @@ Fugen will und auch nicht jährlich die Wandversiegelung erneuern will, muss man
 eine Duschrückwand anbringen. Möglich sind:
 
 * Aluminium-Verbundplatten
-* Glaß
+* Glas
 
 Einbau-Anleitungen:
 

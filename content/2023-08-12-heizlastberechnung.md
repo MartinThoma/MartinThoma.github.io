@@ -29,18 +29,18 @@ Quelle: [haustechnikverstehen.de](https://www.haustechnikverstehen.de/glossary/n
 Es ist also insbesondere nicht die kälteste gemessene Temperatur. Es ist jedoch
 eine sinnvolle Annahme für die Dimensionierung des Heizsystems.
 
-Beispiel: In München (PLZ 80939) liegt die Norm-Außentemperatur bei -12.9°C, aber
-die kälteste gemessene Temperatur bei -19.20°C ([Quelle](https://www.waermepumpe.de/normen-technik/klimakarte/)).
+Beispiel: In München (PLZ 80939) liegt die Norm-Außentemperatur bei -12,9°C, aber
+die kälteste gemessene Temperatur bei -19,2°C ([Quelle](https://www.waermepumpe.de/normen-technik/klimakarte/)).
 Das Histogramm zeigt, dass es in München zwischen 2005 und 2023 im Schnitt in einem
-Jahr nur 5.8 Stunden unter -13°C hatte.
+Jahr nur 5,8 Stunden unter -13°C hatte.
 
-Legt man seine Heiztechnik nun für -12.9°C aus, dann ist es in diesen 5.8
+Legt man seine Heiztechnik nun für -12,9°C aus, dann ist sie in diesen 5,8
 Stunden im Jahr unterdimensioniert. In der Zeit verliert das Haus also Wärme,
 wenn man nicht gegensteuert. Das kann man zum Beispiel einfach mit einem mobilen
 Heizlüfter für 20€ lösen. Allerdings sind diese 5 Stunden vermutlich ohnehin in der Nacht.
 Und das Haus wird ja nicht sofort klirrend kalt, sondern kühlt allmählich ab.
 
-Wenn man hingegen die Heiztechnik nicht auf -12.9°C sondern auf -19.20°C auslegt,
+Wenn man hingegen die Heiztechnik nicht auf -12,9°C, sondern auf -19,2°C auslegt,
 dann kann man mit einigen tausend Euro an Mehrkosten rechnen.
 
 
@@ -65,16 +65,16 @@ Verständnis von diesen zu bekommen:
 Eine geschlossene Plastik-Tüte hat keinen Luftaustausch. Es gibt also keine
 Lüftungswärme-Verluste. Dennoch wird es in der Tüte kalt. Das sieht man z.B.
 wenn man Wassereis in den Gefrierschrank legt. Das sind reine
-Transmissunswärmeverluste.
+Transmissionswärmeverluste.
 
-Umgekehrt verhindern diese Glasfaser-Dämmplatten nicht, dass es durch zieht.
+Umgekehrt verhindern diese Glasfaser-Dämmplatten nicht, dass es durchzieht.
 Wenn man also zu viel Luftaustausch hat, dann kann der Lüftungswärmeverlust
 auch hoch sein.
 
 
 ### Lüftungswärmeverluste
 
-Man muss die Raumluft etwa alle zwei Stunden wechseln um Schimmel zu vermeiden.
+Man muss die Raumluft etwa alle zwei Stunden wechseln, um Schimmel zu vermeiden.
 Teilweise sehe ich auch 4x pro Tag ([Quelle](https://www.ndr.de/ratgeber/verbraucher/Wohnung-richtig-lueften-So-laesst-sich-Schimmel-vermeiden,richtiglueften100.html)), aber hier rechne ich mal lieber vorsichtig. Da die Gebäudehülle auch nicht
 ganz dicht ist, nehme ich hier lieber einen höheren Wert an.
 
@@ -83,9 +83,9 @@ dass ich die Luft mit der Außentemperatur auf die Innentemperatur anheben muss.
 
 Ich brauche also:
 
-* **Raumvolumen $V$**: Typischerweise B×L×H. Bei einer Dachschräge oder nicht-Quaderförmigen
+* **Raumvolumen $V$**: Typischerweise B×L×H. Bei einer Dachschräge oder nicht quaderförmigen
   Räumen wird es komplizierter, aber das ist immer noch alles einfache Geometrie.
-* **Energie für 1m³ Luft**: 0.34 Wh / K
+* **Energie für 1m³ Luft**: 0,34 Wh/K
 * **Pro Stunde die Hälfte des Raumvolumens**
 * **Temperaturdifferenz $\Delta_T$**: Die gewünschte Innentemperatur minus die Norm-Außentemperatur
 
@@ -93,18 +93,18 @@ Daher ist die Leistung für den Ausgleich der Lüftungswärmeverluste:
 
 $P_{\text{Lüftung}} = 0.34 \frac{Wh}{K} \cdot \frac{V}{2} \cdot \Delta_T$
 
-Beispiel: Angenommen ich habe einen Raum mit 3m Länge, 4m Breite, und einer Raumhöhe von 2.45m. Dann habe ich ein Volumen von $V = 3\text{m} \cdot 4\text{m} \cdot 2.45\text{m} = 29.4\text{m}^3$.
-Angenommen ich habe eine Norm-Außentemperatur von -13°C und eine Wunschtemperatur von 22°C.
+Beispiel: Angenommen, ich habe einen Raum mit 3m Länge, 4m Breite und einer Raumhöhe von 2,45m. Dann habe ich ein Volumen von $V = 3\text{m} \cdot 4\text{m} \cdot 2.45\text{m} = 29.4\text{m}^3$.
+Angenommen, ich habe eine Norm-Außentemperatur von -13°C und eine Wunschtemperatur von 22°C.
 Dann habe ich $\Delta_T = 22 - (-13) = 35 K$.
 
-Um die Lüftungsverluste dieses Raumes auszugleichen muss ich also Wärme in Höhe
+Um die Lüftungsverluste dieses Raumes auszugleichen, muss ich also Wärme in Höhe
 von $= 0.34 \frac{Wh}{K} \cdot \frac{29.4\text{m}^3}{2} \cdot 35 K \approx 175W$
 hinzuführen.
 
 
 ### Transmissionswärmeverluste
 
-Hier kommt es auf die Außenfläche an und der Wärmedurchgangskoeffizient (U-Wert)
+Hier kommt es auf die Außenfläche an, und der Wärmedurchgangskoeffizient (U-Wert)
 kommt ins Spiel. Der U-Wert gibt an, wie viel Energie verloren geht, wenn
 draußen die Temperatur ein Grad kälter ist. Er wird in $\frac{W}{m^2 \cdot K}$ angegeben.
 
@@ -116,42 +116,42 @@ haben für Altbauten Tabellen in einer [Bekanntmachung der Regeln zur Datenaufna
 Die wichtigsten Punkte:
 
 * **Fenster**: z.B. die Baualtersklasse 1984 bis 1994 hat bei Holzfenstern mit zwei Scheiben einen U-Wert von $2.7 \frac{W}{m^2 \cdot K}$.
-* **Rolläden**: z.B. $3.6 \frac{W}{m^2 \cdot K}$
+* **Rollläden**: z.B. $3.6 \frac{W}{m^2 \cdot K}$
 * **Außenwände / Decke**: z.B. $0.6 \frac{W}{m^2 \cdot K}$
 
-Angenommen der Raum hat ein Fenster mit den Maßen 1.10m × 1.20m. Dabei messe ich
+Angenommen, der Raum hat ein Fenster mit den Maßen 1,10m × 1,20m. Dabei messe ich
 die Nische, nicht nur das Glas. Der U-Wert gilt für das Bauteil insgesamt.
 Manchmal sieht man auch $U_W$ (w für window, also Fenster) und $U_G$ (g für glass, also das Fensterglas).
 Der $U_W$-Wert bezieht sich auf das ganze Bauteil.
 
 Dann habe ich nur für das Fenster einen Wärmeverlust von $2.7\frac{\text{W}}{\text{m}^2 \cdot K} \cdot (1.1\text{m} \cdot 1.2\text{m}) \cdot (22 - (-13))K \approx 125 \text{W}$.
 
-Die Rolladenfläche kann man einfach mit 10% der Fensterfläche annehmen. Dafür gibt es dann
+Die Rollladenfläche kann man einfach mit 10% der Fensterfläche annehmen. Dafür gibt es dann
 $3.6 \cdot 0.132 \cdot 35 \text{W} \approx 17\text{W}$.
 
-Angenommen zwei Wände sind Außenwände. Interessant ist die Fläche von außen und
-nicht von Innen. Wir können aber die Innenfläche berechnen und +25% addieren, also:
+Angenommen, zwei Wände sind Außenwände. Interessant ist die Fläche von außen und
+nicht von innen. Wir können aber die Innenfläche berechnen und +25% addieren, also:
 
 $0.6 \cdot (2.45 \cdot (4 + 3)) \cdot 1.25 \cdot 35 \text{W} \approx 450 \text{W}$.
 
-Jetzt nehmen wir auch mal an, das sowohl das Geschoss darunter als auch das
+Jetzt nehmen wir auch mal an, dass sowohl das Geschoss darunter als auch das
 Geschoss darüber beheizt sind. Dann sind wir hier fertig.
 
-Wir kommen also auf Transimissionsverluste von $125 + 17 + 450 \text{W} = 592 \text{W}$.
+Wir kommen also auf Transmissionsverluste von $125 + 17 + 450 \text{W} = 592 \text{W}$.
 
 
 
 ## Die Leistung von Heizkörpern
 
-[DIN EN 442 (Radiatoren und Konvektoren)](https://www.beuth.de/de/norm/din-en-442-2/207503152) gibt an welche
+[DIN EN 442 (Radiatoren und Konvektoren)](https://www.beuth.de/de/norm/din-en-442-2/207503152) gibt an, welche
 Leistung verschiedene Heizkörper haben. Ich habe die Norm nicht gelesen, habe aber
 Auszüge davon gesehen.
 
-Als erstes muss man die Maße (Breite × Höhe) des Heizkörpers bestimmen. Dann
+Als Erstes muss man die Maße (Breite × Höhe) des Heizkörpers bestimmen. Dann
 braucht man den Heizkörper-Typ. Dieser besteht aus zwei Ziffern:
 
 * Erste Ziffer: Anzahl der Platten, durch die Wasser fließt. Entweder 1, 2 oder 3.
-* Zweite Ziffer: Anzahl der Lamellen. Entweder 0, 1, 2, oder 3.
+* Zweite Ziffer: Anzahl der Lamellen. Entweder 0, 1, 2 oder 3.
 
 Das kann man einfach sehen, wenn man den Heizkörper von oben anschaut.
 

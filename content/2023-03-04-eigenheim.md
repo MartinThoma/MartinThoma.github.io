@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Der Weg zum Eigenheim
 slug: eigenheim
+lang: de
 author: Martin Thoma
 date: 2023-03-04 20:00
 category: German posts
@@ -22,7 +22,7 @@ keine Erbpacht, kein Denkmalschutz, keine Gewerbe-Einheiten, keine vermieteten
 Einliegerwohnungen.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2023/03/Projekt-Eigenheim.drawio.png"><img src="../images/2023/03/Projekt-Eigenheim.drawio.png" alt="A Text-to-Speech pipeline" style="width: 512px;"/></a>
+<a href="../images/2023/03/Projekt-Eigenheim.drawio.png"><img src="../images/2023/03/Projekt-Eigenheim.drawio.png" alt="Der Fahrplan zum Projekt Eigenheim" style="width: 512px;"/></a>
 <figcaption class="text-center">Der Fahrplan zum Projekt Eigenheim - beim Altbau</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ Bei der Finanzierung gibt es erstaunlich wenige relevante Fragen:
    Hier kann man ggf. bei einem Neubau das sog. "Muskelkapital" mit einbringen,
    wenn man ein paar Sachen in Eigenleistung erbringen kann. Ein Beispiel
    wären Malerarbeiten. Man muss mindestens 11% des Kaufpreises als Eigenkapital mitbringen.
-   Das sind die Kaufnebenkosten. Wenn man nur diese bezahlt spricht man von einer
+   Das sind die Kaufnebenkosten. Wenn man nur diese bezahlt, spricht man von einer
    100%-Finanzierung.
 2. **Einkommen**: Die Bank lässt typischerweise ca. 1/3 des Netto-Einkommens als
    verfügbares Einkommen für einen Kredit zu.
@@ -55,17 +55,17 @@ $$
 \end{align}
 $$
 
-Die maximale Rate mit 1/3 des Monatsgehalts anzusetzen kann natürlich auch
-deutlich daneben liegen. Das hängt von den persönlichen Verpflichtungen ab.
+Die maximale Rate mit 1/3 des Monatsgehalts anzusetzen, kann natürlich auch
+deutlich danebenliegen. Das hängt von den persönlichen Verpflichtungen ab.
 
 **Beispiel**: Man kauft einen Altbau für 450k EUR. Dann kommen da nochmals 11% Kaufnebenkosten
-(Makler, Notar, Grundbucheintrag, Grunderwerbssteuer) oben drauf. Also ca. 500k EUR.
-Angenommen man bringt **150k EUR Eigenkapital** mit ein. Dann hat man einen
+(Makler, Notar, Grundbucheintrag, Grunderwerbsteuer) oben drauf. Also ca. 500k EUR.
+Angenommen, man bringt **150k EUR Eigenkapital** mit ein. Dann hat man einen
 Finanzierungsbedarf von 350k EUR. In der Altersgruppe von 35-39 ist ein Haushalt
 ohne Partner damit in den Top-20% ([faz.net](https://www.faz.net/aktuell/wirtschaft/wie-reich-bin-ich-vermoegen-im-vergleich-17016897.html)).
 
 Wenn man also einen **350.000 EUR Kredit** aufnimmt und
-einen **4% Zins** bekommt, so muss man eine Rate von 6% von 350.000 pro Jahr
+**4% Zinsen** bekommt, so muss man eine Rate von 6% von 350.000 pro Jahr
 leisten können. Das sind 21k EUR / Jahr oder **1750 EUR/Monat**.
 
 Damit die Bank einen solchen Kredit gibt, muss man also ein regelmäßiges Netto-Einkommen
@@ -93,17 +93,17 @@ wohl eher nicht, weil man ihn in der Lebenszeit kaum abbezahlen kann.
 
 Es gibt zwei Portale, die kostenlos eine Finanzierungsvermittlung anbieten:
 
-* [Dr Klein](https://www.drklein.de/)
+* [Dr. Klein](https://www.drklein.de/)
 * [Interhyp](https://www.interhyp.de/)
 
 Die Portale bekommen bei der Vermittlung eine Provision von der Bank.
 
-## 2. Flächenbedarf Berechnen
+## 2. Flächenbedarf berechnen
 
 Bevor man das Haus plant, sollte man wissen, wie viel Haus man braucht. Hier
 eine sehr grobe Einschätzung:
 
-* 47.7m²/Person ist 2021 der Durchschnitt in Deutschland ([Quelle](https://de.statista.com/statistik/daten/studie/36495/umfrage/wohnflaeche-je-einwohner-in-deutschland-von-1989-bis-2004/))
+* 47,7m²/Person ist 2021 der Durchschnitt in Deutschland ([Quelle](https://de.statista.com/statistik/daten/studie/36495/umfrage/wohnflaeche-je-einwohner-in-deutschland-von-1989-bis-2004/))
 * 70m² für zwei Personen würde ich als komfortabel einordnen.
 * 140m² für vier Personen funktioniert auch gut
 
@@ -112,8 +112,8 @@ ist stark vom Schnitt der Wohnung / des Hauses abhängig.
 
 Hier ein paar einzelne "ideale" Raumgrößen:
 
-* **Eltern-Schlafzimmer** (12m² = 3m x 4m): Groß genug um ein Doppelbett mit Kommode
-  aufzustellen, und gleichzeitig einen großen Kleiderschrank zu haben.
+* **Eltern-Schlafzimmer** (12m² = 3m x 4m): Groß genug, um ein Doppelbett mit Kommode
+  aufzustellen und gleichzeitig einen großen Kleiderschrank zu haben.
 * **Kinder-Schlafzimmer** (16m² = 4m x 4m): Im Gegensatz zu den Eltern verbringt
   das Kind einen Großteil der Zeit im Kinderzimmer. Ein Schreibtisch muss hier
   Platz finden.
@@ -142,9 +142,9 @@ Haus rechnen.
 
 #### Das Grundstück
 
-Am oberen Ende: In München bezahlt man 2023 im Durchschnitt 3374 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/muenchen-landeshauptstadt)), in Augsburg 1212 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/augsburg-stadt)), und in Bayreuth 245 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/bayreuth-stadt))
+Am oberen Ende: In München bezahlt man 2023 im Durchschnitt 3374 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/muenchen-landeshauptstadt)), in Augsburg 1212 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/augsburg-stadt)), und in Bayreuth 245 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/bayreuth-stadt)).
 
-Am unteren Ende: In Hof bezahlt man 2023 im Durchschnitt 62 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/hof-stadt)), Wunsiedel 49 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/wunsiedel-i-fichtelgebirge)), und Lichtfels 89 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/lichtenfels)).
+Am unteren Ende: In Hof bezahlt man 2023 im Durchschnitt 62 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/hof-stadt)), Wunsiedel 49 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/wunsiedel-i-fichtelgebirge)), und Lichtenfels 89 EUR/m² ([Quelle](https://www.aktuelle-grundstueckspreise.de/deutschland/bayern/lichtenfels)).
 
 Die Größe des Grundstücks bestimmt zusammen mit dem Bebauungsplan, wie groß das
 Haus sein darf. Im Bebauungsplan legt die Stadt fest, wie viele Stockwerke man
@@ -171,7 +171,7 @@ Die Kosten vom Haus sind von sehr vielen Faktoren abhängig:
   Mehr Stromleitungen müssen verlegt und Steckdosen gesetzt werden. Mehr Fenster
   und Türen sind fällig.
 * **Qualität**: Soll das Haus im Passivhaus-Standard
-  ausgeführt werden oder nur ein KfW-55 Haus sein? Will man pro
+  ausgeführt werden oder nur ein KfW-55-Haus sein? Will man pro
   Zimmer eher 2 Steckdosen oder doch lieber 8? Will man die Wände Q1 / Q2 / Q3 / Q4
   gespachtelt haben?
 * **Keller**: Will man einen Keller oder nur eine Bodenplatte?
@@ -181,7 +181,7 @@ Die Kosten vom Haus sind von sehr vielen Faktoren abhängig:
 
 Als Daumenregel bei mittlerer bis guter Qualität kann man mit 3500 EUR/m²
 Wohnfläche rechnen. Baut man also ein Haus für zwei Erwachsene und zwei Kinder
-mit 140m² so ist man für den Neubau bei 490.000 EUR. Ohne Grundstück.
+mit 140m², so ist man für den Neubau bei 490.000 EUR. Ohne Grundstück.
 
 ### Altbau
 
@@ -189,7 +189,7 @@ Sucht man auf [immobilienscout24](https://www.immobilienscout24.de/) nach
 Einfamilienhäusern in Bayern, so findet man im März 2023 [über 1000 Ergebnisse](https://www.immobilienscout24.de/Suche/de/bayern/einfamilienhaus-kaufen?price=10000.0-&livingspace=90.0-&energyefficiencyclasses=a,b,c,d,e,a_plus&fulltext=-Erbbauzins,%20-Erbbaurecht,%20-Erbbau,%20-Nie%C3%9Fbrauchbasis,%20-erbpacht,%20-Zwangsversteigerung&exclusioncriteria=projectlisting,foreclosure,unbuilthome&sorting=4&pagenumber=2).
 
 Die Preise variieren von 165.000 EUR für 159m² Wohnfläche / 309m² Grundstück in
-Freyung-Grafenau bis zu 10.9 Millionen EUR für 357m² Wohnfläche / 324m² Grundstück
+Freyung-Grafenau bis zu 10,9 Millionen EUR für 357m² Wohnfläche / 324m² Grundstück
 in München (Altbogenhausen).
 
 Ich würde sagen, dass man unter 300k EUR wohl nichts Vernünftiges finden wird.
@@ -197,13 +197,13 @@ Ab 500k EUR findet man einiges; über 700k EUR wird es leicht.
 
 ## 4. Finanzierung vorbereiten
 
-Der Finanzierungsberater sagt, was er braucht, aber mit folgendem muss man rechnen:
+Der Finanzierungsberater sagt, was er braucht, aber mit Folgendem muss man rechnen:
 
 Über den/die Kreditnehmer:
 
 * Die letzten drei Gehaltsnachweise
 * Lohnsteuerbescheinigung
-* Einkommenssteuerbescheid
+* Einkommensteuerbescheid
 * Schufa-Auskunft
 * Nachweise über das Eigenkapital
 * Kopie des Personalausweises
@@ -218,7 +218,7 @@ Der Finanzierungsberater sagt, was er braucht, aber mit folgendem muss man rechn
 * Energiebedarf laut Energieausweis
 * Heizungs-Typ
 * Letzte Modernisierung (Heizungsanlage, Fenster, Fassade, Dach)
-* Ausstattung: einfach, marktüblich, oder gehoben?
+* Ausstattung: einfach, marktüblich oder gehoben?
 * Garage: Wie viele Stellplätze? Ist es ein Carport?
 * Besonderheiten: Denkmalschutz / Ensembleschutz / Erbbaurecht bzw. Erbpacht?
 * Sind Altlasten auf dem Grundstück?

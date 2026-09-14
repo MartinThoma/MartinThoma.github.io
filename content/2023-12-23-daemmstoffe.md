@@ -93,7 +93,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>15.3 W/m&sup2;</td>
         <td>1</td>
         <td>0</td>
-        <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> - gut wenn es trocken ist, also nicht als Zwischensparrendämmung im Dach!<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+        <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> - gut, wenn es trocken ist, also nicht als Zwischensparrendämmung im Dach!<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
     </tr>
     <tr>
         <td>Mineral&shy;faserplatten (Steinwolle als Platte)</td>
@@ -132,15 +132,15 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>7</td>
         <td>0.7</td>
         <td>230 - 265kg/m&sup3;</td>
-        <td>25.2 W/m&sup2</td>
+        <td>25.2 W/m&sup2;</td>
         <td>5-20</td>
         <td>+++</td>
         <td class="good">stark gegen Schimmel</td>
     </tr>
     <tr>
-        <td>Poroton <abbr title="Poroton mit Perlite gefüll">T7</abbr></td>
+        <td>Poroton <abbr title="Poroton mit Perlite gefüllt">T7</abbr></td>
         <td><a href="https://www.baustoffshop.de/poroton-planziegel-t7-36-5-p-perlite.html">23&nbsp;€/m² bei 24.8cm Dicke</a></td>
-        <td class="good">F 90-A </td>
+        <td class="good">F 90-A</td>
         <td class="good">✔</td>
         <td>0.070&nbsp;W/(mK)</td>
         <td>7</td>
@@ -167,7 +167,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
     <tr>
         <td>Expandiertes Polystyrol (EPS), Extrudiertes Polystyrol (XPS), Polystyrol ("Styropor")</td>
-        <td>17&nbsp;€/m² für 12cm; </td>
+        <td>17&nbsp;€/m² für 12cm</td>
         <td>B1 - B2</td>
         <td class="bad">✘<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
         <td class="good">0.032 - 0.040 W/mK</td>
@@ -209,7 +209,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
     </tr>
 </table>
 
-Wenn man jetzt ein 11m × 11m Haus hat, sich überlegt ein Geschoss (2.5m) mit ca.
+Wenn man jetzt ein 11m × 11m Haus hat, sich überlegt, ein Geschoss (2,5m) mit ca.
 20% Fenstern zu dämmen und man aktuell einen U-Wert von 1.7 W/(m²·K) hat,
 dann wäre der Verlust aktuell bei
 
@@ -224,7 +224,7 @@ also:
 
 $$\frac{1}{\frac{1}{1.7} + \frac{1}{0.35}} = 0.3$$
 
-Würde man 20cm Aufbringen:
+Würde man 20cm aufbringen:
 
 $$\frac{1}{\frac{1}{1.7} + \frac{1}{0.175}} = 0.16$$
 

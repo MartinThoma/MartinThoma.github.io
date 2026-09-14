@@ -50,7 +50,7 @@ wieder zum Heizen abgezogen werden.
 Von wie viel Wasser reden wir?
 
 * 10m³ = 10.000 L
-* Eis hat eine Dichte von 0.918 kg/L.
+* Eis hat eine Dichte von 0,918 kg/L.
 
 Also sind 10.000L gleich 9180kg.
 
@@ -66,9 +66,9 @@ wie um 1 kg Wasser von 0°C auf 82°C zu erhitzen!
 
 ### Konkrete Wärmespeicher
 
-Angenommen wir sind bei ca +9°C Wassertemperatur und haben keine Wärmeverluste.
+Angenommen, wir sind bei ca. +9°C Wassertemperatur und haben keine Wärmeverluste.
 
-Dann können wir durch das Abkühlen des Wasser von 9°C auf 0°C (flüssig) folgende
+Dann können wir durch das Abkühlen des Wassers von 9°C auf 0°C (flüssig) folgende
 Energiemenge extrahieren:
 
 \begin{align}
@@ -87,9 +87,9 @@ in den Winter bringen.
 ### Energiebedarf
 
 Ein Haus mit 155m² Wohnfläche und einem Bedarf von 96 kWh / (m² ⋅ a) benötigt
-im Jahr 14880 kWh zum heizen.
+im Jahr 14880 kWh zum Heizen.
 
-Der Wärmespeicher würde also 6.5% des Jahresbedarfs decken.
+Der Wärmespeicher würde also 6,5% des Jahresbedarfs decken.
 
 ## Kritik
 
@@ -116,7 +116,7 @@ wird weniger/schlechter sein), dann würde man 2976 kWh Strom anstelle von
 3720 kWh Strom pro Jahr für die Heizung bezahlen. Man spart sich also 744 kWh
 Strom.
 
-Bei einem Strompreis von 0.34€/kWh sind das etwa 250€/Jahr.
+Bei einem Strompreis von 0,34€/kWh sind das etwa 250€/Jahr.
 
 Die Amortisationszeit wäre also bei 10.000€ / (250€/Jahr) = 40 Jahren - und
 das, obwohl ich Wartungskosten nicht berücksichtigt habe.
