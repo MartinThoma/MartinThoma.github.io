@@ -46,7 +46,7 @@ world's electricity in 2023.
 There are a few countries with a significant share of nuclear energy in their
 electricity mix:
 
-* [France](https://en.wikipedia.org/wiki/Nuclear_power_in_France): [64% in 2023](https://www.iea.org/countries/france/electricity), but it seems to drop since 2015. Most notably are [long outages due to heat waves](https://efe.com/en/economia/2023-08-17/france-to-reduce-nuclear-power-generation-due-to-heat-wave/) in 2023.
+* [France](https://en.wikipedia.org/wiki/Nuclear_power_in_France): [64% in 2023](https://www.iea.org/countries/france/electricity), but it seems to have been dropping since 2015. Most notable were [long outages due to heat waves](https://efe.com/en/economia/2023-08-17/france-to-reduce-nuclear-power-generation-due-to-heat-wave/) in 2023.
 * Slovakia: [29% in 2023](https://www.iea.org/countries/slovak-republic/energy-mix)
 * [Switzerland](https://en.wikipedia.org/wiki/Nuclear_power_in_Switzerland): [28% in 2023](https://www.iea.org/countries/switzerland/energy-mix)
 * Bulgaria: [25% in 2023](https://www.iea.org/countries/bulgaria/energy-mix)
@@ -56,12 +56,12 @@ electricity mix:
   2023](https://www.iea.org/countries/belgium/energy-mix). They planned a
   nuclear phase-out until 2035, but reversed course in 2025.
 * [South Korea](https://en.wikipedia.org/wiki/Nuclear_power_in_South_Korea): [17% in 2023](https://www.iea.org/countries/korea/energy-mix)
-* [Spain](https://en.wikipedia.org/wiki/Nuclear_power_in_Spain): [13% in 2023](https://www.iea.org/countries/spain/energy-mix). They plan to [phase out nuclear power by 2035](https://www.reuters.com/business/energy/spain-confirms-nuclear-power-phase-out-extends-renewable-projects-deadlines-2023-12-27/)
+* [Spain](https://en.wikipedia.org/wiki/Nuclear_power_in_Spain): [13% in 2023](https://www.iea.org/countries/spain/energy-mix). They plan to [phase out nuclear power by 2035](https://www.reuters.com/business/energy/spain-confirms-nuclear-power-phase-out-extends-renewable-projects-deadlines-2023-12-27/).
 * [United States](https://en.wikipedia.org/wiki/Nuclear_power_in_the_United_States): [10% in 2023](https://www.iea.org/countries/united-states/energy-mix).
 
 Worldwide, there are approximately 70 reactors under construction and about 100
 additional reactors planned
-([source](https://world-nuclear.org/information-library/current-and-future-generation/plans-for-new-reactors-worldwide?utm_source=chatgpt.com)):
+([source](https://world-nuclear.org/information-library/current-and-future-generation/plans-for-new-reactors-worldwide)):
 
 * Only 15 countries are building new reactors: Argentina, Bangladesh, Brazil,
   China, Egypt, India, Iran, Japan, Pakistan, Russia, Slovakia, South Korea,
@@ -101,8 +101,7 @@ the energy production to when it's needed.
 [Edwards & Sanborn](https://www.saurenergy.com/solar-energy-blog/top-5-largest-bess-projects-in-the-world-in-2025)
 by Terra-Gen is the biggest **battery energy storage system (BESS)** in the
 world, with a capacity of **3.3 GWh** and an output of 0.8 GW. It is located in
-California and was completed in 2024. The biggest BESS in Kern County,
-California, US.
+Kern County, California, US, and was completed in 2024.
 
 In comparison, in 2024, Germany’s total electricity consumption (grid load) was
 approximately 462 TWh. So about 1265 GWh/day.

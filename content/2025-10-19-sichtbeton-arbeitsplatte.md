@@ -17,7 +17,7 @@ status: draft
 
 Ich will eine weiße Sichtbeton-Tischplatte mit den Maßen 150cm x 60cm x 2.5cm herstellen.
 
-Ich habe bereits folgendes:
+Ich habe bereits Folgendes:
 
 * Basaltfasergewebe 200 g/m², 200 cm breit, lfm
 * AR-Basaltfaser dispersibel 12mm 0,5kg
@@ -25,4 +25,4 @@ Ich habe bereits folgendes:
 * Microsilica Pulver, grau 2kg
 * Betonimprägnierung 1,0L
 * Weißzement Dyckerhoff Weiß CEM I 42,5/R, 25 kg
-* 25 kg. Quarzsand 0,1-0,4 mm
+* 25 kg Quarzsand 0,1-0,4 mm

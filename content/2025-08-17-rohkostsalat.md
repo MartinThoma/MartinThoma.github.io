@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Rezept: Rohkostsalat
 slug: rohkostsalat
+lang: de
 author: Martin Thoma
 date: 2025-08-17 20:00
 category: My bits and bytes
@@ -12,8 +12,8 @@ featured_image: logos/cooking.png
 Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und leckere Beilage.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/salat.jpg"><img src="../images/2025/09/salat.jpg" alt="ChatGPT rendering eines Rohkostsalats. Der Salat besteht aus frischen, bunten Gemüsesorten." style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT rendering eines Rohkostsalats. Der Salat besteht aus frischen, bunten Gemüsesorten.</figcaption>
+    <a href="../images/2025/09/salat.jpg"><img src="../images/2025/09/salat.jpg" alt="ChatGPT-Rendering eines Rohkostsalats. Der Salat besteht aus frischen, bunten Gemüsesorten." style="max-height: 512px"/></a>
+    <figcaption class="text-center">ChatGPT-Rendering eines Rohkostsalats. Der Salat besteht aus frischen, bunten Gemüsesorten.</figcaption>
 </figure>
 
 Hier ist ein einfaches Rezept:
@@ -67,7 +67,7 @@ Hier ist ein einfaches Rezept:
             <td>?</td>
         </tr>
         <tr>
-            <td>Protein (Eiweis, g)</td>
+            <td>Protein (Eiweiß, g)</td>
             <td>1</td>
             <td>1</td>
             <td>3,3</td>
@@ -85,7 +85,7 @@ Hier ist ein einfaches Rezept:
             <td>0,0</td>
             <td>0,0</td>
             <td>1,0</td>
-            <td>8.3</td>
+            <td>8,3</td>
             <td>?</td>
         </tr>
         <tr>

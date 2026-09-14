@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Wirtschaft und Staatsfinanzen in Deutschland
 slug: wirtschaft-und-staatsfinanzen-in-deutschland
+lang: de
 author: Martin Thoma
 date: 2025-01-17 20:00
 category: My bits and bytes
@@ -32,19 +32,19 @@ zu berücksichtigen. Ihre Auswirkungen traten teils verzögert auf und sind noch
 immer spürbar.
 
 Die [Arbeitslosenquote](https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Lange-Reihen/Arbeitsmarkt/lrarb003ga.html) liegt 2024 bei 6,5 % auf einem niedrigen Niveau.
-Nur in den Jahren 2022, 2019, 2018 und vor 1980 lag sie unter 6 %. Aktuell sind [650.000 Arbeitsstellen offen und beim BA gemeldet](https://de.statista.com/statistik/daten/studie/2900/umfrage/entwicklung-des-gemeldeten-offenen-arbeitsstellenbestands/).
+Nur in den Jahren 2022, 2019, 2018 und vor 1980 lag sie unter 6 %. Aktuell sind [650.000 Arbeitsstellen offen und bei der BA gemeldet](https://de.statista.com/statistik/daten/studie/2900/umfrage/entwicklung-des-gemeldeten-offenen-arbeitsstellenbestands/).
 
 Auch die
 [Unternehmensinsolvenzen](https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Unternehmen/Gewerbemeldungen-Insolvenzen/Tabellen/lrins01.html#242428)
 sind mit 17.814 (2023) auf einem niedrigen Niveau. Nur in den Jahren 2022, 2021,
 2020 sowie in den 1990er Jahren gab es weniger Insolvenzen.
 
-Das [BIP ist auf einem historischem Höchststand](https://de.statista.com/statistik/daten/studie/1251/umfrage/entwicklung-des-bruttoinlandsprodukts-seit-dem-jahr-1991/) - nur 2009 und 2020
+Das [BIP ist auf einem historischen Höchststand](https://de.statista.com/statistik/daten/studie/1251/umfrage/entwicklung-des-bruttoinlandsprodukts-seit-dem-jahr-1991/) - nur 2009 und 2020
 hatten wir einen Rückgang. Interessanter ist jedoch die [preisbereinigte
 Entwicklung](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/BIP-Langfristig.html):
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/01/bip-1950-heute.png"><img src="../images/2025/01/bip-1950-heute.png" alt="Das Preisbereinigte BIP von 1950 bis 2024" style="max-height: 512px"/></a>
+    <a href="../images/2025/01/bip-1950-heute.png"><img src="../images/2025/01/bip-1950-heute.png" alt="Das preisbereinigte BIP von 1950 bis 2024" style="max-height: 512px"/></a>
     <figcaption class="text-center">Das preisbereinigte BIP von 1950 bis 2024 zeigt: Nach der Finanzkrise 2009, der Corona-Pandemie 2020 und der Energiekrise 2023/2024 gab es Rückgänge. Langfristig zeigt sich jedoch ein stetiges Wachstum.</figcaption>
 </figure>
 
@@ -71,7 +71,7 @@ Interessanterweise zeigen die Daten jedoch keine dramatischen Verschlechterungen
 Weitere Daten zu Armutsraten und extremer Armut zeigen ebenfalls keine
 gravierenden Veränderungen in den letzten zehn Jahren.
 
-Eine Besonderheit der letzen Jahre ist die Inflation:
+Eine Besonderheit der letzten Jahre ist die Inflation:
 
 <iframe src="//www.gapminder.org/tools/?embedded=true#$model$markers$line$data$filter$dimensions$geo$/$or@$geo$/$in@=usa&=deu&=fra&=jpn;;;;;;;;&encoding$y$data$concept=fp_cpi_totl_zg&source=wdi&space@=geo&=time;;&scale$type:null&domain:null&zoomed@=-0.36&=8;;;&x$scale$zoomed@=1990&=2023;;;;;;;&chart-type=linechart&url=v2" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen></iframe>
 
@@ -126,7 +126,7 @@ erzielen.
 
 Ein dritter Ansatz wäre die Wiedereinführung der
 [Vermögenssteuer](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer). In Ländern wie der
-[Schweiz](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer#Schweiz), Italien,
+[Schweiz](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer#Schweiz), Italien
 und [Spanien](https://de.wikipedia.org/wiki/Verm%C3%B6gensteuer#Spanien) trägt die Vermögenssteuer mit 2–3 % des BIP erheblich zu den Staatseinnahmen bei.
 
 Deutschland hatte bis 1996 eine Vermögenssteuer, die jedoch ausgesetzt wurde,
@@ -171,23 +171,23 @@ konkrete Maßnahmen vorgeschlagen ([Quelle](https://youtu.be/fPR9BSnhpRw?si=7Brr
 * **Zentrale Zuständigkeit auf Bundesebene**: Eine zentrale Behörde könnte
   besser koordiniert und effizienter handeln.
 * Moderne und einheitliche **IT-Infrastruktur**
-* **Kontrollinstrumente nicht Abschaffen**: Unter dem Deckmantel des
+* **Kontrollinstrumente nicht abschaffen**: Unter dem Deckmantel des
   Bürokratieabbaus geschieht das gerne
-* **Tranzparenz bei Nebenverdiensten**, insbesondere den obersten Bundesgerichten
+* **Transparenz bei Nebenverdiensten**, insbesondere bei den obersten Bundesgerichten
 * Strengere Regeln für den [**Drehtüreffekt**](https://de.wikipedia.org/wiki/Wechsel_zwischen_Politik_und_Wirtschaft)
 
 In den USA gibt es die
 [IRS](https://de.wikipedia.org/wiki/Internal_Revenue_Service) mit 80.000
-Mitarbeitern. Davor zittern selbst große internationale Firmen. Wir haben das
+Mitarbeitern. Davor zittern selbst große internationale Firmen. Wir haben
 das [Bundeszentralamt für
 Steuern](https://de.wikipedia.org/wiki/Finanzverwaltung_(Deutschland)) mit etwa
 2000 Mitarbeitern und [530 Finanzämter](https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Video-Textfassungen/Finanzisch/textfassung-finanzisch-fuer-anfaenger-finanzamt-oder-amt.html)
-mit insgesamt etwa [97.603 Mitarbeiter in den Finanzämtern](https://www.sulzinger.info/wie-viele-menschen-arbeiten-beim-finanzamt/).
+mit insgesamt etwa [97.603 Mitarbeitern in den Finanzämtern](https://www.sulzinger.info/wie-viele-menschen-arbeiten-beim-finanzamt/).
 
 
 ## Mythen
 
-### Firmen brauchen Vermögen, um zu Investieren
+### Firmen brauchen Vermögen, um zu investieren
 
 Unternehmen investieren, wenn sie eine rentable Geschäftsmöglichkeit sehen –
 unabhängig davon, ob sie bereits über hohe Eigenkapitalreserven verfügen.
@@ -197,7 +197,7 @@ Einfach ausgedrückt: Ein Bäcker, der seine Semmeln nicht verkauft bekommt, wir
 am nächsten Tag weniger backen. Ist er hingegen jeden Tag um 7 Uhr ausverkauft,
 wird er über eine Expansion – etwa eine zweite Filiale – nachdenken.
 
-Ein konkretes Beispiel: [VW plant Werksschließungen](https://www.tagesschau.de/wirtschaft/unternehmen/vw-betriebsrat-werksschliessungen-100.html), weil sie ihre Autos nicht los werden.
+Ein konkretes Beispiel: [VW plant Werksschließungen](https://www.tagesschau.de/wirtschaft/unternehmen/vw-betriebsrat-werksschliessungen-100.html), weil sie ihre Autos nicht loswerden.
 Gleichzeitig hatte VW 2023 ein Rekord-Eigenkapital von über 189 Milliarden Euro ([Quelle](https://de.statista.com/statistik/daten/studie/181509/umfrage/eigenkapital-der-volkswagen-ag/)).
 
 Das Problem ist also nicht ein Mangel an finanziellen Mitteln. Daher bringen
@@ -263,7 +263,7 @@ allein durch Wirtschaftswachstum generiert werden.
 Selbst unter optimistischen Annahmen, wie einer drastischen Senkung der Ausgaben
 für das Bürgergeld (von 37,39 Mrd. EUR auf den Stand von 2014 mit 23,89 Mrd.
 EUR), wäre ein Wachstum von 7,6 Prozent erforderlich – immer noch unrealistisch.
-Die CDU/CSU lügt, wenn sie behaupten, dass das erreichbar wäre.
+Die CDU/CSU lügt, wenn sie behauptet, dass das erreichbar wäre.
 
 **Eklatante Fehlanalyse**:
 
@@ -277,7 +277,7 @@ durch Steuerausfälle und unrealistische Annahmen den Bundeshaushalt belasten.
 
 ### SPD
 
-Das [Wahlprogramm der SPD](https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/2025_SPD_Regierungsprogramm.pdf) sieht eine zusätzliche Belastung des Bundeshaushalts von **30 Milliarde Euro** vor ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)). Die größten Ausgabenposten sind:
+Das [Wahlprogramm der SPD](https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/2025_SPD_Regierungsprogramm.pdf) sieht eine zusätzliche Belastung des Bundeshaushalts von **30 Milliarden Euro** vor ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html)). Die größten Ausgabenposten sind:
 
 * **Investitionsprämie** (20 Mrd EUR)
 * **Stromsteuer/Netzentgelte** (10 Mrd EUR)
@@ -303,26 +303,26 @@ unverhältnismäßig hohe Verwaltungskosten verursachen. Einige könnten abgesch
 und durch effektivere Mechanismen ersetzt werden:
 
 * **Alkoholsteuern reformieren**: Die Abschaffung der folgenden Steuern könnte durch eine Erhöhung der allgemeinen [Alkoholsteuer](https://de.wikipedia.org/wiki/Branntweinsteuer#Aufkommen_der_Branntweinsteuer) aufkommensneutral finanziert werden. Eine [Erhöhung der Alkoholsteuer bietet zusätzlich viele Vorteile](https://www.alkoholpolitik.de/konkret/verf%C3%BCgbarkeit/steuern/917-auswirkungen-einer-erh%C3%B6hung-der-alkoholsteuer-auf-die-steuereinnahmen-des-staates)
-    * [Alkopopsteuer](https://de.wikipedia.org/wiki/Alkopopsteuergesetz_(Deutschland)): -5 Millionen EUR Steueraufkommen. Wir zahlen also aktiv drauf. Stattdessen sollten wir mit Werbeverboten, Verkaufsbeschränkungen, und Mindestpreisen arbeiten.
+    * [Alkopopsteuer](https://de.wikipedia.org/wiki/Alkopopsteuergesetz_(Deutschland)): -5 Millionen EUR Steueraufkommen. Wir zahlen also aktiv drauf. Stattdessen sollten wir mit Werbeverboten, Verkaufsbeschränkungen und Mindestpreisen arbeiten.
     * [Zwischenerzeugnissteuer](https://de.wikipedia.org/wiki/Zwischenerzeugnissteuer): 22 Millionen EUR Steueraufkommen
     * [Schaumweinsteuer](https://de.wikipedia.org/wiki/Schaumweinsteuer): 341 Millionen EUR Steueraufkommen
-* [pauschalierte Eingangsabgaben](https://www.zoll.de/DE/Privatpersonen/Reisen/Rueckkehr-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Ueberschreiten-Reisefreimengen/pauschalierte_abgabensaetze.html): 2 Milionen EUR
-* [Luftverkehrsteuer](https://de.wikipedia.org/wiki/Luftverkehrabgabe#Deutschland): 566 Millionen EUR Steueraufkommen. Stattdessen sollte [Kerosin EU-weit besteuert](https://de.wikipedia.org/wiki/Kerosinsteuer)  werden, um internationale Wettbewerbsnachteile zu vermeiden.
+* [pauschalierte Eingangsabgaben](https://www.zoll.de/DE/Privatpersonen/Reisen/Rueckkehr-aus-einem-Nicht-EU-Staat/Zoll-und-Steuern/Ueberschreiten-Reisefreimengen/pauschalierte_abgabensaetze.html): 2 Millionen EUR
+* [Luftverkehrsteuer](https://de.wikipedia.org/wiki/Luftverkehrabgabe#Deutschland): 566 Millionen EUR Steueraufkommen. Stattdessen sollte [Kerosin EU-weit besteuert](https://de.wikipedia.org/wiki/Kerosinsteuer) werden, um internationale Wettbewerbsnachteile zu vermeiden.
 
 Die Abschaffung des
 [Soli](https://de.wikipedia.org/wiki/Solidarit%C3%A4tszuschlag) finde ich
-sinnvoll, aber hauptsächlich weil man den aufkommensneutral in die Lohnsteuer
+sinnvoll, aber hauptsächlich, weil man den aufkommensneutral in die Lohnsteuer
 überführen könnte. Das würde die anhaltende Debatte beenden.
 
 ### Strom
 
-Ein Grund warum in Norwegen so viele Elektroautos fahren und so viele
-Wärmepumpen installiert sind ist der niedrige Strompreis. In Deutschland haben
+Ein Grund, warum in Norwegen so viele Elektroautos fahren und so viele
+Wärmepumpen installiert sind, ist der niedrige Strompreis. In Deutschland haben
 wir mit der Stromsteuer und den Netzentgelten eine hohe Belastung. Dies schafft
-einen Fehlanreiz sich für eine Gas- oder Ölheizung oder für einen Verbrenner zu
+einen Fehlanreiz, sich für eine Gas- oder Ölheizung oder für einen Verbrenner zu
 entscheiden. Das wird die Menschen in Zukunft teuer zu stehen kommen.
 
-Um langfristig Wohlstand zu schaffen müssen wir die richtigen Anreize schaffen.
+Um langfristig Wohlstand zu schaffen, müssen wir die richtigen Anreize schaffen.
 Wir müssen Strom günstig machen. **Weg mit der Stromsteuer und den Netzentgelten.**
 
 
@@ -330,8 +330,8 @@ Wir müssen Strom günstig machen. **Weg mit der Stromsteuer und den Netzentgelt
 
 Die [Erwerbstätigenquote in
 Deutschland](https://www.destatis.de/DE/Themen/Arbeit/Arbeitsmarkt/Erwerbstaetigkeit/Tabellen/erwerbstaetigenquoten-gebietsstand-geschlecht-altergruppe-mikrozensus.html)
-lag 2023 bei 77.2% und damit höher als je zuvor. Dennoch ist der Unterschied
-zwischen Frauen (73.6%) und Männern (80.8%) immer noch groß. Einer der
+lag 2023 bei 77,2% und damit höher als je zuvor. Dennoch ist der Unterschied
+zwischen Frauen (73,6%) und Männern (80,8%) immer noch groß. Einer der
 wichtigsten Faktoren ist Care-Arbeit: Kinderbetreuung und Pflege.
 Allein [in Bayern fehlen 70.100 Kita-Plätze](https://www.br.de/nachrichten/bayern/studie-in-bayern-fehlen-rund-70-000-kita-plaetze,TwsXEm6).
 
@@ -341,9 +341,9 @@ Allein [in Bayern fehlen 70.100 Kita-Plätze](https://www.br.de/nachrichten/baye
 
 Der Bund kann durch Infrastruktur-Projekte direkt Arbeitsplätze schaffen.
 Insbesondere wenn diese über einen langen Zeitraum verlässlich laufen und
-die Projekte einen Mehrwert für uns alle haben ist das sinnvoll:
+die Projekte einen Mehrwert für uns alle haben, ist das sinnvoll:
 
-* [130.000 Brücken Sanieren](https://www.dw.com/de/deutschland-immer-mehr-autobahnbr%C3%BCcken-sind-kaputt/a-69409181)
+* [130.000 Brücken sanieren](https://www.dw.com/de/deutschland-immer-mehr-autobahnbr%C3%BCcken-sind-kaputt/a-69409181)
 * [5 Mrd. EUR pro Jahr für Schulsanierungen](https://www.ibp.fraunhofer.de/de/projekte-referenzen/begleitforschung-eneff-schule.html) für die nächsten 15 Jahre
 * [74 Mrd. EUR pro Jahr für Straßen- und Schienensanierungen](https://www.tagesschau.de/wirtschaft/verbraucher/verkehrswege-kommunen-kosten-studie-100.html) für die nächsten 5 Jahre
 
@@ -358,7 +358,7 @@ bleiben. Kein Verkauf und keine Partnerschaften mit privaten Investoren.
 
 ### Bildung
 
-Wer Vollbeschäftigung anstrebt muss für bessere Bildung sorgen:
+Wer Vollbeschäftigung anstrebt, muss für bessere Bildung sorgen:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/01/arbeitslosenquote-nach-bildung.jpg"><img src="../images/2025/01/arbeitslosenquote-nach-bildung.jpg" alt="Entwicklung der Arbeitslosenquote in Deutschland nach Bildungsstand" style="max-height: 512px"/></a>
@@ -366,7 +366,7 @@ Wer Vollbeschäftigung anstrebt muss für bessere Bildung sorgen:
 </figure>
 
 Von [Vollbeschäftigung](https://de.wikipedia.org/wiki/Vollbesch%C3%A4ftigung)
-spricht man bei einer Arbeitslosenquote 2-3.5%, da es immer Menschen gibt die
+spricht man bei einer Arbeitslosenquote von 2-3,5%, da es immer Menschen gibt, die
 gerade den Job wechseln. Seit 2010 hatten Menschen mit <abbr title="Abschlüssen an (Fach-)
 Hoch­schulen, Verwaltungs­fach­hoch­schulen, Berufs- und Fach­akademien,
 Fach­schulen und Schulen des Gesundheits­wesens">hohem Bildungsstand</abbr> Vollbeschäftigung.
@@ -378,7 +378,7 @@ Qualifizierung ist hier das Stichwort.
 Wenn es um nicht-akademische Berufe geht, sehe ich hier Handlungsbedarf:
 
 * **Energieeffiziente Häuser**: Handwerker für energetische Sanierung und moderne Heiztechnik ([Quelle](https://www.focus.de/finanzen/news/viertel-million-offene-stellen-handwerkermangel-in-deutschland-erreicht-rekordniveau_id_197286284.html))
-* **Alternde Gesellschaft**: Augenoptiker, Hörgeräteakustiker, Orthopäden und Zahntechniker  ([Quelle](https://www.focus.de/finanzen/news/viertel-million-offene-stellen-handwerkermangel-in-deutschland-erreicht-rekordniveau_id_197286284.html))
+* **Alternde Gesellschaft**: Augenoptiker, Hörgeräteakustiker, Orthopäden und Zahntechniker ([Quelle](https://www.focus.de/finanzen/news/viertel-million-offene-stellen-handwerkermangel-in-deutschland-erreicht-rekordniveau_id_197286284.html))
 * **Kinderbetreuung** ([Quelle](https://www.iwkoeln.de/presse/pressemitteilungen/jurek-tiedemann-gero-kunath-dirk-werner-in-welchen-berufen-die-meisten-fachkraefte-fehlen.html))
 
 
@@ -387,7 +387,7 @@ Wenn es um nicht-akademische Berufe geht, sehe ich hier Handlungsbedarf:
 Es kann nicht sein, dass Investitionen monatelang blockiert werden, weil
 Genehmigungsverfahren zu lange dauern. Exemplarisch sollte man hier den Bau
 von Windkraftanlagen nennen: 2024 hat man es beschleunigt, und dennoch dauert
-das Genehmigungverfahren im besten Fall 7 Monate in Bayern ([Quelle](https://www.br.de/nachrichten/bayern/bayern-kommt-bei-genehmigungen-fuer-windraeder-nicht-hinterher,UOGUEKW)). In
+das Genehmigungsverfahren im besten Fall 7 Monate in Bayern ([Quelle](https://www.br.de/nachrichten/bayern/bayern-kommt-bei-genehmigungen-fuer-windraeder-nicht-hinterher,UOGUEKW)). In
 Mecklenburg-Vorpommern dauert es 33 Monate im Schnitt ([Quelle](https://www.agrarheute.com/management/recht/windkraft-unternehmen-verklagen-behoerden-7-monate-zeit-dauert-33-612991)) und damit am längsten ([Quelle](https://www.zeit.de/news/2024-04/25/studie-windrad-genehmigungen-dauern-in-mv-am-laengsten)).
 
 Leider kenne ich mich hier nicht gut aus. Ich würde vermuten, dass Prozesse

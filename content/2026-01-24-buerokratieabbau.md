@@ -24,16 +24,16 @@ aus meinem eigenen Leben anführen.
 ### Beantragung eines Besuchervisums
 
 Meine indonesischen Schwiegereltern sollen dieses Jahr zu Besuch kommen. Dafür
-müssen wir folgendes machen:
+müssen wir Folgendes machen:
 
 1. **Verpflichtungserklärung**: Ich muss über Gehaltsnachweise belegen, dass ich
    für die Kosten ihres Aufenthalts aufkommen kann. Dazu muss ich...
    * ein PDF-Formular ausfüllen, ausdrucken, unterschreiben, einscannen, per
-     E-Mail verschicken, und die Verwaltungsbeamte tippt das dann wieder ein
-   * einen Scan der Ausweisdokumente von mir, meiner Frau, und ihrer Eltern
+     E-Mail verschicken und die Verwaltungsbeamtin tippt das dann wieder ein,
+   * einen Scan der Ausweisdokumente von mir, meiner Frau und ihren Eltern
      mitschicken,
-   * Gehaltsnachweise per E-Mail schicken
-   * Persönlich bei der Ausländerbehörde vorbeigehen, um die Verpflichtungserklärung
+   * Gehaltsnachweise per E-Mail schicken,
+   * persönlich bei der Ausländerbehörde vorbeigehen, um die Verpflichtungserklärung
      zu unterschreiben.
 2. **Krankenversicherung** abschließen
 3. **Dokumente in der Indonesischen Botschaft** einreichen:
@@ -54,12 +54,12 @@ es hier drei Kategorien:
      gewährleisten. Der Bürger sollte dort mit allen Ebenen der Verwaltung
      (kommunal, landesweit, bundesweit) interagieren können. Also eben nicht
      Elster + BayernPortal + diverse andere Portale, sondern **ein** Portal.
-   * **Formulare**: Jedes Formular welches Bürger ausfüllen müssen sollte es in
+   * **Formulare**: Jedes Formular, welches Bürger ausfüllen müssen, sollte es in
      digitaler Form geben - sowohl als ausfüllbares PDF als auch als Webformular.
      Das Web-Formular sollte grundlegende Datenvalidierung beinhalten, um Fehler zu
      minimieren.
-2. **Zwischen Behörden und Firmen**: Viele Informationen welche Behörden und
-    Ämter von mir als Bürger benötigen kommen ursprünglich von Firmen. Beispiele
+2. **Zwischen Behörden und Firmen**: Viele Informationen, welche Behörden und
+    Ämter von mir als Bürger benötigen, kommen ursprünglich von Firmen. Beispiele
     sind Gehaltsnachweise von Arbeitgebern, Versicherungsnachweise,
     Mietverträge, usw. Diese Daten sollten **direkt** von den Firmen an die
     Behörden übermittelt werden müssen. Dafür sollten standardisierte

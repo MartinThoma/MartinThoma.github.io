@@ -1,18 +1,18 @@
 ---
 layout: post
-lang: de
 title: Bundestagswahl 2025
 slug: bundestagswahl-2025
+lang: de
 author: Martin Thoma
 date: 2025-02-23 20:00
 category: My bits and bytes
 tags: germany,German posts,politics
 featured_image: logos/germany.png
 ---
-Heute wird die Bundestagswahl 2025 stattfinden, nachdem die Ampel-Regierung
+Heute findet die Bundestagswahl 2025 statt, nachdem die Ampel-Regierung
 (SPD, Grüne, FDP) im November 2024 zerbrochen ist. Die FDP wollte bei den
-Sozialausgaben sparen und Entlastungen für hohe Einkommen (Solidaritätsbeitrag
-abschaffen). Die Grünen wollten ein Milliardenschweres Investitionsprogramm um
+Sozialausgaben sparen und hohe Einkommen entlasten (Solidaritätszuschlag
+abschaffen). Die Grünen wollten ein milliardenschweres Investitionsprogramm, um
 die Wirtschaft anzukurbeln. [Lindners D-Day-Papier](https://www.tagesschau.de/inland/innenpolitik/fdp-d-day-reaktionen-100.html) wurde durch
 eine "Indiskretion" bekannt, genau wie zuvor schon
 ["Habecks" Heizungsgesetz](https://www.sueddeutsche.de/politik/habeck-tagesthemen-interview-kritik-ampelkoalition-1.5773202).
@@ -27,7 +27,7 @@ um die Koalition zu sprengen.
   den [Panamakanal übernehmen](https://www.tagesschau.de/ausland/amerika/usa-trump-panama-kanal-100.html),
   den [Gaza-Streifen übernehmen](https://www.tagesschau.de/ausland/amerika/trump-gaza-plan-100.html),
   [Zölle für alle](https://www.tagesschau.de/wirtschaft/weltwirtschaft/faq-zoelle-freihandel-trump-100.html) erheben,
-  während [Musk kritische Untersuchungen von Tesla/Space-X mit DOGE verhindert](https://www.zdf.de/nachrichten/politik/ausland/usa-musk-regierung-interessenkonflikt-100.html) und die Sozialsysteme torpediert werden.
+  während [Musk kritische Untersuchungen von Tesla/SpaceX mit DOGE verhindert](https://www.zdf.de/nachrichten/politik/ausland/usa-musk-regierung-interessenkonflikt-100.html) und die Sozialsysteme torpediert werden.
   Wir beobachten den Aufbau einer Autokratie: [Militärische Führung wird ausgetauscht](https://edition.cnn.com/2025/02/21/politics/trump-fires-top-us-general-cq-brown/index.html), [Journalisten werden unter Druck gesetzt](https://www.reuters.com/world/us/ap-sues-trump-aides-restricting-access-over-gulf-mexico-name-2025-02-21/), [Bundesanwälte werden ausgetauscht](https://www.sueddeutsche.de/politik/usa-trump-us-justiz-li.3205480). [Trump hat sich als König bezeichnet](https://www.theguardian.com/us-news/2025/feb/19/trump-backlash-social-media-king).
 * **Russland**: Der [Ukraine-Krieg](https://de.wikipedia.org/wiki/Russisch-Ukrainischer_Krieg) dauert an.
 * **Deutschland**: Wir sehen eine Häufung der Berichterstattung über Anschläge
@@ -68,16 +68,15 @@ um die Koalition zu sprengen.
     <tr>
         <th>Investitionen</th>
         <td>-</td>
-        <td>Steuererstattungen für Investitionen (Zehn-Prozent-Prämie); E-Autos bis 2035 von der KfZ-Steuer befreien</td>
+        <td>Steuererstattungen für Investitionen (Zehn-Prozent-Prämie); E-Autos bis 2035 von der Kfz-Steuer befreien</td>
         <td>Steuererstattungen für Investitionen (Zehn-Prozent-Prämie); gezielte
 Förderung für die Ladeinfrastruktur und
-sozial ausgewogene Kauf- und Leasingan-
-reize für verbrauchsarme E-Autos</td>
+sozial ausgewogene Kauf- und Leasinganreize für verbrauchsarme E-Autos</td>
         <td>200 Milliarden Euro für den klimagerechten Industrieumbau</td>
     </tr>
     <tr>
         <th>Reduktion von Belastungen</th>
-        <td>Steuerbelastung der Unternehmen auf maximal 25 Prozent gedeckelt werden<br/>Soli abschaffen<br/>Gastronomie-Steuer auf 7% senken<br/>Lieferkettengesetz abschaffen<br/>Überstundenzuschläge steuerfrei</td>
+        <td>Steuerbelastung der Unternehmen auf maximal 25 Prozent deckeln<br/>Soli abschaffen<br/>Gastronomie-Steuer auf 7% senken<br/>Lieferkettengesetz abschaffen<br/>Überstundenzuschläge steuerfrei</td>
         <td></td>
         <td></td>
         <td></td>
@@ -94,7 +93,7 @@ reize für verbrauchsarme E-Autos</td>
     </tr>
     <tr>
         <th>Kapitalgedeckte Rente</th>
-        <td>Für alle sechs- bis 18-Jährigen soll der Staat zehn Euro pro Monat in ein individuelles, kapitalgedecktes und privatwirtschaftlich organisiertes Altersvorsorgedepot</td>
+        <td>Für alle sechs- bis 18-Jährigen soll der Staat zehn Euro pro Monat in ein individuelles, kapitalgedecktes und privatwirtschaftlich organisiertes Altersvorsorgedepot einzahlen</td>
         <td>Rentenfonds zur langfristigen Sicherung</td>
         <td>Bürgerfonds zur Rentensicherung</td>
         <td>-</td>
@@ -110,7 +109,7 @@ reize für verbrauchsarme E-Autos</td>
         <th>Versicherte</th>
         <td>keine Änderung</td>
         <td>keine Änderung</td>
-        <td>Alle sollen Einzahlen, auch Beamte (Bürgerversicherung)</td>
+        <td>Alle sollen einzahlen, auch Beamte (Bürgerversicherung)</td>
         <td>Alle Erwerbstätigen sollen in das Rentensystem einzahlen, auch Beamte</td>
     </tr>
     <tr>
@@ -152,7 +151,7 @@ reize für verbrauchsarme E-Autos</td>
 
 ## Prognosen
 
-Ich vermute, dass wir eine Wahlbeteilgung von 78% haben werden, mit folgendem
+Ich vermute, dass wir eine Wahlbeteiligung von 78% haben werden, mit folgendem
 Ergebnis:
 
 <table>
@@ -188,7 +187,7 @@ Ergebnis:
     </tr>
 </table>
 
-Insbesondere glaube ich, dass BSW, FDP, und Volt die 5%-Hürde nicht schaffen werden.
+Insbesondere glaube ich, dass BSW, FDP und Volt die 5%-Hürde nicht schaffen werden.
 
 Eine Regierung muss 316 Sitze haben, sonst ist es eine Minderheitsregierung.
 
@@ -201,7 +200,7 @@ Damit ergeben sich folgende Regierungsoptionen:
 * **CDU/CSU Minderheitsregierung**: Das kann eigentlich nur mit einer Duldung
   der AfD funktionieren. Ich hoffe sehr, dass die Union das nicht versucht.
 
-Ich denke es wird mal wieder eine große Koalition (GroKo).
+Ich denke, es wird mal wieder eine große Koalition (GroKo).
 
 
 ## Was passiert...
@@ -209,20 +208,20 @@ Ich denke es wird mal wieder eine große Koalition (GroKo).
 Die nächste Regierung wird mit folgenden Herausforderungen konfrontiert sein:
 
 * Trump wird weiterhin die Welt destabilisieren.
-    * Um von innenpolitisch verursachten Problemem abzulenken, wird er
+    * Um von innenpolitisch verursachten Problemen abzulenken, wird er
       vermutlich außenpolitisch aktiv. Vermutlich werden die USA die Ukraine
       alleine lassen.
     * Eventuell gibt es eine Weltwirtschaftskrise, die durch den Protektionismus
       der USA ausgelöst wird.
     * Reduzierte Kontrollen werden zu Umweltkatastrophen führen. Vermutlich wieder
       ein Öl-Leck. Eventuell auch Waldbrände oder durch den erzwungenen
-      [Führungswechsel bei NOAA](https://www.govexec.com/management/2025/02/doge-enters-noaa-accesses-it-systems-and-removes-top-hr-official/402776/) deutlich schlimmere Auswirkungen von Hurricanes. Wasserknappheit
+      [Führungswechsel bei NOAA](https://www.govexec.com/management/2025/02/doge-enters-noaa-accesses-it-systems-and-removes-top-hr-official/402776/) deutlich schlimmere Auswirkungen von Hurrikans. Wasserknappheit
       und Dürren werden zunehmen.
 * Die Klimakrise wird weiterhin ein großes Thema sein. Auch im Rest der Welt
   wird es zu extremen Wetterereignissen kommen: Dürren, Überschwemmungen,
   Hitzewellen, Waldbrände.
 * Die deutsche Wirtschaft wird weiter schwächeln. Ich rechne 2025 mit
-  [Wirtschaftswachstum](https://de.statista.com/statistik/daten/studie/74644/umfrage/prognose-zur-entwicklung-des-bip-in-deutschland/), aber einem geringem unter 0.5%.
+  [Wirtschaftswachstum](https://de.statista.com/statistik/daten/studie/74644/umfrage/prognose-zur-entwicklung-des-bip-in-deutschland/), aber mit einem geringen unter 0,5%.
 * Ohne Unterstützung wird die Ukraine den Krieg 2025 verlieren. Sie wird einen
   großen Teil ihres Staatsgebiets verlieren.
 * Demographischer Wandel wird weiterhin ein großes Thema sein. Die Renten werden
@@ -233,7 +232,7 @@ Ich gehe davon aus, dass Deutschland in jedem Fall die Ukraine weiter unterstüt
 Allerdings wird es nicht genug sein, sodass die östliche Ukraine dauerhaft unter
 russischer Kontrolle bleiben wird - insbesondere das Gebiet um Luhansk und Donezk
 (siehe [Russische Annexion der Süd- und Ostukraine](https://de.wikipedia.org/wiki/Russische_Annexion_der_S%C3%BCd-_und_Ostukraine)).
-Ich gehe davon aus, dass Russland damit ihre Ziele innerhalb der nächsten 4 Jahre
+Ich gehe davon aus, dass Russland damit seine Ziele innerhalb der nächsten 4 Jahre
 erreichen wird.
 
 
@@ -245,13 +244,13 @@ erreichen wird.
   zurückgenommen werden
 * Keine wesentliche Änderung bei der Rente, aber Erleichterungen beim Übergang /
   die "Möglichkeit", als Rentner zu arbeiten. Für viele wird das eher ein Zwang
-  sein, da es sonst nicht zum leben reicht. Schon jetzt sind Rentner die
-  Pfandflaschen suchen sehr präsent.
+  sein, da es sonst nicht zum Leben reicht. Schon jetzt sind Rentner, die
+  Pfandflaschen suchen, sehr präsent.
 * Stromsteuer und Netzentgelte werden gesenkt.
-* Die Mindestlohnkomission wird den Mindestlohn auf 15 EUR erhöhen; ggf. durch
+* Die Mindestlohnkommission wird den Mindestlohn auf 15 EUR erhöhen; ggf. durch
   eine klare Definition der Armutsgrenze und damit über den Umweg des
-  Europarechts. Damit könnte sowohl die SPD als auch die CDU/CSU leben.
-* Reformation des Solidaritätsbeitrags - und eine Steuererhöhung bei der
+  Europarechts. Damit könnten sowohl die SPD als auch die CDU/CSU leben.
+* Reform des Solidaritätszuschlags - und eine Steuererhöhung bei der
   Lohnsteuer.
 
 ### ...bei einer Minderheitsregierung der Union?

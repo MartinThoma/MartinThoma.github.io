@@ -21,7 +21,7 @@ status: draft
     * OnlyOffice or Collabora integration
     * Built-in spellchecker
 * **Email**:
-    * IMAP client support (e.g., for Mailbox or Posteo)
+    * IMAP client support (e.g., for mailbox.org or Posteo)
 * **Backups**: Data backup and restoration
 
 ## ownCloud Infinite Scale

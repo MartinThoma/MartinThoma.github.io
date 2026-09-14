@@ -12,7 +12,7 @@ featured_image: logos/star.png
 
 Das Abhängen einer Decke ist ein beliebtes DIY-Projekt, um unschöne Altbauten
 zu modernisieren, Installationen zu verbergen oder die Raumhöhe zu reduzieren.
-Diese Anleitung führt Sie Schritt für Schritt durch den gesamten Prozess.
+Diese Anleitung führt euch Schritt für Schritt durch den gesamten Prozess.
 
 ## ⚠️ Sicherheitshinweise
 
@@ -132,10 +132,10 @@ Vorgehen:
    Die Schrauben müssen versenkt werden, damit sie später vollständig mit
    Spachtelmasse bedeckt werden können.
 3. Bei der Beplankung ist zu beachten:
-    * Die Kanten zur Wand hin müssen einen 90° Winkel haben. Die
+    * Die Kanten zur Wand hin müssen einen 90°-Winkel haben. Die
       Gipskartonplatten sollten daher exakt passend zugeschnitten werden.
     * Kreuzfugen sind zu vermeiden: Die Fugen der Gipskartonplatten
-      dürfen nicht aufeinander treffen.
+      dürfen nicht aufeinandertreffen.
     * Die Gipskartonplatten müssen versetzt angebracht werden, um
       durchgehende Fugenlinien zu vermeiden.
     * Wandanschluss: 2-3 mm Abstand zur Wand lassen, wird später gespachtelt.
@@ -143,8 +143,8 @@ Vorgehen:
 ## Q1 Spachteln
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/decke-3-q1-spachtel.jpg"><img src="../images/2025/10/decke-3-q1-spachtel.jpg" alt="Decke mit Q1 Spachtelung" style="max-height: 512px"/></a>
-    <figcaption class="text-center">Decke mit Q1 Spachtelung</figcaption>
+    <a href="../images/2025/10/decke-3-q1-spachtel.jpg"><img src="../images/2025/10/decke-3-q1-spachtel.jpg" alt="Decke mit Q1-Spachtelung" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Decke mit Q1-Spachtelung</figcaption>
 </figure>
 
 Die Q1-Spachtelung ist die Grundbehandlung der Fugen und Schraubenlöcher.
@@ -156,7 +156,7 @@ werden.
 **Material**:
 
 * [Uniflott Spachtelmasse](https://www.globus-baumarkt.de/p/knauf-uniflott-fertigspachtel-20-kg-0779250675/): 40.99€ für 25kg Pulver
-* [Papier Fugendeckstreifen](https://www.globus-baumarkt.de/p/decotric-papier-fugendeckstreifen-ole-75-m-x-53-mm-0779251377/): 6.29€ für 75 m x 53 mm
+* [Papier-Fugendeckstreifen](https://www.globus-baumarkt.de/p/decotric-papier-fugendeckstreifen-ole-75-m-x-53-mm-0779251377/): 6.29€ für 75 m x 53 mm
 
 **Werkzeuge**: Spachtelkelle (18-25 cm), Japanspachtel (8-10 cm), Eimer, Schwamm/Pinsel für Anfeuchten
 

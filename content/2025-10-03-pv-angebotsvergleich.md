@@ -10,7 +10,7 @@ tags: house, money, solar
 featured_image: logos/house.png
 ---
 
-Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hausdach:
+Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hausdach aufgeführt:
 
 <style>
     .good {
@@ -69,13 +69,14 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <td>445 Wp</td>
             <td>455 Wp</td>
         </tr>
+        <tr>
             <th>Zelltyp</th>
             <td>108 Solarzellen, <a href="https://www.wegatech.de/ratgeber/photovoltaik/grundlagen/halbzellenmodule/">Halbzellen-Modul</a></td>
             <td>144 Solarzellen</td>
             <td>108 Solarzellen, 3 Bypass-Dioden</td>
         </tr>
         <tr>
-            <th><span title="Nur wichtig wenn die Dachfläche begrenzt ist">Wirkungsgrad</span></th>
+            <th><span title="Nur wichtig, wenn die Dachfläche begrenzt ist">Wirkungsgrad</span></th>
             <td>22.52%</td>
             <td>22.3%</td>
             <td>22.8%</td>
@@ -101,7 +102,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr>
             <th>Betriebsspannung/Nennspannung</th>
             <td>33.23V</td>
-            <td>44.3</td>
+            <td>44.3V</td>
             <td>33.4V</td>
         </tr>
         <tr>
@@ -126,7 +127,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr>
             <th>Garantie</th>
             <td>10 Jahre auf 80%</td>
-            <td>10 Jahre auf TODO Produktgarantie; 12 Jahre bzw. 6.000 Zyklen auf min 80% Kapazität</td>
+            <td>10 Jahre auf TODO Produktgarantie; 12 Jahre bzw. 6.000 Zyklen auf min. 80% Kapazität</td>
             <td>10 Jahre auf TODO</td>
         </tr>
         <tr>
@@ -230,7 +231,7 @@ Im folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
             <th>Abmessungen (jeweils Wandmontage)</th>
             <td>B460 × H540 × T170 mm</td>
             <td>B415 × H516 × T180 mm</td>
-            <td>B700 × H500 T180 mm</td>
+            <td>B700 × H500 × T180 mm</td>
         </tr>
         <tr><th colspan="4" style="text-align: center;">Montage</th></tr>
         <tr>
@@ -261,9 +262,9 @@ Für alle Wechselrichter gilt:
 
 Für alle Module gilt:
 
-* Die Betriebstemperatur der Zellen ist bei -40°C bis +85ºC
+* Die Betriebstemperatur der Zellen ist bei -40°C bis +85°C
 * Sie nutzen monokristalline bifaziale N-Typ <a href="https://www.ise.fraunhofer.de/de/forschungsprojekte/topcon.html">TOPCon-Solarzellen</a>
 
 ## Meta
 
-* Fenecon nutzt Goodwe Wechselrichter ([Quelle](https://youtu.be/GJcMaVMb9zI?si=Qluyrvkj6pyHaXZo&t=42))
+* Fenecon nutzt GoodWe-Wechselrichter ([Quelle](https://youtu.be/GJcMaVMb9zI?si=Qluyrvkj6pyHaXZo&t=42))

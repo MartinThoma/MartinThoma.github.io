@@ -19,10 +19,10 @@ werden.
 ## Vergangene Projekte
 
 * 2017 - 2021 in Freiburg<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>
-* 2020 - 2024 "Shuttle-Modellregion" in Hof, Kronach, Rehau und Bad Steben. Max 18km/h, Shuttle-Operator an Bord; Leitstelle zur Koordination<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
+* 2020 - 2024 "Shuttle-Modellregion" in Hof, Kronach, Rehau und Bad Steben. Max. 18&nbsp;km/h, Shuttle-Operator an Bord; Leitstelle zur Koordination<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
 * 2021 - 2023 in Kelheim: KelRide
 * Seit 2023 in Karlsruhe<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
-* Ab 2026 in Hamburg<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small> AHOI and ALIKE<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
+* Ab 2026 in Hamburg<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small> AHOI und ALIKE<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
 * Ulm prüft es für 2030<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small>
 * 2025 waren in München (Hadern) elektrische Mini-Busse für 6 Wochen unterwegs.<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small> Ab 2026 sollen sie in Freiham und Neuaubing fahren. Ab 2027-2028 sollen die ersten autonomen Mini-Busse mit bis zu 10 Passagieren und Midi-Busse mit bis zu 30 Passagieren fahren. Ab 2030 sollen die ersten autonomen Busse mit 60 oder mehr Passagieren fahren.
 

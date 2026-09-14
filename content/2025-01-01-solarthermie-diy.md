@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: DIY Solarthermie Anlage
 slug: diy-solarthermie
+lang: de
 author: Martin Thoma
 date: 2024-08-31 20:00
 category: My bits and bytes
@@ -26,7 +26,7 @@ status: draft
 16 Stück T-Rohre 10 mm
 Isolierschaum
 Kupferrohr (für Wasseranschluss)
-Holznägel und Holzsschrauben
+Holznägel und Holzschrauben
 16 Schrauben 4,0 x 120 mm
 50 Schrauben 2,5 x 25 mm
 50 kleine Stahlnägel

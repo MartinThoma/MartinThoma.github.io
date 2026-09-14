@@ -10,15 +10,15 @@ tags: German Politics
 featured_image: logos/star.png
 status: draft
 ---
-Seit Jahren schieben wir in der Politik die selben Themen vor uns her. Ich habe
-duzende von politischen Ideen, aber in diesem Beitrag möchte ich nur die größten
+Seit Jahren schieben wir in der Politik dieselben Themen vor uns her. Ich habe
+Dutzende von politischen Ideen, aber in diesem Beitrag möchte ich nur die größten
 Themen ansprechen.
 
-## Arbeit- und Sozialpolitik
+## Arbeits- und Sozialpolitik
 
 "Arbeit muss sich wieder lohnen" ist ein Kampfspruch rechter Politiker. Damit
-wird impliziert, dass aktuell Leute finanziell schlechter gestellt sind wenn sie
-"die soziale Hängematte" verlassen um zu Arbeiten.
+wird impliziert, dass aktuell Leute finanziell schlechter gestellt sind, wenn sie
+"die soziale Hängematte" verlassen, um zu arbeiten.
 
 Das ist Quatsch.
 
@@ -36,15 +36,15 @@ Die Politik hat verschiedene Stellschrauben:
   Haushalt). Der Gesetzgeber ist bei Vorliegen einer neuen Einkommens- und
   Verbrauchsstichprobe (EVS) des Statistischen Bundesamtes verpflichtet, die
   Höhe der Regelbedarfe neu zu ermitteln.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Ab 2024 beträgt der Regelbedarf für einen alleinstehenden Erwachsenen 564 EUR/Monat.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> Dazu kommt
-  [Wohngeld](https://de.wikipedia.org/wiki/Wohngeld) was auch eine
+  [Wohngeld](https://de.wikipedia.org/wiki/Wohngeld), das auch eine
   Heizkostenkomponente enthält.
-* **Mindestlohn**: Seit 2024 beträgt der Mindestlohn 12.41 EUR/Stunde (Brutto).<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> Bei 40h/Woche sind das 2159.34EUR/Monat (Brutto). Bei Steuerklasse 1 sind das ca. 1566€/Monat (Netto). Also das 2.77-fache vom Regelbedarf.
+* **Mindestlohn**: Seit 2024 beträgt der Mindestlohn 12,41 EUR/Stunde (Brutto).<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> Bei 40h/Woche sind das 2159,34 EUR/Monat (Brutto). Bei Steuerklasse 1 sind das ca. 1566€/Monat (Netto). Also das 2,77-Fache vom Regelbedarf.
 
 > **Forderung 1**: Der Mindestlohn soll an den Bürgergeld-Regelbedarf gekoppelt
 > werden. Ich würde das 3-fache vom Regelbedarf eines Alleinstehenden als
 > Mindest-Nettolohn für 40h/Woche vorschlagen. Beim aktuellen Regelbedarf von
 > 564€/Monat und 174h/Monat wäre das 564€/Monat * 3 = 1692€/Monat (Netto).
-> Bei Steuerklasse 1 wären das ca. [2373.66 €/Monat (Brutto)](https://www.nettolohn.de/rechner/netto-brutto-ergebnis) und somit 13.64€/Stunde (Brutto).
+> Bei Steuerklasse 1 wären das ca. [2373,66 €/Monat (Brutto)](https://www.nettolohn.de/rechner/netto-brutto-ergebnis) und somit 13,64€/Stunde (Brutto).
 
 Nun gibt es die berechtigte Kritik, dass ein höheres Gehalt sich nicht so sehr
 lohnt, weil im gleichen Verhältnis die Sozialleistungen (wie das Wohngeld) reduziert
@@ -59,34 +59,34 @@ Nun kommt natürlich auch direkt die Frage "aber wie soll das finanziert werden?
 Der Steuerfreibetrag sollte so hoch sein, dass man damit ein einfaches Leben
 führen kann. Also die Kosten für Miete, Essen, Kleidung, Strom, Wasser, Heizung,
 Telefon, Internet, Transport und Haftpflichtversicherung decken. Bei der Miete
-nehmen wir die durchschnittlichen Quadratmeterpreis in der teuersten Stadt bei
-Neuvermietungen an. Das wären in München aktuell ca 23.79€/m². Wir rechnen mit
-40m² pro Person. Das wären also 951.60€/Monat. Dazu kommen 200€ für Essen, 50€
+nehmen wir den durchschnittlichen Quadratmeterpreis in der teuersten Stadt bei
+Neuvermietungen an. Das wären in München aktuell ca. 23,79€/m². Wir rechnen mit
+40m² pro Person. Das wären also 951,60€/Monat. Dazu kommen 200€ für Essen, 50€
 für Kleidung, 30€ für Strom, 20€ für Wasser, 20€ für Heizung, 20€ für Internet.
 Also alles in allem ca. 1290€/Monat, also ein Freibetrag von 15480€/Jahr.
 Aktuell haben wir 11604 EUR/Jahr.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
 
-Alternativ könnte man den Grenzwerkt zur Armutsgefährdung nehmen. Bei
+Alternativ könnte man den Grenzwert zur Armutsgefährdung nehmen. Bei
 Alleinlebenden war das 2023 bei 1.247€/Monat oder 14.964€/Jahr.
 
 Die Logik dahinter: Wer gerade so über die Runden kommt, bezahlt keine Steuern.
 
-Dannach sollten zwei Steuerbereiche kommen:
+Danach sollten drei Steuerbereiche kommen:
 
-* 0% Einkommenssteuer für Einkommen bis zum Grundbedarf (ca. 15k€/Jahr)
-* x% Einkommenssteuer für Einommen bis ca. 10xGrundbedarf (ca. 155k €/Jahr)
-* 3x% Einkommenssteuer für Einkommen über 10xGrundbedarf
+* 0% Einkommensteuer für Einkommen bis zum Grundbedarf (ca. 15k€/Jahr)
+* x% Einkommensteuer für Einkommen bis ca. 10xGrundbedarf (ca. 155k €/Jahr)
+* 3x% Einkommensteuer für Einkommen über 10xGrundbedarf
 
 x soll so gewählt werden, dass die Steuereinnahmen die Ausgaben decken. Es soll
 außerdem keine enormen Schwankungen auf kurze Sicht geben.
 
 > **Forderung 3**: Der Freibetrag wird jährlich angepasst, sodass Menschen mit
-> Armutsgefährdung keine Einkommenssteuer zahlen müssen. Das statistische
+> Armutsgefährdung keine Einkommensteuer zahlen müssen. Das statistische
 > Bundesamt berechnet diese Grenze.
 
 ![](../images/2024/09/google-ngrams-fachkraeftemangel.png)
 
-Für viele zentralen Dienstleistung wie die Miete einer Wohnung oder das Eröffnen
+Für viele zentrale Dienstleistungen wie die Miete einer Wohnung oder das Eröffnen
 eines Bankkontos ist es notwendig, dass man sich ausweisen kann - manchmal
 zwingend mit einem deutschen Ausweisdokument.
 
@@ -94,7 +94,7 @@ Um hier die Hürde niedriger zu machen, sollte Deutschland auch für
 nicht-deutsche Menschen ein Ausweisdokument einführen. Dieses Dokument sollte
 jeder Mensch beantragen können, unabhängig von Staatsangehörigkeit und Wohnsitz.
 Dabei sollten biometrische Marker wie die Fingerabdrücke und ein biometrisches
-Foto verwendet werden um sicherzustellen, dass es keine Doppelanträge gibt.
+Foto verwendet werden, um sicherzustellen, dass es keine Doppelanträge gibt.
 
 > **Forderung 4**: Einführung eines biometrischen Ausweisdokuments für alle
 > Menschen. Dieses Dokument speichert den Namen, das Geburtsdatum, sowie die
@@ -117,11 +117,11 @@ TODO
 
 ## Gesundheit
 
-Der Bedarf an Pflegekräften steigt bis zum Jahr 2049 [...] auf 2.15 Millionen.
+Der Bedarf an Pflegekräften steigt bis zum Jahr 2049 [...] auf 2,15 Millionen.
 Laut Pflegekräftevorausberechnung liegt die erwartete Zahl an Pflegekräften im
 Jahr 2049 zwischen 280000 und 690000 unter dem erwarteten Bedarf.<sup
 id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> Das umfasst sowohl
-Kranken- als auch Altenpflege. [Es fehlen vorraussichtlich im]
+Kranken- als auch Altenpflege. [Es fehlen voraussichtlich im]
 Projektionszeitraum 2022 bis 2040 jährlich rund 2.500 Köpfe (kumuliert rund
 50.000).<sup
 id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>
@@ -131,43 +131,43 @@ Kreislauferkrankungen waren 2021 der häufigste Grund für Krankenhausaufenthalt
 in NRW.<sup
 id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup>
 
-In Deutschland sind insgesamt 53.5 % der Bevölkerung (46.6% der Frauen und 60.5%
-der Männer) von Überge- wicht (einschließlich Adipositas) betroffen. Bei 19.0%
+In Deutschland sind insgesamt 53,5 % der Bevölkerung (46,6% der Frauen und 60,5%
+der Männer) von Übergewicht (einschließlich Adipositas) betroffen. Bei 19,0%
 der Erwachsenen liegt eine Adipositas vor.<sup id="fnref:8"><a
 class="footnote-ref" href="#fn:8">8</a></sup>
 
-> **Forderung 5**: Werbung für Alkohol, Tabak, und Lebensmittel mit hohem Zucker-
+> **Forderung 5**: Werbung für Alkohol, Tabak und Lebensmittel mit hohem Zucker-
 > oder Fettgehalt soll verboten werden.
 
 > **Forderung 6**: Es soll eine Steuer auf Zucker eingeführt werden, um
 > Lebensmittelhersteller zu motivieren, weniger Zucker zu verwenden.
 
 In Schweden hat das staatliche Unternehmen [Systembolaget](https://de.wikipedia.org/wiki/Systembolaget)
-das Monopol auf Alkohol mit mehr als 3,5 Prozent. Dänemark, Norwegen, und
+das Monopol auf Alkohol mit mehr als 3,5 Prozent. Dänemark, Norwegen und
 Schweden erheben 25% Mehrwertsteuer auf Alkohol. Insgesamt pro 0,7L-Flasche:<sup id="fnref:14"><a class="footnote-ref" href="#fn:14">14</a></sup>
 
 * mit 15% vol:
-  * 5.75€ Finnland
-  * 4.76€ Schweden
-  * 1.37€ Deutschland
+  * 5,75€ Finnland
+  * 4,76€ Schweden
+  * 1,37€ Deutschland
 * mit 32% vol:
-  * 12.28€ Finnland
-  * 10.16€ Schweden
-  * 2.92€ Deutschland
+  * 12,28€ Finnland
+  * 10,16€ Schweden
+  * 2,92€ Deutschland
 * mit 38% vol:
-  * 14.58€ Finnland
-  * 12.07€ Schweden
-  * 3.47€ Deutschland
+  * 14,58€ Finnland
+  * 12,07€ Schweden
+  * 3,47€ Deutschland
 
 
-Schädlicher Alkoholkonsums hat 2022 Kosten in Höhe von 57.04 Mrd. EUR verursacht.<sup id="fnref:15"><a class="footnote-ref" href="#fn:15">15</a></sup>
-Demgegenüber stehen Einnahmen aus Alkoholsteuern in Höhe von 2.19 Mrd. EUR.<sup id="fnref:16"><a class="footnote-ref" href="#fn:15">16</a></sup>
+Schädlicher Alkoholkonsum hat 2022 Kosten in Höhe von 57,04 Mrd. EUR verursacht.<sup id="fnref:15"><a class="footnote-ref" href="#fn:15">15</a></sup>
+Demgegenüber stehen Einnahmen aus Alkoholsteuern in Höhe von 2,19 Mrd. EUR.<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">16</a></sup>
 
-> **Forderung 7**: AlkStG §2 Abs. 1 wird von 1303 €/hl reinen Alkohols auf 3000
+> **Forderung 7**: AlkStG §2 Abs. 1 wird von 1303 €/hl reinen Alkohols auf 3000 €/hl
 > erhöht.
 
 > **Forderung 8**: Spezialgeschäfte für Alkohol und Tabakwaren. Diese dürfen
-dann nur Alkohl und Tabakwaren verkaufen - keine Lebensmittel, keine
+dann nur Alkohol und Tabakwaren verkaufen - keine Lebensmittel, keine
 Zeitschriften. Es soll keine Werbung für diese Geschäfte geben, keine
 Zigarettenautomaten, kein Alkohol im Supermarkt.
 
@@ -175,7 +175,7 @@ Zigarettenautomaten, kein Alkohol im Supermarkt.
 Unser System aus 95 gesetzlichen Krankenkassen (Stand 2024) ist ineffizient.<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">17</a></sup> Wir leisten uns hier 95 mal die
 gleichen Strukturen. Das ist ineffizient und teuer.
 
-> **Forderung 9**: Schrittweise Überführung der gesetzlichen Krankenkassen eine
+> **Forderung 9**: Schrittweise Überführung der gesetzlichen Krankenkassen in eine
 > einzige. Die kleinsten 10 Krankenkassen nach Mitgliederanzahl sollten jedes
 > Jahr aus dem Gesundheitsfonds ausgeschlossen werden. Neugründungen von
 > gesetzlichen Krankenkassen sollten verboten werden. Sobald es nur noch eine
@@ -185,10 +185,10 @@ gleichen Strukturen. Das ist ineffizient und teuer.
 
 ## Klima und Umwelt
 
-Der Klimawandel hat massive auswirkungen auf unser Leben - sei es durch
+Der Klimawandel hat massive Auswirkungen auf unser Leben - sei es durch
 Starkregen, Dürren, Hitzewellen oder Stürme. Wir wissen seit 1988 gesichert, dass
 der menschengemachte Klimawandel ein Problem ist. 2015 haben wir eine
-Begrenzung auf 1.5°C im Pariser Klimaabkommen festgelegt.
+Begrenzung auf 1,5°C im Pariser Klimaabkommen festgelegt.
 
 Dieses Ziel werden wir verfehlen.
 
@@ -196,7 +196,7 @@ Weil wir so lange zu wenig gemacht haben, müssen nun drastischere Maßnahmen
 ergriffen werden. Das bedeutet:
 
 > **Forderung 7**: Innerhalb von 3 Jahren ein Neuzulassungsverbot für
-> Verbrenner. Die einzige Außnahme sollten Rettungsfahrzeuge und Traktoren sein,
+> Verbrenner. Die einzige Ausnahme sollten Rettungsfahrzeuge und Traktoren sein,
 > die aktuell noch keine Elektroalternativen haben.
 
 Auch im Heizungssektor muss etwas geschehen:
@@ -205,18 +205,18 @@ Auch im Heizungssektor muss etwas geschehen:
 > neuer Verbrennungsheizungen. Das beinhaltet Brenner und Tanks. Einfache
 > Reparaturarbeiten sollen beliebig lange möglich sein.
 
-Da wir so lange gewartet haben, müssen wir nun Maßnahmen zur bekämpfung der
+Da wir so lange gewartet haben, müssen wir nun Maßnahmen zur Bekämpfung der
 Klimawandelfolgen treffen:
 
 > **Forderung 9**: Förderung von städtischen Begrünungsmaßnahmen, von
 Klimaanlagen für Krankenhäuser/Pflegeeinrichtungen/Schulen/Kindergärten, von
-Starkregenrückhaltebecken, von Flußrenaturierungen, von Deichbau.
+Starkregenrückhaltebecken, von Flussrenaturierungen, von Deichbau.
 
 Seit langem überfällig:
 
 > **Forderung 10**: Einnahmen aus CO2-Steuer sollen gleichmäßig auf alle
 > umverteilt werden. Der CO2-Preis soll massiv und berechenbar steigen. Beim
-> verkauf von Verbrennern soll sofort diese steigerung auf der Rechnung/dem
+> Verkauf von Verbrennern soll sofort diese Steigerung auf der Rechnung/dem
 > Angebot deutlich sichtbar stehen.
 
 ## Politik
@@ -226,15 +226,15 @@ den Bundestag kommt. Das bedeutet, dass Menschen strategisch wählen müssen.
 
 ### Wahlsystem
 
-Bei der Bundestagswahl 2021 haben 8.7% der Wähler:innen ihre Stimme verloren,
+Bei der Bundestagswahl 2021 haben 8,7% der Wähler:innen ihre Stimme verloren,
 weil sie für kleine Parteien gestimmt haben. Hätte die Linke kein Direktmandat
-erhalte, wären es 13.6% gewesen.
+erhalten, wären es 13,6% gewesen.
 
-> **Forderung 11**: Einführung einer Ersatzstimmer für die Zweitstimme.
+> **Forderung 11**: Einführung einer Ersatzstimme für die Zweitstimme.
 
 Anstelle von einem Kreuz für die Zweitstimme sollten wir eine Ersatzstimme
 erlauben. Diese Ersatzstimme wird nur dann gezählt, wenn die Partei der
-Zweitstimme nicht in den Bundestag kommt. Damit können wähler in der Zweitstimme
+Zweitstimme nicht in den Bundestag kommt. Damit können Wähler in der Zweitstimme
 eine große Partei wählen, während sie die Erststimme an eine Partei geben, die
 ihre Interessen besser vertritt.
 
@@ -250,7 +250,7 @@ Aufsichtsratsposten, keine Firmenleitungen.
 
 > **Forderung 13**: Übergangsgeld nur so lange wie nötig.
 
-Abgeordnete bekommen nach ihrer Amtszeit ein [Übergangsgeld](https://de.wikipedia.org/wiki/%C3%9Cbergangsgeld#%C3%9Cbergangsgeld_f%C3%BCr_Abgeordnete). Diese sollten
+Abgeordnete bekommen nach ihrer Amtszeit ein [Übergangsgeld](https://de.wikipedia.org/wiki/%C3%9Cbergangsgeld#%C3%9Cbergangsgeld_f%C3%BCr_Abgeordnete). Dieses sollten
 sie nur erhalten, solange sie keine anderen Einkünfte haben.
 
 
@@ -260,25 +260,25 @@ sie nur erhalten, solange sie keine anderen Einkünfte haben.
 ## Wohlstand
 
 Unsere Demokratie funktioniert besser, wenn es den Leuten wirtschaftlich gut
-geht. Unsere Staat hat mehr Handlungsspielraum mit mehr Geld. Wie bekommen wir
+geht. Unser Staat hat mehr Handlungsspielraum mit mehr Geld. Wie bekommen wir
 also größeren Wohlstand?
 
 Produktivität.
 
 Wir müssen mehr Güter und Dienstleistungen produzieren, die die Menschen wollen.
-Konkret kann ich mir folgendes vorstellen:
+Konkret kann ich mir Folgendes vorstellen:
 
 1. **Bildung**: Es fallen regelmäßig Lehrer aus und Kinder verpassen zuhause
    Unterricht, weil sie krank sind. Wir sollten jede vorgesehene
    Unterrichtseinheit einmalig aufnehmen und frei im Internet zur Verfügung
    stellen. Selbiges gilt für Unterrichtsmaterialien. Das würde erst einmal
-   einige Lehrerstunden kosten, aber mittel- und langfristig viel Geld sparen
+   einige Lehrerstunden kosten, aber mittel- und langfristig viel Geld sparen,
    das wir aktuell an Verlage zahlen. Es würde auch die Möglichkeit schaffen,
    dass sich Menschen selbst weiterbilden können.
 2. **Altenpflege**: Wir haben einen Pflegekräftemangel. Wir sollten die
    technischen Möglichkeiten nutzen, um Pflegekräfte zu entlasten und somit mehr
    Patienten betreuen zu können. Durch Videoüberwachung und AI-Tools könnte man
-   Demezpatienten rund um die Uhr versorgen, ohne dass ein Pfleger 24/7 im Raum
+   Demenzpatienten rund um die Uhr versorgen, ohne dass ein Pfleger 24/7 im Raum
    sein muss.
 3. **Justiz und Strafverfolgung**:
    * **Legalisierung von Drogenkonsum**: Mehr als 900.000 offene Verfahren lagen
@@ -286,45 +286,45 @@ Konkret kann ich mir folgendes vorstellen:
      href="#fn:9">9</a></sup> Im Jahr 2023 wurden 173.945 Fälle von allgemeinen
      Verstößen mit Cannabis und Zubereitungen in Deutschland polizeilich
      erfasst. <sup id="fnref:10"><a class="footnote-ref"
-     href="#fn:10">10</a></sup> Das sind Fälle die dank der Teillegalisierung
+     href="#fn:10">10</a></sup> Das sind Fälle, die dank der Teillegalisierung
      hoffentlich nicht mehr unsere Polizei und Justiz belasten. Analog zu der
      Legalisierung von Cannabiskonsum und -besitz für den Eigenbedarf sollten
      alle Drogen legalisiert werden. Der Verkauf und die Produktion sind ein
-     anderes Thema, aber niemandem ist geholfen wenn Süchtige kriminalisiert
+     anderes Thema, aber niemandem ist geholfen, wenn Süchtige kriminalisiert
      werden.
    * **Kostenloses Deutschlandticket**: Jährlich sitzen etwa 7.000 Schwarzfahrer
      im Gefängnis, weil sie die Geldstrafe fürs Schwarzfahren nicht zahlen
      können.<sup id="fnref:11"><a class="footnote-ref"
      href="#fn:11">11</a></sup> 230.000 Menschen werden jährlich wegen
      Schwarzfahrens angezeigt. Stattdessen sollte ÖPNV komplett kostenlos sein.
-     Das Deutschlandticket hat ca. 6.5 Mrd EUR im Jahr für die Ticketkosten
-     eingebracht. Und man rechnet mit ca. 4.2 Mrd EUR an Mehrkosten. Das
-     bedeutet für umgerechnet 1.31€ pro Person und Monat kann man den ÖPNV in
-     Deutschland komplett kostenlos machen. Keine kosten mehr für
+     Das Deutschlandticket hat ca. 6,5 Mrd EUR im Jahr für die Ticketkosten
+     eingebracht. Und man rechnet mit ca. 4,2 Mrd EUR an Mehrkosten. Das
+     bedeutet für umgerechnet 1,31€ pro Person und Monat kann man den ÖPNV in
+     Deutschland komplett kostenlos machen. Keine Kosten mehr für
      Ticket-Automaten, keine Kontrolleure, keine Strafverfolgung. Allein die
-     tatsache, dass wir nicht mehr 7000 arme Schwarzfahrer im Gefängnis haben,
+     Tatsache, dass wir nicht mehr 7000 arme Schwarzfahrer im Gefängnis haben,
      spart jährlich 200 Millionen EUR.<sup id="fnref:13"><a class="footnote-ref"
      href="#fn:13">13</a></sup>
    * **Bundesfinanzamt**: Cum-Ex-Geschäfte haben den Staat Milliarden gekostet
      und durch deren Verfolgung wurden hunderte Millionen in die Staatskasse
-     zurückgeführt. Die Chefermittlerin Anne Brorhilker hat 2023 den Job
+     zurückgeführt. Die Chefermittlerin Anne Brorhilker hat 2024 den Job
      hingeschmissen, weil sie nicht genug Personal hatte.<sup id="fnref:12"><a
      class="footnote-ref" href="#fn:12">12</a></sup> Sie schlägt eine
-     bundesweite zentrale Behörde zur Bekämpfung von Finanzkriminalität aus, die
-     auch Steuervergehen verfolge. Aktuell haben wir nur die lokalen Finanzämter
+     bundesweite zentrale Behörde zur Bekämpfung von Finanzkriminalität vor, die
+     auch Steuervergehen verfolgt. Aktuell haben wir nur die lokalen Finanzämter
      sowie die Staatsanwaltschaften. Die [Bürgerbewegung Finanzwende](https://de.wikipedia.org/wiki/B%C3%BCrgerbewegung_Finanzwende) hat hier sicherlich weitere gute Ideen.
 
 ## Justiz
 
-> **Forderung 12:** Schaffung einer Polizei- und Justizunabhängigen Aufsichtsbehörde.
+> **Forderung 12:** Schaffung einer von Polizei und Justiz unabhängigen Aufsichtsbehörde.
 > Diese soll nicht dem Bundesinnenministerium unterstellt sein, sondern dem
 > Bundesministerium der Justiz. Ein Beispiel für eine solche Behörde wäre in
 > England das [Independent Office for Police Conduct](https://en.wikipedia.org/wiki/Independent_Office_for_Police_Conduct).
 
 ## Staatshaushalt
 
-2023 wurden ca. 45.8% des Steueraufkommens durch die Einkommenssteuer erziehlt.
-Weitere 32.0% durch die Umsatzsteuer, 7.9% durch die Gewerbesteuer, 3.9% durch
+2023 wurden ca. 45,8% des Steueraufkommens durch die Einkommensteuer erzielt.
+Weitere 32,0% durch die Umsatzsteuer, 7,9% durch die Gewerbesteuer, 3,9% durch
 die Energiesteuer.
 
 

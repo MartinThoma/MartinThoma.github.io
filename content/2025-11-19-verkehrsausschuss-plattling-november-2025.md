@@ -26,10 +26,10 @@ Anwesend waren:
 * Eine Vertreterin der Polizei
 * Vertreter der Presse
 
-Eventuell noch ein paar weitere Personen die weniger gesprochen haben.
+Eventuell noch ein paar weitere Personen, die weniger gesprochen haben.
 
 
-## Mikar: Vorstellung Car-Sharing
+## MiKar: Vorstellung Car-Sharing
 
 Von 15:00 bis 16:27 stellte [Frau Krieger](https://www.linkedin.com/in/tina-krieger-271786203/) das Unternehmen [MiKar](https://mikar.de/) vor und beantwortete Fragen.
 
@@ -37,7 +37,7 @@ MiKar ist ein Carsharing-Anbieter. Aktuell hat das Unternehmen über 38.000 Nutz
 
 MiKar besteht seit 1994 und vermietet unter anderem Bürgerbusse sowie Busse für Vereine.
 
-Es fällt eine Systembereitstellungsgebühr von 2.900 € netto an, die die Stadt Plattling zahlen müsste. Durch Unternehmenssponsoring (Werbung auf dem Fahrzeug) sollen die Kosten von  849,-€/monat netto gedrückt werden.
+Es fällt eine Systembereitstellungsgebühr von 2.900 € netto an, die die Stadt Plattling zahlen müsste. Durch Unternehmenssponsoring (Werbung auf dem Fahrzeug) sollen die Kosten von 849&nbsp;€/Monat netto gedrückt werden.
 Die dienstliche Nutzung durch Rathausmitarbeitende wäre inbegriffen.
 
 Das Fahrzeug würde für vier Jahre zur Verfügung gestellt.
@@ -128,10 +128,10 @@ Meinungen und Empfehlungen:
 
 ## Parkleitsystem Innenstadt Plattling
 
-Hier ging es um Verkehrsschilder welche insbesondere auf "versteckte" Parkplätze
+Hier ging es um Verkehrsschilder, welche insbesondere auf "versteckte" Parkplätze
 hinweisen sollen.
 
-Vorgeschlagen wurde ein Farbsystem, damit man schnell merkt bei welchem der
+Vorgeschlagen wurde ein Farbsystem, damit man schnell merkt, bei welchem der
 Parkplätze man ist.
 
 Es ging insbesondere nicht um digitale Tafeln, sondern um statische Schilder.

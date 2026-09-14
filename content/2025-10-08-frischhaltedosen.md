@@ -29,20 +29,20 @@ Ich will ein Set von Frischhaltedosen, welche folgende Eigenschaften haben:
    verjüngt sein.
 4. Sie sind auslaufsicher. Die Deckel müssen also eine Dichtung haben.
 5. Es gibt sie in verschiedenen Materialien:
-    - Glas: Für Zuhause. Für den Ofen, die Mikrowelle, Spülmaschine, und
+    - Glas: Für Zuhause. Für den Ofen, die Mikrowelle, Spülmaschine und
       Gefrierschrank geeignet. Transparent.
-    - Kunststoff: Für unterwegs. Für die Mikrowelle, Spülmaschine, und
+    - Kunststoff: Für unterwegs. Für die Mikrowelle, Spülmaschine und
       Gefrierschrank geeignet. BPA-frei. Transparent.
 6. Es gibt verschiedene Größen, die jedoch den gleichen Deckel nutzen.
 7. Sie sind innen und außen glatt, damit sie leicht zu reinigen sind.
 8. Sie sind eckig, damit sie im Kühlschrank und in der Tasche wenig Platz
    verschwenden.
-9. Es gibt eine mit 500ml, 1l, und 5l Volumen. Sie nutzen jedoch alle den
+9. Es gibt je eine mit 500ml, 1l und 5l Volumen. Sie nutzen jedoch alle den
    gleichen Deckel.
 10. In die Frischhaltedosen sind 4 kleine Füße integriert, damit sie nicht
     direkt auf der Tischplatte stehen. So kann Luft zirkulieren.
 11. Auf dem Boden sollte eine Beschriftung sein, die angibt, ob die Dose für
-    Gefrierschrank, Mikrowelle, Spülmaschine, und Ofen geeignet ist. Die
+    Gefrierschrank, Mikrowelle, Spülmaschine und Ofen geeignet ist. Die
     Marke/das Modell der Dose sowie deren Volumen sollten auch auf dem Boden
     stehen. Außen. Nicht innen. Damit man sie immer noch leicht reinigen kann.
 
@@ -51,14 +51,14 @@ Ich will ein Set von Frischhaltedosen, welche folgende Eigenschaften haben:
     <figcaption class="text-center">Beschriftung auf einer Frischhaltedose</figcaption>
 </figure>
 
-## Die Perfekten Maße
+## Die perfekten Maße
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/10/perfekte-frischhaltedose.jpg"><img src="../images/2025/10/perfekte-frischhaltedose.jpg" alt="ChatGPT rendering einer guten Frischhaltedose" style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT rendering einer guten Frischhaltedose</figcaption>
+    <a href="../images/2025/10/perfekte-frischhaltedose.jpg"><img src="../images/2025/10/perfekte-frischhaltedose.jpg" alt="ChatGPT-Rendering einer guten Frischhaltedose" style="max-height: 512px"/></a>
+    <figcaption class="text-center">ChatGPT-Rendering einer guten Frischhaltedose</figcaption>
 </figure>
 
-Ich denke eine Deckelfläche von 11x16cm ist ideal. Der Deckel soll einen 1cm
+Ich denke, eine Deckelfläche von 11x16cm ist ideal. Der Deckel soll einen 1cm
 breiten Rand haben, in welchen der Boden der Dose darüber passt. Daher müssen die
 Dosen die Form eines rechtwinkligen Pyramidenstumpfs haben. Damit ergibt sich für das
 Volumen folgende Formel:
@@ -78,9 +78,9 @@ $$V(h) = 150.37cm^2 \cdot h$$
 
 * [Ikea 365+](https://www.ikea.com/de/de/p/ikea-365-vorratsbehaelter-mit-deckel-rechteckig-glas-kunststoff-s89269071/): Warum gibt es die nur in 1l? Der wäre nahezu perfekt.
 * [Lock&Lock](https://www.locknlock.de/index.php/top-class): Mal wieder zu viele Deckel und die Größen passen nicht - nur 380ml ist zu klein, aber 630ml ist zu groß.
-* [Emsa](https://www.emsa.com/produkt/clip-close-frischhaltedose-glas-3er-set-18l-45l-13l): Das selbe Problem wie bei Lock&Lock. Die [0.55L Dose](https://www.emsa.com/produkt/clip-close-frischhaltedosen-rechteckig) ist perfekt für vieles, aber der Deckel passt halt nur auf diese Größe.
+* [Emsa](https://www.emsa.com/produkt/clip-close-frischhaltedose-glas-3er-set-18l-45l-13l): Dasselbe Problem wie bei Lock&Lock. Die [0.55L Dose](https://www.emsa.com/produkt/clip-close-frischhaltedosen-rechteckig) ist perfekt für vieles, aber der Deckel passt halt nur auf diese Größe.
 * [OXO](https://www.oxo.de.com/lebensmittelaufbewahrung/) scheint auch nichts zu haben.
 
 Wenn ihr noch gute Kandidaten kennt, schreibt mir gerne eine E-Mail an
-info@martin-thoma.de. Vielleicht gibts ja ein paar Meal-Prep-Enthusiasten, die
+info@martin-thoma.de. Vielleicht gibt es ja ein paar Meal-Prep-Enthusiasten, die
 eine gute Lösung gefunden haben 😉

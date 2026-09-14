@@ -31,13 +31,13 @@ will, dann meist:
 Dann muss man mit folgenden Kosten rechnen:
 
 1. **Grundstück**: ca. 105.000 €
-  * min. 90.000 € (unter 150 €/m² findet man kaum Grundstücke; in München ist man bei über 2.200 €/m²).<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
-  * +3,5 % Grunderwerbsteuer<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
-  * +2 % Notar & Grundbuch<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
-  * +3,57 % Maklerprovision<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
-  * bis zu 5.000 € Vermessungskosten
-  * bis zu 2.500 € Bodengutachten
-  * bis zu 20.000 € Erschließungskosten
+    * min. 90.000 € (unter 150 €/m² findet man kaum Grundstücke; in München ist man bei über 2.200 €/m²).<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
+    * +3,5 % Grunderwerbsteuer<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>
+    * +2 % Notar & Grundbuch<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small>
+    * +3,57 % Maklerprovision<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
+    * bis zu 5.000 € Vermessungskosten
+    * bis zu 2.500 € Bodengutachten
+    * bis zu 20.000 € Erschließungskosten
 2. **Baukosten**: ca. 455.000 € (ca. 3.500 € pro Quadratmeter Wohnfläche)
     1. **Erdarbeiten & Bodenplatte**: ca. 10.000 € (bei einem Keller müsste man eher mit 100.000 € rechnen)
         * Aushub: 2.050 €, da ca. 50 €/m³ mit 9 x 9 x 0,5 = 40,5 m³
@@ -108,7 +108,7 @@ abweichen.
 
 Für Baukostenkennwerte (z.B. €/m²) nutze ich hier bewusst eine konservative
 Daumenregel. Diese sollte man immer mit mehreren regionalen Angeboten
-(Schlüsselfertig, Ausbauhaus, Architektenhaus) gegenprüfen.
+(schlüsselfertig, Ausbauhaus, Architektenhaus) gegenprüfen.
 
 
 ## Politische Maßnahmen
@@ -177,7 +177,7 @@ optimieren.
 
 ### Für langfristige Haltbarkeit (um Kosten in der Zukunft zu sparen)
 
-* Lüftungsanlage um Schimmel zu vermeiden
+* Lüftungsanlage, um Schimmel zu vermeiden
 * Dreifachverglasung für bessere Isolierung
 * Photovoltaikanlage für eigene Stromproduktion. Keine Solarthermie, da man dafür weitere Leitungen braucht.
 * Regenwasserspeicher für sauberes Brauchwasser für Garten und Toilettenspülung

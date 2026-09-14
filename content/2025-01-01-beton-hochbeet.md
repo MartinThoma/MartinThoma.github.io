@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: de
 title: Beton Hochbeet
 slug: beton-hochbeet
+lang: de
 author: Martin Thoma
 date: 2023-04-01 20:00
 category: German posts
 tags: house, money, plants, diy
-status: draft
 featured_image: logos/house.png
+status: draft
 ---
 Wir wollen einen weißen Sichtbeton bekommen.
 
@@ -52,8 +52,8 @@ Die folgende Form erlaubt es, dass man verschiedene Beton-Teile kombiniert:
 |-------------------------------------|
 ```
 
-Wenn man durch das endstück jeweils ein Plastikrohr gibt, sodass es beim
-ausgießen frei bleibt, dann kann man die Teile gut mit Metallstangen im Boden
+Wenn man durch das Endstück jeweils ein Plastikrohr gibt, sodass es beim
+Ausgießen frei bleibt, dann kann man die Teile gut mit Metallstangen im Boden
 verankern.
 
 1. Holz: Beschichtete Spanplatte - keine Perloberfläche, es muss komplett glatt sein.
@@ -65,8 +65,8 @@ verankern.
 
 Zuschläge:
 
-* Weißen Zement von Dyckerhoff: 10€ für 25kg
-* Quarzsand (0.063mm - 0.3mm Korngröße für die Beton-Matrix): 25kg
+* Weißzement von Dyckerhoff: 10€ für 25kg
+* Quarzsand (0,063mm - 0,3mm Korngröße für die Beton-Matrix): 25kg
 * Spielsand (weißen / hellen Sand): 25kg
 * Ultraweiße Pigmente
 * Fließmittel
@@ -74,19 +74,19 @@ Zuschläge:
 
 Mischung:
 
-* 1 Teil Zement, 1 Teil Quarzsand, 0.6 Teile Spielsand, ein bisschen Glasfasern
-* Wasser: ca. 40% vom Zement-Anteil. Also bei 1kg Zement gibts 400g Wasser
+* 1 Teil Zement, 1 Teil Quarzsand, 0,6 Teile Spielsand, ein bisschen Glasfasern
+* Wasser: ca. 40% vom Zement-Anteil. Also bei 1kg Zement gibt es 400g Wasser
 
 ## Beton gießen
 
 * Beton nur an einer Stelle in die Schalungsform gießen - damit soll die Hälfte
   der Höhe abgedeckt werden.
 * Mit Händen (mit Handschuhen) den Beton in die richtige Richtung drücken
-* Mit Gummihammer am Rand der Schalungsform / auf den Tisch der Schaltungsform
+* Mit Gummihammer am Rand der Schalungsform / auf den Tisch der Schalungsform
   schlagen, um durch Vibrationen die Luftblasen entweichen zu lassen.
 * Armierungsgewebe (z.B. aus Kunststoff) in die Mitte einarbeiten
-* Restliche Höhe der Schalungsfrom gießen
-* Oberfläche mit Kunststofffolie (lose) abdecken. Das verhindet Verdunstung
+* Restliche Höhe der Schalungsform gießen
+* Oberfläche mit Kunststofffolie (lose) abdecken. Das verhindert Verdunstung
   und sorgt für einen stabileren Beton
 
 ## Ausschalen
@@ -97,10 +97,10 @@ Mischung:
 
 ## Versiegeln
 
-* Öl vs Hydrophobierung (Imprägnierungung) vs Beschichtung vs Bekieselung
-* Öl ist nicht für den Außenbereich geeignet, weil es nicht Wetterbeständig ist
-* Hydophobierung (Imprägnierung) kann z.B. mit Wachs kombiniert werden. Das erlaubt eine Hochglanz-Politur
-* Epoxid-Hartz bietet den stärksten schutz, ist aber nicht diffusionsoffen und daher nicht für den Außenbereich geeigent
+* Öl vs. Hydrophobierung (Imprägnierung) vs. Beschichtung vs. Bekieselung
+* Öl ist nicht für den Außenbereich geeignet, weil es nicht wetterbeständig ist
+* Hydrophobierung (Imprägnierung) kann z.B. mit Wachs kombiniert werden. Das erlaubt eine Hochglanz-Politur
+* Epoxidharz bietet den stärksten Schutz, ist aber nicht diffusionsoffen und daher nicht für den Außenbereich geeignet
 
 
 

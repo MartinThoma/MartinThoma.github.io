@@ -12,7 +12,7 @@ featured_image: logos/perfect-design.png
 I love thinking about perfect designs for everyday objects. Here is my idea for
 a perfect security camera.
 
-The core principle which all security cameras I know violate is a local-first approach. The camera should still work, even if you have no internet connection. That is possible if you're in the same network as the camera.
+The core principle that all security cameras I know violate is a local-first approach. The camera should still work, even if you have no internet connection. That is possible if you're in the same network as the camera.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2025/12/security-camera.jpg"><img src="../images/2025/12/security-camera.jpg" alt="A security camera" style="max-height: 512px"/></a>

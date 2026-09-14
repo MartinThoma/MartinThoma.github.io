@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Batteriespeicher
 slug: batteriespeicher
+lang: de
 author: Martin Thoma
 date: 2025-03-08 20:00
 category: My bits and bytes
@@ -10,7 +10,7 @@ tags: German posts,energy
 featured_image: logos/germany.png
 status: draft
 ---
-Die Idee ist die Solarzellen an die Batterie anzuschließen. Die Batterie
+Die Idee ist, die Solarzellen an die Batterie anzuschließen. Die Batterie
 ist dann über einen Wechselrichter an das Hausnetz angeschlossen.
 
 ## Systeme
@@ -39,7 +39,7 @@ ist dann über einen Wechselrichter an das Hausnetz angeschlossen.
             <td>1536 Wh</td>
         </tr>
         <tr>
-            <td>MPPT Eingänge</td>
+            <td>MPPT-Eingänge</td>
             <td>1 (800W)</td>
             <td>4 (2400W)</td>
             <td>2 (1200W)</td>

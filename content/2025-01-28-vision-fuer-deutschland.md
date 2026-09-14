@@ -19,7 +19,7 @@ das teilweise wieder werden.
 
 ### Wasserstoff
 
-Für Stahlprodukition
+Für Stahlproduktion
 
 Bei Förderung, Transport und Speicherung von Wasserstoff
 

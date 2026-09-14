@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Rezept: Schoko-Power-Müsli mit Banane
 slug: schoko-power-muesli-mit-banane
+lang: de
 author: Martin Thoma
 date: 2025-08-15 20:00
 category: My bits and bytes
@@ -12,8 +12,8 @@ featured_image: logos/cooking.png
 Ein gesunder Start in den Tag.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2025/09/schoko-power-muesli.jpg"><img src="../images/2025/09/schoko-power-muesli.jpg" alt="ChatGPT rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao." style="max-height: 512px"/></a>
-    <figcaption class="text-center">ChatGPT rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao.</figcaption>
+    <a href="../images/2025/09/schoko-power-muesli.jpg"><img src="../images/2025/09/schoko-power-muesli.jpg" alt="ChatGPT-Rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao." style="max-height: 512px"/></a>
+    <figcaption class="text-center">ChatGPT-Rendering eines Schoko-Power-Müslis mit Banane. Das Müsli besteht aus Haferflocken, Banane und Kakao.</figcaption>
 </figure>
 
 ## Zutaten
@@ -344,8 +344,8 @@ Ein gesunder Start in den Tag.
 
 ## Variationen
 
-* Obst: Anstelle von Banane können auch Beeren, Apfelstücke, Pfirsiche, oder
-  andere Früchte und Beeren verwendet werden.
+* Obst: Anstelle von Banane können auch Beeren, Apfelstücke, Pfirsiche oder
+  andere Früchte verwendet werden.
 * Süßungsmittel: Kakaopulver, Honig, Agavendicksaft oder ein Süßstoff können
   hinzugefügt werden.
 * Milch: Statt Kuhmilch kann auch pflanzliche Milch wie Mandel-, Soja- oder

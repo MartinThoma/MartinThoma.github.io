@@ -15,8 +15,8 @@ Notizen bei der Suche.
 
 ## Was ich nicht angeschaut habe
 
-Ich will keinen **Benzin-Rasenmäher** weil der Garten nicht so groß ist und ich
-keine Lust habe Benzin zu kaufen und zu lagern.
+Ich will keinen **Benzin-Rasenmäher**, weil der Garten nicht so groß ist und ich
+keine Lust habe, Benzin zu kaufen und zu lagern.
 
 Ich will auch keinen **Mähroboter**, weil ich Zweifel bei der Qualität habe und
 die Preise sehr hoch sind.
@@ -28,7 +28,7 @@ wartungsaufwändiger sind. Vielleicht kaufe ich mir das mal als
 
 
 
-## Kabel- vs Akku-Rasenmäher
+## Kabel- vs. Akku-Rasenmäher
 
 Pro Kabel:
 
@@ -39,7 +39,7 @@ Pro Kabel:
 Pro Akku:
 
 * Ich muss kein Kabel anstecken / hinter mir herziehen
-* Ich kann nicht aus versehen das Kabel abmähen
+* Ich kann nicht aus Versehen das Kabel abmähen
 
 <style>
 .red {
@@ -78,7 +78,7 @@ Diese werden manchmal auch als "Elektro-Rasenmäher" bezeichnet.
       <td>32cm</td>
       <td>30L</td>
       <td>20 bis 60 mm</td>
-      <td>9.2 kg</td>
+      <td>9,2 kg</td>
       <td>1000W</td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ Diese werden manchmal auch als "Elektro-Rasenmäher" bezeichnet.
       <td>32cm</td>
       <td>30L</td>
       <td>35 bis 65 mm</td>
-      <td>9.7kg</td>
+      <td>9,7kg</td>
       <td>1200W</td>
     </tr>
     <tr>
@@ -100,7 +100,7 @@ Diese werden manchmal auch als "Elektro-Rasenmäher" bezeichnet.
       <td>37cm</td>
       <td>45L</td>
       <td>35 bis 65 mm</td>
-      <td>14.2 kg</td>
+      <td>14,2 kg</td>
       <td>1800W</td>
     </tr>
   </tbody>
@@ -109,10 +109,10 @@ Diese werden manchmal auch als "Elektro-Rasenmäher" bezeichnet.
 
 ## Akku-Rasenmäher
 
-Ich habe folgendes ignoriert:
+Ich habe Folgendes ignoriert:
 
 * Rasenmäher für weniger als 300m²
-* Rasenmäher, die nicht angegeben haben wie viel VAh der Akku hat
+* Rasenmäher, die nicht angegeben haben, wie viel Wh der Akku hat
 
 Abkürzungen:
 
@@ -145,7 +145,7 @@ Abkürzungen:
       <td>32cm</td>
       <td>31L</td>
       <td>20–60 mm</td>
-      <td>8.1kg</td>
+      <td>8,1kg</td>
     </tr>
     <tr>
         <td>Einhell</td>
@@ -156,7 +156,7 @@ Abkürzungen:
         <td>36cm</td>
         <td>40L</td>
         <td>25-75 mm</td>
-        <td>13.1kg</td>
+        <td>13,1kg</td>
     </tr>
     <tr>
       <td>Bosch</td>
@@ -178,7 +178,8 @@ Abkürzungen:
       <td class="green">40cm</td>
       <td class="green">50L</td>
       <td>25-75 mm</td>
-      <td>17.4kg</td>
+      <td>17,4kg</td>
+    </tr>
     <tr>
       <td>Gardena</td>
       <td>PowerMax 37/36V</td>
@@ -188,7 +189,7 @@ Abkürzungen:
       <td class="green">37cm</td>
       <td class="green">45L</td>
       <td>35–65 mm</td>
-      <td>19.0kg</td>
+      <td>19,0kg</td>
     </tr>
     <tr>
         <td>Bosch</td>
@@ -219,4 +220,4 @@ Abkürzungen:
 ## Siehe auch
 
 * Stiftung Warentest: [Akku siegt, Kabel spart](https://www.test.de/Rasenmaeher-im-Test-5157148-0/), März 2023.
-* FAZ: [Der beste Akku-Rasenmäher](https://www.faz.net/kaufkompass/test/der-beste-akku-rasenmaeher/),  März 2024.
+* FAZ: [Der beste Akku-Rasenmäher](https://www.faz.net/kaufkompass/test/der-beste-akku-rasenmaeher/), März 2024.

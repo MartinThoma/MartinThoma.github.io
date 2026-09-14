@@ -31,15 +31,15 @@ Let's examine which companies operate within each level of this hierarchy.
          waterworks also manage the sewage system and wastewater treatment,
          providing more comprehensive water services per unit sold than bottled water companies.
     * [SWM Munich](https://en.wikipedia.org/wiki/Stadtwerke_M%C3%BCnchen):
-      11.604 employees, revenue of €7 billion (2024), providing water to 1.5
+      11,604 employees, revenue of €7 billion (2024), providing water to 1.5
       million people. The service area likely extends beyond Munich to include
       surrounding areas. They also operate public baths, public transport,
       electricity, and telecommunications.
     * [Berliner Wasserbetriebe](https://de.wikipedia.org/wiki/Berliner_Wasserbetriebe):
-      4.751 employees, revenue of €1.3 billion (2023), providing 211 million m³ of
+      4,751 employees, revenue of €1.3 billion (2023), providing 211 million m³ of
       water to approximately 3.5 million people (about 165 L per person per day, generating approximately 0.006€/L in revenue).
 * **Bottled Water**: The bottled water market is dominated by a few large companies:
-    * [Nestle](https://en.wikipedia.org/wiki/Nestl%C3%A9) (Perrier, S.Pellegrino)
+    * [Nestlé](https://en.wikipedia.org/wiki/Nestl%C3%A9) (Perrier, S.Pellegrino)
     * [Danone](https://en.wikipedia.org/wiki/Danone) (Evian, Volvic, Aqua)
     * [PepsiCo](https://en.wikipedia.org/wiki/PepsiCo) (Aquafina, LIFEWTR, SodaStream)
     * [Coca-Cola](https://en.wikipedia.org/wiki/The_Coca-Cola_Company) (Dasani, Smartwater, Ciel, Bonaqua)
@@ -51,7 +51,7 @@ Let's examine which companies operate within each level of this hierarchy.
   companies that control a significant portion of the market. These companies
   often have a wide range of products and brands, making it difficult for
   smaller competitors to gain market share.
-    * [Nestle](https://en.wikipedia.org/wiki/Nestl%C3%A9)
+    * [Nestlé](https://en.wikipedia.org/wiki/Nestl%C3%A9)
     * [PepsiCo](https://en.wikipedia.org/wiki/PepsiCo)
     * [JBS](https://en.wikipedia.org/wiki/JBS_S.A.)
     * [Unilever](https://en.wikipedia.org/wiki/Unilever)
@@ -84,9 +84,11 @@ electricity.
 ### Housing
 
 Building houses:
+
 * Construction companies and building contractors
 
 Renting apartments and houses:
+
 * [Vonovia](https://en.wikipedia.org/wiki/Vonovia)
 
 ### Communication
@@ -145,4 +147,5 @@ Household appliances that save time and effort:
 ## Wellbeing and Luxury
 
 **Perfumes and Cosmetics**:
+
 * [LVMH](https://en.wikipedia.org/wiki/LVMH)

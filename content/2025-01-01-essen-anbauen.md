@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Essen im Garten anbauen
 slug: gemuesegarten
+lang: de
 author: Martin Thoma
 date: 2024-03-09 20:00
 category: German posts
@@ -19,7 +19,7 @@ status: draft
 * Standort: Sonnig
 * Boden: Locker, humusreich, nicht sandig, keine Staunässe
 * Pflanzzeit: 15. September bis 10. Oktober (Winterknoblauch) oder Januar/Februar (Sommerknoblauch)
-* Erntezeitpunkt: ab Juli (Winterknoblauch) August (Sommerknoblauch);
+* Erntezeitpunkt: ab Juli (Winterknoblauch) bzw. August (Sommerknoblauch);
   sobald sich das Laub braun verfärbt
 * Saattiefe: 5cm
 * Pflanzabstand: 10x20cm
@@ -47,8 +47,8 @@ Quellen:
 * Boden: Humus- und nährstoffreich
 * Pflanzzeit: ??
 * Erntezeitpunkt: ??
-* Saattiefe: 0.5-1 cm
-* Gute Nachbarn: Knoblauch, Kohl, Kohlrabi, Salat,
+* Saattiefe: 0,5-1 cm
+* Gute Nachbarn: Knoblauch, Kohl, Kohlrabi, Salat
 * Schlechte Nachbarn: Fenchel, Gurke, Kartoffeln, Erbsen
 
 Quellen:
@@ -61,22 +61,22 @@ Quellen:
 ## Heidelbeeren
 
 * Boden:
-    * sauer, pH=4-5.5 (Moorbeet-Erde oder Rhododendron-Erde).
-    * Deshalb auch besser im Topf (min. 30L, eher flacher; mit loch im Boden um Staunässe zu vermeiden) als im Beet
+    * sauer, pH=4-5,5 (Moorbeet-Erde oder Rhododendron-Erde).
+    * Deshalb auch besser im Topf (min. 30L, eher flacher; mit Loch im Boden, um Staunässe zu vermeiden) als im Beet
     * Rhododendron-Langzeitdünger
     * Rindenmulch (ca. 5cm) abdecken
-* Anpflanzen: Gut abgiesen
+* Anpflanzen: Gut angießen
 * Düngen: Vinasse (?) Flüssig-Dünger
 * Pflanzzeit: Herbst oder Frühjahr
 * Ernte:
     * August
-    * dauert 7 Jahre bis der Strauch voll ertragreich ist
+    * dauert 7 Jahre, bis der Strauch voll ertragreich ist
     * bis zu 17kg pro Pflanze
 * Schädlinge:
     * Vögel: Mit Netz schützen
 * Mischkulturpartner: Preiselbeeren
 * Gießen:
-    * Wenn das Leitungswasser kalkhaltig ist (Calciumcarbonat; max 8°dH)
+    * Wenn das Leitungswasser kalkhaltig ist (Calciumcarbonat; max. 8°dH)
     * besser Regenwasser verwenden
 * Pflege: Muss man nicht schneiden
 * Winter: Frosthart; kann man im Winter einfach draußen lassen

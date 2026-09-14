@@ -44,12 +44,12 @@ Services I currently run on my homeserver:
 ### Ideas for Future Implementation
 
 * **Operating System**: Unraid
-* **Media Management**: [immich](https://immich.app/) - Image and video management
+* **Media Management**: [Immich](https://immich.app/) - Image and video management
 * **Knowledge Base**: [Kiwix](https://kiwix.org/en/applications/) - Offline Wikipedia
 * **Password Management**: [vaultwarden](https://vaultwarden.com/) - Bitwarden-compatible server
-* **Network**: OpnSense - Firewall and router
+* **Network**: OPNsense - Firewall and router
 * **Calendar/Contacts**: Baikal server
-* **File Storage**: ownCloud / NextCloud / [Seafile](https://www.seafile.com/en/home/) with SAMBA
+* **File Storage**: ownCloud / Nextcloud / [Seafile](https://www.seafile.com/en/home/) with Samba
 * **Media Server**: Jellyfin / Emby / Plex
 * **VPN**: WireGuard / OpenVPN
 * **DNS Server**: Unbound

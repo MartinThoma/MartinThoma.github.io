@@ -98,6 +98,7 @@ but not to the same WiFi network as the camera.
       <td>❌</td>
       <td>✅</td>
       <td>&nbsp;</td>
+    </tr>
     <tr>
       <td>Remote Playback</td>
       <td>❌</td>
@@ -148,7 +149,6 @@ but not to the same WiFi network as the camera.
 IP ratings measure how well a device is protected against dust and water.
 The first digit indicates the level of protection against solid objects, while the
 second digit indicates protection against liquids.
-second digit indicates the level of protection against liquids.
 
 The letter "X" can be used in place of a digit to indicate that the device has
 not been tested for that specific type of protection.
@@ -175,7 +175,7 @@ not been tested for that specific type of protection.
     <tr>
         <td>2</td>
         <td>Protected against solid objects larger than 12.5 mm (e.g., fingers)</td>
-        <td>Protected against vertically falling water drops with enclosur tilted up to 15°</td>
+        <td>Protected against vertically falling water drops with enclosure tilted up to 15°</td>
     </tr>
     <tr>
         <td>3</td>
@@ -210,7 +210,7 @@ not been tested for that specific type of protection.
     </tbody></table>
 
 
-## Tapo Link
+## TP-Link Tapo
 
 * Android App: [TP-Link Tapo](https://play.google.com/store/apps/details?id=com.tplink.iot&hl=en) (4.6 stars, 362K reviews)
 * iOS App: [TP-Link Tapo](https://apps.apple.com/us/app/tp-link-tapo/id1472718009) (4.8 stars, 9.4K reviews)
@@ -222,9 +222,9 @@ not been tested for that specific type of protection.
 
 Models:
 
-* All of them have a MicroSD slot for up to 512 GB
+* All of them have a microSD slot for up to 512 GB
 * All of them have two-way audio with noise suppression
-* All of them have 	Google Assistant / Amazon Alexa integrations
+* All of them have Google Assistant / Amazon Alexa integrations
 * Model Names:
     * The 2XX-series are indoor cameras
     * The 3XX-series are outdoor cameras
@@ -365,6 +365,7 @@ Models:
         <td>2 LEDs / 93 dB</td>
         <td><a href="https://www.amazon.de/TP-Link-Tapo-C520WS-%C3%9Cberwachungskamera-leistungsstarke/dp/B0CCW8GHT8/">54 &euro;</a></td>
     </tr>
+    </tbody>
 </table>
 
 ## Reolink
@@ -372,7 +373,7 @@ Models:
 * [Android App](https://play.google.com/store/apps/details?id=com.mcu.reolink&hl=en) has only 3.4 stars with 35.2K reviews
 * [Home Assistant Integration](https://www.home-assistant.io/integrations/reolink/)
 * Google Assistant
-* Aparently its possible to load the videos via FTP on a NAS.
+* Apparently it's possible to load the videos via FTP on a NAS.
 
 
 Of course, all of the security camera models have 2-way audio:
@@ -402,7 +403,7 @@ Of course, all of the security camera models have 2-way audio:
         <td><a href="https://www.amazon.de/Reolink-Argus-Solar-%C3%9Cberwachungskamera-ColorX-Nachtsicht/dp/B0D1BNPRR6/">160€</a> incl. 6W Solar Panel</td>
     </tr>
     <tr>
-        <td><a href="https://reolink.com/product/altas-pt-ultra/#specifications">Reolink Atlast PT Ultra</a></td>
+        <td><a href="https://reolink.com/product/altas-pt-ultra/#specifications">Reolink Altas PT Ultra</a></td>
         <td>8 MP (3840x2160) @ 15fps</td>
         <td>IP65</td>
         <td>20.000mAh ()</td>
@@ -412,7 +413,7 @@ Of course, all of the security camera models have 2-way audio:
         <td><a href="https://www.amazon.de/Reolink-Altas-Ultra-Solar-%C3%9Cberwachungskamera/dp/B0D948YBFH/">200€</a> incl. 6W Solar Panel</td>
     </tr>
     <tr>
-        <td><a href="https://reolink.com/product/argus-pt-lite/">Reolink Atlast PT Light</a></td>
+        <td><a href="https://reolink.com/product/argus-pt-lite/">Reolink Argus PT Lite</a></td>
         <td>3 MP (2304 x 1296) @ 15fps</td>
         <td>IP64</td>
         <td>17.2Wh ()</td>
@@ -433,8 +434,8 @@ Innovations, which is a Chinese company.
 All Eufy cams seem to have:
 
 * two-way audio
-* Integrations into: Apple HomeKit, Google Assistant und Amazon Alexa
-* SD-card up to 128GB
+* Integrations into: Apple HomeKit, Google Assistant, and Amazon Alexa
+* microSD card up to 128GB
 
 Eufy has the [HomeBase S380](https://www.eufy.com/eu-en/products/t80303d1?variant=42451449413784)
 (180€, up to 16 devices with up to 34 sensors) for battery-powered cameras.
@@ -553,7 +554,7 @@ extendable storage. No integrated battery in case of power failure. No
 specification on how many devices can be connected.
 
 
-The Arlo security cams also have 2-way Audio.
+The Arlo security cams also have two-way audio.
 
 Models:
 

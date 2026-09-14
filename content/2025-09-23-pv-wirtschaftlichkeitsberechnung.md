@@ -66,7 +66,7 @@ Ich habe ein Satteldach mit Betondachsteinen (Braas Taunus Pfanne):
 * **Dachfläche: ca. 6m x 12m** (72m² pro Seite)
     * 10m x 10m Korpus, d.h. 10m x 5m für das rechtwinklige Dreieck
     * Dachüberstand von ca. 1m
-    * Hypothenuse = 6m / cos(30°) = 6.93m
+    * Hypotenuse = 6m / cos(30°) = 6.93m
 
 
 ## Ertragsprognose
@@ -141,7 +141,7 @@ zeigt, dass eine Neigung von 30° gar nicht so schlecht ist.
     </tbody>
 </table>
 
-Die Gesamtleistung pro Jahr beträgt somit **1.080 kWh/kWp**.
+Der Gesamtertrag pro Jahr beträgt somit **1.080 kWh/kWp**.
 
 
 ## Analyse des Stromverbrauchs
@@ -415,7 +415,7 @@ Ich gehe pessimistisch von einer Lebensdauer der PV-Anlage von 20 Jahren aus.
 
 * Jährliche Kosten ohne PV-Anlage: 2175.52 €
 * Jährliche Kostensteigerung: 2%
-* Kummulative Kosten in 20 Jahren: $\sum_{i=0}^{n=19} 2175.52 \cdot (1 + 0.02)^i = 52859$ EUR
+* Kumulative Kosten in 20 Jahren: $\sum_{i=0}^{n=19} 2175.52 \cdot (1 + 0.02)^i = 52859$ EUR
 
 Wenn man von 20.000 EUR Investitionskosten für die PV-Anlage ausgeht und diese
 als Alternative zur PV-Anlage mit 3% Wertsteigerung anlegt und am Ende mit
@@ -440,7 +440,7 @@ keine PV-Anlage installiere.
 höhere Ausgaben, da ich dann auf den bezogenen Strom den höheren Verbrauchspreis
 zahlen muss.
 
-Nach 20 Jahren habe ich also 52859 EUR an Stromkosten bezahlt und  1684.80 EUR
+Nach 20 Jahren habe ich also 52859 EUR an Stromkosten bezahlt und 1684.80 EUR
 an Einnahmen durch die Einspeisevergütung erhalten.
 
 Ich bin also **-51174.20 EUR** ärmer als heute, wenn ich eine PV-Anlage installiere
@@ -596,7 +596,7 @@ Die Kosten mit einer 10 kWp PV-Anlage wären also:
         <tr>
             <th>Kostenart</th>
             <th style="text-align: right;">Betrag</th>
-            <th style="text-align: right;">Kummuliert über 20 Jahre<br/>(incl. 2% Steigerung p.a.)</th>
+            <th style="text-align: right;">Kumuliert über 20 Jahre<br/>(inkl. 2% Steigerung p.a.)</th>
         </tr>
     <tbody>
         <tr>
@@ -628,7 +628,7 @@ kWp PV-Anlage installiere und den Eigenverbrauch maximiere.
 
 ### Best-Case-Szenario: Maximaler Eigenverbrauch mit Einspeisevergütung, 14.4 kWp Anlage
 
-Berechnen wir das ganze nochmals mit einer 14.4 kWp PV-Anlage. Die Einspeisevergütung wäre dann (10*0.078 + 4.4*0.068) / 14.4 = 0.07394 €/kWh.
+Berechnen wir das Ganze nochmals mit einer 14.4 kWp PV-Anlage. Die Einspeisevergütung wäre dann (10*0.078 + 4.4*0.068) / 14.4 = 0.07394 €/kWh.
 
 <table>
     <thead>
@@ -667,7 +667,7 @@ Berechnen wir das ganze nochmals mit einer 14.4 kWp PV-Anlage. Die Einspeiseverg
             <td style="text-align: right;" class="border-right;">1440 kWh</td>
             <td style="text-align: right;">724 kWh</td>
             <td style="text-align: right;" class="border-right;">0 kWh</td>
-            <td style="text-align: right;">53.533 €</td>
+            <td style="text-align: right;">53.53 €</td>
             <td style="text-align: right;">0 €</td>
         </tr>
         <tr>
@@ -770,7 +770,7 @@ Die Kosten mit einer 14.4 kWp PV-Anlage wären also:
         <tr>
             <th>Kostenart</th>
             <th style="text-align: right;">Betrag</th>
-            <th style="text-align: right;">Kummuliert über 20 Jahre<br/>(incl. 2% Steigerung p.a.)</th>
+            <th style="text-align: right;">Kumuliert über 20 Jahre<br/>(inkl. 2% Steigerung p.a.)</th>
         </tr>
     <tbody>
         <tr>
@@ -802,7 +802,7 @@ Ich wäre nach 20 Jahren also **1798.99 EUR** reicher als heute, wenn ich eine
 Zur Erinnerung: Ohne PV-Anlage wäre ich nach 20 Jahren -20979.5 EUR ärmer als
 heute. Das Szenario outperformt also das Null-Szenario um 22778.49 EUR!
 
-## Tatsächlicher PV Ertrag
+## Tatsächlicher PV-Ertrag
 
 
 <table>
@@ -814,7 +814,7 @@ heute. Das Szenario outperformt also das Null-Szenario um 22778.49 EUR!
             <th style="border-right: 1px solid #000;">Netzbezug (kWh)</th>
             <th><span title="Netzbezug + (Erzeugt - Eingespeist)">Gesamtverbrauch</span> (kWh)</th>
             <th><span title="Erzeugt / Gesamtverbrauch; also wie sehr ist man unabhängig vom Netz">Autarkiegrad</span></th>
-            <th><span title="(Erzeugt-Eingespeist) / Erzeugt; also wie gut nutzt man sein selbst erzeugten Strom. Ist der Wert niedrig und gleichzeitig der Autarkiegrad niedrig, dann lohnt sich ein Batteriespeicher">Eigenverbrauchsanteil</span></th>
+            <th><span title="(Erzeugt-Eingespeist) / Erzeugt; also wie gut nutzt man seinen selbst erzeugten Strom. Ist der Wert niedrig und gleichzeitig der Autarkiegrad niedrig, dann lohnt sich ein Batteriespeicher">Eigenverbrauchsanteil</span></th>
         </tr>
     </thead>
     <tbody>
@@ -846,7 +846,7 @@ heute. Das Szenario outperformt also das Null-Szenario um 22778.49 EUR!
 * Die Strompreise werden voraussichtlich weiter steigen.
 * Die Anlage hält möglicherweise länger als 20 Jahre.
 * Durch geschickte Steuerung der Verbraucher (z.B. Wärmepumpe, Waschmaschine) lässt sich der Eigenverbrauchsanteil erhöhen.
-* Ein Energie-Management-System (EMS) kann mit einem dynamischem Stromtarif
+* Ein Energie-Management-System (EMS) kann mit einem dynamischen Stromtarif
   zu günstigen Zeiten Strom kaufen.
 
 
@@ -902,6 +902,7 @@ einem Batteriespeicher von 10 kWh könnte ich nach 20 Jahren etwa 4176 EUR
 Gewinn über dem Vergleichsszenario ohne PV-Anlage erzielen.
 
 Besonders vorteilhaft wirken sich aus:
+
 - Der hohe Eigenverbrauchsanteil durch die Wärmepumpe
 - Die günstige Süd-West-Ausrichtung des Dachs
 - Die zu erwartenden weiteren Strompreissteigerungen
@@ -910,7 +911,7 @@ Besonders vorteilhaft wirken sich aus:
 
 1. Muss ich die Einspeisevergütung versteuern?
 2. Kann ich die PV-Anlage von der Steuer absetzen?
-3. Wie war das mit der 60% Regelung des Solarspitzengesetz?
+3. Wie war das mit der 60-%-Regelung des Solarspitzengesetzes?
     * Es wird keine Einspeisevergütung mehr gezahlt, wenn der Strompreis an der
       Börse ins Negative fällt.
     * Es besteht für den Messstellenbetreiber die Pflicht zum Einbau eines

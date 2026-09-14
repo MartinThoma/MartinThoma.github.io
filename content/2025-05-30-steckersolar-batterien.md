@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Steckersolar-Batterien 2025
 slug: steckersolar-batterien-2025
+lang: de
 author: Martin Thoma
 date: 2025-05-30 20:00
 category: My bits and bytes
@@ -10,8 +10,8 @@ tags: reviews, energy, photovoltaics
 featured_image: logos/earth.png
 ---
 Ich habe eine Steckersolaranlage, welche ab ca. April regelmäßig mittags mehr
-Strom produziert als ich verbrauche. Daher überlege ich mir eine Batterie
-anzuschaffen um den Strom flexibler nutzen zu können.
+Strom produziert als ich verbrauche. Daher überlege ich mir, eine Batterie
+anzuschaffen, um den Strom flexibler nutzen zu können.
 
 ## Modelle
 
@@ -47,7 +47,7 @@ anzuschaffen um den Strom flexibler nutzen zu können.
       <td>IP65</td>
       <td>255 &times; 254 &times; 458 mm (21.5 kg)</td>
       <td class="red">1&times; 500 W max., 11 - 60 V (130 Min)</td>
-      <td>Hat USB-A und USB-C Ausgänge, kann auch übers Auto geladen werden... macht eher den Eindrcuk einer Campign-Lösung</td>
+      <td>Hat USB-A- und USB-C-Ausgänge, kann auch übers Auto geladen werden ... macht eher den Eindruck einer Camping-Lösung</td>
     </tr>
     <tr>
       <td><a href="https://eu.marstekenergy.com/de-de/products/marstek-b2500-balkonkraftwerk-mit-speicher">Marstek Solarbank B2500-D</a></td>
@@ -70,7 +70,7 @@ anzuschaffen um den Strom flexibler nutzen zu können.
       <td>LFP (6000 Zyklen)</td>
       <td>IP66</td>
       <td>T235 &times; B406 &times; H270mm (23kg)</td>
-      <td>2&times; 16 - 60 V⎓ ,26 A, 900 W MAX</td>
+      <td>2&times; 16 - 60 V⎓, 26 A, 900 W MAX</td>
       <td>?</td>
     </tr>
   </tbody>

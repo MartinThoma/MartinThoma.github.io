@@ -14,7 +14,7 @@ Die Kosten für die Krankenversorgung in Deutschland steigen stetig an.
 Deutschland gibt pro Kopf mehr für Gesundheit aus als die meisten anderen Länder
 der Welt
 ([EU-Vergleich](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Healthcare_expenditure_statistics_-_overview)).
-Nur die USA, die Schweiz, und Norwegen geben mehr für Gesundheit aus
+Nur die USA, die Schweiz und Norwegen geben mehr für Gesundheit aus
 ([Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_total_health_expenditure_per_capita)).
 
 **Das Problem:** Aufgrund der demographischen Entwicklung wird sich dieser Trend
@@ -26,19 +26,18 @@ weniger Menschen getragen werden müssen.
 In diesem Artikel stelle ich konkrete Vorschläge vor, wie wir die Kosten für
 die Krankenversorgung in Deutschland senken können. Dabei geht es nicht um Kürzungen, sondern um intelligente Reformen, die oft sogar die Versorgungsqualität verbessern.
 
-## 🏃‍♂️ Prävention - Vorbeugen ist günstiger als Heilen
+## 🏃♂️ Prävention - Vorbeugen ist günstiger als Heilen
 
 In vielen Fällen ist es deutlich günstiger, Krankheiten zu verhindern als sie zu
 behandeln. **Studien zeigen, dass jeder in Prävention investierte Euro 2-4 Euro an Behandlungskosten einsparen kann.**<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
 
 ### Gesunder Lebensstil
 
-Alkohol-, Nikotin-, und Zucker-Konsum sind ungesund und verursachen viele
+Alkohol-, Nikotin- und Zuckerkonsum sind ungesund und verursachen viele
 Krankheiten. **Allein die durch Rauchen verursachten Krankheitskosten belaufen sich in Deutschland auf etwa 97 Milliarden Euro jährlich** ([DKFZ](https://www.dkfz.de/de/tabakkontrolle/download/Publikationen/AdWfP/AdWfP_Die_Kosten_des_Rauchens_in_Deutschland.pdf)). Die meisten Menschen wissen um die Gesundheitsrisiken, trotzdem konsumieren sie diese
 Substanzen in hohen Mengen. Die Politik könnte hier regulierend eingreifen,
 indem sie die Preise für diese Substanzen erhöht.
 
-#### 🍭 Zuckersteuer
 #### 🚬 Tabaksteuer
 * **Erhöhung der Tabaksteuer**: Deutschland hat im europäischen Vergleich relativ niedrige Tabaksteuern. Eine Erhöhung um 1 Euro pro Packung könnte den Zigarettenkonsum um 15-20% reduzieren
 * **E-Zigaretten**: Sinnvolle Regulierung von E-Zigaretten als weniger schädliche Alternative zu herkömmlichen Zigaretten
@@ -47,8 +46,8 @@ indem sie die Preise für diese Substanzen erhöht.
 
 * [**Zuckersteuer**](https://de.wikipedia.org/wiki/Zuckersteuer): Eine Steuer
   auf zuckerhaltige Lebensmittel und Getränke könnte den Konsum von Zucker
-  reduzieren. In Großbritannien wurde im April 2018 eine Zuckersteuer von 0.18
-  GBP/L auf Getränke mit mehr als 5g Zucker pro 100ml eingeführt, sowie von 0.24
+  reduzieren. In Großbritannien wurde im April 2018 eine Zuckersteuer von 0,18
+  GBP/L auf Getränke mit mehr als 5g Zucker pro 100ml eingeführt, sowie von 0,24
   GBP/L auf Getränke mit mehr als 8g Zucker pro 100ml. In den Jahren 2015 bis
   2018 ging die Gesamtmenge des mit zuckerhaltigen Getränken verkauften Zuckers
   um 29 % zurück. Die Reduktion ließ sich zu knapp drei Vierteln auf die
@@ -83,7 +82,7 @@ arbeiten. Durch Zusammenlegungen könnten Synergien genutzt werden:
 * Kleinere dermatologische Eingriffe
 * Bestimmte Krebstherapien
 
-## 👩‍⚕️ Hausärzte und Primärversorgung
+## 👩⚕️ Hausärzte und Primärversorgung
 
 ### Delegation an Medizinische Fachangestellte (MFAs)
 Hausärzte übernehmen viele Aufgaben, die auch von Medizinischen Fachangestellten
@@ -170,7 +169,7 @@ Das deutsche Gesundheitssystem leidet unter hohen Verwaltungskosten:
 * **Luftqualität**: Bessere Luftqualität in Städten reduziert Atemwegs- und Herz-Kreislauf-Erkrankungen
 * **Lärmschutz**: Lärmreduktion kann Stress und dessen Folgeerkrankungen vermindern
 
-## 👨‍⚕️ Personelle Maßnahmen
+## 👨⚕️ Personelle Maßnahmen
 
 ### 🎓 Ausbildung und Qualifikation
 * **Nurse Practitioners**: Hochqualifizierte Pflegekräfte könnten mehr medizinische Aufgaben übernehmen
@@ -192,7 +191,7 @@ Das deutsche Gesundheitssystem leidet unter hohen Verwaltungskosten:
 
 Die Kostensenkung im deutschen Gesundheitswesen erfordert einen vielschichtigen Ansatz. Während kurzfristige Maßnahmen wie die bessere Nutzung von MFAs und die Förderung von Generika schnell umsetzbar sind, benötigen strukturelle Reformen wie die Digitalisierung oder die Verwaltungsreform längere Vorlaufzeiten.
 
-Wichtig ist, dass Kostensenkungen nicht zu Lasten der Versorgungsqualität gehen dürfen. Viele der vorgeschlagenen Maßnahmen können sogar gleichzeitig die Qualität verbessern - beispielsweise durch schnellere Diagnosen dank digitaler Patientenakten oder bessere Prävention.
+Wichtig ist, dass Kostensenkungen nicht zulasten der Versorgungsqualität gehen dürfen. Viele der vorgeschlagenen Maßnahmen können sogar gleichzeitig die Qualität verbessern - beispielsweise durch schnellere Diagnosen dank digitaler Patientenakten oder bessere Prävention.
 
 Eine erfolgreiche Reform des deutschen Gesundheitswesens wird nur durch eine Kombination aus politischem Willen, technologischem Fortschritt und der Bereitschaft aller Akteure zu Veränderungen möglich sein.
 

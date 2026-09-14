@@ -56,10 +56,30 @@ Das hätte einige Konsequenzen:
 1. Der AfD würden 3&nbsp;Sitze zur absoluten Mehrheit fehlen - bei 83&nbsp;Sitzen würden
    sie 42&nbsp;Sitze benötigen.
 2. Da die AfD keine Koalitionspartner hat/will, würde sie keine Regierung bilden können.
-3. Nur alle anderen Parteien zusammen könnten eine Regierung bilden. Das wurde allerdings bereits von der CDU auf Bundesebene ausgeschlossen ([Unvereinbarkeitsbeschluss](https://www.tagesschau.de/inland/innenpolitik/cdu-linke-unvereinbarkeitsbeschluss-100.html)). Auch der amtierende Ministerpräsident und Spitzenkandidat der CDU, Sven Schulze, hat eine Zusammenarbeit mit der Linken bereits ausgeschlossen ([Markus Lanz, 7. Juli 2026](https://www.zdfheute.de/politik/deutschland/lanz-schulze-landtagswahl-sachsen-anhalt-afd-linke-100.html))
+3. Nur alle anderen Parteien zusammen könnten eine Regierung bilden. Das wurde allerdings bereits von der CDU auf Bundesebene ausgeschlossen ([Unvereinbarkeitsbeschluss](https://www.tagesschau.de/inland/innenpolitik/cdu-linke-unvereinbarkeitsbeschluss-100.html)). Auch der amtierende Ministerpräsident und Spitzenkandidat der CDU, Sven Schulze, hat eine Zusammenarbeit mit der Linken bereits ausgeschlossen ([Markus Lanz, 7. Juli 2026](https://www.zdfheute.de/politik/deutschland/lanz-schulze-landtagswahl-sachsen-anhalt-afd-linke-100.html)).
 
 
-## Prognose 2: Es wird eine CDU Minderheitsregierung geben
+## Prognose 2: Die AfD wird von Wahlbetrug reden
+
+In Trump'scher Manier sägt man weiter an unserer Demokratie:
+
+[Briefwahl: Wie die AfD Sorgen vor Wahlbetrug befeuert](https://www.zdfheute.de/politik/deutschland/afd-briefwahl-wahlen-100.html) titelte ZDFheute am 27. August.
+
+Insbesondere wenn es knapp wird, gehe ich davon aus, dass die AfD die Integrität
+der Briefwahl in Frage stellen wird.
+
+Das hat System:
+
+* Mai 2024: [AfD sät Zweifel an Briefwahl ‒ Stadt bezieht Stellung](https://www.moz.de/lokales/frankfurt-oder/wahl-2024-in-frankfurt-oder-afd-saet-zweifel-an-briefwahl-stadt-bezieht-stellung-77170249.html)
+* September 2024: [Faktencheck: Das steckt hinter dem Briefwahlbetrugs-Vorwurf](https://www.dw.com/de/faktencheck-das-steckt-hinter-dem-briefwahlbetrugs-vorwurf/a-70346701)
+* Oktober 2025: [AfD zweifelt Briefwahlergebnisse bei Bürgermeisterwahlen an](https://www.rbb24.de/politik/wahl/brandenburg-buergermeisterwahlen/2025/bad-freienwalde-oranienburg-stichwahl-briefwahl-ergebnisse-afd-zweifel.html)
+
+Eine solche Demontage unserer Demokratie dürfen wir nicht dulden:
+
+[Petition: AfD-Verbot jetzt auf den Weg bringen](https://www.campact.de/rechtsextremismus/afd-verbot/)
+
+
+## Prognose 3: Es wird eine CDU-Minderheitsregierung geben
 
 Typischerweise bilden Parteien Koalitionen, um eine Regierung zu bilden, welche
 im Parlament eine Mehrheit hat. Das hat den Vorteil, dass die Regierungsparteien
@@ -85,7 +105,7 @@ gibt es zwei Modelle:
    geben. Im Grunde fragt man also die Opposition, ob ein Gesetzesentwurf für sie
    akzeptabel ist. Man sucht also zusammen nach einer Mehrheit - für jede
    einzelne Gesetzesvorlage.
-   * Das [Kabinett Kretschmer III](https://de.wikipedia.org/wiki/Kabinett_Kretschmer_III) (CDU und SPD) in Sachsen hat im [Sächsischen Landtag](https://de.wikipedia.org/wiki/Landtagswahl_in_Sachsen_2024) nur 51 von 120 Sitzen. Die fehlenden 10 Stimmen können sie von BSW (15), Grüne (7), Linke (6), oder FW (1) erhalten. Dafür wurde eine [Konsultations- und Informationsvereinbarung](https://www.revosax.sachsen.de/vorschrift/21181-Saechsische-Konsultations-und-Informationsvereinbarung#romI) eingeführt.
+   * Das [Kabinett Kretschmer III](https://de.wikipedia.org/wiki/Kabinett_Kretschmer_III) (CDU und SPD) in Sachsen hat im [Sächsischen Landtag](https://de.wikipedia.org/wiki/Landtagswahl_in_Sachsen_2024) nur 51 von 120 Sitzen. Die fehlenden 10 Stimmen können sie von BSW (15), Grüne (7), Linke (6) oder FW (1) erhalten. Dafür wurde eine [Konsultations- und Informationsvereinbarung](https://www.revosax.sachsen.de/vorschrift/21181-Saechsische-Konsultations-und-Informationsvereinbarung#romI) eingeführt.
    * Das [Kabinett Voigt](https://de.wikipedia.org/wiki/Kabinett_Voigt_(Th%C3%BCringen)) (CDU, SPD, BSW) in Thüringen hat im [Thüringer Landtag](https://de.wikipedia.org/wiki/Landtagswahl_in_Th%C3%BCringen_2024) 44 von 88 Sitzen ([Brombeerkoalition](https://de.wikipedia.org/wiki/Brombeerkoalition)). Wegen [BSW-Austritten](https://www.tagesschau.de/inland/thueringen-wie-geht-es-weiter-100.html) haben sie selbst diese 50% nicht mehr.
 
 
@@ -94,7 +114,7 @@ Das heißt, es wird voraussichtlich 2-3 Wahlgänge für den Ministerpräsidenten
 1. Wahlgang: Ulrich Siegmund (AfD) wird alle AfD-Stimmen erhalten, aber
    keine weiteren. Sven Schulze (CDU) wird wohl alle CDU-Stimmen erhalten und
    eventuell ein paar weitere. Ob Linke/SPD/Grüne überhaupt einen Kandidaten
-   aufstellen ist fraglich. Es wird vermutlich keine absolute Mehrheit geben.
+   aufstellen, ist fraglich. Es wird vermutlich keine absolute Mehrheit geben.
 2. Wahlgang: Nochmals ähnlich. Es wird spannend, ob es Abweichler gibt.
 3. Wahlgang: Hier genügt eine relative Mehrheit. Das heißt, wenn sich die
    anderen Parteien nicht auf Sven Schulze einigen können, wird es einen
@@ -102,7 +122,7 @@ Das heißt, es wird voraussichtlich 2-3 Wahlgänge für den Ministerpräsidenten
 
 Allerdings gehe ich davon aus, dass Linke/SPD/Grüne und auch die CDU das unbedingt verhindern wollen.
 
-**Prognose 2**: Es wird schlussendlich eine CDU-Minderheitsregierung aus CDU und
+**Prognose 3**: Es wird schlussendlich eine CDU-Minderheitsregierung aus CDU und
 SPD geben, aber in jedem Fall mit einem Konsultationsmechanismus.
 
 
@@ -113,21 +133,21 @@ wahrscheinlicher, dass es keine größeren Änderungen geben wird.
 
 Aktuelle große Themen in Sachsen-Anhalt:
 
-* Im August 2026 gibt es in Sachsen-Anhalt eine **Arbeitslosenquote** von 8.5% und
-  eine **Unterbeschäftigungsquote** von 10.2%
+* Im August 2026 gibt es in Sachsen-Anhalt eine **Arbeitslosenquote** von 8,5% und
+  eine **Unterbeschäftigungsquote** von 10,2%
   ([statistik.arbeitsagentur.de](https://statistik.arbeitsagentur.de/Auswahl/raeumlicher-Geltungsbereich/Politische-Gebietsstruktur/Bundeslaender/Sachsen-Anhalt.html))
 * Im Juli 2026 teilte das statistische Landesamt Sachsen-Anhalts eine
   [**Verschuldung der Kernhaushalte der Kommunen** von 3711 Mio. EUR](https://statistik.sachsen-anhalt.de/daten-und-veroeffentlichungen/pressemitteilungen/2026/07/178/2026-2025-anstieg-kommunaler-schulden-in-sachsen-anhalt-um-2643-mio-eur) mit.
-  Wenn den Kommunen das Geld ausgeht spüren die Menschen das direkt in höheren
-  Kita/Kindergarten-Gebühren, teureren Schwimmbad-Besuchen oder sogar
-  Schließungen, verringertem ÖPNV-Angebot.
+  Wenn den Kommunen das Geld ausgeht, spüren die Menschen das direkt in höheren
+  Kita/Kindergarten-Gebühren, teureren Schwimmbad-Besuchen, verringertem
+  ÖPNV-Angebot oder sogar Schließungen.
 * **Demographie**: Die **Altersstruktur** in Sachsen-Anhalt ist besonders
    ungünstig. [Sachsen-Anhalt hat das höchste Durchschnittsalter in
    Deutschland](https://www.tagesschau.de/inland/gesellschaft/sachsen-anhalt-wahl-demografie-wirtschaft-106.html).
    Das könnte zu einem [verschärften
    Lehrermangel](https://www.mdr.de/nachrichten/sachsen-anhalt/lehrer-ruhestand-massnahmen-lehrermangel-100.html)
    führen. Auch weitere Fachkräfte, insbesondere im Gesundheitswesen (Hausärzte und Pfleger), werden
-   fehlen. Eine starke AfD macht es für Fachkräfte auch unattraktiver nach
+   fehlen. Eine starke AfD macht es für Fachkräfte auch unattraktiver, nach
    Sachsen-Anhalt zu ziehen.
 * **Strukturwandel**: Braunkohle war wichtig für die Wirtschaft in Sachsen-Anhalt
    und das muss sich ändern. Da steckt man bereits viel Geld rein ([Quelle](https://www.mdr.de/nachrichten/sachsen-anhalt/kohle-strukturwandel-gelder-faq-104.html)).
@@ -137,19 +157,19 @@ kurzfristig und mit unklaren Mehrheiten. Die Probleme werden also eher größer.
 Vermutlich wird die AfD dann gestärkt.
 
 Nur ein deutlicher Impuls aus dem Bund könnte hier etwas bewegen, indem sich die
-gefühlte wirtschaftliche Lage der Menschen verbessert. Ein echtes Investitionspaket,
-so wie wir Grüne es mit dem [500 Milliarden Sondervermögen](https://www.tagesschau.de/inland/innenpolitik/gruene-finanzpaket-100.html) ([Sondervermögen Infrastruktur und Klimaneutralität](https://de.wikipedia.org/wiki/Sonderverm%C3%B6gen_Infrastruktur_und_Klimaneutralit%C3%A4t)) anstoßen wollten.
+gefühlte wirtschaftliche Lage der Menschen verbessert. Dafür bräuchte es ein echtes Investitionspaket,
+so wie wir Grüne es mit dem [500-Milliarden-Sondervermögen](https://www.tagesschau.de/inland/innenpolitik/gruene-finanzpaket-100.html) ([Sondervermögen Infrastruktur und Klimaneutralität](https://de.wikipedia.org/wiki/Sonderverm%C3%B6gen_Infrastruktur_und_Klimaneutralit%C3%A4t)) anstoßen wollten.
 Es ist ein Skandal und politisch dumm, dass [die CDU das Sondervermögen zweckentfremdet](https://www.tagesschau.de/wirtschaft/konjunktur/sondervermoegen-zweckentfremdung-studien-100.html) hat.
 
-Solange das [Gruselkabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) bestehen bleibt wird sich daran wohl nichts ändern. Dann werden wir die Union wohl noch unter 20% in den Umfragen sehen ([aktuell: 21%](https://www.wahlrecht.de/umfragen/)).
+Solange das [Gruselkabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) bestehen bleibt, wird sich daran wohl nichts ändern. Dann werden wir die Union wohl noch unter 20% in den Umfragen sehen ([aktuell: 21%](https://www.wahlrecht.de/umfragen/)).
 
 
-## Was könnte schief gehen?
+## Was könnte schiefgehen?
 
 1. **Anschläge**: Die AfD und die CDU profitieren von Anschlägen, die vor der Wahl passieren, weil die Wähler diesen Parteien [Kompetenz in der Verbrechensbekämpfung](https://www.tagesschau.de/wahl/archiv/2025-02-23-BT-DE/charts/umfrage-kompetenzen/chart_1844413.shtml) zuschreiben. Beispiele für solche Ereignisse sind:
     * [Messerangriff in Mannheim am 31. Mai 2024](https://de.wikipedia.org/wiki/Messerangriff_in_Mannheim_am_31._Mai_2024) vor der [Europawahl im Juni 2024](https://de.wikipedia.org/wiki/Europawahl_2024)
-    * [Messeranschlag in Solingen am 23. August 2024](https://de.wikipedia.org/wiki/Messeranschlag_in_Solingen) vor der [Landtagswahl in Sachsen 2024 im September 2024](https://de.wikipedia.org/wiki/Landtagswahl_in_Sachsen_2024) und der [Landtagswahl in Thüringen im September 2024](https://de.wikipedia.org/wiki/Landtagswahl_in_Th%C3%BCringen_2024)
-    * [Auto-Anschlag in München am 13.02.2025](https://de.wikipedia.org/wiki/Anschlag_in_M%C3%BCnchen_2025) und am [23.02.2025 die Bundestagswahl](https://de.wikipedia.org/wiki/Bundestagswahl_2025)
+    * [Messeranschlag in Solingen am 23. August 2024](https://de.wikipedia.org/wiki/Messeranschlag_in_Solingen) vor der [Landtagswahl in Sachsen im September 2024](https://de.wikipedia.org/wiki/Landtagswahl_in_Sachsen_2024) und der [Landtagswahl in Thüringen im September 2024](https://de.wikipedia.org/wiki/Landtagswahl_in_Th%C3%BCringen_2024)
+    * [Auto-Anschlag in München am 13.02.2025](https://de.wikipedia.org/wiki/Anschlag_in_M%C3%BCnchen_2025) vor der [Bundestagswahl am 23.02.2025](https://de.wikipedia.org/wiki/Bundestagswahl_2025)
 2. **Umweltkatastrophen**: Die [Umweltkompetenz der Grünen](https://www.tagesschau.de/wahl/archiv/2025-02-23-BT-DE/charts/umfrage-kompetenzen/chart_1844419.shtml) erfüllt eine ähnliche Rolle. Das hat man an dem Reaktorunfall in Fukushima 2011 gesehen, der die Grünen in der Landtagswahl in Baden-Württemberg im März 2011 gestärkt hat.
 3. **Kiss of Death**: Wenn eine extrem polarisierende oder in einer bestimmten
    Wählerschaft unbeliebte Person (wie z. B. Donald Trump) eine Wahlempfehlung
@@ -161,6 +181,6 @@ Solange das [Gruselkabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) b
    überraschend doch, dann ändert sich die Situation komplett. Dann könnte die
    AfD eine absolute Mehrheit haben und eine Regierung bilden oder mit dem BSW
    eine Koalition bilden. Gruselig.
-5. **CDU in Sachsen-Anhalt**: Die CDU könnte sich weigern in
+5. **CDU in Sachsen-Anhalt**: Die CDU könnte sich weigern, in
    Regierungsverantwortung zu gehen oder mit der AfD zusammen eine Regierung
    bilden. Beides würde mich überraschen.

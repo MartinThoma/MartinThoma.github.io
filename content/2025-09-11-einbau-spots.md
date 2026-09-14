@@ -10,12 +10,12 @@ tags: house,diy
 featured_image: logos/house.png
 ---
 Ich werde hoffentlich noch dieses Jahr meine Küche renovieren und dabei einige
-Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Sinn machen
+Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Sinn machen.
 
 <table>
     <thead>
     <tr>
-      <th>Fassung</th>
+      <th>Rahmen</th>
       <th>Leuchtmittel</th>
       <th>Fassung</th>
       <th>Volt</th>
@@ -87,23 +87,23 @@ Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Si
 Für GX53 spricht:
 
 * Mit einem Handgriff ohne Werkzeug zu wechseln
-* Kein Trafo nötig - wenn also was kaputt geht, muss nur das Leuchtmittel gewechselt werden
+* Kein Trafo nötig - wenn also was kaputtgeht, muss nur das Leuchtmittel gewechselt werden
 * Sehr geringe Einbautiefe
 * Mit 87mm Durchmesser vom Loch (107mm Durchmesser vom Rahmen) kann man ggf. auch leichter die Kabel verlegen
 
-## GU 10
+## GU10
 
 GU10 ist hingegen weiter verbreitet. Die Leuchtmittel sind günstiger und
 einfacher zu finden. Auch die Rahmen sind günstiger.
 
 * Durchmesser Leuchtmittel: 50mm
-* Höhe von der oberkante des Glases des Leuchtmittels bis zur Unterkante der Fassung: 54mm
+* Höhe von der Oberkante des Glases des Leuchtmittels bis zur Unterkante der Fassung: 54mm
 * Sockelhöhe: ca. 7mm (+ ca. 3mm für die Kabel)
 * Die Sockelhöhe beträgt typischerweise 16mm
 
 ⇒ 54mm + 16mm - 7mm + 3mm = 66mm
 
-Man benötigt dann eine 51mm-Lochsäge-Aufsatz für den Bohrer.
+Man benötigt dann einen 51mm-Lochsägen-Aufsatz für den Bohrer.
 
 
 ## GU5.3 / MR16
