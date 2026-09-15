@@ -10,6 +10,10 @@ tags: diy, home improvement
 featured_image: logos/star.png
 status: draft
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/10/sichtbeton-arbeitsplatte.png"><img src="../images/2025/10/sichtbeton-arbeitsplatte.png" alt="Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine weiße Sichtbeton-Platte in der Schalung mit Basaltfasergewebe</figcaption>
+</figure>
 
 * https://www.bigmeatlove.de/beton-arbeitsplatte-DIY.html
 * https://www.grey-element.de/diy-designm%C3%B6bel/diy-k%C3%BCchenarbeitsplatte-aus-beton/

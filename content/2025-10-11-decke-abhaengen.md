@@ -149,9 +149,8 @@ Vorgehen:
 
 Die Q1-Spachtelung ist die Grundbehandlung der Fugen und Schraubenlöcher.
 Hierbei werden alle Fugen mit Spachtelmasse gefüllt und mit Fugendeckband
-armiert, um Risse zu vermeiden. Diese Qualitätsstufe ist für Bereiche
-ausreichend, die später gefliest oder mit grobstrukturierten Tapeten beklebt
-werden.
+armiert, um Risse zu vermeiden. Diese Qualitätsstufe ist nur für Bereiche
+ohne optische Anforderungen ausreichend, z.B. wenn später gefliest wird.
 
 **Material**:
 
@@ -190,7 +189,8 @@ Wer es als Video sehen möchte:
 
 Die Q2-Spachtelung baut auf Q1 auf und umfasst zusätzlich das Glätten der
 gespachtelten Bereiche. Die Oberfläche wird feiner und ist geeignet für
-mittelstrukturierte Tapeten oder Anstriche mit grobkörnigen Strukturputzen.
+mittel- und grobstrukturierte Tapeten (z.B. Raufaser), matte Anstriche oder
+Oberputze mit einer Körnung über 1&nbsp;mm.
 
 **Vorgehen**:
 

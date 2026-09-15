@@ -46,7 +46,7 @@ Im zeitlichen Verlauf sieht man:
 
 * Atomkraft wird immer unwichtiger, weil das
   [Kabinett Merkel II](https://de.wikipedia.org/wiki/Kabinett_Merkel_II)
-  (CDU/CSU und FDP) 2011 den [Atomausstieg](https://de.wikipedia.org/wiki/Atomkonsens)
+  (CDU/CSU und FDP) 2011 den beschleunigten [Atomausstieg](https://de.wikipedia.org/wiki/Atomkonsens)
   beschlossen hat.
 * Die erneuerbaren Energien steigen stark an, die fossilen Energieträger
   sinken.
@@ -69,7 +69,7 @@ Der Umstieg auf erneuerbare Energien reduziert diese Abhängigkeit drastisch.
 Jede neue Solaranlage und jedes neue Windrad bedeutet ein Stück mehr
 Unabhängigkeit – ökonomisch wie geopolitisch.
 
-* Kernkraft: Wir mussten Uran importieren. [Großteils aus Russland](https://www.tagesschau.de/inland/regional/niedersachsen/ndr-deutlich-mehr-uran-aus-russland-nach-lingen-geliefert-100.html)
+* Kernkraft: Wir mussten Uran importieren, z.B. aus Kasachstan, Niger, Kanada und Russland. Die Brennelementefabrik in Lingen bezieht [weiterhin Uran aus Russland](https://www.tagesschau.de/inland/regional/niedersachsen/ndr-deutlich-mehr-uran-aus-russland-nach-lingen-geliefert-100.html)
 * Kohle: 2023 hat Deutschland [102 Millionen Tonnen Braunkohle](https://www.destatis.de/Europa/DE/Thema/Umwelt-Energie/Braunkohle.html) abgebaut. Wir haben [27 Millionen Tonnen Steinkohle importiert](https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Energie/Verwendung/Tabellen/einfuhr-steinkohle-zeitreihe.html). Die größten Massengutfrachter können rund 400.000 Tonnen Ladung befördern ([Quelle](https://www.machmeer.de/infos-fuer-azubis/schiffe/massengutfrachter)), also ca. 70 große Frachter. Wir sind seit 2018 mit der [Schließung vom Bergwerk Prosper-Haniel](https://de.wikipedia.org/wiki/Bergwerk_Prosper-Haniel) von Importen abhängig. Der Grund ist, dass die deutsche Steinkohle nicht mehr wirtschaftlich abgebaut werden kann. Es ist einfach günstiger, die Kohle in Australien abzubauen und nach Deutschland zu transportieren. Verrückt.
 * Erdgas: Deutschland hat 2023 [2 Millionen Terajoule Erdgas importiert](https://www.destatis.de/DE/Themen/Wirtschaft/Aussenhandel/Tabellen/erdgas-jaehrlich.html). Seit 2023 kommt ein Großteil aus Norwegen, den Niederlanden und Belgien ([Quelle](https://de.statista.com/infografik/30706/taegliche-gasimporte-nach-deutschland-nach-herkunft/))
 
@@ -118,6 +118,7 @@ Die aktuelle [Zusammensetzung des Strompreises](https://www.verivox.de/strom/the
 * 16% [Umsatzsteuer](https://de.wikipedia.org/wiki/Umsatzsteuergesetz_(Deutschland)#Umsatzsteuers%C3%A4tze): +19%
 * 5,5% [Stromsteuer](https://de.wikipedia.org/wiki/Stromsteuer): +2,05 ct/kWh
 * 4,5% [Konzessionsabgabe](https://de.wikipedia.org/wiki/Konzessionsabgabe#Konzessionsabgaben_f%C3%BCr_Strom): +1,32 ct/kWh
+* 3,5% Umlagen (Offshore-Netzumlage, KWKG-Umlage, § 19 StromNEV) und Messstellenbetrieb
 
 ## Mythen
 
@@ -216,8 +217,9 @@ Wo es stimmt:
 
 ## Wie geht's weiter?
 
-Deutschland hat sich im Juli 2021 ([Kabinett Merkel IV](https://de.wikipedia.org/wiki/Kabinett_Merkel_IV), also CDU/CSU und SPD) im [Fit for 55](https://de.wikipedia.org/wiki/Fit_for_55)-Paket
-verpflichtet, bis 2050 klimaneutral zu sein. Wenn wir weltweit als verlässlicher
+Deutschland hat sich im Juli 2021 ([Kabinett Merkel IV](https://de.wikipedia.org/wiki/Kabinett_Merkel_IV), also CDU/CSU und SPD) mit der
+Novelle des Klimaschutzgesetzes verpflichtet, bis 2045 klimaneutral zu sein. Die EU
+will mit dem [Fit for 55](https://de.wikipedia.org/wiki/Fit_for_55)-Paket bis 2050 klimaneutral werden. Wenn wir weltweit als verlässlicher
 Partner wahrgenommen werden wollen, dann müssen wir das auch schaffen. Es ist
 außerdem eine riesige Chance für die deutsche Wirtschaft: Wir könnten einen
 großen Teil der Wertschöpfungskette nach Deutschland holen. Aktuell geben wir

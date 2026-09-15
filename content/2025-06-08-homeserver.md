@@ -10,6 +10,11 @@ tags: digital sovereignty, self-hosted, cloud
 featured_image: logos/earth.png
 status: draft
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/06/homeserver.png"><img src="../images/2025/06/homeserver.png" alt="A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Illustration generated with Claude AI: A mini PC running Pi-hole, Home Assistant, SSH, backups and dynamic DNS</figcaption>
+</figure>
+
 ## Hardware
 
 I use a Mini PC with the following specifications:

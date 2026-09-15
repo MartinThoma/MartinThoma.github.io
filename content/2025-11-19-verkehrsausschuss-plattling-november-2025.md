@@ -9,6 +9,11 @@ category: My bits and bytes
 tags: politics, traffic, plattling
 featured_image: logos/germany.png
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/11/verkehrsberuhigung.png"><img src="../images/2025/11/verkehrsberuhigung.png" alt="Eine Wohnstraße mit Tempo-30-Schild, Geschwindigkeitsanzeige mit Smiley und Carsharing-Auto" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine Wohnstraße mit Tempo-30-Schild, Geschwindigkeitsanzeige mit Smiley und Carsharing-Auto</figcaption>
+</figure>
+
 Am 19.11.2025 hat der [Verkehrsausschuss der Stadt Plattling](https://buergerinfo-plattling.digitalfabrix.de/si0057.asp?__ksinr=958) getagt.
 Anwesend waren:
 
@@ -27,7 +32,6 @@ Anwesend waren:
 * Vertreter der Presse
 
 Eventuell noch ein paar weitere Personen, die weniger gesprochen haben.
-
 
 ## MiKar: Vorstellung Car-Sharing
 
@@ -75,8 +79,6 @@ Es gibt keine Registrierungsgebühr.
 MiKar würde sich um die Wartung, Reinigung und Versicherung des Fahrzeugs
 kümmern sowie die App zur Verwaltung der Buchungen bereitstellen.
 
-
-
 ## Antrag auf die Prüfung verkehrsberuhigter Maßnahmen im Kapellenweg
 
 <iframe width="800" height="600" src="https://www.openstreetmap.org/export/embed.html?bbox=12.854754866526443%2C48.77385796607013%2C12.862034381792864%2C48.77659069935105&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=18/48.775224/12.858395">Größere Karte anzeigen</a></small>
@@ -112,8 +114,6 @@ Der Verkehrsausschuss beschloss, dass es im Kapellenweg keine Tempo-30-Zone gebe
 
 <iframe width="800" height="600" src="https://www.openstreetmap.org/export/embed.html?bbox=12.87605167375254%2C48.77683817536615%2C12.886855611664528%2C48.78230316872707&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=17/48.779571/12.881454">Größere Karte anzeigen</a></small>
 
-
-
 Ab 17:16 Uhr wurde der Leitenweg behandelt.
 
 Ergebnisse der städtischen Feststellungen:
@@ -136,9 +136,7 @@ Parkplätze man ist.
 
 Es ging insbesondere nicht um digitale Tafeln, sondern um statische Schilder.
 
-
 ## Anfragen, Sonstiges
-
 
 Ab 17:40 Uhr:
 

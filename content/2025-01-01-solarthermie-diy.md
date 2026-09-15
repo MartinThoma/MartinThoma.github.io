@@ -10,6 +10,11 @@ tags: diy,energy
 featured_image: logos/star.png
 status: draft
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/01/diy-solarthermie.png"><img src="../images/2025/01/diy-solarthermie.png" alt="Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein selbstgebauter Solarkollektor mit Kupferrohren und Wasserspeicher</figcaption>
+</figure>
+
 * https://www.heizung.de/solarthermie/wissen/solarfluessigkeit-das-traegermedium-der-sonnenwaerme.html
     * Glykol kann als Frostschutzmittel verwendet werden, besser ist aber ein Auffangbehälter und reines Wasser
 

@@ -13,6 +13,11 @@ status: draft
 Die Idee ist, die Solarzellen an die Batterie anzuschließen. Die Batterie
 ist dann über einen Wechselrichter an das Hausnetz angeschlossen.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/05/batteriespeicher.png"><img src="../images/2025/05/batteriespeicher.png" alt="PV-Module, Batterie und Wechselrichter versorgen ein Haus" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: PV-Module, Batterie und Wechselrichter versorgen ein Haus</figcaption>
+</figure>
+
 ## Systeme
 
 * Anker Solix Solarbank
@@ -42,7 +47,7 @@ ist dann über einen Wechselrichter an das Hausnetz angeschlossen.
             <td>MPPT-Eingänge</td>
             <td>1 (800W)</td>
             <td>4 (2400W)</td>
-            <td>2 (1200W)</td>
+            <td>2 (1800W)</td>
             <td>1 (1000W)</td>
         </tr>
         <tr>

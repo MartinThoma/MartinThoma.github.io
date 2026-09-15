@@ -13,6 +13,11 @@ When I'm not at home, I still want to know if anything is happening. This is esp
 important when a person is in an unexpected location, but also for situations like
 someone being at the door.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/05/home-security-cameras-2025.png"><img src="../images/2025/05/home-security-cameras-2025.png" alt="A house with two outdoor security cameras and a live view on a phone" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Illustration generated with Claude AI: A house with two outdoor security cameras and a live view on a phone</figcaption>
+</figure>
+
 In this article, I will compare different home security camera systems.
 
 ## General Notes
@@ -229,6 +234,7 @@ Models:
     * The 2XX-series are indoor cameras
     * The 3XX-series are outdoor cameras
     * The 4XX-series are battery-powered outdoor cameras
+    * The 5XX-series are pan/tilt outdoor cameras
     * [Tapo D235](https://de.store.tapo.com/products/tapo-d235-2k-5mp-akku-festverdrahtet): A doorbell for [100€](https://www.amazon.de/Tapo-D235-Video-T%C3%BCrklingel-Festverdrahtet-ultrabreiten/dp/B0DDL95M8Z/)
 
 <table>
@@ -337,7 +343,7 @@ Models:
     </tr>
     <tr>
         <td><a href="https://de.store.tapo.com/blogs/haufig-gestellte-fragen/spezifikationen-von-tapo-c420s2?srsltid=AfmBOoq3QCHJHks5KZGZkMFYKmCwN48rqmJ0-aegi1LQwgM4Li_ZcId4">Tapo C420</a></td>
-        <td>4 MP (2560 &times; 1440)</td>
+        <td>3.7 MP (2560 &times; 1440)</td>
         <td>IP65</td>
         <td>6700 mAh (removable)</td>
         <td>113° / 97° / 54°</td>
@@ -347,7 +353,7 @@ Models:
     </tr>
     <tr>
         <td><a href="https://de.store.tapo.com/blogs/haufig-gestellte-fragen/spezifikationen-von-tapo-c425">Tapo C425</a></td>
-        <td>4 MP (2560 &times; 1440) / 30fps</td>
+        <td>3.7 MP (2560 &times; 1440) / 30fps</td>
         <td>IP66</td>
         <td>10000 mAh (300 days, integrated)</td>
         <td>150° / 134° / 77°</td>
@@ -357,7 +363,7 @@ Models:
     </tr>
     <tr>
         <td><a href="https://de.store.tapo.com/blogs/haufig-gestellte-fragen/spezifikationen-von-tapo-c520ws">Tapo C520WS</a></td>
-        <td>4 MP (2560 × 1440) / 30fps</td>
+        <td>3.7 MP (2560 × 1440) / 30fps</td>
         <td>IP66</td>
         <td>❌</td>
         <td>112° / 95° / 53°</td>
@@ -510,8 +516,8 @@ Here are the Eufy models I found:
     </tbody>
 </table>
 
-I couldn't find any specs for the different Eufy cameras. Additionally, the model
-names are a mess. No thanks.
+I couldn't find complete specs for the different Eufy cameras (see the question
+marks above). Additionally, the model names are a mess. No thanks.
 
 ## Wyze
 

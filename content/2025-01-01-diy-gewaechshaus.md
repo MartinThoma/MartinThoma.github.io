@@ -1,15 +1,20 @@
 ---
 layout: post
-lang: de
 title: DIY Gewächshaus
 slug: diy-gewaechshaus
+lang: de
 author: Martin Thoma
 date: 2023-03-31 20:00
 category: German posts
 tags: house, money, diy
-status: draft
 featured_image: logos/house.png
+status: draft
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/01/diy-gewaechshaus.png"><img src="../images/2025/01/diy-gewaechshaus.png" alt="Ein selbstgebautes Gewächshaus aus Holzlatten und Gewächshausfolie" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein selbstgebautes Gewächshaus aus Holzlatten und Gewächshausfolie</figcaption>
+</figure>
+
 ## Material
 
 * Gewächshausfolie

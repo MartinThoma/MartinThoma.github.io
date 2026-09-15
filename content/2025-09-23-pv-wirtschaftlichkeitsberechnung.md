@@ -406,8 +406,9 @@ Der Vergütungsanspruch nach dem EEG besteht für die Dauer von 20 Jahren. Die
 
 ## Wirtschaftlichkeits&shy;berechnung
 
-Um die Rentabilität einer PV-Anlage zu bewerten, betrachte ich zwei Szenarien:
-das ungünstigste (Volleinspeisung) und das günstigste (maximaler Eigenverbrauch).
+Um die Rentabilität einer PV-Anlage zu bewerten, vergleiche ich das Null-Szenario
+(keine PV-Anlage) mit dem ungünstigsten (Volleinspeisung) und dem günstigsten
+Fall (maximaler Eigenverbrauch).
 
 Ich gehe pessimistisch von einer Lebensdauer der PV-Anlage von 20 Jahren aus.
 
@@ -452,6 +453,11 @@ erhalte.
 
 Ich gehe hier von einer Zählerzusammenlegung aus, d.h. der Strom kostet dann
 0.2505 €/kWh + 126.43 €/Jahr.
+
+Achtung: Ich verrechne Erzeugung und Verbrauch pro Monat. Das entspricht einem
+perfekten Speicher, der Überschüsse innerhalb eines Monats verschieben kann. In
+der Realität ist der Eigenverbrauch deutlich geringer (Nacht, trübe Tage), daher
+ist dieses Szenario sehr optimistisch.
 
 Für die Berechnung nehme ich eine 10 kWp Anlage als Beispiel:
 
@@ -813,7 +819,7 @@ heute. Das Szenario outperformt also das Null-Szenario um 22778.49 EUR!
             <th>Eingespeist (kWh)</th>
             <th style="border-right: 1px solid #000;">Netzbezug (kWh)</th>
             <th><span title="Netzbezug + (Erzeugt - Eingespeist)">Gesamtverbrauch</span> (kWh)</th>
-            <th><span title="Erzeugt / Gesamtverbrauch; also wie sehr ist man unabhängig vom Netz">Autarkiegrad</span></th>
+            <th><span title="(Erzeugt - Eingespeist) / Gesamtverbrauch; also wie sehr ist man unabhängig vom Netz">Autarkiegrad</span></th>
             <th><span title="(Erzeugt-Eingespeist) / Erzeugt; also wie gut nutzt man seinen selbst erzeugten Strom. Ist der Wert niedrig und gleichzeitig der Autarkiegrad niedrig, dann lohnt sich ein Batteriespeicher">Eigenverbrauchsanteil</span></th>
         </tr>
     </thead>

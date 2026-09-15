@@ -52,7 +52,7 @@ Es gibt [95 gesetzliche Krankenversicherungen](https://de.wikipedia.org/wiki/Ges
 
 Insgesamt sind 75 Millionen Menschen in Deutschland gesetzlich krankenversichert
 ([Quelle](https://www.gkv-spitzenverband.de/krankenversicherung/kv_grundprinzipien/alle_gesetzlichen_krankenkassen/alle_gesetzlichen_krankenkassen.jsp)). Privat
-versichert sind:
+vollversichert sind insgesamt rund 8,7 Millionen Menschen, darunter:
 
 * 3 Millionen Beamte ([Quelle](https://www.bertelsmann-stiftung.de/de/themen/aktuelle-meldungen/2017/januar/gesetzliche-krankenversicherung-fuer-beamte-wuerde-bund-und-laender-um-60-milliarden-euro-entlasten))
 * 1 Million Selbständige ([Quelle](https://www.bertelsmann-stiftung.de/de/unsere-projekte/integrierte-krankenversicherung/projektnachrichten/krankenversicherungspflicht-fuer-selbststaendige))
@@ -179,12 +179,15 @@ Und auch hier sei Zynikern gesagt: Der Bund hat 2023 nur 14,7 Milliarden Euro
 Bei den Maßnahmen sehe ich allerdings weniger Spielraum als bei Alkohol:
 
 * **Regulierung von Verkauf und Verfügbarkeit**: Den Verkauf von Zigaretten
-  würde ich an Automaten verbieten, da dort keine vernünftige Alterskontrolle
-  stattfinden kann.
+  würde ich an Automaten verbieten, da die Alterskontrolle dort nur über eine Karte
+  erfolgt und leicht umgangen werden kann.
 * **Preispolitik**: Die Steuern auf Tabak sind schon relativ hoch. Es ist jedem
   absolut klar, dass Rauchen teuer ist.
 * **Werbeverbot**: Die Verpackungen sind bereits sehr schlicht und haben
-  abschreckende Bilder. [Noch hat Deutschland kein Werbeverbot](https://de.wikipedia.org/wiki/Tabakwerbung#Entwicklung_in_Deutschland) und das müssen wir ändern.
+  abschreckende Bilder. Deutschland hat bisher nur ein
+  [schrittweise eingeführtes Werbeverbot](https://de.wikipedia.org/wiki/Tabakwerbung#Entwicklung_in_Deutschland)
+  (z.B. Außenwerbung für Zigaretten seit 2022). Werbung am Verkaufsort ist weiterhin
+  erlaubt. Das sollten wir ausweiten.
 
 Siehe auch:
 

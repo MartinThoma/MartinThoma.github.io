@@ -60,9 +60,11 @@ Politiker und Medien werfen zwei (ggf. drei) Gruppen von Menschen im
   Asylsuchender bezeichnet. Wenn der Antrag vom Bundesamt erfasst wurde, wird er
   als Asylantragstellender bezeichnet. Sobald der Asylantrag positiv beschieden
   wird, ist er ein anerkannter Flüchtling. [Subsidiär Schutzsuchende](https://de.wikipedia.org/wiki/Subsidi%C3%A4r_Schutzberechtigter) würde ich auch als Flüchtlinge bezeichnen,
-  obwohl sie nicht die Genfer Flüchtlingskonvention erfüllen. Das sind Menschen,
-  die z.B. wegen Blasphemie oder ihrer sexuellen Orientierung in ihrem Heimatland
-  verfolgt werden. In Deutschland leben 3,48 Millionen Flüchtlinge ([Stand 2024](https://www.tagesschau.de/inland/zahl-gefluechtete-deutschland-100.html)) (4,1% der [Einwohner Deutschlands](https://de.wikipedia.org/wiki/Demografie_Deutschlands)), davon 1,18 Millionen aus der Ukraine.
+  obwohl sie nicht die Voraussetzungen der Genfer Flüchtlingskonvention erfüllen. Das sind Menschen,
+  denen in ihrem Heimatland ernsthafter Schaden droht, z.B. die Todesstrafe, Folter
+  oder Gefahr für Leib und Leben durch einen bewaffneten Konflikt. (Wer z.B. wegen
+  seiner Religion oder sexuellen Orientierung verfolgt wird, gilt dagegen als
+  Flüchtling im Sinne der Genfer Flüchtlingskonvention.) In Deutschland leben 3,48 Millionen Flüchtlinge ([Stand 2024](https://www.tagesschau.de/inland/zahl-gefluechtete-deutschland-100.html)) (4,1% der [Einwohner Deutschlands](https://de.wikipedia.org/wiki/Demografie_Deutschlands)), davon 1,18 Millionen aus der Ukraine.
 * **Migranten** sind Menschen, die aus verschiedenen Gründen in ein anderes Land
   ziehen, z. B. wegen besserer wirtschaftlicher Perspektiven oder familiärer
   Bindungen. Flüchtlinge sind eine Untergruppe der Migranten. Der Begriff
@@ -147,6 +149,8 @@ Konsumanteil haben.
    Menschen mit geringen Einkommen bei einer Senkung. Das sind z.B.:
     * **Steuern auf Lebensmittel senken**
     * **Steuern auf Energie senken**
+
+   Gegenfinanzieren könnte man das durch höhere Steuern für Menschen mit hohen Vermögen:
     * **Vermögensteuer wieder einführen**
     * **Millionen-Erbschaften und Schenkungen effektiv besteuern**
 2. **Zuschüsse des Staates zur gesetzlichen Krankenversicherung erhöhen**: Ein
@@ -209,7 +213,7 @@ auf die Probleme eingehen, die Migration verursachen kann.
 Ein paar der Probleme sind tatsächlich schon gelöst ✅, andere haben Lösungsideen
 ⏳, aber leider gibt es auch offene Probleme ❌.
 
-### ✅ Flüchtlings-Verteilung in Europa
+### ⏳ Flüchtlings-Verteilung in Europa
 
 **Wie verteilen wir Flüchtlinge und die finanzielle Belastung in Europa?**
 
@@ -233,7 +237,7 @@ sich ein Land drücken will, sollte man das Land europarechtlich zur Verantwortu
 ziehen. So hat der [EuGH Ungarn 2024 zu 200 Millionen Euro + täglich 1 Million Euro Zwangsgeld verurteilt](https://www.tagesschau.de/ausland/eugh-asyl-ungarn-100.html), weil EU-Asylregeln
 nicht umgesetzt wurden.
 
-Das ist also ein gelöstes Problem ✅. Wenn es einzelne Staaten gibt, die sich
+Mit der GEAS-Reform gibt es also eine Lösung, deren Umsetzung noch aussteht ⏳. Wenn es einzelne Staaten gibt, die sich
 nicht an die Absprachen halten, muss man vor den EuGH. Und wenn man existierende
 Absprachen ändern will, muss man konkret benennen, was man ändern will und warum.
 
@@ -271,8 +275,8 @@ meistern. Es würde uns resilienter gegenüber künftigen Herausforderungen wie
 z.B. Fluten, Kriegen oder Pandemien machen.
 
 57% der Ausländerbehörden geben an, überlastet zu sein. Das liegt unter anderem
-daran, dass sie sich mit Arbeitserlaubnissen auseinandersetzen müssen. Würden
-wir pauschal allen anerkannten Flüchtlingen eine **Arbeitserlaubnis** geben,
+daran, dass sie sich mit Arbeitserlaubnissen auseinandersetzen müssen. Anerkannte Flüchtlinge dürfen bereits uneingeschränkt arbeiten. Würden
+wir auch Asylbewerbern und Geduldeten nach kurzer Zeit pauschal eine **Arbeitserlaubnis** geben,
 wäre auf einen Schlag ein großer Teil der Arbeit weg. Es könnte [auch](https://www.migazin.de/2024/07/24/asylbewerber-koennen-nicht-einfach-in-die-arbeitsmigration-wechseln/)
 [andere Probleme](https://www.focus.de/finanzen/news/nach-einem-jahr-arbeit-ahmad-wird-arbeitserlaubnis-entzogen-ex-chef-das-ist-menschenverachtend_id_259751497.html) verhindern. Im [November 2023](https://www.zdf.de/nachrichten/politik/bundesregierung-asyl-fluechtlinge-gesetz-100.html) hat man beschlossen, dass
 Geflüchtete nur noch ein 6-monatiges Arbeitsverbot haben; zuvor waren es
@@ -356,8 +360,8 @@ antisemitische Anschläge.
 > Ausländers im Bundesgebiet ergibt, dass das öffentliche Interesse an der
 > Ausreise überwiegt.
 
-Diese Fassung des [Aufenthaltsgesetzes](https://de.wikipedia.org/wiki/Aufenthaltsgesetz)
-ist seit 2005 in Kraft. Wir haben also die rechtlichen Mittel. Und wir schieben
+Das [Aufenthaltsgesetz](https://de.wikipedia.org/wiki/Aufenthaltsgesetz)
+ist seit 2005 in Kraft, diese Fassung von § 53 seit 2016. Wir haben also die rechtlichen Mittel. Und wir schieben
 auch ab - wenn auch nicht immer nur wegen Kriminalität. [2024 gab es 18.400 Abschiebungen](https://www.tagesschau.de/inland/innenpolitik/deutschland-abschiebungen-2024-100.html).
 
 Ich markiere das mit ✅ als gelöstes Problem, weil wir einen funktionierenden
@@ -440,11 +444,13 @@ diesen Artikel zu schreiben:
 
 * [Merz' 5-Punkte-Plan zur Verschärfung der Migrationspolitik](https://www.tagesschau.de/inland/innenpolitik/merz-antraege-100.html) am Mittwoch ([Ergebnisse](https://www.swr.de/swraktuell/baden-wuerttemberg/migration-verschaerfung-merz-bundestag-reaktionen-landtag-bw-100.html)). Die 5 Punkte des Antrags sind:
     * <span style="color: blue"><b>Dauerhafte Grenzkontrollen</b> zu allen Nachbarstaaten</span>: Das ist europarechtlich
-      nicht möglich. Deutschland ist Mitglied des [Schengen-Raums](https://de.wikipedia.org/wiki/Schengen-Raum). Das bedeutet,
-      dass es keine Grenzkontrollen zu anderen Schengen-Staaten gibt ([Verordnung (EU) 2016/399, Artikel 22](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0399)). Es gibt
-      nur Kontrollen an den Außengrenzen. Das ist auch gut so, denn das
+      nicht vorgesehen. Deutschland ist Mitglied des [Schengen-Raums](https://de.wikipedia.org/wiki/Schengen-Raum). Das bedeutet,
+      dass es grundsätzlich keine Grenzkontrollen zu anderen Schengen-Staaten gibt ([Verordnung (EU) 2016/399, Artikel 22](https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0399)).
+      Nur bei einer ernsthaften Bedrohung der öffentlichen Ordnung sind vorübergehende
+      Kontrollen erlaubt (Artikel 25 ff.), die regelmäßig verlängert werden müssen. Deutschland
+      kontrolliert so seit September 2024 an allen Landgrenzen. Das ist auch gut so, denn das
       erleichtert den Handel und den Tourismus. Deutschland hat außerdem
-      [3876&nbsp;km Außengrenzen](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Tabellen/gemeinsame-grenzen-deutschlands.html). Die Grenze zwischen
+      [3876&nbsp;km Landgrenzen zu seinen neun Nachbarstaaten](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Tabellen/gemeinsame-grenzen-deutschlands.html). Die Grenze zwischen
       den USA und Mexiko ist nur [3145&nbsp;km](https://de.wikipedia.org/wiki/Grenze_zwischen_den_Vereinigten_Staaten_und_Mexiko) lang und kann schon
       nicht effektiv kontrolliert werden. Will Merz wie Trump eine Mauer bauen?
       Oder will er Tausende von zusätzlichen Polizisten dafür einstellen?
@@ -456,7 +462,7 @@ diesen Artikel zu schreiben:
       verursachen, selbst wenn man es nur temporär über Kontrollen machen will.
       Und was hindert die Personen daran, einfach am nächsten Tag wieder
       einzureisen? Wollen wir wegen 56.163 irregulärer Migranten, welche
-      vermutlich keine Sozialleistungen beziehen und uns daher nichts kosten,
+      höchstens gekürzte Leistungen nach dem Asylbewerberleistungsgesetz beziehen,
       die Europäische Union gefährden? Wer das leichtfertig mit "ja" beantwortet,
       der sollte mal einen Blick auf den [Brexit](https://de.wikipedia.org/wiki/EU-Austritt_des_Vereinigten_K%C3%B6nigreichs)
       werfen.
@@ -472,8 +478,9 @@ diesen Artikel zu schreiben:
       im Schnitt [110€/Tag](https://fragdenstaat.de/anfrage/inhaftierungskosten-in-justizvollzugsanstalten/), also würden wir jährlich
       2.2&nbsp;Millionen EUR nur dafür ausgeben. Zusätzlich muss man sagen, dass in
       [Afghanistan](https://de.wikipedia.org/wiki/Afghanistan) die Taliban
-      herrschen und [in Syrien ist der IS stark](https://www.auswaertiges-amt.de/de/service/laender/syrien-node/syriensicherheit-204278). Menschenrechte verbieten, dass wir
-      Menschen in solche Länder abschieben - auch wenn sie dort geboren sind
+      herrschen und [in Syrien ist die Lage nach dem Sturz Assads im Dezember 2024 weiterhin instabil](https://www.auswaertiges-amt.de/de/service/laender/syrien-node/syriensicherheit-204278).
+      Menschenrechte (das Non-Refoulement-Prinzip) verbieten, dass wir Menschen in Länder
+      abschieben, in denen ihnen Folter oder der Tod drohen - auch wenn sie dort geboren sind
       und auch wenn sie hier straffällig geworden sind.
     * <span style="color: blue">Unterstützung für die Länder beim <b>Vollzug der Ausreisepflicht</b>. Die
       Bundespolizei soll Haftbefehle für Abschiebehaft oder Ausreisegewahrsam
@@ -493,7 +500,7 @@ diesen Artikel zu schreiben:
     * <span style="color: blue">Der Familiennachzug für subsidiär
       Schutzbedürftige soll eingestellt werden. Gemeint sind Menschen, die kein
       Asyl bekommen, aber aus anderen Gründen vorerst in Deutschland bleiben
-      können. Der subsidiäre Schutz war bereits zwischen 2016 und 2018
+      können. Der Familiennachzug zu subsidiär Schutzberechtigten war bereits zwischen 2016 und 2018
       ausgesetzt worden. Seit 2018 dürfen aus humanitären Gründen pro Monat
       1.000 Angehörige von subsidiär Schutzberechtigten nach Deutschland
       kommen.</span> Man will also nicht mal mehr 1000 Härtefälle pro Monat

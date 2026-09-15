@@ -12,6 +12,11 @@ status: draft
 ---
 The world is transitioning to electric energy.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/06/energy-transition.png"><img src="../images/2025/06/energy-transition.png" alt="From fossil power plants to wind, solar, batteries, heat pumps and electric cars" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Illustration generated with Claude AI: From fossil power plants to wind, solar, batteries, heat pumps and electric cars</figcaption>
+</figure>
+
 Humanity started with **organic energy sources** like wood and animal power,
 then transitioned to **fossil energy sources** like coal, oil, and gas. Now,
 we're moving toward **renewable energy sources** like solar, wind, and
@@ -116,15 +121,15 @@ supply. To address this challenge, we have the following options:
   released to generate hydroelectric power.
   The [Bath County Pumped Storage
   Station](https://en.wikipedia.org/wiki/Bath_County_Pumped_Storage_Station) has
-  a capacity of **24 GWh** and an output of 3 GW, making it the world's largest
-  pumped hydro storage facility with an overall efficiency of about
-  79%.
+  a capacity of **24 GWh**, an output of 3 GW and an overall efficiency of about
+  79%. It is one of the largest pumped hydro storage facilities in the world
+  (the largest by output is Fengning in China with 3.6 GW).
 * [**Compressed air energy storage (CAES)**](https://en.wikipedia.org/wiki/Compressed-air_energy_storage): This technology uses excess
   electricity to compress air in underground storage chambers. When electricity
   is needed, the compressed air is released to drive turbines and generate
   electricity. The largest CAES plant is in Yingcheng, China, with a capacity of
   **1.5 GWh**, an output of 300 MW, and an efficiency of 70%. The main challenge
-  for CAES is that it requires significant space (typically salt mines) and
+  for CAES is that it requires suitable underground storage (typically salt caverns) and
   infrastructure to store the compressed air.
 * **Hydrogen gas turbines**: Excess electricity can be used to produce hydrogen
   through electrolysis. The hydrogen can then be stored and later used to

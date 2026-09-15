@@ -22,7 +22,7 @@ The core principle that all security cameras I know violate is a local-first app
 ## Hardware
 
 * Form factor:
-    * Turret style for easy camera angle adjustment (in contrast to bullet cameras) and better image quality than bullet cameras
+    * Turret style for easy camera angle adjustment (in contrast to bullet cameras)
     * Mounting: Adjustable mount for wall or ceiling installation
 * Camera:
     * High-resolution sensor

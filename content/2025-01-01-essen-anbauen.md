@@ -10,6 +10,11 @@ tags: house
 featured_image: logos/house.png
 status: draft
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/01/essen-anbauen.png"><img src="../images/2025/01/essen-anbauen.png" alt="Beete mit Knoblauch, Tomaten und Heidelbeeren" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Beete mit Knoblauch, Tomaten und Heidelbeeren</figcaption>
+</figure>
+
 ## Karotten
 
 ## Kartoffeln
@@ -45,8 +50,8 @@ Quellen:
 
 * Standort: Sonnig, warm, wind- und regengeschützt
 * Boden: Humus- und nährstoffreich
-* Pflanzzeit: ??
-* Erntezeitpunkt: ??
+* Pflanzzeit: Vorziehen ab März, Auspflanzen nach den Eisheiligen (Mitte Mai)
+* Erntezeitpunkt: Juli bis Oktober
 * Saattiefe: 0,5-1 cm
 * Gute Nachbarn: Knoblauch, Kohl, Kohlrabi, Salat
 * Schlechte Nachbarn: Fenchel, Gurke, Kartoffeln, Erbsen
@@ -69,16 +74,16 @@ Quellen:
 * Düngen: Vinasse (?) Flüssig-Dünger
 * Pflanzzeit: Herbst oder Frühjahr
 * Ernte:
-    * August
-    * dauert 7 Jahre, bis der Strauch voll ertragreich ist
-    * bis zu 17kg pro Pflanze
+    * Juli bis September, je nach Sorte
+    * dauert 5-8 Jahre, bis der Strauch voll ertragreich ist
+    * im YouTube-Video ist von bis zu 17kg pro Pflanze die Rede; üblich sind eher 2-5kg
 * Schädlinge:
     * Vögel: Mit Netz schützen
 * Mischkulturpartner: Preiselbeeren
 * Gießen:
-    * Wenn das Leitungswasser kalkhaltig ist (Calciumcarbonat; max. 8°dH)
-    * besser Regenwasser verwenden
-* Pflege: Muss man nicht schneiden
+    * Heidelbeeren vertragen keinen Kalk. Das Gießwasser sollte daher weich sein (max. 8°dH)
+    * Bei kalkhaltigem Leitungswasser besser Regenwasser verwenden
+* Pflege: In den ersten Jahren muss man nicht schneiden; ältere Sträucher (ab ca. 5 Jahren) sollte man auslichten, indem man alte Triebe entfernt
 * Winter: Frosthart; kann man im Winter einfach draußen lassen
 * Preis: [10€](https://www.globus-baumarkt.de/p/obststrauch-heidelbeere-2-l-container-0684801513/)
 

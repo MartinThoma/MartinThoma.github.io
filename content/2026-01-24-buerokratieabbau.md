@@ -16,6 +16,11 @@ Beitrag möchte ich konkrete Maßnahmen vorschlagen, die meiner Meinung nach
 helfen könnten, die Bürokratie in Deutschland zu reduzieren und die Effizienz zu
 steigern.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2026/01/buerokratieabbau.png"><img src="../images/2026/01/buerokratieabbau.png" alt="Vom Papierstapel zum digitalen Bürgerportal" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Vom Papierstapel zum digitalen Bürgerportal</figcaption>
+</figure>
+
 ## Konkrete Beispiele
 
 Um ineffiziente Bürokratie zu verdeutlichen, möchte ich konkrete Beispiele
@@ -36,7 +41,7 @@ müssen wir Folgendes machen:
    * persönlich bei der Ausländerbehörde vorbeigehen, um die Verpflichtungserklärung
      zu unterschreiben.
 2. **Krankenversicherung** abschließen
-3. **Dokumente in der Indonesischen Botschaft** einreichen:
+3. **Dokumente bei der Deutschen Botschaft in Jakarta** (bzw. deren Visadienstleister) einreichen:
 
 ...
 

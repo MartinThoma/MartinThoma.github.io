@@ -18,7 +18,7 @@ Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und
 
 Hier ist ein einfaches Rezept:
 
-## Mikronährstoffe
+## Nährstoffe
 
 <style>
 .green {
@@ -32,7 +32,7 @@ Hier ist ein einfaches Rezept:
 <table>
     <thead>
         <tr>
-            <th>Mikronährstoff</th>
+            <th>Nährstoff</th>
             <th><a href="https://www.aok.de/pk/magazin/ernaehrung/lebensmittel/wie-gesund-sind-karotten/">Karotte (100g)</a></th>
             <th><a href="https://www.zentrum-der-gesundheit.de/pdf/tabelle_gurke.pdf">Gurke (100g)</a></th>
             <th><a href="https://www.eismann.de/lebensmittel-lexikon/details/artikel/mais">Mais (100g)</a></th>

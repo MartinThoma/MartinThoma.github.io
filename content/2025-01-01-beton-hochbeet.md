@@ -12,6 +12,11 @@ status: draft
 ---
 Wir wollen einen weißen Sichtbeton bekommen.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/01/beton-hochbeet.png"><img src="../images/2025/01/beton-hochbeet.png" alt="Zwei modulare Hochbeete aus weißem Sichtbeton mit Pflanzen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Zwei modulare Hochbeete aus weißem Sichtbeton mit Pflanzen</figcaption>
+</figure>
+
 ## Materialien
 
 * Betonmischung
@@ -100,7 +105,7 @@ Mischung:
 * Öl vs. Hydrophobierung (Imprägnierung) vs. Beschichtung vs. Bekieselung
 * Öl ist nicht für den Außenbereich geeignet, weil es nicht wetterbeständig ist
 * Hydrophobierung (Imprägnierung) kann z.B. mit Wachs kombiniert werden. Das erlaubt eine Hochglanz-Politur
-* Epoxidharz bietet den stärksten Schutz, ist aber nicht diffusionsoffen und daher nicht für den Außenbereich geeignet
+* Epoxidharz bietet den stärksten Schutz, ist aber nicht diffusionsoffen und nicht UV-beständig (vergilbt) und daher nur bedingt für den Außenbereich geeignet
 
 
 

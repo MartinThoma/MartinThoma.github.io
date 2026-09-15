@@ -16,9 +16,14 @@ einer sehr niedrigen Geschwindigkeit. Sie werden häufig als Ride-Pooling-System
 eingesetzt, bei denen mehrere Fahrgäste mit ähnlichen Routen gemeinsam befördert
 werden.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/12/autonomer-shuttle-bus.png"><img src="../images/2025/12/autonomer-shuttle-bus.png" alt="Ein autonomer elektrischer Shuttle-Bus mit Sensoren" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein autonomer elektrischer Shuttle-Bus mit Sensoren</figcaption>
+</figure>
+
 ## Vergangene Projekte
 
-* 2017 - 2021 in Freiburg<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>
+* 2017 - 2021 in Marly bei Freiburg im Üechtland (Schweiz)<small><sup><a href="#ref6" name="anchor6">[6]</a></sup></small>
 * 2020 - 2024 "Shuttle-Modellregion" in Hof, Kronach, Rehau und Bad Steben. Max. 18&nbsp;km/h, Shuttle-Operator an Bord; Leitstelle zur Koordination<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small>
 * 2021 - 2023 in Kelheim: KelRide
 * Seit 2023 in Karlsruhe<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small>

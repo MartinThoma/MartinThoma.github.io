@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Hilfreiche Bürokratie
 slug: hilfreiche-buerokratie
+lang: de
 author: Martin Thoma
 date: 2025-09-29 20:00
 category: My bits and bytes
@@ -10,6 +10,11 @@ tags: politics
 featured_image: logos/house.png
 ---
 Wir schimpfen oft über Bürokratie und fordern ihren Abbau. Dabei wird häufig übersehen, dass Bürokratie auch viele Vorteile und wichtige Funktionen hat.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/09/hilfreiche-buerokratie.png"><img src="../images/2025/09/hilfreiche-buerokratie.png" alt="Ein standardisiertes Formular für PV-Angebote, das an mehrere Anbieter geht" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein standardisiertes Formular für PV-Angebote, das an mehrere Anbieter geht</figcaption>
+</figure>
 
 Vor Kurzem ist mir ein Beispiel begegnet, das zeigt, wie zusätzliche Bürokratie sogar zu mehr gesamtwirtschaftlicher Effizienz führen kann.
 
@@ -59,6 +64,7 @@ Dadurch könnte der Kunde nach dem ersten Angebot (inklusive
 Anforderungsprotokoll) mit diesem Protokoll zu weiteren Anbietern gehen und dort
 unkompliziert weitere Angebote einholen.
 
-Das erinnert an das Vorgehen von Ikea bei Küchenplanungen: Für die Erstellung
-des Küchenplans wird eine Pauschale verlangt, aber der Kunde erhält den Plan und
-kann damit auch zu anderen Anbietern gehen.
+Das erinnert an den [Aufmaßservice von Ikea](https://www.ikea.com/de/de/customer-service/services/kitchen-planning/)
+bei Küchenplanungen: Die Planung selbst ist kostenlos, für das Ausmessen der Küche
+vor Ort wird aber eine Gebühr verlangt. Dafür erhält der Kunde ein dokumentiertes
+Aufmaß, mit dem er auch zu anderen Anbietern gehen kann.

@@ -4,11 +4,15 @@ title: PV-Angebotsvergleich
 slug: pv-angebotsvergleich
 lang: de
 author: Martin Thoma
-date: 2020-10-03 20:00
+date: 2025-10-03 20:00
 category: My bits and bytes
 tags: house, money, solar
 featured_image: logos/house.png
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/10/pv-angebotsvergleich.png"><img src="../images/2025/10/pv-angebotsvergleich.png" alt="Drei PV-Angebote mit Modulen, Batterie und Wechselrichter im Vergleich" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Drei PV-Angebote mit Modulen, Batterie und Wechselrichter im Vergleich</figcaption>
+</figure>
 
 Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hausdach aufgeführt:
 
@@ -169,7 +173,7 @@ Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
         <tr>
             <th>Gewicht</th>
             <td>167 kg</td>
-            <td>4x 26,5kg + TODO?</td>
+            <td>133.5 kg (4x 26.5 kg + Sockel)</td>
             <td>138 kg</td>
         </tr>
         <tr><th colspan="4" style="text-align: center;">Wechselrichter</th></tr>
@@ -258,7 +262,6 @@ Im Folgenden sind 3 Angebote für PV-Anlagen mit Batteriespeicher auf meinem Hau
 Für alle Wechselrichter gilt:
 
 * Hybrid-Wechselrichter (PV-Wechselrichter und Batterie-Wechselrichter sind bei hybriden Wechselrichtern in einem Gerät vereint)
-
 
 Für alle Module gilt:
 

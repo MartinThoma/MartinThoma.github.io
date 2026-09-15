@@ -16,6 +16,11 @@ direkt bis zum Boden. Es ist schwer zu messen, aber ich vermute, dass vom Boden
 bis zur Oberkante des Kissens bei Belastung etwa 1cm Platz ist. Vielleicht finden
 manche Menschen das angenehm - für mich ist es etwas zu wenig.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/09/daunenkissen.png"><img src="../images/2025/09/daunenkissen.png" alt="Ein 80 cm langes 3-Kammer-Daunenkissen" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein 80 cm langes 3-Kammer-Daunenkissen</figcaption>
+</figure>
+
 Es ist schön flauschig und macht optisch einen guten Eindruck. Es sieht auch
 sehr voluminös aus.
 

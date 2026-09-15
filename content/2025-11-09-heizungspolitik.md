@@ -49,11 +49,13 @@ schießen, weil die Nachfrage das Angebot übersteigt.
 
 1. **Gesellen-Ausbildung anpassen**: Anlagenmechaniker für Sanitär‑, Heizungs‑
    und Klimatechnik sollten als verpflichtenden Teil ihrer Ausbildung den
-   kleinen Kältemittel-Schein machen müssen. Damit dürften Gesellen bestehende
-   Anlagen kontrollieren. Das sind 1-3 Tage extra in der Ausbildung. Dafür
+   kleinen Kältemittel-Schein (Kategorie II) machen müssen. Damit dürften Gesellen
+   Anlagen mit weniger als 3&nbsp;kg Kältemittel (hermetisch geschlossen: 6&nbsp;kg) – also
+   typische Wärmepumpen in Einfamilienhäusern – installieren, warten und auf
+   Dichtheit prüfen. Das sind 1-3 Tage extra in der Ausbildung. Dafür
    könnte man die Ausbildung mit Öl-Brennwertkesseln nicht mehr als
    verpflichtenden Teil der Ausbildung machen, sondern einen optionalen Schein
    einführen.
-2. **Meister-Ausbildung anpassen**: Den großen Kältemittel-Schein verpflichtend machen (1-2 Wochen). Wurde auch in [der Handwerks-Zeitung](https://www.deutsche-handwerks-zeitung.de/dhz-rubrik-tacheles-waermepumpe-nur-mit-kaelteschein-355990/) im Januar 2025 gefordert. Auch hier könnte man Teile der Ausbildung über Öl-Brennwertkessel optional machen.
+2. **Meister-Ausbildung anpassen**: Den großen Kältemittel-Schein (Kategorie I, ohne Mengenbegrenzung) verpflichtend machen (1-2 Wochen). Wurde auch in [der Handwerks-Zeitung](https://www.deutsche-handwerks-zeitung.de/dhz-rubrik-tacheles-waermepumpe-nur-mit-kaelteschein-355990/) im Januar 2025 gefordert. Auch hier könnte man Teile der Ausbildung über Öl-Brennwertkessel optional machen.
 3. **Bezuschussung der Ausbildung**: Betriebe müssen mehr ausbilden. Aktuell ist
    es aber wohl wesentlich rentabler, neue Wärmepumpen einzubauen.

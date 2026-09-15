@@ -17,6 +17,11 @@ der Welt
 Nur die USA, die Schweiz und Norwegen geben mehr für Gesundheit aus
 ([Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_total_health_expenditure_per_capita)).
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/10/deutsche-krankenversorgung.png"><img src="../images/2025/10/deutsche-krankenversorgung.png" alt="Gesundheitsversorgung und sinkende Kosten" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Gesundheitsversorgung und sinkende Kosten</figcaption>
+</figure>
+
 **Das Problem:** Aufgrund der demographischen Entwicklung wird sich dieser Trend
 in den nächsten Jahrzehnten fortsetzen und gleichzeitig werden die Kosten von
 weniger Menschen getragen werden müssen.
@@ -34,7 +39,7 @@ behandeln. **Studien zeigen, dass jeder in Prävention investierte Euro 2-4 Euro
 ### Gesunder Lebensstil
 
 Alkohol-, Nikotin- und Zuckerkonsum sind ungesund und verursachen viele
-Krankheiten. **Allein die durch Rauchen verursachten Krankheitskosten belaufen sich in Deutschland auf etwa 97 Milliarden Euro jährlich** ([DKFZ](https://www.dkfz.de/de/tabakkontrolle/download/Publikationen/AdWfP/AdWfP_Die_Kosten_des_Rauchens_in_Deutschland.pdf)). Die meisten Menschen wissen um die Gesundheitsrisiken, trotzdem konsumieren sie diese
+Krankheiten. **Allein die volkswirtschaftlichen Kosten des Rauchens belaufen sich in Deutschland auf etwa 97 Milliarden Euro jährlich** ([DKFZ](https://www.dkfz.de/de/tabakkontrolle/download/Publikationen/AdWfP/AdWfP_Die_Kosten_des_Rauchens_in_Deutschland.pdf)). Die meisten Menschen wissen um die Gesundheitsrisiken, trotzdem konsumieren sie diese
 Substanzen in hohen Mengen. Die Politik könnte hier regulierend eingreifen,
 indem sie die Preise für diese Substanzen erhöht.
 
@@ -77,7 +82,7 @@ arbeiten. Durch Zusammenlegungen könnten Synergien genutzt werden:
 
 ### Ambulante vs. stationäre Behandlung
 **Viele Eingriffe, die derzeit stationär durchgeführt werden, könnten ambulant erfolgen.** Dies würde pro Fall durchschnittlich 1.000-3.000 Euro sparen:
-* Katarakt-Operationen (Grauer Star)
+* Katarakt-Operationen (Grauer Star) – in Deutschland bereits überwiegend ambulant
 * Arthroskopien
 * Kleinere dermatologische Eingriffe
 * Bestimmte Krebstherapien

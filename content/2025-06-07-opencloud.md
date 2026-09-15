@@ -10,6 +10,11 @@ tags: digital sovereignty, self-hosted, cloud, ownCloud, NextCloud, OpenCloud
 featured_image: logos/earth.png
 status: draft
 ---
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/06/self-hosted-cloud-solutions.png"><img src="../images/2025/06/self-hosted-cloud-solutions.png" alt="A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Illustration generated with Claude AI: A self-hosted cloud with files, calendar, contacts, notes and e-mail on a home server</figcaption>
+</figure>
+
 ## Features
 
 * **File Administration**: Similar to Google Drive or Dropbox
@@ -38,14 +43,14 @@ secure alternative to public cloud services.
     * Major rewrite in 2020 to create ownCloud Infinite Scale
 * **Technology Stack**:
     * Backend: Go
-    * Frontend: React
-    * Database: PostgreSQL
+    * Frontend: Vue.js (ownCloud Web)
+    * Database: none; metadata is stored on the file system
 
 ## NextCloud
 
 [Nextcloud](https://en.wikipedia.org/wiki/Nextcloud) is a free and open-source software suite for file hosting, similar to ownCloud. It is designed to provide a secure and private cloud storage solution, allowing users to store and share files, calendars, contacts, and more.
 
-* **License**: AGPL-3.0-only
+* **License**: AGPL-3.0
 * **History**:
     * Forked from ownCloud in 2016
     * Developed by Nextcloud GmbH and the Nextcloud community
@@ -63,5 +68,7 @@ for cloud computing, designed to provide secure and scalable infrastructure
 for hosting applications and services. It aims to offer a flexible and
 customizable cloud environment, allowing users to deploy and manage their own
 cloud solutions.
+
+* **Technology Stack**: Go backend, Vue.js frontend, no database
 
 * **License**: Apache-2.0

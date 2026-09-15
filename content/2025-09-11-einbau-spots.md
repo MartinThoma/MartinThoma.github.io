@@ -12,6 +12,11 @@ featured_image: logos/house.png
 Ich werde hoffentlich noch dieses Jahr meine Küche renovieren und dabei einige
 Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Sinn machen.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/09/einbau-spots.png"><img src="../images/2025/09/einbau-spots.png" alt="Einbau-Spots in einer abgehängten Küchendecke" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Einbau-Spots in einer abgehängten Küchendecke</figcaption>
+</figure>
+
 <table>
     <thead>
     <tr>
@@ -76,11 +81,11 @@ Einbau-Spots installieren. Jetzt ist die Frage, welche Spots genau am meisten Si
 
 ## Deckenhöhe
 
-* 50mm für ein Uw-Profil
-* 12mm für die Trockenbauplatte
-* 3mm für Putz
+* 50mm Abstand zur Rohdecke (27mm hohes CD-Profil plus Abstand durch die Direktabhänger)
+* 12.5mm für die Gipskartonplatte
+* 3mm für die Spachtelmasse
 
-⇒ 50mm + 12mm + 3mm = 65mm
+⇒ 50mm + 12.5mm + 3mm = 65.5mm
 
 ## GX53
 
@@ -97,9 +102,9 @@ GU10 ist hingegen weiter verbreitet. Die Leuchtmittel sind günstiger und
 einfacher zu finden. Auch die Rahmen sind günstiger.
 
 * Durchmesser Leuchtmittel: 50mm
-* Höhe von der Oberkante des Glases des Leuchtmittels bis zur Unterkante der Fassung: 54mm
-* Sockelhöhe: ca. 7mm (+ ca. 3mm für die Kabel)
-* Die Sockelhöhe beträgt typischerweise 16mm
+* Höhe des Leuchtmittels von der Oberkante des Glases bis zum Ende der Stifte: 54mm
+* Länge der Stifte, die in der Fassung verschwinden: ca. 7mm
+* Höhe der Fassung: typischerweise 16mm (+ ca. 3mm für die Kabel)
 
 ⇒ 54mm + 16mm - 7mm + 3mm = 66mm
 

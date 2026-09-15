@@ -13,6 +13,11 @@ Ich habe eine Steckersolaranlage, welche ab ca. April regelmäßig mittags mehr
 Strom produziert als ich verbrauche. Daher überlege ich mir, eine Batterie
 anzuschaffen, um den Strom flexibler nutzen zu können.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/05/steckersolar-batterien-2025.png"><img src="../images/2025/05/steckersolar-batterien-2025.png" alt="Ein Balkonkraftwerk mit Batteriespeicher" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein Balkonkraftwerk mit Batteriespeicher</figcaption>
+</figure>
+
 ## Modelle
 
 <style>

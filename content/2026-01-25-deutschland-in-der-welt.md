@@ -13,6 +13,11 @@ Wie steht Deutschland im internationalen Vergleich da? In diesem Beitrag möchte
 ich einige Bereiche hervorheben, in denen Deutschland sehr gut, gut,
 mittelmäßig oder schlecht abschneidet.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2026/01/deutschland-in-der-welt.png"><img src="../images/2026/01/deutschland-in-der-welt.png" alt="Ein Globus und ein Balkendiagramm zum internationalen Vergleich" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Ein Globus und ein Balkendiagramm zum internationalen Vergleich</figcaption>
+</figure>
+
 In einigen Fällen macht ein
 Vergleich mit sehr kleinen Ländern (unter 5 Millionen Einwohner oder unter
 10.000 km²) wenig Sinn, da diese oft spezielle Vorteile haben.
@@ -63,9 +68,9 @@ Ich nehme folgende Kategorien:
    * [Reisepass](https://www.passportindex.org/de/byRank.php): Auf Platz 4 von 97 (weiß jemand, warum Spanien für Nauru visafrei ist?)
    * [Persönliche Freiheit](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_pers%C3%B6nlicher_Freiheit): Platz 8 von 167
 * Gesundheit:
-    * [Unterernährung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anteil_an_unterern%C3%A4hrten_Personen) ist in Deutschland praktisch kein Thema. In Japan schon.
+    * [Unterernährung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Anteil_an_unterern%C3%A4hrten_Personen) ist in Deutschland praktisch kein Thema (unter 2,5%). Selbst in Japan ist der Anteil mit 3,2% (2020) etwas höher.
 * Weitere:
-    * [Human Development Index (HDI)](https://de.wikipedia.org/wiki/Index_der_menschlichen_Entwicklung): Platz 5 von 74; nur Island, Norwegen, Schweiz und Dänemark sind vor uns.
+    * [Human Development Index (HDI)](https://de.wikipedia.org/wiki/Index_der_menschlichen_Entwicklung): Platz 5 von 193 (zusammen mit Schweden, HDR 2025); nur Island, Norwegen, Schweiz und Dänemark sind vor uns.
 
 ## Gut
 
@@ -89,18 +94,18 @@ Ich nehme folgende Kategorien:
 * Bildung: [viele Jahre in der Schule](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bildungserwartung) - obwohl die Bildungsergebnisse nicht so toll waren
 * Staat:
    * [Fragile States Index](https://de.wikipedia.org/wiki/Fragile_States_Index)
-   * [Staatsschuldenquote](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Staatsschuldenquote): 64 für Deutschland, 94 für USA, 237 für Japan, 113 für Frankreich. Klar, es ist viel besser bei Schweden/Finnland/Norwegen/Schweiz/Luxemburg.
+   * [Staatsschuldenquote](https://en.wikipedia.org/wiki/List_of_countries_by_government_debt): 40 für Deutschland, 5 für USA, 1 für Japan, 4 für Frankreich. Klar, es ist viel besser bei Schweden (78)/Finnland (46) /Norwegen (88)/Schweiz (77)/Luxemburg (86).
    * [Größe des Eisenbahnnetzes](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Eisenbahnnetz): Wir sind insbesondere deutlich vor Japan und Frankreich.
    * [Stromerzeugung aus erneuerbaren Energien](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Stromerzeugung_aus_erneuerbaren_Energien): 63%. Besser sind Dänemark mit 88%, Island mit 100% und Norwegen mit 98%.
    * [Weltfriedensindex](https://de.wikipedia.org/wiki/Weltfriedens-Index): Platz 20 von 163.
-   * [World Happiness Report](https://de.wikipedia.org/wiki/World_Happiness_Report): Platz 16 von 109.
+   * [World Happiness Report](https://en.wikipedia.org/wiki/World_Happiness_Report#2026_report): Platz 17 von 147 (2026).
 
 ## Könnte besser sein
 
 * Wirtschaft und Wohlstand:
    * [Medianvermögen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gen_pro_Kopf): Nur 61.000 USD/Volljährigen. Island führt mit 375.735 USD, Belgien ist bei 267.887 USD und die Schweiz bei 168.084 USD.
    * [Vermögensverteilung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gensverteilung): Ist in Deutschland mit einem Gini-Koeffizienten von 78,8 sehr ungleich. Im Vereinigten Königreich ist er bei 70,6, in Frankreich bei 70,2, in Japan bei 64,7 und in Island bei 64,6.
-   * [Inflationsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Inflationsrate): Insbesondere 2023 war sie echt hoch. Allerdings war sie sehr lange auch sehr niedrig.
+   * [Inflationsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Inflationsrate): Insbesondere 2022 (6,9%) und 2023 (6,0%) war sie echt hoch. Allerdings war sie sehr lange auch sehr niedrig.
    * [Gender Pay Gap](https://de.wikipedia.org/wiki/Global_Gender_Gap_Report)
 * Wirtschaft:
    * [Arbeitsproduktivität auf Platz 18 von 181](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitsproduktivit%C3%A4t)
@@ -119,5 +124,5 @@ Ich nehme folgende Kategorien:
 ## Schlecht
 
 * [Strompreis](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Strompreis): Wir sind zwar nicht der Spitzenreiter, aber sehr weit vorne. Das hilft natürlich nicht bei der Elektrifizierung und ist auch nicht toll für arme Haushalte.
-* [Fertilitätsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Fertilit%C3%A4tsrate): 1,57 Kinder pro Frau. Bei allem unter 2 braucht man zwingend Einwanderung, um die Bevölkerungsgröße zu halten. Wenn die Bevölkerung schrumpft, dann sinkt der wirtschaftliche Output. Dann sinkt die Bedeutung in der Welt. Dann wird Verwaltung ineffizient, weil sie für mehr Leute ausgelegt ist.
+* [Fertilitätsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Fertilit%C3%A4tsrate): [1,32 Kinder pro Frau (2025)](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_230_12.html). Bei allem unter ca. 2,1 braucht man zwingend Einwanderung, um die Bevölkerungsgröße zu halten. Wenn die Bevölkerung schrumpft, dann sinkt der wirtschaftliche Output. Dann sinkt die Bedeutung in der Welt. Dann wird Verwaltung ineffizient, weil sie für mehr Leute ausgelegt ist.
 * [Hoher Alkoholkonsum pro Kopf](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Alkoholkonsum): Nur Moldau, Litauen, Tschechien und die Seychellen saufen mehr.

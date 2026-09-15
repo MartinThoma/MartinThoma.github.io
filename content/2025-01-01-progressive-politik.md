@@ -67,7 +67,7 @@ Also alles in allem ca. 1290€/Monat, also ein Freibetrag von 15480€/Jahr.
 Aktuell haben wir 11604 EUR/Jahr.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
 
 Alternativ könnte man den Grenzwert zur Armutsgefährdung nehmen. Bei
-Alleinlebenden war das 2023 bei 1.247€/Monat oder 14.964€/Jahr.
+Alleinlebenden war das 2023 bei [1.310€/Monat oder 15.720€/Jahr](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/04/PD24_147_63.html).
 
 Die Logik dahinter: Wer gerade so über die Runden kommt, bezahlt keine Steuern.
 
@@ -187,8 +187,9 @@ gleichen Strukturen. Das ist ineffizient und teuer.
 
 Der Klimawandel hat massive Auswirkungen auf unser Leben - sei es durch
 Starkregen, Dürren, Hitzewellen oder Stürme. Wir wissen seit 1988 gesichert, dass
-der menschengemachte Klimawandel ein Problem ist. 2015 haben wir eine
-Begrenzung auf 1,5°C im Pariser Klimaabkommen festgelegt.
+der menschengemachte Klimawandel ein Problem ist. 2015 haben wir im Pariser
+Klimaabkommen festgelegt, die Erwärmung deutlich unter 2°C zu halten und möglichst
+auf 1,5°C zu begrenzen.
 
 Dieses Ziel werden wir verfehlen.
 
@@ -227,16 +228,15 @@ den Bundestag kommt. Das bedeutet, dass Menschen strategisch wählen müssen.
 ### Wahlsystem
 
 Bei der Bundestagswahl 2021 haben 8,7% der Wähler:innen ihre Stimme verloren,
-weil sie für kleine Parteien gestimmt haben. Hätte die Linke kein Direktmandat
-erhalten, wären es 13,6% gewesen.
+weil sie für kleine Parteien gestimmt haben. Hätte die Linke nicht drei Direktmandate erhalten (Grundmandatsklausel), wären es 13,6% gewesen.
 
 > **Forderung 11**: Einführung einer Ersatzstimme für die Zweitstimme.
 
 Anstelle von einem Kreuz für die Zweitstimme sollten wir eine Ersatzstimme
 erlauben. Diese Ersatzstimme wird nur dann gezählt, wenn die Partei der
-Zweitstimme nicht in den Bundestag kommt. Damit können Wähler in der Zweitstimme
-eine große Partei wählen, während sie die Erststimme an eine Partei geben, die
-ihre Interessen besser vertritt.
+Zweitstimme nicht in den Bundestag kommt. Damit können Wähler mit der Zweitstimme eine kleine
+Partei wählen, die ihre Interessen besser vertritt, und als Ersatzstimme eine
+große Partei angeben, ohne dass ihre Stimme verloren geht.
 
 ### Abgeordnetenbezüge
 
@@ -316,10 +316,10 @@ Konkret kann ich mir Folgendes vorstellen:
 
 ## Justiz
 
-> **Forderung 12:** Schaffung einer von Polizei und Justiz unabhängigen Aufsichtsbehörde.
+> **Forderung 12:** Schaffung einer von der Polizei unabhängigen Aufsichtsbehörde.
 > Diese soll nicht dem Bundesinnenministerium unterstellt sein, sondern dem
 > Bundesministerium der Justiz. Ein Beispiel für eine solche Behörde wäre in
-> England das [Independent Office for Police Conduct](https://en.wikipedia.org/wiki/Independent_Office_for_Police_Conduct).
+> England und Wales das [Independent Office for Police Conduct](https://en.wikipedia.org/wiki/Independent_Office_for_Police_Conduct).
 
 ## Staatshaushalt
 

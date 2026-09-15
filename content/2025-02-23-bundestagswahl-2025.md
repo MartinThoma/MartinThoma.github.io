@@ -19,6 +19,11 @@ eine "Indiskretion" bekannt, genau wie zuvor schon
 Die Vermutung liegt nahe, dass die FDP beides bewusst hat durchsickern lassen,
 um die Koalition zu sprengen.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2025/02/bundestagswahl-2025.png"><img src="../images/2025/02/bundestagswahl-2025.png" alt="Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude" style="max-height: 512px"/></a>
+    <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude</figcaption>
+</figure>
+
 ## Weltlage
 
 * **USA**: Seit dem 20. Januar [regiert Trump](https://de.wikipedia.org/wiki/Kabinett_Trump_II).
@@ -36,7 +41,8 @@ um die Koalition zu sprengen.
   beeinflusst. Merz und die AfD markieren sich als Law-and-Order-Parteien, ohne
   über Ursachen, Verhältnismäßigkeit, Effektivität, Umsetzbarkeit oder die
   Rechtsstaatlichkeit der von ihnen vorgeschlagenen Maßnahmen zu sprechen.
-  So will [Merz alle Grenzen](https://www.tagesschau.de/inland/innenpolitik/unionsfraktion-antraege-migrationspolitik-100.html) schließen.
+  So will [Merz dauerhafte Grenzkontrollen zu allen Nachbarstaaten](https://www.tagesschau.de/inland/innenpolitik/unionsfraktion-antraege-migrationspolitik-100.html)
+  und alle Menschen ohne gültige Einreisedokumente zurückweisen.
 
 ## Wahlprogramme
 

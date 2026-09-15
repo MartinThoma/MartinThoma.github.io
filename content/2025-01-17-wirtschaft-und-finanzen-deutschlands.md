@@ -116,7 +116,7 @@ es einige offensichtliche Ansätze:
   auf 236,2 Milliarden Euro und aus der veranlagten Einkommensteuer auf 73,4
   Milliarden Euro. Insgesamt flossen so 309,6 Milliarden Euro aus
   Einkommensteuern in die Staatskasse. Eine pauschale Erhöhung der
-  Einkommensteuer um 1 % würde zusätzliche Einnahmen von etwa 3,1 Milliarden
+  Einkommensteuer um 1 % (also z.B. von 20 % auf 20,2 %, nicht um einen Prozentpunkt) würde zusätzliche Einnahmen von etwa 3,1 Milliarden
   Euro generieren.
 
 Diese beiden Steuerarten bieten die schnellste Möglichkeit, relevante Summen zu
@@ -204,9 +204,8 @@ Das Problem ist also nicht ein Mangel an finanziellen Mitteln. Daher bringen
 Steuersenkungen oder Zuschüsse für Unternehmen in solchen Fällen nichts.
 
 VW ist im Verhältnis zu anderen Anbietern einfach zu teuer. Ein neuer [VW
-Polo](https://de.wikipedia.org/wiki/VW_Polo) kostet über 21.000 EUR, ein
-[Mitsubishi Space Star](https://de.wikipedia.org/wiki/Mitsubishi_Space_Star)
-unter 14.000 EUR. Eine Unternehmenssteuersenkung ändert nichts am Preisunterschied.
+Polo](https://de.wikipedia.org/wiki/VW_Polo) kostet über 21.000 EUR, ein [Mitsubishi Space Star](https://de.wikipedia.org/wiki/Mitsubishi_Space_Star)
+kostete zuletzt unter 14.000 EUR. Eine Unternehmenssteuersenkung ändert nichts am Preisunterschied.
 
 ### Wir sind die einzige Volkswirtschaft, die nicht wieder gewachsen ist
 
@@ -241,7 +240,8 @@ zu belasten ([Quelle](https://www.tagesschau.de/inland/bundestagswahl/wahlprogra
 * **Körperschafts- und Gewerbesteuer (20 Mrd EUR)**: Die Körperschaftssteuer
   soll auf 10 Prozent gesenkt werden.
 * **Solidaritätszuschlag (13 Mrd EUR)**: Der Soli soll vollständig abgeschafft
-  werden, was derzeit nur Einkommen über 148.000 Euro betrifft.
+  werden. Er betrifft derzeit nur Ledige mit einem zu versteuernden Einkommen ab ca.
+  73.500 Euro (Verheiratete: doppelt so viel) sowie Kapitalerträge und Kapitalgesellschaften.
 
 Die CDU/CSU verspricht, dabei keine neuen Schulden zu machen, keine Steuern zu
 erhöhen und keine zusätzlichen Steuern einzuführen. Das zusätzliche Geld soll
@@ -249,7 +249,7 @@ allein durch Wirtschaftswachstum generiert werden.
 
 **Realitätscheck**:
 
-* **Gesamt-BIP Deutschlands**: Das BIP Deutschlands lag 2023 bei etwa 4306 Mrd.
+* **Gesamt-BIP Deutschlands**: Das BIP Deutschlands lag 2024 bei etwa 4306 Mrd.
   EUR
   ([Quelle](https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/Tabellen/bip-bubbles.html)).
   Jeder Prozentpunkt Wirtschaftswachstum entspricht somit rund 43 Milliarden
