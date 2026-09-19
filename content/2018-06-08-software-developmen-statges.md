@@ -9,7 +9,7 @@ category: Code
 tags: Software Engineering
 featured_image: logos/code.png
 ---
-Pythons Trove Classifiers have 7 stages of software development:
+Python's Trove Classifiers have 7 stages of software development:
 
 ```text
 Development Status :: 1 - Planning
@@ -21,7 +21,7 @@ Development Status :: 6 - Mature
 Development Status :: 7 - Inactive
 ```
 
-In this mini-article I try to describe what those stages are.
+In this mini-article, I try to describe what those stages are.
 
 
 ## Semantic Versioning
@@ -67,17 +67,17 @@ on PyPI.
   drafting architectures and expected workflows (e.g. UML diagrams), writing user
   stories, defining features, defining which features NOT to have
 * **Semantic version**: -
-* **[PyPI](https://pypi.org/search/?q=&o=&c=Development+Status+%3A%3A+1+-+Planning)**: 2172 projects - noting I know of
+* **[PyPI](https://pypi.org/search/?q=&o=&c=Development+Status+%3A%3A+1+-+Planning)**: 2172 projects - nothing I know of
 
 
 ### 2 - Pre-Alpha
 
-* **Required properties**: There is already some software that gives an idea what
+* **Required properties**: There is already some software that gives an idea of what
   it is supposed to do.
 * **Typical steps**: Drafting ideas, adding new features, refactoring a lot.
   Here, the complete architecture of the software might still change.
 * **Semantic version**: 0.X.X
-* **[PyPI](https://pypi.org/search/?q=&o=&c=Development+Status+%3A%3A+2+-+Pre-Alpha)**: 5067 projects - noting I know of
+* **[PyPI](https://pypi.org/search/?q=&o=&c=Development+Status+%3A%3A+2+-+Pre-Alpha)**: 5067 projects - nothing I know of
 
 
 ### 3 - Alpha
@@ -128,12 +128,12 @@ it's unlikely known issues will be fixed.
 **[PyPI](https://pypi.org/search/?q=&o=&c=Development+Status+%3A%3A+7+-+Inactive)**: 283 projects, including
 
 * [async](https://pypi.org/project/async/): deprecated
-* [aws-cyrpto](https://pypi.org/project/aws-cyrpto/), [aws-crytpo](https://pypi.org/project/aws-crytpo/), [awscrytpo](https://pypi.org/project/awscrytpo/): Trying to prevent users from typos
+* [aws-cyrpto](https://pypi.org/project/aws-cyrpto/), [aws-crytpo](https://pypi.org/project/aws-crytpo/), [awscrytpo](https://pypi.org/project/awscrytpo/): Trying to protect users from typos
 * [bs4](https://pypi.org/project/bs4/): A dummy package
-* [`image_cleaner`](https://pypi.org/project/image_cleaner/), [`memtop`](https://pypi.org/project/memtop/), [`asr`](https://pypi.org/project/asr/), [`pyspell`](https://pypi.org/project/pyspell/), [`lumixmaptool`](https://pypi.org/project/lumixmaptool/), [`hwrt`](https://pypi.org/project/hwrt/), [`geocodertools`](https://pypi.org/project/geocodertools/), [TensorVision](https://github.com/TensorVision/TensorVision), [`vin_decoder`](): Projects I'm no longer interested in
+* [`image_cleaner`](https://pypi.org/project/image_cleaner/), [`memtop`](https://pypi.org/project/memtop/), [`asr`](https://pypi.org/project/asr/), [`pyspell`](https://pypi.org/project/pyspell/), [`lumixmaptool`](https://pypi.org/project/lumixmaptool/), [`hwrt`](https://pypi.org/project/hwrt/), [`geocodertools`](https://pypi.org/project/geocodertools/), [TensorVision](https://github.com/TensorVision/TensorVision), `vin_decoder`: Projects I'm no longer interested in
 
 Important to note here: It is, of course, always possible that it switches back
-to any of the other development stages
+to any of the other development stages.
 
 
 ## See also

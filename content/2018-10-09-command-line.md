@@ -9,7 +9,7 @@ category: Code
 tags: Development, Command line
 featured_image: logos/code.png
 ---
-As a software developer, I work daily many hours on the command line. This
+As a software developer, I work many hours on the command line every day. This
 article summarizes some tools and tricks to speed up this work.
 
 
@@ -17,7 +17,7 @@ article summarizes some tools and tricks to speed up this work.
 
 [Bash](http://tiswww.case.edu/php/chet/bash/bashtop.html), [ZSH](http://www.zsh.org/), [Fish](https://fishshell.com/) are Linux shells.
 
-[Oh-my-ZSH](https://ohmyz.sh/) is a plugin for ZSH which is AWESOME!
+[Oh-my-ZSH](https://ohmyz.sh/) is a plugin framework for ZSH which is AWESOME!
 
 
 ## Commands
@@ -76,8 +76,8 @@ alias pbpaste='xclip -selection clipboard -o'
 There are various commands with the "bang" `!`:
 
 * `!!`: Execute the last executed command in the bash history
-* `!*`: Execute the command with all the arguments passed to the previous command
-* `!ˆ`: Get the first argument of the last executed command in the bash history
+* `!*`: Get all the arguments passed to the previous command
+* `!^`: Get the first argument of the last executed command in the bash history
 * `!$`: Get the last argument of the last executed command in the bash history
 
 
@@ -96,7 +96,7 @@ There are various commands with the "bang" `!`:
 
 ## .dotfiles git repository
 
-Dotfiles a files which start with a `.`. Those files are hidden in Linux and
+Dotfiles are files which start with a `.`. Those files are hidden in Linux and
 often contain configuration files. Here is [mine](https://github.com/MartinThoma/dotfiles).
 
 

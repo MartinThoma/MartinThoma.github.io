@@ -11,18 +11,18 @@ featured_image: logos/python.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 Here are some rules that help you to write code of high quality. They are
-inspired by [Michael Toppa - 10 Tips For Clean Code](https://www.youtube.com/watch?v=UjhX2sVf0eg)
+inspired by [Michael Toppa - 10 Tips For Clean Code](https://www.youtube.com/watch?v=UjhX2sVf0eg):
 
 * Choose meaningful variable names
 * Boy Scout Principle: Leave the code base cleaner than you found it
 * Single Responsibility Principle: A function / method does only one thing
 * Write Tests
 * Independent Architecture
-* Many arguments -> pass object,
+* Many arguments -> pass object
 * Signal to noise ratio: How much of the desired signal is there compared to
   parts you don't want?
 
-The principles layed out below can be grouped in several categories:
+The principles laid out below can be grouped in several categories:
 
 * <span class="label label-info">Mental Load</span>: Understanding code is
   difficult. Some principles help to reduce the difficulty.
@@ -54,13 +54,13 @@ foobar = a_dictionary.get("key", "a default value")
 
 Reasons:
 
-* Easier to read, because less lines of code <span class="label label-info">Mental Load</span>
+* Easier to read, because fewer lines of code <span class="label label-info">Mental Load</span>
 * Looking up 'key' only once <span class="label label-info">Speed</span>
 
 
 ## Error case checking
 
-A common problem is to check many error-cases until you do whatever you want to
+A common problem is to check many error cases before you do whatever you want to
 do.
 
 Bad:
@@ -87,7 +87,7 @@ def foo(bar):
     doit(bar)
 ```
 
-The reason why code structured like this is because:
+Code structured like this is better because:
 
 * <span class="label label-info">Mental Load</span> Easier to read - first
   error checking, then the stuff that needs to be done
@@ -96,7 +96,7 @@ The reason why code structured like this is because:
   Then, using the pattern above, you would need to reindent all of the code.
 
 
-## Make Variable Names Pronouncable
+## Make Variable Names Pronounceable
 
 Bad: `cfg`
 
@@ -119,7 +119,7 @@ Bad: tuple
 (1337, 42)
 ```
 
-Better: [`namedtuple`](https://docs.python.org/2/library/collections.html#collections.namedtuple)
+Better: [`namedtuple`](https://docs.python.org/3/library/collections.html#collections.namedtuple)
 
 ```python-repl
 >>> from collections import namedtuple
@@ -143,11 +143,11 @@ Point(x=133, y=123)
 
 ## Minimum variable length
 
-I use `grep` a lot when I develop. For projects I work on I have a very rough
-call graph in mind, so I know a bit how my projects modules / objects interact
+I use `grep` a lot when I develop. For projects I work on, I have a very rough
+call graph in mind, so I know a bit how my project's modules / objects interact
 with each other. When I want to extend functionality, I grep for the part where
 I need to adjust things (or I simply use <kbd>Ctrl</kbd> + <kbd>f</kbd>).
-Hence, for every semantically meaningful variable it is good to have variables
+Hence, for every semantically meaningful variable, it is good to have names
 which are not parts of other words. A common one where it is fine to have a
 short name is having iterators that are just `i` (an index integer). A common
 one which I don't like is `tmp`.
@@ -170,8 +170,8 @@ Better:
 t0 = time.time()
 some_code()
 t1 = time.time()
-SECONDS_IN_A_HOUR = 3600
-execution_time_in_hours = (t1 - t0) / SECONDS_IN_A_HOUR
+SECONDS_PER_HOUR = 3600
+execution_time_in_hours = (t1 - t0) / SECONDS_PER_HOUR
 ```
 
 Reasons why it is better:
@@ -181,7 +181,7 @@ Reasons why it is better:
 
 
 Even better: Use a unit library like [pint](https://pint.readthedocs.io/en/latest/index.html).
-This way, it is guaranteed that the units will not accidentially be used in the
+This way, it is guaranteed that the units will not accidentally be used in the
 wrong way.
 
 ```python
@@ -235,14 +235,14 @@ for email_address in email_addresses:
     send(email_address)
 ```
 
-<span class="label label-info">Mental Complexity</span> Here we don't iterate
+<span class="label label-info">Mental Load</span> Here we don't iterate
 over an integer number. We iterate over items. Those items have a semantic
 type. What would we say in natural language to describe the code? Surely
 something like:
 
 > To each email address which we gathered before, we send a mail.
 
-The last one is was closer to this natural form than the other two ones are.
+The last one is way closer to this natural form than the other two are.
 
 
 ## ignored

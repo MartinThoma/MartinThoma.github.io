@@ -9,12 +9,12 @@ category: My bits and bytes
 tags: Gear, Trekking
 featured_image: logos/hiking.png
 ---
-I have a moorhead micro lite III 185 sleeping bag. It weights about 830g, is
+I have a Moorhead Micro Lite III 185 sleeping bag. It weighs about 830g, is
 filled with TECMOORFILL (100% polyester) and has a comfort temperature of +9°C,
-limit of +5°C and extreme of -8°C ([ISO EN 23537:2016](https://www.iso.org/standard/67105.html)). It is about 214x78cm big and packs to
+limit of +5°C and extreme of -8°C ([EN ISO 23537:2016](https://www.iso.org/standard/67105.html)). It is about 214x78cm big and packs to
 roughly a cylinder of height 33cm and diameter 18cm.
 
-I need a sleeping bag with comfort temperature below 0°C.
+I need a sleeping bag with a comfort temperature below 0°C.
 
 
 ## Features
@@ -199,10 +199,10 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>Explorer Grönland</td>
         <td>39 EUR</td>
         <td>1900g</td>
-        <td>-0 &deg;C</td>
+        <td>0 &deg;C</td>
         <td>-5 &deg;C</td>
         <td>-23&deg;C</td>
-        <td>350 g/m2 Hollowfibre 40 % silikonisiert, 2 layers</td>
+        <td>350 g/m² hollow fibre, 40 % siliconized, 2 layers</td>
         <td>7.7 Liter</td>
     </tr>
     <tr>

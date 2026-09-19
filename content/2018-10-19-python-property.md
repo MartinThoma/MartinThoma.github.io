@@ -15,7 +15,7 @@ why and how to use it.
 The following super basic `Location` class is used:
 
 ```python
-def Location(object):
+class Location(object):
     def __init__(self, longitude, latitude):
         self.longitude = longitude
         self.latitude = latitude
@@ -24,7 +24,7 @@ def Location(object):
 
 ## Getters and Setters
 
-Let's say, you want to add a range check for the properties of the class. You
+Let's say you want to add a range check for the properties of the class. You
 could make something like:
 
 ```python
@@ -51,7 +51,7 @@ class Location(object):
 which would then be called like this:
 
 ```python
-my_position = Location(48.137222222222, 11.575555555556)
+my_position = Location(11.575555555556, 48.137222222222)
 
 # Update after a while
 my_position.set_latitude(48.2)
@@ -67,7 +67,7 @@ a `get_latitude` getter.
 
 With Python 2.2, the `property` class was added to simplify it ([source](https://www.python.org/download/releases/2.2.2/descrintro/#property)).
 
-With that, you can change the class to
+With that, you can change the class to:
 
 ```python
 class Location(object):
@@ -92,17 +92,17 @@ class Location(object):
         self._longitude = longitude
 
     def get_longitude(self):
-        return self._latitude
-
-    def get_latitude(self):
         return self._longitude
 
+    def get_latitude(self):
+        return self._latitude
+
     latitude = property(get_latitude, set_latitude)
-    longitude = property(get_latitude, set_latitude)
+    longitude = property(get_longitude, set_longitude)
 
 
 # Usage
-my_position = Location(48.137222222222, 11.575555555556)
+my_position = Location(11.575555555556, 48.137222222222)
 
 my_position.latitude = 48.2
 my_position.longitude = 42.6
@@ -110,7 +110,7 @@ my_position.longitude = 42.6
 my_position.latitude = 123  # Fails
 ```
 
-Here is how the `help` of this class looks like:
+Here is what the `help` of this class looks like:
 
 ```text
 Help on class Location in module __main__:
@@ -145,13 +145,13 @@ class Location(builtins.object)
  |  longitude
 ```
 
-<div class="info">You should note the single leading underscore - that is Pythons way to denote private properties. It is not meant as the public interface of the class.<br/>
+<div class="info">You should note the single leading underscore - that is Python's way to denote private attributes. It is not meant as the public interface of the class.<br/>
 <br/>
-There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming colisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ & __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)</div>
+There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming collisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ & __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)</div>
 
-And then note how the objects attribte `latitude` now is not a float anymore, but a class!
+And then note how the class attribute `latitude` now is not a float anymore, but a `property` object!
 
-This makes use of [`__setattr__`](https://docs.python.org/3/reference/datamodel.html#object.__setattr__) and [`__getattr__`](https://docs.python.org/3/reference/datamodel.html#object.__getattr__). So by using this, there is a strong relationship
+This makes use of the [descriptor protocol](https://docs.python.org/3/howto/descriptor.html) (`__get__` and `__set__`). So by using this, there is a strong relationship
 between the getter/setter and the attribute!
 
 So we simplified using the class, but the class itself now looks not so nice
@@ -171,7 +171,7 @@ class Location(object):
 
     def __init__(self, longitude, latitude):
         self.latitude = latitude
-        self.longitude = latitude
+        self.longitude = longitude
 
     @property
     def latitude(self):
@@ -201,7 +201,7 @@ class Location(object):
 
 
 # Usage
-my_position = Location(48.137222222222, 11.575555555556)
+my_position = Location(11.575555555556, 48.137222222222)
 
 my_position.latitude = 48.2
 my_position.longitude = 42.6
@@ -209,7 +209,7 @@ my_position.longitude = 42.6
 my_position.latitude = 123  # Fails
 ```
 
-Here is how the `help` of this class looks like:
+Here is what the `help` of this class looks like:
 
 ```text
 Help on class Location in module __main__:

@@ -10,14 +10,14 @@ tags: Machine Learning, Data
 featured_image: logos/ml.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
-Data is one core element of machine learning. Hence it is worth to think about
+Data is one core element of machine learning. Hence, it is worth thinking about
 ways to store it. This post is inspired by some news of really big datasets being published ([source](https://www.reddit.com/r/MachineLearning/comments/6a97pt/n_new_massive_medical_image_dataset_coming_from/)).
 
 
 ## Hardware
 
 This post is not about hardware. Well, not mainly. The only thing I would
-like to mention are some rough scales:
+like to mention is some rough scales:
 
 <table class="table">
     <tr>
@@ -62,7 +62,7 @@ A short overview of some RAID levels:
         <td>Blocks</td>
         <td>No</td>
         <td>No</td>
-        <td>Just chaining the disks. You can easily loose data</td>
+        <td>Striping data across the disks. If one disk fails, you lose data</td>
     </tr>
     <tr>
         <td>1</td>
@@ -83,12 +83,12 @@ A short overview of some RAID levels:
         <td>Blocks</td>
         <td>Blocks</td>
         <td>No</td>
-        <td>Raid 1 and 0 combined</td>
+        <td>RAID 1 and 0 combined</td>
     </tr>
 </table>
 
 
-You might be interested in
+You might be interested in:
 
 * [Unboxing a PETABYTE of Storage - HOLY $H!T Ep. 16](https://www.youtube.com/watch?v=uykMPICGeqw).
 * [RAID levels](http://www.dell.com/support/article/us/en/4/SLN129581/understanding-hard-drive-types--raid-and-raid-controllers-on-dell-poweredge-and-blade-chassis-servers?lang=EN)
@@ -108,7 +108,7 @@ would like to go down several levels. Let's talk about file formats.
 ### Structured Data
 
 Structured data has a schema. It is organized and thus usually easier to search
-than unstructured data. Relational Databases structure data, but the contents
+than unstructured data. Relational databases structure data, but the contents
 of columns can contain unstructured data (e.g. a free text field).
 
 
@@ -130,18 +130,18 @@ Databases are a nice way to store data. Types of databases are:
 * SQL-based: MySQL / MariaDB, PostgreSQL, ...
 * [Document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database): CouchDB, MongoDB, Elasticsearch
 * Graph databases: Neo4j, ...
-* Key-Value databases: Reddis, ...
+* Key-Value databases: Redis, ...
 
 
 ## Data Warehouse
 
-Classical usecases of data warehouses are operational and financial reporting.
+Classical use cases of data warehouses are operational and financial reporting.
 
 See also:
 
 * Wikipedia
     * [Data Warehouse](https://en.wikipedia.org/wiki/Data_warehouse)
-    * [FACT table](https://en.wikipedia.org/wiki/Fact_table)
+    * [Fact table](https://en.wikipedia.org/wiki/Fact_table)
 
 ## Data Lake
 
@@ -152,7 +152,7 @@ generated or log files.
 Data lakes have 5 core principles according to <a href="https://www.youtube.com/watch?v=zlBZrG8dDMM">Evan Shelley</a>:
 
 * Ingest: Ability to collect all data you care about
-* Store: Getting data in one place (e.g. with file system like Hadoop)
+* Store: Getting data in one place (e.g. with a file system like HDFS)
 * Analyze: Find relations you care about
 * Surface: Display results found in data
 * Act: Help the customer to make more money

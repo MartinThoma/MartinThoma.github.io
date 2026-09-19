@@ -10,24 +10,24 @@ tags: Web Services
 featured_image: logos/web.png
 ---
 Usernames are used for identification in two places in web services: To let
-people log in and to allow people recognizing each other. In this article I
+people log in and to allow people to recognize each other. In this article, I
 want to share some ideas on usernames.
 
 
 ## Username vs Display name
 
-When I look into my Stackoverflow profile, they have something called
+When I look into my Stack Overflow profile, they have something called
 "display name":
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2018/08/stackoverflow-profile.png"><img src="../images/2018/08/stackoverflow-profile.png" alt="Stackoverflow Profile edit page" style="width: 512px;"/></a>
-    <figcaption class="text-center">Stackoverflow Profile edit page</figcaption>
+    <a href="../images/2018/08/stackoverflow-profile.png"><img src="../images/2018/08/stackoverflow-profile.png" alt="Stack Overflow Profile edit page" style="width: 512px;"/></a>
+    <figcaption class="text-center">Stack Overflow Profile edit page</figcaption>
 </figure>
 
-I like this a lot. I communicates clearly that it is something seen by others.
+I like this a lot. It communicates clearly that it is something seen by others.
 
-The next question that popped to my mind was if we need usernames at all.
-Wouldn't it be simpler to just login with your password?
+The next question that popped into my mind was if we need usernames at all.
+Wouldn't it be simpler to just log in with your password?
 
 Two big problems with that idea:
 
@@ -55,21 +55,21 @@ The problems I see with that:
     * See [Unicode Confusables](http://unicode.org/reports/tr36/confusables.txt)
 * *Script injection*: By allowing `<` and `>` an attacker could choose a
   username which loads HTML.
-* *Interactions*: User interact. For example, in discussions they might
+* *Interactions*: Users interact. For example, in discussions they might
   naturally write `@martin` to mention the user `martin`. This means an `@`
   character should be excluded.
-* *Markdown*: Other caracters like `#[]=*~` are also be a bad choice as they are
+* *Markdown*: Other characters like `#[]=*~` are also a bad choice as they are
   part of Markdown.
 * *Math*: `$` is a bad choice as it triggers MathJax / LaTeX.
-* *Natural seperators*: Some characters are natural seperators in English,
-  German and French: Whitespace, Comma `,`, Semi-colon `;`, dot `.`, double point
+* *Natural separators*: Some characters are natural separators in English,
+  German and French: Whitespace, Comma `,`, Semicolon `;`, dot `.`, colon `:`
 * *Offensive Language*: Actually, the main problem I see here is when developers
   try to be smart and have a false positive - seeing something as offensive
   which is just the name of a person.
 
 Where you might want freedom:
 
-* Multiple charactersets for multi-country support (Kyrillic, Arabic, Chinese, ...)
+* Multiple character sets for multi-country support (Cyrillic, Arabic, Chinese, ...)
 
 
 ## What others do

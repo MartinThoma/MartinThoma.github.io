@@ -10,30 +10,30 @@ tags: Education
 featured_image: logos/education.png
 ---
 Learning is a core part of human development. Children want to understand the
-world, adults want to improve their lifes and as a society we want advancement.
-Education still faces serios inequality problems (<a href="https://m.metrotimes.com/news-hits/archives/2018/07/02/us-court-detroit-students-have-no-right-to-access-to-literacy">example</a>). In some cases because
+world, adults want to improve their lives and as a society we want advancement.
+Education still faces serious inequality problems (<a href="https://m.metrotimes.com/news-hits/archives/2018/07/02/us-court-detroit-students-have-no-right-to-access-to-literacy">example</a>). In some cases, because
 educational material is too expensive, in many cases because having a good
-teacher is still a bit related to luck. And in many cases this has not to be
+teacher is still a bit related to luck. And in many cases, this does not have to be
 the case. We have the technical infrastructure in many countries to deliver
-awesome educational resouces to most people. But we lack the software.
+awesome educational resources to most people. But we lack the software.
 
 This post is work in progress. I would like to build and deploy an improved
 platform for teaching and learning. I've been thinking about this for quite a
 while and very often I'm blocked by the complexity of the task. Although the
 [current draft](https://martin-thoma.com/pdf/education-portal.pdf) is far
 from being finished, I think it's important to start sharing ideas. A talk with
-my flat mate gave me many more ideas. Thank you, Thomas!
+my flatmate gave me many more ideas. Thank you, Thomas!
 
 
 ## Existing Education Platforms
 
-I usally try to see if the problem I want to solve already has a solution that
+I usually try to see if the problem I want to solve already has a solution that
 I can work with or improve upon. Here is the summary of it.
 
 The "width" column indicates how many different areas of knowledge the platform
-offers. The depth knowledge gives you a clue how sophisticated it can get.
+offers. The "depth" column gives you a clue of how sophisticated it can get.
 The "students" and "creators" columns tell you how easy it is to access and how
-the user experience (UX) for them are. The column "atomic" column tells you if
+the user experience (UX) for them is. The "atomic" column tells you if
 the platform supports creating a lesson for only one single small topic, e.g.
 only a single page.
 
@@ -101,7 +101,7 @@ only a single page.
         <td><span color="red">✘</span></td>
     </tr>
     <tr>
-        <td>edX</td>
+        <th>edX</th>
         <td>3/5</td>
         <td>5/5</td>
         <td></td>
@@ -125,9 +125,9 @@ All of the projects I found have at least one of the following problems:
 * **Width**: Their scope is too narrow, e.g. Duolingo is only for learning
   languages.
 * **Depth**: YouTube videos are great for introducing a topic, but for diving
-  deep you need to get active and complete some excercises.
+  deep you need to get active and complete some exercises.
 * **User Experience**: The design is not good for supporting learning.
-* **Openness**: Courses expensive or only partially available.
+* **Openness**: Courses are expensive or only partially available.
 
 
 ### Wikipedia
@@ -148,15 +148,15 @@ you can find courses:
 
 So Wikiversity is a platform for [open educational resources](https://en.wikipedia.org/wiki/Open_educational_resources) (OER).
 
-People can use [images](https://commons.wikimedia.org/wiki/Category:Quality_images_by_Martin_Thoma), [videos](https://commons.wikimedia.org/wiki/File:Movement_of_organelles_in_Tradescantia_stamen_hair_cells.webm), [audio files](https://en.wikipedia.org/wiki/File:Becerra_string_quartet_4_-_1allegro.ogg) and even [PDF files](https://commons.wikimedia.org/w/index.php?title=File%3A05_Wikipedia_Qualitaet_Upload.pdf&page=12) to teach. I'm not sure of
+People can use [images](https://commons.wikimedia.org/wiki/Category:Quality_images_by_Martin_Thoma), [videos](https://commons.wikimedia.org/wiki/File:Movement_of_organelles_in_Tradescantia_stamen_hair_cells.webm), [audio files](https://en.wikipedia.org/wiki/File:Becerra_string_quartet_4_-_1allegro.ogg) and even [PDF files](https://commons.wikimedia.org/w/index.php?title=File%3A05_Wikipedia_Qualitaet_Upload.pdf&page=12) to teach. I'm not sure about
 JavaScript.
 
 What I think can be improved:
 
 * **Learners' UX**:
-    * Finding courses that fit to your knowledge is hard
+    * Finding courses that fit your knowledge is hard
     * The general design is ... well, I'm not sure how to describe it. It could
-      be posished more. Removing the clutter.
+      be polished more. Removing the clutter.
 * **Teachers' UX**:
     * MediaWiki does not support Markdown
     * I don't think you can write HTML
@@ -166,7 +166,7 @@ What I think can be improved:
 
 Coursera is one of the best MOOC websites I know: It has 1 - 15 minute videos
 which usually don't cover more than one topic, questions which keep you
-engaged, the possibility to discuss the topic with fellow students. It's design
+engaged, the possibility to discuss the topic with fellow students. Its design
 is beautiful and clean.
 
 
@@ -193,7 +193,7 @@ On YouTube, you can find courses for:
 * [Physics](https://www.youtube.com/watch?v=BqKeiiezqzc&index=100&list=PL908547EAA7E4AE74)
 
 The main problem with YouTube as a learning platform is the format. Video is
-heard to index / search by website crawlers, it is hard for the user to find
+hard to index / search by website crawlers, it is hard for the user to find
 a very specific part and it is super hard to create good videos. There is a
 reason why you don't have many awesome video lectures.
 
@@ -209,7 +209,7 @@ create content for others to learn from. Examples are:
 The problem of single websites is their limited scope. Most often, they are
 driven by individuals. Once the individuals stop, the project will likely become
 outdated or might simply not be available any longer. Also, you have to find those
-sites and
+sites first.
 
 
 ## Relevant Elements
@@ -222,7 +222,7 @@ Things I want to have for an education platform:
   animations, videos, podcasts. People want to teach in different forms and
   they want to learn in many forms. Let them do it.
 * Search: Make a clever tagging system which allows people to find the courses
-  that suit best to them.
+  that suit them best.
 
 
 ## Drafts

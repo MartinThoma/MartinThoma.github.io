@@ -11,18 +11,18 @@ featured_image: logos/ml.png
 ---
 Today, I played a bit with the [International airline passengers dataset](https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&display=line).
 
-It's only feature is a date given by year and month. One should predict the
+Its only feature is a date given by year and month. One should predict the
 number of passengers (in thousands).
 
 
 ## Code
 
-See [Github](https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py).
+See [GitHub](https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py).
 
 
 ## Results
 
-See the scoring functions are explained in the <a href="https://martin-thoma.com/regression/">regression article</a>.
+The scoring functions are explained in the <a href="https://martin-thoma.com/regression/">regression article</a>.
 
 <table class="table">
 <tr>
@@ -34,7 +34,7 @@ See the scoring functions are explained in the <a href="https://martin-thoma.com
     <th><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$R^2$</a></th>
     <th><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html">explained variance</a></th>
     <th><a href="https://en.wikipedia.org/wiki/Mean_squared_error" title="Mean squared error">MSE</a></th>
-<tr>
+</tr>
 <tr>
     <td>GradientBoostingRegressor</td>
     <td>11.6ms</td>
@@ -198,7 +198,7 @@ See the scoring functions are explained in the <a href="https://martin-thoma.com
 </table>
 
 I like the median absolute error best, because it tells me how many passengers
-my prediction is typically away from the true prediction.
+my prediction is typically away from the true value.
 
 Please note that bad results here do not mean the regressor is bad. Some might
 just use their full potential with more data, some might be better suited to
@@ -210,7 +210,7 @@ working with higher dimensional data.
 
 Plotting the prediction is crucial for extrapolation. What we can see in those
 images is that there are two things to match: A global trend and local
-seasonality-effects. To make it easier to digest, I already put them in the
+seasonality effects. To make it easier to digest, I already put them in the
 table. Just click on them to see them in full size:
 
 
@@ -365,7 +365,7 @@ The simplest way to combine two regression models is by
 
 $$f(x) = f_1(x) + f_2(x)$$
 
-But I also want to simpify the training. So I decided to have the following
+But I also want to simplify the training. So I decided to have the following
 training setup:
 
 1. Fit $f_1$ on the training dataset, where $f_1$ has to predict the global
@@ -493,23 +493,23 @@ This looks a lot better! Note how the best model before is now the worst!
 However, even with this combination the Gaussian Processes were really bad.
 Overshooting like hell.
 
-Next thing to improve: The scaling of the the seasonal trend is not captured so
+Next thing to improve: The scaling of the seasonal trend is not captured so
 far.
 
 Another idea I want to dig into is that of residual learning. Where I have only
-one model learning the residual of another model, you can chain arbitary many.
+one model learning the residual of another model, you can chain arbitrarily many.
 The `ResidualRegressor` is a meta-regressor. If it is given one model, it
 behaves exactly like that model. If it is given two models, then it behaves
 exactly like the `TrendSeasonRegressor`.
 
-Sadly, for the given data and the models I've tried, three models behaved not
+Sadly, for the given data and the models I've tried, three models did not perform
 better than two in the `ResidualRegressor`.
 
 
 ## Human Performance
 
-An interesting excercise is to get a human baseline. This gives you some
-insights in how good the models are.
+An interesting exercise is to get a human baseline. This gives you some
+insights into how good the models are.
 
 <table>
     <thead>
@@ -760,7 +760,7 @@ Having the month as a single feature with values from 1 to 12 seems not to be
 the best choice. Either a one-hot encoding or a circular encoding (two features
 with the trigonometric functions `sin` and `cos`) seem to be the better choice.
 
-Using the circular encoding was interesting. It made the prediction to get
+Using the circular encoding was interesting. It made the prediction get
 "bumps":
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -787,7 +787,7 @@ The following should have become clear from reading this blog post:
 * L2: Without hyperparameter optimization (e.g. [twiddling](https://martin-thoma.com/twiddle/)),
   SVR is shitty.
 * L3: Without scaling, linear SVR runs many hours for training. On a dataset with
-  3&nbsp;features and less than 150&nbsp;data points.
+  3&nbsp;features and fewer than 150&nbsp;data points.
 * L4: Visualizations are powerful for model evaluation and improvement in
       low-dimensional regression problems.
 

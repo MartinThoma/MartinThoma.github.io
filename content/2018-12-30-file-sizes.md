@@ -10,7 +10,7 @@ tags: file, size, storage, format, image, jpg
 featured_image: logos/star.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
-I was just wondering how long a camera which takes images in 5s intervalls and
+I was just wondering how long a camera which takes images in 5s intervals and
 has 256 GB of storage could take photos. This is quite easy to answer as soon
 as you know the average file size. For that, however, I could not find a good
 answer in the first 3 Google results. Let's fix that.
@@ -25,7 +25,7 @@ Don't forget that JPEG supports different compression levels!
 <table>
     <tr>
         <th>Resolution (in px x px)</th>
-        <th>Pixel</th>
+        <th>Pixels</th>
         <th>MP</th>
         <th>Average file size<br/>(1% - 99% percentile)</th>
     </tr>
@@ -85,7 +85,7 @@ Don't forget that JPEG supports different compression levels!
 <table>
     <tr>
         <th>Resolution (in px x px)</th>
-        <th>Pixel</th>
+        <th>Pixels</th>
         <th>MP</th>
         <th>Average file size<br/>(1% - 99% percentile)</th>
     </tr>

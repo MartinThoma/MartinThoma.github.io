@@ -19,10 +19,10 @@ comments 😊
 An API is written because you want to make a public interface to your
 application. You will not know who is using your service. For this reason, you
 have to keep things running for quite a while. Changes in an endpoint could
-potentialy cause another service to crash. You want your stuff to be reliable,
+potentially cause another service to crash. You want your stuff to be reliable,
 so think about that in advance.
 
-Oh, and JSON is likely the most common way to return information in the web.
+Oh, and JSON is likely the most common way to return information on the web.
 So make sure your responses are valid JSON and you include
 `Content-Type: application/json` in the header. Consequently, you can expect
 the payload to be valid JSON as well.
@@ -30,7 +30,7 @@ the payload to be valid JSON as well.
 
 ### Character Sets
 
-Use UTF8. Always. Everywhere.
+Use UTF-8. Always. Everywhere.
 
 See also: [Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?](https://softwareengineering.stackexchange.com/q/40063/25699)
 
@@ -52,12 +52,12 @@ Some examples of status pages:
 
 ### Server Time
 
-Make sure your server time is not too off. This makes comparing logs of
+Make sure your server time is not too far off. This makes comparing logs of
 different systems easier. And it could be that you use the system time directly
 or indirectly as an API output. You can use an [NTP server](https://en.wikipedia.org/wiki/Network_Time_Protocol)
 to sync the time.
 
-For manual checking.
+For manual checking:
 
 ```shell
 $ ntpq -pn
@@ -77,7 +77,7 @@ $ ntpq -pn
 
 
 ## Naming
-Suppose we would have an API which lets us create / delete / receive users. I
+Suppose we have an API which lets us create / delete / retrieve users. I
 would expect the following:
 
 * GET `domain.io/api/users`: Returns a list of all users
@@ -87,10 +87,10 @@ would expect the following:
 
 This kind of logic should be consistent through the complete API.
 
-For the filed names, I suggest to use **camelCase** as it is usually done with
+For the field names, I suggest using **camelCase** as it is usually done with
 JSON.
 
-For the names, I suggest to use **plural forms**. The main point is to be
+For the names, I suggest using **plural forms**. The main point is to be
 consistent.
 
 And, of course, there is the actual value of IDs. It might not be desirable
@@ -100,9 +100,9 @@ be one alternative.
 
 ## Versioning
 
-Having an URL structure like `domain.io/api/v1/foobar` is really nice. This
+Having a URL structure like `domain.io/api/v1/foobar` is really nice. This
 allows you to change some of the practices and be consistent. So you could
-follow some naming schemas vor `/v1/*` and others for `/v2/*`. Or change the
+follow some naming schemes for `/v1/*` and others for `/v2/*`. Or change the
 authentication.
 
 
@@ -110,44 +110,44 @@ authentication.
 
 **Please note**: You might want to read [Web API Pagination with the 'Timestamp_Offset_Checksum' Continuation Token](https://blog.philipphauer.de/web-api-pagination-continuation-token/#offset-pagination) - don't take the following as the best option for granted!
 
-Always when you return lists, make it paginated. Add a **default sorting**
+Whenever you return lists, make them paginated. Add a **default sorting**
 and an **offset parameter**. You could also add an **order** and a **limit** parameter.
 
-The endpoint should return
+The endpoint should return:
 
 ```python
 {"continue": 100, "data": FOOBAR}
 ```
 
 where the value of `continue` is the next index to continue. So in case you
-decide that an limit of 100 returned elements is enough / reasonable, the
+decide that a limit of 100 returned elements is enough / reasonable,
 the first query that has more than 100 elements would return the `continue` of
-100. A call with an `offset=142` wuld have an `"continue": 242` in the
+100. A call with an `offset=142` would have a `"continue": 242` in the
 response, if there are at least 242 elements.
 
-It is done similar in the [MediaWiki API](https://www.mediawiki.org/wiki/API:Query).
+It is done similarly in the [MediaWiki API](https://www.mediawiki.org/wiki/API:Query).
 
 
 ## Documentation
 
-Add an `format` parameter to every `GET` query. If it is not specified, then
+Add a `format` parameter to every `GET` query. If it is not specified, then
 you can return documentation and/or a formatted response.
 
 See [MediaWiki as an example](https://en.wikipedia.org/w/api.php?action=query&generator=allpages&gaplimit=3&gapfrom=Ba&prop=links%7Ccategories&format=jsonfm&formatversion=2).
 
 Also, you should be really careful about units:
 
-* **Prices**: Always document the currency. I suggest to use cents so that you
+* **Prices**: Always document the currency. I suggest using cents so that you
   can use integers and don't have to deal with floating point precision
   problems.
-* **Dates**: There are timezones. I suggest to use the [ISO 8601](https://de.wikipedia.org/wiki/ISO_8601) with
-  datetime as used for ECMA consistently: `YYYY-MM-DDTHH:mm:ss+00:00` (UTC), e.g `2018-03-07T21:37:24+00:00`.
+* **Dates**: There are timezones. I suggest using [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with
+  datetime as used for ECMA consistently: `YYYY-MM-DDTHH:mm:ss+00:00` (UTC), e.g. `2018-03-07T21:37:24+00:00`.
 * **SI Units**: Use [SI units](https://en.wikipedia.org/wiki/International_System_of_Units) as a default. If you don't use them, make a big warning sign.
 
 
 ## Errors
 
-Help your API users by making nice error messages. Something like
+Help your API users by making nice error messages. Something like:
 
 ```text
 HTTP Status 400
@@ -181,10 +181,10 @@ Use HTTPS.
 
 ### Authentication
 
-Give an concrete example how one should authenticate. Most likely, there will
+Give a concrete example of how one should authenticate. Most likely, there will
 be a token system. Be absolutely clear when the tokens expire.
 
-If loosing the token could lead to people not being able to access your service
+If losing the token could lead to people not being able to access your service
 for a while, make sure they know it! This could be the case if one account may
 only have one active token.
 
@@ -196,7 +196,7 @@ See also:
 
 ### Input Validation
 
-Don't let users input go directly to the database / be part of the execution.
+Don't let user input go directly to the database / be part of the execution.
 
 See [SQL injection](https://en.wikipedia.org/wiki/SQL_injection)
 

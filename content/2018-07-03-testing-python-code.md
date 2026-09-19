@@ -12,13 +12,13 @@ featured_image: logos/python.png
 Testing code is important for the following reasons:
 
 * **Trust**: You checked at least some cases if they work. So others can have
-  more trust in the quality of your work and youself can also put more trust in
+  more trust in the quality of your work and you yourself can also put more trust in
   it.
 * **Breaking Changes**: For a bigger project, it is sometimes hard to have
   every part in mind. By writing tests, you make it easier to change something
   and see if / where things break.
 * **Code Style**: When you know that you have to write tests, you write some
-  things slightly different. Those slight differences usually improve the
+  things slightly differently. Those slight differences usually improve the
   coding style. Sometimes, they are crucial.
 
 When testing, there are two important measures:
@@ -33,7 +33,7 @@ Usually, I aim for more than 95% line coverage.
 ## Why you should test
 
 Besides trust, preventing breaking changes and code style, I want to give two
-concrete examples how writing tests with the aim of a high test coverage
+concrete examples of how writing tests with the aim of a high test coverage
 improved my code.
 
 ### Reproducibility
@@ -73,7 +73,7 @@ everything.
 Imagine you have a function with 300&nbsp;lines of code, conditionally executed
 code in multiple levels and for loops. It will be a mess to test everything.
 
-A very extreme point of view is hold [here](https://softwareengineering.stackexchange.com/a/195992/25699):
+A very extreme point of view is held [here](https://softwareengineering.stackexchange.com/a/195992/25699):
 
 > If, when describing the activity of the code to another programmer you use
 > the word 'and', the method needs to be split into at least one more part.
@@ -85,14 +85,14 @@ A very extreme point of view is hold [here](https://softwareengineering.stackexc
 ### Doctests
 
 Python has a module called [`doctest`](https://docs.python.org/3/library/doctest.html).
-It executes code which is after the promt `>>> `.
+It executes code which is after the prompt `>>> `.
 
 A simple example:
 
 ```python
 def fibonacci(n):
     """
-    Calculate the n-th fibonacci number.
+    Calculate the n-th Fibonacci number.
 
     >>> fibonacci(0)
     0
@@ -118,13 +118,13 @@ execution. Try it by changing `8` to something else.
 Why it is nice:
 
 * It's simple
-* You have written both, documentation and a test
+* You have written both documentation and a test
 * It's guaranteed not to get outdated (otherwise the tests will fail)
 
 
 The drawbacks of this solution:
 
-* It compares directly the output as shown on the console. If this is not
+* It directly compares the output as shown on the console. If this is not
   deterministic (e.g. as with the set datatype), you need to check for
   equality.
 * In many cases, it is hard to set things up.
@@ -141,7 +141,7 @@ Python comes with [`unittest`](https://docs.python.org/3/library/unittest.html),
 which is the default module for unit testing. It is inspired by JUnit. The
 following text is partially directly copied from the documentation.
 
-Unit tests are the fundament of the testing pyramid. The should be isolated
+Unit tests are the foundation of the testing pyramid. They should be isolated
 from other software, be fast to execute, relatively easy to write and thus
 rather cheap. If the test is not isolated, then it is an integration test. A
 typical integration test is when you interact with a database.
@@ -152,7 +152,7 @@ There are four concepts which are supported by `unittest`:
     <dt>test case</dt>
     <dd>A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.</dd>
     <dt>test fixture</dt>
-    <dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
+    <dd>A test fixture represents the preparation needed to perform one or more tests, and any associated cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
     <dt>test suite</dt>
     <dd>A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.</dd>
     <dt>test runner</dt>
@@ -162,9 +162,9 @@ There are four concepts which are supported by `unittest`:
 To put it into context:
 
 * You write a test case.
-* It might be neccessary or convenient to `setUp` things. This is the test
+* It might be necessary or convenient to `setUp` things. This is the test
   fixture.
-* You combine tests to a test suite.
+* You combine tests into a test suite.
 * The test runner executes the tests.
 
 Your [project structure](https://martin-thoma.com/python-projects/) should be:
@@ -227,10 +227,10 @@ class ThemoduleNameTest(unittest.TestCase):
 
 [`pytest`](https://docs.pytest.org/en/latest/) is a framework which makes
 testing with Python WAY easier. You can simply add files `test_<modulename>.py`
-with `text_xyz()` functions and assert statements:
+with `test_xyz()` functions and assert statements:
 
 ```python
-def text_xy():
+def test_xy():
     import mymodule
 
     assert mymodule.f(1) == 2
@@ -248,14 +248,14 @@ pytest also comes with some neat plugins:
   rather slow ones.
 * [`pytest-dependency`](https://pypi.org/project/pytest-dependency/): I hate it
   when I break one thing and a thousand tests fail. This makes it hard to find
-  the root cause. By defining dependencies you can skip tests conditionally
+  the root cause. By defining dependencies, you can skip tests conditionally
   on the outcome of another test.
 * [`pytest-cov`](https://pytest-cov.readthedocs.io/en/latest/): Creating coverage
   reports with pytest.
 * [`pytest-mccabe`](https://pypi.org/project/pytest-mccabe/): Check which
   functions are too complex.
 
-I recommend to add the following to your `setup.cfg`:
+I recommend adding the following to your `setup.cfg`:
 
 ```ini
 [tool:pytest]
@@ -302,7 +302,7 @@ The [`coverage`](http://coverage.readthedocs.io/en/latest/) package and its
 [`pytest-cov`](https://pytest-cov.readthedocs.io/en/latest/) plugin allow you
 to generate coverage reports.
 
-I recommend creating a `.coveragerc` file in your projects root directory:
+I recommend creating a `.coveragerc` file in your project's root directory:
 
 ```ini
 [run]
@@ -352,7 +352,7 @@ See [`unittest.mock`](https://docs.python.org/3/library/unittest.mock.html)
 
 Having credentials as environment variables seems to be the cleanest solution
 so far. You might want to have a look at [`direnv`](https://direnv.net). To
-give later developers (including yourself) later a hint, you could create a
+give later developers (including yourself) a hint, you could create a
 `template.envrc` file which contains all relevant attributes, but not the
 values.
 
@@ -371,7 +371,7 @@ credentials.
 
 ## Mutation Testing
 
-Mutation Testing is a nice idea how to test your tests. You "mutate" your code
+Mutation Testing is a nice idea of how to test your tests. You "mutate" your code
 slightly and want at least one test to fail.
 
 So you change constants (off-by-one), you change the order of operations.

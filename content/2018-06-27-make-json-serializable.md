@@ -12,8 +12,8 @@ featured_image: logos/python.png
 When you're developing a service which has to communicate with a REST endpoint,
 it is very likely that it will come in handy if you can convert some of your
 objects to JSON (and back). Until recently, I always created a dictionary and
-used `json.dumps` in that case. Also, when I wanted to log an object to
-AWS Cloudwatch which has structured logs (json logs).
+used `json.dumps` in that case. The same applied when I wanted to log an object to
+AWS CloudWatch, which has structured logs (JSON logs).
 
 
 Instead of doing it completely manually, you should use a pattern described

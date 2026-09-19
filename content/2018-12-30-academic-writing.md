@@ -22,13 +22,13 @@ like to share with you.
 
 ## Rules and Guidelines
 
-* However at the beginning of a sentence might not mean what you think. See
+* *However* at the beginning of a sentence might not mean what you think. See
   [Strunk](http://www.bartleby.com/141/strunk3.html).
-* If a sentence ends with a capital letter, add `\@` before the dot.
+* LaTeX: If a sentence ends with a capital letter, add `\@` before the dot.
 * Avoid "it" and "this" if possible. Be explicit. Being explicit makes it
   easier to read your work.
 
-## Miscallenious
+## Miscellaneous
 
 * [Is “data” treated as singular or plural in formal contexts?](https://english.stackexchange.com/a/6913/9880)
 * [‘Less’ or ‘fewer’?](https://en.oxforddictionaries.com/usage/less-or-fewer)

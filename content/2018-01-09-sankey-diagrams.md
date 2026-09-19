@@ -9,7 +9,7 @@ category: Machine Learning
 tags: Data Analysis, Data Visualization
 featured_image: logos/ml.png
 ---
-Sankey diagrams can be used to visualize the breakdown of money / electriciy.
+Sankey diagrams can be used to visualize the breakdown of money / electricity.
 You have a big base value like the energy used by an average single German in
 December 2017. Then you build big clusters:
 
@@ -24,7 +24,7 @@ and you might be able to split household up again:
 * Computer(s)
 * Other
 
-The online tool [sankeymatic.comhttp://sankeymatic.com/build/) can build quite
+The online tool [sankeymatic.com](http://sankeymatic.com/build/) can build quite
 nice Sankey diagrams with a simple interface.
 
 
@@ -55,7 +55,7 @@ Day [0.5] Housekeeping
 Day [0.9] Projects
 ```
 
-gives
+gives:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2018/01/typical-workday.png" alt="A typical workday in Munich" style="width: 512px;"/>

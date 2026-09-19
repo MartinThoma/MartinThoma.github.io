@@ -10,8 +10,8 @@ tags: Rating
 featured_image: logos/star.png
 ---
 I have a Panasonic Lumix DMC-TZ40. It's about 3 years old and I'm thinking
-about getting a new one. I have the impression that my camera takes quite often
-unsharp images.
+about getting a new one. I have the impression that my camera quite often takes
+blurry images.
 
 
 ## What is important to me
@@ -21,9 +21,9 @@ unsharp images.
   (like the Panasonic Lumix DMC-TZ40)
 * Correct / nice colors: This is where I expect an improvement compared to the
   Panasonic Lumix DMC-TZ40
-* **Grip**: I want to be able to make selfies with it
-* **On/off**: Similar to the grip one - I don't want to accidentially turn it on / off.
-* **Price** should at maximum be 700 EUR. Rather something like 500 EUR, but more
+* **Grip**: I want to be able to take selfies with it
+* **On/off**: Similar to the grip one - I don't want to accidentally turn it on / off.
+* **Price** should be at most 700 EUR. Rather something like 500 EUR, but more
   than 300 EUR is fine.
 * Battery life: I want to be able to have the camera with me for a day with one
   battery. So I guess something like 150 shots should easily be possible.
@@ -36,7 +36,7 @@ The kind of image I want to take:
 
 Optional:
 
-* GPS: I like when my images are geo-tagged.
+* GPS: I like it when my images are geo-tagged.
 
 
 ## What is not important
@@ -51,7 +51,7 @@ Optional:
 * [Panasonic Lumix DMC-TZ100](https://www.techradar.com/reviews/cameras-and-camcorders/cameras/compact-cameras/panasonic-tz100-zs100-1312056/review)
 * [Sony Cyber-shot RX100 IV](https://www.techradar.com/reviews/cameras-and-camcorders/cameras/compact-cameras/sony-rx100-iv-1302751/review)
 * Sony Cyber-shot RX100 III
-* G7 X Mark II
+* Canon PowerShot G7 X Mark II
 
 
 

@@ -13,29 +13,29 @@ featured_image: logos/internet.png
 The registration of domains (such as `martin-thoma.com`,
 `wikipedia.org`, `understand.ai`, `unicode.party`, …) is kind of broken.
 There are people who register domains just because somebody might want them
-sometime. Then they sell it to them. They do not intend to put content there.
+sometime. Then they sell them to those people. They do not intend to put content there.
 This is called "domain parking". I guess it is similar to people who put their
 car on a parking spot which they actually don't need. Then they put a sign
-in there "if you want to park here, pay 20 Euro and call XYZ".
+on it: "if you want to park here, pay 20 Euro and call XYZ".
 
-Why is this a problem (though not a too serious one)?
+Why is this a problem (though not a very serious one)?
 
-For physical goods people who buy stuff just because they think in future other
-people might need it provides value. It smoothes the price over time, allows
+For physical goods, people who buy stuff just because they think other people
+might need it in the future provide value. It smooths the price over time, allows
 the producers of that good to continue producing it while somebody else takes
 care of storing it.
 
-However, for rights it is different. There is only one domain like `comment.it`.
+However, for rights such as domains it is different. There is only one domain like `comment.it`.
 There will never be another one. There is no smoothing of the price over time
 (as it can only be bought once). If it is not registered, there is no cost in
-holding it available. In contrast, it is much more complicated to buy a domain
-which is already registered by somebody else than registering it yourself.
+holding it available. Also, it is much more complicated to buy a domain
+which is already registered by somebody else than to register it yourself.
 
 
 ## Whois Lookup
 
 With sites like <a href="http://whois.domaintools.com/">whois.domaintools.com</a>
-or tools like `whois` you can look up who owns a domain:
+or tools like `whois`, you can look up who owns a domain:
 
 ```shell
 $ whois martin-thoma.com
@@ -62,7 +62,7 @@ $ whois martin-thoma.com
 ## Examples
 
 Here is a list of interesting domains which are just held for the purpose of
-selling it too expensive to somebody else:
+selling them at a high price to somebody else:
 
 * <a href="http://comment.it/">comment.it</a> (<a href="http://whois.domaintools.com/comment.it">whois</a>): Registered by Valerio Morfino in 2001
 * <a href="http://admin.ai/">admin.ai</a> (<a href="http://whois.domaintools.com/admin.ai">whois</a>): Registered by SenseiHub in 2010

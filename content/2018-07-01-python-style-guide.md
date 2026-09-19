@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 Having a consistent code style for a project is important as it allows
 developers to code correctly without thinking too much about it. It makes code
-**easier to read, maintain** and after becomming used to the style also
+**easier to read, maintain** and after becoming used to the style also
 **easier to write**.
 
 Most of the time, it is not too important which standards to follow, but to
@@ -43,12 +43,12 @@ Python code for potential errors. I've added the codes to the long table below.
 
 Python packages are usually documented on a function / class / method / package
 level directly in the code. The stuff in `docs/` is often only for building
-HTML out of the Python code, organzinging things (e.g. which package to show
+HTML out of the Python code, organizing things (e.g. which package to show
 first) and a user manual.
 
 There is [PEP257](https://www.python.org/dev/peps/pep-0257/) which defines some
 basic stuff. Building on this, there are two docstring style guides which
-cannot be combined: NumpyDoc an Google.
+cannot be combined: NumpyDoc and Google.
 
 Tools like [napoleon](http://sphinxcontrib-napoleon.readthedocs.io/en/latest/)
 in combination with Sphinx can automatically create nice docs of both of them.
@@ -93,7 +93,7 @@ def get_meta(filepath, a_number, a_dict):
 
 ### Google Style Docstrings
 
-See [Github](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings)
+See [GitHub](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings)
 for the documentation.
 
 It looks as follows:
@@ -165,7 +165,7 @@ measures how difficult it is to read your code. To quote from Wikipedia:
 > it may be appropriate to relax the restriction and permit modules with a
 > complexity as high as 15.
 
-I think McCabe complexity is one way to find spots where the could could be
+I think McCabe complexity is one way to find spots where the code could be
 improved for readability, but I'm not certain how often that actually works.
 
 There is a [mccabe pytest plugin](https://pypi.org/project/pytest-mccabe/).
@@ -180,13 +180,13 @@ it would be dynamic code analysis which is done by coverage testing tools.
 Common Python linters are:
 
 * [`pycodestyle`](https://pypi.org/project/pycodestyle/) which replaces `pep8`
-* [`pydocstyle`](https://github.com/PyCQA/pycodestyle)
+* [`pydocstyle`](https://github.com/PyCQA/pydocstyle)
 * [`flake8`](https://pypi.org/project/flake8/)
 * [`pyrama`](https://pypi.org/project/pyrama/) for checking package structure
 * [`radon`](https://github.com/rubik/radon): Measuring the code complexity
 
 
-What you should forget
+What you should forget:
 
 * [`pylama`](https://pypi.org/project/pylama/): Only wraps some other tools.
   Use the pytest-plugins for those tools instead.
@@ -198,7 +198,7 @@ What you should forget
 
 The following error codes are from [`pycodestyle`](http://pycodestyle.pycqa.org/en/latest/intro.html) and
 [`pydocstyle`](http://pep257.readthedocs.io/en/latest/error_codes.html).
-I added to a couple why they exist and added a suggestion if I think you should take them
+For a couple of them, I added why they exist and a suggestion whether I think you should use them
 (from ✓✓ for a strong YES to ✘✘ for a strong NO). Please also have a
 look at [lintlyci.github.io/Flake8Rules](https://lintlyci.github.io/Flake8Rules/)
 which gives a lot of good examples for those rules.
@@ -241,7 +241,7 @@ There are also two footnotes for some codes:
         <tr>
             <td>E111</td>
             <td>indentation is not a multiple of four<br/>
-                Why: My guess is that 95% of all projects use 4 spaces - a single spaces is hard to read and more than
+                Why: My guess is that 95% of all projects use 4 spaces - a single space is hard to read and more than
                 four is something you don't want to type that often</td>
             <td>✓</td>
         </tr>
@@ -366,7 +366,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E203</td>
-            <td>whitespace before <code></code><br/>
+            <td>whitespace before <code>,</code>, <code>;</code>, or <code>:</code><br/>
                 Why: Usual code style</td>
             <td></td>
         </tr>
@@ -547,7 +547,7 @@ There are also two footnotes for some codes:
             <td>✓✓</td>
         </tr>
         <tr>
-            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E402.html"></a>E402</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E402.html">E402</a></td>
             <td>module level import not at top of file<br/>
                 Why: You should have all your imports at the top of your file.
                 However, there could be other code as well in between imports.
@@ -583,7 +583,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E701.html"></a>E701</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E701.html">E701</a></td>
             <td>multiple statements on one line (colon)</td>
             <td></td>
         </tr>
@@ -1054,17 +1054,17 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>D300</td>
-            <td>Use “”“triple double quotes”“”</td>
+            <td>Use <code>"""triple double quotes"""</code></td>
             <td></td>
         </tr>
         <tr>
             <td>D301</td>
-            <td>Use r”“” if any backslashes in a docstring</td>
+            <td>Use <code>r"""</code> if any backslashes in a docstring</td>
             <td></td>
         </tr>
         <tr>
             <td>D302</td>
-            <td>Use u”“” for Unicode docstrings</td>
+            <td>Use <code>u"""</code> for Unicode docstrings</td>
             <td></td>
         </tr>
         <tr>
@@ -1111,11 +1111,11 @@ You should let your editor do as many automatic formatting changes as you can.
 
 ### Maximum Line Length
 
-You might consider a maximum line lenght of 80 characters too extreme /
+You might consider a maximum line length of 80 characters too extreme /
 outdated.
 
-Well, please have a look how a [3-way merge](https://stackoverflow.com/q/4129049/562769) would look like on your machine. This
-is how it looks like on mine:
+Well, please have a look at what a [3-way merge](https://stackoverflow.com/q/4129049/562769) would look like on your machine. This
+is what it looks like on mine:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2018/07/3-way-merge-80-chars.png"><img src="../images/2018/07/3-way-merge-80-chars.png" alt="3-way merge with 80 character lines" style="width: 512px;"/></a>
@@ -1191,7 +1191,7 @@ most cases it just means that you should change the way you wrote your code.
 I've often seen it when you have many nested loops or conditions.
 
 Another argument against longer line lengths is readability. Long lines are
-just harder to read. Newspapers could also have way longer lines and less
+just harder to read. Newspapers could also have way longer lines and fewer
 columns. But they don't do that. Websites also make columns. Let's look at the
 number of characters in a line for a couple:
 

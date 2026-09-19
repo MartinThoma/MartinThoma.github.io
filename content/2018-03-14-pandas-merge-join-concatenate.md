@@ -9,7 +9,7 @@ category: Code
 tags: Pandas
 featured_image: logos/pandas.png
 ---
-I always get confused about the different methods how to join Pandas
+I always get confused about the different methods to join Pandas
 dataframes. So here are some examples that should make it crystal clear.
 
 First, we create two dataframes:
@@ -46,7 +46,7 @@ So `df1` is:
 2  Indonesia  Jakarta  255500000.0
 ```
 
-and `df2` is
+and `df2` is:
 
 ```text
    country capital    HDI
@@ -67,7 +67,7 @@ tell you that it has the syntax:
 0  Germany    Berlin  82500000.0    Berlin  0.926
 ```
 
-Please note that the column `capital` was duplicated as it is in both tables
+Please note that the column `capital` was duplicated as it is in both tables.
 
 Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT JOIN:
 
@@ -140,7 +140,7 @@ Having a look at the following example:
 
 I would say join and merge look extremely similar. You can notice differences
 in the function signature when you look at the help, but the difference in the
-output is more subtile. It's the index: For merge, you still have the typical
+output is more subtle. It's the index: For merge, you still have the typical
 index where each element is unique. For join, if you merge on a column, you
 don't have that anymore.
 
@@ -148,7 +148,7 @@ don't have that anymore.
 ## Concatenate
 
 [Pandas Documentation](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html)
-and the example
+and the example:
 
 ```python-repl
 >>> pd.concat([df1, df2])

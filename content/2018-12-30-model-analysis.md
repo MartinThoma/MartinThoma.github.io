@@ -14,6 +14,7 @@ featured_image: logos/ml.png
 Techniques for model analysis:
 
 Prediction-Based:
+
 * Decision boundaries
 * LIME
 * [Feature importance](https://martin-thoma.com/feature-importance/)
@@ -25,20 +26,22 @@ Prediction-Based:
 * Attention mapping / saliency mapping
 
 Error-Based:
+
 * Confusion matrix
 
 Data-Based:
+
 * Dimensionality reduction
 * Feature correlations
 
-If you're interested in analysis of CNNs, have a look at my masters thesis:
+If you're interested in the analysis of CNNs, have a look at my master's thesis:
 
 > [Analysis and Optimization of Convolutional Neural Network Architectures](https://arxiv.org/pdf/1707.09725.pdf)
 
 
 ## Decision boundaries
 
-Drawing this is only an option if you have 3 or less features. So not really
+Drawing this is only an option if you have 3 or fewer features. So not really
 useful in most problem settings.
 
 
@@ -50,9 +53,9 @@ of feature importance.
 Let me explain them with an example of the Titanic dataset: You have a survival
 probability of a given person, e.g. 76%. You want to understand why it is 76%.
 
-So what you can do is to twiddle the features. How does the survival
-probability change when the person has less / more siblings? When the person
+So what you can do is to tweak the features. How does the survival
+probability change when the person has fewer / more siblings? When the person
 has the median number of siblings?
 
 There is the [`shap` package](https://github.com/slundberg/shap) for
-calculating the shap values.
+calculating the SHAP values.

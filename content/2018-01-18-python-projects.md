@@ -10,8 +10,8 @@ tags: Architecture, Software Engineering, Python
 featured_image: logos/python.png
 ---
 I recently thought a bit about what makes software good. Not from a functional
-perspective, but from a developers perspective. As I did quite some work with
-data science, machine learning and Python my view is a bit biased. Having said
+perspective, but from a developer's perspective. As I did quite some work with
+data science, machine learning and Python, my view is a bit biased. Having said
 that, here is my personal "best practices" guide.
 
 
@@ -22,16 +22,16 @@ that, here is my personal "best practices" guide.
 
 I prefer names which have the following properties:
 
-* They can't be confused with something else and the name is available at PyPI.
+* They can't be confused with something else and the name is available on PyPI.
   I'm looking at you, GTK ([source](https://stackoverflow.com/q/44213921/562769)).
-* They are short, but can be googled. Looking at you `R`, `Go` and `C`.
-* They are completely lowercase: Please don't make me think how to import your
+* They are short, but can be googled. Looking at you, `R`, `Go` and `C`.
+* They are completely lowercase: Please don't make me think about how to import your
   package. Is it `pypdf2`, `PyPDF2`, `pyPDF2`?
-* They are either max 4 letters or pronouncable. Something like `tensorflow` is
+* They are either max 4 letters or pronounceable. Something like `tensorflow` is
   longer, but that's ok because I remember it as one thing. `lidtk` is
   borderline as I remember it as `lid..tk` - how I say it.
 
-For now, assume your module is called `foo_module`
+For now, assume your module is called `foo_module`.
 
 
 ## Project structure
@@ -61,15 +61,15 @@ foo_module : the git repository root dir
 ```
 
 * Having a `Dockerfile` and a `docker-compose.yml` might be nice if you have
-  not purely Python dependencies. See [my Docker article](https://martin-thoma.com/docker/).
+  non-Python dependencies. See [my Docker article](https://martin-thoma.com/docker/).
 
-the `foo_module/__init__.py` should look like this:
+The `foo_module/__init__.py` should look like this:
 
 ```python
 from pkg_resources import get_distribution
 
 try:
-    __version__ = get_distribution("lidtk").version
+    __version__ = get_distribution("foo_module").version
 except:
     __version__ = "Not installed"
 ```
@@ -163,8 +163,8 @@ match_dir = foo_module
 ## Documentation
 
 Documentation is important as Python does not have type information directly
-visible in the code. So you want all functions to **have a Docstring** which
-documents which type the parameter and the return value has.
+visible in the code. So you want all functions to **have a docstring** which
+documents which types the parameters and the return value have.
 Decide on a format. I like the [numpydoc convention](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt).
 Stick to that.
 
@@ -175,14 +175,14 @@ Every project should **have a README.md** which answers the following questions:
 3. Usage example
 4. Developer guide:
     1. What are TODOs / where can I find them?
-    2. How do I run the tests
+    2. How do I run the tests?
 
 
 ## Logging
 
 Use the [`logging`](https://docs.python.org/3/library/logging.html) library.
 
-Add the logging configuration to the modules configuration file (`configs/module.yaml`):
+Add the logging configuration to the module's configuration file (`configs/module.yaml`):
 
 ```yaml
 LOGGING:
@@ -238,7 +238,7 @@ import yaml
 
 filepath = pkg_resources.resource_filename("foo_module", "configs/module.yaml")
 with open(filepath, "r") as stream:
-    config = yaml.load(stream)
+    config = yaml.safe_load(stream)
 logging.config.dictConfig(config["LOGGING"])
 ```
 
@@ -250,9 +250,9 @@ Tests are written for three purposes:
 1. *Correctness*: Having more tests gives you more certainty that you actually
    did the right thing.
 2. *Documentation*: If documentation is bad, developers can have a look at your
-   tests. They might show what was not directly doucmented.
+   tests. They might show what was not directly documented.
 3. *Flexibility*: Once another developer gets to see code which is used in
-   production, one hasitates to change it. You might break things. Having many
+   production, one hesitates to change it. You might break things. Having many
    tests and a high test coverage gives the project more flexibility as people
    see faster where things break. And keep in mind: That future developer might
    be yourself, after not having worked with your code for a while.
@@ -282,12 +282,12 @@ commands =
 
 ### Print vs Logging
 
-* `logging.XY(msg)` should be used, when there is information about the flow
+* `logging.XY(msg)` should be used when there is information about the flow
   of the program. The reason for having logging is to analyze why something
   went wrong or if everything went right. So debugging / monitoring.
-* `print(msg)` should be used, when there is output by the program. So output
-  that is the purpose of the program. The purpose of `print(msg)` is as the
-  message is why the user called the program in the first place.
+* `print(msg)` should be used when there is output by the program. So output
+  that is the purpose of the program: The printed message is why the user
+  called the program in the first place.
 
 What I do quite often is to print stuff when I should actually use
 `logging.debug(msg)`. I want to change it.
@@ -322,11 +322,11 @@ If you don't need this distinction, you can make a `requirements.txt` like this:
 -e .
 ```
 
-See [this blogpost](https://caremad.io/posts/2013/07/setup-vs-requirement/) for
+See [this blog post](https://caremad.io/posts/2013/07/setup-vs-requirement/) for
 details.
 
 
-### Multiple __main__
+### Multiple `__main__`
 
 A Python package should at most contain one `__main__`. That should be the
 `bin/foo_module`. All other files should either be pure "library files" or be

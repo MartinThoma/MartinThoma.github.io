@@ -9,7 +9,7 @@ category: Code
 tags: Programming Languages
 featured_image: logos/star.png
 ---
-The topic of type system keeps comming up when I hear people discuss
+The topic of type systems keeps coming up when I hear people discuss
 programming languages. So let's summarize it.
 
 ## Dynamic vs Static Typing
@@ -19,7 +19,7 @@ while dynamically typed languages check their types at runtime.</div>
 
 I like the definition of [pythonconquerstheuniverse](https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/):
 
-> In a **statically typed** language, every variable name is bound both
+> In a **statically typed** language, every variable name is bound both to
 > a type (at compile time, by means of a data declaration) and an object.
 >
 > In a **dynamically typed** language, every variable name is bound only to an
@@ -33,7 +33,7 @@ foo = "bar"
 foo = 9
 ```
 
-So the model you have in mind is different. In statically typed languages you
+So the model you have in mind is different. In statically typed languages, you
 imagine variables as containers for specific types of information. In dynamically
 typed languages, you imagine variables as post-it notes.
 
@@ -69,8 +69,8 @@ foo + str(bar)
 Note that this is a spectrum, but the example from above is where I draw the
 line.
 
-I'd say strong is to be prefered, but not too strong. For example, if I add
-a float and a double I would not want to get an exception. Maybe.
+I'd say strong is to be preferred, but not too strong. For example, if I add
+a float and a double, I would not want to get an exception. Maybe.
 
 
 ## Explicit vs Implicit Typing

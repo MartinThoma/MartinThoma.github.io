@@ -9,12 +9,12 @@ category: Cyberculture
 tags: Machine Learning, WhatsApp, Text Mining, Pandas
 featured_image: logos/ml.png
 ---
-As a data scientist, I'm always interested in exporting and analyzing data. One
+As a data scientist, I'm always interested in exporting and analyzing data,
 especially when it is my own data. WhatsApp is one big personal data source
 which I couldn't analyze so far.
 
 
-## Other Analysis
+## Other Analyses
 
 I've seen WhatsApp data analysis on [r/dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/)
 a couple of times:
@@ -60,7 +60,7 @@ a couple of times:
         <td></td>
         <td><a href="https://www.reddit.com/r/dataisbeautiful/comments/a8nwkg/oc_facebook_and_whatsapp_message_history_of_a/">Facebook and WhatsApp message history of a four-year long-distance relationship</a></td>
         <td>* Line chart (x=Days, y=Number of messages on that day)</td>
-        <td>*&nbsp;Facebook data dump and WhatsApp message backups*&nbsp;Python (matplotlib and imageio)</td>
+        <td>*&nbsp;Facebook data dump and WhatsApp message backups<br/>*&nbsp;Python (matplotlib and imageio)</td>
     </tr>
     <tr>
         <td></td>
@@ -108,7 +108,7 @@ a couple of times:
         <td>17</td>
         <td><a href="https://www.reddit.com/r/dataisbeautiful/comments/9qjr5p/oc_we_just_broke_up_after_1_year_and_it_hurts_our/">1 year WhatsApp history</a></td>
         <td>* Word cloud</td>
-        <td>https://anteateranalytics.com/whatsapp</td>
+        <td><a href="https://anteateranalytics.com/whatsapp">Website</a></td>
     </tr>
     <tr>
         <td>43</td>

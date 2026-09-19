@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: Pythons str vs repr
+title: Python's str vs repr
 slug: str-vs-repr
 author: Martin Thoma
 date: 2018-10-28 20:00
@@ -9,7 +9,7 @@ category: Code
 tags: Python
 featured_image: logos/python.png
 ---
-The goal of `__repr__` is to be unambiguous and the goal of `__str__` is to be readable. Bonus points, if `__repr__` returns what is needed to create the object. Some examples are:
+The goal of `__repr__` is to be unambiguous and the goal of `__str__` is to be readable. Bonus points if `__repr__` returns what is needed to create the object. Some examples are:
 
 ```python-repl
 >>> repr([42, 1337])
@@ -28,7 +28,7 @@ The goal of `__repr__` is to be unambiguous and the goal of `__str__` is to be r
 "re.compile('foo')"
 ```
 
-In all of those cases the unambiguous representation and the readable string
+In all of those cases, the unambiguous representation and the readable string
 are the same.
 
 
@@ -75,9 +75,9 @@ It's a bit different once you get to third party libraries:
 'array([  42, 1337])'
 ```
 
-Some - like Pandas Dataframes have a very different string representation.
+Some - like Pandas DataFrames - have a very different string representation.
 
-Others just don't care to implement somehting reasonable at all:
+Others just don't care to implement something reasonable at all:
 
 ```python-repl
 >>> from keras.models import Sequential
@@ -91,13 +91,17 @@ Others just don't care to implement somehting reasonable at all:
 
 Also - sadly - it is not done well with Enums:
 
-```python-repl
+```python
+import enum
+
+
 class ExistsStrategy(enum.Enum):
     """Strategies what to do when a file already exists."""
 
     RAISE = 'raise'
     REPLACE = 'replace'
     ABORT = 'abort'
+
 
 print(str(ExistsStrategy.RAISE))
 print(repr(ExistsStrategy.RAISE))

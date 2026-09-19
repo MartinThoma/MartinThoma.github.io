@@ -11,14 +11,14 @@ featured_image: logos/ml.png
 ---
 Trust is important for a Data Scientist. If you are in a position where you can
 apply a classification / regression model where the company used rules before,
-you have to be able to build trust why your model is better than the old
+you have to be able to build trust that your model is better than the old
 system. Stakeholders want to understand what the model does. If you have a
 rule-based system in your mind, a very natural question is:
 
 **What is the most important feature?**
 
-This question is problematic and having a feature importance example for trees in [sklearn](http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html) without a fat warning doesn't help. I failed to give a simple conclusive answer in
-the past why this is problematic. This article fixes this issue.
+This question is problematic and having a feature importance example for trees in [sklearn](http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html) without a fat warning doesn't help. In the past, I failed to give a simple, conclusive answer to
+why this is problematic. This article fixes this issue.
 
 
 ## Feature Selection
@@ -44,7 +44,7 @@ different feature. You select the feature of the best model and repeat the
 process. Stop once your improvement is below a threshold.
 
 
-In pythonic Pseudocode:
+In pythonic pseudocode:
 
 ```python
 def construct_features(feature_list, BaseModel, threshold, score):
@@ -132,7 +132,7 @@ x1  x2  x3    y
 
 Things to note here:
 
-* If you take only one feature, then the target $y$ is exatly 50% of the time
+* If you take only one feature, then the target $y$ is exactly 50% of the time
   equal to that feature and exactly 50% of the time the opposite. No matter
   which feature you take.
 * If you take two features, you don't get any more information as the target
@@ -140,7 +140,7 @@ Things to note here:
 
 From those observations, you can conclude that neither one nor two features can
 be better than random at predicting the target. No matter which type of model
-you take. It's plain and simple impossible. The important information is there,
+you take. It's simply impossible. The important information is there,
 but only in combination.
 
 
@@ -167,7 +167,7 @@ artificial.
 ## What are alternatives?
 
 Now that I've explained why feature importance is misleading and needs to be
-taken with big caution, what are alternatives to explain what the model does?
+taken with great caution, what are alternatives to explain what the model does?
 
 * **Model lab**: See [here](https://martin-thoma.com/ds-project-guide/#model-lab). Letting stakeholders poke the model.
 * **lime**: [Local Interpretable Model-Agnostic Explanations](https://github.com/marcotcr/lime)

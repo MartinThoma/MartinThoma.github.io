@@ -13,12 +13,12 @@ Calculating the age of a person in a web service is harder than one might think
 to get right. Things you must be aware of are:
 
 **Time zones**: The time zone at the client is likely not the same as on your
-machine. Hence it could be that the person is under-age in their country, but
+machine. Hence, it could be that the person is under-age in their country, but
 already an adult in the server time zone.
 
-**Calendar years**: Usually we think of one year as 365 days. Hence
+**Calendar years**: Usually, we think of one year as 365 days. Hence,
 calculating the age of a person sounds as simple as calculating the days since
-their birth, dividing by 365 and that's it. Execept that we don't think of age
+their birth, dividing by 365 and that's it. Except that we don't think of age
 like this.
 
 I challenge you to create a program that solves the following task. I'm interested

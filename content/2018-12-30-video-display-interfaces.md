@@ -87,7 +87,7 @@ have that many. So here are the differences.
         <td>2560&nbsp;&times;&nbsp;1600</td>
         <td>4096&nbsp;&times;&nbsp;2160 (4K)</td>
         <td>7680&nbsp;&times;&nbsp;4320 (8K)</td>
-        <td>5120 &times; 2880&nbsp;(4K)</td>
+        <td>5120&nbsp;&times;&nbsp;2880 (5K)</td>
     </tr>
     <tr>
         <td>3D</td>
@@ -139,20 +139,20 @@ have that many. So here are the differences.
     </tr>
 </table>
 
-## Fine-Prints
+## Fine Print
 
 * <a href="https://en.wikipedia.org/wiki/Digital_Visual_Interface">DVI</a> is
   in fact not one interface, but at least two. DVI-I (4 pins in a square on the
   left) and DVI-D (only one long "pin" on the left). DVI-I (integrated) sends
   an additional analog signal which is missing in DVI-D (digital). This means
   DVI-I can use simple adapters for VGA.
-* HDMI and Display port comes in different versions. Older versions only
+* HDMI and DisplayPort come in different versions. Older versions only
   support lower resolutions.
 * HDMI has multiple connectors: Type A (standard), Type C (mini), and Type D (micro)
-* Display port has two connectors: DisplayPort and Mini DisplayPort
+* DisplayPort has two connectors: DisplayPort and Mini DisplayPort
 * Philips Brilliance 258B6QUEB supports USB-C
-* HDMI seems to be good for home entertainment whereas Display Port is good for
-  PC. I'm not sure about USB-C ... seems to be too recent.
+* HDMI seems to be good for home entertainment, whereas DisplayPort is good for
+  PCs. I'm not sure about USB-C ... seems to be too recent.
 
 ## See also
 

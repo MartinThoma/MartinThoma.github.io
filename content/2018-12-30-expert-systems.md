@@ -14,18 +14,18 @@ Science fiction movies are full of advanced systems for medical analysis and
 treatment:
 
 * Stargate SG1: The [Goa'uld healing device](http://stargate.wikia.com/wiki/Goa%27uld_healing_device)
-  is a box in which you lay, it scans yourself and after a few hours you are
+  is a box in which you lie; it scans you and after a few hours you are
   just healed. From basically anything, <abbr title="if I remember correctly">IIRC</abbr>.
 * Elysium: A [healing pod](https://www.youtube.com/watch?v=RyMoJHf7rCQ) which
   looks a bit like a CT scan.
 * Prometheus: A medical robot pod performing a surgery (WARNING: The [clip](https://www.youtube.com/watch?v=6-DOeEkqOZg) is from a horror movie)
-* Star Trek: A hand-held medical scanner (Tricoder?) which scans you for diseases ([clip](https://www.youtube.com/watch?v=IHd9bYGJtoI))
+* Star Trek: A hand-held medical scanner (tricorder) which scans you for diseases ([clip](https://www.youtube.com/watch?v=IHd9bYGJtoI))
 
-I can imagine parts of those really well. Especially I think there is much room
+I can imagine parts of those really well. In particular, I think there is much room
 for improvement in the analysis by using machine learning.
 
-The answer to "what's wrong with me" has many possible answers and depending on
-this many different treatments. As it is such a complex problem, I think an
+The question "what's wrong with me" has many possible answers and, depending on
+them, many different treatments. As it is such a complex problem, I think an
 expert system is the right approach for it.
 
 In the following, I try to structure some thoughts around it.
@@ -39,7 +39,7 @@ What we have:
                important features everybody has.
 * Patient record: A list of tuples
     * Tests: (date time, test, test outcome)
-    * Treatement: (date time, treatment) - I would include pills, surgeries, excercise, ...
+    * Treatment: (date time, treatment) - I would include pills, surgeries, exercise, ...
 * Diseases: Possible answers to "what's wrong with me". Examples of this category
   are:
     * [Genetic ones](https://en.wikipedia.org/wiki/Genetic_disorder): Sickle cell anaemia, Huntington's disease, ...
@@ -57,7 +57,7 @@ Expert Systems typically consist of 3 parts:
 
 * knowledge base: logical rules
 * inference engine
-* interface to human
+* interface to humans
 
 
 ## See also

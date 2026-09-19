@@ -10,8 +10,8 @@ tags: Language
 featured_image: logos/germany.png
 ---
 [German](https://en.wikipedia.org/wiki/German_language) is one of the many
-languages spoken in Europe. I've been told that it also is a quite difficult
-one. In this this article I would like to share some funny or interesting
+languages spoken in Europe. I've been told that it is also quite a difficult
+one. In this article, I would like to share some funny or interesting
 facts about German with you.
 
 
@@ -21,12 +21,12 @@ I recently published a [paper about language identification](https://arxiv.org/p
 For this, I collected 1000 paragraphs from random Wikipedia articles, including
 the German one. One thing I was interested in is which script defines the language.
 While most people will probably say that German is written in the [Latin script](https://en.wikipedia.org/wiki/Latin_script) (so: `A-Z` and `a-z`) with some extra characters (`ß`, `äöü`, `ÄÖÜ`),
-I wanted to derive this from the data. So I counted each unicode code point, sorted them descending
+I wanted to derive this from the data. So I counted each Unicode code point, sorted them descending
 by frequency and added characters for some thresholds $\theta$:
 
 * $C_{0.50} = \{\text{SPACE}, e, n, r, i, t\}$: Yes, only 6 characters make up 50% of the texts! And the most common one is one that isn't even mentioned in the usual lists!
-* $C_{0.75} = C_{0.50} \cup \{s, a, d, h, u, l, o\}$: We get the remaining vocals
-* $C_{0.90} = C_{0.75} \cup \{c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1\}$: The first capital letter, first punctuation marks and the first digit joins
+* $C_{0.75} = C_{0.50} \cup \{s, a, d, h, u, l, o\}$: We get the remaining vowels
+* $C_{0.90} = C_{0.75} \cup \{c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1\}$: The first capital letter, first punctuation marks and the first digit join
 * $C_{0.99} = C_{0.90} \cup \{ü, D, B, A, ä, M, 0, G, 9, K, F, E, P, W, 2, L, -, H, ö, R, 8, V, I, T, J, N ,), (, 5, y, ß, 6, 7, 4, Z, C, 3\}$: Now we have `a-z` and `äöüß` but not `jqx`. We have `A-C` but not `OQUXY`. We have the punctuation marks `,.()-`, `SPACE` and the digits `0-9`. 64 characters in total
 * $C_{1.00}$ contains 247 characters in total, including `їышхдЬСРОВτςεːˈżşśŁğëæâÀ£濱滨春川區区ንሣሞሎیِنمظسرداשלכואҐящчфжбЯЮЩЧУТНИЖЇІφοιαίήέʿʃɛšœňńİēčČýûúøÚÁ¢#`.
 
@@ -68,9 +68,9 @@ EN: monster    | drive (too) fast |  he drank
 
 ## Punctuation
 
-Just as with lower- and upper case, punctuation doesn't matter too much in most
+Just as with lower and upper case, punctuation doesn't matter too much in most
 cases in German. And context is king. But if you are pedantic, ignore the
-context or just want to missunderstand the text, the following can be
+context or just want to misunderstand the text, the following can be
 misunderstood:
 
 Example 1:
@@ -109,7 +109,7 @@ DE: Wir empfehlen, ihm zu folgen.
 EN: We recommend to follow him.
 ```
 
-Example 5: Even [deepl has problems with this](https://www.deepl.com/translate)
+Example 5: Even [DeepL has problems with this](https://www.deepl.com/translate)
 
 ```text
 EN: He doesn't want her.
@@ -133,12 +133,12 @@ EN: It's the bread.
 DE: Es ist das Brot
 ```
 
-The concept of [Grammatical gender](https://en.wikipedia.org/wiki/Grammatical_gender) is pretty absurd: `der` is male, `die` is female and `das` is neuter. While you can say "die Anna" und "der Bob",
+The concept of [grammatical gender](https://en.wikipedia.org/wiki/Grammatical_gender) is pretty absurd: `der` is masculine, `die` is feminine and `das` is neuter. While you can say "die Anna" and "der Bob",
 many words have quite arbitrary grammatical gender:
 
 * the girl: "das Mädchen" - it's neuter
-* the box: "die Box" - it's female
-* the key: "der Schlüssel" - male
+* the box: "die Box" - it's feminine
+* the key: "der Schlüssel" - masculine
 
 And the article also changes for plural forms:
 
@@ -162,51 +162,51 @@ EN: I   give him the key.
 DE: Ich gebe ihm den Schlüssel.
 ```
 
-To summarize: The English word `the` can be translated to 9 different German
-words:
+To summarize: The English word `the` can be translated to 6 different German
+words (der, die, das, des, dem, den):
 
 <table class="table">
     <tr>
         <th></th>
-        <th>Male</th>
-        <th>Female</th>
+        <th>Masculine</th>
+        <th>Feminine</th>
         <th>Neuter</th>
         <th>Plural</th>
     </tr>
     <tr>
         <td>Nominativ</td>
-        <td>der&nbsp;</td>
+        <td>der</td>
         <td>die</td>
         <td>das</td>
         <td>die</td>
     </tr>
     <tr>
         <td>Genitiv</td>
-        <td>den</td>
-        <td>die</td>
-        <td>das</td>
-        <td>die</td>
+        <td>des</td>
+        <td>der</td>
+        <td>des</td>
+        <td>der</td>
     </tr>
     <tr>
         <td>Dativ</td>
         <td>dem</td>
         <td>der</td>
         <td>dem</td>
-        <td>denen</td>
+        <td>den</td>
     </tr>
     <tr>
-        <td>Akkussativ</td>
-        <td>dessen</td>
-        <td>deren</td>
-        <td>dessen</td>
-        <td>deren</td>
+        <td>Akkusativ</td>
+        <td>den</td>
+        <td>die</td>
+        <td>das</td>
+        <td>die</td>
     </tr>
 </table>
 
 
 ## Long words
 
-German has crazy long words. The longest one I've seen in 8th grade or so is
+German has crazy long words. The longest one I've seen in 8th grade or so is:
 
 ```text
 DE: Brandrodungswanderhackfeldbau
@@ -224,12 +224,12 @@ There are some things you cannot easily express with a single word in German:
   "feste" indicates that it's about your partner. And, of course, you can say
   "meine Partnerin", but that also has other meanings (e.g. hiking partner,
   partner at a law firm, ...)
-* **Not thirsty**: I think this one is also missing in English. When you are
-  hungry and you ate, you say in German "Ich bin satt". But when you are
-  thirsty and you drink, you can only negate: "Ich bin nicht mehr durstig".
+* **Not thirsty**: I think this one is also missing in English. When you were
+  hungry and have eaten, you say in German "Ich bin satt". But when you were
+  thirsty and have drunk something, you can only negate: "Ich bin nicht mehr durstig".
 
 
-## Micallenious
+## Miscellaneous
 
 * You say "Gesundheit" (directly translated: "health") when somebody sneezes.
   But although it is very close to "get healthy", you don't say it when

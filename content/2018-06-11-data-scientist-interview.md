@@ -20,7 +20,7 @@ The following is a typical skillset I expect from a data scientist. It might be
 that there are some data scientists with a different skillset. This is
 absolutely ok, but I would certainly ask why it is the case.
 
-* Statistics: A/B Testing, Confidence intervalls
+* Statistics: A/B Testing, Confidence intervals
 * Programming Languages: Python or R - the following points are only for
   Python, as I don't know R well enough for them.
 * Exploratory Data Analysis: Pandas, Jupyter Notebooks
@@ -48,7 +48,7 @@ absolutely ok, but I would certainly ask why it is the case.
 ### Classification
 
 * Which scoring/distance/similarity functions do you know? → Euclidean distance, cosine distance, MSE, MAE, ...
-* You do you deal with imbalenced data? → Oversampling; different error metrics
+* How do you deal with imbalanced data? → Oversampling; different error metrics
 
 
 ### EDA
@@ -61,9 +61,9 @@ absolutely ok, but I would certainly ask why it is the case.
 
 ### Model Building
 
-This is about building regression models or classifiers
+This is about building regression models or classifiers.
 
-* Which models do you know → Linear Regression, Gradient Boosting, Neural Network, Random Forests, Decision Trees, ...
+* Which models do you know? → Linear Regression, Gradient Boosting, Neural Network, Random Forests, Decision Trees, ...
 * How do you decide which model to use?
 * How can you improve a model? → [page 15, point I1 to I7](https://arxiv.org/pdf/1707.09725.pdf)
-* How can you determine which features are the most im- portant in your model? → [answer](https://martin-thoma.com/feature-importance/)
+* How can you determine which features are the most important in your model? → [answer](https://martin-thoma.com/feature-importance/)

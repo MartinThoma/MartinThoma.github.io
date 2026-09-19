@@ -9,11 +9,11 @@ category: Machine Learning
 tags: Machine Learning, Data Science
 featured_image: logos/data-science.png
 ---
-Data Science projects are either pure analytics projects, or Software projects,
+Data Science projects are either pure analytics projects, or software projects,
 or both.
 
 Three typical data science project phases are understanding the data, creating
-a software component and then a story telling part:
+a software component and then a storytelling part:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2018/06/ds-flowchart.png" alt="Typical Data Science project phases" style="width: 512px;"/>
@@ -25,7 +25,7 @@ or tools that simplify the job: Getting access to the data and data cleaning.
 
 Please also note that waterfall does not work: The project phases are likely
 not "pure", but slightly mixed. While you will have an exploratory phase in the
-beginning, you will also need to communicate your findings (story telling).
+beginning, you will also need to communicate your findings (storytelling).
 
 In the following, I will highlight some of the tools to simplify the project
 phases and mention what you should do to make the project successful.
@@ -33,9 +33,9 @@ phases and mention what you should do to make the project successful.
 
 ## Understanding the Setting
 
-Before there is Data, you have a proces which generates the data. You have a
+Before there is data, you have a process which generates the data. You have a
 business with a history. Changes which needed to be done. Not the nice and
-clean way, but ASAP. Understanding how the setting helps you to ask reasonable
+clean way, but ASAP. Understanding howthe setting helps you to ask reasonable
 questions in the next step.
 
 
@@ -44,10 +44,10 @@ questions in the next step.
 [Exploratory Data Analysis](https://martin-thoma.com/eda/) happens when you
 first get a dataset and already have it in a format you can work with. The
 linked article already contains quite a bit of software, especially
-Pandas, Ipython notebooks and [`edapy`](https://github.com/MartinThoma/edapy)
+Pandas, IPython notebooks and [`edapy`](https://github.com/MartinThoma/edapy)
 are useful at this step.
 
-I would create an own repository for this phase. This repository contains code
+I would create a separate repository for this phase. This repository contains code
 and some artifacts like images or maybe small parts of the dataset and is
 unlike typical software repositories:
 
@@ -69,9 +69,9 @@ should be cleaned already. The data loading script will be pasted in the
 subsequent software project and should get a software review as it is a core
 part of the software development.
 
-If you happen to be in a pure exporatory project - meaning somebody told you to
-have a look in the data and find interesting things - be aware that this is
-hard. Make clear that stakeholders understand that you need regular feedback to
+If you happen to be in a pure exploratory project - meaning somebody told you to
+have a look at the data and find interesting things - be aware that this is
+hard. Make sure that stakeholders understand that you need regular feedback to
 see if you are on the right track. I would say at least once a day. Pure EDA
 projects have a high potential to be unsatisfying for everybody.
 
@@ -81,15 +81,15 @@ usual" where you can build up knowledge and finish the task.
 
 ## Software Projects
 
-For forecasting, classification and regression you are in a supervised machine
+For forecasting, classification and regression, you are dealing with supervised machine
 learning tasks. As it is machine learning, you have to have an optimization
-metric. In some cases it will be possible to have the same optimization metric
+metric. In some cases, it will be possible to have the same optimization metric
 as what your stakeholders use to measure how well this part is doing. If this
 is possible, do it: Use the same metric!
 
 Having the same metric to optimize likely leads to better results and gives
 your stakeholders an easier time understanding your results. It directly
-contributes to the "story telling" aspect.
+contributes to the "storytelling" aspect.
 
 As with any software project, you should have tests, code reviews, a
 [proper project structure](https://martin-thoma.com/python-projects/#project-structure)
@@ -106,12 +106,12 @@ get some nice conceptual ideas about black boxes. To summarize:
 * **Black Boxes are common**: If we define a black box as something where we
   don't know 100% instantly and intuitively what happens, then there are a lot
   of black boxes. Humans, for example. But still you trust your doctor.
-* **Error types are important**: For a human doctor, you know in which way he
-  might do errors. He might be psychologically ill, most likely he will just
+* **Error types are important**: For a human doctor, you know in which way they
+  might make errors. They might be psychologically ill, but most likely they will just
   not pay enough attention and thus diagnose something common where you might
   have an issue which is uncommon. For machine learning models, it can be the
   other way around. While overfitting is a problem we are aware of, the
-  [model can be fooled](http://www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) to make a very unusual prediction.
+  [model can be fooled](http://www.cleverhans.io/security/privacy/ml/2017/02/15/why-attacking-machine-learning-is-easier-than-defending-it.html) into making a very unusual prediction.
 
 So there are two sides of this problem: On the one hand, it is hard to make
 sure that a model is trustworthy. You have to have the right metric(s), you
@@ -123,7 +123,7 @@ trustworthy.
 ### Building Trust
 
 For this part, you have to talk a lot with your stakeholders. They have to get
-a basic understanding how your model works. It is especially important to
+a basic understanding of how your model works. It is especially important to
 emphasize that **a model is not a rule-based system**. At least not
 necessarily. Decisions can be made in a non-linear way which makes questions
 such as "what is the most important feature" problematic.
@@ -147,7 +147,7 @@ is a win for the project.
 This wireframe is an idea for a web service which allows data scientists to
 share models with stakeholders in a way that they can "poke" it. They see what
 the input of the model is, they can manipulate the input and see the output.
-Please also note that **the URL contains the models parameters and thus can be
+Please also note that **the URL contains the model's parameters and thus can be
 shared**.
 
 How can such a web service look from a software perspective?
@@ -209,7 +209,7 @@ Each model consists of a package with a `model.py` which contains an
         }
     ],
     "info": {
-        "text": "The model was trained on the values of 123 passangers of the titanic where it is known if the did / did not survive.\n\nThe model is an SVM with C = 1.234."
+        "text": "The model was trained on the values of 123 passengers of the Titanic where it is known whether they did / did not survive.\n\nThe model is an SVM with C = 1.234."
     }
 }
 ```
@@ -223,9 +223,9 @@ Types that should be supported:
 * `ext:FOO` (files with the extension FOO)
 
 
-## Story Telling
+## Storytelling
 
-Story Telling is the part where you, as a data scientist, make your insights
+Storytelling is the part where you, as a data scientist, make your insights
 accessible, easy to understand and interpret in the correct way by your
 stakeholders. It can be about visualizations, but also about choosing the right
 metrics and reasonable numbers to share. I think I'll make another blog post

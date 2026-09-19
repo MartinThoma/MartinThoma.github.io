@@ -42,7 +42,7 @@ you.
 ### Machine Learning
 
 * [Tensorflow](https://www.tensorflow.org): Create neural networks
-    * [Keras](https://keras.io): Create neural networks easier
+    * [Keras](https://keras.io): Create neural networks more easily
 * [sklearn](http://scikit-learn.org/stable/index.html): Various machine learning stuff
 * [gym](https://gym.openai.com): Creating environments for reinforcement learning
 * [`clana`](https://github.com/MartinThoma/clana)
@@ -77,13 +77,13 @@ you.
 * [Pillow](https://pillow.readthedocs.io/en/5.1.x/): Image manipulation
 * [`pint`](https://pypi.org/project/Pint/#description): Units
 * [`progressbar2`](https://pypi.org/project/progressbar2/#description)
-* [`shutil`](https://docs.python.org/2/library/shutil.html): high-level operations on files and collections of files
-* [`six`](https://pypi.org/project/six/#description): Backwards compatibility to Python 2.7
+* [`shutil`](https://docs.python.org/3/library/shutil.html): high-level operations on files and collections of files
+* [`six`](https://pypi.org/project/six/#description): Backwards compatibility with Python 2.7
 
 
 
 ## Honorable Mentions
 
-I know that the following Packages are popular, but I never really used them:
+I know that the following packages are popular, but I never really used them:
 
 * Django

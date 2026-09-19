@@ -9,7 +9,7 @@ category: Machine Learning
 tags: Machine Learning
 featured_image: logos/data-science.png
 ---
-Data Science recently became popular. Currently are 154 open job positions on
+Data Science recently became popular. Currently, there are 154 open job positions on
 Indeed.com for Data Scientists in Munich. To put it into context: There are 186
 Android developer positions open, 527 Dev Ops, 753 frontend, 812 backend. So
 it's still fairly small, but in the same ballpark.
@@ -41,10 +41,10 @@ some general themes:
 Some of the requirements are typical senior software developer skills, such as
 knowledge in Scrum and Waterfall and good knowledge of spoken and written
 English and German. And some are rather special such as several skills around
-machine learning (sklearn, scipy, nltk, Theno / Tensorflow / Keras / MXNet) or
+machine learning (sklearn, scipy, nltk, Theano / TensorFlow / Keras / MXNet) or
 Big Data (AWS, Hadoop, Spark).
 
-I've also asked some friends and collegues which kind of tasks they have seen
+I've also asked some friends and colleagues which kinds of tasks they have seen
 so far. I gave them a list of six possible responses and asked for more if
 there is something that didn't match an entry in the list. I didn't get any answer
 outside of it. Here are the answers:
@@ -54,34 +54,34 @@ outside of it. Here are the answers:
     <figcaption class="text-center">Data Science project types. EDA is short for "Exploratory Data Analysis". The bar chart was created with <a href="https://www.rapidtables.com/tools/bar-graph.html">rapidtables.com</a></figcaption>
 </figure>
 
-Let's first explain the differnt project types:
+Let's first explain the different project types:
 
 1. **Forecasts**: Given a time series of the past, predict the future
 2. **Classification (and regression)**: For example, detect if an e-mail is spam or not
 3. **EDA**: Exploratory Data Analysis. Here is the data - now find something interesting. This is a very unspecific task.
-4. **Visualizations**: Data Science can also be a bit about story telling. You
+4. **Visualizations**: Data Science can also be a bit about storytelling. You
    found something which can be explained with exact terminology and words, but
-   it has to be made clear to stakeholders what you found in an simple,
+   it has to be made clear to stakeholders what you found in a simple,
    intuitive, fast way.
 5. **A/B tests (and hypothesis testing)**
-6. **Clustering**: Which types of customers do we have? (Customer segmenation)
+6. **Clustering**: Which types of customers do we have? (Customer segmentation)
 
 Now, back to the bar chart: You can see that bar charts are much more visible /
-stick better to peoples mind, although the other tasks are more common. And you
+stick better in people's minds, although the other tasks are more common. And you
 can see that people tend to make too quick conclusions from seeing a pattern in
 small numbers 😉
 
 From personal experience, I would say that forecasts, clustering and regression
-are relative common tasks. Of course, one has often to start with exploratory
+are relatively common tasks. Of course, one often has to start with exploratory
 data analysis.
 
 I try to avoid clustering and pure EDA tasks as they are ill-defined. You can't
-say when you are ready which makes it hard to get satisfying results.
+say when you are done, which makes it hard to get satisfying results.
 
 
 ## Data Science vs Business Analytics
 
-Both, data science and business analytics are closely related. They certainly
+Data science and business analytics are closely related. They certainly
 have big overlaps. Here are some differences:
 
 <table>
@@ -97,16 +97,16 @@ have big overlaps. Here are some differences:
     </tr>
     <tr>
         <td>Tool</td>
-        <td>Qlickview, SAP</td>
-        <td>Pandas, sklearn, Jupiter notebooks, Tensorflow, Keras, XGBoost, scipy, numpy</td>
+        <td>QlikView, SAP</td>
+        <td>Pandas, sklearn, Jupyter notebooks, TensorFlow, Keras, XGBoost, scipy, numpy</td>
     </tr>
 </table>
 
 
 ## Data Scientist vs Data Engineer
 
-Both, data scientists and data engineers, deal with data. While the engineer
-has more ETL-tasks (extract, transform, load), the scientists has more model
+Both data scientists and data engineers deal with data. While the engineer
+has more ETL-tasks (extract, transform, load), the scientist has more model
 creation and analysis tasks.
 
 
@@ -114,7 +114,7 @@ creation and analysis tasks.
     <tr>
         <th></th>
         <th>Data Engineer</th>
-        <th>Data Scientists</th>
+        <th>Data Scientist</th>
     </tr>
     <tr>
         <td>Typical Background</td>
@@ -152,14 +152,14 @@ David Robinson made a really nice quote ([source](https://dzone.com/articles/the
 > * Machine learning produces **predictions**.
 > * Artificial intelligence produces **actions**.
 
-Usually, I said that ML is a strict subset of AI:
+I usually say that ML is a strict subset of AI:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2018/06/ai-ml-deep-learning.png" alt="AI vs ML vs Deep Learning" style="width: 512px;"/>
     <figcaption class="text-center">AI vs ML vs Deep Learning</figcaption>
 </figure>
 
-David Robinsons statement is not a contradiction to mine. I would say you need
+David Robinson's statement is not a contradiction to mine. I would say you need
 predictions about the future to take smart actions in a changing world.
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -170,5 +170,5 @@ predictions about the future to take smart actions in a changing world.
 
 ## See also
 
-Now that it is clear what kinds of tasks are common in data science, will
-continue with blog posts how to make those projects sucessful.
+Now that it is clear what kinds of tasks are common in data science, I will
+continue with blog posts about how to make those projects successful.

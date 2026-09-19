@@ -10,7 +10,7 @@ tags: Banking, N26
 featured_image: logos/money.png
 ---
 Online banking is something I have to do. I have to have a bank account for my
-salary, to pay my rent and to pay Amazon orders. Once in a year I need the
+salary, to pay my rent and to pay Amazon orders. Once a year, I need the
 documents for my tax declaration.
 
 I will expand this article when you add comments / screenshots for other banks.
@@ -21,19 +21,19 @@ I am interested in N26 and BB Bank.
 
 Positive:
 
-* The have a lot of cash points - more than any other bank.
+* They have a lot of cash points - more than any other bank.
 
 Negative:
 
 * The website is a mess. It is hard to find anything.
-    * Knowig what I want to do and having everything in place, I need about
-      2:15 min to make an transaction.
-* the first page after login is not useful at all.
+    * Knowing what I want to do and having everything in place, I need about
+      2:15 min to make a transaction.
+* The first page after login is not useful at all.
 * I have no idea where I can change my password. I remember I did it, but I
   don't know where.
-* Changing the postal adress is also well-hidden.
+* Changing the postal address is also well-hidden.
 
-Screensots:
+Screenshots:
 
 <ul>
     <li><a href="../images/2018/02/sparkasse-1-login.png">Login</a></li>
@@ -47,7 +47,7 @@ Screensots:
 
 Negative:
 
-* Seems not to be available in English
+* Doesn't seem to be available in English
 
 Screenshots:
 
@@ -65,7 +65,7 @@ Screenshots:
   The registration interface looks super clean. I did not have to have any
   documents at hand. The confirmation e-mail arrived within seconds.<br/>
   Then I needed to install the app. It took me about 3 minutes to step through
-  that. Next was identivication via [IDnow](https://www.youtube.com/watch?v=2lXZy0yW8aY).
+  that. Next was identification via [IDnow](https://www.youtube.com/watch?v=2lXZy0yW8aY).
   It took about 2 seconds until I got a person to go through the process.
   The process took about 8 minutes.
 
@@ -80,9 +80,8 @@ Screenshots:
 
 ## Cash Points
 
-According to [girokontovergleich.eu](https://www.girokontovergleich.eu/uebersic
-ht-welche-bank-bietet-welche-geldautomaten/), Sparkasse has about 24&thinsp;000
-cash points, Volksbanken und Raiffeisenbanken (VR Bank) has around
+According to [girokontovergleich.eu](https://www.girokontovergleich.eu/uebersicht-welche-bank-bietet-welche-geldautomaten/), Sparkasse has about 24&thinsp;000
+cash points, Volksbanken and Raiffeisenbanken (VR Bank) have around
 19&thinsp;4500, Postbank around 9000 cash points.
 
 ## Overview
@@ -114,7 +113,7 @@ cash points, Volksbanken und Raiffeisenbanken (VR Bank) has around
         <td style="color: red;">100</td>
     </tr>
     <tr>
-        <th>Comdirekt</th>
+        <th>Comdirect</th>
         <td><span style="color:red;" title="Doesn't have English version">✘</span></td>
         <td>0</td>
         <td>2</td>

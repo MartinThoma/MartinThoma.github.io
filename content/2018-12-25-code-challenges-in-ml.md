@@ -9,8 +9,8 @@ category: Machine Learning
 tags: Machine Learning
 featured_image: logos/ml.png
 ---
-Having machines that can write software is the wet dreem of probably every
-company. Instead of having years of development you just tell the machine what
+Having machines that can write software is the dream of probably every
+company. Instead of having years of development, you just tell the machine what
 to do and it automatically creates the software.
 
 As you might have guessed, we are not there yet. Not even close. But a friend
@@ -43,13 +43,13 @@ project means you have to make sure you know what you want:
 * How fast should the user be able to add new books?
 * How much time does the recommender have between adding ratings for books and
   spitting out a recommendation?
-* What is the minimum quality the recommendation engin needs to be useful?
+* What is the minimum quality the recommendation engine needs to be useful?
 * How many users are expected at peak times within 15 minutes?
-* Is privacy a concern? What are we legaly obliged to do?
+* Is privacy a concern? What are we legally obliged to do?
 
 Once those questions are answered (especially the load-based ones), you can
 draw an architecture. This means you try to find components that can be
-developed largely independently. You have to define interfaces; so how those
+developed largely independently. You have to define interfaces, i.e. how those
 components are supposed to communicate.
 
 After the architecture, you develop the defined components.
@@ -59,17 +59,17 @@ Congratulations, you have an alpha version! Now you can go through the [other st
 
 ## Code Challenges
 
-Many of the code-challenges are hard because it's not clear how to evaluate the
+Many of the code challenges are hard because it's not clear how to evaluate the
 solutions. There are many possible (acceptable) solutions, but there is no way
 to enumerate all of them.
 
 
-### Architecture Generatation Problem
+### Architecture Generation Problem
 
 > Given a document describing the idea, user stories and non-functional
-> requirements, generate an architecutre diagram.
+> requirements, generate an architecture diagram.
 
-I'm not sure how hard this is. It certainly is super hard to evaluate how well
+I'm not sure how hard this is. It certainly is super hard to evaluate how good
 the solution is.
 
 
@@ -77,9 +77,9 @@ the solution is.
 
 Given two functions with the same signatures, are they equivalent?
 
-* Why it's hard: Equivalence cannot be proven; hard to construct non-trivial cases
-* What's good about it: Non-euqivalence can be proven with one counter-example
-* Usefullness: 2/5
+* Why it's hard: Equivalence cannot be proven in general (it's undecidable); hard to construct non-trivial cases
+* What's good about it: Non-equivalence can be proven with one counter-example
+* Usefulness: 2/5
 
 
 ### Auto-Doc Problem
@@ -88,19 +88,19 @@ Given a function, write the documentation of it.
 
 * Why it's hard: Many equivalent solutions
 * What's good about it: Getting training data might be easy
-* Usefullness: 5/5
+* Usefulness: 5/5
 
 
 ### Code-Generation Problem
 
-Given formal specification, generate code.
+Given a formal specification, generate code.
 
-* Why it's hard: I'm not sure about the formal specification - how exactly would they look like?
-* Usefullness: 3/5
+* Why it's hard: I'm not sure about the formal specification - what exactly would they look like?
+* Usefulness: 3/5
 
-The reason why I think this is not so useful is the specification. At the end,
+The reason why I think this is not so useful is the specification. In the end,
 the most exact specification is a program. Hence, if you need a very formal,
-exact specification there is actually no code to generate. When the
+exact specification, there is actually no code to generate. When the
 specification is imprecise (like natural language), then there is (too much)
 room for error.
 
@@ -111,25 +111,25 @@ Given code in language A, translate it to equivalent code in language B.
 
 * Why it's hard: Some things might not be possible at all. This would likely be
   the case when you translate C to Python.
-* Usefullness: 5/5
+* Usefulness: 5/5
 
-The reason why this is super usefull are apps. Imagine if you only had to develop
-an App for Android and could automatically translate it to iOS. (By the way: Is that possible with <a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#React_Native">React Native</a>?)
+The reason why this is super useful are apps. Imagine if you only had to develop
+an app for Android and could automatically translate it to iOS. (By the way: Is that possible with <a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#React_Native">React Native</a>?)
 
 The key challenge here is to make the translated code maintainable. In some
-sense You could say that the *Auto-doc problem* is part of this challenge.
+sense, you could say that the *Auto-doc problem* is part of this challenge.
 
 #### Code-Style translation Problem
 
 Code-Style translation Problem is a subtask of the more general
-Code-Translation Problem. Imagine a Java-developer writing (correct) Python code.
+Code-Translation Problem. Imagine a Java developer writing (correct) Python code.
 Things you might see:
 
 * OverlyLongVariableNamesLikeGermanWords
 * Too many classes / subclasses where you could simply use `collections.namedtuple` / functions.
 * Missing use of syntactic sugar such as `enumerate`, `zip`, list comprehensions
 
-### Refactoring-problem
+### Refactoring Problem
 
 Given code, generate code with the same functionality which is (a) easier to
 maintain (b) faster / more memory efficient (c) applicable to more cases.

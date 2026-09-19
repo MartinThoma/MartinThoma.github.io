@@ -10,7 +10,7 @@ tags: Gear, Trekking
 featured_image: logos/hiking.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
-I've always hiked without poles, but for Nepal my guide recommends to take
+I've always hiked without poles, but for Nepal, my guide recommends taking
 poles.
 
 In the past, I mainly would have liked them for river crossings (e.g. GR-20).
@@ -19,7 +19,7 @@ I finally decided not to take trekking poles. I did not regret that decision.
 ## Features
 
 * Handles: You hold the trekking poles several hours a day, for several days in
-  a row. They better feel good. Kork seems to be a popular choice.
+  a row. They had better feel good. Cork seems to be a popular choice.
 * Weight
 * Material: [Super bad review for carbon fiber](https://www.youtube.com/watch?v=q0SfswKYOTE) / Aluminium
 * Type: Z-Type, FlickLock
@@ -27,7 +27,7 @@ I finally decided not to take trekking poles. I did not regret that decision.
 
 ## Brands
 
-First brand name I've heard was Black Diamond. Within Bittel Sport (local sport shop),
+The first brand name I've heard was Black Diamond. At Bittel Sport (local sports shop),
 I found a lot of Leki.
 
 
@@ -37,7 +37,7 @@ I found a lot of Leki.
     <tr>
         <th>Name</th>
         <th>Price</th>
-        <th>Weigth (Material)</th>
+        <th>Weight (Material)</th>
         <th>Type</th>
         <th>Length</th>
     </tr>

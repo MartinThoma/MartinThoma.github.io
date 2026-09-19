@@ -22,17 +22,17 @@ shine in every aspect.
 
 ### Remove Outdated Code
 
-I would think of it from the perspective of the person that gets to software.
+I would think of it from the perspective of the person that gets the software.
 They might have to go through all code written so far. From their perspective,
 every piece of code that is not necessary just adds work. I claim that outdated
-code even adds more work than the useful code as you first try to understand
-why it was written which might be impossible as circumstances have changed.
+code adds even more work than the useful code, as you first try to understand
+why it was written, which might be impossible as circumstances have changed.
 
 
 ### Test Coverage
 
-The better tests you have, the more comfortable will the new developer feel
-with adjusting something. You should have a 100% module coverage (any file is
+The better tests you have, the more comfortable the new developer will feel
+adjusting something. You should have a 100% module coverage (any file is
 touched by some test) and a high line and branch coverage.
 
 You might want to read about [`tox`](https://tox.readthedocs.io/en/latest/),
@@ -43,7 +43,7 @@ You might want to read about [`tox`](https://tox.readthedocs.io/en/latest/),
 ### Issues
 
 Have a look at the open issues. Is it possible to understand them? Are some of
-them maybe already solved? Is the priority propperly set?
+them maybe already solved? Is the priority properly set?
 
 
 ### Documentation
@@ -67,8 +67,8 @@ a couple of times if it is clear to them so far.
 
 ## Your first PR
 
-Although people should read code responsible, they likely also have other
-tasks. And, let's be honest, without a real task reading other peoples code is
+Although people should read code responsibly, they likely also have other
+tasks. And, let's be honest, without a real task, reading other people's code is
 hard and boring. So make a Pull Request (PR) and let them review it.
 
 
@@ -79,6 +79,6 @@ Give them a simple task to solve. Ask them to make a PR and review it.
 
 ## Their first Bugfix
 
-When the developer(s) who took over the project fixed the first bug that you
-were not aware of on their own, then I'd say the handover is over and was
+When the developer(s) who took over the project fixed, on their own, the first bug that you
+were not aware of, then I'd say the handover is over and was
 successful.
