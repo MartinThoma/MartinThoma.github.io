@@ -75,7 +75,7 @@ Those two patterns apply to other languages as well. Let’s phrase it like this
 
 If you want to know more about type annotations in Python, please read:
 [**Type Annotations in Python 3.8**
-*Learn how to make Python code easier to read and less error-prone by gradual typing*medium.com](../type-annotations/)
+*Learn how to make Python code easier to read and less error-prone by gradual typing*](../type-annotations/)
 
 If you want to know about the most recent improvements, read my [Python 3.10 article](../python-3-10/).
 

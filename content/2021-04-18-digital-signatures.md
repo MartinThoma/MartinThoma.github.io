@@ -189,7 +189,7 @@ the coin twice — the double-spending problem.
 “Coin” is actually a misnomer. See my article about UTXO for more details:
 
 [**The UTXO model**
-*A technical cornerstone of Bitcoin*medium.com](../utxo-model/)
+*A technical cornerstone of Bitcoin*](../utxo-model/)
 
 ## Summary
 

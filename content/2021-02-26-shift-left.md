@@ -97,7 +97,7 @@ show us type-checking errors while we write.
 
 I absolutely love Visual Studio Code for Python development:
 [**Visual Studio Code — Python Editors in Review**
-*I think I fell in love*towardsdatascience.com](../visual-studio-code/)
+*I think I fell in love*](../visual-studio-code/)
 
 But there are many other excellent editors for Python like
 [PyCharm](../pycharm/)
@@ -125,7 +125,7 @@ executed — and it doesn’t even have to be Python. I’ve created some on my 
 If you want to learn more about pre-commit, I’ve got you covered:
 [**Pre-commit hooks you must know** *Boost your productivity and code quality
 in 5
-minutes*towardsdatascience.com](../pre-commit-hooks/)
+minutes*](../pre-commit-hooks/)
 
 ## Implementation: CI-Pipeline
 
@@ -139,7 +139,7 @@ static application security testing (SAST), checking your 3rd party packages
 for vulnerabilities, and license compatibility (SCA) are things you might want
 to consider integrating. [**CI Pipelines for Python Projects** *What is a
 Continuous Integration Pipeline and how can I use
-it?*levelup.gitconnected.com](../ci-pipelines/)
+it?*](../ci-pipelines/)
 
 ## Testing: Code Review
 

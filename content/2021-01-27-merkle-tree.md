@@ -31,7 +31,7 @@ integrity.
 
 The first improvement is to add the value of a hash function:
 [**The 3 Applications of Hash Functions**
-*What they are, what the options are, and why they matter*levelup.gitconnected.com](../3-applications-of-hash-functions/)
+*What they are, what the options are, and why they matter*](../3-applications-of-hash-functions/)
 
 If the hash value of the downloaded file is not equal to the expected hash
 value, you just download the file again.

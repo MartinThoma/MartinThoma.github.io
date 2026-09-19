@@ -482,7 +482,7 @@ There are multiple things you can mean by “execution time” in this context:
 
 I’m convinced that the parsing time for JSON dominates the rest. There are multiple JSON parsers available in Python:
 [**JSON encoding/decoding with Python**
-*Comparing libraries by speed, maturity, and operational safety*levelup.gitconnected.com](../json-encoding-decoding/)
+*Comparing libraries by speed, maturity, and operational safety*](../json-encoding-decoding/)
 
 ## So When Do I Use What?
 

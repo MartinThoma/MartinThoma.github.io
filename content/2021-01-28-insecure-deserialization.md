@@ -100,7 +100,7 @@ is probably as bad as it can get.
 
 If you want to know more about YAML features, read this:
 [**6 YAML Features most programmers don’t know**
-*Level-up your YAML knowledge to write cleaner YAML files*levelup.gitconnected.com](../yaml-features/)
+*Level-up your YAML knowledge to write cleaner YAML files*](../yaml-features/)
 
 ### Attacking XML Deserialization
 
@@ -108,12 +108,12 @@ XML allows referencing external entities such as files (e.g. `/etc/passwd`) or
 websites. If you want to learn more about why this is an issue, read my
 article about XXE attacks [**XXE attacks 😈** *PDF, Excel, SVG, ebooks — all
 use XML. They can be
-vulnerable.*medium.com](../xxe-attacks/)
+vulnerable.*](../xxe-attacks/)
 
 Another possible attack vector is to use the reference feature of XML in a
 billion laughs attack: [**DOS via a billion laughs 😈** *Consume arbitrary much
 RAM by repeated
-referencing*medium.com](../billion-laughs-dos/)
+referencing*](../billion-laughs-dos/)
 
 ### Attacking Pickle Deserialization
 

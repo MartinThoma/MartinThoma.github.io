@@ -29,7 +29,7 @@ validated.
 
 If you want a longer introduction to Bitcoin / Blockchain, I’ve got you:
 [**The Blockchain**
-*An Introduction to Blockchain, Bitcoin ₿, and related concepts*medium.com](../blockchain/)
+*An Introduction to Blockchain, Bitcoin ₿, and related concepts*](../blockchain/)
 
 
 ## How Bitcoins are created

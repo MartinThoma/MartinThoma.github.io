@@ -104,7 +104,7 @@ from maybe 100μs to 100ms by applying the hash function 1000 times.
 
 For more details, read my article about password hashing:
 [**Password Hashing 😇**
-*Prepare to get hacked*levelup.gitconnected.com](../password-hashing/)
+*Prepare to get hacked*](../password-hashing/)
 
 ## Application 2: Integrity Checks
 
@@ -197,7 +197,7 @@ print(f"{probe=}; {hashval=}; nb_probed={nb_probed:,}")
 
 If you want to get more context about how the proof of work is used in Blockchain, have a look at my introductory article:
 [**The Blockchain**
-*An Introduction to Blockchain, Bitcoin ₿, and related concepts*medium.com](../blockchain/)
+*An Introduction to Blockchain, Bitcoin ₿, and related concepts*](../blockchain/)
 
 ## Bonus: Dictionaries / Maps / Associative Arrays
 

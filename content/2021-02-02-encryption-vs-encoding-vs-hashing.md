@@ -116,10 +116,10 @@ Hashing is about fingerprinting. You want to be able to uniquely identify a list
 
 I wrote an article that explains in detail why this loss of information is desired:
 [**Password Hashing 😇**
-*Prepare to get hacked*levelup.gitconnected.com](../password-hashing/)
+*Prepare to get hacked*](../password-hashing/)
 
 But there are several other applications of hash functions as well:
 [**The 3 Applications of Hash Functions**
-*What they are, what the options are, and why they matter*levelup.gitconnected.com](../3-applications-of-hash-functions/)
+*What they are, what the options are, and why they matter*](../3-applications-of-hash-functions/)
 
 State-of-the-art hash functions are SHA-256 or SHA-512.
