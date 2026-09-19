@@ -17,7 +17,7 @@
 <meta name="keywords" content="Python, Flask, Software Development, Unit Testing, Load Testing, Software Engineering, Code, " />
 
 <meta property="og:title" content="How to Test Flask Applications "/>
-<meta property="og:url" content="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c" />
+<meta property="og:url" content="test-flask-applications/" />
 <meta property="og:description" content="As a data scientist, I need to make my models accessible. I usually deploy models with Flask. As a software engineer, I want to make sure things work as expected by unit testing them. Unit testing websites or web services is hard for multiple reasons: You have code-within-code like HTML …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">How to Test Flask Applications</a></h1>
+    <h1><a href="../test-flask-applications/">How to Test Flask Applications</a></h1>
     <p class="meta">
 <time datetime="2020-07-19T20:00:00+02:00">Jul 19, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -93,13 +93,13 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#my-tiny-flask-app" title="My Tiny Flask App">My Tiny Flask App</a></li><li><a class="toc-href" href="#how-to-test-routes" title="How to test Routes">How to test Routes</a></li><li><a class="toc-href" href="#how-to-deal-with-the-database" title="How to deal with the Database">How to deal with the Database</a><ul><li><a class="toc-href" href="#wait-what-about-testing-the-sql-queries" title="Wait &hellip; what about testing the SQL Queries?">Wait &hellip; what about testing the SQL Queries?</a></li></ul></li><li><a class="toc-href" href="#protected-routes_1" title="Protected Routes">Protected Routes</a><ul><li><a class="toc-href" href="#basic-access-authentication" title="Basic Access Authentication">Basic Access Authentication</a></li><li><a class="toc-href" href="#flask-login" title="Flask Login">Flask Login</a></li></ul></li><li><a class="toc-href" href="#test-jinja2-templates_1" title="Test Jinja2 Templates">Test Jinja2 Templates</a><ul><li><a class="toc-href" href="#problem-1-empty-double-braces" title="Problem 1: Empty Double Braces">Problem 1: Empty Double Braces</a></li><li><a class="toc-href" href="#problem-2-data-structure-confusion" title="Problem 2: Data Structure confusion">Problem 2: Data Structure confusion</a></li><li><a class="toc-href" href="#problem-31-typo-in-variable" title="Problem 3.1: Typo in Variable">Problem 3.1: Typo in Variable</a></li><li><a class="toc-href" href="#problem-32-forgetting-to-pass-variable" title="Problem 3.2: Forgetting to pass Variable">Problem 3.2: Forgetting to pass Variable</a></li><li><a class="toc-href" href="#status-code-testing" title="Status Code Testing">Status Code Testing</a></li><li><a class="toc-href" href="#testing-the-template-context" title="Testing the Template Context">Testing the Template Context</a></li></ul></li><li><a class="toc-href" href="#pytest-recording_1" title="pytest-recording">pytest-recording</a><ul><li><a class="toc-href" href="#block-network-access" title="Block Network Access">Block Network Access</a></li><li><a class="toc-href" href="#record-network-interactions" title="Record Network Interactions">Record Network Interactions</a></li></ul></li><li><a class="toc-href" href="#load-testing_1" title="Load Testing">Load Testing</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#my-tiny-flask-app" title="My Tiny Flask App">My Tiny Flask App</a></li><li><a class="toc-href" href="#how-to-test-routes" title="How to test Routes">How to test Routes</a></li><li><a class="toc-href" href="#how-to-deal-with-the-database" title="How to deal with the Database">How to deal with the Database</a><ul><li><a class="toc-href" href="#wait-what-about-testing-the-sql-queries" title="Wait &hellip; what about testing the SQL Queries?">Wait &hellip; what about testing the SQL Queries?</a></li></ul></li><li><a class="toc-href" href="#protected-routes_1" title="Protected Routes">Protected Routes</a><ul><li><a class="toc-href" href="#basic-access-authentication" title="Basic Access Authentication">Basic Access Authentication</a></li><li><a class="toc-href" href="#flask-login" title="Flask Login">Flask Login</a></li></ul></li><li><a class="toc-href" href="#test-jinja2-templates_1" title="Test Jinja2 Templates">Test Jinja2 Templates</a><ul><li><a class="toc-href" href="#problem-1-empty-double-braces" title="Problem 1: Empty Double Braces">Problem 1: Empty Double Braces</a></li><li><a class="toc-href" href="#problem-2-data-structure-confusion" title="Problem 2: Data Structure confusion">Problem 2: Data Structure confusion</a></li><li><a class="toc-href" href="#problem-31-typo-in-variable" title="Problem 3.1: Typo in Variable">Problem 3.1: Typo in Variable</a></li><li><a class="toc-href" href="#problem-32-forgetting-to-pass-variable" title="Problem 3.2: Forgetting to pass Variable">Problem 3.2: Forgetting to pass Variable</a></li><li><a class="toc-href" href="#status-code-testing" title="Status Code Testing">Status Code Testing</a></li><li><a class="toc-href" href="#testing-the-template-context" title="Testing the Template Context">Testing the Template Context</a></li></ul></li><li><a class="toc-href" href="#pytest-recording_1" title="pytest-recording">pytest-recording</a><ul><li><a class="toc-href" href="#block-network-access" title="Block Network Access">Block Network Access</a></li><li><a class="toc-href" href="#record-network-interactions" title="Record Network Interactions">Record Network Interactions</a></li></ul></li><li><a class="toc-href" href="#load-testing_1" title="Load Testing">Load Testing</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
     
     <p>As a data scientist, I need to make my models accessible. I usually <a href="https://medium.com/analytics-vidhya/deploying-a-machine-learning-model-on-web-using-flask-and-python-54b86c44e14a">deploy models with Flask</a>. As a software engineer, I want to make sure things work as expected by unit testing them.</p>
-<p>Unit testing websites or web services is hard for multiple reasons: You have code-within-code like HTML template engines and SQL. Additionally, you have databases as dependencies which are pretty hard to mock. In this article, you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">know the basics of unit testing in Python</a>.</p>
+<p>Unit testing websites or web services is hard for multiple reasons: You have code-within-code like HTML template engines and SQL. Additionally, you have databases as dependencies which are pretty hard to mock. In this article, you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you <a href="../unit-testing-basics/">know the basics of unit testing in Python</a>.</p>
 <h2 id="my-tiny-flask-app">My Tiny Flask App</h2>
 <p>In order to ensure correctness of the following parts, I&rsquo;ve created a tiny Flask app. You can copy <a href="https://github.com/MartinThoma/algorithms/tree/master/medium/flask-testing/example-app">all files from GitHub</a>.</p>
 <p>The general structure is this:</p>
@@ -192,7 +192,7 @@ plugin, you configure your database connection via
 string with <code>sqlite://</code>, flask-sqlalchemy will create an in-memory SQLite
 database and use that instead of the real database. This is super fast to
 create and interact with (see
-<a href="https://martin-thoma.com/key-value-stores/#benchmark_1">benchmark</a>).</p>
+<a href="../key-value-stores/#benchmark_1">benchmark</a>).</p>
 <p>You can adjust the client fixture like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
@@ -396,29 +396,20 @@ locust<span class="w"> </span>-f<span class="w"> </span>locustfile.py<span class
 <p>There is a lot more to make this realistic than just calling a &ldquo;static&rdquo; endpoint. We want the users to interact in some way. So we can define a <a href="https://docs.locust.io/en/stable/writing-a-locustfile.html#sequentialtaskset-class">SequentialTaskSet</a>. At this point, I will leave it up to you to decide if you want to know more about load testing with Locust.</p>
 <p>Maybe it&rsquo;s not necessary for you.</p>
 <p>If you have a web service live, you should have another service which regularly pings yours and checks if it is still alive. The latency of the answer can be measured and should be monitored. If you don&rsquo;t expect a crazy amount of calls and if you have autoscaling enabled anyway, it&rsquo;s perfectly reasonable not to run a load test. Just monitor your API behavior and act if you really need to.</p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
-<p>You already know <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">the basics of Unit Testing in Python</a> and <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">how to patch and create mocks</a>. In this part, you learned how to deal with the special challenges of Flask applications.</p>
-<p>In future articles, I will present:</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about unit testing in Python:</p>
 <ul>
-<li>
-<p>How to structure Unit Tests</p>
-</li>
-<li>
-<p>tox and nox</p>
-</li>
-<li>
-<p>CI-Pipelines</p>
-</li>
-<li>
-<p>Test Automation</p>
-</li>
-<li>
-<p>Property-based Testing</p>
-</li>
-<li>
-<p>Mutation Testing</p>
-</li>
+<li>Part 1: <a href="../unit-testing-basics/">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <a href="../unit-testing-patching/">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <strong>How to test Flask applications</strong> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="../tox-and-nox/">tox and nox</a></li>
+<li>Part 5: <a href="../unit-testing-structure/">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="../ci-pipelines/">CI-Pipelines</a></li>
+<li>Part 7: <a href="../property-based-testing/">Property-based Testing</a></li>
+<li>Part 8: <a href="../mutation-testing/">Mutation Testing</a></li>
+<li>Part 9: <a href="../static-code-analysis/">Static Code Analysis: Linters, Type Checking, and Code Complexity</a></li>
 </ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de</p>
     
 </div>
 
@@ -440,7 +431,7 @@ locust<span class="w"> </span>-f<span class="w"> </span>locustfile.py<span class
                 <span>141</span>
 </a></li>
             <li><a href="../tags/#software-development-ref">Software Development
-                <span>16</span>
+                <span>17</span>
 </a></li>
             <li><a href="../tags/#software-engineering-ref">Software Engineering
                 <span>19</span>

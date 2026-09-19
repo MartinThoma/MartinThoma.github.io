@@ -17,7 +17,7 @@
 <meta name="keywords" content="Blockchain, Bitcoin, Cryptocurrency, UTXO, Blockchain, " />
 
 <meta property="og:title" content="The UTXO model  - A technical cornerstone of Bitcoin "/>
-<meta property="og:url" content="https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853" />
+<meta property="og:url" content="utxo-model/" />
 <meta property="og:description" content="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System) Bitcoin is based on the UTXO (unspent transaction output) model to ensure that nobody is able to spend money they don’t have and prevent money from being spent twice — so-called double-spending. In this article, you …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853">The UTXO model <small>A technical cornerstone of Bitcoin</small></a></h1>
+    <h1><a href="../utxo-model/">The UTXO model <small>A technical cornerstone of Bitcoin</small></a></h1>
     <p class="meta">
 <time datetime="2021-02-17T20:00:00+01:00">Feb 17, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -98,7 +98,7 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p><img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"/><em>Visualization of a transaction. Image by Satoshi Nakamoto (<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>)</em></p>
+    <p><img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="../images/2021/02/utxo-model-1.png"/><em>Visualization of a transaction. Image by Satoshi Nakamoto (<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>)</em></p>
 <p>Bitcoin is based on the UTXO (unspent transaction output) model to ensure that
 nobody is able to spend money they don&rsquo;t have and prevent money from being
 spent twice &mdash; so-called double-spending. In this article, you will learn how
@@ -110,12 +110,12 @@ make it computationally hard to add new blocks by adding a mathematical
 puzzle. In this article, you will learn how the transactions are actually
 validated.</p>
 <p>If you want a longer introduction to Bitcoin / Blockchain, I&rsquo;ve got you:
-<a href="https://medium.com/coinmonks/the-blockchain-473aac352e5"><strong>The Blockchain</strong>
-<em>An Introduction to Blockchain, Bitcoin ₿, and related concepts</em>medium.com</a></p>
+<a href="../blockchain/"><strong>The Blockchain</strong>
+<em>An Introduction to Blockchain, Bitcoin ₿, and related concepts</em></a></p>
 <h2 id="how-bitcoins-are-created">How Bitcoins are created</h2>
 <p>The first block of the blockchain is just defined in the code. All other
 blocks in Bitcoin need to have a &ldquo;proof of work&rdquo;. This is a solution to an
-automatically generated mathematical puzzle that makes <a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">clever use of hash
+automatically generated mathematical puzzle that makes <a href="../3-applications-of-hash-functions/">clever use of hash
 functions</a>.
 Solving this hash puzzle is computationally intensive. This means you need to
 have good hardware and invest a lot of time and electricity to solve it.
@@ -153,10 +153,10 @@ happen around the same time.</p>
 explorer</a>
 and actually have a look at any block. Taking the linked example, you might
 see many lines like this:</p>
-<p><img alt="Screenshot taken from blockchain.com" src="https://cdn-images-1.medium.com/max/3910/1*TqhazXZx3fsNzkNlnVSevg.png"/><em>Screenshot taken <a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09">from blockchain.com</a></em></p>
+<p><img alt="Screenshot taken from blockchain.com" src="../images/2021/02/utxo-model-2.png"/><em>Screenshot taken <a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09">from blockchain.com</a></em></p>
 <p>In this example, you see two input addresses and over 228 output addresses.
 When you scroll down a bit, you can see the inputs:</p>
-<p><img alt="Screenshot taken from blockchain.com" src="https://cdn-images-1.medium.com/max/3628/1*HGptTWiFcMW-iFXDGZd7WA.png"/><em>Screenshot taken <a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09">from blockchain.com</a></em></p>
+<p><img alt="Screenshot taken from blockchain.com" src="../images/2021/02/utxo-model-3.png"/><em>Screenshot taken <a href="https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09">from blockchain.com</a></em></p>
 <p>Here you can see the ECDSA signature of input 1:</p>
 <div class="highlight"><pre><span></span><code>3044022059f56d87541691ff224e4c9941435dfb8780522d043f823a8ced...a01
 </code></pre></div>
@@ -171,7 +171,7 @@ coin is lost. Coins are created during <strong>mining</strong> in a controlled w
 limited amount. After that, they are assigned to a Bitcoin address.</p>
 <p>This is the core of the UTXO model. You have a bunch of input Bitcoin
 addresses and a bunch of output Bitcoin addresses.</p>
-<p><img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png"/><em>Visualization of a transaction. Image by Satoshi Nakamoto (<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>)</em></p>
+<p><img alt="Visualization of a transaction. Image by Satoshi Nakamoto (Bitcoin: A Peer-to-Peer Electronic Cash System)" src="../images/2021/02/utxo-model-1.png"/><em>Visualization of a transaction. Image by Satoshi Nakamoto (<a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a>)</em></p>
 <p>Everybody can verify which address has how many Bitcoins in it by getting the
 whole blockchain. It is possible to track every bitcoin since the beginning.</p>
     

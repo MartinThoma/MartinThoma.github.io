@@ -17,7 +17,7 @@
 <meta name="keywords" content="Code, Development, Windows, Code, " />
 
 <meta property="og:title" content="A Beginner’s Guide to Python Development on Windows 10 "/>
-<meta property="og:url" content="https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483" />
+<meta property="og:url" content="python-development-with-wsl2/" />
 <meta property="og:description" content="The Python programming language is used for web development, data analysis, machine learning, statistics, web scraping, and so much more. There are tons of tutorials which, ironically, make it pretty hard to recommend one. However, there is also a lack of support for Windows. Let’s get the very first …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483">A Beginner’s Guide to Python Development on Windows 10</a></h1>
+    <h1><a href="../python-development-with-wsl2/">A Beginner’s Guide to Python Development on Windows 10</a></h1>
     <p class="meta">
 <time datetime="2020-10-20T20:00:00+02:00">Okt 20, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -98,7 +98,7 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p>The Python programming language is used for <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">web development</a>, <a href="https://www.udacity.com/course/intro-to-data-analysis--ud170">data analysis</a>, <a href="https://www.udacity.com/course/intro-to-machine-learning--ud120">machine learning</a>, <a href="https://towardsdatascience.com/hypothesis-testing-in-machine-learning-using-python-a0dc89e169ce">statistics</a>, <a href="https://martin-thoma.com/scraping-with-selenium/">web scraping</a>, and so much more. There are tons of tutorials which, ironically, make it pretty hard to recommend one. However, there is also a lack of support for Windows.</p>
+    <p>The Python programming language is used for <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">web development</a>, <a href="https://www.udacity.com/course/intro-to-data-analysis--ud170">data analysis</a>, <a href="https://www.udacity.com/course/intro-to-machine-learning--ud120">machine learning</a>, <a href="https://towardsdatascience.com/hypothesis-testing-in-machine-learning-using-python-a0dc89e169ce">statistics</a>, <a href="../scraping-with-selenium/">web scraping</a>, and so much more. There are tons of tutorials which, ironically, make it pretty hard to recommend one. However, there is also a lack of support for Windows.</p>
 <p>Let&rsquo;s get the very first step done: Install it on Windows. You could <a href="https://medium.com/python-in-plain-english/how-to-start-python-development-on-windows-10-anaconda-edition-cc91c2d57a1d">use Python through Anaconda</a>, but in this article, we will use it on Windows with WSL. This prepares you to follow one of the many tutorials to start your Python career.</p>
 <h2 id="what-is-wsl">What is WSL?</h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux">Windows Subsystem for Linux</a> (WSL) is a compatibility layer that allows you to run Linux binaries on Windows. WSL2 uses a real Linux kernel (<a href="https://blogs.windows.com/windows-insider/2020/06/10/announcing-windows-10-insider-preview-build-19645/">source</a>). On top of WSL, you can run the Linux flavor &ldquo;Ubuntu&rdquo;. Such a kind of &ldquo;flavor&rdquo; is called a <em>distribution</em>. There are many other distributions, but Ubuntu is by far the most widespread option.</p>
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
 <p>When Ubuntu is installed, install <a href="https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?rtc=1&amp;activetab=pivot:overviewtab">Windows Terminal</a>.</p>
 <p>Download and install all 4 &ldquo;<a href="https://github.com/powerline/fonts/tree/master/DejaVuSansMono">DejaVu Sans Mono Powerline</a>&rdquo; fonts.</p>
 <p>Launch a terminal and navigate to the settings. It&rsquo;s this small downward-pointing &ldquo;arrow&rdquo;:</p>
-<p><img alt="Click on &ldquo;Settings&rdquo;. The screenshot was taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*w5uAwDbarh47MQKJl6Ke6A.png"/><em>Click on &ldquo;Settings&rdquo;. The screenshot was taken by Martin Thoma</em></p>
+<p><img alt="Click on &ldquo;Settings&rdquo;. The screenshot was taken by Martin Thoma" src="../images/2020/10/python-development-with-wsl2-1.png"/><em>Click on &ldquo;Settings&rdquo;. The screenshot was taken by Martin Thoma</em></p>
 <p>You should see a JSON file which you can change to fit your taste. I have the following:</p>
 <iframe frameborder="0" src="https://medium.com/media/db0a1b7a8b8d0eccc2a75276eec241da"></iframe>
 <h2 id="install-pyenv">Install pyenv</h2>
@@ -135,7 +135,7 @@ $<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<
 $<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>--no-install-recommends<span class="w"> </span>make<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>wget<span class="w"> </span>curl<span class="w"> </span>llvm<span class="w"> </span>libncurses5-dev<span class="w"> </span>xz-utils<span class="w"> </span>tk-dev<span class="w"> </span>libxml2-dev<span class="w"> </span>libxmlsec1-dev<span class="w"> </span>libffi-dev<span class="w"> </span>liblzma-dev
 </code></pre></div>
 <p>Close all terminals and open one again. Now the command <code>pyenv</code> should show you the help:</p>
-<p><img alt="Screenshot by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*nKXKMJmDFiUiATZM__i_1g.png"/><em>Screenshot by Martin Thoma</em></p>
+<p><img alt="Screenshot by Martin Thoma" src="../images/2020/10/python-development-with-wsl2-2.png"/><em>Screenshot by Martin Thoma</em></p>
 <p>Most importantly, the command <code>pyenv install --list</code> shows you all the different Python versions you can install. I recommend installing 3.8.6 as of October 2020.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.8.6
 Downloading<span class="w"> </span>Python-3.8.6.tar.xz...

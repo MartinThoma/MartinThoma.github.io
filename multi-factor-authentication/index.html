@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, MFA, 2FA, Security, " />
+
+<meta property="og:title" content="Multi-Factor Authentication 😇 "/>
+<meta property="og:url" content="multi-factor-authentication/" />
+<meta property="og:description" content="Photo by Lukenn Sabellano on Unsplash Most websites only have one piece of evidence that is used to authenticate you: A password. However, having multiple pieces of evidence increases security quite a bit. Those pieces of evidence are also called “factors” and they fall into three groups: Something you know …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-04-27T20:00:00+02:00" />
+<meta name="twitter:title" content="Multi-Factor Authentication 😇 ">
+<meta name="twitter:description" content="Photo by Lukenn Sabellano on Unsplash Most websites only have one piece of evidence that is used to authenticate you: A password. However, having multiple pieces of evidence increases security quite a bit. Those pieces of evidence are also called “factors” and they fall into three groups: Something you know …">
+<meta property="og:image" content="logos/cybersecurity.png" />
+<meta name="twitter:image" content="logos/cybersecurity.png" >
+
+        <title>Multi-Factor Authentication 😇  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../"><span class="brand-dot" aria-hidden="true"></span>Martin Thoma</a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../categories/">Categories</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                </nav>
+                <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                    <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                </form>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../multi-factor-authentication/">Multi-Factor Authentication 😇</a></h1>
+    <p class="meta">
+<time datetime="2021-04-27T20:00:00+02:00">Apr 27, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+</header>
+
+<details class="toc" open>
+    <summary>Contents</summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#what-is-mfa-good-for" title="What is MFA good for?">What is MFA good for?</a></li><li><a class="toc-href" href="#something-you-know" title="Something you know">Something you know</a></li><li><a class="toc-href" href="#something-you-have" title="Something you have">Something you have</a><ul><li><a class="toc-href" href="#inconvenient-insecure-tan-list-sms" title="Inconvenient &amp; Insecure: TAN List &amp; SMS">Inconvenient &amp; Insecure: TAN List &amp; SMS</a></li><li><a class="toc-href" href="#time-based-one-time-password" title="Time-based one-time password">Time-based one-time password</a></li><li><a class="toc-href" href="#security-keys-and-smartcards" title="Security Keys and Smartcards">Security Keys and Smartcards</a></li></ul></li><li><a class="toc-href" href="#something-you-are_1" title="Something you are">Something you are</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p><img alt="Photo by Lukenn Sabellano on Unsplash" src="../images/2021/04/multi-factor-authentication-1.jpg"/><em>Photo by <a href="https://unsplash.com/@luferlex">Lukenn Sabellano</a> on <a href="https://unsplash.com/">Unsplash</a></em></p>
+<p>Most websites only have one piece of evidence that is used to authenticate you: A password. However, having multiple pieces of evidence increases security quite a bit. Those pieces of evidence are also called &ldquo;factors&rdquo; and they fall into three groups:</p>
+<ul>
+<li><strong>Something you know</strong>: A password</li>
+<li><strong>Something you have</strong>: A password token or a device like a smartphone</li>
+<li><strong>Something you are</strong>: Biometrics</li>
+</ul>
+<p>Using multiple factors for authentication is also called multi-factor authentication (MFA). If you use two factors, it is two-factor authentication (2FA). Hence 2FA is the simplest form of MFA.</p>
+<p>After reading this article you will understand how MFA makes your service more secure and how to apply it. Let&rsquo;s start!</p>
+<h2 id="what-is-mfa-good-for">What is MFA good for?</h2>
+<p>Suppose you&rsquo;re a big bank and you have thousands of clients. All of them need to use your online services. To authorize them to see their balances, you first need to know that the correct person is in front of the computer/smartphone. They need to authenticate.</p>
+<p>Typically, this is done with a username and a password. By giving their username, they tell us who they claim to be. By giving the secret password, we know that they have access to information that only the original user can have.</p>
+<p>One issue with password-based authentication is malware on the device, e.g. <strong>keyloggers</strong>. Those programs (or even hardware!) write down every single keystroke you make. This includes all usernames and passwords. The attacker can then read the logs and get your secret. Your account is compromised.</p>
+<p>Another issue that could occur is when you <strong>leave your computer unlocked</strong> while being logged into your account. By asking for any of the factors &mdash; password or other! &mdash; when doing critical operations such as bank transfers, you can avoid bigger issues. However, you could also do this with the password. Asking for a second factor that is easier to enter might be more convenient, though.</p>
+<p><strong>Replay attacks</strong> take a valid request and duplicate it. If the second factor uses the current time, those attacks can also be prevented. MFA should not be the planned way to prevent replay attacks, but they could make a vulnerability harder to use.</p>
+<p>MFA also makes <strong>phishing</strong> more difficult, especially when it&rsquo;s time-based. Your website's users might get ticked into telling attackers their passwords and maybe even giving them a single one-time password, but they will for sure not send their phones or other devices to the attackers. Well &hellip; hopefully 😅</p>
+<h2 id="something-you-know">Something you know</h2>
+<p>Something you know is typically a password, but not necessarily.</p>
+<p>Imagine you want to change your flight by calling the airline. Which questions do they ask you? You need the booking number and some knowledge about the passenger, e.g. the name, passport number, birthday, or similar. They will not ask for your password. The worrying part of that experience is that I would not have treated any of those as a secret before.</p>
+<p>It&rsquo;s a similar story with insurance and doctors. If you can provide enough knowledge about a person, you can just call them and ask for the information. In most cases, the person asking is actually authorized to get the information. However, not always.</p>
+<p>Luckily, I cannot think of any <a href="https://martinthoma.medium.com/incentives-of-malware-creators-62319053caf9">incentive</a> for attackers to abuse this weak authentication &mdash; except wanting to harm you personally. Let me know what I missed!</p>
+<h2 id="something-you-have">Something you have</h2>
+<p>When you register, you prove that you have access to your email address. This works by sending you a random code to the address that should get confirmed.</p>
+<p><img alt="How confirming that you have access to a mail address (e-mail and physical) works" src="../images/2021/04/multi-factor-authentication-2.png"/><em>How confirming that you have access to a mail address (e-mail and physical) works</em></p>
+<p>This schema works for e-mail, physical mail, and phone numbers. In this way, you can prove that you have access to the address/phone number. Or at least that you had access to it once.</p>
+<p>This brings us to the first problem: You can lose what you have. You could change your phone number because you switch the provider. You could move and thus get a new physical address. You could give up your sassy mail address from your school times for something professional. Hence the website that uses this factor needs to prepare for change.</p>
+<p>There are two other solutions for &ldquo;something you have&rdquo; which are way more secure than the mentioned ones: Security keys/cards and time-based one-time password (TOTP) applications. The best-known provider for security keys is Yubico and a popular TOTP app is the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=de&amp;gl=US">Google Authenticator</a>.</p>
+<h3 id="inconvenient-insecure-tan-list-sms">Inconvenient &amp; Insecure: TAN List &amp; SMS</h3>
+<p>Two options that are phasing out are TAN lists and SMS-based codes. The first one is inconvenient, the latter one is insecure.</p>
+<p>TAN lists were used by banks for a while as a second factor. They sent you a list of numbers and codes for those numbers via snail mail. When you wanted to make a transaction, they asked you to give the code associated with a certain number. This is very inconvenient as I have to get those number lists out and get a new list once I&rsquo;ve used all of the old ones. Additionally, I would not necessarily consider snail mail secure. To make it worse, taking a photo of a piece of paper is trivial with a smartphone.</p>
+<p>SMS has the problem that the messages are not encrypted. The content can be viewed at least by mobile carriers. I&rsquo;ve also heard phishing stories where the mobile carrier was convinced that the attacker is the victim and needs a duplicate SIM card. See also: <a href="https://security.stackexchange.com/q/11493/3286">How hard is it to intercept SMS?</a></p>
+<h3 id="time-based-one-time-password">Time-based one-time password</h3>
+<p>The idea of TOTP is to provide the user with a one-time password via an App on their smartphone.</p>
+<p>Alternative TOTP apps to the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=de&amp;gl=US">Google Authenticator</a> are <a href="https://play.google.com/store/apps/details?id=com.authy.authy&amp;hl=de&amp;gl=US">Twilio Authy</a>, <a href="https://play.google.com/store/apps/details?id=com.lastpass.authenticator&amp;hl=de&amp;gl=US">LastPass Authenticator</a>, <a href="https://play.google.com/store/apps/details?id=com.yubico.yubioath&amp;hl=de&amp;gl=US">Yubico Authenticator</a>, and the <a href="https://play.google.com/store/apps/details?id=com.azure.authenticator">Microsoft Authenticator</a>.</p>
+<p>The Apps from Google, LastPass, and Microsoft look like this:</p>
+<p><img alt="The TOTP apps from Google, LastPass, and Microsoft" src="../images/2021/04/multi-factor-authentication-3.png"/></p>
+<p>When you use the TOTP app, you first pair it with the web service. That typically works by clicking on the &ldquo;+&rdquo; symbol and scanning a QR code with your phone. After that, you can see the one-time passwords with a timer that goes down. They are valid for something like 30 seconds, then you&rsquo;ll receive another password.</p>
+<p>The exact way this works is specified in <a href="https://tools.ietf.org/html/rfc6238">RFC 6238</a>. It&rsquo;s only a few pages, so I recommend reading the RFC if you&rsquo;re interested. Let me summarize it:</p>
+<ol>
+<li>The server and the device share a secret. That typically is a long random byte sequence.</li>
+<li>The server and the device share the current time. This is &ldquo;guaranteed&rdquo; to a certain extent by the <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">network time protocol</a> (NTP).</li>
+<li>The shared secret and the time are used to derive a current one-time password.</li>
+</ol>
+<p>Such a key derivative function could look similar to this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="k">def</span> <span class="nf">derive_key</span><span class="p">(</span><span class="n">shared_secret</span><span class="p">,</span> <span class="n">time_step</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">unix_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+    <span class="n">time_bucket</span> <span class="o">=</span> <span class="p">(</span><span class="n">unix_time</span> <span class="o">-</span> <span class="n">unix_time</span> <span class="o">%</span> <span class="n">time_step</span><span class="p">)</span> <span class="o">//</span> <span class="n">time_step</span>
+    <span class="k">return</span> <span class="n">sha512</span><span class="p">(</span><span class="n">shared_secret</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time_bucket</span><span class="p">))</span>
+</code></pre></div>
+<p>The time bucket changes every 30 seconds. There is some room for differences in the server time and your device's time, but they should not become too big.</p>
+<p>Please note: The device actually never needs internet access! You need to share the secret once and it needs to be stored securely. If the device's time is close to the server's time, this will work.</p>
+<p>There are two negative sides of having this second factor:</p>
+<ul>
+<li><strong>Inconvenience</strong>: You need to have the device with you. This is only relevant when it&rsquo;s not your smartphone.</li>
+<li><strong>Lost device</strong>: You might lose the device or it might break.</li>
+</ul>
+<h3 id="security-keys-and-smartcards">Security Keys and Smartcards</h3>
+<p>The Yubico keys are certainly the best-known ones and I have tried one myself. They are convenient to use and they work on Linux. <a href="https://www.yubico.com/de/works-with-yubikey/catalog/">A lot of services</a> support Yubico keys. This works via FIDO2 / Webauthn. The recent versions of the huge <a href="https://caniuse.com/webauthn">browsers support Webauthn</a>, but many browsers with a small market share don&rsquo;t support the standard as of April 2021.</p>
+<p>Smartcards are similar. They have a typical credit card format and a chip inside. This chip does more than sending an identifier. It is processing data. The system works in a challenge-response way. I don&rsquo;t want to <a href="https://security.stackexchange.com/a/49294/3286">go into details</a>, but as a mental model, think of the following:</p>
+<ol>
+<li>The device against which you want to authenticate sends a random number called &ldquo;challenge&rdquo;.</li>
+<li>The smartcard takes that number and sends back a package that contains an identifier of the card, the associated public key, the signed challenge, and maybe a certificate for the public key.</li>
+<li>The device validates that the signature fits the public key and the challenge.</li>
+<li>The device validates that the sent identifier is authorized for whatever action is requested, e.g. access to a building or confirming a bank transaction.</li>
+</ol>
+<p>It is not possible to reconstruct the private key from the response to the challenge. The challenge is unique every time the card is used and nobody knows the private key &mdash; it is stored only within the card. Not even the manufacturer of the card should know it.</p>
+<p>I am not aware of any relevant differences in how Yubikey / Smartcards work.</p>
+<h2 id="something-you-are_1">Something you are</h2>
+<p>Authentication via biometric features was science fiction for a long time, but it has become normal with smartphones. <strong>Fingerprint readers</strong> are built into laptops for quite a while now, but since about 2018 they have also gained massive adoption in smartphones. Smartphones also allow using <strong>facial recognition</strong> to unlock the phone.</p>
+<p>There are many more biometric features that can be used for identification:</p>
+<ul>
+<li>Eyes: <a href="https://en.wikipedia.org/wiki/Iris_recognition">Iris recognition</a> and <a href="https://en.wikipedia.org/wiki/Retinal_scan">retinal scans</a></li>
+<li>Hand: <a href="https://en.wikipedia.org/wiki/Fingerprint_scanner">Fingerprint scanning</a>, <a href="https://www.theverge.com/2021/4/21/22395441/amazon-one-palm-scanning-payments-whole-foods-seattle">palm vein scanning</a>, <a href="https://en.wikipedia.org/wiki/Hand_geometry">hand geometry</a></li>
+<li>DNA</li>
+<li>Voice</li>
+<li>Behavior: <a href="https://en.wikipedia.org/wiki/Gait_analysis#Gait_as_biometrics">Gait recognition</a> (the way people walk), the way you type or play a computer game</li>
+</ul>
+<p>The big advantage of biometrics is that you cannot lose this information. However, it is possible to forge/copy this information. For example, the CCC showed only a few hours after Apple release an iPhone with a fingerprint reader that they could <a href="https://www.spiegel.de/international/world/german-hacker-group-ccc-compromises-iphone-fingerprint-sensor-a-923910.html">copy the fingerprint</a>. I don&rsquo;t see online services using biometric information for authentication, because the attacker can supply anything. The online service has no control over the device and that it&rsquo;s properly used.</p>
+<p>In contrast, biometric information can be great for identification if humans make sure the process is not tampered with. For example, I cannot imagine how one would fool a DNA sample or a palm vein scan if another person is in the room.</p>
+<p>Behavior-based recognition is pretty amazing. Imagine you would have to play a game of Super Mario before you can transfer big amounts of money. Even if you wanted to give this information to an attacker, you couldn't. I have seen something similar to this at university, but the game was boring and you had to play for quite a while.</p>
+<p>Please leave a comment if you know of any other MFA methods!</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="../sql-injections/">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="../leaking-secrets/">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="../xss/">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <a href="../password-hashing/">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="../zip-bombs/">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="../captcha/">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="../email-spoofing/">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
+<li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
+<li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
+<li>Part 15: <a href="../credential-stuffing/">Credential Stuffing</a> 😈🐝</li>
+<li>Part 16: <strong>Multi-Factor Authentication</strong> (MFA/2FA) 😇</li>
+<li>Part 17: <a href="../redos/">ReDoS</a> 😈</li>
+</ul>
+<p>The following articles are about to come:</p>
+<ul>
+<li>Part 18: Secure Messaging 😇</li>
+<li>Part 19: Cryptojacking 😈</li>
+<li>Part 20: Backups 😇</li>
+<li>Part 21: Cryptotrojans 😈</li>
+<li>Part 22: Single-Sign-On 😇</li>
+<li>Part 23: Clipboard Hijacking 😈</li>
+<li>Part 24: Certificates 😇</li>
+<li>Part 25: Race Condition Attacks in Blockchains 😈</li>
+<li>Part 26: Mobile Device Management (MDM) 😇</li>
+<li>Part 27: Server-Side Request Forgery (SSRF) 😈</li>
+<li>Part 28: Network Separation 😇</li>
+<li>Part 29: Social Engineering (including Phishing) 😈</li>
+<li>Part 30: Virtual Private Networks (VPNs) 😇</li>
+<li>Part 31: CSRF 😈</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+    <div class="meta-group">
+        <h4>Tags</h4>
+        <ul class="list-of-tags tags-in-article">
+            <li><a href="../tags/#2fa-ref">2FA
+                <span>2</span>
+</a></li>
+            <li><a href="../tags/#appsec-ref">AppSec
+                <span>15</span>
+</a></li>
+            <li><a href="../tags/#cybersecurity-ref">Cybersecurity
+                <span>16</span>
+</a></li>
+            <li><a href="../tags/#infosec-ref">InfoSec
+                <span>12</span>
+</a></li>
+            <li><a href="../tags/#mfa-ref">MFA
+                <span>2</span>
+</a></li>
+            <li><a href="../tags/#security-ref">Security
+                <span>22</span>
+</a></li>
+        </ul>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://twitter.com/_martinthoma" title="My Twitter Profile" rel="me" target="_blank">Twitter</a></li>
+    <li><a href="mailto:info@martin-thoma.de" title="My Email Address" rel="me" target="_blank">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" title="My Github Profile" rel="me" target="_blank">Github</a></li>
+    <li><a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" rel="me" target="_blank">Stackoverflow</a></li>
+</ul>
+</div>
+</aside>
+
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, the Web and Cyberculture</li>
+            <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+            <li><a href="https://martin-thoma.com/feeds/index.xml">RSS feed</a></li>
+            <li><a href="https://www.martin-thoma.de/privacy.htm">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+</html>

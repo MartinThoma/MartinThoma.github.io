@@ -17,7 +17,7 @@
 <meta name="keywords" content="Unit Testing, Flake8, mypy, Security, AppSec, Code, " />
 
 <meta property="og:title" content="Static Code Analysis for Python "/>
-<meta property="og:url" content="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287" />
+<meta property="og:url" content="static-code-analysis/" />
 <meta property="og:description" content="Static code analysis looks at the code without executing it. It is usually extremely fast to execute, requires little effort to add to your workflow, and can uncover common mistakes. The only downside is that it is not tailored towards your code. In this article, you will learn how to …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287">Static Code Analysis for Python</a></h1>
+    <h1><a href="../static-code-analysis/">Static Code Analysis for Python</a></h1>
     <p class="meta">
 <time datetime="2020-08-17T20:00:00+02:00">Aug 17, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -93,7 +93,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#code-complexity" title="Code Complexity">Code Complexity</a></li><li><a class="toc-href" href="#style-guides" title="Style Guides">Style Guides</a></li><li><a class="toc-href" href="#docstrings" title="Docstrings">Docstrings</a></li><li><a class="toc-href" href="#flake8" title="Flake8">Flake8</a></li><li><a class="toc-href" href="#flake8-security-and-bugs" title="Flake8: Security and Bugs">Flake8: Security and Bugs</a></li><li><a class="toc-href" href="#flake8-remove-debugging-artifacts" title="Flake8: Remove Debugging Artifacts">Flake8: Remove Debugging Artifacts</a></li><li><a class="toc-href" href="#let-dead-code-die" title="Let Dead Code Die">Let Dead Code Die</a></li><li><a class="toc-href" href="#flake8-nudging-yourself-to-use-good-style" title="Flake8: Nudging Yourself to use Good Style">Flake8: Nudging Yourself to use Good Style</a></li><li><a class="toc-href" href="#flake8-meta-plugins" title="Flake8 Meta Plugins">Flake8 Meta Plugins</a></li><li><a class="toc-href" href="#type-annotations-and-type-checking" title="Type Annotations and Type Checking">Type Annotations and Type Checking</a></li><li><a class="toc-href" href="#package-structure" title="Package Structure">Package Structure</a></li><li><a class="toc-href" href="#want-to-know-more-about-unit-testing" title="Want to Know More About Unit Testing?">Want to Know More About Unit Testing?</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#code-complexity" title="Code Complexity">Code Complexity</a></li><li><a class="toc-href" href="#style-guides" title="Style Guides">Style Guides</a></li><li><a class="toc-href" href="#docstrings" title="Docstrings">Docstrings</a></li><li><a class="toc-href" href="#flake8" title="Flake8">Flake8</a></li><li><a class="toc-href" href="#flake8-security-and-bugs" title="Flake8: Security and Bugs">Flake8: Security and Bugs</a></li><li><a class="toc-href" href="#flake8-remove-debugging-artifacts" title="Flake8: Remove Debugging Artifacts">Flake8: Remove Debugging Artifacts</a></li><li><a class="toc-href" href="#let-dead-code-die" title="Let Dead Code Die">Let Dead Code Die</a></li><li><a class="toc-href" href="#flake8-nudging-yourself-to-use-good-style" title="Flake8: Nudging Yourself to use Good Style">Flake8: Nudging Yourself to use Good Style</a></li><li><a class="toc-href" href="#flake8-meta-plugins" title="Flake8 Meta Plugins">Flake8 Meta Plugins</a></li><li><a class="toc-href" href="#type-annotations-and-type-checking" title="Type Annotations and Type Checking">Type Annotations and Type Checking</a></li><li><a class="toc-href" href="#package-structure" title="Package Structure">Package Structure</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -101,7 +101,7 @@ MathJax.Hub.Queue(function() {
     <p>Static code analysis looks at the code without executing it. It is usually extremely fast to execute, requires little effort to add to your workflow, and can uncover common mistakes. The only downside is that it is not tailored towards your code.</p>
 <p>In this article, you will learn how to perform various types of static code analysis in Python. While the article focuses on Python, the types of analysis can be done in any programming language.</p>
 <h2 id="code-complexity">Code Complexity</h2>
-<p><img alt="Photo by John Barkiple on Unsplash" src="https://cdn-images-1.medium.com/max/10368/0*hpBpO29k15vDdmHJ"/><em>Photo by <a href="https://unsplash.com/@barkiple?utm_source=medium&amp;utm_medium=referral">John Barkiple</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by John Barkiple on Unsplash" src="../images/2020/08/static-code-analysis-1.jpg"/><em>Photo by <a href="https://unsplash.com/@barkiple">John Barkiple</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>One way to measure code complexity is the <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity</a>, also called McCabe complexity as defined in <a href="https://books.google.de/books?id=vtNWAAAAMAAJ&amp;pg=PA3&amp;redir_esc=y">A Complexity Measure</a>:</p>
 <p>$$CC = E - N + 2 \cdot P$$</p>
 <p>where N is the number of nodes in the control flow graph, E is the number of edges, and P is the number of connected components (P = 1 for a single function).</p>
@@ -128,11 +128,11 @@ mpu/aws.py
 <li><a href="https://pypi.org/project/xenon/">xenon</a>: Relies on radon</li>
 </ul>
 <h2 id="style-guides">Style Guides</h2>
-<p><img alt="Make your code look professional. Photo by Hunters Race on Unsplash" src="https://cdn-images-1.medium.com/max/10132/0*gC2HdhBSJwqGfFAF"/><em>Make your code look professional. Photo by <a href="https://unsplash.com/@huntersrace?utm_source=medium&amp;utm_medium=referral">Hunters Race</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Make your code look professional. Photo by Hunters Race on Unsplash" src="../images/2020/08/static-code-analysis-2.jpg"/><em>Make your code look professional. Photo by <a href="https://unsplash.com/@huntersrace">Hunters Race</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>You might have heard the words &ldquo;pythonic code&rdquo;. It means to not only write correct Python code but also use the language's features as they are intended to be used (<a href="https://stackoverflow.com/a/25011492/562769">source</a>). It is for sure an opinionated term, but there are a lot of plugins that show you what a large part of the community considers to be pythonic.</p>
 <p>Writing code in a similar style to other Python projects is valuable as people will have an easier time reading the code. This is important as we read software more often than we write it (<a href="https://www.goodreads.com/quotes/835238-indeed-the-ratio-of-time-spent-reading-versus-writing-is">source</a>).</p>
 <p>So, what is pythonic code?</p>
-<p>Let&rsquo;s start with <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>: It&rsquo;s a style guide written and accepted by the Python community in 2001. So it&rsquo;s been around for a while and most people want to follow most of it. The main part I&rsquo;ve seen most people disagree with is the <a href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">maximum line length of 79</a>. I always recommend following this advice in 95% of your codebase. I gave <a href="https://martin-thoma.com/python-style-guide/#maximum-line-length">reasons</a> for that.</p>
+<p>Let&rsquo;s start with <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>: It&rsquo;s a style guide written and accepted by the Python community in 2001. So it&rsquo;s been around for a while and most people want to follow most of it. The main part I&rsquo;ve seen most people disagree with is the <a href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">maximum line length of 79</a>. I always recommend following this advice in 95% of your codebase. I gave <a href="../python-style-guide/#maximum-line-length">reasons</a> for that.</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/08/black-logo.png"><img alt="Logo of the black project" src="../images/2020/08/black-logo.png" style="width: 512px;"/></a>
 <figcaption class="text-center">Logo of the black project. Image source: <a href="https://github.com/psf/black/blob/master/docs/_static/logo2.png">Black Contributors</a></figcaption>
@@ -140,7 +140,7 @@ mpu/aws.py
 <p>For pure code formatting, you should use an autoformatter. I grew to like <a href="https://pypi.org/project/black/">black</a> because it does NOT allow customization. Code formatted by black always looks the same. As you cannot customize it, you don&rsquo;t need to discuss it. It just solves the issue of conflicting styles and arguments around it. Black is maintained by the Python Software Foundation and likely the most commonly adopted autoformatter for Python.</p>
 <p><a href="https://github.com/google/yapf">yapf</a> by Google is another autoformatter.</p>
 <h2 id="docstrings">Docstrings</h2>
-<p><img alt="Reading the manual can be fun if it&rsquo;s written well. Lasagne and SciPy have pretty good documentation. Photo by Laura Dewilde on Unsplash" src="https://cdn-images-1.medium.com/max/8000/0*Ln2UNS74PuVuhOVM"/><em>Reading the manual can be fun if it&rsquo;s written well. <a href="https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid">Lasagne</a> and <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt">SciPy</a> have pretty good documentation. Photo by <a href="https://unsplash.com/@lauradewilde97?utm_source=medium&amp;utm_medium=referral">Laura Dewilde</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Reading the manual can be fun if it&rsquo;s written well. Lasagne and SciPy have pretty good documentation. Photo by Laura Dewilde on Unsplash" src="../images/2020/08/static-code-analysis-3.jpg"/><em>Reading the manual can be fun if it&rsquo;s written well. <a href="https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid">Lasagne</a> and <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt">SciPy</a> have pretty good documentation. Photo by <a href="https://unsplash.com/@lauradewilde97">Laura Dewilde</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>For docstrings, there is <a href="https://www.python.org/dev/peps/pep-0257/">PEP-257</a>. All of those rules are widely accepted in the community, but they still allow a wide variety of docstrings. There are three commonly used styles:</p>
 <ul>
 <li><a href="https://numpydoc.readthedocs.io/en/latest/format.html">NumpyDoc-style</a> docstrings: Used by NumPy and SciPy. It&rsquo;s reStructuredText with some specified sections such as <code>Parameters</code> and <code>Returns</code> in a fixed order.</li>
@@ -254,7 +254,7 @@ mpu/aws.py
 </ul>
 <p>An alternative to parts of Flake8 is <a href="https://pypi.org/project/prospector/">prospector</a>. It combines tools, but it is way less commonly used and thus not as flexible as Flake8.</p>
 <h2 id="flake8-security-and-bugs">Flake8: Security and Bugs</h2>
-<p><img alt="Be safe by looking at warning signs. Photo by Troy Bridges on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*F1jS0N6EjU66u4nu"/><em>Be safe by looking at warning signs. Photo by <a href="https://unsplash.com/@esptroy?utm_source=medium&amp;utm_medium=referral">Troy Bridges</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Be safe by looking at warning signs. Photo by Troy Bridges on Unsplash" src="../images/2020/08/static-code-analysis-4.jpg"/><em>Be safe by looking at warning signs. Photo by <a href="https://unsplash.com/@esptroy">Troy Bridges</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <ul>
 <li><a href="https://pypi.org/project/flake8-bandit/">flake8-bandit</a>: Security Testing</li>
 <li><a href="https://pypi.org/project/flake8-bugbear/">flake8-bugbear</a>: finding likely bugs and design problems in your program &mdash; usually it&rsquo;s silent, but when it&rsquo;s not you should have a look 🐻</li>
@@ -264,7 +264,7 @@ mpu/aws.py
 <p>It has happened to me quite a few times: I&rsquo;ve added some code while developing a new feature or debugging an old one and forgot to remove it afterward. It was most often caught by the reviewer, but it is not necessary to distract the reviewer with this.</p>
 <p><a href="https://pypi.org/project/flake8-breakpoint/">flake8-breakpoint</a> checks for forgotten breakpoints and <a href="https://pypi.org/project/flake8-print/">flake8-print</a> will complain about every print statement. <a href="https://pypi.org/project/flake8-debugger/">flake8-debugger</a>, <a href="https://pypi.org/project/flake8-fixme/">flake8-fixme</a>, <a href="https://pypi.org/project/flake8-todo/">flake8-todo</a> go in the same direction.</p>
 <h2 id="let-dead-code-die">Let Dead Code Die</h2>
-<p><img alt="Photo by Kenny Orr on Unsplash" src="https://cdn-images-1.medium.com/max/11520/0*HolQng-8Fkoy-A63"/><em>Photo by <a href="https://unsplash.com/@greyharpoon?utm_source=medium&amp;utm_medium=referral">Kenny Orr</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Kenny Orr on Unsplash" src="../images/2020/08/static-code-analysis-5.jpg"/><em>Photo by <a href="https://unsplash.com/@greyharpoon">Kenny Orr</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Who hasn&rsquo;t done it: You removed a functionality, but the code could be handy. So you comment it out. Or you add an <code>if False</code> block around it. Sometimes more sophisticated by adding a configuration option you don&rsquo;t need.</p>
 <p>The clean solution is to have a single, clear commit that removes that feature. Maybe add a git tag so that you can find it later if you want to add it again.</p>
 <p>And then there is code which is dead, but you forgot about it. Luckily, you can automatically detect it:</p>
@@ -273,7 +273,7 @@ mpu/aws.py
 <li><a href="https://pypi.org/project/vulture/">vulture</a>: Finds unused code in Python programs</li>
 </ul>
 <h2 id="flake8-nudging-yourself-to-use-good-style">Flake8: Nudging Yourself to use Good Style</h2>
-<p><img alt="Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by Brooke Cagle on Unsplash" src="https://cdn-images-1.medium.com/max/9446/0*lXvALfnWfaU_cFB_"/><em>Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by <a href="https://unsplash.com/@brookecagle?utm_source=medium&amp;utm_medium=referral">Brooke Cagle</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by Brooke Cagle on Unsplash" src="../images/2020/08/static-code-analysis-6.jpg"/><em>Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by <a href="https://unsplash.com/@brookecagle">Brooke Cagle</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Some plugins helped me to learn something about Python. For example, the following helped me to get rid of small little bugs and inconsistencies:</p>
 <ul>
 <li><a href="https://pypi.org/project/flake8-comprehensions/">flake8-comprehensions</a>: Helps you write better list/set/dict comprehensions &mdash; I love this one 😍</li>
@@ -288,7 +288,7 @@ mpu/aws.py
 </ul>
 <p>This is one of the most valuable categories for me. If you know more plugins which help to use new styles, let me know 😃</p>
 <h2 id="flake8-meta-plugins">Flake8 Meta Plugins</h2>
-<p><img alt="Image created by Martin Thoma via imgflip.com" src="https://cdn-images-1.medium.com/max/2400/1*E4HyDr73N_j4p3mn5X64pA.jpeg"/><em>Image created by Martin Thoma via imgflip.com</em></p>
+<p><img alt="Image created by Martin Thoma via imgflip.com" src="../images/2020/08/static-code-analysis-7.jpg"/><em>Image created by Martin Thoma via imgflip.com</em></p>
 <p>Flake8 has some plugins which don&rsquo;t add more linting functionality, but improve flake8 in another way:</p>
 <ul>
 <li><a href="https://pypi.org/project/flake8-colors/">flake8-colors</a>: ANSI colors highlight for Flake8</li>
@@ -305,11 +305,11 @@ mpu/aws.py
 <p>To Flake8 plugin authors: Please make sure that you list the error codes your plugin introduces and that you give at least some examples of what your plugin considers bad / good.</p>
 </blockquote>
 <h2 id="type-annotations-and-type-checking">Type Annotations and Type Checking</h2>
-<p><img alt="The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma." src="https://cdn-images-1.medium.com/max/3442/1*jXmhQQBv0xgpPQPUN08Z_A.png"/><em>The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.</em></p>
-<p>It&rsquo;s possible in Python, but you need to do it. It&rsquo;s not done automatically. I&rsquo;ve written a longer article about how <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations work in Python</a>. There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using <code>flake8-mypy</code>, but I prefer to run it separately. The main reason for it is that the output given by <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI pipelines</a> is cleaner.</p>
+<p><img alt="The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma." src="../images/2020/08/static-code-analysis-8.png"/><em>The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.</em></p>
+<p>It&rsquo;s possible in Python, but you need to do it. It&rsquo;s not done automatically. I&rsquo;ve written a longer article about how <a href="../type-annotations/">type annotations work in Python</a>. There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using <code>flake8-mypy</code>, but I prefer to run it separately. The main reason for it is that the output given by <a href="../ci-pipelines/">CI pipelines</a> is cleaner.</p>
 <p>You can integrate type checking (e.g. via mypy) into your editor, but the type annotations alone already go a long way as they document what is expected.</p>
 <h2 id="package-structure">Package Structure</h2>
-<p><img alt="Check that your package looks fine before shipping it. Photo by Toby Stodart on Unsplash" src="https://cdn-images-1.medium.com/max/10080/0*y67weckARV-M_yOh"/><em>Check that your package looks fine before shipping it. Photo by <a href="https://unsplash.com/@tobystodart?utm_source=medium&amp;utm_medium=referral">Toby Stodart</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Check that your package looks fine before shipping it. Photo by Toby Stodart on Unsplash" src="../images/2020/08/static-code-analysis-9.jpg"/><em>Check that your package looks fine before shipping it. Photo by <a href="https://unsplash.com/@tobystodart">Toby Stodart</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p><a href="https://github.com/regebro/pyroma">pyroma</a> rates how well a Python project complies with the best practices of the Python packaging ecosystem.</p>
 <p>Here are some examples of my projects:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>pyroma<span class="w"> </span>mpu
@@ -334,18 +334,18 @@ Final<span class="w"> </span>rating:<span class="w"> </span><span class="m">9</s
 Cottage<span class="w"> </span>Cheese
 ------------------------------
 </code></pre></div>
-<h2 id="want-to-know-more-about-unit-testing">Want to Know More About Unit Testing?</h2>
-<p>In this series, we already had:</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about unit testing in Python:</p>
 <ul>
-<li>Part 1: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">The basics of Unit Testing in Python</a></li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">Patching, Mocks, and Dependency Injection</a></li>
-<li>Part 3: <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
-<li>Part 4: <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">tox and nox</a></li>
-<li>Part 5: <a href="https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923">Structuring Unit Tests</a></li>
-<li>Part 6: <a href="https://towardsdatascience.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI-Pipelines</a></li>
-<li>Part 7: <a href="https://towardsdatascience.com/unit-testing-in-python-property-based-testing-892a741fc119">Property-based Testing</a></li>
-<li>Part 8: <a href="https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8">Mutation Testing</a></li>
-<li>Part 9: Static Code Analysis: Linters, Type Checking, and Code Complexity</li>
+<li>Part 1: <a href="../unit-testing-basics/">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <a href="../unit-testing-patching/">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <a href="../test-flask-applications/">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="../tox-and-nox/">tox and nox</a></li>
+<li>Part 5: <a href="../unit-testing-structure/">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="../ci-pipelines/">CI-Pipelines</a></li>
+<li>Part 7: <a href="../property-based-testing/">Property-based Testing</a></li>
+<li>Part 8: <a href="../mutation-testing/">Mutation Testing</a></li>
+<li>Part 9: <strong>Static Code Analysis: Linters, Type Checking, and Code Complexity</strong></li>
 </ul>
 <p>Let me know if you&rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de</p>
     
@@ -360,7 +360,7 @@ Cottage<span class="w"> </span>Cheese
         <h4>Tags</h4>
         <ul class="list-of-tags tags-in-article">
             <li><a href="../tags/#appsec-ref">AppSec
-                <span>14</span>
+                <span>15</span>
 </a></li>
             <li><a href="../tags/#flake8-ref">Flake8
                 <span>3</span>
@@ -369,7 +369,7 @@ Cottage<span class="w"> </span>Cheese
                 <span>3</span>
 </a></li>
             <li><a href="../tags/#security-ref">Security
-                <span>20</span>
+                <span>22</span>
 </a></li>
             <li><a href="../tags/#unit-testing-ref">Unit Testing
                 <span>6</span>

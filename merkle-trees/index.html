@@ -17,7 +17,7 @@
 <meta name="keywords" content="Blockchain, Code, " />
 
 <meta property="og:title" content="Merkle Trees  - The concept and applications - plain and simple! "/>
-<meta property="og:url" content="https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094" />
+<meta property="og:url" content="merkle-trees/" />
 <meta property="og:description" content="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes. A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is a binary tree in which the value of an inner node is the hash of its …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094">Merkle Trees <small>The concept and applications - plain and simple!</small></a></h1>
+    <h1><a href="../merkle-trees/">Merkle Trees <small>The concept and applications - plain and simple!</small></a></h1>
     <p class="meta">
 <time datetime="2021-01-27T20:00:00+01:00">Jan 27, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -93,13 +93,13 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#bittorrent" title="BitTorrent">BitTorrent</a></li><li><a class="toc-href" href="#proof-of-inclusion" title="Proof of Inclusion">Proof of Inclusion</a></li><li><a class="toc-href" href="#how-does-bitcoin-use-merkle-trees" title="How does Bitcoin use Merkle Trees?">How does Bitcoin use Merkle Trees?</a></li><li><a class="toc-href" href="#applications-of-merkle-trees" title="Applications of Merkle Trees">Applications of Merkle Trees</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next">What&rsquo;s next</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#bittorrent" title="BitTorrent">BitTorrent</a></li><li><a class="toc-href" href="#proof-of-inclusion" title="Proof of Inclusion">Proof of Inclusion</a></li><li><a class="toc-href" href="#how-does-bitcoin-use-merkle-trees" title="How does Bitcoin use Merkle Trees?">How does Bitcoin use Merkle Trees?</a></li><li><a class="toc-href" href="#applications-of-merkle-trees" title="Applications of Merkle Trees">Applications of Merkle Trees</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
     
     <figure>
-<img alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png" width="800px"/>
+<img alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." src="../images/2021/01/merkle-trees-1.png" width="800px"/>
 <figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
 </figure>
 <p>A Merkle Tree is a data structure that is used in Peer-to-Peer Networks. It is
@@ -112,15 +112,15 @@ technology solves to really understand it.</p>
 errors? When you just send a stream of data, you cannot guarantee the
 integrity.</p>
 <p>The first improvement is to add the value of a hash function:
-<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d"><strong>The 3 Applications of Hash Functions</strong>
-<em>What they are, what the options are, and why they matter</em>levelup.gitconnected.com</a></p>
+<a href="../3-applications-of-hash-functions/"><strong>The 3 Applications of Hash Functions</strong>
+<em>What they are, what the options are, and why they matter</em></a></p>
 <p>If the hash value of the downloaded file is not equal to the expected hash
 value, you just download the file again.</p>
 <p>It should be clear that this is inefficient as errors happen rarely. Very
 likely, most of the file is completely fine. Maybe there is just a single bit
 that flipped its value. You want to download as little as possible and just
 fix the broken part.</p>
-<p><img alt="A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/2000/1*VWinFE8Gmh8pmcg_IoN-ow.png"/><em>A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.</em></p>
+<p><img alt="A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma." src="../images/2021/01/merkle-trees-2.png"/><em>A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.</em></p>
 <p>The next idea is to build blocks. You store the hash of each block. When you
 download the file, you first download a header. The header contains
 meta-information, e.g. the total number of blocks, the hash of each block, and
@@ -166,7 +166,7 @@ files over an unreliable network a lot.</p>
 <h2 id="proof-of-inclusion">Proof of Inclusion</h2>
 <p>Suppose you wanted to show that a piece of data is part of your data
 structure. This is easy with Merkle trees.</p>
-<p><img alt='Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.' src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png"/><em>Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</em></p>
+<p><img alt='Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.' src="../images/2021/01/merkle-trees-1.png"/><em>Alice wants to prove to Bob that the red block &ldquo;6&rdquo; is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), &ldquo;5&rdquo; and the red node &ldquo;6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.</em></p>
 <p>Merkle trees allow you to prove that a transaction is included. Suppose Alice
 wants to prove to Bob that transaction T happened. To do that, she provides:</p>
 <ul>
@@ -176,7 +176,7 @@ wants to prove to Bob that transaction T happened. To do that, she provides:</p>
 <p>Bob then has to verify that the Merkle root is equal to the root he has. He
 also needs to hash the transaction and build all hashes up to the Merkle
 root. As cryptographic hash functions make it practically impossible to forge
-data with the same hash (<a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">second-preimage
+data with the same hash (<a href="../3-applications-of-hash-functions/">second-preimage
 resistance</a>),
 Bob does not have to have all the data. It&rsquo;s enough to know which root to use.</p>
 <p>The supplied hashes (the blue nodes) are called a <strong>Merkle proof</strong>. You prove
@@ -202,12 +202,17 @@ hash.</p>
 <li><strong>Bitcoin &amp; IPFS, and <a href="https://storj.io/storj2014.pdf">Storj</a></strong>: The core data structure to store data</li>
 <li><strong>Ethereum</strong> also uses a Merkle Tree, but a different type than Bitcoin. Ethereum uses a Merkle Patricia Trie.</li>
 </ul>
-<h2 id="whats-next">What&rsquo;s next</h2>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Tara Vancil: <a href="https://www.youtube.com/watch?v=YIc6MNfv5iQ">How Merkle Trees Enable the Decentralized Web!</a>, 2017 on YouTube.</li>
+<li>Gaurav Sen: <a href="https://www.youtube.com/watch?v=qHMLy5JjbjQ">Merkle Tree with real-world examples</a>, 2019 on YouTube.</li>
+</ul>
+<h2 id="more-in-this-series">More in this series</h2>
 <p>This article is part of my series about Blockchain:</p>
 <ul>
-<li>Part 1: <a href="https://medium.com/coinmonks/the-blockchain-473aac352e5">An Introduction to Blockchain</a></li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d">The 3 Applications of Hash Functions</a></li>
-<li>Part 3: Merkle Trees</li>
+<li>Part 1: <a href="../blockchain/">An Introduction to Blockchain</a></li>
+<li>Part 2: <a href="../3-applications-of-hash-functions/">The 3 Applications of Hash Functions</a></li>
+<li>Part 3: <strong>Merkle Trees</strong></li>
 </ul>
 <p>Topics I will consider next:</p>
 <ul>
@@ -222,11 +227,6 @@ hash.</p>
 <li>Peer-To-Peer Stuff: How Gossip Protocols work</li>
 </ul>
 <p>Let me know what you&rsquo;re interested in!</p>
-<h2 id="see-also">See also</h2>
-<ul>
-<li>Tara Vancil: <a href="https://www.youtube.com/watch?v=YIc6MNfv5iQ">How Merkle Trees Enable the Decentralized Web!</a>, 2017 on YouTube.</li>
-<li>Gaurav Sen: <a href="https://www.youtube.com/watch?v=qHMLy5JjbjQ">Merkle Tree with real-world examples</a>, 2019 on YouTube.</li>
-</ul>
     
 </div>
 

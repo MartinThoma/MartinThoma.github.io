@@ -17,7 +17,7 @@
 <meta name="keywords" content="Python, Code, " />
 
 <meta property="og:title" content="How I moved a library from Python 2 to 3 "/>
-<meta property="og:url" content="https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1" />
+<meta property="og:url" content="python-2to3-library/" />
 <meta property="og:description" content="Image by skylarvision from needpix.com Last year, I gave a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1">How I moved a library from Python 2 to 3</a></h1>
+    <h1><a href="../python-2to3-library/">How I moved a library from Python 2 to 3</a></h1>
     <p class="meta">
 <time datetime="2020-08-20T20:00:00+02:00">Aug 20, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -98,7 +98,7 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p><img alt="Image by skylarvision from needpix.com" src="https://cdn-images-1.medium.com/max/2560/1*uvS55XJ3-uUny7j1cgye6g.jpeg"/><em>Image by <a href="https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures">skylarvision from needpix.com</a></em></p>
+    <p><img alt="Image by skylarvision from needpix.com" src="../images/2020/08/python-2to3-library-1.jpg"/><em>Image by <a href="https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures">skylarvision from needpix.com</a></em></p>
 <p>Last year, I gave a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting, and I&rsquo;ll share here how I did it &mdash; or rather how I would do it if I had the same situation again.</p>
 <h2 id="local-setup">Local Setup</h2>
 <p>Make sure you can execute Python 2 and Python 3 locally. I like <a href="https://github.com/pyenv/pyenv">pyenv</a> for that:</p>
@@ -111,7 +111,7 @@ $<span class="w"> </span>pip<span class="w"> </span>--version
 <h2 id="general-project-setup">General project setup</h2>
 <p>The project should be under <strong>version control</strong>, and you need to make sure that people can move back if they need to. You need to <strong>pin direct and transitive dependencies</strong>. You should have a <strong>reproducible environment</strong>, such as a <a href="https://makeitnew.io/docker-ab1a6bddf389">Docker container</a> with a fixed Python version like 2.7.18-slim-buster. Add a <strong>git tag</strong> for the current version, deploy the latest one to PyPI, and support your users in pinning that version.</p>
 <p>Make sure that you document the current state of the migration to Python 3. Typically this is done via an issue tracker, e.g. the built-in one of GitHub or Jira.</p>
-<p>First, make sure that you can execute the tests, that the test coverage is OK (see <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">unit testing series</a>), and that the general style is OK (see <a href="../static-code-analysis/">static code analysis</a>). Set up a <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI / CD pipeline</a>.</p>
+<p>First, make sure that you can execute the tests, that the test coverage is OK (see <a href="../unit-testing-basics/">unit testing series</a>), and that the general style is OK (see <a href="../static-code-analysis/">static code analysis</a>). Set up a <a href="../ci-pipelines/">CI / CD pipeline</a>.</p>
 <h2 id="print-statements">Print statements</h2>
 <p>In Python 2, you could write print statements:</p>
 <div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="s2">"hello world"</span>
@@ -243,7 +243,7 @@ It should work on every machine with every Python version.</p>
 <p>You should always distribute your code in the form of a source distribution and a
 wheel distribution. If you can, try to create and publish one universal wheel.</p>
 <h2 id="create-a-version-support-policy">Create a version support policy</h2>
-<p><img alt="Photo by Sebastian Herrmann on Unsplash" src="https://cdn-images-1.medium.com/max/10162/0*npT3ah8HnHtz1Mq-"/><em>Photo by <a href="https://unsplash.com/@officestock?utm_source=medium&amp;utm_medium=referral">Sebastian Herrmann</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Sebastian Herrmann on Unsplash" src="../images/2020/08/python-2to3-library-2.jpg"/><em>Photo by <a href="https://unsplash.com/@officestock">Sebastian Herrmann</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Library creators need to decide which Python versions they want to support.
 Newer versions of Python have killer features you want to have and supporting
 all versions takes a lot of time. Make it transparent which versions you want
@@ -251,14 +251,14 @@ to support and when you want to drop the support. It&rsquo;s best to link this t
 bigger projects, e.g. the last 3 major Python versions.</p>
 <p>You should also know that the Python release cycle was changed in <a href="https://www.python.org/dev/peps/pep-0602/">PEP-602</a>.</p>
 <h2 id="remove-python-2-compatibility">Remove Python 2 Compatibility</h2>
-<p><img alt="Photo by JESHOOTS.COM on Unsplash" src="https://cdn-images-1.medium.com/max/8400/0*TnzggyB55C5IxhvW"/><em>Photo by <a href="https://unsplash.com/@jeshoots?utm_source=medium&amp;utm_medium=referral">JESHOOTS.COM</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by JESHOOTS.COM on Unsplash" src="../images/2020/08/python-2to3-library-3.jpg"/><em>Photo by <a href="https://unsplash.com/@jeshoots">JESHOOTS.COM</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>Supporting Python 2 means you need to add additional code and likely that you
 cannot use some of the killer features of newer Python versions.</p>
 <p>When you remove the support for a Python version, do it in one git commit so that the change is clear. Search for that string:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>grep<span class="w"> </span>-rnI<span class="w"> </span><span class="s2">"support for Python 2"</span>
 </code></pre></div>
 <h2 id="use-the-new-stuff">Use the new stuff!</h2>
-<p>Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: <a href="https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8">Killer Features by Python Version</a></p>
+<p>Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: <a href="../python-killer-features/">Killer Features by Python Version</a></p>
 <p><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> can help you to use new-style syntax, such as:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># -&gt; {a: b for a, b in y}</span>
 <span class="s2">"</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># -&gt; '{} {}'.format(a, b)</span>
@@ -266,7 +266,7 @@ cannot use some of the killer features of newer Python versions.</p>
 <p>It&rsquo;s not strictly necessary to do this, but it makes your code more modern and easier to read.</p>
 <h2 id="forking-the-project">Forking the project</h2>
 <p>I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers&rsquo; support. You can simply create a so-called <em>fork</em>: A copy of the original project which you control.</p>
-<p><img alt="SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png"/><em>SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma</em></p>
+<p><img alt="SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma" src="../images/2020/08/python-2to3-library-4.png"/><em>SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma</em></p>
 <p>Forking happens all the time with free software. It&rsquo;s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (GitHub calls this a pull request, PR).</p>
 <p>You can also upload your fork to PyPI, but please only do this if you want to maintain that fork and continue the independent development.</p>
 <h2 id="metaclasses">Metaclasses</h2>

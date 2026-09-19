@@ -17,7 +17,7 @@
 <meta name="keywords" content="Python, Unit Testing, pytest, Code, " />
 
 <meta property="og:title" content="Unit Testing in Python — The Basics "/>
-<meta property="og:url" content="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0" />
+<meta property="og:url" content="unit-testing-basics/" />
 <meta property="og:description" content="Unit testing is the number one skill which separates people who just finished their degrees from people with practical experience. Especially for Python, that’s a shame as it is trivial to learn this skill. In this article, you will learn how to write and run unit tests in Python …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">Unit Testing in Python — The Basics</a></h1>
+    <h1><a href="../unit-testing-basics/">Unit Testing in Python — The Basics</a></h1>
     <p class="meta">
 <time datetime="2020-06-29T20:00:00+02:00">Jun 29, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -93,7 +93,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#the-most-basic-unit-test" title="The most basic Unit Test">The most basic Unit Test</a></li><li><a class="toc-href" href="#vocabulary" title="Vocabulary">Vocabulary</a></li><li><a class="toc-href" href="#why-do-we-test-at-all" title="Why do we test at all?">Why do we test at all?</a></li><li><a class="toc-href" href="#test-coverage" title="Test Coverage">Test Coverage</a></li><li><a class="toc-href" href="#good-tests" title="Good Tests">Good Tests</a></li><li><a class="toc-href" href="#type-checking" title="Type Checking">Type Checking</a></li><li><a class="toc-href" href="#linting" title="Linting">Linting</a></li><li><a class="toc-href" href="#doctests" title="Doctests">Doctests</a></li><li><a class="toc-href" href="#test-execution-speed" title="Test Execution Speed">Test Execution Speed</a></li><li><a class="toc-href" href="#alternatives-unittest-and-nose" title="Alternatives: unittest and nose">Alternatives: unittest and nose</a></li><li><a class="toc-href" href="#more-testing-topics" title="More Testing Topics">More Testing Topics</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-most-basic-unit-test" title="The most basic Unit Test">The most basic Unit Test</a></li><li><a class="toc-href" href="#vocabulary" title="Vocabulary">Vocabulary</a></li><li><a class="toc-href" href="#why-do-we-test-at-all" title="Why do we test at all?">Why do we test at all?</a></li><li><a class="toc-href" href="#test-coverage" title="Test Coverage">Test Coverage</a></li><li><a class="toc-href" href="#good-tests" title="Good Tests">Good Tests</a></li><li><a class="toc-href" href="#type-checking" title="Type Checking">Type Checking</a></li><li><a class="toc-href" href="#linting" title="Linting">Linting</a></li><li><a class="toc-href" href="#doctests" title="Doctests">Doctests</a></li><li><a class="toc-href" href="#test-execution-speed" title="Test Execution Speed">Test Execution Speed</a></li><li><a class="toc-href" href="#alternatives-unittest-and-nose" title="Alternatives: unittest and nose">Alternatives: unittest and nose</a></li><li><a class="toc-href" href="#more-testing-topics" title="More Testing Topics">More Testing Topics</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -222,7 +222,7 @@ FAILED<span class="w"> </span>test_math_functions.py::test_fib_3<span class="w">
 <p>In contrast, an <em>unhappy</em> execution path is dealing with unwanted inputs. This is also called <a href="https://en.wikipedia.org/wiki/Negative_testing">negative testing</a>. You check if you actually throw an error. Not throwing an error and silently failing is bad as it hides bugs.</p>
 <p><em>Property testing</em> is pretty cool. There you don&rsquo;t test for single values, but you check if a property is still held. For example, the output of a factorization function can be multiplied and should equal the input.</p>
 <h2 id="type-checking">Type Checking</h2>
-<p>If you use <a href="https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d">type annotations</a> (which you totally should!), then you can install <a href="https://pypi.org/project/pytest-mypy/">pytest-mypy</a>. You can then automatically run mypy over your code by adding <code>--mypy</code> to your pytest command.</p>
+<p>If you use <a href="../type-annotations/">type annotations</a> (which you totally should!), then you can install <a href="https://pypi.org/project/pytest-mypy/">pytest-mypy</a>. You can then automatically run mypy over your code by adding <code>--mypy</code> to your pytest command.</p>
 <h2 id="linting">Linting</h2>
 <p><a href="https://en.wikipedia.org/wiki/Lint_(software)">Code linting</a> is the act of finding bugs, stylistic errors, and suspicious constructs from static code analysis.</p>
 <p>There are two linters I can recommend: <a href="https://github.com/psf/black">black</a> and <a href="https://flake8.pycqa.org/en/latest/">flake8</a>. You can run them with pytest by installing <a href="https://pypi.org/project/pytest-black/">pytest-black</a> and <a href="https://pypi.org/project/pytest-flake8/">pytest-flake8</a>. Again, if you want to execute them, just add the flag <code>--black</code> or <code>--flake8</code> to pytest:</p>
@@ -276,6 +276,20 @@ FAILED<span class="w"> </span>test_math_functions.py::test_fib_3<span class="w">
 <li>Mutation Testing</li>
 </ul>
 <p>Let me know if you&rsquo;re interested in other topics around testing with Python.</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about unit testing in Python:</p>
+<ul>
+<li>Part 1: <strong>The basics of Unit Testing in Python</strong></li>
+<li>Part 2: <a href="../unit-testing-patching/">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <a href="../test-flask-applications/">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="../tox-and-nox/">tox and nox</a></li>
+<li>Part 5: <a href="../unit-testing-structure/">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="../ci-pipelines/">CI-Pipelines</a></li>
+<li>Part 7: <a href="../property-based-testing/">Property-based Testing</a></li>
+<li>Part 8: <a href="../mutation-testing/">Mutation Testing</a></li>
+<li>Part 9: <a href="../static-code-analysis/">Static Code Analysis: Linters, Type Checking, and Code Complexity</a></li>
+</ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de</p>
     
 </div>
 

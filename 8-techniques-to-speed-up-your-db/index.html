@@ -17,7 +17,7 @@
 <meta name="keywords" content="Database, Code, " />
 
 <meta property="og:title" content="8 Techniques To Speed up Your Database  - “If everything seems under control, you’re not going fast enough” "/>
-<meta property="og:url" content="https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739" />
+<meta property="og:url" content="8-techniques-to-speed-up-your-db/" />
 <meta property="og:description" content="Photo by Christina Morillo (original). Thank you! Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739">8 Techniques To Speed up Your Database <small>“If everything seems under control, you’re not going fast enough”</small></a></h1>
+    <h1><a href="../8-techniques-to-speed-up-your-db/">8 Techniques To Speed up Your Database <small>“If everything seems under control, you’re not going fast enough”</small></a></h1>
     <p class="meta">
 <time datetime="2021-04-01T20:00:00+02:00">Apr 1, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -98,7 +98,7 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <p><img alt="Photo by Christina Morillo (original). Thank you!" src="https://cdn-images-1.medium.com/max/10000/1*28TMGhQwjgRqkBU7mXcZcw.jpeg"/><em>Photo by Christina Morillo (<a href="https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/">original</a>). Thank you!</em></p>
+    <p><img alt="Photo by Christina Morillo (original). Thank you!" src="../images/2021/04/8-techniques-to-speed-up-your-db-1.jpg"/><em>Photo by Christina Morillo (<a href="https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/">original</a>). Thank you!</em></p>
 <p>Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can forget about them. They just handle the data persistence for you&hellip; until they get slow.</p>
 <p>In this article, you will learn the difference between vertical and horizontal partitioning, sharding, replication, and a few other ways to speed up your database. Let&rsquo;s go!</p>
 <h2 id="what-do-we-care-about">What Do We Care About?</h2>
@@ -128,7 +128,7 @@ MathJax.Hub.Queue(function() {
 <a href="https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/"><strong>Query optimization techniques in SQL Server: tips and tricks</strong>
 <em>June 19, 2018 by Fixing bad queries and resolving performance problems can involve hours (or days) of research and&hellip;</em>www.sqlshack.com</a></p>
 <p>One tool to mention is <a href="https://github.com/jarulraj/sqlcheck">sqlcheck</a> (<a href="https://www.youtube.com/watch?v=5vHhuuPy3FI">video</a>). It checks for common SQL query antipatterns like having multiple values in one column instead of using an intersection table or wildcard selects.</p>
-<p>A slightly different sub-category of the query optimization topic is <a href="https://levelup.gitconnected.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8">the n+1 problem</a> / writing a loop to send multiple queries instead of having one query for the data.</p>
+<p>A slightly different sub-category of the query optimization topic is <a href="../raw-sql-vs-query-builder-vs-orm/">the n+1 problem</a> / writing a loop to send multiple queries instead of having one query for the data.</p>
 <h2 id="3-business-changes-and-partitioning">3. Business Changes and Partitioning</h2>
 <p>When you&rsquo;re growing a business, you want to please your clients. If they ask for a small new feature, you try to include it. This can lead to feature-creep. The UNIX philosophy indicates that this was a problem already quite a while ago:</p>
 <blockquote>
@@ -136,14 +136,14 @@ MathJax.Hub.Queue(function() {
 </blockquote>
 <p>Similarly, it might be OK to split your web service's data by user groups. Maybe it makes sense to split them into regions? I&rsquo;ve seen that at <a href="https://aws.amazon.com/">AWS</a> and <a href="https://www.securecodewarrior.com/">Secure Code Warrior</a>. Maybe you can split it into &ldquo;Private clients,&rdquo; &ldquo;Small business clients,&rdquo; or &ldquo;Large Business clients&rdquo;? Maybe one part of the application can actually be its own service with its own database?</p>
 <h2 id="4-replication">4. Replication</h2>
-<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*7uNbgHaB-3dSFOfMToqpig.png"/><em>Image by Martin Thoma</em></p>
+<p><img alt="Image by Martin Thoma" src="../images/2021/04/8-techniques-to-speed-up-your-db-2.png"/><em>Image by Martin Thoma</em></p>
 <p>Replication is an easy solution if reads are your problem and if a bit of time-delay of updates is not a big deal. Replication continuously copies the database to another machine. It speeds up reads and acts as a failover mechanism.</p>
 <p>The idea is to have one primary server and multiple replication servers, which were formerly known under other names. The primary server handles any changes of data, while the replication servers just duplicate the primary server. There are <a href="https://mariadb.com/kb/en/replication-overview/#common-replication-setups">other topologies</a>, e.g., a ring or a star setup.</p>
 <p>See also: <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-solutions-switch.html">MySQL docs</a>, <a href="https://www.postgresql.org/docs/9.2/runtime-config-replication.html">PostgreSQL docs</a>, <a href="https://docs.microsoft.com/en-US/sql/relational-databases/replication/sql-server-replication?view=sql-server-ver15">MSSQL docs</a></p>
 <h2 id="5-horizontal-partitioning">5. Horizontal Partitioning</h2>
 <p>Given a huge table, we could store some rows on one machine and others on another machine. The idea to split the data by row is called <em>horizontal partitioning</em>.</p>
 <p>An image explains more than many words:</p>
-<p><img alt="Conceptual example for horizontal partitioning. Image by Martin Thoma." src="https://cdn-images-1.medium.com/max/5166/1*silDKsFQO0fkjPUV2Vr4Cg.png"/><em>Conceptual example for horizontal partitioning. Image by Martin Thoma.</em></p>
+<p><img alt="Conceptual example for horizontal partitioning. Image by Martin Thoma." src="../images/2021/04/8-techniques-to-speed-up-your-db-3.png"/><em>Conceptual example for horizontal partitioning. Image by Martin Thoma.</em></p>
 <p>Partitioning simply by id works like this in <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-range.html">MySQL</a> / <a href="https://mariadb.com/kb/en/range-partitioning-type">MariaDB</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
 <span class="w">    </span><span class="n">shopping_carts</span>
@@ -157,12 +157,12 @@ MathJax.Hub.Queue(function() {
 <p>You want the user of the database system to still be able to query the database with the typical queries, perhaps using the following:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">shopping_carts</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 </code></pre></div>
-<p>One important thing to note here: Horizontal partitioning is completely unrelated to <a href="https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925">scaling horizontally</a>!</p>
+<p>One important thing to note here: Horizontal partitioning is completely unrelated to <a href="../scaling-horizontally-vs-vertically/">scaling horizontally</a>!</p>
 <h2 id="6-vertical-partitioning">6. Vertical Partitioning</h2>
 <p>Instead of dividing the big database based on rows, we can divide it by columns. This might give you an uneasy feeling because you&rsquo;ve learned at university that normalizing a database is a good idea. The important thing to notice here is that we are talking about different stages in the database design. The <a href="https://en.wikipedia.org/wiki/Database_normalization">various database normal forms</a> are related to the logical design. At this stage, we take care of the physical design.</p>
 <p>Different parts of the application might not need most columns of a row. For this reason, it can be OK to split them away. Hence <em>vertical partitioning</em> is also called <em>row splitting</em>.</p>
 <p>One commonly done practice is to split metadata from the content. Here&rsquo;s an image:</p>
-<p><img alt="Image by Martin Thoma" src="https://cdn-images-1.medium.com/max/2646/1*f6PVSSxrlrr0P_v9FG3OqQ.png"/><em>Image by Martin Thoma</em></p>
+<p><img alt="Image by Martin Thoma" src="../images/2021/04/8-techniques-to-speed-up-your-db-4.png"/><em>Image by Martin Thoma</em></p>
 <p>One important thing to note here: Vertical partitioning is completely unrelated to scaling vertically!</p>
 <p>Vertical partitioning can be useful when it helps you avoid privacy or regulatory issues. Think of credit card information. That could logically fit well with other information, but most of the application does not need it. You might even put it in a completely different database and hide it behind a private microservice.</p>
 <h2 id="7-sharding-taking-partitioning-to-the-next-level">7. Sharding &mdash; Taking Partitioning To the Next Level</h2>
@@ -186,7 +186,7 @@ MathJax.Hub.Queue(function() {
 <p>If you have some heavy queries which act on data that rarely changes, you could try to cache the query. I&rsquo;m uncertain what databases offer by default, but you could simply put a Key-Value Store in place for that query. Instead of sending your query to the database directly, you send it to a microservice that looks for it in the Key-Value store. If it&rsquo;s not there or it&rsquo;s invalid, it queries the real database.</p>
 <p>The drawback is that you don&rsquo;t know if the data you get is the most recent one.</p>
 <h2 id="lets-summarize">Let&rsquo;s Summarize!</h2>
-<p><img alt="Summary of the eight database speed-up techniques" src="https://cdn-images-1.medium.com/max/3678/1*MirP_rcEMVxBigZnLwciLA.png"/></p>
+<p><img alt="Summary of the eight database speed-up techniques" src="../images/2021/04/8-techniques-to-speed-up-your-db-5.png"/></p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
 <p>Some topics are crucial for development, but not part of day-to-day work or computer science curriculum. In our professional software development series, you can learn about more topics.</p>
 <p>I am thinking about adding articles of this kind, so please let me know what you&rsquo;re interested in:</p>

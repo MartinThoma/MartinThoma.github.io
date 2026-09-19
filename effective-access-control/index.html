@@ -17,7 +17,7 @@
 <meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, OWASP, Security, " />
 
 <meta property="og:title" content="Effective Access Control 😇 "/>
-<meta property="og:url" content="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff" />
+<meta property="og:url" content="effective-access-control/" />
 <meta property="og:description" content="Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated. In this article, I focus on web services. Access to …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Effective Access Control 😇</a></h1>
+    <h1><a href="../effective-access-control/">Effective Access Control 😇</a></h1>
     <p class="meta">
 <time datetime="2020-12-23T20:00:00+01:00">Dez 23, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -93,7 +93,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#how-can-access-control-be-broken" title="How can access control be broken?">How can access control be broken?</a><ul><li><a class="toc-href" href="#hiding-a-system-isnt-secure" title="Hiding a system isn&rsquo;t secure">Hiding a system isn&rsquo;t secure</a></li><li><a class="toc-href" href="#forgetting-to-apply-access-control" title="Forgetting to apply access control">Forgetting to apply access control</a></li><li><a class="toc-href" href="#client-side-access-control" title="Client-side access control">Client-side access control</a></li><li><a class="toc-href" href="#trusting-the-client" title="Trusting the client">Trusting the client</a></li><li><a class="toc-href" href="#missing-expiration-date" title="Missing Expiration Date">Missing Expiration Date</a></li><li><a class="toc-href" href="#broken-authentication-control" title="Broken Authentication Control">Broken Authentication Control</a></li></ul></li><li><a class="toc-href" href="#access-control-policies_1" title="Access Control Policies">Access Control Policies</a><ul><li><a class="toc-href" href="#discretionary-access-control-dac" title="Discretionary Access Control (DAC)">Discretionary Access Control (DAC)</a></li><li><a class="toc-href" href="#mandatory-access-control-mac" title="Mandatory Access Control (MAC)">Mandatory Access Control (MAC)</a></li><li><a class="toc-href" href="#role-based-access-control-rbac" title="Role-based Access Control (RBAC)">Role-based Access Control (RBAC)</a></li><li><a class="toc-href" href="#attribute-based-access-control-abac" title="Attribute-based Access Control (ABAC)">Attribute-based Access Control (ABAC)</a></li><li><a class="toc-href" href="#why-rbacabac-with-decorators-is-great" title="Why RBAC/ABAC with Decorators is great">Why RBAC/ABAC with Decorators is great</a></li></ul></li><li><a class="toc-href" href="#tricks-to-make-access-control-effective_1" title="Tricks to make Access Control Effective">Tricks to make Access Control Effective</a></li><li><a class="toc-href" href="#credits" title="Credits">Credits</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#how-can-access-control-be-broken" title="How can access control be broken?">How can access control be broken?</a><ul><li><a class="toc-href" href="#hiding-a-system-isnt-secure" title="Hiding a system isn&rsquo;t secure">Hiding a system isn&rsquo;t secure</a></li><li><a class="toc-href" href="#forgetting-to-apply-access-control" title="Forgetting to apply access control">Forgetting to apply access control</a></li><li><a class="toc-href" href="#client-side-access-control" title="Client-side access control">Client-side access control</a></li><li><a class="toc-href" href="#trusting-the-client" title="Trusting the client">Trusting the client</a></li><li><a class="toc-href" href="#missing-expiration-date" title="Missing Expiration Date">Missing Expiration Date</a></li><li><a class="toc-href" href="#broken-authentication-control" title="Broken Authentication Control">Broken Authentication Control</a></li></ul></li><li><a class="toc-href" href="#access-control-policies_1" title="Access Control Policies">Access Control Policies</a><ul><li><a class="toc-href" href="#discretionary-access-control-dac" title="Discretionary Access Control (DAC)">Discretionary Access Control (DAC)</a></li><li><a class="toc-href" href="#mandatory-access-control-mac" title="Mandatory Access Control (MAC)">Mandatory Access Control (MAC)</a></li><li><a class="toc-href" href="#role-based-access-control-rbac" title="Role-based Access Control (RBAC)">Role-based Access Control (RBAC)</a></li><li><a class="toc-href" href="#attribute-based-access-control-abac" title="Attribute-based Access Control (ABAC)">Attribute-based Access Control (ABAC)</a></li><li><a class="toc-href" href="#why-rbacabac-with-decorators-is-great" title="Why RBAC/ABAC with Decorators is great">Why RBAC/ABAC with Decorators is great</a></li></ul></li><li><a class="toc-href" href="#tricks-to-make-access-control-effective_1" title="Tricks to make Access Control Effective">Tricks to make Access Control Effective</a></li><li><a class="toc-href" href="#credits" title="Credits">Credits</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -137,7 +137,7 @@ could be that you need to add code to every route which is not public. This
 makes it easy to forget. And it's easy to miss in a code review that it was
 forgotten, even if everybody agrees that the route needs access control.</p>
 <h3 id="client-side-access-control">Client-side access control</h3>
-<p><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." src="https://cdn-images-1.medium.com/max/2400/1*vtfvTaqe3QLcjA2v0Mh0vQ.png"/><em>Age verification for adult content is a typical example of client-side access control. Image by the author.</em></p>
+<p><img alt="Age verification for adult content is a typical example of client-side access control. Image by the author." src="../images/2020/12/effective-access-control-1.png"/><em>Age verification for adult content is a typical example of client-side access control. Image by the author.</em></p>
 <p>I haven&rsquo;t seen client-side access control in a long time, but please don&rsquo;t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.</p>
 <h3 id="trusting-the-client">Trusting the client</h3>
 <p>Authentication typically means that the user needs to enter a username/email
@@ -184,7 +184,7 @@ And it was. Until the contained information changed.</p>
 It&rsquo;s not really broken access control but has the same effect. I&rsquo;ll write a
 couple of articles about authentication:</p>
 <ul>
-<li><a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
+<li><a href="../password-hashing/">Password Hashing</a> 😇</li>
 <li>Multi-factor authentication &mdash; yet to be written!</li>
 <li>Single sign-on &mdash; it&rsquo;s on my list, buddy 🤞</li>
 <li>OAuth and OpenID &mdash; you guessed it&hellip; it&rsquo;s on the way 😅</li>
@@ -224,7 +224,7 @@ has. RBAC is used by all content management systems (CMS) I know. Famous
 examples are Wikipedia, Reddit, and Stack Exchange.</p>
 <p>To apply RBAC, you need a role table (could also be called <code>group</code>) and a table
 that connects users with groups:</p>
-<p><img alt="Image by author" src="https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png"/><em>Image by author</em></p>
+<p><img alt="Image by author" src="../images/2020/12/effective-access-control-2.png"/><em>Image by author</em></p>
 <p>Then you need to get all roles a user has:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">role_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">role_user</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="k">current_user</span>
 </code></pre></div>
@@ -328,7 +328,7 @@ can be context-dependent.</p>
     <span class="n">auction</span> <span class="o">=</span> <span class="n">Auction</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Auction</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="tricks-to-make-access-control-effective_1">Tricks to make Access Control Effective</h2>
-<p><img alt="Photo by Jaimie Harmsen on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*qLPyfhzI9rq7ObkR"/><em>Photo by <a href="https://unsplash.com/@jaimie_96?utm_source=medium&amp;utm_medium=referral">Jaimie Harmsen</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p><img alt="Photo by Jaimie Harmsen on Unsplash" src="../images/2020/12/effective-access-control-3.jpg"/><em>Photo by <a href="https://unsplash.com/@jaimie_96">Jaimie Harmsen</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
 <p>The case of creating web services is certainly most interesting to most
 readers, so let&rsquo;s focus on that. Access control is enforced in the backend and
 hence typically on the API level. It&rsquo;s most of the time about which users can
@@ -379,34 +379,43 @@ our objects are the combination (route, parameter).</p>
 <h2 id="credits">Credits</h2>
 <p>Steven Gordon summarized parts of the terminology really well:</p>
 <p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" width="560"></iframe></center></p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
+<h2 id="more-in-this-series">More in this series</h2>
 <p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
 <ul>
-<li>Part 1: <a href="https://medium.com/faun/sql-injections-e8bc9a14c95">SQL Injections</a> 😈</li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/leaking-secrets-240a3484cb80">Don&rsquo;t leak Secrets</a> 😇</li>
-<li>Part 3: <a href="https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f">Cross-Site Scripting (XSS)</a> 😈</li>
-<li>Part 4: <a href="https://levelup.gitconnected.com/password-hashing-eb3b97684636">Password Hashing</a> 😇</li>
-<li>Part 5: <a href="https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112">ZIP Bombs</a> 😈</li>
-<li>Part 6: <a href="https://medium.com/plain-and-simple/captcha-500991bd90a3">CAPTCHA</a> 😇</li>
-<li>Part 7: <a href="https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf">Email Spoofing</a> 😈</li>
-<li>Part 8: <a href="https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e">Software Composition Analysis</a> (SCA) 😇</li>
-<li>Part 9: <a href="https://medium.com/faun/xxe-attacks-750e91448e8f">XXE attacks</a> 😈</li>
-<li>Part 10: <a href="https://levelup.gitconnected.com/effective-access-control-331f883cb0ff">Effective Access Control</a> 😇</li>
-<li>Part 11: <a href="https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139">DOS via a Billion Laughs</a> 😈</li>
-<li>Part 12: <a href="https://medium.com/faun/full-disk-encryption-2090489f9760">Full Disk Encryption</a> 😇</li>
-<li>Part 13: <a href="https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e">Insecure Deserialization</a> 😈</li>
-<li>Part 14: <a href="https://levelup.gitconnected.com/docker-security-5f4df118948c">Docker Security</a> 😇</li>
+<li>Part 1: <a href="../sql-injections/">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="../leaking-secrets/">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="../xss/">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <a href="../password-hashing/">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="../zip-bombs/">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="../captcha/">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="../email-spoofing/">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
+<li>Part 10: <strong>Effective Access Control</strong> 😇</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
+<li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
+<li>Part 15: <a href="../credential-stuffing/">Credential Stuffing</a> 😈🐝</li>
+<li>Part 16: <a href="../multi-factor-authentication/">Multi-Factor Authentication</a> (MFA/2FA) 😇</li>
+<li>Part 17: <a href="../redos/">ReDoS</a> 😈</li>
 </ul>
-<p>And this is about to come:</p>
+<p>The following articles are about to come:</p>
 <ul>
-<li>CSRF 😈</li>
-<li>DOS 😈</li>
-<li>ReDoS 😈</li>
-<li>Credential Stuffing 😈</li>
-<li>Cryptojacking 😈</li>
-<li>Single-Sign-On 😇</li>
-<li>Two-Factor Authentication 😇</li>
-<li>Backups 😇</li>
+<li>Part 18: Secure Messaging 😇</li>
+<li>Part 19: Cryptojacking 😈</li>
+<li>Part 20: Backups 😇</li>
+<li>Part 21: Cryptotrojans 😈</li>
+<li>Part 22: Single-Sign-On 😇</li>
+<li>Part 23: Clipboard Hijacking 😈</li>
+<li>Part 24: Certificates 😇</li>
+<li>Part 25: Race Condition Attacks in Blockchains 😈</li>
+<li>Part 26: Mobile Device Management (MDM) 😇</li>
+<li>Part 27: Server-Side Request Forgery (SSRF) 😈</li>
+<li>Part 28: Network Separation 😇</li>
+<li>Part 29: Social Engineering (including Phishing) 😈</li>
+<li>Part 30: Virtual Private Networks (VPNs) 😇</li>
+<li>Part 31: CSRF 😈</li>
 </ul>
 <p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
     
@@ -421,19 +430,19 @@ our objects are the combination (route, parameter).</p>
         <h4>Tags</h4>
         <ul class="list-of-tags tags-in-article">
             <li><a href="../tags/#appsec-ref">AppSec
-                <span>14</span>
+                <span>15</span>
 </a></li>
             <li><a href="../tags/#cybersecurity-ref">Cybersecurity
-                <span>14</span>
+                <span>16</span>
 </a></li>
             <li><a href="../tags/#infosec-ref">InfoSec
-                <span>11</span>
+                <span>12</span>
 </a></li>
             <li><a href="../tags/#owasp-ref">OWASP
-                <span>1</span>
+                <span>2</span>
 </a></li>
             <li><a href="../tags/#security-ref">Security
-                <span>20</span>
+                <span>22</span>
 </a></li>
         </ul>
     </div>

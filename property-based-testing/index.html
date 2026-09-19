@@ -9,7 +9,7 @@
         <link title = "Martin Thoma"
               type  = "application/opensearchdescription+xml"
               rel   = "search"
-              href  = "../../../opensearch.xml">
+              href  = "../opensearch.xml">
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Python, Testing, Unit Testing, fuzzing, hypothesis, Code, " />
 
 <meta property="og:title" content="Property-based Testing "/>
-<meta property="og:url" content="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119/" />
+<meta property="og:url" content="property-based-testing/" />
 <meta property="og:description" content="When you write unit tests, it’s hard to find the right test cases. You want to be certain that you covered all the interesting cases, but you could simply not know or forget one of them. For example, if you unit test a function which receives an integer, you …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -30,11 +30,11 @@
         <title>Property-based Testing  · Martin Thoma
 </title>
         <meta name="color-scheme" content="light dark">
-        <link rel="preload" href="../../../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" type="text/css" href="../../../theme/tipuesearch/tipuesearch.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="../../../theme/css/thoma.css">
-        <link rel="stylesheet" type="text/css" href="../../../static/print.css" media="print">
-        <link rel="stylesheet" type="text/css" href="../../../static/custom.css" media="screen">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
         <!-- MathJax -->
 <script type="text/x-mathjax-config">
@@ -68,15 +68,15 @@ MathJax.Hub.Queue(function() {
         <a class="skip" href="#main">Skip to content</a>
         <header class="site-header no-print">
             <div class="wrap header-row">
-                <a class="brand" href="../../../"><span class="brand-dot" aria-hidden="true"></span>Martin Thoma</a>
+                <a class="brand" href="../"><span class="brand-dot" aria-hidden="true"></span>Martin Thoma</a>
                 <nav class="nav" aria-label="Main">
-                    <a href="../../../">Home</a>
-                    <a href="../../../categories/">Categories</a>
-                    <a href="../../../tags/">Tags</a>
-                    <a href="../../../archives/">Archives</a>
-                    <a href="../../../support-me/">Support me</a>
+                    <a href="../">Home</a>
+                    <a href="../categories/">Categories</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
                 </nav>
-                <form class="search" role="search" action="../../../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
                     <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
                 </form>
             </div>
@@ -85,15 +85,15 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119/">Property-based Testing</a></h1>
+    <h1><a href="../property-based-testing/">Property-based Testing</a></h1>
     <p class="meta">
-<time datetime="2020-08-02T20:00:00+02:00">Aug 2, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../../../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+<time datetime="2020-08-02T20:00:00+02:00">Aug 2, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
 </header>
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#example-integer-factorization" title="Example: Integer factorization">Example: Integer factorization</a></li><li><a class="toc-href" href="#what-did-hypothesis-generate" title="What did hypothesis generate?">What did hypothesis generate?</a></li><li><a class="toc-href" href="#where-can-i-apply-property-based-testing" title="Where can I apply property-based testing?">Where can I apply property-based testing?</a></li><li><a class="toc-href" href="#the-generate-to-test-pattern" title="The Generate to Test Pattern">The Generate to Test Pattern</a></li><li><a class="toc-href" href="#example-testing-data-structures" title="Example: Testing Data Structures">Example: Testing Data Structures</a></li><li><a class="toc-href" href="#string-verification" title="String Verification">String Verification</a></li><li><a class="toc-href" href="#invertible-functions" title="Invertible functions">Invertible functions</a></li><li><a class="toc-href" href="#oracles" title="Oracles">Oracles</a></li><li><a class="toc-href" href="#use-type-annotations" title="Use Type Annotations!">Use Type Annotations!</a></li><li><a class="toc-href" href="#the-name-of-the-game" title="The Name of the Game">The Name of the Game</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#want-to-know-more-about-unit-testing" title="Want to know more about unit testing?">Want to know more about unit testing?</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#example-integer-factorization" title="Example: Integer factorization">Example: Integer factorization</a></li><li><a class="toc-href" href="#what-did-hypothesis-generate" title="What did hypothesis generate?">What did hypothesis generate?</a></li><li><a class="toc-href" href="#where-can-i-apply-property-based-testing" title="Where can I apply property-based testing?">Where can I apply property-based testing?</a></li><li><a class="toc-href" href="#the-generate-to-test-pattern" title="The Generate to Test Pattern">The Generate to Test Pattern</a></li><li><a class="toc-href" href="#example-testing-data-structures" title="Example: Testing Data Structures">Example: Testing Data Structures</a></li><li><a class="toc-href" href="#string-verification" title="String Verification">String Verification</a></li><li><a class="toc-href" href="#invertible-functions" title="Invertible functions">Invertible functions</a></li><li><a class="toc-href" href="#oracles" title="Oracles">Oracles</a></li><li><a class="toc-href" href="#use-type-annotations" title="Use Type Annotations!">Use Type Annotations!</a></li><li><a class="toc-href" href="#the-name-of-the-game" title="The Name of the Game">The Name of the Game</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -188,7 +188,7 @@ how we design the function's behavior:</p>
     <span class="k">assert</span> <span class="n">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
 <p>If the test parametrization is unfamiliar, you might want to
-<a href="https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923">read up on pytest.mark.parametrize</a>.
+<a href="../unit-testing-structure/">read up on pytest.mark.parametrize</a>.
 It&rsquo;s awesome and those few lines run 8 tests:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2020/08/pytest-parametrize.png"><img alt="Running pytest" src="../images/2020/08/pytest-parametrize.png" style="width: 512px;"/></a>
@@ -332,7 +332,7 @@ algorithm against that easier to understand solution. The brute-force algorithm
 is the oracle.</p>
 <h2 id="use-type-annotations">Use Type Annotations!</h2>
 <p>I love type annotations 💓 If you&rsquo;re not using them, I highly recommend
-reading about <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations</a>
+reading about <a href="../type-annotations/">type annotations</a>
 and gradual typing.</p>
 <p>Type annotations are relevant for property-based testing as an annotated class
 can be used to generate random objects of that class. As a data scientist
@@ -407,47 +407,44 @@ example-based testing. It sometimes documents properties in a very concise form
 and helps to find unknown edge cases. It takes more time to execute
 property-based tests than to execute example-based tests. hypothesis is a good
 Python framework to write property-based tests.</p>
-<h2 id="want-to-know-more-about-unit-testing">Want to know more about unit testing?</h2>
-<p>In this series, we already had:</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about unit testing in Python:</p>
 <ul>
-<li>Part 1: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">The basics of Unit Testing in Python</a></li>
-<li>Part 2: <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">Patching, Mocks and Dependency Injection</a></li>
-<li>Part 3: <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
-<li>Part 4: <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">tox and nox</a></li>
-<li>Part 5: <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923">Structuring Unit Tests</a></li>
-<li>Part 6: <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI-Pipelines</a></li>
-<li>Part 7: <a href="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119">Property-based Testing</a></li>
+<li>Part 1: <a href="../unit-testing-basics/">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <a href="../unit-testing-patching/">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <a href="../test-flask-applications/">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="../tox-and-nox/">tox and nox</a></li>
+<li>Part 5: <a href="../unit-testing-structure/">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="../ci-pipelines/">CI-Pipelines</a></li>
+<li>Part 7: <strong>Property-based Testing</strong></li>
+<li>Part 8: <a href="../mutation-testing/">Mutation Testing</a></li>
+<li>Part 9: <a href="../static-code-analysis/">Static Code Analysis: Linters, Type Checking, and Code Complexity</a></li>
 </ul>
-<p>In future articles, I will present:</p>
-<ul>
-<li>Mutation Testing</li>
-<li>Static Code Analysis: Linters, Type Checking, and Code Complexity</li>
-</ul>
-<p>Let me know if you&rsquo;re interested in other topics around testing with Python.</p>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de</p>
     
 </div>
 
 <aside class="article-meta no-print">
     <div class="meta-group">
         <h4>Category</h4>
-        <a class="pill" href="../../../categories/#code-ref">Code</a>
+        <a class="pill" href="../categories/#code-ref">Code</a>
     </div>
     <div class="meta-group">
         <h4>Tags</h4>
         <ul class="list-of-tags tags-in-article">
-            <li><a href="../../../tags/#fuzzing-ref">fuzzing
+            <li><a href="../tags/#fuzzing-ref">fuzzing
                 <span>1</span>
 </a></li>
-            <li><a href="../../../tags/#hypothesis-ref">hypothesis
+            <li><a href="../tags/#hypothesis-ref">hypothesis
                 <span>2</span>
 </a></li>
-            <li><a href="../../../tags/#python-ref">Python
+            <li><a href="../tags/#python-ref">Python
                 <span>141</span>
 </a></li>
-            <li><a href="../../../tags/#testing-ref">Testing
+            <li><a href="../tags/#testing-ref">Testing
                 <span>3</span>
 </a></li>
-            <li><a href="../../../tags/#unit-testing-ref">Unit Testing
+            <li><a href="../tags/#unit-testing-ref">Unit Testing
                 <span>6</span>
 </a></li>
         </ul>

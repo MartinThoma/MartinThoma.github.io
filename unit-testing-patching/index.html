@@ -17,7 +17,7 @@
 <meta name="keywords" content="Python, Unit Testing, pytest, patching, Mock, dependency-injection, Code, " />
 
 <meta property="og:title" content="Unit Testing in Python — Patching, Mocks and Dependency Injection "/>
-<meta property="og:url" content="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed" />
+<meta property="og:url" content="unit-testing-patching/" />
 <meta property="og:description" content="Unit testing in general is trivial with Python and pytest, but a lot of developers get frustrated when they have to patch dependencies away to make code testable. In this article, you will learn how to patch and create mocks. If you want to refresh the basics of unit testing …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -85,7 +85,7 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">Unit Testing in Python — Patching, Mocks and Dependency Injection</a></h1>
+    <h1><a href="../unit-testing-patching/">Unit Testing in Python — Patching, Mocks and Dependency Injection</a></h1>
     <p class="meta">
 <time datetime="2020-07-09T17:00:00+02:00">Jul 9, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
@@ -93,7 +93,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#the-abstract-pattern-of-the-problem" title="The Abstract Pattern of the Problem">The Abstract Pattern of the Problem</a></li><li><a class="toc-href" href="#the-problem-simple-examples" title="The Problem &mdash; Simple Examples">The Problem &mdash; Simple Examples</a></li><li><a class="toc-href" href="#examples-of-external-dependencies" title="Examples of External Dependencies">Examples of External Dependencies</a></li><li><a class="toc-href" href="#the-solution-patching" title="The solution: Patching!">The solution: Patching!</a></li><li><a class="toc-href" href="#direct-replacement-dont-do-this" title="Direct replacement: Don&rsquo;t do this!">Direct replacement: Don&rsquo;t do this!</a></li><li><a class="toc-href" href="#mock-and-magicmock" title="Mock and MagicMock">Mock and MagicMock</a></li><li><a class="toc-href" href="#spec-autospec-spec_set" title="spec, autospec &amp; spec_set">spec, autospec &amp; spec_set</a></li><li><a class="toc-href" href="#pytests-monkeypatch" monkeypatch'="" s="" title="pytest">pytest's monkeypatch</a></li><li><a class="toc-href" href="#external-packages" title="External Packages">External Packages</a></li><li><a class="toc-href" href="#dependency-injection" title="Dependency Injection">Dependency Injection</a></li><li><a class="toc-href" href="#temporary-files-are-mocks-a-code-smell" title="Temporary files: Are Mocks a Code Smell?">Temporary files: Are Mocks a Code Smell?</a></li><li><a class="toc-href" href="#dependency-injection-randomness" title="Dependency Injection: Randomness">Dependency Injection: Randomness</a></li><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a></li><li><a class="toc-href" href="#a-note-about-architecture" title="A note about Architecture">A note about Architecture</a></li><li><a class="toc-href" href="#what-else-is-there" title="What else is there?">What else is there?</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next?">What&rsquo;s next?</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-abstract-pattern-of-the-problem" title="The Abstract Pattern of the Problem">The Abstract Pattern of the Problem</a></li><li><a class="toc-href" href="#the-problem-simple-examples" title="The Problem &mdash; Simple Examples">The Problem &mdash; Simple Examples</a></li><li><a class="toc-href" href="#examples-of-external-dependencies" title="Examples of External Dependencies">Examples of External Dependencies</a></li><li><a class="toc-href" href="#the-solution-patching" title="The solution: Patching!">The solution: Patching!</a></li><li><a class="toc-href" href="#direct-replacement-dont-do-this" title="Direct replacement: Don&rsquo;t do this!">Direct replacement: Don&rsquo;t do this!</a></li><li><a class="toc-href" href="#mock-and-magicmock" title="Mock and MagicMock">Mock and MagicMock</a></li><li><a class="toc-href" href="#spec-autospec-spec_set" title="spec, autospec &amp; spec_set">spec, autospec &amp; spec_set</a></li><li><a class="toc-href" href="#pytests-monkeypatch" monkeypatch'="" s="" title="pytest">pytest's monkeypatch</a></li><li><a class="toc-href" href="#external-packages" title="External Packages">External Packages</a></li><li><a class="toc-href" href="#dependency-injection" title="Dependency Injection">Dependency Injection</a></li><li><a class="toc-href" href="#temporary-files-are-mocks-a-code-smell" title="Temporary files: Are Mocks a Code Smell?">Temporary files: Are Mocks a Code Smell?</a></li><li><a class="toc-href" href="#dependency-injection-randomness" title="Dependency Injection: Randomness">Dependency Injection: Randomness</a></li><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a></li><li><a class="toc-href" href="#a-note-about-architecture" title="A note about Architecture">A note about Architecture</a></li><li><a class="toc-href" href="#what-else-is-there" title="What else is there?">What else is there?</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
 developers get frustrated when they have to patch dependencies away to make
 code testable. In this article, you will learn how to patch and create mocks.
 If you want to refresh the basics of unit testing in Python first, have a look
-at the first part of this series: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0#0e28">Unit Testing in Python &mdash; The Basics</a>.</p>
+at the first part of this series: <a href="../unit-testing-basics/">Unit Testing in Python &mdash; The Basics</a>.</p>
 <h2 id="the-abstract-pattern-of-the-problem">The Abstract Pattern of the Problem</h2>
 <p>A dependency of the function we want to test can have an effect in three different ways: By side-effects, return values or exceptions.</p>
 <p>Problem 1: A dependency's side effect</p>
@@ -421,18 +421,20 @@ pattern</a>.</p>
 </ul>
 <p>If you want to learn more about the default mocks, have a look at the awesome
 article by Yeray Diaz: <a href="https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832">What the mock? &mdash; A cheatsheet for mocking in Python</a>.</p>
-<h2 id="whats-next">What&rsquo;s next?</h2>
-<p>In part 1, you learned <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">the basics of Unit Testing in Python</a>. In this part, you learned how to patch dependencies to make code testable and what the standard mocks are.</p>
-<p>In future articles, I will present:</p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>This article is part of my series about unit testing in Python:</p>
 <ul>
-<li>How to test Flask applications with Databases</li>
-<li>How to structure Unit Tests</li>
-<li>tox and nox</li>
-<li>CI-Pipelines</li>
-<li>Test Automation</li>
-<li>Property-based Testing</li>
-<li>Mutation Testing</li>
+<li>Part 1: <a href="../unit-testing-basics/">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <strong>Patching, Mocks and Dependency Injection</strong></li>
+<li>Part 3: <a href="../test-flask-applications/">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="../tox-and-nox/">tox and nox</a></li>
+<li>Part 5: <a href="../unit-testing-structure/">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="../ci-pipelines/">CI-Pipelines</a></li>
+<li>Part 7: <a href="../property-based-testing/">Property-based Testing</a></li>
+<li>Part 8: <a href="../mutation-testing/">Mutation Testing</a></li>
+<li>Part 9: <a href="../static-code-analysis/">Static Code Analysis: Linters, Type Checking, and Code Complexity</a></li>
 </ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de</p>
     
 </div>
 

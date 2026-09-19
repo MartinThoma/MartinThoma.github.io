@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Software Development, Programming, Cybersecurity, OWASP, Security, Security, " />
+
+<meta property="og:title" content="Credential Stuffing 😈🐝 "/>
+<meta property="og:url" content="credential-stuffing/" />
+<meta property="og:description" content="Photo by Max van den Oetelaar on Unsplash Credential stuffing is a brute-force attack on a services’ user accounts. Not one specific account, but many. Typically by using credentials that were found in other hacks. As a user, you can see via haveibeenpawned.com if one of your accounts was …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2021-03-11T20:00:00+01:00" />
+<meta name="twitter:title" content="Credential Stuffing 😈🐝 ">
+<meta name="twitter:description" content="Photo by Max van den Oetelaar on Unsplash Credential stuffing is a brute-force attack on a services’ user accounts. Not one specific account, but many. Typically by using credentials that were found in other hacks. As a user, you can see via haveibeenpawned.com if one of your accounts was …">
+<meta property="og:image" content="logos/cybersecurity.png" />
+<meta name="twitter:image" content="logos/cybersecurity.png" >
+
+        <title>Credential Stuffing 😈🐝  · Martin Thoma
+</title>
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../"><span class="brand-dot" aria-hidden="true"></span>Martin Thoma</a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../categories/">Categories</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                </nav>
+                <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                    <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                </form>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="../credential-stuffing/">Credential Stuffing 😈🐝</a></h1>
+    <p class="meta">
+<time datetime="2021-03-11T20:00:00+01:00">Mär 11, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+</header>
+
+<details class="toc" open>
+    <summary>Contents</summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#why-you-should-care" title="Why you should care">Why you should care</a></li><li><a class="toc-href" href="#how-does-a-credential-stuffing-attack-work" title="How does a credential stuffing attack work?">How does a credential stuffing attack work?</a></li><li><a class="toc-href" href="#how-can-i-defend-against-a-credential-stuffing-attack" title="How can I defend against a credential stuffing attack?">How can I defend against a credential stuffing attack?</a></li><li><a class="toc-href" href="#more-in-this-series" title="More in this series">More in this series</a></li></ul></div>
+</details>
+
+<div class="article-content" id="contentAfterTitle">
+    
+    <p><img alt="Photo by Max van den Oetelaar on Unsplash" src="../images/2021/03/credential-stuffing-1.jpg"/><em>Photo by <a href="https://unsplash.com/@maxvdo">Max van den Oetelaar</a> on <a href="https://unsplash.com">Unsplash</a></em></p>
+<p>Credential stuffing is a brute-force attack on a services&rsquo; user accounts. Not one specific account, but many. Typically by using credentials that were found in other hacks. As a user, you can see via <a href="https://haveibeenpwned.com/">haveibeenpawned.com</a> if one of your accounts was compromised. Most likely, it was. Let&rsquo;s learn what you can do!</p>
+<h2 id="why-you-should-care">Why you should care</h2>
+<ul>
+<li>Credential Stuffing is part of &ldquo;Broken Authentication&rdquo; and thus #2 in the <strong>OWASP Top 10</strong> (<a href="https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication">source</a>)</li>
+<li>2020: $3.5 million in fraudulent check withdrawals with credential stuffing (<a href="https://www.zdnet.com/article/fbi-says-credential-stuffing-attacks-are-behind-some-recent-bank-hacks/">more details</a>)</li>
+<li>2020: About 500,000 Zoom users credentials were found with credential stuffing (<a href="https://www.forbes.com/sites/daveywinder/2020/04/28/zoom-gets-stuffed-heres-how-hackers-got-hold-of-500000-passwords/">source</a>)</li>
+<li>2020: &ldquo;Retail, travel, and hospitality industries attracted a startling 63% of credential stuffing attacks&rdquo; <a href="https://www.akamai.com/us/en/resources/our-thinking/state-of-the-internet-report/global-state-of-the-internet-security-ddos-attack-reports.jsp">according to Akamai.</a></li>
+<li>2021: AVM (FritzBox) registers a lot of credential stuffing attacks (<a href="https://t3n.de/news/avm-angriffe-router-fritzbox-1363050/">source</a>)</li>
+</ul>
+<h2 id="how-does-a-credential-stuffing-attack-work">How does a credential stuffing attack work?</h2>
+<ol>
+<li>The attacker gets a <strong>list of valid credentials</strong>, e.g. (username, password) for millions of people. <a href="https://haveibeenpwned.com/">There are many leaks</a>.</li>
+<li>The attacker <strong>tries them</strong> on big services (Gmail, Facebook, Twitter, Banks, Reddit, &hellip;)</li>
+</ol>
+<p>That&rsquo;s it. It&rsquo;s really trivial. Credential stuffing does not target you personally, but a lot of people at the same time. But that doesn&rsquo;t help you when your bank account is empty at the end of the day, does it?</p>
+<h2 id="how-can-i-defend-against-a-credential-stuffing-attack">How can I defend against a credential stuffing attack?</h2>
+<p>As a user, there are two perfect defense measures:</p>
+<ol>
+<li><strong>Strong Passwords</strong>: Good passwords might look different than you think. But <a href="https://medium.com/geekculture/what-is-a-secure-password-97263aeedea9">it&rsquo;s easy to generate memorizable strong passwords</a>.</li>
+<li><strong>Unique Passwords</strong>: Don&rsquo;t share passwords among services. Never.</li>
+</ol>
+<p>To fulfill both in a convenient way, you should use a password manager. A third point that helps is to use multi-factor authentication (MFA). Having at least a second factor (2FA) goes a long way. However, the attacker most likely learns which passwords are correct and can work on breaking the second factor, e.g. by SIM swapping.</p>
+<p>As a service provider, the defenses are not perfect and more complicated:</p>
+<ul>
+<li><strong>Rate Limiting</strong>: If a single IP makes too many invalid password attempts, slow that IP down. For example, ask them to <a href="../captcha/">solve a CAPTCHA</a> first. Or tell them that they are not allowed to log in for the next 30 seconds. Just be aware that this could also block valid users, e.g. at schools or other bigger open networks.</li>
+<li><strong>Web Application Firewalls (WAF)</strong>: Full disclaimer here: I don&rsquo;t have practical experience here. I&rsquo;ve heard about &ldquo;Proactive Bot Defense&rdquo; which might be interesting for other attack scenarios as well. However, it certainly also has the issues to detect all attacks (False-Negatives) and to block only attacks (False-Positives).</li>
+<li><strong>Two-factor authentication (2FA)</strong>: Forcing the user to use a second factor makes it a lot less likely that credential stuffing works, even if the user shared passwords with a vulnerable service and even when the password is weak.</li>
+<li><strong>Single-Sign-On (SSO)</strong>: Letting another service handle the authentication side-steps all of those hassles. One variant which is well-known is &ldquo;social login&rdquo;. That is simply SSO by big social websites like Facebook, Twitter, Github, or LinkedIn.</li>
+<li><strong>Check users' passwords for breaches</strong>: <a href="https://haveibeenpwned.com/Passwords">haveibeenpawned</a> allows you to check if credential combinations are in a breach.</li>
+</ul>
+<p>There are also some specific points to make the life of bot-developers harder, e.g. requiring JavaScript, blocking headless browsers, or blocking traffic from AWS. <a href="https://medium.com/u/a19804ea02f3">Jarrod Overson</a> has written a very nice article about this:</p>
+<p><a href="https://jsoverson.medium.com/10-tips-to-stop-credential-stuffing-attacks-db249cac6428"><strong>10 Tips To Stop Credential Stuffing Attacks</strong>
+<em>10 steps you should take before buying an anti-automation service (+ 1 bonus tip).</em>jsoverson.medium.com</a></p>
+<h2 id="more-in-this-series">More in this series</h2>
+<p>In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:</p>
+<ul>
+<li>Part 1: <a href="../sql-injections/">SQL Injections</a> 😈🐝</li>
+<li>Part 2: <a href="../leaking-secrets/">Don&rsquo;t leak Secrets</a> 😇</li>
+<li>Part 3: <a href="../xss/">Cross-Site Scripting (XSS)</a> 😈🐝</li>
+<li>Part 4: <a href="../password-hashing/">Password Hashing</a> 😇</li>
+<li>Part 5: <a href="../zip-bombs/">ZIP Bombs</a> 😈</li>
+<li>Part 6: <a href="../captcha/">CAPTCHA</a> 😇</li>
+<li>Part 7: <a href="../email-spoofing/">Email Spoofing</a> 😈</li>
+<li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
+<li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
+<li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
+<li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
+<li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
+<li>Part 15: <strong>Credential Stuffing</strong> 😈🐝</li>
+<li>Part 16: <a href="../multi-factor-authentication/">Multi-Factor Authentication</a> (MFA/2FA) 😇</li>
+<li>Part 17: <a href="../redos/">ReDoS</a> 😈</li>
+</ul>
+<p>The following articles are about to come:</p>
+<ul>
+<li>Part 18: Secure Messaging 😇</li>
+<li>Part 19: Cryptojacking 😈</li>
+<li>Part 20: Backups 😇</li>
+<li>Part 21: Cryptotrojans 😈</li>
+<li>Part 22: Single-Sign-On 😇</li>
+<li>Part 23: Clipboard Hijacking 😈</li>
+<li>Part 24: Certificates 😇</li>
+<li>Part 25: Race Condition Attacks in Blockchains 😈</li>
+<li>Part 26: Mobile Device Management (MDM) 😇</li>
+<li>Part 27: Server-Side Request Forgery (SSRF) 😈</li>
+<li>Part 28: Network Separation 😇</li>
+<li>Part 29: Social Engineering (including Phishing) 😈</li>
+<li>Part 30: Virtual Private Networks (VPNs) 😇</li>
+<li>Part 31: CSRF 😈</li>
+</ul>
+<p>Let me know if you are interested in more articles around AppSec / InfoSec!</p>
+    
+</div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#security-ref">Security</a>
+    </div>
+    <div class="meta-group">
+        <h4>Tags</h4>
+        <ul class="list-of-tags tags-in-article">
+            <li><a href="../tags/#cybersecurity-ref">Cybersecurity
+                <span>16</span>
+</a></li>
+            <li><a href="../tags/#owasp-ref">OWASP
+                <span>2</span>
+</a></li>
+            <li><a href="../tags/#programming-ref">Programming
+                <span>53</span>
+</a></li>
+            <li><a href="../tags/#security-ref">Security
+                <span>22</span>
+</a></li>
+            <li><a href="../tags/#software-development-ref">Software Development
+                <span>17</span>
+</a></li>
+        </ul>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://twitter.com/_martinthoma" title="My Twitter Profile" rel="me" target="_blank">Twitter</a></li>
+    <li><a href="mailto:info@martin-thoma.de" title="My Email Address" rel="me" target="_blank">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" title="My Github Profile" rel="me" target="_blank">Github</a></li>
+    <li><a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" rel="me" target="_blank">Stackoverflow</a></li>
+</ul>
+</div>
+</aside>
+
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, the Web and Cyberculture</li>
+            <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+            <li><a href="https://martin-thoma.com/feeds/index.xml">RSS feed</a></li>
+            <li><a href="https://www.martin-thoma.de/privacy.htm">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+</html>
