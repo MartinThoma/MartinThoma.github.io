@@ -9,7 +9,7 @@ category: Security
 tags: Security, Cybersecurity, IT Security, InfoSec
 featured_image: logos/star.png
 subtitle: Keep your data private, even if you lose your device
-URL: https://medium.com/faun/full-disk-encryption-2090489f9760
+medium_url: https://medium.com/faun/full-disk-encryption-2090489f9760
 ---
 Having an attacker with physical access to your device is one of the worst
 scenarios. If the data is not encrypted on the disk, then the attacker can
@@ -194,34 +194,43 @@ While searching for references for this article, I came across some very good re
 * Arch Linux: [dm-crypt/Encrypting an entire system](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system)
 * Security.SE: [How secure is Ubuntu’s default full-disk encryption?](https://security.stackexchange.com/questions/39306/how-secure-is-ubuntus-default-full-disk-encryption)
 
-## What’s next?
+## More in this series
 
 In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
-* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
-* Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
-* Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
-* Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
-* Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
-* Part 6: [CAPTCHA](https://medium.com/plain-and-simple/captcha-500991bd90a3) 😇
-* Part 7: [Email Spoofing](https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf) 😈
-* Part 8: [Software Composition Analysis](https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e) (SCA) 😇
-* Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈
-* Part 10: [Effective Access Control](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff) 😇
-* Part 11: [DOS via a Billion Laughs](https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139) 😈
-* Part 12: [Full Disk Encryption](https://medium.com/faun/full-disk-encryption-2090489f9760) 😇
-* Part 13: [Insecure Deserialization](https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e) 😈
-* Part 14: [Docker Security](https://levelup.gitconnected.com/docker-security-5f4df118948c) 😇
+* Part 1: [SQL Injections](../sql-injections/) 😈🐝
+* Part 2: [Don’t leak Secrets](../leaking-secrets/) 😇
+* Part 3: [Cross-Site Scripting (XSS)](../xss/) 😈🐝
+* Part 4: [Password Hashing](../password-hashing/) 😇
+* Part 5: [ZIP Bombs](../zip-bombs/) 😈
+* Part 6: [CAPTCHA](../captcha/) 😇
+* Part 7: [Email Spoofing](../email-spoofing/) 😈
+* Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
+* Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
+* Part 10: [Effective Access Control](../effective-access-control/) 😇
+* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 12: **Full Disk Encryption** 😇
+* Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
+* Part 14: [Docker Security](../docker-security/) 😇
+* Part 15: [Credential Stuffing](../credential-stuffing/) 😈🐝
+* Part 16: [Multi-Factor Authentication](../multi-factor-authentication/) (MFA/2FA) 😇
+* Part 17: [ReDoS](../redos/) 😈
 
-And this is about to come:
+The following articles are about to come:
 
-* CSRF 😈
-* DOS 😈
-* ReDoS 😈
-* Credential Stuffing 😈
-* Cryptojacking 😈
-* Single-Sign-On 😇
-* Two-Factor Authentication 😇
-* Backups 😇
+* Part 18: Secure Messaging 😇
+* Part 19: Cryptojacking 😈
+* Part 20: Backups 😇
+* Part 21: Cryptotrojans 😈
+* Part 22: Single-Sign-On 😇
+* Part 23: Clipboard Hijacking 😈
+* Part 24: Certificates 😇
+* Part 25: Race Condition Attacks in Blockchains 😈
+* Part 26: Mobile Device Management (MDM) 😇
+* Part 27: Server-Side Request Forgery (SSRF) 😈
+* Part 28: Network Separation 😇
+* Part 29: Social Engineering (including Phishing) 😈
+* Part 30: Virtual Private Networks (VPNs) 😇
+* Part 31: CSRF 😈
 
 Let me know if you are interested in more articles around AppSec / InfoSec!

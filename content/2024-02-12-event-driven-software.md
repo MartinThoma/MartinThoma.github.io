@@ -8,7 +8,7 @@ date: 2024-02-12 20:00
 category: Code
 tags: software architecture
 featured_image: logos/star.png
-url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4
+medium_url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4
 ---
 ![An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.](../images/2024/02/event-driven-software.png)*An event-driven system decouples producers of events and the effects that those events should have on the remaining software system.*
 

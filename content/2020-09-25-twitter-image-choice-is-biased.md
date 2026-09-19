@@ -8,9 +8,9 @@ date: 2020-09-25 20:00
 category: My bits and bytes
 tags: Twitter, Technology, Machine Learning, Social Media, Artificial Intelligence
 featured_image: logos/star.png
-URL: https://towardsdatascience.com/how-twitters-image-choice-is-biased-8d3f0ba63379
+medium_url: https://towardsdatascience.com/how-twitters-image-choice-is-biased-8d3f0ba63379
 ---
-![Photo by [Ravi Sharma](https://unsplash.com/@ravinepz?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10368/0*zuJRjBe7Su-ygZMJ)*Photo by [Ravi Sharma](https://unsplash.com/@ravinepz?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Ravi Sharma](https://unsplash.com/@ravinepz?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/09/twitter-image-choice-is-biased-1.jpg)*Photo by [Ravi Sharma](https://unsplash.com/@ravinepz?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Twitter shows preview images of shared images. If the aspect ratio is not the wanted one, the image needs to be cropped for the preview.
 

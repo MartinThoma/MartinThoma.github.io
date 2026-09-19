@@ -9,10 +9,10 @@ category: Code
 tags: Blockchain
 featured_image: logos/bitcoin.png
 subtitle: The concept and applications - plain and simple!
-URL: https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094
+medium_url: https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094
 ---
 <figure>
-  <img src="https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png" alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." width="800px">
+  <img src="../images/2021/01/merkle-trees-1.png" alt="A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes." width="800px">
   <figcaption>A Merkle Tree is a binary tree with the data at the leaf nodes. All inner nodes are hashes.</figcaption>
 </figure>
 
@@ -31,7 +31,7 @@ integrity.
 
 The first improvement is to add the value of a hash function:
 [**The 3 Applications of Hash Functions**
-*What they are, what the options are, and why they matter*levelup.gitconnected.com](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d)
+*What they are, what the options are, and why they matter*levelup.gitconnected.com](../3-applications-of-hash-functions/)
 
 If the hash value of the downloaded file is not equal to the expected hash
 value, you just download the file again.
@@ -41,7 +41,7 @@ likely, most of the file is completely fine. Maybe there is just a single bit
 that flipped its value. You want to download as little as possible and just
 fix the broken part.
 
-![A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.](https://cdn-images-1.medium.com/max/2000/1*VWinFE8Gmh8pmcg_IoN-ow.png)*A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.*
+![A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.](../images/2021/01/merkle-trees-2.png)*A big file that is split into 8 blocks. Block #2 is broken, the rest is fine. Image by Martin Thoma.*
 
 The next idea is to build blocks. You store the hash of each block. When you
 download the file, you first download a header. The header contains
@@ -99,7 +99,7 @@ files over an unreliable network a lot.
 Suppose you wanted to show that a piece of data is part of your data
 structure. This is easy with Merkle trees.
 
-![Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.](https://cdn-images-1.medium.com/max/3606/1*Ykn20LKvw2hyuyGV4ps5dA.png)*Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.*
+![Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.](../images/2021/01/merkle-trees-1.png)*Alice wants to prove to Bob that the red block “6” is included in the Merkle tree. Bob knows the green Root node. Alice provides the 3 blue nodes H(12,34), H(78), “5” and the red node “6". Bob then calculates the two yellow nodes. Bob never has to see the white nodes. Image by Martin Thoma.*
 
 Merkle trees allow you to prove that a transaction is included. Suppose Alice
 wants to prove to Bob that transaction T happened. To do that, she provides:
@@ -111,7 +111,7 @@ Bob then has to verify that the Merkle root is equal to the root he has. He
 also needs to hash the transaction and build all hashes up to the Merkle
 root. As cryptographic hash functions make it practically impossible to forge
 data with the same hash ([second-preimage
-resistance](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d)),
+resistance](../3-applications-of-hash-functions/)),
 Bob does not have to have all the data. It’s enough to know which root to use.
 
 The supplied hashes (the blue nodes) are called a **Merkle proof**. You prove
@@ -141,13 +141,18 @@ hash.
 * **Bitcoin & IPFS, and [Storj](https://storj.io/storj2014.pdf)**: The core data structure to store data
 * **Ethereum** also uses a Merkle Tree, but a different type than Bitcoin. Ethereum uses a Merkle Patricia Trie.
 
-## What’s next
+## See also
+
+* Tara Vancil: [How Merkle Trees Enable the Decentralized Web!](https://www.youtube.com/watch?v=YIc6MNfv5iQ), 2017 on YouTube.
+* Gaurav Sen: [Merkle Tree with real-world examples](https://www.youtube.com/watch?v=qHMLy5JjbjQ), 2019 on YouTube.
+
+## More in this series
 
 This article is part of my series about Blockchain:
 
-* Part 1: [An Introduction to Blockchain](https://medium.com/coinmonks/the-blockchain-473aac352e5)
-* Part 2: [The 3 Applications of Hash Functions](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d)
-* Part 3: Merkle Trees
+* Part 1: [An Introduction to Blockchain](../blockchain/)
+* Part 2: [The 3 Applications of Hash Functions](../3-applications-of-hash-functions/)
+* Part 3: **Merkle Trees**
 
 Topics I will consider next:
 
@@ -162,8 +167,3 @@ Topics I will consider next:
 * Peer-To-Peer Stuff: How Gossip Protocols work
 
 Let me know what you’re interested in!
-
-## See also
-
-* Tara Vancil: [How Merkle Trees Enable the Decentralized Web!](https://www.youtube.com/watch?v=YIc6MNfv5iQ), 2017 on YouTube.
-* Gaurav Sen: [Merkle Tree with real-world examples](https://www.youtube.com/watch?v=qHMLy5JjbjQ), 2019 on YouTube.

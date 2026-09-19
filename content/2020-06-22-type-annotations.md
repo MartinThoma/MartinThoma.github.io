@@ -8,7 +8,7 @@ date: 2020-06-22 20:00
 category: Code
 tags: Python, mypy
 featured_image: logos/python.png
-URL: https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d
+medium_url: https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d
 ---
 One reason why Python is so easy to get started with is that it has dynamic types. You don’t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an undocumented function without types and maybe crappy variable naming, new developers will have a hard time. Luckily, variable annotations were added in Python 3.6 with [PEP 526](https://www.python.org/dev/peps/pep-0526) 🎉
 

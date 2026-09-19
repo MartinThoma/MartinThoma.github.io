@@ -8,7 +8,7 @@ date: 2020-08-23 20:00
 category: Code
 tags: Python, pytest
 featured_image: logos/python.png
-URL: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22
+medium_url: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/08/pytest-sugar-big.png"><img src="../images/2020/08/pytest-sugar-big.png" alt="Plugins can modify and extend a lot of aspects of pytest, including how the output is done" style="width: 512px;"/></a>
@@ -18,14 +18,14 @@ URL: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe2
 Pytest is extensible and has plenty of plugins. You don’t need to use any of
 them, but you might find some very useful. I love this because it's easy
 to [get started with unit
-testing](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0),
+testing](../unit-testing-basics/),
 while still finding amazing stuff when you’re more experienced 🤩
 
 In this article, I’ll show you examples of plugins I use and the plugins I
 found while writing this article. You might want to cover the [basics of unit
-testing](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)
+testing](../unit-testing-basics/)
 first or refresh [testing details like
-fixtures](https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923).
+fixtures](../unit-testing-structure/).
 
 ## How can I add a plugin?
 
@@ -64,7 +64,7 @@ Last but not least, there are some plugins where I’m not sure if they are
 awesome or if they are a bad idea. Let’s jump right into it and have a look
 yourself!
 
-> **Side note**: Maybe you remember my [side note on typosquatting](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287#9026)? I found a [fixable issue on PyPI](https://github.com/pypa/warehouse/issues/8462) while writing this article, hopefully improving security for the community 🎉
+> **Side note**: Maybe you remember my [side note on typosquatting](../static-code-analysis/)? I found a [fixable issue on PyPI](https://github.com/pypa/warehouse/issues/8462) while writing this article, hopefully improving security for the community 🎉
 
 ## The shiny ones
 
@@ -119,7 +119,7 @@ executing all remaining tests. For tests which might take a long time or even
 result in an infinite loop in case of errors, I use
 [`pytest-timeout`](https://pypi.org/project/pytest-timeout/) ❤. That is
 especially helpful when you apply [mutation
-testing](https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8).
+testing](../mutation-testing/).
 
 We also want to use our machine properly by using
 [`pytest-xdist`](https://pypi.org/project/pytest-xdist/). Install it, execute
@@ -175,18 +175,18 @@ Some plugins are unique and don’t fit in any of the other categories:
   fixtures in `@pytest.mark.parametrize`.
 * [pytest-freezegun](https://pypi.org/project/pytest-freezegun/) : Freeze time!
   This is one I’ve also mentioned in [my patching
-  article](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed).
+  article](../unit-testing-patching/).
 * [pytest-leaks](https://pypi.org/project/pytest-leaks/) : Find resource leaks.
   This requires a debug build of Python!
 * [pytest-flake8](https://github.com/tholo/pytest-flake8) : Run flake8 via
   pytest. I did that for a long time, but when I learned
-  [how to use Continuous Integration pipelines](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38)
+  [how to use Continuous Integration pipelines](../ci-pipelines/)
   more effectively, I stopped it. You can still execute flake8 directly.
 * [pytest-mypy](https://pypi.org/project/pytest-mypy/) and pytest-mccabe: Same
   story as for flake8. By the way, [type annotations are
-  awesome](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d)!
+  awesome](../type-annotations/)!
   I like to have those [static code analysis
-  tools](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287)
+  tools](../static-code-analysis/)
   in a linter step within the CI pipeline.
 * [pytest-deadfixtures](https://pypi.org/project/pytest-deadfixtures/) : Point
   out which fixtures are not used or duplicated.

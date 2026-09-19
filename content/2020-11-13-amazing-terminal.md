@@ -9,7 +9,7 @@ category: Code
 tags: Code, Linux, Windows
 featured_image: logos/star.png
 subtitle: In Windows and Linux; including prompts, fonts, and colors
-URL: https://towardsdatascience.com/how-to-get-an-amazing-terminal-91619a0beeb7
+medium_url: https://towardsdatascience.com/how-to-get-an-amazing-terminal-91619a0beeb7
 ---
 As a developer with 10+ years of experience, I love using the shell. The commands never change, I can create custom shortcuts, it’s reliable and fast. The defaults are not great, though. After reading this article, you will know how to get an awesome shell + terminal on your system.
 
@@ -20,7 +20,7 @@ wrapper that runs the shell.
 
 The **terminal** is where you set the font face, font size, color schemes, support for multiple tabs. Examples of terminal emulators are [GNOME terminal](https://en.wikipedia.org/wiki/GNOME_Terminal), [Konsole](https://en.wikipedia.org/wiki/Konsole) on KDE, [Terminator](https://en.wikipedia.org/wiki/Terminator_(terminal_emulator)), and [XTerm](https://en.wikipedia.org/wiki/Xterm). On Linux, I recommend keeping the default. On Windows, the [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) is awesome. On Mac, I’ve heard good things about [iTerm 2](https://www.iterm2.com/).
 
-![Four terminal emulators on Linux (Gnome Terminal, Konsole, XTerm, Terminator). XTerm does not directly support tabs. The others have 2 tabs open. All of them run the Bash shell. The image was created by Martin Thoma.](https://cdn-images-1.medium.com/max/2754/1*OhItafIJ3T--kdh9F716VA.png)*Four terminal emulators on Linux (Gnome Terminal, Konsole, XTerm, Terminator). XTerm does not directly support tabs. The others have 2 tabs open. All of them run the Bash shell. The image was created by Martin Thoma.*
+![Four terminal emulators on Linux (Gnome Terminal, Konsole, XTerm, Terminator). XTerm does not directly support tabs. The others have 2 tabs open. All of them run the Bash shell. The image was created by Martin Thoma.](../images/2020/11/amazing-terminal-1.png)*Four terminal emulators on Linux (Gnome Terminal, Konsole, XTerm, Terminator). XTerm does not directly support tabs. The others have 2 tabs open. All of them run the Bash shell. The image was created by Martin Thoma.*
 
 The **shell** stores the history of entered commands, defines how you set
 environment variables, how you switch the current directory. Examples of
@@ -31,7 +31,7 @@ typical shell is [PowerShell](https://en.wikipedia.org/wiki/PowerShell). You
 can see which shell you are running by executing `echo $0`. On Linux, it’s most
 likely Bash.
 
-![Three Linux shells (ZSH, Bash, fish) within the Gnome Terminal. I’ve heavily customized the ZSH shell; Bash and fish show the default. You can see that fish has an in-line autosuggestion feature that the two other shells lack. Image by Martin Thoma.](https://cdn-images-1.medium.com/max/2692/1*FYSzehDiGtZNHjowCZxUXg.png)*Three Linux shells (ZSH, Bash, fish) within the Gnome Terminal. I’ve heavily customized the ZSH shell; Bash and fish show the default. You can see that fish has an in-line autosuggestion feature that the two other shells lack. Image by Martin Thoma.*
+![Three Linux shells (ZSH, Bash, fish) within the Gnome Terminal. I’ve heavily customized the ZSH shell; Bash and fish show the default. You can see that fish has an in-line autosuggestion feature that the two other shells lack. Image by Martin Thoma.](../images/2020/11/amazing-terminal-2.png)*Three Linux shells (ZSH, Bash, fish) within the Gnome Terminal. I’ve heavily customized the ZSH shell; Bash and fish show the default. You can see that fish has an in-line autosuggestion feature that the two other shells lack. Image by Martin Thoma.*
 
 Every shell has a **prompt**. The prompt is what is written before your cursor.
 It signals that you can enter a command and gives useful context
@@ -50,7 +50,7 @@ like images. It can make the prompt way nicer.
 
 I like [Ubuntu Mono](https://github.com/powerline/fonts/tree/master/UbuntuMono) and [Droid Sans Mono](https://github.com/powerline/fonts/tree/master/DroidSansMono):
 
-![The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma](https://cdn-images-1.medium.com/max/2236/1*TrxyQTnHKZA7DPuLZT4sfg.png)*The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma*
+![The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma](../images/2020/11/amazing-terminal-3.png)*The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma*
 
 There are also “programming fonts” like [Fira Code](https://github.com/tonsky/FiraCode) or [JetBrains Mono](https://www.jetbrains.com/lp/mono/?ref=betterwebtype). I don’t like them because they make it harder for me to really know what is written. They look nice, though.
 
@@ -60,7 +60,7 @@ First, make sure you have the [Windows Terminal](https://www.microsoft.com/en-us
 
 Launch a terminal and navigate to the settings. It’s this small downward-pointing “arrow”:
 
-![Click on “Settings”. The screenshot was taken by Martin Thoma](https://cdn-images-1.medium.com/max/2000/0*FSlD8BQx1mNP532h.png)*Click on “Settings”. The screenshot was taken by Martin Thoma*
+![Click on “Settings”. The screenshot was taken by Martin Thoma](../images/2020/11/amazing-terminal-4.png)*Click on “Settings”. The screenshot was taken by Martin Thoma*
 
 You should see a JSON file which you can change to fit your taste. I have the following:
 
@@ -91,11 +91,11 @@ $ aminal
 
 The Gnome terminal can be customized by editing the profile. Here I set the [Ubuntu Mono derivative Powerline Regular](https://github.com/powerline/fonts/tree/master/UbuntuMono) with a font size of 12.
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*DTs5EGYqnJvLIN16WMhwBA.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2020/11/amazing-terminal-5.png)*Image by Martin Thoma*
 
 The command is set to zsh as this is my favorite shell.
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*JNf0sfN047bN3AqDfVfRSw.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2020/11/amazing-terminal-6.png)*Image by Martin Thoma*
 
 The colors are set to [solarized dark](https://ethanschoonover.com/solarized/) (left-to-right, top-line / bottom-line):
 
@@ -108,7 +108,7 @@ The colors are set to [solarized dark](https://ethanschoonover.com/solarized/) (
 * Dark Teal: #06989a / Light Teal: #34e2e2
 * Dark Gray: #d3d7cf / Light Gray: #eeeeec
 
-![Terminal color palette with dark and light variants](https://cdn-images-1.medium.com/max/2000/1*P4xCOjogPGb3SdquyLiC2Q.png)
+![Terminal color palette with dark and light variants](../images/2020/11/amazing-terminal-7.png)
 
 ## Linux Shell: fish
 

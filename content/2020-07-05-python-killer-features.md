@@ -8,7 +8,7 @@ date: 2020-05-17 20:00
 category: My bits and bytes
 tags: Python
 featured_image: logos/python.png
-URL: https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8
+medium_url: https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8
 ---
 Are you wondering why you should switch from Python 3.6 to Python 3.7 or any other version combination? Or are you thinking about supporting Python 3.5 and want to know which features you have to avoid? Then this is your article.
 

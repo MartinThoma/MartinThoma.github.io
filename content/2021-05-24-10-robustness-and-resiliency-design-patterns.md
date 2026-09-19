@@ -8,7 +8,7 @@ date: 2021-05-24 20:00
 category: Cyberculture
 tags: Rating
 featured_image: logos/star.png
-url: https://levelup.gitconnected.com/10-robustness-and-resiliency-design-patterns-to-learn-today-c03776f73936
+medium_url: https://levelup.gitconnected.com/10-robustness-and-resiliency-design-patterns-to-learn-today-c03776f73936
 ---
 Software is correct if it acts as specified. It is robust if it can take a
 high load until it goes down. Software is resilient if it can go back to
@@ -125,7 +125,7 @@ By limiting both resources you make sure you’re not vulnerable to this issue.
 
 ## 4. Circuit Breaker
 
-![Photo of a two-pole circuit breaker on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG) by [Dmitry G](https://commons.wikimedia.org/wiki/User:Dmitry_G)](https://cdn-images-1.medium.com/max/2000/0*QJlGl6Oslr7t1xeh.JPG)*Photo of a two-pole circuit breaker on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG) by [Dmitry G](https://commons.wikimedia.org/wiki/User:Dmitry_G)*
+![Photo of a two-pole circuit breaker on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG) by [Dmitry G](https://commons.wikimedia.org/wiki/User:Dmitry_G)](../images/2021/05/10-robustness-resiliency-design-patterns-1.jpg)*Photo of a two-pole circuit breaker on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TDM_2-pole_circuit_breaker_16A.JPG) by [Dmitry G](https://commons.wikimedia.org/wiki/User:Dmitry_G)*
 
 If something is wrong with the electricity in one room of your house, e.g. one
 part is having a short-circuit or consuming too much power, you want

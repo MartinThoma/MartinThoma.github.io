@@ -8,7 +8,7 @@ date: 2020-12-23 20:00
 category: Security
 tags: InfoSec, AppSec, Security, Cybersecurity, OWASP
 featured_image: logos/cybersecurity.png
-URL: https://levelup.gitconnected.com/effective-access-control-331f883cb0ff
+medium_url: https://levelup.gitconnected.com/effective-access-control-331f883cb0ff
 ---
 Access control is the act of restricting access to a selected group of people or systems. That group is authorized to access the system. To check if a person is authorized to access, the person typically has to be authenticated.
 
@@ -61,7 +61,7 @@ forgotten, even if everybody agrees that the route needs access control.
 
 ### Client-side access control
 
-![Age verification for adult content is a typical example of client-side access control. Image by the author.](https://cdn-images-1.medium.com/max/2400/1*vtfvTaqe3QLcjA2v0Mh0vQ.png)*Age verification for adult content is a typical example of client-side access control. Image by the author.*
+![Age verification for adult content is a typical example of client-side access control. Image by the author.](../images/2020/12/effective-access-control-1.png)*Age verification for adult content is a typical example of client-side access control. Image by the author.*
 
 I haven’t seen client-side access control in a long time, but please don’t forget: Access control needs to be done server-side. I have never seen effective client-side access control for web systems.
 
@@ -120,7 +120,7 @@ If you can authenticate as another user, you will get all rights of that user.
 It’s not really broken access control but has the same effect. I’ll write a
 couple of articles about authentication:
 
-* [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
+* [Password Hashing](../password-hashing/) 😇
 * Multi-factor authentication — yet to be written!
 * Single sign-on — it’s on my list, buddy 🤞
 * OAuth and OpenID — you guessed it… it’s on the way 😅
@@ -171,7 +171,7 @@ examples are Wikipedia, Reddit, and Stack Exchange.
 To apply RBAC, you need a role table (could also be called `group`) and a table
 that connects users with groups:
 
-![Image by author](https://cdn-images-1.medium.com/max/2000/1*XT6bjGvqQR9DNciLRlUXFA.png)*Image by author*
+![Image by author](../images/2020/12/effective-access-control-2.png)*Image by author*
 
 Then you need to get all roles a user has:
 
@@ -309,7 +309,7 @@ def change_description_text(id):
 
 ## Tricks to make Access Control Effective
 
-![Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8064/0*qLPyfhzI9rq7ObkR)*Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/12/effective-access-control-3.jpg)*Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 The case of creating web services is certainly most interesting to most
 readers, so let’s focus on that. Access control is enforced in the backend and
@@ -366,34 +366,43 @@ Steven Gordon summarized parts of the terminology really well:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/aFdE_5CfLU4" frameborder="0" allowfullscreen></iframe></center>
 
-## What’s next?
+## More in this series
 
 In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
-* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
-* Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
-* Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
-* Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
-* Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
-* Part 6: [CAPTCHA](https://medium.com/plain-and-simple/captcha-500991bd90a3) 😇
-* Part 7: [Email Spoofing](https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf) 😈
-* Part 8: [Software Composition Analysis](https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e) (SCA) 😇
-* Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈
-* Part 10: [Effective Access Control](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff) 😇
-* Part 11: [DOS via a Billion Laughs](https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139) 😈
-* Part 12: [Full Disk Encryption](https://medium.com/faun/full-disk-encryption-2090489f9760) 😇
-* Part 13: [Insecure Deserialization](https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e) 😈
-* Part 14: [Docker Security](https://levelup.gitconnected.com/docker-security-5f4df118948c) 😇
+* Part 1: [SQL Injections](../sql-injections/) 😈🐝
+* Part 2: [Don’t leak Secrets](../leaking-secrets/) 😇
+* Part 3: [Cross-Site Scripting (XSS)](../xss/) 😈🐝
+* Part 4: [Password Hashing](../password-hashing/) 😇
+* Part 5: [ZIP Bombs](../zip-bombs/) 😈
+* Part 6: [CAPTCHA](../captcha/) 😇
+* Part 7: [Email Spoofing](../email-spoofing/) 😈
+* Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
+* Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
+* Part 10: **Effective Access Control** 😇
+* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
+* Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
+* Part 14: [Docker Security](../docker-security/) 😇
+* Part 15: [Credential Stuffing](../credential-stuffing/) 😈🐝
+* Part 16: [Multi-Factor Authentication](../multi-factor-authentication/) (MFA/2FA) 😇
+* Part 17: [ReDoS](../redos/) 😈
 
-And this is about to come:
+The following articles are about to come:
 
-* CSRF 😈
-* DOS 😈
-* ReDoS 😈
-* Credential Stuffing 😈
-* Cryptojacking 😈
-* Single-Sign-On 😇
-* Two-Factor Authentication 😇
-* Backups 😇
+* Part 18: Secure Messaging 😇
+* Part 19: Cryptojacking 😈
+* Part 20: Backups 😇
+* Part 21: Cryptotrojans 😈
+* Part 22: Single-Sign-On 😇
+* Part 23: Clipboard Hijacking 😈
+* Part 24: Certificates 😇
+* Part 25: Race Condition Attacks in Blockchains 😈
+* Part 26: Mobile Device Management (MDM) 😇
+* Part 27: Server-Side Request Forgery (SSRF) 😈
+* Part 28: Network Separation 😇
+* Part 29: Social Engineering (including Phishing) 😈
+* Part 30: Virtual Private Networks (VPNs) 😇
+* Part 31: CSRF 😈
 
 Let me know if you are interested in more articles around AppSec / InfoSec!

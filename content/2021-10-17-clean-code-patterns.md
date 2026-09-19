@@ -8,7 +8,7 @@ date: 2021-10-17 20:00
 category: Code
 tags: Python, Code, Programming, Software Development, Software Engineering
 featured_image: logos/python.png
-URL: https://towardsdatascience.com/9-clean-code-patterns-i-wish-i-knew-earlier-57ee56c5892
+medium_url: https://towardsdatascience.com/9-clean-code-patterns-i-wish-i-knew-earlier-57ee56c5892
 ---
 Do you know the feeling when you look back at code which you wrote early in
 your career? I always feel a bit horrified. But there is a positive side to
@@ -75,9 +75,9 @@ Those two patterns apply to other languages as well. Let’s phrase it like this
 
 If you want to know more about type annotations in Python, please read:
 [**Type Annotations in Python 3.8**
-*Learn how to make Python code easier to read and less error-prone by gradual typing*medium.com](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d)
+*Learn how to make Python code easier to read and less error-prone by gradual typing*medium.com](../type-annotations/)
 
-If you want to know about the most recent improvements, read my [Python 3.10 article](https://betterprogramming.pub/python-3-10-is-released-know-whats-new-and-if-it-s-worth-the-switch-19c7a5738f7c).
+If you want to know about the most recent improvements, read my [Python 3.10 article](../python-3-10/).
 
 ## №4: Consistent Terminology
 

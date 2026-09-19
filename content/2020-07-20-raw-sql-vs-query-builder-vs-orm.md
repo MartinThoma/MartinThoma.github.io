@@ -8,7 +8,7 @@ date: 2020-05-17 20:00
 category: Code
 tags: SQL, ORM, SQLAlchemy, pypika, Query Builder
 featured_image: logos/db.png
-URL: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
+medium_url: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/relational-database.png"><img src="../images/2020/07/relational-database.png" alt="Screenshot of phpmyadmin" style="width: 512px;"/></a>
@@ -575,7 +575,7 @@ simple, it is easy to switch to a query builder or an ORM. But if you have
 complex queries the switch to an ORM might even be impossible.
 
 This is where gradual changes come into play. Similar to how
-[Python supports gradual typing](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d),
+[Python supports gradual typing](../type-annotations/),
 some ORMs / Query Builders allow you to use raw SQL. And some query builders
 allow you to first use strings for the table and column names and transition as
 you like to objects. If you can just take the amount of abstraction that feels

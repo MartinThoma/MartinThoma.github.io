@@ -8,7 +8,7 @@ date: 2020-09-27 20:00
 category: My bits and bytes
 tags: Terminology, English
 featured_image: logos/star.png
-URL: https://medium.com/plain-and-simple/localization-vs-internationalization-fd2561dfdbcb
+medium_url: https://medium.com/plain-and-simple/localization-vs-internationalization-fd2561dfdbcb
 ---
 Internationalization is the process of making your software easy to adapt to different languages or regions.
 

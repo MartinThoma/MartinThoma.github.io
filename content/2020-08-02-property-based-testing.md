@@ -1,13 +1,14 @@
 ---
 layout: post
 title: Property-based Testing
-slug: https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119
+slug: property-based-testing
 lang: en
 author: Martin Thoma
 date: 2020-08-02 20:00
 category: Code
 tags: Python, Testing, Unit Testing, fuzzing, hypothesis
 featured_image: logos/python.png
+medium_url: https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119
 ---
 When you write unit tests, it’s hard to find the right test cases. You want to
 be certain that you covered all the interesting cases, but you could simply not
@@ -115,7 +116,7 @@ def test_factorize(n, expected):
 ```
 
 If the test parametrization is unfamiliar, you might want to
-[read up on pytest.mark.parametrize](https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923).
+[read up on pytest.mark.parametrize](../unit-testing-structure/).
 It’s awesome and those few lines run 8 tests:
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -297,7 +298,7 @@ is the oracle.
 ## Use Type Annotations!
 
 I love type annotations 💓 If you’re not using them, I highly recommend
-reading about [type annotations](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d)
+reading about [type annotations](../type-annotations/)
 and gradual typing.
 
 Type annotations are relevant for property-based testing as an annotated class
@@ -385,21 +386,18 @@ and helps to find unknown edge cases. It takes more time to execute
 property-based tests than to execute example-based tests. hypothesis is a good
 Python framework to write property-based tests.
 
-## Want to know more about unit testing?
+## More in this series
 
-In this series, we already had:
+This article is part of my series about unit testing in Python:
 
-* Part 1: [The basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)
-* Part 2: [Patching, Mocks and Dependency Injection](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed)
-* Part 3: [How to test Flask applications](https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c) with Databases, Templates and Protected Pages
-* Part 4: [tox and nox](https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729)
-* Part 5: [Structuring Unit Tests](https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923)
-* Part 6: [CI-Pipelines](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38)
-* Part 7: [Property-based Testing](https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119)
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: **Property-based Testing**
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
 
-In future articles, I will present:
-
-* Mutation Testing
-* Static Code Analysis: Linters, Type Checking, and Code Complexity
-
-Let me know if you’re interested in other topics around testing with Python.
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

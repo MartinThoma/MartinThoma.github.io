@@ -8,7 +8,7 @@ date: 2020-10-02 20:00
 category: My bits and bytes
 tags: Security, AppSec, 2FA, MFA, JWT, OAuth
 featured_image: logos/cybersecurity.png
-URL: https://medium.com/plain-and-simple/identification-vs-authentication-vs-authorization-e1f03a0ca885
+medium_url: https://medium.com/plain-and-simple/identification-vs-authentication-vs-authorization-e1f03a0ca885
 ---
 Identification, authentication, and authorization are closely related, but not the same.
 > **Identification is about knowing who somebody is, even without their cooperation.**

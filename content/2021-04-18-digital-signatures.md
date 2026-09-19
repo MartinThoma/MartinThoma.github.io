@@ -9,7 +9,7 @@ category: Cyberculture
 tags: crypto
 featured_image: logos/bitcoin.png
 subtitle: Learn what they are and how they are used
-URL: https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439
+medium_url: https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439
 ---
 We use signatures to show that we have read a contract and want to do our part
 of fulfilling it. They serve two purposes: Expressing an intent and being able
@@ -24,7 +24,7 @@ Let’s learn about the problems of this approach and the digital equivalent!
 
 Let’s first explore the issues of traditional signatures.
 
-![Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/12032/0*XHiqYSRWExz7ppiU)*Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-1.jpg)*Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 ### Problem #1: Connecting the signature with your identity
 
@@ -95,13 +95,13 @@ holder of key A is actually the person you think it is.
 
 There are several concrete algorithms that fit in this category. The RSA cryptosystem is for sure the best-known one, closely followed by DSA (see [differences](https://security.stackexchange.com/a/5100/3286)). ECDSA is also pretty widespread.
 
-Please also note that if the file is signed by encrypting it with the private key, you actually need the public key to read it at all. This might not be desired. Instead, you can [calculate the shorter hash value](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d) of the file and sign that hash value. The scheme is then:
+Please also note that if the file is signed by encrypting it with the private key, you actually need the public key to read it at all. This might not be desired. Instead, you can [calculate the shorter hash value](../3-applications-of-hash-functions/) of the file and sign that hash value. The scheme is then:
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/4392/1*xHOofavG2v1iBddAvsDUeA.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/04/digital-signatures-2.png)*Image by Martin Thoma*
 
 ## Application #1: Communication (E-Mail, SMS)
 
-![Photo by [freestocks](https://unsplash.com/@freestocks?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10944/0*hYahHEUibiQx4K36)*Photo by [freestocks](https://unsplash.com/@freestocks?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [freestocks](https://unsplash.com/@freestocks?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-3.jpg)*Photo by [freestocks](https://unsplash.com/@freestocks?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 When you write e-mails, you don’t need to trust your email provider in terms
 of privacy and tampering. You can encrypt the mail with the recipient’s public
@@ -111,7 +111,7 @@ that your provider does not deliver the message at all.
 
 ## Application #2: Code Contributions
 
-![Photo by [Yancy Min](https://unsplash.com/@yancymin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10000/0*RZzglA2b92NVca_-)*Photo by [Yancy Min](https://unsplash.com/@yancymin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Yancy Min](https://unsplash.com/@yancymin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-4.jpg)*Photo by [Yancy Min](https://unsplash.com/@yancymin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Lots of code is written as open-source by plenty of individuals. They might be
 volunteers who just have fun coding or they might be paid for those
@@ -125,7 +125,7 @@ this reason, you sign every contribution.
 
 ## Application #3: Software Updates
 
-![Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/7998/0*9MqDMV1izb2tf5Yr)*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-5.jpg)*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Think of your Smart TV / Alexa / FritzBox. All of those devices need updates.
 Let’s say that you can plug a USB stick with the update file in the device. As
@@ -137,7 +137,7 @@ update.
 
 ## Application #4: Digital Diplomas
 
-![Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11520/0*4g-wRSEttmaezDvN)*Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-6.jpg)*Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 When you apply for a job, your potential new employer might want to see
 reference letters and your diploma. Especially since the coronavirus is raging
@@ -175,7 +175,7 @@ gpg --output original.pdf --decrypt my-cv.pdf.gpg
 
 ## Application #5: Cryptocurrencies
 
-![Photo by [Dmitry Demidko](https://unsplash.com/@wildbook?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/12000/0*SNZ1RdNKcnY6xt8t)*Photo by [Dmitry Demidko](https://unsplash.com/@wildbook?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Dmitry Demidko](https://unsplash.com/@wildbook?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-7.jpg)*Photo by [Dmitry Demidko](https://unsplash.com/@wildbook?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 In order to prove that you are the holder of a Bitcoin, the system uses
 asymmetric cryptography. At the very beginning, somebody is guaranteed to be
@@ -189,7 +189,7 @@ the coin twice — the double-spending problem.
 “Coin” is actually a misnomer. See my article about UTXO for more details:
 
 [**The UTXO model**
-*A technical cornerstone of Bitcoin*medium.com](https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853)
+*A technical cornerstone of Bitcoin*medium.com](../utxo-model/)
 
 ## Summary
 

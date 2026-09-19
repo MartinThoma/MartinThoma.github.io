@@ -9,7 +9,7 @@ category: My bits and bytes
 tags: Python, Packaging, pip, pyenv, venv, virtualenv, pipx, pipenv, pip-tools, setup.py, requirements.txt, requirements.in, Pipfile, Pipfile.lock, twine, poetry, flit, hatch
 featured_image: logos/python.png
 subtitle: 16 solutions to 9 problems — which ones do you know?
-URL: https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee
+medium_url: https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee
 ---
 A virtual environment is an isolated Python environment. It has its own
 installed site-packages which can be different from the system's site-packages.
@@ -96,7 +96,7 @@ $ pip --version
 pip 20.2.1 from /home/math/.pyenv/versions/3.8.6/lib/python3.8/site-packages/pip (python 3.8)
 ```
 
-For more information, read my article [A Beginner’s Guide to Python Development](https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483). For detailed installation instructions, go directly to [the official pyenv website](https://github.com/pyenv/pyenv).
+For more information, read my article [A Beginner’s Guide to Python Development](../python-development-with-wsl2/). For detailed installation instructions, go directly to [the official pyenv website](https://github.com/pyenv/pyenv).
 
 ## Problem 2: Package and Distribution building
 
@@ -405,10 +405,10 @@ Typically, I have the following:
   install the dependencies via `pip install -r requirements.txt`.
 * **requirements-dev.in**: Development tools I use. Things like pytest, flake8,
   flake8 plugins, mypy, black … see my [static code analysis
-  post](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287).
+  post](../static-code-analysis/).
 * **requirements-dev.txt**: The exact version of the tools I use + their
   transitive dependencies. Those are also installed in the [CI
-  pipeline](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38).
+  pipeline](../ci-pipelines/).
   For applications, I also include the requirements.txt file in here. Please
   note that I create a combined requirements-dev.txt which includes the
   requirements.txt. If I installed the requirements.txt before the
@@ -440,7 +440,7 @@ $ python setup.py bdist_wheel
 
 For example, [NumPy](https://pypi.org/project/numpy/#files) does this:
 
-![The screenshot of pypi.org was taken by the author.](https://cdn-images-1.medium.com/max/2000/1*YE4EWu3Ld-iUdbaZ3aNRlQ.png)*The screenshot of pypi.org was taken by the author.*
+![The screenshot of pypi.org was taken by the author.](../images/2020/11/python-packaging-tools-and-formats-1.png)*The screenshot of pypi.org was taken by the author.*
 
 ## Problem 9: Specification of build-system
 

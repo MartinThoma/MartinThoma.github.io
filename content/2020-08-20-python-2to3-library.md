@@ -8,9 +8,9 @@ date: 2020-08-20 20:00
 category: Code
 tags: Python
 featured_image: logos/python.png
-URL: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1
+medium_url: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1
 ---
-![Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)](https://cdn-images-1.medium.com/max/2560/1*uvS55XJ3-uUny7j1cgye6g.jpeg)*Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)*
+![Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)](../images/2020/08/python-2to3-library-1.jpg)*Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)*
 
 Last year, I gave a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting, and I’ll share here how I did it — or rather how I would do it if I had the same situation again.
 
@@ -33,7 +33,7 @@ The project should be under **version control**, and you need to make sure that 
 
 Make sure that you document the current state of the migration to Python 3. Typically this is done via an issue tracker, e.g. the built-in one of GitHub or Jira.
 
-First, make sure that you can execute the tests, that the test coverage is OK (see [unit testing series](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)), and that the general style is OK (see [static code analysis](../static-code-analysis/)). Set up a [CI / CD pipeline](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38).
+First, make sure that you can execute the tests, that the test coverage is OK (see [unit testing series](../unit-testing-basics/)), and that the general style is OK (see [static code analysis](../static-code-analysis/)). Set up a [CI / CD pipeline](../ci-pipelines/).
 
 ## Print statements
 
@@ -218,7 +218,7 @@ wheel distribution. If you can, try to create and publish one universal wheel.
 
 ## Create a version support policy
 
-![Photo by [Sebastian Herrmann](https://unsplash.com/@officestock?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10162/0*npT3ah8HnHtz1Mq-)*Photo by [Sebastian Herrmann](https://unsplash.com/@officestock?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Sebastian Herrmann](https://unsplash.com/@officestock?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/python-2to3-library-2.jpg)*Photo by [Sebastian Herrmann](https://unsplash.com/@officestock?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Library creators need to decide which Python versions they want to support.
 Newer versions of Python have killer features you want to have and supporting
@@ -230,7 +230,7 @@ You should also know that the Python release cycle was changed in [PEP-602](http
 
 ## Remove Python 2 Compatibility
 
-![Photo by [JESHOOTS.COM](https://unsplash.com/@jeshoots?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8400/0*TnzggyB55C5IxhvW)*Photo by [JESHOOTS.COM](https://unsplash.com/@jeshoots?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [JESHOOTS.COM](https://unsplash.com/@jeshoots?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/python-2to3-library-3.jpg)*Photo by [JESHOOTS.COM](https://unsplash.com/@jeshoots?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Supporting Python 2 means you need to add additional code and likely that you
 cannot use some of the killer features of newer Python versions.
@@ -244,7 +244,7 @@ $ grep -rnI "support for Python 2"
 
 ## Use the new stuff!
 
-Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: [Killer Features by Python Version](https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8)
+Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: [Killer Features by Python Version](../python-killer-features/)
 
 [pyupgrade](https://github.com/asottile/pyupgrade) can help you to use new-style syntax, such as:
 
@@ -259,7 +259,7 @@ It’s not strictly necessary to do this, but it makes your code more modern and
 
 I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers’ support. You can simply create a so-called *fork*: A copy of the original project which you control.
 
-![SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png)*SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma*
+![SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma](../images/2020/08/python-2to3-library-4.png)*SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma*
 
 Forking happens all the time with free software. It’s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (GitHub calls this a pull request, PR).
 

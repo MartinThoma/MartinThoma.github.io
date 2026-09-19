@@ -9,14 +9,14 @@ category: Cyberculture
 tags: Crypto, Cryptocurrency, Blockchain
 featured_image: logos/bitcoin.png
 subtitle: Coins, Utility and Security tokens, Stablecoins and NFTs: Bringing order to an ecosystem
-URL: https://levelup.gitconnected.com/the-7-types-of-cryptocurrencies-you-must-know-3b26b2ce0eb8
+medium_url: https://levelup.gitconnected.com/the-7-types-of-cryptocurrencies-you-must-know-3b26b2ce0eb8
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/04/cryptocurrency-types-banner.png"><img src="../images/2021/04/cryptocurrency-types-banner.png" alt="Cryptocurrency Types in Overview" style="width: 512px;"/></a>
     <figcaption class="text-center">Cryptocurrency Types in Overview</figcaption>
 </figure>
 
-![Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma](https://cdn-images-1.medium.com/max/4890/1*a-ZKbfa176FmhIWOYZGPFQ.png)*Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma*
+![Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma](../images/2021/04/cryptocurrency-types-1.jpg)*Categorization of the top 30 cryptocurrencies + some chosen ones. Image by Martin Thoma*
 
 The crypto ecosystem grew rapidly in the past years — so rapidly that it’s hard
 for outsiders to even understand the various use cases in that space. After

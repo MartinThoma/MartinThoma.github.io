@@ -9,10 +9,10 @@ category: Cyberculture
 tags: Programming, Software Development, Software Engineering, Parallel Execution, Concurrency
 featured_image: logos/star.png
 subtitle: What is the difference and why does it matter?
-url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2
+medium_url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui"><img src="https://cdn-images-1.medium.com/max/9102/0*rMrVa1-XOfWA62ui" alt="Photo by Edurne Chopeitia on Unsplash" style="width: 512px;"/></a>
+    <a href="../images/2021/05/synchronous-asynchronous-concurrent-parallel-1.jpg"><img src="../images/2021/05/synchronous-asynchronous-concurrent-parallel-1.jpg" alt="Photo by Edurne Chopeitia on Unsplash" style="width: 512px;"/></a>
     <figcaption class="text-center">Photo by <a href="https://unsplash.com/@edurnetx?utm_source=medium&utm_medium=referral">Edurne Chopeitia</a> on <a href="https://unsplash.com?utm_source=medium&utm_medium=referral">Unsplash</a></figcaption>
 </figure>
 

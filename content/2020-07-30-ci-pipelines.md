@@ -8,7 +8,7 @@ date: 2020-07-30 20:00
 category: Code
 tags: Python, DevOps
 featured_image: logos/python.png
-URL: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38
+medium_url: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38
 ---
 Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently [274 open pull requests](https://github.com/scipy/scipy/pulls) (PRs). This means 274 different new features, bug fixes or other improvements want to be added. The maintainers likely don’t know the contributors in person. While there is no way around looking at the contributed change, there is a good solution to make sure things are not horribly wrong: Unit Tests.
 
@@ -43,7 +43,7 @@ after_success:
   - coveralls
 ```
 
-The [tox-travis](https://github.com/tox-dev/tox-travis) package is awesome. I just made sure tox is working and then Travis worked as well. If you want a refresher about tox, have a look at [the previous article](https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729) in this series.
+The [tox-travis](https://github.com/tox-dev/tox-travis) package is awesome. I just made sure tox is working and then Travis worked as well. If you want a refresher about tox, have a look at [the previous article](../tox-and-nox/) in this series.
 
 The configuration file definitely looks less scary than the one of GitHub Actions. The interface of Travis is also pretty and clean:
 
@@ -272,26 +272,23 @@ A point which I didn’t bring up so far is **continuous delivery (CD)**. All of
     <figcaption class="text-center">Geek and Poke: <a href="http://geek-and-poke.com/geekandpoke/2010/10/26/geekpokes-list-of-best-practices-today-continuous-integratio.html">CI</a></figcaption>
 </figure>
 
-## Want to know more about unit testing?
-
-In this series, we already had:
-
-* Part 1: [The basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)
-* Part 2: [Patching, Mocks and Dependency Injection](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed)
-* Part 3: [How to test Flask applications](https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c) with Databases, Templates and Protected Pages
-* Part 4: [tox and nox](https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729)
-* Part 5: [Structuring Unit Tests](https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923)
-* Part 6: CI-Pipelines
-
-In future articles, I will present:
-
-* Property-based Testing
-* Mutation Testing
-* Static Code Analysis: Linters, Type Checking, and Code Complexity
-
-Let me know if you’re interested in other topics around testing with Python.
-
 ## See also
 
 * Joaquín Menchaca: [Jenkins CI Pipeline with Python](https://medium.com/@Joachim8675309/jenkins-ci-pipeline-with-python-8bf1a0234ec3), 2019.
 * [Elle O’Brien](https://towardsdatascience.com/@andronovhopf): [What data scientists need to know about DevOps](https://towardsdatascience.com/what-data-scientists-need-to-know-about-devops-2f8bc6660284), 2020.
+
+## More in this series
+
+This article is part of my series about unit testing in Python:
+
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: **CI-Pipelines**
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
+
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

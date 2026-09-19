@@ -9,7 +9,7 @@ category: Code
 tags: Software Engineering, Architecture
 featured_image: logos/star.png
 subtitle: Learn what the difference is and when to use which
-URL: https://levelup.gitconnected.com/library-vs-service-7-arguments-to-consider-5088dced6022
+medium_url: https://levelup.gitconnected.com/library-vs-service-7-arguments-to-consider-5088dced6022
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/05/library-vs-service.png"><img src="../images/2021/05/library-vs-service.png" alt="Shared code can be in a library or in a service" style="width: 512px;"/></a>
@@ -39,7 +39,7 @@ library and a service are and when you should use one or another. Let’s start!
 ## The differences
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2021/06/moon-jelly.jpg"><img src="https://cdn-images-1.medium.com/max/9216/0*7euF5Y587KTF-LS8" alt="differences" style="width: 512px;"/></a>
+    <a href="../images/2021/06/moon-jelly.jpg"><img src="../images/2021/05/library-vs-service-1.jpg" alt="differences" style="width: 512px;"/></a>
     <figcaption class="text-center">Photo by <a href="https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral">Denise Jones</a> on <a href="https://unsplash.com?utm_source=medium&utm_medium=referral">Unsplash</a></figcaption>
 </figure>
 
@@ -104,12 +104,12 @@ overhead compared to a library.
 
 On the one hand, there is the already mentioned infrastructure cost. On the
 other hand, you now have to think about secrets management and
-[authentication/authorization](https://medium.com/plain-and-simple/identification-vs-authentication-vs-authorization-e1f03a0ca885).
+[authentication/authorization](../identification-authentication-authorization/).
 How do you make sure that only authorized users can access the new service?
 
 ## #5: Scalability
 
-You can [scale applications horizontally or vertically](https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925). Scaling vertically means buying a bigger machine, scaling horizontally means buying a second machine. Buying a bigger machine is trivial and cheap until a certain point. From that point it becomes impossible. If you’re lucky, you never feel the need to scale horizontally. Scaling horizontally is way more complicated and you need to spend development time on it, which typically makes it way more expensive.
+You can [scale applications horizontally or vertically](../scaling-horizontally-vs-vertically/). Scaling vertically means buying a bigger machine, scaling horizontally means buying a second machine. Buying a bigger machine is trivial and cheap until a certain point. From that point it becomes impossible. If you’re lucky, you never feel the need to scale horizontally. Scaling horizontally is way more complicated and you need to spend development time on it, which typically makes it way more expensive.
 
 If you have a separate service, you might already be closer to an architecture
 that allows you to scale horizontally. However, this is not a strong argument

@@ -9,7 +9,7 @@ category: Code
 tags: Code, Python, Scope
 featured_image: logos/python.png
 subtitle: The extraordinarily short guide to Python's crazy scoping rules
-URL: https://towardsdatascience.com/but-its-not-declared-40501fb1e943
+medium_url: https://towardsdatascience.com/but-its-not-declared-40501fb1e943
 ---
 It’s obvious that you cannot access a variable before it was declared. But if
 it was declared inside a loop, can you access it outside a loop? If it was
@@ -238,7 +238,7 @@ public class Main
 
 ### mypy
 
-mypy is a widespread [type-checker for Python](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d).
+mypy is a widespread [type-checker for Python](../type-annotations/).
 
 ```python
 if external_service():

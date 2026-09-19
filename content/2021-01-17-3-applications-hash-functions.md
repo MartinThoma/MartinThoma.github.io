@@ -9,9 +9,9 @@ category: Cyberculture
 tags: hash, Software Development
 featured_image: logos/star.png
 subtitle: What they are, what the options are, and why they matter
-URL: https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d
+medium_url: https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d
 ---
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/4610/1*61uolxM5HsroqBFaQxsGxQ.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/01/3-applications-of-hash-functions-1.png)*Image by Martin Thoma*
 
 Hash functions take arbitrarily many bytes as input and produce a fixed-length string as output. The string typically looks completely random, but the same input always generates the same output. They also typically produce different outputs for different inputs, but more about that later.
 
@@ -61,7 +61,7 @@ different outputs.
 
 What you cannot see is the one-way nature of hash functions:
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/3486/1*QUPHWtW-lPEXWGEpb-YPtg.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/01/3-applications-of-hash-functions-2.png)*Image by Martin Thoma*
 
 Computing the hash value of a given password is comparatively fast and
 deterministic. Given the hash value, it is impossible to know for sure the
@@ -104,7 +104,7 @@ from maybe 100μs to 100ms by applying the hash function 1000 times.
 
 For more details, read my article about password hashing:
 [**Password Hashing 😇**
-*Prepare to get hacked*levelup.gitconnected.com](https://levelup.gitconnected.com/password-hashing-eb3b97684636)
+*Prepare to get hacked*levelup.gitconnected.com](../password-hashing/)
 
 ## Application 2: Integrity Checks
 
@@ -197,7 +197,7 @@ print(f"{probe=}; {hashval=}; nb_probed={nb_probed:,}")
 
 If you want to get more context about how the proof of work is used in Blockchain, have a look at my introductory article:
 [**The Blockchain**
-*An Introduction to Blockchain, Bitcoin ₿, and related concepts*medium.com](https://medium.com/coinmonks/the-blockchain-473aac352e5)
+*An Introduction to Blockchain, Bitcoin ₿, and related concepts*medium.com](../blockchain/)
 
 ## Bonus: Dictionaries / Maps / Associative Arrays
 
@@ -257,8 +257,24 @@ In case you’re curious, here are the 23 collisions of CRC32:
 ('pachadoms', 'wind-changing')
 ```
 
-## What’s next?
+## More in this series
 
-I thought about writing a series about developer fundamentals. I could imagine
-an article about floats, one about date/time, architecture, networks. Let me
-know what you’re interested in!
+This article is part of my series about Blockchain:
+
+* Part 1: [An Introduction to Blockchain](../blockchain/)
+* Part 2: **The 3 Applications of Hash Functions**
+* Part 3: [Merkle Trees](../merkle-trees/)
+
+Topics I will consider next:
+
+* Merkle Patricia Tries
+* Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it’s so important
+* Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.
+* Smart contracts: What they are and how they work; e.g. with Ethereum as an example
+* [Initial Coin Offering](https://en.wikipedia.org/wiki/Initial_coin_offering) (ICO)
+* Bitcoin's consensus algorithm
+* Bitcoin and the network: How do people connect?
+* Bitcoin Wallets
+* Peer-To-Peer Stuff: How Gossip Protocols work
+
+Let me know what you’re interested in!

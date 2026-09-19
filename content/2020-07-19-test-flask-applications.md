@@ -8,11 +8,11 @@ date: 2020-07-19 20:00
 category: Code
 tags: Python, Flask, Software Development, Unit Testing, Load Testing, Software Engineering
 featured_image: logos/flask.png
-URL: https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c
+medium_url: https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c
 ---
 As a data scientist, I need to make my models accessible. I usually [deploy models with Flask](https://medium.com/analytics-vidhya/deploying-a-machine-learning-model-on-web-using-flask-and-python-54b86c44e14a). As a software engineer, I want to make sure things work as expected by unit testing them.
 
-Unit testing websites or web services is hard for multiple reasons: You have code-within-code like HTML template engines and SQL. Additionally, you have databases as dependencies which are pretty hard to mock. In this article, you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you [know the basics of unit testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0).
+Unit testing websites or web services is hard for multiple reasons: You have code-within-code like HTML template engines and SQL. Additionally, you have databases as dependencies which are pretty hard to mock. In this article, you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you [know the basics of unit testing in Python](../unit-testing-basics/).
 
 ## My Tiny Flask App
 
@@ -128,7 +128,7 @@ plugin, you configure your database connection via
 string with `sqlite://`, flask-sqlalchemy will create an in-memory SQLite
 database and use that instead of the real database. This is super fast to
 create and interact with (see
-[benchmark](https://martin-thoma.com/key-value-stores/#benchmark_1)).
+[benchmark](../key-value-stores/#benchmark_1)).
 
 You can adjust the client fixture like this:
 
@@ -401,20 +401,18 @@ Maybe it’s not necessary for you.
 
 If you have a web service live, you should have another service which regularly pings yours and checks if it is still alive. The latency of the answer can be measured and should be monitored. If you don’t expect a crazy amount of calls and if you have autoscaling enabled anyway, it’s perfectly reasonable not to run a load test. Just monitor your API behavior and act if you really need to.
 
-## What’s next?
+## More in this series
 
-You already know [the basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0) and [how to patch and create mocks](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed). In this part, you learned how to deal with the special challenges of Flask applications.
+This article is part of my series about unit testing in Python:
 
-In future articles, I will present:
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: **How to test Flask applications** with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
 
-* How to structure Unit Tests
-
-* tox and nox
-
-* CI-Pipelines
-
-* Test Automation
-
-* Property-based Testing
-
-* Mutation Testing
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

@@ -8,9 +8,9 @@ date: 2020-09-15 20:00
 category: Code
 tags: Python, Logging
 featured_image: logos/python.png
-URL: https://towardsdatascience.com/logging-basics-in-python-d0db13e538f9
+medium_url: https://towardsdatascience.com/logging-basics-in-python-d0db13e538f9
 ---
-![The [dmesg](https://en.wikipedia.org/wiki/Dmesg) output. Screenshot taken by Martin Thoma.](https://cdn-images-1.medium.com/max/3760/1*7bpeZdDGtnxRIFE0iYp7OQ.png)*The [dmesg](https://en.wikipedia.org/wiki/Dmesg) output. Screenshot taken by Martin Thoma.*
+![The [dmesg](https://en.wikipedia.org/wiki/Dmesg) output. Screenshot taken by Martin Thoma.](../images/2020/09/logging-basics-in-python-1.png)*The [dmesg](https://en.wikipedia.org/wiki/Dmesg) output. Screenshot taken by Martin Thoma.*
 
 Logging is the act of recording information about the current state of execution. It’s typically done for two purposes:
 
@@ -43,7 +43,7 @@ It gives output like this:
 
 **BasicConfig should probably not be used**. Please continue reading “the 4 logging classes” to learn why 😁
 
-![Image by Oliver Widder from [geek-and-poke.com](http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important)](https://cdn-images-1.medium.com/max/4960/1*g34WT6mRV4_UKC06OnUNeg.jpeg)*Image by Oliver Widder from [geek-and-poke.com](http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important)*
+![Image by Oliver Widder from [geek-and-poke.com](http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important)](../images/2020/09/logging-basics-in-python-2.jpg)*Image by Oliver Widder from [geek-and-poke.com](http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important)*
 
 ## The 4 Logging Classes
 
@@ -96,7 +96,7 @@ Commonly, you also want to set the log level on either the logger or the log han
 sh.setLevel(logging.INFO)
 ```
 
-![Image by Oliver Widder from [geek-and-poke.com](https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html)](https://cdn-images-1.medium.com/max/2000/1*QR-5wpqk0J2X3O1vlYSrqQ.jpeg)*Image by Oliver Widder from [geek-and-poke.com](https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html)*
+![Image by Oliver Widder from [geek-and-poke.com](https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html)](../images/2020/09/logging-basics-in-python-3.jpg)*Image by Oliver Widder from [geek-and-poke.com](https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html)*
 
 ### Log Formatters
 
@@ -135,7 +135,7 @@ stdout_handler.addFilter(OnWeekendOnlyErrorsFilter())
 logger.addHandler(stdout_handler)
 ```
 
-![Photo by [Nigel Tadyanehondo](https://unsplash.com/@nxvision?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/7872/0*LdnHX9sPcoVbJMbF)*Photo by [Nigel Tadyanehondo](https://unsplash.com/@nxvision?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Nigel Tadyanehondo](https://unsplash.com/@nxvision?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/09/logging-basics-in-python-4.jpg)*Photo by [Nigel Tadyanehondo](https://unsplash.com/@nxvision?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 ## Logging vs print vs exception
 
@@ -145,7 +145,7 @@ I’ve been very confused about when I should simply print out information when 
 
 **Logging is meant for other systems or developers** who try to understand what happened to a system, whereas **print is for the user**. The confusing part is that log messages go to the standard error by default. You can easily do the same with print. I’ve used logging in the past to give the user feedback about what is currently happening, simply because logging had an easy way to include timestamps.
 
-![Photo by [Esteban Lopez](https://unsplash.com/@exxteban?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/7744/0*nCSTE1Mg5o-lyMj1)*Photo by [Esteban Lopez](https://unsplash.com/@exxteban?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Esteban Lopez](https://unsplash.com/@exxteban?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/09/logging-basics-in-python-5.jpg)*Photo by [Esteban Lopez](https://unsplash.com/@exxteban?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 ## warnings.warn vs logging.warning
 
@@ -156,7 +156,7 @@ According to [the official docs](https://docs.python.org/3/howto/logging.html#wh
 
 A typical use case for warnings is [DeprecationWarning](https://docs.python.org/3/library/exceptions.html#DeprecationWarning) with which a library can tell its users to remove a certain type of usage. Or SciPy warning you that no BLAS library was found.
 
-![Too few log messages are bad, but too many can be problematic as well. Photo by [Christa Dodoo](https://unsplash.com/@krystagrusseck?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8064/0*OmKMed1DyMeALh3k)*Too few log messages are bad, but too many can be problematic as well. Photo by [Christa Dodoo](https://unsplash.com/@krystagrusseck?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Too few log messages are bad, but too many can be problematic as well. Photo by [Christa Dodoo](https://unsplash.com/@krystagrusseck?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/09/logging-basics-in-python-6.jpg)*Too few log messages are bad, but too many can be problematic as well. Photo by [Christa Dodoo](https://unsplash.com/@krystagrusseck?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 ## What should I log?
 
@@ -170,7 +170,7 @@ It’s hard to find the right balance. Too many log messages make it hard to fin
 
 It’s a common practice for applications to create a log.py or a logger.py file in which the logger is initialized and log handlers and formatters are added. [OpenShot](https://github.com/OpenShot/openshot-qt) is doing it.
 
-![Photo by [Kristina Flour](https://unsplash.com/@tinaflour?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9640/0*-2fIUT_dAjXX0-2q)*Photo by [Kristina Flour](https://unsplash.com/@tinaflour?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Kristina Flour](https://unsplash.com/@tinaflour?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/09/logging-basics-in-python-7.jpg)*Photo by [Kristina Flour](https://unsplash.com/@tinaflour?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 ## Silencing loggers
 

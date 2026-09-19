@@ -8,7 +8,7 @@ date: 2020-10-05 20:00
 category: Code
 tags: JSON, Python, Benchmark
 featured_image: logos/json.png
-URL: https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a
+medium_url: https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a
 ---
 JSON is a cornerstone for the exchange of data on the Internet. REST APIs use the standardized message format all around the world. Being a subset of JavaScript, it got a huge initial boost in its adoption right from the start. The fact that its syntax is pretty clear and easy to read also helped.
 
@@ -339,7 +339,7 @@ As a closing note, I want to point out some issues I see sometimes and have writ
 * Calling variables `foo_json`: JSON is a string format. If it’s not a string, it’s not JSON. If you deserialized a JSON with `bar = json.loads(foo)`, then `bar` is not a JSON. You can serialize `bar` to a JSON which is equivalent to the JSON `foo`, but `bar` is not a JSON. It’s a Python object. Very likely a dictionary. You can then call it `foo_dict`.
 * Attribute checks all over the place: If you receive a JSON, it’s super easy to convert it to a Python object (e.g. a dict) and use it. This is fine for proof-of-concept code or very small JSON strings. It will bite you in the ass if you don’t convert it to something like a [dataclass](https://docs.python.org/3/library/dataclasses.html).
 
-[pydantic](https://github.com/samuelcolvin/pydantic) is a super helpful validation library. You can take the JSON string, parse it to a Python base representation with dictionaries / lists / strings / numbers / booleans with your favorite JSON library and then parse it again with Pydantic. The advantage you get from this is that you know what you’re dealing with later. No longer just `Dict[str, Any]` as a [type annotation](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d). No longer unhelpful editor autocompletion. No longer checking if attributes exist all over your code.
+[pydantic](https://github.com/samuelcolvin/pydantic) is a super helpful validation library. You can take the JSON string, parse it to a Python base representation with dictionaries / lists / strings / numbers / booleans with your favorite JSON library and then parse it again with Pydantic. The advantage you get from this is that you know what you’re dealing with later. No longer just `Dict[str, Any]` as a [type annotation](../type-annotations/). No longer unhelpful editor autocompletion. No longer checking if attributes exist all over your code.
 
 To use JSON packages other than the default `json`, I recommend the pattern:
 

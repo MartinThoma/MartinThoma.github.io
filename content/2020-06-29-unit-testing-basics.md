@@ -8,7 +8,7 @@ date: 2020-06-29 20:00
 category: Code
 tags: Python, Unit Testing, pytest
 featured_image: logos/python.png
-URL: https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0
+medium_url: https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0
 ---
 Unit testing is the number one skill which separates people who just finished their degrees from people with practical experience. Especially for Python, that’s a shame as it is trivial to learn this skill.
 
@@ -180,7 +180,7 @@ In contrast, an *unhappy* execution path is dealing with unwanted inputs. This i
 
 ## Type Checking
 
-If you use [type annotations](https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d) (which you totally should!), then you can install [pytest-mypy](https://pypi.org/project/pytest-mypy/). You can then automatically run mypy over your code by adding `--mypy` to your pytest command.
+If you use [type annotations](../type-annotations/) (which you totally should!), then you can install [pytest-mypy](https://pypi.org/project/pytest-mypy/). You can then automatically run mypy over your code by adding `--mypy` to your pytest command.
 
 ## Linting
 
@@ -259,3 +259,19 @@ The following topics will be covered by me in the next few weeks:
 * Mutation Testing
 
 Let me know if you’re interested in other topics around testing with Python.
+
+## More in this series
+
+This article is part of my series about unit testing in Python:
+
+* Part 1: **The basics of Unit Testing in Python**
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
+
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

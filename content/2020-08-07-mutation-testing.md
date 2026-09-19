@@ -8,9 +8,9 @@ date: 2020-08-10 20:00
 category: Code
 tags: Python, pytest
 featured_image: logos/mutation-testing.png
-URL: https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8
+medium_url: https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8
 ---
-![Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)](https://cdn-images-1.medium.com/max/2400/1*WjcywqTPozcMSvrLYsQBJQ.png)*Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)*
+![Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)](../images/2020/08/mutation-testing-1.jpg)*Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)*
 
 We need to kill the mutants — no, I’m not a villain from the X-Men comics. I’m
 a software engineer who wants to improve unit tests.
@@ -260,21 +260,18 @@ Other work was more focused on making machine learning systems more robust ([Dee
   commonly used. You could say that a part of the input or the internal
   representation is randomly mutated by setting it to zero.
 
-## Want to know more about unit testing?
+## More in this series
 
-In this series, we already had:
+This article is part of my series about unit testing in Python:
 
-* Part 1: [The basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)
-* Part 2: [Patching, Mocks and Dependency Injection](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed)
-* Part 3: [How to test Flask applications](https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c) with Databases, Templates and Protected Pages
-* Part 4: [tox and nox](https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729)
-* Part 5: [Structuring Unit Tests](https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923)
-* Part 6: [CI-Pipelines](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38)
-* Part 7: [Property-based Testing](https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119)
-* Part 8: [Mutation Testing](https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8)
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: **Mutation Testing**
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
 
-In future articles, I will present:
-
-* Static Code Analysis: Linters, Type Checking, and Code Complexity
-
-Let me know if you’re interested in other topics around testing with Python.
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

@@ -8,7 +8,7 @@ date: 2020-09-04 20:00
 category: Code
 tags: Software Development, Python, git
 featured_image: logos/git.png
-URL: https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e
+medium_url: https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e
 ---
 pre-commit hooks are a mechanism of the version control system git. They let
 you execute code right before the commit. Confusingly, there is also a Python
@@ -109,7 +109,7 @@ Automatic code formatting has the same advantages as the file formatting.
 Additionally, it prevents meaningless discussions. Thus, it lets you and your
 team focus on the important and complicated parts.
 
-I love Python's autoformatter black and mentioned it already in the article about [static code analysis](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287):
+I love Python's autoformatter black and mentioned it already in the article about [static code analysis](../static-code-analysis/):
 
 ```yaml
 -   repo: https://github.com/psf/black

@@ -162,7 +162,7 @@ beim Energiebedarf.
 
 ## Leuchtmittel
 
-Siehe [Is it worth changing the Lightbulb](https://medium.com/plain-and-simple/is-it-worth-changing-the-lightbulb-74cb0dea242e)
+Siehe [Is it worth changing the Lightbulb](../is-it-worth-changing-the-lightbulb/)
 
 Kurz und gut: Wenn man eine Glühbirne, Halogenlampe oder eine Energiesparlampe
 hat, sollte man direkt eine LED kaufen. Irgendeine. Muss jetzt nicht eine super

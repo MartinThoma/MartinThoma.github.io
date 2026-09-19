@@ -8,7 +8,7 @@ date: 2020-08-17 20:00
 category: Code
 tags: Unit Testing, Flake8, mypy, Security, AppSec
 featured_image: logos/static-code-analysis.png
-URL: https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287
+medium_url: https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287
 ---
 Static code analysis looks at the code without executing it. It is usually extremely fast to execute, requires little effort to add to your workflow, and can uncover common mistakes. The only downside is that it is not tailored towards your code.
 
@@ -17,7 +17,7 @@ In this article, you will learn how to perform various types of static code anal
 
 ## Code Complexity
 
-![Photo by [John Barkiple](https://unsplash.com/@barkiple?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10368/0*hpBpO29k15vDdmHJ)*Photo by [John Barkiple](https://unsplash.com/@barkiple?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [John Barkiple](https://unsplash.com/@barkiple?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-1.jpg)*Photo by [John Barkiple](https://unsplash.com/@barkiple?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 One way to measure code complexity is the [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity), also called McCabe complexity as defined in [A Complexity Measure](https://books.google.de/books?id=vtNWAAAAMAAJ&pg=PA3&redir_esc=y):
 
@@ -53,7 +53,7 @@ Besides radon, there are various other packages and Flake8 plugins:
 
 ## Style Guides
 
-![Make your code look professional. Photo by [Hunters Race](https://unsplash.com/@huntersrace?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10132/0*gC2HdhBSJwqGfFAF)*Make your code look professional. Photo by [Hunters Race](https://unsplash.com/@huntersrace?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Make your code look professional. Photo by [Hunters Race](https://unsplash.com/@huntersrace?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-2.jpg)*Make your code look professional. Photo by [Hunters Race](https://unsplash.com/@huntersrace?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 You might have heard the words “pythonic code”. It means to not only write correct Python code but also use the language's features as they are intended to be used ([source](https://stackoverflow.com/a/25011492/562769)). It is for sure an opinionated term, but there are a lot of plugins that show you what a large part of the community considers to be pythonic.
 
@@ -61,7 +61,7 @@ Writing code in a similar style to other Python projects is valuable as people w
 
 So, what is pythonic code?
 
-Let’s start with [PEP-8](https://www.python.org/dev/peps/pep-0008/): It’s a style guide written and accepted by the Python community in 2001. So it’s been around for a while and most people want to follow most of it. The main part I’ve seen most people disagree with is the [maximum line length of 79](https://www.python.org/dev/peps/pep-0008/#maximum-line-length). I always recommend following this advice in 95% of your codebase. I gave [reasons](https://martin-thoma.com/python-style-guide/#maximum-line-length) for that.
+Let’s start with [PEP-8](https://www.python.org/dev/peps/pep-0008/): It’s a style guide written and accepted by the Python community in 2001. So it’s been around for a while and most people want to follow most of it. The main part I’ve seen most people disagree with is the [maximum line length of 79](https://www.python.org/dev/peps/pep-0008/#maximum-line-length). I always recommend following this advice in 95% of your codebase. I gave [reasons](../python-style-guide/#maximum-line-length) for that.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/08/black-logo.png"><img src="../images/2020/08/black-logo.png" alt="Logo of the black project" style="width: 512px;"/></a>
@@ -74,7 +74,7 @@ For pure code formatting, you should use an autoformatter. I grew to like [black
 
 ## Docstrings
 
-![Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation. Photo by [Laura Dewilde](https://unsplash.com/@lauradewilde97?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8000/0*Ln2UNS74PuVuhOVM)*Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation. Photo by [Laura Dewilde](https://unsplash.com/@lauradewilde97?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation. Photo by [Laura Dewilde](https://unsplash.com/@lauradewilde97?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-3.jpg)*Reading the manual can be fun if it’s written well. [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid) and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt) have pretty good documentation. Photo by [Laura Dewilde](https://unsplash.com/@lauradewilde97?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 For docstrings, there is [PEP-257](https://www.python.org/dev/peps/pep-0257/). All of those rules are widely accepted in the community, but they still allow a wide variety of docstrings. There are three commonly used styles:
 
@@ -196,7 +196,7 @@ An alternative to parts of Flake8 is [prospector](https://pypi.org/project/prosp
 
 ## Flake8: Security and Bugs
 
-![Be safe by looking at warning signs. Photo by [Troy Bridges](https://unsplash.com/@esptroy?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8064/0*F1jS0N6EjU66u4nu)*Be safe by looking at warning signs. Photo by [Troy Bridges](https://unsplash.com/@esptroy?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Be safe by looking at warning signs. Photo by [Troy Bridges](https://unsplash.com/@esptroy?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-4.jpg)*Be safe by looking at warning signs. Photo by [Troy Bridges](https://unsplash.com/@esptroy?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 * [flake8-bandit](https://pypi.org/project/flake8-bandit/): Security Testing
 * [flake8-bugbear](https://pypi.org/project/flake8-bugbear/): finding likely bugs and design problems in your program — usually it’s silent, but when it’s not you should have a look 🐻
@@ -210,7 +210,7 @@ It has happened to me quite a few times: I’ve added some code while developing
 
 ## Let Dead Code Die
 
-![Photo by [Kenny Orr](https://unsplash.com/@greyharpoon?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11520/0*HolQng-8Fkoy-A63)*Photo by [Kenny Orr](https://unsplash.com/@greyharpoon?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Kenny Orr](https://unsplash.com/@greyharpoon?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-5.jpg)*Photo by [Kenny Orr](https://unsplash.com/@greyharpoon?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Who hasn’t done it: You removed a functionality, but the code could be handy. So you comment it out. Or you add an `if False` block around it. Sometimes more sophisticated by adding a configuration option you don’t need.
 
@@ -223,7 +223,7 @@ And then there is code which is dead, but you forgot about it. Luckily, you can 
 
 ## Flake8: Nudging Yourself to use Good Style
 
-![Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by [Brooke Cagle](https://unsplash.com/@brookecagle?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9446/0*lXvALfnWfaU_cFB_)*Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by [Brooke Cagle](https://unsplash.com/@brookecagle?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by [Brooke Cagle](https://unsplash.com/@brookecagle?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-6.jpg)*Having an experienced developer review your code is awesome. In the best case, you will learn something new that you can apply in all further projects. And some plugins act like that. Photo by [Brooke Cagle](https://unsplash.com/@brookecagle?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Some plugins helped me to learn something about Python. For example, the following helped me to get rid of small little bugs and inconsistencies:
 
@@ -241,7 +241,7 @@ This is one of the most valuable categories for me. If you know more plugins whi
 
 ## Flake8 Meta Plugins
 
-![Image created by Martin Thoma via imgflip.com](https://cdn-images-1.medium.com/max/2400/1*E4HyDr73N_j4p3mn5X64pA.jpeg)*Image created by Martin Thoma via imgflip.com*
+![Image created by Martin Thoma via imgflip.com](../images/2020/08/static-code-analysis-7.jpg)*Image created by Martin Thoma via imgflip.com*
 
 Flake8 has some plugins which don’t add more linting functionality, but improve flake8 in another way:
 
@@ -259,15 +259,15 @@ And some plugins people might need for legal reasons like flake8-author, flake8-
 
 ## Type Annotations and Type Checking
 
-![The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.](https://cdn-images-1.medium.com/max/3442/1*jXmhQQBv0xgpPQPUN08Z_A.png)*The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.*
+![The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.](../images/2020/08/static-code-analysis-8.png)*The mypy plugin for VS Code showing an issue with the types. Screenshot by Martin Thoma.*
 
-It’s possible in Python, but you need to do it. It’s not done automatically. I’ve written a longer article about how [type annotations work in Python](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d). There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using `flake8-mypy`, but I prefer to run it separately. The main reason for it is that the output given by [CI pipelines](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38) is cleaner.
+It’s possible in Python, but you need to do it. It’s not done automatically. I’ve written a longer article about how [type annotations work in Python](../type-annotations/). There are multiple tools you can use, but I recommend mypy. You can run it via pytest by using pytest-mypy or via flake8 by using `flake8-mypy`, but I prefer to run it separately. The main reason for it is that the output given by [CI pipelines](../ci-pipelines/) is cleaner.
 
 You can integrate type checking (e.g. via mypy) into your editor, but the type annotations alone already go a long way as they document what is expected.
 
 ## Package Structure
 
-![Check that your package looks fine before shipping it. Photo by [Toby Stodart](https://unsplash.com/@tobystodart?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10080/0*y67weckARV-M_yOh)*Check that your package looks fine before shipping it. Photo by [Toby Stodart](https://unsplash.com/@tobystodart?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Check that your package looks fine before shipping it. Photo by [Toby Stodart](https://unsplash.com/@tobystodart?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/08/static-code-analysis-9.jpg)*Check that your package looks fine before shipping it. Photo by [Toby Stodart](https://unsplash.com/@tobystodart?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 [pyroma](https://github.com/regebro/pyroma) rates how well a Python project complies with the best practices of the Python packaging ecosystem.
 
@@ -297,18 +297,18 @@ Cottage Cheese
 ------------------------------
 ```
 
-## Want to Know More About Unit Testing?
+## More in this series
 
-In this series, we already had:
+This article is part of my series about unit testing in Python:
 
-* Part 1: [The basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)
-* Part 2: [Patching, Mocks, and Dependency Injection](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed)
-* Part 3: [How to test Flask applications](https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c) with Databases, Templates and Protected Pages
-* Part 4: [tox and nox](https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729)
-* Part 5: [Structuring Unit Tests](https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923)
-* Part 6: [CI-Pipelines](https://towardsdatascience.com/ci-pipelines-for-python-projects-9ac2830d2e38)
-* Part 7: [Property-based Testing](https://towardsdatascience.com/unit-testing-in-python-property-based-testing-892a741fc119)
-* Part 8: [Mutation Testing](https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8)
-* Part 9: Static Code Analysis: Linters, Type Checking, and Code Complexity
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: **Static Code Analysis: Linters, Type Checking, and Code Complexity**
 
 Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

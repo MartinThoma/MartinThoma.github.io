@@ -8,7 +8,7 @@ date: 2020-07-25 20:00
 category: Code
 tags: Python, pytest
 featured_image: logos/python.png
-URL: https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923
+medium_url: https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923
 ---
 Testing code is often pretty ugly: A lot of copy & paste, the code is all over
 the place and hard to understand. In this article, you will learn how to
@@ -195,7 +195,7 @@ def test_bar(show_isolation):
     assert show_isolation == 42
 ```
 
-If you want real examples, have a look at my tutorial [how to test Flask Applications](https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c). There I show how to use fixtures to mock the database.
+If you want real examples, have a look at my tutorial [how to test Flask Applications](../test-flask-applications/). There I show how to use fixtures to mock the database.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/geek-and-poke-good-coders.jpg"><img src="../images/2020/07/geek-and-poke-good-coders.jpg" alt="Comic by Oliver Widder from geek-and-poke.com" style="width: 512px;"/></a>
@@ -291,7 +291,7 @@ fail for every single parameter which is wrong. As an example, I manipulated
 the Fibonacci function to return `42` for `n=2` and `n=3`. Here is what the
 error looks like with pytest's parametrization:
 
-![Screenshot taken by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*U7bFojobikHFYkvmF0RK_g.png)*Screenshot taken by Martin Thoma*
+![Screenshot taken by Martin Thoma](../images/2020/07/unit-testing-structure-1.png)*Screenshot taken by Martin Thoma*
 
 Both the test and the test output in case of failure are now more readable! I
 love this so much 😍
@@ -302,7 +302,7 @@ In some cases, you know that a test will fail if another one has failed
 already. You could model that with
 [pytest-dependency](https://pypi.org/project/pytest-dependency/). However, I
 encourage you to think carefully about this. Maybe you can [patch dependencies
-away](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed)
+away](../unit-testing-patching/)
 to make sure you’re only testing one thing in one unit test? Maybe the function
 you want to test can be split into multiple functions if it has too many
 dependencies?
@@ -310,3 +310,19 @@ dependencies?
 ## See also
 
 * Brian K Okken: [Multiply your Testing Effectiveness with Parameterized Testing](https://www.youtube.com/watch?v=2R1HELARjUk), PyCon 2020. On YouTube.
+
+## More in this series
+
+This article is part of my series about unit testing in Python:
+
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: **Structuring Unit Tests**
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
+
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

@@ -9,7 +9,7 @@ category: Code
 tags: hash, encryption, security, encoding
 featured_image: logos/star.png
 subtitle: They might appear in the same context, but they are vastly different
-url: https://medium.com/plain-and-simple/encryption-vs-encoding-vs-hashing-bb1e166cf15a
+medium_url: https://medium.com/plain-and-simple/encryption-vs-encoding-vs-hashing-bb1e166cf15a
 ---
 **Encryption is about keeping a secret** and being able to restore it. **Hashing is about fingerprinting** — you don’t need to restore the original, but you need to make sure it is identical. **Encoding is about data representation to enable information exchange**. Encoding does not involve keeping secrets.
 
@@ -17,13 +17,13 @@ This was my Twitter-length explanation. Let’s dive into details!
 
 ## Encoding
 
-![Photo by [Quino Al](https://unsplash.com/@quinoal?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9100/0*MNqRXPEMDul3bdKA)*Photo by [Quino Al](https://unsplash.com/@quinoal?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Quino Al](https://unsplash.com/@quinoal?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/encryption-vs-encoding-vs-hashing-1.jpg)*Photo by [Quino Al](https://unsplash.com/@quinoal?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Encoding is about data representation. For example, for icons on the web, we prefer not to store image files but have them directly on the web page. This prevents the client from creating many HTTP requests for little data.
 
 But then the binary data of the image has to be converted to text data. A common way to do that is [base64 encoding](https://en.wikipedia.org/wiki/Base64).
 
-![Image data converted to base64 text](https://cdn-images-1.medium.com/max/2150/1*xLjXcxEQETyNMAi9HrOJbg.png)
+![Image data converted to base64 text](../images/2021/02/encryption-vs-encoding-vs-hashing-2.png)
 
 As you can see, the “translation” is trivial: We build 6-bit blocks of the binary data and look up the character in the table above. It’s called base64 because there are 2⁶ = 64 digits. Hence it can be interpreted as a [number base conversion](https://en.wikipedia.org/wiki/Positional_notation#Base_conversion).
 
@@ -33,7 +33,7 @@ Character encodings are also extremely common. They map an integer to a characte
 
 ## Encryption
 
-![Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/12000/0*hFOeoYAJZ47-pd4B)*Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/encryption-vs-encoding-vs-hashing-3.jpg)*Photo by [Mauro Sbicego](https://unsplash.com/@maurosbicego?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Encryption is about keeping secrets. You don’t want to keep the method how you encrypt and decrypt secret. Instead, you should have a secret key that is necessary to decrypt. This is called Kerckhoffs’s principle.
 
@@ -110,16 +110,16 @@ Modern encryption algorithms are a bit more complicated. The state of the art is
 
 ## Hashing
 
-![Photo by [Immo Wegmann](https://unsplash.com/@macroman?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9856/0*areuO5qPgGps9b5U)*Photo by [Immo Wegmann](https://unsplash.com/@macroman?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Immo Wegmann](https://unsplash.com/@macroman?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/encryption-vs-encoding-vs-hashing-4.jpg)*Photo by [Immo Wegmann](https://unsplash.com/@macroman?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Hashing is about fingerprinting. You want to be able to uniquely identify a list of bytes (e.g. a string or a file), but you don’t want to store it. You either don’t need to be able to go back to the original or you don’t even want it. Just like with a fingerprint: You can take two fingerprints and conclude that they belong to the same person. But given only one fingerprint, you cannot reconstruct that person.
 
 I wrote an article that explains in detail why this loss of information is desired:
 [**Password Hashing 😇**
-*Prepare to get hacked*levelup.gitconnected.com](https://levelup.gitconnected.com/password-hashing-eb3b97684636)
+*Prepare to get hacked*levelup.gitconnected.com](../password-hashing/)
 
 But there are several other applications of hash functions as well:
 [**The 3 Applications of Hash Functions**
-*What they are, what the options are, and why they matter*levelup.gitconnected.com](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d)
+*What they are, what the options are, and why they matter*levelup.gitconnected.com](../3-applications-of-hash-functions/)
 
 State-of-the-art hash functions are SHA-256 or SHA-512.

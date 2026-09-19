@@ -8,7 +8,7 @@ date: 2020-09-25 20:00
 category: Code
 tags: Flake8, Python
 featured_image: logos/python.png
-URL: https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2
+medium_url: https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2
 ---
 Really important parts of code reviews are almost impossible to automate:
 Architectural decisions and logical bugs. They are too customized to your
@@ -36,7 +36,7 @@ and thus can suggest using the following instead:
 a != b
 ```
 
-![Cartoon by [Geek-and-Poke](http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices) (Oliver Widder)](https://cdn-images-1.medium.com/max/5602/1*1QTVPrx8DtO14F7-_jnBBw.png)*Cartoon by [Geek-and-Poke](http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices) (Oliver Widder)*
+![Cartoon by [Geek-and-Poke](http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices) (Oliver Widder)](../images/2020/09/write-flake8-plugins-1.png)*Cartoon by [Geek-and-Poke](http://geek-and-poke.com/geekandpoke/2019/10/20/qa-best-practices) (Oliver Widder)*
 
 ## About Flake8
 
@@ -63,7 +63,7 @@ flake8 --ignore E1,W512 .
 Plugins need a 3-character prefix. For my plugin [flake8-simplify](https://pypi.org/project/flake8-simplify/0.1.0/), I chose SIM as a prefix.
 > The 3-character prefix should not start with E or W as people might want to completely block Flake8 W-rules.
 
-![Comic by [Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html) (Oliver Widder)](https://cdn-images-1.medium.com/max/8534/1*TX5RSfIk0XrEeSX0aXm4hg.jpeg)*Comic by [Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html) (Oliver Widder)*
+![Comic by [Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html) (Oliver Widder)](../images/2020/09/write-flake8-plugins-2.jpg)*Comic by [Geek and Poke](https://geekandpoke.typepad.com/geekandpoke/2012/01/good-coders.html) (Oliver Widder)*
 
 ## The Flake8 Plugin Skeleton
 
@@ -233,7 +233,7 @@ This is part of [flake8-simplify 0.2.0](https://github.com/MartinThoma/flake8-si
 
 Please make me proud and automate your reviews — make the following comic true for Flake8 plugins as well :-)
 
-![Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)](https://cdn-images-1.medium.com/max/2000/1*WYl8FGvNz-nvPpzuQd54-w.jpeg)*Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)*
+![Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)](../images/2020/09/write-flake8-plugins-3.jpg)*Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)*
 
 ## See also
 

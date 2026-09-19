@@ -9,9 +9,9 @@ category: Code
 tags: Database
 featured_image: logos/db.png
 subtitle: “If everything seems under control, you’re not going fast enough”
-URL: https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739
+medium_url: https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739
 ---
-![Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!](https://cdn-images-1.medium.com/max/10000/1*28TMGhQwjgRqkBU7mXcZcw.jpeg)*Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!*
+![Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!](../images/2021/04/8-techniques-to-speed-up-your-db-1.jpg)*Photo by Christina Morillo ([original](https://www.pexels.com/de-de/foto/frau-die-beim-tragen-des-laptops-steht-1181354/)). Thank you!*
 
 Almost all web services for end-users have the need to store data. Almost all of them store them in a database. And quite a lot use a relational database like PostgreSQL, MySQL/MariaDB, or MSSQL. Database systems are pretty awesome because you can forget about them. They just handle the data persistence for you… until they get slow.
 
@@ -61,7 +61,7 @@ Query optimization is done by the database user per query. Queries can be writte
 
 One tool to mention is [sqlcheck](https://github.com/jarulraj/sqlcheck) ([video](https://www.youtube.com/watch?v=5vHhuuPy3FI)). It checks for common SQL query antipatterns like having multiple values in one column instead of using an intersection table or wildcard selects.
 
-A slightly different sub-category of the query optimization topic is [the n+1 problem](https://levelup.gitconnected.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8) / writing a loop to send multiple queries instead of having one query for the data.
+A slightly different sub-category of the query optimization topic is [the n+1 problem](../raw-sql-vs-query-builder-vs-orm/) / writing a loop to send multiple queries instead of having one query for the data.
 
 ## 3. Business Changes and Partitioning
 
@@ -72,7 +72,7 @@ Similarly, it might be OK to split your web service's data by user groups. Maybe
 
 ## 4. Replication
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*7uNbgHaB-3dSFOfMToqpig.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/04/8-techniques-to-speed-up-your-db-2.png)*Image by Martin Thoma*
 
 Replication is an easy solution if reads are your problem and if a bit of time-delay of updates is not a big deal. Replication continuously copies the database to another machine. It speeds up reads and acts as a failover mechanism.
 
@@ -86,7 +86,7 @@ Given a huge table, we could store some rows on one machine and others on anothe
 
 An image explains more than many words:
 
-![Conceptual example for horizontal partitioning. Image by Martin Thoma.](https://cdn-images-1.medium.com/max/5166/1*silDKsFQO0fkjPUV2Vr4Cg.png)*Conceptual example for horizontal partitioning. Image by Martin Thoma.*
+![Conceptual example for horizontal partitioning. Image by Martin Thoma.](../images/2021/04/8-techniques-to-speed-up-your-db-3.png)*Conceptual example for horizontal partitioning. Image by Martin Thoma.*
 
 Partitioning simply by id works like this in [MySQL](https://dev.mysql.com/doc/refman/5.7/en/partitioning-range.html) / [MariaDB](https://mariadb.com/kb/en/range-partitioning-type):
 
@@ -107,7 +107,7 @@ You want the user of the database system to still be able to query the database 
 SELECT * FROM shopping_carts WHERE id = 3
 ```
 
-One important thing to note here: Horizontal partitioning is completely unrelated to [scaling horizontally](https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925)!
+One important thing to note here: Horizontal partitioning is completely unrelated to [scaling horizontally](../scaling-horizontally-vs-vertically/)!
 
 ## 6. Vertical Partitioning
 
@@ -117,7 +117,7 @@ Different parts of the application might not need most columns of a row. For thi
 
 One commonly done practice is to split metadata from the content. Here’s an image:
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2646/1*f6PVSSxrlrr0P_v9FG3OqQ.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/04/8-techniques-to-speed-up-your-db-4.png)*Image by Martin Thoma*
 
 One important thing to note here: Vertical partitioning is completely unrelated to scaling vertically!
 
@@ -161,7 +161,7 @@ The drawback is that you don’t know if the data you get is the most recent one
 
 ## Let’s Summarize!
 
-![Summary of the eight database speed-up techniques](https://cdn-images-1.medium.com/max/3678/1*MirP_rcEMVxBigZnLwciLA.png)
+![Summary of the eight database speed-up techniques](../images/2021/04/8-techniques-to-speed-up-your-db-5.png)
 
 ## What’s next?
 

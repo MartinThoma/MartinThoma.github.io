@@ -8,7 +8,7 @@ date: 2020-07-23 20:00
 category: Code
 tags: Python, pytest, tox, nox, unit testing
 featured_image: logos/python.png
-URL: https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729
+medium_url: https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/alice-full- Andrea-Caprotti.png"><img src="../images/2020/07/alice-full- Andrea-Caprotti.png" alt="Image derived by Martin Thoma from Andrea Caprotti (nox project)" style="width: 512px;"/></a>
@@ -17,7 +17,7 @@ URL: https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-n
 
 When I started developing Python packages, there was one mistake I made quite often: I forgot to add all dependencies. Additionally, I only tested on my machine for a single Python version.
 
-After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for Continuous Integration tools like Travis. I assume you already know [the basics of unit testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0) and [how to package your code](https://packaging.python.org/tutorials/packaging-projects/).
+After reading this article, you will know how to locally and automatically test multiple Python versions in isolated environments. This is a preparation for Continuous Integration tools like Travis. I assume you already know [the basics of unit testing in Python](../unit-testing-basics/) and [how to package your code](https://packaging.python.org/tutorials/packaging-projects/).
 
 ## pyenv
 
@@ -217,11 +217,18 @@ You can run a single session of nox with `nox -s lint`:
 
 Overall, not a huge difference. The output of nox is way nicer and for people who get started, I think the Python code written with nox is a bit simpler to read and understand than the tox.ini configuration file.
 
-## What’s next?
+## More in this series
 
-Awesome, you now know how to automate testing multiple environments on your machine. Next, I will show you how to set up various Continuous Integration pipelines. CI is a huge helper for open source as you don’t need to run the tests yourself anymore — a bot will do it for you and leave a comment if the PR looks fine.
+This article is part of my series about unit testing in Python:
 
-Going in another direction, you might want to learn how to structure your tests.
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: [Patching, Mocks and Dependency Injection](../unit-testing-patching/)
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: **tox and nox**
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
 
-Is there anything else you’re interested in?
-Let me know: info@martin-thoma.de
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

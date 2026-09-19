@@ -9,9 +9,9 @@ category: Blockchain
 tags: Blockchain, Bitcoin, Cryptocurrency, UTXO
 featured_image: logos/bitcoin.png
 subtitle: A technical cornerstone of Bitcoin
-URL: https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853
+medium_url: https://medium.com/coinmonks/the-utxo-model-f5eb1fc9a853
 ---
-![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
+![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](../images/2021/02/utxo-model-1.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
 
 Bitcoin is based on the UTXO (unspent transaction output) model to ensure that
 nobody is able to spend money they don’t have and prevent money from being
@@ -29,7 +29,7 @@ validated.
 
 If you want a longer introduction to Bitcoin / Blockchain, I’ve got you:
 [**The Blockchain**
-*An Introduction to Blockchain, Bitcoin ₿, and related concepts*medium.com](https://medium.com/coinmonks/the-blockchain-473aac352e5)
+*An Introduction to Blockchain, Bitcoin ₿, and related concepts*medium.com](../blockchain/)
 
 
 ## How Bitcoins are created
@@ -37,7 +37,7 @@ If you want a longer introduction to Bitcoin / Blockchain, I’ve got you:
 The first block of the blockchain is just defined in the code. All other
 blocks in Bitcoin need to have a “proof of work”. This is a solution to an
 automatically generated mathematical puzzle that makes [clever use of hash
-functions](https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d).
+functions](../3-applications-of-hash-functions/).
 Solving this hash puzzle is computationally intensive. This means you need to
 have good hardware and invest a lot of time and electricity to solve it.
 People wouldn’t do that just for fun on the current scale. They do it because
@@ -88,12 +88,12 @@ explorer](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da34644498
 and actually have a look at any block. Taking the linked example, you might
 see many lines like this:
 
-![Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)](https://cdn-images-1.medium.com/max/3910/1*TqhazXZx3fsNzkNlnVSevg.png)*Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)*
+![Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)](../images/2021/02/utxo-model-2.png)*Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)*
 
 In this example, you see two input addresses and over 228 output addresses.
 When you scroll down a bit, you can see the inputs:
 
-![Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)](https://cdn-images-1.medium.com/max/3628/1*HGptTWiFcMW-iFXDGZd7WA.png)*Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)*
+![Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)](../images/2021/02/utxo-model-3.png)*Screenshot taken [from blockchain.com](https://www.blockchain.com/btc/tx/c52b5df64f10463fbe4f46d7b9da3464449849b7e542d533575a927366b52b09)*
 
 Here you can see the ECDSA signature of input 1:
 
@@ -119,7 +119,7 @@ limited amount. After that, they are assigned to a Bitcoin address.
 This is the core of the UTXO model. You have a bunch of input Bitcoin
 addresses and a bunch of output Bitcoin addresses.
 
-![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](https://cdn-images-1.medium.com/max/2000/1*Usoyv4oI2G3-5ZseqpZZtA.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
+![Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))](../images/2021/02/utxo-model-1.png)*Visualization of a transaction. Image by Satoshi Nakamoto ([Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf))*
 
 Everybody can verify which address has how many Bitcoins in it by getting the
 whole blockchain. It is possible to track every bitcoin since the beginning.

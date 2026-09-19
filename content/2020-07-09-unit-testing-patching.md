@@ -8,13 +8,13 @@ date: 2020-07-09 17:00
 category: Code
 tags: Python, Unit Testing, pytest, patching, Mock, dependency-injection
 featured_image: logos/python.png
-URL: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
+medium_url: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
 ---
 Unit testing in general is trivial with Python and pytest, but a lot of
 developers get frustrated when they have to patch dependencies away to make
 code testable. In this article, you will learn how to patch and create mocks.
 If you want to refresh the basics of unit testing in Python first, have a look
-at the first part of this series: [Unit Testing in Python — The Basics](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0#0e28).
+at the first part of this series: [Unit Testing in Python — The Basics](../unit-testing-basics/).
 
 ## The Abstract Pattern of the Problem
 
@@ -442,16 +442,18 @@ pattern](https://en.wikipedia.org/wiki/Adapter_pattern).
 If you want to learn more about the default mocks, have a look at the awesome
 article by Yeray Diaz: [What the mock? — A cheatsheet for mocking in Python](https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832).
 
-## What’s next?
+## More in this series
 
-In part 1, you learned [the basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0). In this part, you learned how to patch dependencies to make code testable and what the standard mocks are.
+This article is part of my series about unit testing in Python:
 
-In future articles, I will present:
+* Part 1: [The basics of Unit Testing in Python](../unit-testing-basics/)
+* Part 2: **Patching, Mocks and Dependency Injection**
+* Part 3: [How to test Flask applications](../test-flask-applications/) with Databases, Templates and Protected Pages
+* Part 4: [tox and nox](../tox-and-nox/)
+* Part 5: [Structuring Unit Tests](../unit-testing-structure/)
+* Part 6: [CI-Pipelines](../ci-pipelines/)
+* Part 7: [Property-based Testing](../property-based-testing/)
+* Part 8: [Mutation Testing](../mutation-testing/)
+* Part 9: [Static Code Analysis: Linters, Type Checking, and Code Complexity](../static-code-analysis/)
 
-* How to test Flask applications with Databases
-* How to structure Unit Tests
-* tox and nox
-* CI-Pipelines
-* Test Automation
-* Property-based Testing
-* Mutation Testing
+Let me know if you’re interested in other topics around testing with Python or professional software development with Python: info@martin-thoma.de

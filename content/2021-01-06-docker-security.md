@@ -9,9 +9,9 @@ category: Security
 tags: Docker, AppSec
 featured_image: logos/docker.png
 subtitle: A hands-on guide to security for Docker
-url: https://levelup.gitconnected.com/docker-security-5f4df118948c
+medium_url: https://levelup.gitconnected.com/docker-security-5f4df118948c
 ---
-![Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9600/0*r4ZMVDm0J0WtgNKQ)*Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/docker-security-1.jpg)*Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let’s have a closer look!
 
@@ -22,7 +22,7 @@ All Docker containers run on a host system. The host needs to be secure AND the 
 There are various vulnerability scanning, auditing, and hardening tools for Linux systems:
 
 * [Lynis](https://cisofy.com/lynis/): Execute `sudo apt-get install lynis && sudo lynis audit system`, wait for a couple of minutes, and you get a pretty nice report indicating what you can do to harden your system.
-* [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux): Provides Mandatory Access Control (MAC) as a kernel module. Thomas Cameron gave an [introduction to SELinux](https://www.youtube.com/watch?v=_WOKRaM-HI4). The key point for SELinux and AppArmor is the access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. [Learn more about the differences](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff). Luc Juggery gave a nice introduction to [SELinux & Docker](https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621).
+* [SELinux](https://en.wikipedia.org/wiki/Security-Enhanced_Linux): Provides Mandatory Access Control (MAC) as a kernel module. Thomas Cameron gave an [introduction to SELinux](https://www.youtube.com/watch?v=_WOKRaM-HI4). The key point for SELinux and AppArmor is the access control policy. Linux, by default, uses Discretionary Access Control (DAC). SELinux and AppArmor enforce MAC. [Learn more about the differences](../effective-access-control/). Luc Juggery gave a nice introduction to [SELinux & Docker](https://medium.com/lucjuggery/docker-selinux-30-000-foot-view-30f6ef7f621).
 * [AppArmor](https://en.wikipedia.org/wiki/AppArmor): Provides MAC as a service. It distinguishes unconfined and confined processes. It ignores unconfined processes. Confined processes may only do what they are allowed to do according to the AppArmor profile of that process. [Seth Arnold](http://sarnold.org/resume/sarnold.html) gave a nice talk about [AppArmor 3.0](https://www.youtube.com/watch?v=PRZ59lxLlOY). Again, Luc Juggery wrote a hands-on guide for [AppArmor & Docker](https://medium.com/lucjuggery/docker-apparmor-30-000-foot-view-60c5a5deb7b).
 * Docker Daemon: Run the daemon as a non-privileged user. Especially not as root.
 
@@ -204,7 +204,7 @@ possible for an attacker. If something is not strictly necessary for the
 application to run, it is not allowed. Restricting the way the containers
 communicate with other containers is one part of that.
 
-![Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma](https://cdn-images-1.medium.com/max/3972/1*t8W3Hpw3xa89r9j8JNScWw.png)*Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma*
+![Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma](../images/2021/02/docker-security-2.png)*Scenario how an attacker is blocked by a controlled network communication / inter container communication. Image by Martin Thoma*
 
 Most companies have a lot of different microservices running in containers.
 Some of the containers need to communicate, others don’t need it. Maybe two
@@ -240,34 +240,43 @@ In security, it is hard to recommend what to do. For maximum security, you want 
 * Use a read-only file system.
 * Get a workflow that automatically scans for vulnerabilities and alerts you if anything new was found.
 
-## What’s next?
+## More in this series
 
 In this series about application security (AppSec), we already explained some of the techniques of the attackers 😈 and also techniques of the defenders 😇:
 
-* Part 1: [SQL Injections](https://medium.com/faun/sql-injections-e8bc9a14c95) 😈
-* Part 2: [Don’t leak Secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80) 😇
-* Part 3: [Cross-Site Scripting (XSS)](https://levelup.gitconnected.com/cross-site-scripting-xss-fd374ce71b2f) 😈
-* Part 4: [Password Hashing](https://levelup.gitconnected.com/password-hashing-eb3b97684636) 😇
-* Part 5: [ZIP Bombs](https://medium.com/bugbountywriteup/zip-bombs-30337a1b0112) 😈
-* Part 6: [CAPTCHA](https://medium.com/plain-and-simple/captcha-500991bd90a3) 😇
-* Part 7: [Email Spoofing](https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf) 😈
-* Part 8: [Software Composition Analysis](https://medium.com/python-in-plain-english/software-composition-analysis-sca-7e573214a98e) (SCA) 😇
-* Part 9: [XXE attacks](https://medium.com/faun/xxe-attacks-750e91448e8f) 😈
-* Part 10: [Effective Access Control](https://levelup.gitconnected.com/effective-access-control-331f883cb0ff) 😇
-* Part 11: [DOS via a Billion Laughs](https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139) 😈
-* Part 12: [Full Disk Encryption](https://medium.com/faun/full-disk-encryption-2090489f9760) 😇
-* Part 13: [Insecure Deserialization](https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e) 😈
-* Part 14: [Docker Security](https://levelup.gitconnected.com/docker-security-5f4df118948c) 😇
+* Part 1: [SQL Injections](../sql-injections/) 😈🐝
+* Part 2: [Don’t leak Secrets](../leaking-secrets/) 😇
+* Part 3: [Cross-Site Scripting (XSS)](../xss/) 😈🐝
+* Part 4: [Password Hashing](../password-hashing/) 😇
+* Part 5: [ZIP Bombs](../zip-bombs/) 😈
+* Part 6: [CAPTCHA](../captcha/) 😇
+* Part 7: [Email Spoofing](../email-spoofing/) 😈
+* Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
+* Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
+* Part 10: [Effective Access Control](../effective-access-control/) 😇
+* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
+* Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
+* Part 14: **Docker Security** 😇
+* Part 15: [Credential Stuffing](../credential-stuffing/) 😈🐝
+* Part 16: [Multi-Factor Authentication](../multi-factor-authentication/) (MFA/2FA) 😇
+* Part 17: [ReDoS](../redos/) 😈
 
-And this is about to come:
+The following articles are about to come:
 
-* CSRF 😈
-* DOS 😈
-* ReDoS 😈
-* Credential Stuffing 😈
-* Cryptojacking 😈
-* Single-Sign-On 😇
-* Two-Factor Authentication 😇
-* Backups 😇
+* Part 18: Secure Messaging 😇
+* Part 19: Cryptojacking 😈
+* Part 20: Backups 😇
+* Part 21: Cryptotrojans 😈
+* Part 22: Single-Sign-On 😇
+* Part 23: Clipboard Hijacking 😈
+* Part 24: Certificates 😇
+* Part 25: Race Condition Attacks in Blockchains 😈
+* Part 26: Mobile Device Management (MDM) 😇
+* Part 27: Server-Side Request Forgery (SSRF) 😈
+* Part 28: Network Separation 😇
+* Part 29: Social Engineering (including Phishing) 😈
+* Part 30: Virtual Private Networks (VPNs) 😇
+* Part 31: CSRF 😈
 
 Let me know if you are interested in more articles around AppSec / InfoSec!

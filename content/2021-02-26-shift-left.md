@@ -9,9 +9,9 @@ category: Cyberculture
 tags: DevOps, Software Engineering
 featured_image: logos/development.png
 subtitle: Let’s do it in an agile way
-URL: https://levelup.gitconnected.com/shift-left-7-stages-to-speed-up-application-development-while-improving-quality-498d9a7b9393
+medium_url: https://levelup.gitconnected.com/shift-left-7-stages-to-speed-up-application-development-while-improving-quality-498d9a7b9393
 ---
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2820/1*AKoifR7QR7wABlw7rm4XKQ.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/02/shift-left-1.png)*Image by Martin Thoma*
 
 The quicker you spot mistakes, the easier it is to fix them. This is the whole
 idea of “shift left”. When you are getting a call from your boss or the
@@ -26,7 +26,7 @@ mean by “shift left”. Let’s start!
 
 ## Conceptual Phase: Planning and Design
 
-![Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11136/0*RfuOsCI7LMtuV4ft)*Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/shift-left-2.jpg)*Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Before developers start implementing a difficult feature, people typically
 need to discuss the feature. The people to approach could be product owners or
@@ -86,7 +86,7 @@ mistakes obvious.
 
 ## Implementation Phase: Your Editor
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2146/1*p-Wvxp7p8LTrlb5B3wH07Q.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/02/shift-left-3.png)*Image by Martin Thoma*
 
 I have been a software developer for more than 15 years now. I still make stupid
 mistakes like forgetting that it’s `os.path.isfile` and not `os.isfile`. Luckily,
@@ -97,10 +97,10 @@ show us type-checking errors while we write.
 
 I absolutely love Visual Studio Code for Python development:
 [**Visual Studio Code — Python Editors in Review**
-*I think I fell in love*towardsdatascience.com](https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4)
+*I think I fell in love*towardsdatascience.com](../visual-studio-code/)
 
 But there are many other excellent editors for Python like
-[PyCharm](https://medium.com/python-in-plain-english/pycharm-professional-python-editors-in-review-b978f0e5c4ba)
+[PyCharm](../pycharm/)
 or [Sublime
 Text](https://py.plainenglish.io/python-editors-in-review-sublime-text-b71956c32375).
 Some people also have strong opinions on vim/emacs and they certainly can
@@ -110,7 +110,7 @@ The point here is not to take a specific editor. The point is to make sure
 that you have one that works well for you. And hopefully captures the types of
 mistakes you typically make.
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/3406/1*LF8JxiMjqMaDm5sHOfBJFg.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/02/shift-left-4.png)*Image by Martin Thoma*
 
 ## Implementation: Commit
 
@@ -125,7 +125,7 @@ executed — and it doesn’t even have to be Python. I’ve created some on my 
 If you want to learn more about pre-commit, I’ve got you covered:
 [**Pre-commit hooks you must know** *Boost your productivity and code quality
 in 5
-minutes*towardsdatascience.com](https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e)
+minutes*towardsdatascience.com](../pre-commit-hooks/)
 
 ## Implementation: CI-Pipeline
 
@@ -139,7 +139,7 @@ static application security testing (SAST), checking your 3rd party packages
 for vulnerabilities, and license compatibility (SCA) are things you might want
 to consider integrating. [**CI Pipelines for Python Projects** *What is a
 Continuous Integration Pipeline and how can I use
-it?*levelup.gitconnected.com](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38)
+it?*levelup.gitconnected.com](../ci-pipelines/)
 
 ## Testing: Code Review
 
@@ -153,7 +153,7 @@ request) does exactly one thing and contains some context why it is proposed.
 
 On GitHub, it looks [like this](https://github.com/OpenShot/openshot-qt/pull/3738):
 
-![Image by Martin Thoma](https://cdn-images-1.medium.com/max/2966/1*NgfyhQZVFRj1JZlLVGX2xQ.png)*Image by Martin Thoma*
+![Image by Martin Thoma](../images/2021/02/shift-left-5.png)*Image by Martin Thoma*
 
 You can see how many commits were done, talk with the person who proposed the
 change, ask questions, see the automatic checks of the CI pipeline, inspect
@@ -204,7 +204,7 @@ You have seen examples of 7 stages of testing before your awesome new feature hi
 
 1. Strategies to communicate ideas internally
 2. How the editor can prevent typos and other stupid mistakes
-3. Pre-commit hooks — might prevent you from [leaking secrets](https://levelup.gitconnected.com/leaking-secrets-240a3484cb80)
+3. Pre-commit hooks — might prevent you from [leaking secrets](../leaking-secrets/)
 4. Enforcing code quality with a CI pipeline
 5. Value your peers; support them by thorough reviews
 6. Non-Prod environments are necessary if you have many interacting services

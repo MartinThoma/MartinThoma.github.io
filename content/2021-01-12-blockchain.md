@@ -9,15 +9,15 @@ category: Blockchain
 tags: Blockchain
 featured_image: logos/star.png
 subtitle: An Introduction to Blockchain, Bitcoin ₿, and related concepts
-URL: https://medium.com/coinmonks/the-blockchain-473aac352e5
+medium_url: https://medium.com/coinmonks/the-blockchain-473aac352e5
 ---
-![An example of a blockchain. Image by Martin Thoma.](https://cdn-images-1.medium.com/max/3606/1*PnKV_yIgbdLZMehrIlM1ZQ.png)*An example of a blockchain. Image by Martin Thoma.*
+![An example of a blockchain. Image by Martin Thoma.](../images/2021/01/blockchain-1.png)
 
 Bitcoin crossed $40,000 USD for the first time recently, so it’s again in the news. Bitcoin is just the best-known **cryptocurrency**. It is one application using a **blockchain**. In this article, I will walk you through some core concepts of blockchain and cryptocurrencies. This article is written for beginners and a bit fluffy in some areas. There will be follow-up articles to address that. Let’s start!
 
 ## The Idea of a Ledger
 
-![German Ledger from 1828 (Source: [RaphaelQS](https://commons.wikimedia.org/wiki/File:Ledger.png))](https://cdn-images-1.medium.com/max/3412/1*FTMD4L4J-UYMwVAjGP65UQ.png)*German Ledger from 1828 (Source: [RaphaelQS](https://commons.wikimedia.org/wiki/File:Ledger.png))*
+![German Ledger from 1828 (Source: [RaphaelQS](https://commons.wikimedia.org/wiki/File:Ledger.png))](../images/2021/01/blockchain-2.jpg)*German Ledger from 1828 (Source: [RaphaelQS](https://commons.wikimedia.org/wiki/File:Ledger.png))*
 
 Suppose we lived in a simpler world without credits and with only one bank. Everybody just owns a non-negative amount of money. The bank keeps track of transactions. Let’s say we have three students living in the same shared apartment: Anna, Bob, and Charlie. They all put $100 USD in their bank account:
 
@@ -48,7 +48,7 @@ Hence, the ledger is just a database of all transactions.
 
 ## How to get rid of the Bank
 
-![Photo by [the blowup](https://unsplash.com/@theblowup?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/9832/0*CpxtEZdU4BBJgDa8)*Photo by [the blowup](https://unsplash.com/@theblowup?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [the blowup](https://unsplash.com/@theblowup?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/01/blockchain-3.jpg)*Photo by [the blowup](https://unsplash.com/@theblowup?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Anna, Bob, and Charlie are unhappy with their bank. They don’t like that it typically takes two working days until the booked transaction actually takes place. They are unhappy with paying fees. They wonder what would happen if their bank suddenly closed or maybe even manipulated the numbers.
 
@@ -60,7 +60,7 @@ They also want to make sure that **nobody can erase any transaction**. The solut
 
 ## Let’s make it digital!
 
-![Photo by [Joshua Sortino](https://unsplash.com/@sortino?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8390/0*KWahhiN2IJx8UXSR)*Photo by [Joshua Sortino](https://unsplash.com/@sortino?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Joshua Sortino](https://unsplash.com/@sortino?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/01/blockchain-4.jpg)*Photo by [Joshua Sortino](https://unsplash.com/@sortino?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Anna, Bob, and Charlie want to be certain they will never lose their ledger. Instead of having a single central ledger, they decide to **distribute** it. They all want to have a copy of it.
 
@@ -74,13 +74,13 @@ Being young students, all of them happen to have a website. So they come up with
 
 Then they notice two problems. The first one is the signature. Luckily, one of them heard of Public-Key Cryptography and digital signatures. They quickly realized that for any transaction, they can easily make a digital version of a signature that cannot be forged. The **digital signature** does not only prove who made the transaction but also makes sure that the content of the transaction is not modified. As the content of the transaction contains the transaction number, it is also not possible to delete a single transaction. As the longest list of transactions is shared, one cannot simply crop a whole lot of transactions off at the end.
 
-![Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma](https://cdn-images-1.medium.com/max/3786/1*l_g-X3q0xEVBskHQQsrSQA.png)*Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma*
+![Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma](../images/2021/01/blockchain-5.png)*Anna sees new transactions from Bob and Charlie. They all have the same green blocks, but Bob discarded the blue blocks in which he sent money to Charlie. He created the red and the yellow ones to fool Anna. Image by Martin Thoma*
 
 What happens if Anna sees a new transaction from Bob and a new transaction from Charlie? Let’s say Anna has already confirmed that both Bob and Charlie have the same indices up to #42. Bob and Charlie had a lot of transactions after that and the correct latest transaction #60. But Bob doesn’t like that he had to send quite a bit of money to Charlie in transactions #43 to #60, so he simply writes 10 transactions after #42. Charlie still receives some money, but less than he should. Anna sees that Charlie already has transaction number #70 and ignores what Charlie has.
 
 To prevent this, they make it more difficult to create a transaction. They have heard of [Hashcash](https://en.wikipedia.org/wiki/Hashcash) to prevent spammers from sending too many emails. The idea is to make the email sender (the potential spammer) execute a computationally heavy function. The result of that function is easy to verify, but there is no way to speed the execution of the function up in the first place. The result is then called **Proof of Work**. The specific kind of proof of work that is typically used is called a **nonce**: Number only used once. Finding such a nonce is intentionally computationally intensive. This is what **mining** is. Anna, Bob, and Charlie agree to add the proof of work to each transaction. Thus, recalculating a lot of transactions is just not worth it anymore.
 
-![Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma](https://cdn-images-1.medium.com/max/3066/1*y7lcxfcKXW5GMUf8lq-aFw.png)*Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma*
+![Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma](../images/2021/01/blockchain-6.png)*Anna sees the same number of new transactions from Bob and Charlie, but transaction #43 is different. Bob tries to tamper with the amount he sent Charlie. Image by Martin Thoma*
 
 However, there is one big flaw: If they just store the transaction number, one could replace transactions in the middle. If Bob is unhappy that he has sent $100 to Charlie in transaction #43, he could just craft another transaction #43. So instead of storing the transaction number, they agree to store an identifier that is unique to the content of the previous transaction. A so-called **hash value**.
 
@@ -144,7 +144,7 @@ cash](https://www.youtube.com/watch?v=TrF9RmfyLbw).
 
 ## Bitcoin vs Blockchain
 
-![Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/14934/0*IN19QU1F182EeISq)*Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/01/blockchain-7.jpg)*Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
 
 Bitcoin is an application that uses the blockchain. As an analogy, think of
 email. Email is an application that uses the internet.
@@ -240,21 +240,6 @@ chain case. If there is an organization that people trust, then you don’t need
 to store the data in the blockchain. That organization just stores it in a
 traditional database they control.
 
-## What’s next
-
-* Hashing: What it is, what cryptographic hashing is, what SHA / MD5 is
-* Merkle Trees: What they are, how they work, and how they are used in Bitcoin
-* Public-Key Cryptography and RSA: Public and private keys, Digital Signatures, Trapdoor functions. What it is and why it’s so important
-* Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.
-* Smart contracts: What they are and how they work; e.g. with Ethereum as an example
-* [Initial Coin Offering](https://en.wikipedia.org/wiki/Initial_coin_offering) (ICO)
-* Bitcoin's consensus algorithm
-* Bitcoin and the network: How do people connect?
-* Bitcoin Wallets
-* Peer-To-Peer Stuff: How Gossip Protocols work
-
-Let me know what you’re interested in!
-
 ## See also
 
 ### Literature
@@ -273,3 +258,25 @@ And also 3Blue1Brown:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/bBC-nXj3Ng4" frameborder="0" allowfullscreen></iframe></center>
 > # Join Coinmonks [Telegram group](https://t.me/joinchat/EPmjKpNYwRMsBI4p) and learn about crypto trading and investing
+
+## More in this series
+
+This article is part of my series about Blockchain:
+
+* Part 1: **An Introduction to Blockchain**
+* Part 2: [The 3 Applications of Hash Functions](../3-applications-of-hash-functions/)
+* Part 3: [Merkle Trees](../merkle-trees/)
+
+Topics I will consider next:
+
+* Merkle Patricia Tries
+* Public-Key Cryptography and RSA: Public- and private keys, Digital Signatures, Trapdoor functions. What it is and why it’s so important
+* Proof of Work: How it works, how difficult it is, and what Bitcoin / Ether / Stellar use.
+* Smart contracts: What they are and how they work; e.g. with Ethereum as an example
+* [Initial Coin Offering](https://en.wikipedia.org/wiki/Initial_coin_offering) (ICO)
+* Bitcoin's consensus algorithm
+* Bitcoin and the network: How do people connect?
+* Bitcoin Wallets
+* Peer-To-Peer Stuff: How Gossip Protocols work
+
+Let me know what you’re interested in!

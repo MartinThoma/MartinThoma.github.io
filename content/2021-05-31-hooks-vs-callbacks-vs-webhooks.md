@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Programming, Software Development, Software Engineering, Software Architecture, Web Development
 featured_image: logos/star.png
 subtitle: How do I use them and where is the difference?
-url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
+medium_url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Webhook banner" style="width: 512px;"/></a>

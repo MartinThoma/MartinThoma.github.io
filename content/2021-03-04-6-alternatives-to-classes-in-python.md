@@ -9,9 +9,9 @@ category: Cyberculture
 tags: Python
 featured_image: logos/python.png
 subtitle: Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine
-URL: https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377
+medium_url: https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377
 ---
-![Photo by the author.](https://cdn-images-1.medium.com/max/3180/1*ESvqnwbq8Lj4VNkVMWI9JA.png)*Photo by the author.*
+![Photo by the author.](../images/2021/03/6-alternatives-to-classes-1.png)*Photo by the author.*
 
 As developers, we throw a lot of data around. The representation of data matters a lot and we need to be able to keep track of which variables represent which attributes. Configuration is a prime example of complex data.
 
@@ -19,7 +19,7 @@ In the following article, I will use location as an example. It must have a long
 
 ## Plain Classes
 
-Plain classes are the default way provided by the standard library to organize data. You can (and should!) [use type annotations](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d) as done in the following example:
+Plain classes are the default way provided by the standard library to organize data. You can (and should!) [use type annotations](../type-annotations/) as done in the following example:
 
 ```python
 from typing import Optional
@@ -117,7 +117,7 @@ def get_distance(p1: Dict[str, Any], p2: Dict[str, Any]) -> float:
 
 The annotation in practice is really bad. It’s almost always Dict[str, Any] in the best case. Often, there is no annotation.
 
-[TypedDict](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d) ([PEP 589](https://www.python.org/dev/peps/pep-0589/)) has been around since Python 3.8, but I’ve never seen that in any bigger code base. [TypedDict is a killer feature](https://python.plainenglish.io/killer-features-by-python-version-c84ca12dba8), but it’s irrelevant, as we want to support legacy Python versions.
+[TypedDict](../type-annotations/) ([PEP 589](https://www.python.org/dev/peps/pep-0589/)) has been around since Python 3.8, but I’ve never seen that in any bigger code base. [TypedDict is a killer feature](https://python.plainenglish.io/killer-features-by-python-version-c84ca12dba8), but it’s irrelevant, as we want to support legacy Python versions.
 
 For those reasons, the editor's support is even worse than for tuples.
 
@@ -216,7 +216,7 @@ You also can automatically run code on the input to the constructor. This is cal
 1
 ```
 
-[Visual Studio Code](https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4) does not like the type annotations.
+[Visual Studio Code](../visual-studio-code/) does not like the type annotations.
 
 ## 5. Dataclass
 
@@ -482,7 +482,7 @@ There are multiple things you can mean by “execution time” in this context:
 
 I’m convinced that the parsing time for JSON dominates the rest. There are multiple JSON parsers available in Python:
 [**JSON encoding/decoding with Python**
-*Comparing libraries by speed, maturity, and operational safety*levelup.gitconnected.com](https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a)
+*Comparing libraries by speed, maturity, and operational safety*levelup.gitconnected.com](../json-encoding-decoding/)
 
 ## So When Do I Use What?
 
