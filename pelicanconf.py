@@ -57,6 +57,15 @@ CATEGORY_SAVE_AS = "category/{slug}/index.html"
 TAG_URL = "tag/{slug}/"
 TAG_SAVE_AS = "tag/{slug}/index.html"
 
+TAGS_URL = "tags/"
+TAGS_SAVE_AS = "tags/index.html"
+CATEGORIES_URL = "categories/"
+CATEGORIES_SAVE_AS = "categories/index.html"
+ARCHIVES_URL = "archives/"
+ARCHIVES_SAVE_AS = "archives/index.html"
+SEARCH_URL = "search/"
+SEARCH_SAVE_AS = "search/index.html"
+
 PLUGIN_PATHS = [
     "./pelican_plugin-render_math",
     "./pelican-tipue_search",
@@ -85,7 +94,7 @@ MARKDOWN = {
 MATH_JAX = {"auto_insert": False}
 
 SITEMAP = {
-    "exclude": ["tag/", "category/", "tags.html", "archives.html", "categories.html"],
+    "exclude": ["tag/", "category/", "tags/", "archives/", "categories/", "search/"],
     "format": "xml",
 }
 

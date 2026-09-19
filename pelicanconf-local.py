@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = "Martin Thoma"
 SITENAME = "Martin Thoma"
 SITESUBTITLE = "A blog about Code, the Web and Cyberculture"
-SITEURL = "//127.0.0.1:8000"
+SITEURL = "http://127.0.0.1:8000"
 
 PATH = "content"
 
@@ -15,7 +15,7 @@ DEFAULT_LANG = "en"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_RSS = "feeds/index.xml"
-CATEGORY_FEED_RSS = "feeds/%s.rss.xml"
+CATEGORY_FEED_RSS = "feeds/{slug}.rss.xml"
 FEED_USE_SUMMARY = False
 
 FEED_ALL_ATOM = None
@@ -48,7 +48,7 @@ CUSTOM_CSS = "static/custom.css"
 
 ARTICLE_URL = "{slug}/"
 ARTICLE_SAVE_AS = "{slug}/index.html"
-ARTICLE_LANG_URL = "{slug}.html"
+ARTICLE_LANG_URL = "{slug}/"
 ARTICLE_LANG_SAVE_AS = "{slug}/index.html"
 AUTHOR_URL = "author/{slug}/"
 PAGE_URL = "pages/{slug}/"
@@ -57,6 +57,15 @@ CATEGORY_URL = "category/{slug}/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
 TAG_URL = "tag/{slug}/"
 TAG_SAVE_AS = "tag/{slug}/index.html"
+
+TAGS_URL = "tags/"
+TAGS_SAVE_AS = "tags/index.html"
+CATEGORIES_URL = "categories/"
+CATEGORIES_SAVE_AS = "categories/index.html"
+ARCHIVES_URL = "archives/"
+ARCHIVES_SAVE_AS = "archives/index.html"
+SEARCH_URL = "search/"
+SEARCH_SAVE_AS = "search/index.html"
 
 PLUGIN_PATHS = [
     "./pelican_plugin-render_math",
@@ -86,7 +95,7 @@ MARKDOWN = {
 MATH_JAX = {"auto_insert": False}
 
 SITEMAP = {
-    "exclude": ["tag/", "category/", "tags.html", "archives.html", "categories.html"],
+    "exclude": ["tag/", "category/", "tags/", "archives/", "categories/", "search/"],
     "format": "xml",
 }
 
