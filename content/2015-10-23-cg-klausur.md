@@ -919,7 +919,7 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/11/color-cube.png" class="image">
-                  <img src="../images/2015/11/color-cube.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/11/color-cube.png" alt="Color cube" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -931,7 +931,7 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/11/gravity-field.png" class="image">
-                  <img src="../images/2015/11/gravity-field.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/11/gravity-field.png" alt="Gravity field" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -943,7 +943,7 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/11/temperature.png" class="image">
-                  <img src="../images/2015/11/temperature.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/11/temperature.png" alt="Temperature of a black body" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

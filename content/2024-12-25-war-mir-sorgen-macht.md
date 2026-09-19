@@ -92,7 +92,7 @@ neuen Förderungen und deren plötzlichen Streichungen ins Knie:
 
 Deutschland wird älter.
 
-![](../images/2024/12/bevoelkerung-altersstruktur-2022-de.png)
+![Altersstruktur der Bevölkerung in Deutschland 2022](../images/2024/12/bevoelkerung-altersstruktur-2022-de.png)
 
 Das führt insbesondere dazu, dass das Verhältnis zwischen Einzahlern in das
 Gesundheits- und Rentensystem und den Empfängern schlechter wird. Wenn wir

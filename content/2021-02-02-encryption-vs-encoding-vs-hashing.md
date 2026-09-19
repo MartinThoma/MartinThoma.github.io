@@ -23,7 +23,7 @@ Encoding is about data representation. For example, for icons on the web, we pre
 
 But then the binary data of the image has to be converted to text data. A common way to do that is [base64 encoding](https://en.wikipedia.org/wiki/Base64).
 
-![](https://cdn-images-1.medium.com/max/2150/1*xLjXcxEQETyNMAi9HrOJbg.png)
+![Image data converted to base64 text](https://cdn-images-1.medium.com/max/2150/1*xLjXcxEQETyNMAi9HrOJbg.png)
 
 As you can see, the “translation” is trivial: We build 6-bit blocks of the binary data and look up the character in the table above. It’s called base64 because there are 2⁶ = 64 digits. Hence it can be interpreted as a [number base conversion](https://en.wikipedia.org/wiki/Positional_notation#Base_conversion).
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Machine Learning 2
 slug: machine-learning-2-course
+lang: de
 author: Martin Thoma
 date: 2015-05-11 11:00
 category: German posts
@@ -416,7 +416,7 @@ Siehe auch:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2016/01/tracking-robots.png" class="image">
-                  <img src="../images/2016/01/tracking-robots.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2016/01/tracking-robots.png" alt="Tracking Robots" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -428,7 +428,7 @@ Siehe auch:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2016/01/probabilisitc-graphical-models.png" class="image">
-                  <img src="../images/2016/01/probabilisitc-graphical-models.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2016/01/probabilisitc-graphical-models.png" alt="Probabilistic Graphical Models" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

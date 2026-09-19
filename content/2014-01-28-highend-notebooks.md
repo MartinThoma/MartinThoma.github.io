@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Highend Notebooks
 slug: highend-notebooks
+lang: en
 author: Martin Thoma
 date: 2014-01-28 16:00
 category: Cyberculture
@@ -103,7 +103,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/01/samsung-serie-9-keyboard-layout.png" class="image">
-                  <img src="../images/2014/01/samsung-serie-9-keyboard-layout.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/01/samsung-serie-9-keyboard-layout.png" alt="Samsung Series 9" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -115,7 +115,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" class="image">
-                  <img src="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" alt="Macbook Pro" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

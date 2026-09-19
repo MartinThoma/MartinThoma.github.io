@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: SOPA protests
 slug: sopa-protests
+lang: en
 author: Martin Thoma
 date: 2012-01-18 08:29:42.000000000 +01:00
 category: The Web
@@ -18,7 +18,7 @@ Here is a neat explanation of SOPA:
 
 <h2>Wikipedia</h2>
 Completely blacked out:
-<a href="../images/2012/01/sopa-wikipedia.png"><img src="../images/2012/01/sopa-wikipedia-300x141.png" alt="" title="Wikipedia SOPA protests" width="300" height="141" class="aligncenter size-medium wp-image-12401" /></a>
+<a href="../images/2012/01/sopa-wikipedia.png"><img src="../images/2012/01/sopa-wikipedia-300x141.png" alt="Wikipedia SOPA protests" title="Wikipedia SOPA protests" width="300" height="141" class="aligncenter size-medium wp-image-12401" /></a>
 Twitter: #WikipediaBlackout
 
 By the way, if you disable JavaScript you can view Wikipedia as always.

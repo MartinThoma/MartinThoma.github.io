@@ -35,7 +35,7 @@ bekommt, sind auch schön kurz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/simquadrat-bestaetigung.png" class="image">
-                  <img src="../images/2013/07/simquadrat-bestaetigung.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/simquadrat-bestaetigung.png" alt="Simquadrat: Bestätigung" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -47,7 +47,7 @@ bekommt, sind auch schön kurz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/simquadrat-rechnung.png" class="image">
-                  <img src="../images/2013/07/simquadrat-rechnung.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/simquadrat-rechnung.png" alt="Simquadrat: Rechnung" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -64,7 +64,7 @@ Nach wenigen Tagen ist dann die Simkarte angekommen:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/simquadrat-brief-1.jpg" class="image">
-                  <img src="../images/2013/07/simquadrat-brief-1.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/simquadrat-brief-1.jpg" alt="Brief, Seite 1" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -76,7 +76,7 @@ Nach wenigen Tagen ist dann die Simkarte angekommen:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/simquadrat-brief-2.jpg" class="image">
-                  <img src="../images/2013/07/simquadrat-brief-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/simquadrat-brief-2.jpg" alt="Brief, Seite 2" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -88,7 +88,7 @@ Nach wenigen Tagen ist dann die Simkarte angekommen:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/sipgate-simkarte.jpg" class="image">
-                  <img src="../images/2013/07/sipgate-simkarte.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/sipgate-simkarte.jpg" alt="Simkarte von Sipgate" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

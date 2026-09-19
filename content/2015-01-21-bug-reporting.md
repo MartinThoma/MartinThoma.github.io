@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Bug Reporting - A users perspective
 slug: bug-reporting
+lang: en
 author: Martin Thoma
 date: 2015-01-21 14:54
 category: Cyberculture
@@ -115,7 +115,7 @@ Just a few images...
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" alt="Step 1" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -127,7 +127,7 @@ Just a few images...
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/01/bug-chrome-details-1.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/01/bug-chrome-details-1.png" alt="Details 1" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -139,7 +139,7 @@ Just a few images...
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/01/bug-chrome-details-2-dependencies.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-2-dependencies.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/01/bug-chrome-details-2-dependencies.png" alt="Details 2" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -151,7 +151,7 @@ Just a few images...
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/01/bug-chrome-details-3.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-3.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/01/bug-chrome-details-3.png" alt="Details 3" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -163,7 +163,7 @@ Just a few images...
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/01/bug-chrome-details-4.png" class="image">
-                  <img src="../images/2015/01/bug-chrome-details-4.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/01/bug-chrome-details-4.png" alt="Details 4" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

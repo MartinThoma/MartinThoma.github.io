@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Graphic filters
 slug: graphic-filters
+lang: en
 author: Martin Thoma
 date: 2013-07-04 18:21:19.000000000 +02:00
 category: Code
@@ -109,7 +109,7 @@ And it gives these results:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/prewitt-x-filter-example.png" class="image">
-                  <img src="../images/2013/07/prewitt-x-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/prewitt-x-filter-example.png" alt="Prewitt x-filter example" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -121,7 +121,7 @@ And it gives these results:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/prewitt-y-filter-example.png" class="image">
-                  <img src="../images/2013/07/prewitt-y-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/prewitt-y-filter-example.png" alt="Prewitt y-filter example" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -133,7 +133,7 @@ And it gives these results:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/07/laplace-filter-example.png" class="image">
-                  <img src="../images/2013/07/laplace-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/07/laplace-filter-example.png" alt="Laplace filter example" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

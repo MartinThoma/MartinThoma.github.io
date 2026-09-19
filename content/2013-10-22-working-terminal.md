@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: Working with Terminal
 slug: working-terminal
+alias: [/working-terminal/bash-vs-zsh-spelling-correction/index.html,/working-terminal/bash-vs-zsh-time/]
+lang: en
 author: Martin Thoma
 date: 2013-10-22 10:40:46.000000000 +02:00
 category: Code
 tags: Linux, Command Line, Bash, ZSH, Terminal, Shell, Software Development
 featured_image: 2011/09/Gnome-Terminal.png
-alias: [/working-terminal/bash-vs-zsh-spelling-correction/index.html,/working-terminal/bash-vs-zsh-time/]
 ---
 I've just switched from [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell))
 to [ZSH](https://en.wikipedia.org/wiki/Z_shell) because of <a
@@ -70,7 +70,7 @@ Here are some differences. On the left side is zsh, on the right is bash:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/10/bash-vs-zsh-cd.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-cd.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/10/bash-vs-zsh-cd.png" alt="Bash vs zsh: cd command completion" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -82,7 +82,7 @@ Here are some differences. On the left side is zsh, on the right is bash:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/10/bash-vs-zsh-git.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-git.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/10/bash-vs-zsh-git.png" alt="Bash vs zsh: Git prompt indicator" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -94,7 +94,7 @@ Here are some differences. On the left side is zsh, on the right is bash:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/10/bash-vs-zsh-spelling-correction.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-spelling-correction.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/10/bash-vs-zsh-spelling-correction.png" alt="Bash vs zsh: Spelling correction" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -106,7 +106,7 @@ Here are some differences. On the left side is zsh, on the right is bash:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/10/bash-vs-zsh-time.png" class="image">
-                  <img src="../images/2013/10/bash-vs-zsh-time.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/10/bash-vs-zsh-time.png" alt="Bash vs zsh: time command" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

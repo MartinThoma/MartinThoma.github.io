@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Google Reader Alternatives
 slug: google-reader-alternatives
+lang: en
 author: Martin Thoma
 date: 2013-03-15 23:09:04.000000000 +01:00
 category: The Web
@@ -20,7 +20,7 @@ Most important for me was the Chrome plugin:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/google-reader-icon.png" class="image">
-                  <img src="../images/2013/03/google-reader-icon.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/google-reader-icon.png" alt="Google Reader in Chrome - Icon indicates number of new items" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -32,7 +32,7 @@ Most important for me was the Chrome plugin:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/google-reader-chrome-popup.png" class="image">
-                  <img src="../images/2013/03/google-reader-chrome-popup.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/google-reader-chrome-popup.png" alt="Google Reader in Chrome - Show all new items" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -49,7 +49,7 @@ The website offered a nice, clean way to administrate my 109 Feeds. Last (and le
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/google-reader-website.png" class="image">
-                  <img src="../images/2013/03/google-reader-website.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/google-reader-website.png" alt="Google Reader Website" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -61,7 +61,7 @@ The website offered a nice, clean way to administrate my 109 Feeds. Last (and le
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/google-reader-android-app.png" class="image">
-                  <img src="../images/2013/03/google-reader-android-app.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/google-reader-android-app.png" alt="Google Reader Android App" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Analyzing PyPI Data - 2
 slug: analyzing-pypi-metadata-2
+lang: en
 author: Martin Thoma
 date: 2015-12-30 13:28
 category: Code
@@ -247,7 +247,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/pypi-rendered.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/pypi-rendered.png" alt="PyPI dependency graph (default layout)" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -259,7 +259,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/pypi-rendered-circo-5000-x-small.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" alt="PyPI dependency graph (circo layout)" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -271,7 +271,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/pypi-rendered-twopi.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-twopi.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/pypi-rendered-twopi.png" alt="PyPI dependency graph (twopi layout)" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -283,7 +283,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/pypi-rendered-x.png" class="image">
-                  <img src="../images/2015/12/pypi-rendered-x.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/pypi-rendered-x.png" alt="PyPI dependency graph (detailed view)" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -295,7 +295,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/gephi-1.png" class="image">
-                  <img src="../images/2015/12/gephi-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/gephi-1.png" alt="Gephi visualization of the PyPI dependency graph" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -307,7 +307,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/gephi-2.png" class="image">
-                  <img src="../images/2015/12/gephi-2.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/gephi-2.png" alt="Gephi visualization of the PyPI dependency graph (second layout)" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -319,7 +319,7 @@ I've only got some crappy images with Gephi / GraphViz:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2015/12/pypi-graph-small.png" class="image">
-                  <img src="../images/2015/12/pypi-graph-small.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2015/12/pypi-graph-small.png" alt="Small PyPI dependency graph" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: LaTeX + Versioning = A great Experience
 slug: latex-versioning-a-great-experience
+lang: en
 author: Martin Thoma
 date: 2012-06-29 22:52:03.000000000 +02:00
 category: Cyberculture
@@ -46,7 +46,7 @@ moose@pc07:~/Desktop$ diff file1.txt file2.txt
 ```
 
 If you use meld it looks like this:
-<a href="../images/2012/06/meld-diff.png"><img src="../images/2012/06/meld-diff-300x156.png" alt="" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a>
+<a href="../images/2012/06/meld-diff.png"><img src="../images/2012/06/meld-diff-300x156.png" alt="meld-diff" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a>
 
 <h2>My LaTeX configuration</h2>
 First, you have to install the latest LaTeX-Version: <a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>.

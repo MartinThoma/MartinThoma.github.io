@@ -111,7 +111,7 @@ Brauchwasser-Wärmepumpe setzen. Das hat einige Vorteile:
 Ein Hygienespeicher kann als zusätzlicher Speicher für Warmwasser dienen: Der
 Heizstab erhitzt das Wasser im Hygienespeicher.
 
-![](../images/2026/05/hygienespeicher.jpg)
+![Hygienespeicher im Heizungsraum](../images/2026/05/hygienespeicher.jpg)
 
 Wenn man dann Warmwasser
 benötigt, wird Trinkwasser in einem Rohr durch den Hygienespeicher geführt und

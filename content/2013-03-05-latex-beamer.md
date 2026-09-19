@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: LaTeX Beamer
 slug: latex-beamer
+lang: en
 author: Martin Thoma
 date: 2013-03-05 11:25:20.000000000 +01:00
 category: Cyberculture
@@ -81,7 +81,7 @@ Here are some screenshots:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/English-Titlepage.png" class="image">
-                  <img src="../images/2013/03/English-Titlepage.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/English-Titlepage.png" alt="LaTeX Beamer: Example of a titlepage" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -93,7 +93,7 @@ Here are some screenshots:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/programmieren-tutorium-titlepage.png" class="image">
-                  <img src="../images/2013/03/programmieren-tutorium-titlepage.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/programmieren-tutorium-titlepage.png" alt="LaTeX Beamer: Example of a titlepage" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -105,7 +105,7 @@ Here are some screenshots:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/latex-beamer-quelltext-minted.png" class="image">
-                  <img src="../images/2013/03/latex-beamer-quelltext-minted.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/latex-beamer-quelltext-minted.png" alt="LaTeX Beamer: Example of source code" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -117,7 +117,7 @@ Here are some screenshots:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2013/03/latex-beamer-uncover-list.png" class="image">
-                  <img src="../images/2013/03/latex-beamer-uncover-list.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2013/03/latex-beamer-uncover-list.png" alt="LaTeX Beamer: Example of a slide" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

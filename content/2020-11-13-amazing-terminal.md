@@ -108,7 +108,7 @@ The colors are set to [solarized dark](https://ethanschoonover.com/solarized/) (
 * Dark Teal: #06989a / Light Teal: #34e2e2
 * Dark Gray: #d3d7cf / Light Gray: #eeeeec
 
-![](https://cdn-images-1.medium.com/max/2000/1*P4xCOjogPGb3SdquyLiC2Q.png)
+![Terminal color palette with dark and light variants](https://cdn-images-1.medium.com/max/2000/1*P4xCOjogPGb3SdquyLiC2Q.png)
 
 ## Linux Shell: fish
 

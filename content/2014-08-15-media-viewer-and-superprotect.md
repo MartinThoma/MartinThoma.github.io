@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: MediaViewer and Superprotect
 slug: media-viewer-and-superprotect
+lang: en
 author: Martin Thoma
 date: 2014-08-15 14:35
 category: Cyberculture
@@ -35,7 +35,7 @@ You can view some images of the MediaViewer here:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/08/wikipedia-first-view.png" class="image">
-                  <img src="../images/2014/08/wikipedia-first-view.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/08/wikipedia-first-view.png" alt="Article" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -47,7 +47,7 @@ You can view some images of the MediaViewer here:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/08/media-viewer-first-click.png" class="image">
-                  <img src="../images/2014/08/media-viewer-first-click.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/08/media-viewer-first-click.png" alt="First click on image with MediaViewer" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -59,7 +59,7 @@ You can view some images of the MediaViewer here:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/08/without-media-viewer-first-click.png" class="image">
-                  <img src="../images/2014/08/without-media-viewer-first-click.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/08/without-media-viewer-first-click.png" alt="First click on image without MediaViewer" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -71,7 +71,7 @@ You can view some images of the MediaViewer here:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/08/media-viewer-first-click-notes.png" class="image">
-                  <img src="../images/2014/08/media-viewer-first-click-notes.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/08/media-viewer-first-click-notes.png" alt="notes to the MediaViewer interface" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -83,7 +83,7 @@ You can view some images of the MediaViewer here:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/08/media-viewer-more-information.png" class="image">
-                  <img src="../images/2014/08/media-viewer-more-information.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/08/media-viewer-more-information.png" alt="MediaViewer Bottom 'Tab'" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -95,7 +95,7 @@ You can view some images of the MediaViewer here:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/08/media-viewer-use-this-file.png" class="image">
-                  <img src="../images/2014/08/media-viewer-use-this-file.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/08/media-viewer-use-this-file.png" alt="MediaViewer 'Use this file'" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

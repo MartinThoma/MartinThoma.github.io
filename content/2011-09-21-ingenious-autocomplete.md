@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Ingenious Autocomplete
 slug: ingenious-autocomplete
+lang: en
 author: Martin Thoma
 date: 2011-09-21 21:48:03.000000000 +02:00
 category: Cyberculture
@@ -39,8 +39,8 @@ I hope you have seen Terminator. Otherwise, you don't know <a href="http://en.wi
 <div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-if-i-ate-big.png"><img class="alignnone" style="border-style: initial; border-color: initial; border-width: 0px;" title="If I ate ..." src="../images/2011/09/autocomplete-if-i-ate-big.png" alt="If I ate ..." width="400" height="37" border="0" /></a></div>
 <div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-i-really-h-big.png"><img class="alignnone" style="border-style: initial; border-color: initial; border-width: 0px;" title="I really h ..." src="../images/2011/09/autocomplete-i-really-h-big.png" alt="I really h ..." width="400" height="49" border="0" /></a></div>
 <div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-is-it-wrong-to-big.png"><img class="alignnone" style="border-style: initial; border-color: initial; border-width: 0px;" title="Is it wrong to ..." src="../images/2011/09/autocomplete-is-it-wrong-to-big.png" alt="Is it wrong to ..." width="400" height="76" border="0" /></a></div>
-<div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-is-there-a-big.png"><img src="../images/2011/09/autocomplete-is-there-a-big.png" alt="" width="400" height="66" border="0" /></a></div>
-<div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-steve-jobs-is-big.png"><img src="../images/2011/09/autocomplete-steve-jobs-is-big.png" alt="" width="400" height="50" border="0" /></a></div>
+<div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-is-there-a-big.png"><img src="../images/2011/09/autocomplete-is-there-a-big.png" alt="Google autocomplete: Is there a ..." width="400" height="66" border="0" /></a></div>
+<div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-steve-jobs-is-big.png"><img src="../images/2011/09/autocomplete-steve-jobs-is-big.png" alt="Google autocomplete: Steve Jobs is ..." width="400" height="50" border="0" /></a></div>
 <div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-where-do-i-big.png"><img class="alignnone" style="border-style: initial; border-color: initial; border-width: 0px;" title="Why do I ..." src="../images/2011/09/autocomplete-where-do-i-big.png" alt="Why do I ..." width="400" height="73" border="0" /></a></div>
 <div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/autocomplete-why-is-my-big.png"><img class="alignnone" style="border-style: initial; border-color: initial; border-width: 0px;" title="Why is my ..." src="../images/2011/09/autocomplete-why-is-my-big.png" alt="Why is my ..." width="400" height="80" border="0" /></a></div>
 <div class="separator" style="clear: both; text-align: center;"><a style="margin-left: 1em; margin-right: 1em;" href="../images/2011/09/google-religion-is-big.png"><img class="alignnone" style="border-style: initial; border-color: initial; border-width: 0px;" title="Religion is ..." src="../images/2011/09/google-religion-is-big.png" alt="Religion is ..." width="400" height="82" border="0" /></a></div>

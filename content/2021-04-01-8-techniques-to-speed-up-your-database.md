@@ -161,7 +161,7 @@ The drawback is that you don’t know if the data you get is the most recent one
 
 ## Let’s Summarize!
 
-![](https://cdn-images-1.medium.com/max/3678/1*MirP_rcEMVxBigZnLwciLA.png)
+![Summary of the eight database speed-up techniques](https://cdn-images-1.medium.com/max/3678/1*MirP_rcEMVxBigZnLwciLA.png)
 
 ## What’s next?
 

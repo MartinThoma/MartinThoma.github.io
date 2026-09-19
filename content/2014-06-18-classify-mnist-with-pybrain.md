@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Classify MNIST with PyBrain
 slug: classify-mnist-with-pybrain
+lang: en
 author: Martin Thoma
 date: 2014-06-18 02:31
 category: Code
@@ -141,7 +141,7 @@ It tooks like this:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/06/mnist-1.png" class="image">
-                  <img src="../images/2014/06/mnist-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/06/mnist-1.png" alt="7" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -153,7 +153,7 @@ It tooks like this:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/06/mnist-2.png" class="image">
-                  <img src="../images/2014/06/mnist-2.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/06/mnist-2.png" alt="2" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

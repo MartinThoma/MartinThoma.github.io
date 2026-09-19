@@ -56,7 +56,7 @@ Now that you know which type of lamp you want, you can calculate energy savings.
 
 ## Calculate Energy Savings
 
-![](https://cdn-images-1.medium.com/max/2622/1*s2vn_mx-uOyDfGxMQTcONw.png)
+![Formula for the yearly energy consumption of a lamp](https://cdn-images-1.medium.com/max/2622/1*s2vn_mx-uOyDfGxMQTcONw.png)
 
 Let’s run through a simple example:
 
@@ -83,7 +83,7 @@ I bought LED light bulbs recently:
 
 So let’s see how long it takes until the lamps paid for themselves:
 
-![](https://cdn-images-1.medium.com/max/2000/1*0VCabyK_YIeGSsztNNtQiw.png)
+![Table of payback time for the new lamps](https://cdn-images-1.medium.com/max/2000/1*0VCabyK_YIeGSsztNNtQiw.png)
 
 * 2W: Every hour I run the light bulb, I spend 23W less. Now how long does it take until that is more than 1.82 EUR? Simple: (1.82 EUR / (0.30 EUR / kWh))/23W = (1.82 EUR / 0.0003 EUR/Wh)/23W = 6067 Wh / 23W = 264h. I probably run those lights about 1 hour per day, meaning it takes me **270 days until it was worth it**.
 * 13W: Going with the formula from above. (Unit price / Energy price) / Energy savings per hour = (3.66 EUR / 0.0003 EUR/Wh) / 87W = 140h.
@@ -103,7 +103,7 @@ Now you might wonder: Is it worth buying the more expensive one?
 
 The formula is:
 
-![](https://cdn-images-1.medium.com/max/2380/1*O1UmQIbPe-PzYP3U3GSd1A.png)
+![Formula for the payback time](https://cdn-images-1.medium.com/max/2380/1*O1UmQIbPe-PzYP3U3GSd1A.png)
 
 Let’s assume we have those two light bulbs:
 
