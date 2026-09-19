@@ -13,7 +13,7 @@ medium_url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/05/webhook-banner.jpg"><img src="../images/2021/05/webhook-banner.jpg" alt="Webhook banner" style="width: 512px;"/></a>
-    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@dancristianp?utm_source=medium&utm_medium=referral">Dan-Cristian Pădureț</a></figcaption>
+    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@dancristianp">Dan-Cristian Pădureț</a></figcaption>
 </figure>
 
 The Unix programming philosophy is to do (just) one thing but do it well.

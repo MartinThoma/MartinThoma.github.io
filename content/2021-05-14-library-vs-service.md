@@ -40,7 +40,7 @@ library and a service are and when you should use one or another. Let’s start!
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2021/06/moon-jelly.jpg"><img src="../images/2021/05/library-vs-service-1.jpg" alt="differences" style="width: 512px;"/></a>
-    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@cooljonez?utm_source=medium&utm_medium=referral">Denise Jones</a> on <a href="https://unsplash.com?utm_source=medium&utm_medium=referral">Unsplash</a></figcaption>
+    <figcaption class="text-center">Photo by <a href="https://unsplash.com/@cooljonez">Denise Jones</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
 </figure>
 
 A library is shared code that gets deployed with each application. So the

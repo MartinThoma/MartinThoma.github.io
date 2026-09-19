@@ -172,4 +172,4 @@ See:
 
 * https://www.hostinger.com/web-hosting
 * https://www.bluehost.com/hosting/shared
-* https://docs.google.com/spreadsheets/d/e/2PACX-1vTXQ11WibUUePRjr4k2HAFS3t0P_mRJVLLQgvKCdisiEUZS8jg3Z2eSLB9uBbsNzOJ2MLdkr9jWPQpC/pubhtml?fbclid=IwAR1wpUGuQr4kb3HcSMUsKG4-ywB7uIgWR3OngKQJomRM71GOkB1a5plyUkg
+* https://docs.google.com/spreadsheets/d/e/2PACX-1vTXQ11WibUUePRjr4k2HAFS3t0P_mRJVLLQgvKCdisiEUZS8jg3Z2eSLB9uBbsNzOJ2MLdkr9jWPQpC/pubhtml

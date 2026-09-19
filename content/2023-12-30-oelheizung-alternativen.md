@@ -61,7 +61,7 @@ Eine Luft-Wasser-Wärmepumpe (LW-WP) ist wohl der Klassiker.
 
 Der Akkudoktor hat diese Lösung bekannt gemacht:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wB8rq-D9PAQ?si=KEw_f8cMgbaB2-2A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wB8rq-D9PAQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 * LL-WPs, z.B. LG S12 4kW Heizleistung + Mitsubishi MSZ42 5,4 kW Heizleistung + Panasonic Etherea
 * Brauchwasser-Wärmepumpe (BW-WP) für Warmwasser: 300L-Tank

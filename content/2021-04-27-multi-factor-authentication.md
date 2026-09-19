@@ -10,7 +10,7 @@ tags: InfoSec, AppSec, Security, Cybersecurity, MFA, 2FA
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/plain-and-simple/multi-factor-authentication-cefff819be95
 ---
-![Photo by [Lukenn Sabellano](https://unsplash.com/@luferlex?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)](../images/2021/04/multi-factor-authentication-1.jpg)*Photo by [Lukenn Sabellano](https://unsplash.com/@luferlex?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)*
+![Photo by [Lukenn Sabellano](https://unsplash.com/@luferlex) on [Unsplash](https://unsplash.com/)](../images/2021/04/multi-factor-authentication-1.jpg)*Photo by [Lukenn Sabellano](https://unsplash.com/@luferlex) on [Unsplash](https://unsplash.com/)*
 
 Most websites only have one piece of evidence that is used to authenticate you: A password. However, having multiple pieces of evidence increases security quite a bit. Those pieces of evidence are also called “factors” and they fall into three groups:
 

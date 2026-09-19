@@ -309,7 +309,7 @@ def change_description_text(id):
 
 ## Tricks to make Access Control Effective
 
-![Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/12/effective-access-control-3.jpg)*Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96) on [Unsplash](https://unsplash.com)](../images/2020/12/effective-access-control-3.jpg)*Photo by [Jaimie Harmsen](https://unsplash.com/@jaimie_96) on [Unsplash](https://unsplash.com)*
 
 The case of creating web services is certainly most interesting to most
 readers, so let’s focus on that. Access control is enforced in the backend and

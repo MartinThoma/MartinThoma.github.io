@@ -10,7 +10,7 @@ tags: Software Development, Programming, Cybersecurity, OWASP, Security
 featured_image: logos/cybersecurity.png
 medium_url: https://levelup.gitconnected.com/credential-stuffing-ff58ee8c3320
 ---
-![Photo by [Max van den Oetelaar](https://unsplash.com/@maxvdo?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/03/credential-stuffing-1.jpg)*Photo by [Max van den Oetelaar](https://unsplash.com/@maxvdo?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Max van den Oetelaar](https://unsplash.com/@maxvdo) on [Unsplash](https://unsplash.com)](../images/2021/03/credential-stuffing-1.jpg)*Photo by [Max van den Oetelaar](https://unsplash.com/@maxvdo) on [Unsplash](https://unsplash.com)*
 
 Credential stuffing is a brute-force attack on a services’ user accounts. Not one specific account, but many. Typically by using credentials that were found in other hacks. As a user, you can see via [haveibeenpawned.com](https://haveibeenpwned.com/) if one of your accounts was compromised. Most likely, it was. Let’s learn what you can do!
 

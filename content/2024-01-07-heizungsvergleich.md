@@ -139,7 +139,7 @@ ich nochmals mit 5.000€, also 17.000€ für das Gesamtsystem.
 Ich gehe davon aus, dass die **Wartung** im Schnitt 100€ pro Jahr kosten wird.
 Das halbjährliche Reinigen der Innengeräte kann man selbst machen:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XoAPgEnjUJg?si=ofDOuEYGoMmKVaKc&amp;start=1464" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XoAPgEnjUJg?start=1464" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Nur das Kältemittel müsste von einem Fachmann nachgefüllt werden ... falls das
 denn jemals nötig wird.

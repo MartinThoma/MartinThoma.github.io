@@ -206,7 +206,7 @@ for users:
 * Hosted Services:
   * GitHub issues (e.g. for [numpy](https://github.com/numpy/numpy/issues))
   * Google Code (e.g. for [chromium](https://code.google.com/p/chromium/issues/list))
-  * SourceForge (e.g. for [dvdstyler](http://sourceforge.net/p/dvdstyler/bugs/?source=navbar))
+  * SourceForge (e.g. for [dvdstyler](http://sourceforge.net/p/dvdstyler/bugs/))
   * Launchpad (e.g. for [ubuntu](https://bugs.launchpad.net/ubuntu))
   * GNU Savannah (e.g. for [lordsawar](http://savannah.nongnu.org/bugs/?group=lordsawar))
 

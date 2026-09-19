@@ -24,7 +24,7 @@ Let’s learn about the problems of this approach and the digital equivalent!
 
 Let’s first explore the issues of traditional signatures.
 
-![Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-1.jpg)*Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-1.jpg)*Photo by [Cytonn Photography](https://unsplash.com/@cytonn_photography) on [Unsplash](https://unsplash.com)*
 
 ### Problem #1: Connecting the signature with your identity
 
@@ -101,7 +101,7 @@ Please also note that if the file is signed by encrypting it with the private ke
 
 ## Application #1: Communication (E-Mail, SMS)
 
-![Photo by [freestocks](https://unsplash.com/@freestocks?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-3.jpg)*Photo by [freestocks](https://unsplash.com/@freestocks?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [freestocks](https://unsplash.com/@freestocks) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-3.jpg)*Photo by [freestocks](https://unsplash.com/@freestocks) on [Unsplash](https://unsplash.com)*
 
 When you write e-mails, you don’t need to trust your email provider in terms
 of privacy and tampering. You can encrypt the mail with the recipient’s public
@@ -111,7 +111,7 @@ that your provider does not deliver the message at all.
 
 ## Application #2: Code Contributions
 
-![Photo by [Yancy Min](https://unsplash.com/@yancymin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-4.jpg)*Photo by [Yancy Min](https://unsplash.com/@yancymin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Yancy Min](https://unsplash.com/@yancymin) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-4.jpg)*Photo by [Yancy Min](https://unsplash.com/@yancymin) on [Unsplash](https://unsplash.com)*
 
 Lots of code is written as open-source by plenty of individuals. They might be
 volunteers who just have fun coding or they might be paid for those
@@ -125,7 +125,7 @@ this reason, you sign every contribution.
 
 ## Application #3: Software Updates
 
-![Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-5.jpg)*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-5.jpg)*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) on [Unsplash](https://unsplash.com)*
 
 Think of your Smart TV / Alexa / FritzBox. All of those devices need updates.
 Let’s say that you can plug a USB stick with the update file in the device. As
@@ -137,7 +137,7 @@ update.
 
 ## Application #4: Digital Diplomas
 
-![Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-6.jpg)*Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-6.jpg)*Photo by [Marjan Blan | @marjanblan](https://unsplash.com/@marjan_blan) on [Unsplash](https://unsplash.com)*
 
 When you apply for a job, your potential new employer might want to see
 reference letters and your diploma. Especially since the coronavirus is raging
@@ -175,7 +175,7 @@ gpg --output original.pdf --decrypt my-cv.pdf.gpg
 
 ## Application #5: Cryptocurrencies
 
-![Photo by [Dmitry Demidko](https://unsplash.com/@wildbook?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/04/digital-signatures-7.jpg)*Photo by [Dmitry Demidko](https://unsplash.com/@wildbook?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Dmitry Demidko](https://unsplash.com/@wildbook) on [Unsplash](https://unsplash.com)](../images/2021/04/digital-signatures-7.jpg)*Photo by [Dmitry Demidko](https://unsplash.com/@wildbook) on [Unsplash](https://unsplash.com)*
 
 In order to prove that you are the holder of a Bitcoin, the system uses
 asymmetric cryptography. At the very beginning, somebody is guaranteed to be

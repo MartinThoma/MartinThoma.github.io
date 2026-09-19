@@ -29,15 +29,15 @@ eine alternde Bevölkerung haben. Ohne Zuwanderung wird Deutschland schrumpfen.
 Aleksa Muncan, Auszubildender für Altenpflege, unterstützt seine Familie in
 Deutschland:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DI913gTxprU?si=NtyTut5Fj29ZQQ9X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DI913gTxprU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 "Geduldete":
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kUQdzM6L6bc?si=cGgOu2K4mzKFltly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kUQdzM6L6bc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Syrer, die ihre ganze Kindheit in Deutschland verbracht haben:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pWAsYcqXdQQ?si=GjZoDf1sJYwmV26y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pWAsYcqXdQQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Wir reden hier von Hunderttausenden von Menschen, die in Deutschland leben,
 arbeiten und Steuern zahlen. Menschen, die in Deutschland geboren sind und
@@ -519,7 +519,7 @@ diesen Artikel zu schreiben:
 
 Meine Gedanken zu dem Thema werden recht gut durch folgendes Video repräsentiert:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bnHoheqszKE?si=13iDrj8eS7SLjmNl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bnHoheqszKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Obwohl ich den 5-Punkte-Plan sehr kritisch sehe und bei dem
 Zustrombegrenzungsgesetz zumindest unsicher bin, was das bringen soll, ist der
@@ -542,7 +542,7 @@ eigentliche Skandal der Wortbruch bzgl. folgender Aussagen:
   mit dem wasserstofffähige Gaskraftwerke ausgeschrieben werden sollten ([Quelle](https://www.bmwk.de/Redaktion/DE/Meldung/2024/20240911-kraftwerkssicherheitsgesetz.html)).
 
 Die Ampel hat keine Showanträge eingebracht, um die Union nicht vorzuführen
-([Video](https://youtu.be/bnHoheqszKE?si=irXsfvf3E3RK5541&t=904)). Man hat sich
+([Video](https://youtu.be/bnHoheqszKE?t=904)). Man hat sich
 seit dieser Aussage auf einige Gesetzesvorhaben gemeinsam geeinigt:
 
 * [Finanzierung des Deutschlandtickets](https://www.tagesschau.de/inland/gesellschaft/deutschlandticket-finanzierung-104.html)
@@ -558,7 +558,7 @@ So viel zur Brandmauer.
 
 Die CDU entgegnet: ["Wenn die Ampel dem Antrag zugestimmt hätte, hätten wir die
 Stimmen der AfD nicht
-gebraucht"](https://youtu.be/XZYbFHr2me8?si=eZF8dHySAuMlV2Xy&t=120), und zeigt damit:
+gebraucht"](https://youtu.be/XZYbFHr2me8?t=120), und zeigt damit:
 Wenn es der CDU in den Kram passt, arbeitet sie mit der
 AfD zusammen und bricht gleichzeitig ihr Wort.
 
@@ -579,7 +579,7 @@ also den Antrag eingebracht? Ich sehe folgende Gründe:
 3. **Vorbereitung auf Koalition mit der AfD**: Im Prinzip ein ähnlicher Gedanke
    wie der vorherige. Das hängt sehr von der Stimmung im Land und von der
    Stärke der AfD ab. Aktuell halte ich das für unwahrscheinlich. Noch, am
-   [2. Februar 2025](https://youtu.be/FXSAAttjI2s?si=UDngwRkeSSWn9gbX&t=49), schließt
+   [2. Februar 2025](https://youtu.be/FXSAAttjI2s?t=49), schließt
    Merz eine Zusammenarbeit mit der AfD aus. Allerdings behauptet er auch noch, dass
    die CDU nie mit ihr zusammengearbeitet hat.
 4. **Vorbereitung auf AfD-Verbot**: Die AfD könnte nach der Wahl verboten werden

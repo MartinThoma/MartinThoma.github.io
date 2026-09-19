@@ -267,7 +267,7 @@ Sonnen-Vergleich:
 ## Einzelnachweise
 
  [^1]: <a href="https://www.spiegel.de/gesundheit/diagnose/homoeopathie-in-deutschland-absatz-steigt-auf-670-millionen-euro-im-jahr-2018-a-1256101.html">Das Geschäft mit Homöopathie wächst</a>, 04.03.2019.
- [^2]: Dr. Christian Lübbers (Sprecher Informationsnetzwerk Homöopathie, INH) <a href="https://www.youtube.com/watch?v=pU3sAYRl4-k&feature=youtu.be&t=842">auf YouTube</a>
+ [^2]: Dr. Christian Lübbers (Sprecher Informationsnetzwerk Homöopathie, INH) <a href="https://www.youtube.com/watch?v=pU3sAYRl4-k&t=842">auf YouTube</a>
  [^3]: Wolfgang Wodarg (Arzt, Mitglied des Bundestages 1994-2009, SPD), <a href="https://youtu.be/pU3sAYRl4-k?t=890">auf YouTube</a>, 2019.
  [^4]: <a href="https://www.bfarm.de/DE/Buerger/Arzneimittel/Arzneimittelzulassung/_node.html">Arzneimittelzulassung</a>
  [^5]: Beth Mole: <a href="https://arstechnica.com/science/2018/08/homeopathic-co-expands-recall-as-fda-warns-of-life-threatening-infections/">Homeopathic co. expands recall as FDA warns of “life-threatening” infections</a>, 2018.

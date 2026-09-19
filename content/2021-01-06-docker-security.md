@@ -11,7 +11,7 @@ featured_image: logos/docker.png
 subtitle: A hands-on guide to security for Docker
 medium_url: https://levelup.gitconnected.com/docker-security-5f4df118948c
 ---
-![Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/docker-security-1.jpg)*Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa) on [Unsplash](https://unsplash.com)](../images/2021/02/docker-security-1.jpg)*Photo by [Andrey Sharpilo](https://unsplash.com/@sharpiloa) on [Unsplash](https://unsplash.com)*
 
 Most companies I have seen deploy Docker images in at least one project or service. Docker is great because it makes stuff reproducible by specifying the environment to a big degree. However, you still have to think about security. Let’s have a closer look!
 

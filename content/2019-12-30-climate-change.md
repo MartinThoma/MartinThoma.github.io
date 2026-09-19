@@ -390,7 +390,7 @@ Here you can get a feeling for which action has which effect:
         <td>statista</td>
     </tr>
     <tr>
-        <td>1 year of <a href="https://www.amazon.de/dp/B071NGHJWB?aaxitk=iVNEqSadIBVEUMJW4vmQoA&pd_rd_i=B071NGHJWB&pf_rd_p=5e2a70c8-77de-4865-9918-07306318c381&hsa_cr_id=6691547510502&sb-ci-n=productDescription&sb-ci-v=AmazonBasics%20E27%20LED%20Lampe%2C%2014W%20(ersetzt%20100W)%2C%20warmwei%C3%9F%2C%202er-Pack">AmazonBasics E27</a></td>
+        <td>1 year of <a href="https://www.amazon.de/dp/B071NGHJWB">AmazonBasics E27</a></td>
         <td>58.13 kg</td>
         <td>14 W * 365*24h * (0.474/1000) kg / Wh</td>
     </tr>

@@ -52,11 +52,11 @@ I like [Ubuntu Mono](https://github.com/powerline/fonts/tree/master/UbuntuMono) 
 
 ![The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma](../images/2020/11/amazing-terminal-3.png)*The top line is Ubuntu Mono, the bottom example is written in Droid Sans Mono. I like Ubuntu Mono a bit better, but both are reasonable fonts. Image by Martin Thoma*
 
-There are also “programming fonts” like [Fira Code](https://github.com/tonsky/FiraCode) or [JetBrains Mono](https://www.jetbrains.com/lp/mono/?ref=betterwebtype). I don’t like them because they make it harder for me to really know what is written. They look nice, though.
+There are also “programming fonts” like [Fira Code](https://github.com/tonsky/FiraCode) or [JetBrains Mono](https://www.jetbrains.com/lp/mono/). I don’t like them because they make it harder for me to really know what is written. They look nice, though.
 
 ## Windows Terminal
 
-First, make sure you have the [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?source=lp&activetab=pivot:overviewtab) installed.
+First, make sure you have the [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab) installed.
 
 Launch a terminal and navigate to the settings. It’s this small downward-pointing “arrow”:
 

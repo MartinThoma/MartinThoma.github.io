@@ -81,7 +81,7 @@ kümmern sowie die App zur Verwaltung der Buchungen bereitstellen.
 
 ## Antrag auf die Prüfung verkehrsberuhigter Maßnahmen im Kapellenweg
 
-<iframe width="800" height="600" src="https://www.openstreetmap.org/export/embed.html?bbox=12.854754866526443%2C48.77385796607013%2C12.862034381792864%2C48.77659069935105&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=18/48.775224/12.858395">Größere Karte anzeigen</a></small>
+<iframe width="800" height="600" src="https://www.openstreetmap.org/export/embed.html?bbox=12.854754866526443%2C48.77385796607013%2C12.862034381792864%2C48.77659069935105&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=18/48.775224/12.858395">Größere Karte anzeigen</a></small>
 
 Von 16:27 bis 17:00 wurden zwei Themen diskutiert:
 
@@ -112,7 +112,7 @@ Der Verkehrsausschuss beschloss, dass es im Kapellenweg keine Tempo-30-Zone gebe
 
 ## Antrag auf bauliche Maßnahmen zur Verkehrsberuhigung am Leitenweg
 
-<iframe width="800" height="600" src="https://www.openstreetmap.org/export/embed.html?bbox=12.87605167375254%2C48.77683817536615%2C12.886855611664528%2C48.78230316872707&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=17/48.779571/12.881454">Größere Karte anzeigen</a></small>
+<iframe width="800" height="600" src="https://www.openstreetmap.org/export/embed.html?bbox=12.87605167375254%2C48.77683817536615%2C12.886855611664528%2C48.78230316872707&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=17/48.779571/12.881454">Größere Karte anzeigen</a></small>
 
 Ab 17:16 Uhr wurde der Leitenweg behandelt.
 

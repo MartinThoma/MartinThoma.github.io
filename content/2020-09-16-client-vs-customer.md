@@ -10,7 +10,7 @@ tags: versus, difference, terminology
 featured_image: logos/education.png
 medium_url: https://medium.com/plain-and-simple/client-vs-customer-df3d6a9011a8
 ---
-![Photo by [You X Ventures](https://unsplash.com/@youxventures?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/09/client-vs-customer-1.jpg)*Photo by [You X Ventures](https://unsplash.com/@youxventures?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [You X Ventures](https://unsplash.com/@youxventures) on [Unsplash](https://unsplash.com)](../images/2020/09/client-vs-customer-1.jpg)*Photo by [You X Ventures](https://unsplash.com/@youxventures) on [Unsplash](https://unsplash.com)*
 
 A [customer](https://en.wiktionary.org/wiki/customer) is somebody who buys goods, e.g. in a supermarket. Or somebody who buys services, like at a hairdresser.
 

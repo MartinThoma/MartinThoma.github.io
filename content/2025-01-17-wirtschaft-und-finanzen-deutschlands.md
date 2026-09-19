@@ -164,7 +164,7 @@ Milliarden Euro – eine alarmierende Summe, die dringend Maßnahmen erfordert.
 
 [Anne Brorhilker](https://de.wikipedia.org/wiki/Anne_Brorhilker), ehemalige Oberstaatsanwältin und Expertin in der Aufklärung von Cum-Ex-Betrügereien, hat in ihrer Funktion bei der
 [Bürgerbewegung Finanzwende](https://de.wikipedia.org/wiki/B%C3%BCrgerbewegung_Finanzwende)
-konkrete Maßnahmen vorgeschlagen ([Quelle](https://youtu.be/fPR9BSnhpRw?si=7BrrGyHgISk4WiFr&t=1610)):
+konkrete Maßnahmen vorgeschlagen ([Quelle](https://youtu.be/fPR9BSnhpRw?t=1610)):
 
 * **Fachpersonal ausbilden**: Finanzämter brauchen speziell geschulte Experten,
   um komplexe Betrugsfälle effektiv zu verfolgen.

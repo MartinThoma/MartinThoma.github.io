@@ -621,7 +621,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
     * Personally, I've been searching for rice, flour and oil for a week. Also
       pasta got rare. It's still available once in a while, but not well-stocked.
     * [Condoms](https://www.theguardian.com/world/2020/mar/27/global-condom-shortage-coronavirus-shuts-down-production)
-* Many local stores close ([Elbschlosskeller](https://twitter.com/UUlrichson1/status/1239991614099148801?s=20))
+* Many local stores close ([Elbschlosskeller](https://twitter.com/UUlrichson1/status/1239991614099148801))
 * Organized Crime starts to help
     * [Ransomware Ethics](https://www.bleepingcomputer.com/news/security/ransomware-gangs-to-stop-attacking-health-orgs-during-pandemic/)
     * [Gangs in Rio de Janeiro](https://twitter.com/AndrewCesare/status/1242174265547468803)

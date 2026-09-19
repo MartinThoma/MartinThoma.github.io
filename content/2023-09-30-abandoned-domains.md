@@ -23,5 +23,5 @@ to discuss further steps.
 
 ## Historic Cases
 
-* [The guy who bought Google.com from under Google's nose](https://money.cnn.com/2016/01/29/technology/google-domain-purchase/index.html) by Chris Isidore @CNNTech: Google paid $12,000. See [How I Ended Up Purchasing & Owning Google.com via Google Domains](https://www.linkedin.com/pulse/i-purchased-domain-googlecom-via-google-domains-sanmay-ved/?trk=prof-post) by Sanmay Ved. And that was a lucky case back in 2016.
+* [The guy who bought Google.com from under Google's nose](https://money.cnn.com/2016/01/29/technology/google-domain-purchase/index.html) by Chris Isidore @CNNTech: Google paid $12,000. See [How I Ended Up Purchasing & Owning Google.com via Google Domains](https://www.linkedin.com/pulse/i-purchased-domain-googlecom-via-google-domains-sanmay-ved/) by Sanmay Ved. And that was a lucky case back in 2016.
 * [Why abandoned domain names are dangerous for your business?](https://germainmaureau.com/en/2019/03/why-abandoned-domain-names-are-dangerous-for-your-business/)

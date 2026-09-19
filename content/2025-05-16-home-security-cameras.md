@@ -339,7 +339,7 @@ Models:
         <td>125° / 111° / 56°</td>
         <td>❌</td>
         <td>2 LEDs / 94 dB</td>
-        <td><a href="https://www.amazon.de/Tapo-C410-%C3%9Cberwachungskamera-MicroSD-Speicher-Personenerkennung/dp/B0D544WSFP/ref=sr_1_6?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1CM6NGUAF0E0B&dib=eyJ2IjoiMSJ9.92RDIcKzGqC8ARx51PwPxRkfmfdYkBqap-YjjaeKCZaqGIjkPc4r1v7OLXUnARS0EzVbQREOuOOkObLVW2ulKUPp54Sqez9mcQBnE-tS-IkTWT68-dDXaXJxxixLWLZSxAPptGHzpxbhegFZyMhvxIk47TkdJa2xk6wA6aRyJqmLR_ywhvwZfgDCynd7aWNpUxc9r7TQTlGCOzdOx-RF_mA22mAaU5Zr0HARafv3WKZIlDKpq7B6mMJhFbJ7vZM3e1jVk6jgaZ5xVDMzrBf27PNQ-IEjLOjy90L3czJMWZ0.apSRDGfHk7wdwB0u_2oIkzemETc7tNGaNyvOgwunuRo&dib_tag=se&keywords=Tapo%2BC410&qid=1747386373&sprefix=tapo%2Bc410%2Caps%2C272&sr=8-6&th=1">65€</a> (Solar Kit)</td>
+        <td><a href="https://www.amazon.de/Tapo-C410-%C3%9Cberwachungskamera-MicroSD-Speicher-Personenerkennung/dp/B0D544WSFP">65€</a> (Solar Kit)</td>
     </tr>
     <tr>
         <td><a href="https://de.store.tapo.com/blogs/haufig-gestellte-fragen/spezifikationen-von-tapo-c420s2?srsltid=AfmBOoq3QCHJHks5KZGZkMFYKmCwN48rqmJ0-aegi1LQwgM4Li_ZcId4">Tapo C420</a></td>

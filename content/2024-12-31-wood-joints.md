@@ -25,7 +25,7 @@ Nails work well when you need to resist shear force but don't expect much tensil
 
 Avoid screwing into end grain, as screws will easily pull out. Instead, screw into the long grain for a secure connection.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1RRNjne3R84?si=dFvVDk_64oK6Caiv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1RRNjne3R84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Countersinks create a professional finish by allowing screw heads to sit flush with the wood surface.
 

@@ -270,4 +270,4 @@ Für alle Module gilt:
 
 ## Meta
 
-* Fenecon nutzt GoodWe-Wechselrichter ([Quelle](https://youtu.be/GJcMaVMb9zI?si=Qluyrvkj6pyHaXZo&t=42))
+* Fenecon nutzt GoodWe-Wechselrichter ([Quelle](https://youtu.be/GJcMaVMb9zI?t=42))

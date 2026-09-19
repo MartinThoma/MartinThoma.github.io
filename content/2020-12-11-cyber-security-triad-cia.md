@@ -11,7 +11,7 @@ featured_image: logos/cybersecurity.png
 subtitle: It’s the CIA 🕵 — but maybe not what you think
 medium_url: https://medium.com/plain-and-simple/the-cyber-security-triad-df9911f85955
 ---
-![Photo by [Tobias Tullius](https://unsplash.com/@tobiastu?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2020/12/cyber-security-triad-cia-1.jpg)*Photo by [Tobias Tullius](https://unsplash.com/@tobiastu?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Tobias Tullius](https://unsplash.com/@tobiastu) on [Unsplash](https://unsplash.com)](../images/2020/12/cyber-security-triad-cia-1.jpg)*Photo by [Tobias Tullius](https://unsplash.com/@tobiastu) on [Unsplash](https://unsplash.com)*
 
 The Cyber Security Triad, also called the CIA triad, is a set of three goals:
 

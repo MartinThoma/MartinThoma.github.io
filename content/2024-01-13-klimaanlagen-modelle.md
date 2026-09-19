@@ -487,7 +487,7 @@ FTXJ35AB + RXJ35A:
 
 ### Daikin Stylish
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F5NVM-djpAo?si=KTuIcAKXBkG-EJpO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F5NVM-djpAo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 3 Farben:
 
@@ -533,7 +533,7 @@ FTXA35+RXA35A9:
 
 ### DAIKIN Perfera
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6YfMXII6ZSg?si=rtcmfK6pxHW3PIDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6YfMXII6ZSg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Features:
 
@@ -583,7 +583,7 @@ FTXTM40R+RXTM40R: [2427€](https://www.klimaworld.com/daikin-r32-klimaanlage-pe
 
 ### DAIKIN Ururu Sarara
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4vJW7DJC4xw?si=iHYcrpzbQj9OH3Qz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4vJW7DJC4xw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 FTXZ25N+RXZ25N:
 

@@ -228,7 +228,7 @@ were just good?
 
 ## Everdigi and Hanmir
 
-I bought [Everdigi](https://www.amazon.de/gp/product/B073TZ1DY7/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) for 8.59 EUR and [Hanmir](https://www.amazon.de/gp/product/B0793R9D7F/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) for 12.99 EUR. I returned both of them.
+I bought [Everdigi](https://www.amazon.de/gp/product/B073TZ1DY7?psc=1) for 8.59 EUR and [Hanmir](https://www.amazon.de/gp/product/B0793R9D7F?psc=1) for 12.99 EUR. I returned both of them.
 I don't remember the reason. I think they might have been super uncomfortable.
 
 
@@ -252,7 +252,7 @@ I ignored the model CX 100, as it seems to be inferior to the CX 300S.
 * Sound pressure level (SPL): 118 dB
 * 29.40 EUR
 * Reviews: [Many Fakes](https://reviewmeta.com/amazon-de/B07N1YLC23)
-* [Amazon](https://www.amazon.de/Sennheiser-Ear-Kopfh%C3%B6rer-Universal-Smart-Remote-Wei%C3%9F/dp/B07N23DXMK/ref=sr_1_1_sspa?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=sennheiser+cx+300s&qid=1591293714&quartzVehicle=21-716&replacementKeywords=sennheiser+300s&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzNTNKV0xKSFFRQkRTJmVuY3J5cHRlZElkPUEwMzM5ODI3MUNPTk1QUDk4TkhQUSZlbmNyeXB0ZWRBZElkPUEwNjI4NzEzMTA5VExBVEtUMlFYRSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=), [36 EUR](https://www.amazon.de/Sennheiser-Ear-Kopfh%C3%B6rer-Universal-Remote-schwarz/dp/B07N1YLC23/ref=psdc_617060011_t1_B00MEI9Z34?th=1), [36.90](https://www.amazon.de/Sennheiser-Ear-Kopfh%C3%B6rer-Universal-Smart-Remote-Rot/dp/B07N246ZPJ/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=sennheiser+in-ear+mikrofon&qid=1591293738&sr=8-5)
+* [Amazon](https://www.amazon.de/Sennheiser-Ear-Kopfh%C3%B6rer-Universal-Smart-Remote-Wei%C3%9F/dp/B07N23DXMK), [36 EUR](https://www.amazon.de/Sennheiser-Ear-Kopfh%C3%B6rer-Universal-Remote-schwarz/dp/B07N1YLC23), [36.90](https://www.amazon.de/Sennheiser-Ear-Kopfh%C3%B6rer-Universal-Smart-Remote-Rot/dp/B07N246ZPJ)
 * [YouTube Review](https://www.youtube.com/watch?v=B8Y2LTWfVr4)
 
 
@@ -282,7 +282,7 @@ The magnets were pretty nice.
 * Foam H
 * Magnetic Ends
 * Inline control: Volume up, Volume down, Accept phone call
-* [13.57 EUR](https://www.amazon.de/LUDOS-Ultra-Kopfh%C3%B6rer-Kristallklarer-Lautst%C3%A4rkeregelung-Schwarz/dp/B07ZVDH3X3/ref=sr_1_61?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3FCMYSYDIJO35&dchild=1&keywords=in-ear%2Bkopfh%C3%B6rer%2Bmit%2Bmikrofon&qid=1591292378&s=ce-de&sprefix=in-ear%2Celectronics%2C176&sr=1-61&th=1)
+* [13.57 EUR](https://www.amazon.de/LUDOS-Ultra-Kopfh%C3%B6rer-Kristallklarer-Lautst%C3%A4rkeregelung-Schwarz/dp/B07ZVDH3X3)
 
 There is a [marketing video](https://techbuzzireland.com/2020/03/04/review-the-ludos-ultra-earphones-tech-ludos-earphones/).
 
@@ -293,11 +293,11 @@ The "KLIM Fusion" headphones look similar, too.
 
 ## See also
 
-* [Sony MDR-EX15AP](https://www.amazon.de/Sony-MDR-EX15AP-Ear-Kopfh%C3%B6rer-Headsetfunktion-integriertes-Wei%C3%9F/dp/B00I3LV20A/ref=sr_1_3?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=SONY+MDR-EX15AP&qid=1591294576&sr=8-3): 9.99 EUR; 4.4 Stars and 4514 ratings
-* [1More Quad Driver](https://www.amazon.de/E1010-Quad-driver-Kopfh%C3%B6rer-Fernbedienung-Kompatibel-Silber/dp/B06XSJV5B9/ref=sr_1_3?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=1More+Quad+Driver&qid=1591297327&sr=8-3): 112 EUR; 3.9 Stars and 7297 ratings
-* [Mee Audio M6 Pro 2nd Gen](https://www.amazon.de/Generation-universal-fit-Ger%C3%A4uschisolierende-Ear-Monitore-abnehmbarem-Klar/dp/B07B4PDF6K/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Mee+Audio+M6+Pro+2nd+Gen&qid=1591297272&sr=8-5): 39.16 EUR; 4.3 Stars and 1126 ratings
-* [PANASONIC ErgoFit Earbud](https://www.amazon.de/Headphones-Microphone-Controller-Compatible-BlackBerry-matte-black/dp/B07SHW92VR/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=PANASONIC+ErgoFit+Earbud&qid=1591297199&sr=8-5): 23.21 EUR; 4.2 Stars and 64328 ratings
+* [Sony MDR-EX15AP](https://www.amazon.de/Sony-MDR-EX15AP-Ear-Kopfh%C3%B6rer-Headsetfunktion-integriertes-Wei%C3%9F/dp/B00I3LV20A): 9.99 EUR; 4.4 Stars and 4514 ratings
+* [1More Quad Driver](https://www.amazon.de/E1010-Quad-driver-Kopfh%C3%B6rer-Fernbedienung-Kompatibel-Silber/dp/B06XSJV5B9): 112 EUR; 3.9 Stars and 7297 ratings
+* [Mee Audio M6 Pro 2nd Gen](https://www.amazon.de/Generation-universal-fit-Ger%C3%A4uschisolierende-Ear-Monitore-abnehmbarem-Klar/dp/B07B4PDF6K): 39.16 EUR; 4.3 Stars and 1126 ratings
+* [PANASONIC ErgoFit Earbud](https://www.amazon.de/Headphones-Microphone-Controller-Compatible-BlackBerry-matte-black/dp/B07SHW92VR): 23.21 EUR; 4.2 Stars and 64328 ratings
 * JBL
-    * [E15](https://www.amazon.de/JBL-Universeller-1-Tasten-Fernbedienung-Integriertem-Smartphones-Wei%C3%9F/dp/B01MAX4FP6/ref=sr_1_26?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-26): 30.95 EUR; 3.8 Stars and 73 ratings
-    * [C100SI](https://www.amazon.de/JBL-Kopfh%C3%B6rer-1-Tasten-Fernbedienung-Mikrofon-Kompatibel-Schwarz/dp/B01DEWVZ2C/ref=sr_1_8?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-8): 16.42 EUR; 4.0 Stars and 60273 ratings
-    * [T210](https://www.amazon.de/JBL-Kopfh%C3%B6rer-1-Tasten-Fernbedienung-Integriertem-Kompatibel-Rose-Gold/dp/B01M5I6LP2/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-4): 15.99 EUR; 3.5 Stars and 6051 ratings
+    * [E15](https://www.amazon.de/JBL-Universeller-1-Tasten-Fernbedienung-Integriertem-Smartphones-Wei%C3%9F/dp/B01MAX4FP6): 30.95 EUR; 3.8 Stars and 73 ratings
+    * [C100SI](https://www.amazon.de/JBL-Kopfh%C3%B6rer-1-Tasten-Fernbedienung-Mikrofon-Kompatibel-Schwarz/dp/B01DEWVZ2C): 16.42 EUR; 4.0 Stars and 60273 ratings
+    * [T210](https://www.amazon.de/JBL-Kopfh%C3%B6rer-1-Tasten-Fernbedienung-Integriertem-Kompatibel-Rose-Gold/dp/B01M5I6LP2): 15.99 EUR; 3.5 Stars and 6051 ratings

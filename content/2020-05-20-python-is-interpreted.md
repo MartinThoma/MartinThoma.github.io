@@ -98,7 +98,7 @@ Python. Here are some examples:
   The fact that Instagram uses Django for their website shows two things: You
   can build complex systems using Python and you can build systems that scale.
 * **Pinterest** uses Flask and Django ([Quora
-  2015](https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask/answer/Steve-Cohen?srid=hXZd&share=1)
+  2015](https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask/answer/Steve-Cohen)
   by [Steve Cohen](https://www.linkedin.com/in/icecreamcohen/)): Pinterest is
   also one of the 500 most-visited websites on Earth.
 * **Facebook**

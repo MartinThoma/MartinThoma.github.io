@@ -26,7 +26,7 @@ mean by “shift left”. Let’s start!
 
 ## Conceptual Phase: Planning and Design
 
-![Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](../images/2021/02/shift-left-2.jpg)*Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+![Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema) on [Unsplash](https://unsplash.com)](../images/2021/02/shift-left-2.jpg)*Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema) on [Unsplash](https://unsplash.com)*
 
 Before developers start implementing a difficult feature, people typically
 need to discuss the feature. The people to approach could be product owners or

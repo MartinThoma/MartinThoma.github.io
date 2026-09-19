@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Why Trump might be Good
 slug: why-trump-might-be-good
+lang: en
 author: Martin Thoma
 date: 2016-11-19 20:00
 category: Cyberculture
@@ -14,7 +14,7 @@ began writing as if the world is going to end. While I also fear many bad
 things that might happen, here are some things that might be good:
 
 1. Some people got a lot of money from bets ([source](http://time.com/money/4565236/donald-trump-2016-election-win-gambling-bets/)).
-2. Trump thinks drone attacks are too expensive (about $320&thinsp;000 according to [this source](https://www.quora.com/How-much-does-one-airstrike-cost/answer/Christopher-Troskosky?srid=vW2s)). However, he also wants to bomb the shit out of terrorists ([source](http://www.independent.co.uk/news/world/americas/donald-trump-drone-strikes-bombing-isis-pirates-no-rules-obama-deaths-a7423401.html)).
+2. Trump thinks drone attacks are too expensive (about $320&thinsp;000 according to [this source](https://www.quora.com/How-much-does-one-airstrike-cost/answer/Christopher-Troskosky)). However, he also wants to bomb the shit out of terrorists ([source](http://www.independent.co.uk/news/world/americas/donald-trump-drone-strikes-bombing-isis-pirates-no-rules-obama-deaths-a7423401.html)).
 3. Trump is against TTIP.
 4. Trump wants to have good relationships to Russia.
 5. It might be easier for us to get what we want from the US. Just compliment Trump ([source](https://www.youtube.com/watch?v=Fx5TDTDJzSU))

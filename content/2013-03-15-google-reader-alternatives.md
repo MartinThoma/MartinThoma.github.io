@@ -73,7 +73,7 @@ The website offered a nice, clean way to administrate my 109 Feeds. Last (and le
 Now, I am interested in alternatives. They should
 <ul>
   <li>allow me to import my subscriptions,</li>
-  <li>have a Google Chrome Extension (in <a href="https://chrome.google.com/webstore?utm_source=chrome-ntp-icon">Chrome Web Store</a>)</li>
+  <li>have a Google Chrome Extension (in <a href="https://chrome.google.com/webstore">Chrome Web Store</a>)</li>
   <li>have an Android App (in <a href="https://play.google.com/store">Android Market</a>)</li>
   <li>have export options</li>
   <li>sync my feeds, as I would like to read my feeds on several computers and my smartphone</li>
@@ -123,7 +123,7 @@ The service seems to be free, they have an <a href="https://play.google.com/stor
 Bloglovin' does not provide an export function.
 
 <h3>Good Noows</h3>
-It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me sign in with Google, offers an import function and has a <a href="https://chrome.google.com/webstore/detail/good-noows/deegloljmdbfbjhlimieancmcfombgjj?utm_source=chrome-ntp-icon">Chrome App</a>. I seems to be free.
+It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me sign in with Google, offers an import function and has a <a href="https://chrome.google.com/webstore/detail/good-noows/deegloljmdbfbjhlimieancmcfombgjj">Chrome App</a>. I seems to be free.
 
 <figure class="aligncenter">
             <a href="../images/2013/03/goodnoows-300x183.png"><img src="../images/2013/03/goodnoows-300x183.png" alt="Good Noows" style="max-width:300px;max-height:183px" class="size-medium wp-image-61291"/></a>
@@ -138,7 +138,7 @@ However, it has no Android App and seems not to support export.
 It looks like this:
 <a href="../images/2013/03/bloglines.png"><img src="../images/2013/03/bloglines-300x184.png" alt="bloglines" width="300" height="184" class="aligncenter size-medium wp-image-61351" /></a>
 
-It has no Chrome App and the <a href="https://play.google.com/store/apps/details?id=org.nyquil.rss2bloglines&feature=search_result#?t=W251bGwsMSwyLDEsIm9yZy5ueXF1aWwucnNzMmJsb2dsaW5lcyJd">Android App</a> is possibly not official.
+It has no Chrome App and the <a href="https://play.google.com/store/apps/details?id=org.nyquil.rss2bloglines#?t=W251bGwsMSwyLDEsIm9yZy5ueXF1aWwucnNzMmJsb2dsaW5lcyJd">Android App</a> is possibly not official.
 
 <h2>Host yourself</h2>
 <h3>Selfoss</h3>
@@ -158,7 +158,7 @@ It has no Chrome App and the <a href="https://play.google.com/store/apps/details
 
 <ul>
   <li>Tiny Tiny RSS: <a href="https://github.com/gothfox/Tiny-Tiny-RSS">GitHub</a>, <a href="http://tt-rss.org/redmine/projects/tt-rss-android/issues">Issue Tracker</a>, <a href="http://tt-rss.org/redmine/projects/tt-rss/wiki#Download">Download</a>, <a href="https://www.softaculous.com/demos/Tiny_Tiny_RSS">Demo</a></li>
-  <li>Android Client: <a href="https://play.google.com/store/apps/details?id=org.fox.ttrss&feature=search_result">Market</a></li>
+  <li>Android Client: <a href="https://play.google.com/store/apps/details?id=org.fox.ttrss">Market</a></li>
 </ul>
 
 <h2>Tried, but no alternative</h2>
