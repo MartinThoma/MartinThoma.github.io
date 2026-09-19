@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Cost of Living
 slug: cost-of-living
+lang: en
 author: Martin Thoma
 date: 2019-11-23 20:00
 category: My bits and bytes
@@ -109,12 +109,12 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>10 years</td>
         </tr>
         <tr>
-            <td>2x Halbrundschine (30mm x 1500mm)</td>
+            <td>2x Halbrundschiene (30mm x 1500mm)</td>
             <td>20.00 €</td>
             <td>25 years</td>
         </tr>
         <tr>
-            <td>2x Halbrundschine (30mm x 1000mm)</td>
+            <td>2x Halbrundschiene (30mm x 1000mm)</td>
             <td>14.00 €</td>
             <td>25 years</td>
         </tr>
@@ -524,7 +524,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>11.96 € / 4 pieces</td>
         </tr>
         <tr>
-            <td>Gläßer (<a href="https://www.ikea.com/de/de/p/ikea-365-glas-klarglas-60279711/">IKEA 365+</a>)</td>
+            <td>Gläser (<a href="https://www.ikea.com/de/de/p/ikea-365-glas-klarglas-60279711/">IKEA 365+</a>)</td>
             <td>4.99 € / 6 pieces</td>
         </tr>
         <tr>
@@ -532,7 +532,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>7.96 € / 4 pieces</td>
         </tr>
         <tr>
-            <td>Handrührgerät (<a href="Bosch MFQ3540">Bosch MFQ3540</a>)</td>
+            <td>Handrührgerät (Bosch MFQ3540)</td>
             <td>33.99 €</td>
         </tr>
         <tr>
@@ -565,7 +565,7 @@ which I think I really need... turns out, it's a lot of stuff.
         <tr>
             <th>Name</th>
             <th>Price</th>
-            <th>Durabiliy</th>
+            <th>Durability</th>
             <th>Per year</th>
             <th>Usage 2020</th>
         </tr>
@@ -607,7 +607,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>12.90 € / 2 pieces</td>
         </tr>
         <tr>
-            <td>Fahrrad Felgendband (Schwalbe)</td>
+            <td>Fahrrad Felgenband (Schwalbe)</td>
             <td>3.33 €</td>
             <td>10 years</td>
             <td>0.34 € / year</td>
@@ -618,7 +618,7 @@ which I think I really need... turns out, it's a lot of stuff.
             <td></td>
             <td></td>
             <td></td>
-            <td>5.99 € / 60ml (Finish Line; rippoff - you can get it for 4 € / 100ml)</td>
+            <td>5.99 € / 60ml (Finish Line; rip-off - you can get it for 4 € / 100ml)</td>
         </tr>
         <tr>
             <td>Schnürsenkel</td>
@@ -819,7 +819,7 @@ Fabrics:
             <td>26.45 € / 7.796kg</td>
         </tr>
         <tr>
-            <td>Annanas 🥫</td>
+            <td>Ananas 🥫</td>
             <td>18 months</td>
             <td>0.79 € / 340g (<a href="https://de.wikipedia.org/wiki/Abtropfgewicht">Abtropfgewicht</a>)</td>
             <td>1.85 € / 680g</td>
@@ -861,7 +861,7 @@ Fabrics:
             <td>14.19 € / 2500 g</td>
         </tr>
         <tr>
-            <td>Citrons (Zitronen)</td>
+            <td>Lemons (Zitronen)</td>
             <td>2 weeks ?</td>
             <td>0.79 € / 500g - 1.19 € / 500g</td>
             <td>4.79 € / 15 pieces</td>
@@ -915,7 +915,7 @@ Fabrics:
             <td>8.81 € / 6000g</td>
         </tr>
         <tr>
-            <td>Radisichen</td>
+            <td>Radieschen</td>
             <td>0.29 € / Bund</td>
             <td></td>
             <td>0.29 € / Bund</td>
@@ -969,7 +969,7 @@ Fabrics:
             <td>5.96 € / 700g</td>
         </tr>
         <tr>
-            <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten, Rispen-Tomaten)</td>
+            <td>Tomatoes (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten, Rispen-Tomaten)</td>
             <td>1 week</td>
             <td>1.49 € / 250g (1 package) or 0.95 € / 500g - 1.19 € / 500g for Roma-Tomaten</td>
             <td>20.14 € / 5822g</td>
@@ -1047,7 +1047,7 @@ Fabrics:
             <td>1.88 € / 2 piece</td>
         </tr>
         <tr>
-            <td>Buttergemüße</td>
+            <td>Buttergemüse</td>
             <td>months 🧊</td>
             <td>0.57 € / 300g - 0.59 € / 300g, 0.89 € / 450g - 1.76€/450g</td>
             <td>4.40 € / 1800g</td>
@@ -1059,7 +1059,7 @@ Fabrics:
             <td>2.78 € / 475g</td>
         </tr>
         <tr>
-            <td>Gangat</td>
+            <td>Galgant</td>
             <td>?</td>
             <td>2.60 € / 100g</td>
             <td>2.60 € / 100g</td>
@@ -1102,7 +1102,7 @@ Fabrics:
         <tr>
             <td>Baguette</td>
             <td>1 month (?)</td>
-            <td>0.69 € / pice</td>
+            <td>0.69 € / piece</td>
             <td>2.23 € / 3 pieces</td>
         </tr>
         <tr>
@@ -1130,7 +1130,7 @@ Fabrics:
             <td>10.56 € / 7500g</td>
         </tr>
         <tr>
-            <td>Bread (Brot: Eiweis-Brot, Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot, Kürbiskernbrot)</td>
+            <td>Bread (Brot: Eiweißbrot, Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot, Kürbiskernbrot)</td>
             <td>4 days</td>
             <td>0.99 € / 500g and 1.95 € / 500g and 1.29 € / 500g</td>
             <td>43.44 € / 7.0 kg</td>
@@ -1155,7 +1155,7 @@ Fabrics:
         </tr>
         <tr>
             <td>Croissants</td>
-            <td>1 day (3 weeks for backing)</td>
+            <td>1 day (3 weeks for baking)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece - 1.80 € / 1 piece at the baker</td>
             <td>21.28 € / 26 piece</td>
         </tr>
@@ -1262,7 +1262,7 @@ Fabrics:
             <td>9.29 € / 1500g</td>
         </tr>
         <tr>
-            <td>Vegetarian sausage (Veggi Aufschniitt)</td>
+            <td>Vegetarian sausage (Veggie Aufschnitt)</td>
             <td>1 month</td>
             <td>1.39 € / 125g</td>
             <td>1.39 € / 125g</td>
@@ -1629,13 +1629,13 @@ General Cooking:
             <td>4.47 € / 780g</td>
         </tr>
         <tr>
-            <td>Coconut Milk (Kokusmilch)</td>
+            <td>Coconut Milk (Kokosmilch)</td>
             <td>1 year 6 months</td>
             <td>0.96 € / 400ml - 0.99 € / 400ml</td>
             <td>3.90 € / 1600ml</td>
         </tr>
         <tr>
-            <td>Oister Sauce (🇩🇪 Austernsoße)</td>
+            <td>Oyster Sauce (🇩🇪 Austernsoße)</td>
             <td>2 years</td>
             <td>10 € / kg</td>
             <td>2.29 € / 295ml</td>
@@ -1695,7 +1695,7 @@ General Cooking:
             <td>3.39 € / 800g</td>
         </tr>
         <tr>
-            <td>Roastet White Sesame (🇩🇪 Gerösteter weißer Sesam)</td>
+            <td>Roasted White Sesame (🇩🇪 Gerösteter weißer Sesam)</td>
             <td>6 months</td>
             <td></td>
             <td>2.99 € / 60g</td>
@@ -1713,7 +1713,7 @@ General Cooking:
             <td>2.48 € / 150g</td>
         </tr>
         <tr>
-            <td>Worchestersauce</td>
+            <td>Worcestershire sauce</td>
             <td></td>
             <td>1.99 € / 140ml</td>
             <td>1.99 € / 140ml</td>
@@ -2034,7 +2034,7 @@ General Cooking:
             <td>0.85 € / 30g</td>
         </tr>
         <tr>
-            <td>Apfelmuß</td>
+            <td>Apfelmus</td>
             <td>?</td>
             <td>0.59 € / 710g</td>
             <td>0.59 € / 710g</td>
@@ -2063,7 +2063,7 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Sweets (Cookies, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären, Marzipan, Maxi-King, Maxi-Queen, Milchschnitte; some for baking such as Löffelbuisquits)</td>
+            <td>Sweets (Cookies, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss/Mohn-Strudel, Milchlaible, Mozart-Kugeln, Gummibären, Marzipan, Maxi-King, Maxi-Queen, Milchschnitte; some for baking such as Löffelbiskuits)</td>
             <td>months to years</td>
             <td></td>
             <td>148.15 € / 109 packages</td>
@@ -2213,7 +2213,7 @@ General Cooking:
             <td>1.69 € / 800g</td>
         </tr>
         <tr>
-            <td>Raviolio 🥫</td>
+            <td>Ravioli 🥫</td>
             <td></td>
             <td></td>
             <td>1.19 € / 800g</td>
@@ -2291,7 +2291,7 @@ General Cooking:
             <td>1.98 € / 16 pieces (200 g)</td>
         </tr>
         <tr>
-            <td>Crutons</td>
+            <td>Croutons</td>
             <td>18 months</td>
             <td>0.79 € / 25g</td>
             <td>2.23 € / 150g</td>
@@ -2342,7 +2342,7 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Razor blade (Gilette Sensor Excel)</td>
+            <td>Razor blade (Gillette Sensor Excel)</td>
             <td>12.95 € for 10</td>
             <td>One per month</td>
             <td>15.54 € / year</td>
@@ -2426,7 +2426,7 @@ General Cooking:
             <td>1.86 € / 2 pieces</td>
         </tr>
         <tr>
-            <td>Nosetstrips</td>
+            <td>Nose strips</td>
             <td>1.75 € / 3 pieces</td>
             <td></td>
             <td></td>
@@ -2559,7 +2559,7 @@ General Cooking:
 
 ## Medicine
 
-I have no idea how long you can have medicine. It is always printed on it, but
+I have no idea how long medicine lasts. It is always printed on it, but
 for the stuff I have, I have no idea when I bought it. I guess, 2-3 years for
 pills and maybe a couple of months for creams and ointment.
 
@@ -2902,7 +2902,7 @@ Others were paid by my employer. And I've got some presents as well.
 </table>
 
 
-I bought a big amount of headsets as well. Here are some I sent back, because
+I bought a large number of headsets as well. Here are some I sent back, because
 I didn't like them:
 
 * LUDOS Ultra by Ludos Tech (13.57 €, 4.4 stars)
@@ -2983,7 +2983,7 @@ I didn't like them:
             <td>20.90 € / 4.5m</td>
         </tr>
         <tr>
-            <td>Thinkpad Notebook Ladegerät</td>
+            <td>ThinkPad Notebook Ladegerät</td>
             <td>19.99 € / 1 piece</td>
         </tr>
         <tr>

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python Itertools
 slug: itertools
+lang: en
 author: Martin Thoma
 date: 2019-12-09 20:00
 category: Code
@@ -19,7 +19,7 @@ simply beautiful.
 ## product
 
 [`product(*iterables, repeat=1)`](https://docs.python.org/3/library/itertools.html#itertools.product) creates the cross product of two iterables. The length of the result is
-the product of the length of all iterables.
+the product of the lengths of all iterables.
 
 ```python
 import itertools
@@ -33,7 +33,7 @@ results in
 [(1, "A"), (1, "B"), (2, "A"), (2, "B"), (3, "A"), (3, "B")]
 ```
 
-**Ben Blanks Explanation**:
+**Ben Blank's Explanation**:
 
 ```python
 import itertools
@@ -55,11 +55,11 @@ results in
 
 [`permutations(iterable, r=None)`](https://docs.python.org/3/library/itertools.html#itertools.permutations)
 generates all unique orderings of unique elements. If `r` is not specified, all
-all are taken. In an [urn model](https://en.wikipedia.org/wiki/Urn_problem),
+elements are taken. In an [urn model](https://en.wikipedia.org/wiki/Urn_problem),
 this means taking `r` balls without replacement.
 
 
-**Ben Blanks Explanation**:
+**Ben Blank's Explanation**:
 
 ```python
 import itertools
@@ -82,7 +82,7 @@ results in
 [`combinations(iterable, r)`](https://docs.python.org/3/library/itertools.html#itertools.combinations)
 generates each unique pair of elements in lexicographical order.
 
-**Ben Blanks Explanation**:
+**Ben Blank's Explanation**:
 
 ```python
 import itertools
@@ -103,7 +103,7 @@ results in
 ## combinations_with_replacement
 
 [`combinations_with_replacement(iterable, r)`](https://docs.python.org/3/library/itertools.html#itertools.combinations_with_replacement)
-is identical to combinations, except that one has duplicate elements.
+is identical to combinations, except that elements can be repeated.
 
 ```python
 from itertools import combinations_with_replacement

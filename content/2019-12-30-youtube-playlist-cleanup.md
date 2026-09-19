@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: YouTube Playlist Cleanup 2019
 slug: youtube-playlist-cleanup-2019
+lang: en
 author: Martin Thoma
 date: 2019-12-30 20:00
 category: My bits and bytes
 tags: YouTube
 featured_image: logos/star.png
 ---
-There are so many interesting videos to watch. For some of them I wanted to
+There are so many interesting videos to watch. For some of them, I wanted to
 write a blog post, for some I just wanted to watch them and store them for
 later. As I want to start the new year 2020 fresh, I'll just dump the videos
 here. When I started this cleanup, I had almost 300 videos in my "watch later"
@@ -159,7 +159,7 @@ playlist.
             <td>Thom Lane (AWS): <a href="https://www.youtube.com/watch?v=BDWlIew5pfo">MXNet and ONNX</a></td>
             <td>26:52</td>
             <td>28.09.2018</td>
-            <td>Data Engineering / Data Engineering</td>
+            <td>Data Engineering</td>
         </tr>
         <tr>
             <td>Dr. Steve Liu (Tinder): <a href="https://www.youtube.com/watch?v=j2rfLFYYdfM">Recommendations at Tinder</a>, MLConf</td>
@@ -495,7 +495,7 @@ playlist.
             <td><a href="https://www.youtube.com/watch?v=aqfFzBKCOqk">Aus der Tüftlergarage: Kraftwerk fürs Eigenheim</a></td>
             <td>3:58</td>
             <td>31.10.2017</td>
-            <td><a href="https://de.wikipedia.org/wiki/Blockheizkraftwerk">Blockheitzkraftwerk</a> (BHKW): Wärme + Stromgewinnung; Sektorenkopplung</td>
+            <td><a href="https://de.wikipedia.org/wiki/Blockheizkraftwerk">Blockheizkraftwerk</a> (BHKW): Wärme + Stromgewinnung; Sektorenkopplung</td>
         </tr>
         <tr>
             <td><a href="https://www.youtube.com/watch?v=P8zzrqLEvoI">Reportage: Haus bauen in 10 Minuten - Die Magie von Porenbeton</a></td>
@@ -513,7 +513,7 @@ playlist.
             <td><a href="https://www.youtube.com/watch?v=VtKibTvBVYE">Aus Popcorn Möbel und mehr herstellen</a></td>
             <td>10:47</td>
             <td>22.01.2019</td>
-            <td>Insultion: Popcorn can be used instead of Styropor</td>
+            <td>Insulation: Popcorn can be used instead of Styropor</td>
         </tr>
     </tbody>
 </table>
@@ -611,7 +611,7 @@ playlist.
             <td><a href="https://www.youtube.com/watch?v=gsT-ds0fJP0">Leckere Vielfalt im Weckglas: Lebensmittel haltbar machen</a></td>
             <td>28:24</td>
             <td>18.09.2019</td>
-            <td><a href="https://de.wikipedia.org/wiki/Konservierung">Konservieren</a>: <a href="https://de.wikipedia.org/wiki/Einwecken">Einkochen</a>, <a href="https://de.wikipedia.org/wiki/Kandieren">Einkochen</a>, Einlegen in Essig</td>
+            <td><a href="https://de.wikipedia.org/wiki/Konservierung">Konservieren</a>: <a href="https://de.wikipedia.org/wiki/Einwecken">Einkochen</a>, <a href="https://de.wikipedia.org/wiki/Kandieren">Kandieren</a>, Einlegen in Essig</td>
         </tr>
         <tr>
             <td><a href="https://www.youtube.com/watch?v=_ALLmsrPVRs">"Erdmieten" selbstgemacht: Gemüse für den Winter</a></td>

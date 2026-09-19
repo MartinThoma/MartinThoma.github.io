@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: How to analyze Set Data
 slug: analyze-set-data
+lang: en
 author: Martin Thoma
 date: 2019-07-06 20:00
 category: Code
 tags: EDA, CMO
 featured_image: logos/star.png
 ---
-Exploratory Data Analysis (EDA) is nice and easy, if the entities you look at
+Exploratory Data Analysis (EDA) is nice and easy if the entities you look at
 are of one of the typical levels of measurement (see below). But if one feature
 is a set, it becomes harder. In this post, I want to show a couple of
 possibilities.
@@ -17,7 +17,7 @@ possibilities.
 
 ## Level of measurement
 
-If you have features of this [level of measurement](https://en.wikipedia.org/wiki/Level_of_measurement).
+Typically, features have one of these [levels of measurement](https://en.wikipedia.org/wiki/Level_of_measurement):
 
 <table border="1">
     <tr>
@@ -31,7 +31,7 @@ If you have features of this [level of measurement](https://en.wikipedia.org/wik
     <tr>
         <th>Nominal-</th>
         <th>Ordinal-</th>
-        <th>Intervall-</th>
+        <th>Interval-</th>
         <th>Ratio-</th>
         <th>Absolute</th>
     </tr>
@@ -40,12 +40,12 @@ If you have features of this [level of measurement](https://en.wikipedia.org/wik
         <td>Equivalence</td>
         <td>Equivalence<br/>order</td>
         <td>Equivalence<br/>order<br/>emp. addition</td>
-        <td>Equivalence<br/>order<br/>emp. addition<br/>emp. multipliation</td>
-        <td>Equivalence<br/>order<br/>emp. addition<br/>emp. multipliation</td>
+        <td>Equivalence<br/>order<br/>emp. addition<br/>emp. multiplication</td>
+        <td>Equivalence<br/>order<br/>emp. addition<br/>emp. multiplication</td>
     </tr>
     <tr>
-        <th>Allowed transformationen</th>
-        <td>m' = f(m)<br/>f bijektive</td>
+        <th>Allowed transformations</th>
+        <td>m' = f(m)<br/>f bijective</td>
         <td>m' = f(m)<br/>f strictly monotonous</td>
         <td>m' = am+b<br/>with a&gt;0</td>
         <td>m' = am<br/>with a&gt;0</td>
@@ -54,7 +54,7 @@ If you have features of this [level of measurement](https://en.wikipedia.org/wik
     <tr>
         <th>Examples of this scale</th>
         <td>Telephone numbers, license plates, types, postal codes, gender</td>
-        <td>Grades, Degrees of hardness, wind force</td>
+        <td>Grades, degrees of hardness, wind force</td>
         <td>Temp. in &deg;C, &deg;F, calendar time, geographic height</td>
         <td>Mass, length, el. current</td>
         <td>Number of particles, number of errors</td>
@@ -181,7 +181,7 @@ Results:
 ```
 
 Then you can apply confusion matrix ordering to find authors who often work
-together (click on it to see large version):
+together (click on it to see a large version):
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../pdf/dblp-1000-cmo.pdf"><img src="../images/2019/07/dblp-cmo.png" alt="Similar Authors found with CMO" style="width: 512px;"/></a>

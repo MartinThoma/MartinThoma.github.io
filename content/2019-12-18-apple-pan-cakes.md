@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Apple Pancakes
 slug: apple-pancakes
+lang: de
 author: Martin Thoma
 date: 2019-12-18 12:00
 category: My bits and bytes
@@ -31,7 +31,7 @@ The following is for 4 people (or very hungry 2.5 people).
 * a tiny bit of salt
 * oil
 
-As side-dishes, you might want one of the following:
+As side dishes, you might want one of the following:
 
 * apple sauce (recommended)
 * sugar with lemon
@@ -42,10 +42,10 @@ As side-dishes, you might want one of the following:
 
 ## Tools
 
-* [Kitchen Stove](https://en.wikipedia.org/wiki/Kitchen_stove) with one hotplates
+* [Kitchen Stove](https://en.wikipedia.org/wiki/Kitchen_stove) with one hotplate
 * Pan
 * Mixing bowl
-* Whisker or hand mixer (I have the Bosch MFQ3540 for 4 years now and I'm quite happy with it)
+* Whisk or hand mixer (I've had the Bosch MFQ3540 for 4 years now and I'm quite happy with it)
 * Small bowl for the egg white where you can easily mix it (hand mixer highly recommended)
 * [Peeler](https://en.wikipedia.org/wiki/Peeler) to cut away the skin of the apple
 * [Grater](https://en.wikipedia.org/wiki/Grater) (for cutting the apple into thin slices)
@@ -59,7 +59,7 @@ As side-dishes, you might want one of the following:
 ## Preparation
 
 1. Separate [egg white](https://en.wikipedia.org/wiki/Egg_white) and [yolk](https://en.wikipedia.org/wiki/Yolk)
-2. Beat the egg white until it is foamy. When you put the bowl upside down, it should stick in there
+2. Beat the egg white until it is foamy. When you put the bowl upside down, it should stick in there.
 3. Add all other ingredients except for the apple
 4. Fold in the egg foam (Eischnee unterheben)
 5. Peel the apple, cut it into small slices and add them to the dough.

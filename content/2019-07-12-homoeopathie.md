@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Homöopathie
 slug: homoeopathie
+lang: de
 author: Martin Thoma
 date: 2019-07-12 20:00
 category: My bits and bytes
@@ -11,8 +11,8 @@ featured_image: logos/star.png
 ---
 <div class="info">This post is about <a href="https://en.wikipedia.org/wiki/Homeopathy">Homeopathy</a>. If you want to read it, try <a href="https://www.deepl.com/translate">deepl.com</a></div>
 
-Homöopathie ist eine Gruppe von Behandlungsmethoden die auf Vorstellungen von
-Samuel Hahnemann (ca 1796) basieren.
+Homöopathie ist eine Gruppe von Behandlungsmethoden, die auf Vorstellungen von
+Samuel Hahnemann (ca. 1796) basieren.
 
 
 ## Die Idee
@@ -21,15 +21,15 @@ Samuel Hahnemann (ca 1796) basieren.
     <dt>Ähnlichkeitsprinzip</dt>
     <dd>"Ähnliches möge durch Ähnliches geheilt werden". Ein homöopathisches Arzneimittel soll so ausgewählt werden, dass die Inhaltsstoffe der Grundsubstanz unverdünnt an Gesunden ähnliche Krankheitserscheinungen hervorrufen könnten wie die, an denen der Kranke leidet.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Potenzieren_(Hom%C3%B6opathie)">Potenzierung</a> (Verdünnung)</dt>
-    <dd>Zur Herstellung der homöopathischen Arzneimittel werden die Grundsubstanzen einer sogenannten Potenzierung (Verdünnung) unterzogen, das heißt, sie werden wiederholt (meist im Verhältnis 1:10 oder 1:100) mit Wasser oder Ethanol verschüttelt oder mit Milchzucker verrieben. […] Hahnemann nahm an, dass durch das besondere Verfahren der Potenzierung […] eine „im innern Wesen der Arzneien verborgene, geistartige Kraft“ wirksam werde. Zur Begründung der Hochpotenzen ging er davon aus, dass sich hier „die Materie […] roher Arznei-Substanzen […] zuletzt gänzlich in ihr individuelles geistartiges Wesen auflöse“. --siehe <a href="https://de.wikipedia.org/wiki/Hom%C3%B6opathie">Wikpedia</a>. Das Potenzieren wird in <a href="https://youtu.be/pU3sAYRl4-k?t=421">Spiegel TV: Das Riesen-Geschäft mit der Homöopathie (05.11.2018)</a> erklärt.</dd>
+    <dd>Zur Herstellung der homöopathischen Arzneimittel werden die Grundsubstanzen einer sogenannten Potenzierung (Verdünnung) unterzogen, das heißt, sie werden wiederholt (meist im Verhältnis 1:10 oder 1:100) mit Wasser oder Ethanol verschüttelt oder mit Milchzucker verrieben. […] Hahnemann nahm an, dass durch das besondere Verfahren der Potenzierung […] eine „im innern Wesen der Arzneien verborgene, geistartige Kraft“ wirksam werde. Zur Begründung der Hochpotenzen ging er davon aus, dass sich hier „die Materie […] roher Arznei-Substanzen […] zuletzt gänzlich in ihr individuelles geistartiges Wesen auflöse“. --siehe <a href="https://de.wikipedia.org/wiki/Hom%C3%B6opathie">Wikipedia</a>. Das Potenzieren wird in <a href="https://youtu.be/pU3sAYRl4-k?t=421">Spiegel TV: Das Riesen-Geschäft mit der Homöopathie (05.11.2018)</a> erklärt.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Globuli">Globuli</a></dt>
     <dd>Globuli sind runde Kügelchen aus Haushaltszucker. Sie dienen als Darreichungsform eines homöopathischen Mittels.</dd>
 </dl>
 
-Man muss sich hier vor Augen führen, dass der Gedanke von Samuel Hahnemann um
+Man muss sich hier vor Augen führen, dass die Gedanken von Samuel Hahnemann um
 1796 kamen. Zu dieser Zeit gab es noch kein Atommodell. Das kam erst um 1905
 durch Albert Einstein. Hahnemann hat also eine Ausrede, warum er an diesen
-Quatsch glaubt. Auch wurde der <a href="https://de.wikipedia.org/wiki/Placebo-Effekt">Placebo-Effekt</a> erst etwa 1830 zum ersten mal systematisch verwendet.
+Quatsch glaubt. Auch wurde der <a href="https://de.wikipedia.org/wiki/Placebo-Effekt">Placebo-Effekt</a> erst etwa 1830 zum ersten Mal systematisch verwendet.
 
 Wir haben diese Ausreden heutzutage nicht mehr.
 
@@ -85,17 +85,17 @@ Homöopathie wirkt nicht.
             </tbody>
         </table>
         Würde die Homöopathie wirken, dann könnte man schlicht Wasser trinken.
-        Andersrum gesagt, wenn Homöopathe wirken würde, hätten wir <a href="https://pbs.twimg.com/media/C-aUH2WXsAA3xTh.jpg:large">ein Problem</a>.
+        Andersrum gesagt, wenn Homöopathie wirken würde, hätten wir <a href="https://pbs.twimg.com/media/C-aUH2WXsAA3xTh.jpg:large">ein Problem</a>.
     </dd>
     <dt>Studie</dt>
     <dd>
         <a href="https://en.wikipedia.org/wiki/Klaus_Linde">Linde, Klaus</a>, et al. "<a href="https://www.ncbi.nlm.nih.gov/pubmed/9310601">Are the clinical effects of homoeopathy placebo effects? A meta-analysis of placebo-controlled trials.</a>" <a href="https://en.wikipedia.org/wiki/The_Lancet">The Lancet</a> 350.9081 (1997): 834-843. <a href="https://scholar.google.de/scholar?cites=2240564765032407674&as_sdt=2005&sciodt=0,5&hl=de">1455 citations</a>.<br/>
         <br/>
         Es gibt leider sehr viele nicht vertrauenswürdige Studien. Hier haben wir einen
-        Autor, in München seinen Doktor gemacht hat. Die Arbeit wurde in "The
+        Autor, der in München seinen Doktor gemacht hat. Die Arbeit wurde in "The
         Lancet" publiziert, welches einen Impact-Faktor von 53.254 hat und
-        damit eines der renomiertesten Journals ist. Die Arbeit 1455 mal
-        zitiert. Die Autoren sagen, das keine einzige der 89 Studien klar einen
+        damit eines der renommiertesten Journals ist. Die Arbeit wurde 1455-mal
+        zitiert. Die Autoren sagen, dass keine einzige der 89 Studien klar einen
         Effekt zeigt.
     </dd>
     <dt>Gerichtsurteile und -verfahren</dt>
@@ -104,7 +104,7 @@ Homöopathie wirkt nicht.
             <li>2019: Hevert macht eine Unterlassungsabmahnung gegen den Journalisten Bernd Kramer, die Ärztin <a href="https://de.wikipedia.org/wiki/Natalie_Grams">Natalie Grams</a> sowie den Apotheker <a href="https://de.wikipedia.org/wiki/Gerd_Glaeske">Gerd Glaeske</a>. Die drei sagen, die Wirksamkeit von Homöopathie gehe „nicht über den Placebo-Effekt hinaus“ sowie, dass „bei allen Mitteln, die homöopathisch daherkommen, ein Wirksamkeitsnachweis“ grundsätzlich fehle.</li>
             <li>2017, Bundesgerichtshof: Hevert darf Sinusitis nicht mehr damit bewerben, dass es „schnell und effektiv“ helfe.</li>
             <li>2017, Bundesgerichtshof: Hevert darf Calmvalera nicht mehr damit bewerben, dass es eine „effektive Unterstützung bei Schlafstörungen“ sei.</li>
-            <li>2016, Oberlandesgerichts Koblenz: Aussage „homöopathische Arzneimittel fördern die Selbstheilungskräfte“ wurde wegen unzureichender Belege untersagt.</li>
+            <li>2016, Oberlandesgericht Koblenz: Aussage „homöopathische Arzneimittel fördern die Selbstheilungskräfte“ wurde wegen unzureichender Belege untersagt.</li>
         </ul>
     </dd>
     <dt>Artikel</dt>
@@ -124,7 +124,7 @@ Homöopathie wirkt nicht.
         </ul>
     </dd>
     <dt>Vertausch-Experiment</dt>
-    <dd>Man nehme zwei Homöopatische Medikamente A und B in Form von Globuli. Beide müssen stark "potenziert" sein. Dann gibt man einem Homöopathen 20 mal zufällig entweder A oder B. Der Homöopath muss mindestens 18 richtig benennen. Wenn er es nicht kann, dann unterschieden sich A und B offensichtlich nicht. Wenn man A und B nicht unterscheiden kann, kann es auch nicht unterschiedlich wirken.</dd>
+    <dd>Man nehme zwei Homöopathische Medikamente A und B in Form von Globuli. Beide müssen stark "potenziert" sein. Dann gibt man einem Homöopathen 20 mal zufällig entweder A oder B. Der Homöopath muss mindestens 18 richtig benennen. Wenn er es nicht kann, dann unterscheiden sich A und B offensichtlich nicht. Wenn man A und B nicht unterscheiden kann, können sie auch nicht unterschiedlich wirken.</dd>
 </dl>
 
 
@@ -142,7 +142,7 @@ kontrollieren. Es geht immer um eine "Wirksamkeit über den Placebo-Effekt hinau
 (<a href="https://youtu.be/kMGoeL0Dulc?t=80">Video</a>)
 
 **Geld**: Ein normaler Arzt bekommt ca. 30 EUR pro Patient und Quartal. Ein
-homöopatisch tätiger Arzt bekommt ca. 160 EUR mehr pro Patient und Quartal.[^2]
+homöopathisch tätiger Arzt bekommt ca. 160 EUR mehr pro Patient und Quartal.[^2]
 
 ### Apotheker empfehlen es
 
@@ -158,21 +158,21 @@ Quelle: <a href="https://www.apotheke-adhoc.de/nachrichten/detail/panorama/hecke
 
 ### Es wird als Medizin verkauft
 
-In den 70er Jahren hat man für homöpatische Mittel ein eigenes
+In den 70er Jahren hat man für homöopathische Mittel ein eigenes
 Zulassungsverfahren entwickelt. Es gab eine Sonderregelung, es gab
 Sonder-Experten, die über die Zulassung entschieden. [^3]
 
-Bei homöopatischen Arzneimitteln muss, im Gegensatz zu allen anderen Mitteln,
+Bei homöopathischen Arzneimitteln muss, im Gegensatz zu allen anderen Mitteln,
 nicht wissenschaftlich nachgewiesen werden, dass sie wirken.
 
-Echten Arzneimittel müssen Wirksamkeit, die Unbedenklichkeit und die Qualität nachweisen.[^4]
+Echte Arzneimittel müssen ihre Wirksamkeit, Unbedenklichkeit und Qualität nachweisen.[^4]
 Homöopathie muss das nicht. Da hat jemand gute Lobby-Arbeit für die Homöopathen
 geleistet.
 
 
 ### Krankenkassen bezahlen es
 
-Akademiker nehmen homöopatische Mittel besonders Gerne:
+Akademiker nehmen homöopathische Mittel besonders gerne:
 
 > Bürger mit einem höheren Bildungsabschluss verwenden Homöopathie mit 56
 > Prozent häufiger als alle anderen.
@@ -198,10 +198,10 @@ Quelle: <a href="https://www.spiegel.de/wissenschaft/medizin/fruehe-homoeopathie
 
 Homöopathie wirkt nicht über den Placebo-Effekt hinaus.
 
-**Ignoranz**: Wenn man also homöopatische Mittel anstelle von einem echten
+**Ignoranz**: Wenn man also homöopathische Mittel anstelle von einem echten
 Medikament / einem Arztbesuch nimmt, dann geht man ein Risiko ein. Das Risiko,
-dass man eine Krankheit welche gut hätte behandelt werden können im Prinzip
-ignoriert wurde.
+dass eine Krankheit, die gut hätte behandelt werden können, im Prinzip
+ignoriert wird.
 Ein eindrucksvoller Fall ist <a href="https://www.netzwerk-homoeopathie.eu/negative-faelle-wie-homoeopathie-zu-schaden-fuehrt/66-qualvoll-an-knochenkrebs-verstorben">Qualvoll an Knochenkrebs verstorben</a>. Weitere unter <a href="https://www.netzwerk-homoeopathie.eu/negative-faelle-wie-homoeopathie-zu-schaden-fuehrt">Negative Fälle - wie Homöopathie zu Schaden führt</a> (Informationsnetzwerk Homöopathie).
 
 **Verschleierung**: Wenn ich mir <a href="https://www.meditonsin.de/">Meditonsin</a> anschaue, dann wird auf der Website das Wort "Homöopathie" nie erwähnt. Im Gegenteil, es wird
@@ -211,7 +211,7 @@ sieht man dann "Aconitinum Dil. D5 (HAB, V. 5a)", "Atropinum sulfuricum Dil. D5"
 "Mercurius cyanatus Dil. D8".
 
 **Fehler beim Verdünnen** passieren. Und dann gibt es einen (schädlichen) Effekt
-über den Plazebo-Effekt hinaus.[^5][^6]
+über den Placebo-Effekt hinaus.[^5][^6]
 
 Und selbstverständlich ist Homöopathie einfach **Geldverschwendung**.
 
@@ -220,18 +220,18 @@ Und selbstverständlich ist Homöopathie einfach **Geldverschwendung**.
 
 Homöopathika sollten wie Nahrungsergänzungsmittel behandelt werden. Natürlich
 sollte man sie noch verkaufen dürfen. Natürlich dürfen die Leute sie noch
-nehmen. Aber es muss klar sein, dass es keine Medizin ist. Das es nicht über
-den Plazebo-Effekt hinaus wirkt.
+nehmen. Aber es muss klar sein, dass es keine Medizin ist. Dass es nicht über
+den Placebo-Effekt hinaus wirkt.
 
 Und damit sollten natürlich Krankenkassen diese auch nicht bezahlen. Oder
-genauer gesagt, nur im selben Rahmen bezahlen in dem Plazebos bezahlt werden.
+genauer gesagt, nur im selben Rahmen bezahlen, in dem Placebos bezahlt werden.
 
 
 ## Rechnung zur Verdünnung
 
 Bodensee-Vergleich:
 
-* 20 Wassertropfen sind ca. 1 mililiter, also hat ein Tropfen ca. 0,00005 Liter (<a href="https://de.wikipedia.org/wiki/Tropfen">Wikipedia</a>)
+* 20 Wassertropfen sind ca. 1 Milliliter, also hat ein Tropfen ca. 0,00005 Liter (<a href="https://de.wikipedia.org/wiki/Tropfen">Wikipedia</a>)
 * Der Bodensee hat ca. 50 Milliarden Kubikmeter Wasser (<a href="https://www.wasserspender-miete.de/tipp/16/04/haetten-sie-es-gewusst-wasser-in-zahlen-und-fakten">wasserspender-miete.de</a>)
 * 1 Tropfen im Bodensee ist also $0.00005 : (50 \cdot 10^9 \cdot 10^3)$ oder
   $0.00001 : (10 \cdot 10^9 \cdot 10^3)$ oder $1 : 10^{18}$.
@@ -245,7 +245,7 @@ Ostsee-Vergleich:
 Nordsee-Vergleich:
 
 * Die Nordsee hat ca. 54&thinsp;000&nbsp;km³ (Quelle: <a href="https://de.wikipedia.org/w/index.php?title=Nordsee&oldid=189994808" title="Ja, wikipedia ist meine Quelle... such doch selbst nach einer 'richtigen' Quelle">Wikipedia</a>). Das sind $5.4 \cdot 10^{16}$ Liter.
-* 1 Tropfen in die Ostsee ist also eine Verdünnung von $1 : 1.08 \cdot 10^{21}$.
+* 1 Tropfen in die Nordsee ist also eine Verdünnung von $1 : 1.08 \cdot 10^{21}$.
 
 Atlantik-Vergleich:
 
@@ -253,7 +253,7 @@ Atlantik-Vergleich:
 * 1 Tropfen in den Atlantik ist also eine Verdünnung von $1 : 7.09 \cdot 10^{24}$.
 
 
-Pazifischik-Vergleich:
+Pazifik-Vergleich:
 
 * Der Pazifik hat ca. 714,41 Mio. km³ (Quelle: <a href="https://de.wikipedia.org/w/index.php?title=Pazifischer_Ozean&oldid=189302127">Wikipedia</a>). Das sind ca. $7.1441 \cdot 10^{20}$ Liter.
 * 1 Tropfen in den Pazifik ist also eine Verdünnung von $1 : 1.43 \cdot 10^{25}$.
@@ -261,8 +261,8 @@ Pazifischik-Vergleich:
 Sonnen-Vergleich:
 
 * Die Sonne hat einen Äquatorradius von ca. 696.342 km und damit ein Volumen von
-  ca. 1&thinsp;414&thinsp;348&thinsp;326,301 km³ was ca. $1.41 \cdot 30$ Liter sind.
-* 1 Tropfen in die Sonne ist also eine Verdünnung von $1 : 2.86 \cdot 10^{34}$
+  ca. $1.41 \cdot 10^{18}$ km³, was ca. $1.41 \cdot 10^{30}$ Liter sind.
+* 1 Tropfen in die Sonne ist also eine Verdünnung von $1 : 2.86 \cdot 10^{34}$.
 
 ## Einzelnachweise
 

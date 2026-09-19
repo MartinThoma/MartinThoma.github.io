@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: TLS and Nginx
 slug: tls-and-nginx
+lang: en
 author: Martin Thoma
 date: 2019-06-16 20:00
 category: Code
@@ -11,7 +11,7 @@ featured_image: logos/nginx.png
 ---
 Transport security is an important topic nowadays. We don't want a man in the
 middle (MITM) to be able to read our communication with banks, our e-mails, or our
-medical apps. Hence we need encryption of our data at the transport layer
+medical apps. Hence, we need encryption of our data at the transport layer
 level.
 
 
@@ -28,10 +28,10 @@ you also have some attackers within the network:
 
 The internet is engineered in a way that very often you can imagine the
 connection between you and a service as a direct one, although it is not
-direct. That connection is not save. At the very least you can imagine people
+direct. That connection is not safe. At the very least you can imagine people
 reading your traffic (e.g. when you use a wireless connection that's called <a href="https://en.wikipedia.org/wiki/Packet_analyzer">WLAN Sniffing</a>, the same thing works
 when you're in the same network). In a worse case they might be able to change
-your communication. These types of attacks are called [Man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack):
+your communication. These types of attacks are called [Man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack):
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2019/06/man-in-the-middle.png"><img src="../images/2019/06/man-in-the-middle.png" alt="A Man in the Middle Attack" style="width: 512px;"/></a>
@@ -45,13 +45,14 @@ There is a super neat technique called <a href="https://en.wikipedia.org/wiki/Pu
 It enables you to generate two keys. We call one of them the public key and the
 other the private key.
 
-Imaginethem as a combination of keys / locks:
+Imagine them as a combination of keys / locks:
+
 * Stuff that is encrypted (locked) with the private key can only be decrypted
   (unlocked) with the public key
 * Stuff that is encrypted with the public key can only be decrypted with the
   private key.
 
-So we make the pulic key ... well, public. Meaning we share the public key with
+So we make the public key ... well, public. Meaning we share the public key with
 the world. Whenever somebody wants to send us a message, they can use our
 public key and only we will be able to read it as long as we keep the private
 key private.
@@ -60,43 +61,43 @@ key private.
 ## The Problem of Manipulating MITM
 
 Public-key cryptography is awesome, once we have shared the public key with the
-world. But we might not even get that far, if an attacker manages to intercept
+world. But we might not even get that far if an attacker manages to intercept
 our messages. The attacker could share his public key with the world instead.
-Then, when somebody wants to have a private communcation with us, they use the
-attackers public key. The attacker reads the message, decrypts it with our
-public key and we think everything was fine.
+Then, when somebody wants to have a private communication with us, they use the
+attacker's public key. The attacker decrypts the message with their private key,
+reads it, re-encrypts it with our public key, and forwards it. We think everything was fine.
 
 
 ## The Solution: Certificate Authorities
 
 A [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority)
 (CA) is a trusted third party. A certificate is a digital document which says
-"This public key belongs to that domain". It is bascially again public key
+"This public key belongs to that domain". It is basically again public-key
 cryptography, but with a trusted third party. The website owner sends their
 public key to the certificate authority. The authority makes sure that it was
-actually send from the domain. If that is the case, the CA signs the public key
+actually sent from the domain. If that is the case, the CA signs the public key
 with their private key. The public key of the CA is well known (e.g. delivered
 with the browser at installation).
 
 
 ## The Problem: Compromised Certificates
 
-It can happen that an attacker gets temporary access to the web services server.
+It can happen that an attacker gets temporary access to the web service's server.
 Then the attacker can copy the private key of the service.
 
 
 ## The Solution: OCSP Stapling
 
 The web service has to revoke the certificate. This means it has to tell the CA
-that the private key was compromized. But how does the client (user) get to
+that the private key was compromised. But how does the client (user) get to
 know about this?
 
-Three possibilities: CRL, OCSP,  & [OCSP stapling](https://en.wikipedia.org/wiki/OCSP_stapling).
+Three possibilities: CRL, OCSP, and [OCSP stapling](https://en.wikipedia.org/wiki/OCSP_stapling).
 
 There is a pretty good video about [Revocation of digital certificates: CRL, OCSP, OCSP stapling](https://www.youtube.com/watch?v=WXNKQ_otO_g).
 
-Essentially, OCSP stapling means that the server lets the CA not only certify
-the private key, but also add a timestamp.
+Essentially, OCSP stapling means that the server regularly fetches a signed,
+timestamped OCSP response from the CA and "staples" it to the TLS handshake.
 
 
 ## Overview of Certificate Authorities
@@ -111,9 +112,9 @@ left of the URL:
 
 Commonly used Certificate Authorities are:
 
-* [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_Encrypt): Used by BMW, StackOverflow, ccc.de, kit.edu
+* [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_Encrypt): Used by BMW, Stack Overflow, ccc.de, kit.edu
 * [DigiCert](https://en.wikipedia.org/wiki/DigiCert): Used by Reddit, Twitter, Audi, Amazon, mozilla.org, Instagram, live.com, netflix.com, ebay.com, emirates.com, paypal.com, n26.com, deutsche-bank.de
-* [GlobalSign](https://en.wikipedia.org/wiki/GlobalSign): Used by Wikpedia, Baidu.com, qq.com, post.de
+* [GlobalSign](https://en.wikipedia.org/wiki/GlobalSign): Used by Wikipedia, Baidu.com, qq.com, post.de
 * [GeoTrust](https://en.wikipedia.org/wiki/GeoTrust): nokia.com, tk.de, sixt.com, qantas.com, mit.edu
 * [Entrust](https://en.wikipedia.org/wiki/Entrust): comdirect.com
 * [Comodo](https://en.wikipedia.org/wiki/Comodo_Group): namecheap.com
@@ -126,7 +127,7 @@ There are also some German ones:
 * [DFN-Verein](https://de.wikipedia.org/wiki/DFN-Verein): tum.de, uni-muenchen.de, uni-heidelberg.de, charite.de, rwth-aachen.de, fernuni-hagen.de
 
 Microsoft and Google have their own CA. It's a bit weird that Microsoft uses
-Digicert for live.com.
+DigiCert for live.com.
 
 You might also be interested in [features of a CA](https://premium.wpmudev.org/blog/ssl-certificate-authorities-reviewed/).
 
@@ -138,7 +139,7 @@ You might also be interested in [features of a CA](https://premium.wpmudev.org/b
         <th>Employees</th>
     </tr>
     <tr>
-        <th>Let's encrypt</th>
+        <th>Let's Encrypt</th>
         <td>Free</td>
         <td>2014</td>
         <td>13</td>
@@ -175,7 +176,7 @@ You might also be interested in [features of a CA](https://premium.wpmudev.org/b
     </tr>
 </table>
 
-I was not happy with the usage numbers. Let's encrypt claims to have
+I was not happy with the usage numbers. Let's Encrypt claims to have
 152&thinsp;288&thinsp;000 domains (2018-12-30, [source](https://letsencrypt.org/stats/#growth)), but [w3techs.com](https://w3techs.com/technologies/overview/ssl_certificate/all) says they have a market share of 0.1%. According
 to them, IdenTrust has a market share of 49.9%, Sectigo of 25.0% and Digicert of
 13.6%.
@@ -183,7 +184,7 @@ to them, IdenTrust has a market share of 49.9%, Sectigo of 25.0% and Digicert of
 
 ## SSL, TLS and HTTPS
 
-Here are super short explanations what the important terms mean:
+Here are super short explanations of what the important terms mean:
 
 <dl>
     <dt>SSL (Secure Sockets Layer)</dt>
@@ -191,7 +192,7 @@ Here are super short explanations what the important terms mean:
     <dt>TLS (Transport Layer Security)</dt>
     <dd>An updated version of SSL.</dd>
     <dt>HTTPS (Hypertext Transfer Protocol Secure)</dt>
-    <dd>Using HTTP with transport layer encription (e.g. SSL or TLS)</dd>
+    <dd>Using HTTP with transport layer encryption (e.g. SSL or TLS)</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Public_key_certificate">Certificate</a></dt>
     <dd>An electronic document used to prove the ownership of a public key.</dd>
 </dl>

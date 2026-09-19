@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: SQL Connection Strings
 slug: sql-connection-strings
+lang: en
 author: Martin Thoma
 date: 2019-06-02 20:00
 category: Code
@@ -43,9 +43,9 @@ SQLALCHEMY_DATABASE_URI = "sqlite:///absolute_filepath"
 SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/test.db"
 ```
 
-The first two slashes come from the seperator of dialect and driver, the third
-one from the separation between credentials+host and dbname, the fourth one is
-the path which is kind of the name of the database.
+The first two slashes come from the separator after the dialect (`://`), the third
+one separates the (empty) host from the database name, and the fourth one is
+the beginning of the absolute path to the database file.
 
 If you want an in-memory SQLite DB, just specify an empty URL ([source](https://docs.sqlalchemy.org/en/13/core/engines.html#sqlite)):
 
@@ -75,4 +75,4 @@ There are a lot of [other MySQL drivers](https://docs.sqlalchemy.org/en/13/diale
 
 ## Others
 
-I haven't tried it, but [sqlalchemy lists more](https://docs.sqlalchemy.org/en/13/dialects/index.html) like Oracle, Microsoft SQL Server and Sybase.
+I haven't tried them, but [SQLAlchemy lists more](https://docs.sqlalchemy.org/en/13/dialects/index.html) like Oracle, Microsoft SQL Server and Sybase.

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: How to Speed up Docker
 slug: docker-speedup
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
@@ -10,13 +10,13 @@ tags: Docker
 featured_image: logos/docker.png
 ---
 Building a Docker container can take quite a while. However, there are some
-easy parts to speed them up.
+easy ways to speed it up.
 
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Install Early, Copy Late
 
-Make sure you install dependencies early and copy code late during building
+Make sure you install dependencies early and copy code late while building
 the container. This helps to cache the dependencies.
 
 You might also want to look at dependency pinning.
@@ -26,7 +26,7 @@ You might also want to look at dependency pinning.
 
 Make sure you don't re-build the container with stuff you don't need.
 
-You can check the included files via
+You can check the included files via:
 
 ```bash
 sudo docker build -t test .

@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Financial Planning
 slug: financial-planning
+lang: en
 author: Martin Thoma
 date: 2019-12-18 20:00
 category: My bits and bytes
 tags: Money
 featured_image: logos/money.png
 ---
-Recently I started to think way more seriously about my finances. I think I
+Recently, I started to think way more seriously about my finances. I think I
 should have done that more than 5 years ago and I guess this is the case for
 many people.
 
@@ -19,8 +19,8 @@ I think about it in goals similar to [Maslow's hierarchy of needs](https://en.wi
 2. *Extended Needs*: Hobbies
 3. *Retirement*: House, Monthly cost
 
-No matter what I do, I don't want to risk my appartment. I don't want to risk
-having enough food and I don't want to risk that I can't afford my insurances.
+No matter what I do, I don't want to risk my apartment. I don't want to risk
+not having enough food and I don't want to risk that I can't afford my insurances.
 
 ## Needs
 
@@ -43,10 +43,10 @@ having enough food and I don't want to risk that I can't afford my insurances.
             <td>This includes everything: Heating, electricity, waste (<a href="https://de.wikipedia.org/wiki/Nebenkosten">Nebenkosten</a>)</td>
         </tr>
         <tr>
-            <th>Food & Hygene</th>
+            <th>Food & Hygiene</th>
             <td>150</td>
             <td>1800</td>
-            <td>This might be hard to estimate. If you have a seperate bank account or pay in cash, you can just check what is currently the case.</td>
+            <td>This might be hard to estimate. If you have a separate bank account or pay in cash, you can just check what is currently the case.</td>
         </tr>
         <tr>
             <td>Transportation</td>
@@ -58,7 +58,7 @@ having enough food and I don't want to risk that I can't afford my insurances.
             <td>Communication</td>
             <td>0</td>
             <td>0</td>
-            <td>In my case Internet is included in the rent and I can use the work phone for the few calls I need make</td>
+            <td>In my case Internet is included in the rent and I can use the work phone for the few calls I need to make</td>
         </tr>
         <tr>
             <td>Clothes</td>
@@ -105,12 +105,12 @@ That would be 200 EUR / month.
 ### Retirement
 
 Now this is an interesting one. How much money do I need to live the rest of my
-live? You could say that it is simply "Basic Needs" + "Extended Needs". Keep in
+life? You could say that it is simply "Basic Needs" + "Extended Needs". Keep in
 mind that both points will sharply increase when you have children. Also, as an
-eldery person you might have different needs compared to your current
+elderly person you might have different needs compared to your current
 situation. On the one hand, you might be able to live in a location which is
 way cheaper as you don't need to be close to your job. On the other hand, you
-might need to be close to doctors or you might need to live in the ground
+might need to be close to doctors or you might need to live on the ground
 floor.
 
 Considering those is hard on its own. Let's say you want 1500 EUR / month.
@@ -120,9 +120,9 @@ Considering those is hard on its own. Let's say you want 1500 EUR / month.
 
 The amount of money in "Basic Needs" can be used in two ways:
 
-* **Security**: I want to have at least 3 months on my bank account at all
+* **Security**: I want to have at least 3 months in my bank account at all
   times. This is money which should only be touched when the shit hits the fan.
-  Not for Christmas spendings. I have a hard time even saying what that could
+  Not for Christmas spending. I have a hard time even saying what that could
   be ... maybe when my employer would suddenly stop paying me?
 * **Minimum Income**: This much money I need to make every month, no matter
   what.
@@ -135,7 +135,7 @@ to the interesting point.
 
 When could you happily retire and live from your fortune?
 
-Assume you were 30 years old and expect to become 90 years old. This means
+Assume you were 30 years old and expected to live to 90. This means
 there are still 60 years to cover. With the 1500 EUR / month from the
 retirement section, this would mean you need 1&thinsp;080&thinsp;000 EUR. But
 it does not consider interest.
@@ -165,7 +165,7 @@ does not even consider inflation.
 #### Certificate of deposit
 
 A [Certificate of deposit](https://en.wikipedia.org/wiki/Certificate_of_deposit)
-is one of the simplest and savest financial products you can get. You are
+is one of the simplest and safest financial products you can get. You are
 guaranteed to get the money back. However, the interest is pretty low. At the
 moment, if you invest for 5 years you get about 0.6%. Inflation is at 1.5%,
 meaning you lose money.
@@ -186,11 +186,11 @@ I don't like them too much as I miss transparency.
 I like [ETFs](https://en.wikipedia.org/wiki/Exchange-traded_fund). The most
 important difference between ETFs is the index they track. Besides that:
 
-* Replication: Physical or Synthetical
+* Replication: Physical or synthetic
 * TER
 * Currency
 * Type of distribution: Accumulating vs Distributing
-* Rebalancing-Intervall: Quarterly
+* Rebalancing interval: Quarterly
 
 If you want to build up a fortune, you should invest in accumulating ETFs. If
 you want to live from your money right now, you should invest in distributing

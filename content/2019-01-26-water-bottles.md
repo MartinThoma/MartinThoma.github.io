@@ -1,26 +1,26 @@
 ---
 layout: post
-lang: en
 title: Water Bottles
 slug: water-bottles
+lang: en
 author: Martin Thoma
 date: 2019-01-25 20:00
 category: My bits and bytes
 tags: Gear, Trekking, Review
 featured_image: logos/hiking.png
 ---
-When I go hiking in Europe, I usually take simple plastic one-way bottles form
+When I go hiking in Europe, I usually take simple plastic single-use bottles from
 the supermarket. They are cheap, I can have two so that the weight is balanced
 left and right, I can have 2×0.5L, 2×0.75L, 2×1.0L, or 2×1.5L. When I think
-they are dirty, I just return them in a store and buy new ones.
+they are dirty, I just return them to a store and buy new ones.
 
 Going to Nepal, there are a few important differences:
 
-1. I might want to fill boiling water in a bottle and have it in my sleeping
+1. I might want to fill a bottle with boiling water and have it in my sleeping
    bag for the cold night.
-2. Nepal deals by far not as good with waste as Germany does.
+2. Nepal doesn't deal with waste nearly as well as Germany does.
 
-Hence I want a bottle with the following characteristics:
+Hence, I want a bottle with the following characteristics:
 
 * *Temperature Resistance*: Boiling water does not damage the bottle
 * *Watertight*: I don't want to have a wet sleeping bag.
@@ -28,7 +28,7 @@ Hence I want a bottle with the following characteristics:
 
 ## Material
 
-* Glass: It's just too heavy. And it can break too easily
+* Glass: It's just too heavy. And it can break too easily.
 * Plastic: Super lightweight, durable. Might have problems with boiling water.
 * Metal: You can use it to boil water inside! But keep in mind that you might
   need to touch it.
@@ -36,8 +36,8 @@ Hence I want a bottle with the following characteristics:
 ## Features
 
 * Material
-* Size of opening: The wider, the easier it might be to fill. But the easier
-  you spill.
+* Size of opening: The wider, the easier it might be to fill. But the easier it is
+  to spill.
 * Insulation
 
 

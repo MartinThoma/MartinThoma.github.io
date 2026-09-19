@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Shrimps and Tofu
 slug: shrimps-and-tofu
+lang: en
 author: Martin Thoma
 date: 2019-12-16 20:00
 category: My bits and bytes
@@ -28,7 +28,7 @@ A nice dish which takes about 30 minutes to cook.
 * Pepper
 * [Oyster sauce](https://en.wikipedia.org/wiki/Oyster_sauce)
 * Optional: Kecap Manis
-* Optional: 3 small tomatos
+* Optional: 3 small tomatoes
 
 ## Tools
 
@@ -39,7 +39,7 @@ A nice dish which takes about 30 minutes to cook.
 
 ## Preparation
 
-1. Cut onions, spring onions and tomatos. Cut the chili peppers slightly diagonal.
+1. Cut onions, spring onions and tomatoes. Cut the chili peppers slightly diagonally.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2019/12/cut-onions.jpg"><img src="../images/2019/12/cut-onions.jpg" alt="Cut onions" style="width: 512px;"/></a>
@@ -52,8 +52,8 @@ A nice dish which takes about 30 minutes to cook.
 </figure>
 
 2. Cut Tofu into cubes of edge length 1.5 cm - something that is comfortable to eat.
-3. Marinade tofu with salt, pepper and garlic powder. Let it rest for 10 minutes.
-4. Put oil into the wok and fry the tofu in it. Put the tofu out after it is fried.
+3. Marinate the tofu with salt, pepper and garlic powder. Let it rest for 10 minutes.
+4. Put oil into the wok and fry the tofu in it. Take the tofu out after it is fried.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2019/12/frying-tofu.jpg"><img src="../images/2019/12/frying-tofu.jpg" alt="Frying the tofu" style="width: 512px;"/></a>
@@ -65,11 +65,11 @@ A nice dish which takes about 30 minutes to cook.
     <figcaption class="text-center">Fried tofu</figcaption>
 </figure>
 
-5. Fry the onions until they smell well. Add chili peppers and spring onions.
-6. Add tomatos if you want.
+5. Fry the onions until they smell good. Add chili peppers and spring onions.
+6. Add tomatoes if you want.
 7. Add shrimps. They are ready when they have a nice pink color.
-8. Add oyster sauce and kecap manis. If you want a thicker sauce, add a small
-   spoon of wheat.
+8. Add oyster sauce and kecap manis. If you want a thicker sauce, add a teaspoon
+   of wheat flour.
 
 
 <figure class="wp-caption aligncenter img-thumbnail">

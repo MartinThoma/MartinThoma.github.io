@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Key-Value Stores
 slug: key-value-stores
+lang: en
 author: Martin Thoma
 date: 2019-09-29 20:00
 category: Code
@@ -19,7 +19,7 @@ specialized NoSQL databases. Essentially, they are dictionaries[^1].
 transactions intended to guarantee validity even in the event of errors, power
 failures, etc:
 
-* **A**tomicity: Either all statements are applied or none. This is important for SELECTs.
+* **A**tomicity: Either all statements are applied or none. This is important for transactions with multiple writes.
 * **C**onsistency: A transaction brings the DB from one valid state to another; see also [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
 * **I**solation: concurrent execution of transactions leaves the database in
   the same state that would have been obtained if the transactions were
@@ -39,10 +39,10 @@ key.
   (which can, of course, make it visible).
 * **Type System**: Enforcing types takes time and gives guarantees. Some
   databases have very simple type systems (e.g. SQLite) and some offer more
-  (e.g. MySQL)
+  (e.g. MySQL).
 * **Availability / Failover**: Systems fail. The machine which contains your database could
-  simply be plugged out. How do you deal with that?
-    * **Backup options**: If this is relevant at all depends very much what you
+  simply be unplugged. How do you deal with that?
+    * **Backup options**: Whether this is relevant at all depends very much on what you
       use it for. If the key-value store is used as a cache, then backup
       options are probably not necessary. If it is used to store configuration,
       then it likely is.
@@ -51,7 +51,7 @@ key.
       machine breaks. See [Redis Replication](https://redis.io/topics/replication).
 * **Scalability**: Suppose you want to store more than you can do on the hardware
   of a single machine. Do you have to buy a better machine (scale vertically)
-  or is it possible to have another (cheap) machine and run the datase on two
+  or is it possible to have another (cheap) machine and run the database on two
   machines in a distributed way (scale horizontally)? This is done via [sharding](https://www.digitalocean.com/community/tutorials/understanding-database-sharding).
 * **Users**: Having a user system and different databases in the same database
   management system is nice, because it allows centralisation of the service
@@ -61,12 +61,12 @@ key.
 
 ## Use Cases
 
-*Configuration*: Suppose you have a product which makes use of micro services.
-In some cases, those micro services need some alignment in form of
+*Configuration*: Suppose you have a product which makes use of microservices.
+In some cases, those microservices need some alignment in the form of
 configuration.
 
 *Caches*: Web services can contain all sorts of computations which might need
-longer than acceptable. Caching / pre-calculating those are a common approach
+longer than acceptable. Caching / pre-calculating those is a common approach
 for this problem.
 
 ## Other Benchmarks
@@ -92,7 +92,7 @@ $ sysbench oltp_read_write --db-driver=pgsql --pgsql-db=sbtest --pgsql-user=exam
 $ sysbench oltp_read_write --db-driver=pgsql --pgsql-db=sbtest --threads=16 --events=100000 --pgsql-user=example_user --pgsql-password=example_password run
 ```
 
-On my Thinkpad T460p I get the following numbers. However, I'm not certain how
+On my ThinkPad T460p, I get the following numbers. However, I'm not certain how
 valuable they are as they fluctuate quite a bit between consecutive runs.
 
 <table class="table">
@@ -137,7 +137,7 @@ valuable they are as they fluctuate quite a bit between consecutive runs.
             <th></th>
             <th>SQLite</th>
             <th>MariaDB</th>
-            <th>Postgresql</th>
+            <th>PostgreSQL</th>
             <th>Redis</th>
             <th>Memcached</th>
         </tr>
@@ -185,7 +185,7 @@ Databases which offer this:
 
 ## Benchmark
 
-This is not finished. You can find the [code on Github](https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark).
+This is not finished. You can find the [code on GitHub](https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark).
 
 If you don't make the <code>key</code> column a primary key, MariaDB is quite a
 bit faster.

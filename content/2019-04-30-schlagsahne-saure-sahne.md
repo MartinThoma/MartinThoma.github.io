@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: de
 title: Schlagsahne vs Saure Sahne
 slug: schlagsahne-vs-saure-sahne
+lang: de
 author: Martin Thoma
 date: 2019-04-30 20:00
 category: German posts
@@ -11,20 +11,20 @@ featured_image: logos/cooking.png
 ---
 <div class="info">This is a German post about cooking, explaining the difference between whipped cream (Schlagsahne) and sour cream (Saure Sahne). Cooking. Not Computer Science / ML / hiking 🙂</div>
 
-Saure Sahne oder Schlagsahne - das frage ich mich jedes mal, wenn ich Rezepte
+Saure Sahne oder Schlagsahne - das frage ich mich jedes Mal, wenn ich Rezepte
 auf Chefkoch nachschlage.
 
-Ich glaube im großen und ganzen kann man sagen, dass man Saure Sahne fast immer
-nutzen kann wenn man Schlagsahne benutzt und umgekehrt. Das eine schmeckt halt
+Ich glaube, im Großen und Ganzen kann man sagen, dass man Saure Sahne fast immer
+nutzen kann, wenn man Schlagsahne benutzt, und umgekehrt. Das eine schmeckt halt
 eher süß und das andere eher herzhaft/sauer. Anscheinend habe ich mir also
-umsonst den Kopf zerbrochen. Ich lass mich aber auch gerne eines besseren
+umsonst den Kopf zerbrochen. Ich lasse mich aber auch gerne eines Besseren
 belehren 🙂
 
 
 ## Schlagsahne
 
 [Schlagsahne](https://de.wikipedia.org/wiki/Schlagsahne) hat einen Fettgehalt
-von mindestens 30% und eignet sich zum Aufschlagen. Man kann sie also z.B. verwenden
+von mindestens 30% und eignet sich zum Aufschlagen. Man kann sie also z.B. verwenden,
 um **Sahne für Kuchen oder Eis** zu machen.
 
 Gerade habe ich einen [Nudelauflauf](https://www.chefkoch.de/rezepte/503121145273697/Nudel-Thunfisch-Auflauf-ueberbacken.html?aid=cf2d19b8) mit Schlagsahne im Ofen.
@@ -32,8 +32,8 @@ Gerade habe ich einen [Nudelauflauf](https://www.chefkoch.de/rezepte/50312114527
 
 ## Saure Sahne
 
-[Saure Sahne](https://de.wikipedia.org/wiki/Saure_Sahne) wird auch als Rahm bezeichnet.
-Sie kann aus Rohmilch mit Zentrifugen gewonnen werden. Es gehört zu den gesäuerten
+[Saure Sahne](https://de.wikipedia.org/wiki/Saure_Sahne) wird auch als Sauerrahm bezeichnet.
+Sie wird aus Sahne hergestellt, die mit Milchsäurebakterien gesäuert wird. Sie gehört zu den gesäuerten
 Milcherzeugnissen:
 
 * Saure Sahne: min. 10% Fettgehalt

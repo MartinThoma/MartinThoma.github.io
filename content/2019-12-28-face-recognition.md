@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Face Recognition
 slug: face-recognition
+lang: en
 author: Martin Thoma
 date: 2019-12-28 20:00
 category: Code
@@ -11,14 +11,14 @@ featured_image: logos/ml.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
-A few days ago, I took a flight from Nepal back to Germany. I was 3 weeks
-trekking. Of course, I did not take my beard trimmer with me. So what is
-usually a three-day beard became a 3 week beard. And when I tried to get through
-those automatic face recognition entries for EU citicenz, the machine spent like
+A few days ago, I took a flight from Nepal back to Germany. I was trekking for
+3 weeks. Of course, I did not take my beard trimmer with me. So what is
+usually a three-day beard became a 3-week beard. And when I tried to get through
+those automatic face recognition gates for EU citizens, the machine spent like
 one minute trying to recognize me (usually it takes about 5 seconds).
 
 That was when I started wondering what the current state of face recognition is.
-Not only the state of the art techniques, but more what is currently available
+Not only the state-of-the-art techniques, but more what is currently available
 in free software.
 
 

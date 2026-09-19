@@ -1,25 +1,25 @@
 ---
 layout: post
-lang: en
 title: Selling Stuff
 slug: selling-stuff
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-09-01 20:00
 category: My bits and bytes
 tags: Sell
 featured_image: logos/star.png
+status: draft
 ---
 When you get older, you accumulate stuff you really don't need. For me, it is
-mostly DVDs and Books. This stuff makes it harder to move to a new appartment,
+mostly DVDs and books. This stuff makes it harder to move to a new apartment,
 makes me feel less comfortable in my room because it feels smaller. So I want
 to reduce it. But I also don't want to throw it away, because I had to pay
-quite a bit of money for that stuff. For this reason I'm using some platforms
+quite a bit of money for that stuff. For this reason, I'm using some platforms
 to sell it.
 
-## Ebay
+## eBay
 
-Ebay and <a href="http://ebay-kleinanzeigen.de">ebay-kleinanzeigen.de</a> are
+eBay and <a href="http://ebay-kleinanzeigen.de">ebay-kleinanzeigen.de</a> are
 probably two of the biggest platforms to sell stuff. All kinds of stuff.
 
 
@@ -28,7 +28,7 @@ probably two of the biggest platforms to sell stuff. All kinds of stuff.
 I tried [reBuy](https://www.rebuy.de/) ([Android-App](https://play.google.com/store/apps/details?id=de.rebuy.android&hl=de)) and was pretty happy so far. UX-wise. I
 usually get very little money for perfectly fine books / DVDs.
 
-Momox seems to be the other big player. Here is the time-line of one sell of 5&nbsp;DVDs at momox:
+Momox seems to be the other big player. Here is the timeline of one sale of 5&nbsp;DVDs at momox:
 
 * 2019-08-25: Sold online
 * 2019-08-30: Package arrived, confirmed by momox
@@ -38,11 +38,11 @@ Momox seems to be the other big player. Here is the time-line of one sell of 5&n
 you can sell books and DVDs. I just did so (2019-09-01). Let's see when I get
 my money.
 
-Here is the time-line of one sell of 11&nbsp;books:
+Here is the timeline of one sale of 11&nbsp;books:
 
 * 2019-09-01 ~17:00: Sold online
 * 2019-09-02 ~17:00: I brought the package to DHL
-* 2019-09-04  10:13: sellorado confirms that package arrived
+* 2019-09-04 10:13: sellorado confirms that package arrived
 
 
 ## Meta Apps

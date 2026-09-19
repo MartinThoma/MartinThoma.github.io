@@ -1,30 +1,30 @@
 ---
 layout: post
-lang: en
-title: How to hold good Presentations
+title: How to Give Good Presentations
 slug: presentations
+lang: en
 author: Martin Thoma
 date: 2019-11-17 20:00
 category: My bits and bytes
 tags: Presentations, Knowledge Sharing
 featured_image: logos/star.png
 ---
-Presentations are a common way of knowledge sharing. Most people have to hold
+Presentations are a common way of knowledge sharing. Most people have to give
 a couple during their school time, during their studies at university and at
 work.
 
-I always made a lot and I feel very comfortable holding presentations. After
+I have always given a lot and I feel very comfortable giving presentations. After
 my latest one, I was asked how I create them.
 
-In the following article, I will present a structured plan how to approach
-presentations. However, in practice my approach is a bit more messy. I jump
+In the following article, I will present a structured plan of how to approach
+presentations. However, in practice, my approach is a bit more messy. I jump
 back and forth between steps, refining parts that didn't feel good.
 
-I often works like this
+It often works like this:
 
 1. **Find a start**: How are you introduced? How do you motivate the topic?
    This always is hardest for me.
-2. **Create some slides**: Nothing fancy, just the first ideas that pops to
+2. **Create some slides**: Nothing fancy, just the first ideas that pop into
    your mind. Continue, once you can fill a couple of minutes.
 3. **Try it**: Speak to the slide as if it was the real presentation. Where do
    you get stuck? Where does it feel bad? Either change those slides or write
@@ -40,7 +40,7 @@ I often works like this
 You might be in a situation where you are free to talk about whatever you want.
 This makes it more difficult as you have to choose the topic yourself. You have
 to define which key messages you want to convey. In such a situation you might
-want to jump back-and-forth with creating the content and the title.
+want to jump back and forth between creating the content and the title.
 
 Also, think about your main audience: Which background do they have? Why do
 they visit your talk?
@@ -52,14 +52,14 @@ slides?
 
 ### Title
 
-The audience should know in advance the title. The more vague the title is, the
+The audience should know the title in advance. The more vague the title is, the
 less you can go into detail. The more specific the title is, the more details
 will be expected.
 
 Here are some examples from super vague to extremely detailed:
 
 1. A.I.: The Good, the Bad, the Ugly!
-2. Machine Learning: The Good, the bad, the Ugly!
+2. Machine Learning: The Good, the Bad, the Ugly!
 3. Machine Learning War Stories
 4. Machine Learning and its Problems
 5. Machine Learning: Bias, Generalization and the Golden Hammer
@@ -71,18 +71,18 @@ Here are some examples from super vague to extremely detailed:
 Think about which audience is attracted by the different titles.
 
 The first one might attract people who don't know anything about the topic, but
-are curios to hear about it. The buzzword "A.I." might actually repell people
-who are more knowledgable in the area. However, as it is so vague and people
-cannot possibly knwo what it is about, this is pretty open to everybody.
+are curious to hear about it. The buzzword "A.I." might actually repel people
+who are more knowledgeable in the area. However, as it is so vague and people
+cannot possibly know what it is about, this is pretty open to everybody.
 
 The last title is taken from a paper. You will lose most people with the title
-alone, but you will make sure that the audience has some technical background
+alone, but you will make sure that the audience has some technical background.
 
 
 ## Presentation Programs
 
-Many people use Microsoft Power Point. It's a very good tool to quickly create
-something that looks ok.
+Many people use Microsoft PowerPoint. It's a very good tool to quickly create
+something that looks OK.
 
 I like to use [LaTeX Beamer](https://martin-thoma.com/latex-beamer/), which is
 good if you want to have mathematical formulas and be sure that things always
@@ -103,7 +103,7 @@ much should be on the slides.
   talking.
 * **Statement Only**: Only a short statement with a simple background can be
   quite powerful.
-* **Full Information**: Best choice if the presentation is mainly for people to
+* **Full Information**: Best choice if the presentation is mainly meant to
   be read ... but maybe then a presentation is not the best choice in the first
   place?
 
@@ -114,7 +114,7 @@ much should be on the slides.
   your presentation is in the same format as the projector uses.
 * **Text Size**: Is the text large enough? To answer this, you have to have an
   idea of the room size and the size of the projection.
-* **Text Position**: It happens once in a while that the projector crops of
+* **Text Position**: It happens once in a while that the projector crops off
   stuff at the edges. At the bottom, it could also happen that people sitting
   in the last rows cannot see it.
 * **Colors**: Bad projectors can mess extremely with colors. It might happen
@@ -127,7 +127,7 @@ much should be on the slides.
 ## Feedback
 
 Make a dry-run. I know, this is time-consuming and sometimes people are really
-bad in giving constructive feedback. The worst thing that can happen in a
+bad at giving constructive feedback. The worst thing that can happen in a
 dry-run is that they say: "Well done, I don't know what you could do better".
 
 Sometimes you might want to ignore the feedback, because it does not feel good

@@ -1,39 +1,39 @@
 ---
 layout: post
-lang: en
 title: Web Frameworks
 slug: web-frameworks
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-02-16 20:00
 category: My bits and bytes
 tags: Machine Learning
 featured_image: logos/star.png
+status: draft
 ---
-I have the idea to build a website for education and certification for quite a
+I've had the idea of building a website for education and certification for quite a
 while. I notice that this is a relevant topic for millions of people and I
-think I have a good idea how to improve it. But I need to get started. It is a
-web project and web development is not my main area of expertise. So I wonder
+think I have a good idea of how to improve it. But I need to get started. It is a
+web project and web development is not my main area of expertise. So I've been wondering
 for quite a while what a good language / framework for starting a bigger web
-project would be. In 2015 I wrote [Languages for Back Ends](https://martin-thoma.com/languages-for-back-ends/),
-but I think I got it wrong. The language is a bit important, but way more important is the eco system. And a big part of the eco system is the framework you use. Now I try to figure out which
+project would be. In 2015, I wrote [Languages for Back Ends](https://martin-thoma.com/languages-for-back-ends/),
+but I think I got it wrong. The language is a bit important, but way more important is the ecosystem. And a big part of the ecosystem is the framework you use. Now I try to figure out which
 frameworks I want to work with.
 
 There are <a href="https://en.wikipedia.org/wiki/Comparison_of_web_frameworks">tons of web frameworks</a>.
 I will focus on the following languages:
 
 * Python: My all-time favorite
-* JavaScript and Ruby: Jep, even I am aware of node.js and Rails
+* JavaScript and Ruby: Yep, even I am aware of Node.js and Rails
 * Scala: Just curious
 
 I will not include C#, Java, PHP, Perl and many more. I don't like the
-languages and their eco systems. I will also not include Go and Rust, because I
+languages and their ecosystems. I will also not include Go and Rust, because I
 have the impression it is hard to find developers.
 
 I will look at a couple of things for each framework:
 
 * **Famous Examples**: Big Websites / Services that use the framework
-* **StackOverflow**: Number of questions over time - not sure if many questions are good, tough
+* **Stack Overflow**: Number of questions over time - not sure if many questions are good, though
 * **Google Trends**: What do people look for?
 * **Google ngrams**: What do people write?
 
@@ -44,7 +44,7 @@ I will look at a couple of things for each framework:
 <table>
     <tr>
         <th>Framework</th>
-        <th>Github Stars</th>
+        <th>GitHub Stars</th>
         <th>stackshare Votes</th>
         <th>stackshare Fans</th>
     </tr>
@@ -160,18 +160,18 @@ want to have an easy time getting a job.
 Methodology:
 
 * The Indeed Results were counted on 2019-02-16 for Munich.
-* Stackoverflow was searched for 50km around Munich.
+* Stack Overflow was searched for 50km around Munich.
 
 ## Learning curve
 
-* Stackoverflow questions
+* Stack Overflow questions
 * unanswered
 
 <table>
     <tr>
         <th>Framework</th>
-        <th>StackOverflow Questions</th>
-        <th>StackOverflow Unanswered</th>
+        <th>Stack Overflow Questions</th>
+        <th>Stack Overflow Unanswered</th>
     </tr>
     <tr>
         <td>Django</td>
@@ -218,14 +218,14 @@ Famous users are:
 * Netflix ([source](https://www.youtube.com/watch?time_continue=307&v=QcNqfvMeWow), [source](http://netflix.github.io/))
 * Uber
 * Twitter
-* ebay
+* eBay
 * Disqus
 * DuckDuckGo
 * Flipboard
 
 ## Django
 
-<a href="https://www.djangoproject.com/">Django</a> (<a href="https://github.com/django/django">GitHub</a>) is around since 2005 (<a href="https://en.wikipedia.org/wiki/Django_(web_framework)">source</a>).
+<a href="https://www.djangoproject.com/">Django</a> (<a href="https://github.com/django/django">GitHub</a>) has been around since 2005 (<a href="https://en.wikipedia.org/wiki/Django_(web_framework)">source</a>).
 
 Famous users are:
 
@@ -254,7 +254,7 @@ Famous users are:
 
 ## React
 
-Jep, I know, I compare apples and pears.
+Yep, I know, I compare apples and pears.
 
 Famous users:
 
@@ -265,7 +265,7 @@ Famous users:
 
 ### Wikipedia
 
-Wikipedia uses [Mediawiki](https://en.wikipedia.org/wiki/MediaWiki), which is
+Wikipedia uses [MediaWiki](https://en.wikipedia.org/wiki/MediaWiki), which is
 written in **PHP** ([HHVM](https://en.wikipedia.org/wiki/HipHop_for_PHP)).
 They use Apache and Nginx.
 
@@ -273,7 +273,7 @@ They use Apache and Nginx.
 ### Facebook
 
 Facebook uses (used?) a version of PHP called <a
-href="https://hacklang.org/">hack</a>. As a database some claim they use MySQL
+href="https://hacklang.org/">Hack</a>. As a database some claim they use MySQL
 (<a href="https://royal.pingdom.com/the-software-behind-facebook/">source</a> / <a href="https://www.quora.com/What-is-Facebooks-architecture-6">source</a>).
 It is also claimed on that page that Facebook uses <a
 href="http://memcached.org/">memcached</a>. The main point to learn from that
@@ -302,7 +302,7 @@ According to <a href="https://stackshare.io/amazon/amazon">stackshare.io</a>:
 
 ### Netflix
 
-According to <a href="https://stackshare.io/netflix/netflix">stackshare.io</a>
+According to <a href="https://stackshare.io/netflix/netflix">stackshare.io</a>:
 
 * Node.js
 * Java, Python

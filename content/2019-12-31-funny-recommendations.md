@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Funny Machine Learning
 slug: funny-ml
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: My bits and bytes
@@ -56,7 +56,7 @@ it fails in a funny way 😁
             <td></td>
         </tr>
         <tr>
-            <td>Led Zepplin + Enron + <a href="https://en.wikipedia.org/wiki/Downfall_(2004_film)">Downfall</a></td>
+            <td>Led Zeppelin + Enron + <a href="https://en.wikipedia.org/wiki/Downfall_(2004_film)">Downfall</a></td>
             <td><a href="https://en.wikipedia.org/wiki/The_Nazis:_A_Warning_from_History">The Nazis</a></td>
             <td></td>
         </tr>
@@ -106,7 +106,7 @@ it fails in a funny way 😁
             <td>Titles are somewhat similar[^3]</td>
         </tr>
         <tr>
-            <td>Sophia the First</td>
+            <td>Sofia the First</td>
             <td>The Human Centipede: First Sequence</td>
             <td>[^3]</td>
         </tr>
@@ -172,7 +172,7 @@ it fails in a funny way 😁
 
 ## Sentence Completion
 
-<a href="https://talktotransformer.com/">talktotransformer.com</a> gives so many possibilties to have fun xD
+<a href="https://talktotransformer.com/">talktotransformer.com</a> gives so many possibilities to have fun xD
 
 ```text
 <b>If you compare Nazis to Unicorns </b> you will notice the big difference. Nazis are literally evil men who are trying to kill people, Unicorns are magical fairies who want to rescue the world from death. <mark>In many ways, Unicorns are evil too.</mark> Unicorns (as humans call them) often fall in love and become involved in "love games" where the pair has to outsmart, out-shout, out-kill, out-kill, out-fight, out-kill, etc. until one of them "loses" and falls apart in the process. This is not unlike the "war between light and darkness" where one side tries to take over and stop a whole group of creatures from doing their job.

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Citations with LaTeX
 slug: citations-with-latex
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: My bits and bytes
@@ -12,14 +12,14 @@ featured_image: logos/latex.png
 Managing citations is a core task when writing scientific documents. Of course,
 there are lots of options to do this with LaTeX. This makes it super confusing.
 If you need help, try [tex.stackexchange.com](https://tex.stackexchange.com/).
-The guys there are super helpful and extremely knowledgable. If you don't even
+The people there are super helpful and extremely knowledgeable. If you don't even
 know how to formulate your question properly, try the [tex webchat](https://chat.stackexchange.com/rooms/41/tex-latex-and-friends).
 
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Minimal Example
 
-This is in my [LaTeX-examples](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/seminar-paper)
+This is in my [LaTeX-examples](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/seminar-paper) repository.
 
 The `main.tex` looks as follows:
 
@@ -75,7 +75,7 @@ and the `bibliography.bib` like this:
 }
 ```
 
-Compile it with
+Compile it with:
 
 ```bash
 pdflatex main.tex -output-format=pdf
@@ -85,7 +85,7 @@ pdflatex main.tex -output-format=pdf
 
 ## The bibliography file
 
-This is the core for your citations. Your citation library, if you want so.
+This is the core for your citations. Your citation library, if you will.
 You can fill this file with [JabRef](https://www.jabref.org/) or by hand.
 
 ## Packages
@@ -106,7 +106,7 @@ You can fill this file with [JabRef](https://www.jabref.org/) or by hand.
 \citet{ref2007, ref2009}
 
 % Change multiple options
-\parencite[p. 123]{ref2007}[p. 456]{ref2009}
+\parencites[p. 123]{ref2007}[p. 456]{ref2009}
 ```
 
 

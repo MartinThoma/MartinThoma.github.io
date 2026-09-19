@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Bucketing in A/B-Testing
 slug: bucketing-in-ab-testing
+lang: en
 author: Martin Thoma
 date: 2019-11-28 20:00
 category: Code
 tags: Data Science, A/B-Testing, Random Number Generator
 featured_image: logos/data-science.png
 ---
-Bucketing users in two groups is a key part in A/B testing. We need to randomly
+Bucketing users into two groups is a key part of A/B testing. We need to randomly
 assign users to a bucket. And in practice, we need to make sure a user is
 assigned to the same bucket consistently.
 
@@ -18,7 +18,7 @@ First, we need a user identifier.
 
 ## Database Solution
 
-We want to store a variation per user in a database. Hence we have [key-value store](https://martin-thoma.com/key-value-stores/) with the user-identifier as key and
+We want to store a variation per user in a database. Hence, we need a [key-value store](https://martin-thoma.com/key-value-stores/) with the user-identifier as key and
 the variation as value.
 
 The code then is as follows:
@@ -70,7 +70,7 @@ In case the `user_id` is not an integer, you have two ways to assign one:
 
 ## Seeding Solution
 
-The above solution is nice, because it is absolutely clear how it works. It is
+The above solution is nice because it is absolutely clear how it works. It is
 not so nice that you need to access a database.
 
 Instead, you can play around with the seed of the random number generator. This
@@ -115,7 +115,7 @@ variant. So if you always choose the names "current" vs. "new", then some users
 will always end up in A/B&nbsp;tests. This is not good as the new variant might be
 brittle or have flaws.
 
-Instead, we can give the test an unique name and thus do:
+Instead, we can give the test a unique name and thus do:
 
 ```python
 import random
@@ -143,7 +143,7 @@ def assign_user_to_variant(
     """
     assert sum(distribution.values()) == 1.0
     seed = mmh3.hash(user_id + test_name)
-    random.seed(user_id)
+    random.seed(seed)
     user_number = random.random()  # in the interval [0, 1]
     prob_sum = 0.0
     for variant, prob in sorted(distribution.items()):
@@ -159,11 +159,11 @@ def assign_user_to_variant(
 We might want to generate the variations across multiple systems. Most of the
 code above is trivial to execute in any programming language. However, the
 output of `random.seed(0); random.random()` might differ between programming
-languages or even versions of a programming language. The reason are
+languages or even versions of a programming language. The reason is
 differences in the random number generators.
 
 A Pseudo-Random Number Generator (RNG) is a key component for the described
-solution. In the following is a list of the components:
+solution. The following is a list of common RNGs:
 
 <table class="table">
     <thead>
@@ -225,7 +225,7 @@ reading [^1] and [^2].
 
 However, I tried [`java-random`](https://pypi.org/project/java-random/) and
 visualized the results ([code](https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py)).
-What you see is 1000 random numbers generated. The colum is the seed, the row
+What you see is 1000 generated random numbers per seed. The column is the seed, the rows
 are 1000 consecutive random numbers. Clearly, the numpy and the Python version
 look better:
 
@@ -244,7 +244,7 @@ look better:
     </tr>
     <tr>
         <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
-        <td colspan="2">This is how it should look like - no pattern to be seen.</td>
+        <td colspan="2">This is what it should look like - no pattern to be seen.</td>
     </tr>
     <tr>
         <th>MT19937</th>
@@ -273,7 +273,7 @@ Security in the sense of predictability of the sequence is also an important
 property in many contexts. In the context of A/B-Testing, however, it does not
 matter. State size is also interesting.
 
-PHP and Golang do either not at all or at least not clearly state what the
+PHP and Go either don't state at all, or at least don't clearly state, what the
 default random number generator is.
 
 
@@ -281,7 +281,7 @@ default random number generator is.
 
 Bucketing is easy as long as you have one system (OS and Programming language /
 library) where you execute the bucketing. Once you have more, you need to take
-care of how <code>random.random()</code> actually works
+care of how <code>random.random()</code> actually works.
 
 
 ## See also

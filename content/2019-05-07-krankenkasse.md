@@ -19,7 +19,7 @@ father had: [BKK Herkules](https://de.wikipedia.org/wiki/BKK_Herkules).
 Now, several years later, BKK Herkules increased the amount I have to pay. This
 gives me the possibility to switch.
 
-There are many [online calculators](https://www.smart-rechner.de/kv_beitragsvorteil/rechner.php) you can calculate how much you can save.
+There are many [online calculators](https://www.smart-rechner.de/kv_beitragsvorteil/rechner.php) with which you can calculate how much you can save.
 
 The comparison is in German, because I'm too lazy to translate it.
 
@@ -52,14 +52,14 @@ The comparison is in German, because I'm too lazy to translate it.
         <td>Mitarbeiter</td>
         <td style="background-color: #f2dede;">59 + 5&nbsp;Auszubildende</td>
         <td style="background-color: #c9f8c9;">13&#8239;180 + 653&nbsp;Auszubildende</td>
-        <td>ca 1000</td>
+        <td>ca.&nbsp;1000</td>
         <td style="background-color: #c9f8c9;">11&#8239;000</td>
     </tr>
     <tr>
         <td>Haushaltsvolumen in Mio EUR</td>
         <td>?</td>
         <td style="background-color: #c9f8c9;">37&#8239;900 (2019)</td>
-        <td>1,500 (2019)</td>
+        <td>1&#8239;500 (2019)</td>
         <td style="background-color: #c9f8c9;">17&#8239;500 (2018)</td>
     </tr>
     <tr>
@@ -131,7 +131,7 @@ The comparison is in German, because I'm too lazy to translate it.
         <td>Professionelle Zahnreinigung (PZR)</td>
         <td style="background-color: #f2dede;">80%, max 20 EUR</td>
         <td>Gesundheitsdividende</td>
-        <td style="background-color: #c9f8c9;">bei Teilnehmenden Ärzten</td>
+        <td style="background-color: #c9f8c9;">bei teilnehmenden Ärzten</td>
         <td>max 40 EUR</td>
     </tr>
     <tr>
@@ -307,7 +307,7 @@ Potentielle Probleme:
 
 ## TL;DR
 
-If it is only about money, take hkk. If you value service and testamonials,
+If it is only about money, take hkk. If you value service and testimonials,
 take Techniker (TK).
 
 

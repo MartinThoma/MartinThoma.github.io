@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: Make a Webservice
 slug: make-a-webservice
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: The Web
 tags: Web Development
 featured_image: logos/star.png
 ---
-I started doing web-stuff again! There are a gazillion decisions to take when
+I started doing web-stuff again! There are a gazillion decisions to make when
 you create even a medium-sized web service. This article is intended to give
 a small overview.
 
@@ -17,11 +17,11 @@ a small overview.
 
 ## Quick n' Dirty
 
-You can set up a first page in about than 10 minutes, if you have a [DigitalOcean](https://m.do.co/c/b5dd0c5d61b9) account and the domain via namecheap:
+You can set up a first page in about 10 minutes, if you have a [DigitalOcean](https://m.do.co/c/b5dd0c5d61b9) account and the domain via namecheap:
 
 1. Create [Docker digital ocean droplet](https://marketplace.digitalocean.com/apps/docker)
 2. Add SSH-Key to machine
-3. Clone github repository
+3. Clone GitHub repository
 4. Create A-Record in namecheap ([takes 24h](https://support.stackpath.com/hc/en-us/articles/360001079683-How-long-does-it-take-for-DNS-changes-to-be-reflected-))
 
 ## Flask Ecosystem
@@ -29,7 +29,7 @@ You can set up a first page in about than 10 minutes, if you have a [DigitalOcea
 * Miguel Grinberg: [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure)
 * [Flask-Login](https://flask-login.readthedocs.io/en/latest/)
 * DB
-    * [Flask-SQLalchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+    * [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
     * [Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/)
 
 ## Databases
@@ -48,10 +48,10 @@ You can set up a first page in about than 10 minutes, if you have a [DigitalOcea
 ## WYSIWYG Editors
 
 I would like to have a WYSIWYG editor. It should support heading types,
-bold/italic/underine, tables, images, videos from YouTube, file upload and
+bold/italic/underline, tables, images, videos from YouTube, file upload and
 MathJax formulas.
 
-It would be nice if  supported storing / rendering directly from Markdown. It
+It would be nice if it supported storing / rendering directly from Markdown. If
 that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
 
 <table class="table">
@@ -238,7 +238,7 @@ See also:
 ## Decisions
 
 * Display name, Username or Handle? (<a href="https://help.disqus.com/user-profile/what-is-the-difference-between-my-username-and-my-display-name">Disqus</a>, <a href="https://help.kik.com/hc/en-us/articles/115006041908-Username-vs-display-name">Kik</a>, <a href="https://community.spotify.com/t5/Social/Username-and-Displayed-name-are-different/td-p/4564880">Spotify</a>, <a href="https://help.twitch.tv/s/article/username-rename-and-recycling-policies?language=en_US">Twitch</a>)
-* How Many Characters may a display name have? (e.g. [30 on StackExchange](https://meta.stackoverflow.com/questions/307118/maximum-size-for-display-names))
+* How many characters may a display name have? (e.g. [30 on StackExchange](https://meta.stackoverflow.com/questions/307118/maximum-size-for-display-names))
 * Where are hard deletes allowed, where only soft deletes?
 
 
@@ -248,7 +248,7 @@ See also:
 * [Feather Icons](https://feathericons.com/)
 * https://favicon.io/favicon-generator/
 * https://icons8.de/icons
-* [gridicons](https://github.com/Automattic/gridicons) (Wordpress)
+* [gridicons](https://github.com/Automattic/gridicons) (WordPress)
 
 
 ## Small Services
@@ -274,7 +274,7 @@ There are two aspects of social service optimization: Making it easy to share
 stuff from your site and being active on that site. Or at least reachable.
 
 * Twitter:
-    * Is it worth to create an account?
+    * Is it worth creating an account?
     * [Twitter Card](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image.html)
 * Facebook:
     * [Open Graph](https://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol)
@@ -291,7 +291,7 @@ stuff from your site and being active on that site. Or at least reachable.
 * Google: [Pagespeed Insights](https://developers.google.com/speed/pagespeed/insights/)
 * Google Analytics
 * [gtmetrix.com](https://gtmetrix.com/reports/enzado.com/oM61ID2t): 98% speed, 93% YSlow, 0.9s, 219kb, 11 Requests
-* [thinkwithgoogle.com: Test My Site](https://www.thinkwithgoogle.com/intl/de-de/feature/testmysite): 1.6s in einem 4G-Netz
+* [thinkwithgoogle.com: Test My Site](https://www.thinkwithgoogle.com/intl/de-de/feature/testmysite): 1.6s on a 4G network
 * [IPv6](https://ipv6-test.com/validate.php)
 
 

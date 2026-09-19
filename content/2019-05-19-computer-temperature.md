@@ -1,28 +1,28 @@
 ---
 layout: post
-lang: en
 title: Computer Temperature
 slug: computer-temperature
+lang: en
 author: Martin Thoma
 date: 2019-06-05 20:00
 category: My bits and bytes
 tags: Hardware
 featured_image: logos/star.png
 ---
-I just realized that my Thinkpad T460p gets really loud. I suspect that there
-is just quite some dust in the machine so that the fan gets louder. But I'm not
+I just realized that my ThinkPad T460p gets really loud. I suspect that there
+is quite some dust in the machine, so that the fan gets louder. But I'm not
 sure how to check that and I hesitate to open the machine. So let's see which
-information I can get form the software.
+information I can get from the software.
 
 
 ## My System
 
-* Hardware: Lenovo Thinkpad T460p
+* Hardware: Lenovo ThinkPad T460p
 * Software: Ubuntu 18.04
 * Running: Chrome (no videos playing; no Flash), Sublime Text - nothing fancy
 
 
-## CPU Temperture
+## CPU Temperature
 
 My room temperature is 24°C, my CPU temperature is roughly 50°C:
 
@@ -66,7 +66,7 @@ $ sudo hddtemp /dev/sda
 
 ## Make it Silent
 
-I installed `thermald` and soon after that it got more silent. Could be
+I installed `thermald` and soon after that it got more silent. That could be a
 coincidence, though.
 
 ### Intel vs Nvidia

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Scientific Writing
 slug: scientific-writing
+lang: en
 author: Martin Thoma
 date: 2019-11-24 20:00
 category: My bits and bytes
@@ -37,7 +37,7 @@ Most papers I read have the following structure:
 
 ### Abstract
 
-It should be short. Mabye 700 - 1500 characters.
+It should be short. Maybe 700 - 1500 characters.
 
 
 ### Introduction
@@ -71,10 +71,10 @@ be done?
 * **Research Paper**: You had a new idea, conducted and reported experiments.
   This paper presents the original, new idea and the insights you got through
   experiments about the idea.
-* **Survey Paper**: You provide a detailed overview over a domain. You put the
+* **Survey Paper**: You provide a detailed overview of a domain. You put the
   relevant work into context, show how it developed. This is a starting point
   for new researchers and something that can be cited for "common knowledge".
-* **Review Paper**: You critically analize previously published work.
+* **Review Paper**: You critically analyze previously published work.
 
 
 If you publish the paper to a journal, you could call it an article.
@@ -86,7 +86,7 @@ Academic writing is about precision. For this reason, the following words should
 rarely be used:
 
 * **Amount**: almost, many, various, very, fairly, several, extremely,
-  exceedingly, few, mostly, largely, huge, tiny,relatively, ((are|is) a
+  exceedingly, few, mostly, largely, huge, tiny, relatively, ((are|is) a
   number), vast, completely, quite
 * **Certainty**: might, appears to be, theoretically, actual
 * **Personal judgement**: it is easy to see, interestingly, remarkably,
@@ -102,7 +102,7 @@ If you want to give an amount, cite stuff:
 The personal judgement should in many cases be removed without replacement. It
 depends a bit on the part of the publication. For example, in an introduction
 or the outlook it might be completely fine and even desirable to have some
-ideas what implications an observation might have. This also depends very much
+ideas of what implications an observation might have. This also depends very much
 on the community for which you publish.
 
 
@@ -111,7 +111,7 @@ on the community for which you publish.
 When you evaluate a system, you might denote things like the accuracy. Be aware
 that you also communicate something with the number of digits you denote. The
 more digits, the more certain you are that this is relevant. So if you say a
-classifier has an accuracy of 96.123%, then your test data should better have
+classifier has an accuracy of 96.123%, then your test data had better have
 at least 100,000 data points. Otherwise, it does not make any sense at all to
 denote that many.
 
@@ -120,7 +120,7 @@ denote that many.
 
 They should be able to stand on their own. Each table and each image needs a
 small text below / above it, that gives enough context for a reader who is
-knowledgabe in the area to understand what it says. It is ok to repeat
+knowledgeable in the area to understand what it says. It is OK to repeat
 yourself.
 
 Each table and each image should be referenced in the text. Which means that

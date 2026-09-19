@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Flask Plugins
 slug: flask-plugins
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
@@ -11,7 +11,7 @@ featured_image: logos/flask.png
 ---
 The Flask Ecosystem has [a lot of extensions](http://flask.pocoo.org/extensions/).
 I'll introduce a couple I've stumbled over. There is also an [awesome list](https://github.com/humiaozuzu/awesome-flask), but it contains too many extensions and too little
-explanation when to use what.
+explanation of when to use what.
 
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
@@ -19,15 +19,15 @@ explanation when to use what.
 
 [`Flask-SQLAlchemy`](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) and
 [`Flask-Migrate`](https://flask-migrate.readthedocs.io/en/latest/) (Alembic)
-are pretty much standard. The first one is a binding to the de-facto standard
-ORM in Python (SQLAlchemy) and the second one is for creating Migrations with
+are pretty much standard. The first one is a binding to the de facto standard
+ORM in Python (SQLAlchemy) and the second one is for creating migrations with
 Alembic.
 
 
 ## REST API
 
 [Flask-RESTX](https://flask-restx.readthedocs.io/en/stable/) is good
-for creating nice REST APIs. It also generates a swagger page 🙂
+for creating nice REST APIs. It also generates a Swagger page 🙂
 
 [flask-restless](https://flask-restless.readthedocs.io/en/stable/index.html)
 works directly on the models. I haven't used it so far.
@@ -77,8 +77,8 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-@login_required
 @app.route("/private")
+@login_required
 def some_private_view():
     return "You can only watch this if you're logged in"
 
@@ -124,7 +124,7 @@ def register():
 ```
 
 
-There is also [Flask-User](https://flask-user.readthedocs.io/en/latest/) and Flask-Security which both offer you to give you
+There is also [Flask-User](https://flask-user.readthedocs.io/en/latest/) and Flask-Security which both give you
 the following:
 
 * Registration

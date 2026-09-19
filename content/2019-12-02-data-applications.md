@@ -1,38 +1,38 @@
 ---
 layout: post
-lang: en
 title: Data Applications
 slug: data-applications
+lang: en
 author: Martin Thoma
 date: 2019-12-02 20:00
 category: Machine Learning
 tags: Data, IaC, AWS, Kafka, Data Science, Data Engineering
 featured_image: logos/star.png
 ---
-"Data is the new oil", "we need to be data driven",
-"we need to apply AI to keep being competitive" are some of the prashes I hear
-a lot. As I haven't seen yet a clear article pointing out what is done with
+"Data is the new oil", "we need to be data-driven",
+"we need to apply AI to keep being competitive" are some of the phrases I hear
+a lot. As I haven't seen a clear article yet pointing out what is done with
 the data ... here you are 🙂
 
 
 ## Why it's complicated
 
-Coorporations have a lot of data which is analyzed under different aspects
-all the time. Micro services are built which have their own data flows,
+Corporations have a lot of data which is analyzed under different aspects
+all the time. Microservices are built which have their own data flows,
 applications and services are updated while they are running. Bugs get fixed.
-All of this makes the data very heterogenous.
+All of this makes the data very heterogeneous.
 
 
 Data quality problems include:
 
 * **Mixed attribute availability**: Changes and bugs lead to NULL values.
 * **Semantic Changes**: The applications which produce the data might change.
-  Maybe you have "price" column somewhere. At one point it included tax, at
-  another it doesn't. Time might be local, server and UTC. Durations might be
-  seconds and milliseconds.
+  Maybe you have a "price" column somewhere. At one point it included tax, at
+  another it doesn't. Time might be local, server, or UTC time. Durations might be
+  seconds or milliseconds.
 * **Consistency**: The data format might change. Maybe the user name is sometimes "FIRSTNAME
   LASTNAME" and in other cases "LASTNAME, FIRSTNAME".
-* **Duplicates**: Some entries might be duplicated, e.g. multiple form submission.
+* **Duplicates**: Some entries might be duplicated, e.g. multiple form submissions.
 
 
 Engineering problems include:
@@ -41,8 +41,8 @@ Engineering problems include:
   Maybe even bigger than what fits on a single machine.
 * **Fast Data**: The incoming data might need to be processed in a few
   milliseconds.
-* **Privacy**: How do we make the platform GDPR complient?
-* **Security**: Authentifiction and Authorization
+* **Privacy**: How do we make the platform GDPR compliant?
+* **Security**: Authentication and Authorization
 
 <!--
 
@@ -73,14 +73,14 @@ as one needs to download the data from the warehouse. Then
 ([promo&nbsp;video](https://www.youtube.com/watch?v=VUVqj7YsWmU)) and
 [<span class="label label-primary">QlikView</span>](https://en.wikipedia.org/wiki/Qlik)
 ([promo&nbsp;video](https://www.youtube.com/watch?v=sqILcEwlHSI)) come into
-play. The Buzzword here are <span class="label label-danger">data driven</span> and <span class="label label-danger">self-service BI</span>. People using
+play. The buzzwords here are <span class="label label-danger">data driven</span> and <span class="label label-danger">self-service BI</span>. People using
 this software are often called <span class="label label-info">Business
-Analysts</span> and work in an <i>BI department</i>. They usually create
+Analysts</span> and work in a <i>BI department</i>. They usually create
 dashboards and reports which drive business decisions.
 
 If the company has a lot of very different data, a
 <span class="label label-primary">data dictionary</span> might help. In the
-simplest case, it could be a word document. A bit more advanced would be to
+simplest case, it could be a Word document. A bit more advanced would be to
 use the comment attribute for columns in databases. Then there are tools
 like <a href="https://dataedo.com/">dataedo</a> as well.
 
@@ -90,9 +90,9 @@ like <a href="https://dataedo.com/">dataedo</a> as well.
 Sometimes, analysis of the past behavior is not enough. You need a predictive
 model for future cases. Maybe even have it as a part of a customer-facing
 product. Now you need a <span class="label label-info">Data Scientist</span>.
-The work starts at the warehouse. As the warehouses and QlikView / Tableaus
+The work starts at the warehouse. As the warehouses and QlikView / Tableau's
 options are too limited, the data scientist gets a dump of the relevant parts.
-This might include some aggregtions, filtering and unions in the warehouse
+This might include some aggregations, filtering and unions in the warehouse
 before, but at some point it will likely be imported in an environment where
 Python can be used. The Data Scientist analyzes the data, e.g. with a
 [<span class="label label-primary">Jupyter&nbsp;Notebook</span>](https://en.wikipedia.org/wiki/Project_Jupyter). Usually
@@ -107,7 +107,7 @@ might not be connected. But it should be clear from the PoC if the data allows
 building the kind of model you want to have. A valid outcome of the PoC is that
 it is (currently) not possible.
 
-The two parts that can consume arbitrary much time are data cleaning and model
+The two parts that can consume arbitrarily much time are data cleaning and model
 optimization. Even after the PoC. If you're interested in that topic, ping me
 in the comments.
 
@@ -130,9 +130,9 @@ href="https://en.wikipedia.org/wiki/Apache_Kafka" class="label label-primary">Ap
 messaging or <a
 href="https://en.wikipedia.org/wiki/Apache_Flink" class="label label-primary">Apache&nbsp;Flink</a>.
 The important point to notice here is that machine learning models typically
-contain two seperate phases: Model training and model inference. At training
+contain two separate phases: Model training and model inference. At training
 time, one needs to process a lot of data and needs a lot of computational
-power. At inference time, each requests data is tiny. The amount of computation
+power. At inference time, each request's data is tiny. The amount of computation
 necessary is small. So it is a mixed execution mode: Regularly re-train a model
 in a batch-way and have a continuously running service for inference.
 They might build things like <a href="https://milinda.pathirage.org/kappa-architecture.com/" class="label label-danger">Kappa Architectures</a> or <a href="https://en.wikipedia.org/wiki/Lambda_architecture" class="label label-danger">Lambda Architectures</a>. To
@@ -149,13 +149,13 @@ the cloud:
 <dl>
     <dt><dfn>AWS Lambda</dfn> <span class="label label-primary">Compute</span></dt>
     <dd>Running small and short scripts after a triggering event. Has a delay of a couple of seconds. Provides Computational Resources.</dd>
-    <dt><dfn>AWS Cloudformation</dfn></dt>
+    <dt><dfn>AWS CloudFormation</dfn></dt>
     <dd>Infrastructure as Code (IaC) Tool</dd>
     <dt><dfn>AWS EC2</dfn> <span class="label label-primary">Compute</span> (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html">AWS</a>)</dt>
     <dd>provides scalable computing capacity; </dd>
     <dt><dfn>AWS S3</dfn> <span class="label label-primary">Storage</span></dt>
     <dd>Store Files</dd>
-    <dt><dfn>AWS InnoDB</dfn> <span class="label label-primary">Storage</span></dt>
+    <dt><dfn>AWS DynamoDB</dfn> <span class="label label-primary">Storage</span></dt>
     <dd>Key-Value Store</dd>
     <dt><dfn>AWS SSM</dfn> <span class="label label-primary">Storage</span></dt>
     <dd>Store Passwords and configuration</dd>
@@ -172,7 +172,7 @@ the cloud:
 
 ## See also
 
-There are a couple of follow-up topics which might result in:
+There are a couple of follow-up topics which might result from this:
 
 * How to deploy machine learning models
 
@@ -191,4 +191,4 @@ Stuff I would like to share / look into for enhancing this article:
 * [Deploying on AWS Fargate using Cloudformation](https://medium.com/@anupam.ncsu/deploying-on-aws-fargate-using-cloudformation-3bf33cefbf18), 2018.
 * Jen Underwood: [Why You Need a Data Catalog and How to Select One](https://www.jenunderwood.com/2017/08/30/need-data-catalog-select-one/)
 * Nick Schrock: [Introducing Dagster](https://medium.com/dagster-io/introducing-dagster-dbd28442b2b7), 2019.
-* Github Issue: [Dagster vs. Rest](https://github.com/dagster-io/dagster/issues/1593), 2019.
+* GitHub Issue: [Dagster vs. Rest](https://github.com/dagster-io/dagster/issues/1593), 2019.

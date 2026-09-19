@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Digital Process Automation
 slug: digital-process-automation
+lang: en
 author: Martin Thoma
 date: 2019-04-10 20:00
 category: Cyberculture
@@ -10,13 +10,13 @@ tags: Automation, Shell, Productivity, Software Development
 featured_image: logos/star.png
 ---
 Many people work a significant amount of their time in front of a computer
-today. And for many there are repetitive tasks. If the task is shared by many
+today. And for many, there are repetitive tasks. If the task is shared by many
 people, this is a chance to develop dedicated software for it. Tabular
-calculations (excel), writing documents (word), communicating (e-mail / chat
+calculations (Excel), writing documents (Word), communicating (e-mail / chat
 software) are some examples.
 
-But there are other tasks which are not so common. Which are too specialized so
-that it's not worth to pay a developer for designing, programming, testing,
+But there are other tasks which are not so common. They are too specialized, so
+that it's not worth paying a developer for designing, programming, testing,
 maintenance; to pay for marketing, support, legal fees, and infrastructure.
 
 This is the part where it becomes interesting to learn to use some tools.
@@ -24,7 +24,7 @@ This is the part where it becomes interesting to learn to use some tools.
 
 ## Text Editors
 
-My favorite editor is [Sublime Text](https://martin-thoma.com/sublime-text/) hence
+My favorite editor is [Sublime Text](https://martin-thoma.com/sublime-text/), hence
 the links / names in the following are for it. But there are a couple of other
 editors like [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/)
 that might have the same features.
@@ -39,13 +39,13 @@ Berta Booth;002 345678; bb@googlemail.com
 ...
 ```
 
-You want to insert the e-mail addresses in another system. But for that you
+You want to insert the e-mail addresses in another system. But for that, you
 need to have only the e-mail addresses in double quotes `"`. How do you get that?
 
 You could, of course, just manually copy all of the e-mail addresses to another
 file. Assuming you have maybe 80 of those and it takes you 5 seconds for each
-entry in average, you would need less than 7 minutes. That is ok. But it is
-boring. And this kind of task will come more than once in your live.
+entry on average, you would need less than 7 minutes. That is ok. But it is
+boring. And this kind of task will come more than once in your life.
 
 So, instead, you can learn a tiny bit about **regular expressions**. They are a
 way to define patterns in text. For example, `.` matches any single character
@@ -54,7 +54,7 @@ defined before the `+`. If you have the combination `.+`, it means that you
 want to match any single character and as many of them as possible. By adding a
 `?` you say you want to match as few as possible. Hence the search `.+?;.+?;`
 means that you want to find any characters, then a `;`, then again any
-caracters until the next `;` comes. In my editor it looks like this:
+characters until the next `;` comes. In my editor, it looks like this:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2019/04/regex-matches.png"><img src="../images/2019/04/regex-matches.png" alt="3 matches for the RegEx .+?;.+?;" style="width: 512px;"/></a>
@@ -62,7 +62,7 @@ caracters until the next `;` comes. In my editor it looks like this:
 </figure>
 
 Then, I press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> to get **multiple cursors**.
-From this point on everything I enter will be applied to all matches. First, you can
+From this point on, everything I enter will be applied to all matches. First, you can
 delete the name and phone number. Then you enter `"` to make the opening double
 quote, then you press <kbd>End</kbd> to get to each end of the line. You press
 <kbd>"</kbd> again to get the closing double quote. Task solved.
@@ -81,7 +81,7 @@ programs are really nice (like Sublime Text), you can re-define the shortcuts
 yourself. This can save so much time. Some shortcuts I use all the time:
 
 
-Operating System
+Operating System:
 
 <dl>
     <dt>Switch Windows</dt>
@@ -94,7 +94,7 @@ Operating System
     <dd><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd></dd>
 </dl>
 
-Programs
+Programs:
 
 <dl>
     <dt>Save</dt>
@@ -120,7 +120,7 @@ Here are some of the basic commands, roughly in the order how often I need them:
     <dd><code>cd [relative or absolute path]</code></dd>
     <dt>Find within a file</dt>
     <dd><code>grep</code></dd>
-    <dt>Look up what you execute in the past</dt>
+    <dt>Look up what you executed in the past</dt>
     <dd><code>history</code></dd>
     <dt>List files/directories</dt>
     <dd><code>ls</code></dd>
@@ -136,7 +136,7 @@ Here are some of the basic commands, roughly in the order how often I need them:
     <dd><code>df -h</code> and <code>ncdu</code> (<a href="https://dev.yorhel.nl/ncdu">website</a>)</dd>
     <dt>Running processes</dt>
     <dd><code>top</code> and <code>htop</code></dd>
-    <dt>Repetedly execute something</dt>
+    <dt>Repeatedly execute something</dt>
     <dd><code>watch</code></dd>
     <dt>Show content of a text file</dt>
     <dd><code>cat</code>, <code>head</code>, <code>tail</code></dd>
@@ -146,11 +146,11 @@ Here are some of the basic commands, roughly in the order how often I need them:
     <dd><code>locate</code>, <code>find</code></dd>
     <dt>Read the manual</dt>
     <dd><code>man</code></dd>
-    <dt>Print working Directory</dt>
+    <dt>Print working directory</dt>
     <dd><code>pwd</code></dd>
 </dl>
 
-And some things you have to install
+And some things you have to install:
 
 <dl>
     <dt>Show differences between text files</dt>
@@ -164,7 +164,7 @@ And some things you have to install
 </dl>
 
 `vim` and its various plugins like NERDTree and Powerline are a completely
-seperate topic.
+separate topic.
 
 See also:
 
@@ -173,9 +173,9 @@ See also:
 
 ## Screen automation
 
-Some times tools don't come with the necessary interfaces to automate things.
-The simplest example are IDLE games like [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/).
-In this case you just have to click. Fast. All the time.
+Sometimes tools don't come with the necessary interfaces to automate things.
+The simplest examples are idle games like [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/).
+In this case, you just have to click. Fast. All the time.
 
 So what you can use is [`xdotool`](https://www.semicomplete.com/projects/xdotool/).
 

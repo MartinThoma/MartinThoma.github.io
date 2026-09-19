@@ -1,20 +1,20 @@
 ---
 layout: post
-lang: en
 title: Movielens Data Set
 slug: movielens-data-set
+lang: en
 author: Martin Thoma
 date: 2019-07-10 20:00
 category: My bits and bytes
 tags: Machine Learning, Recommendations, Movielens
 featured_image: logos/ml.png
 ---
-I'm recently thinking a lot about recommendations and about building the
+I've recently been thinking a lot about recommendations and about building the
 [book recommendation portal](https://martin-thoma.com/projects-i-never-realized/#book-portal)
-I had in mind since 2013.
+I have had in mind since 2013.
 
 However, for recommendation systems it is as hard as with any branch of machine
-learning to find a good overview over techniques, their respective strengths
+learning to find a good overview of techniques, their respective strengths
 and drawbacks as well as hard performance measures.
 
 So let's get started.
@@ -22,7 +22,7 @@ So let's get started.
 
 ## The Data
 
-The [Movielens 20M](https://grouplens.org/datasets/movielens/20m/) contains
+The [MovieLens 20M](https://grouplens.org/datasets/movielens/20m/) dataset contains
 20 million movie ratings. They were created by 138,000 users for 27,000 movies.
 
 The data looks like this:
@@ -42,20 +42,20 @@ The data looks like this:
 10        1      293     4.0  1112484703
 ```
 
-There is genres and tags as well.
+There are genres and tags as well.
 
 
 ## The Evaluation
 
 The task is to predict the ratings. To do so, the data gets sorted by
 timestamp. A 50% train data and 50% test data split is done. On the test data,
-the mean average error (MAE) is calculated. Lower is better. The results have
+the mean absolute error (MAE) is calculated. Lower is better. The results have
 to be given with exactly three decimal places.
 
 
 ## Baselines
 
-All of the following evaluations took roughly 43s on my Thinkpad T460p. The
+All of the following evaluations took roughly 43s on my ThinkPad T460p. The
 memory consumption of all of them is not relevant.
 
 <div class="warning">Most of the following recommenders are completely useless. The constant recommender does not order the movies at all, the median user rating does not order for a user. And the median movie rating recommender is not personalized, which indicates that a content-based approach might be better. Still, you can see the MAE / MSE score is vastly different. This is an indicator that the evaluating function should be changed.</div>
@@ -80,13 +80,13 @@ memory consumption of all of them is not relevant.
         <td style="background-color: red">Constant 5</td>
         <td>1.603</td>
         <td>3.761</td>
-        <td>Together with Constant 5, this gives the range in which all recommenders will be.</td>
+        <td>Together with Constant 1, this gives the range in which all recommenders will be.</td>
     </tr>
     <tr>
         <td style="background-color: red">Constant 2.5</td>
         <td>1.217</td>
         <td>1.996</td>
-        <td>Predicting the middle is the best if you have absolute no prior knowledge and MAE.</td>
+        <td>Predicting the middle is the best if you have absolutely no prior knowledge and MAE.</td>
     </tr>
     <tr>
         <td style="background-color: red">Median User Rating</td>
@@ -124,7 +124,7 @@ import pandas as pd
 
 
 def load_data(rating_filepath="ratings.csv"):
-    """Load extracted movie lense data."""
+    """Load extracted MovieLens data."""
     nrows = None
     df = pd.read_csv(rating_filepath, nrows=nrows)
     df["rating"] = df["rating"].astype("int16")
@@ -231,7 +231,7 @@ if __name__ == "__main__":
 ## Problems
 
 * **Ratings instead of Order**: For applications, we are not interested in the
-  right rating but getting the order right. So a constant bias for a user is
+  right rating but in getting the order right. So a constant bias for a user is
   fine. MAE does not capture that fact.
 
 

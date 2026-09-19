@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Code Optimization
 slug: code-optimization
+lang: en
 author: Martin Thoma
 date: 2019-01-28 20:00
 category: Code
@@ -10,15 +10,15 @@ tags: Software Engineering, Productivity
 featured_image: logos/python.png
 ---
 Code optimization is about making programs run faster. In this article, I'll
-give some basic ideas how to do it.
+give some basic ideas of how to do it.
 
 <div class="info">This article is NOT about <a href="https://martin-thoma.com/optimization-basics/">optimization problems</a>. It is also not about compression. Neither is it about churn rates (making users / companies happy).</div>
 
-There is a ton of different ways how to speed up things. You can use algorithms
+There are tons of different ways to speed things up. You can use algorithms
 and data structures that scale better. You can avoid some operations
 completely, because you actually don't use the results. Caching is also a
 technique that quite often helps to avoid repeating costly operations. In some
-cases it is completely fine to have computationally intensive parts, but you
+cases, it is completely fine to have computationally intensive parts, but you
 want to pre-compute them. So maybe you can just change the point in time when
 the costly operation is done.
 
@@ -29,7 +29,7 @@ You should know how your code scales. When you write a data structure, you
 should document the Big-O notation of its operations. When you write functions,
 you should do the same.
 
-So much about nice an innocent thoughts. In reality, you probably get
+So much for nice and innocent thoughts. In reality, you probably get
 distracted or simply have more important things to do than noting the runtime
 complexity of your code. It's clear anyway, right?
 
@@ -43,8 +43,8 @@ have to scale: More calls or calls with bigger arguments?
 ## Measuring Performance
 
 Measuring performance has two aspects: Profiling the overall program to find
-which parts most time is spend on and then improving that part. For profiling
-in Python, I use `cProfile`. For improving I compare solutions via `timeit`.
+which parts most time is spent on, and then improving that part. For profiling
+in Python, I use `cProfile`. For improving, I compare solutions via `timeit`.
 
 ### cProfile
 
@@ -64,7 +64,7 @@ $ cprofilev -f profile_output
 ### timeit
 
 You might wonder for two solutions which one is the faster one. While this can
-be incredible hard to answer for arbitary hardware, even for your machine with
+be incredibly hard to answer for arbitrary hardware, even for your machine with
 roughly the same load it is a tough question. You need to execute the stuff
 multiple times, have the same setup (to make sure that the same stuff is
 cached) and then look at the measured results.
@@ -101,11 +101,11 @@ def category_count(text):
     return sum(unicodedata.category(char) != "Mn" for char in text)
 ```
 
-Besides the fact that two make a list-lookups and the other two make set lookups,
+Besides the fact that two make list lookups and the other two make set lookups,
 it might be hard to tell how much of a difference that makes. So I took
 [a big text file](https://github.com/loretoparisi/unicode_marks/blob/master/UnicodeData.txt) for
 comparison and used `timeit`. As different runs have different times, I counted
-a couple of them and created [Box plots](https://en.wikipedia.org/wiki/Box_plot)
+a couple of them and created [box plots](https://en.wikipedia.org/wiki/Box_plot)
 to show the distribution of execution times. I also made sure that the algorithm
 is correct (never forget that when you optimize code!).
 
@@ -182,7 +182,7 @@ def create_boxplot(duration_list):
 </figure>
 
 You can clearly see that the markset_count and the category_count are way
-faster than the generator_count and the loop_count. Also the speed of the
+faster than the generator_count and the loop_count. Also, the speed of the
 latter two varies way more. Interestingly, the generator_count is slower than
 the loop_count.
 
@@ -200,16 +200,16 @@ increase the text length:
 
 ## Hints
 
-* **Vectorization**: Gives the hell of a speedup. See [Vectorization and Parallelization in Python with Numpy and Pandas](https://datascience.blog.wzb.eu/2018/02/02/vectorization-and-parallelization-in-python-with-numpy-and-pandas/)
+* **Vectorization**: Gives a hell of a speedup. See [Vectorization and Parallelization in Python with Numpy and Pandas](https://datascience.blog.wzb.eu/2018/02/02/vectorization-and-parallelization-in-python-with-numpy-and-pandas/)
 * **Immutable data structures**: Strings are often immutable (e.g. in Python).
-  You might want to use a String Builder, in Python there is an article about
+  You might want to use a string builder. For Python, there is an article about
   [Efficient String Concatenation in Python](https://waymoot.org/home/python_string/)
 * **Parallelization**: Again, a huge speedup is possible. My [Intel i7-6700HQ](https://ark.intel.com/content/www/us/en/ark/products/88967/intel-core-i7-6700hq-processor-6m-cache-up-to-3-50-ghz.html) allows 8 threads, so an 8x speedup is possible.
 
 
 ## Website Optimization
 
-This is a super wide topic
+This is a super wide topic.
 
 See:
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Simple Operations and Basic Numbers
 slug: simple-operations
+lang: en
 author: Martin Thoma
 date: 2019-04-17 20:00
 category: Code
@@ -13,10 +13,10 @@ I just wondered how fast some simple operations are (in Python). Like the lookup
 element in a dictionary. Here you have some, tested on my ThinkPad T460p ([i7-6700HQ](https://ark.intel.com/content/www/de/de/ark/products/88967/intel-core-i7-6700hq-processor-6m-cache-up-to-3-50-ghz.html)).
 
 
-## Arithmethic
+## Arithmetic
 
 I added/subtracted/multiplied/divided a thousand pairs of numbers to test the
-speed of basic arithmetic operations. I expected them to be FAST; essentially
+speed of basic arithmetic operations. I expected them to be FAST.
 
 Let's have a look at the adding function:
 
@@ -25,7 +25,7 @@ def add(numbers):
     return [a + b for a, b in numbers]
 ```
 
-The disassembled cPython Byte-Code looks like this:
+The disassembled CPython bytecode looks like this:
 
 ```python-prompt
 >>> import dis
@@ -81,7 +81,7 @@ modulo              : min: 0.08μs, mean: 0.15μs, max:   1.59μs
 ```
 
 I'm not sure if this test "suffers" from caching, especially as the max is way
-higher than the min and mean, but I guess it is save to say that all four
+higher than the min and mean, but I guess it is safe to say that all four
 basic arithmetic operations are about the same execution time and are less than
 2μs. That would be about 5200 CPU cycles of my machine.
 
@@ -191,9 +191,9 @@ When you talk about "speed" in a network context, there are two important values
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Network_delay">Latency</a></dt>
-    <dd>Latency is measured in milli-seconds (ms) and answers the question: How long does it take for the first bit to be transmitted?</dd>
+    <dd>Latency is measured in milliseconds (ms) and answers the question: How long does it take for the first bit to be transmitted?</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Throughput">Throughput</a> (Bandwidth)</dt>
-    <dd>Throughput is measured in kB/s and answers the question: If the first bit already arrived, how quickly will the rest be transfered?</dd>
+    <dd>Throughput is measured in kB/s and answers the question: If the first bit already arrived, how quickly will the rest be transferred?</dd>
 </dl>
 
 
@@ -206,11 +206,11 @@ Typical values:
 * Accessing L1 / L2 CPU caches: 1ns - 10ns
 * Accessing L3 CPU cache: 10ns - 100ns
 * Ethernet Switch Latency: 50μs - 125μs
-* Cable: Essentially non-existant as the signal travels with the speed of light
+* Cable: Essentially non-existent as the signal travels with the speed of light
 
-And some other corner stones:
+And some other reference points:
 
-* Ping (via WLAN) in average
+* Ping (via WLAN) on average
     * My router: 2.3ms
     * joyn.de: 19.4ms
     * twitter.com: 25.7ms
@@ -309,7 +309,7 @@ streaming:
     <tbody>
     <tr>
         <td>0.5 Mbit/s</td>
-        <td>Minimum required for Netfix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
+        <td>Minimum required for Netflix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
     </tr>
     <tr>
         <td>1.5 Mbit/s</td>
@@ -333,7 +333,7 @@ streaming:
 
 ### Combinations
 
-Some measurements how quickly I get web pages:
+Some measurements of how quickly I get web pages:
 
 ```text
 get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
@@ -350,7 +350,7 @@ get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
 
 ## Code
 
-See [Github](https://github.com/MartinThoma/algorithms/blob/master/Python/timing/lookup.py) for the snippet.
+See [GitHub](https://github.com/MartinThoma/algorithms/blob/master/Python/timing/lookup.py) for the snippet.
 
 
 ## Footnotes

@@ -1,15 +1,15 @@
 ---
 layout: post
-lang: en
 title: HTML Quantities
 slug: html-quantities
+lang: en
 author: Martin Thoma
 date: 2019-12-28 20:00
 category: The Web
 tags: HTML, Semantic Web
 featured_image: logos/html.png
 ---
-The web is constantly evolving, and so it the language of it: HTML. Many
+The web is constantly evolving, and so is its language: HTML. Many
 changes users notice are around JavaScript, but we also got [semantic tags](https://www.w3schools.com/html/html5_semantic_elements.asp) such
 as `<article>`, `<section>`, `<header>`, `<footer>`. With rich markup one can
 allow unknown third parties to parse and extract relevant information, such
@@ -18,7 +18,7 @@ article at all.
 
 It's pretty cool that we now have those semantic HTML elements and that we have
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Microdata">Microdata</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/microformats">Microformats</a> and <a href="https://en.wikipedia.org/wiki/RDFa">RDFa</a>
-which gives us neat <a href="https://developers.google.com/search/docs/guides/intro-structured-data">Google Search Result previews</a>.
+which give us neat <a href="https://developers.google.com/search/docs/guides/intro-structured-data">Google Search Result previews</a>.
 
 But [I miss a standard to annotate quantities](https://stackoverflow.com/q/53097575/562769).
 
@@ -26,7 +26,7 @@ But [I miss a standard to annotate quantities](https://stackoverflow.com/q/53097
 
 ## The problem
 
-We use different quantities. The biggest clash are the two systems: The [metric system](https://en.wikipedia.org/wiki/Metric_system) vs [imperial units](https://en.wikipedia.org/wiki/Imperial_units). Just look at the following and try to answer basic questions:
+We use different quantities. The biggest clash is between two systems: The [metric system](https://en.wikipedia.org/wiki/Metric_system) vs [imperial units](https://en.wikipedia.org/wiki/Imperial_units). Just look at the following and try to answer basic questions:
 
 * It was -5°F in winter in Augsburg. Was it cold?
 * It was 35°C in summer in North Dakota. Was it hot?
@@ -59,13 +59,13 @@ The intermediate solution is a bit verbose. I would prefer a syntax like:
 Where the `<num>` tag should be the number without any spaces / other tags, but
 it should also have easy ways to customize the numbers (preferably via CSS):
 
-* Thousands seperator: `,` or `.` or `'` or ` `
-* Decimal seperator: `,` or `.`
+* Thousands separator: `,` or `.` or `'` or ` `
+* Decimal separator: `,` or `.`
 
 You can do this number formatting with JavaScript [`toLocaleString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString):
 
 ```js
-num = 1234567
+num = 1234567.89
 num.toLocaleString('en', {useGrouping:true})
 ```
 

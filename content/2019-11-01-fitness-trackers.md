@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Fitness Trackers
 slug: fitness-trackers
+lang: en
 author: Martin Thoma
 date: 2019-11-01 20:00
 category: My bits and bytes
@@ -11,7 +11,7 @@ featured_image: logos/star.png
 ---
 [Fitness trackers](https://en.wikipedia.org/wiki/Activity_tracker) are devices
 which measure things like walked distance and heartbeats. They are usually
-writstbands.
+wristbands.
 
 I recently got excited by them and gave them a try. I tried the Mi Band 4. It
 is one of the cheapest fitness bands which still had very good reviews.
@@ -22,9 +22,9 @@ I was not happy with it. There were two things I hoped it could do:
    so I want to keep track of it.
 2. Activity Tracking: How do I spend my day? When do I do which sport?
 
-Both of them were not good enough:
+Neither of them was good enough:
 
-1. The sleep tracking basically tracked when I went to bed / when I stood up.
+1. The sleep tracking basically tracked when I went to bed / when I got up.
    Which can be very different from sleep. It especially did not notice when I
    woke up in the middle of the night.
 2. When I started the workout tracking (cycling) via the band, it seemingly did
@@ -46,7 +46,7 @@ activated when I showered.
 
 ## Functionalities
 
-* Count how many steps you made with the Pedometer
+* Count how many steps you took with the pedometer
 * Sleep
 
 ## Non-Functional Qualities
@@ -63,7 +63,7 @@ activated when I showered.
     * Swimming
     * Yoga
     * ...
-* IPX: How much can it stand sweat, water and dust? IP67, IP68
+* IPX: How well can it withstand sweat, water and dust? IP67, IP68
 * Bluetooth: Which version is supported?
 * Wireless charging
 
@@ -92,7 +92,7 @@ activated when I showered.
         <td>4.2</td>
     </tr>
     <tr>
-        <th>Weigth</th>
+        <th>Weight</th>
         <td>22&thinsp;g</td>
         <td>23&thinsp;g</td>
     </tr>
@@ -219,9 +219,9 @@ possible to use any fitness tracker with any fitness app, but at the moment
 * [Walking](../images/2019/10/mi-walking.jpg)
 * [Workouts](../images/2019/10/mi-workouts.jpg)
 
-There is another app - [Notify & Fitness for Mi Band](https://play.google.com/store/apps/details?id=com.mc.miband1). It is ok, but you have to pay for every single feature:
+There is another app - [Notify & Fitness for Mi Band](https://play.google.com/store/apps/details?id=com.mc.miband1). It is OK, but you have to pay for every single feature:
 
-* [](../images/2019/10/mi-note-app.jpg)
+* [Screenshot](../images/2019/10/mi-note-app.jpg)
 
 ### Samsung Health
 

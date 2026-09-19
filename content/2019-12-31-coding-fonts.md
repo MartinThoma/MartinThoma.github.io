@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Coding Fonts
 slug: coding-fonts
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
@@ -96,12 +96,12 @@ How to Enable Ligatures:
 ## Fira Code
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/fira-code-retina.png"><img src="../images/2019/12/fira-code-retina.png" alt="A jellyfish" style="width: 512px;"/></a>
-    <figcaption class="text-center">A jellyfish</figcaption>
+    <a href="../images/2019/12/fira-code-retina.png"><img src="../images/2019/12/fira-code-retina.png" alt="Fira Code" style="width: 512px;"/></a>
+    <figcaption class="text-center">Fira Code</figcaption>
 </figure>
 
 [FiraCode](https://github.com/tonsky/FiraCode) is licensed under SIL Open Font License 1.1.
-It is a Monospaced font with programming ligatures.
+It is a monospaced font with programming ligatures.
 
 [Google Fonts Page](https://fonts.google.com/specimen/Fira+Code?query=fira)
 

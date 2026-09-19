@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Working Remotely
 slug: working-remotely
+lang: en
 author: Martin Thoma
 date: 2019-07-29 20:00
 category: My bits and bytes
@@ -15,7 +15,7 @@ decide where you work and you interact with your co-workers online.
 ## Manifesto
 
 There are many different ways to work remotely and to coordinate. The core part
-for sure is the location, but a connected part are office hours. Sharing of
+for sure is the location, but a connected part is office hours. Sharing of
 information is also pretty important.
 
 The [Remote Only Manifesto](https://www.remoteonly.org/) summarizes 9 core ideas
@@ -40,18 +40,18 @@ of Remote Only work.
 
 1. *Live where you want*
     1. *Lower cost of living*: The rent for 1 bedroom in central [Munich](https://www.numbeo.com/cost-of-living/in/Munich) is 1165 EUR, in the center of [Freiburg](https://www.numbeo.com/cost-of-living/in/Freiburg-Im-Breisgau) it is only 708 EUR.
-    2. *Higher quality of living*: In big cities, live is hectic. It's loud.
-2. *No commute*: You are instantly at work. This gives you way more time
+    2. *Higher quality of living*: In big cities, life is hectic. It's loud.
+2. *No commute*: You are instantly at work. This gives you way more time.
 3. *Better Diet*: You can cook at home. What you like, when you like it.
-4. *Work when you want*: The sleep rythms of all of us differ. I'm pretty sure that having more flexibility in the working hours has the possiblity to improve health for many people.
-5. *Dress/style as you want*: If you work at office and it's 30°C, you might
+4. *Work when you want*: The sleep rhythms of all of us differ. I'm pretty sure that having more flexibility in the working hours has the possibility to improve health for many people.
+5. *Dress/style as you want*: If you work at an office and it's 30°C, you might
    still have to wear long trousers. Even if your office does not have air
    conditioning. And no makeup is necessary.
-6. *No distraction*: You are in charge of your concetration. You can switch off
+6. *No distraction*: You are in charge of your concentration. You can switch off
    social media and communication channels and just focus on work.
-7. *Diseases*: People tend to go to work even when they feel slightly not well.
-   So every year, diseases like the flue spread. If you work from home, you're
-   save from that.
+7. *Diseases*: People tend to go to work even when they feel slightly unwell.
+   So every year, diseases like the flu spread. If you work from home, you're
+   safe from that.
 
 
 ### For the Company
@@ -62,8 +62,8 @@ of Remote Only work.
 2. *Worker satisfaction*:
     1. [Turnover](https://en.wikipedia.org/wiki/Turnover_(employment)): If
        people enjoy working for the company, they keep working for the company.
-    2. Quality of Work: Being proud in your work is important. It helps to keep
-       people being motivated to keep up with the state of the art. The fix
+    2. Quality of Work: Being proud of your work is important. It helps to keep
+       people motivated to keep up with the state of the art and to fix
        mistakes they made in the past.
 3. *No office*: You don't have to pay it. This might be a huge cost factor.
    Also all of the things connected to it, like cleaning or equipment.
@@ -71,7 +71,7 @@ of Remote Only work.
    fix stuff immediately is expensive. People don't want to be woken up at
    night to work. If your workers are all around the world, you can make
    use of the timezone differences.
-5. *Diseases*: If the flue spreads in the office, you might suddenly loose a
+5. *Diseases*: If the flu spreads in the office, you might suddenly lose a
    complete team of developers. Or maybe the site reliability team. If you
    let them work from home primarily, then the chance of this is way lower.
 
@@ -91,7 +91,7 @@ of Remote Only work.
 ### For the Company
 
 1. Control: Are people really working? Are they working the time you pay them
-   for? This might be something you might be worried about. On the one hand,
+   for? This might be something you might be worried about. However,
    I'd say that is the wrong approach. You should not care about time, but
    about return on investment. Do you get the same / more / less for the money
    you pay?
@@ -110,7 +110,7 @@ of Remote Only work.
 
 ## Companies
 
-There seem to be quite a couple companies which have significant remote work part:
+There seem to be quite a few companies which have a significant remote work share:
 
 <ul>
     <li><a href="https://www.remoteonly.org/">remoteonly.org</a></li>
@@ -121,7 +121,7 @@ There seem to be quite a couple companies which have significant remote work par
 </ul>
 
 Some of them are pretty well known and of very different size. All of them seem
-to have a product which is mainly on web:
+to have a product which is mainly on the web:
 
 <table class="table">
     <tr>
@@ -132,7 +132,7 @@ to have a product which is mainly on web:
         <th>Jobs</th>
     </tr>
     <tr>
-        <td><a href="https://www.airbnb.de/">AirBnB</a></td>
+        <td><a href="https://www.airbnb.de/">Airbnb</a></td>
         <td><a href="https://craft.co/airbnb">12736</a></td>
         <td>Apartment Sharing</td>
         <td><a href="https://stackshare.io/airbnb/airbnb">JS, Ruby</a></td>
@@ -153,7 +153,7 @@ to have a product which is mainly on web:
         <td><a href="https://balsamiq.com/company/jobs/">Jobs</a></td>
     </tr>
     <tr>
-        <td><a href="https://about.gitlab.com/">Gitlab</a></td>
+        <td><a href="https://about.gitlab.com/">GitLab</a></td>
         <td><a href="https://about.gitlab.com/company/team/" title="2019-07-29">795</a></td>
         <td>Git Hosting</td>
         <td><a href="https://stackshare.io/gitlab/gitlab">Git, Ruby</a></td>
@@ -200,7 +200,7 @@ to have a product which is mainly on web:
             <td><a href="https://backhub.co/jobs/">Jobs</a></td>
         </tr>
         <tr>
-            <td><a href="https://www.br.de/">Bayrischer Rundfunk</a></td>
+            <td><a href="https://www.br.de/">Bayerischer Rundfunk</a></td>
             <td>3402</td>
             <td>News</td>
             <td>Java, J2EE, JPA, Maven/Ivy/Gradle, AWS, Docker</td>
@@ -210,7 +210,7 @@ to have a product which is mainly on web:
             <td><a href="https://bryter.io/careers/">Bryter</a></td>
             <td>~80</td>
             <td>Enabling experts to automate decision-making</td>
-            <td>Vue.js, Kotlin, Docker, Kubernetes, PostgreSQL, Springboot, </td>
+            <td>Vue.js, Kotlin, Docker, Kubernetes, PostgreSQL, Spring Boot</td>
             <td><a href="https://bryter.io/careers/">Jobs</a></td>
         </tr>
         <tr>
@@ -223,7 +223,7 @@ to have a product which is mainly on web:
         <tr>
             <td><a href="https://www.elastic.co/">elastic</a></td>
             <td>?</td>
-            <td>Elastic Search Support</td>
+            <td>Elasticsearch Support</td>
             <td>Elastic, Node.js, Java, </td>
             <td><a href="https://www.elastic.co/de/about/careers/">Jobs</a></td>
         </tr>
@@ -256,9 +256,9 @@ to have a product which is mainly on web:
             <td><a href="http://careers.joyridedating.com/">Jobs</a></td>
         </tr>
         <tr>
-            <td><a href="https://inpsyde.com">inpyside</a></td>
+            <td><a href="https://inpsyde.com">inpsyde</a></td>
             <td>?</td>
-            <td>Wordpress</td>
+            <td>WordPress</td>
             <td>PHP, WooCommerce, git, Envoyer, Composer, JIRA & Confluence</td>
             <td><a href="https://inpsyde.com/jobs/">Jobs</a></td>
         </tr>
@@ -326,7 +326,7 @@ to have a product which is mainly on web:
             <td><a href="https://karriere.sport1-medien.de/">Jobs</a></td>
         </tr>
         <tr>
-            <td><a href="https://travis-ci.org/">TravisCI</a></td>
+            <td><a href="https://travis-ci.org/">Travis CI</a></td>
             <td>?</td>
             <td>Developer Service</td>
             <td><a href="https://stackshare.io/travis-ci/travis-ci">Stack</a>: Ruby (Rails)</td>
@@ -349,7 +349,7 @@ to have a product which is mainly on web:
     </tbody>
 </table>
 
-Many of those are from [Daniel Bayerleins List](https://github.com/danielbayerlein/remote-jobs-germany).
+Many of those are from [Daniel Bayerlein's list](https://github.com/danielbayerlein/remote-jobs-germany).
 
 ### Python
 
@@ -388,7 +388,7 @@ Many of those are from [Daniel Bayerleins List](https://github.com/danielbayerle
         <tr>
             <td><a href="https://sprylab.com/de/python-backend-entwickler-m-w-d/">Sprylab</a></td>
             <td>?</td>
-            <td>Plattform Development</td>
+            <td>Platform Development</td>
             <td>Django/Flask, Swagger, Git, Scrum, Kanban, AWS/Azure, Docker, Kubernetes, Elasticsearch</td>
             <td><a href="https://sprylab.com/de/jobs/">Jobs</a></td>
         </tr>

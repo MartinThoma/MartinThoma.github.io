@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: Roles in Software Development
 slug: roles-in-software-development
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-07-09 20:00
 category: My bits and bytes
 tags: Software Engineering, Scrum
 featured_image: logos/star.png
+status: draft
 ---
 Software development is a huge industry. Naturally, there are many
 specializations which makes it difficult for outsiders and freshmen to
@@ -50,7 +50,7 @@ Typical Skillset:
 * 10x Ansible
 * 10x Python
 * 10x Linux
-* 10x Git-Service: Gitlab (GitlabCI) / Bitbucket / GitHub
+* 10x Git-Service: GitLab (GitLab CI) / Bitbucket / GitHub
 * 7x container orchestration: Kubernetes (OpenShift)
 * 7x Jenkins: e.g. build environment, setting up a continuous delivery pipeline
 * 7x Bash (or other shell)
@@ -85,7 +85,7 @@ Typical Skillset:
 * Orchestration Tools: Mesos, Chronos, Marathon
 * Databases:
     * 4x Elasticsearch
-    * 4x SQL (relational data bases)
+    * 4x SQL (relational databases)
     * 4x MySQL
     * 2x PostgreSQL
     * MS SQL

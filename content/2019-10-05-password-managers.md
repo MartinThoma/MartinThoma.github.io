@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Password Managers
 slug: password-managers
+lang: en
 author: Martin Thoma
 date: 2019-10-05 20:00
 category: My bits and bytes
@@ -10,9 +10,9 @@ tags: IT Security, password
 featured_image: logos/star.png
 ---
 I recently thought about good solutions for passwords
-in general. I have found one with which I was ok for a while, but more and more
+in general. I had found one which was OK for me for a while, but more and more
 services get compromised. Try [haveibeenpwned.com](https://haveibeenpwned.com/) or [Firefox Monitor](https://monitor.firefox.com/) to see if you are affected. One easy way
-to keep the damage small is not to re-use passwords. It is impractical to have
+to keep the damage small is not to re-use passwords. It is impractical to remember
 strong passwords for every web service I use. I have to either use a password
 service or note things down.
 
@@ -26,10 +26,10 @@ three categories:
   incidents happened so far? Does it support 2FA / MFA?
 * **Usability**: Is it convenient to use? Is it available on Linux and Android?
   Can I use it outside of the browser (e.g. if the password field is not
-  detected). Does it have an UI for generating strong random passwords when
+  detected)? Does it have a UI for generating strong random passwords when
   creating a new account?
 * **Long-Term Support**: Is this backed by a (bigger) company / a team of
-  developers? Is there vendor-locking?
+  developers? Is there vendor lock-in?
 
 
 ## Google Smart Lock
@@ -38,12 +38,12 @@ three categories:
 
 ## LastPass
 
-[LastPass](https://en.wikipedia.org/wiki/LastPass) is developed by LogMeIn
+[LastPass](https://en.wikipedia.org/wiki/LastPass) has been developed by LogMeIn
 since 2015. The initial release was in 2008.
 
 ### Security
 
-The wikipedia page lists four security incidents and one security breach:
+The Wikipedia page lists several security incidents and one security breach:
 
 * 2011: Network anomaly; unclear if anything actually happened.
 * 2015: LastPass account email addresses, password reminders, server per user
@@ -52,7 +52,7 @@ The wikipedia page lists four security incidents and one security breach:
 * 2016: Detectify and Google Security found an issue in URL parsing
 * 2016: Hardcoded Master Key in LastPass Password Manager ([SIK-2016-022](https://team-sik.org/sik-2016-022/))
 * 2016: Privacy, Data leakage in LastPass Browser Search ([SIK-2016-023](https://team-sik.org/sik-2016-023/))
-* 2016: Read Private Date (Stored Masterpassword) from LastPass Password Manager ([SIK-2016-024](https://team-sik.org/sik-2016-024/))
+* 2016: Read Private Data (Stored Masterpassword) from LastPass Password Manager ([SIK-2016-024](https://team-sik.org/sik-2016-024/))
 * 2017: [Tavis Ormandy](https://en.wikipedia.org/wiki/Tavis_Ormandy) (Google Security / Project Zero) found another issue in the browser extension
 * 2019: [Password-exposing bug purged from LastPass extensions](https://arstechnica.com/information-technology/2019/09/lastpass-fixes-bug-that-leaked-the-password-of-last-logged-in-account/), [Tweet](https://twitter.com/taviso/status/1173401754257375232)
 
@@ -70,7 +70,7 @@ It is free and open source.
 
 ## KeePassX
 
-[KeePassX](https://en.wikipedia.org/wiki/KeePassX) started in 2016 as a port of KeePass to Linux. The [code is on Github](https://github.com/keepassx/keepassx) and it has
+[KeePassX](https://en.wikipedia.org/wiki/KeePassX) started in 2006 as a port of KeePass to Linux. The [code is on GitHub](https://github.com/keepassx/keepassx) and it has
 4063&nbsp;stars and 591&nbsp;forks. It's mostly C++.
 
 The last version was released in 2016, so about 3 years ago. **KeePassX is not maintained**.[^2]
@@ -357,10 +357,10 @@ Dashlane supports secure file storage.
 
 ## TL;DR
 
-* Google Chromes internal password manager + [Firefox Monitor](https://monitor.firefox.com/) + <a href="https://passwordsgenerator.net/">passwordsgenerator.net</a> works quite fine.
-* LastPass and 1Password look ok. A colleague used both on Mac and prefered 1Password.
+* Google Chrome's internal password manager + [Firefox Monitor](https://monitor.firefox.com/) + <a href="https://passwordsgenerator.net/">passwordsgenerator.net</a> works quite fine.
+* LastPass and 1Password look OK. A colleague used both on Mac and preferred 1Password.
 * KeePass is free software, but the design doesn't look good and the
-  integrations might make it hard to use
+  integrations might make it hard to use.
 
 
 ## See also

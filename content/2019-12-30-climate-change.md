@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Climate Change
 slug: climate-change
+lang: en
 author: Martin Thoma
 date: 2019-12-30 20:00
 category: My bits and bytes
@@ -14,7 +14,7 @@ our politics. My discussion partner was agreeing that we have to change
 something, but only if every other major player does so as well. Otherwise,
 Germany would economically hurt itself without achieving anything.
 
-In this post, I will briefly talk about what climat change is, how it affects
+In this post, I will briefly talk about what climate change is, how it affects
 humanity, what nations can do and what single people can do.
 
 ## What is Climate Change?
@@ -34,7 +34,7 @@ Most importantly, there is [global warming](https://en.wikipedia.org/wiki/Global
 
 See [IPCC-2018-SPM](https://report.ipcc.ch/sr15/pdf/sr15_spm_final.pdf) for many
 details and [36C3 - Science for future?](https://www.youtube.com/watch?v=tGyLCl757OM)
-for a nice talk
+for a nice talk.
 
 ### Too hot to Live
 
@@ -48,7 +48,7 @@ The water will rise. Island nations might disappear[^13]:
 * less than 1.5 °C: +0.5m
 * 1.5 °C to 2.0 °C: +0.5m, but not certain. 250 million people have to move.
 * 3.0 °C to 4.0 °C: +0.5m and more. 1000 million people have to move (including New York, Mumbai, Shanghai, Hamburg)
-* more than 4.0 °C: +1m; the melting arctic and greenland will make the sea level rise by 50m (!)
+* more than 4.0 °C: +1m; the melting Arctic and Greenland will make the sea level rise by 50m (!)
 
 The issue with the rising sea level is also that it is salt water. So it might
 make fertile land become unusable for agriculture.
@@ -62,8 +62,8 @@ problematic the changes are:
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2019/12/floodmap-jackarta.png"><img src="../images/2019/12/floodmap-jackarta.png" alt="Floodmap of Jackarta (Indonesia; +1m sea level)" style="width: 512px;"/></a>
-    <figcaption class="text-center">Floodmap of Jackarta (Indonesia; +1m sea level)</figcaption>
+    <a href="../images/2019/12/floodmap-jackarta.png"><img src="../images/2019/12/floodmap-jackarta.png" alt="Floodmap of Jakarta (Indonesia; +1m sea level)" style="width: 512px;"/></a>
+    <figcaption class="text-center">Floodmap of Jakarta (Indonesia; +1m sea level)</figcaption>
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -74,7 +74,7 @@ problematic the changes are:
 
 ### Corals Die
 
-Corals could die, because of [Coral bleaching](https://en.wikipedia.org/wiki/Coral_bleaching).
+Corals could die because of [coral bleaching](https://en.wikipedia.org/wiki/Coral_bleaching).
 
 When corals die, then a lot of the ecosystem dies. This affects fishing.
 
@@ -91,7 +91,7 @@ Notable wildfires of 2019:
 * [2019 Siberia wildfires](https://en.wikipedia.org/wiki/2019_Siberia_wildfires) fires burned 3&thinsp;000&thinsp;000 ha
 * 2019 Eastern Seaboard (Australia) fires burned >2&thinsp;000&thinsp;000 ha, killed 8
 * [2019 Alberta wildfires](https://en.wikipedia.org/wiki/2019_Alberta_wildfires) burned 883&thinsp;414 ha
-* [2019 California wildfires](https://en.wikipedia.org/wiki/2019_California_wildfires) burned 102&thinsp;472, killed 5
+* [2019 California wildfires](https://en.wikipedia.org/wiki/2019_California_wildfires) burned 102&thinsp;472 ha, killed 5
 * [2019 Amazon rainforest wildfires](https://en.wikipedia.org/wiki/2019_Amazon_rainforest_wildfires) burned 40&thinsp;000 ha, killed 2
 * [2019 United Kingdom wildfires](https://en.wikipedia.org/wiki/2019_United_Kingdom_wildfires) burned 16&thinsp;000 ha.
 * [2019 Bandipur forest fires](https://en.wikipedia.org/wiki/2019_Bandipur_forest_fires) (India) burned 4&thinsp;420 hectares
@@ -103,11 +103,11 @@ See [The effects of climate change on water shortages](https://earth.stanford.ed
 
 ### Famines
 
-If it becomes too hot, if the salty water of the sea rises, if catastrophies
-like hurricanes increase, then we will produce globally less food. This means
+If it becomes too hot, if the salty water of the sea rises, if catastrophes
+like hurricanes increase, then we will globally produce less food. This means
 people will starve.
 
-Just to sow you that famines are still happening:
+Just to show you that famines are still happening:
 
 * [Famine in Yemen (2016–present)](https://en.wikipedia.org/wiki/Famine_in_Yemen_(2016%E2%80%93present)): Over 17 million of Yemen's population are at risk
 * [2017 Somali drought](https://en.wikipedia.org/wiki/2017_Somali_drought): affected more than 6 million people
@@ -118,7 +118,7 @@ Just to sow you that famines are still happening:
 
 If people are starving, they will try to fix that problem. The easiest ways to
 do so are either to go somewhere else or to take food / good land / resources
-from somebody else. Think of the region around Isreal and access to drinking
+from somebody else. Think of the region around Israel and access to drinking
 water.
 
 
@@ -180,11 +180,11 @@ There are many small-scale discussions in Germany ([Speed limit to 120km/h](http
 
 The problem is, it is by far not enough. We need all of it and more.
 
-We can see CO2 as a finite resource. We have a certain [CO2 budget](https://en.wikipedia.org/wiki/Emissions_budget) which we may emmit each year. And we already have a good instrument
+We can see CO2 as a finite resource. We have a certain [CO2 budget](https://en.wikipedia.org/wiki/Emissions_budget) which we may emit each year. And we already have a good instrument
 to deal with limited budget: Money.
 
 If we want to have a 50/50 chance to stay below the 1.5°C target, then the
-world has a budget of 480 Gt CO2. As Germany has 1.07% of the worlds
+world has a budget of 480 Gt CO2. As Germany has 1.07% of the world's
 population, one could argue it has 5.1 Gt CO2 budget. Not per year. In total.
 Ever.
 
@@ -197,15 +197,15 @@ This means we have a budget of 100&nbsp;Mt per year. In 2017, we were at
 
 Let's assume we had a budget of 100&nbsp;Mt for 2019. Now Germany could sell
 certificates. Companies could buy them and they would need to have a
-certificate for each ton of CO2-equivalent they emmit. If they emmit more, they
+certificate for each ton of CO2-equivalent they emit. If they emit more, they
 have to buy from another company or plant 2 trees (and keep them alive for
-40&nbsp;years) per ton they emmitted. As a
+40&nbsp;years) per ton they emitted. As a
 [hornbeam](https://en.wikipedia.org/wiki/Carpinus_betulus) of 22 years costs
 890&nbsp;EUR this means each ton of CO2 has to be punished by 3236&nbsp;EUR.
 
-The 696&nbsp;Mt we emmited too much in 2017 would therefore cost
+The 696&nbsp;Mt we emitted too much in 2017 would therefore cost
 2&thinsp;252&thinsp;256 million Euro. Here you can see that planting trees is
-not the a golden bullet solution. We need to reduce the emmissions.
+not a silver bullet solution. We need to reduce the emissions.
 
 
 ### Social Justice
@@ -214,9 +214,9 @@ Making CO2 certificates expensive and applying them everywhere will increase
 the cost of many goods. That will be hardest for low-level income families.
 However, it is also a chance for social justice: The money that Germany
 receives via the CO2 certificate auction can be distributed to every German
-citicen equally. This way, if a person does use less than their share of the
+citizen equally. This way, if a person does use less than their share of the
 CO2 budget, they actually are better off at the end. People who use more, e.g.
-by flying on vaccation, pay for the harm they do to all of us.
+by flying on vacation, pay for the harm they do to all of us.
 
 This point is made well in <a href="https://www.youtube.com/watch?v=OsZgfglikyU">CO2-Steuer - sinnvolle Maßnahme oder unfaire Belastung?</a> by Joul.
 
@@ -232,7 +232,7 @@ There are many small things:
 * *Commute*:
     * Drive less by car, more by public transportation
     * Drive less by public transportation, more by bike
-    * Look for a work place close to your home / an appartment close to your
+    * Look for a work place close to your home / an apartment close to your
       work / remote work options
     * A [Freight bicycle](https://en.wikipedia.org/wiki/Freight_bicycle) could
       help to do more with the bike
@@ -243,7 +243,7 @@ There are many small things:
 * *Home*:
     * Use less concrete for house building
     * Insulate your house well to reduce heating costs
-    * Use the sun - add solar pannels / [solar thermal energy](https://en.wikipedia.org/wiki/Solar_thermal_energy)
+    * Use the sun - add solar panels / [solar thermal energy](https://en.wikipedia.org/wiki/Solar_thermal_energy)
 
 
 Here you can get a feeling for which action has which effect:
@@ -370,7 +370,7 @@ Here you can get a feeling for which action has which effect:
         <td>4.2L/100km * 1.63 kg / L * 100 km</td>
     </tr>
     <tr>
-        <td>Driving 100 km with Opel Astra (Benzin)</td>
+        <td>Driving 100 km with Opel Astra (gasoline)</td>
         <td>15.08 kg</td>
         <td>6.5L/100km * 2.32 kg / L * 100 km</td>
     </tr>
@@ -400,12 +400,12 @@ Here you can get a feeling for which action has which effect:
         <td>55 W * 10h * (0.474/1000) kg / Wh</td>
     </tr>
     <tr>
-        <td>1 year of old refridgerator (90L)</td>
+        <td>1 year of old refrigerator (90L)</td>
         <td>185.80 kg</td>
         <td>392 kWh * 0.474 kg / kWh, Röhling</td>
     </tr>
     <tr>
-        <td>1 year of new refridgerator (90L)</td>
+        <td>1 year of new refrigerator (90L)</td>
         <td>74.42 kg</td>
         <td>157 kWh * 0.474 kg / kWh, Röhling</td>
     </tr>
@@ -413,12 +413,12 @@ Here you can get a feeling for which action has which effect:
 
 What you should take from this table:
 
-* Updating your old refridgerator helps A LOT
+* Updating your old refrigerator helps A LOT
 * Flying is likely also an easy point where you can reduce your carbon
   footprint a lot
-* Changing your diet (e.g. going from beef to chicken or even to no meet) helps
+* Changing your diet (e.g. going from beef to chicken or even to no meat) helps
   as well
-* Single lightbulbs don't matter that much. Remember, that this can quickly
+* Single lightbulbs don't matter that much. Remember that this can quickly
   become big if you have many and if you let them run for a long time.
   Astonishingly, a laptop isn't sooo much worse either.
 
@@ -433,7 +433,7 @@ India, Russia, Japan, Germany, Iran, Korea, Saudi Arabia, Indonesia - see
 
 However, if everybody waits for others to start, nothing will ever happen. It
 is also a fair argument to say that the western states have used a lot of their
-carbon budget in the past years already. The time, when China and India had
+carbon budget in the past years already, at a time when China and India had
 very little emissions.
 
 It is way easier to build pressure to change if we go ahead as a leading
@@ -451,7 +451,7 @@ help us in other places:
   climate crisis.
 * Switching to electric / CNG / LPG cars: Less
   [particulates](https://en.wikipedia.org/wiki/Particulates) will help to make
-  our cities cleaner. This will make us, the people who live in cities
+  our cities cleaner. This will make us, the people who live in cities,
   healthier.
 * Improve the diet: Do I really have to write that this will very likely make
   you healthier if you eat less meat?

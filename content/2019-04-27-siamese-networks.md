@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Siamese Networks
 slug: siamese-networks
+lang: en
 author: Martin Thoma
 date: 2019-04-27 20:00
 category: Machine Learning
@@ -20,8 +20,8 @@ where not the absolute output is important, but the relative one.
 The original paper[^1] was about signature verification. You have one original
 signature and one that might be the same or might be a different one. Instead
 of having one output that directly says "same" or "different", they decided to
-have one network that maps the input to $\mathbb{R}^{4 \times 19}$ and then use
-euclidean distance with some threshold[^2].
+have one network that maps the input to $\mathbb{R}^{4 \times 19}$ and then use the
+Euclidean distance with some threshold[^2].
 
 Today, the nicest usage I know is DeepFace[^3]. It is a neural network which maps
 faces to $\mathbb{R}^{128}$ by combining a lot of clever ideas.
@@ -30,7 +30,7 @@ faces to $\mathbb{R}^{128}$ by combining a lot of clever ideas.
 ## Key Idea
 
 You have one network $m_1$ which is embedded into another network which
-combines two inputs of $m_1$. So for training a triplet $(d_1, d_2, t)$ is
+combines two inputs of $m_1$. So for training, a triplet $(d_1, d_2, t)$ is
 used, where $d_1$ and $d_2$ are both processed individually by $m_1$. The two
 outputs $d_{1}'$ and $d_{2}'$ are then combined by another network $m_2$. $m_2$
 can simply be a merging layer. The loss is then calculated based on the output
@@ -179,7 +179,7 @@ def dual_loss(y_true, y_pred, n_dim=2):
         The real distance
     y_pred : ndarray
         The first n_dim elements are the first points coordinates,
-        the seoncd n_dim elements are the second points coordinates
+        the second n_dim elements are the second points coordinates
     """
     point1 = y_pred[:, 0:n_dim]
     point2 = y_pred[:, n_dim:]
@@ -204,7 +204,7 @@ def get_train_data(points, distances):
     -------
     (distances_p1, distances_p2, pair_distances) : tuple
         distances_p1 and distances_p2 have the same structure (point 1 and
-        point 2) The contens of those two lists are the distances to the
+        point 2). The contents of those two lists are the distances to the
         reference points
 
         pair_distances : The i-th entry contains the distance between
@@ -241,6 +241,6 @@ if __name__ == "__main__":
 
 ## Footnotes
 
- [^1]: Bromley, Jane, et al. "Signature verification using a" siamese" time delay neural network." Advances in neural information processing systems. 1994.
- [^2]: I'm actually not sure which metric they used to calculate the distance between to signature feature matrices. Please ping me if you know more.
+ [^1]: Bromley, Jane, et al. "Signature verification using a 'siamese' time delay neural network." Advances in neural information processing systems. 1994.
+ [^2]: I'm actually not sure which metric they used to calculate the distance between two signature feature matrices. Please ping me if you know more.
  [^3]: Taigman, Yaniv, et al. "[Deepface: Closing the gap to human-level performance in face verification.](https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf)" Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. ([summary](https://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14))

@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: en
 title: Vegetable Curry
 slug: vegetable-curry
+lang: en
 author: Martin Thoma
 date: 2019-05-30 20:00
 category: My bits and bytes
 tags: cooking, recipe
 featured_image: logos/cooking.png
 ---
-[Curry](https://en.wikipedia.org/wiki/Curry) is a dish found in many asian
-countries. It's always spicy, but necessarily in the hot-spicy sense. There are
-just a lot of spices in Curry 🙂.
+[Curry](https://en.wikipedia.org/wiki/Curry) is a dish found in many Asian
+countries. It's always spicy, but not necessarily in the hot-spicy sense. There are
+just a lot of spices in curry 🙂.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2019/05/curry-06.jpg"><img src="../images/2019/05/curry-06.jpg" alt="Vegetable Curry" style="width: 512px;"/></a>
@@ -29,18 +29,18 @@ For 3 people, you need:
 * 1 [pepper](https://en.wikipedia.org/wiki/Capsicum)
 * 2 carrots
 * 3 [spring onions](https://en.wikipedia.org/wiki/Allium_fistulosum)
-* 0.5 tea spoons salt
-* 0.5 tea spoons pepper
-* 0.5 tea spoon of powder for vegetable broth (German: Gemüsebrühe)
-* 2 tea spoons sugar
-* 2 [table spoons](https://en.wikipedia.org/wiki/Tablespoon) Curry
-* 1 tea spoon [Fish sauce](https://en.wikipedia.org/wiki/Fish_sauce)
+* 0.5 teaspoons salt
+* 0.5 teaspoons pepper
+* 0.5 teaspoon of powder for vegetable broth (German: Gemüsebrühe)
+* 2 teaspoons sugar
+* 2 [tablespoons](https://en.wikipedia.org/wiki/Tablespoon) Curry
+* 1 teaspoon [Fish sauce](https://en.wikipedia.org/wiki/Fish_sauce)
 * 1 small tin can of [Corn](https://en.wikipedia.org/wiki/Maize)
 * 3 red hot Chili peppers
 * 1 can of [coconut milk](https://en.wikipedia.org/wiki/Coconut_milk)
 * [French fried onions](https://en.wikipedia.org/wiki/Fried_onion)
 * [Sunflower oil](https://en.wikipedia.org/wiki/Sunflower_oil)
-* **Side dish**: Rice; roughly 0.1L per person. I like Jasmin rice most.
+* **Side dish**: Rice; roughly 0.1L per person. I like jasmine rice most.
 
 
 ## Tools
@@ -62,10 +62,10 @@ Rice: Put it in a rice cooker with double the amount of water.
 Preparation:
 
 1. Peel the carrots and cut them into sticks.
-2. Wash the Broccoli and cut it into pieces that you can eat comfortably,
+2. Wash the Broccoli and cut it into pieces that you can eat comfortably.
 3. Cut the onion.
-4. Wash the spring oninons and cut them into pieces
-5. Was the Zucchini. Cut the Zucchini in roughly 1cm thick slickes. Make
+4. Wash the spring onions and cut them into pieces.
+5. Wash the zucchini. Cut it into roughly 1cm thick slices. Make
    roughly 4 - 9 pieces out of the Zucchini, so that you can eat it
    comfortably.
 
@@ -105,7 +105,7 @@ Curry:
 
 Serve (for each person):
 
-1. Put the rice in a small cup to form it. Put it on the table.
+1. Put the rice in a small cup to form it. Put it on the plate.
 2. Put the Curry on the plate
 3. Put some french fried onions over the rice
 

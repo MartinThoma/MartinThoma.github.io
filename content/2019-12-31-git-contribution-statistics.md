@@ -1,20 +1,20 @@
 ---
 layout: post
-lang: en
 title: Git Contribution Statistics
 slug: git-contribution-statistics
+lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
 tags: git
 featured_image: logos/git.png
 ---
-I've just received a letter that the Scipy community will write a "scipy 1.0"
+I've just received a letter that the SciPy community will write a "scipy 1.0"
 paper and is wondering who should be mentioned as an author. So they want to
 figure out who "really" contributed something. While I think this should be a
 manual process (and maybe just anybody who added a line of code / documentation
 / gave valuable feedback should be in the author list), I wondered how to do
-this automatically. So here are a few ways. To keep it short, I will crop the
+this automatically. So here are a few ways. To keep it short, I will only show the
 first ten.
 
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
@@ -41,8 +41,8 @@ Add `-e` for e-mails.
 
 851 people in total. 13 people made more than 50% of the commits.
 
-It would be really nice to have a waffle chart showing those numbers. so maybe
-to top 10 with name / initials, everybody with more than 100 commits in one
+It would be really nice to have a waffle chart showing those numbers. So maybe
+the top 10 with name / initials, everybody with more than 100 commits in one
 group, everybody with more than 50 commits in another, just one commit in one
 group and the rest in another group.
 
