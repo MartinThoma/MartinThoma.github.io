@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ super() }}
+{% endblock title %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+{% from '_includes/_defaults.html' import LANDING_PAGE_ABOUT with context %}
+{% if LANDING_PAGE_ABOUT and LANDING_PAGE_ABOUT.title %}
+<meta property="og:title" content="{{ LANDING_PAGE_ABOUT.title|e }}"/>
+<meta name="twitter:title" content="{{ LANDING_PAGE_ABOUT.title|e }}">
+{% else %}
+<meta property="og:title" content="{{ SITENAME|striptags|e }}"/>
+<meta name="twitter:title" content="{{ SITENAME|striptags|e }}">
+{% endif %}
+<meta property="og:url" content="{{ SITEURL }}" />
+{% from '_includes/_defaults.html' import SITE_DESCRIPTION with context %}
+{% if SITE_DESCRIPTION %}
+<meta property="og:description" content="{{SITE_DESCRIPTION|e}}" />
+<meta name="twitter:description" content="{{SITE_DESCRIPTION|e}}">
+{% endif %}
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% from '_includes/_defaults.html' import FEATURED_IMAGE with context %}
+{% if FEATURED_IMAGE %}
+<meta property="og:image" content="{{FEATURED_IMAGE}}" />
+<meta name="twitter:image" content="{{FEATURED_IMAGE}}" >
+{% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<header class="page-head">
+    <h1>{{ SITENAME }}</h1>
+    {% if SITESUBTITLE %}<p class="lead">{{ SITESUBTITLE }}</p>{% endif %}
+</header>
+{% if articles %}
+{% from '_includes/_defaults.html' import RECENT_ARTICLES_COUNT with context %}
+<h2 id="recent-posts" class="section-title">Recent posts</h2>
+<div class="post-list">
+    {% for article in articles %}
+    {% if loop.index0 < RECENT_ARTICLES_COUNT %}
+    <article class="post-card">
+        {% if article.featured_image %}
+        <a class="thumb" href="{{ SITEURL }}/{{ article.url }}" tabindex="-1" aria-hidden="true"><img loading="lazy" width="128" height="128" src="{{ SITEURL }}/images/{{ article.featured_image }}" alt=""></a>
+        {% endif %}
+        <div class="body">
+            <h3 class="title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></h3>
+            <p class="meta"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time> · <a href="{{ SITEURL }}/categories/#{{ article.category.slug }}-ref">{{ article.category }}</a></p>
+            <p class="summary">{{ article.summary|striptags }} <a class="readmore" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title }}">Read more »</a></p>
+        </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

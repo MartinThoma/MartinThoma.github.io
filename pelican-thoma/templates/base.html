@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="{% if article and article.lang %}{{ article.lang }}{% elif page and page.lang %}{{ page.lang }}{% else %}en-US{% endif %}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if article and article.author %}
+        <meta name="author" content="{{ article.author }}" />
+        <meta name="copyright" content="{{ article.author }}" />
+        {% elif page and page.author %}
+        <meta name="author" content="{{ page.author }}" />
+        <meta name="copyright" content="{{ page.author }}" />
+        {% else %}
+        <meta name="author" content="{{ AUTHOR }}" />
+        <meta name="copyright" content="{{ AUTHOR }}" />
+        {% endif %}
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "{{ SITEURL }}/opensearch.xml">
+
+        {% from '_includes/_defaults.html' import SITE_DESCRIPTION with context %}
+        {% if SITE_DESCRIPTION %}
+        <meta name="description" content="{% block head_description %}{{ SITE_DESCRIPTION|e }}{% endblock head_description %}" />
+        {% endif %}
+        {% block meta_tags_in_head %}
+        {% from '_includes/_defaults.html' import GOOGLE_PLUS_PROFILE_URL with context %}
+        {% if GOOGLE_PLUS_PROFILE_URL %}
+        <link rel="author" href={{GOOGLE_PLUS_PROFILE_URL}} />
+        {% endif %}
+        {% from '_includes/_defaults.html' import TWITTER_USERNAME with context %}
+        {%if TWITTER_USERNAME %}
+        <meta name="twitter:creator" content="@{{TWITTER_USERNAME}}">
+        {% endif %}
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+        {% endblock meta_tags_in_head %}
+        <title>{% block title %}{{ SITENAME|striptags|e }}{% endblock title %}</title>
+        {% block head_links %}
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="{{ SITEURL }}/theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/thoma.css">
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/static/print.css" media="print">
+        {% if CUSTOM_CSS %}
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ CUSTOM_CSS }}" media="screen">
+        {% endif %}
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        {% endblock head_links %}
+        {% include '_includes/favicon_links.html' %}
+        {% block feed_links %}
+        {% include '_includes/feeds.html' %}
+        {% endblock feed_links %}
+        {% include '_includes/analytics.html' %}
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="{{ SITEURL }}/"><span class="brand-dot" aria-hidden="true"></span>{{ SITENAME }}</a>
+                <nav class="nav" aria-label="Main">
+                    <a href="{{ SITEURL }}/"{% if page_name == 'index' %} aria-current="page"{% endif %}>Home</a>
+                    {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for p in pages %}
+                    <a href="{{ SITEURL }}/{{ p.url }}"{% if p == page %} aria-current="page"{% endif %}>{{ p.title }}</a>
+                    {% endfor %}
+                    {% endif %}
+                    <a href="{{ SITEURL }}/categories/"{% if page_name == 'categories' %} aria-current="page"{% endif %}>Categories</a>
+                    <a href="{{ SITEURL }}/tags/"{% if page_name == 'tags' %} aria-current="page"{% endif %}>Tags</a>
+                    <a href="{{ SITEURL }}/archives/"{% if page_name == 'archives' %} aria-current="page"{% endif %}>Archives</a>
+                    <a href="{{ SITEURL }}/support-me/">Support me</a>
+                </nav>
+                <form class="search" role="search" action="{{ SITEURL }}/search/" onsubmit="return validateForm(this.elements['q'].value);">
+                    <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                </form>
+            </div>
+        </header>
+        <main id="main" class="wrap">
+            {% block content %}
+            {% endblock content %}
+        </main>
+        {% include '_includes/footer.html' %}
+        {% block script %}
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+        {% endblock script %}
+        {% include '_includes/stat_counter.html' %}
+    </body>
+</html>

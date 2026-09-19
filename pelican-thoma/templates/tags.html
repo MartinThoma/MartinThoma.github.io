@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Tags · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+All tags used in the {{ SITENAME|striptags|e }} blog.
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:title" content="All Tags · {{ SITENAME|striptags|e }}"/>
+<meta name="twitter:title" content="All Tags · {{ SITENAME|striptags|e }}">
+<meta property="og:url" content="{{ SITEURL }}/tags/" />
+<meta property="og:description" content="All tags used in the {{ SITENAME|striptags|e }} blog" />
+<meta name="twitter:description" content="All tags used in the {{ SITENAME|striptags|e }} blog">
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% from '_includes/_defaults.html' import FEATURED_IMAGE with context %}
+{% if FEATURED_IMAGE %}
+<meta property="og:image" content="{{FEATURED_IMAGE}}" />
+<meta name="twitter:image" content="{{FEATURED_IMAGE}}" >
+{% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block feed_links %}
+{{ super() }}
+{% include '_includes/feeds_tags.html' %}
+{% endblock feed_links %}
+
+{% block content %}
+<header class="page-head"><h1><a href="{{ SITEURL }}/tags/">All tags</a></h1></header>
+<input type="search" class="filterinput" placeholder="Find a tag" aria-label="Find a tag">
+<ul class="list-of-tags">
+    {% for tag, articles in tags|sort %}
+    <li><a href="#{{ tag.slug }}-ref">{{ tag }}<span>{{ articles|count }}</span></a></li>
+    {% endfor %}
+</ul>
+{% for tag, articles in tags|sort %}
+<h2 id="{{ tag.slug }}-ref" class="tag-title">{{ tag }}</h2>
+<ul class="archive-list">
+    {% for article in articles|sort(reverse = true, attribute = 'date') %}
+    <li><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock content %}
+
+{% block script %}
+<script>
+    (function () {
+        var input = document.querySelector('.filterinput');
+        var items = document.querySelectorAll('ul.list-of-tags > li');
+        input.addEventListener('input', function () {
+            var q = input.value.toLowerCase();
+            items.forEach(function (li) {
+                li.hidden = q && li.textContent.toLowerCase().indexOf(q) < 0;
+            });
+        });
+    }());
+</script>
+{% endblock script %}

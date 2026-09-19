@@ -41,7 +41,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
-THEME = "./pelican-elegant"
+THEME = "./pelican-thoma"
 PYGMENTS_STYLE = "tango"  # Syntax highlighting theme
 CUSTOM_CSS = "static/custom.css"
 

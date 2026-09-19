@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Posts · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+Full archives of {{ SITENAME|striptags|e }} blog.
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+<meta property="og:title" content="All Posts · {{ SITENAME|striptags|e }}"/>
+<meta name="twitter:title" content="All Posts · {{ SITENAME|striptags|e }}">
+<meta property="og:url" content="{{ SITEURL }}/archives/" />
+<meta property="og:description" content="Full archives of {{ SITENAME|striptags|e }} blog" />
+<meta name="twitter:description" content="Full archives of {{ SITENAME|striptags|e }} blog">
+<meta property="og:site_name" content="{{ SITENAME|striptags|e }}" />
+<meta property="og:article:author" content="{{ AUTHOR }}" />
+{% from '_includes/_defaults.html' import FEATURED_IMAGE with context %}
+{% if FEATURED_IMAGE %}
+<meta property="og:image" content="{{FEATURED_IMAGE}}" />
+<meta name="twitter:image" content="{{FEATURED_IMAGE}}" >
+{% endif %}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<header class="page-head"><h1><a href="{{ SITEURL }}/archives/">All posts</a></h1></header>
+<div class="blog-archives">
+    {% set ns = namespace(last_year=0) %}
+    {% for article in dates %}
+        {% set year = article.date.strftime('%Y') %}
+        {% if ns.last_year != year %}
+            {% if not loop.first %}</ul>{% endif %}
+            <h2 id="{{ year }}"><a href="#{{ year }}">{{ year }}</a></h2>
+            <ul class="archive-list">
+            {% set ns.last_year = year %}
+        {% endif %}
+        <li><time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%b %d') }}</time><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></li>
+        {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

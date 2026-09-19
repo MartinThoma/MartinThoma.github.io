@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title|striptags|e }} {%if article.subtitle %} - {{ article.subtitle|striptags|e }} {% endif %} · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+{% if article.summary %}
+{{ article.summary|striptags|e }}
+{% endif %}
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+{% if article.tags or article.category or article.keywords %}
+<meta name="keywords" content="{{ [article.tags|join(', '), article.category, article.keywords]|join(', ') }}" />
+{% endif %}
+
+{% from '_includes/smo_metadata.html' import smo_metadata with context %}
+{{ smo_metadata(article) }}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<!-- article.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="{% if article.url.startswith('http') %}{{ article.url }}{% else %}{{ SITEURL }}/{{ article.url }}{% endif %}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></h1>
+    <p class="meta">
+        {% if article.date %}<time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%b') }} {{ article.date.strftime('%d')|int }}{{ article.date.strftime(', %Y') }}</time>{% endif %}
+        {% if article.modified %} · updated <time datetime="{{ article.modified.isoformat() }}">{{ article.modified.strftime('%b') }} {{ article.modified.strftime('%d')|int }}{{ article.modified.strftime(', %Y') }}</time>{% endif %}
+        · by <a rel="author" class="vcard author post-author" itemprop="author" href="{{ SITEURL }}/{{ article.author.url }}"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">{{ article.author }}</span></span></a>
+    </p>
+</header>
+
+{% if article.toc %}
+<details class="toc" open>
+    <summary>Contents</summary>
+    {{ article.toc }}
+</details>
+{% endif %}
+
+<div class="article-content" id="contentAfterTitle">
+    {% import '_includes/translations.html' as translations with context %}
+    {{ translations.translations_for(article) }}
+    {{ article.content }}
+    {% from '_includes/share_links.html' import share_links with context %}
+    {{ share_links(article) }}
+</div>
+
+<aside class="article-meta no-print">
+    {% include '_includes/multi_parts.html' %}
+    {% if article.category|trim|count > 0 %}
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="{{ SITEURL }}/categories/#{{ article.category.slug }}-ref">{{ article.category }}</a>
+    </div>
+    {% endif %}
+    {% if article.tags and article.tags[0]|trim|count > 0 %}
+    <div class="meta-group">
+        <h4>Tags</h4>
+        <ul class="list-of-tags tags-in-article">
+            {% for tag in article.tags|sort %}
+            <li><a href="{{ SITEURL }}/tags/#{{ tag.slug }}-ref">{{ tag }}
+                {% for aTag, tagged_articles in tags if aTag == tag %}
+                <span>{{ tagged_articles|count }}</span>
+                {% endfor %}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% include '_includes/social_links.html' %}
+    {% include '_includes/mailchimp.html' %}
+</aside>
+
+{% include '_includes/related_posts.html' with context %}
+
+{% if article.prev_article or article.next_article %}
+<nav class="articles-timeline no-print" aria-label="Neighbouring articles">
+    {% if article.prev_article %}
+        {% set ptitle = article.prev_article.title|striptags|e %}
+        {% set pv_title = article.prev_article.title|striptags %}
+        {% if article.prev_article.subtitle %}
+            {% set pv_title = pv_title + ' ' +  '<small>' + article.prev_article.subtitle|striptags + '</small>' %}
+            {% set ptitle = ptitle + ' - ' + article.prev_article.subtitle|e %}
+        {% endif %}
+    <a class="previous-article" href="{{ SITEURL }}/{{ article.prev_article.url }}" title="Previous: {{ ptitle }}"><span>Previous</span>{{ pv_title }}</a>
+    {% endif %}
+    {% if article.next_article %}
+        {% set ntitle = article.next_article.title|striptags|e %}
+        {% set nv_title = article.next_article.title|striptags %}
+        {% if article.next_article.subtitle %}
+            {% set nv_title = nv_title + ' ' +  '<small>' + article.next_article.subtitle|striptags + '</small>' %}
+            {% set ntitle = ntitle + ' - ' + article.next_article.subtitle|e %}
+        {% endif %}
+    <a class="next-article" href="{{ SITEURL }}/{{ article.next_article.url }}" title="Next: {{ ntitle }}"><span>Next</span>{{ nv_title }}</a>
+    {% endif %}
+</nav>
+{% endif %}
+</article>
+{% endblock content %}

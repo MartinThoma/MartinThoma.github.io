@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ page.title|striptags|e }} {%if page.subtitle %} - {{ page.subtitle|striptags|e }} {% endif %} · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+{% if page.summary %}
+{{ page.summary|striptags|e }}
+{% endif %}
+{% endblock head_description %}
+
+{% block meta_tags_in_head %}
+{{ super() }}
+{% if page.keywords %}
+<meta name="keywords" content="{{ page.keywords }}" />
+{% endif %}
+
+{% from '_includes/smo_metadata.html' import smo_metadata with context %}
+{{ smo_metadata(page) }}
+{% endblock meta_tags_in_head %}
+
+{% block content %}
+<!-- page.html -->
+<article class="reading">
+<header class="page-head">
+    <h1><a href="{% if page.url.startswith('http') %}{{ page.url }}{% else %}{{ SITEURL }}/{{ page.url }}{% endif %}">{{ page.title }}{% if page.subtitle %} <small>{{ page.subtitle }}</small>{% endif %}</a></h1>
+</header>
+{% if page.toc %}
+<details class="toc" open>
+    <summary>Contents</summary>
+    {{ page.toc }}
+</details>
+{% endif %}
+<div class="article-content">
+    {{ page.content }}
+</div>
+<aside class="article-meta no-print">
+    {% include '_includes/social_links.html' %}
+    {% include '_includes/mailchimp.html' %}
+</aside>
+</article>
+{% endblock content %}

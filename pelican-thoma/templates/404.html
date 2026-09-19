@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Page not found · {{ super() }}
+{% endblock title %}
+
+{% block head_description %}
+Page does not exist at {{ SITENAME|striptags|e }} blog.
+{% endblock head_description %}
+{% block content %}
+<header class="page-head"><h1>That page doesn't exist</h1></header>
+<div class="article-content">
+    <p>Sorry, but the page you are looking for cannot be found. It may have moved, or it no longer exists.</p>
+    <p>Try the search, or start again from the <a href="{{ SITEURL }}">home page</a>.</p>
+    <form class="search big" role="search" action="{{ SITEURL }}/search/" onsubmit="return validateForm(this.elements['q'].value)">
+        <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input_404">
+        <button class="btn" type="submit">Search</button>
+    </form>
+</div>
+{% endblock content %}
