@@ -81,16 +81,16 @@ regenerate:
 
 serve:
 ifdef PORT
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server $(PORT)
+	$(PELICAN) --listen --port $(PORT) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE_LOCAL) $(PELICANOPTS)
 else
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server
+	$(PELICAN) --listen $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE_LOCAL) $(PELICANOPTS)
 endif
 
 serve-global:
 ifdef SERVER
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 $(SERVER)
+	$(PELICAN) --listen --port 80 --bind $(SERVER) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 else
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 0.0.0.0
+	$(PELICAN) --listen --port 80 --bind 0.0.0.0 $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
 
