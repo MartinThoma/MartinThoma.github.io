@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: In-Ear Headphones
 slug: in-ear-headphones
+lang: en
 author: Martin Thoma
 date: 2020-06-04 20:00
 category: My bits and bytes
@@ -16,8 +16,8 @@ father. And my in-ear headphones break often.
 This article is only about **in-ear headphones with a microphone and a cable**.
 And it's mainly about cheap options.
 
-I will not look at wireless earbuds where you have two seperate pieces. I'm
-just too afraid that I would loose one and I can't imagine that the microphone
+I will not look at wireless earbuds where you have two separate pieces. I'm
+just too afraid that I would lose one and I can't imagine that the microphone
 quality is good enough. I will also not look at on-ear / over-ear headphones.
 They are just too bulky for me most of the time. I want something that I can
 easily take with me.
@@ -41,15 +41,15 @@ Before you buy anything below 40 EUR on Amazon, look at the seller:
 
 Very often, they are either in the UK or in China (CN). If you buy stuff below
 40 EUR and you want to return it, you have to pay the shipping cost. Which can
-mean that you would actually pay more for shipping than the product costed
+mean that you would actually pay more for shipping than the product cost
 originally.
 
-I had negative experience with UK based shops. They sent me broken headphones /
+I had negative experiences with UK-based shops. They sent me broken headphones /
 headphones which broke within a month, and I couldn't reasonably return them.
 
-I could return a cheap, but broken product for free to [RS Traders](https://www.amazon.de/sp?_encoding=UTF8&asin=&isAmazonFulfilled=1&isCBA=&marketplaceID=A1PA6795UKMFR9&orderID=&seller=A396LIRD9ACCCJ&tab=&vasStoreID=).
+I could return a cheap but broken product for free to [RS Traders](https://www.amazon.de/sp?_encoding=UTF8&asin=&isAmazonFulfilled=1&isCBA=&marketplaceID=A1PA6795UKMFR9&orderID=&seller=A396LIRD9ACCCJ&tab=&vasStoreID=).
 
-You should also be aware that there are a lot of white-label products from china.
+You should also be aware that there are a lot of white-label products from China.
 This is not negative or positive. The concept is that a company produces a product,
 but does not create a brand. There are other companies which take care of
 marketing / brand creation. So you might see a lot of products which look super
@@ -59,11 +59,11 @@ similar... because the products are the same. They just have a different label.
 ## AKG Samsung Galaxy S10 earbuds
 
 Those are the default ones you get with the Samsung S10 smartphone. They are
-ok, but considering the price of the S10 I would have expected something
-better. Mine are broken after a year. I didn't let them fall down. I didn't put
-water over it. I treated them well, but used them often. First the left ear
-piece went more siltent. It didn't break, just the volume went down. Then the
-microphone made me more silent. I had to scream in a video call so that people
+OK, but considering the price of the S10, I would have expected something
+better. Mine are broken after a year. I didn't let them fall down. I didn't pour
+water over them. I treated them well, but used them often. First, the left ear
+piece got quieter. It didn't break, just the volume went down. Then the
+microphone made me quieter. I had to scream in a video call so that people
 hear me.
 
 <table class="table">
@@ -80,7 +80,7 @@ hear me.
         </tr>
         <tr>
             <td>Frequency Response</td>
-            <td>20 - 20kHz</td>
+            <td>20 Hz - 20 kHz</td>
         </tr>
         <tr>
             <td>Sensitivity</td>
@@ -121,7 +121,7 @@ hear me.
 ## SAMSUNG EG920
 
 Those are the default ones for the Samsung S7. I liked them a lot. The quality
-of the headphones and of the microphone was ok, they were comfortable, they
+of the headphones and of the microphone was OK, they were comfortable, they
 didn't fall out of my ears. They are also pretty cheap; sadly in both senses
 of the word: Low price and they broke pretty soon.
 
@@ -197,14 +197,14 @@ At the time I found a lot of similar ones, so I guess this is a white-label prod
 I can't find any of those anymore.
 
 They are comfortable to wear at home or while cycling. They don't work at all
-for me when I'm running. They work ok for phone calls during cycling, but when
-there is wind, the noise becomes too strong. The battery live is amazing.
+for me when I'm running. They work OK for phone calls during cycling, but when
+there is wind, the noise becomes too strong. The battery life is amazing.
 
 
 ## Mpow Flame
 
 The [Mpow Flame](https://www.xmpow.com/products/mpow-flame-pl02-sports-earphones)
-costs about 27 EUR, they are aparently IPX 7, support bluetooth 5, have up to
+costs about 27 EUR, they are apparently IPX7, support Bluetooth 5, have up to
 7 hours of playing time. The two ear pieces are connected and they are advertised
 for sports.
 
@@ -213,15 +213,15 @@ comfortable to wear.
 
 ## Sport Wireless Earphones TB08
 
-I bought those a while ago and I'm pretty happy with them. They weight 22g,
+I bought those a while ago and I'm pretty happy with them. They weigh 22g,
 have a battery capacity of 130 mAh which (according to the producer) gives
 about 9h of play time. I can confirm that the play time is super high.
 
-They use Bluetooth version 5, are comfortable to wear when I'm going by bike.
+They use Bluetooth version 5 and are comfortable to wear when I'm going by bike.
 
 ## Panasonic RP-HJE120E1K
 
-I aparently bought the Panasonic RP-HJE120E1K for about 8 EUR. I really don't
+I apparently bought the Panasonic RP-HJE120E1K for about 8 EUR. I really don't
 remember them, but it took 3 years until I bought new headphones. Maybe they
 were just good?
 
@@ -234,9 +234,9 @@ I don't remember the reason. I think they might have been super uncomfortable.
 
 ## Sennheiser
 
-Sennheiser is a well-known brand for high quality headphones. I had the HD 201
+Sennheiser is a well-known brand for high-quality headphones. I had the HD 201
 over-ear headphones from them and liked them a lot. I bought my father the
-Sennheiser RS 170 and he liked them a lot. But I didn't ever try in-ear
+Sennheiser RS 170 and he liked them a lot. But I have never tried in-ear
 headphones by Sennheiser. In case I have to buy new headphones, I would
 likely give them a shot.
 
@@ -262,11 +262,11 @@ I ignored the model CX 100, as it seems to be inferior to the CX 300S.
 * Impedance: 18 Ohms
 * Frequency response (Microphone): 100 – 10,000 Hz
 * Frequency response: 15Hz - 22000Hz
-* Sound level pressure (SLP): 118 dB (1kHz/1Vrms)
+* Sound pressure level (SPL): 118 dB (1kHz/1Vrms)
 * [Review](https://www.youtube.com/watch?v=SJ1icC_rfSM)
 
 In one Amazon Review, I have read that the cables are not robust enough.
-Aparently the cables break easily. There are also photos about it which makes
+Apparently, the cables break easily. There are also photos of it, which makes
 the statement more trustworthy.
 
 
@@ -274,7 +274,7 @@ the statement more trustworthy.
 
 The old model is called Clamor, the new model is called Ultra. I tried them, but when I called my
 girlfriend she told me that there was a noise from the microphone. Also, the position of
-the microphone was directly at the splitter which is to far away.
+the microphone was directly at the splitter which is too far away.
 
 The magnets were pretty nice.
 
@@ -284,7 +284,7 @@ The magnets were pretty nice.
 * Inline control: Volume up, Volume down, Accept phone call
 * [13.57 EUR](https://www.amazon.de/LUDOS-Ultra-Kopfh%C3%B6rer-Kristallklarer-Lautst%C3%A4rkeregelung-Schwarz/dp/B07ZVDH3X3/ref=sr_1_61?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3FCMYSYDIJO35&dchild=1&keywords=in-ear%2Bkopfh%C3%B6rer%2Bmit%2Bmikrofon&qid=1591292378&s=ce-de&sprefix=in-ear%2Celectronics%2C176&sr=1-61&th=1)
 
-There is a [marketing video](https://techbuzzireland.com/2020/03/04/review-the-ludos-ultra-earphones-tech-ludos-earphones/)
+There is a [marketing video](https://techbuzzireland.com/2020/03/04/review-the-ludos-ultra-earphones-tech-ludos-earphones/).
 
 * Reviews: [Mostly Fake](https://reviewmeta.com/amazon-de/B07ZVDH3X3)
 
@@ -298,6 +298,6 @@ The "KLIM Fusion" headphones look similar, too.
 * [Mee Audio M6 Pro 2nd Gen](https://www.amazon.de/Generation-universal-fit-Ger%C3%A4uschisolierende-Ear-Monitore-abnehmbarem-Klar/dp/B07B4PDF6K/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Mee+Audio+M6+Pro+2nd+Gen&qid=1591297272&sr=8-5): 39.16 EUR; 4.3 Stars and 1126 ratings
 * [PANASONIC ErgoFit Earbud](https://www.amazon.de/Headphones-Microphone-Controller-Compatible-BlackBerry-matte-black/dp/B07SHW92VR/ref=sr_1_5?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=PANASONIC+ErgoFit+Earbud&qid=1591297199&sr=8-5): 23.21 EUR; 4.2 Stars and 64328 ratings
 * JBL
-    * [E15](https://www.amazon.de/JBL-Universeller-1-Tasten-Fernbedienung-Integriertem-Smartphones-Wei%C3%9F/dp/B01MAX4FP6/ref=sr_1_26?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-26): 30.95 EUR; 3.8 Star and 73 ratings
+    * [E15](https://www.amazon.de/JBL-Universeller-1-Tasten-Fernbedienung-Integriertem-Smartphones-Wei%C3%9F/dp/B01MAX4FP6/ref=sr_1_26?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-26): 30.95 EUR; 3.8 Stars and 73 ratings
     * [C100SI](https://www.amazon.de/JBL-Kopfh%C3%B6rer-1-Tasten-Fernbedienung-Mikrofon-Kompatibel-Schwarz/dp/B01DEWVZ2C/ref=sr_1_8?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-8): 16.42 EUR; 4.0 Stars and 60273 ratings
     * [T210](https://www.amazon.de/JBL-Kopfh%C3%B6rer-1-Tasten-Fernbedienung-Integriertem-Kompatibel-Rose-Gold/dp/B01M5I6LP2/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=JBL+T210&qid=1591294340&s=ce-de&sr=1-4): 15.99 EUR; 3.5 Stars and 6051 ratings

@@ -1,16 +1,16 @@
 ---
 layout: post
-lang: en
 title: House Demolition
 slug: house-demolition
+lang: en
 author: Martin Thoma
-status: draft
 date: 2020-06-16 20:00
 category: My bits and bytes
 tags: House
 featured_image: logos/house.png
+status: draft
 ---
-I'm interested in house building for quite a while now. I want to live in my
+I've been interested in house building for quite a while now. I want to live in my
 own house at some point and there are many options to get there. One of them
 is to buy an old house in a nice location, tear it down and build a new one.
 But how expensive is that and how does it work?
@@ -28,7 +28,7 @@ But how expensive is that and how does it work?
 
 ## Cost
 
-According to [^1], is about 10&thinsp;000&nbsp;EUR to 25&thinsp;000&nbsp;EUR:
+According to [^1], it costs about 10&thinsp;000&nbsp;EUR to 25&thinsp;000&nbsp;EUR:
 
 <table>
     <tr>
@@ -44,12 +44,12 @@ According to [^1], is about 10&thinsp;000&nbsp;EUR to 25&thinsp;000&nbsp;EUR:
     <tr>
         <td>2000</td>
         <td>Preparation</td>
-        <td>Remove interiour and possibly pollutants like&nbsp;Asbestos. If pollutants are present, it becomes more expensive</td>
+        <td>Remove interior and possibly pollutants like&nbsp;asbestos. If pollutants are present, it becomes more expensive</td>
     </tr>
     <tr>
         <td>10,000</td>
         <td>Demolition</td>
-        <td>Assuming it is easy to access and it can be demolitioned. More expensive if it needs to be deconstructed.</td>
+        <td>Assuming it is easy to access and it can be demolished. More expensive if it needs to be deconstructed.</td>
     </tr>
     <tr>
         <td>4,000</td>

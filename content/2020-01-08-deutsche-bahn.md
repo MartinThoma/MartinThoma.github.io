@@ -2,12 +2,13 @@
 layout: post
 title: Deutsche Bahn
 slug: deutsche-bahn
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-02-09 20:00
 category: My bits and bytes
 tags: Rant, DB, Public Transportation, Munich
 featured_image: logos/train.png
+status: draft
 ---
 It's about time for a rant article about Deutsche Bahn (DB). DB is
 the company with the monopoly for public transportation by train.
@@ -18,11 +19,11 @@ My key complaints are:
 * DB is expensive
 * DB is not flexible
 
-On top of that, there are some other complains:
+On top of that, there are some other complaints:
 
 * **Information mismanagement**
     * They are lying about being late
-    * Information about past delays are not publicly available.
+    * Information about past delays is not publicly available.
 * **Comfort**: Trains are super crowded. It is impossible in such a crowded
   train to read or to work.
 
@@ -84,7 +85,7 @@ consistent messages, when they are not.
 
 ## My Delays
 
-I am commuting roughly an 19km distance within Munich. I start roughly at
+I am commuting roughly a 19 km distance within Munich. I start roughly at
 Pasing. Most of my commute is through the "Stammstrecke", the main route within
 Munich. Here are some of my delays.
 
@@ -108,7 +109,7 @@ such as [Bayerische Oberlandbahn](https://en.wikipedia.org/wiki/Bayerische_Oberl
 But about 87.5% of the rails are managed by [DB Netz](https://en.wikipedia.org/wiki/DB_Netz) and [DB Regio](https://en.wikipedia.org/wiki/DB_Regio) is by far the biggest provider. DB Regio
 is also responsible for [S-Bahn München](https://de.wikipedia.org/wiki/S-Bahn_M%C3%BCnchen)
 
-MVG is responsible for underground, trams and busses.
+MVG is responsible for underground, trams, and buses.
 
 The [Bayerische Eisenbahngesellschaft](https://de.wikipedia.org/wiki/Bayerische_Eisenbahngesellschaft)
-seems to be responsible for the train network within Bavaria. Hence [Hans Reichhart](https://de.wikipedia.org/wiki/Hans_Reichhart) (CSV) is responsible.
+seems to be responsible for the train network within Bavaria. Hence [Hans Reichhart](https://de.wikipedia.org/wiki/Hans_Reichhart) (CSU) is responsible.

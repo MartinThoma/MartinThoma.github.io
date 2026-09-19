@@ -1,16 +1,16 @@
 ---
 layout: post
-lang: en
 title: Login Systems
 slug: login-systems
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-06-21 20:00
 category: My bits and bytes
 tags: Code
 featured_image: logos/star.png
+status: draft
 ---
-Authentication is one core component of all web communities. While I'm building
+Authentication is one core component of all web communities. While building
 [enzado.com](https://enzado.com/), I started thinking about it in detail.
 
 <figure class="wp-caption aligncenter img-thumbnail">

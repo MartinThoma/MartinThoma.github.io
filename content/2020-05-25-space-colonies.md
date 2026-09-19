@@ -1,25 +1,25 @@
 ---
 layout: post
-lang: en
 title: Self-sustaining Space Colonies
 slug: space-colonies
+lang: en
 author: Martin Thoma
-status: draft
 date: 2020-05-17 20:00
 category: My bits and bytes
 tags: My Bits and Bytes
 featured_image: logos/space.png
+status: draft
 ---
-Having a permanent colony in space where people can live their whole live is
+Having a permanent colony in space where people can live their whole life is
 an interesting thought. There are multiple potential ways to get there and I
 would like to outline some of the ideas and their drawbacks.
 
-A colony is self-sustaining if it can survive without contact to earth. One big
+A colony is self-sustaining if it can survive without contact with Earth. One big
 factor is to have a **minimum viable population**. The size of this is
-estimated to be somewhere between 80[^1] up to 44,000[^2]. Other big factors
+estimated to be somewhere between 80[^1] and 44,000[^2]. Other big factors
 are the ability to protect against harmful environmental factors, to reproduce
-biologically and the equipment. This means not only to be able to repair
-equipment, but to produce all equipment by resources one can reach.
+biologically and the equipment. This means not only being able to repair
+equipment, but also to produce all equipment by resources one can reach.
 
 
 ## Needs
@@ -50,10 +50,10 @@ Habitation needs to provide some basics to make it possible for humans to
 survive:
 
 * Radiation protection
-* Graviation
+* Gravitation
 * Temperature between 10°C to 30°C
 
-Cosmic radiation causes cancer and kills live. On earth, the magnetic field
+Cosmic radiation causes cancer and kills life. On Earth, the magnetic field
 protects us.
 
 If you build thick enough walls, probably any material can protect from
@@ -73,20 +73,20 @@ smallest population size for a permanent settlement assumes 80 people. This mean
 we have to go way bigger.
 
 The ISS needed 420 tonnes of material and bringing one kg to space costs
-about 25&thinsp;000 EUR[^4]. Meaning re-building the ISS would cost 10.5 billion
+about 25&thinsp;000 EUR[^4]. This means rebuilding the ISS would cost 10.5 billion
 EUR. This is already pretty expensive. Building any of the proposals for permanent settlement
 by bringing material from Earth to space is completely unrealistic. This means
-we either have to mine materials from the moon or from asteriods.
+we either have to mine materials from the moon or from asteroids.
 
 Other problems all of the space station designs have to deal with:
 
 * [microgravity](https://en.wikipedia.org/wiki/Micro-g_environment): The human
   body did not evolve to be in micro-g environments. Using centrifugal forces
   to mimic gravitation could be possible.
-* Radiation: One could put the space stations close enough to earth to benefit
+* Radiation: One could put the space stations close enough to Earth to benefit
   from its magnetic field.
 
-Such a big space station is similar to a [generation ship](https://en.wikipedia.org/wiki/Generation_ship)
+Such a big space station is similar to a [generation ship](https://en.wikipedia.org/wiki/Generation_ship).
 
 
 ### Bernal sphere
@@ -105,7 +105,7 @@ proposed NASA design from 1975 for a space habitat capable of housing 10,000 to
 The total mass would be 10 million tons.
 
 The movie [Elysium](https://en.wikipedia.org/wiki/Elysium_(film)) contains a
-stanford torus.
+Stanford torus.
 
 
 ### O'Neill cylinder / Island Three
@@ -121,15 +121,15 @@ in 1976 for a space habitat capable of housing several million people.
 
 The moon cannot have an atmosphere[^6].
 
-The communication with earth would be delayed between 1.2 and 1.4 seconds.
+The communication with Earth would be delayed between 1.2 and 1.4 seconds.
 
-The temperature ranges from −247 °C to 123° C.
+The temperature ranges from −247 °C to 123 °C.
 
 ### Energy
 
 A [lunar night](https://en.wikipedia.org/wiki/Lunar_day) takes about two weeks.
 This means one needs batteries which can save energy that long or an alternative
-enegery source to solar energy.
+energy source to solar energy.
 
 ### Air
 
@@ -139,7 +139,7 @@ It might be possible to create oxygen from moon dust[^8].
 ### Water
 
 There seems to be water on the surface of the moon, but it's by no means
-clear to me how much it is and how easy it is to access.[^9]
+clear to me how much there is and how easy it is to access.[^9]
 
 ### Food
 
@@ -167,7 +167,7 @@ is a fascinating thought which is shown in many different novels and movies.
 It takes about nine months to bring humans to Mars[^5].
 
 The [Mars atmosphere](https://en.wikipedia.org/wiki/Atmosphere_of_Mars) is primarily
-CO2
+CO2.
 
 <table>
     <tr>
@@ -184,7 +184,7 @@ CO2
     </tr>
     <tr>
         <td></td>
-        <td>Oxigen</td>
+        <td>Oxygen</td>
         <td>20.9%</td>
         <td></td>
     </tr>
@@ -197,14 +197,14 @@ CO2
     <tr>
         <td></td>
         <td>Argon</td>
-        <td>1.9%</td>
         <td>0.93%</td>
+        <td>1.9%</td>
     </tr>
     <tr>
         <td></td>
         <td></td>
         <td>Helium, Hydrogen, Krypton, Methane, Neon, NO, Ozone, Xenon</td>
-        <td>Acetylene, CO, Krypton, Methane, neon, NO, Ozone, Xenon</td>
+        <td>Acetylene, CO, Krypton, Methane, Neon, NO, Ozone, Xenon</td>
     </tr>
     <tr>
         <td>Surface gravity</td>
@@ -234,7 +234,7 @@ CO2
 
 ### Energy
 
-Besides night, you can have dust storms on mars which could take weeks[^7].
+Besides night, you can have dust storms on Mars which could take weeks[^7].
 This means it is necessary to have an alternative.
 
 ### Air
@@ -253,7 +253,7 @@ There is [water on Mars](https://en.wikipedia.org/wiki/Water_on_Mars)!
 
 ### Food
 
-[Martian soil](https://en.wikipedia.org/wiki/Martian_soil#Toxicity) is toxic,
+[Martian soil](https://en.wikipedia.org/wiki/Martian_soil#Toxicity) is toxic
 due to relatively high concentrations of perchlorate compounds containing
 chlorine.
 

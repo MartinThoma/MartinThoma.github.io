@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Working Hours
 slug: working-hours
+lang: en
 author: Martin Thoma
 date: 2020-06-21 20:00
 category: My bits and bytes
@@ -19,15 +19,15 @@ I have the impression that freelancers / freelancer wannabes sometimes
 romanticize it. People get excited about it but ignore important aspects.
 
 
-## How much work has a month?
+## How much work does a month have?
 
 Let's check:
 
 * Let $d$ be my hours per working day.
 * Let $h$ be the holidays.
 * Let $v$ be the vacation days.
-* Assume you're not working on Saturday nor on Sunday.
-* Let $s$ be your sick days
+* Assume you're not working on Saturdays or Sundays.
+* Let $s$ be your sick days.
 
 According to [urlaubstage-planen.de](https://urlaubstage-planen.de/feiertage-in-bayern-2020-by.htm),
 we had 9 holidays which were not on a weekend. A good contract gives you 30
@@ -41,8 +41,8 @@ w &= 365 \cdot \frac{5}{7} - h - v - s\\
   &= 210
 \end{align}
 
-So 210 working days in a year or 17.5 working days in a month in average.
-This leads to **140 hours per month** in average.
+So 210 working days in a year or 17.5 working days in a month on average.
+This leads to **140 hours per month** on average.
 
 This means you would need to make
 
@@ -59,15 +59,15 @@ As a freelancer, you need to find clients. This takes time. Time which is work,
 but not paid. This means you have to make even more per day / per hour to
 compensate for this. Or simply work more.
 
-I'm not sure how much this actually takes more. My guess is that for a highly
-skilled person (both, technically and socially), this will more or less be a
+I'm not sure how much more time this actually takes. My guess is that for a highly
+skilled person (both technically and socially), this will more or less be a
 one-time investment. If you keep doing a good job, big companies will keep you.
 But then, events like Corona might simply make it impossible for you to keep
 your clients. I'm also uncertain how easy websites like [upwork.com](https://www.upwork.com/)
 or simply LinkedIn might make it to find new clients.
 
 
-## Employers Share
+## Employer's Share
 
 When you are employed, your employer pays a part of the cost for the healthcare
 and maybe some of the social security. I actually don't know how much (or if at
@@ -77,7 +77,7 @@ all) this distorts the image.
 ## Gross vs Net Income
 
 Don't forget that everything here is gross income. This means before taxes and
-social security. My guss is that you are left with about half of the gross
+social security. My guess is that you are left with about half of the gross
 income.
 
 

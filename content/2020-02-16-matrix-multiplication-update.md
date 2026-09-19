@@ -1,22 +1,22 @@
 ---
 layout: post
-lang: en
 title: Matrix Multiplication: 2020 Update
 slug: matrix-multiplication-2020
+lang: en
 author: Martin Thoma
 date: 2020-02-16 20:00
 category: Code
 tags: Python, C++, pypy
 featured_image: logos/python.png
 ---
-In 2012 I wrote a series of articles about matrix
+In 2012, I wrote a series of articles about matrix
 multiplication. Now I'm preparing a course about speeding up Python. For this
-reason I need an example of code that is fairly simple to understand and can be
+reason, I need an example of code that is fairly simple to understand and can be
 optimized. So let's update the results of my old articles 🙂
 
 The code can be found in a git repository on GitHub ([github.com/MartinThoma/matrix-multiplication](https://github.com/MartinThoma/matrix-multiplication)) and you can have a look at the [old article](https://martin-thoma.com/matrix-multiplication-python-java-cpp/) as well, if you want.
 
-All scripts are tested on my new Thinkpad T460p. For comparision, I've also
+All scripts are tested on my new ThinkPad T460p. For comparison, I've also
 added the laptop I had before when I wrote the 2012 matrix multiplication article:
 
 <table class="table">
@@ -24,12 +24,12 @@ added the laptop I had before when I wrote the 2012 matrix multiplication articl
         <tr style="background-color:#cdcdcd">
             <th>&nbsp;</th>
             <th>Acer TravelMate 5735Z</th>
-            <th>Thinkpad T460p</th>
+            <th>ThinkPad T460p</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.intel.com</a>)</td>
             <td>2x Pentium(R) Dual-Core CPU T4500 @2.30GHz</td>
             <td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
         </tr>
@@ -56,7 +56,7 @@ added the laptop I had before when I wrote the 2012 matrix multiplication articl
 
 In the following table you can see the execution times for the different
 algorithms and different Python versions. As input, I took the
-<code>2000.in</code> test set. To switch Python versions, I used <code>pyenv</code>
+<code>2000.in</code> test set. To switch Python versions, I used <code>pyenv</code>.
 
 For Python 2.7, you can see the speedup compared to my 2012 machine. A speedup
 of 2.6x means that you could run the code on the new machine 2.6x in the time
@@ -146,10 +146,10 @@ Things to note:
   worth a try. I actually wanted to try
   [Pyston](https://github.com/dropbox/pyston)
   ([comparison](https://pybenchmarks.org/u64q/benchmark.php?test=all&lang=pypy&lang2=pyston&data=u64q))
-  as well, but the built failed with pyenv.
+  as well, but the build failed with pyenv.
 * Python 2.7 is faster than 3.8 for this benchmark 😢
 * Ways to improve; speedups are always compared to the naive ijk algorithm:
-    * Cache optimization: The ikj algorithm gave a 1.08x speedup
+    * Cache optimization: The ikj algorithm gave a 1.76x speedup
     * Algorithmic: The Strassen algorithm gave a 1.84x speedup
     * Parallelization: Using 4 threads instead of 1 with a super simple algorithm gave a 2.47x speedup
     * Time:
@@ -159,7 +159,7 @@ Things to note:
           6x speedup compared to running the older version of numpy on the old
           machine.
     * Libraries: Using numpy gave a **94.2x speedup**!
-* Numpy and scipy are the way to go, just as expected 🤷‍♂️
+* NumPy and SciPy are the way to go, just as expected 🤷♂️
 
 I was interested in the influence of the machine, so I ran the algorithms with
 Python 3.8 on others as well:
@@ -168,13 +168,13 @@ Python 3.8 on others as well:
     <thead>
         <tr style="background-color:#cdcdcd">
             <th>&nbsp;</th>
-            <th>Thinkpad T460p<br/>(Reference Machine)</th>
+            <th>ThinkPad T460p<br/>(Reference Machine)</th>
             <th>EliteBook-1040</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.intel.com</a>)</td>
             <td>8x Intel(R) Core(TM) i7-6700HQ<br/>CPU @ 2.60GHz</td>
             <td>4x Intel(R) Core(TM) i5-6300U<br/>CPU @ 2.40GHz</td>
         </tr>
@@ -200,7 +200,7 @@ Python 3.8 on others as well:
     <thead>
         <tr>
             <th>Algorithm</th>
-            <th>Thinkpad T460p</th>
+            <th>ThinkPad T460p</th>
             <th>EliteBook-1040</th>
         </tr>
     </thead>
@@ -265,7 +265,7 @@ PyPy uses [Just-in-time compilation](https://en.wikipedia.org/wiki/Just-in-time_
 to get those speedups.
 
 Go to [PyPy — How can it possibly beat CPython?](https://stackoverflow.com/q/2591879/562769)
-for more information why PyPy is that fast.
+for more information on why PyPy is that fast.
 
 
 ## C++
@@ -333,9 +333,9 @@ helped me to wrap my head around this topic a bit.
     * 15:00 C implementation
     * 18:00 C done: 130ms (Python 3057ms)
     * 18:15 ctypes is writing python in c
-        * Take a shared object (*.so) or ddl
+        * Take a shared object (*.so) or dll
         * 20:48 ctypes.Structure
-        * 24:00 Memory managment / free-ing memory
+        * 24:00 Memory management / freeing memory
         * 36:00 Create *.so
         * 38:40 Load dll / *.so
         * 44:24 Timing - 1554ms
@@ -346,7 +346,7 @@ helped me to wrap my head around this topic a bit.
         * 53:33 Timing - 640ms
         * 53:50 Q/A
     * 55:36 Cython - can be used from jupyter notebook
-        * Cython has a own language; like a mix between C and Python
+        * Cython has its own language; like a mix between C and Python
         * 56:58 Cython creates a shared object
         * 1:00:07 cpdef - a mixture between c and python
         * 1:02:12 Timing - 594ms

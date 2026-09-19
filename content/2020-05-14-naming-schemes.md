@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Naming Styles
 slug: naming-styles
+lang: en
 author: Martin Thoma
 date: 2020-05-14 20:00
 category: Code
@@ -10,7 +10,7 @@ tags: Code, Style Guide
 featured_image: logos/python.png
 ---
 Naming styles are one of the trivial things in a style guide. Here are some of
-then names you might hear.
+the names you might hear.
 
 ## The Styles
 
@@ -18,8 +18,8 @@ then names you might hear.
 * `camelCase`: Also lowerCamelCase
 * `PascalCase`: Also UpperCamelCase
 * `CONSTANT_CASE`: This is used in many languages for constants
-* `cebab-case`: I have only seen this within strings. This is likely as the `-`
-  is usually used for substraction. It's also used for file names. It's mentioned [here](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841) and on [robinwieruch.de](https://www.robinwieruch.de/javascript-naming-conventions).
+* `kebab-case`: I have only seen this within strings. This is likely because the `-`
+  is usually used for subtraction. It's also used for file names. It's mentioned [here](https://medium.com/better-programming/string-case-styles-camel-pascal-snake-and-kebab-case-981407998841) and on [robinwieruch.de](https://www.robinwieruch.de/javascript-naming-conventions).
 
 
 ## Application

@@ -1,23 +1,23 @@
 ---
 layout: post
-lang: en
 title: Mutation Testing
 slug: mutation-testing
-URL: https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8
+lang: en
 author: Martin Thoma
 date: 2020-08-10 20:00
 category: Code
 tags: Python, pytest
 featured_image: logos/mutation-testing.png
+URL: https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8
 ---
 ![Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)](https://cdn-images-1.medium.com/max/2400/1*WjcywqTPozcMSvrLYsQBJQ.png)*Based on the [Monster Character set](https://www.freepik.com/free-vector/monster-character-set_1538770.htm) by [macrovector](https://www.freepik.com/macrovector)*
 
 We need to kill the mutants — no, I’m not a villain from the X-Men comics. I’m
 a software engineer who wants to improve unit tests.
 
-In this article you will learn what mutation testing is and how it can help you
+In this article, you will learn what mutation testing is and how it can help you
 to write better tests. The examples are for Python, but the concepts hold in
-general and in the end I have a list of tools in other languages.
+general, and at the end I have a list of tools in other languages.
 
 
 ## Why do we need mutation testing?
@@ -30,14 +30,14 @@ Typical mistakes are slight confusions. Accessing `list[i]` instead of
 `list[i-1]`, letting the loop run for `i < n` instead of `i <= n`, initializing
 a variable with None instead of the empty string. There are a lot of those
 slight changes which are usually just called “**typos**” or “**off-by-one**”
-mistakes. When I make them, I often didn’t think about the part thoroughly
+mistakes. When I make them, I often haven’t thought about the part thoroughly
 enough.
 
 **Mutation testing tests your unit tests**. The key idea is to apply those
 minor changes and run the unit tests that could fail. If a unit test fails, the
 mutant was killed. Which is what we want. It shows that this kind of off-by-one
 mistake cannot happen with our test suite. Of course, we assume that the unit
-tests themselves are correct or at worst incomplete. Hence you can see a
+tests themselves are correct or at worst incomplete. Hence, you can see a
 mutation test as an alternative to test coverage. In contrast to test coverage,
 the mutation testing toolkit can directly show you places and types of mistakes
 you would not cover right now.
@@ -45,7 +45,7 @@ you would not cover right now.
 
 ## Which mutation testing tools are there?
 
-There are a couple of tools like cosmic-ray, but [Anders Hovmöller](undefined) did a pretty amazing job by creating mutmut. As of August 2020, mutmut is the best library for Python to do mutation testing.
+There are a couple of tools like cosmic-ray, but Anders Hovmöller did a pretty amazing job by creating mutmut. As of August 2020, mutmut is the best library for Python to do mutation testing.
 
 To run the examples in this article, you have to install [mutmut](https://pypi.org/project/mutmut/):
 
@@ -84,7 +84,7 @@ def test_fibonacci():
 
 This smoke test already adds some value as it makes sure that things are not
 crashing for a single input. However, it would not find any logic bug. There is
-an assert statement missing. This pattern can quickly drive up the line
+an assert statement missing. This pattern can quickly drive the line
 coverage up to 100%, but you are then still lacking good tests.
 
 A mutation test cannot be fooled as easily. It would mutate the code and, for
@@ -155,7 +155,7 @@ slowest 3 tests are:
 ```
 
 In the end, you will see how many mutants were successfully killed (🎉), how
-many received a timeout (⏰) and which ones survived (😕). Especially the timeout
+many received a timeout (⏰), and which ones survived (🙁). Especially the timeout
 ones are annoying as they make the mutmut runs slower, but the code and the
 tests might still be fine.
 
@@ -164,35 +164,35 @@ tests might still be fine.
 
 mutmut 2.0 creates the following mutants ([source](https://github.com/boxed/mutmut/blob/9fc568648ba81d193f986c25ab60cbee0660dd33/mutmut/__init__.py#L433-L446)):
 
-* **Operator mutations**: About 30 different patterns like replacing + by - , *
-  by ** and similar, but also > by >= .
-* **Keyword mutations**: Replacing True by False , in by not in and similar.
-* **Number mutations**: You can write things like 0b100 which is the same as 4,
-  0o100, which is 64, 0x100 which is 256, .12 which is 0.12 and similar. The
+* **Operator mutations**: About 30 different patterns like replacing `+` with `-`, `*`
+  with `**`, and similar, but also `>` with `>=`.
+* **Keyword mutations**: Replacing `True` with `False`, `in` with `not in`, and similar.
+* **Number mutations**: You can write things like `0b100`, which is the same as 4,
+  `0o100`, which is 64, `0x100`, which is 256, `.12`, which is 0.12, and similar. The
   number mutations try to capture mistakes in this area.
-* **Name mutations**: The name mutations capture copy vs deepcopy and "" vs None .
-* **Argument mutations**: Replaces keyword arguments one by one from dict(a=b) to dict(aXXX=b).
-* **or_test and and_test**: and ↔ or
+* **Name mutations**: The name mutations capture `copy` vs `deepcopy` and `""` vs `None`.
+* **Argument mutations**: Replaces keyword arguments one by one from `dict(a=b)` to `dict(aXXX=b)`.
+* **or_test and and_test**: `and` ↔ `or`
 * **String mutation**: Adding XX to the string.
 
 Those can be grouped into three very different kinds of mutations: **value
 mutations** (string mutation, number mutation), **decision mutations** (switch
-if-else blocks, e.g. the or_test / and_test and the keyword mutations) and
-statement mutations (removing or changing a line of code).
+if-else blocks, e.g. the or_test / and_test and the keyword mutations), and
+**statement mutations** (removing or changing a line of code).
 
-The value mutations are most often false-positive for me. I’m not certain if I
+The value mutations are most often false positives for me. I’m not certain if I
 could write my code or my tests in another way to fix this. I’ve briefly
 discussed it with the library author, but apparently he does not have the same
 issue. If you’re interested in that discussion,
 see [issue #175](https://github.com/boxed/mutmut/issues/175).
 
-## How can I get a HTML report with mutmut?
+## How can I get an HTML report with mutmut?
 
 ```bash
 $ mutmut html
 ```
 
-gives you
+gives you:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/08/mutmut-html-report.png"><img src="../images/2020/08/mutmut-html-report.png" alt="Index page of the mutmut HTML report" style="width: 512px;"/></a>
@@ -205,7 +205,7 @@ gives you
 </figure>
 
 As you can see, the index claims that 108 mutants survived and the HTML report
-only shows one. That one is also a false-positive as a change in the logging
+only shows one. That one is also a false positive as a change in the logging
 message does not cause any issue.
 
 Alternatively, you can use the junit XML to generate a report:
@@ -223,7 +223,7 @@ The report shows this index page:
     <figcaption class="text-center">Test report generated from JUnit XML</figcaption>
 </figure>
 
-Clicking on one mutant, you gets this:
+Clicking on one mutant, you get this:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/08/mutmut-result-2.png"><img src="../images/2020/08/mutmut-result-2.png" alt="Mutant #3 was killed, but mutant #4 survived. I did not use the global variable “countries” anywhere in the tests" style="width: 512px;"/></a>
@@ -243,12 +243,12 @@ one could search for git commits which are bug fixes by examining the commit
 message. If the fix is rather short, this is a kind of mutation one could test
 for. Instead of generating all possible mutants, one could sample from the
 mutants in a way to first take the most promising ones; the ones that are most
-likely not perceived as a false-positive.
+likely not perceived as a false positive.
 
 Other work was more focused on making machine learning systems more robust ([DeepMutation](https://arxiv.org/pdf/1805.05206.pdf), [DeepGauge](https://arxiv.org/pdf/1803.07519.pdf), an [Evaluation](https://www.pre-crime.eu/techreps/TR-Precrime-2019-03.pdf)). I don’t know this stream of work well enough to write about it. But it sounds similar to techniques I know:
 
-* To overcome scarcity in training data, various **data** **augmentation
-  techniques **such as rotations, flips, or color adjustments are applied. You
+* To overcome scarcity in training data, various **data augmentation
+  techniques** such as rotations, flips, or color adjustments are applied. You
   can actually see those as mutations.
 * Also, in the **GAN** setting where you have a generator and a discriminator,
   you could argue that the generator produces mutants and the discriminator
@@ -258,7 +258,7 @@ Other work was more focused on making machine learning systems more robust ([Dee
   ([Tensorflow](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dropout),
   [Lasagne](https://lasagne.readthedocs.io/en/latest/modules/layers/noise.html)) is
   commonly used. You could say that a part of the input or the internal
-  representation is randomly mutated by setting it to zero
+  representation is randomly mutated by setting it to zero.
 
 ## Want to know more about unit testing?
 

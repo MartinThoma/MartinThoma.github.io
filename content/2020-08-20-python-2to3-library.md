@@ -1,18 +1,18 @@
 ---
 layout: post
-lang: en
 title: How I moved a library from Python 2 to 3
 slug: python-2to3-library
-URL: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1
+lang: en
 author: Martin Thoma
 date: 2020-08-20 20:00
 category: Code
 tags: Python
 featured_image: logos/python.png
+URL: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1
 ---
 ![Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)](https://cdn-images-1.medium.com/max/2560/1*uvS55XJ3-uUny7j1cgye6g.jpeg)*Image by [skylarvision from needpix.com](https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures)*
 
-Last year I’ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting and I’ll share here how I did it — or rather how I would do it if I had the same situation again.
+Last year, I gave a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting, and I’ll share here how I did it — or rather how I would do it if I had the same situation again.
 
 ## Local Setup
 
@@ -29,11 +29,11 @@ Alternatively, you can [use conda to switch between Python 2 and 3](https://docs
 
 ## General project setup
 
-The project should be under **version control** and you need to make sure that people can move back if they need to. You need to **pin direct and transitive dependencies**. You should have a **reproducible environment**, such as a [Docker container](https://makeitnew.io/docker-ab1a6bddf389) with a fixed Python version like 2.7.18-slim-buster. Add a **git tag** for the current version, deploy the latest one to pypi, and support your users in pinning that version.
+The project should be under **version control**, and you need to make sure that people can move back if they need to. You need to **pin direct and transitive dependencies**. You should have a **reproducible environment**, such as a [Docker container](https://makeitnew.io/docker-ab1a6bddf389) with a fixed Python version like 2.7.18-slim-buster. Add a **git tag** for the current version, deploy the latest one to PyPI, and support your users in pinning that version.
 
-Make sure that you document the current state of the migration to Python 3. Typically this is done via an issue tracker, e.g. the builtin one of Github or Jira.
+Make sure that you document the current state of the migration to Python 3. Typically this is done via an issue tracker, e.g. the built-in one of GitHub or Jira.
 
-First make sure that you can execute the tests, that the test coverage is OK (see [unit testing series](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)) and that the general style is OK (see lining todo). Set up a [CI / CD pipeline](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38).
+First, make sure that you can execute the tests, that the test coverage is OK (see [unit testing series](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0)), and that the general style is OK (see [static code analysis](../static-code-analysis/)). Set up a [CI / CD pipeline](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38).
 
 ## Print statements
 
@@ -66,7 +66,7 @@ py2>>> print(1, 2, 3)
 1 2 3
 ```
 
-Note that I didn’t use the print_function — I just imported it.
+Note that I didn’t use the `print_function` — I just imported it.
 
 Applying this small change is tedious, but you can use [2to3](https://docs.python.org/3.8/library/2to3.html) to do it for you:
 
@@ -97,15 +97,15 @@ Even nicer is the compatibility library six:
 $ pip install six
 ```
 
-`six` can then be used like this in both, Python 2 and Python 3:
+`six` can then be used like this in both Python 2 and Python 3:
 
-```shell
+```python
 from six.moves.urllib.parse import urlparse, urlencode
 from six.moves.urllib.request import urlopen
 ```
 
 When you write code only to keep the support for older versions, make sure you
-add a string that is easy to find. Something like “support for Python 2”
+add a string that is easy to find. Something like “support for Python 2”.
 
 ## Iterators
 
@@ -115,11 +115,11 @@ and thus need to change it to `list(range(10))`.
 
 ## input and raw_input
 
-Python 2 has [input](https://docs.python.org/2/library/functions.html#input) and [raw_input](https://docs.python.org/2/library/functions.html#raw_input) , but Python 3 only has [input](https://docs.python.org/3/library/functions.html#input). The raw_input of Python 2 is like the input of Python 3.
+Python 2 has [input](https://docs.python.org/2/library/functions.html#input) and [raw_input](https://docs.python.org/2/library/functions.html#raw_input), but Python 3 only has [input](https://docs.python.org/3/library/functions.html#input). The `raw_input` of Python 2 is like the `input` of Python 3.
 
 ## Division and Rounding
 
-If you apply / to two integers, Python 2 gives you an integer division. Python 3 gives you a float as a result. You can still do integer division with // which works in both, Python 2 and 3:
+If you apply `/` to two integers, Python 2 gives you an integer division. Python 3 gives you a float as a result. You can still do integer division with `//`, which works in both Python 2 and 3:
 
 ```text
 >>> 1 / 2
@@ -172,7 +172,7 @@ TypeError: ord() expected a character, but string of length 2 found
 '\xbc'
 ```
 
-In Python 3, it’s the same:
+In Python 3, it looks like this:
 
 ```text
 >>> a = u"abc"
@@ -197,8 +197,8 @@ In Python 3, it’s the same:
 I could write a lot about Unicode and string representations, but to keep it
 brief:
 
-* Python 2 u"somethin" is the same as Python 3 "something" or u"something"
-* I would not use from `__future__ import unicode_literals`. You might want to
+* Python 2 u"something" is the same as Python 3 "something" or u"something"
+* I would not use `from __future__ import unicode_literals`. You might want to
   [read more about
   unicode_literals](https://python-future.org/unicode_literals.html).
 * [How is unicode represented internally in Python?](https://stackoverflow.com/q/26079392/562769)
@@ -212,7 +212,7 @@ if it does not have C extensions. If pure Python code is compatible with Python
 [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels).
 It should work on every machine with every Python version.
 
-You should always distribute your code in form of a source distribution and a
+You should always distribute your code in the form of a source distribution and a
 wheel distribution. If you can, try to create and publish one universal wheel.
 
 
@@ -259,11 +259,11 @@ It’s not strictly necessary to do this, but it makes your code more modern and
 
 I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers’ support. You can simply create a so-called *fork*: A copy of the original project which you control.
 
-![Scipy has over 3000 forks. Screenshot of Github by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png)*Scipy has over 3000 forks. Screenshot of Github by Martin Thoma*
+![SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png)*SciPy has over 3000 forks. Screenshot of GitHub by Martin Thoma*
 
-Forking happens all the time with free software. It’s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (Github calls this a pull request (PR)).
+Forking happens all the time with free software. It’s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (GitHub calls this a pull request, PR).
 
-You can also upload your fork to pypi, but please only do this if you want to maintain that fork and continue the independent development.
+You can also upload your fork to PyPI, but please only do this if you want to maintain that fork and continue the independent development.
 
 ## Metaclasses
 
@@ -271,7 +271,7 @@ There are topics like metaclasses and exception scopes which I haven’t covered
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/JgIgEjASOlk" frameborder="0" allowfullscreen></iframe></center>
 
-[Anders Hovmöller](undefined) also wrote an interesting article about this topic. Check his “surprises in production” section:
+Anders Hovmöller also wrote an interesting article about this topic. Check his “surprises in production” section:
 [Moving a large and old codebase to Python3](https://medium.com/@boxed/moving-a-large-and-old-codebase-to-python3-33a5a13f8c99)
 
 ## TL;DR: How do I move from Python 2 to Python 3?
@@ -283,5 +283,5 @@ There are topics like metaclasses and exception scopes which I haven’t covered
 
 ## Related Resources
 
-* Mike Müller: [Migration from Python 2 to 3](https://www.youtube.com/watch?v=JgIgEjASOlk), at PyCon US2020.
+* Mike Müller: [Migration from Python 2 to 3](https://www.youtube.com/watch?v=JgIgEjASOlk), at PyCon US 2020.
 * [protpy](https://code.google.com/archive/p/protpy/downloads) was the library I moved. I created [propy3](https://github.com/MartinThoma/propy3).

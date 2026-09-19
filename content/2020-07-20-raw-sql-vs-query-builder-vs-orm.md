@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: Raw SQL vs Query Builder vs ORM
 slug: raw-sql-vs-query-builder-vs-orm
-URL: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
+lang: en
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: Code
 tags: SQL, ORM, SQLAlchemy, pypika, Query Builder
 featured_image: logos/db.png
+URL: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/relational-database.png"><img src="../images/2020/07/relational-database.png" alt="Screenshot of phpmyadmin" style="width: 512px;"/></a>
@@ -16,7 +16,7 @@ featured_image: logos/db.png
 </figure>
 
 Databases are the core of storing state for almost all web applications. For
-that reason taking care of the interactions with the database is crucial to
+that reason, taking care of the interactions with the database is crucial to
 make sure the application keeps running. The way to interact with most
 relational databases is SQL — the ***S**tructured **Q**uery **L**anguage*. SQL
 makes it incredibly simple to switch the actual database system or the client
@@ -35,20 +35,20 @@ export DB_USER=root
 export DB_PASSWORD=idontthinkso
 ```
 
-## **Raw SQL**
+## Raw SQL
 
-*Raw SQL, *sometimes also called *native SQL,* is the most basic, most
+*Raw SQL*, sometimes also called *native SQL*, is the most basic, most
 low-level form of database interaction. You tell the database what to do in the
-language of the database. Most developers should know basics of SQL. This means
+language of the database. Most developers should know the basics of SQL. This means
 how to CREATE tables and views, how to SELECT and JOIN data, how to UPDATE and
 DELETE data. For more complex things like [stored
 procedures](https://en.wikipedia.org/wiki/Stored_procedure), T-SQL, PL-SQL,
-in-depth knowledge about indices and their effect you will have a significantly
-harder time to find knowledgeable people. SQL is far more powerful than many
+in-depth knowledge about indices and their effect, you will have a significantly
+harder time finding knowledgeable people. SQL is far more powerful than many
 developers think. I wouldn’t know [how to create the Mandelbrot set with
 SQL](http://wiki.postgresql.org/wiki/Mandelbrot_set), for example.
 
-In order to illustrate the problems of raw SQL statements, take the example of a book portal. The users can see data about books, for example their title, original language and the author:
+In order to illustrate the problems of raw SQL statements, take the example of a book portal. The users can see data about books, for example, their title, original language and the author:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/books-authors.png"><img src="../images/2020/07/books-authors.png" alt="Every book has exactly one author, but every author might have an arbitrary number of books." style="width: 512px;"/></a>
@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
 The decorator is utility code that the project might use a lot.
 
-On the positive side, it is pretty clear what happens with raw SQL. You only need knowledge of Python and SQL. No need to be deep in third party software.
+On the positive side, it is pretty clear what happens with raw SQL. You only need knowledge of Python and SQL. No need to dig deep into third-party software.
 
 However, there are six negative aspects about using raw SQL to be aware of.
 
@@ -125,7 +125,7 @@ An SQL injection is an attack on services which have a placeholder in an SQL que
 sql = "SELECT user_id FROM users WHERE name='{name}' AND pw='{pw}';"
 ```
 
-Given such an approach, the attacker could fill in ' OR name='admin' AND '1'='1 for the pw and empty for the name. This would result in the query
+Given such an approach, the attacker could fill in `' OR name='admin' AND '1'='1` for the pw and leave the name empty. This would result in the query:
 
 ```sql
 SELECT user_id
@@ -143,7 +143,7 @@ Of course, escaping the quotes and not directly pasting in user input is what yo
 The first obvious problem of string-programming is that typos in the sub-language cannot be detected by the editor.
 
 ```python
-sql = "SELECT * FROM books;"
+sql = "SELECT * FORM books;"
 ```
 
 ### Problem 3: Missing Editor Support
@@ -167,7 +167,7 @@ You can see already in the example above that syntax highlighting is missing, bu
     <figcaption class="text-center">vim 8.1</figcaption>
 </figure>
 
-In contrast, here is the same query in an query.sql file:
+In contrast, here is the same query in a `query.sql` file:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/sublime-query.png"><img src="../images/2020/07/sublime-query.png" alt="Sublime Text 3.2" style="width: 512px;"/></a>
@@ -188,7 +188,7 @@ I’ve tried PyCharm as well. Besides having another color for strings, it looks
 the same. It does not recognize that the string contains SQL.
 
 If you really need raw queries and if you still want syntax highlighting, you
-can put each query in its own query.sql file. This way the editor knows to use
+can put each query in its own `.sql` file. This way, the editor knows to use
 SQL syntax highlighting.
 
 ### Problem 4: Typos in Table or Column Names
@@ -198,7 +198,7 @@ sql = "SELECT * from boks;"
 ```
 
 This group of errors is way harder to find. Now the checking code does not only
-have to know how SQL works, it also has to know your data. The database schema
+have to know how SQL works, it also has to know your data. The database schema,
 to be more precise.
 
 ### Problem 5: Change management
@@ -211,17 +211,17 @@ for that. You have to migrate the schema and all queries yourself.
 If you have an analytical query, it is nice if you can apply slight
 modifications to it. For example, imagine tracking data where you want to know
 how many users clicked on a button. You might have a “base query” for that.
-Depending on the use case you might want to filter for a certain time frame or
+Depending on the use case, you might want to filter for a certain time frame or
 characteristics of the user. It’s possible to extend a query when you have raw
 SQL, but it’s cumbersome. You need to touch the original query and add
 placeholders.
 
-## **Query Builder**
+## Query Builder
 
 Libraries which are written in the programming language you use and use native
 classes and functions to build SQL queries are called *query builders*. Query
 builders typically have a [fluent
-interface](https://en.wikipedia.org/wiki/Fluent_interface). This means, that
+interface](https://en.wikipedia.org/wiki/Fluent_interface). This means that
 the queries are built by an object-oriented interface which uses method
 chaining:
 
@@ -232,11 +232,11 @@ query = Query.from_(books).select("*").where(books.author_id == aid)
 There are also graphical tools which are sometimes also called query builders,
 but for this article I don’t mean them.
 
-JavaScript [Knex](http://knexjs.org/), PHP has
+JavaScript has [Knex](http://knexjs.org/), PHP has
 [Doctrine](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.10/reference/query-builder.html#sql-query-builder),
 Java has [QueryDSL](http://www.querydsl.com/) and [JOOQ](http://www.jooq.org/).
 
-[Pypika](https://github.com/kayak/pypika) is an example for a Query Builder in
+[PyPika](https://github.com/kayak/pypika) is an example of a query builder in
 Python. The example query from above can be built and executed like this:
 
 ```python
@@ -253,7 +253,7 @@ from raw_sql import db_connection
 
 @db_connection
 def get_titles_by_author(con, author_id: int) -> List[str]:
-    books = Table()
+    books = Table("books")
     q = Query.from_(books).select("*").where(books.author_id == author_id)
     cur = con.cursor(pymysql.cursors.DictCursor)
     query = q.get_sql(quote_char=None)
@@ -278,14 +278,14 @@ would expose the query&nbsp;`q` somewhere.
 
 The query builder prevents typos in the offered parts — `.select`, `.from_`,
 `.where` in the example above. It does not help with column names, as they are
-still only strings. In other words: A query builder solves problem&nbsp;1 and&nbsp;2,
-addresses problem&nbsp;3, and still has problem&nbsp;4 and&nbsp;5.
+still only strings. In other words: A query builder solves problems&nbsp;1 and&nbsp;2,
+addresses problem&nbsp;3, and still has problems&nbsp;4 and&nbsp;5.
 
-## **ORM: Object-Relational Mapper**
+## ORM: Object-Relational Mapper
 
-ORMs create an object for each database table. This way, there is a language-native representation and thus all of the languages ecosystem features such as autocomplete and syntax-highlighting work.
+ORMs create an object for each database table. This way, there is a language-native representation and thus all of the language's ecosystem features, such as autocomplete and syntax highlighting, work.
 
-ORMs are extremely popular in many languages: Java has [Hibernate](http://hibernate.org/), PHP has [Eloquent](https://laravel.com/docs/5.0/eloquent), Ruby has [activerecord](https://guides.rubyonrails.org/active_record_basics.html), JavaScript has [Sequelize](https://sequelize.org/) and [TypeORM](https://typeorm.io/), and Python has [SQLAlchemy](https://www.sqlalchemy.org/).
+ORMs are extremely popular in many languages: Java has [Hibernate](http://hibernate.org/), PHP has [Eloquent](https://laravel.com/docs/5.0/eloquent), Ruby has [Active Record](https://guides.rubyonrails.org/active_record_basics.html), JavaScript has [Sequelize](https://sequelize.org/) and [TypeORM](https://typeorm.io/), and Python has [SQLAlchemy](https://www.sqlalchemy.org/).
 
 Here is how the book example looks with SQLAlchemy:
 
@@ -348,7 +348,7 @@ if __name__ == "__main__":
     print(get_titles_by_author(1))
 ```
 
-A cool point about ORMs is that they sometimes help with changes. In Python, there is [Alembic](https://alembic.sqlalchemy.org/en/latest/) which can automatically detect when your models changed compared to the last known state of the database. Alembic can then create schema migration files for you. They look like that:
+A cool point about ORMs is that they sometimes help with changes. In Python, there is [Alembic](https://alembic.sqlalchemy.org/en/latest/) which can automatically detect when your models changed compared to the last known state of the database. Alembic can then create schema migration files for you. They look like this:
 
 ```python
 import sqlalchemy as sa
@@ -386,11 +386,11 @@ def downgrade():
     op.drop_column("users", "confirmed_on")
 ```
 
-It requires initial effort to represent the database within the code so that there are objects which represent the tables of the database. After that initial effort you need to make sure that the database is in sync with the query builders code base. What you get from that effort is faster development when you just need to write new queries. As you can also get syntax highlighting and auto-formatting, it could also reduce maintenance by making the queries easier to read.
+It requires initial effort to represent the database within the code so that there are objects which represent the tables of the database. After that initial effort, you need to make sure that the database is in sync with the ORM code base. What you get from that effort is faster development when you just need to write new queries. As you can also get syntax highlighting and auto-formatting, it could also reduce maintenance by making the queries easier to read.
 
 ### Over-fetching Problem
 
-When you fire Queries with ORMs, you tend to get more than you need. For example, if you wanted to use the ORM directly for the book query from above, you would define the foreign key like this:
+When you fire queries with ORMs, you tend to get more than you need. For example, if you wanted to use the ORM directly for the book query from above, you would define the foreign key like this:
 
 ```python
 # Core Library modules
@@ -454,9 +454,9 @@ This is inefficient for multiple reasons:
 
 1. I didn’t want author information at all.
 2. The database needs to execute two queries instead of one.
-3. I didn’t want the books ID or the authors ID. Of course, this is a tiny
+3. I didn’t want the book's ID or the author's ID. Of course, this is a tiny
    example where it doesn’t matter. But imagine your query would return several
-   hundred rows and have also sever hundred columns. And maybe some would be
+   hundred rows and also have several hundred columns. And maybe some would be
    filled with rather big content, e.g. a
    [LONGBLOB](https://mariadb.com/kb/en/longblob/).
 
@@ -495,11 +495,11 @@ The point of this example is not that ORMs make it hard to do the right thing.
 The last example is certainly easy to understand. But they also make it easy to
 create queries which are wrong in a subtle way. Imagine you received the
 orms2.py or orms3.py example to review. They do the right thing, the unit tests
-are not terrible slow either. Would you be certain to spot the unnecessary
+are not terribly slow either. Would you be certain to spot the unnecessary
 complexity? Also when the desired query gets way more complex?
 
 For raw SQL and query builders, you have to go out of your way to come up with
-similar complex queries. There it is hard to write a too complex query and it’s
+similarly complex queries. There it is hard to write a too complex query and it’s
 easy to spot them.
 
 ### The N+1 Problem: Initial Under-Fetching
@@ -521,10 +521,10 @@ With an ORM, you might be tempted to do this:
 
 <iframe src="https://medium.com/media/b7b584fc3628ded28094f054aa6d5da4" frameborder=0></iframe>
 
-It looks fine because you don’t see a session.query in the for-loop, but for
-every element in there it fires one query. So if you have received n books in
+It looks fine because you don’t see a `session.query` in the for-loop, but for
+every element in there, it fires one query. So if you have received n books in
 the first query, you will execute n queries you’re potentially not aware of.
-You have n+1 queries instead of 1 .
+You have n+1 queries instead of 1.
 
 ### The Leaky Abstraction Problem
 
@@ -542,7 +542,7 @@ all books written by those. You might be tempted to do something like this:
 <iframe src="https://medium.com/media/ab03bbf6e4c362fa609cd34e424c2bbf" frameborder=0></iframe>
 
 Now you send a query once for each author. Of course, you can do that in a
-single query. And you should, because although the loop above does not seem to
+single query. And you should, because although the loop above does not seem too
 bad, you have a network connection in between. This is how you do it with a
 single query:
 
@@ -552,7 +552,7 @@ single query:
 
 Language Integrated Queries (short: LINQ) are available in C# and might be a built-in solution for the problems query builders try to solve. Here is an [example from Wikipedia](https://en.wikipedia.org/wiki/Language_Integrated_Query#Language_extensions):
 
-```c-sharp
+```csharp
 var results =  from c in SomeCollection
                where c.SomeProperty < 10
                select new {c.SomeProperty, c.OtherProperty};
@@ -567,14 +567,14 @@ complicated. I have written myself queries which have several hundred lines.
 There are two groups of workloads which are typically distinguished:
 [OLTP](https://en.wikipedia.org/wiki/Online_transaction_processing) and
 [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing). OLTP
-workloads have a big amount of small inserts / updates / deletes, whereas OLAP
-workloads run a small amount of complex select queries for analysis.
+workloads have a large number of small inserts / updates / deletes, whereas OLAP
+workloads run a small number of complex select queries for analysis.
 
 Of course, if you are in a scenario where most of your queries are rather
 simple, it is easy to switch to a query builder or an ORM. But if you have
 complex queries the switch to an ORM might even be impossible.
 
-This is where gradual changes come into play. Similar as
+This is where gradual changes come into play. Similar to how
 [Python supports gradual typing](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d),
 some ORMs / Query Builders allow you to use raw SQL. And some query builders
 allow you to first use strings for the table and column names and transition as
@@ -586,7 +586,7 @@ expression by a query builder later is still possible.
 ## Conclusion
 
 Raw SQL is for sure the most powerful way to interact with your database as it
-is the databases native language. The drawback is that you might use features
+is the database's native language. The drawback is that you might use features
 which are specific to that database, which makes a future database switch
 harder. Another drawback is that core editor features like syntax highlighting
 and autocompletion are missing. Extending queries is cumbersome and the risk of
@@ -598,9 +598,9 @@ queries easier and make SQL injections harder.
 
 ORMs provide the highest form of abstraction and prevent typos not only in SQL
 keywords, but also in the table and column names. They take longer to get
-started than query builders — both, from a learning curve perspective and from
+started than query builders — both from a learning curve perspective and from
 the perspective of initial development overhead. As they abstract away a lot,
-there is a higher risk to execute expensive queries or too many queries.
+there is a higher risk of executing expensive queries or too many queries.
 
 ## Credits
 

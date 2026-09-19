@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: pyproject.toml
 slug: pyproject-toml
+lang: en
 author: Martin Thoma
 date: 2019-07-30 20:00
 category: Code
@@ -10,8 +10,8 @@ tags: Python,packaging
 featured_image: logos/python.png
 ---
 The `pyproject.toml` file allows package creators to define the build system as
-a dependency as well as a projects metadata.
-Also, other kinds of meta-data and the install requirements can be
+a dependency as well as a project's metadata.
+Also, other kinds of metadata and the install requirements can be
 defined in it.
 
 If you are interested in a sample project, try [pypa/sampleproject](https://github.com/pypa/sampleproject) or try the [packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/).
@@ -19,7 +19,7 @@ If you are interested in a sample project, try [pypa/sampleproject](https://gith
 
 ## Example
 
-```ini
+```toml
 [project]
 name = "infer_pyproject"
 version = "0.1.0"
@@ -116,27 +116,27 @@ exclude = '''
 
 <dl>
     <dt>Python Package</dt>
-    <dd>A bundle of software. This includes code and meta-data, such as requirements, a short and a long description, the license. It also contains instructions how to build the software. Formerly this was done with distutils.</dd>
+    <dd>A bundle of software. This includes code and meta-data, such as requirements, a short and a long description, the license. It also contains instructions on how to build the software. Formerly this was done with distutils.</dd>
     <dt id="distutils">distutils</dt>
-    <dd>Lets you create source distributions (<code>python setup.py sdist</code>). Sometime building takes a long time, so you might want to share already built distributions. You can do that with <code>python setup.py bdist</code>.</dd>
+    <dd>Lets you create source distributions (<code>python setup.py sdist</code>). Sometimes building takes a long time, so you might want to share already built distributions. You can do that with <code>python setup.py bdist</code>.</dd>
     <dt id="setuptools">setuptools</dt>
-    <dd>Like distutils, but a 3rd party library. It is de-facto standard, but does not come with Python.</dd>
+    <dd>Like distutils, but a 3rd party library. It is the de facto standard, but does not come with Python.</dd>
     <dt id="setup.py"><code>setup.py</code> <span class="label label-danger">dependency declaration</span></dt>
     <dd>Python file which specifies a package. As it can be arbitrary code, there is no way to know the dependencies of a package for sure without executing <code>setup.py</code>.</dd>
-    <dt id="pypi">PyPI (Python Packaging Index) <span class="label label-secondary">software repository</span></dt>
-    <dd>PyPI is the official third-party software repository for Python. Here people can share their code in form of Python packages.</dd>
+    <dt id="pypi">PyPI (Python Package Index) <span class="label label-secondary">software repository</span></dt>
+    <dd>PyPI is the official third-party software repository for Python. Here people can share their code in the form of Python packages.</dd>
     <dt><code>easy_install</code></dt>
     <dd>Easy_install is a package manager which is replaced by pip, because it could not uninstall and did not know what was installed. Other <a href="https://packaging.python.org/discussions/pip-vs-easy-install/">reasons</a> as well.</dd>
     <dt>egg distribution <span class="label label-primary">distribution format</span></dt>
     <dd>"Egg" is a single-file importable distribution format for Python-related projects. Eggs are to Pythons as Jars are to Java, but eggs are richer than jars; they hold interesting metadata such as licensing details, release dependencies, ... (<a href="https://wiki.python.org/moin/egg">source</a>). It is a zip file.</dd>
     <dt id="pip"><code>pip</code></dt>
-    <dd>pip is a de facto standard package manager for Python. It allows to install packages and installs required packages. pip introduced <code>requirements.txt</code></dd>
+    <dd>pip is a de facto standard package manager for Python. It allows you to install packages and installs required packages. pip introduced <code>requirements.txt</code>.</dd>
     <dt id="requirements.txt"><code>requirements.txt</code> <span class="label label-danger">dependency declaration</span></dt>
     <dd>It allows pinning versions of a dependency. The <code>setup.py</code> includes abstract requirements, the <code>requirements.txt</code> includes concrete ones. Abstract requirements are more flexible, concrete ones are stable.</dd>
     <dt id="wheel">wheel distribution  <span class="label label-primary">distribution format</span></dt>
     <dd>The wheel binary package format is specified in <a href="https://www.python.org/dev/peps/pep-0427/">PEP 427</a>. It is similar to egg distributions. It is a zip file.</dd>
     <dt id="twine">twine</dt>
-    <dd>Allowed to securely upload a package to PyPI.</dd>
+    <dd>Allows you to securely upload a package to PyPI.</dd>
     <dt id="conda">conda</dt>
     <dd>conda is a Python-agnostic packaging tool and installer. If you need more than Python / if you don't have Python installed. It supports C, Fortran, R, Perl, Java, ...</dd>
     <dt id="pipfile">pipfile and pipfile.lock <span class="label label-danger">dependency declaration</span></dt>
@@ -148,7 +148,7 @@ exclude = '''
     <dt id="pipenv">pipenv</dt>
     <dd>Wrapper for virtualenv. Has <a href="https://stackoverflow.com/questions/tagged/pipenv">485 questions on SO</a>. See pipfile for more info.</dd>
     <dt id="virtualenvwrapper"><a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper</a></dt>
-    <dd>Another virtuelenv wrapper. Has <a href="https://stackoverflow.com/questions/tagged/virtualenvwrapper">570 questions on SO</a>.</dd>
+    <dd>Another virtualenv wrapper. Has <a href="https://stackoverflow.com/questions/tagged/virtualenvwrapper">570 questions on SO</a>.</dd>
     <dt id="poetry"><a href="https://poetry.eustace.io/docs/pyproject/">Poetry</a></dt>
     <dd>Meant to be a successor of pipenv, but seems not production-ready yet (<a href="https://frostming.com/2019/01-04/pipenv-poetry">source</a>, <a href="https://stackoverflow.com/questions/tagged/python-poetry">13 SO questions</a>).</dd>
     <dt id="dephell"><a href="https://dephell.org/">DepHell</a></dt>

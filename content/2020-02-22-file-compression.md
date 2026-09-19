@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: File Compression
 slug: file-compression
+lang: en
 author: Martin Thoma
 date: 2020-02-22 20:00
 category: My bits and bytes
@@ -15,7 +15,7 @@ every drawing from <a href="http://write-math.com/">write-math.com</a> in there.
 For this reason, I want to store that specific table in a compressed way. But
 which compression format is the best for which use case?
 
-This article is only about loss-less compression. There are many more things
+This article is only about lossless compression. There are many more things
 to say about lossy compression.
 
 ## My System
@@ -24,12 +24,12 @@ to say about lossy compression.
     <thead>
         <tr style="background-color:#cdcdcd">
             <th>&nbsp;</th>
-            <th>Thinkpad T460p</th>
+            <th>ThinkPad T460p</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.intel.com</a>)</td>
             <td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
         </tr>
         <tr>

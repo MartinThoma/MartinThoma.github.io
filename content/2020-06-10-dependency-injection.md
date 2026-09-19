@@ -1,25 +1,25 @@
 ---
 layout: post
-lang: en
 title: Dependency Injection
 slug: dependency-injection
+lang: en
 author: Martin Thoma
-status: draft
 date: 2020-06-10 20:00
 category: My bits and bytes
 tags: Code
 featured_image: logos/star.png
+status: draft
 ---
 [Dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) (DI)
 is a technique in which an object receives other objects that it depends on.
 
-Always when I read this during my software engineering courses or in Java
-related contexts, I was confused. I didn't quite understand what it is and why
-people make such a fuzz around it.
+Whenever I read this during my software engineering courses or in Java-related
+contexts, I was confused. I didn't quite understand what it is and why
+people make such a fuss about it.
 
-Now, I think it is just a super simple idea which does not really deserve it's
-own name. It's making pure functions; removing the implicit dependency on outside
-state to explicit dependency of on a parameter.
+Now, I think it is just a super simple idea which does not really deserve its
+own name. It's making pure functions: turning the implicit dependency on outside
+state into an explicit dependency on a parameter.
 
 
 
@@ -29,7 +29,7 @@ state to explicit dependency of on a parameter.
 ### Time
 
 I often write functions which depend on the current time / date. Let's say
-we want to just get a filename. The simple solution is
+we want to just get a filename. The simple solution is:
 
 ```python
 import datetime
@@ -41,8 +41,8 @@ def get_filename() -> str:
     return f"{now:%Y-%m-%d-%H-%M-%S}.txt"
 ```
 
-That is super straight forward, but maybe you want to test it. Then you
-suddenly have to use mocking for datetime.
+That is super straightforward, but maybe you want to test it. Then you
+suddenly have to use mocking for `datetime`.
 
 Or, you make the function a bit different:
 
@@ -57,16 +57,16 @@ def get_filename(now=None) -> str:
     return f"{now:%Y-%m-%d-%H-%M-%S}.txt"
 ```
 
-So you inject the dependency `now`. Due to Pythons handling of default
+So you inject the dependency `now`. Due to Python's handling of default
 parameters you cannot assign it as a default value, but that is a different
 topic.
 
 Although you use the function exactly the same way, you can test it by setting
-the `now` parameter. The dependency on `datetime` was removed for the imporant
+the `now` parameter. The dependency on `datetime` was removed for the important
 code path. Instead, the dependency on an explicitly set parameter `now` was
 added.
 
-More details to this in [^1].
+More details on this in [^1].
 
 
 ### Query Builder
@@ -123,10 +123,10 @@ hello_world(output_function=print, name="world")
 Please don't do that. Only use it if you need it. [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it),
 if you want to sound cool.
 
-In this example you don't make testing easier. You might have added
+In this example, you don't make testing easier. You might have added
 flexibility, but the cost of it is that your code becomes harder to read. Code
-readability matters, because we read code often. When the function looks
-complicated, other people (including yourself in future) might just decide to
+readability matters because we read code often. When the function looks
+complicated, other people (including yourself in the future) might just decide to
 implement the thing from scratch.
 
 
@@ -142,7 +142,7 @@ Liskov substitution principle
 
 ## See also
 
-* StackOverflow:
+* Stack Overflow:
     * tux21b: [Why is IoC / DI not common in Python?](https://stackoverflow.com/q/2461702/562769), 2011
     * bagrat: [What is a Pythonic way for Dependency Injection?](https://stackoverflow.com/q/31678827/562769), 2015
 * Yeray Díaz: [Import as an antipattern - Demystifying Dependency Injection in modern Python](https://www.youtube.com/watch?v=qkGxy4c64Jg) at PyCon UK, 2019. On YouTube (21 minutes).

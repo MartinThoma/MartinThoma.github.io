@@ -1,18 +1,18 @@
 ---
 layout: post
-lang: en
 title: Python Application
 slug: python-applications
+lang: en
 author: Martin Thoma
-status: draft
 date: 2020-05-17 20:00
 category: Code
 tags: Python
 featured_image: logos/star.png
+status: draft
 ---
 ## Create Executables
 
-[pex](https://pex.readthedocs.io/en/stable/) provides a general purpose Python
+[pex](https://pex.readthedocs.io/en/stable/) provides a general-purpose Python
 environment virtualization solution similar in spirit to virtualenv. PEX files
 have been used by Twitter to deploy Python applications to production since
 2011.

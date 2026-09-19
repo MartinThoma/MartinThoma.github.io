@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: en
 title: File Encryption
 slug: file-encryption
+lang: en
 author: Martin Thoma
 date: 2020-05-10 20:00
 category: Code
 tags: Python, Security, file-encryption
 featured_image: logos/python.png
 ---
-I recently wondered how difficult it is to encrypt a file. In this article I
+I recently wondered how difficult it is to encrypt a file. In this article, I
 will show you two ways to do it. I use a text file `content.txt` with the
-content
+content:
 
 ```text
 This is a top secret message!
@@ -28,7 +28,7 @@ Don't show it to others!
 Check with `gpg --list-secret-keys` if you already have keys. If not, run
 
 ```bash
-gpg –-gen-key
+gpg --gen-key
 ```
 
 Encrypt file:
@@ -47,9 +47,9 @@ gpg -d -o out.decrypted.txt content.txt.gpg
 
 In order to generate an encrypted file with Python, I use the [fernet](https://cryptography.io/en/latest/fernet/) module of [cryptography](https://pypi.org/project/cryptography/).
 It's not part of the standard library ([source](https://docs.python.org/3/library/crypto.html)), but
-it is super wide spread.
+it is super widespread.
 
-It uses AES in CBC mode with a 128-bit key for encryption; using PKCS7 padding. Initialization vectors are generated using os.urandom().
+It uses AES in CBC mode with a 128-bit key for encryption, using PKCS7 padding. Initialization vectors are generated using `os.urandom()`.
 
 
 ```python
@@ -115,16 +115,16 @@ elsewhere.
 Alice was sitting in a taxi, using her laptop and her phone at the same time.
 She just quickly put her laptop next to her and had a look at her phone.
 Thinking about the flight she needed to catch, she forgot the laptop. The
-taxidriver sold the laptop on ebay and Bob bought it. He wants to see if there
+taxi driver sold the laptop on eBay and Bob bought it. He wants to see if there
 is valuable information on it and tries to get access.
 
-**Assessment**: To protect agains this, Alice should use full disk encryption
+**Assessment**: To protect against this, Alice should use full disk encryption
 (FDE). If Alice doesn't have FDE, encrypting a single file might help for that
 single file. But as it only protects one file, it's certainly worse than FDE.
 
 ### Root Access
 
-Alice catched a virus! No, not COVID-19, but one on her computer. Bob now has
+Alice caught a virus! No, not COVID-19, but one on her computer. Bob now has
 remote access to her machine.
 
 **Assessment**: In this case, I would say all hope is lost. The attacker can
@@ -148,8 +148,8 @@ the file.
 Alice sends data to Charlie via e-mail. Bob catches the message while it's
 transmitted.
 
-Bob is here the [Man in the Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)
-and makes a Man in the Middle (MitM) attack.
+Here, Bob is the [Man in the Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)
+and performs a Man-in-the-Middle (MitM) attack.
 
 **Assessment**: The encryption of the e-mail would have helped. Using TLS would
 be preferable, though.

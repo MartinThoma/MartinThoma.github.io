@@ -1,22 +1,22 @@
 ---
 layout: post
-lang: en
 title: How to write Flake8 plugins 😍
 slug: write-flake8-plugins
-URL: https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2
+lang: en
 author: Martin Thoma
 date: 2020-09-25 20:00
 category: Code
 tags: Flake8, Python
 featured_image: logos/python.png
+URL: https://medium.com/analytics-vidhya/how-to-write-flake8-plugins-5c5c47faffc2
 ---
 Really important parts of code reviews are almost impossible to automate:
 Architectural decisions and logical bugs. They are too customized to your
 codebase; too specific for the pull request.
 
-However, many comments in code reviews are not like that. They are about simply
+However, many comments in code reviews are not like that. They are about simple
 style decisions, common minor mistakes, and misconceptions. They are valuable
-as well, but they distract the reviewer from the harder parts. The lining
+as well, but they distract the reviewer from the harder parts. The linting
 system Flake8 allows you to write plugins that automatically capture those
 simple things. You can execute them in your CI pipeline and thus never need to
 think about them again.
@@ -46,7 +46,7 @@ Flake8 is a linter which only checks rules. It does not change the code. Every r
 * E111: indentation is not a multiple of four
 * E112: expected an indented block
 
-One can select the rules which one wants to check on a prefix-basis:
+One can select the rules which one wants to check on a prefix basis:
 
 ```bash
 # Check all rules beginning with "E1" and nothing else
@@ -67,7 +67,7 @@ Plugins need a 3-character prefix. For my plugin [flake8-simplify](https://pypi.
 
 ## The Flake8 Plugin Skeleton
 
-[Cookiecutter](https://github.com/cookiecutter/cookiecutter) is a command-line utility that allows you to create a project from scratch by using a template. Install it via
+[Cookiecutter](https://github.com/cookiecutter/cookiecutter) is a command-line utility that allows you to create a project from scratch by using a template. Install it via:
 
 ```bash
 pip install cookiecutter
@@ -118,13 +118,13 @@ flake8.extension =
     AWE=flake8_awesome:Plugin
 ```
 
-Just replace AWE by the 3-character code you want to have for your rules. We are, of course, not there jet. The visitor class still needs to be implemented. But to understand the visitor, we need to understand Pythons AST.
+Just replace AWE with the 3-character code you want to have for your rules. We are, of course, not there yet. The visitor class still needs to be implemented. But to understand the visitor, we need to understand Python's AST.
 
-## Understanding Pythons AST
+## Understanding Python's AST
 
 An [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) (AST) is another representation of the code.
 
-Install [astpretty](https://pypi.org/project/astpretty/) to understand how the AST looks like for a piece of code you’re interested in:
+Install [astpretty](https://pypi.org/project/astpretty/) to understand what the AST looks like for a piece of code you’re interested in:
 
 ```bash
 pip install astpretty
@@ -156,7 +156,7 @@ Next, we need to recognize that pattern.
 
 ## A Flake8 visitor class
 
-The logic of the linter is in the visitor class. The visitor gets called for every node in the AST. It has various methods which are based on the operations you see within astpretty, e.g. visit_UnaryOp . This method receives an ast.UnaryOp with which you can do whatever you want. More often than not, this will not be of the pattern you need. In this example, you need to look for the op == Not() and operand==Compare and ops=[Eq()] .
+The logic of the linter is in the visitor class. The visitor gets called for every node in the AST. It has various methods which are based on the operations you see within astpretty, e.g. `visit_UnaryOp`. This method receives an `ast.UnaryOp` with which you can do whatever you want. More often than not, this will not be of the pattern you need. In this example, you need to look for `op == Not()`, `operand == Compare`, and `ops == [Eq()]`.
 
 This is how it’s done:
 
@@ -175,7 +175,7 @@ class Visitor(ast.NodeVisitor):
 
 
 def _get_not_equal_calls(node: ast.UnaryOp) -> List[Tuple[int, int, str]]:
-    """Get a list of all calls where an unary 'not' is used for an quality."""
+    """Get a list of all calls where a unary 'not' is used for an equality."""
     errors: List[Tuple[int, int, str]] = []
     if not isinstance(node.op, ast.Not) or not isinstance(node.operand, ast.Compare):
         return errors
@@ -189,13 +189,13 @@ def _get_not_equal_calls(node: ast.UnaryOp) -> List[Tuple[int, int, str]]:
     return errors
 ```
 
-I like [astor](https://pypi.org/project/astor/).to_source to get a string like it was in the source code back from the AST node.
+I like [astor](https://pypi.org/project/astor/)'s `to_source` to get a string back from the AST node, just like it was in the source code.
 
 ## Testing Flake8 plugins
 
 A big shoutout to Anthony Sottile. Before his video (linked below), I had no clue how to test Flake8 plugins. Thank you ❤️
 
-It’s trivial once you know it: You create a string that contains a line or multiple lines of code. You pass it to ast.parse to get the abstract syntax tree. That one can be passed to your plugin, which should generate some output. That output can then be checked:
+It’s trivial once you know it: You create a string that contains a line or multiple lines of code. You pass it to `ast.parse` to get the abstract syntax tree. That one can be passed to your plugin, which should generate some output. That output can then be checked:
 
 ```python
 # Core Library
@@ -214,7 +214,7 @@ def _results(code: str) -> Set[str]:
 
 
 def test_trivial_case():
-    """Check the plugins output for no code."""
+    """Check the plugin's output for no code."""
     assert _results("") == set()
 ```
 
@@ -231,12 +231,12 @@ def test_unary_not_equality():
 
 This is part of [flake8-simplify 0.2.0](https://github.com/MartinThoma/flake8-simplify/tree/0.2.0). I’ve pinned the version so that you can see the code in the simple form it has right now.
 
-Please make me proud and automate your reviews — make the following comics true for Flake8 plugins as well :-)
+Please make me proud and automate your reviews — make the following comic true for Flake8 plugins as well :-)
 
 ![Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)](https://cdn-images-1.medium.com/max/2000/1*WYl8FGvNz-nvPpzuQd54-w.jpeg)*Comic by [geek-and-poke](https://geekandpoke.typepad.com/geekandpoke/2011/10/hyperinflation.html) (Oliver Widder)*
 
 ## See also
 
-I can highly recommend the following video by [Anthony Sottile](undefined) ([LinkedIn](https://www.linkedin.com/in/anthony-sottile-940008b1/), [Github](https://github.com/asottile)). He is the awesome guy who develops [pyupgrade](https://github.com/asottile/pyupgrade), [blacken-docs](https://github.com/asottile/blacken-docs), and [astpretty](https://github.com/asottile/astpretty):
+I can highly recommend the following video by Anthony Sottile ([LinkedIn](https://www.linkedin.com/in/anthony-sottile-940008b1/), [GitHub](https://github.com/asottile)). He is the awesome guy who develops [pyupgrade](https://github.com/asottile/pyupgrade), [blacken-docs](https://github.com/asottile/blacken-docs), and [astpretty](https://github.com/asottile/astpretty):
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/ot5Z4KQPBL8" frameborder="0" allowfullscreen></iframe></center>

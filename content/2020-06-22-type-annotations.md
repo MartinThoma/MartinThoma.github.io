@@ -1,20 +1,20 @@
 ---
 layout: post
-lang: en
 title: Type Annotations in Python 3.8
-URL: https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d
 slug: type-annotations
+lang: en
 author: Martin Thoma
 date: 2020-06-22 20:00
 category: Code
 tags: Python, mypy
 featured_image: logos/python.png
+URL: https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d
 ---
 One reason why Python is so easy to get started with is that it has dynamic types. You don’t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an undocumented function without types and maybe crappy variable naming, new developers will have a hard time. Luckily, variable annotations were added in Python 3.6 with [PEP 526](https://www.python.org/dev/peps/pep-0526) 🎉
 
-This article is written in such a way that you can easily stop after the “mypy” section and take only a look at individual section then.
+This article is written in such a way that you can easily stop after the “mypy” section and then only look at individual sections.
 
-## Hello, Typed Annotated World!
+## Hello, Type-Annotated World!
 
 ```python
 def fib(n: int = 0) -> int:
@@ -29,14 +29,14 @@ for i in range(10):
     print(f"fib({i}) = {fib(i)}")
 ```
 
-So you can simply use the pattern
+So you can simply use the pattern:
 
 ```python
 def some_function(param_name: typename) -> return_type_name:
     ...  # whatever the function does
 ```
 
-Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use cPython, pypy or something more exotic.
+Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use CPython, PyPy, or something more exotic.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/06/mypy.svg"><img src="../images/2020/06/mypy.svg" alt="mypy logo" style="width: 512px;"/></a>
@@ -46,14 +46,14 @@ Having type annotations is nice, but you need to check them! The Python runtimes
 
 ## Type Checking with mypy
 
-Install mypy via pip install mypy and run it:
+Install mypy via `pip install mypy` and run it:
 
 ```shell
 $ mypy . --ignore-missing-imports
 Success: no issues found in 1 source file
 ```
 
-The [--ignore-missing-imports](https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports) flag is necessary, because otherwise you will get a lot of messages like this:
+The [--ignore-missing-imports](https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports) flag is necessary because otherwise you will get a lot of messages like this:
 
 ```plain
 error: Skipping analyzing 'setuptools': found module but no type hints or library stubs
@@ -66,14 +66,14 @@ In order to make it more convenient, I usually add a setup.cfg file in which I s
 ignore_missing_imports=true
 ```
 
-Then you can pip install pytest-mypy and make sure mypy is always executed when you run pytest by adding this section to your setup.cfg:
+Then you can `pip install pytest-mypy` and make sure mypy is always executed when you run pytest by adding this section to your setup.cfg:
 
 ```ini
 [tool:pytest]
 addopts = --mypy
 ```
 
-It is important to note that the Python community and also mypy assumes that you come from a non-type annotated code base. They want to make it easy to you to switch to an annotated code and thus support [gradual typing](https://en.wikipedia.org/wiki/Gradual_typing). However, this means that you might miss errors if you don’t annotate your code! Mypy has a lot of flags to help you to make the move. You don’t need to annotate everything.
+It is important to note that the Python community and also mypy assume that you come from a non-type-annotated code base. They want to make it easy for you to switch to annotated code and thus support [gradual typing](https://en.wikipedia.org/wiki/Gradual_typing). However, this means that you might miss errors if you don’t annotate your code! Mypy has a lot of flags to help you to make the move. You don’t need to annotate everything.
 
 ## typing: List, Dict, Tuple, Any
 
@@ -93,17 +93,15 @@ def fib_list(n: int = 0) -> List[int]:
 print(f"fib_list(10) = {fib_list(10)}")
 ```
 
-Similarly, you can annotate that a dictionary maps strings to integers by Dict[str, int] . So List, Dict and Tuple are generics. Any is just a way to specify that you could have arbitrary data in those containers. It is reasonable to use Any in the beginning when you start to add type annotations to a bigger code base.
+Similarly, you can annotate that a dictionary maps strings to integers by `Dict[str, int]`. So `List`, `Dict`, and `Tuple` are generics. `Any` is just a way to specify that you could have arbitrary data in those containers. It is reasonable to use `Any` in the beginning when you start to add type annotations to a bigger code base.
 
 ## Stop Type Checking
 
-As mentioned before, mypy and Python support gradual typing. And sometimes you need to silence the type checker to be able to continue (and hopefully fix it later 🤞). There are a couple of ways to do this with typing :
+As mentioned before, mypy and Python support gradual typing. And sometimes you need to silence the type checker to be able to continue (and hopefully fix it later 🤞). There are a couple of ways to do this with `typing`:
 
-typing.Any : Every type is of type Any.
-
-[typing.cast](https://docs.python.org/3/library/typing.html#typing.cast)(SomeClass, variable) : Sometimes mypy is not smart enough, so you can tell it which type you have. I did that a couple of times before I knew about typing.overload . Alternatively, you can also add assert [isinstance](https://docs.python.org/3/library/functions.html#isinstance)(variable, Someclass)
-
-# type: ingore : Explicitly tell the typechecker to ignore that line
+* `typing.Any`: Every type is compatible with `Any`.
+* [typing.cast](https://docs.python.org/3/library/typing.html#typing.cast)`(SomeClass, variable)`: Sometimes mypy is not smart enough, so you can tell it which type you have. I did that a couple of times before I knew about `typing.overload`. Alternatively, you can also add `assert isinstance(variable, SomeClass)`.
+* `# type: ignore`: Explicitly tell the type checker to ignore that line.
 
 ## typing: Union and Optional
 
@@ -122,27 +120,23 @@ def upcase(s: Union[str, bytes]) -> Union[str, bytes]:
         raise TypeError("need str or bytes")
 ```
 
-As it happens pretty often that you need to accept some type and None , there is also typing.Optional . Optional[SomeType] is the same as Union[SomeType, None] .
+As it happens pretty often that you need to accept some type and `None`, there is also `typing.Optional`. `Optional[SomeType]` is the same as `Union[SomeType, None]`.
 
 ## typing: List vs Sequence
 
-The type typing.List actually represents list . A typing.Sequence is “an iterable with random access” as [Jochen Ritzel](https://stackoverflow.com/a/2921465/562769) put it so nicely. For example, a string is a Sequence[Any] , but not a List[Any] .
+The type `typing.List` actually represents `list`. A `typing.Sequence` is “an iterable with random access” as [Jochen Ritzel](https://stackoverflow.com/a/2921465/562769) put it so nicely. For example, a string is a `Sequence[Any]`, but not a `List[Any]`.
 
 ## typing: Dict vs Mapping
 
-Similarly to the example List vs Sequence, the typing.Dict is meant mainly to represent a dict whereas typing.Mapping is more general. [Stacksonstacks](https://stackoverflow.com/a/52487800/562769) gives a good answer.
-
-## Many more Types
-
-
+Similarly to the example List vs Sequence, `typing.Dict` is meant mainly to represent a `dict`, whereas `typing.Mapping` is more general. [Stacksonstacks](https://stackoverflow.com/a/52487800/562769) gives a good answer.
 
 ## Custom Types: Not all Strings are Created Equal
 
-Not all strings contain the same type of content. They can represent anuser_id , a user_name , a password_hash , …
+Not all strings contain the same type of content. They can represent a `user_id`, a `user_name`, a `password_hash`, …
 
-Especially for IDs I have seen this to become messy. I think it’s pretty ridiculous to create an own class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?
+Especially for IDs, I have seen this become messy. I think it’s pretty ridiculous to create a separate class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?
 
-Don’t worry, [typing.NewType](https://docs.python.org/3/library/typing.html#newtype) got you covered!
+Don’t worry, [typing.NewType](https://docs.python.org/3/library/typing.html#newtype) has got you covered!
 
 ```python
 from typing import NewType
@@ -152,7 +146,7 @@ UserId = NewType("UserId", str)
 
 ## typing.overload
 
-typing.Union is actually an anti-pattern sometimes, because you can also [overload](https://docs.python.org/3/library/typing.html#typing.overload) a function as [Josh Reed](https://github.com/python/mypy/issues/1693#issuecomment-618404849) shows:
+`typing.Union` is actually an anti-pattern sometimes, because you can also [overload](https://docs.python.org/3/library/typing.html#typing.overload) a function as [Josh Reed](https://github.com/python/mypy/issues/1693#issuecomment-618404849) shows:
 
 ```python
 from typing import overload
@@ -179,7 +173,7 @@ def upcase(s):
 
 ## Type checking only imports
 
-I've recently seen myself in the position that I made a pretty heavy import on
+I recently found myself in the position that I made a pretty heavy import on
 module level, just because of type checking. This felt wrong, so I asked for
 help. The solution was simple:
 [`typing.TYPE_CHECKING`](https://mypy.readthedocs.io/en/stable/common_issues.html#import-cycles).
@@ -187,7 +181,7 @@ This is `True` when running a type checker, but `False` during normal runs ❤�
 
 ## Protocols
 
-[PEP 544](https://www.python.org/dev/peps/pep-0544/) introduced structural subtyping and was introduced in Python 3.8. It feels like Interfaces in Java and works like this:
+[PEP 544](https://www.python.org/dev/peps/pep-0544/) introduced structural subtyping in Python 3.8. It feels like Interfaces in Java and works like this:
 
 ```python
 from typing import Protocol
@@ -203,7 +197,7 @@ def finish_it(obj: SupportsClose):
 
 
 class Foo:
-    def close():
+    def close(self):
         pass
 
 
@@ -211,9 +205,9 @@ foo = Foo()
 finish_it(foo)
 ```
 
-Note that there is no function body. After that definition, you can then use SupportsClose like any type.
+Note that there is no function body. After that definition, you can then use `SupportsClose` like any type.
 
-The cool part is that the class Foo has no explicit relationship to SupportsClose ! It is only related by its structure!
+The cool part is that the class `Foo` has no explicit relationship to `SupportsClose`! It is only related by its structure!
 
 ## Type comments
 
@@ -242,7 +236,7 @@ However, you might want to disable type checking for single lines:
 
 ## Stub files
 
-Stub files end in .pyi . If mypy finds a .py file and a .pyi file, it only loads the .pyi file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis ... :
+Stub files end in `.pyi`. If mypy finds a `.py` file and a `.pyi` file, it only loads the `.pyi` file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis `...`:
 
 ```python
 def fib_list(n: int) -> List[int]:
@@ -315,7 +309,7 @@ Which gives:
 
 [FastAPI](https://fastapi.tiangolo.com/features/#pydantic-features) uses pydantic directly.
 
-A cool thing about pydantic are the [constrained types](https://pydantic-docs.helpmanual.io/usage/types/#constrained-types): PositiveFloat, NegativeInt, constr, …
+A cool thing about pydantic is the [constrained types](https://pydantic-docs.helpmanual.io/usage/types/#constrained-types): PositiveFloat, NegativeInt, constr, …
 
 ## See also
 

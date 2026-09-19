@@ -1,26 +1,26 @@
 ---
 layout: post
-lang: en
 title: Unit Testing in Python — Patching, Mocks and Dependency Injection
 slug: unit-testing-patching
-URL: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
+lang: en
 author: Martin Thoma
 date: 2020-07-09 17:00
 category: Code
 tags: Python, Unit Testing, pytest, patching, Mock, dependency-injection
 featured_image: logos/python.png
+URL: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
 ---
-Unit Testing in general is trivial with Python and pytest, but a lot of
+Unit testing in general is trivial with Python and pytest, but a lot of
 developers get frustrated when they have to patch dependencies away to make
 code testable. In this article, you will learn how to patch and create mocks.
-If you want to refresh basics about unit testing in Python first, have a look
+If you want to refresh the basics of unit testing in Python first, have a look
 at the first part of this series: [Unit Testing in Python — The Basics](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0#0e28).
 
 ## The Abstract Pattern of the Problem
 
 A dependency of the function we want to test can have an effect in three different ways: By side-effects, return values or exceptions.
 
-Problem 1: A dependencies side-effect
+Problem 1: A dependency's side effect
 
 ```python
 def a_function():
@@ -29,7 +29,7 @@ def a_function():
     ...  # Application code to be tested
 ```
 
-Problem 2: A dependencies return value
+Problem 2: A dependency's return value
 
 ```python
 def a_function():
@@ -59,7 +59,7 @@ refactoring to make the code easier to maintain. So I created three examples
 which are a bit closer to real applications while still keeping the bloat of
 real applications away.
 
-Example 1: We want to add a user to a database. You can see that db does not
+Example 1: We want to add a user to a database. You can see that `db` does not
 return anything, but we change the state of our system. And we want to be sure
 that we don’t actually change our production system when the unit tests are
 running!
@@ -76,7 +76,7 @@ def insert_user_into_db(username, password):
     db.session.commit()
 ```
 
-Example 2: Generate a file name based on the current date. You can see that the dependency datetime returns a value:
+Example 2: Generate a file name based on the current date. You can see that the dependency `datetime` returns a value:
 
 ```python
 import datetime
@@ -88,7 +88,7 @@ def generate_filename():
 
 Similarly, you could imagine a function which returns the weather in an English sentence and uses an API to get the actual weather ([example](https://gist.github.com/MartinThoma/5c7224ceae47e74645e0145d26dc03ec)).
 
-Example 3: In my project [edapy](https://github.com/MartinThoma/edapy) I looked at metadata from PDF files. I use the dependency PdfFileReader and have the file itself as an dependency. As the PDF file could be broken, PyPDF2 might throw an exception. So you can imagine code like this:
+Example 3: In my project [edapy](https://github.com/MartinThoma/edapy) I looked at metadata from PDF files. I use the dependency `PdfFileReader` and have the file itself as a dependency. As the PDF file could be broken, PyPDF2 might throw an exception. So you can imagine code like this:
 
 ```python
 import PyPDF2.utils
@@ -100,7 +100,7 @@ def get_pdf_info(pdf_path):
     try:
         pdf_toread = PdfFileReader(fp, strict=False)
     except PyPDF2.utils.PdfReadError:
-        info["is_errornous"] = True
+        info["is_erroneous"] = True
         return info
 
     # a lot more
@@ -109,23 +109,23 @@ def get_pdf_info(pdf_path):
 
 When you want to test such functions, you have the problem that the expected output is not only dependent on the function itself, but also on something external. In the cases above, the system time, an external service, and the file system.
 
-## Examples for External Dependencies
+## Examples of External Dependencies
 
 There are lots of external dependencies your tests might have:
 
 * Date or time
 * Internet: A web service you need to use
 * File System: A file you need to create / read / edit / delete
-* Database: Data you select / insert / update/ delete
-* Randomness: Your code might make use of random or np.random
+* Database: Data you select / insert / update / delete
+* Randomness: Your code might make use of `random` or `np.random`
 
 Just like the example above, they make isolated unit testing hard or even impossible.
 
 ## The solution: Patching!
 
-The overall strategy to test this is always the same: Replace the external dependency that is causing headaches by something in your control. The act of replacing the dependency is called ***patching***, the replacement is called a ***mock***. Depending on what exactly the mock does, you might also hear this being called a Test Double, Test Stub, Test Spy or a Fake Object. In practice in Python, the distinction does not matter. If you’re interested, I recommend [Martin Fowler: The Difference Between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs#TheDifferenceBetweenMocksAndStubs). I will call all of them just mocks.
+The overall strategy to test this is always the same: Replace the external dependency that is causing headaches with something in your control. The act of replacing the dependency is called ***patching***, the replacement is called a ***mock***. Depending on what exactly the mock does, you might also hear this being called a Test Double, Test Stub, Test Spy or a Fake Object. In practice in Python, the distinction does not matter. If you’re interested, I recommend [Martin Fowler: The Difference Between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs). I will call all of them just mocks.
 
-Let’s make a tiny example how to use patch!
+Let’s make a tiny example of how to use patch!
 
 `fraud_example.py`:
 
@@ -148,7 +148,7 @@ def dark_magic(transaction):
     raise ValueError()
 ```
 
-No matter which transaction you would use, the function is_credit_card_fraud would throw a ValueError.
+No matter which transaction you would use, the function `is_credit_card_fraud` would throw a `ValueError`.
 
 This is how you patch that dependency away with a decorator `@patch`:
 
@@ -171,7 +171,7 @@ def test_is_credit_card_fraud():
     assert is_fraud == True
 ```
 
-And this is how you patch the dependency fraud_example.dark_magic away with a context handler ( with ... ):
+And this is how you patch the dependency `fraud_example.dark_magic` away with a context manager (`with ...`):
 
 ```python
 def test_is_credit_card_fraud_context_handler():
@@ -183,13 +183,13 @@ def test_is_credit_card_fraud_context_handler():
     assert is_fraud == True
 ```
 
-When you now execute pytest , the test will succeed. You will always get 0.999 as a return value of dark_magic 🎉
+When you now execute `pytest`, the test will succeed. You will always get 0.999 as a return value of `dark_magic` 🎉
 
-A part that might be surprising in this example is the first parameter of the patch decorator: It’s "fraud_example.dark_magic" and NOT "external_dependency.dark_magic" ! The target of your replacement is always what was loaded within the file you want to test, not where it was loaded from. Lisa Roach has pointed this out elegantly in her talk [Demystifying the Patch Function](https://www.youtube.com/watch?v=ww1UsGZV8fQ).
+A part that might be surprising in this example is the first parameter of the patch decorator: It’s `"fraud_example.dark_magic"` and NOT `"external_dependency.dark_magic"`! The target of your replacement is always what was loaded within the file you want to test, not where it was loaded from. Lisa Roach has pointed this out elegantly in her talk [Demystifying the Patch Function](https://www.youtube.com/watch?v=ww1UsGZV8fQ).
 
 ## Direct replacement: Don’t do this!
 
-The following is an example which does not use patch and seems to work, but it has a big flaw. If you directly replace datetime.datetime instead of patching it, it will be overwritten in all other contexts after that as well! ⚠️
+The following is an example which does not use patch and seems to work, but it has a big flaw. If you directly replace `datetime.datetime` instead of patching it, it will be overwritten in all other contexts after that as well! ⚠️
 
 ```python
 # Core Library modules
@@ -214,17 +214,17 @@ def test_generate_filename():
 
 ## Mock and MagicMock
 
-You now know how to replace a dependency, hence it is time to talk about what to replace it with. This is where unittest.mock.Mock and unittest.mock.MagicMock come into play.
+You now know how to replace a dependency, hence it is time to talk about what to replace it with. This is where `unittest.mock.Mock` and `unittest.mock.MagicMock` come into play.
 
 Everything you do with Mock will return a Mock. Call a function? Get a Mock as a return value. Access an attribute? Get a Mock as a value.
 
-Python has so called “magic” methods. I like the term “dunder” methods better — it just means all methods which start and end with a **d**ouble **under**score. Examples are __iter__ or __contains__ . MagicMock has those defined, Mock doesn’t. I would use MagicMock everywhere, except if the mocked object doesn’t define any of the magic functions.
+Python has so-called “magic” methods. I like the term “dunder” methods better — it just means all methods which start and end with a **d**ouble **under**score. Examples are `__iter__` or `__contains__`. `MagicMock` has those defined, `Mock` doesn’t. I would use MagicMock everywhere, except if the mocked object doesn’t define any of the magic functions.
 
 A core feature of mock classes is that they allow you to not only remove a dependency which is hard to test, but also to assert on the way the mock was interacted with. Typical methods are [assert_called](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_called)(), [assert_called_with](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_called_with)(), [assert_not_called](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock.assert_not_called)().
 
 ## spec, autospec & spec_set
 
-A part that is really bad about MagicMock is that you can do anything with it — including accessing non-existing attributes, calling non-existing methods or calling existing methods with the wrong count of parameters. The mock object is missing a **spec**ification. If you don’t like that, use autospec=True when patching the object:
+A part that is really bad about MagicMock is that you can do anything with it — including accessing non-existing attributes, calling non-existing methods or calling existing methods with the wrong number of parameters. The mock object is missing a **spec**ification. If you don’t like that, use `autospec=True` when patching the object:
 
 ```python
 patch.object(Foo, "foo", autospec=True)
@@ -250,13 +250,13 @@ AttributeError: Mock object has no attribute 'foo'
 <Mock name='mock.datetime' id='139883597784544'>
 ```
 
-The next parameter of patchis autospec. Where spec looks at the mocked object, autospec also looks at the attributes of that object (and their attributes and those attributes, …).
+The next parameter of `patch` is `autospec`. Where `spec` looks at the mocked object, `autospec` also looks at the attributes of that object (and their attributes and those attributes, …).
 
-Finally, there is spec_set . That one prevents you from setting attributes that don’t exist.
+Finally, there is `spec_set`. That one prevents you from setting attributes that don’t exist.
 
-Usually, I would use autospec=True and spec_set=True everywhere. Code which uses introspection might be an example where you don’t want that.
+Usually, I would use `autospec=True` and `spec_set=True` everywhere. Code which uses introspection might be an example where you don’t want that.
 
-## pytests monkeypatch
+## pytest's monkeypatch
 
 monkeypatch is a fixture from pytest. I will explain what a fixture is in the next article. For now, just accept it as a parameter you can give to your tests without specifying it and pytest will take care of it. You don’t even need to import anything.
 
@@ -272,7 +272,7 @@ def test_is_credit_card_fraud_monkeypatch(monkeypatch):
     assert is_fraud == True
 ```
 
-The question when you should use unittest.mock.patch and — if necessary — unittest.mock.Mock or pytests monkeypatch boils pretty much down to personal taste nowadays. The core Pythons patch / Mock only exist since Python 3.3 which, I guess, is a big part of the reason why monkeypatch exists in the first place.
+The question of when you should use `unittest.mock.patch` and — if necessary — `unittest.mock.Mock` or pytest's `monkeypatch` pretty much boils down to personal taste nowadays. The core Python `patch` / `Mock` have only existed since Python 3.3, which, I guess, is a big part of the reason why monkeypatch exists in the first place.
 
 ## External Packages
 
@@ -281,18 +281,18 @@ There are a couple of packages designed for simplifying the patching and giving 
 For example, you can use [freezegun](https://pypi.org/project/freezegun/) for mocking the system time:
 
 ```python
-import freezegun
+from freezegun import freeze_time
 from mock_example import generate_filename
 
 
 def test_generate_filename():
     with freeze_time("1990-04-28"):
-        assert generate_filename() == "1990-04-28"
+        assert generate_filename() == "1990-04-28.png"
 ```
 
-For boto3 / botocore (Cloud-stuff), there is [moto](https://pypi.org/project/moto/).
+For boto3 / botocore (cloud stuff), there is [moto](https://pypi.org/project/moto/).
 
-For [requests](https://pypi.org/project/requests/) , there is [responses](https://pypi.org/project/responses/) :
+For [requests](https://pypi.org/project/requests/), there is [responses](https://pypi.org/project/responses/):
 
 `requests_example.py`:
 
@@ -330,7 +330,7 @@ def test_get_ip():
 
 ## Dependency Injection
 
-If the above sounded complicated, there is a simpler alternative: Dependency Injection. Essentially adding the external state explicitly as a parameter which makes it easy to adjust in tests. For example, the code from above could be:
+If the above sounded complicated, there is a simpler alternative: Dependency Injection. It essentially means adding the external state explicitly as a parameter, which makes it easy to adjust in tests. For example, the code from above could be:
 
 ```python
 import datetime
@@ -354,7 +354,7 @@ def test_generate_filename():
     assert generate_filename(now) == "1990-04-28.png"
 ```
 
-In some cases it feels very natural to apply such a pattern, in others it
+In some cases, it feels very natural to apply such a pattern, in others it
 doesn’t. Do this only when it feels natural. For example, it’s very unlikely
 that I would ever pass a module as a parameter although it’s possible. That
 would just feel very weird.
@@ -363,10 +363,10 @@ would just feel very weird.
 
 It depends very much on the details, but I like to mock as little as possible.
 Simply for the reason that not mocking means that you test more of your system.
-Strictly speaking you can’t call the test a *unit test* anymore if you test
+Strictly speaking, you can’t call the test a *unit test* anymore if you test
 more than one unit. It would be an integration test then — but that is also
 essential, right? You wouldn’t be happy with BMW selling you a motor, some
-seats and a steering wheel and claiming “all units work”. They need work
+seats and a steering wheel and claiming “all units work”. They need to work
 together. Extensive mocks might prevent you from testing how things work
 together.
 
@@ -390,7 +390,7 @@ that.
 
 ## Dependency Injection: Randomness
 
-Just like adding a time parameter for functions which use by default the current time might make your code way easier to test, adding a random_state parameter or a seed parameter to functions which use randomness helps.
+Just like adding a time parameter for functions which use the current time by default might make your code way easier to test, adding a `random_state` parameter or a seed parameter to functions which use randomness helps.
 
 Here are some ways to seed random number generators:
 
@@ -413,19 +413,19 @@ Here are some ways to seed random number generators:
 Setting a random state / seed is also very helpful for debugging. If you
 haven’t heard of the Heisenbug or the Higgs-Bugson, you missed some
 [programming jargon](https://blog.codinghorror.com/new-programming-jargon/).
-And if your interested in research, reproducibility matters.
+And if you're interested in research, reproducibility matters.
 
 ## Terminology
 
-* **Patching vs Mocking**: Patching a function is adjusting it’s functionality. In the context of unit testing we patch a dependency away; so we replace the dependency. Mocking is imitating. Usually we patch a function to use a mock we control instead of a dependency we don’t control.
+* **Patching vs Mocking**: Patching a function is adjusting its functionality. In the context of unit testing, we patch a dependency away; so we replace the dependency. Mocking is imitating. Usually we patch a function to use a mock we control instead of a dependency we don’t control.
 * **Monkey patching vs Mocking**: Within a development context, mocking is pretty clearly about unit testing ([example](https://stackoverflow.com/a/2666006/562769)). However, monkey patching has several applications besides unit testing. For example, you can patch third party code during runtime if there is a small functionality missing or a part of the code is broken. You just extend the code. Monkey patching is used in the PyCharm debugger ([source](https://youtu.be/ZpJxwpyJpq4?t=367)).
 * **Monkey patching vs pytest.monkeypatch**: The first one is a general concept, the second one is a concrete function within pytest which applies monkey patching for unit tests.
-* **unittest.mock.patch vs pytest.monkeypatch**: This is personal preference. I prefer to stick with built-ins whenever the third-party option does not have big advantages. In this case, I even think that the core Python unittest.mock.patch is cleaner. For this reason I didn’t explain pytest.monkeypatch so far. If you like to see the differences, there is a nice [blog post](https://krzysztofzuraw.com/blog/2016/mocks-monkeypatching-in-python.html) about it.
+* **unittest.mock.patch vs pytest.monkeypatch**: This is personal preference. I prefer to stick with built-ins whenever the third-party option does not have big advantages. In this case, I even think that the core Python unittest.mock.patch is cleaner. For this reason, I didn’t focus on `pytest.monkeypatch` so far. If you like to see the differences, there is a nice [blog post](https://krzysztofzuraw.com/blog/2016/mocks-monkeypatching-in-python.html) about it.
 
 ## A note about Architecture
 
 To keep your code clean, it is often a good idea to wrap third party
-dependencies. For example, you could have one module with deals with I/O. Or a
+dependencies. For example, you could have one module which deals with I/O. Or a
 module which deals with API requests. Then you have a couple of modules which
 might require a lot of mocking or where unit tests are pointless because the
 interesting part is the integration with the third party. The rest of your code
@@ -435,8 +435,8 @@ pattern](https://en.wikipedia.org/wiki/Adapter_pattern).
 
 ## What else is there?
 
-* Other types of Mocks, such as [PropertyMock](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.PropertyMock) or
-* [pytest-mock](https://pypi.org/project/pytest-mock/) which provides the mocker fixture; I’m not really sure though if this is mainly a left-over from the time before Python 3.3 or if it actually makes things easier.
+* Other types of Mocks, such as [PropertyMock](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.PropertyMock)
+* [pytest-mock](https://pypi.org/project/pytest-mock/) which provides the mocker fixture; I’m not really sure though if this is mainly a leftover from the time before Python 3.3 or if it actually makes things easier.
 * The 3rd party package [mock](https://pypi.org/project/mock/), which should not be installed with Python 3.3+ as it was put in the standard library.
 
 If you want to learn more about the default mocks, have a look at the awesome
@@ -444,7 +444,7 @@ article by Yeray Diaz: [What the mock? — A cheatsheet for mocking in Python](h
 
 ## What’s next?
 
-In part 1, you learned [the basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0). In this parts you learned how to patch dependencies to make code testable and what the standard mocks are.
+In part 1, you learned [the basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0). In this part, you learned how to patch dependencies to make code testable and what the standard mocks are.
 
 In future articles, I will present:
 

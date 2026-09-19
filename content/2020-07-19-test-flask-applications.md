@@ -1,22 +1,22 @@
 ---
 layout: post
-lang: en
 title: How to Test Flask Applications
 slug: test-flask-applications
-URL: https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c
+lang: en
 author: Martin Thoma
 date: 2020-07-19 20:00
 category: Code
 tags: Python, Flask, Software Development, Unit Testing, Load Testing, Software Engineering
 featured_image: logos/flask.png
+URL: https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c
 ---
 As a data scientist, I need to make my models accessible. I usually [deploy models with Flask](https://medium.com/analytics-vidhya/deploying-a-machine-learning-model-on-web-using-flask-and-python-54b86c44e14a). As a software engineer, I want to make sure things work as expected by unit testing them.
 
-Unit Testing websites or web services is hard for multiple reasons: You have Code-within-Code like HTML template engines and SQL. Additionally, you have Databases as dependencies which are pretty hard to mock. In this article you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you [know the basics of unit testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0).
+Unit testing websites or web services is hard for multiple reasons: You have code-within-code like HTML template engines and SQL. Additionally, you have databases as dependencies which are pretty hard to mock. In this article, you will learn how to deal with those challenges in the case of the Flask web framework. I assume you have used Flask before and that you [know the basics of unit testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0).
 
 ## My Tiny Flask App
 
-In order to make ensure correctness of the following parts, I’ve created a tiny Flask app. You can copy [all files from GitHub](https://github.com/MartinThoma/algorithms/tree/master/medium/flask-testing/example-app).
+In order to ensure correctness of the following parts, I’ve created a tiny Flask app. You can copy [all files from GitHub](https://github.com/MartinThoma/algorithms/tree/master/medium/flask-testing/example-app).
 
 The general structure is this:
 
@@ -33,7 +33,7 @@ example-app
     └── test_app.py  # The actual unit tests
 ```
 
-The only file you don’t find in there is .envrc which is used with direnv to set environment variables. Its content looks like this:
+The only file you don’t find in there is `.envrc`, which is used with direnv to set environment variables. Its content looks like this:
 
 ```bash
 export DB_HOST=localhost
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
-The documentation of Flask contains [Testing Flask Applications](https://flask.palletsprojects.com/en/1.1.x/testing/) which covers this topic. It especially contains an example how to create a pytest fixture. Imagine a fixture like a way to set things up before your tests and to clean up after the test run. In this simple example, we assume that your application is a proper Python package and called flaskr . You can download an example from Github [flask/examples/tutorial/flaskr](https://github.com/pallets/flask/tree/1.1.2/examples/tutorial/flaskr) . The fixture in this simple case looks like this:
+The documentation of Flask contains [Testing Flask Applications](https://flask.palletsprojects.com/en/1.1.x/testing/) which covers this topic. It especially contains an example of how to create a pytest fixture. Think of a fixture as a way to set things up before your tests and to clean up after the test run. In this simple example, we assume that your application is a proper Python package and called `flaskr`. You can download an example from GitHub: [flask/examples/tutorial/flaskr](https://github.com/pallets/flask/tree/1.1.2/examples/tutorial/flaskr). The fixture in this simple case looks like this:
 
 ```python
 import pytest
@@ -114,7 +114,7 @@ def test_square(client):
     assert b"64" == rv.data
 ```
 
-Instead of putting the fixture in the test directly, you can put them in `tests/conftest.py`. pytest will find them there and use in all tests. No need to import.
+Instead of putting the fixture in the test directly, you can put them in `tests/conftest.py`. pytest will find them there and use them in all tests. No need to import.
 
 ## How to deal with the Database
 
@@ -173,11 +173,11 @@ Note that this will become harder the more complex your data becomes and the mor
 
 ### Wait … what about testing the SQL Queries?
 
-You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend to use SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at Query Builders. Avoid using raw SQL. In most cases it should not be necessary.
+You might wonder now how to test the SQL queries. Testing that they work at all should not be necessary if you use SQLAlchemy. And I really recommend using SQLAlchemy when you use Flask with a relational database. If your queries are too complex for that, you can have a look at Query Builders. Avoid using raw SQL. In most cases, it should not be necessary.
 
 ## Protected Routes
 
-It’s pretty common that you have routes which are either protected by [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication) or need a form of login. You can essentially also set up a test account in the client fixture and login manually. This requires some work and depends on what exactly you’re doing for authentication.
+It’s pretty common that you have routes which are either protected by [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication) or need a form of login. You can essentially also set up a test account in the client fixture and log in manually. This requires some work and depends on what exactly you’re doing for authentication.
 
 ### Basic Access Authentication
 
@@ -200,7 +200,7 @@ def test_protected_route(client):
 Flask-login is a pretty widespread plugin to handle user session management.
 They have a [section about unit
 testing](https://flask-login.readthedocs.io/en/latest/#protecting-views) in
-which they suggest do set the configuration variable `LOGIN_DISABLED` to
+which they suggest to set the configuration variable `LOGIN_DISABLED` to
 `True`.
 
 ## Test Jinja2 Templates
@@ -211,7 +211,7 @@ things that can go wrong.
 ### Problem 1: Empty Double Braces
 
 You wanted to write something, got interrupted and now your template has `{{}}`
-in it. When Jinja tries to render this, you will get
+in it. When Jinja tries to render this, you will get:
 
 ```text
 jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print statement'
@@ -231,8 +231,8 @@ You will get a `TypeError: 'int' object is not iterable`.
 
 ### Problem 3.1: Typo in Variable
 
-Instead of `{{ numbers }}` you write `{{ number }}`. This is pretty bad as it
-actually does nothing. It is as if the variable number existed and was the
+Instead of `{{ numbers }}`, you write `{{ number }}`. This is pretty bad as it
+actually does nothing. It is as if the variable `number` existed and was the
 empty string.
 
 ### Problem 3.2: Forgetting to pass Variable
@@ -243,8 +243,8 @@ cause. This is what happens most often to me.
 
 ### Status Code Testing
 
-By calling a view and making sure that the `assert rv.status_code == 200` you
-can already capture Problem 1 and 2:
+By calling a view and asserting `rv.status_code == 200`, you
+can already capture problems 1 and 2:
 
 ```python
 def test_main_route_status_code(client) -> None:
@@ -255,11 +255,11 @@ def test_main_route_status_code(client) -> None:
 
 For this reason, make sure that you call each route at least once.
 
-Up to my knowledge, there is not a lot more you can do without getting creative. Let’s hope [StackOverflow knows more](https://stackoverflow.com/q/62970759/562769).
+To my knowledge, there is not a lot more you can do without getting creative. Let’s hope [Stack Overflow knows more](https://stackoverflow.com/q/62970759/562769).
 
 ### Testing the Template Context
 
-This one needed a lot of trail and error, but I finally managed to get some pytest fixtures with which you have a better control over the variables passed to the templates. I love it 😍
+This one needed a lot of trial and error, but I finally managed to get some pytest fixtures with which you have better control over the variables passed to the templates. I love it 😍
 
 ```python
 # Core Library modules
@@ -339,13 +339,13 @@ def test_main_route_status_code_number3(client, captured_templates) -> None:
 
 ## pytest-recording
 
-[pytest-recording](https://github.com/kiwicom/pytest-recording) is a pytest plugin which integrates [vcr.py](https://pypi.org/project/vcrpy/) into pytest. There is also [pytest-vcr](https://github.com/kiwicom/pytest-recording/issues/52) and both plugins are not wide-spread. I think pytest-recording is better maintained as [the author answered within 2 hours](https://github.com/kiwicom/pytest-recording/issues/52#issuecomment-660528322).
+[pytest-recording](https://github.com/kiwicom/pytest-recording) is a pytest plugin which integrates [vcr.py](https://pypi.org/project/vcrpy/) into pytest. There is also [pytest-vcr](https://github.com/kiwicom/pytest-recording/issues/52) and neither plugin is widespread. I think pytest-recording is better maintained as [the author answered within 2 hours](https://github.com/kiwicom/pytest-recording/issues/52#issuecomment-660528322).
 
 ### Block Network Access
 
-This one is a potential live saver. Just decorate a test with
+This one is a potential lifesaver. Just decorate a test with
 `@pytest.mark.block_network` and you can be certain that everything runs
-locally. If something tries to make a network access, it is blocked and you get
+locally. If something tries to access the network, it is blocked, and you get:
 
 ```text
 RuntimeError: Network is disabled
@@ -356,7 +356,7 @@ You can also use [pytest-socket](https://github.com/miketheman/pytest-socket) to
 ### Record Network Interactions
 
 You can decorate a test with `@pytest.mark.vcr()`. Run `pytest
---record-mode=rewrite`
+--record-mode=rewrite`.
 
 
 ## Load Testing
@@ -364,7 +364,7 @@ You can decorate a test with `@pytest.mark.vcr()`. Run `pytest
 Testing Flask apps is not only about testing the used functions and routes, but also about knowing your limits. You want to know what actually breaks and when it breaks when you get tons of users.
 
 [Apache JMeter](https://jmeter.apache.org/) is maybe one of the most well-known
-applications for load testing. Being a Python user, I prefer to stay in Python
+applications for load testing. Being a Python user, I prefer to stay in Python,
 and for this reason I’ll briefly present [Locust](https://locust.io/). You can
 create a `locustfile.py` with this content:
 
@@ -381,11 +381,11 @@ class MyWebsiteUser(HttpUser):
         self.client.get("/")
 ```
 
-Then you run
+Then you run:
 
 ```bash
 pip install locust
-locust -f locustfile.py --host=[https://your-website.com](https://martin-thoma.com)
+locust -f locustfile.py --host=https://your-website.com
 ```
 
 It then gives output like this:
@@ -399,11 +399,11 @@ There is a lot more to make this realistic than just calling a “static” endp
 
 Maybe it’s not necessary for you.
 
-If you have a web service live, you should have another service which regularly pings yours and checks if it is still alive. The latency of the answer can be measured and should be monitored. If you don’t expect a crazy amount of calls and if you have auto scaling enabled anyway, it’s perfectly reasonable not to run a load test. Just monitor your API behavior and act if you really need to.
+If you have a web service live, you should have another service which regularly pings yours and checks if it is still alive. The latency of the answer can be measured and should be monitored. If you don’t expect a crazy amount of calls and if you have autoscaling enabled anyway, it’s perfectly reasonable not to run a load test. Just monitor your API behavior and act if you really need to.
 
 ## What’s next?
 
-You already know [the basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0) and [how to patch and create mocks](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed). In this parts you learned how to deal with the special challenges of Flask applications.
+You already know [the basics of Unit Testing in Python](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0) and [how to patch and create mocks](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed). In this part, you learned how to deal with the special challenges of Flask applications.
 
 In future articles, I will present:
 

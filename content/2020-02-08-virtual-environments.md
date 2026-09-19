@@ -1,16 +1,16 @@
 ---
 layout: post
-lang: en
 title: Virtual Environments
 slug: virtual-environments
+lang: en
 author: Martin Thoma
 date: 2020-02-08 20:00
 category: Code
 tags: Python, venv, virtualenv
 featured_image: logos/python.png
 ---
-A virtual environment is an isolated Python environments. It has it's own
-installed `site-packages` which can be different from the systems
+A virtual environment is an isolated Python environment. It has its own
+installed `site-packages` which can be different from the system's
 `site-packages`.
 
 TL;DR: `pipenv` is your friend; it allows you to forget about the others.
@@ -85,7 +85,7 @@ pip 19.2.3 from /home/moose/.pyenv/versions/3.8.1/lib/python3.8/site-packages/pi
 [`pipenv`](https://github.com/pypa/pipenv) automatically creates and manages a
 virtualenv for your projects, as well as adds/removes packages from your
 Pipfile as you install/uninstall packages. It also generates the Pipfile.lock,
-which is used to produce deterministic builds. It helps creating reproducible
+which is used to produce deterministic builds. It helps create reproducible
 environments.
 
 `pipenv` uses `virtualenv` and `pyenv`.

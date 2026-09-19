@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Maximum Fixed-Length Contiguous Subarray
 slug: maximum-fixed-length-contiguous-subarray
+lang: en
 author: Martin Thoma
 date: 2020-02-23 20:00
 category: Code
@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 I recently taught a course about improving code for performance. An obvious
 performance improvement is to not execute unnecessary operations. I lacked a
-good example when I gave the course, but here is one: Find value of the largest
+good example when I gave the course, but here is one: Find the value of the largest
 contiguous sub-array of fixed length in a huge array.
 
 This is a toy example, of course, but it shows the idea quite well.
@@ -54,7 +54,7 @@ def find_biggest_subarray_slice(array: List[int], m: int) -> int:
 ```
 
 Except that it has one flaw: It makes too many additions and accesses list
-elements way more often than necessary
+elements way more often than necessary.
 
 
 ## Efficient Solution
@@ -79,8 +79,8 @@ The inefficient solution is in $\mathcal{O}((n - m) \cdot m)$, the efficient
 one is in $\mathcal{O}(n - m)$. So you will notice the difference clearly when
 you compare the execution times with big $m$.
 
-The inefficient solution changes its execution time like as shown in the image
-below for increasing m and contant n = 100,000:
+The inefficient solution changes its execution time as shown in the image
+below for increasing m and constant n = 100,000:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/02/total-execution-time.png"><img src="../images/2020/02/total-execution-time.png" alt="Total execution time of find_biggest_subarray_slice" style="width: 512px;"/></a>
@@ -94,7 +94,7 @@ In contrast, the efficient solution looks like this:
     <figcaption class="text-center">Total execution time of the efficient solution</figcaption>
 </figure>
 
-Two things to notice:
+Three things to notice:
 
 * **Worst-Case**: For the inefficient solution, it is $m = n/2$. For the
   efficient solution, it is $m = 1$.

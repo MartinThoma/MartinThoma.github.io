@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Migrate to Python 3
 slug: migrate
+lang: en
 author: Martin Thoma
 date: 2020-03-10 20:00
 category: My bits and bytes
@@ -21,13 +21,13 @@ I see the following options:
 3. Use an interface
 
 Don't forget to be polite when you ask. After all, you want something. And
-you're most likely asking somebody who does this in their free-time.
+you're most likely asking somebody who does this in their free time.
 
 When you have a program which has an interface (e.g. a web API like REST or a
-command line interface), then you can execute it with Python 2 from Python 3.
+command-line interface), then you can execute it with Python 2 from Python 3.
 Basically doing a system-level call, e.g. with
 [`os.system`](https://docs.python.org/2/library/os.html#os.system). That is
-rarely the case and pretty straight forward. So let's come to the interesting
+rarely the case and pretty straightforward. So let's come to the interesting
 part: Forking a package.
 
 
@@ -141,9 +141,9 @@ mypy_path=typeshed/pyi:typeshed/imports
 
 1. Move documentation to `/docs`
 2. Remove generated files and add a [`.gitignore` file](https://www.gitignore.io/)
-2. Apply [`black`](https://github.com/psf/black)
-3. Apply [`isort`](https://github.com/timothycrosley/isort)
-4. Remove trailing spaces
+3. Apply [`black`](https://github.com/psf/black)
+4. Apply [`isort`](https://github.com/timothycrosley/isort)
+5. Remove trailing spaces
 
 
 I do this by putting the following `.pre-commit-config.yaml` file in the root
@@ -182,13 +182,13 @@ the move.
 
 However, it is not optimal:
 
-* [It adds too many paranthesis for print sometimes](https://stackoverflow.com/q/55559825/562769)
+* [It adds too many parentheses for print sometimes](https://stackoverflow.com/q/55559825/562769)
 * It sometimes wraps zip / map / filter unnecessarily in a `list`
 
 
 ## Unit Tests
 
-Setting up pytest and continuous integration (e.g. Travis) is pretty helpful
+Setting up pytest and continuous integration (e.g. Travis) is pretty helpful.
 
 
 ## Sphinx and ReadTheDocs

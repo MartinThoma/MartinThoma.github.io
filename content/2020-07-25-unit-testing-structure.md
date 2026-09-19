@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: en
 title: Structuring Unit Tests
 slug: unit-testing-structure
-URL: https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923
+lang: en
 author: Martin Thoma
 date: 2020-07-25 20:00
 category: Code
 tags: Python, pytest
 featured_image: logos/python.png
+URL: https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923
 ---
 Testing code is often pretty ugly: A lot of copy & paste, the code is all over
-the place and hard to understand. In this article you will learn how to
+the place and hard to understand. In this article, you will learn how to
 structure unit testing code in Python.
 
 ## Directory Layout
@@ -49,13 +49,13 @@ mpu <-- Root of the git repository
 
 You should notice the following:
 
-1. The tests/ are side-by-side to the mpu/ directory which contains the code. The two alternatives are (1) to have a tests/ directory within the mpu/ package so that the tests get shipped with the code or (2) to put the test of a module next to the module. I would discourage (2) as I have never seen it for Python, but (1) is also [commonly](https://github.com/pandas-dev/pandas/tree/master/pandas) [done](https://github.com/scipy/scipy/tree/master/scipy/sparse) and [mentioned by pytest](https://docs.pytest.org/en/latest/goodpractices.html#tests-as-part-of-application-code).
+1. The `tests/` directory is next to the `mpu/` directory which contains the code. The two alternatives are (1) to have a `tests/` directory within the `mpu/` package so that the tests get shipped with the code or (2) to put the test of a module next to the module. I would discourage (2) as I have never seen it for Python, but (1) is also [commonly](https://github.com/pandas-dev/pandas/tree/master/pandas) [done](https://github.com/scipy/scipy/tree/master/scipy/sparse) and [mentioned by pytest](https://docs.pytest.org/en/latest/goodpractices.html#tests-as-part-of-application-code).
 
-1. Every test file starts with test_ . That makes it easy to recognize which files contain the tests. It’s the default of pytest and I don’t see a reason to change it.
+1. Every test file starts with `test_`. That makes it easy to recognize which files contain the tests. It’s the default of pytest and I don’t see a reason to change it.
 
 ## Names of Test Functions
 
-When you have a fibonacci(n: int) -> int function, you will likely have a test_fibonacci function. And when test suites grow, there might appear a test_fibonacci2 or something similar. Don’t do that. I know, naming things is hard.
+When you have a `fibonacci(n: int) -> int` function, you will likely have a `test_fibonacci` function. And when test suites grow, a `test_fibonacci2` or something similar might appear. Don’t do that. I know, naming things is hard.
 
 You will see the name of this function when the test fails. Which name will help you to quickly understand what was tested?
 
@@ -69,7 +69,7 @@ You will see the name of this function when the test fails. Which name will help
 
 Docstrings can be super helpful. Especially if the thing you need to test is complex. You can add details on why this test exists and how the expected values were calculated.
 
-On module level, you can add a docstring to tell the reader what should be within this test module. Do you test a specific module of the code base? Is it some common types of test you want to apply for different modules? Are there common issues that should be tested?
+On module level, you can add a docstring to tell the reader what should be within this test module. Do you test a specific module of the code base? Are there some common types of tests you want to apply for different modules? Are there common issues that should be tested?
 
 Test level docstrings are used in a good way in parts of
 [sympy](https://github.com/sympy/sympy/blob/master/sympy/solvers/tests/test_recurr.py#L78):
@@ -108,15 +108,15 @@ often. Then you can execute all tests which are not slow like this:
 pytest -v -m "not slow"
 ```
 
-I’ve seen the marks high_memory and db in Pandas as well.
+I’ve seen the marks `high_memory` and `db` in Pandas as well.
 
 ## Shared test helpers
 
-Once in a while you need helper functions for your tests which appear in
-multiple tests. Now there are multiple ways how to deal with that:
+Once in a while, you need helper functions for your tests which appear in
+multiple tests. Now there are multiple ways to deal with that:
 
 1. Duplicate the code
-2. Import the helper function from a test/foo.py file
+2. Import the helper function from a `tests/foo.py` file
 3. Import the helper function from the main package, e.g. within a test_helpers / tests directory.
 4. Import the helper function from one test_foo.py file
 
@@ -124,7 +124,7 @@ I would not go for option (4) as it seems pretty arbitrary to put code there.
 Besides that, I see no clear best option:
 
 1. Is nice, because it keeps the test code easy to understand. You have to look
-   at most at two 3 files: The `foo.py`, the test_foo.py and the conftest.py
+   at most at 3 files: The `foo.py`, the test_foo.py and the conftest.py
    (see later). If you like [DRY
    code](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), this is not
    for you.
@@ -137,20 +137,20 @@ Besides that, I see no clear best option:
 
 ## Pytest configuration
 
-I usually put everything that configures pytest in thesetup.cfgand the fixtures
+I usually put everything that configures pytest in the `setup.cfg` and the fixtures
 in a [conftest.py](https://docs.pytest.org/en/2.7.3/plugins.html) within
 `tests/`.
 
-## fixtures
+## Fixtures
 
 The Python style of writing tests is by creating a function which contains the
 test. This might seem weird to you if you come from a Java / JUnit-influenced
-testing world. There you have a class with a setUp and tearDown method and
+testing world. There you have a class with a `setUp` and `tearDown` method and
 various methods for the single tests.
 
-For a long time, I’ve used the old and uglyunittest.TestCase if I had a lot of
+For a long time, I’ve used the old and ugly `unittest.TestCase` if I had a lot of
 tests which needed some common preparation — I thought there was no way around
-setUp and tearDown . I’ve been wrong.
+`setUp` and `tearDown`. I was wrong.
 
 Pytest fixtures can do exactly that. Their structure looks like this:
 
@@ -170,9 +170,9 @@ def test_awesomeness(client):
     pass
 ```
 
-Note that the argument to test_awesomeness is called just like the fixture. That is no coincidence. It has to be the same name so that pytest passes the fixture.
+Note that the argument to `test_awesomeness` has the same name as the fixture. That is no coincidence. It has to be the same name so that pytest passes the fixture.
 
-I usually define the fixtures in tests/conftest.py . Pytest will register them and supply them to your test automatically. No need to import the conftest.py anywhere.
+I usually define the fixtures in `tests/conftest.py`. Pytest will register them and supply them to your test automatically. No need to import the conftest.py anywhere.
 
 Here is an example to demonstrate that the tests are isolated:
 
@@ -271,7 +271,7 @@ examples were wrong.
 The `test_fib_many.py` will show you all mistakes. However, it is super
 verbose.
 
-There is a better way to test to combine both advantages: [Parametrizing test
+There is a better way to combine both advantages: [Parametrizing test
 functions](https://docs.pytest.org/en/stable/parametrize.html):
 
 ```python
@@ -288,12 +288,12 @@ def test_route_status(n, expected):
 
 The parametrization example looks similar to the `test_fib_one.py`, but it will
 fail for every single parameter which is wrong. As an example, I manipulated
-the Fibonacci function to return `42` for `n=2` and `n=3`. Here is how the
-error looks like with pytests parametrization:
+the Fibonacci function to return `42` for `n=2` and `n=3`. Here is what the
+error looks like with pytest's parametrization:
 
 ![Screenshot taken by Martin Thoma](https://cdn-images-1.medium.com/max/2000/1*U7bFojobikHFYkvmF0RK_g.png)*Screenshot taken by Martin Thoma*
 
-Both, the test and the test output in case of failure are now more readable! I
+Both the test and the test output in case of failure are now more readable! I
 love this so much 😍
 
 ## Dependencies between tests

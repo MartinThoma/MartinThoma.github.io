@@ -1,16 +1,16 @@
 ---
 layout: post
-lang: en
 title: Django Hello World
 slug: django-hello-world
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-01-17 20:00
 category: My bits and bytes
 tags: Machine Learning
 featured_image: logos/star.png
+status: draft
 ---
-In the development of a bigger web service you have several key components:
+In the development of a bigger web service, you have several key components:
 
 * Views: Display single things (`views.py`)
 * Routing: Map URLs to views (`urls.py`)

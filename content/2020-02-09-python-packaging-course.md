@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Python Packaging Course
 slug: python-packaging-course
+lang: en
 author: Martin Thoma
 date: 2020-02-08 20:00
 category: Code
@@ -18,7 +18,7 @@ Naturally, such a grown environment is messy:
 </figure>
 
 In this course, you will learn the details about Python packaging and how all
-of the tools related.
+of the tools relate.
 
 ## Application Types
 
@@ -41,7 +41,7 @@ I like the ZSH shell with the plugin [Oh My ZSH](https://github.com/ohmyzsh/ohmy
 and [Sublime Text](https://www.sublimetext.com/) as an editor with many
 different plugins; I've written down some of [my Sublime Text plugins](https://martin-thoma.com/sublime-text/).
 
-A common alternatives to ZSH are [Fish](https://fishshell.com/). Common
+A common alternative to ZSH is [Fish](https://fishshell.com/). Common
 alternatives to Sublime Text are [Atom](https://atom.io/) and [VS Code](https://code.visualstudio.com/).
 If you want more, [PyCharm](https://www.jetbrains.com/de-de/pycharm/).
 
@@ -70,9 +70,9 @@ $ cd awesome_project
 $ git init
 ```
 
-To make sure that a failing hard drive does cause only little loss of work and
-to allow collaboration, we add a remote. [Github](https://github.com/)
-and [Gitlab](https://about.gitlab.com/) are excellent choices. Once you created
+To make sure that a failing hard drive causes only little loss of work and
+to allow collaboration, we add a remote. [GitHub](https://github.com/)
+and [GitLab](https://about.gitlab.com/) are excellent choices. Once you have created
 an empty repository there, add it as a remote locally:
 
 ```shell
@@ -100,7 +100,7 @@ $ pre-commit install
 
 ### Formatting
 
-By the mentioned cookiecutter template, formatting is to a big extend already
+By the mentioned cookiecutter template, formatting is to a large extent already
 handled:
 
 * [black](https://github.com/psf/black): An opinionated formatter which respects PEP8 and implements a lot of [Flake8](https://flake8.pycqa.org/en/latest/)
@@ -110,7 +110,7 @@ The only missing thing is a docstring style formatter. I like the
 [numpydoc docstring format](https://numpydoc.readthedocs.io/en/latest/format.html)
 a lot.
 
-If you want to know more about formatting, I recommend to read my
+If you want to know more about formatting, I recommend reading my
 [Python style guide](https://martin-thoma.com/python-style-guide/).
 
 ### Unit Testing
@@ -126,7 +126,7 @@ The cookiecutter template installs a couple of useful plugins:
 
 * [`pytest-cov`](https://pypi.org/project/pytest-cov/): Generate a test
   coverage report. This helps you to identify sections where bugs cannot
-  possibly be catched by a unittest.
+  possibly be caught by a unit test.
 * [`pytest-black`](https://pypi.org/project/pytest-black/): Check if black was
   applied.
 * [`pytest-flake8`](https://pypi.org/project/pytest-flake8/): Another formatting test.
@@ -146,7 +146,7 @@ If you develop a library, you need documentation. For the other application
 types not so much.
 
 [Sphinx](https://www.sphinx-doc.org/en/master/) as a documentation generator
-and [readthedocs.org](https://readthedocs.org/) as a hosting platforms are the
+and [readthedocs.org](https://readthedocs.org/) as a hosting platform are the
 tools of choice.
 
 ### Security
@@ -160,9 +160,9 @@ can help you to detect those cases.
 
 It is good practice to make `[module].__version__` available. Of course, it
 should be the same as the version you see via `pip freeze`. And then it would
-be nice if the git commit whould have a [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
+be nice if the git commit would have a [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
 
-Of course, you can all of that manually. If you want a tool, [bumpversion](https://pypi.org/project/bumpversion/)
+Of course, you can do all of that manually. If you want a tool, [bumpversion](https://pypi.org/project/bumpversion/)
 is pretty widespread. However, it is not maintained. So some people use [bump2version](https://pypi.org/project/bump2version/).
 I'm not too sure if I would use that.
 
@@ -242,7 +242,7 @@ $ python setup.py bdist_wheel
 
 After creating it, upload it to PyPI with [twine](https://pypi.org/project/twine/).
 
-To do so, first setup your `~/.pypirc` file:
+To do so, first set up your `~/.pypirc` file:
 
 ```ini
 [distutils]
@@ -278,7 +278,7 @@ $ twine upload --repository pypitest -s dist/*
 
 Deprecated. Use setuptools.
 
-## distribute
+### distribute
 
 Was a fork of setuptools which got merged back. Use setuptools.
 
@@ -339,11 +339,11 @@ There are 3 common formats:
 * Egg
 * Wheel
 
-Egg is outdated and can be replaced by either source distributions or wheel ([source](https://packaging.python.org/discussions/wheel-vs-egg/))
+Egg is outdated and can be replaced by either source distributions or wheel ([source](https://packaging.python.org/discussions/wheel-vs-egg/)).
 
 ## Package manager
 
-PIP is short for 'PIP installs Python'. Use it. Don't use `easy_install`.
+pip is short for 'pip installs packages'. Use it. Don't use `easy_install`.
 
 PIP commands are
 

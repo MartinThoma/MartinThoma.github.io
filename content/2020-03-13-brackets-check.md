@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Code Golf: Brackets Check
 slug: brackets-check
+lang: en
 author: Martin Thoma
 date: 2020-03-13 20:00
 category: Code
@@ -15,7 +15,7 @@ input and determines if it is valid.
 A sequence is valid, iff:
 
 * All opened brackets close
-* Brackets come in pairs - only what was opened can be closed again
+* Brackets come in pairs — only what was opened can be closed again
 * The 3 styles which should be supported are:
     * Round brackets: `(` and `)`
     * Square brackets: `[` and `]`
@@ -27,7 +27,7 @@ A sequence is valid, iff:
 Restrictions:
 
 * The formatter `black` will be applied to any solution
-* The signature, the docstring and the doctest is fixed.
+* The signature, the docstring, and the doctest are fixed.
 
 
 ## Solution: 846 characters

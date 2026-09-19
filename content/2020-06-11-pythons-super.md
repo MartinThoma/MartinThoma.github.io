@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
-title: Pythons super() function
+title: Python's super() Function
 slug: pythons-super
+lang: en
 author: Martin Thoma
 date: 2020-06-11 20:00
 category: Code
@@ -10,7 +10,7 @@ tags: Python, Inheritance
 featured_image: logos/python.png
 ---
 Python has a built-in function called [`super()`](https://docs.python.org/3/library/functions.html#super).
-It might behave different from what you thought.
+It might behave differently from what you thought.
 
 
 ## Single Inheritance
@@ -47,7 +47,7 @@ B
 A
 ```
 
-This is simple, because every class inherits from exactly one other class
+This is simple because every class inherits from exactly one other class
 and the inheritance tree looks like this:
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -59,9 +59,9 @@ and the inheritance tree looks like this:
 ## Multiple Inheritance
 
 Python supports [multiple inheritance](https://docs.python.org/3/tutorial/classes.html#multiple-inheritance).
-This means classes can inherit from arbitrary many classes.
+This means classes can inherit from arbitrarily many classes.
 
-Let's start with a simple example how super works here:
+Let's start with a simple example of how `super` works here:
 
 ```python
 class A:
@@ -94,8 +94,8 @@ C()
 The inheritance tree looks like this:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/06/inheritance-a-b1-b2-c.svg"><img src="../images/2020/06/inheritance-a-b1-b2-c.svg" alt="Inharitance Tree where A is the parent of B1 and B2. They are the parents of C." style="width: 512px;"/></a>
-    <figcaption class="text-center">Inharitance Tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
+    <a href="../images/2020/06/inheritance-a-b1-b2-c.svg"><img src="../images/2020/06/inheritance-a-b1-b2-c.svg" alt="Inheritance tree where A is the parent of B1 and B2. They are the parents of C." style="width: 512px;"/></a>
+    <figcaption class="text-center">Inheritance tree where A is the parent of B1 and B2. They are the parents of C.</figcaption>
 </figure>
 
 The output of this script is:
@@ -113,7 +113,7 @@ Still expected, right? Basically going deeper and left to right.
 ## Multiple Inheritance: Linearization
 
 Where the mental model might break is with the following example. The
-inheritance tree is still the same. However, within B1 I don't call super
+inheritance tree is still the same. However, within `B1` I don't call `super`
 anymore. Which output would you expect?
 
 ```python
@@ -143,14 +143,14 @@ class C(B1, B2):
 C()
 ```
 
-The received output is
+The received output is:
 
 ```plain
 C
 B1
 ```
 
-Now, why does it not print `B2` and not `A`? After all, C still inherits from
+Now, why does it print neither `B2` nor `A`? After all, `C` still inherits from
 `B2` and `B2` still calls `super` which would point to `A`, right?
 
 The reason is that the method resolution order is:
@@ -171,8 +171,8 @@ line ends.
 
 ## See also
 
-* StackOverflow:
+* Stack Overflow:
     * Callisto: [How does Python's super() work with multiple inheritance?](https://stackoverflow.com/q/3277367/562769), 2010.
-    * Mizipzor: [Understanding Python super() with __init__() methods](https://stackoverflow.com/q/576169/562769), 2009.
+    * Mizipzor: [Understanding Python super() with `__init__()` methods](https://stackoverflow.com/q/576169/562769), 2009.
 * Raymond Hettinger: [Super considered super!](https://www.youtube.com/watch?v=EiOglTERPEo) at PyCon on YouTube, 2015.
 * Raymond Hettinger: [Python’s super() considered super!](https://rhettinger.wordpress.com/2011/05/26/super-considered-super/), 2011.

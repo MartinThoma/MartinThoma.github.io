@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Software Architecture
 slug: software-architecture
+lang: en
 author: Martin Thoma
 date: 2020-03-11 20:00
 category: Code
@@ -18,10 +18,10 @@ The software architecture gives a very high-level overview of a software system.
 ## Typical Components
 
 A software architecture tries to solve a problem. It tries to achieve
-"high quality" in some of the properities mentioned in [ISO/IEC 25010](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010).
+"high quality" in some of the properties mentioned in [ISO/IEC 25010](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010).
 
 One very typical property is **modularity**. We want to have components which
-are to a large degree independent so that different teams can work on it. It
+are to a large degree independent so that different teams can work on them. It
 also helps with Analysability, Modifiability and Testability.
 
 
@@ -48,8 +48,8 @@ also helps with Analysability, Modifiability and Testability.
     </tr>
     <tr>
         <td>Front Ends<br/><span style="font-size: xx-large;">FEs</span></td>
-        <td>Android, IOS, Web</td>
-        <td>The front-ends typically can be seperated pretty well in different teams. They need to access the same backend services.</td>
+        <td>Android, iOS, Web</td>
+        <td>The front-ends can typically be separated pretty well into different teams. They need to access the same backend services.</td>
     </tr>
     <tr>
         <td>Cache<br/><img src="../images/2020/03/cache.png" alt="Cache" /></td>
@@ -59,7 +59,7 @@ also helps with Analysability, Modifiability and Testability.
     <tr>
         <td>Load Balancer<br/><img src="../images/2020/03/load-balancer.png" alt="Load Balancer" /></td>
         <td><a href="https://aws.amazon.com/de/elasticloadbalancing/">AWS ELB</a>, <a href="https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/">NGINX</a></td>
-        <td>If you built your service in a way to be horizontally scalable, load balancing is crucial. Round-robin or hashing on the IP address are possible choices.</td>
+        <td>If you build your service in a way to be horizontally scalable, load balancing is crucial. Round-robin or hashing on the IP address are possible choices.</td>
     </tr>
 </table>
 
@@ -72,7 +72,7 @@ define the interfaces between front ends and backend services.
 * [REST API](https://martin-thoma.com/rest/): [OpenAPI Specification](https://en.wikipedia.org/wiki/OpenAPI_Specification) e.g. with [Flask-RestX](https://flask-restx.readthedocs.io/en/latest/)
 * [JSON Schema](https://json-schema.org/)
 * [Avro](https://aseigneurin.github.io/2018/08/02/kafka-tutorial-4-avro-and-schema-registry.html)
-* Flat file: Sometimes it is enough to make a file available, e.g. via FTP or even HTTP (Amazon S3). The strenght of a single file is batch-load. You can keep the files and thus track the past. It is not a good choice for streaming / real time applications where you have a lot of events.
+* Flat file: Sometimes it is enough to make a file available, e.g. via FTP or even HTTP (Amazon S3). The strength of a single file is batch loading. You can keep the files and thus track the past. It is not a good choice for streaming / real time applications where you have a lot of events.
 
 
 ## Typical Patterns

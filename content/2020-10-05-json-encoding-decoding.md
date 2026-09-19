@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: JSON encoding/decoding with Python
 slug: json-encoding-decoding
-URL: https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a
+lang: en
 author: Martin Thoma
 date: 2020-10-05 20:00
 category: Code
 tags: JSON, Python, Benchmark
 featured_image: logos/json.png
+URL: https://levelup.gitconnected.com/json-encoding-decoding-with-python-62a2cae63a6a
 ---
 JSON is a cornerstone for the exchange of data on the Internet. REST APIs use the standardized message format all around the world. Being a subset of JavaScript, it got a huge initial boost in its adoption right from the start. The fact that its syntax is pretty clear and easy to read also helped.
 
@@ -16,15 +16,15 @@ JSON has libraries in every language I know for serialization and deserializatio
 
 ## The libraries
 
-**CPython** itself has a [json](https://docs.python.org/3/library/json.html) module. It was originally developed by Bob Ippolito as simplejson and was merged into Python 2.4 ([source](https://docs.python.org/3/whatsnew/2.6.html#the-json-module-javascript-object-notation)). CPython is licensed under the Python Software Foundation License.
+**CPython** itself has a [json](https://docs.python.org/3/library/json.html) module. It was originally developed by Bob Ippolito as simplejson and was merged into Python 2.6 ([source](https://docs.python.org/3/whatsnew/2.6.html#the-json-module-javascript-object-notation)). CPython is licensed under the Python Software Foundation License.
 
-**simplejson** still exists as its own library and you can install it via pip. It is a pure Python library with an optional C extension. Simplejson is licensed under the MIT and the Academic Free License (AFL) license.
+**simplejson** still exists as its own library, and you can install it via pip. It is a pure Python library with an optional C extension. Simplejson is licensed under the MIT and the Academic Free License (AFL).
 
-[**ujson**](https://pypi.org/project/ujson/) is a binding to the C library [Ultra JSON](https://github.com/ultrajson/ultrajson). Ultra JSON was developed by ESN ([an Electronic Arts Inc. studio](https://techcrunch.com/2012/09/26/electronic-arts-buys-online-gaming-development-studio-esn/)) and is licensed under the [3-clause BSD License](https://tldrlegal.com/license/bsd-3-clause-license-(revised)). Ultra JSON has 3k stars on Github, 305 forks, 50 contributors, the last commit is only 12 days old and the last issue was opened 5 days ago. I’ve heard that it is in “maintenance mode” ([source](https://github.com/ultrajson/ultrajson/issues/428#issuecomment-699456053)), indicating that there is no new development.
+[**ujson**](https://pypi.org/project/ujson/) is a binding to the C library [Ultra JSON](https://github.com/ultrajson/ultrajson). Ultra JSON was developed by ESN ([an Electronic Arts Inc. studio](https://techcrunch.com/2012/09/26/electronic-arts-buys-online-gaming-development-studio-esn/)) and is licensed under the [3-clause BSD License](https://tldrlegal.com/license/bsd-3-clause-license-(revised)). Ultra JSON has 3k stars on GitHub, 305 forks, 50 contributors, the last commit is only 12 days old, and the last issue was opened 5 days ago. I’ve heard that it is in “maintenance mode” ([source](https://github.com/ultrajson/ultrajson/issues/428#issuecomment-699456053)), indicating that there is no new development.
 
-**pysimdjson** is a binding to the C++ library [simdjson](https://github.com/simdjson/simdjson). SIMDjson received funding from Canada. simdjson has 12.2k stars on Github, 611 forks, 63 contributors, the last commit was 11 hours ago, and the last issue was opened 2 hours ago.
+**pysimdjson** is a binding to the C++ library [simdjson](https://github.com/simdjson/simdjson). simdjson received funding from Canada. simdjson has 12.2k stars on GitHub, 611 forks, 63 contributors, the last commit was 11 hours ago, and the last issue was opened 2 hours ago.
 
-**python-rapidjson** is a binding to the C++ library [RapidJSON](https://github.com/Tencent/rapidjson). RapidJSON was developed by [Tencent](https://en.wikipedia.org/wiki/Tencent). RapidJSON has 9.8k stars on GitHub, 2.7k forks, 150 contributors, the last commit was about 2 months ago and the last issue was opened 17 days ago.
+**python-rapidjson** is a binding to the C++ library [RapidJSON](https://github.com/Tencent/rapidjson). RapidJSON was developed by [Tencent](https://en.wikipedia.org/wiki/Tencent). RapidJSON has 9.8k stars on GitHub, 2.7k forks, 150 contributors, the last commit was about 2 months ago, and the last issue was opened 17 days ago.
 
 [**orjson**](https://pypi.org/project/orjson/) is a Python package that relies on Rust to do the heavy lifting.
 
@@ -40,7 +40,7 @@ python-rapidjson marks itself as alpha, but one maintainer says that is a mistak
     <thead>
     <tr>
         <th></th>
-        <th>cPython JSON</th>
+        <th>CPython json</th>
         <th>simplejson</th>
         <th>ujson</th>
         <th>orjson</th>
@@ -176,7 +176,7 @@ python-rapidjson marks itself as alpha, but one maintainer says that is a mistak
         <td>661</td>
     </tr>
     <tr>
-        <th>StackOverflow Questions</th>
+        <th>Stack Overflow Questions</th>
         <td></td>
         <td><a href="https://stackoverflow.com/questions/tagged/simplejson">279</a></td>
         <td><a href="https://stackoverflow.com/questions/tagged/ujson">6</a></td>
@@ -230,7 +230,7 @@ python-rapidjson marks itself as alpha, but one maintainer says that is a mistak
         <td style="background-color: green;">16ms</td>
         <td style="background-color: green;">9ms</td>
         <td style="background-color: green;">7ms</td>
-        <td style="background-color: green;">66ms</td>
+        <td style="background-color: red;">66ms</td>
     </tr>
     <tr>
         <th>2MB Float List Write</th>
@@ -247,15 +247,15 @@ python-rapidjson marks itself as alpha, but one maintainer says that is a mistak
 
 ## The Questions
 
-One indicator of how easy it might be to resolve problems is to ask questions and see how the behavior is:
+One indicator of how easy it might be to resolve problems is to ask questions and see how the maintainers respond:
 
-* [SimpleJSON](https://github.com/simplejson/simplejson/issues/267): I’ve got a response the next day. The response was clear, easy to follow, friendly. [Bob Ippolito](undefined) answered me — the guy who originally developed it and who also is mentioned in the Python docs for the JSON module!
-* [uJSON](https://github.com/ultrajson/ultrajson/issues/428): I’ve got a clear, friendly, easy to follow answer within 30 minutes. @hugovank
+* [SimpleJSON](https://github.com/simplejson/simplejson/issues/267): I got a response the next day. The response was clear, easy to follow, and friendly. Bob Ippolito answered me — the guy who originally developed it and who also is mentioned in the Python docs for the JSON module!
+* [uJSON](https://github.com/ultrajson/ultrajson/issues/428): I got a clear, friendly, easy-to-follow answer within 30 minutes (by @hugovk).
 * [ORJSON](https://github.com/ijl/orjson/issues/127): No answer after 8 days.
 * [PySIMDJSON](https://github.com/TkTech/pysimdjson/issues/54): No answer after 8 days.
-* [Python-RapidJSON](https://github.com/python-rapidjson/python-rapidjson/issues/140): I’ve got a clear, friendly, easy to follow answer within 30 minutes. A [simple PR](https://github.com/python-rapidjson/python-rapidjson/pull/143) wasn’t merged after two days.
+* [Python-RapidJSON](https://github.com/python-rapidjson/python-rapidjson/issues/140): I got a clear, friendly, easy-to-follow answer within 30 minutes. A [simple PR](https://github.com/python-rapidjson/python-rapidjson/pull/143) wasn’t merged after two days.
 
-One answer I’ve got for all of the projects is that they are essentially not in contact with each other.
+One answer I got from all of the projects is that they are essentially not in contact with each other.
 
 ## The Benchmark
 
@@ -263,13 +263,13 @@ In order to benchmark the different libraries properly, I thought of the followi
 
 * **APIs**: Web services that exchange information. It might contain Unicode and have a nested structure. A JSON file from a Twitter API sounds good to test this.
 * **API JSON Error**: I was curious about how the performance would change if there was an error in the JSON API format. So I removed a brace in the middle.
-* **GeoJSON**: I’ve first seen [the GeoJSON format](https://en.wikipedia.org/wiki/GeoJSON) with [Overpass Turbo](https://overpass-turbo.eu/), an Open Streep Map exporter. You will get crazy big JSON files with mostly coordinates, but also pretty nested.
+* **GeoJSON**: I’ve first seen [the GeoJSON format](https://en.wikipedia.org/wiki/GeoJSON) with [Overpass Turbo](https://overpass-turbo.eu/), an OpenStreetMap exporter. You will get crazy big JSON files with mostly coordinates, but also pretty nested.
 * **Machine Learning**: Just a massive list of floats. Those might be weights of a neural network layer.
-* **JSON Line**: Structured logs are heavily used in the industry. If you analyze those logs, you might need to go through Gigabytes of data. They are all simple dictionaries with a datetime object, a message, the logger, log status, and maybe some more.
+* **JSON Line**: Structured logs are heavily used in the industry. If you analyze those logs, you might need to go through gigabytes of data. They are all simple dictionaries with a datetime object, a message, the logger, log status, and maybe some more.
 
 ### Deserialization Speed
 
-The speed of my hard drive gives a lower boundary for the speed to read. I’ve included it as a baseline in the following 3 charts.
+The speed of my hard drive gives a lower bound for the time to read. I’ve included it as a baseline in the following 3 charts.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/10/read-twitter.png"><img src="../images/2020/10/read-twitter.png" alt="Read a complex, but small JSON" style="width: 512px;"/></a>
@@ -304,7 +304,7 @@ The conclusion from this:
 
 ### Serialization Speed
 
-In this case, I created the JSON-String beforehand and measured the time it takes to write it to disk as a baseline.
+In this case, I created the JSON string beforehand and measured the time it takes to write it to disk as a baseline.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/10/write-twitter.png"><img src="../images/2020/10/write-twitter.png" alt="Write a twitter.json" style="width: 512px;"/></a>
@@ -336,12 +336,12 @@ What I conclude from this:
 
 As a closing note, I want to point out some issues I see sometimes and have written myself:
 
-* Calling variables foo_json : JSON is a string format. If it’s not a string, it’s not JSON. If you deserialized a JSON with bar = json.loads(foo) , then bar is not a JSON. You can serialize bar to a JSON which is equivalent to the JSONfoo , but bar is not a JSON. It’s a Python object. Very likely a dictionary. You can then all it foo_dict .
+* Calling variables `foo_json`: JSON is a string format. If it’s not a string, it’s not JSON. If you deserialized a JSON with `bar = json.loads(foo)`, then `bar` is not a JSON. You can serialize `bar` to a JSON which is equivalent to the JSON `foo`, but `bar` is not a JSON. It’s a Python object. Very likely a dictionary. You can then call it `foo_dict`.
 * Attribute checks all over the place: If you receive a JSON, it’s super easy to convert it to a Python object (e.g. a dict) and use it. This is fine for proof-of-concept code or very small JSON strings. It will bite you in the ass if you don’t convert it to something like a [dataclass](https://docs.python.org/3/library/dataclasses.html).
 
-[pydantic](https://github.com/samuelcolvin/pydantic) is a super helpful validation library. You can take the JSON-string, parse it to a Python base representation with dictionaries / lists / strings / numbers / booleans with your favorite JSON library and then parse it again with Pydantic. The advantage you get from this is that you know what you’re dealing with later. No longer just Dict[str, Any] as a [type annotation](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d). No longer unhelpful editor autocompletion. No longer checking if attributes exist all over your code.
+[pydantic](https://github.com/samuelcolvin/pydantic) is a super helpful validation library. You can take the JSON string, parse it to a Python base representation with dictionaries / lists / strings / numbers / booleans with your favorite JSON library and then parse it again with Pydantic. The advantage you get from this is that you know what you’re dealing with later. No longer just `Dict[str, Any]` as a [type annotation](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d). No longer unhelpful editor autocompletion. No longer checking if attributes exist all over your code.
 
-To include other json packages than the default json , I recommend the pattern
+To use JSON packages other than the default `json`, I recommend the pattern:
 
 ```python
 import ujson as json
@@ -358,6 +358,6 @@ app.json_decoder = JSONDecoder
 
 ## See also
 
-* [Daniel Lemire](undefined): [Parsing JSON Really Quickly: Lessons Learned](https://www.youtube.com/watch?v=wlvKAT7SZIQ) at InfoQ
-* [Ng Wai Foong](undefined): [Introduction to orjson](https://levelup.gitconnected.com/introduction-to-orjson-3d06dde79208)
-* [Nicolas Seriot](undefined): [Parsing JSON is a Minefield](http://seriot.ch/parsing_json.php)
+* Daniel Lemire: [Parsing JSON Really Quickly: Lessons Learned](https://www.youtube.com/watch?v=wlvKAT7SZIQ) at InfoQ
+* Ng Wai Foong: [Introduction to orjson](https://levelup.gitconnected.com/introduction-to-orjson-3d06dde79208)
+* Nicolas Seriot: [Parsing JSON is a Minefield](http://seriot.ch/parsing_json.php)

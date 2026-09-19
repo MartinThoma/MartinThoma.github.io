@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Dynamic Programming
 slug: dynamic-programming
+lang: en
 author: Martin Thoma
 date: 2020-03-31 20:00
 category: Code
@@ -32,7 +32,7 @@ Think of the Fibonacci sequence, where you might calculate
 \begin{align}
 f(7) &= f(6) + f(5)\\
 &= f(5) + f(4) + f(5)\\
-&= f(4) + f(3) + f(4) + f(4) + f(3)\\
+&= f(4) + f(3) + f(3) + f(2) + f(4) + f(3)\\
 &=\dots
 \end{align}
 
@@ -43,17 +43,17 @@ again, you can directly return the result without recalculating the function.
 In Python, you can use the [`functools.lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache)
 decorator for that. See the Fibonacci example below for a concrete example.
 
-TL;DR: Memoization is a technique to speed-up function calls by caching their
+TL;DR: Memoization is a technique to speed up function calls by caching their
 results.
 
 ### Backtracking
 
-Both, Backtracking and Dynamic Programming, are used to solve discrete
+Both backtracking and dynamic programming are used to solve discrete
 constraint problems. Dynamic Programming typically solves constraint
-optimization problems (COPs) and backtracking constraint satisfaction problems
+optimization problems (COPs) and backtracking solves constraint satisfaction problems
 (CSPs).
 
-Usually *Dynamic Programming* is bottom-up and *Backtracking* uses top-down approaches.
+Usually, *Dynamic Programming* is bottom-up and *Backtracking* uses top-down approaches.
 
 
 ### Divide and Conquer
@@ -80,7 +80,7 @@ f(n-1) + f(n-2) &\text{otherwise}
 \end{cases}
 $$
 
-The inefficient, but straight-forward implementation is
+The inefficient but straightforward implementation is:
 
 ```python
 def f(n):
@@ -117,7 +117,7 @@ if you are interested in more details.
 
 ## Longest Increasing Subsequence
 
-A sub-sequence of an sequence is any subset of a sequence in the same order.
+A sub-sequence of a sequence is any subset of a sequence in the same order.
 Please note that a sub-sequence does not have to be contiguous.
 
 For this example, I want a strictly increasing subsequence.
@@ -190,10 +190,10 @@ a $\mathcal{O}(n \log(n))$ solution with additional $\mathcal{O}(n)$ space ([vid
 The edit distance, also known as [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance),
 calculates the number of operations two words are apart. Typically, one allows
 removal of characters, adding characters or changing a character. And typically,
-all of them have a count of 1.
+all of them have a cost of 1.
 
 A real-world application of the edit distance is in automatic speech recognition (ASR).
-There the edit distance is used to calcuate the word error rate (WER): [Word Error Rate Calculation](https://martin-thoma.com/word-error-rate-calculation/)
+There the edit distance is used to calculate the word error rate (WER): [Word Error Rate Calculation](https://martin-thoma.com/word-error-rate-calculation/)
 
 
 \begin{align}
@@ -275,12 +275,12 @@ def edit_distance(w1: str, w2: str) -> int:
     return d[m][n]
 ```
 
-A 16 minute video explanation is given by [Back To Back SWE](https://www.youtube.com/watch?v=MiqoA-yF-0M).
+A 16-minute video explanation is given by [Back To Back SWE](https://www.youtube.com/watch?v=MiqoA-yF-0M).
 
 
 ## Change Making Problem
 
-Imagine your are the cashier at a supermarket. You have to give change to the
+Imagine you are the cashier at a supermarket. You have to give change to the
 customer and you want to give the least number of coins possible.
 
 There is a top-down and a bottom-up solution.
@@ -293,7 +293,7 @@ from functools import lru_cache
 
 
 @lru_cache(maxsize=512)
-def least_coins(coins: Set[int], amount: 11) -> Optional[int]:
+def least_coins(coins: Set[int], amount: int) -> Optional[int]:
     """
     >>> least_coins(frozenset({2,5,10,20,50,100}), 1)
     >>> least_coins(frozenset({1,2,5,10,20,50,100}), 0)
@@ -320,10 +320,10 @@ def least_coins(coins: Set[int], amount: 11) -> Optional[int]:
     return min(possible_solutions, default=None)
 ```
 
-Note that I used an LRU cache. This saves the 512 **l**east **r**ecently
-**u**sed function calls and its output. So we don't have to re-compute too
+Note that I used an LRU cache. This saves the results of the 512 most recent
+function calls and evicts the **l**east **r**ecently **u**sed ones. So we don't have to re-compute too
 much. That decorator requires hashable parameters, hence we have to use
-frozenset. Set is not hashable.
+`frozenset`. `set` is not hashable.
 
 Now the top-down iterative solution:
 
@@ -331,7 +331,7 @@ Now the top-down iterative solution:
 from typing import Set, Optional
 
 
-def least_coins(coins: Set[int], amount: 11) -> Optional[int]:
+def least_coins(coins: Set[int], amount: int) -> Optional[int]:
     """
     >>> least_coins({2,5,10,20,50,100}, 1)
     >>> least_coins({1,2,5,10,20,50,100}, 0)
@@ -370,7 +370,7 @@ I removed the LRU cache and used normal sets. I could have kept both, but
 this makes the solution a bit shorter.
 
 The bottom-up solution would calculate all the possible sums. Although that
-would be the dynamic programming solution, I'm currently to lazy to write it
+would be the dynamic programming solution, I'm currently too lazy to write it
 (aka: I leave it as an exercise to the reader).
 
 
@@ -396,7 +396,7 @@ def solve_knapsack(items: List[Tuple[int, int]], max_weight: int) -> int:
     # A non-positive weight is a no-brainer: we would always add it
     assert all(weight > 0 for weight, value in items)
 
-    # ... except if the value is negtive
+    # ... except if the value is negative
     assert all(value >= 0 for weight, value in items)
 
     # c[i][j] is the optimal solution if you have
@@ -428,7 +428,7 @@ not an integer. While one could simply multiply everything with large enough
 numbers, this might make
 
 
-### Climbing Stairs
+## Climbing Stairs
 
 There are n stairs and you can take either one or two stairs. How many unique
 ways exist to climb the stairs?
@@ -460,7 +460,7 @@ def stairs(n: int) -> int:
         return stairs(n - 2) + stairs(n - 1)
 ```
 
-You should directly notice that this looks VERY similar to the fibonacci sequence.
+You should directly notice that this looks VERY similar to the Fibonacci sequence.
 Only the starting numbers are different. Hence the solution is the same, except
 for the starting numbers:
 
@@ -496,7 +496,7 @@ Some clarifications:
 * If an egg does not break at floor $i$, it will not break at floor $i-1$.
 * If an egg breaks at floor $i$, it will also break at floor $i+1$.
 
-I know this sounds very simple and a was about to just drop the problem. I
+I know this sounds very simple, and I was about to just drop the problem. I
 thought it was simply binary search, hence with applying the logarithm you
 could solve it. I was wrong, though. Think about the situation where you have
 20 floors and 2 eggs. If you use the first egg for the 10th floor, the worst case
@@ -505,7 +505,7 @@ is that the searched floor is the 9th one:
 * 1st egg breaks at 10th floor
 * 2nd egg needs to be dropped from floor 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-Hence binary search needs 10 egg drops for 2 eggs and 20 floors
+Hence, binary search needs 10 egg drops for 2 eggs and 20 floors.
 
 Now consider this:
 
@@ -563,7 +563,7 @@ def egg_drop(eggs: int, floors: int) -> int:
     return s[floors][eggs]
 ```
 
-This algorithm has a time complexity of $\mathcal{O}(m^2 \cdot n)$ and need
+This algorithm has a time complexity of $\mathcal{O}(m^2 \cdot n)$ and needs
 $\mathcal{O}(n \cdot m)$ in additional space. You can improve the runtime by
 looking at the sequence of worst_case. It should go down and then up again. If
 you notice that it went down but starts to go up again, you can abort the
@@ -577,18 +577,18 @@ pure numbers:
 * 3 eggs, starting with 0 floors: 0, 1, 2x 2, 4x 3, 7x 4, 11x 5, 16x 6
 
 Another observation is that if we have enough eggs, we can perform binary
-search and more eggs will not result in less egg drops.
+search and more eggs will not result in fewer egg drops.
 
 
 ## See also
 
-* Wikipedia: Some example for Dynamic Programming algorithms
+* Wikipedia: Some examples of Dynamic Programming algorithms
     * [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): single-source shortest path (SSSP)
-    * [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm): single-source shortest-path algorithm (SSSP), $\mathcal{O}(V^2 E)$
+    * [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm): single-source shortest-path algorithm (SSSP), $\mathcal{O}(V \cdot E)$
     * [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm): all-pairs shortest path algorithm, $\mathcal{O}(V^3)$
     * [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem)
 * Karpathy: [GridWorld: Dynamic Programming Demo](https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html)
-* StackOverflow:
+* Stack Overflow:
     * [Difference between back tracking and dynamic programming](https://stackoverflow.com/q/3592943/562769)
     * [What is the difference between dynamic programming and branch and bound?](https://stackoverflow.com/q/16814830/562769)
 * 🇩🇪 Martin Thoma: [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/#dynamic-programming)

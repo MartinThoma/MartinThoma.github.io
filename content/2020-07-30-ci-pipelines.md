@@ -1,31 +1,31 @@
 ---
 layout: post
-lang: en
 title: CI Pipelines
 slug: ci-pipelines
-URL: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38
+lang: en
 author: Martin Thoma
 date: 2020-07-30 20:00
 category: Code
 tags: Python, DevOps
 featured_image: logos/python.png
+URL: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38
 ---
 Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently [274 open pull requests](https://github.com/scipy/scipy/pulls) (PRs). This means 274 different new features, bug fixes or other improvements want to be added. The maintainers likely don’t know the contributors in person. While there is no way around looking at the contributed change, there is a good solution to make sure things are not horribly wrong: Unit Tests.
 
 Running the test suite for all of those pull requests costs quite a bit of time. The quicker the maintainers can see if the PR has issues and what the issues are, the better.
 
-The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest (2) linting with tools like flake8 or pylint (3) type checking with mypy (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.
+The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest, (2) linting with tools like flake8 or pylint, (3) type checking with mypy, and (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/ci-feedback-github.png"><img src="../images/2020/07/ci-feedback-github.png" alt="Automatic feedback given by Github Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." style="width: 512px;"/></a>
-    <figcaption class="text-center">Automatic feedback given by Github Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details.</figcaption>
+    <a href="../images/2020/07/ci-feedback-github.png"><img src="../images/2020/07/ci-feedback-github.png" alt="Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." style="width: 512px;"/></a>
+    <figcaption class="text-center">Automatic feedback given by GitHub Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details.</figcaption>
 </figure>
 
-In the following article, I will show you how to run unit tests automatically with various different CI Services such as Github Actions, Azure Pipelines, TravisCI and CircleCI.
+In the following article, I will show you how to run unit tests automatically with various different CI Services such as GitHub Actions, Azure Pipelines, Travis CI, and CircleCI.
 
 ## Travis CI
 
-[Travis CI](https://travis-ci.org/) was founded in 2011 and is the first CI service I’ve used. It is configured via a .travis.yml file
+[Travis CI](https://travis-ci.org/) was founded in 2011 and is the first CI service I’ve used. It is configured via a `.travis.yml` file.
 
 I’ve almost always used it with the following script with minor variations:
 
@@ -45,34 +45,34 @@ after_success:
 
 The [tox-travis](https://github.com/tox-dev/tox-travis) package is awesome. I just made sure tox is working and then Travis worked as well. If you want a refresher about tox, have a look at [the previous article](https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729) in this series.
 
-The configuration file looks for sure less scary than the one of Github Actions. The interface of Travis is also pretty and clean:
+The configuration file definitely looks less scary than the one of GitHub Actions. The interface of Travis is also pretty and clean:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/07/travis-overview.png"><img src="../images/2020/07/travis-overview.png" alt="Web interface of Travis" style="width: 512px;"/></a>
     <figcaption class="text-center">Web interface of Travis</figcaption>
 </figure>
 
-## Github Actions
+## GitHub Actions
 
-[Github Actions](https://github.com/features/actions) is the CI/CD solution integrated into Github. It was released in November 2019 and thus is the most recently released service. The main advantage it has over the others is the integration into Github. You can create a new action by clicking on the offered tabs:
+[GitHub Actions](https://github.com/features/actions) is the CI/CD solution integrated into GitHub. It was released in November 2019 and thus is the most recently released service. The main advantage it has over the others is the integration into GitHub. You can create a new action by clicking on the offered tabs:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-create.png"><img src="../images/2020/07/github-action-create.png" alt="Start to create a Github Action" style="width: 512px;"/></a>
-    <figcaption class="text-center">Start to create a Github Action</figcaption>
+    <a href="../images/2020/07/github-action-create.png"><img src="../images/2020/07/github-action-create.png" alt="Start to create a GitHub Action" style="width: 512px;"/></a>
+    <figcaption class="text-center">Start to create a GitHub Action</figcaption>
 </figure>
 
-The defaults are ok, but you might want to adjust a few things in the file. For example, I don’t support any Python version older than 3.6 in my private projects. I also want to install the dependencies from my requirements.txt . If you want to adjust the file name, you can do it. Commit when it looks fine.
+The defaults are OK, but you might want to adjust a few things in the file. For example, I don’t support any Python version older than 3.6 in my private projects. I also want to install the dependencies from my `requirements.txt`. If you want to adjust the file name, you can do it. Commit when it looks fine.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-create-2.png"><img src="../images/2020/07/github-action-create-2.png" alt="The next steps to create a Github Action via the Web Interface" style="width: 512px;"/></a>
-    <figcaption class="text-center">The next steps to create a Github Action via the Web Interface</figcaption>
+    <a href="../images/2020/07/github-action-create-2.png"><img src="../images/2020/07/github-action-create-2.png" alt="The next steps to create a GitHub Action via the Web Interface" style="width: 512px;"/></a>
+    <figcaption class="text-center">The next steps to create a GitHub Action via the Web Interface</figcaption>
 </figure>
 
 Finally, you can see the nice green check mark indicating that the run was successful.
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/github-action-checkmark.png"><img src="../images/2020/07/github-action-checkmark.png" alt="See that the run was successful in Github Actions" style="width: 512px;"/></a>
-    <figcaption class="text-center">See that the run was successful in Github Actions</figcaption>
+    <a href="../images/2020/07/github-action-checkmark.png"><img src="../images/2020/07/github-action-checkmark.png" alt="See that the run was successful in GitHub Actions" style="width: 512px;"/></a>
+    <figcaption class="text-center">See that the run was successful in GitHub Actions</figcaption>
 </figure>
 
 You can also click on the Actions tab and inspect the last run:
@@ -85,11 +85,11 @@ You can also click on the Actions tab and inspect the last run:
 
 ## CircleCI
 
-CircleCI is another possibility for a CI pipeline. They have a concept they call [Orbs](https://circleci.com/orbs/) which is a re-usable set of configuration. It reminds me a bit of how you can have a Docker base image.
+CircleCI is another possibility for a CI pipeline. They have a concept they call [Orbs](https://circleci.com/orbs/), which are reusable sets of configuration. It reminds me a bit of how you can have a Docker base image.
 
-The Python orb is on Github at [CircleCI-Public/python-orb](https://github.com/circleci-public/python-orb). The interesting parts are in src/commands . CircleCI has an [example page](https://circleci.com/orbs/registry/orb/circleci/python) for the Python orb and a [Python language overview](https://circleci.com/docs/2.0/language-python/).
+The Python orb is on GitHub at [CircleCI-Public/python-orb](https://github.com/circleci-public/python-orb). The interesting parts are in `src/commands`. CircleCI has an [example page](https://circleci.com/orbs/registry/orb/circleci/python) for the Python orb and a [Python language overview](https://circleci.com/docs/2.0/language-python/).
 
-The configuration I use for [mpu](https://github.com/MartinThoma/mpu) only uses the checkout step. The rest is manually defined. The following is in .circleci/config.yml :
+The configuration I use for [mpu](https://github.com/MartinThoma/mpu) only uses the checkout step. The rest is manually defined. The following is in `.circleci/config.yml`:
 
 ```yaml
 version: 2.1
@@ -107,7 +107,7 @@ jobs:
           name: Install Test requirements-dev
       - run:
           command: pip install -e .[all]
-          name: Install Pacakge
+          name: Install Package
       - run:
           command: pytest
           name: Test
@@ -125,15 +125,15 @@ The CircleCI web interface looks nice and clean:
     <figcaption class="text-center">CircleCI Web Interface</figcaption>
 </figure>
 
-I’ve added CircleCI check to mpu and, of course, the badge should not be missing:
+I’ve added a CircleCI check to mpu and, of course, the badge should not be missing:
 
 ```markdown
-[![MartinThoma]([https://circleci.com/gh/MartinThoma/mpu.svg?style=shield)](https://app.circleci.com/pipelines/github/MartinThoma/mpu)](https://circleci.com/gh/MartinThoma/mpu.svg?style=shield)](https://app.circleci.com/pipelines/github/MartinThoma/mpu))
+[![MartinThoma](https://circleci.com/gh/MartinThoma/mpu.svg?style=shield)](https://app.circleci.com/pipelines/github/MartinThoma/mpu)
 ```
 
-## Gitlab CI
+## GitLab CI
 
-[Gitlab CI](https://docs.gitlab.com/ee/ci/yaml/README.html) is similar to Github Actions in the sense that it is also integrated into the platform. You use a .gitlab-ci.yml file to configure it. However, I like Gitlab CI way more as it just seems so much cleaner.
+[GitLab CI](https://docs.gitlab.com/ee/ci/yaml/README.html) is similar to GitHub Actions in the sense that it is also integrated into the platform. You use a `.gitlab-ci.yml` file to configure it. However, I like GitLab CI way more as it just seems so much cleaner.
 
 Let’s take the linter [Flake8](https://gitlab.com/pycqa/flake8) as an example. Their [.gitlab-ci.yml](https://gitlab.com/pycqa/flake8/-/blob/master/.gitlab-ci.yml) is a bit lengthy, so I’ve shortened it to only the test stage. They have a build and a release stage as well:
 
@@ -175,29 +175,29 @@ linters:
 In the web interface, it looks like this:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/07/gitlab-pipelines.png"><img src="../images/2020/07/gitlab-pipelines.png" alt="Web interface of gitlab" style="width: 512px;"/></a>
-    <figcaption class="text-center">Web interface of gitlab</figcaption>
+    <a href="../images/2020/07/gitlab-pipelines.png"><img src="../images/2020/07/gitlab-pipelines.png" alt="Web interface of GitLab" style="width: 512px;"/></a>
+    <figcaption class="text-center">Web interface of GitLab</figcaption>
 </figure>
 
 You can also tick a checkbox in the “Settings” section of your repository to prevent merges if the pipelines fail. You should do it.
 
 ## Azure Pipelines
 
-Azure is Microsoft's Cloud Platform, similar to AWS from Amazon or GCP from Google. As with all of those big cloud platforms, things are overly complicated. It’s no comparison to the ease of Travis.
+Azure is Microsoft's cloud platform, similar to AWS from Amazon or GCP from Google. As with all of those big cloud platforms, things are overly complicated. It’s no comparison to the ease of Travis.
 
-There are many things I don’t like about Azure Pipelines, especially that it requires the permission to make code changes. This is mainly done as a convenience feature so that it can create the configuration file azure-pipelines.yml . I hate that, because the CI solution should not touch my code. It should just read it. But as Github was bought by Microsoft and Azure Pipelines is also owned by Microsoft, I guess there is not too much harm in giving it access 🤷
+There are many things I don’t like about Azure Pipelines, especially that it requires permission to make code changes. This is mainly done as a convenience feature so that it can create the configuration file `azure-pipelines.yml`. I hate that because the CI solution should not touch my code. It should just read it. But as GitHub was bought by Microsoft and Azure Pipelines is also owned by Microsoft, I guess there is not too much harm in giving it access 🤷
 
-Azure Pipelines have one killer feature: You can execute stuff on Windows machines. Let’s dive into the shortest path to get there:
+Azure Pipelines has one killer feature: You can execute stuff on Windows machines. Let’s dive into the shortest path to get there:
 
 1. Go to [azure.microsoft.com/services/devops/pipelines](http://azure.microsoft.com/services/devops/pipelines/)
 2. Create a project
-3. Click on Pipelines -> Create Pipeline -> Github YAML -> Pyton Package
+3. Click on Pipelines -> Create Pipeline -> GitHub YAML -> Python Package
 4. Use vmImage: 'VS2017-Win2016'
 
-It will create a azure-pipelines.yml in the project root:
+It will create an `azure-pipelines.yml` in the project root:
 
 ```yaml
-# [https://docs.microsoft.com/azure/devops/pipelines/languages/python](https://docs.microsoft.com/azure/devops/pipelines/languages/python)
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
 - master
@@ -235,7 +235,7 @@ steps:
 The first thing I did after the pipeline itself worked was to add a project badge:
 
 ```markdown
-[![Build Status]([https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&branchName=master)](https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&branchName=master))
+[![Build Status](https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&branchName=master)
 ```
 
 The main reason for adding the badge was that Azure tries to create new accounts for me. I have a super hard time coming back to the main overview page 😢
@@ -255,15 +255,15 @@ If you click on one of the failing jobs, you can see this:
 
 ## CI Service Comparison
 
-The unique selling point of Azure is the possibility to run code on a Windows machine. The killer argument for Github Actions / Gitlab CI is the integration into github.com / Gitlab.
+The unique selling point of Azure is the possibility to run code on a Windows machine. The killer argument for GitHub Actions / GitLab CI is the integration into github.com / GitLab.
 
-Looking only at the **Web Interface**, I like CircleCI, Travis and Gitlab very much. Github Actions is a bit overloaded and I hate Azure pipelines because I cannot find an easy way to go to my account.
+Looking only at the **Web Interface**, I like CircleCI, Travis and GitLab very much. GitHub Actions is a bit overloaded, and I hate Azure Pipelines because I cannot find an easy way to go to my account.
 
-The **configuration file format** is YAML for all of them. I like that most of the services have a leading dot for the file / folder, so that the CI config is hidden on Linux. Only Azure Pipelines wants to be visible. Looking at the configuration itself, Travis and Gitlab look cleanest to me. CircleCI offers the unique “orb” concept which I’m not used to — that might make things way simpler on the long run.
+The **configuration file format** is YAML for all of them. I like that most of the services have a leading dot for the file / folder, so that the CI config is hidden on Linux. Only Azure Pipelines wants to be visible. Looking at the configuration itself, Travis and GitLab look cleanest to me. CircleCI offers the unique “orb” concept which I’m not used to — that might make things way simpler in the long run.
 
 The **execution speed** of the steps felt pretty fast for CircleCI, but I didn’t thoroughly test that one.
 
-All of the presented CI Services send an email when you broke the pipeline and when it’s fixed again. I’m uncertain how easy it is to set up other **notifications** like Slack messages. I have seen [Slack notifications for Jenkins](https://medium.com/better-programming/5-jenkins-plugins-you-should-use-867e39fbf532) and for Gitlab.
+All of the presented CI Services send an email when you break the pipeline and when it’s fixed again. I’m uncertain how easy it is to set up other **notifications** like Slack messages. I have seen [Slack notifications for Jenkins](https://medium.com/better-programming/5-jenkins-plugins-you-should-use-867e39fbf532) and for GitLab.
 
 A point which I didn’t bring up so far is **continuous delivery (CD)**. All of the presented services can also be used for CD. Would you like to read an article specifically about CD?
 

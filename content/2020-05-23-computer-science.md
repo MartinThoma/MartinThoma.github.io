@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: en
 title: Computer Science
 slug: computer-science
+lang: en
 author: Martin Thoma
-status: draft
 date: 2020-02-23 20:00
 category: My bits and bytes
 tags: study, education
 featured_image: logos/star.png
+status: draft
 ---
 I've written a lot of blog posts about Computer Science exams at KIT. I've also
 written [Informatik am KIT](https://martin-thoma.com/informatik-am-kit/)
@@ -26,7 +26,7 @@ Wikipedia or other sources to learn the topic.
 
 ### Data Types
 
-There are primite data types and data structures which are built from those
+There are primitive data types and data structures which are built from those
 primitive types.
 
 <table class="table">
@@ -46,7 +46,7 @@ primitive types.
     <tr>
         <td>int</td>
         <td>4 bytes</td>
-        <td>[-32767,&nbsp;+32767]<sup title="There is an unsigned variant as well">*</sup></td>
+        <td>[-2147483648,&nbsp;+2147483647]<sup title="There is an unsigned variant as well">*</sup></td>
     </tr>
     <tr>
         <td>float</td>
@@ -93,7 +93,7 @@ into direct access ones (arrays) and sequential access data structures:
 * [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter): (Python: [dablooms](https://github.com/bitly/dablooms) and [pybloomfiltermmap](https://github.com/axiak/pybloomfiltermmap))
 * Prefix-Tree (Trie)
 * Search Trees
-    * [Binary search trees](https://en.wikipedia.org/wiki/Binary_search_tree): Aparently, they are used within databases, huffman coding, and the implementation of dictionaries
+    * [Binary search trees](https://en.wikipedia.org/wiki/Binary_search_tree): Apparently, they are used within databases, Huffman coding, and the implementation of dictionaries
         * Red-black tree ([Python](https://pypi.org/project/rbtree/))
         * AVL Tree ([Python](https://pypi.org/project/pyavl/))
     * [B-Tree](https://en.wikipedia.org/wiki/B-tree)
@@ -118,7 +118,7 @@ access / write /
 
 ### Sorting
 
-See [my Germany article about roting algorithms](https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/)
+See [my German article about sorting algorithms](https://martin-thoma.com/ubersicht-uber-sortieralgorithmen/)
 
 ⇒ Link article: https://en.wikiversity.org/wiki/Algorithms/Overview
 
@@ -133,7 +133,7 @@ See [my Germany article about roting algorithms](https://martin-thoma.com/ubersi
     * DFS
     * BFS
     * A\*
-* Dijkstra: single-source shortest path; store previous target node, previous node, distance: [video](https://www.youtube.com/watch?v=pVfj6mxhdMw). It stores the unvisted nodes as a min-priority queue by distance to start
+* Dijkstra: single-source shortest path; store previous target node, previous node, distance: [video](https://www.youtube.com/watch?v=pVfj6mxhdMw). It stores the unvisited nodes as a min-priority queue by distance to start
 * Ford-Fulkerson: maximum flow
 
 ## Standards

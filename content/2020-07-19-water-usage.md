@@ -1,17 +1,17 @@
 ---
 layout: post
-lang: en
 title: Water Usage
 slug: water-usage
+lang: en
 author: Martin Thoma
-status: draft
 date: 2019-07-19 20:00
 category: My bits and bytes
 tags: Machine Learning
 featured_image: logos/star.png
+status: draft
 ---
 I like comparisons. Recently, for an [article about Homeopathy](https://martin-thoma.com/homoeopathie/), I compared a drop of water with big lakes, oceans and finally the sun.
-But I lack references of water usage in my everyday live. Let's change that.
+But I lack references of water usage in my everyday life. Let's change that.
 
 <table class="table">
     <tr>
@@ -30,8 +30,8 @@ But I lack references of water usage in my everyday live. Let's change that.
         <td></td>
     </tr>
     <tr>
-        <td>Filling the bathtube</td>
-        <td>150L - 180L</td>
+        <td>Filling the bathtub</td>
+        <td>150 L - 180 L</td>
         <td></td>
     </tr>
     <tr>
@@ -41,7 +41,7 @@ But I lack references of water usage in my everyday live. Let's change that.
     </tr>
     <tr>
         <td>Running the dishwasher</td>
-        <td>8L - 14L</td>
+        <td>8 L - 14 L</td>
         <td></td>
     </tr>
 </table>

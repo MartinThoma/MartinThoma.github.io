@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Coronavirus disease 2019
 slug: covid-19
+lang: en
 author: Martin Thoma
 date: 2020-03-23 20:00
 category: My bits and bytes
@@ -16,7 +16,7 @@ important so that people behave well.
 
 ## What are good sources?
 
-* [World Health Oranization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019): Hands down the source I would trust most
+* [World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019): Hands down the source I would trust most
 * [Johns Hopkins University](https://coronavirus.jhu.edu/map.html)
 * Video: [Kurzgesagt](https://www.youtube.com/watch?v=BtN-goy9VOY)
 * German Sources
@@ -29,7 +29,7 @@ important so that people behave well.
 
 ### ...now?
 
-* **Hygene**: Wash your hands properly ([video](https://www.youtube.com/watch?v=IisgnbMfKvI))
+* **Hygiene**: Wash your hands properly ([video](https://www.youtube.com/watch?v=IisgnbMfKvI))
 * **Don't hoard**
 * [**Social Distancing**](https://en.wikipedia.org/wiki/Social_distancing)
     * Stay at home
@@ -39,7 +39,7 @@ important so that people behave well.
 #### Social Distancing
 
 The idea behind social distancing is to minimize risk of getting infected. The
-less people you talk to, the less often you interact with other humans, the
+fewer people you talk to, the less often you interact with other humans, the
 less risk to spread the virus.
 
 The main point of it is not that you don't get infected (although [you really don't want to get this](https://www.youtube.com/watch?v=iFLSG-7K3Tc)), but that the infection
@@ -50,10 +50,10 @@ the curve" is about.
 
 ##### Flatten The Curve
 
-The following summarizes what Harald Lesch discuessed ([video](https://www.youtube.com/watch?v=Fx11Y4xjDwA)).
+The following summarizes what Harald Lesch discussed ([video](https://www.youtube.com/watch?v=Fx11Y4xjDwA)).
 
 * 5% of people who get COVID-19 need intensive care at hospital ([source](https://jamanetwork.com/journals/jama/fullarticle/2762130))
-* A hospitalized case stays there for 11 days in average ([source](https://www.npr.org/sections/goatsandsoda/2020/03/20/815408287/how-the-novel-coronavirus-and-the-flu-are-alike-and-different))
+* A hospitalized case stays there for 11 days on average ([source](https://www.npr.org/sections/goatsandsoda/2020/03/20/815408287/how-the-novel-coronavirus-and-the-flu-are-alike-and-different))
 * Germany has 28,000 intensive care beds in hospitals ([source](https://www.mdr.de/wissen/kliniken-krankenhaeuser-deutschland-kapazitaet-corona-100.html)). However, there are still other diseases. So we can't use all of them just for COVID-19 cases.
 
 This means once we have more than 28000/0.05 = 560k new infections per day, we
@@ -69,41 +69,41 @@ pattern](https://en.wikipedia.org/wiki/Logistic_growth) makes more sense:
 
 Taking this growth model (a [generalized logistic function](https://en.wikipedia.org/wiki/Generalised_logistic_function)) and the
 thoughts from before. I also assume that once 20 million people (1/4th of
-Germany) was infected, the virus will basically stop due to heard immunity. I
+Germany) were infected, the virus will basically stop due to herd immunity. I
 don't know if this is a reasonable assumption. The higher this number needs to
 be, the more depressing the picture looks:
 
 <figure class="aligncenter img-thumbnail">
-    <a href="../images/2020/03/flatten-the-curve.png"><img src="../images/2020/03/flatten-the-curve.png" alt="The number of new infections by day. Note that the total number of infections in both cases is the same, but the number of people ofer the capacity of hospitals is lower. This means less people die because of missing medical equipment" style="width: 512px;"/></a>
-    <figcaption class="text-center">The number of new infections by day. Note that the total number of infections in both cases is the same, but the flatter curve is within the carring capacity of the hospitals. This means no people die because of missing medical equipment.</figcaption>
+    <a href="../images/2020/03/flatten-the-curve.png"><img src="../images/2020/03/flatten-the-curve.png" alt="The number of new infections by day. Note that the total number of infections in both cases is the same, but the number of people over the capacity of hospitals is lower. This means less people die because of missing medical equipment" style="width: 512px;"/></a>
+    <figcaption class="text-center">The number of new infections by day. Note that the total number of infections in both cases is the same, but the flatter curve is within the carrying capacity of the hospitals. This means no people die because of missing medical equipment.</figcaption>
 </figure>
 
 You can find the [code on GitHub](https://github.com/MartinThoma/algorithms/tree/master/Python/covid-19).
 
 However, looking at [the statistics for China](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic_in_mainland_China#Statistics), one
 can see that the number of sick people decreases after roughly 33 days. So if
-other countries have similar strict quarantines, I would expect a similar
+other countries have similarly strict quarantines, I would expect a similar
 behaviour. This would mean for Germany that the most severe time is already
-behind us. I guess the truth is somewhere in between. I I would need to to
+behind us. I guess the truth is somewhere in between. If I had to
 guess, I would say that the situation will become more severe until maybe 20th
 of April and then becomes better.
 
-I was pretty confused when I was trying to calculate those numbers. It seemed as
+I was pretty confused when I was trying to calculate those numbers. It seemed as if
 every scenario which stayed under the capacity of the healthcare system would
 take massive measures to reach (isolation) and then also make the pandemic take
 at least a year, rather two years. This was confirmed in [^7]. Obviously, it
 is not possible to keep those measures up that long.
 
 Now, the interesting part: **Due to economic reasons, we cannot keep
-half-isolation measures that we get herd immunity. But we could keep isolation
+half-isolation measures long enough to get herd immunity. But we could keep isolation
 for a couple of weeks even more extreme so that we can start contract tracing
-again.** Mai Thi also gives an example how long it would take with "Wuhan-Style" lockdown
+again.** Mai Thi also gives an example of how long it would take with "Wuhan-Style" lockdown
 to contain the disease again: 56 days (see [Epidemic Calculator](https://gabgoh.github.io/COVID/index.html)).
 
 
 #### Support Others
 
-Eldery people are at most risk. They should isolate themselves as much as
+Elderly people are at most risk. They should isolate themselves as much as
 possible. Maybe you can buy them food? Maybe you can call your (grand) parents
 or teach them how to use video chat software like Skype, so that they don't
 feel alone.
@@ -114,10 +114,10 @@ groceries and give them emotional support. They have a pretty stressful time
 right now, they are not super well paid, they are in contact with all the sick
 people. Remember: You might need them as well.
 
-### ...in future?
+### ...in the future?
 
 Personally, you can do a bit of prepping so that you don't panic when there is
-an pandemic:
+a pandemic:
 
 * Have enough food for 14 days at home, for example pasta, rice, wheat, and oil
 * Have toiletries for at least 14 days at home
@@ -149,13 +149,13 @@ A lot of the following is from [Wikipedia](https://en.wikipedia.org/wiki/Coronav
 
 Everything starts with the **infection**. The virus is spread via respiratory
 droplets produced when people cough or sneeze[^1]. The virus stays alive outside
-of the human body on different materials for an astonishing long time[^2]:
+of the human body on different materials for an astonishingly long time[^2]:
 
 <table class="table">
     <tr>
         <th>Material</th>
         <th>No virus found after</th>
-        <th>Estimated livetime</th>
+        <th>Estimated lifetime</th>
     </tr>
     <tr>
         <td>Copper</td>
@@ -186,14 +186,14 @@ six days for COVID-19 but may range from two to 14 days[^4].
 There are also [asymptomatic](https://en.wikipedia.org/wiki/Asymptomatic)
 cases. That means people have the infection and are infecting others, but don't
 show any symptoms. There might be 50% of infected people being asymptomatic[^6].
-Please note that I The Guardian gave a source for that number, but within that
+Please note that The Guardian gave a source for that number, but within that
 source I can't find it.
 
 <table class="table">
     <tr>
         <th>Symptom</th>
         <th>Corona %</th>
-        <th>Influenca</th>
+        <th>Influenza</th>
     </tr>
     <tr>
         <td>Fever</td>
@@ -286,7 +286,7 @@ doesn't spread" is hard for me to define more precisely, because it can be that
 other people get infected. Just not in an amount which is relevant for the
 complete herd.
 
-I tried to find numbers when heard immunity kicks in. According to [^7], it would be 60% - 70%.
+I tried to find numbers when herd immunity kicks in. According to [^7], it would be 60% - 70%.
 
 
 ## Myth: COVID-19 affects only the elderly
@@ -303,7 +303,7 @@ If you want a video of a young person being affected:
 There is a good [German source](https://www.tagesschau.de/faktenfinder/corona-grippevergleich-101.html):
 
 * Approximately 25,000 people died in Germany in 2017/2018 due to Influenza.
-  That year was an outlier. in 2013/2014
+  That year was an outlier.
   We currently have 1,107 dead people due to COVID-19, but we are just at the
   start. Italy already has 14,000 dead people due to COVID-19.
 * We have vaccination against the flu, but not against COVID-19.
@@ -317,7 +317,7 @@ A comparison of deaths says more than a thousand words:
 
 The [Coronavirus](https://en.wikipedia.org/wiki/Coronavirus) causes the [Coronavirus disease 2019](https://en.wikipedia.org/wiki/Coronavirus_disease_2019), in short: COVID-19.
 
-It is sometimes also called Wuhan virus ([nature.com, 2020-01-21](https://www.nature.com/articles/d41586-020-00146-w)), Fox News calls it ["chinese" coronavirus (2020-03-12)](https://www.youtube.com/watch?v=QI-9v-TdshU), [Trump, 2020-03-18](https://www.youtube.com/watch?v=7zatCqqRY_I). Especially in the US I have heard the term "foreign virus" pretty often. **Those names should not be used.** It should not be called like this, because it doesn't add anything to the discussion. "Coronavirus" is short, everybody knows what is meant. Adding "Wuhan", "Chinese" or "foreign" only strengthens racism and [Xenophobia](https://en.wikipedia.org/wiki/Xenophobia). There are several other examples of viruses in the past where we didn't use this naming:
+It is sometimes also called Wuhan virus ([nature.com, 2020-01-21](https://www.nature.com/articles/d41586-020-00146-w)), Fox News calls it ["Chinese" coronavirus (2020-03-12)](https://www.youtube.com/watch?v=QI-9v-TdshU), [Trump, 2020-03-18](https://www.youtube.com/watch?v=7zatCqqRY_I). Especially in the US I have heard the term "foreign virus" pretty often. **Those names should not be used.** It should not be called like this, because it doesn't add anything to the discussion. "Coronavirus" is short, everybody knows what is meant. Adding "Wuhan", "Chinese" or "foreign" only strengthens racism and [Xenophobia](https://en.wikipedia.org/wiki/Xenophobia). There are several other examples of viruses in the past where we didn't use this naming:
 
 * [2009 flu pandemic](https://en.wikipedia.org/wiki/2009_flu_pandemic): Commonly known as swine flu. Nobody said "Mexican virus"
 * [2015–16 Zika virus epidemic](https://en.wikipedia.org/wiki/2015%E2%80%9316_Zika_virus_epidemic): Nobody said "Brazilian virus"
@@ -329,21 +329,21 @@ It is sometimes also called Wuhan virus ([nature.com, 2020-01-21](https://www.na
 * 2019-09-18: sciencemag claims this was the start ([source](https://science.sciencemag.org/content/367/6477/492))
 * 2019-11-17: First case of COVID-19 in Wuhan, China.
 * 2019-12-31:
-    * The chinese pandemic team starts looking at cases in Wuhan after 44 [Pneumonias](https://en.wikipedia.org/wiki/Pneumonia) with unknown origin
+    * The Chinese pandemic team starts looking at cases in Wuhan after 44 [Pneumonias](https://en.wikipedia.org/wiki/Pneumonia) with unknown origin
     * Taiwan starts screening people
 * 2020-01-13: Case in Thailand confirmed
 * 2020-01-15: Case in Japan confirmed
 * 2020-01-21: First confirmed case in the [United States](https://en.wikipedia.org/wiki/Timeline_of_the_2020_coronavirus_pandemic_in_the_United_States)
-* 2020-01-26: 2744 confirmed cases in China, 80 dead. [RKI](https://en.wikipedia.org/wiki/Robert_Koch_Institute) declares Wuhan an risk area.
+* 2020-01-26: 2744 confirmed cases in China, 80 dead. [RKI](https://en.wikipedia.org/wiki/Robert_Koch_Institute) declares Wuhan a risk area.
 * 2020-01-28: First confirmed case in [Germany](https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Germany) and [Italy](https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Italy).
 * 2020-01-30: First confirmed case in [India](https://en.wikipedia.org/wiki/Timeline_of_the_2020_coronavirus_pandemic_in_India)
 * 2020-01-31:
     * More than 100 cases in Germany
     * First confirmed case in [Spain](https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Spain)
-* 2020-02-20: First death toll in [Iran](https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Iran)
-* 2020-02-22: Israel and Libanon confirm first cases
+* 2020-02-20: First death in [Iran](https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Iran)
+* 2020-02-22: Israel and Lebanon confirm first cases
 * 2020-02-23: More than 100 cases in Italy
-* 2020-02-24: First confirmed cases in Kuwait, Bahrain, Afghanistan, Irak
+* 2020-02-24: First confirmed cases in Kuwait, Bahrain, Afghanistan, Iraq
 * 2020-02-25: First confirmed case in [Switzerland](https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Switzerland)
 * 2020-02-29: More than 1000 cases in Italy
 * 2020-03-02: More than 100 cases in Spain
@@ -393,7 +393,7 @@ infected people gave the following results.
 
 ### Issues
 
-I assumend that at most 64 million people can (and will) become infected.
+I assumed that at most 64 million people can (and will) become infected.
 
 Please keep in mind that the data is not fixed. If a person gets the results of
 the test later, the numbers for a given day might be corrected. And the
@@ -407,7 +407,7 @@ For 2020-03-20:
 * 19,850: [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/) (2020-03-25 08:25)
 
 So the range is 6960 cases. The highest number is 54% higher than the lowest
-one. With such extrem corrections of the current numbers, the predictions must
+one. With such extreme corrections of the current numbers, the predictions must
 be pretty bad.
 
 Naturally, the model also does not know about any changes like quarantine or
@@ -472,7 +472,7 @@ growth rate was reduced from 19.8% to 15.1%. I'm more positive than the
 estimator. I guess we don't have enough data for the quarantine. It would make
 most sense to me to analogize with Italy.
 
-Anyway, here you are with the bad estimators estimates:
+Anyway, here are the bad estimator's estimates:
 
 ```text
 LogitRegressor(beta=0.151, c=12.220, max_population=64000000.0)
@@ -513,7 +513,7 @@ Day 2020-03-28: 46,013 (+6,445) predicted vs 48,582 in reality
 Day 2020-03-29: 53,506 (+7,494) predicted vs 52,547 in reality
 Day 2020-03-30: 62,219 (+8,713) predicted vs 57,298 in reality
 ---
-date, predicted accummulated sick, new sick
+date, predicted accumulated sick, new sick
 2020-03-31: 72,349 (+10,130)
 2020-04-01: 84,127 (+11,777)
 2020-04-02: 97,818 (+13,691)
@@ -623,7 +623,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
     * [Condoms](https://www.theguardian.com/world/2020/mar/27/global-condom-shortage-coronavirus-shuts-down-production)
 * Many local stores close ([Elbschlosskeller](https://twitter.com/UUlrichson1/status/1239991614099148801?s=20))
 * Organized Crime starts to help
-    * [Randsomeware Ethics](https://www.bleepingcomputer.com/news/security/ransomware-gangs-to-stop-attacking-health-orgs-during-pandemic/)
+    * [Ransomware Ethics](https://www.bleepingcomputer.com/news/security/ransomware-gangs-to-stop-attacking-health-orgs-during-pandemic/)
     * [Gangs in Rio de Janeiro](https://twitter.com/AndrewCesare/status/1242174265547468803)
 * Events get cancelled:
     * 2020-03-12: [Leipziger Buchmesse](https://www.tagesschau.de/inland/corona-deutschland-103.html) - 100,000 visitors expected
@@ -649,8 +649,8 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
   contact more friends and talk more often with family. I'm not the only one
   who does that ([German
   source](https://www.heise.de/newsticker/meldung/In-Deutschland-wird-mehr-und-laenger-telefoniert-4688664.html))
-* **Weather Forcasting**: Aparently planes have sensors and contribute their
-  data to global weather forecasting. Now that less planes fly, forecasting
+* **Weather Forecasting**: Apparently, planes have sensors and contribute their
+  data to global weather forecasting. Now that fewer planes fly, forecasting
   becomes harder. [ADM-Aeolus](https://en.wikipedia.org/wiki/ADM-Aeolus) might help.
 * **No school shootings**: [See Twitter](https://twitter.com/RobertKlemko/status/1249716012599083010) -
   I'm not sure if that is related.
@@ -661,7 +661,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
 * Statistics:
     * Johns Hopkins University: [Dashboard](https://coronavirus.jhu.edu/map.html)
     * [worldometers.info/coronavirus](https://www.worldometers.info/coronavirus/) - I'm NOT sure how trustworthy they are! The numbers currently roughly match the ones of Johns Hopkins University and they are trustworthy
-    * 🇩🇪 Robert-Koch-Institue: [COVID-19: Fallzahlen in Deutschland und weltweit](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) (German)
+    * 🇩🇪 Robert-Koch-Institut: [COVID-19: Fallzahlen in Deutschland und weltweit](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) (German)
     * 🇩🇪 Berliner Morgenpost: [Coronavirus-Monitor](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/) (Map / Dashboard)
     * 🇩🇪 statista.com: [Entwicklung der täglich neu gemeldeten Fallzahl des Coronavirus (COVID-19) in Deutschland seit Januar 2020](https://de.statista.com/statistik/daten/studie/1100739/umfrage/entwicklung-der-taeglichen-fallzahl-des-coronavirus-in-deutschland/)
 * Social Distancing
@@ -669,7 +669,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
     * [The math behind why we need social distancing, starting right now](https://www.vox.com/2020/3/15/21180342/coronavirus-covid-19-us-social-distancing)
     * [Australian Government Department of Health](https://www.youtube.com/watch?v=2WCtGFNENYU)
     * 🇩🇪 Harald Lesch: [Coronavirus – unnötiger Alarm bei COVID-19?](https://www.youtube.com/watch?v=Fx11Y4xjDwA) (German)
-    * 3Blue1Brown: [Exponential Growth and Epidemia](https://www.youtube.com/watch?v=Kas0tIxDvrg), 2020-03-08 on YouTube.
+    * 3Blue1Brown: [Exponential Growth and Epidemics](https://www.youtube.com/watch?v=Kas0tIxDvrg), 2020-03-08 on YouTube.
 * [Stack Exchange](https://medicalsciences.stackexchange.com/questions/tagged/covid-19?tab=Votes): I'm not sure how good this is
 * [How To Tell If We're Beating COVID-19](https://youtu.be/54XLXg4fYsc)
 * Crowdsourcing
@@ -684,7 +684,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
 ## Footnotes
 
 [^1]: Centers for Disease Control and Prevention: [How Coronavirus Spreads](https://www.cdc.gov/coronavirus/2019-ncov/prepare/transmission.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Ftransmission.html), March 2020.
-[^2]: an Doremalen N, Bushmaker T, Morris DH, Holbrook MG, Gamble A, Williamson BN, et al. (March 2020). "[Aerosol and Surface Stability of SARS-CoV-2 as Compared with SARS-CoV-1](https://www.nejm.org/doi/10.1056/NEJMc2004973)". The New England Journal of Medicine. Massachusetts Medical Society.
+[^2]: van Doremalen N, Bushmaker T, Morris DH, Holbrook MG, Gamble A, Williamson BN, et al. (March 2020). "[Aerosol and Surface Stability of SARS-CoV-2 as Compared with SARS-CoV-1](https://www.nejm.org/doi/10.1056/NEJMc2004973)". The New England Journal of Medicine. Massachusetts Medical Society.
 [^3]: [Report of the WHO-China Joint Mission on Coronavirus Disease 2019 (COVID-19)](https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf). World Health Organization (WHO). February 2020.
 [^4]: [Q&A on coronaviruses (COVID-19)](https://www.who.int/news-room/q-a-detail/q-a-coronaviruses), World Health Organization (WHO). March 2020.
 [^5]: [New South Wales](https://en.wikipedia.org/wiki/New_South_Wales) Government: [COVID-19 - Frequently asked questions](https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx), March 2020.

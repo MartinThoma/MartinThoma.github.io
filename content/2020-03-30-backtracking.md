@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Backtracking
 slug: backtracking
+lang: en
 author: Martin Thoma
 date: 2020-03-30 20:00
 category: Code
@@ -44,13 +44,13 @@ for correctness, but not the others.
 
 When you apply Backtracking, you first define a solution space. This might
 happen implicitly, e.g. by defining a data structure. For example, in the
-n-queens problem the solution space is all permutations of the number from 0 to
+n-queens problem the solution space is all permutations of the numbers from 0 to
 (n-1). Everything else is guaranteed not to be a solution. And most of the
 permutations are also no solutions.
 
 Depth First Search (DFS) is a graph traversal algorithm. It is one way to
 search in the solution space for a solution that satisfies the constraints. It
-is the typical choice to iterate the solution space. Other search algorithms
+is the typical choice to iterate over the solution space. Other search algorithms
 are Breadth First Search (BFS) and A\*.
 
 
@@ -65,14 +65,14 @@ B&B is a [label correction algorithm](https://martin-thoma.com/label-correction-
 It is a search algorithm which uses a lower bound and an upper bound for the
 search. Think of a shortest-path problem.
 
-One part of the name, the bound, refers to the way B&B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sup-tree can be discarded.
+One part of the name, the bound, refers to the way B&B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sub-tree can be discarded.
 
 With the lower bound, the minimum length of a given partial solution from
 source to sink can be calculated. If that minimum length is longer than another
 answer which was already found, then the calculation at that point can be
 aborted.
 
-With the upper bound, one can extend the partial solutons. Essentially, one can
+With the upper bound, one can extend the partial solutions. Essentially, one can
 make the pruning described before more efficient. We don't have to find a
 concrete solution anymore, but for partial solutions we already know the
 distance they will take at most.
@@ -80,16 +80,16 @@ distance they will take at most.
 
 ## Runtime Complexity
 
-Assume that you have to go $n$ steps and at every step you have $a \geq 2$
-choices. This means the runtime is exponential - $\mathcal{O}(\alpha^n)$.
+Assume that you have to go $n$ steps and at every step you have $\alpha \geq 2$
+choices. This means the runtime is exponential: $\mathcal{O}(\alpha^n)$.
 
-If you add more rules to `is_valid` - excluding more solutions - you reduce
+If you add more rules to `is_valid` — excluding more solutions — you reduce
 $\alpha$. This can mean a huge speedup.
 
 ## n Queens
 
 The [n Queens puzzle](https://en.wikipedia.org/wiki/Eight_queens_puzzle) is
-probably the most common example. You have a n×n chess board and n queens. You
+probably the most common example. You have an n×n chess board and n queens. You
 need to place the queens on the chess board in such a way that they don't
 threaten each other.
 
@@ -279,10 +279,10 @@ def find_way_out(
 The reason why I used a tuple is to prevent modification. This way, I can be
 sure that the recursive calls work on copies.
 
-Once Python hits a recurision depth of about 500, you will see a
+Once Python hits a recursion depth of about 1000 (the default limit), you will see a
 [RecursionError](https://docs.python.org/3/library/exceptions.html#RecursionError).
-So if we need to make more than 500 steps, this will not work anymore. Hence an
-iterative soltuion is better. Please note that it is still backtracking and
+So if we need to make more than 1000 steps, this will not work anymore. Hence, an
+iterative solution is better. Please note that it is still backtracking and
 that it is still DFS. It's just not recursive anymore:
 
 ```python
@@ -316,7 +316,7 @@ from typing import List, Iterable, Optional, Tuple
 
 
 class SudokuBoard:
-    def __init__(board: List[List[int]]):
+    def __init__(self, board: List[List[int]]):
         # A board is a 9x9 matrix which has values in 1 to 9.
         # The value 0 denotes that the cell is empty
         assert len(board) == 9
@@ -399,7 +399,7 @@ def get_block(board: List[List[int]], i: int, j: int) -> Iterable[int]:
             yield board[i + di][j + dj]
 
 
-def solve_sudoko(board: SudokuBoard) -> Optional[SudokuBoard]:
+def solve_sudoku(board: SudokuBoard) -> Optional[SudokuBoard]:
     stack = [board]  # we want a DFS
     while stack:
         board = stack.pop()

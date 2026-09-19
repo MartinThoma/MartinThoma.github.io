@@ -10,16 +10,16 @@ tags: Machine Learning
 featured_image: logos/star.png
 status: draft
 ---
-Did you know that there are various differnt ways to build single-family
+Did you know that there are various different ways to build single-family
 houses? For sure you know that one can build houses from concrete and bricks as
 well as from wood, but there are some differences I've just recently learned
-about. In this article I want to collect them.
+about. In this article, I want to collect them.
 
 
 ## Brikawood
 
-Brikawood houses are build from Lego-like wooden bricks. No screws, no glue.
-Only wood pieces that fit well together. Aparently it is possible to build those
+Brikawood houses are built from Lego-like wooden bricks. No screws, no glue.
+Only wood pieces that fit well together. Apparently, it is possible to build those
 houses earthquake-proof ([Richter scale 8.5](https://en.wikipedia.org/wiki/Richter_magnitude_scale), [source](http://www.inspiraction.news/en/2016/10/28/brikawood-an-ecological-house-built-with-wooden-bricks/)).
 
 All Brikawood houses are [Passive houses](https://en.wikipedia.org/wiki/Passive_house).
@@ -43,7 +43,7 @@ Disadvantages:
 
 Think of a utility trailer for normal cars. Nothing for trucks. For example,
 6.15m x 2.35m (inner part: 4.61m x 2.21m) with a maximum weight of 3000kg, where
-the trailer itself weights 990kg. Or the Wörmann Team-Liner 3573/244.
+the trailer itself weighs 990kg. Or the Wörmann Team-Liner 3573/244.
 
 ## Own Home
 
@@ -57,14 +57,14 @@ https://ownworld.org/
 ## Self-Sufficiency
 
 Self-sufficient houses are sometimes also called off-grid houses. The idea is
-the be independent of the rest of the world.
+to be independent of the rest of the world.
 
 ### Electricity
 
 You can generate electricity with solar panels. Other options you might think
 of are not possible:
 
-* Bio gas: You don't have enough biologic material to produce gass
+* Biogas: You don't have enough biological material to produce gas
 * Geo-Thermi:
 * Wind: Too big - you might not want that in your garden. And you might not be allowed to have something that big in your garden
 
@@ -95,7 +95,7 @@ You can also store heat:
 ### Water cleaning
 
 The biggest factor for sure is the toilet. There are composting toilets and
-toilets which seperate diretly between poo and pee.
+toilets which separate directly between poo and pee.
 
 
 ### Food

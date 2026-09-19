@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Sorting Big Data
 slug: sorting-big-data
+lang: en
 author: Martin Thoma
 date: 2020-05-29 20:00
 category: Code
@@ -10,7 +10,7 @@ tags: Big Data, Python, Bash, sorting
 featured_image: logos/python.png
 ---
 [Big Data](https://en.wikipedia.org/wiki/Big_data) was a common buzzword in
-industry in 2012 until 2017. It is still common, but hopefully less of a
+industry from 2012 until 2017. It is still common, but hopefully less of a
 buzzword. Now other buzzwords are more common:
 
 <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/2152_RC03/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0bs2j8q","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/01hyh_","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/0138n0j1","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/0wkcjgj","geo":"","time":"2008-01-01 2020-03-24"},{"keyword":"/m/02_7vm","geo":"","time":"2008-01-01 2020-03-24"}],"category":0,"property":""}, {"exploreQuery":"date=2008-01-01%202020-03-24&q=%2Fm%2F0bs2j8q,%2Fm%2F01hyh_,%2Fm%2F0138n0j1,%2Fm%2F0wkcjgj,%2Fm%2F02_7vm","guestPath":"https://trends.google.de:443/trends/embed/"}); </script>
@@ -20,7 +20,7 @@ of the others.
 
 For me, a big-data solution means that I can't fit the critical part into
 memory. This means that it is a question of time and money what problems
-actually require a big data solution. Amazons `u-24tb1.metal` instance has 24
+actually require a big data solution. Amazon's `u-24tb1.metal` instance has 24
 TB of memory. Yes, that is not a typo on my side. TB, not GB.
 ([source](https://aws.amazon.com/de/ec2/instance-types/high-memory/)). They
 don't even publicly say how expensive those beasts are.
@@ -29,7 +29,7 @@ When it comes to big data, people think of
 [Hadoop](https://en.wikipedia.org/wiki/Apache_Hadoop) and
 [Spark](https://en.wikipedia.org/wiki/Apache_Spark). I'm not sure if I want to
 go into that rabbit hole for this article. I want to show how to sort huge
-amounts of data on a single machine: My Thinkpad T460p with 8GB of memory.
+amounts of data on a single machine: My ThinkPad T460p with 8GB of memory.
 
 Please note that an `x1e.32xlarge` EC2 instance with about 4 TB of RAM costs
 about 27 USD per hour
@@ -40,7 +40,7 @@ might not need such a solution for quite a while.
 ## Data Generation
 
 I want to generate a bit of data and make it at least a tiny bit realistic. So
-lets generate about 20GB of data in a CSV file.
+let's generate about 20GB of data in a CSV file.
 
 ### Disk Space
 
@@ -50,7 +50,7 @@ The [Disk Usage Analyzer](http://www.marzocca.net/linux/baobab/) showed the
 following disk space hogs:
 
 * 404 GB: My Home Directory:
-    * 152 GB: Various git repsitories
+    * 152 GB: Various git repositories
         * 103 GB: My "algorithms" repository
             * 99 GB for PyPI (see [PyPI Analysis 2020](https://martin-thoma.com/pypi-2020/))
             * 4 GB for a [database benchmark](https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark). I never really finished this; I moved on to other topics
@@ -81,7 +81,7 @@ After this short cleanup, I have `128G` available 🎉
 I don't want to spend too much time dealing with the actual element-by-element
 comparison, so I want to use integers or strings to compare. I also don't want
 to fiddle around with data organization, so I don't add a payload. We only
-generate data which is sorted.
+generate the data which is to be sorted.
 
 I can imagine two ways to generate data to sort: Random numbers and UUIDs.
 Let's see which is faster ([code on GitHub](https://github.com/MartinThoma/algorithms/blob/master/sorting/timing.py)):
@@ -96,8 +96,8 @@ slowest. But numpy cannot generate random integers which are that big and the
 time difference is not that huge. Everything as expected.
 
 So, let's say we generate those 36-character random numbers. Each of them needs
-37 Byte - don't forget the newline. We want 20&thinsp;GB, we need 540&thinsp;540&thinsp;541 elements.
-Lets say 550 million numbers. My machine needed about 0.05s to generate 10k, so
+37 bytes — don't forget the newline. For 20&thinsp;GB, we need 540&thinsp;540&thinsp;541 elements.
+Let's say 550 million numbers. My machine needed about 0.05s to generate 10k, so
 I expect it to take `540540541 / 10_000  * 0.05 / 60 = 45 min`. A good time to
 get some food 🙂
 
@@ -106,8 +106,8 @@ Done after 32&nbsp;minutes. The file size is 20.4&thinsp;GB.
 
 ## Bash Sorting
 
-Sorting with standard unix tools - namely `split` and `sort` - is the simplest
-solution that popped to my mind which should also be pretty fast. I will
+Sorting with standard Unix tools — namely `split` and `sort` — is the simplest
+solution that came to my mind which should also be pretty fast. I will
 wrap all commands in `time (the actual command)` so that you can see how
 fast they are.
 
@@ -143,7 +143,7 @@ sys    52,20s
 
 In total, this approach needed **20 min and 46 seconds**.
 
-I will check other solutions for correctnes by the following command. It takes
+I will check other solutions for correctness by the following command. It takes
 91s just to check if the two files are identical!
 
 ```shell
@@ -158,8 +158,8 @@ Let's see how quick I can do it with Python!
 ### Merge Sort
 
 You can see the code [on GitHub](https://github.com/MartinThoma/algorithms/blob/master/sorting/mergesort.py).
-The idea is to (1) split the file into chunks that fit into memory (2) sort the
-chunks (3) merge the chunks pair-wise. With this approach, you only have to
+The idea is to (1) split the file into chunks that fit into memory, (2) sort the
+chunks, and (3) merge the chunks pair-wise. With this approach, you only have to
 keep two chunks at a time in memory.
 
 This takes many hours to execute.
@@ -167,7 +167,7 @@ This takes many hours to execute.
 There are a couple of things that come in handy when you have long-running
 processes:
 
-* Progressbars: You want to have an indicator how much time is remaining. Or if
+* Progress bars: You want to have an indicator of how much time is remaining. Or if
   something crashed.
 * Resumability: You want to be able to interrupt and resume later. An
   additional benefit is that the program becomes more robust against crashes.
@@ -288,14 +288,14 @@ In total, the Python parallel Radix-Sort is at **12 min and 45 seconds**.
 The speed-up is 3.1x.
 
 It's quite weird that Python 2.7 is way faster than Python 3.6+. I've asked
-on StackOverflow [Did I/O or dictionaries become slower since Python 2.7?](https://stackoverflow.com/q/62079732/562769),
+on Stack Overflow [Did I/O or dictionaries become slower since Python 2.7?](https://stackoverflow.com/q/62079732/562769),
 but didn't receive an answer so far.
 
 
 
 ### Dask
 
-I wanted to give [Dask](https://dask.org/) a try and got some help from. However, I interrupted the
+I wanted to give [Dask](https://dask.org/) a try and got some help. However, I interrupted the
 execution of the following solution after 5 hours:
 
 ```python
@@ -532,7 +532,7 @@ Add `#pragma omp parallel for`, compile with the following flags and off it goes
 g++ radixsort.cpp -O3 -std=c++11 -Wall -pedantic -fopenmp
 ```
 
-In total, 715s (11min 55s)
+In total, 715s (11min 55s).
 
 ## See also
 

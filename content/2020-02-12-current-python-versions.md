@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Current Python Versions
 slug: current-python-versions
+lang: en
 author: Martin Thoma
 date: 2020-02-12 20:00
 category: Code
@@ -13,11 +13,11 @@ Which Python versions should my library support?
 
 For which version should I develop my web service / application?
 
-For the second question, I like to never take a x.y.0 version. Let them get
+For the second question, I like to never take an x.y.0 version. Let them get
 the patches out first.
 
 
-## Lifecycle of cPython
+## Lifecycle of CPython
 
 I've asked which CPython versions get support right now on SO, and <a href="https://stackoverflow.com/q/60126561/562769">it got heavily downvoted</a>.
 But I got <a href="https://devguide.python.org/#status-of-python-branches">the answer</a>:
@@ -59,7 +59,7 @@ But I got <a href="https://devguide.python.org/#status-of-python-branches">the a
 ## Python Interpreters
 
 CPython is by far the most commonly used interpreter, but there are others.
-PyPy for example. And currently only supports Python 3.6, although development
+PyPy, for example, currently only supports Python 3.6, although development
 of Python 3.9 has already started (see [pypy.org](https://www.pypy.org/download.html) for the latest state).
 
 So if you want to allow the usage of other interpreters, you might need to use
@@ -110,7 +110,7 @@ older Python versions.
 ## Distribution Defaults
 
 Linux distributions ship with Python. The default of those influences a lot
-what is used. I've used the <a href="https://packages.debian.org/search?suite=default&section=all&arch=any&lang=de&searchon=names&keywords=python3">debian package search</a> and the <a href="https://packages.ubuntu.com/search?suite=disco&searchon=names&keywords=python">Ubuntu package search</a> to get the numbers:
+what is used. I've used the <a href="https://packages.debian.org/search?suite=default&section=all&arch=any&lang=de&searchon=names&keywords=python3">Debian package search</a> and the <a href="https://packages.ubuntu.com/search?suite=disco&searchon=names&keywords=python">Ubuntu package search</a> to get the numbers:
 
 <table class="table">
     <thead>
@@ -225,6 +225,6 @@ I'm still trying to get those.
 
 ## See also
 
-* Jetbrains: [Python](https://www.jetbrains.com/de-de/lp/devecosystem-2019/python/), 2019.
+* JetBrains: [Python](https://www.jetbrains.com/de-de/lp/devecosystem-2019/python/), 2019.
 * w3techs.com: [Usage statistics of Python Version 3 for websites](https://w3techs.com/technologies/details/pl-python/3)
-* Stackoverflow: [python runtime version statistics](https://stackoverflow.com/q/38747864/562769), 2016.
+* Stack Overflow: [python runtime version statistics](https://stackoverflow.com/q/38747864/562769), 2016.

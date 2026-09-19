@@ -1,23 +1,23 @@
 ---
 layout: post
-lang: en
 title: Pytest Plugins to Love ❤️
 slug: pytest-plugins
-URL: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22
+lang: en
 author: Martin Thoma
 date: 2020-08-23 20:00
 category: Code
 tags: Python, pytest
 featured_image: logos/python.png
+URL: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22
 ---
 <figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2020/08/pytest-sugar-big.png"><img src="../images/2020/08/pytest-sugar-big.png" alt="Plugins can modify and extend a lot of aspects of pylint, including how the output is done" style="width: 512px;"/></a>
-    <figcaption class="text-center">Plugins can modify and extend a lot of aspects of pylint, including how the output is done</figcaption>
+    <a href="../images/2020/08/pytest-sugar-big.png"><img src="../images/2020/08/pytest-sugar-big.png" alt="Plugins can modify and extend a lot of aspects of pytest, including how the output is done" style="width: 512px;"/></a>
+    <figcaption class="text-center">Plugins can modify and extend a lot of aspects of pytest, including how the output is done</figcaption>
 </figure>
 
 Pytest is extensible and has plenty of plugins. You don’t need to use any of
-them, but you might find some very useful. I love this because you have an easy
-time to [get started with unit
+them, but you might find some very useful. I love this because it's easy
+to [get started with unit
 testing](https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0),
 while still finding amazing stuff when you’re more experienced 🤩
 
@@ -36,7 +36,7 @@ are then already active. For example, when you install pytest-sugar via
 pip install pytest-sugar
 ```
 
-You can just execute pytest and the plugin will automatically work. Others need
+you can just execute pytest and the plugin will automatically work. Others need
 to be used more directly. For example, after installing `pytest-timeout` you
 need to specify the timeout parameter you want to use:
 
@@ -50,12 +50,12 @@ Don’t worry, I will explain those two plugins later 🙂
 
 Searching on pypi.org for the trove classifier `Framework :: Pytest`, I found
 668 packages. A stunning 1053 packages have “pytest” in the name. 461 packages
-have both, the name and the trove classifier.
+have both the name and the trove classifier.
 
-I went through over 700 pytest-plugins for this article. I’ve jumped over
+I went through over 700 pytest plugins for this article. I’ve skipped
 plugins that consider themselves to be in planning, pre-alpha, or alpha stage.
 I’ve also skipped packages where I’ve seen a TODO in the readme or if the
-package had less than 10 stars on GitHub.
+package had fewer than 10 stars on GitHub.
 
 The packages I’ve found make pytest sparkle ✨, improve the speed 🏎, are
 specialized to specific packages, or just unique in their behavior ❄️
@@ -64,21 +64,21 @@ Last but not least, there are some plugins where I’m not sure if they are
 awesome or if they are a bad idea. Let’s jump right into it and have a look
 yourself!
 
-> **Side note**: Maybe you remember my [side note on typo squatting](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287#9026)? I found a [fixable issue on PyPI](https://github.com/pypa/warehouse/issues/8462) while writing this article, hopefully improving security for the community🎉
+> **Side note**: Maybe you remember my [side note on typosquatting](https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287#9026)? I found a [fixable issue on PyPI](https://github.com/pypa/warehouse/issues/8462) while writing this article, hopefully improving security for the community 🎉
 
 ## The shiny ones
 
 The default output of pytest is already good, but some plugins make it amazing.
-[pytest-sugar](https://github.com/Teemu/pytest-sugar) is one of those plugins❤
+[pytest-sugar](https://github.com/Teemu/pytest-sugar) is one of those plugins ❤
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/08/pytest-sugar.png"><img src="../images/2020/08/pytest-sugar.png" alt="Pytest sugar changes the dots to checkmarks and the percentage to a bar." style="width: 512px;"/></a>
     <figcaption class="text-center">Pytest sugar changes the dots to checkmarks and the percentage to a bar.</figcaption>
 </figure>
 
-If those dots or checkmarks are too decent for you,
+If those dots or checkmarks are too subtle for you,
 give [pytest-emoji](https://pypi.org/project/pytest-emoji/) and
-[pytest-emoji-out](https://pypi.org/project/pytest-emoji-output/) a try 😃
+[pytest-emoji-output](https://pypi.org/project/pytest-emoji-output/) a try 😃
 
 The summary output now looks good, but the diffs between the expected value and
 the actual value can be improved.
@@ -90,7 +90,7 @@ found while researching this article — and it was love at first sight 🥰❤
     <figcaption class="text-center">Normal pytest output vs pytest-icdiff</figcaption>
 </figure>
 
-Very similar is [pytest-clarity](https://pypi.org/project/pytest-clarity/) — be aware, that pytest-clarity is only active when you execute pytest -vv:
+Very similar is [pytest-clarity](https://pypi.org/project/pytest-clarity/) — be aware that pytest-clarity is only active when you execute `pytest -vv`:
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <a href="../images/2020/08/pytest-error-message-normal-vs-clarity.png"><img src="../images/2020/08/pytest-error-message-normal-vs-clarity.png" alt="Comparison of the normal output with pytest-clarity" style="width: 512px;"/></a>
@@ -118,22 +118,22 @@ with [`pytest-instafail`](https://pypi.org/project/pytest-instafail/) instead of
 executing all remaining tests. For tests which might take a long time or even
 result in an infinite loop in case of errors, I use
 [`pytest-timeout`](https://pypi.org/project/pytest-timeout/) ❤. That is
-especially helpful when you apply [Mutation
+especially helpful when you apply [mutation
 testing](https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8).
 
 We also want to use our machine properly by using
 [`pytest-xdist`](https://pypi.org/project/pytest-xdist/). Install it, execute
-`pytest -n auto` and your tests run in parallel!
+`pytest -n auto`, and your tests run in parallel!
 [`pytest-parallel`](https://pypi.org/project/pytest-parallel/) might also be
 worth a shot.
 
 The most extreme speedup is not to execute stuff you don’t need.
 [`pytest-picked`](https://github.com/anapaulagomes/pytest-picked) executes tests
-that are related to unstaged files which can be way less than your complete
+that are related to unstaged files, which can be way fewer than your complete
 test suite.
 
 Going in a different direction, we want to make sure that the algorithms have
-some speed behavior. With
+a certain speed behavior. With
 [`pytest-benchmark`](https://pypi.org/project/pytest-benchmark/), we can use
 the benchmark fixture to annotate parts of a test which we want to benchmark:
 
@@ -160,24 +160,24 @@ computation:
 Some plugins are unique and don’t fit in any of the other categories:
 
 * [pytest-cov](https://pypi.org/project/pytest-cov) : Get a test coverage
-  report 😍 ❤ I like to generate both, an HTML report and an output to the
+  report 😍 ❤ I like to generate both an HTML report and an output to the
   terminal. In some settings, an XML report is also helpful.
 * [pytest-socket](https://pypi.org/project/pytest-socket/) : Make certain that
   you don’t query anything non-local. Very nice ❤
 * [pytest-randomly](https://github.com/pytest-dev/pytest-randomly) and
   [pytest-rng](https://pypi.org/project/pytest-rng/): If you use
-  `random.random`, then the outcome depends on the random seed. This plugin
-  changes the seed.
+  `random.random`, then the outcome depends on the random seed. These plugins
+  control the seed.
 * [pytest-random-order](https://pypi.org/project/pytest-random-order/) :
   Execute the tests in a random order, to make sure you see when a test leaves
   the system in a different state.
-* [pytest-lazy-fixtures](https://pypi.org/project/pytest-lazy-fixture/) : Use
+* [pytest-lazy-fixture](https://pypi.org/project/pytest-lazy-fixture/) : Use
   fixtures in `@pytest.mark.parametrize`.
 * [pytest-freezegun](https://pypi.org/project/pytest-freezegun/) : Freeze time!
   This is one I’ve also mentioned in [my patching
   article](https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed).
 * [pytest-leaks](https://pypi.org/project/pytest-leaks/) : Find resource leaks.
-  This requires a debug-built of Python!
+  This requires a debug build of Python!
 * [pytest-flake8](https://github.com/tholo/pytest-flake8) : Run flake8 via
   pytest. I did that for a long time, but when I learned
   [how to use Continuous Integration pipelines](https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38)
@@ -195,7 +195,7 @@ Some plugins are unique and don’t fit in any of the other categories:
 
 The following plugins are only interesting to you if you work with the applications for which they are written. They usually provide fixtures/mocks.
 
-* [pytest-cookie](https://pypi.org/project/pytest-cookies/) : Supports testing
+* [pytest-cookies](https://pypi.org/project/pytest-cookies/) : Supports testing
   of [cookiecutter](https://github.com/cookiecutter/cookiecutter) templates.
 * [pytest-plt](https://pypi.org/project/pytest-plt/) and
   [pytest-mpl](https://pypi.org/project/pytest-mpl/): Provides fixtures for
@@ -210,7 +210,7 @@ The following plugins are only interesting to you if you work with the applicati
 ### Web Development
 
 * [pytest-djangoapp](https://pypi.org/project/pytest-djangoapp/) /
-  [pytest-djangoqueries](https://pypi.org/project/pytest-django-queries/):
+  [pytest-django-queries](https://pypi.org/project/pytest-django-queries/):
   Exposes tools for Django application developers to facilitate test authoring,
   including settings override, template tag testing, and user creation.
 * [pytest-flask](https://pypi.org/project/pytest-flask/) and
@@ -233,7 +233,7 @@ The following plugins are only interesting to you if you work with the applicati
 
 ## Plugins I’m uncertain about
 
-The following plugins sounded cool for me when I first read about them, but for
+The following plugins sounded cool to me when I first read about them, but for
 various reasons, I’m uncertain if they are really a good idea:
 
 * [pytest-check](https://github.com/okken/pytest-check) : Allows multiple
@@ -258,26 +258,26 @@ various reasons, I’m uncertain if they are really a good idea:
   record network interactions via VCR.py, but I didn’t get it to work.
 * [pytest-dependency](https://github.com/RKrahl/pytest-dependency) allows you
   to specify which tests need to succeed for others to be able to succeed. Unit
-  tests should be independent and dependent code should be mocked…maybe. I’m
+  tests should be independent and dependent code should be mocked… maybe. I’m
   not certain about that.
 
 
 ## TL;DR
 
 pytest is the tool of choice to run tests in Python. While it has reasonable
-defaults, it’s extensive plugin system lets you customize it to make it even
+defaults, its extensive plugin system lets you customize it to make it even
 better.
 
 I love [`pytest-sugar`](https://github.com/Teemu/pytest-sugar) and
 [`pytest-icdiff`](https://pypi.org/project/pytest-icdiff/), because they make
 the output of pytest easier to read.
-[`pytest-cov`](https://pypi.org/project/pytest-cov/) generates line- and branch
+[`pytest-cov`](https://pypi.org/project/pytest-cov/) generates line and branch
 coverage and thus is a valuable tool to find spots that need better tests. The
 next step is to run the tests. You really don’t want to accidentally hit the
 production environment. This is where
 [`pytest-socket`](https://pypi.org/project/pytest-socket/) comes into play. It
-just blocks everything and reports it to you. The other type of issue are
-long-running tests that are potentially in infinite loops.pytest-timeout kills
+just blocks everything and reports it to you. The other type of issue is
+long-running tests that are potentially in infinite loops. `pytest-timeout` kills
 those tests after the specified amount of time.
 
 There are so many other plugins; many add fixtures for specific packages which

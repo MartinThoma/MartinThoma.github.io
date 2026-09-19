@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Property-based Testing
 slug: https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119
+lang: en
 author: Martin Thoma
 date: 2020-08-02 20:00
 category: Code
@@ -18,9 +18,9 @@ think about negative numbers? What about big numbers?
 We were just thinking about a testing strategy for integers. A strategy is a
 generator of data. The property testing framework hypothesis offers [a lot of
 strategies](https://hypothesis.readthedocs.io/en/latest/data.html) for many
-types. You can install it with pip install hypothesis .
+types. You can install it with `pip install hypothesis`.
 
-One thing we can do with those inputs — those tests strategies — is to check if
+One thing we can do with those inputs — those test strategies — is to check if
 the runtime is acceptable and if the tested function/method does not crash.
 
 It would be better if we compare the output of our function against something.
@@ -34,14 +34,14 @@ To whet your appetite for property-based testing even more:
 
 ## Example: Integer factorization
 
-We have a function factorize(n : int) -> List[int] which takes an integer and
+We have a function `factorize(n: int) -> List[int]` which takes an integer and
 returns the prime factors:
 
 > An integer n is called a prime number if it is positive and divisible by
 > exactly two numbers: 1 and n.
 
-We want that the product of returned integers is the number itself. So this is
-how we design the functions behavior:
+We want the product of the returned integers to be the number itself. So this is
+how we design the function's behavior:
 
 * factorize(0) = [0] — an exception would have been reasonable as well
 * factorize(1) = [1] — strictly speaking, 1 is not a prime.
@@ -69,7 +69,7 @@ def factorize(number: int) -> List[int]:
     if number == 1:
         return factors
 
-    # Now we only need to check uneven numbers
+    # Now we only need to check odd numbers
     # up to the square root of the number
     i = 3
     while i <= int(math.ceil(number ** 0.5)) + 1:
@@ -123,7 +123,7 @@ It’s awesome and those few lines run 8 tests:
     <figcaption class="text-center">Running pytest</figcaption>
 </figure>
 
-How would a property-based test look like for factorize?
+What would a property-based test look like for `factorize`?
 
 First, we need to think about the property we want to test. For factorize as we
 designed it, we know that the product of the returned numbers is equal to the
@@ -157,7 +157,7 @@ Now we run the tests with `pytest`:
     <figcaption class="text-center">Hypothesis found an issue!</figcaption>
 </figure>
 
-As you can see in the example above, hypothesis discovered that factorize(5)
+As you can see in the example above, hypothesis discovered that `factorize(5)`
 returned an empty list which does not multiply to 5. We can then quickly see
 that we actually made a mistake for all primes — we need to add the prime
 number. After adding the following line, the tests run just fine:
@@ -181,13 +181,13 @@ st.lists(st.integers()).map(sorted).example()
 
 ## Where can I apply property-based testing?
 
-This kind of pattern works for quite a couple of algorithms where verification
+This kind of pattern works for quite a few algorithms where verification
 is cheap:
 
 * [Arg max](https://en.wikipedia.org/wiki/Arg_max): Iterate over the list and ensure that no other element is larger.
 * Solving a set of equations: Verify that the solution is actually a solution.
 * [Constraint satisfaction](https://en.wikipedia.org/wiki/Constraint_satisfaction): Verify that the solution satisfies all constraints.
-* All [NP complete problems](https://en.wikipedia.org/wiki/NP-completeness): This is a set of decision problems where it is hard to find an answer, but easy to verify a found answer. An example is the traveling salesman. Given a set of cities which the salesman has to visit, is there a tour he can take which has a length of at most L? Given such a tour, it is easy to verify. Computing such a tour can be hard, though.
+* All [NP-complete problems](https://en.wikipedia.org/wiki/NP-completeness): This is a set of decision problems where it is hard to find an answer, but easy to verify a found answer. An example is the traveling salesman. Given a set of cities which the salesman has to visit, is there a tour he can take which has a length of at most L? Given such a tour, it is easy to verify. Computing such a tour can be hard, though.
 
 Weaker, but still helpful are checks which verify if the returned value is in the set of candidates:
 
@@ -209,7 +209,7 @@ random text around that string and then check.
 
 ## Example: Testing Data Structures
 
-I’ve implemented an interval data structure which has a method `issubset`
+I’ve implemented an interval data structure which has a method `issubset`:
 
 ```python
 from hypothesis import given, strategies as st
@@ -241,7 +241,7 @@ which decide if something is an IP address or an email address:
 import hypothesis.strategies as s
 from hypothesis import given
 
-import mpu.string  # Martins Python Utilities
+import mpu.string  # Martin's Python Utilities
 
 
 @given(s.emails())
@@ -265,7 +265,7 @@ If you have a function and its inverse function, such as encrypt / decrypt or a
 serialize / deserialize function, you can test them together. The testing
 strategy should then just give values within the domain.
 
-For example, if we wanted to test b64encode / b64decode , the test would be:
+For example, if we wanted to test `b64encode` / `b64decode`, the test would be:
 
 ```python
 from hypothesis import given, strategies as s
@@ -288,7 +288,7 @@ meant to be used in this order.
 </figure>
 
 In complexity theory, an oracle is a black box which offers a solution to a
-problem in instant time. In this context, it is just a second implementation
+problem instantly. In this context, it is just a second implementation
 which we trust to be correct. If you have a complex algorithmic problem, you
 might first want to implement a brute-force solution and then test your faster
 algorithm against that easier to understand solution. The brute-force algorithm
@@ -296,8 +296,8 @@ is the oracle.
 
 ## Use Type Annotations!
 
-I love type annotations 💓 I’ve you’re not using them, I highly recommend to
-read about [type annotations](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d)
+I love type annotations 💓 If you’re not using them, I highly recommend
+reading about [type annotations](https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d)
 and gradual typing.
 
 Type annotations are relevant for property-based testing as an annotated class
@@ -315,7 +315,7 @@ from hypothesis import strategies as st
 @dataclass
 class PdfInfo:
     path: str
-    is_errornous: bool
+    is_erroneous: bool
     is_encrypted: bool
     nb_pages: int
     nb_toc_top_level: int
@@ -333,32 +333,32 @@ for _ in range(10):
 ##########
 # Output #
 ##########
-# PdfInfo(path='', is_errornous=False, is_encrypted=True,
+# PdfInfo(path='', is_erroneous=False, is_encrypted=True,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='', is_errornous=False, is_encrypted=True,
+# PdfInfo(path='', is_erroneous=False, is_encrypted=True,
 #         nb_pages=-6679854645310868666, nb_toc_top_level=20135,
 #         nb_characters=-32,
 #         user_attributes={'\x02\x15\U0001189c¤\U000e7fde^¹': None})
-# PdfInfo(path='', is_errornous=False, is_encrypted=False,
+# PdfInfo(path='', is_erroneous=False, is_encrypted=False,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='', is_errornous=True, is_encrypted=True,
+# PdfInfo(path='', is_erroneous=True, is_encrypted=True,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='', is_errornous=True, is_encrypted=False,
+# PdfInfo(path='', is_erroneous=True, is_encrypted=False,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='¬´à', is_errornous=True, is_encrypted=False,
+# PdfInfo(path='¬´à', is_erroneous=True, is_encrypted=False,
 #         nb_pages=-17389, nb_toc_top_level=15767, nb_characters=124,
 #         user_attributes={})
-# PdfInfo(path='', is_errornous=True, is_encrypted=False,
+# PdfInfo(path='', is_erroneous=True, is_encrypted=False,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='', is_errornous=False, is_encrypted=False,
+# PdfInfo(path='', is_erroneous=False, is_encrypted=False,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='', is_errornous=False, is_encrypted=True,
+# PdfInfo(path='', is_erroneous=False, is_encrypted=True,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
-# PdfInfo(path='', is_errornous=False, is_encrypted=False,
+# PdfInfo(path='', is_erroneous=False, is_encrypted=False,
 #         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})
 ```
 
-When you develop web applications with complex business logic it should also be
+When you develop web applications with complex business logic, it should also be
 helpful.
 
 ## The Name of the Game
@@ -372,10 +372,10 @@ data to generate our test cases.
 
 It’s also interesting to think about it the other way around: If we are now testing properties, what did we test before? [Andrea Leopardi](https://www.youtube.com/watch?v=p84DMv8TQuo) calls it example-based or table-based testing.
 
-Example-based testing is good to cover known corner-cases, wheres property-based testing is good to discover unknown corner-cases.
+Example-based testing is good to cover known corner cases, whereas property-based testing is good to discover unknown corner cases.
 
 Property-based testing is almost the same as fuzzing. Nelson Elhage also makes
-this point in [Property-testing is fuzzing](https://blog.nelhage.com/post/property-testing-is-fuzzing/)
+this point in [Property-testing is fuzzing](https://blog.nelhage.com/post/property-testing-is-fuzzing/).
 
 ## Summary
 
