@@ -29,12 +29,10 @@
 
         <title>Visual Studio Code — Python Editors in Review  - I think I fell in love 😍  · Martin Thoma
 </title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <meta name="color-scheme" content="light dark">
+        <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/thoma.css">
         <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
         <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
@@ -67,51 +65,40 @@ MathJax.Hub.Queue(function() {
         <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
     </head>
     <body>
-        <div id="content-sans-footer">
-        <div class="navbar navbar-static-top navbar-default">
-            <div class="container">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav pull-left top-menu navbar-nav">
-                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
-                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
-                            </li>
-                        </ul>
-                        <ul class="nav pull-right top-menu navbar-nav">
-                            <li ><a href="..">Home</a></li>
-                            <li ><a href="../categories.html">Categories</a></li>
-                            <li ><a href="../tags.html">Tags</a></li>
-                            <li ><a href="../archives.html">Archives</a></li>
-                            <li><a href="../support-me/">Support me</a></li>
-                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
-                        </ul>
-                    </div>
-                </div>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header no-print">
+            <div class="wrap header-row">
+                <a class="brand" href="../"><span class="brand-dot" aria-hidden="true"></span>Martin Thoma</a>
+                <nav class="nav" aria-label="Main">
+                    <a href="../">Home</a>
+                    <a href="../categories/">Categories</a>
+                    <a href="../tags/">Tags</a>
+                    <a href="../archives/">Archives</a>
+                    <a href="../support-me/">Support me</a>
+                </nav>
+                <form class="search" role="search" action="../search/" onsubmit="return validateForm(this.elements['q'].value);">
+                    <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                </form>
             </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-1 col-md-1"></div>
-                <div class="col-sm-10 col-md-10">
+        </header>
+        <main id="main" class="wrap">
 <!-- article.html -->
-<article>
-<div class="row">
-    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+<article class="reading">
+<header class="page-head">
     <h1><a href="https://towardsdatascience.com/visual-studio-code-python-editors-in-review-e5e4f269b4e4">Visual Studio Code — Python Editors in Review <small>I think I fell in love 😍</small></a></h1>
-    </header>
-</div>
+    <p class="meta">
+<time datetime="2020-10-31T20:00:00+01:00">Okt 31, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+    </p>
+</header>
 
-<div class="row">
-    <div class="col-sm-2 col-md-2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#speed" title="Speed">Speed</a></li><li><a class="toc-href" href="#the-user-interface" title="The User Interface">The User Interface</a></li><li><a class="toc-href" href="#command-palette" title="Command Palette">Command Palette</a></li><li><a class="toc-href" href="#customizable-shortcuts" title="Customizable Shortcuts!">Customizable Shortcuts!</a><ul><li><a class="toc-href" href="#tab-interactions" title="Tab Interactions">Tab Interactions</a></li><li><a class="toc-href" href="#jump-to-line" title="Jump to Line">Jump to Line</a></li><li><a class="toc-href" href="#go-to-file" title="Go to File">Go to File</a></li><li><a class="toc-href" href="#find-replace-all" title="Find / Replace all">Find / Replace all</a></li><li><a class="toc-href" href="#zen-mode" title="Zen mode">Zen mode</a></li></ul></li><li><a class="toc-href" href="#autocompletion_1" title="Autocompletion">Autocompletion</a></li><li><a class="toc-href" href="#signature-hints" title="Signature hints">Signature hints</a></li><li><a class="toc-href" href="#jump-to-definition" title="Jump to Definition">Jump to Definition</a></li><li><a class="toc-href" href="#debugging" title="Debugging">Debugging</a></li><li><a class="toc-href" href="#unit-test-integration" title="Unit Test Integration">Unit Test Integration</a></li><li><a class="toc-href" href="#customizations" title="Customizations">Customizations</a><ul><li><a class="toc-href" href="#themes" title="Themes">Themes</a></li><li><a class="toc-href" href="#settings" title="Settings">Settings</a></li><li><a class="toc-href" href="#workspaces" title="Workspaces">Workspaces</a></li></ul></li><li><a class="toc-href" href="#plugins_1" title="Plugins">Plugins</a><ul><li><a class="toc-href" href="#pylance" title="pylance">pylance</a></li><li><a class="toc-href" href="#rainbow-brackets" title="Rainbow Brackets">Rainbow Brackets</a></li><li><a class="toc-href" href="#path-intellisense" title="Path Intellisense">Path Intellisense</a></li><li><a class="toc-href" href="#gitlens" title="GitLens">GitLens</a></li><li><a class="toc-href" href="#aws-toolkit" title="AWS Toolkit">AWS Toolkit</a></li><li><a class="toc-href" href="#honorable-mentions" title="Honorable Mentions">Honorable Mentions</a></li></ul></li><li><a class="toc-href" href="#comparison-vs-code-vs-sublime-text-vs-pycharm_1" title="Comparison: VS Code vs Sublime Text vs PyCharm">Comparison: VS Code vs Sublime Text vs PyCharm</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next">What&rsquo;s next</a></li></ul></div>
-        </nav>
-    </div>
-    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+<details class="toc" open>
+    <summary>Contents</summary>
+    <div id="toc"><ul><li><a class="toc-href" href="#speed" title="Speed">Speed</a></li><li><a class="toc-href" href="#the-user-interface" title="The User Interface">The User Interface</a></li><li><a class="toc-href" href="#command-palette" title="Command Palette">Command Palette</a></li><li><a class="toc-href" href="#customizable-shortcuts" title="Customizable Shortcuts!">Customizable Shortcuts!</a><ul><li><a class="toc-href" href="#tab-interactions" title="Tab Interactions">Tab Interactions</a></li><li><a class="toc-href" href="#jump-to-line" title="Jump to Line">Jump to Line</a></li><li><a class="toc-href" href="#goto-file" title="Goto File">Goto File</a></li><li><a class="toc-href" href="#find-replace-all" title="Find / Replace all">Find / Replace all</a></li><li><a class="toc-href" href="#zen-mode" title="Zen mode">Zen mode</a></li></ul></li><li><a class="toc-href" href="#autocompletion_1" title="Autocompletion">Autocompletion</a></li><li><a class="toc-href" href="#signature-hints" title="Signature hints">Signature hints</a></li><li><a class="toc-href" href="#jump-to-definition" title="Jump to Definition">Jump to Definition</a></li><li><a class="toc-href" href="#debugging" title="Debugging">Debugging</a></li><li><a class="toc-href" href="#unit-test-integration" title="Unit Test Integration">Unit Test Integration</a></li><li><a class="toc-href" href="#customizations" title="Customizations">Customizations</a><ul><li><a class="toc-href" href="#themes" title="Themes">Themes</a></li><li><a class="toc-href" href="#settings" title="Settings">Settings</a></li><li><a class="toc-href" href="#workspaces" title="Workspaces">Workspaces</a></li></ul></li><li><a class="toc-href" href="#plugins_1" title="Plugins">Plugins</a><ul><li><a class="toc-href" href="#pylance" title="pylance">pylance</a></li><li><a class="toc-href" href="#rainbow-brackets" title="Rainbow Brackets">Rainbow Brackets</a></li><li><a class="toc-href" href="#path-intellisense" title="Path Intellisense">Path Intellisense</a></li><li><a class="toc-href" href="#gitlens" title="GitLens">GitLens</a></li><li><a class="toc-href" href="#aws-toolkit" title="AWS Toolkit">AWS Toolkit</a></li><li><a class="toc-href" href="#honorable-mentions" title="Honorable Mentions">Honorable Mentions</a></li></ul></li><li><a class="toc-href" href="#comparison-vs-code-vs-sublime-text-vs-pycharm_1" title="Comparison: VS Code vs Sublime Text vs PyCharm">Comparison: VS Code vs Sublime Text vs PyCharm</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#whats-next" title="What&rsquo;s next">What&rsquo;s next</a></li></ul></div>
+</details>
 
-            
-            <p><img alt="Visual Studio Code 1.50.1. The screenshot was taken by Martin Thoma." src="https://cdn-images-1.medium.com/max/5118/1*h1KupJZHJWRs1OWjqbkmnA.png"/><em>Visual Studio Code 1.50.1. The screenshot was taken by Martin Thoma.</em></p>
+<div class="article-content" id="contentAfterTitle">
+    
+    <p><img alt="Visual Studio Code 1.50.1. The screenshot was taken by Martin Thoma." src="https://cdn-images-1.medium.com/max/5118/1*h1KupJZHJWRs1OWjqbkmnA.png"/><em>Visual Studio Code 1.50.1. The screenshot was taken by Martin Thoma.</em></p>
 <p><a href="https://en.wikipedia.org/wiki/Visual_Studio_Code">Visual Studio Code</a> is a free editor written by Microsoft. Its first release was in 2015, and boy, did it take off. It has <a href="https://stackoverflow.com/questions/tagged/visual-studio-code">over 28k questions on Stack Overflow</a>, is the 2nd most-used Python editor according to the <a href="https://www.jetbrains.com/lp/devecosystem-2019/python/">2019 JetBrains survey</a>, and the most popular one according to the <a href="https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments">2019 Stack Overflow survey</a>. VS Code has its own <a href="https://marketplace.visualstudio.com/vscode">marketplace</a>, works on <a href="https://code.visualstudio.com/docs/setup/windows">Windows</a>, <a href="https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions">Linux</a>, and <a href="https://code.visualstudio.com/docs/setup/mac">Mac</a>. Microsoft has created a powerful language server called <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance</a> about which you certainly also want to read something &hellip; but let&rsquo;s first start with the basics.</p>
 <p>When you first start VS Code, it offers you a couple of plugins that might be helpful. I immediately installed the Python integration as well as the Sublime Text key bindings. Keep especially the key bindings part in mind when I write about shortcuts.</p>
 <h2 id="speed">Speed</h2>
@@ -138,7 +125,7 @@ MathJax.Hub.Queue(function() {
 <p>You can open a new file with <code>Ctrl+N</code> &mdash; just like you would open a new window in Chrome.</p>
 <h3 id="jump-to-line">Jump to Line</h3>
 <p><code>Ctrl+G</code> to jump to a line. This is super handy when you&rsquo;re debugging.</p>
-<h3 id="go-to-file">Go to File</h3>
+<h3 id="goto-file">Goto File</h3>
 <p><code>Ctrl+P</code> to go to any file in the current workspace. With fuzzy search again 🎉</p>
 <h3 id="find-replace-all">Find / Replace all</h3>
 <p><code>Ctrl+F</code> to find something, <code>Ctrl+H</code> to replace. You can also use regex! Definitely a feature I don&rsquo;t want to miss. This is pretty cool in combination with multiple cursors! (<code>Ctrl+Shift+L</code>)</p>
@@ -245,65 +232,54 @@ MathJax.Hub.Queue(function() {
 <h2 id="whats-next">What&rsquo;s next</h2>
 <p>In this &ldquo;Python for Beginners&rdquo; series, we already explained <a href="https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483">how to use Python with WSL2 on Windows</a>, and <a href="https://medium.com/python-in-plain-english/how-to-start-python-development-on-windows-10-anaconda-edition-cc91c2d57a1d">how to use Python on Windows with Anaconda</a>. This article presented Visual Studio Code as a good IDE for beginners and professionals.</p>
 <p>Next, we should write a hello world application. I&rsquo;m open to ideas 😁</p>
-            
-        </div>
-        <section>
-        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
-            <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2020-10-31T20:00:00+01:00">Okt 31, 2020</time>
-            <br/>
-            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
-            <h4>Category</h4>
-            <a class="category-link" href="../categories.html#code-ref">Code</a>
-            <h4>Tags</h4>
-            <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#editor-ref">Editor
-                    <span>3</span>
-</a></li>
-                <li><a href="../tags.html#ide-ref">IDE
-                    <span>2</span>
-</a></li>
-                <li><a href="../tags.html#microsoft-ref">Microsoft
-                    <span>6</span>
-</a></li>
-            </ul>
-<h4>Contact</h4>
-    <a href="https://twitter.com/_martinthoma" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-twitter sidebar-social-links"></i></a>
-    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-envelope sidebar-social-links"></i></a>
-    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-github sidebar-social-links"></i></a>
-    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
-        </div>
-        </section>
+    
 </div>
-</article>
-                </div>
-                <div class="col-sm-1 col-md-1"></div>
-            </div>
-        </div>
-        <div id="push"></div>
+
+<aside class="article-meta no-print">
+    <div class="meta-group">
+        <h4>Category</h4>
+        <a class="pill" href="../categories/#code-ref">Code</a>
     </div>
-<footer class="no-print">
-<div id="footer">
-    <ul class="footer-content">
-        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
-        <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
-        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
-        <li><a href="http://www.martin-thoma.de/privacy.htm">Privacy/Datenschutzerklärung</a></li>
-        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
-        <li class="elegant-power">Powered by
-            <a href="https://blog.getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>.
-            Theme: <a href="https://elegant.oncrashreboot.com" title="Theme Elegant Home Page" tabindex="-1">Elegant</a>
-            by <a href="https://www.oncrashreboot.com/" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
-    </ul>
+    <div class="meta-group">
+        <h4>Tags</h4>
+        <ul class="list-of-tags tags-in-article">
+            <li><a href="../tags/#editor-ref">Editor
+                <span>3</span>
+</a></li>
+            <li><a href="../tags/#ide-ref">IDE
+                <span>2</span>
+</a></li>
+            <li><a href="../tags/#microsoft-ref">Microsoft
+                <span>6</span>
+</a></li>
+        </ul>
+    </div>
+<div class="meta-group social">
+<h4>Contact</h4>
+<ul class="list-of-tags">
+    <li><a href="https://twitter.com/_martinthoma" title="My Twitter Profile" rel="me" target="_blank">Twitter</a></li>
+    <li><a href="mailto:info@martin-thoma.de" title="My Email Address" rel="me" target="_blank">Email</a></li>
+    <li><a href="https://github.com/MartinThoma" title="My Github Profile" rel="me" target="_blank">Github</a></li>
+    <li><a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" rel="me" target="_blank">Stackoverflow</a></li>
+</ul>
 </div>
-</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script>
+</aside>
+
+
+</article>
+        </main>
+<footer class="site-footer no-print">
+    <div class="wrap">
+        <ul class="footer-content">
+            <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> – A blog about Code, the Web and Cyberculture</li>
+            <li><a href="https://martin-thoma.com/email-subscription">E-mail subscription</a></li>
+            <li><a href="https://martin-thoma.com/feeds/index.xml">RSS feed</a></li>
+            <li><a href="https://www.martin-thoma.de/privacy.htm">Privacy / Datenschutzerklärung</a></li>
+            <li><a href="https://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+            <li>Powered by <a href="https://getpelican.com/">Pelican</a></li>
+        </ul>
+    </div>
+</footer>        <script>
             function validateForm(query)
             {
                 return (query.length > 0);
@@ -328,6 +304,7 @@ MathJax.Hub.Queue(function() {
 
     tags.forEach(function(tag){
         var contentTag = document.getElementById('contentAfterTitle');
+        if (!contentTag) { return; }
       results = contentTag.getElementsByTagName(tag);
       Array.prototype.push.apply(headingNodes, results);
     });
@@ -343,6 +320,4 @@ MathJax.Hub.Queue(function() {
   })();
 </script>
     </body>
-    <!-- Theme: Elegant built for Pelican
-    License : https://elegant.oncrashreboot.com -->
 </html>
