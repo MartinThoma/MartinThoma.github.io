@@ -96,7 +96,7 @@ Munich. Here are some of my delays.
 
 A couple of things come to my mind:
 
-* Fix the shit
+* Fix the underlying problems
 * More roofs / places to sit at the big train stops - so in case you're stuck, at least you don't get sick
 * Free WiFi for trains on the "Stammstrecke"
 

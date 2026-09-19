@@ -245,8 +245,7 @@ erreichen wird.
 ### ...bei einer neuen GroKo?
 
 * Deutschlandticket bleibt, wird aber teurer
-* [Security-Theater](https://en.wikipedia.org/wiki/Security_theater) für
-  Sicherheit - also z.B. Grenzkontrollen, die aber irgendwann wieder
+* Eher symbolische Sicherheitsmaßnahmen ([Security-Theater](https://en.wikipedia.org/wiki/Security_theater)) - also z.B. Grenzkontrollen, die aber irgendwann wieder
   zurückgenommen werden
 * Keine wesentliche Änderung bei der Rente, aber Erleichterungen beim Übergang /
   die "Möglichkeit", als Rentner zu arbeiten. Für viele wird das eher ein Zwang

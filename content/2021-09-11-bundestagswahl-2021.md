@@ -1018,7 +1018,7 @@ ich mal kurz an den
 die [Cum-Ex-Affäre der Warburg-Bank 2016](https://de.wikipedia.org/wiki/Olaf_Scholz#Cum-Ex-Gesch%C3%A4fte_der_Warburg_Bank),
 den [Wirecard-Skandal 2018-2020](https://de.wikipedia.org/wiki/Wirecard#Bilanzskandal_und_Insolvenzantrag),
 sowie den sich anbahnenden [FIU/Geldwäscheskandal 2021](https://www.t-online.de/nachrichten/deutschland/innenpolitik/id_90783220/opposition-wirft-scholz-mitverantwortung-in-geldwaesche-skandal-vor.html)
-bedenkt. Das ist die Galionsfigur, die sich die SPD ausgesucht hat.
+bedenkt. Das ist der Kanzlerkandidat, den die SPD aufgestellt hat.
 
 Die [Tagesschau](https://www.youtube.com/watch?v=xkVb_bJv8aI) fasst das [Wahlprogramm der SPD](https://www.spd.de/zukunftsprogramm/) wie folgt zusammen:
 

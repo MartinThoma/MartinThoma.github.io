@@ -160,7 +160,7 @@ Staatsbürgerschaft hat, muss zahlen. Auch wenn man im Ausland lebt.
 ## Entkriminalisierung
 
 * Fahren ohne Fahrtschein
-* Kinderpornographie unter bestimmten Umständen (Ermessensspielraum des Richters)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
+* Mindeststrafe/Verbrechenstatbestand bei § 184b StGB zurücknehmen (Besitz und Verbreitung kinderpornographischer Inhalte wieder als Vergehen mit Ermessensspielraum des Richters, damit z.B. auch Personen, die Material melden, nicht mit Mindeststrafen rechnen müssen)<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>
 * [Legalisierung von Drogenkonsum](https://de.wikipedia.org/wiki/Legalisierung_von_Drogen)
 
 

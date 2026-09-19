@@ -159,9 +159,9 @@ Vermutlich wird die AfD dann gestärkt.
 Nur ein deutlicher Impuls aus dem Bund könnte hier etwas bewegen, indem sich die
 gefühlte wirtschaftliche Lage der Menschen verbessert. Dafür bräuchte es ein echtes Investitionspaket,
 so wie wir Grüne es mit dem [500-Milliarden-Sondervermögen](https://www.tagesschau.de/inland/innenpolitik/gruene-finanzpaket-100.html) ([Sondervermögen Infrastruktur und Klimaneutralität](https://de.wikipedia.org/wiki/Sonderverm%C3%B6gen_Infrastruktur_und_Klimaneutralit%C3%A4t)) anstoßen wollten.
-Es ist ein Skandal und politisch dumm, dass [die CDU das Sondervermögen zweckentfremdet](https://www.tagesschau.de/wirtschaft/konjunktur/sondervermoegen-zweckentfremdung-studien-100.html) hat.
+Es ist kritikwürdig und aus meiner Sicht politisch unklug, dass [die CDU das Sondervermögen zweckentfremdet](https://www.tagesschau.de/wirtschaft/konjunktur/sondervermoegen-zweckentfremdung-studien-100.html) hat.
 
-Solange das [Gruselkabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) bestehen bleibt, wird sich daran wohl nichts ändern. Dann werden wir die Union wohl noch unter 20% in den Umfragen sehen ([aktuell: 21%](https://www.wahlrecht.de/umfragen/)).
+Solange das [Kabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) bestehen bleibt, wird sich daran wohl nichts ändern. Dann werden wir die Union wohl noch unter 20% in den Umfragen sehen ([aktuell: 21%](https://www.wahlrecht.de/umfragen/)).
 
 
 ## Was könnte schiefgehen?
@@ -180,7 +180,7 @@ Solange das [Gruselkabinett Merz](https://de.wikipedia.org/wiki/Kabinett_Merz) b
 4. **Wählermobilisierung**: Kommen die Grünen nicht in den Landtag oder das BSW
    überraschend doch, dann ändert sich die Situation komplett. Dann könnte die
    AfD eine absolute Mehrheit haben und eine Regierung bilden oder mit dem BSW
-   eine Koalition bilden. Gruselig.
+   eine Koalition bilden. Das wäre ein sehr problematisches Szenario.
 5. **CDU in Sachsen-Anhalt**: Die CDU könnte sich weigern, in
    Regierungsverantwortung zu gehen oder mit der AfD zusammen eine Regierung
    bilden. Beides würde mich überraschen.

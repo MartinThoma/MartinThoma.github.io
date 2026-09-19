@@ -154,9 +154,9 @@ Gesundheitssystem (NHS) durch den Brexit". Oder "Steuersenkungen ohne Einsparung
 neue Schulden".
 
 Unter "politisch rechts" verstehe ich grundsätzlich konservative Politik. Das ist
-nicht per se schlecht, resultiert im Extremfall aber in
+nicht per se schlecht, kann im Extremfall aber zu
 Nationalismus und Rassismus, Antisemitismus, Homophobie, Fremdenfeindlichkeit,
-Sexismus, Geschichtsrevisionismus, Klimawandel-Leugnung, Impfgegner. Häufig auch
+Sexismus, Geschichtsrevisionismus, Klimawandel-Leugnung und Impfgegnerschaft führen. Häufig auch
 gepaart mit Autoritarismus und Verschwörungstheorien.
 
 ### Deutschland
@@ -167,7 +167,7 @@ zwischen 17% und 19,5%. Die Partei fällt mir durch Folgendes auf:
 * **Ablehnung von Europa**: "Der gemeinsame EURO ist eine grundlegende Fehlkonstruktion."<small><sup><a href="#ref10" name="anchor10">[10]</a></sup></small>
   sowie [Dexit? Die AfD will, dass Deutschland die EU verlässt](https://www.dw.com/de/dexit-die-afd-will-dass-deutschland-die-eu-verl%C3%A4sst/a-71093078)
 * **Steuer-Populismus**: [Grund-, Erbschafts- und Schenkungssteuer soll wegfallen](https://www.bundestag.de/presse/hib/kurzmeldungen-1024812), ein [höherer Grundfreibetrag](https://www.bundestag.de/presse/hib/kurzmeldungen-997774) ([Video](https://www.bundestag.de/dokumente/textarchiv/2024/kw15-de-lohnabstandsgebot-997408)), [Solidaritätszuschlag und Kalte Progression abschaffen](https://www.bundestag.de/presse/hib/kurzmeldungen-1030462). Steuergeschenke in Höhe von
-  [149 Mrd EUR](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html). Und die [Schuldenbremse soll bleiben](https://afdbundestag.de/kay-gottschalk-schuldenbremse-bewahren-finanzpolitik-verantwortungsbewusst-gestalten/). Das passt nicht zusammen. Entweder sind sie naiv, dumm oder sie lügen.
+  [149 Mrd EUR](https://www.tagesschau.de/inland/bundestagswahl/wahlprogramm-steuern-auswertung-100.html). Und die [Schuldenbremse soll bleiben](https://afdbundestag.de/kay-gottschalk-schuldenbremse-bewahren-finanzpolitik-verantwortungsbewusst-gestalten/). Das passt nicht zusammen. Entweder sind die Pläne nicht zu Ende gedacht oder sie sind nicht ernst gemeint.
 * **Klimawandel-Leugnung**: [AfD fordert Aufkündigung aller Klimavereinbarungen](https://www.bundestag.de/presse/hib/kurzmeldungen-966976)
 * "Besseres Verhältnis zu Russland [...] Die USA bleiben unser Partner. Russland
   soll es werden. Die AfD setzt sich deshalb für ein Ende der Sanktionen und

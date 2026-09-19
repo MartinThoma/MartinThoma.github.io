@@ -91,7 +91,7 @@ Ich nehme folgende Kategorien:
    * [Tötungsrate](https://de.wikipedia.org/wiki/T%C3%B6tungsrate_nach_L%C3%A4ndern): 0,9 Tötungsdelikte pro 100.000 Einwohner und Jahr in Deutschland. 0,7 in Polen und Spanien, 0,5 in Italien, 0,2 in Japan.
 * Freiheit:
    * [LGBT-Toleranz und -Rechte](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_LGBT-Toleranz_und_-Rechten)
-* Bildung: [viele Jahre in der Schule](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bildungserwartung) - obwohl die Bildungsergebnisse nicht so toll waren
+* Bildung: [viele Jahre in der Schule](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Bildungserwartung) - obwohl die Bildungsergebnisse nicht überzeugend waren
 * Staat:
    * [Fragile States Index](https://de.wikipedia.org/wiki/Fragile_States_Index)
    * [Staatsschuldenquote](https://en.wikipedia.org/wiki/List_of_countries_by_government_debt): 40 für Deutschland, 5 für USA, 1 für Japan, 4 für Frankreich. Klar, es ist viel besser bei Schweden (78)/Finnland (46) /Norwegen (88)/Schweiz (77)/Luxemburg (86).
@@ -105,7 +105,7 @@ Ich nehme folgende Kategorien:
 * Wirtschaft und Wohlstand:
    * [Medianvermögen](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gen_pro_Kopf): Nur 61.000 USD/Volljährigen. Island führt mit 375.735 USD, Belgien ist bei 267.887 USD und die Schweiz bei 168.084 USD.
    * [Vermögensverteilung](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Verm%C3%B6gensverteilung): Ist in Deutschland mit einem Gini-Koeffizienten von 78,8 sehr ungleich. Im Vereinigten Königreich ist er bei 70,6, in Frankreich bei 70,2, in Japan bei 64,7 und in Island bei 64,6.
-   * [Inflationsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Inflationsrate): Insbesondere 2022 (6,9%) und 2023 (6,0%) war sie echt hoch. Allerdings war sie sehr lange auch sehr niedrig.
+   * [Inflationsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Inflationsrate): Insbesondere 2022 (6,9%) und 2023 (6,0%) war sie sehr hoch. Allerdings war sie sehr lange auch sehr niedrig.
    * [Gender Pay Gap](https://de.wikipedia.org/wiki/Global_Gender_Gap_Report)
 * Wirtschaft:
    * [Arbeitsproduktivität auf Platz 18 von 181](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Arbeitsproduktivit%C3%A4t)
@@ -125,4 +125,4 @@ Ich nehme folgende Kategorien:
 
 * [Strompreis](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Strompreis): Wir sind zwar nicht der Spitzenreiter, aber sehr weit vorne. Das hilft natürlich nicht bei der Elektrifizierung und ist auch nicht toll für arme Haushalte.
 * [Fertilitätsrate](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Fertilit%C3%A4tsrate): [1,32 Kinder pro Frau (2025)](https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_230_12.html). Bei allem unter ca. 2,1 braucht man zwingend Einwanderung, um die Bevölkerungsgröße zu halten. Wenn die Bevölkerung schrumpft, dann sinkt der wirtschaftliche Output. Dann sinkt die Bedeutung in der Welt. Dann wird Verwaltung ineffizient, weil sie für mehr Leute ausgelegt ist.
-* [Hoher Alkoholkonsum pro Kopf](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Alkoholkonsum): Nur Moldau, Litauen, Tschechien und die Seychellen saufen mehr.
+* [Hoher Alkoholkonsum pro Kopf](https://de.wikipedia.org/wiki/Liste_der_L%C3%A4nder_nach_Alkoholkonsum): Nur Moldau, Litauen, Tschechien und die Seychellen trinken mehr.

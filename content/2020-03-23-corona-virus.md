@@ -372,9 +372,9 @@ Another way to look at it is by Google searches:
 A small timeline:
 
 * 2020-01-21: The Coronavirus became more interesting than Donald Trump
-* 2020-01-31: It almost became as interesting as porn/sex
+* 2020-01-31: Search interest almost reached that of the search term "sex"
 * 2020-02-20: People lost interest again
-* 2020-02-24: The Coronavirus became as interesting as porn/sex
+* 2020-02-24: Search interest reached that of the search term "sex"
 * 2020-03-09: The Coronavirus starts to get super interesting - maybe, because
   a couple of countries in Europe start realizing that this is getting out of
   hand.

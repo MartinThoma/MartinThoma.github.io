@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Data Science Project Guide
 slug: ds-project-guide
+lang: en
 author: Martin Thoma
 date: 2018-06-03 20:00
 category: Machine Learning
@@ -101,13 +101,15 @@ think YOU don't know what the model is doing! I recommend reading
 [The Mythos of Model Interpretability](https://arxiv.org/pdf/1606.03490.pdf) to
 get some nice conceptual ideas about black boxes. To summarize:
 
-* **Data Scientists understand their models**: We wrote them. There is no way
-  to create a complex piece of software that works without understanding it.
+* **Data Scientists understand their models to a large degree**: We design and
+  train them, so we know the architecture, the data and the training procedure.
+  However, for complex models like deep neural networks we cannot fully explain
+  individual predictions - which is exactly the black box problem.
 * **Black Boxes are common**: If we define a black box as something where we
   don't know 100% instantly and intuitively what happens, then there are a lot
   of black boxes. Humans, for example. But still you trust your doctor.
 * **Error types are important**: For a human doctor, you know in which way they
-  might make errors. They might be psychologically ill, but most likely they will just
+  might make errors. They might be tired or distracted, but most likely they will just
   not pay enough attention and thus diagnose something common where you might
   have an issue which is uncommon. For machine learning models, it can be the
   other way around. While overfitting is a problem we are aware of, the

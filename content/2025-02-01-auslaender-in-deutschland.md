@@ -422,8 +422,7 @@ Maßnahmen, die nur gemacht werden, um den Eindruck von Sicherheit zu erwecken.
 Man kann die fehlende Effektivität auch anders betrachten: Wir hatten 2024
 etwa [2760 Verkehrstote und 2.510.000 Unfälle in Deutschland](https://www.adac.de/news/bilanz-verkehrstote/). [Geschwindigkeitsbegrenzungen halbierten die Unfallzahlen](https://www.mdr.de/nachrichten/deutschland/panorama/tempolimit-autobahn-hundert-unfaelle-halbiert-100.html)
 auf der A4 bei Dresden. Wenn wir so einfach ohne nennenswerte Kosten hunderte
-von Menschen retten könnten, geht es Merz offensichtlich nicht um Menschenleben.
-Sonst müsste er ein generelles Tempolimit fordern.
+von Menschen retten könnten, stellt sich die Frage, ob es Merz vorrangig um Menschenleben geht. Sonst wäre ein generelles Tempolimit naheliegend.
 
 Und wenn es um psychisch kranke Menschen geht:
 
@@ -565,8 +564,8 @@ AfD zusammen und bricht gleichzeitig ihr Wort.
 ## Was gewinnt Merz?
 
 Man kann bei geplanten Abstimmungen wohl ausschließen, dass die Vorgänge spontan
-oder unüberlegt waren. Dass ehrliche Sorge um Deutschland der Grund für sie ist,
-ist wohl ausgeschlossen, weil man sonst ja mit der SPD und den Grünen eine
+oder unüberlegt waren. Dass allein die Sorge um Deutschland der Grund für sie ist,
+halte ich für unwahrscheinlich, weil man sonst ja mit der SPD und den Grünen eine
 gemeinsame Lösung gesucht hätte, die dann auch umgesetzt wird. Warum hat man
 also den Antrag eingebracht? Ich sehe folgende Gründe:
 
