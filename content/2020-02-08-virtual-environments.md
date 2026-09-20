@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-02-08 20:00
 category: Code
-tags: Python, venv, virtualenv
+tags: Python, virtualenv
 featured_image: logos/python.png
 ---
 A virtual environment is an isolated Python environment. It has its own

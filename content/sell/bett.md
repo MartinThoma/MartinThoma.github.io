@@ -2,12 +2,13 @@
 layout: page
 title: Bett
 slug: sell/bett
-status: draft
-save_as: sell/bett/index.html
+lang: en
 author: Martin Thoma
 date: 2012-01-01 22:30
 category: Sell
-tags: Sell, Bed
+tags: Sell
+status: draft
+save_as: sell/bett/index.html
 ---
 
 <div itemscope itemtype="http://schema.org/Product">

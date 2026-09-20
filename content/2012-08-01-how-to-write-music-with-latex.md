@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-08-01 10:45:49.000000000 +02:00
 category: The Web
-tags: LaTeX, Music, Note, Sheet Music
+tags: LaTeX, Music
 featured_image: 2012/08/latex-music-thumb.png
 ---
 It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to <del datetime="2012-08-01T08:01:06+00:00">write a little tutorial</del> show some examples.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-10 20:00
 category: My bits and bytes
-tags: Python, Migration
+tags: Python
 featured_image: logos/python.png
 ---
 When I gave a Python Packaging Course, I advised my students to always use Python 3.

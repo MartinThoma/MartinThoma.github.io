@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-12-21 17:00:31.000000000 +01:00
 category: Code
-tags: Eclipse, Windows, Microsoft, Visual Studio, Windows 7
+tags: Rant, Eclipse, Windows, Microsoft, Windows 7
 featured_image: 2012/12/loading-times.png
 ---
 Another rage-post ...

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-11-23 20:00
 category: Code
-tags: Python, Scope
+tags: Python
 featured_image: logos/python.png
 subtitle: The extraordinarily short guide to Python's crazy scoping rules
 medium_url: https://towardsdatascience.com/but-its-not-declared-40501fb1e943

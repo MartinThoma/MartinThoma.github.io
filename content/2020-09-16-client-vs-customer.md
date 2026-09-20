@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-09-16 20:00
 category: My bits and bytes
-tags: Versus, Difference, Terminology
+tags: Terminology
 featured_image: logos/education.png
 medium_url: https://medium.com/plain-and-simple/client-vs-customer-df3d6a9011a8
 ---

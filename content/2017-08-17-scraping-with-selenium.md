@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-08-17 20:00
 category: Cyberculture
-tags: Scraping, Information Extraction, Testing, Software Engineering
+tags: Testing, Software Engineering
 featured_image: logos/selenium.png
 ---
 Selenium is a framework for testing web applications. And it is relly good for

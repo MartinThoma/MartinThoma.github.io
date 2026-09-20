@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-07-06 20:45:32.000000000 +02:00
 category: Cyberculture
-tags: Google, Public Transportation, Google Maps
+tags: Google, Public Transportation
 featured_image: 2013/07/bus.png
 ---
 Public transportation in Germany is much worse than it could be. I've got quite angry today because of that and thought about ways to improve the situation.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-01-04 20:00
 category: My bits and bytes
-tags: Cooking, Recipe, Vietnam
+tags: Cooking, Recipe
 featured_image: logos/cooking.png
 ---
 [Phở](https://en.wikipedia.org/wiki/Pho) is a Vietnamese beef noodle soup.

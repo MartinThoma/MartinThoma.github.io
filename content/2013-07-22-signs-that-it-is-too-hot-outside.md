@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-07-22 22:59:13.000000000 +02:00
 category: My bits and bytes
-tags: Funny, Weather, Hot
+tags: Funny
 featured_image: 2013/07/wetter1.png
 ---
 <figure>

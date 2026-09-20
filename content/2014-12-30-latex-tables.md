@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-12-30 21:57
 category: My bits and bytes
-tags: LaTeX, Tables
+tags: LaTeX
 featured_image: logos/latex.png
 ---
 

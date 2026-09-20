@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-01-18 08:29:42.000000000 +01:00
 category: The Web
-tags: SOPA, Protest
+tags: SOPA, Politics
 featured_image: 2012/01/sopa.png
 ---
 Some of the biggest sites in the internet are currently calling US citizens up to protest. SOPA - the Stop Online Piracy Act - is endangering some key aspects of the internet.

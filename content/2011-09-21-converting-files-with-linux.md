@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 22:10:08.000000000 +02:00
 category: Code
-tags: Cheat Sheet, Conversion, Linux, Ubuntu, Command Line, PDF, Python
+tags: Cheat Sheet, Linux, Ubuntu, Command Line, PDF, Python
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS.

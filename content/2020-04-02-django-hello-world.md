@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-01-17 20:00
 category: My bits and bytes
-tags: Python, Django, Web Development
+tags: Python, Web Development
 featured_image: logos/star.png
 status: draft
 ---

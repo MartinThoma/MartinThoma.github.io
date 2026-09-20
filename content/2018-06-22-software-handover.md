@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2018-06-22 20:00
 category: My bits and bytes
-tags: Software Projects, Software Engineering, Work
+tags: Software Engineering, Work
 featured_image: logos/code.png
 ---
 Handing over code to another person or another team is a pretty common task.

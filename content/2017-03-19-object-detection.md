@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-03-19 20:00
 category: Machine Learning
-tags: Machine Learning, Computer Vision, Pascal VOC, AI
+tags: Machine Learning, Computer Vision, AI
 featured_image: logos/ml.png
 ---
 Object detection is the following task: You have an image and you want

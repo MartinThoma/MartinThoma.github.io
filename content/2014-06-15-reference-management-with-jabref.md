@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-06-15 20:51
 category: My bits and bytes
-tags: Science, References, Software, LaTeX
+tags: Science, LaTeX
 featured_image: logos/jabref.png
 ---
 Keeping track of papers, articles and books or more general sources you can

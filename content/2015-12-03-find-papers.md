@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-12-03 07:30
 category: My bits and bytes
-tags: Science, Papers, Reading, Google Scholar, arXiv
+tags: Science, Papers, Reading, arXiv
 featured_image: logos/science.png
 ---
 A couple of people who are just participating in their first seminar might ask

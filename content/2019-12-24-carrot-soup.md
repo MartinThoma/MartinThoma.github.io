@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-24 20:00
 category: My bits and bytes
-tags: Cooking, Recipe, Vegetarian, Main Dish
+tags: Cooking, Recipe, Main Dish
 featured_image: logos/cooking.png
 ---
 A typical German soup.

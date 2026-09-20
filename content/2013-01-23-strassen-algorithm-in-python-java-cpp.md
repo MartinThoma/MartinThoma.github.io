@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-01-23 10:35:55.000000000 +01:00
 category: Code
-tags: Python, Java, Strassen Algorithm, Linear Algebra, Algorithms, Computer Science, Matrix Multiplication
+tags: Python, Java, Linear Algebra, Algorithms, Computer Science, Matrix Multiplication
 ---
 <div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Critique of Python 3
 slug: python-3-critique
+lang: en
 author: Martin Thoma
 date: 2014-11-22 17:19
 category: Code
-tags: Python, Consistency, Programming
+tags: Python, Programming
 featured_image: logos/python.png
 ---
 Consistency is an important quality property of a language. One of my main

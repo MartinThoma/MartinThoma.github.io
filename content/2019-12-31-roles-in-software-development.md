@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-07-09 20:00
 category: My bits and bytes
-tags: Software Engineering, Scrum
+tags: Software Engineering
 featured_image: logos/star.png
 status: draft
 ---

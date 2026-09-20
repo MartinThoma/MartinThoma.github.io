@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-06-18 02:31
 category: Code
-tags: Python, PyBrain, MNIST, AI, Machine Learning, Neural Networks, Classification
+tags: Python, PyBrain, AI, Machine Learning, Neural Networks, Classification
 featured_image: logos/pybrain.png
 ---
 The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr>

@@ -2,12 +2,13 @@
 layout: page
 title: Dialogmuseum
 slug: reviews/dialogmuseum
-save_as: reviews/dialogmuseum/index.html
+lang: de
 author: Martin Thoma
 date: 2014-03-20 21:09
 category: Review
-tags: Review, Museum
+tags: Review
 featured_image:
+save_as: reviews/dialogmuseum/index.html
 ---
 
 ACHTUNG: Für das Dialogmuseum sollte man sich anmelden!

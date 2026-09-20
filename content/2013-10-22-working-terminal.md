@@ -7,7 +7,7 @@ lang: en
 author: Martin Thoma
 date: 2013-10-22 10:40:46.000000000 +02:00
 category: Code
-tags: Linux, Command Line, Bash, ZSH, Terminal, Shell, Software Engineering
+tags: Linux, Command Line, Bash, Shell, Software Engineering
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 I've just switched from [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell))

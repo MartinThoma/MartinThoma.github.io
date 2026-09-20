@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-10-10 12:18:42.000000000 +02:00
 category: Code
-tags: Java, Generics
+tags: Java
 featured_image: 2012/07/java-thumb.png
 ---
 Some months ago, I had to improve some Java code for university. They gave us a model of a windows like file system and we had to make the code "cleaner". I think I've overdone the application of generics, but it's a nice example for generics 😉

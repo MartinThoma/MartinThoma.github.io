@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2016-04-27 23:26
 category: Code
-tags: Python, RPC, Daemon
+tags: Python
 featured_image: logos/daemon.png
 ---
 Everybody knows that training big machine learning models takes a lot of

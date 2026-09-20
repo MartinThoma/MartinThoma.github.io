@@ -7,7 +7,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 18:35:30.000000000 +02:00
 category: My bits and bytes
-tags: blog
+tags: Blog
 save_as: author/martin-thoma/index.html
 context: about
 description: Profile page of Martin Thoma

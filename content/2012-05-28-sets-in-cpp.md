@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Sets in C++
 slug: sets-in-cpp
+lang: en
 author: Martin Thoma
 date: 2012-05-28 12:08:58.000000000 +02:00
 category: Code
-tags: STL, Set, CPP
+tags: STL, CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
 ```cpp

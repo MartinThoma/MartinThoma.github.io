@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Append Python PATH
 slug: append-python-path
+lang: en
 author: Martin Thoma
 date: 2014-07-20 14:04
 category: Code
-tags: Python, PATH
+tags: Python
 featured_image: logos/python.png
 ---
 Python has a `PATH` in which it looks for modules. You can display the current

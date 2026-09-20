@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-16 20:00
 category: Code
-tags: Python, setup.py, requirements.txt, Software Engineering
+tags: Python, Software Engineering
 featured_image: logos/python.png
 ---
 Python's package management is a constant source of confusion. One part of the

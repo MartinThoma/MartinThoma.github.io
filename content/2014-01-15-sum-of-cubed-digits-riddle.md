@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-01-04 14:53
 category: Code
-tags: Python, Mathematics, Riddle
+tags: Python, Mathematics
 featured_image: 2014/01/math-riddle-thumb.png
 ---
 Let $N \in \mathbb{N}$ be a number with digits $a_k$, where $a_0$ is the least

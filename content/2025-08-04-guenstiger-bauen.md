@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-08-04 20:00
 category: German posts
-tags: German Politics, Hausbau, Politics, House
+tags: German Politics, Politics, House
 featured_image: logos/earth.png
 ---
 Der Traum vom Eigenheim fühlt sich inzwischen für die meisten Menschen

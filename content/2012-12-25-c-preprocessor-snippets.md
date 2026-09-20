@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-12-25 19:32:31.000000000 +01:00
 category: Code
-tags: C, Preprocessor, CPP
+tags: C, CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
 The C++ Preprocessor - which is in fact the same as the C Preprocessor - provides some very basic, but powerful abilities. I haven't used them quite often, but I have seen some nice examples. So here are some C++ Preprocessor Snippets:

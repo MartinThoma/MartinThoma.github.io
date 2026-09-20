@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-30 08:59:59.000000000 +02:00
 category: Code
-tags: Command Line, Bash, Scripting
+tags: Command Line, Bash
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 Bash is very useful when you want to know exactly what your scripts are doing.

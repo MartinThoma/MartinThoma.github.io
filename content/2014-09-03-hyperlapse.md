@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-09-03 04:31
 category: Cyberculture
-tags: Computer Vision, Structure From Motion, Kd-tree, Research, AI, Data Structures, Computer Science
+tags: Computer Vision, Research, AI, Data Structures, Computer Science
 featured_image: logos/microsoft.png
 ---
 [Johannes Kopf](http://research.microsoft.com/en-us/people/kopf/), a researcher

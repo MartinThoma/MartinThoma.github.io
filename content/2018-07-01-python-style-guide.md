@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Style Guide
 slug: python-style-guide
+lang: en
 author: Martin Thoma
 date: 2018-07-01 20:00
 category: Code
-tags: Python, Style Guide, Flake8, PEP8
+tags: Python, Style Guide, Flake8
 featured_image: logos/python.png
 ---
 Having a consistent code style for a project is important as it allows

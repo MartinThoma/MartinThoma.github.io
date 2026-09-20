@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-11-01 20:00
 category: My bits and bytes
-tags: Devices, Hardware, Sleep, Review
+tags: Devices, Hardware, Review
 featured_image: logos/star.png
 ---
 [Fitness trackers](https://en.wikipedia.org/wiki/Activity_tracker) are devices

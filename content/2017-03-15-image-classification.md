@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-03-15 20:00
 category: Machine Learning
-tags: Machine Learning, Computer Vision, ImageNet, AI
+tags: Machine Learning, Computer Vision, AI
 featured_image: logos/ml.png
 ---
 Image classification is the following task: You have an image and you want to

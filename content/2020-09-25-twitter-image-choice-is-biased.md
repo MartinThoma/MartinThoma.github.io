@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-09-25 20:00
 category: My bits and bytes
-tags: Twitter, Technology, Machine Learning, Social Media, AI
+tags: Technology, Machine Learning, AI
 featured_image: logos/star.png
 medium_url: https://towardsdatascience.com/how-twitters-image-choice-is-biased-8d3f0ba63379
 ---

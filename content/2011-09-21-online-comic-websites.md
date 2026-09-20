@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: 5 Online Comic Websites
 slug: online-comic-websites
+lang: en
 author: Martin Thoma
 date: 2011-09-21 19:53:03.000000000 +02:00
 category: Cyberculture
-tags: Comic, Webcomic
+tags: Geek
 ---
 All of those Websites offer one small comic strip each day. Some of them are a bit geeky, so you might not understand them if you don't know anything about Linux / D&amp;D.
 <h2>xkcd</h2>

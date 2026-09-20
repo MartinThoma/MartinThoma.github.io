@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-24 20:00
 category: My bits and bytes
-tags: Cooking, Recipe, Italian, Sweet Dish
+tags: Cooking, Recipe, Italian
 featured_image: logos/cooking.png
 ---
 [Cantucci](https://en.wikipedia.org/wiki/Biscotti) are Italian almond biscuits.

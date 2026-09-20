@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-04-17 20:00
 category: Code
-tags: Python, Network, Speed, Internet, Traffic
+tags: Python, Speed, Internet, Traffic
 featured_image: logos/python.png
 ---
 I just wondered how fast some simple operations are (in Python). Like the lookup of an

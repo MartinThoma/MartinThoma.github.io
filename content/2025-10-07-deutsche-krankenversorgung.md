@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-10-07 20:00
 category: German posts
-tags: Politics, Germany, Health Care, Health
+tags: Politics, Germany, Health
 featured_image: logos/house.png
 status: draft
 ---

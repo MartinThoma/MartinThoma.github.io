@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-08-07 20:00
 category: Code
-tags: Data Formats, Machine Learning, AI
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 Transforming objects you have in memory into a structure which can be stored in

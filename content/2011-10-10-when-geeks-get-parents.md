@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: When Geeks become Parents
 slug: when-geeks-get-parents
+lang: en
 author: Martin Thoma
 date: 2011-10-10 07:54:07.000000000 +02:00
 category: The Web
-tags: Geek, Funny
+tags: Funny, Geek
 featured_image: 2011/10/baby-ogre-thumb.jpg
 ---
 It's so funny what happens when Geeks become parents.

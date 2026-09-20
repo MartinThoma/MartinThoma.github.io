@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-04-10 20:00
 category: Cyberculture
-tags: Automation, Shell, Productivity, Software Engineering
+tags: Shell, Productivity, Software Engineering
 featured_image: logos/star.png
 ---
 Many people work a significant amount of their time in front of a computer

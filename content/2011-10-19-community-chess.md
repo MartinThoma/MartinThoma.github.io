@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-10-19 12:30:01.000000000 +02:00
 category: The Web
-tags: Challenge, Open Source, Community-chess, Project
+tags: Challenge, Open Source, Project
 featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something useful and play a bit.

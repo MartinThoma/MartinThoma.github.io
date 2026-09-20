@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-05-03 20:43
 category: Code
-tags: HTML5, Sublime, Web Development
+tags: HTML5, Web Development
 featured_image: logos/html.png
 ---
 Once in a while I need to create simple HTML pages. This is the template

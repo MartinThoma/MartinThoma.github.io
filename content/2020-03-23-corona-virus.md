@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-23 20:00
 category: My bits and bytes
-tags: Medicine, Pandemic, Coronavirus, Data Science, Health
+tags: Medicine, Data Science, Health
 featured_image: logos/star.png
 ---
 The [Coronavirus](https://en.wikipedia.org/wiki/Coronavirus) runs around the

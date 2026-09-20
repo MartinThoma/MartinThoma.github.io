@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-29 20:00
 category: Code
-tags: Big Data, Python, Bash, Sorting, Data Science, Algorithms, Computer Science
+tags: Python, Bash, Sorting, Data Science, Algorithms, Computer Science
 featured_image: logos/python.png
 ---
 [Big Data](https://en.wikipedia.org/wiki/Big_data) was a common buzzword in

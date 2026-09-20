@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-08-11 14:51
 category: Code
-tags: SSH, Screen, Nohup, Software Engineering, Hardware
+tags: SSH, Software Engineering, Hardware
 featured_image: logos/shell.png
 ---
 ## Screen

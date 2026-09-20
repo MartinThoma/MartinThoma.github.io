@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-05-26 20:00
 category: Cyberculture
-tags: Programming, Software Engineering, Parallel Execution, Concurrency
+tags: Programming, Software Engineering
 featured_image: logos/star.png
 subtitle: What is the difference and why does it matter?
 medium_url: https://medium.com/plain-and-simple/synchronous-vs-asynchronous-vs-concurrent-vs-parallel-4342bfb8b9f2

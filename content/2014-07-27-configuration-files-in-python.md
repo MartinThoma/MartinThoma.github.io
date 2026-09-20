@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Configuration files in Python
 slug: configuration-files-in-python
+lang: en
 author: Martin Thoma
 date: 2014-07-27 15:46
 category: Code
-tags: Python, YAML, JSON, XML, INI, Configuration
+tags: Python, JSON, Configuration
 featured_image: logos/python.png
 ---
 Most interesting programs need some kind of configuration:

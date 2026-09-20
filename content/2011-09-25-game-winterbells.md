@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-25 10:12:43.000000000 +02:00
 category: The Web
-tags: JavaScript Game, Relaxing, Games
+tags: JavaScript Game, Games
 featured_image: 2011/09/Winterbells-300x200.png
 ---
 <b>Go to the Game</b>: <a href="http://www.ferryhalim.com/orisinal/g3/bells.htm" rel="nofollow">www.ferryhalim.com</a>

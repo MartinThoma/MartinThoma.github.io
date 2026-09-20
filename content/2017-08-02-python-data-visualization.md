@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-08-02 20:00
 category: Machine Learning
-tags: Data Visualization, Python, Vega, Matplotlib, Data Science
+tags: Data Visualization, Python, Matplotlib, Data Science
 featured_image: logos/ml.png
 ---
 Python has a lot of libraries for data visualization and I recently stumbled

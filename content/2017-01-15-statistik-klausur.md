@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2017-01-15 17:30
 category: German posts
-tags: Klausur, Statistik, University, Mathematics
+tags: Klausur, University, Mathematics
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Statistik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.math.kit.edu/stoch/~klar/de">Herrn Prof. Dr. Bernhard Klar</a> im Wintersemester 2016 / 2017 gehört.</div>

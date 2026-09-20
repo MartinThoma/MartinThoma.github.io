@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-03-14 20:00
 category: Cyberculture
-tags: Curl, Wget, Download
+tags: Download
 featured_image: logos/star.png
 ---
 I recently had to download large files (see [post](https://martin-thoma.com/download-data/)).

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-12-04 20:00
 category: German posts
-tags: Traffic, Autonomous Vehicles, Shuttle Buses, AI
+tags: Traffic, AI
 featured_image: logos/star.png
 status: draft
 ---

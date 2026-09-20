@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-09-04 11:42:45.000000000 +02:00
 category: German posts
-tags: BWInf, Bundeswettbewerb, Wettbewerb
+tags: BWInf
 featured_image: 2012/09/bwinf-thumb.png
 ---
 <figure class="alignright">

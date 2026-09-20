@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-03-06 11:35
 category: Cyberculture
-tags: Internet, WLAN, KIT, VPN, JNC, University, Security
+tags: Internet, KIT, VPN, University, Security
 featured_image: 2011/10/KIT-Logo.png
 ---
 This article is about how to get internet at KIT with Linux.

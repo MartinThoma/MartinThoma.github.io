@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-12-28 14:23:30.000000000 +01:00
 category: My bits and bytes
-tags: United States, Caricature
+tags: United States, Politics
 featured_image: 2011/12/tea-party.jpg
 ---
 I am not the first person you should ask if you want to know something about the United States. I've never been there and I know only one American. But I am reading quite a lot of websites which publish regularly political caricatures. This post is simply a collection of different caricatures I've stumbled over. For most of them I had to search the source, so I hope you will enjoy them.

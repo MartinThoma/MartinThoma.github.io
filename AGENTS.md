@@ -53,10 +53,7 @@ findings per article; remove an entry once it is fixed.
   techniques, puzzles, code golf). Language and tool tags such as `Python`, `Bash` or `Flask`
   do not imply it: an article that merely uses a language or a script is not about
   programming.
-* The hierarchy is defined in `scripts/apply_tag_hierarchy.py` (dictionary
-  `HIERARCHY`, parent → children). To add a tag to the hierarchy, edit it there and
-  run `python scripts/apply_tag_hierarchy.py`. The script is idempotent and appends
-  missing parent tags. Run it after adding tags to an article.
+
 
 **Video**
 
@@ -74,9 +71,6 @@ findings per article; remove an entry once it is fixed.
   page, e.g. Kongregate lists the technology). Games written in JavaScript get
   `JavaScript Game`.
 
-The old script `scripts/clean_tags.py` uses a different merge map (for example it
-merges `Web Development` into `Development`). Do not run it; these rules take
-precedence.
 
 ## Links
 

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-07-12 22:04:01.000000000 +02:00
 category: Code
-tags: Python, C, Java, GOTO, CPP
+tags: Python, C, Java, CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Goto">GOTO</a> is a statement of the early beginnings of programming. It is rarely used in high-level code today. Code that makes use of it is called <a href="http://en.wikipedia.org/wiki/Spaghetti_code">Spaghetti code</a> by some people. I have almost never seen goto statements in code, so I've been curious about them.

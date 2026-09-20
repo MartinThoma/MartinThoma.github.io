@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-07-06 20:00
 category: Code
-tags: EDA, CMO, Python
+tags: EDA, Python
 featured_image: logos/star.png
 ---
 Exploratory Data Analysis (EDA) is nice and easy if the entities you look at

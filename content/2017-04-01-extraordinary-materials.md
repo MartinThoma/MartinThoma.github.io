@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-04-01 20:00
 category: My bits and bytes
-tags: Cool, Science, Polymer, Carbon Nanotubes
+tags: Science
 featured_image: logos/education.png
 ---
 ## Line-X

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: The cost of fighting Terrorism with Bombs, Surveillance and Fear
 slug: cost-of-fighting-terrorism
+lang: en
 author: Martin Thoma
 date: 2016-03-07 10:49
 category: Cyberculture
-tags: Politics, Terrorism
+tags: Politics
 featured_image: logos/world.png
 ---
 George W. Bush started the [War on Terror](https://en.wikipedia.org/wiki/War_on_Terror)

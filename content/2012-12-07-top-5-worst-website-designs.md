@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-12-07 08:27:28.000000000 +01:00
 category: The Web
-tags: Design, TOP
+tags: Design
 featured_image: 2012/12/dokimos-thumb.png
 ---
 > **Note**: This article is from 2012. Many of these websites have likely been updated or may no longer exist. This serves as a historical reference for web design practices of that era.

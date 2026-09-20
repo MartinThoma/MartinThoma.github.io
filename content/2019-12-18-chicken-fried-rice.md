@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-18 20:00
 category: My bits and bytes
-tags: Cooking, Recipe, Chinese
+tags: Cooking, Recipe
 featured_image: logos/cooking.png
 ---
 Chicken with fried rice is nice for getting rid of leftovers.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-11-15 08:59:15.000000000 +01:00
 category: Cyberculture
-tags: Algorithms, Levenshtein Distance, ASR, WER, Computer Science, AI
+tags: Algorithms, ASR, Computer Science, AI
 featured_image: 2013/11/wer-thumb.png
 ---
 The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypothesis and is defined like this:

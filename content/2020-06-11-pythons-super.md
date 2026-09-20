@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-06-11 20:00
 category: Code
-tags: Python, Inheritance
+tags: Python
 featured_image: logos/python.png
 ---
 Python has a built-in function called [`super()`](https://docs.python.org/3/library/functions.html#super).

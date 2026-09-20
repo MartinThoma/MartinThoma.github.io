@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-12-30 21:29
 category: My bits and bytes
-tags: Graph Theory, Security, Mathematics
+tags: Security, Mathematics
 featured_image: 2013/06/three-color-example-graph.png
 ---
 <div class="info">This is a quick article I had for quite a while as a draft.

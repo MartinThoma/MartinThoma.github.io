@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-07-18 17:00:03.000000000 +02:00
 category: Code
-tags: Python, Command Line Arguments
+tags: Python
 featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Argparse</h2>

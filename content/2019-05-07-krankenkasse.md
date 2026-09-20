@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-05-07 20:00
 category: My bits and bytes
-tags: Health Insurance, Health, Germany
+tags: Health, Germany
 featured_image: logos/health.png
 ---
 <div class="info">This article is about German health insurances. It reflects a bit of my decision process for a health insurance and is most useful for people within Germany.</div>

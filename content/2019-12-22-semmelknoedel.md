@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-22 20:00
 category: My bits and bytes
-tags: Cooking, Recipe, German, Reste-Essen
+tags: Cooking, Recipe, German
 featured_image: logos/cooking.png
 ---
 [Semmelknödel](https://en.wikipedia.org/wiki/Semmelkn%C3%B6del) are a kind of

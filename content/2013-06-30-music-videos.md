@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-06-30 21:21:51.000000000 +02:00
 category: Cyberculture
-tags: Video, Chatroulette
+tags: Video
 featured_image: 2013/06/paint-thumb.png
 ---
 <h2>Paint: Lord of the Rings</h2>

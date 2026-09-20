@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-10-02 20:00
 category: My bits and bytes
-tags: Security, AppSec, 2FA, MFA, JWT, OAuth
+tags: Security, AppSec, 2FA, MFA
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/plain-and-simple/identification-vs-authentication-vs-authorization-e1f03a0ca885
 ---

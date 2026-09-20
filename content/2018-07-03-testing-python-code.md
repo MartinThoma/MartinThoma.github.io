@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2018-07-03 20:00
 category: Code
-tags: Testing, tox, pytest, Coverage, Python, Software Engineering
+tags: Testing, tox, pytest, Python, Software Engineering
 featured_image: logos/python.png
 ---
 Testing code is important for the following reasons:

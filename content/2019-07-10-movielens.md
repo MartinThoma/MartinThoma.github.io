@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-07-10 20:00
 category: My bits and bytes
-tags: Machine Learning, Recommendations, Movielens, AI
+tags: Machine Learning, Recommendations, AI
 featured_image: logos/ml.png
 ---
 I've recently been thinking a lot about recommendations and about building the

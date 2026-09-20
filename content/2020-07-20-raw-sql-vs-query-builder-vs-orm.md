@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: Code
-tags: SQL, ORM, SQLAlchemy, Pypika, Query Builder, Python, Database
+tags: SQL, SQLAlchemy, Python, Database
 featured_image: logos/db.png
 medium_url: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
 ---

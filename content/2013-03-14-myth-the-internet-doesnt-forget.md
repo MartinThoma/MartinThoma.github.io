@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Myth: The Internet doesn''t forget
+title: Myth: The Internet doesn't forget
 slug: myth-the-internet-doesnt-forget
 lang: en
 author: Martin Thoma
 date: 2013-03-14 12:01:58.000000000 +01:00
 category: The Web
-tags: YouTube, Copyright, Depublication
+tags: YouTube
 featured_image: 2013/03/youtube-logo.png
 ---
 I've created a <a href="https://www.youtube.com/watch?v=QDV4E9ldelM&list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2016-03-15 16:15
 category: Cyberculture
-tags: Review, Ratings
+tags: Review
 featured_image: logos/star.png
 ---
 I am often asked if I would like to review a book. So here is my answer to

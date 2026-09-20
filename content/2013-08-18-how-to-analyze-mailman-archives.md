@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-08-18 21:23:49.000000000 +02:00
 category: Cyberculture
-tags: Bash, Mailman, Discussion, Email
+tags: Bash, Email, Data Analysis
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 All mailing lists I use are <a

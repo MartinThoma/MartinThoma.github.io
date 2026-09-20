@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-12-07 00:31
 category: Cyberculture
-tags: Audio, Senses, HTML5, Web Development
+tags: Audio, HTML5, Web Development
 featured_image: logos/signal.png
 ---
 Our senses have a limited capability to distinguish signals. This might not be

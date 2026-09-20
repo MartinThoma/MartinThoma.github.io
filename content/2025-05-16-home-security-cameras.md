@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2025-05-11 20:00
 category: My bits and bytes
-tags: Cameras, Review, Smart Home, Home Assistant, Hardware, House
+tags: Review, Hardware, House
 featured_image: logos/money.png
 ---
 When I'm not at home, I still want to know if anything is happening. This is especially

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-10-03 20:00
 category: German posts
-tags: House, Money, Solar, Energy
+tags: House, Money, Energy
 featured_image: logos/house.png
 ---
 <figure class="wp-caption aligncenter img-thumbnail">

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2025-06-07 20:00
 category: My bits and bytes
-tags: Digital Sovereignty, Self-hosted, Cloud, ownCloud, NextCloud, OpenCloud
+tags: Digital Sovereignty, Self-hosted, Cloud
 featured_image: logos/earth.png
 status: draft
 ---

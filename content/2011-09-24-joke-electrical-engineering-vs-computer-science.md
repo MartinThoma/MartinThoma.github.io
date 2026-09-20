@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-24 22:29:05.000000000 +02:00
 category: Code
-tags: Funny, Joke, Object Orientation, Computer Science
+tags: Funny, Joke, Computer Science
 featured_image: 2011/09/Nerd-Crossing.jpg
 ---
 <figure class="alignright">

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 22:02:59.000000000 +02:00
 category: Code
-tags: Htaccess, Apache, Web Development
+tags: Apache, Web Development
 featured_image: 2011/09/Apache-Logo.png
 ---
 If your Website is running on an Apache2 Webserver, you can change the behavior of this server with .htaccess-files.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-11-28 20:00
 category: Code
-tags: Data Science, Random Number Generator, Python
+tags: Data Science, Python
 featured_image: logos/data-science.png
 ---
 Bucketing users into two groups is a key part of A/B testing. We need to randomly

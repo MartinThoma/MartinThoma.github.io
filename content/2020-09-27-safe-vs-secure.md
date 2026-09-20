@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-09-27 20:00
 category: My bits and bytes
-tags: Terminology, English, Safety, Security, DevOps, Software Engineering
+tags: Terminology, English, Security, DevOps, Software Engineering
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/plain-and-simple/safe-vs-secure-456ba5ebe95b
 ---

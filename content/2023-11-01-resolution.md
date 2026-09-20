@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2023-11-01 20:00
 category: My bits and bytes
-tags: Display, Monitor, DVD, TV, Hardware
+tags: Display, DVD, Hardware
 featured_image: logos/star.png
 ---
 This mini-article is about displays, monitors, and the quality of your movies.

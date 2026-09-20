@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Internet Traffic
 slug: internet-traffic
+lang: en
 author: Martin Thoma
 date: 2016-09-10 20:00
 category: Cyberculture
-tags: Internet, Traffic, Volume, DSL
+tags: Internet, Traffic
 featured_image: logos/internet.png
 ---
 Do you have any idea how much internet traffic (volume) you need? How much do

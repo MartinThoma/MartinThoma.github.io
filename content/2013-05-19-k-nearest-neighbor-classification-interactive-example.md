@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-05-19 15:23:11.000000000 +02:00
 category: Code
-tags: K-means, JavaScript, Canvas, Machine Learning, AI
+tags: Machine Learning, AI
 featured_image: 2013/05/k-means-interesting-setting-thumb.png
 ---
 <iframe src="../html5/clustering/clustering.htm" width="98%" height="700px"></iframe>

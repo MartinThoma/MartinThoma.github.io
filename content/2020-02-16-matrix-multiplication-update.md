@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-02-16 20:00
 category: Code
-tags: Python, CPP, Pypy
+tags: Python, CPP
 featured_image: logos/python.png
 ---
 In 2012, I wrote a series of articles about matrix

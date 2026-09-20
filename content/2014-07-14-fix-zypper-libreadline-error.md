@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-07-14 11:34
 category: Code
-tags: openSUSE, Linux
+tags: Linux
 featured_image: logos/open-suse.png
 ---
 In case you work on a openSUSE system and you get the following error

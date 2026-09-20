@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2018-11-26 20:00
 category: Code
-tags: Programming Languages, Python
+tags: Programming Languages
 featured_image: logos/star.png
 ---
 The topic of type systems keeps coming up when I hear people discuss
