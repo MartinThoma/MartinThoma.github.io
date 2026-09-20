@@ -30,6 +30,13 @@
         {% if article.modified %} · updated <time datetime="{{ article.modified.isoformat() }}">{{ article.modified.strftime('%b') }} {{ article.modified.strftime('%d')|int }}{{ article.modified.strftime(', %Y') }}</time>{% endif %}
         · by <a rel="author" class="vcard author post-author" itemprop="author" href="{{ SITEURL }}/{{ article.author.url }}"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">{{ article.author }}</span></span></a>
     </p>
+    {% if article.tags and article.tags[0]|trim|count > 0 %}
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        {% for tag in article.tags|sort %}
+        <li><a href="{{ SITEURL }}/tags/#{{ tag.slug }}-ref">{{ tag }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </header>
 
 {% if article.toc %}
@@ -53,19 +60,6 @@
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="{{ SITEURL }}/categories/#{{ article.category.slug }}-ref">{{ article.category }}</a>
-    </div>
-    {% endif %}
-    {% if article.tags and article.tags[0]|trim|count > 0 %}
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            {% for tag in article.tags|sort %}
-            <li><a href="{{ SITEURL }}/tags/#{{ tag.slug }}-ref">{{ tag }}
-                {% for aTag, tagged_articles in tags if aTag == tag %}
-                <span>{{ tagged_articles|count }}</span>
-                {% endfor %}</a></li>
-            {% endfor %}
-        </ul>
     </div>
     {% endif %}
     {% include '_includes/social_links.html' %}
