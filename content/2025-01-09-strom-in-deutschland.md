@@ -5,8 +5,8 @@ slug: strom-in-deutschland
 lang: de
 author: Martin Thoma
 date: 2025-01-11 20:00
-category: My bits and bytes
-tags: germany,german,politics,climate change,energy
+category: German posts
+tags: Germany, German, Politics, Climate Change, Energy
 featured_image: logos/germany.png
 ---
 Deutschland hat in den letzten Jahrzehnten beeindruckende Fortschritte bei der

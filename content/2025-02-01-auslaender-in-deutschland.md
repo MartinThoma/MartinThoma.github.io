@@ -5,8 +5,8 @@ slug: auslaender-in-deutschland
 lang: de
 author: Martin Thoma
 date: 2025-02-01 20:00
-category: My bits and bytes
-tags: germany,German posts,politics
+category: German posts
+tags: Germany, Politics
 featured_image: logos/germany.png
 ---
 <figure class="wp-caption aligncenter img-thumbnail">

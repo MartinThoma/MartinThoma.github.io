@@ -5,8 +5,8 @@ slug: diy-solarthermie
 lang: de
 author: Martin Thoma
 date: 2024-08-31 20:00
-category: My bits and bytes
-tags: diy,energy
+category: German posts
+tags: DIY, Energy
 featured_image: logos/star.png
 status: draft
 ---

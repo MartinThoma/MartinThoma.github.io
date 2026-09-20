@@ -5,8 +5,8 @@ slug: einbau-spots
 lang: de
 author: Martin Thoma
 date: 2025-09-11 20:00
-category: My bits and bytes
-tags: house,diy
+category: German posts
+tags: House, DIY
 featured_image: logos/house.png
 ---
 Ich werde hoffentlich noch dieses Jahr meine Küche renovieren und dabei einige

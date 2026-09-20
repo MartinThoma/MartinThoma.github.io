@@ -5,8 +5,8 @@ slug: deutsche-krankenversorgung
 lang: de
 author: Martin Thoma
 date: 2025-10-07 20:00
-category: My bits and bytes
-tags: politics, Germany, health care
+category: German posts
+tags: Politics, Germany, Health Care, Health
 featured_image: logos/house.png
 status: draft
 ---

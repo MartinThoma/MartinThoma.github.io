@@ -5,8 +5,8 @@ slug: bundestagswahl-2025
 lang: de
 author: Martin Thoma
 date: 2025-02-23 20:00
-category: My bits and bytes
-tags: germany,German posts,politics
+category: German posts
+tags: Germany, Politics
 featured_image: logos/germany.png
 ---
 Heute findet die Bundestagswahl 2025 statt, nachdem die Ampel-Regierung
@@ -23,6 +23,14 @@ um die Koalition zu sprengen.
     <a href="../images/2025/02/bundestagswahl-2025.png"><img src="../images/2025/02/bundestagswahl-2025.png" alt="Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude" style="max-height: 512px"/></a>
     <figcaption class="text-center">Mit Claude AI generierte Illustration: Eine Wahlurne mit Stimmzettel vor einem Parlamentsgebäude</figcaption>
 </figure>
+
+## Update: Wahlergebnis
+
+Die Wahl hat am 23. Februar 2025 stattgefunden ([Quelle](https://de.wikipedia.org/wiki/Bundestagswahl_2025)).
+Die Wahlbeteiligung lag bei 82,5%. Ergebnis: CDU/CSU 28,5%, AfD 20,8%, SPD 16,4%,
+Grüne 11,6%, Die Linke 8,8%, BSW 4,97% und FDP 4,3%. BSW und FDP sind damit
+knapp nicht in den Bundestag eingezogen. Es wurde eine Koalition aus CDU/CSU und
+SPD gebildet. Die Prognosen weiter unten können damit im Rückblick geprüft werden.
 
 ## Weltlage
 

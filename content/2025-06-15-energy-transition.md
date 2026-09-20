@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2025-06-15 20:00
 category: My bits and bytes
-tags: politics, energy
+tags: Politics, Energy
 featured_image: logos/earth.png
 status: draft
 ---

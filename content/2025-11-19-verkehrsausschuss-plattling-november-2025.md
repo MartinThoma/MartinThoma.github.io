@@ -5,8 +5,8 @@ slug: verkehrsausschuss-plattling-november-2025
 lang: de
 author: Martin Thoma
 date: 2025-11-19 20:00
-category: My bits and bytes
-tags: politics, traffic, plattling
+category: German posts
+tags: Politics, Traffic, Plattling
 featured_image: logos/germany.png
 ---
 <figure class="wp-caption aligncenter img-thumbnail">

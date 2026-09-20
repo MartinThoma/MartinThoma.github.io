@@ -5,8 +5,8 @@ slug: guenstiger-bauen
 lang: de
 author: Martin Thoma
 date: 2025-08-04 20:00
-category: My bits and bytes
-tags: German Politics, Hausbau
+category: German posts
+tags: German Politics, Hausbau, Politics, House
 featured_image: logos/earth.png
 ---
 Der Traum vom Eigenheim fühlt sich inzwischen für die meisten Menschen

@@ -5,8 +5,8 @@ slug: progressive-politik
 lang: de
 author: Martin Thoma
 date: 2024-09-07 20:00
-category: My bits and bytes
-tags: German Politics
+category: German posts
+tags: German Politics, Politics
 featured_image: logos/star.png
 status: draft
 ---

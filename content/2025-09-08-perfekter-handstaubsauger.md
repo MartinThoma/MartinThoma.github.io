@@ -5,8 +5,8 @@ slug: perfekter-akku-staubsauger
 lang: de
 author: Martin Thoma
 date: 2025-09-08 20:00
-category: My bits and bytes
-tags: foss, design, hardware
+category: German posts
+tags: Design, Hardware, Household
 featured_image: logos/perfect-design.png
 ---
 Es stört mich, dass es so viele Geräte mit schlechtem Design gibt.

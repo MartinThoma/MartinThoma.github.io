@@ -5,8 +5,8 @@ slug: schoko-power-muesli-mit-banane
 lang: de
 author: Martin Thoma
 date: 2025-08-15 20:00
-category: My bits and bytes
-tags: recipe
+category: German posts
+tags: Recipe, Cooking
 featured_image: logos/cooking.png
 ---
 Ein gesunder Start in den Tag.

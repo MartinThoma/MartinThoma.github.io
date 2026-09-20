@@ -5,8 +5,8 @@ slug: wirtschaftlichkeitsberechnung-pv-anlage
 lang: de
 author: Martin Thoma
 date: 2025-09-23 20:00
-category: My bits and bytes
-tags: house,photovoltaics
+category: German posts
+tags: House, Photovoltaics, Energy
 featured_image: logos/house.png
 ---
 Ich besitze seit rund zwei Jahren ein eigenes Haus und habe im Mai 2025 eine

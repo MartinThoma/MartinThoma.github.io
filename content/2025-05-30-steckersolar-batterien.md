@@ -5,8 +5,8 @@ slug: steckersolar-batterien-2025
 lang: de
 author: Martin Thoma
 date: 2025-05-30 20:00
-category: My bits and bytes
-tags: reviews, energy, photovoltaics
+category: German posts
+tags: Review, Energy, Photovoltaics, House
 featured_image: logos/earth.png
 ---
 Ich habe eine Steckersolaranlage, welche ab ca. April regelmäßig mittags mehr

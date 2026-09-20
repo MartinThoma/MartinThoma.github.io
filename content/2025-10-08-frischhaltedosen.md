@@ -5,8 +5,8 @@ slug: perfekter-frischhaltedosen
 lang: de
 author: Martin Thoma
 date: 2025-10-08 20:00
-category: My bits and bytes
-tags: foss, design, hardware
+category: German posts
+tags: Design, Hardware, Household
 featured_image: logos/perfect-design.png
 ---
 Ich habe gerade das Gefühl, dass es keine guten Frischhaltedosen gibt.

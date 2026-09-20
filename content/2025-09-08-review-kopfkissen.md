@@ -5,8 +5,8 @@ slug: review-broenning-daunenkissen
 lang: de
 author: Martin Thoma
 date: 2025-08-17 20:00
-category: My bits and bytes
-tags: review
+category: German posts
+tags: Review
 featured_image: logos/cooking.png
 status: draft
 ---

@@ -5,8 +5,8 @@ slug: bildungspolitik-ein-grund-fuer-teure-waermepumpen
 lang: de
 author: Martin Thoma
 date: 2025-11-09 20:00
-category: My bits and bytes
-tags: politics, heating, heat pumps
+category: German posts
+tags: Politics, Heating, Heat Pumps, House, Energy
 featured_image: logos/germany.png
 ---
 Schlechte Bildungspolitik kann uns volkswirtschaftlich teuer zu stehen kommen.

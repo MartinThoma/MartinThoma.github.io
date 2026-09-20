@@ -5,8 +5,8 @@ slug: rohkostsalat
 lang: de
 author: Martin Thoma
 date: 2025-08-17 20:00
-category: My bits and bytes
-tags: recipe
+category: German posts
+tags: Recipe, Cooking
 featured_image: logos/cooking.png
 ---
 Einen Rohkostsalat kann man recht schnell zubereiten und er ist eine gesunde und leckere Beilage.

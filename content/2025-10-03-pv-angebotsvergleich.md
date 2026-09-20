@@ -5,8 +5,8 @@ slug: pv-angebotsvergleich
 lang: de
 author: Martin Thoma
 date: 2025-10-03 20:00
-category: My bits and bytes
-tags: house, money, solar
+category: German posts
+tags: House, Money, Solar, Energy
 featured_image: logos/house.png
 ---
 <figure class="wp-caption aligncenter img-thumbnail">

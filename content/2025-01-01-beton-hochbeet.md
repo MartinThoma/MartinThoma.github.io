@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-04-01 20:00
 category: German posts
-tags: house, money, plants, diy
+tags: House, Money, Plants, DIY
 featured_image: logos/house.png
 status: draft
 ---

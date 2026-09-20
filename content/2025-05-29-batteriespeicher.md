@@ -5,8 +5,8 @@ slug: batteriespeicher
 lang: de
 author: Martin Thoma
 date: 2025-03-08 20:00
-category: My bits and bytes
-tags: German posts,energy
+category: German posts
+tags: Energy
 featured_image: logos/germany.png
 status: draft
 ---

@@ -5,8 +5,8 @@ slug: vision-fuer-deutschland
 lang: de
 author: Martin Thoma
 date: 2025-01-28 20:00
-category: My bits and bytes
-tags: German, German Politics
+category: German posts
+tags: German, German Politics, Politics
 featured_image: logos/germany.png
 status: draft
 ---
