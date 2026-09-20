@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-09-29 20:00
 category: German posts
-tags: Politics
+tags: Politics, Germany, Society
 featured_image: logos/house.png
 ---
 Wir schimpfen oft über Bürokratie und fordern ihren Abbau. Dabei wird häufig übersehen, dass Bürokratie auch viele Vorteile und wichtige Funktionen hat.

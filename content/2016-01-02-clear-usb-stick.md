@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to clear a USB stick
 slug: clear-usb-stick
+lang: en
 author: Martin Thoma
 date: 2016-01-02 22:57
 category: Cyberculture
-tags: USB-Stick
+tags: USB-Stick, Hardware, Security
 featured_image: logos/usb.png
 ---
 Once in a while I think it is time to reduce the damage being done by the loss

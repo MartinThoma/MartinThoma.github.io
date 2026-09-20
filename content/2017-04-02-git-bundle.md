@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-04-02 20:00
 category: Code
-tags: Git
+tags: Git, Command Line, Software Engineering
 featured_image: logos/git.png
 ---
 Sometimes you need to share code via E-Mail / stick. If the code you need to

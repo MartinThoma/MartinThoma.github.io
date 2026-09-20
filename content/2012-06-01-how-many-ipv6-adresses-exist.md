@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How many IPv6 adresses exist?
 slug: how-many-ipv6-adresses-exist
+lang: en
 author: Martin Thoma
 date: 2012-06-01 18:43:22.000000000 +02:00
 category: The Web
-tags: Numbers
+tags: Numbers, Internet
 ---
 <h2>Some general information</h2>
 <iframe width="512" height="288" src="//www.youtube.com/embed/-Uwjt32NvVA" frameborder="0" allowfullscreen></iframe>

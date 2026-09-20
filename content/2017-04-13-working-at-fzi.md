@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-04-13 20:00
 category: Cyberculture
-tags: Command Line
+tags: VPN, Work, Linux, Security
 featured_image: logos/star.png
 ---
 If you are writing your Bachelors or Masters thesis or if you're a HiWi at [FZI](https://en.wikipedia.org/wiki/Forschungszentrum_Informatik), you might find the following useful.

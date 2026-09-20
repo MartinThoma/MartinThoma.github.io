@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2018-09-30 20:00
 category: My bits and bytes
-tags: Security
+tags: Security, Internet, DNS
 featured_image: logos/star.png
 ---
 Failing to register the correct domain or failing to renew a domain is a massive

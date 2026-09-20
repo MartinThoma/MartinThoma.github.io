@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: What does #!/usr/bin/env python mean?
 slug: what-does-usrbinpython-mean
+lang: en
 author: Martin Thoma
 date: 2013-04-16 18:23:17.000000000 +02:00
 category: Code
-tags: Python
+tags: Python, Linux, Command Line
 featured_image: 2011/09/Python-Logo.png
 ---
 You've probably already seen one of the following lines:

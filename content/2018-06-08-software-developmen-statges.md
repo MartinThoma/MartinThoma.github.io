@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Stages of Software Development
 slug: software-development-stages
+lang: en
 author: Martin Thoma
 date: 2018-06-09 20:00
 category: Code
-tags: Software Engineering
+tags: Software Engineering, Project Management
 featured_image: logos/code.png
 ---
 Python's Trove Classifiers have 7 stages of software development:

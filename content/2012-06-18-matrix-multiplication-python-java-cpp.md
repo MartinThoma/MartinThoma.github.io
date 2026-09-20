@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-06-18 21:37:46.000000000 +02:00
 category: Code
-tags: Python, CPP, Java, Linear Algebra, NumPy, Boost, SciPy, Matrix Multiplication, Performance, Mathematics, Matrix
+tags: Python, Java, CPP, Performance, Matrix, Linear Algebra, Mathematics
 featured_image: 2011/09/Python-Logo.png
 ---
 <div class="info">This is Part I of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-06-21 20:00
 category: My bits and bytes
-tags: Code
+tags: Security, Software Engineering, Web Development
 featured_image: logos/star.png
 status: draft
 ---

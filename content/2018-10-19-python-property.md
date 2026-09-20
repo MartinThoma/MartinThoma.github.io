@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python property
 slug: python-property
+lang: en
 author: Martin Thoma
 date: 2018-10-19 20:00
 category: Code
-tags: Python
+tags: Python, Programming
 featured_image: logos/python.png
 ---
 Python has a built-in decorator `@property`. In this article, you will learn

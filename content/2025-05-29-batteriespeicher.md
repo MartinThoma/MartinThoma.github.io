@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-03-08 20:00
 category: German posts
-tags: Energy
+tags: Energy, Photovoltaics, House
 featured_image: logos/germany.png
 status: draft
 ---

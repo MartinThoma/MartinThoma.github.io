@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Collaborative Filtering
 slug: collaborative-filtering
+lang: en
 author: Martin Thoma
 date: 2016-02-10 21:35
 category: Machine Learning
-tags: Rating
+tags: Machine Learning, Recommendations, AI
 featured_image: logos/ai.png
 ---
 Suppose you are in the Netflix setting: You have <span markdown="0">$M$</span>

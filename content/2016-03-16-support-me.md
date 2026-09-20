@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Support Me
 slug: support-me
+lang: en
 author: Martin Thoma
 date: 2016-03-16 11:03
 category: Cyberculture
-tags: Blog
+tags: Blog, Community
 featured_image: logos/web.png
 ---
 <div class="info">In case you wanted to read something about me, go to the <a href="https://martin-thoma.com/author/martin-thoma/">about me page</a>.</div>

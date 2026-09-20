@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-18 20:00
 category: My bits and bytes
-tags: Money
+tags: Money, Investment
 featured_image: logos/money.png
 ---
 Recently, I started to think way more seriously about my finances. I think I

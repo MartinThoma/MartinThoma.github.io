@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-12 17:00:14.000000000 +02:00
 category: German posts
-tags: Mathematics
+tags: Mathematics, Algebra, University
 featured_image: 2012/08/pi-thumbnail.png
 ---
 Ich verstehe unter einer wohldefinierten Funktion / Relation die Unabhängigkeit von den Repräsentanten. Wikipedia sagt dazu:

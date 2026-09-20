@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: My bits and bytes
-tags: Python
+tags: Python, Programming
 featured_image: logos/python.png
 medium_url: https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8
 ---

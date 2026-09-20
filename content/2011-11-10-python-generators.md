@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Generators
 slug: python-generators
+lang: en
 author: Martin Thoma
 date: 2011-11-10 08:24:00.000000000 +01:00
 category: Code
-tags: Python
+tags: Python, Programming
 featured_image: 2011/09/Python-Logo.png
 ---
 Python has a quite mighty tool: Generators.

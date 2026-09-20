@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-06-05 20:00
 category: My bits and bytes
-tags: Hardware
+tags: Hardware, Linux, Performance
 featured_image: logos/star.png
 ---
 I just realized that my ThinkPad T460p gets really loud. I suspect that there

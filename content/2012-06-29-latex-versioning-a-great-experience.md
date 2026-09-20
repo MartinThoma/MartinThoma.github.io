@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-06-29 22:52:03.000000000 +02:00
 category: Cyberculture
-tags: LaTeX
+tags: LaTeX, Git, Productivity
 ---
 Some people keep asking me questions like "Why do you use LaTeX?" - "Wouldn't it be faster to do it with Word?"
 

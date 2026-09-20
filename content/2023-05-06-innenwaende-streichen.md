@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-05-06 20:00
 category: German posts
-tags: DIY
+tags: DIY, House, Home Improvement
 featured_image: logos/house.png
 ---
 Ich muss gerade viel streichen, daher hier ein paar Grundlagen.

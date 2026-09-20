@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Amazons Power
 slug: amazons-power
+lang: en
 author: Martin Thoma
 date: 2017-05-07 20:00
 category: Cyberculture
-tags: Amazon
+tags: Amazon, Economics, Society
 featured_image: logos/star.png
 ---
 Once in a while I see people demanding to buy products in stores rather than on

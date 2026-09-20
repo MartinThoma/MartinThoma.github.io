@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-01-27 20:00
 category: Code
-tags: Blockchain
+tags: Blockchain, Data Structures, Hash, Computer Science, Security
 featured_image: logos/bitcoin.png
 subtitle: The concept and applications - plain and simple!
 medium_url: https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094

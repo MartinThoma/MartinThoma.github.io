@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Comparing Cameras
 slug: comparing-cameras
+lang: en
 author: Martin Thoma
 date: 2018-03-21 20:00
 category: My bits and bytes
-tags: Rating
+tags: Camera, Review, Hardware
 featured_image: logos/star.png
 ---
 I have a Panasonic Lumix DMC-TZ40. It's about 3 years old and I'm thinking

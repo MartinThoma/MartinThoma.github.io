@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2024-11-07 20:00
 category: My bits and bytes
-tags: Products
+tags: Review, Camera, Hardware
 featured_image: logos/star.png
 status: draft
 ---

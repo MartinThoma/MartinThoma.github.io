@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Configurig gEdit for developers
 slug: configurig-gedit-for-developers
+lang: en
 author: Martin Thoma
 date: 2011-12-08 23:10:19.000000000 +01:00
 category: Cyberculture
-tags: Programming
+tags: gedit, Editor, Linux
 featured_image: 2011/12/gedit.png
 ---
 <a href="http://en.wikipedia.org/wiki/Gedit">gedit</a> is a very lightweight text editor. It supports syntax highlighting for every programming language I can think of and is highly customizable.

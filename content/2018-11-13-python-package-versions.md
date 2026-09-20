@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Package Versions
 slug: python-package-versions
+lang: en
 author: Martin Thoma
 date: 2018-11-13 20:00
 category: Code
-tags: Python
+tags: Python, Packaging, Software Versioning, Software Engineering
 featured_image: logos/python.png
 ---
 Python packages should (must?) have a version. It would be best if that

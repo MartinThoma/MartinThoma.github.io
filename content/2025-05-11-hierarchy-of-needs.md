@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2025-05-11 20:00
 category: My bits and bytes
-tags: Economics
+tags: Economics, Society
 featured_image: logos/money.png
 status: draft
 ---

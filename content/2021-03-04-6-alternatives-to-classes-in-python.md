@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-03-04 20:00
 category: Cyberculture
-tags: Python
+tags: Python, Programming, Software Engineering
 featured_image: logos/python.png
 subtitle: Speed of development, execution time, (de)serialization, and maintainability all play a role in making your code shine
 medium_url: https://betterprogramming.pub/6-alternatives-to-classes-in-python-6ecb7206377

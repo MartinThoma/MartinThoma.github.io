@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Video Display Interfaces
 slug: video-display-interfaces
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: Cyberculture
-tags: Hardware
+tags: Hardware, Display
 featured_image: logos/usb.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>

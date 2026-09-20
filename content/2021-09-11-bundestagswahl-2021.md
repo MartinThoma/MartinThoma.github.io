@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2021-09-11 20:00
 category: German posts
-tags: Politics, SPD, CDU, CSU, LINKE, Grüne, FDP, Bundestagswahl
+tags: Politics, Bundestagswahl, German Politics
 featured_image: logos/germany.png
 ---
 Die [Bundestagswahl 2021](https://de.wikipedia.org/wiki/Bundestagswahl_2021)

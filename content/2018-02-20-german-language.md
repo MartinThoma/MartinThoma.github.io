@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: German Language
 slug: german-language
+lang: en
 author: Martin Thoma
 date: 2018-02-20 20:00
 category: My bits and bytes
-tags: Language
+tags: Language, German, Learning
 featured_image: logos/germany.png
 ---
 [German](https://en.wikipedia.org/wiki/German_language) is one of the many

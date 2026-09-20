@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2016-09-04 13:00
 category: German posts
-tags: Studienstiftung
+tags: Studienstiftung, University, Education
 featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Eine Sommerakademie ist eine Veranstaltung der Studienstiftung des deutschen

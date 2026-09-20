@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to typeset chess games with LaTeX
 slug: typeset-chess-games
+lang: en
 author: Martin Thoma
 date: 2017-01-08 06:00:00
 category: Cyberculture
-tags: LaTeX
+tags: LaTeX, Chess
 featured_image: logos/latex.png
 ---
 <h2>Chessboard</h2>

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-03-03 20:00
 category: German posts
-tags: Politics
+tags: Politics, Germany, Money
 featured_image: logos/germany.png
 ---
 Ab wann ist man reich? Wann ist man arm?

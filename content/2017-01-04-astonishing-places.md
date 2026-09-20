@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Astonishing Places
 slug: astonishing-places
+lang: en
 author: Martin Thoma
 date: 2017-01-04 10:00
 category: My bits and bytes
-tags: Nature
+tags: Nature, Geography, Travel
 featured_image: logos/nature.png
 ---
 There are some places which look astonishing. I would like to visit them and

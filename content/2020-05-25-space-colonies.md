@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: My bits and bytes
-tags: My Bits and Bytes
+tags: Space, Science
 featured_image: logos/space.png
 status: draft
 ---

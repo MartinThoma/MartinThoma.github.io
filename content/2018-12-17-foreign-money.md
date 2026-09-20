@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to get foreign currencies
 slug: foreign-money
+lang: en
 author: Martin Thoma
 date: 2018-12-17 20:00
 category: My bits and bytes
-tags: Traveling
+tags: Traveling, Money, Banking
 featured_image: logos/money.png
 ---
 Getting foreign currencies is a bit of a hassle. I'm from Germany (EUR), so

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-12-17 20:00
 category: My bits and bytes
-tags: Activities
+tags: Activities, Munich, Travel
 featured_image: logos/munich.png
 ---
 ## Swimming

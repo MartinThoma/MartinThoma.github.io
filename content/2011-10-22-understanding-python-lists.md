@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-10-22 23:01:55.000000000 +02:00
 category: Code
-tags: Python
+tags: Python, Data Structures, Computer Science
 featured_image: 2011/09/Python-Logo.png
 ---
 This article is about Python lists. I want to show you some examples of

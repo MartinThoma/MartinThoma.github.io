@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Colors in LaTeX
 slug: colors-in-latex
+lang: en
 author: Martin Thoma
 date: 2016-11-20 20:00
 category: Cyberculture
-tags: LaTeX
+tags: LaTeX, Color, Tikz
 featured_image: logos/latex.png
 ---
 LaTeX knows the following colors without any packages:

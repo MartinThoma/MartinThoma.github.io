@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-30 20:00
 category: Code
-tags: Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound, Python, Computer Science
+tags: Backtracking, Branch-and-Bound, CSP, Python, Operations Research, Algorithms, Computer Science
 featured_image: logos/ai.png
 ---
 Backtracking is a concept for solving discrete constraint satisfaction problems

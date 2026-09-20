@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: Code
-tags: Python
+tags: Python, Software Engineering, Packaging
 featured_image: logos/star.png
 status: draft
 ---

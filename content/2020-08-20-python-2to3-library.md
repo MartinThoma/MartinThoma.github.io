@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-08-20 20:00
 category: Code
-tags: Python
+tags: Python, Software Engineering, Packaging
 featured_image: logos/python.png
 medium_url: https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1
 ---

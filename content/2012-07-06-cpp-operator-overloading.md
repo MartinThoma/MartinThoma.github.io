@@ -7,7 +7,7 @@ lang: en
 author: Martin Thoma
 date: 2012-07-06 16:00:22.000000000 +02:00
 category: Code
-tags: CPP
+tags: CPP, Programming
 featured_image: 2012/05/CPP-thumb.png
 ---
 Operator overloading is heavily used in mathematics. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$, you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus sign when you add matrices (which is obviously something different than adding single numbers).

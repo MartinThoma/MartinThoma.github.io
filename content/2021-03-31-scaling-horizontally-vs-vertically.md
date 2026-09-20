@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-03-31 20:00
 category: Code
-tags: Scaling
+tags: Scaling, Software Architecture, DevOps, Software Engineering
 featured_image: logos/star.png
 subtitle: Be smart or throw money at the problem
 medium_url: https://medium.com/plain-and-simple/scaling-vertically-vs-scaling-horizontally-82547a77d925

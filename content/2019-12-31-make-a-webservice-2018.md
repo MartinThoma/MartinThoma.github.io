@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: The Web
-tags: Web Development
+tags: Web Development, Web Services, Software Engineering
 featured_image: logos/star.png
 ---
 I started doing web-stuff again! There are a gazillion decisions to make when

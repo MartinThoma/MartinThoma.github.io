@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Formatting Strings in Python
 slug: formatting-strings-python
+lang: en
 author: Martin Thoma
 date: 2013-11-07 20:05:33.000000000 +01:00
 category: Code
-tags: Python
+tags: Python, Programming
 featured_image: 2011/09/Python-Logo.png
 ---
 In Python, you can use the following ways to format Strings:

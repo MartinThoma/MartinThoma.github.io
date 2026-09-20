@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2019-04-30 20:00
 category: German posts
-tags: Cooking
+tags: Cooking, Food
 featured_image: logos/cooking.png
 ---
 <div class="info">This is a German post about cooking, explaining the difference between whipped cream (Schlagsahne) and sour cream (Saure Sahne). Cooking. Not Computer Science / ML / hiking 🙂</div>

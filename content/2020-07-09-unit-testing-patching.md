@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-07-09 17:00
 category: Code
-tags: Python, Unit Testing, pytest, Patching, Mock, Dependency-injection, Software Engineering, Testing
+tags: Python, Unit Testing, pytest, Mock, Dependency-injection, Software Engineering, Testing
 featured_image: logos/python.png
 medium_url: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
 ---

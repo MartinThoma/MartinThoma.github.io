@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-04-01 20:00
 category: Code
-tags: Database
+tags: Database, Performance, Software Engineering
 featured_image: logos/db.png
 subtitle: “If everything seems under control, you’re not going fast enough”
 medium_url: https://betterprogramming.pub/8-techniques-to-speed-up-your-database-292754ff7739

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2023-11-21 20:00
 category: My bits and bytes
-tags: Games
+tags: Games, Hardware, Review
 featured_image: logos/star.png
 ---
 Helping you to find a nice gaming console. I have a Switch, but I am thinking

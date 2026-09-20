@@ -2,10 +2,11 @@
 layout: post
 title: Why do we use references?
 slug: why-references
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: Cyberculture
-tags: Science
+tags: Science, Academia, Papers
 featured_image: logos/science.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-03-27 12:05:01.000000000 +02:00
 category: The Web
-tags: Illusion
+tags: Illusion, Art, Science
 featured_image: 2012/03/fraser-spiral-illusion-thumb.png
 ---
 Some really great and short examples of illusions. If you want an explanation of them, I have added a link to the corresponding Wikipedia article.

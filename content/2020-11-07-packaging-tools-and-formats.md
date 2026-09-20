@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-11-07 20:00
 category: My bits and bytes
-tags: Python, Packaging, Pip, Pyenv, venv, virtualenv, Pipx, Pipenv, Pip-tools, setup.py, requirements.txt, Requirements.in, Pipfile, Pipfile.lock, Twine, Poetry, Flit, Hatch
+tags: Python, Packaging, Pip, Poetry, Pipenv, virtualenv
 featured_image: logos/python.png
 subtitle: 16 solutions to 9 problems — which ones do you know?
 medium_url: https://towardsdatascience.com/packaging-in-python-tools-and-formats-743ead5f39ee

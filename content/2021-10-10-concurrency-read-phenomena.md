@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-05-31 20:00
 category: Cyberculture
-tags: Rating
+tags: Database, SQL, Software Engineering
 featured_image: logos/star.png
 status: draft
 ---

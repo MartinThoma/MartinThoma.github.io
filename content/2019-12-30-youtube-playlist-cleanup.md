@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-30 20:00
 category: My bits and bytes
-tags: YouTube
+tags: YouTube, Video, Music
 featured_image: logos/star.png
 ---
 There are so many interesting videos to watch. For some of them, I wanted to

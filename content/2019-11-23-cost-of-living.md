@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-11-23 20:00
 category: My bits and bytes
-tags: Money
+tags: Money, Statistics
 featured_image: logos/money.png
 ---
 How expensive is my style of living? How different would it be in other parts

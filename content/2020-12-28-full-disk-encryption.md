@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-12-28 20:00
 category: Security
-tags: Security
+tags: Security, Encryption, Linux
 featured_image: logos/star.png
 subtitle: Keep your data private, even if you lose your device
 medium_url: https://medium.com/faun/full-disk-encryption-2090489f9760

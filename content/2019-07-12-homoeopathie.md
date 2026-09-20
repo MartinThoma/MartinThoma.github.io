@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2019-07-12 20:00
 category: German posts
-tags: German posts
+tags: Health, Medicine, Science
 featured_image: logos/star.png
 ---
 <div class="info">This post is about <a href="https://en.wikipedia.org/wiki/Homeopathy">Homeopathy</a>. If you want to read it, try <a href="https://www.deepl.com/translate">deepl.com</a></div>

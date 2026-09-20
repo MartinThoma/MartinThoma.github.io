@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-06-16 20:00
 category: My bits and bytes
-tags: House
+tags: House, Building
 featured_image: logos/house.png
 status: draft
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-11-15 10:29
 category: My Bits and Bytes
-tags: Politics
+tags: Politics, Society
 featured_image: logos/france.png
 ---
 Recently, a huge terrorist attack happened in France (see

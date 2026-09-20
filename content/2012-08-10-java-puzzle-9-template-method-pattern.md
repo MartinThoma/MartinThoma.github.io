@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-08-10 17:00:33.000000000 +02:00
 category: Code
-tags: Programming, Java, SWT I, Puzzle, Design Pattern, KIT, University, Software Engineering
+tags: Java, Puzzle, Design Pattern, KIT, University, Software Engineering, Programming
 featured_image: 2012/07/java-thumb.png
 ---
 The following Java Puzzle is an example for the <a href="http://en.wikipedia.org/wiki/Template_method_pattern">template method pattern</a>. It is a design pattern by the <a href="http://en.wikipedia.org/wiki/Design_Patterns">Gang of Four</a>.

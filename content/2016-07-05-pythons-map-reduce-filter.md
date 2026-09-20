@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Pythons map, reduce and filter as list comprehensions
 slug: python-map-reduce-filter
+lang: en
 author: Martin Thoma
 date: 2016-07-05 20:00
 category: Code
-tags: Python
+tags: Python, Programming
 featured_image: logos/python.png
 ---
 I recently was challenged to re-write Pythons `map`, `reduce` and `filter` as

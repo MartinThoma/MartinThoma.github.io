@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-11 20:00
 category: Code
-tags: Software Engineering
+tags: Software Engineering, Software Architecture
 featured_image: logos/star.png
 ---
 My mentee recently asked me what software architecture is. How do you draw

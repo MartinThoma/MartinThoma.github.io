@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: My bits and bytes
-tags: LaTeX
+tags: LaTeX, Academia, Papers
 featured_image: logos/latex.png
 ---
 Managing citations is a core task when writing scientific documents. Of course,

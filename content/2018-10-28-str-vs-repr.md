@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python's str vs repr
 slug: str-vs-repr
+lang: en
 author: Martin Thoma
 date: 2018-10-28 20:00
 category: Code
-tags: Python
+tags: Python, Programming
 featured_image: logos/python.png
 ---
 The goal of `__repr__` is to be unambiguous and the goal of `__str__` is to be readable. Bonus points if `__repr__` returns what is needed to create the object. Some examples are:
@@ -98,9 +98,9 @@ import enum
 class ExistsStrategy(enum.Enum):
     """Strategies what to do when a file already exists."""
 
-    RAISE = 'raise'
-    REPLACE = 'replace'
-    ABORT = 'abort'
+    RAISE = "raise"
+    REPLACE = "replace"
+    ABORT = "abort"
 
 
 print(str(ExistsStrategy.RAISE))

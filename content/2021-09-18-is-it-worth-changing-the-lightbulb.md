@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-09-18 20:00
 category: Cyberculture
-tags: Rating
+tags: Energy, Money, Household
 featured_image: logos/lightbulb-on.png
 subtitle: Switching for a more efficient lightbulb for economic reasons
 medium_url: https://medium.com/plain-and-simple/is-it-worth-changing-the-lightbulb-74cb0dea242e

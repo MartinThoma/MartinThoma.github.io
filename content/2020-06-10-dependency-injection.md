@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-06-10 20:00
 category: My bits and bytes
-tags: Code
+tags: Dependency-injection, Software Engineering, Design Pattern
 featured_image: logos/star.png
 status: draft
 ---

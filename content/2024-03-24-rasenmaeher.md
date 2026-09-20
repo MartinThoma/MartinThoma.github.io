@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-03-24 20:00
 category: German posts
-tags: House
+tags: House, Review, Garden
 featured_image: logos/house.png
 ---
 Ich habe einen Garten mit ca. 400m² und brauche einen Rasenmäher. Das sind meine

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Plotting function graphs with LaTeX
 slug: plotting-function-graphs-with-latex
+lang: en
 author: Martin Thoma
 date: 2012-01-28 00:17:26.000000000 +01:00
 category: My bits and bytes
-tags: LaTeX
+tags: LaTeX, Tikz, Mathematics, Visualization
 featured_image: logos/latex.png
 ---
 It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me.

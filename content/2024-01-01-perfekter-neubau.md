@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-01-01 20:00
 category: German posts
-tags: House
+tags: House, Building, Architecture
 featured_image: logos/house.png
 ---
 Ich habe mir einen Altbau gekauft, aber ein Neubau wäre schon echt cool. In

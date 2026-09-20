@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2025-08-17 20:00
 category: German posts
-tags: Review
+tags: Review, Household, Health
 featured_image: logos/cooking.png
 status: draft
 ---

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Comparing programming languages
 slug: comparing-programming-languages
+lang: en
 author: Martin Thoma
 date: 2011-12-11 11:50:59.000000000 +01:00
 category: Code
-tags: Programming
+tags: Programming, Programming Language
 featured_image: 2011/12/compare-programming-languages.png
 ---
 <figure class="alignright">

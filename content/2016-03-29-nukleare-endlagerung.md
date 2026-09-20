@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2016-03-29 11:13
 category: German posts
-tags: Politics
+tags: Politics, Energy, Germany
 featured_image: logos/science.png
 ---
 Das Finden eines Endlagers für unsere nuklearen Abfälle ist seit etwa 1963

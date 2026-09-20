@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-13 20:00
 category: Code
-tags: Algorithm, Python, Two-pointer Algorithms, Graph-algorithm, Competitive Programming, Programming, Algorithms, Computer Science
+tags: Graph-algorithm, Two-pointer Algorithms, Python, Competitive Programming, Algorithms, Computer Science, Programming
 featured_image: logos/star.png
 status: draft
 ---

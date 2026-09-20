@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
-tags: Git
+tags: Git, Statistics, Software Engineering
 featured_image: logos/git.png
 ---
 I've just received a letter that the SciPy community will write a "scipy 1.0"

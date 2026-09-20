@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-09-29 20:00
 category: Code
-tags: Database, Redis, MySQL, MariaDB, Postgres, Pickledb, Python, NoSQL, Sysbench, DBaaS
+tags: Redis, MySQL, Postgres, NoSQL, Python, Benchmark, Database
 featured_image: logos/db.png
 ---
 [Key-value stores](https://en.wikipedia.org/wiki/Key-value_database) are

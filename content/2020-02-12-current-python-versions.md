@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-02-12 20:00
 category: Code
-tags: Python
+tags: Python, Software Versioning, Software Engineering
 featured_image: logos/python.png
 ---
 Which Python versions should my library support?

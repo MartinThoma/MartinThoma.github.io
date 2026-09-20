@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-04-25 20:00
 category: My bits and bytes
-tags: Web Development
+tags: Web Development, Software Architecture, Software Engineering
 featured_image: logos/star.png
 status: draft
 ---

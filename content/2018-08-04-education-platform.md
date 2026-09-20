@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Education platform
 slug: education-platform
+lang: en
 author: Martin Thoma
 date: 2018-08-04 20:00
 category: My bits and bytes
-tags: Education
+tags: Education, Learning, Idea
 featured_image: logos/education.png
 ---
 Learning is a core part of human development. Children want to understand the

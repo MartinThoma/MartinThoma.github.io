@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-12-05 20:00
 category: German posts
-tags: House
+tags: House, Building, DIY
 featured_image: logos/house.png
 ---
 <table>
