@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-06-24 12:43
 category: Code
-tags: Web Development, Python, Java, JavaScript, PHP, Go, Rust
+tags: Web Development, Python, Java, JavaScript, PHP, Rust
 featured_image: logos/java-programming.png
 ---
 What programming language would I use for the back end of a big, new project in

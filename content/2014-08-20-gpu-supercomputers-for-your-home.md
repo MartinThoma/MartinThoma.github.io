@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: GPUs - Supercomputers for your home
 slug: gpu-supercomputers-for-your-home
+lang: en
 author: Martin Thoma
 date: 2014-08-20 23:26
 category: Machine Learning
-tags: Python, Theano, GPU, nVidea, CUDA, AI, Machine Learning
+tags: Python, AI, Machine Learning
 featured_image: logos/nvidia.png
 ---
 A few days ago I got some of my neural net code to work with a GPU.

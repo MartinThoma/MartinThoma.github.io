@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 19:28:02.000000000 +02:00
 category: Code
-tags: Brainfuck, Programming, Whitespace, Python
+tags: Programming, Python
 ---
 Have you ever heard of polyglots? This is so crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreted as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made: <a href="https://gist.github.com/MartinThoma/4bc57260c36dea4ce9ce90999f4e81f7">public gist</a>
 

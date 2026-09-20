@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Calculate square roots
 slug: calculate-square-roots
+lang: en
 author: Martin Thoma
 date: 2013-06-06 20:54:10.000000000 +02:00
 category: Cyberculture
-tags: CPP, GMP
+tags: CPP
 featured_image: 2013/06/sqrt-2.png
 ---
 Suppose you have an equation like this:

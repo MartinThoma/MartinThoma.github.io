@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-01-23 14:39
 category: Code
-tags: Python, GTK, Qt, Tkinter
+tags: Python, GUI
 featured_image: logos/gui-programming.png
 ---
 A graphical user interface (GUI) is essential for applications which should be

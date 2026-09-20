@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-07-27 20:00
 category: Machine Learning
-tags: NLP, Reuters, Classification, Machine Learning, Python, AI
+tags: NLP, Classification, Machine Learning, Python, AI
 featured_image: logos/ml.png
 ---
 Reuters is a benchmark dataset for [document classification](https://martin-thoma.com/document-classification/).

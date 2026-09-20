@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-10-19 18:57:30.000000000 +02:00
 category: German posts
-tags: Linux, Ubuntu, Review, Acer, Notebook, Hardware
+tags: Linux, Ubuntu, Review, Notebook, Hardware
 featured_image: 2011/09/Tux.png
 itemtype: http://schema.org/Review
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-02 20:00
 category: Machine Learning
-tags: Data Engineering, Data Science, AWS, Kafka, IaC, DevOps, Software Engineering
+tags: Data Science, AWS, Inter-Process Communication, IaC, DevOps, Software Engineering
 featured_image: logos/star.png
 ---
 "Data is the new oil", "we need to be data-driven",
