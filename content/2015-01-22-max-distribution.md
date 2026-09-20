@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Distribution of Random Variables when max gets applied
 slug: max-distribution
+lang: en
 author: Martin Thoma
 date: 2015-01-22 11:07
 category: Mathematics
-tags: Probability Theory, Python, numpy, matplotlib
+tags: Probability Theory, Python, NumPy, Matplotlib, Probability, Mathematics
 featured_image: logos/mathematics.png
 ---
 I just wanted to solve an exercise where I had random variables $X_1, \dots, X_n$

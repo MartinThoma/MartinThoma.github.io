@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-01-21 14:54
 category: Cyberculture
-tags: Bugs, Issues, Software Quality, User Experience, Caja, Chrome
+tags: Bugs, Issues, Software Quality, User Experience, Caja, Chrome, Software Engineering
 featured_image: logos/bug.png
 ---
 Bug reporting is extremely important. It helps developers to get aware of

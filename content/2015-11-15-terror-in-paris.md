@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Terror in Paris
 slug: terror-in-paris
+lang: en
 author: Martin Thoma
 date: 2015-11-15 10:29
 category: My Bits and Bytes
-tags: politics
+tags: Politics
 featured_image: logos/france.png
 ---
 Recently, a huge terrorist attack happened in France (see

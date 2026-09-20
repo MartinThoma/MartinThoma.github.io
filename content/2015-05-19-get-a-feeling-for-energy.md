@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Getting a Feeling for Energy
 slug: get-a-feeling-for-energy
+lang: en
 author: Martin Thoma
 date: 2015-05-19 19:17
 category: Cyberculture
-tags: Energy, Politics, Poverty, Physics
+tags: Energy, Politics, Poverty, Physics, Science
 featured_image: logos/energy.png
 ---
 Have you heard of [GravityLight](https://www.indiegogo.com/projects/gravitylight-made-in-africa/x/7191655#/story)?

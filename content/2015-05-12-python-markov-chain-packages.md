@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Markov Chain Packages
 slug: python-markov-chain-packages
+lang: en
 author: Martin Thoma
 date: 2015-05-12 20:45
 category: Code
-tags: Python, Markov Chain
+tags: Python, Markov Chain, Probability, Mathematics
 featured_image: logos/python.png
 ---
 Markov Chains are probabilistic processes which depend only on the previous

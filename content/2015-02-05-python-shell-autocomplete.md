@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Shell autocomplete
 slug: python-shell-autocomplete
+lang: en
 author: Martin Thoma
 date: 2015-02-05 09:58
 category: Code
-tags: Python, Shell, Software Development
+tags: Python, Shell, Software Engineering
 featured_image: logos/python.png
 ---
 One feature I really miss in Pythons interactive shell is tab autocompletion.

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Echtzeitsysteme - Klausur
 slug: echtzeitsysteme-klausur
+lang: de
 author: Martin Thoma
 date: 2015-04-14 20:43
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Echtzeitsysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://rob.ipr.kit.edu/mitarbeiter_96.php">Herrn Prof. Dr. Wörn</a> im Sommersemester 2015 gehört.</div>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Tensor Flow - A quick impression
 slug: tensor-flow-quick
+lang: en
 author: Martin Thoma
 date: 2015-11-11 22:33
 category: Machine Learning
-tags: Machine Learning, Python, Tensorflow
+tags: Machine Learning, Python, Tensorflow, AI
 featured_image: logos/tensor-flow.png
 ---
 Tensor Flow is a machine learning toolkit which recently got published by

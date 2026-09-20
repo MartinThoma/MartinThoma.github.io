@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-12-30 13:28
 category: Code
-tags: Python, Community, SQL, PyPI
+tags: Python, Community, SQL, PyPI, Database
 featured_image: logos/python.png
 ---
 <div class="info">This is part two of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>

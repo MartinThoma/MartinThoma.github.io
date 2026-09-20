@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Lasagne for Python Newbies
 slug: lasagne-for-python-newbies
+lang: en
 author: Martin Thoma
 date: 2015-04-17 19:26
 category: Machine Learning
-tags: Python, Machine Learning
+tags: Python, Machine Learning, AI
 featured_image: logos/python.png
 ---
 Lasagne is a Python package for training neural networks. The nice thing about

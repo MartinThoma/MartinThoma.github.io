@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Markovsche Ketten - Klausur
 slug: markovketten-klausur
+lang: de
 author: Martin Thoma
 date: 2015-04-13 13:42
 category: German posts
-tags: Klausur, mathematics, lecture-notes
+tags: Klausur, Mathematics, Lecture Notes, University
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Markovsche Ketten&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.math.kit.edu/stoch/~klar/de">Dr. Bernhard Klar</a> im Sommersemester 2015 gehört. Aufgrund des sehr guten Skripts wurde dieser Artikel nie richtig begonnen.</div>
