@@ -82,7 +82,10 @@ MathJax.Hub.Queue(function() {
         <a class="skip" href="#main">Skip to content</a>
         <header class="site-header no-print">
             <div class="wrap header-row">
-                <a class="brand" href="{{ SITEURL }}/"><span class="brand-dot" aria-hidden="true"></span>{{ SITENAME }}</a>
+                <a class="brand" href="{{ SITEURL }}/">
+                    <span class="brand-name">{{ SITENAME }}</span>
+                    {% if SITESUBTITLE %}<span class="brand-tagline">{{ SITESUBTITLE }}</span>{% endif %}
+                </a>
                 <nav class="nav" aria-label="Main">
                     <a href="{{ SITEURL }}/"{% if page_name == 'index' %} aria-current="page"{% endif %}>Home</a>
                     {% if DISPLAY_PAGES_ON_MENU %}
@@ -94,10 +97,10 @@ MathJax.Hub.Queue(function() {
                     <a href="{{ SITEURL }}/tags/"{% if page_name == 'tags' %} aria-current="page"{% endif %}>Tags</a>
                     <a href="{{ SITEURL }}/archives/"{% if page_name == 'archives' %} aria-current="page"{% endif %}>Archives</a>
                     <a href="{{ SITEURL }}/support-me/">Support me</a>
+                    <form class="search" role="search" action="{{ SITEURL }}/search/" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
+                    </form>
                 </nav>
-                <form class="search" role="search" action="{{ SITEURL }}/search/" onsubmit="return validateForm(this.elements['q'].value);">
-                    <input type="search" placeholder="Search" aria-label="Search" name="q" id="tipue_search_input">
-                </form>
             </div>
         </header>
         <main id="main" class="wrap">

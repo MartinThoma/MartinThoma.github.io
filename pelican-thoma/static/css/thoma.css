@@ -131,15 +131,17 @@ a.deepLink, .header-link { opacity: 0; text-decoration: none; color: var(--ink-m
 }
 .header-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; padding-block: 0.4rem; }
 .brand {
-  display: inline-flex; align-items: center; gap: 0.55rem; min-height: 44px;
-  font-weight: 700; font-size: 1.15rem; letter-spacing: -0.022em; color: var(--ink); text-decoration: none;
+  display: inline-flex; flex-direction: column; justify-content: center; gap: 0.1rem;
+  min-height: 44px; padding-block: 0.15rem; color: var(--ink); text-decoration: none;
 }
-.brand-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--accent); }
+.brand-name { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.022em; line-height: 1.2; }
+.brand-tagline { font-size: 0.8rem; font-weight: 400; line-height: 1.25; color: var(--ink-muted); }
 .nav { display: flex; flex-wrap: wrap; gap: 0.15rem; margin-left: auto; }
 .nav a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0.4rem 0.85rem;
   border-radius: var(--pill); font-size: 0.95rem; font-weight: 500; color: var(--ink-muted); text-decoration: none;
 }
+.nav .search { margin-left: 0.85rem; }
 .nav a:hover { background: var(--surface-sunk); color: var(--ink); }
 .nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-strong); }
 
@@ -332,7 +334,8 @@ figcaption, .wp-caption-text { font-size: 0.85rem; color: var(--ink-muted); marg
 @media (max-width: 46rem) {
   .site-header { position: static; }
   .nav { margin-left: 0; width: 100%; }
-  .search { width: 100%; }
-  .search input { width: 100%; }
+  .nav .search { flex: 1 1 9rem; min-width: 0; margin-left: 0.35rem; }
+  .nav .search input { width: 100%; }
+  .search.big { width: 100%; }
 }
 @media print { .no-print { display: none !important; } }
