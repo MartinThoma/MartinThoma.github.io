@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-10-23 12:40:45.000000000 +02:00
 category: Code
-tags: C, Float, Python, IEEE 754
+tags: C, Python, Software Engineering
 featured_image: 2012/10/float-scheme1.png
 ---
 If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:

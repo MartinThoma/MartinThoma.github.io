@@ -2,11 +2,12 @@
 layout: page
 title: Externe Festplatte
 slug: sell/external-hdd
-save_as: sell/external-hdd/index.html
+lang: en
 author: Martin Thoma
 date: 2012-01-01 22:30
 category: Sell
-tags: Sell, External HDD
+tags: Sell
+save_as: sell/external-hdd/index.html
 ---
 
 <div itemscope itemtype="http://schema.org/Product">

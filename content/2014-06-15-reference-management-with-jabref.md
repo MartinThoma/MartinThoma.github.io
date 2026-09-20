@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: en
 title: Reference Management with JabRef
 slug: reference-management-with-jabref
+lang: en
 author: Martin Thoma
 date: 2014-06-15 20:51
-category: Science
+category: My bits and bytes
 tags: Science, References, Software, LaTeX
 featured_image: logos/jabref.png
 ---

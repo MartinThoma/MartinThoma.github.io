@@ -33,7 +33,10 @@
     {% if article.tags and article.tags[0]|trim|count > 0 %}
     <ul class="list-of-tags tags-in-header" aria-label="Tags">
         {% for tag in article.tags|sort %}
-        <li><a href="{{ SITEURL }}/tags/#{{ tag.slug }}-ref">{{ tag }}</a></li>
+        <li><a href="{{ SITEURL }}/tags/#{{ tag.slug }}-ref">{{ tag }}
+            {% for aTag, tagged_articles in tags if aTag == tag %}
+            <span>{{ tagged_articles|count }}</span>
+            {% endfor %}</a></li>
         {% endfor %}
     </ul>
     {% endif %}

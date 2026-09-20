@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2015-03-24 13:04
 category: Cyberculture
-tags: Microsoft, Dreamspark, Windows 7, Windows 8.1, Windows
+tags: Microsoft
 featured_image: logos/microsoft.png
 ---
 I need to have Windows for work. As a student I *should* have free access to

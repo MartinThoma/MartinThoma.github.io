@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 21:45:47.000000000 +02:00
 category: Cyberculture
-tags: Funny, Online Translator, Google, Fail
+tags: Funny, Online Translator
 featured_image: 2011/09/Google-Translator-Spielzeugladen-300x72.png
 ---
 Online translation programs are getting better and they are great if you want to get a vague idea of the content of a Chinese website. Never the less you should know that the translations are not good enough by now:

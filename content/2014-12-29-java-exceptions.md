@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Exceptions
 slug: java-exceptions
+lang: en
 author: Martin Thoma
 date: 2014-12-29 20:39
 category: Code
-tags: Exception, Java
+tags: Java
 featured_image: logos/java-programming.png
 ---
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>

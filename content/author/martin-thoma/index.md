@@ -1,16 +1,16 @@
 ---
 layout: page
-lang: en
 title: About Martin Thoma
 slug: author/martin-thoma
-save_as: author/martin-thoma/index.html
+alias: /author/moose/index.html
+lang: en
 author: Martin Thoma
 date: 2011-09-21 18:35:30.000000000 +02:00
 category: My bits and bytes
-tags: about
+tags: blog
+save_as: author/martin-thoma/index.html
 context: about
 description: Profile page of Martin Thoma
-alias: /author/moose/index.html
 ---
 <div class="vcard">
 <figure class="wp-caption alignright">

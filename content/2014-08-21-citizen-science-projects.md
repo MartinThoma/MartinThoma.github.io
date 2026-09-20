@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Citizen Science Projects
 slug: citizen-science-projects
+lang: en
 author: Martin Thoma
 date: 2014-08-21 13:27
 category: Cyberculture
-tags: Science, CMU, Computer Science, Gamification
+tags: Science, Computer Science
 featured_image: logos/galaxy.png
 ---
 "Citizen Science Projects" are research projects that crowdsource a part of

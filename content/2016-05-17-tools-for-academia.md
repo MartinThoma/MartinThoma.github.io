@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: en
 title: Tools for Academia
 slug: tools-for-academia
+lang: en
 author: Martin Thoma
 date: 2016-05-17 20:00
-category: Science
+category: My bits and bytes
 tags: Science, Academia, arXiv
 featured_image: logos/science.png
 ---

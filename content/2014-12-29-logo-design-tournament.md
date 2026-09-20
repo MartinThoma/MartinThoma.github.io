@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Logo Design Tournament
 slug: logo-design-tournament
+lang: en
 author: Martin Thoma
 date: 2014-12-29 19:54
 category: Cyberculture
-tags: Competition, Crowdsourcing
+tags: Competition
 featured_image: logos/logotournament.png
 ---
 The website logotournament.com offers a service for designers and owners of

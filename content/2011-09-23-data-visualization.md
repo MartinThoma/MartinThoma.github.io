@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Data Visualization
 slug: data-visualization
+lang: en
 author: Martin Thoma
 date: 2011-09-23 19:32:15.000000000 +02:00
 category: The Web
-tags: Data, Information, Visualization, Hans Rosling, David McCandless
+tags: Data, Information, Data Visualization
 featured_image: 2011/09/Gapminder1.jpg
 ---
 The United States public debt increased from \$10.7 trillion in 2008 to \$14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 people live in Mumbai.

@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: en
 title: Paper List
 slug: paper-list
+lang: en
 author: Martin Thoma
 date: 2017-01-11 20:00
-category: Science
+category: My bits and bytes
 tags: Science, Papers, Reading, Academia, Computer Science
 featured_image: logos/science.png
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 21:48:03.000000000 +02:00
 category: Cyberculture
-tags: Funny, Google, Autocomplete
+tags: Funny, Google
 featured_image: 2011/09/autocomplete-windows-is-300x110.png
 ---
 Did you notice some strange autocomplete-results? Keep in mind that Google gets those suggestions by other searches. They don't employ someone who tries to guess what you mean. So many others have searched for the term which is suggested.

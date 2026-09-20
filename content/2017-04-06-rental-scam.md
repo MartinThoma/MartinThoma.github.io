@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2017-04-06 20:00
 category: Cyberculture
-tags: Scam, Phishing, Crime, Fraud, Security
+tags: Phishing, Security
 featured_image: logos/scam.png
 ---
 I am currently searching for a flat in Munich. While doing so, I've seen (and

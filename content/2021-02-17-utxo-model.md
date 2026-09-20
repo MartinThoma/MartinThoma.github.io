@@ -5,7 +5,7 @@ slug: utxo-model
 lang: en
 author: Martin Thoma
 date: 2021-02-17 20:00
-category: Blockchain
+category: The Web
 tags: Blockchain, Bitcoin, Cryptocurrency, UTXO
 featured_image: logos/bitcoin.png
 subtitle: A technical cornerstone of Bitcoin

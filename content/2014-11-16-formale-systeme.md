@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2014-11-16 17:05
 category: German posts
-tags: Klausur, Formale Systeme, University, Theoretical Computer Science, Computer Science, KIT
+tags: Klausur, University, Theoretical Computer Science, Computer Science, KIT
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Formale Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Beckert im Wintersemester 2014/2015 gehört.</div>

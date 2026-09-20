@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: en
 title: How to find new Papers
 slug: find-papers
+lang: en
 author: Martin Thoma
 date: 2015-12-03 07:30
-category: Science
+category: My bits and bytes
 tags: Science, Papers, Reading, Google Scholar, arXiv
 featured_image: logos/science.png
 ---

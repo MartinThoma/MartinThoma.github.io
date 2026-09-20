@@ -5,7 +5,7 @@ slug: blockchain
 lang: en
 author: Martin Thoma
 date: 2021-01-13 20:00
-category: Blockchain
+category: The Web
 tags: Blockchain
 featured_image: logos/star.png
 subtitle: An Introduction to Blockchain, Bitcoin ₿, and related concepts

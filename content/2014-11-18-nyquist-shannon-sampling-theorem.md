@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Nyquist–Shannon sampling theorem
 slug: nyquist-shannon-sampling-theorem
+lang: en
 author: Martin Thoma
 date: 2014-11-18 17:41
 category: Code
-tags: Aliasing, Sampling, Signal Processing, Audio
+tags: Signal Processing, Audio
 featured_image: logos/signal.png
 ---
 The [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem)

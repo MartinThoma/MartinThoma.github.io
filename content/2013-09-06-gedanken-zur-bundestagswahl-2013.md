@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gedanken zur Bundestagswahl 2013
+title: Bundestagswahl 2013
 slug: gedanken-zur-bundestagswahl-2013
 lang: de
 author: Martin Thoma

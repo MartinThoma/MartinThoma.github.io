@@ -5,7 +5,7 @@ slug: resolutions
 lang: en
 author: Martin Thoma
 date: 2023-11-01 20:00
-category: Tech
+category: My bits and bytes
 tags: Display, Monitor, DVD, TV, Hardware
 featured_image: logos/star.png
 ---
