@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-01-29 16:23:14.000000000 +01:00
 category: German posts
-tags: Digitaltechnik
+tags: Digitaltechnik, KIT, University
 ---
 Mithilfe des Consensus-Verfahrens können Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das Überdeckungsproblem noch gelöst werden muss. Dies kann man z.B. mit der <a href="../das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.
 

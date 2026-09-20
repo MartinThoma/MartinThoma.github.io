@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to solve linear congruence equations
 slug: solve-linear-congruence-equations
+lang: en
 author: Martin Thoma
 date: 2013-09-01 17:43:49.000000000 +02:00
 category: Mathematics
-tags: Python, mathematics
+tags: Python, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 When you have a system of linear congruences like:

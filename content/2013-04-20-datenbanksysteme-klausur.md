@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-20 13:35:01.000000000 +02:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Datenbanksysteme&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://dbis.ipd.uni-karlsruhe.de/336.php">Herrn Prof. Dr. Böhm</a> im Sommersemester 2013 gehört.</div>

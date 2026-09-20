@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-01-28 00:25:14.000000000 +01:00
 category: German posts
-tags: Klausur, Digitaltechnik
+tags: Klausur, Digitaltechnik, University, KIT
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit den Vorlesungen &bdquo;Digitaltechnik und Entwurfsverfahren&ldquo; sowie &bdquo;Rechnerorganisation&ldquo; des Moduls &bdquo;Technische Informatik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Asfour gehört.</div>

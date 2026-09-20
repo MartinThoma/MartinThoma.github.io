@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Google Code Jam &ndash; Round 1C 2013
 slug: google-code-jam-round-1c-2013
+lang: en
 author: Martin Thoma
 date: 2013-05-12 15:01:15.000000000 +02:00
 category: Code
-tags: Google Code Jam
+tags: Google Code Jam, Python
 featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>

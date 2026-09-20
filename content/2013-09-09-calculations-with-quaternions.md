@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Calculations with quaternions
 slug: calculations-with-quaternions
+lang: en
 author: Martin Thoma
 date: 2013-09-09 14:45:17.000000000 +02:00
 category: Mathematics
-tags: quaternions
+tags: Quaternions, Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaterion $h$ can be written as a vector or in the form of $h = h_0 + ih_1 + j h_2 + kh_3$, where $i, j$ and $k$ are related to the $i$ in complex numbers. Accordingly $h_0$ is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-08-25 18:04:56.000000000 +02:00
 category: Mathematics
-tags: mathematics, Algebra
+tags: Mathematics, Algebra
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 Let $(G, \cdot)$ be a group and $X \lhd G$ and $Y \lhd G$ be two normal subgroups.

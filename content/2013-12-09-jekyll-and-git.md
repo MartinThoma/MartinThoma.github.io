@@ -1,11 +1,11 @@
 ---
 layout: post
-lang: en
 title: How to use Jekyll with GitHub
 slug: jekyll-and-git
+lang: en
 author: Martin Thoma
 category: The Web
-tags: Jekyll, Git, GitHub, rsync, Blog
+tags: Jekyll, Git, GitHub, Rsync, Blog, Web Development
 featured_image: 2013/12/jekyll-thumbnail.png
 description: Jekyll, a static blog generator, is nice for several reasons. Those reasons and some hints how to migrate from WordPress to Jekyll are provided below.
 ---

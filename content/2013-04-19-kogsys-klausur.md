@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-19 20:38:47.000000000 +02:00
 category: German posts
-tags: Klausur, KogSys, ASR
+tags: Klausur, KogSys, ASR, University, KIT, AI
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 gehört.</div>

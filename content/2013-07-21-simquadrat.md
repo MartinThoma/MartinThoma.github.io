@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-07-21 18:18:12.000000000 +02:00
 category: German posts
-tags: Review, smartphone
+tags: Review, Smartphone
 featured_image: 2013/07/simquadrat.png
 ---
 Simquadrat ist ein Dienst von <a href="http://en.wikipedia.org/wiki/Sipgate">sipgate</a>. Das besondere daran ist, dass Simkarten verkauft werden, die eine Festnetznummer haben. Ich habe das ganze ausprobiert und will meine Erfahrungen nun teilen.

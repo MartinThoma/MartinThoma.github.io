@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to apply the Viterbi algorithm
 slug: apply-viterbi-algorithm
+lang: en
 author: Martin Thoma
 date: 2013-09-11 17:46:22.000000000 +02:00
 category: My bits and bytes
-tags: KogSys, Machine Learning, HMM
+tags: KogSys, Machine Learning, HMM, KIT, University, AI
 featured_image: logos/ml.png
 ---
 The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.

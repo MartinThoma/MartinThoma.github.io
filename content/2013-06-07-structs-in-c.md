@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Structs in C++
 slug: structs-in-c
+lang: en
 author: Martin Thoma
 date: 2013-06-07 16:25:18.000000000 +02:00
 category: Code
-tags: CPP, struct
+tags: CPP, Struct
 featured_image: 2012/05/CPP-thumb.png
 ---
 I guess this article isn't very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).

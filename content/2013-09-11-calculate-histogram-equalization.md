@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How do I calculate a Histogram equalization?
 slug: calculate-histogram-equalization
+lang: en
 author: Martin Thoma
 date: 2013-09-11 13:17:39.000000000 +02:00
 category: My bits and bytes
-tags: KogSys
+tags: KogSys, KIT, University
 featured_image: 2013/09/lena-testbild.png
 ---
 Let's say you have the following greyscale image:

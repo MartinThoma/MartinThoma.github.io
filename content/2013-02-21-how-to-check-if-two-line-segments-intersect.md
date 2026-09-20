@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to check if two line segments intersect
 slug: how-to-check-if-two-line-segments-intersect
+lang: en
 author: Martin Thoma
 date: 2013-02-21 12:19:05.000000000 +01:00
 category: Code
-tags: Java, algorithms, Geometry
+tags: Java, Algorithms, Geometry, Computer Science, Mathematics
 ---
 You have to line segments and you want to know if they intersect. I'll give you an algorithm how to do it.
 

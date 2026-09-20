@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-09-07 11:41:05.000000000 +02:00
 category: German posts
-tags: KIT
+tags: KIT, University
 featured_image: 2011/10/KIT-Logo.png
 ---
 Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich über Karlsruhe erzählen? Wieviel Praxis bekommt man in einem Informatik-Studium am KIT?

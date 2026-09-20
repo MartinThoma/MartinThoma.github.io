@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Sublime Text
 slug: sublime-text
+lang: en
 author: Martin Thoma
 date: 2014-03-01 17:01
 category: Code
-tags: Editor, Sublime Text, Software Development
+tags: Editor, Sublime Text, Software Engineering
 featured_image: logos/sublime-text.png
 ---
 Sublime Text is the coolest editor I have ever used. It has a lot of features,

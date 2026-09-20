@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2013-07-04 18:21:19.000000000 +02:00
 category: Code
-tags: HTML5, JavaScript, canvas
+tags: HTML5, JavaScript, Canvas, Web Development
 featured_image: 2013/07/laplace-filter-example-thumbnail.png
 ---
 I begin to fall in love with JavaScript and HTML5. You can access your Webcam with JS! As an example, I've implemented some graphic filters.

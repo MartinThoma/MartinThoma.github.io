@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to calculate the Legendre symbol
 slug: calculate-legendre-symbol
+lang: en
 author: Martin Thoma
 date: 2013-09-01 13:05:46.000000000 +02:00
 category: Mathematics
-tags: Python, Algebra
+tags: Python, Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <h2>Pseudocode</h2>

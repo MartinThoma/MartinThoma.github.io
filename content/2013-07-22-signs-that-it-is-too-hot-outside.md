@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Signs that it is too hot outside
 slug: signs-that-it-is-too-hot-outside
+lang: en
 author: Martin Thoma
 date: 2013-07-22 22:59:13.000000000 +02:00
 category: My bits and bytes
-tags: funny, weather, hot
+tags: Funny, Weather, Hot
 featured_image: 2013/07/wetter1.png
 ---
 <figure>

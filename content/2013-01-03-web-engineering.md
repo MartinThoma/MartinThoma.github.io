@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-01-03 13:57:06.000000000 +01:00
 category: German posts
-tags: Web Development, Klausur
+tags: Web Development, Klausur, University
 featured_image: 2012/07/web-graph-thumb.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer gehört.</div>

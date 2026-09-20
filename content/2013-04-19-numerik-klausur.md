@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-19 20:05:19.000000000 +02:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Numerische Mathematik für die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Weiß im Sommersemester 2013 gehört.</div>

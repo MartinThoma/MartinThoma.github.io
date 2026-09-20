@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-02-04 20:03:14.000000000 +01:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit den Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner gehört.</div>

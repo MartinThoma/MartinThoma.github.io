@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-01-17 17:46:27.000000000 +01:00
 category: German posts
-tags: boolean expression, Digitaltechnik, Boolean algebra
+tags: Boolean Expression, Digitaltechnik, Boolean Algebra, KIT, University, Algebra, Mathematics
 featured_image: 2013/01/george-boole-thumbnail.jpg
 ---
 Die Shannon-Zerlegung ist hilfreich, um die disjunktive bzw. konjunktive Form einer Funktion zu erhalten. Im Folgenden gibt es ein paar Beispiele, wie man das macht:

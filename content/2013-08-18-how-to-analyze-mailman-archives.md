@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to analyze Mailman archives
 slug: how-to-analyze-mailman-archives
+lang: en
 author: Martin Thoma
 date: 2013-08-18 21:23:49.000000000 +02:00
 category: Cyberculture
-tags: Bash, Mailman, discussion, email
+tags: Bash, Mailman, Discussion, Email
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 All mailing lists I use are <a

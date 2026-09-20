@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-03-02 19:06:15.000000000 +01:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit den Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Bellosa und später bei Prof. Dr. Beigl gehört.</div>

@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: de
 title: Programmierparadigmen Klausur
 slug: programmierparadigmen-klausur
+alias: /programmierparadigmen/index.html
+lang: de
 author: Martin Thoma
 date: 2013-10-24 12:46:16.000000000 +02:00
 category: German posts
-tags: Haskell, Klausur, Programmierparadigmen
+tags: Haskell, Klausur, Programmierparadigmen, University, KIT
 featured_image: 2012/02/klausur-test-thumbnail.jpg
-alias: /programmierparadigmen/index.html
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 gehört.</div>
 

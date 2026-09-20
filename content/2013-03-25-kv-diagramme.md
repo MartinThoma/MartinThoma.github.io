@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-03-25 23:37:00.000000000 +01:00
 category: German posts
-tags: Digitaltechnik
+tags: Digitaltechnik, KIT, University
 featured_image: 2013/03/karnaugh-map-300x300.png
 ---
 <div class="info">Ich setze im Folgenden vorraus, dass man schon mal was von KV-Diagrammen gehört hat und vielleicht schon ein paar gezeichnet hat. Insbesondere erkläre ich nicht wie man aus dem KV-Diagramm der Größe 16 eines der Größe 32 bekomt und was die Beschriftung bedeutet.</div>

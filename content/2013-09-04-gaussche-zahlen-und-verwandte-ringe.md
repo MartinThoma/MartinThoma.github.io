@@ -5,8 +5,8 @@ slug: gaussche-zahlen-und-verwandte-ringe
 lang: de
 author: Martin Thoma
 date: 2013-09-04 09:16:41.000000000 +02:00
-category: Mathematics
-tags: Algebra
+category: German posts
+tags: Algebra, Mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enthält.

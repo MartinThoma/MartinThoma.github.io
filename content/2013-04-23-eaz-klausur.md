@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2013-04-23 22:49:50.000000000 +02:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Kühnlein im Sommersemester 2013 gehört.</div>

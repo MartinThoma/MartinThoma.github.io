@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Data Backup Strategies
 slug: data-backup-strategies
+lang: en
 author: Martin Thoma
 date: 2013-07-08 08:48:50.000000000 +02:00
 category: Cyberculture
-tags: IT-Security, backup
+tags: Security, Backup
 featured_image: 2013/07/hdd.png
 ---
 Yesterday, I thought what would happen if my internal or external hard drive crashed.
