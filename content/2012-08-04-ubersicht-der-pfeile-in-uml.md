@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-04 09:23:29.000000000 +02:00
 category: German posts
-tags: SWT I, UML
+tags: SWT I, UML, KIT, University
 featured_image: 2012/05/UML-thumb.png
 ---
 Folgende Pfeile werden in UML verwendet:

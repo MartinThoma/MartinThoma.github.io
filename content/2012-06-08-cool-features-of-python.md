@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-06-08 17:30:10.000000000 +02:00
 category: Code
-tags: Programming, Python
+tags: Programming, Python, Java
 featured_image: 2011/09/Python-Logo.png
 ---
 A friend wanted to know why I enjoy programming in Python so much more than programming in other languages. So I will describe some special features of Python that make it much easier to quickly implement algorithms.

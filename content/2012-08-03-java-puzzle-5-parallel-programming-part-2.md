@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Puzzle #5: Parallel Programming, Part 2
 slug: java-puzzle-5-parallel-programming-part-2
+lang: en
 author: Martin Thoma
 date: 2012-08-03 17:00:58.000000000 +02:00
 category: Code
-tags: Programming, Java, SWT I, puzzle
+tags: Programming, Java, SWT I, Puzzle, KIT, University
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following script:

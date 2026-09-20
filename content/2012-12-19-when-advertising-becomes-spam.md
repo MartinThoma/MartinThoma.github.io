@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: When advertising becomes spam
 slug: when-advertising-becomes-spam
+lang: en
 author: Martin Thoma
 date: 2012-12-19 12:24:20.000000000 +01:00
 category: The Web
-tags: advertising, Spam
+tags: Advertising, Spam
 featured_image: 2012/12/thalia-spam-thumb.png
 ---
 The Web is great. You can easily find and publish information. It is great for trading as you can search through millions of articles and hundreds of vendors to find the product that fits best to your needs and is as cheap as possible. But recently I get a lot of spam from companies I like (<a href="http://en.wikipedia.org/wiki/Amazon.com">Amazon</a>, <a href="http://en.wikipedia.org/wiki/PayPal">PayPal</a> and <a href="http://en.wikipedia.org/wiki/Thalia_(bookstore_chain)">Thalia</a>). I like to get some e-mails from those companies. But how can they provide relevent content instead of spam? When is it good advertising and when does advertising become spam?

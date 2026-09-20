@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2011-10-24 20:53:41.000000000 +02:00
 category: German posts
-tags: mathematics, lecture-notes
+tags: Mathematics, Lecture Notes, University
 featured_image: 2011/10/eulers-formula.png
 ---
 Die abzählende Kombinatorik beschäftigt sich mit der Bestimmung der Anzahl möglicher Anordnungen oder Auswahlen.

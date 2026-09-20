@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-04-04 16:57:06.000000000 +02:00
 category: German posts
-tags: Complex number
+tags: Mathematics
 ---
 Im Folgenden werde ich kurz und bündig erklären, wie man das multiplikativ Inverse einer komplexen Zahl berechnet.
 

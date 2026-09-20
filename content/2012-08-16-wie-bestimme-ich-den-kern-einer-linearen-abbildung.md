@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-16 15:54:15.000000000 +02:00
 category: German posts
-tags: mathematics, Linear algebra
+tags: Mathematics, Linear Algebra
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 ## Definition

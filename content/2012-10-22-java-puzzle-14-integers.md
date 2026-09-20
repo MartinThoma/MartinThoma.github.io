@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Puzzle #14: Integers
 slug: java-puzzle-14-integers
+lang: en
 author: Martin Thoma
 date: 2012-10-22 12:00:44.000000000 +02:00
 category: Code
-tags: Programming, Java, puzzle
+tags: Programming, Java, Puzzle
 ---
 What is the output of the following script?
 

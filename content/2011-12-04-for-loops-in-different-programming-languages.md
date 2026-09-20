@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-12-04 11:19:54.000000000 +01:00
 category: Code
-tags: Programming, learning
+tags: Programming, Learning, Python
 featured_image: 2011/11/for-loop.png
 ---
 When you have to learn a new programming language, it's usually quite easy. You already know the structures and the way to think when solving problems. The first time might be hard, but the more languages you learn, the more similarities you'll recognize.

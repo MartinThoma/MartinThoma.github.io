@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-15 17:00:54.000000000 +02:00
 category: German posts
-tags: mathematics, chess
+tags: Mathematics, Chess, Games
 featured_image: 2012/08/chess-thumbnail.png
 ---
 <a href="../images/2012/08/chessboard-rice.png"><img src="../images/2012/08/chessboard-rice.png" alt="Schachbrett mit Reis" title="Schachbrett mit Reis" width="191" height="128" class="alignright size-full wp-image-46151" /></a>

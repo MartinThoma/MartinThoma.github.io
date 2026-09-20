@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-03-10 16:00:13.000000000 +01:00
 category: German posts
-tags: KIT, Klausur
+tags: KIT, Klausur, University
 featured_image: 2011/11/java-programming.png
 ---
 <strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur für Informatik-Studenten am KIT im WS 2011 / 2012 interessant!

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Community Chess
 slug: community-chess
+lang: en
 author: Martin Thoma
 date: 2011-10-19 12:30:01.000000000 +02:00
 category: The Web
-tags: Challenge, OpenSource, community-chess, project
+tags: Challenge, Open Source, Community-chess, Project
 featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something useful and play a bit.

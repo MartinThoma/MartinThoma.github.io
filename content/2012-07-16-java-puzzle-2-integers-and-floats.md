@@ -2,10 +2,11 @@
 layout: post
 title: Java Puzzle #2: Integers and Floats
 slug: java-puzzle-2-integers-and-floats
+lang: en
 author: Martin Thoma
 date: 2012-07-16 17:00:35.000000000 +02:00
 category: Code
-tags: Programming, Java, puzzle
+tags: Programming, Java, Puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>Basics</h2>

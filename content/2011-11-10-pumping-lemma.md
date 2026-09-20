@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2011-11-10 16:05:33.000000000 +01:00
 category: German posts
-tags: Computer science, mathematics, proof, Theoretical computer science
+tags: Computer Science, Mathematics, Proof, Theoretical Computer Science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Reguläre Sprachen können von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zuständen ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, müsste gezählt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz dafür, dass es sich nicht um eine reguläre Sprache handelt.

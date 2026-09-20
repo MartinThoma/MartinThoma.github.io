@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-14 17:13:24.000000000 +02:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur über Analysis schreiben werden.</div>

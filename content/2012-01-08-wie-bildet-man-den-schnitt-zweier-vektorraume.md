@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Wie bildet man den Schnitt zweier Vektorräume?
 slug: wie-bildet-man-den-schnitt-zweier-vektorraume
+lang: de
 author: Martin Thoma
 date: 2012-01-08 20:27:37.000000000 +01:00
 category: German posts
-tags: mathematics, Linear algebra
+tags: Mathematics, Linear Algebra
 featured_image: 2012/01/vector-space.png
 ---
 <h2>Angaben</h2>

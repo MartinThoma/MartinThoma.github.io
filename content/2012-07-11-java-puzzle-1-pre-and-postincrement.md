@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Puzzle #1: Pre- and Postincrement
 slug: java-puzzle-1-pre-and-postincrement
+lang: en
 author: Martin Thoma
 date: 2012-07-11 16:07:02.000000000 +02:00
 category: Code
-tags: Programming, Java, puzzle
+tags: Programming, Java, Puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>The puzzle</h2>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Converting Files with Linux
 slug: converting-files-with-linux
+lang: en
 author: Martin Thoma
 date: 2011-09-21 22:10:08.000000000 +02:00
 category: Code
-tags: cheat sheet, conversion, Linux, Ubuntu, Command Line, PDF
+tags: Cheat Sheet, Conversion, Linux, Ubuntu, Command Line, PDF, Python
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS.

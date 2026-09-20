@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-02-11 17:25:36.000000000 +01:00
 category: German posts
-tags: lecture-notes, Theoretical computer science
+tags: Lecture Notes, Theoretical Computer Science, University, Computer Science
 ---
 <div class="warning">Dieser Artikel könnte inhaltliche Fehler beinhalten. Bitte lest euch die Kommentare durch.</div>
 

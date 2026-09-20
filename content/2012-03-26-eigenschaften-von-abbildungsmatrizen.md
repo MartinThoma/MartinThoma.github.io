@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-03-26 17:30:44.000000000 +02:00
 category: German posts
-tags: mathematics, Linear algebra, Matrix
+tags: Mathematics, Linear Algebra, Matrix
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 Eine Abbildungsmatrix beschreibt eine lineare Abbildungs zwischen zwei endlichdimensionalen Vektorräumen. Sie ist abhängig von der Basis des Urraums und des Zielraumes.

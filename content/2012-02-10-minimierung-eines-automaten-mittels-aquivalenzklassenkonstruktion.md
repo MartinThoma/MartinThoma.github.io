@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-02-10 22:18:38.000000000 +01:00
 category: German posts
-tags: Theoretical computer science
+tags: Theoretical Computer Science, Computer Science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von Äquivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zuständen gefunden werden. Dafür benötigt man im Wesentlichen sogar nur drei Schritte.

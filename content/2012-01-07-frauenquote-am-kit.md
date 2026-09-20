@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-01-07 23:57:47.000000000 +01:00
 category: German posts
-tags: KIT
+tags: KIT, University
 featured_image: 2011/10/KIT-Logo.png
 ---
 

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How can I clear gedit text search / replace history?
 slug: how-can-i-clear-gedit-text-search-replace-history
+lang: en
 author: Martin Thoma
 date: 2012-12-08 13:48:28.000000000 +01:00
 category: My bits and bytes
-tags: gedit, GNOME
+tags: gedit, GNOME, Linux
 featured_image: 2011/12/gedit.png
 ---
 Start <code>gconf-editor</code>:

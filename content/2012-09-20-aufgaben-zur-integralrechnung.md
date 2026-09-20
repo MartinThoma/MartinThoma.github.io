@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-09-20 08:56:07.000000000 +02:00
 category: German posts
-tags: mathematics, Integral calculus
+tags: Mathematics, Integral Calculus, Analysis
 featured_image: 2012/09/partielle-integration.png
 ---
 Hier sind ein paar schöne Aufgaben und ausführliche Lösungsfindungsbeschreibungen zur Integralrechnung.

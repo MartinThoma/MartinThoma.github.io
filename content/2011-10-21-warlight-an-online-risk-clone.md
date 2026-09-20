@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: WarLight: An online Risk clone
 slug: warlight-an-online-risk-clone
+lang: en
 author: Martin Thoma
 date: 2011-10-21 06:36:09.000000000 +02:00
 category: The Web
-tags: Flashgames, board game
+tags: Flashgames, Board Game, Games
 featured_image: 2011/10/Warlight_thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Risk_(game)">Risk</a> is a great strategic game in which you have to conquer the world.

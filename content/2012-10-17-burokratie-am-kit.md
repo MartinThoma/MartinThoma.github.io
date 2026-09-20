@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-10-17 18:06:31.000000000 +02:00
 category: German posts
-tags: KIT
+tags: KIT, University
 featured_image: 2011/10/KIT-Logo.png
 ---
 Das KIT sieht sich gerne als Elite-Universität.<sup>[<a href="http://www.kit.edu/besuchen/pi_2012_11933.php">1</a>]</sup> Es werden Rankings in Vorlesungen zitiert und erst vor kurzem wurde von einigen Professoren in der Vorlesung der Verlust des Status der Elite-Universität betrauert.<sup>[<a href="http://bildungsklick.de/a/84162/hippler-elite-verlust-herber-rueckschlag-fuer-kit/">1</a>]</sup> Ich weiß nicht, was die Kriterien für eine Elite-Uni nach der Exzellenzinitiative sind, aber ich kann mir einige notwendige Voraussetzungen vorstellen, die für mich eine Elite-Uni ausmachen:

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-11-26 23:25:15.000000000 +01:00
 category: German posts
-tags: Linux, OS, Operating Systems, Scheduler
+tags: Linux, OS, Operating Systems, Scheduler, Computer Science
 featured_image: 2012/11/scheduler.png
 ---
 <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung geändert.</div>

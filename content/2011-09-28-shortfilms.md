@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Shortfilms
 slug: shortfilms
+lang: en
 author: Martin Thoma
 date: 2011-09-28 12:05:29.000000000 +02:00
 category: The Web
-tags: Video, Vimeo, Shortfilm
+tags: Video, Shortfilm
 featured_image: 2011/09/cat-piano.png
 ---
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>

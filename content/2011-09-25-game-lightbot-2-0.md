@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-25 10:08:27.000000000 +02:00
 category: The Web
-tags: Flashgames, learning
+tags: Flashgames, Learning, Games
 featured_image: 2011/09/Lightbot-2.0-300x171.png
 ---
 <figure class="aligncenter">

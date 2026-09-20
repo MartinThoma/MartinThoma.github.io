@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Joke: Electrical Engineering vs. Computer Science
 slug: joke-electrical-engineering-vs-computer-science
+lang: en
 author: Martin Thoma
 date: 2011-09-24 22:29:05.000000000 +02:00
 category: Code
-tags: funny, Joke, Object Orientation, Computer science
+tags: Funny, Joke, Object Orientation, Computer Science
 featured_image: 2011/09/Nerd-Crossing.jpg
 ---
 <figure class="alignright">

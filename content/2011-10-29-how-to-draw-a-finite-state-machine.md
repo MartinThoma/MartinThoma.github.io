@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-10-29 09:37:50.000000000 +02:00
 category: My bits and bytes
-tags: Computer science, LaTeX, Abstract machine, Tikz
+tags: Computer Science, LaTeX, Abstract Machine, Tikz
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 

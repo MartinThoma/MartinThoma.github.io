@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Benchmarking PHP
 slug: benchmarking-php
+lang: en
 author: Martin Thoma
 date: 2011-09-22 13:06:12.000000000 +02:00
 category: Code
-tags: PHP, Benchmark, Web Development
+tags: PHP, Benchmark, Web Development, Programming
 featured_image: 2011/09/PHP-logo.png
 ---
 I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in.

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-07-04 20:54:42.000000000 +02:00
 category: German posts
-tags: mathematics, Fibonacci, puzzle
+tags: Mathematics, Fibonacci, Puzzle
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong>

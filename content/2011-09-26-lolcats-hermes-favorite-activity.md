@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Lolcats: Hermes'' Favorite Activity
 slug: lolcats-hermes-favorite-activity
+lang: en
 author: Martin Thoma
 date: 2011-09-26 09:45:45.000000000 +02:00
 category: Cyberculture
-tags: Video, YouTube, Lolcat
+tags: Video, Lolcat
 featured_image: 2011/09/Lolcat.jpg
 ---
 Cats are sometimes so crazy.

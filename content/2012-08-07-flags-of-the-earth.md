@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Flags of the Earth
 slug: flags-of-the-earth
+lang: en
 author: Martin Thoma
 date: 2012-08-07 17:00:47.000000000 +02:00
 category: Cyberculture
-tags: Flashgames, learning, Geography
+tags: Flashgames, Learning, Geography, Games
 featured_image: 2012/07/flags-of-the-earth1.png
 ---
 <figure class="aligncenter">

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Short Educational Clips
 slug: short-educational-clips
+lang: en
 author: Martin Thoma
 date: 2012-08-08 17:00:37.000000000 +02:00
 category: Cyberculture
-tags: Video, Clip, Education, Science
+tags: Video, Education, Science
 featured_image: 2012/08/educational-clips.png
 ---
 Here are some clips which are interesting for education. For example, one of then explains the history of the English language in about 10 minutes.

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Crash Course: World History
 slug: crash-course-world-history
+lang: en
 author: Martin Thoma
 date: 2012-09-21 19:19:52.000000000 +02:00
 category: The Web
-tags: YouTube, learning, history
+tags: Video, Learning, History
 featured_image: 2012/09/world-history.png
 ---
 <h2>#32: Coal, Steam, and The Industrial Revolution</h2>

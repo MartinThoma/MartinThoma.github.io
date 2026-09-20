@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2011-10-17 21:19:55.000000000 +02:00
 category: German posts
-tags: Visualization, mathematics, Stochastic, lecture-notes
+tags: Visualization, Mathematics, Stochastic, Lecture Notes, Probability, University
 ---
 In diesem Artikel werde ich ein paar einfache Definitionen, die für die Stochastik wichtig sind, einführen.
 <h2>Basisdefinitionen bei Zufallsexperimenten</h2>

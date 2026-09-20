@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Stacks in C++
 slug: stacks-in-cpp
+lang: en
 author: Martin Thoma
 date: 2012-05-28 11:45:40.000000000 +02:00
 category: Code
-tags: CPP, Stack, STL
+tags: CPP, Stack, STL, Data Structures, Computer Science
 featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimum Example</h2>

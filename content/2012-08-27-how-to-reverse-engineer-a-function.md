@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to reverse engineer a function
 slug: how-to-reverse-engineer-a-function
+lang: en
 author: Martin Thoma
 date: 2012-08-27 09:49:58.000000000 +02:00
 category: Cyberculture
-tags: Wikipedia, mathematics
+tags: Wikipedia, Mathematics
 featured_image: 2012/08/cubic-function-thumb.png
 ---
 I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ.

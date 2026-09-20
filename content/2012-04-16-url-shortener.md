@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: URL shortener
 slug: url-shortener
+lang: en
 author: Martin Thoma
 date: 2012-04-16 15:12:57.000000000 +02:00
 category: The Web
-tags: Web Services
+tags: Web Services, Web Development
 ---
 URL shortening services are Websites, which offer redirections from one of
 their pages with short URLs to your page (with a long URL). URL shortening

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-11-07 13:33:53.000000000 +01:00
 category: German posts
-tags: Digitaltechnik
+tags: Digitaltechnik, KIT, University
 ---
 <div class="info">Dieser Blogpost ist vor allem für Hörer von Prof. Dr. Asfour im WS 2012 / 2013 interessant. Ich höre momentan die Vorlesung bei ihm. Deshalb sind die Inhalte teilweise identisch oder zumindest sehr ähnlich.</div>
 

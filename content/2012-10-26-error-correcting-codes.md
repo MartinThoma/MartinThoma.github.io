@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Error correcting Codes
 slug: error-correcting-codes
+lang: en
 author: Martin Thoma
 date: 2012-10-26 22:29:51.000000000 +02:00
 category: My bits and bytes
-tags: mathematics, coding theory
+tags: Mathematics, Coding Theory
 ---
 <div class="info">This blogpost is strongly related to <a href="http://page.math.tu-berlin.de/~felsner/DMSWe/Aufgaben/codes.pdf">this germand PDF</a> of a pupils' competition in which I have participated in 2008.</div>
 

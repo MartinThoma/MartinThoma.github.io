@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Why to study math?
 slug: why-to-study-math
+lang: en
 author: Martin Thoma
 date: 2012-07-23 01:14:24.000000000 +02:00
 category: Cyberculture
-tags: YouTube, Clip, mathematics
+tags: Video, Mathematics
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <iframe width="512" height="288" src="//www.youtube.com/embed/aYIv4jggQJc" frameborder="0" allowfullscreen></iframe>

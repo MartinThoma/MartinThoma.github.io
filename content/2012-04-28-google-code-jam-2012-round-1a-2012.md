@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Google Code Jam 2012 &ndash; Round 1A 2012
 slug: google-code-jam-2012-round-1a-2012
+lang: en
 author: Martin Thoma
 date: 2012-04-28 06:11:22.000000000 +02:00
 category: Code
-tags: Programming, Python, Google, Google Code Jam, competition
+tags: Programming, Python, Google, Google Code Jam, Competition
 ---
 3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.
 

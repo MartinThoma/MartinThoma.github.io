@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Compare Planet Sizes
 slug: compare-planet-sizes
+lang: en
 author: Martin Thoma
 date: 2011-10-01 11:29:45.000000000 +02:00
 category: The Web
-tags: learning
+tags: Learning
 featured_image: 2011/10/Planet-Size-Comparison-thumb.png
 ---
 The diameter of Mercury measures about 4880 km. Can you imagine how much that is? I could not. But with <a href="http://www.sciencenetlinks.com/interactives/messenger/psc/PlanetSize.html">www.sciencenetlinks.com</a> you can compare it with the earth:

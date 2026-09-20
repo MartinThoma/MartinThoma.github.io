@@ -5,8 +5,8 @@ slug: die-lander-der-erde
 lang: de
 author: Martin Thoma
 date: 2012-07-31 17:00:57.000000000 +02:00
-category: Cyberculture
-tags: learning, Geography
+category: German posts
+tags: Learning, Geography
 featured_image: 2012/07/laender-der-erde1.png
 ---
 <figure class="aligncenter">

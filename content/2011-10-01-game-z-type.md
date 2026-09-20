@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Game: Z-Type
 slug: game-z-type
+lang: en
 author: Martin Thoma
 date: 2011-10-01 10:36:41.000000000 +02:00
 category: The Web
-tags: learning, JavaScript Game
+tags: Learning, JavaScript Game, Games
 featured_image: 2011/10/z-type-168x300.png
 ---
 <figure class="aligncenter">

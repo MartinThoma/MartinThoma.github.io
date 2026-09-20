@@ -7,7 +7,7 @@ lang: de
 author: Martin Thoma
 date: 2011-10-29 10:21:43.000000000 +02:00
 category: German posts
-tags: Computer science, Abstract machine, Theoretical computer science
+tags: Computer Science, Abstract Machine, Theoretical Computer Science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:

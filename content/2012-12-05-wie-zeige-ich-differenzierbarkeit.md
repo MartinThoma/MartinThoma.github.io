@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-12-05 11:59:08.000000000 +01:00
 category: German posts
-tags: mathematics, analysis
+tags: Mathematics, Analysis
 featured_image: 2012/12/ableitung-definition.png
 ---
 Weil das Thema so wichtig ist und man es doch recht leicht vergisst:

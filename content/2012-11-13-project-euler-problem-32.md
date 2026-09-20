@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Project Euler: Problem 32
 slug: project-euler-problem-32
+lang: en
 author: Martin Thoma
 date: 2012-11-13 11:52:12.000000000 +01:00
 category: Code
-tags: Challenge, Project Euler, brute-force
+tags: Challenge, Project Euler, Brute-Force, Python, Algorithms, Computer Science
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in Problem 32 of Project Euler is:

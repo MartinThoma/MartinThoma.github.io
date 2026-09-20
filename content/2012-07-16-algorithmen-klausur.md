@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-07-16 09:00:25.000000000 +02:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Für die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:

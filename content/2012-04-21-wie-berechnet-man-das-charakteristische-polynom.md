@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-04-21 13:41:39.000000000 +02:00
 category: German posts
-tags: Wolfram|Alpha, mathematics, lecture-notes, Linear algebra
+tags: Wolfram|Alpha, Mathematics, Lecture Notes, Linear Algebra, University
 featured_image: 2012/04/determinante.png
 ---
 Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.

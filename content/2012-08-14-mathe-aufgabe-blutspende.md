@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-14 17:00:16.000000000 +02:00
 category: German posts
-tags: mathematics
+tags: Mathematics
 featured_image: 2012/08/blood.png
 ---
 <h2>Aufgabenstellung</h2>

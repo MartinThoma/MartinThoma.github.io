@@ -5,8 +5,8 @@ slug: tribonacci-folge
 lang: de
 author: Martin Thoma
 date: 2012-11-19 20:52:00.000000000 +01:00
-category: Code
-tags: Programming, Java
+category: German posts
+tags: Programming, Java, Python
 ---
 Folgende Aufgabe gab es (sinngemäß) für das Modul &bdquo;Programmieren&ldquo; im zweiten Übungsblatt 2012:
 

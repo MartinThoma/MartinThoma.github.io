@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Wahrscheinlichkeitstheorie - Klausur (Info)
 slug: wt-klausur
+lang: de
 author: Martin Thoma
 date: 2012-02-07 16:29:52.000000000 +01:00
 category: German posts
-tags: cheat sheet, Klausur
+tags: Cheat Sheet, Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Morgen schreibe ich eine Klausur in Wahrscheinlichkeitstheorie. Zum Glück dürfen wir das Skript und Notizen mitnehmen.

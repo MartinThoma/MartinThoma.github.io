@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-09-21 19:36:18.000000000 +02:00
 category: The Web
-tags: WordPress
+tags: WordPress, Web Development
 featured_image: 2011/09/WordPress-Logo.png
 ---
 This article is about creating a new WordPress blog, including installation and basic customization.

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Programmieren Tutorium
 slug: programmieren-tutorium
+lang: de
 author: Martin Thoma
 date: 2012-10-21 20:59:33.000000000 +02:00
 category: German posts
-tags: KIT, Java, depublication
+tags: KIT, Java, Depublication, University
 featured_image: 2011/10/KIT-Logo.png
 ---
 <div class="info">Programmieren ist ein Modul am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a>. Dieser Blogpost richtet sich also vor allem an Studenten des KIT, die im WS 2012/2013 dieses Modul belegen und mein Tutorium besuchen. Er wird regelmäßig aktualisiert.</div>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Game: QWERTY Warriors 2
 slug: game-qwerty-warriors-2
+lang: en
 author: Martin Thoma
 date: 2011-10-08 21:44:24.000000000 +02:00
 category: The Web
-tags: Flashgames, learning, ten finger type
+tags: Flashgames, Learning, Touch Typing, Games
 featured_image: 2011/10/QWERTY-Warriors-2-thumb.png
 ---
 <figure class="aligncenter">

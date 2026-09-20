@@ -5,8 +5,8 @@ slug: wie-wendet-man-den-transformationssatz-an
 lang: de
 author: Martin Thoma
 date: 2012-12-22 22:43:11.000000000 +01:00
-category: Cyberculture
-tags: mathematics, analysis
+category: German posts
+tags: Mathematics, Analysis
 featured_image: 2012/12/transformationssatz-thumb.png
 ---
 <div class="info">Folgender Artikel basiert auf meinem Mitschrieb der Analysis III Übung bei Herrn Bolleyer.</div>

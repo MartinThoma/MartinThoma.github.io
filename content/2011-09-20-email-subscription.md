@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Subscribe via Email
 slug: email-subscription
+lang: en
 author: Martin Thoma
 date: 2011-09-20 20:00
 category: My bits and bytes
-tags: subscribe
+tags: Subscribe
 featured_image: logos/star.png
 disable_comments: true
 ---

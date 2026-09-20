@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-04-16 08:15:32.000000000 +02:00
 category: German posts
-tags: Linear algebra, Eigenwert, Eigenvektor, Eigenraum, Eigenwertproblem
+tags: Linear Algebra, Eigenwert, Eigenvektor, Eigenraum, Eigenwertproblem, Mathematics
 featured_image: 2012/01/vector-space.png
 ---
 <strong>Eigenwerte</strong> sind Elemente des Körpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erfüllen:

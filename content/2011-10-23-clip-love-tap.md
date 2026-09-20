@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Clip: Love Tap
 slug: clip-love-tap
+lang: en
 author: Martin Thoma
 date: 2011-10-23 16:27:19.000000000 +02:00
 category: The Web
-tags: Vimeo, Clip, love
+tags: Video, Love
 featured_image: 2011/10/Love-Tap.png
 ---
 <iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/HhQ-M_wP9rY?rel=0" frameborder="0" allowfullscreen></iframe>

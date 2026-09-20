@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Die Landau-Symbole
 slug: die-landau-symbole
+lang: de
 author: Martin Thoma
 date: 2012-07-26 08:41:08.000000000 +02:00
 category: German posts
-tags: algorithms, Big-O
+tags: Algorithms, Big-O, Computer Science
 featured_image: 2012/07/landau-thumb.png
 ---
 <h2>Definitionen</h2>

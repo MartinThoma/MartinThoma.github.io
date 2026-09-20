@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-11-08 13:18:09.000000000 +01:00
 category: German posts
-tags: mathematics, Boolean algebra
+tags: Mathematics, Boolean Algebra, Algebra
 ---
 ## Definition
 Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher

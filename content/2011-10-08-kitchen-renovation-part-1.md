@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Kitchen renovation - Part 1
 slug: kitchen-renovation-part-1
+lang: en
 author: Martin Thoma
 date: 2011-10-08 12:01:40.000000000 +02:00
 category: My bits and bytes
-tags: home improvement, do-it-yourself, house
+tags: Home Improvement, DIY, House
 featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
 Most of you might know that I am currently a student. Living near the University is quite important for me as I hate traveling long. In the central part of <a href="http://en.wikipedia.org/wiki/Karlsruhe">Karlsruhe</a>, the city I study in, most houses are very old. The house I live in was built around 1900 and modernized from time to time. A heater and electricity were added, for example.

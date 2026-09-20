@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-09-15 09:02:02.000000000 +02:00
 category: German posts
-tags: mathematics, analysis
+tags: Mathematics, Analysis
 featured_image: 2012/08/limes-thumbnail.png
 ---
 Die folgenden Definitionen sind wortwörtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript für Analysis I</a> bei Herrn Dr. Schmoeger übernommen worden.

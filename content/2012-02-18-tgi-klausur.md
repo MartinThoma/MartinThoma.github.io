@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-02-18 16:57:30.000000000 +01:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Ich habe im WS 2011/2012 bei Frau <a href="http://i11www.iti.uni-karlsruhe.de/en/members/dorothea_wagner/index">Prof. Dr. Wagner</a> die TGI-Klausur am KIT geschrieben. Hierfür entstand dieser Artikel.</div>

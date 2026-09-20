@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-04-25 22:25:11.000000000 +02:00
 category: German posts
-tags: KIT, Java, svn, SWT I, eclipse
+tags: KIT, Java, SVN, SWT I, Eclipse, University
 featured_image: 2012/04/eclipse-logo.png
 ---
 <div class="info">SWT I ist das Modul Softwaretechnik I am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a>. Dieser Blogpost richtet sich also vor allem an Studenten des KIT von Herrn <a href="http://www.ipd.uka.de/Tichy/people.php?id=15">Prof. Dr. Tichy</a>. Ich arbeite außerdem mit Ubuntu Linux. Die momentan aktuellste Version nennt sich Oneiric Ocelot und kann bei <a href="http://wiki.ubuntuusers.de/Downloads/Oneiric_Ocelot">UbuntuUsers</a> heruntergeladen werden. Das System könnte z.B. in <a href="http://wiki.ubuntuusers.de/VirtualBox">VirtualBox</a> installiert werden.</div>

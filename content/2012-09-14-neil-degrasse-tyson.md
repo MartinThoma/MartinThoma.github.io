@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Neil deGrasse Tyson
 slug: neil-degrasse-tyson
+lang: en
 author: Martin Thoma
 date: 2012-09-14 18:26:00.000000000 +02:00
 category: Cyberculture
-tags: funny
+tags: Funny, Video
 featured_image: 2012/09/Neil_deGrasse_Tyson.jpg
 ---
 <figure class="alignright">

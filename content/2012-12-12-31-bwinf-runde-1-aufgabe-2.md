@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-12-12 12:12:58.000000000 +01:00
 category: German posts
-tags: BwInf, GLPK
+tags: BWInf, GLPK
 featured_image: 2012/09/bwinf-thumb.png
 ---
 <h2>Die Aufgabenstellung</h2>

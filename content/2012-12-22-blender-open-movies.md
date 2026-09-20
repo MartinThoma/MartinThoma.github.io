@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Blender Open Movies
 slug: blender-open-movies
+lang: en
 author: Martin Thoma
 date: 2012-12-22 17:00:46.000000000 +01:00
 category: Cyberculture
-tags: Blender, Video, movie
+tags: Blender, Video, Movie
 featured_image: logos/blender-open-movie.png
 ---
 <h2>Big Buck Bunny</h2>

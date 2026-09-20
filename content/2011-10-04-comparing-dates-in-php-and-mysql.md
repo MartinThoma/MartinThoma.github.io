@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Comparing Dates in PHP and MySQL
 slug: comparing-dates-in-php-and-mysql
+lang: en
 author: Martin Thoma
 date: 2011-10-04 20:22:12.000000000 +02:00
 category: Code
-tags: PHP, MySQL
+tags: PHP, MySQL, Programming, Database
 featured_image: 2011/10/PHP-logo.png
 ---
 Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-03-20 16:07:50.000000000 +01:00
 category: German posts
-tags: Wolfram|Alpha, mathematics, Linear algebra, Matrix
+tags: Wolfram|Alpha, Mathematics, Linear Algebra, Matrix
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 Nicht alle Matrizen sind invertierbar. Matrizen, die invertierbar sind, nennt man auch regulär. Die Menge aller invertierbaren $n \times n$&ndash;Matrizen über einem Grundkörper (oder Grundring) K bildet eine Gruppe bezüglich der Matrixmultiplikation, die allgemeine lineare Gruppe $GL_n(K)$.

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-01-28 10:52:34.000000000 +01:00
 category: German posts
-tags: Formal language, Abstract machine, Formal grammar, Chomsky hierarchy, Theoretical computer science, TGI
+tags: Formal Language, Abstract Machine, Formal Grammar, Chomsky Hierarchy, Theoretical Computer Science, TGI, Computer Science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:

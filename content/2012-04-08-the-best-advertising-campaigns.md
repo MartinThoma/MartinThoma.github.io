@@ -2,10 +2,11 @@
 layout: post
 title: The Best Advertising Campaigns
 slug: the-best-advertising-campaigns
+lang: en
 author: Martin Thoma
 date: 2012-04-08 22:15:57.000000000 +02:00
 category: Cyberculture
-tags: funny, advertising, commercial
+tags: Funny, Advertising
 featured_image: 2012/04/mr-clean-ad-thumb.jpg
 ---
 <h2>Jobs in Town</h2>

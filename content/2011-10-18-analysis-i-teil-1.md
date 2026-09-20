@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2011-10-18 17:50:21.000000000 +02:00
 category: German posts
-tags: mathematics, lecture-notes
+tags: Mathematics, Lecture Notes, University
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <h2>Begriffe und Bezeichnungen</h2>

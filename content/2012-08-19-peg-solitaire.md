@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-19 17:00:58.000000000 +02:00
 category: German posts
-tags: Board Game
+tags: Board Game, Games
 featured_image: 2012/08/Peg-solitaire-board1.png
 ---
 Solitär (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspiel, Einsiedlerspiel) ist ein Brettspiel für eine Person. Das weitest verbreitete Spielfeld ist kreuzförmig und wird mit 32 Steinen auf 33 Felder gestartet.

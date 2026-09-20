@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Puzzle #1: List multiplication
 slug: python-puzzle-1-list-multiplication
+lang: en
 author: Martin Thoma
 date: 2012-06-18 15:06:48.000000000 +02:00
 category: Code
-tags: Programming, Python, puzzle
+tags: Programming, Python, Puzzle
 featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Basic concepts</h2>

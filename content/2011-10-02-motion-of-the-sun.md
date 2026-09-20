@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Motion of the sun
 slug: motion-of-the-sun
+lang: en
 author: Martin Thoma
 date: 2011-10-02 09:25:07.000000000 +02:00
 category: The Web
-tags: learning
+tags: Learning
 featured_image: 2011/10/Motions-of-the-sun-thumb.png
 ---
 How is the sun moving, according to our latitude, the time of the day and the time of the year?

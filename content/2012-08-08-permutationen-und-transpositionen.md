@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-08 10:36:06.000000000 +02:00
 category: German posts
-tags: Linear algebra
+tags: Linear Algebra, Mathematics
 featured_image: 2012/08/pi-thumbnail.png
 ---
 <h2>Permutation</h2>

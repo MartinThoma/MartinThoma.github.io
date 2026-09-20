@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2011-11-01 01:29:35.000000000 +01:00
 category: German posts
-tags: mathematics, lecture-notes, Mathematical induction, Structural induction
+tags: Mathematics, Lecture Notes, Mathematical Induction, Structural Induction, University, Proof
 featured_image: 2011/10/eulers-formula.png
 ---
 Der Induktionsbeweis eignet sich häufig, wenn es um Aussagen über die Natürlichen Zahlen $\mathbb{N}$ geht, allerdings kann er auch für die ganzen Zahlen $\mathbb{Z}$ verwendet werden.

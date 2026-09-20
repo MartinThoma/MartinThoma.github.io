@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Puzzle #3: Rounding
 slug: java-puzzle-3-rounding
+lang: en
 author: Martin Thoma
 date: 2012-07-17 17:00:53.000000000 +02:00
 category: Code
-tags: Programming, Java, puzzle
+tags: Programming, Java, Puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>The puzzle</h2>

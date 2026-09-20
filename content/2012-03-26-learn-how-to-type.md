@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-03-26 17:40:58.000000000 +02:00
 category: The Web
-tags: learning, ten finger type
+tags: Learning, Touch Typing
 featured_image: 2012/03/learn-how-to-type-thumb.png
 ---
 <figure class="aligncenter">

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-03-02 16:16:02.000000000 +01:00
 category: German posts
-tags: lecture-notes, KIT, Theoretical computer science, GBI
+tags: Lecture Notes, KIT, Theoretical Computer Science, GBI, University, Computer Science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 <h2>Formale Sprachen</h2>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Puzzle #7: Inheritance and Visibility
 slug: java-puzzle-7-inheritance-and-visibility
+lang: en
 author: Martin Thoma
 date: 2012-08-05 17:00:38.000000000 +02:00
 category: Code
-tags: Programming, Java, puzzle
+tags: Programming, Java, Puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 You are given the following two classes:

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-06-10 15:22:02.000000000 +02:00
 category: German posts
-tags: Physics
+tags: Physics, Science
 featured_image: 2012/06/moon.jpg
 ---
 Ich lese gerade das Buch 2025 von Frank Schätzing, in dem es um den Abbau des Isotops [³He](http://de.wikipedia.org/wiki/Helium-3#Kernfusion) geht. Es wird auch kurz erwähnt, dass es auf dem Mond keine Atmosphäre geben kann. Warum ist das so?

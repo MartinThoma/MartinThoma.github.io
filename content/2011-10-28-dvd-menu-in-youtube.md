@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: DVD menu in YouTube
 slug: dvd-menu-in-youtube
+lang: en
 author: Martin Thoma
 date: 2011-10-28 19:25:46.000000000 +02:00
 category: The Web
-tags: YouTube, Design
+tags: YouTube, Design, Video
 featured_image: 2011/10/youtube-dvd-menu1.png
 ---
 Today a friend of mine <a href="http://www.rene-pickhardt.de/first-youtube-dvd-online-for-ballads-n-bullets-by-in-legend/">posted</a> an article about a very neat idea. He created a DVD-like menu with several YouTube clips.

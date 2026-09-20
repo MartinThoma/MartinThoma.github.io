@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: 5 Web Technologies which should be used more often
 slug: 5-web-technologies-which-should-be-used-more-often
+lang: en
 author: Martin Thoma
 date: 2011-10-08 06:21:25.000000000 +02:00
 category: The Web
-tags: Web Development, OpenID, RSS
+tags: Web Development, OpenID, RSS, Security
 featured_image: 2011/10/OpenID.png
 ---
 <figure class="alignright">

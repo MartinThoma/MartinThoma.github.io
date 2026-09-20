@@ -2,10 +2,11 @@
 layout: post
 title: Shortfilms, Part II
 slug: shortfilms-part-ii
+lang: en
 author: Martin Thoma
 date: 2012-08-02 23:59:53.000000000 +02:00
 category: The Web
-tags: Video, Vimeo, Shortfilm
+tags: Video, Shortfilm
 featured_image: 2012/08/electroshock.png
 ---
 <div class="info">Here is the first part "<a href="../shortfilms/">Shortfilms</a>".</div>

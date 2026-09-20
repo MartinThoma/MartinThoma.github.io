@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Perfect number check and ROT-13 encryption in MIPS-assembly code
 slug: perfect-number-check-rot-13-encryption-mips-assembly-code
+lang: en
 author: Martin Thoma
 date: 2012-06-22 10:43:49.000000000 +02:00
 category: Code
-tags: Assembly language, MIPS
+tags: Assembly Language, MIPS, Computer Science
 featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 ---
 <h2>Perfect number check</h2>

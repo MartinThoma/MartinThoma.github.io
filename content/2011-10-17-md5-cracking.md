@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: MD5 cracking
 slug: md5-cracking
+lang: en
 author: Martin Thoma
 date: 2011-10-17 07:36:15.000000000 +02:00
 category: The Web
-tags: MD5, Internet Security, hash
+tags: MD5, Internet Security, Hash, Security
 featured_image: 2011/10/rednoize.png
 ---
 MD5 is a cryptographic hash function. This means, you can give the MD5

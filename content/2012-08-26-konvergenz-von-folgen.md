@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-26 18:04:36.000000000 +02:00
 category: German posts
-tags: analysis
+tags: Mathematics, Analysis
 featured_image: 2012/08/limes-thumbnail.png
 ---
 <div class="definition">Sei $(a_n)$ eine Folge.

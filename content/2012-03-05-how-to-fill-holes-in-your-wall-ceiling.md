@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2012-03-05 22:08:41.000000000 +01:00
 category: My bits and bytes
-tags: home improvement, do-it-yourself
+tags: Home Improvement, DIY, House
 featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
 <figure class="alignright">

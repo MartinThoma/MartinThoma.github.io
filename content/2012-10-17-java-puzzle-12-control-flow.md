@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Java Puzzle #12: Control-flow
 slug: java-puzzle-12-control-flow
+lang: en
 author: Martin Thoma
 date: 2012-10-17 17:00:19.000000000 +02:00
 category: Code
-tags: Programming, Java, puzzle
+tags: Programming, Java, Puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following <strong>HelloWorld.java</strong>?

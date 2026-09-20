@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2012-08-08 12:03:42.000000000 +02:00
 category: German posts
-tags: Linear algebra
+tags: Linear Algebra, Mathematics
 featured_image: 2012/08/endliche-gruppe-thumb.png
 ---
 Endliche Gruppen haben ein paar interessante Eigenschaften. Unter anderem gibt es nur zwei Gruppen mit vier Elementen. alle anderen Gruppen sind isomorph zu diesen Gruppen. Das zeige ich im folgendem.
