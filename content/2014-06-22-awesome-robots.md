@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Awesome Robots
 slug: awesome-robots
+lang: en
 author: Martin Thoma
 date: 2014-06-22 22:39
 category: Cyberculture
-tags: Robots, Quadcopter, Neural Networks, Differential Equations
+tags: Robots, Quadcopter, Neural Networks, Machine Learning, AI
 featured_image: logos/robot.png
 ---
 Robots are mechanical devices that are controlled by computer programs. Some

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2014-03-27 22:31
 category: Cyberculture
-tags: Review, Camera
+tags: Review, Camera, Hardware
 featured_image: 2014/03/panasonic-lumix-tz41.jpg
 itemtype: http://schema.org/Review
 ---

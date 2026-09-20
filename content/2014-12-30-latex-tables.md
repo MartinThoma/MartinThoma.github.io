@@ -2,10 +2,11 @@
 layout: post
 title: LaTeX and tables
 slug: latex-tables
+lang: en
 author: Martin Thoma
 date: 2014-12-30 21:57
 category: My bits and bytes
-tags: LaTeX, tables
+tags: LaTeX, Tables
 featured_image: logos/latex.png
 ---
 

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: A.I. in Computer Games
 slug: ai-in-computer-games
+lang: en
 author: Martin Thoma
 date: 2014-07-01 23:52
 category: Machine Learning
-tags: AI, games, Machine Learning
+tags: AI, Games, Machine Learning
 featured_image: logos/ai.png
 ---
 Artificial Intelligences (A.I.s) are computer programs that are able to adjust

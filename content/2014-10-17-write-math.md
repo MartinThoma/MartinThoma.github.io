@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: On-line Handwriting Recognition of Mathematical Symbols
 slug: write-math
+lang: en
 author: Martin Thoma
 date: 2014-10-17 12:25
 category: Code
-tags: Python, Project Management
+tags: Python, Project Management, Software Engineering
 featured_image: logos/write-math.png
 ---
 On-line handwriting recognition systems get the information how a symbol is

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Don't lose your stuff
 slug: dont-lose-your-stuff
+lang: en
 author: Martin Thoma
 date: 2014-12-29 21:07
 category: Cyberculture
-tags: Device
+tags: Device, Hardware
 featured_image: logos/tile.png
 ---
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>

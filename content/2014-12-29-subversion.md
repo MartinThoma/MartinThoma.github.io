@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Subversion
 slug: subversion
+lang: en
 author: Martin Thoma
 date: 2014-12-29 20:57
 category: Code
-tags: cheat sheet
+tags: Cheat Sheet, SVN, Software Engineering
 featured_image:
 ---
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>

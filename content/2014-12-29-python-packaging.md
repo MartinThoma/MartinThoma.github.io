@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Packaging with Python
 slug: python-packaging
+lang: en
 author: Martin Thoma
 date: 2014-12-29 21:05
 category: Code
-tags: Python
+tags: Python, Packaging, PyPI
 featured_image: logos/python.png
 ---
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.

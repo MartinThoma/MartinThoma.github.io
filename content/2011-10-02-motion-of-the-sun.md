@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2011-10-02 09:25:07.000000000 +02:00
 category: The Web
-tags: Learning
+tags: Space, Science, Learning
 featured_image: 2011/10/Motions-of-the-sun-thumb.png
 ---
 How is the sun moving, according to our latitude, the time of the day and the time of the year?

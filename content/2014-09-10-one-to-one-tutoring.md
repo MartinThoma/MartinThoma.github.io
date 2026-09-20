@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: One-on-One Tutoring
 slug: one-to-one-tutoring
+lang: en
 author: Martin Thoma
 date: 2014-09-10 10:03
 category: My bits and bytes
-tags: KIT
+tags: KIT, University
 featured_image: logos/kit.png
 ---
 I have heard that the famous universities in England have One-on-One tutoring.

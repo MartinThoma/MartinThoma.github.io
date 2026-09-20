@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Project Glooseberry
 slug: project-glooseberry
+lang: en
 author: Martin Thoma
 date: 2014-03-25 12:32
 category: Cyberculture
-tags: Blender, Video, movie
+tags: Blender, Video, Movie
 featured_image: logos/blender-open-movie.png
 ---
 Blender is an open source software that allows you to create animations.

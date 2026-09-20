@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Trickreiche Matheaufgaben
 slug: trickreiche-matheaufgaben
+lang: de
 author: Martin Thoma
 date: 2014-12-30 21:30
 category: German posts
-tags: mathematics
+tags: Mathematics, Puzzle, Algebra
 featured_image:
 ---
 <div class="info">This is a quick article I had for quite a while as a draft.

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How mathematics could change our future
 slug: how-mathematics-could-change-our-future
+lang: en
 author: Martin Thoma
 date: 2014-12-26 00:56
 category: Cyberculture
-tags: Mathematics, AI, algorithms
+tags: Mathematics, AI, Algorithms, Computer Science
 featured_image: logos/ai.png
 ---
 Can you think of a solution for a problem that concerns the whole or most of

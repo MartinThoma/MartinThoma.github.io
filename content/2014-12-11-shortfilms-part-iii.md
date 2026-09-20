@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Shortfilms, Part III
 slug: shortfilms-part-iii
+lang: en
 author: Martin Thoma
 date: 2014-12-11 22:54
 category: The Web
-tags: Video, Vimeo, Shortfilm
+tags: Video, Shortfilm
 featured_image: logos/egghunt.png
 ---
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>

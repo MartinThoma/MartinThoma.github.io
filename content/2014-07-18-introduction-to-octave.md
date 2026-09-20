@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Introduction to Octave
 slug: introduction-to-octave
+lang: en
 author: Martin Thoma
 date: 2014-07-18 17:40
 category: Code
-tags: Octave, Machine Learning
+tags: Octave, Machine Learning, AI
 featured_image: logos/octave.png
 ---
 [GNU Octave](https://en.wikipedia.org/wiki/GNU_Octave) is a really neat

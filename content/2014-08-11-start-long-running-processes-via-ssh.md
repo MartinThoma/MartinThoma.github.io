@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Start long running processes via SSH
 slug: start-long-running-processes-via-ssh
+lang: en
 author: Martin Thoma
 date: 2014-08-11 14:51
 category: Code
-tags: SSH, screen, nohup, Software Development
+tags: SSH, Screen, Nohup, Software Engineering, Hardware
 featured_image: logos/shell.png
 ---
 ## Screen

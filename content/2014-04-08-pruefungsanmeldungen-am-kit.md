@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Prüfungsverwaltung am KIT
 slug: pruefungsanmeldungen-am-kit
+lang: de
 author: Martin Thoma
 date: 2014-04-08 16:09
 category: German posts
-tags: KIT
+tags: KIT, University
 featured_image: logos/kit.png
 ---
 <!-- <div class="info">This article is about an idea how to give students the

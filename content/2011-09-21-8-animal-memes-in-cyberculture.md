@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: 8 Animal Memes in Cyberculture
 slug: 8-animal-memes-in-cyberculture
+lang: en
 author: Martin Thoma
 date: 2011-09-21 21:43:12.000000000 +02:00
 category: Cyberculture
-tags: Lame Pun Coon, Philosoraptor, Bachelor Frog, Kung Fu Bear, Paranoid Parrot, Courage Wolf, Lolcat, Socially Awkward Penguin
+tags: Funny, Meme, Lolcat
 featured_image: 2011/09/Lame-pun-coon-300x298.jpg
 context: post
 ---

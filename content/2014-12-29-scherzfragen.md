@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Scherzfragen
 slug: scherzfragen
+lang: de
 author: Martin Thoma
 date: 2014-12-29 20:56
 category: German posts
-tags: funny, Joke
+tags: Funny, Joke
 featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
