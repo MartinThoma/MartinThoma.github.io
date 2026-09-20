@@ -5,8 +5,8 @@ slug: autonome-shuttle-busse
 lang: de
 author: Martin Thoma
 date: 2025-12-04 20:00
-category: My bits and bytes
-tags: traffic, autonomous vehicles, shuttle buses
+category: German posts
+tags: Traffic, Autonomous Vehicles, Shuttle Buses, AI
 featured_image: logos/star.png
 status: draft
 ---

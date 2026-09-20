@@ -5,8 +5,8 @@ slug: energiewende
 lang: de
 author: Martin Thoma
 date: 2026-09-15 20:00
-category: My bits and bytes
-tags: politics, society
+category: German posts
+tags: Politics, Society
 featured_image: logos/germany.png
 status: draft
 ---

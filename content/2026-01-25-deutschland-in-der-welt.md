@@ -5,8 +5,8 @@ slug: deutschland-in-der-welt
 lang: de
 author: Martin Thoma
 date: 2026-01-25 20:00
-category: My bits and bytes
-tags: politics, society
+category: German posts
+tags: Politics, Society
 featured_image: logos/germany.png
 ---
 Wie steht Deutschland im internationalen Vergleich da? In diesem Beitrag möchte

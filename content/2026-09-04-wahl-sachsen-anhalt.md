@@ -5,8 +5,8 @@ slug: wahl-sachsen-anhalt-2026
 lang: de
 author: Martin Thoma
 date: 2026-09-04 20:00
-category: My bits and bytes
-tags: politics, society
+category: German posts
+tags: Politics, Society
 featured_image: logos/germany.png
 ---
 Am Sonntag, den 6. September 2026 (übermorgen!), wird in Sachsen-Anhalt ein neuer

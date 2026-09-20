@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2025-12-21 20:00
 category: My bits and bytes
-tags: foss, design, hardware
+tags: Open Source, Design, Hardware
 featured_image: logos/perfect-design.png
 ---
 I love thinking about perfect designs for everyday objects. Here is my idea for
