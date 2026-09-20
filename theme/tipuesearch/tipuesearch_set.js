@@ -27,7 +27,7 @@ exclude_pages = ['/archives.html', '/tags.html', '/index.html', '/categories.htm
 function showGetResult()
 {
      var result = new Array();
-     var scriptUrl = 'sitemap.xml';
+     var scriptUrl = '/sitemap.xml';
      $.ajax({
         url: scriptUrl,
         type: 'GET',
