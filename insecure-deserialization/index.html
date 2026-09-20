@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="AppSec, Cybersecurity, Security, " />
+<meta name="keywords" content="AppSec, Security, Security, " />
 
 <meta property="og:title" content="Insecure Deserialization 😈🐝 "/>
 <meta property="og:url" content="insecure-deserialization/" />
@@ -89,6 +89,10 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2021-01-28T20:00:00+01:00">Jan 28, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec</a></li>
+        <li><a href="../tags/#security-ref">Security</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -103,8 +107,8 @@ representation to a stream of characters or bytes. The representation of the
 serialized object should be platform- and language-independent. Data is
 serialized and deserialized in applications to <strong>store</strong> or <strong>transport</strong> it.
 In web applications, <strong>JSON</strong> or <strong>XML</strong> is often used for data exchange by
-many APIs and protocols. File formats like PNG/GIF/JPEG/MPEG use XML to store
-metadata. YAML became extremely popular for configuration files, e.g. in
+many APIs and protocols. File formats like PNG/GIF/JPEG/MPEG can use XML to store
+metadata (<a href="https://en.wikipedia.org/wiki/Extensible_Metadata_Platform">XMP</a>). YAML became extremely popular for configuration files, e.g. in
 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html">CloudFormation
 templates</a>
 or <a href="https://docs.gitlab.com/ee/ci/yaml/">GitLab CI configuration files</a>.</p>
@@ -128,8 +132,10 @@ Some want to go very far in terms of compatibility with many languages. As a
 potential side effect, they could allow <strong>arbitrary code execution</strong>.</p>
 <h2 id="why-you-should-care">Why you should care</h2>
 <ul>
-<li>Insecure deserialization was number 8 in the <strong>OWASP Top 10</strong>
-  (<a href="https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization">source</a>) 🐝</li>
+<li>Insecure deserialization was number 8 in the <strong>OWASP Top 10</strong> of 2017
+  (<a href="https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization">source</a>) 🐝.
+  In the 2021 edition, it is part of A08 "Software and Data Integrity Failures"
+  (<a href="https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/">source</a>)</li>
 <li>2013: The YAML node package
   (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660">CVE-2013-4660</a>)
   allowed remote code execution. Remote code execution is as bad as it gets:
@@ -187,7 +193,7 @@ article about XXE attacks <a href="../xxe-attacks/"><strong>XXE attacks 😈</st
 use XML. They can be
 vulnerable.</em></a></p>
 <p>Another possible attack vector is to use the reference feature of XML in a
-billion laughs attack: <a href="../billion-laughs-dos/"><strong>DOS via a billion laughs 😈</strong> <em>Consume arbitrary much
+billion laughs attack: <a href="../billion-laughs-dos/"><strong>DoS via a billion laughs 😈</strong> <em>Consume arbitrary much
 RAM by repeated
 referencing</em></a></p>
 <h3 id="attacking-pickle-deserialization">Attacking Pickle Deserialization</h3>
@@ -209,8 +215,9 @@ referencing</em></a></p>
 </ul>
 <p>For some formats, you can tell the deserializer to ignore some of its features:</p>
 <ul>
-<li><strong>PyYAML</strong>: Use the <code>yaml.safe_load</code> function. At some point, they changed the
-  interface so that <code>yaml.load</code> points to <code>yaml.safe_load</code>. You can still use
+<li><strong>PyYAML</strong>: Use the <code>yaml.safe_load</code> function. PyYAML 5.1 deprecated calling
+  <code>yaml.load</code> without an explicit <code>Loader</code>, and since PyYAML 6.0 the <code>Loader</code> argument
+  is mandatory (<a href="https://github.com/yaml/pyyaml/blob/master/CHANGES">changelog</a>). You can still use
   <code>yaml.unsafe_load</code>. I love that they included &ldquo;unsafe&rdquo; in the function call.
   This makes it obvious that something might be dangerous.</li>
 <li><strong>XML</strong>: For Python, there is
@@ -233,7 +240,7 @@ referencing</em></a></p>
 <li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
 <li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
 <li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
-<li>Part 11: <a href="../billion-laughs-dos/">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DoS via a Billion Laughs</a> 😈</li>
 <li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
 <li>Part 13: <strong>Insecure Deserialization</strong> 😈🐝</li>
 <li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
@@ -266,17 +273,6 @@ referencing</em></a></p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#security-ref">Security</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#appsec-ref">AppSec
-                <span>15</span>
-</a></li>
-            <li><a href="../tags/#cybersecurity-ref">Cybersecurity
-                <span>16</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

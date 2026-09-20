@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Code, Python, Scope, Code, " />
+<meta name="keywords" content="Python, Scope, Code, " />
 
 <meta property="og:title" content="Python&#39;s Scoping Rules  - The extraordinarily short guide to Python&#39;s crazy scoping rules "/>
 <meta property="og:url" content="python-scoping-rules/" />
@@ -89,11 +89,15 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-11-23T20:00:00+01:00">Nov 23, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#python-ref">Python</a></li>
+        <li><a href="../tags/#scope-ref">Scope</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#the-3-scopes-of-python" title="The 3 Scopes of Python">The 3 Scopes of Python</a></li><li><a class="toc-href" href="#the-global-statement" title="The &ldquo;global&rdquo; statement">The &ldquo;global&rdquo; statement</a></li><li><a class="toc-href" href="#the-nonlocal-statement" title="The &ldquo;nonlocal&rdquo; statement">The &ldquo;nonlocal&rdquo; statement</a></li><li><a class="toc-href" href="#confusing-examples" title="Confusing Examples">Confusing Examples</a><ul><li><a class="toc-href" href="#append-element-vs-element" title="Append element vs &lsquo;+= [element]&rsquo;">Append element vs &lsquo;+= [element]&rsquo;</a></li><li><a class="toc-href" href="#global-scope-does-fall-back-to-built-ins" title="Global scope DOES fall back to built-ins">Global scope DOES fall back to built-ins</a></li><li><a class="toc-href" href="#assignment" title="Assignment">Assignment</a></li><li><a class="toc-href" href="#mypy" title="mypy">mypy</a></li></ul></li><li><a class="toc-href" href="#summary_1" title="Summary">Summary</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#the-4-scopes-of-python" title="The 4 Scopes of Python">The 4 Scopes of Python</a></li><li><a class="toc-href" href="#the-global-statement" title="The &ldquo;global&rdquo; statement">The &ldquo;global&rdquo; statement</a></li><li><a class="toc-href" href="#the-nonlocal-statement" title="The &ldquo;nonlocal&rdquo; statement">The &ldquo;nonlocal&rdquo; statement</a></li><li><a class="toc-href" href="#confusing-examples" title="Confusing Examples">Confusing Examples</a><ul><li><a class="toc-href" href="#append-element-vs-element" title="Append element vs &lsquo;+= [element]&rsquo;">Append element vs &lsquo;+= [element]&rsquo;</a></li><li><a class="toc-href" href="#global-scope-does-fall-back-to-built-ins" title="Global scope DOES fall back to built-ins">Global scope DOES fall back to built-ins</a></li><li><a class="toc-href" href="#assignment" title="Assignment">Assignment</a></li><li><a class="toc-href" href="#mypy" title="mypy">mypy</a></li></ul></li><li><a class="toc-href" href="#summary_1" title="Summary">Summary</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -103,16 +107,19 @@ it was declared inside a loop, can you access it outside a loop? If it was
 declared in a function, can you access the variable outside of the function?</p>
 <p>This kind of &ldquo;variable lifetime&rdquo; is known as scoping. After reading this
 article, you will know the scoping rules of Python. Let&rsquo;s start!</p>
-<h2 id="the-3-scopes-of-python">The 3 Scopes of Python</h2>
-<p>Python has 3 scopes:</p>
+<h2 id="the-4-scopes-of-python">The 4 Scopes of Python</h2>
+<p>Python looks up names in four scopes, known as the <a href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">LEGB rule</a>
+(Local, Enclosing, Global, Built-in):</p>
 <ul>
-<li><strong>Global</strong>: In the main part of the script. By default, this already contains
-  the built-ins. You can access all global variables with <code>globals()</code></li>
-<li><strong>Enclosed</strong>: In the outer function, if this is a nested function</li>
 <li><strong>Local</strong>: Within the current function. You can access all local variables
   with <code>locals()</code>. Within the main script, <code>locals() == globals()</code></li>
+<li><strong>Enclosed</strong>: In the outer function, if this is a nested function</li>
+<li><strong>Global</strong>: In the main part of the script (the module).
+  You can access all global variables with <code>globals()</code></li>
+<li><strong>Built-in</strong>: The names of the <code>builtins</code> module, e.g. <code>min</code> or <code>print</code>. This is
+  the outermost scope.</li>
 </ul>
-<p>You can see all three in action here:</p>
+<p>You can see the first three in action here:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
 
@@ -254,7 +261,7 @@ Hence, we don&rsquo;t face any issue because it is defined in the global scope.<
 
 <span class="n">foo</span><span class="p">()</span>
 </code></pre></div>
-<p>The reason is that <code>locals() == globals()</code> within the global scope. Although built-ins are a bit special, they kind of live in the global scope.</p>
+<p>The reason is that <code>locals() == globals()</code> within the global scope. Built-ins are not part of the global scope, but a separate scope which is searched last.</p>
 <h3 id="assignment">Assignment</h3>
 <p>This one is confusing to people with a Java, C, or C++ background. This is
 valid Python code:</p>
@@ -335,20 +342,6 @@ scoping should make sense 🙂</p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#code-ref">Code</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#code-ref">Code
-                <span>10</span>
-</a></li>
-            <li><a href="../tags/#python-ref">Python
-                <span>141</span>
-</a></li>
-            <li><a href="../tags/#scope-ref">Scope
-                <span>1</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

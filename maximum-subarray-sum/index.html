@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Competitive Programming, Brute-Force, Dynamic Programming, Code, " />
+<meta name="keywords" content="Competitive Programming, Brute-Force, Dynamic Programming, Python, Programming, Algorithms, Computer Science, Code, " />
 
 <meta property="og:title" content="Maximum Contiguous Subarray Sum "/>
 <meta property="og:url" content="maximum-subarray-sum/" />
@@ -89,6 +89,15 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-05-03T20:00:00+02:00">Mai 3, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algorithms-ref">Algorithms</a></li>
+        <li><a href="../tags/#brute-force-ref">Brute-Force</a></li>
+        <li><a href="../tags/#competitive-programming-ref">Competitive Programming</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science</a></li>
+        <li><a href="../tags/#dynamic-programming-ref">Dynamic Programming</a></li>
+        <li><a href="../tags/#programming-ref">Programming</a></li>
+        <li><a href="../tags/#python-ref">Python</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -127,13 +136,12 @@ solution.</p>
 <p>I like simple brute force solutions to make sure that more complex solutions
 are correct:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
 
 
 <span class="k">def</span> <span class="nf">max_contiguous_subarray_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="n">max_sum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">right</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">left</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">left</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="n">sum_</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span> <span class="p">:</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
             <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">max_sum</span>
@@ -146,33 +154,35 @@ are correct:</p>
 <p>You might wonder why this has a time complexity of $\mathcal{O}(n^3)$, although
 there are only two loops. The answer is simply the <code>sum</code> function.</p>
 <p>You might also wonder if the fact that the inner loop does not do $n$
-operations but only $\text{right}$ operations makes any difference. In this
+operations but only $\text{right} + 1$ operations makes any difference. In this
 case, let's calculate the exact number of times we calculate <code>sum_</code>:</p>
 <ul>
-<li>right=0: 0x sum_ calculations</li>
-<li>right=1: 1x sum_ calculations</li>
-<li>right=2: 2x sum_ calculations</li>
+<li>right=0: 1x sum_ calculations</li>
+<li>right=1: 2x sum_ calculations</li>
+<li>right=2: 3x sum_ calculations</li>
 <li>...</li>
-<li>right=n-1: (n-1)x sum_ calculations</li>
+<li>right=n-1: nx sum_ calculations</li>
 </ul>
 <p>Hence, we calculate <code>sum_</code> exactly
-$$\sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - n}{2}$$
+$$\sum_{i=1}^{n} i = \frac{n \cdot (n + 1)}{2}$$
 times.</p>
-<p>The number of elements should also be considered:</p>
+<p>The number of elements should also be considered. For <code>right = r</code>, the
+subarrays have $1, 2, \dots, r + 1$ elements:</p>
 <ul>
-<li>right=0: 0x sum_ calculations, sum-elements: up to 0</li>
-<li>right=1: 1x sum_ calculations, sum-elements: up to 1</li>
-<li>right=2: 2x sum_ calculations, sum-elements: up to 2</li>
+<li>right=0: 1x sum_ calculations, sum-elements: 1</li>
+<li>right=1: 2x sum_ calculations, sum-elements: 1 + 2 = 3</li>
+<li>right=2: 3x sum_ calculations, sum-elements: 1 + 2 + 3 = 6</li>
 <li>...</li>
-<li>right=n-1: (n-1)x sum_ calculations, sum-elements: up to (n-1)</li>
+<li>right=n-1: nx sum_ calculations, sum-elements: 1 + 2 + ... + n</li>
 </ul>
 <p>Hence, the <code>sum()</code> function needs to do</p>
 <p>\begin{align}
 \sum_{i=1}^n (\sum_{j=1}^i j) &amp;= \sum_{i=1}^n \frac{i^2 + i}{2}\
-&amp;= \frac{1}{2} \cdot \sum_{i=1}^n (i^2 + i) \
-&amp;= \frac{1}{2} \cdot (\sum_{i=1}^n i + \sum_{i=1}^n i^2) \
-&amp;= \frac{1}{2} \frac{n^2 + n}{2} + \frac{1}{2} \cdot \frac{n \cdot (n + 1) \cdot (2n + 1)}{6}\
+&amp;= \frac{1}{2} \cdot (\sum_{i=1}^n i^2 + \sum_{i=1}^n i) \
+&amp;= \frac{1}{2} \cdot \left(\frac{n \cdot (n + 1) \cdot (2n + 1)}{6} + \frac{n \cdot (n + 1)}{2}\right)\
+&amp;= \frac{n \cdot (n + 1) \cdot (n + 2)}{6}
 \end{align}</p>
+<p>operations.</p>
 <p>Which means it's a time complexity of $\mathcal{O}(n^3)$.</p>
 <h2 id="cumulative-sum-brute-force">Cumulative Sum Brute-Force</h2>
 <p>There is a pretty neat trick using the cumulative sum to avoid one of those
@@ -219,7 +229,7 @@ at each element.</p>
 <ul>
 <li><a href="https://hsm.stackexchange.com/q/384">Gauss Summation formula</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Prefix_sum">Prefix-sum</a> technique</li>
-<li>Sliding Window technique (<a href="https://martin-thoma.com/dynamic-programming/">Dynamic Programming</a>)</li>
+<li>Kadane's algorithm (<a href="../dynamic-programming/">Dynamic Programming</a>)</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
@@ -238,20 +248,6 @@ at each element.</p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#code-ref">Code</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#brute-force-ref">Brute-Force
-                <span>3</span>
-</a></li>
-            <li><a href="../tags/#competitive-programming-ref">Competitive Programming
-                <span>2</span>
-</a></li>
-            <li><a href="../tags/#dynamic-programming-ref">Dynamic Programming
-                <span>1</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound, Code, " />
+<meta name="keywords" content="Backtracking, Branch-and-Bound, CSP, Python, Operations Research, Algorithms, Computer Science, Code, " />
 
 <meta property="og:title" content="Backtracking "/>
 <meta property="og:url" content="backtracking/" />
@@ -89,6 +89,15 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-03-30T20:00:00+02:00">Mär 30, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algorithms-ref">Algorithms</a></li>
+        <li><a href="../tags/#backtracking-ref">Backtracking</a></li>
+        <li><a href="../tags/#branch-and-bound-ref">Branch-and-Bound</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science</a></li>
+        <li><a href="../tags/#csp-ref">CSP</a></li>
+        <li><a href="../tags/#operations-research-ref">Operations Research</a></li>
+        <li><a href="../tags/#python-ref">Python</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -129,12 +138,15 @@ permutations are also no solutions.</p>
 <p>Depth First Search (DFS) is a graph traversal algorithm. It is one way to
 search in the solution space for a solution that satisfies the constraints. It
 is the typical choice to iterate over the solution space. Other search algorithms
-are Breadth First Search (BFS) and A*.</p>
+are Breadth First Search (BFS) and A*. (For simplicity, the n-queens
+implementation below uses a queue and thus BFS. It finds the same solutions, but
+DFS would need less memory.)</p>
 <h2 id="backtracking-vs-bb">Backtracking vs B&amp;B</h2>
 <p>Branch-and-Bound (B&amp;B) is a concept to solve discrete constrained optimization
 problems (COPs). They are similar to CSPs, but besides having the constraints
-they have an optimization criterion. In contrast to backtracking, B&amp;B uses
-Breadth-First Search.</p>
+they have an optimization criterion. In contrast to plain backtracking, B&amp;B
+usually explores the most promising partial solutions first (best-first search),
+although depth-first and breadth-first variants exist.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>B&amp;B is a <a href="https://martin-thoma.com/label-correction-algorithm/">label correction algorithm</a>.
 It is a search algorithm which uses a lower bound and an upper bound for the
 search. Think of a shortest-path problem.</p>
@@ -178,8 +190,8 @@ column, then you can easily determine if they threaten each other:</p>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    all_solutions : List[List[int]]</span>
-<span class="sd">        Each inner list represents a single solution.</span>
+<span class="sd">    all_solutions : List[Tuple[int, ...]]</span>
+<span class="sd">        Each inner tuple represents a single solution.</span>
 <span class="sd">        The first digit of it is the column of the queen in the first row.</span>
 <span class="sd">        The second digit is the column of the queen in the second row, ...</span>
 
@@ -314,18 +326,18 @@ DFS can be seen as a specific form of backtracking
 <span class="k">def</span> <span class="nf">find_way_out</span><span class="p">(</span>
     <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">current_path</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_pos</span><span class="p">,)</span>
     <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">current_path</span>
-    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">current_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_pos</span><span class="p">]</span>
     <span class="c1"># Implement possible_paths for your problem</span>
     <span class="k">for</span> <span class="n">next_step</span> <span class="ow">in</span> <span class="n">possible_paths</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">):</span>
         <span class="n">next_pos</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">next_step</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">next_pos</span> <span class="o">==</span> <span class="n">current_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="c1"># We just came from this position</span>
+        <span class="k">if</span> <span class="n">next_pos</span> <span class="ow">in</span> <span class="n">current_path</span><span class="p">:</span>
+            <span class="c1"># We were already at this position, so we would walk in circles</span>
             <span class="k">continue</span>
         <span class="n">solution</span> <span class="o">=</span> <span class="n">find_way_out</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">next_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">+</span> <span class="p">(</span><span class="n">next_pos</span><span class="p">,))</span>
-        <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">solution</span>
     <span class="c1"># We didn't find a way out</span>
     <span class="k">return</span> <span class="kc">None</span>
@@ -343,23 +355,24 @@ that it is still DFS. It's just not recursive anymore:</p>
 <span class="k">def</span> <span class="nf">find_way_out</span><span class="p">(</span>
     <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
-    <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">current_path</span>
     <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">current_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_pos</span><span class="p">]</span>
+        <span class="n">current_path</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_pos</span><span class="p">,)</span>
     <span class="n">explore</span> <span class="o">=</span> <span class="p">[(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">current_path</span><span class="p">)]</span>
-    <span class="k">while</span> <span class="n">explore</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">explore</span><span class="p">:</span>
         <span class="n">current_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">current_path</span>
         <span class="k">for</span> <span class="n">next_step</span> <span class="ow">in</span> <span class="n">possible_paths</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">):</span>
             <span class="n">next_pos</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">next_step</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">next_pos</span> <span class="o">==</span> <span class="n">current_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-                <span class="c1"># We just came from this position</span>
+            <span class="k">if</span> <span class="n">next_pos</span> <span class="ow">in</span> <span class="n">current_path</span><span class="p">:</span>
+                <span class="c1"># We were already at this position, so we would walk in circles</span>
                 <span class="k">continue</span>
             <span class="n">explore</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">+</span> <span class="p">(</span><span class="n">next_pos</span><span class="p">,)))</span>
     <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
 <h2 id="sudoku">Sudoku</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
@@ -453,15 +466,15 @@ that it is still DFS. It's just not recursive anymore:</p>
         <span class="n">board</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">board</span><span class="o">.</span><span class="n">is_solved</span><span class="p">():</span>
             <span class="k">return</span> <span class="n">board</span>
-        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">board</span><span class="o">.</span><span class="n">get_first_zero_position</span><span class="p">():</span>
-            <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-                <span class="n">new_board</span> <span class="o">=</span> <span class="n">SudokuBoard</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">))</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">new_board</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">digit</span><span class="p">)</span>
-                    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_board</span><span class="p">)</span>
-                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                    <span class="c1"># Setting digit at that position would make the board invalid</span>
-                    <span class="k">continue</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_first_zero_position</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="n">new_board</span> <span class="o">=</span> <span class="n">SudokuBoard</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">board</span><span class="p">))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">new_board</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">digit</span><span class="p">)</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_board</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="c1"># Setting digit at that position would make the board invalid</span>
+                <span class="k">continue</span>
 </code></pre></div>
 <p>You can solve Sudoku with <a href="https://gist.github.com/ymakino/4605973">GLPK</a>, the
 GNU Linear Programming Kit, as well.</p>
@@ -487,32 +500,6 @@ GNU Linear Programming Kit, as well.</p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#code-ref">Code</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#algorithms-ref">Algorithms
-                <span>13</span>
-</a></li>
-            <li><a href="../tags/#backtracking-ref">Backtracking
-                <span>1</span>
-</a></li>
-            <li><a href="../tags/#branch-and-bound-ref">Branch-and-Bound
-                <span>2</span>
-</a></li>
-            <li><a href="../tags/#constraint-satisfaction-ref">Constraint-satisfaction
-                <span>2</span>
-</a></li>
-            <li><a href="../tags/#cop-ref">COP
-                <span>3</span>
-</a></li>
-            <li><a href="../tags/#csp-ref">CSP
-                <span>3</span>
-</a></li>
-            <li><a href="../tags/#operations-research-ref">Operations Research
-                <span>1</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

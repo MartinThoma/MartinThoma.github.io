@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="hash, Software Development, Cyberculture, " />
+<meta name="keywords" content="Hash, Software Engineering, Security, Cyberculture, " />
 
 <meta property="og:title" content="The 3 Applications of Hash Functions  - What they are, what the options are, and why they matter "/>
 <meta property="og:url" content="3-applications-of-hash-functions/" />
@@ -89,6 +89,11 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2021-01-17T20:00:00+01:00">Jan 17, 2021</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#hash-ref">Hash</a></li>
+        <li><a href="../tags/#security-ref">Security</a></li>
+        <li><a href="../tags/#software-engineering-ref">Software Engineering</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -221,19 +226,19 @@ Hence the more work you have to put into it.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
 <span class="k">def</span> <span class="nf">find_hash</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"00"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
     <span class="n">nb_probed</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">probe</span> <span class="ow">in</span> <span class="n">generate_random_str</span><span class="p">():</span>
         <span class="n">nb_probed</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">hashval</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="s2">"utf8"</span><span class="p">))</span>
+        <span class="n">hashval</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="s2">"utf8"</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">hashval</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">probe</span><span class="p">,</span> <span class="n">nb_probed</span>
 
 
-<span class="k">def</span> <span class="nf">generate_random_str</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">generate_random_str</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">abc</span> <span class="o">=</span> <span class="s2">"abcdefghijklmnopqrstuvwxyz"</span>
     <span class="n">chars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">abc</span> <span class="o">+</span> <span class="n">abc</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"0123456789"</span> <span class="o">+</span> <span class="s1">' !"&sect;$%&amp;/()=?+-'</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -247,7 +252,7 @@ Hence the more work you have to put into it.</p>
 <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="n">probe</span><span class="p">,</span> <span class="n">nb_probed</span> <span class="o">=</span> <span class="n">find_hash</span><span class="p">(</span><span class="s2">"0000"</span><span class="p">)</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">hashval</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="s2">"utf8"</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<span class="n">hashval</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="s2">"utf8"</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">probe</span><span class="si">=}</span><span class="s2">; </span><span class="si">{</span><span class="n">hashval</span><span class="si">=}</span><span class="s2">; nb_probed=</span><span class="si">{</span><span class="n">nb_probed</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>If you want to get more context about how the proof of work is used in Blockchain, have a look at my introductory article:
@@ -327,17 +332,6 @@ char_xor             466,422           993.9 ns/value    7 bit
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#cyberculture-ref">Cyberculture</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#hash-ref">hash
-                <span>4</span>
-</a></li>
-            <li><a href="../tags/#software-development-ref">Software Development
-                <span>17</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

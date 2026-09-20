@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Cybersecurity, AppSec, Security, " />
+<meta name="keywords" content="Security, AppSec, Security, " />
 
 <meta property="og:title" content="XXE attacks 😈  - PDF, Excel, SVG, ebooks — all use XML. They can be vulnerable. "/>
 <meta property="og:url" content="xxe-attacks/" />
@@ -89,6 +89,10 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-05-17T20:00:00+02:00">Mai 17, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec</a></li>
+        <li><a href="../tags/#security-ref">Security</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -103,7 +107,7 @@ MathJax.Hub.Queue(function() {
 <h2 id="why-you-should-care">Why you should care</h2>
 <ul>
 <li>XXE vulnerabilities can allow attackers to <strong>steal your data</strong>, <strong>scan your internal network</strong>, and even allow <strong>remote code execution</strong> (RCE)</li>
-<li>XXE attacks were number 4 in the <strong>OWASP Top 10</strong> (2017)</li>
+<li>XXE attacks were number 4 in the <strong>OWASP Top 10</strong> (2017). In the 2021 edition, they are part of A05 "Security Misconfiguration" (<a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">source</a>)</li>
 <li>The <a href="https://twitter.com/hashtag/XXE?src=hashtag_click">Twitter Tag #XXE</a> is pretty active. So people are still interested in it, although the vulnerability was already recognized in 2002 (<a href="https://www.securityfocus.com/archive/1/303509">source</a>)</li>
 <li>2012: An XXE vulnerability was discovered in <strong>Inkscape</strong> (<a href="https://bugs.launchpad.net/inkscape/+bug/1025185">source</a>)</li>
 <li>2014: <strong>Google</strong> was vulnerable to XXE and paid a bug bounty of <strong>$10,000</strong> (<a href="https://blog.detectify.com/2014/04/11/how-we-got-read-access-on-googles-production-servers/">source</a>)</li>
@@ -137,7 +141,7 @@ MathJax.Hub.Queue(function() {
 <span class="nb">print</span><span class="p">(</span><span class="n">parsed_xml</span><span class="p">)</span>
 </code></pre></div>
 <p>Looks harmless, doesn&rsquo;t it? It simply prints <code>&lt;root&gt;Hello World!&lt;/root&gt;</code>.</p>
-<p>But if you change the xml string, then you can read the list of users in <code>/etc/passwd</code>:</p>
+<p>But if you change the xml string, then you can read the list of users in <code>/etc/passwd</code>. Please note that since lxml 5.0, <code>resolve_entities</code> defaults to <code>'internal'</code>, so this example only works if you pass <code>resolve_entities=True</code> to the parser:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 
 <span class="n">xml</span> <span class="o">=</span> <span class="s2">"""</span>
@@ -146,7 +150,7 @@ MathJax.Hub.Queue(function() {
 <span class="s2">]&gt;</span>
 <span class="s2">&lt;root&gt;&amp;ee;&lt;/root&gt;</span>
 <span class="s2">"""</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">XMLParser</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">XMLParser</span><span class="p">(</span><span class="n">resolve_entities</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">parser</span><span class="p">)</span>
 <span class="n">parsed_xml</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf8"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">parsed_xml</span><span class="p">)</span>
@@ -172,8 +176,9 @@ This means that you need to configure the XML parser you&rsquo;re using.</p>
 <p>Python has <a href="https://docs.python.org/3/library/xml.html#xml-vulnerabilities">5 XML
 parsers</a>:
 <a href="https://docs.python.org/3/library/xml.sax.reader.html#module-xml.sax.xmlreader">sax</a>,
-etree, minidom, pulldom, xmlrpc. According to the documentation, they are safe
-to use. However, <a href="https://lxml.de/">lxml</a> is widespread. It mentions that you
+etree, minidom, pulldom, xmlrpc. According to the documentation, several of them
+are vulnerable to attacks like the billion laughs attack or quadratic blowup
+(external entities are not resolved by default with recent expat versions). Additionally, <a href="https://lxml.de/">lxml</a> is widespread. It mentions that you
 should configure the parser to not load external DTDs
 (<a href="https://lxml.de/FAQ.html#how-do-i-use-lxml-safely-as-a-web-service-endpoint">source</a>).
 The <a href="https://pypi.org/project/defusedxml/">defusedxml</a> package offers a way to
@@ -200,7 +205,7 @@ Schwenk.</p>
 <li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
 <li>Part 9: <strong>XXE attacks</strong> 😈🐝</li>
 <li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
-<li>Part 11: <a href="../billion-laughs-dos/">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DoS via a Billion Laughs</a> 😈</li>
 <li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
 <li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
 <li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
@@ -233,17 +238,6 @@ Schwenk.</p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#security-ref">Security</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#appsec-ref">AppSec
-                <span>15</span>
-</a></li>
-            <li><a href="../tags/#cybersecurity-ref">Cybersecurity
-                <span>16</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

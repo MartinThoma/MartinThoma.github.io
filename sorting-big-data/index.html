@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Big Data, Python, Bash, sorting, Code, " />
+<meta name="keywords" content="Big Data, Python, Bash, Sorting, Data Science, Algorithms, Computer Science, Code, " />
 
 <meta property="og:title" content="Sorting Big Data "/>
 <meta property="og:url" content="sorting-big-data/" />
@@ -89,6 +89,15 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-05-29T20:00:00+02:00">Mai 29, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#algorithms-ref">Algorithms</a></li>
+        <li><a href="../tags/#bash-ref">Bash</a></li>
+        <li><a href="../tags/#big-data-ref">Big Data</a></li>
+        <li><a href="../tags/#computer-science-ref">Computer Science</a></li>
+        <li><a href="../tags/#data-science-ref">Data Science</a></li>
+        <li><a href="../tags/#python-ref">Python</a></li>
+        <li><a href="../tags/#sorting-ref">Sorting</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -499,7 +508,7 @@ and use SQL to sort:</p>
 <span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">lines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 
 <span class="w">    </span><span class="c1">// write</span>
-<span class="w">    </span><span class="n">ofstream</span><span class="w"> </span><span class="n">output_file</span><span class="p">(</span><span class="s">"filepath"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ofstream</span><span class="w"> </span><span class="nf">output_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">);</span>
 <span class="w">    </span><span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_iterator</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="w">    </span><span class="n">copy</span><span class="p">(</span><span class="n">lines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">output_iterator</span><span class="p">);</span>
 <span class="p">}</span>
@@ -507,13 +516,12 @@ and use SQL to sort:</p>
 <span class="kt">void</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">chunks</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">ofstream</span><span class="w"> </span><span class="n">output_file</span><span class="p">(</span><span class="s">"cpp-sorted.txt"</span><span class="p">);</span>
-<span class="w">    </span><span class="n">ostream_iterator</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_iterator</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// iterate over the vector</span>
+<span class="w">    </span><span class="c1">// The chunks are ordered by their two-digit prefix. Hence it is enough to</span>
+<span class="w">    </span><span class="c1">// concatenate the sorted chunks in this order.</span>
 <span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it_chunk</span><span class="p">;</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel for</span>
 <span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">it_chunk</span><span class="o">=</span><span class="n">chunks</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">it_chunk</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">chunks</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="n">it_chunk</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Sort "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it_chunk</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Merge "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it_chunk</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 
 <span class="w">        </span><span class="c1">// Read file</span>
 <span class="w">        </span><span class="n">ifstream</span><span class="w"> </span><span class="nf">infile</span><span class="p">(</span><span class="o">*</span><span class="n">it_chunk</span><span class="p">);</span>
@@ -562,23 +570,6 @@ and use SQL to sort:</p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#code-ref">Code</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#bash-ref">Bash
-                <span>7</span>
-</a></li>
-            <li><a href="../tags/#big-data-ref">Big Data
-                <span>1</span>
-</a></li>
-            <li><a href="../tags/#python-ref">Python
-                <span>141</span>
-</a></li>
-            <li><a href="../tags/#sorting-ref">sorting
-                <span>3</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

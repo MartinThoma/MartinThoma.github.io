@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, Security, " />
+<meta name="keywords" content="Security, AppSec, Security, " />
 
-<meta property="og:title" content="DOS via a billion laughs 😈  - Consume arbitrarily much RAM by repeated referencing "/>
+<meta property="og:title" content="DoS via a billion laughs 😈  - Consume arbitrarily much RAM by repeated referencing "/>
 <meta property="og:url" content="billion-laughs-dos/" />
 <meta property="og:description" content="Image by the author The billion laughs attack has been known since 2003 (source). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-12-23T20:00:00+01:00" />
-<meta name="twitter:title" content="DOS via a billion laughs 😈  - Consume arbitrarily much RAM by repeated referencing ">
+<meta name="twitter:title" content="DoS via a billion laughs 😈  - Consume arbitrarily much RAM by repeated referencing ">
 <meta name="twitter:description" content="Image by the author The billion laughs attack has been known since 2003 (source). The attack uses the references in XML files to make a small source file be huge in memory if all references are expanded. It’s also known as a LOL bomb, XML bomb, or in a …">
 <meta property="og:image" content="logos/cybersecurity.png" />
 <meta name="twitter:image" content="logos/cybersecurity.png" >
 
-        <title>DOS via a billion laughs 😈  - Consume arbitrarily much RAM by repeated referencing  · Martin Thoma
+        <title>DoS via a billion laughs 😈  - Consume arbitrarily much RAM by repeated referencing  · Martin Thoma
 </title>
         <meta name="color-scheme" content="light dark">
         <link rel="preload" href="../theme/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -85,10 +85,14 @@ MathJax.Hub.Queue(function() {
 <!-- article.html -->
 <article class="reading">
 <header class="page-head">
-    <h1><a href="../billion-laughs-dos/">DOS via a billion laughs 😈 <small>Consume arbitrarily much RAM by repeated referencing</small></a></h1>
+    <h1><a href="../billion-laughs-dos/">DoS via a billion laughs 😈 <small>Consume arbitrarily much RAM by repeated referencing</small></a></h1>
     <p class="meta">
 <time datetime="2020-12-23T20:00:00+01:00">Dez 23, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec</a></li>
+        <li><a href="../tags/#security-ref">Security</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -136,7 +140,11 @@ MathJax.Hub.Queue(function() {
 <li><strong>RAM restriction</strong>: You can run the code that might execute the billion laughs attack under resource restrictions. This means the execution thread/process receives a (catchable) exception and can continue execution normally. It might especially mean that even if the exception is not thrown, the rest of your system might be fine. Only that thread/process might be killed.</li>
 </ul>
 <p>So, how do you do this with Python?</p>
-<p>The resource restriction is easiest:</p>
+<p>For XML in Python, the standard recommendation is to use the
+<a href="https://pypi.org/project/defusedxml/">defusedxml</a> package instead of the standard library parsers. It forbids
+entity expansion attacks like the billion laughs attack by default.</p>
+<p>The resource restriction is easy as well. Please note that <code>RLIMIT_AS</code> limits
+the address space of the whole process, not only of a single thread:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">resource</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
 
@@ -184,7 +192,7 @@ bomb
 <li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
 <li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
 <li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
-<li>Part 11: <strong>DOS via a Billion Laughs</strong> 😈</li>
+<li>Part 11: <strong>DoS via a Billion Laughs</strong> 😈</li>
 <li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
 <li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
 <li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
@@ -217,23 +225,6 @@ bomb
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#security-ref">Security</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#appsec-ref">AppSec
-                <span>15</span>
-</a></li>
-            <li><a href="../tags/#cybersecurity-ref">Cybersecurity
-                <span>16</span>
-</a></li>
-            <li><a href="../tags/#infosec-ref">InfoSec
-                <span>12</span>
-</a></li>
-            <li><a href="../tags/#security-ref">Security
-                <span>22</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="SQL, ORM, SQLAlchemy, pypika, Query Builder, Code, " />
+<meta name="keywords" content="SQL, ORM, SQLAlchemy, Pypika, Query Builder, Python, Database, Code, " />
 
 <meta property="og:title" content="Raw SQL vs Query Builder vs ORM "/>
 <meta property="og:url" content="raw-sql-vs-query-builder-vs-orm/" />
@@ -89,6 +89,15 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-05-17T20:00:00+02:00">Mai 17, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#database-ref">Database</a></li>
+        <li><a href="../tags/#orm-ref">ORM</a></li>
+        <li><a href="../tags/#pypika-ref">Pypika</a></li>
+        <li><a href="../tags/#python-ref">Python</a></li>
+        <li><a href="../tags/#query-builder-ref">Query Builder</a></li>
+        <li><a href="../tags/#sql-ref">SQL</a></li>
+        <li><a href="../tags/#sqlalchemy-ref">SQLAlchemy</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -173,7 +182,7 @@ all <code>books.title</code> written by that author:</p>
 <span class="nd">@db_connection</span>
 <span class="k">def</span> <span class="nf">get_titles_by_author</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">author_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="o">.</span><span class="n">cursors</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SELECT * FROM books WHERE author_id = %s"</span><span class="p">,</span> <span class="n">author_id</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM books WHERE author_id = </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">author_id</span><span class="p">)</span>
     <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
     <span class="k">return</span> <span class="n">titles</span>
 
@@ -588,26 +597,6 @@ complicated queries and how the database systems deal with those. Thank you 🤗
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#code-ref">Code</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#orm-ref">ORM
-                <span>1</span>
-</a></li>
-            <li><a href="../tags/#pypika-ref">pypika
-                <span>1</span>
-</a></li>
-            <li><a href="../tags/#query-builder-ref">Query Builder
-                <span>1</span>
-</a></li>
-            <li><a href="../tags/#sql-ref">SQL
-                <span>4</span>
-</a></li>
-            <li><a href="../tags/#sqlalchemy-ref">SQLAlchemy
-                <span>2</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>

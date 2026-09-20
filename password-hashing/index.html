@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="InfoSec, AppSec, Security, Cybersecurity, Password, Security, " />
+<meta name="keywords" content="Security, AppSec, Password, Security, " />
 
 <meta property="og:title" content="Password Hashing 😇 "/>
 <meta property="og:url" content="password-hashing/" />
@@ -89,6 +89,11 @@ MathJax.Hub.Queue(function() {
     <p class="meta">
 <time datetime="2020-10-19T20:00:00+02:00">Okt 19, 2020</time>        · by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
     </p>
+    <ul class="list-of-tags tags-in-header" aria-label="Tags">
+        <li><a href="../tags/#appsec-ref">AppSec</a></li>
+        <li><a href="../tags/#password-ref">Password</a></li>
+        <li><a href="../tags/#security-ref">Security</a></li>
+    </ul>
 </header>
 
 <details class="toc" open>
@@ -114,7 +119,7 @@ MathJax.Hub.Queue(function() {
 <ul>
 <li><strong>2012</strong>: LinkedIn leaked 6.5 million passwords. The passwords had been hashed with SHA-1 and were not salted (<a href="https://arstechnica.com/information-technology/2012/06/8-million-leaked-passwords-connected-to-linkedin/">source</a>).</li>
 <li><strong>2013</strong>: Adobe leaked 130 million passwords (<a href="https://www.theguardian.com/technology/2013/nov/07/adobe-password-leak-can-check">source</a>). The passwords were encrypted, not hashed.</li>
-<li><strong>2016</strong>: LinkedIn got hacked and used a weak hashing algorithm (<a href="https://www.zdnet.com/article/these-are-the-worst-passwords-from-the-linkedin-hack">source</a>)</li>
+<li><strong>2016</strong>: The full data of the 2012 LinkedIn breach (about 117 million email/password hash pairs, weakly hashed) was published (<a href="https://www.zdnet.com/article/these-are-the-worst-passwords-from-the-linkedin-hack">source</a>)</li>
 <li><strong>2019</strong>: 1.2 million passwords got leaked via the porn site Luscious (<a href="https://www.forbes.com/sites/daveywinder/2019/08/20/popular-porn-site-breach-exposed-12-million-anonymous-user-profiles/#3c0cbe067039">source</a>)</li>
 <li><strong>2019</strong>: Facebook had hundreds of millions of passwords stored in plain text (<a href="https://about.fb.com/news/2019/03/keeping-passwords-secure/">source 1</a>, <a href="https://www.nytimes.com/2019/03/21/technology/personaltech/facebook-passwords.html">source 2</a>)</li>
 <li><strong>2019</strong>: Zynga leaked 170 million passwords (<a href="https://www.theguardian.com/games/2019/dec/19/170m-passwords-stolen-in-zynga-words-with-friends-hack-monitor-says">source</a>). Zynga used hashing and salting.</li>
@@ -163,8 +168,9 @@ you have two functions:</p>
 <span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">check_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="s2">"foobar"</span><span class="p">)</span>
 <span class="kc">True</span>
 </code></pre></div>
+<p>Please note that 1000 iterations are far too few today. The <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html">OWASP Password Storage Cheat Sheet</a> recommends at least 210,000 iterations for PBKDF2-HMAC-SHA512, and Werkzeug uses scrypt by default nowadays.</p>
 <p>You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the dollar sign) is the 8 characters of the salt. Then comes the hash of the password with the given method and salt.</p>
-<p>There are other key derivation functions. Most notably <a href="https://en.wikipedia.org/wiki/Scrypt">scrypt</a>, which was not only designed to be demanding on the CPU but also requires a lot of memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it doesn&rsquo;t seem to be too widespread (<a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497">source</a>). Instead, you can create something similar on your own by using core Python functions such as <a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt">hashlib.scrypt</a>. A noteworthy key derivation function is <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a>.</p>
+<p>There are other key derivation functions. Most notably <a href="https://en.wikipedia.org/wiki/Scrypt">scrypt</a>, which was not only designed to be demanding on the CPU but also requires a lot of memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it doesn&rsquo;t seem to be too widespread (<a href="https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497">source</a>). Instead, you can create something similar on your own by using core Python functions such as <a href="https://docs.python.org/3/library/hashlib.html#hashlib.scrypt">hashlib.scrypt</a>. <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a> (Argon2id) is the first choice of the OWASP Password Storage Cheat Sheet.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <p>Let&rsquo;s make a checklist. If you are a developer, I hope you can checkmark those:</p>
 <ul>
@@ -192,7 +198,7 @@ you have two functions:</p>
 <li>A rich character set (e.g. upper- and lower-case letters, digits, special characters)</li>
 <li>Is not a combination of only two or three words in a dictionary</li>
 </ul>
-<p>You can also <strong>change your passwords regularly</strong>. This will make sure that people who had access for a while without being noticed will be blocked out again.</p>
+<p>You can also <strong>change your passwords</strong> if you suspect that they have been compromised. Changing passwords regularly without a reason is no longer recommended: <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST SP 800-63B</a> advises to change passwords only when there is evidence of compromise.</p>
 <h2 id="see-also">See also</h2>
 <p>It feels like <a href="https://en.wikipedia.org/wiki/Tom_Scott_(entertainer)">Tom Scott</a> / <a href="https://www.youtube.com/user/Computerphile">Computerphile</a> made a video about all the security topics I want to write about 😄</p>
 <p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8ZtInClXe1Q" width="560"></iframe></center></p>
@@ -209,7 +215,7 @@ you have two functions:</p>
 <li>Part 8: <a href="../sca/">Software Composition Analysis</a> (SCA) 😇</li>
 <li>Part 9: <a href="../xxe-attacks/">XXE attacks</a> 😈🐝</li>
 <li>Part 10: <a href="../effective-access-control/">Effective Access Control</a> 😇</li>
-<li>Part 11: <a href="../billion-laughs-dos/">DOS via a Billion Laughs</a> 😈</li>
+<li>Part 11: <a href="../billion-laughs-dos/">DoS via a Billion Laughs</a> 😈</li>
 <li>Part 12: <a href="../full-disk-encryption/">Full Disk Encryption</a> 😇</li>
 <li>Part 13: <a href="../insecure-deserialization/">Insecure Deserialization</a> 😈🐝</li>
 <li>Part 14: <a href="../docker-security/">Docker Security</a> 😇</li>
@@ -242,26 +248,6 @@ you have two functions:</p>
     <div class="meta-group">
         <h4>Category</h4>
         <a class="pill" href="../categories/#security-ref">Security</a>
-    </div>
-    <div class="meta-group">
-        <h4>Tags</h4>
-        <ul class="list-of-tags tags-in-article">
-            <li><a href="../tags/#appsec-ref">AppSec
-                <span>15</span>
-</a></li>
-            <li><a href="../tags/#cybersecurity-ref">Cybersecurity
-                <span>16</span>
-</a></li>
-            <li><a href="../tags/#infosec-ref">InfoSec
-                <span>12</span>
-</a></li>
-            <li><a href="../tags/#password-ref">Password
-                <span>3</span>
-</a></li>
-            <li><a href="../tags/#security-ref">Security
-                <span>22</span>
-</a></li>
-        </ul>
     </div>
 <div class="meta-group social">
 <h4>Contact</h4>
