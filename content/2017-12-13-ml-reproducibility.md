@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Reproducibility in Machine Learning
 slug: ml-reproducibility
+lang: en
 author: Martin Thoma
 date: 2017-12-13 20:00
 category: Machine Learning
-tags: Machine Learning, Research
+tags: Machine Learning, Research, AI
 featured_image: logos/ml.png
 ---
 Getting reproducible results is important because of trust: Why should somebody

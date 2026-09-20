@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Best practice for Machine Learning Projects
 slug: ml-best-practice
+lang: en
 author: Martin Thoma
 date: 2017-11-15 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 I did a couple of machine learning projects so far and there are some patterns

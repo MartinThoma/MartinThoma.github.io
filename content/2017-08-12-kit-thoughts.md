@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Ideen zur Verbesserung des KIT
 slug: kit-thoughts
+lang: en
 author: Martin Thoma
 date: 2017-08-12 20:00
 category: My bits and bytes
-tags: KIT
+tags: KIT, University
 featured_image: logos/education.png
 ---
 I've studied 3 years for the bachelors degree and for 2.5 years for the masters

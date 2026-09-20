@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Object Detection
 slug: object-detection
+lang: en
 author: Martin Thoma
 date: 2017-03-19 20:00
 category: Machine Learning
-tags: machine learning, Computer Vision, Pascal VOC
+tags: Machine Learning, Computer Vision, Pascal VOC, AI
 featured_image: logos/ml.png
 ---
 Object detection is the following task: You have an image and you want

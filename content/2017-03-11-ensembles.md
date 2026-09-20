@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Ensembles
 slug: ensembles
+lang: en
 author: Martin Thoma
 date: 2017-03-11 20:00
 category: Machine Learning
-tags: machine learning, ensembles, Computer Vision, CIFAR 100
+tags: Machine Learning, Ensembles, Computer Vision, CIFAR 100, AI
 featured_image: logos/ml.png
 ---
 Models which are combinations of other models are called an **ensemble**.

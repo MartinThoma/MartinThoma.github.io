@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Document Classification
 slug: document-classification
+lang: en
 author: Martin Thoma
 date: 2017-07-26 20:00
 category: Machine Learning
-tags: NLP, Machine Learning, Classification
+tags: NLP, Machine Learning, Classification, AI
 featured_image: logos/ml.png
 ---
 This article explains how to classify texts.

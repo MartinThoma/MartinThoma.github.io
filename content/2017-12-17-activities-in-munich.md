@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Activities in Munich
 slug: activities-in-munich
+lang: en
 author: Martin Thoma
 date: 2017-12-17 20:00
 category: My bits and bytes
-tags: activities
+tags: Activities
 featured_image: logos/munich.png
 ---
 ## Swimming

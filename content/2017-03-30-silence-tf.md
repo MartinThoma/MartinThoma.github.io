@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to silence TensorFlow
 slug: silence-tf
+lang: en
 author: Martin Thoma
 date: 2017-03-30 20:00
 category: Machine Learning
-tags: Tensorflow
+tags: Tensorflow, Machine Learning, AI
 featured_image: logos/tensor-flow.png
 ---
 Set the environment variable

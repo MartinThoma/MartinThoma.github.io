@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Gradient Boosting
 slug: gradient-boosting
+lang: en
 author: Martin Thoma
 date: 2017-12-29 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 Boosting is an ensemble learning technique. Gradient Boosting is a technique

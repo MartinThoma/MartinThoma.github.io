@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: ASR Services
 slug: asr-services
+lang: en
 author: Martin Thoma
 date: 2017-10-08 20:00
 category: Machine Learning
-tags: Machine Learning, ASR, Service
+tags: Machine Learning, ASR, Service, Python, AI
 featured_image: logos/ml.png
 ---
 Automatic Speech Recognition (ASR) is really difficult to set up yourself.

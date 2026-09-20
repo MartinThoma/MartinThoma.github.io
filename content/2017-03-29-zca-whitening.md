@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: ZCA Whitening
 slug: zca-whitening
+lang: en
 author: Martin Thoma
 date: 2017-03-29 20:00
 category: Machine Learning
-tags: Computer Vision, Machine Learning
+tags: Computer Vision, Machine Learning, AI
 featured_image: logos/ml.png
 ---
 Whitening is a transformation of data in such a way that its covariance matrix $\Sigma$

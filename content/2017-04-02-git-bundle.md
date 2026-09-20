@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Git Bundle
 slug: git-bundle
+lang: en
 author: Martin Thoma
 date: 2017-04-02 20:00
 category: Code
-tags: git
+tags: Git
 featured_image: logos/git.png
 ---
 Sometimes you need to share code via E-Mail / stick. If the code you need to

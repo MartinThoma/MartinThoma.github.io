@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: ML Showcases
 slug: ml-showcases
+lang: en
 author: Martin Thoma
 date: 2017-12-23 20:00
 category: Machine Learning
-tags: Machine Learning, Demo
+tags: Machine Learning, Demo, AI
 featured_image: logos/ml.png
 ---
 There are many awesome examples out there where you can get a very direct

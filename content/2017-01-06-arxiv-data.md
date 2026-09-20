@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to use arXiv data
 slug: arxiv-data
+lang: en
 author: Martin Thoma
 date: 2017-01-06 06:30
 category: Code
-tags: arXiv, Amazon, AWS, Machine Learning
+tags: arXiv, Amazon, AWS, Machine Learning, AI
 featured_image: logos/arxiv.png
 ---
 <div class="info">I've written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I've used.</div>

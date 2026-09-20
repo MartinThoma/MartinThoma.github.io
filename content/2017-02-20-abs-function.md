@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: The Absolute Value Function
 slug: abs-function
+lang: en
 author: Martin Thoma
 date: 2017-02-20 20:00
 category: Mathematics
-tags: mathematics
+tags: Mathematics
 featured_image: logos/mathematics.png
 ---
 I was never really taught how to deal with the absolute value function, but

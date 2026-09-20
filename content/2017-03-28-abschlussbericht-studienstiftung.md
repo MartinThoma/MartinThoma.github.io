@@ -2,9 +2,10 @@
 layout: post
 title: Abschlussbericht der Studienstiftung
 slug: abschlussbericht-studienstiftung
+lang: de
 author: Martin Thoma
 date: 2017-03-28 20:00
-category: Cyberculture
+category: German posts
 tags: LaTeX, Studienstiftung
 featured_image: 2012/06/Studienstiftung-Logo.png
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2017-08-27 20:00
 category: My bits and bytes
-tags: Hiking, nature
+tags: Hiking, Nature
 featured_image: logos/hiking.png
 ---
 The Triglav National Park is the only national park in Slovenia. It is located

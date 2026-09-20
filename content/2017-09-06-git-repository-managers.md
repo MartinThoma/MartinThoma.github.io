@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Git Repository Managers
 slug: git-repository-managers
+lang: en
 author: Martin Thoma
 date: 2017-09-06 20:00
 category: Code
-tags: git, repository, Gitlab
+tags: Git, Repository, Gitlab
 featured_image: logos/git.png
 ---
 Git is likely todays most important version control system. It is used for

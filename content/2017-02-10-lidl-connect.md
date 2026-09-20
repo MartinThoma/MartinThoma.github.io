@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Lidl Connect
 slug: lidl-connect
+lang: en
 author: Martin Thoma
 date: 2017-02-10 20:00
 category: Cyberculture
-tags: sim card
+tags: Sim Card
 featured_image: logos/star.png
 ---
 Finding good solutions to have a phone number and decent internet when being in

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Autofill Phishing
 slug: autofill-phishing
+lang: en
 author: Martin Thoma
 date: 2017-01-14 20:00
 category: Cyberculture
-tags: IT-Security, Browser, Phishing
+tags: Security, Browser, Phishing
 featured_image: logos/hacker.png
 ---
 Autofill phishing is a simple technique I wasn't aware of until a few hours

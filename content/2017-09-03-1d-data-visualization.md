@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: 1D Data Visualization
 slug: 1d-data-visualization
+lang: en
 author: Martin Thoma
 date: 2017-09-03 20:00
 category: Machine Learning
-tags: Machine Learning,Data Visualization
+tags: Machine Learning, Data Visualization, AI, Data Science
 featured_image: logos/ml.png
 ---
 Once in a while I have to visualize simple 1D numerical data. So here is an

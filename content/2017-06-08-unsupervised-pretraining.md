@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Unsupervised Pretraining
 slug: unsupervised-pretraining
+lang: en
 author: Martin Thoma
 date: 2017-06-08 20:00
 category: Machine Learning
-tags: Machine Learning, Neural Networks
+tags: Machine Learning, Neural Networks, AI
 featured_image: logos/ml.png
 ---
 Neural networks have thousands, often millions of parameters. They take

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How to get Data for ML systems
 slug: ml-get-data
+lang: en
 author: Martin Thoma
 date: 2017-06-15 20:00
 category: Machine Learning
-tags: Machine Learning, data
+tags: Machine Learning, Data, AI
 featured_image: logos/ml.png
 ---
 Machine Learning is only possible with data. The more data, the better. For

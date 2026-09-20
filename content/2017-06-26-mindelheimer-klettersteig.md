@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Mindelheimer Klettersteig
 slug: mindelheimer-klettersteig
+lang: de
 author: Martin Thoma
 date: 2017-06-26 20:00
-category: My bits and bytes
-tags: climbing, hiking
+category: German posts
+tags: Climbing, Hiking
 featured_image: logos/hiking.png
 ---
 I've never finished this one… might still be interesting for others.

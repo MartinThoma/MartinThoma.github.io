@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Matplotlib Markers
 slug: matplotlib-markers
+lang: en
 author: Martin Thoma
 date: 2017-02-12 20:00
 category: Code
-tags: matplotlib, Python
+tags: Matplotlib, Python
 featured_image: logos/matplotlib.png
 ---
 Matplotlib is a simple Python library to create plots like this one:

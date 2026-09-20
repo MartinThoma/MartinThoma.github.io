@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Label Correction Algorithm
 slug: label-correction-algorithm
+lang: en
 author: Martin Thoma
 date: 2017-01-25 20:00
 category: Machine Learning
-tags: A.I., Algorithms, Programming, Python, Machine Learning, Branch-and-Bound
+tags: AI, Algorithms, Programming, Python, Machine Learning, Branch-and-Bound, Computer Science
 featured_image: logos/ai.png
 ---
 The label-correction algorithm is a generalization which includes very common
