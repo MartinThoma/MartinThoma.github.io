@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Software Handover
 slug: software-handover
+lang: en
 author: Martin Thoma
 date: 2018-06-22 20:00
 category: My bits and bytes
-tags: Code, Software Projects
+tags: Software Projects
 featured_image: logos/code.png
 ---
 Handing over code to another person or another team is a pretty common task.

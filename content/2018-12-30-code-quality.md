@@ -1,8 +1,8 @@
 ---
 layout: post
-lang: en
 title: Code Quality
 slug: code-quality
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: Code
@@ -258,6 +258,9 @@ except OSError:
 with ignored:
 
 ```python
+from contextlib import contextmanager
+
+
 @contextmanager
 def ignored(*exceptions):
     try:

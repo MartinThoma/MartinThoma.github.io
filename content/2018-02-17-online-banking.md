@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Online Banking
 slug: online-banking
+lang: en
 author: Martin Thoma
 date: 2018-02-17 20:00
 category: My bits and bytes
-tags: Banking, N26
+tags: Banking, N26, Money
 featured_image: logos/money.png
 ---
 Online banking is something I have to do. I have to have a bank account for my

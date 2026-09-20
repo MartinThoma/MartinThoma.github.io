@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Command Line
 slug: command-line
+lang: en
 author: Martin Thoma
 date: 2018-10-09 20:00
 category: Code
-tags: Development, Command line
+tags: Software Engineering, Command Line
 featured_image: logos/code.png
 ---
 As a software developer, I work many hours on the command line every day. This

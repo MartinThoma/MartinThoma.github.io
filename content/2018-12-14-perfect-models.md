@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Perfect Models
 slug: perfect-models
+lang: en
 author: Martin Thoma
 date: 2018-12-14 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 When you develop a model, you want the optimal model. The perfect one.

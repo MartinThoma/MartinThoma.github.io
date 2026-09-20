@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Type Systems
 slug: type-systems
+lang: en
 author: Martin Thoma
 date: 2018-11-26 20:00
 category: Code
-tags: Programming Languages
+tags: Programming Languages, Python
 featured_image: logos/star.png
 ---
 The topic of type systems keeps coming up when I hear people discuss

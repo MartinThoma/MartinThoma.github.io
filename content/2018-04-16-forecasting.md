@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Forecasting
 slug: forecasting
+lang: en
 author: Martin Thoma
 date: 2018-04-16 20:00
 category: Machine Learning
-tags: Machine Learning, Regression, Time Series
+tags: Machine Learning, Regression, Time Series, AI
 featured_image: logos/ml.png
 ---
 Today, I played a bit with the [International airline passengers dataset](https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&display=line).

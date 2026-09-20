@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Code Challenges in ML
 slug: code-challenges-in-ml
+lang: en
 author: Martin Thoma
 date: 2018-12-25 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 Having machines that can write software is the dream of probably every

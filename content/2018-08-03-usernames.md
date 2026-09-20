@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Usernames
 slug: usernames
+lang: en
 author: Martin Thoma
 date: 2018-08-03 20:00
 category: The Web
-tags: Web Services
+tags: Web Services, Web Development
 featured_image: logos/web.png
 ---
 Usernames are used for identification in two places in web services: To let

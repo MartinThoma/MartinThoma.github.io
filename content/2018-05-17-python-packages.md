@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Packages
 slug: python-packages
+lang: en
 author: Martin Thoma
 date: 2018-05-17 20:00
 category: My bits and bytes
-tags: Machine Learning
+tags: Python, Packaging
 featured_image: logos/python.png
 ---
 <div class="info">You might be looking for a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a>.</div>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Sankey Diagrams
 slug: sankey-diagrams
+lang: en
 author: Martin Thoma
 date: 2018-01-09 20:00
 category: Machine Learning
-tags: Data Analysis, Data Visualization
+tags: Data Analysis, Data Visualization, Data Science
 featured_image: logos/ml.png
 ---
 Sankey diagrams can be used to visualize the breakdown of money / electricity.

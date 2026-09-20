@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Data Science - An Overview
 slug: data-science
+lang: en
 author: Martin Thoma
 date: 2018-06-02 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/data-science.png
 ---
 Data Science recently became popular. Currently, there are 154 open job positions on

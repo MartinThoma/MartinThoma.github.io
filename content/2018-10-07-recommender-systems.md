@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Recommender Systems
 slug: recommender-systems
+lang: en
 author: Martin Thoma
 date: 2018-10-07 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 I recently became interested in recommender systems. You know, the thing on

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Data Scientist Interviews
 slug: ds-interview
+lang: en
 author: Martin Thoma
 date: 2018-06-14 20:00
 category: Machine Learning
-tags: Machine Learning,Data Science
+tags: Machine Learning, Data Science, AI
 featured_image: logos/data-science.png
 ---
 Interviews for Data Scientists - which traits and skills are important for a

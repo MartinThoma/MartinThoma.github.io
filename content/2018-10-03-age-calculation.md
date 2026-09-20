@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: How old am I?
 slug: age-calculation
+lang: en
 author: Martin Thoma
 date: 2018-10-03 20:00
 category: Code
-tags: Software Engineering, Datetime
+tags: Software Engineering, Datetime, Python
 featured_image: logos/dst.png
 ---
 Calculating the age of a person in a web service is harder than one might think
@@ -34,7 +34,8 @@ Write a program that takes the following input as a `;` separated string:
 2. Timezone of Birth ([IANA name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g. `Europe/Berlin`)
 3. Current time as `YYYY-MM-DDTHH:mm:ssZ` (UTC)
 
-and prints the age in years (a single integer).
+and prints the age in years (a single integer). The age is calculated in the time
+zone of birth: The current time is converted to that time zone first.
 
 
 ## Tests
@@ -43,7 +44,9 @@ and prints the age in years (a single integer).
 assert get_age("1996-02-29T15:45:54;Europe/Berlin;2018-10-03T09:47:50") == 22
 assert get_age("2008-04-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50") == 10
 assert get_age("2008-11-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50") == 9
-assert get_age("2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59") == 1
+assert (
+    get_age("2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59") == 2
+)  # already 2008-03-01 in Berlin
 ```
 
 
@@ -60,14 +63,16 @@ def get_age(input_):
     """
     Calculate the age of a person
     """
+    from datetime import timezone
+    from zoneinfo import ZoneInfo
+
     from dateutil.parser import parse
-    import pytz
 
     # parse input
     born, born_tz, now = input_.split(";")
-    tz = pytz.timezone(born_tz)
-    born = parse(born).replace(tzinfo=pytz.utc).astimezone(tz)
-    now = parse(now).replace(tzinfo=pytz.utc)
+    tz = ZoneInfo(born_tz)
+    born = parse(born).replace(tzinfo=tz)
+    now = parse(now).replace(tzinfo=timezone.utc).astimezone(tz)
 
     # age logic
     year_not_finished = (now.month, now.day) < (born.month, born.day)

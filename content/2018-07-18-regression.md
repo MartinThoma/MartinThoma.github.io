@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Regression
 slug: regression
+lang: en
 author: Martin Thoma
 date: 2018-07-18 20:00
 category: Machine Learning
-tags: Machine Learning, Regression
+tags: Machine Learning, Regression, AI
 featured_image: logos/ml.png
 ---
 <div class="info">A while ago, this link pointed to the content which is now in the <a href="https://martin-thoma.com/forecasting/">Forecasting article</a>.</div>

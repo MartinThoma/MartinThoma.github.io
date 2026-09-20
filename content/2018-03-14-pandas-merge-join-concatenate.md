@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Pandas: Merge, join, concatenate
 slug: pandas-merge-join-concatenate
+lang: en
 author: Martin Thoma
 date: 2018-03-14 20:00
 category: Code
-tags: Pandas
+tags: Pandas, Python
 featured_image: logos/pandas.png
 ---
 I always get confused about the different methods to join Pandas

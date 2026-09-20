@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2018-06-03 20:00
 category: Machine Learning
-tags: Machine Learning, Data Science
+tags: Machine Learning, Data Science, AI
 featured_image: logos/data-science.png
 ---
 Data Science projects are either pure analytics projects, or software projects,

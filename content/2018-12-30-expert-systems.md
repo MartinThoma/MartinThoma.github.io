@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Expert Systems
 slug: expert-systems
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: Machine Learning
-tags: Machine Learning, Expert Systems
+tags: Machine Learning, Expert Systems, AI
 featured_image: logos/ml.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Evaluation of binary classifiers
 slug: binary-classifier-evaluation
+lang: en
 author: Martin Thoma
 date: 2018-06-23 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 Binary classification is likely the simplest task in machine learning. It is

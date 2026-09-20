@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: WhatsApp Data
 slug: whatsapp-data
+lang: en
 author: Martin Thoma
 date: 2018-12-23 20:00
 category: Cyberculture
-tags: Machine Learning, WhatsApp, Text Mining, Pandas
+tags: Machine Learning, WhatsApp, Text Mining, Pandas, AI, Python
 featured_image: logos/ml.png
 ---
 As a data scientist, I'm always interested in exporting and analyzing data,

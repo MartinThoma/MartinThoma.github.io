@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Testing in Python
 slug: testing-python-code
+lang: en
 author: Martin Thoma
 date: 2018-07-03 20:00
 category: Code
-tags: Code, Testing, tox, pytest, coverage
+tags: Testing, tox, pytest, Coverage, Python, Software Engineering
 featured_image: logos/python.png
 ---
 Testing code is important for the following reasons:

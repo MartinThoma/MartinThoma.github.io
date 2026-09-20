@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Academic Writing
 slug: academic-writing
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: Cyberculture
-tags: university, writing
+tags: University, Writing
 featured_image: logos/star.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>

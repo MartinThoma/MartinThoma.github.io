@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Feature Importance
 slug: feature-importance
+lang: en
 author: Martin Thoma
 date: 2018-06-05 20:00
 category: Machine Learning
-tags: Machine Learning,Data Science
+tags: Machine Learning, Data Science, AI
 featured_image: logos/ml.png
 ---
 Trust is important for a Data Scientist. If you are in a position where you can
