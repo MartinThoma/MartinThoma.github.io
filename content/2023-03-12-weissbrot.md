@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-03-12 20:00
 category: German posts
-tags: recipe, cooking
+tags: Recipe, Cooking
 featured_image: logos/cooking.png
 ---
 Das folgende Rezept ergibt ca. 800g Weißbrot. Die Zubereitung benötigt ca. 2h;

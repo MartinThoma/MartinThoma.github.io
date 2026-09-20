@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-03-30 20:00
 category: German posts
-tags: money, house
+tags: Money, House
 featured_image: logos/house.png
 ---
 Ich frage mich immer wieder, wann sich ein Neukauf eines Haushaltsgeräts aus

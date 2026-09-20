@@ -5,8 +5,8 @@ slug: haus-projekte
 lang: de
 author: Martin Thoma
 date: 2023-12-31 20:00
-category: My bits and bytes
-tags: diy,house
+category: German posts
+tags: DIY, House
 featured_image: logos/star.png
 ---
 ## Haus

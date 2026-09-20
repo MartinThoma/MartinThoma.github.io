@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-10-25 20:00
 category: German posts
-tags: politics, German
+tags: Garden, Robotics, Hardware
 featured_image: logos/star.png
 ---
 Rasenmähen ist eine regelmäßige Aufgabe. Für meine ca. 300m² benötige ich ca. 45

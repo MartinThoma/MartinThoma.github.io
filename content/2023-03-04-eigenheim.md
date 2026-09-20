@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-03-04 20:00
 category: German posts
-tags: house, money
+tags: House, Money
 featured_image: logos/house.png
 ---
 Wer sich zum ersten Mal über ein Eigenheim Gedanken macht, ist erst mal überfordert.

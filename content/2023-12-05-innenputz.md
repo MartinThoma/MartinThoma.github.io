@@ -5,8 +5,8 @@ slug: innenputz
 lang: de
 author: Martin Thoma
 date: 2023-12-05 20:00
-category: My bits and bytes
-tags: house
+category: German posts
+tags: House
 featured_image: logos/house.png
 ---
 <table>

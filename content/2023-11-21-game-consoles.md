@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2023-11-21 20:00
 category: My bits and bytes
-tags: games
+tags: Games
 featured_image: logos/star.png
 ---
 Helping you to find a nice gaming console. I have a Switch, but I am thinking
@@ -292,7 +292,7 @@ Panasonic UB9000 is way better:
 * [r/PS5](https://www.reddit.com/r/PS5/top/): [what's the most visually beautiful game that's very easy?](https://www.reddit.com/r/PS5/comments/180dkut/advice_whats_the_most_visually_beautiful_game/)
 * [r/NintendoSwitch](https://www.reddit.com/r/NintendoSwitch/top/?sort=top&t=year): [fun racing game with split screen multiplayer](https://www.reddit.com/r/NintendoSwitch/comments/jydgll/looking_for_fun_racing_game_with_split_screen/)
 * Other Consoles:
-    * [Google Stadia](https://en.wikipedia.org/wiki/Google_Stadia): It was announced in 2022 that it will be shut down.
+    * [Google Stadia](https://en.wikipedia.org/wiki/Google_Stadia): It was announced in 2022 and shut down in January 2023.
     * [Steam Machines](https://en.wikipedia.org/wiki/Steam_Machine_(computer)): The last one was offered in 2018.
     * [Steam Deck](https://en.wikipedia.org/wiki/Steam_Deck): Same form factor as the Switch, but way better specs. I'm uncertain about the available games + if you can even play it on a big screen. [Pummel Party](https://store.steampowered.com/app/880940/Pummel_Party/) looks very fun though.
 * https://gamerant.com/co-op-games-to-play-after-it-takes-two/

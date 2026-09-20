@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-08-06 20:00
 category: German posts
-tags: house
+tags: House
 featured_image: logos/house.png
 ---
 Ich überlege mir eine oder mehrere Split-Klimaanlagen (Luft-Luft-Wärmepumpen) zum

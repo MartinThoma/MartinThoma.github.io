@@ -90,7 +90,7 @@ Die Normaußentemperatur beträgt in vielen Gegenden -13°C (oder wärmer). Wir 
         <td>3.5</td>
         <td>0.35</td>
         <td>...</td>
-        <td>15.3 W/m&sup2;</td>
+        <td>12.6 W/m&sup2;</td>
         <td>1</td>
         <td>0</td>
         <td>Saugt sich bei Nässe voll und trocknet nur langsam wieder. Dadurch kann sich Schimmel bilden<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> - gut, wenn es trocken ist, also nicht als Zwischensparrendämmung im Dach!<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
@@ -213,7 +213,7 @@ Wenn man jetzt ein 11m × 11m Haus hat, sich überlegt, ein Geschoss (2,5m) mit 
 20% Fenstern zu dämmen und man aktuell einen U-Wert von 1.7 W/(m²·K) hat,
 dann wäre der Verlust aktuell bei
 
-$$(11\text{m} + 11\text{m}) \cdot 2.5\text{m} \cdot 0.8 \cdot 1.7\frac{W}{\text{m}^2 \cdot K} \cdot 36 K = 2.7 kW$$
+$$4 \cdot 11\text{m} \cdot 2.5\text{m} \cdot 0.8 \cdot 1.7\frac{W}{\text{m}^2 \cdot K} \cdot 36 K = 5.4 kW$$
 
 Das könnte mit einer 10cm XPS-Platte, die auf die Mauer aufgebracht wird, reduziert werden. Der neue
 U-Wert kann über die R-Werte berechnet werden:
@@ -228,24 +228,24 @@ Würde man 20cm aufbringen:
 
 $$\frac{1}{\frac{1}{1.7} + \frac{1}{0.175}} = 0.16$$
 
-Bei den 44m² Fläche und 36K Temperaturdifferenz ist die Wärmeverlustleistung:
+Bei den 88m² Fläche (4 · 11m · 2,5m · 0,8) und 36K Temperaturdifferenz ist die Wärmeverlustleistung:
 
-* U-Wert 1.7: 2.7 kW
-* U-Wert 0.3: 0.5 kW
-* U-Wert 0.16: 0.3 kW
+* U-Wert 1.7: 5.4 kW
+* U-Wert 0.3: 0.95 kW
+* U-Wert 0.16: 0.5 kW
 
 Bei angenommenen 10 Tagen mit dieser Kälte und weiteren 20 Tagen, um für die vielen
 weniger kalten Tage zu rechnen, die dennoch Wärmeverlust haben, also 720h:
 
-* U-Wert 1.7: $2.7 kW \cdot 720h = 1944 kWh$
-* U-Wert 0.3: $0.5 kW \cdot 720h =  342 kWh$
-* U-Wert 0.16: $0.3 kW \cdot 720h = 183 kWh$
+* U-Wert 1.7: 5.4 kW · 720h = 3888 kWh
+* U-Wert 0.3: 0.95 kW · 720h =  684 kWh
+* U-Wert 0.16: 0.5 kW · 720h = 360 kWh
 
 Heizöl kostet aktuell ca. 1.13€/L und bringt 9.8 kWh/L, d.h. 0.12€/kWh:
 
-* U-Wert 1.7: $2.7 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}= 233€$
-* U-Wert 0.3: $0.5 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh} =  41€$
-* U-Wert 0.16: $0.3 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}=  22€$
+* U-Wert 1.7: $5.4 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}= 467€$
+* U-Wert 0.3: $0.95 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh} =  82€$
+* U-Wert 0.16: $0.5 kW \cdot 720h \cdot 0.12 \frac{EUR}{kWh}=  43€$
 
 
 ## Einzelnachweise

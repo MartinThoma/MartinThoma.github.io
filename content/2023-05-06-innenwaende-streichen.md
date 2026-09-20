@@ -17,7 +17,7 @@ Ich muss gerade viel streichen, daher hier ein paar Grundlagen.
 Auf jedem Farbeimer steht:
 
 * **Deckkraftklasse**: 1-3, wobei 1 das Beste ist. Je besser, desto seltener muss man streichen.
-* **Nassabriebklasse**: 1-3, wobei 1 das Beste ist. Bei (1) kann man auch mit einem feuchten Tuch einen Fleck wegmachen. Bei (3) ist die Farbe dann weg von der Wand.
+* **Nassabriebklasse**: 1-5 ([DIN EN 13300](https://de.wikipedia.org/wiki/DIN_EN_13300)), wobei 1 das Beste ist. Bei (1) kann man auch mit einem feuchten Tuch einen Fleck wegmachen. Bei (3) ist die Farbe dann weg von der Wand.
 
 Man benötigt etwa 150ml/m² bis 170ml/m².
 

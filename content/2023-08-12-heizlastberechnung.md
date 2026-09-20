@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-08-12 20:00
 category: German posts
-tags: house, money
+tags: House, Money
 featured_image: logos/house.png
 ---
 Ich möchte einige energetische Sanierungsmaßnahmen an meinem Haus durchführen,
@@ -85,20 +85,20 @@ Ich brauche also:
 
 * **Raumvolumen $V$**: Typischerweise B×L×H. Bei einer Dachschräge oder nicht quaderförmigen
   Räumen wird es komplizierter, aber das ist immer noch alles einfache Geometrie.
-* **Energie für 1m³ Luft**: 0,34 Wh/K
+* **Energie für 1m³ Luft**: 0,34 Wh/(m³·K)
 * **Pro Stunde die Hälfte des Raumvolumens**
 * **Temperaturdifferenz $\Delta_T$**: Die gewünschte Innentemperatur minus die Norm-Außentemperatur
 
 Daher ist die Leistung für den Ausgleich der Lüftungswärmeverluste:
 
-$P_{\text{Lüftung}} = 0.34 \frac{Wh}{K} \cdot \frac{V}{2} \cdot \Delta_T$
+$P_{\text{Lüftung}} = 0.34 \frac{Wh}{\text{m}^3 \cdot K} \cdot \frac{V}{2} \cdot \Delta_T$
 
 Beispiel: Angenommen, ich habe einen Raum mit 3m Länge, 4m Breite und einer Raumhöhe von 2,45m. Dann habe ich ein Volumen von $V = 3\text{m} \cdot 4\text{m} \cdot 2.45\text{m} = 29.4\text{m}^3$.
 Angenommen, ich habe eine Norm-Außentemperatur von -13°C und eine Wunschtemperatur von 22°C.
 Dann habe ich $\Delta_T = 22 - (-13) = 35 K$.
 
 Um die Lüftungsverluste dieses Raumes auszugleichen, muss ich also Wärme in Höhe
-von $= 0.34 \frac{Wh}{K} \cdot \frac{29.4\text{m}^3}{2} \cdot 35 K \approx 175W$
+von $= 0.34 \frac{Wh}{\text{m}^3 \cdot K} \cdot \frac{29.4\text{m}^3}{2} \cdot 35 K \approx 175W$
 hinzuführen.
 
 

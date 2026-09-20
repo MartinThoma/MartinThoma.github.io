@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-08-15 20:00
 category: German posts
-tags: money, house
+tags: Money, House
 featured_image: logos/house.png
 ---
 Ich habe einen Kachelofen im kürzlich erworbenen Eigenheim, aber absolut keine

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-03-24 20:00
 category: German posts
-tags: money, house, climate change
+tags: Money, House, Climate Change
 featured_image: logos/house.png
 ---
 Im Hinblick auf die steigenden Energiekosten und die vergangene

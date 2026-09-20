@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-08-13 20:00
 category: German posts
-tags: money, house
+tags: Money, House
 featured_image: logos/house.png
 ---
 Wir müssen weg von fossilen Energieträgern, wenn wir unsere Klimaziele einhalten
@@ -57,8 +57,8 @@ Zahlen sind also sehr zugunsten der Ölheizung.
 
 Nehmen wir auch an, dass wir eine Wärmepumpe mit einem <abbr title="Seasonal
 Coefficient of Performance">SCOP</abbr> von 4 haben. Das bedeutet, für jede kWh
-an Strom, die wir in die Heizung stecken, können wir im Jahresschnitt 4&nbsp;kWh
-an Energie aus der Umgebung ziehen. Lambda-Wärmepumpen haben einen SCOP von 5,7 ([Quelle](https://lambda-wp.at/luft/)).
+an Strom, die wir in die Heizung stecken, erhalten wir im Jahresschnitt 4&nbsp;kWh
+Wärme. Davon stammen 3&nbsp;kWh aus der Umgebung. Lambda-Wärmepumpen haben einen SCOP von 5,7 ([Quelle](https://lambda-wp.at/luft/)).
 
 Das bedeutet, die Betriebskosten sind:
 

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-12-31 20:00
 category: German posts
-tags: house, money
+tags: House, Money
 featured_image: logos/house.png
 ---
 ## Kriterien
@@ -46,7 +46,7 @@ featured_image: logos/house.png
     * 270 Liter
 * Kermi: x-change fresh 300 ai
     * 258 Liter
-* Wolf: tecalor TTA 300 Electronic
+* tecalor (Stiebel Eltron): TTA 300 Electronic
     * 302 Liter
 * Hoval: Combival WPE 300
     * 270 Liter

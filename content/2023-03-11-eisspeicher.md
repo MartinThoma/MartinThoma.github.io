@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2023-03-11 20:00
 category: German posts
-tags: house, money, energy, heating
+tags: House, Money, Energy, Heating
 featured_image: logos/house.png
 ---
 Im Jahr 2023 stehen in Deutschland verschiedene Heizsysteme zur Verfügung,
@@ -50,19 +50,19 @@ wieder zum Heizen abgezogen werden.
 Von wie viel Wasser reden wir?
 
 * 10m³ = 10.000 L
-* Eis hat eine Dichte von 0,918 kg/L.
+* Wasser hat eine Dichte von etwa 1 kg/L.
 
-Also sind 10.000L gleich 9180kg.
+Also sind 10.000L gleich 10.000kg.
 
 ### Wärme Grundlagen
 
 * spezifische Wärmekapazität von Wasser: 4190 J / (kg * K).
-* Schmelzwärme von Wasser: 344 kJ / kg
+* Schmelzwärme von Wasser: 334 kJ / kg ([Quelle](https://de.wikipedia.org/wiki/Schmelzenthalpie))
 * 1 kWh = 3600 kJ
 
 Man benötigt also 4190 Joule, um 1 kg Wasser um 1 Kelvin zu erwärmen.
-Man benötigt jedoch 344 kJ, um 1 kg Eis zu schmelzen. Also genauso viel Energie
-wie um 1 kg Wasser von 0°C auf 82°C zu erhitzen!
+Man benötigt jedoch 334 kJ, um 1 kg Eis zu schmelzen. Also genauso viel Energie
+wie um 1 kg Wasser von 0°C auf etwa 80°C zu erhitzen!
 
 ### Konkrete Wärmespeicher
 
@@ -72,16 +72,16 @@ Dann können wir durch das Abkühlen des Wassers von 9°C auf 0°C (flüssig) fo
 Energiemenge extrahieren:
 
 \begin{align}
-        & 4190\frac{\text{J}}{\text{kg} \cdot \text{K}} \cdot 9180\text{kg} \cdot 9\text{K}\\
-       =& 346177800\text{J}\\
-       =& 346177.8\text{kJ}\\
- \approx& 96\text{kWh}
+        & 4190\frac{\text{J}}{\text{kg} \cdot \text{K}} \cdot 10000\text{kg} \cdot 9\text{K}\\
+       =& 377100000\text{J}\\
+       =& 377100\text{kJ}\\
+ \approx& 105\text{kWh}
 \end{align}
 
-Durch den Phasenübergang (Schmelzwärme) können wir 344 kJ/kg ⋅ 9180kg = 3157920 kJ = 877 kWh
+Durch den Phasenübergang (Schmelzwärme) können wir 334 kJ/kg ⋅ 10000kg = 3340000 kJ ≈ 928 kWh
 extrahieren.
 
-Insgesamt könnte der Wärmespeicher also 877 kWh + 96 kWh = 973 kWh vom Sommer
+Insgesamt könnte der Wärmespeicher also 928 kWh + 105 kWh = 1033 kWh vom Sommer
 in den Winter bringen.
 
 ### Energiebedarf
@@ -89,14 +89,14 @@ in den Winter bringen.
 Ein Haus mit 155m² Wohnfläche und einem Bedarf von 96 kWh / (m² ⋅ a) benötigt
 im Jahr 14880 kWh zum Heizen.
 
-Der Wärmespeicher würde also 6,5% des Jahresbedarfs decken.
+Der Wärmespeicher würde also 6,9% des Jahresbedarfs decken.
 
 ## Kritik
 
 Folgendes habe ich hier nicht berücksichtigt:
 
 * Auch im Winter wird der Erdboden vermutlich Wärme an den Wärmespeicher abgeben.
-  Man kann also vermutlich mehr als die 973 kWh extrahieren.
+  Man kann also vermutlich mehr als die 1033 kWh extrahieren.
 * Der Wärmespeicher ist nicht perfekt isoliert - daher habe ich auch "nur" mit
   9°C gerechnet. Im Sommer dürfte die [Bodentemperatur](https://de.wikipedia.org/wiki/Bodentemperatur)
   in 4m Tiefe wohl eher höher sein.

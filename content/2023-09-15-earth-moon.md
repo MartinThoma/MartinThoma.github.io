@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2023-09-15 20:00
 category: My bits and bytes
-tags: physics
+tags: Physics, Science
 featured_image: logos/earth.png
 ---
 I've just watched an animated movie where a girl goes from Earth to the Moon with
@@ -64,15 +64,16 @@ Then we double that time.
 $$
 \begin{align}
                    d &= v \cdot t + 0.5 \cdot a \cdot t^2\\
-\Rightarrow 360m \cdot 10^6 &= 0.5 \cdot 29.4 \frac{m}{s^2} \cdot t^2\\
-\Leftrightarrow t &= \sqrt{25.5 \cdot 10^6} s\\
-\Leftrightarrow t &= 4949s
+\Rightarrow 180 \cdot 10^6 \text{m} &= 0.5 \cdot 29.4 \frac{m}{s^2} \cdot t^2\\
+\Leftrightarrow t &= \sqrt{12.2 \cdot 10^6} s\\
+\Leftrightarrow t &\approx 3499s
 \end{align}
 $$
 
-It would still take almost **83 minutes**. That is the absolute fastest time possible.
+Doubling that time, it would still take about 7000s, which is almost **117 minutes**.
+That is the absolute fastest time possible.
 If you're having less luck with the distance and go at "only" 1G (0 to 100km/h in 2.8 seconds)
-it would take 2.5 hours.
+it would take about 3.4 hours.
 
 Apollo 11 needed 76 hours ([source](https://de.wikipedia.org/wiki/Apollo_11)).
 
@@ -90,8 +91,9 @@ That means every kg (kilogram) needs over $62 \cdot 10^6$ Joule. Or 17.35 kWh.
 Astonishingly little, but it adds up as you need to get a lot of weight up.
 
 The [Space Shuttle Columbia](https://en.wikipedia.org/wiki/Space_Shuttle_Columbia) weighs
-about 3,600 kg. That means one needs 62.5 MWh to lift it. At least 1900kg of
-liquid hydrogen. Or as much as 31 German households need in energy per year.
+about 80,000 kg ([source](https://en.wikipedia.org/wiki/Space_Shuttle_Columbia)).
+That means one needs about 1,390 MWh to lift it. At least 42 tons of
+liquid hydrogen. Or as much as 700 German households need in energy per year.
 
 Just to leave Earth. You need also quite a bit to land on the moon.
 
@@ -107,7 +109,9 @@ Just to leave Earth. You need also quite a bit to land on the moon.
 
 ([source](https://www.huffpost.com/entry/how-much-fuel-does-it-take-to-get-to-the-moon_b_598a35b5e4b030f0e267c83d))
 
-* 39,000 gallons = 147,631 L. With 1.141 kg/L that makes 168 metric tons.
-* 4,600 gallons = 17,412 L. With 0.8 kg/L that makes about 14 metric tons.
+* First stage, 39,000 gallons of liquid oxygen = 147,631 L. With 1.141 kg/L that makes 168 metric tons.
+* First stage, 25,000 gallons of kerosene = 94,635 L. With 0.8 kg/L that makes about 76 metric tons.
+* Second stage, 7,300 gallons of liquid oxygen = 27,633 L. With 1.141 kg/L that makes about 32 metric tons.
+* Second stage, 4,600 gallons of kerosene = 17,412 L. With 0.8 kg/L that makes about 14 metric tons.
 
-So in total 182 tons of fuel.
+So in total about 290 tons of fuel.

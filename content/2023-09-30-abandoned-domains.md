@@ -5,7 +5,7 @@ slug: abandoned-domains
 lang: en
 author: Martin Thoma
 date: 2018-09-30 20:00
-category: German posts
+category: My bits and bytes
 tags: Security
 featured_image: logos/star.png
 ---
