@@ -39,9 +39,10 @@ All tags used in the {{ SITENAME|striptags|e }} blog.
 </ul>
 {% for tag, articles in tags|sort %}
 <h2 id="{{ tag.slug }}-ref" class="tag-title">{{ tag }}</h2>
+{% set ns = namespace(year=0) %}
 <ul class="archive-list">
     {% for article in articles|sort(reverse = true, attribute = 'date') %}
-    <li><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></li>
+    <li{% if article.date.year != ns.year %} class="year-start"{% endif %}><time datetime="{{ article.date.isoformat() }}">{% if article.date.year != ns.year %}{{ article.date.year }}{% endif %}{% set ns.year = article.date.year %}</time><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} <small>{{ article.subtitle }}</small>{% endif %}</a></li>
     {% endfor %}
 </ul>
 {% endfor %}
