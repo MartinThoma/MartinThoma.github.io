@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-25 20:00
 category: German posts
-tags: politics, Climate Change, Germany, United States
+tags: Politics, Climate Change, Germany, United States
 featured_image: logos/star.png
 ---
 Es gab in den letzten Wochen und Monaten einige Nachrichten, die mir Sorgen

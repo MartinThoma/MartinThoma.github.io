@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-26 20:00
 category: German posts
-tags: Germany, politics, climate change, health
+tags: Germany, Politics, Climate Change, Health
 featured_image: logos/star.png
 ---
 Nachdem ich vor kurzem [Was mir Sorgen macht](https://martin-thoma.com/was-mir-sorgen-macht/)

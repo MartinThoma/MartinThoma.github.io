@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2024-12-01 20:00
 category: My bits and bytes
-tags: diy, house
+tags: DIY, House
 featured_image: logos/star.png
 ---
 There are many ways to connect two pieces of wood. Here are some of the most common methods.

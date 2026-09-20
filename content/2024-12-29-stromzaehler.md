@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-29 20:00
 category: German posts
-tags: finances, house
+tags: Money, House
 featured_image: logos/house.png
 ---
 Weil ich es immer wieder nachschlagen muss, hier ein paar Informationen zu Stromzählern.

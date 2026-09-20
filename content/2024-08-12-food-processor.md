@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-08-12 20:00
 category: German posts
-tags: review
+tags: Review
 featured_image: logos/star.png
 ---
 Meine Frau hat sich eine Küchenmaschine gewünscht, also bin ich mal wieder in

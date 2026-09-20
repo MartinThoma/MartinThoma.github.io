@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2024-01-20 20:00
 category: My bits and bytes
-tags: house, money
+tags: House, Money
 featured_image: logos/house.png
 ---
 Interior design styles help describe the aesthetic and atmosphere of your home. When you see the pictures, you'll know what appeals to you.

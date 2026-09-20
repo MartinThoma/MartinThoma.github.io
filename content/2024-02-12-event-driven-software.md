@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2024-02-12 20:00
 category: Code
-tags: software architecture
+tags: Software Architecture, Python, Software Engineering
 featured_image: logos/star.png
 medium_url: https://levelup.gitconnected.com/designing-event-driven-systems-in-local-python-applications-8abf7544d7e4
 ---

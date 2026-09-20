@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-27 20:00
 category: German posts
-tags: food
+tags: Food, Cooking
 featured_image: logos/food.png
 ---
 Falls jemand etwas Inspiration sucht: Hier sind 365 Hauptgerichte. Das wurde mit

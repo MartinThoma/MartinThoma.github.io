@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-07 20:00
 category: German posts
-tags: stuff
+tags: Stuff
 featured_image: logos/star.png
 ---
 Heute war es mal wieder so weit: Ich habe einen Deep Dive in ein neues Thema

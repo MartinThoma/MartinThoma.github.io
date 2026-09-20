@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-01-07 20:00
 category: German posts
-tags: house
+tags: House
 featured_image: logos/house.png
 ---
 Ich überlege mir gerade, welches Heizsystem ich nutzen will und wie ich den

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-01-22 20:00
 category: German posts
-tags: house, money
+tags: House, Money
 featured_image: logos/house.png
 status: draft
 ---

@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-22 20:00
 category: German posts
-tags: mathematics, space
+tags: Mathematics, Space
 featured_image: logos/space.png
 ---
 Der Weltraum ist wahnsinnig groß. Wir benötigen schon sehr lange, um innerhalb
@@ -23,8 +23,8 @@ von 14,6% der Lichtgeschwindigkeit.
 
 
 ## Relativistische Effekte
-Bei Geschwindigkeiten über 0,1% der Lichtgeschwindigkeit werden relativistische
-Effekte relevant.
+Ab etwa 10% der Lichtgeschwindigkeit werden relativistische Effekte spürbar
+(der Lorentzfaktor liegt dann bei etwa 1,005).
 
 Die **Zeitdilatation** ist ein solcher Effekt. Sie besagt, dass die Zeit für einen
 Beobachter, der sich relativ zu einem anderen Beobachter bewegt, langsamer
@@ -118,9 +118,10 @@ E_k &= \left (\frac{1}{\sqrt{1- \frac{v^2}{c^2}}} - 1 \right ) \cdot m \cdot c^2
 $$
 
 Eine Wattstunde (1 Wh) sind $3600$ Joule. Wir reden also von $1.8 \cdot
-10^{12}$ MWh. Das sind $1.8 \cdot 10^{9}$ TWh. Der Weltenergieverbrauch lag 2019
-bei etwa 170.000 TWh. Also würde so ein Raumschiff etwa 10.000 Jahre den
-Weltenergieverbrauch benötigen.
+10^{12}$ MWh. Das sind 1.800.000 TWh. Der Weltenergieverbrauch lag 2019
+bei etwa 170.000 TWh ([Our World in Data](https://ourworldindata.org/energy-production-consumption)).
+Also würde so ein Raumschiff etwa 10 Jahre den gesamten Weltenergieverbrauch
+benötigen.
 
 Mit Solarzellen werden wir also nicht weit kommen.
 Wenn wir interstellar reisen wollen, müssen wir uns also etwas anderes einfallen
@@ -128,9 +129,15 @@ lassen.
 
 ## Deuterium-Fusion
 
-Aus einem Kilogramm Deuterium ($^2H$) ließen sich etwa $8.5 \cdot 10^{14}$ Joule,
-also ca. 230 TWh, erzeugen. Man bräuchte also 740kg Deuterium und müsste
-sämtliche Energie nutzbar einsetzen können.
+Wenn man Deuterium ($^2H$) vollständig zu Helium-4 fusioniert, werden pro Deuteron
+etwa 7,2 MeV frei ([Reaktionsenergien der D-D-Fusion](https://en.wikipedia.org/wiki/Nuclear_fusion)).
+Aus einem Kilogramm Deuterium ließen sich damit etwa $3.4 \cdot 10^{14}$ Joule,
+also ca. 0,1 TWh, erzeugen. Man bräuchte also mindestens
+$6.5 \cdot 10^{21}\text{J} / 3.4 \cdot 10^{14}\text{J/kg} \approx 19.000$ Tonnen Deuterium
+zum Beschleunigen und müsste sämtliche Energie nutzbar einsetzen können. Für das
+Abbremsen wird nochmal dieselbe Energie benötigt. Außerdem berücksichtigt diese
+Rechnung nicht, dass der Treibstoff selbst mit beschleunigt werden muss
+([Raketengrundgleichung](https://de.wikipedia.org/wiki/Raketengrundgleichung)).
 
 ## Siehe auch
 

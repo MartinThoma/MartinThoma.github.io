@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-28 20:00
 category: German posts
-tags: house, money
+tags: House, Money
 featured_image: logos/house.png
 ---
 Seit diesem Jahr bin ich stolzer Besitzer eines Steckersolargerätes 🎉🥳
@@ -41,7 +41,7 @@ Seit 2024 muss man das nur noch im Marktstammdatenregister anmelden.
 
 ## Ertrag
 
-Ich habe die Anlage seit Juni 2024 in Betrieb. Das Frühjahr war ab März dieses
+Ich habe die Anlage seit Juni 2025 in Betrieb. Das Frühjahr war ab März dieses
 Jahr allerdings super hell und sonnig, daher gehe ich hier mal recht
 optimistisch an die geschätzten Werte für März-Mai ran:
 
@@ -150,22 +150,22 @@ Das Gerät kostet inzwischen nur noch [370€](https://epp.solar/product/1000w-b
 die Aufständerung vielleicht nochmals 80€. In Summe also 450€. Das hätte man nach
 drei Jahren wieder drin (Amortisation).
 
-Geht man von 20 Jahren Lebensdauer aus, hätte man damit 2826€ eingenommen.
+Geht man von 20 Jahren Lebensdauer aus, hätte man damit 20 · 163,80€ = 3276€ eingenommen (nach Abzug der 450€ Anschaffung also 2826€ Gewinn).
 
 
 $$
 \begin{align}
-450\text{€} \cdot p^{20} &= 2826\text{€}\\
-\Leftrightarrow p^{20} &= 6.28\\
-\Leftrightarrow \log p &= \frac{\log 6.28}{20} \approx 0.0919\\
-\Leftrightarrow p &\approx 1.096
+450\text{€} \cdot p^{20} &= 3276\text{€}\\
+\Leftrightarrow p^{20} &= 7.28\\
+\Leftrightarrow \log p &= \frac{\log 7.28}{20} \approx 0.0993\\
+\Leftrightarrow p &\approx 1.104
 \end{align}
 $$
 
-Wir hätten das Geld also zu einem Zins von 9,6% anlegen müssen, um denselben
+Wir hätten das Geld also zu einem Zins von 10,4% anlegen müssen, um denselben
 Gewinn zu machen. Allerdings ist das noch konservativ gerechnet. Man könnte das
 gesparte Geld ja auch tatsächlich anlegen. Bei 5% pro Jahr wäre man dann nicht
-bei 2826€ nach 20 Jahren, sondern bei 5416,20€. Das wäre ein Zinssatz von 13,2%.
+bei 3276€ nach 20 Jahren, sondern bei 5416,20€. Das wäre ein Zinssatz von 13,2%.
 
 Selbst hier sind wir noch konservativ:
 

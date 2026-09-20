@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-12-08 20:00
 category: German posts
-tags: mathematics, politics
+tags: Mathematics, Politics
 featured_image: logos/mathematics.png
 ---
 Der Wohnungsmangel ist eines der heißesten Themen in der deutschen Politik.
@@ -401,19 +401,25 @@ Typische Mietpreise (kalt) sind laut [statista](https://de.statista.com/statisti
 
 ### Mietpreis nach Rendite-Erwartung
 
-Das Verhältnis von Monatsmiete zu Baupreis ist einfach:
+Wer baut, bekommt die Miete über die Jahre verteilt. Die Miete muss also das
+eingesetzte Kapital über die Nutzungsdauer (hier: 50 Jahre) mit der erwarteten
+Rendite verzinsen und zurückzahlen. Das ist die Formel für die
+[Annuität](https://de.wikipedia.org/wiki/Annuit%C3%A4t):
 
-$$\text{Monatsmiete pro m²} = \text{Baupreis pro m²} \cdot \frac{{(1+ \text{Rendite})}^{50}}{12 \cdot 50}$$
+$$\text{Monatsmiete pro m²} = \text{Baupreis pro m²} \cdot \frac{\text{Rendite}}{1 - (1+ \text{Rendite})^{-50}} \cdot \frac{1}{12}$$
 
 Das bedeutet, wenn sich die Baukosten verdoppeln, verdoppelt sich auch die Miete
 bei Neubauten.
 
 Wenn man mit einer Rendite von 2,5% rechnet, ergibt das einen Faktor von
-0,0057. Das bedeutet, bei einem Baupreis von 2500€/m² ergibt sich eine
-Monatsmiete von 14,25€/m².
+0,0035. Das bedeutet, bei einem Baupreis von 2500€/m² ergibt sich eine
+Monatsmiete von 7,35€/m².
 
-Nun würde aber kein Investor zu diesem Preis bauen. Das kann nur der Staat
-machen.
+Das ist die reine Kapitalkostenrechnung. Instandhaltung, Leerstand, Verwaltung,
+Steuern und Grundstückskosten sind nicht enthalten. In [Günstiger bauen](../guenstiger-bauen/)
+wird außerdem mit deutlich höheren Baukosten von 3.500€/m² gerechnet. Daher
+zeige ich unten auch eine Rechnung mit 4.500€/m² für Bau plus Grundstück und
+Nebenkosten.
 
 <table>
     <tr>
@@ -424,42 +430,74 @@ machen.
     <tr>
         <td>2.500€/m²</td>
         <td>2,5%</td>
-        <td>14,25€/m²</td>
+        <td>7,35€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>3,0%</td>
-        <td>18,27€/m²</td>
+        <td>8,10€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
-        <td>3,5%</td>
-        <td>23,27€/m²</td>
+        <td>3,5000000000000004%</td>
+        <td>8,88€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>4,0%</td>
-        <td>29,61€/m²</td>
+        <td>9,70€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>4,5%</td>
-        <td>37,64€/m²</td>
+        <td>10,54€/m²</td>
     </tr>
     <tr>
         <td>2.500€/m²</td>
         <td>5,0%</td>
-        <td>47,78€/m²</td>
+        <td>11,41€/m²</td>
+    </tr>
+    <tr>
+        <td>4.500€/m²</td>
+        <td>2,5%</td>
+        <td>13,22€/m²</td>
+    </tr>
+    <tr>
+        <td>4.500€/m²</td>
+        <td>3,0%</td>
+        <td>14,57€/m²</td>
+    </tr>
+    <tr>
+        <td>4.500€/m²</td>
+        <td>3,5000000000000004%</td>
+        <td>15,99€/m²</td>
+    </tr>
+    <tr>
+        <td>4.500€/m²</td>
+        <td>4,0%</td>
+        <td>17,46€/m²</td>
+    </tr>
+    <tr>
+        <td>4.500€/m²</td>
+        <td>4,5%</td>
+        <td>18,98€/m²</td>
+    </tr>
+    <tr>
+        <td>4.500€/m²</td>
+        <td>5,0%</td>
+        <td>20,54€/m²</td>
     </tr>
 </table>
 
 ## Schlussfolgerungen
 
-**Investoren bauen nicht**: Wegen der hohen Baukosten kann man nicht erwarten,
-dass private Investoren groß anfangen, Wohnungen zu bauen. Solange man die
-Baukosten nicht um den Faktor 2 oder mehr senken kann, lohnt es sich einfach
-nicht. Ausgenommen sind natürlich externe Effekte wie Steuersparmodelle oder
-Geldwäsche. Wer auf den freien Markt wartet, wird lange warten.
+**Investoren bauen nicht überall**: Bei niedrigen Kosten würde sich der Bau
+in großen Städten rechnen, in denen Mieten von 15–22€/m² üblich sind. Rechnet man
+aber realistisch mit Bau, Grundstück, Nebenkosten, Instandhaltung und Leerstand
+(zusammen z.B. 4.500€/m² und mehr), braucht man bei 5% Rendite über 20€/m². Das geht nur in
+den teuersten Städten. Anderswo lohnt sich Neubau für Investoren nicht, solange
+man die Baukosten nicht deutlich senken kann. Ausgenommen sind natürlich externe
+Effekte wie Steuersparmodelle oder Geldwäsche.
 
 **Bau zur Eigennutzung**: Anders sieht es aus, wenn Menschen für sich selbst
 bauen. Zum einen bietet ein Eigenheim Sicherheit, z.B. vor
@@ -470,7 +508,7 @@ berücksichtigen müssen, dass die Mieten steigen.
 kann weitere Faktoren berücksichtigen, wie z.B. Kosten, die er beim Wohngeld
 spart, wirtschaftliche Förderung und ganz allgemein das Wohl der Bürger.
 Selbst wenn er nur für den Bundeshaushalt neutral bauen würde, könnte er mit
-einer Rendite von 2,5% bauen und die Miete für 14,25€/m² anbieten. Das wäre in
+einer Rendite von 2,5% bauen und bei 4.500€/m² die Miete für etwa 13€/m² anbieten. Das wäre in
 vielen Großstädten ein echter Segen.
 
 
@@ -508,8 +546,11 @@ Kerngebiet besitzen.
 
 ### Wohngeld
 
-Wohngeld sollte nur zeitlich begrenzt gezahlt werden, z.B. wenn man gerade den
-Job verloren hat. Sagen wir für maximal 6 Monate. Danach sollte die Kommune
+[Wohngeld](https://de.wikipedia.org/wiki/Wohngeld_(Deutschland)) bekommen Haushalte
+mit geringem Einkommen, die kein Bürgergeld beziehen, z.B. Geringverdiener und
+Rentner. Wer gerade den Job verloren hat, bekommt die Wohnkosten über das
+Bürgergeld erstattet. Das Wohngeld sollte nur zeitlich begrenzt gezahlt werden,
+sagen wir für maximal 6 Monate. Danach sollte die Kommune
 (Stadt oder Gemeinde) den Menschen eine Wohnung bereitstellen, die sie
 verwaltet. Damit kann man verhindern, dass das Wohngeld die Mieten in die Höhe
 treibt.

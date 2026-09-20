@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2024-11-08 20:00
 category: German posts
-tags: finances, house
+tags: Money, House
 featured_image: logos/house.png
 ---
 Es gibt ein paar Eckdaten, die den Wert eines Einfamilienhauses samt Grundstück
