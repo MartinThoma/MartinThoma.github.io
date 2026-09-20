@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Kalman Filter
 slug: kalman-filter
+lang: en
 author: Martin Thoma
 date: 2016-06-21 14:40
 category: Code
-tags: algorithms, information fusion
+tags: Algorithms, Information Fusion, Computer Science, KIT, University
 featured_image: logos/ml.png
 ---
 The Kalman Filter is an algorithm which helps to find a good state estimation

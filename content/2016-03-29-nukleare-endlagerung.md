@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Nukleare Endlagerung
 slug: nukleare-endlagerung
+lang: de
 author: Martin Thoma
 date: 2016-03-29 11:13
-category: Cyberculture
-tags: Politics, German posts
+category: German posts
+tags: Politics
 featured_image: logos/science.png
 ---
 Das Finden eines Endlagers für unsere nuklearen Abfälle ist seit etwa 1963

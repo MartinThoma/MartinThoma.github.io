@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Thoughts about Language
 slug: thoughts-about-language
+lang: en
 author: Martin Thoma
 date: 2016-06-17 20:00
 category: Cyberculture
-tags: Language, Machine Learning
+tags: Language, Machine Learning, AI
 featured_image: logos/ai.png
 ---
 Language is a method of communication. It is used to transport information

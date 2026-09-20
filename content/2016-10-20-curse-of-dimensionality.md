@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Average Distance of Random Points in a Unit Hypercube
 slug: curse-of-dimensionality
+lang: en
 author: Martin Thoma
 date: 2016-10-20 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, Python, AI
 featured_image: logos/ml.png
 ---
 In machine learning, the "curse of dimensionality" is often stated but much

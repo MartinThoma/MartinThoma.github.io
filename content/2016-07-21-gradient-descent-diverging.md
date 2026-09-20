@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Diverging Gradient Descent
 slug: diverging-gradient-descent
+lang: en
 author: Martin Thoma
 date: 2016-07-21 16:00
 category: Machine Learning
-tags: Gradient Descent, Optimization
+tags: Gradient Descent, Optimization, Machine Learning, AI
 featured_image: logos/ml.png
 ---
 When you take the function

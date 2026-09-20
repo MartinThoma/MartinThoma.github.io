@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: XOR tutorial with TensorFlow
 slug: tf-xor-tutorial
+lang: en
 author: Martin Thoma
 date: 2016-07-19 14:00
 category: Machine Learning
-tags: Machine Learning, Python, Tensorflow, sklearn
+tags: Machine Learning, Python, Tensorflow, scikit-learn, AI
 featured_image: logos/tensor-flow.png
 ---
 The XOR-Problem is a classification problem, where you only have four data

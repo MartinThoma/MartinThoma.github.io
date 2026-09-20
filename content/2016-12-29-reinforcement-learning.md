@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Reinforcement Learning
 slug: reinforcement-learning
+lang: en
 author: Martin Thoma
 date: 2016-12-29 20:00
 category: Machine Learning
-tags: Machine Learning, RL
+tags: Machine Learning, RL, AI
 featured_image: logos/ml.png
 ---
 Reinforcement learning is a sub-field of mathematics and computer science. It

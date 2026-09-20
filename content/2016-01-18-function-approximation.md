@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Function Approximation
 slug: function-approximation
+lang: en
 author: Martin Thoma
 date: 2016-01-18 20:00
 category: Machine Learning
-tags: Machine Learning, Regression
+tags: Machine Learning, Regression, AI
 featured_image: logos/ml.png
 ---
 I was recently quite disappointed by how bad neural networks are for function

@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Estimating Demand
 slug: estimating-demand
+lang: en
 author: Martin Thoma
 date: 2016-07-15 20:00
 category: Mathematics
-tags: statistics, mathematics
+tags: Statistics, Mathematics
 featured_image: logos/mathematics.png
 ---
 I've just had the problem that I'm helping to plan a group event, where the

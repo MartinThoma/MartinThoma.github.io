@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Machine Learning Glossary
 slug: ml-glossary
+lang: en
 author: Martin Thoma
 date: 2016-10-24 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, AI
 featured_image: logos/ml.png
 ---
 The following is a list of short explanations of different terms in machine

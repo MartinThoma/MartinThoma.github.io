@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Paid Reviews
 slug: paid-reviews
+lang: en
 author: Martin Thoma
 date: 2016-03-15 16:15
 category: Cyberculture
-tags: Reviews, Ratings
+tags: Review, Ratings
 featured_image: logos/star.png
 ---
 I am often asked if I would like to review a book. So here is my answer to

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2016-11-19 20:00
 category: Cyberculture
-tags: politics, United States
+tags: Politics, United States
 featured_image: logos/usa.png
 ---
 After Trump became elected president of the United States, a lot of people

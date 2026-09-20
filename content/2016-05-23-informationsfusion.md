@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: Informationsfusion
 slug: informationsfusion
+lang: de
 author: Martin Thoma
 date: 2016-05-23 20:00
 category: German posts
-tags: Klausur
+tags: Klausur, University
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Informationsfusion&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen nicht gehört, aber die Folien von <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=heizmann">Herrn Prof. Dr.-Ing. Michael Heizmann</a> aus dem Wintersemester 2015/2016 gelesen.</div>

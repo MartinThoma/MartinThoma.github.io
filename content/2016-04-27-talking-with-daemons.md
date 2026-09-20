@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Talking with Daemons
 slug: talking-with-daemons
+lang: en
 author: Martin Thoma
 date: 2016-04-27 23:26
 category: Code
-tags: Python, RPC, daemon
+tags: Python, RPC, Daemon
 featured_image: logos/daemon.png
 ---
 Everybody knows that training big machine learning models takes a lot of

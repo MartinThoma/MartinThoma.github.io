@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Word Vectors
 slug: word-vectors
+lang: en
 author: Martin Thoma
 date: 2016-12-28 20:00
 category: Code
-tags: Machine Learning, Python
+tags: Machine Learning, Python, AI
 featured_image: logos/ml.png
 ---
 The idea behind word vectors is to represent natural language words like "king"

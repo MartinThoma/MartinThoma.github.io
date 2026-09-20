@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Optimization Basics
 slug: optimization-basics
+lang: en
 author: Martin Thoma
 date: 2016-07-06 20:00
 category: Machine Learning
-tags: Machine Learning, optimization, gradient descent
+tags: Machine Learning, Optimization, Gradient Descent, AI
 featured_image: logos/ai.png
 ---
 Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this:

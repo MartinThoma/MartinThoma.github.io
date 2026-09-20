@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Alpspitze via ferrata
 slug: alpspitze-via-ferrata
+lang: en
 author: Martin Thoma
 date: 2016-12-30 20:00
 category: My bits and bytes
-tags: hiking, climbing, sports, nature
+tags: Hiking, Climbing, Sports, Nature
 featured_image: logos/hiking.png
 ---
 The [Alpspitze](https://de.wikipedia.org/wiki/Alpspitze) (not to confuse with [Alpspitz](https://de.wikipedia.org/wiki/Alpspitz)) is a mountain in the alps

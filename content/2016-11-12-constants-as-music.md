@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Constants as Music
 slug: constants-as-music
+lang: en
 author: Martin Thoma
 date: 2016-11-12 20:00
 category: Cyberculture
-tags: Python, music
+tags: Python, Music
 featured_image: logos/music.png
 ---
 I've just seen the following video

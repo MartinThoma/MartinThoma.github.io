@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Iterating over Graphs
 slug: graph-iteration
+lang: en
 author: Martin Thoma
 date: 2016-10-19 20:00
 category: Machine Learning
-tags: Machine Learning
+tags: Machine Learning, Python, AI
 featured_image: logos/ml.png
 ---
 Today I was thinking if one could iterate over all possible feed forward network

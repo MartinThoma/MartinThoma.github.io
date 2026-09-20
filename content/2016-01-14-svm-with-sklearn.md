@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Using SVMs with sklearn
 slug: svm-with-sklearn
+lang: en
 author: Martin Thoma
 date: 2016-01-14 12:25
 category: Machine Learning
-tags: Python, Machine Learning, SVM, Classification, sklearn
+tags: Python, Machine Learning, SVM, Classification, scikit-learn, AI
 featured_image: logos/ai.png
 ---
 Support Vector Machines (SVMs) is a group of powerful classifiers. In this

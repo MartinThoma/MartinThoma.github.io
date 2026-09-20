@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Microsoft Vision API
 slug: microsoft-vision-api
+lang: en
 author: Martin Thoma
 date: 2016-03-31 14:49
 category: Cyberculture
-tags: Machine Learning, Microsoft
+tags: Machine Learning, Microsoft, AI
 featured_image: logos/ml.png
 ---
 Microsoft just released a Computer Vision API. I tried it with a couple of

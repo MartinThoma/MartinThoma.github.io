@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: US problems
 slug: us-problems
+lang: en
 author: Martin Thoma
 date: 2016-06-11 20:00
 category: My bits and bytes
-tags: United States, politics
+tags: United States, Politics
 featured_image: logos/usa.png
 ---
 In the last few months I've seen a couple of astonishing and frightening

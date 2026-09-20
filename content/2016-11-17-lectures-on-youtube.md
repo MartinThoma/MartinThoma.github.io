@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Lectures on YouTube
 slug: lectures-on-youtube
+lang: en
 author: Martin Thoma
 date: 2016-11-17 20:00
 category: Cyberculture
-tags: education
+tags: Education
 featured_image: logos/education.png
 ---
 I was just (rhetorically) asked by a lecturer
