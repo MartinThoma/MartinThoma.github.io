@@ -72,7 +72,7 @@ But that is not the interesting part. The interesting part is when the saved ele
 
 ## Calculating Amortization Time
 
-Light bulbs had crazy efficiency gains as you can see in the table below. If you look at light bulbs which give a brightness of 470lm, you can see that LEDs are 90% more efficient than the old incandescent bulbs!
+Light bulbs had crazy efficiency gains as you can see in the table below. If you look at light bulbs which give a brightness of 470lm, you can see that LEDs use about 90% less energy than the old incandescent bulbs!
 
 ![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](../images/2021/09/is-it-worth-changing-the-lightbulb-1.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
 
@@ -91,7 +91,7 @@ So let’s see how long it takes until the lamps paid for themselves:
 
 ![A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))](../images/2021/09/is-it-worth-changing-the-lightbulb-1.png)*A rough estimation how much energy the four different types of lamps use to get a specific brightness. The old incandescent lamps are clearly the worst. Interestingly, LEDs get manufactured also for very low brightness lamps. This image was created by Martin Thoma. The light bulb images were created by Emoji One; Simon Eugster; Artoria2e5; Smalllikeart ([Old](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1.svg), [Halogen](https://www.flaticon.com/free-icon/halogen-lamp_2605869), [CFL](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_CFL.svg), [LED](https://commons.wikimedia.org/wiki/File:Emojione_1F4A1_LED.svg))*
 
-Let’s take a worse match-up. If I had a energy-saving light (CFL) before I would have replaced a 4W light bulb by a 2W LED: (3.66 EUR / 0.0003 EUR/Wh) / 2W = 6100h. As I run this only one hour per day it takes about 20 years until they paid for themselves.
+Let’s take a worse match-up. If I had a energy-saving light (CFL) before I would have replaced a 4W light bulb by a 2W LED: (1.82 EUR / 0.0003 EUR/Wh) / 2W ≈ 3033h. As I run this only one hour per day it takes about 8 years until they paid for themselves.
 
 However, don’t forget that energy-saving lights contains Mercury (quicksilver). As Mercury is extremely toxic, I would avoid them. Also, CFLs typically take a while until they reach their maximum brightness. I hate that.
 
@@ -110,7 +110,7 @@ Let’s assume we have those two light bulbs:
 * Bulb A: 470lm, 4W, E14, 2700K (equivalent to 40W old bulbs): 3.27 EUR/piece
 * Bulb B: 470lm, 5.5W, E14, 2700K: 1.67 EUR/piece
 
-After 355 hours it would be better to have bought the more expensive bulb. As the lifetime of the light bulb is WAY higher it’s for sure worth it. As I run that bulb maybe 4h / day, it would be worth it after 89 days. So roughly 3 months.
+The price difference is 1.60 EUR and the more expensive bulb needs 1.5W less: (1.60 EUR / 0.0003 EUR/Wh) / 1.5W ≈ 3556h. After 3556 hours it would be better to have bought the more expensive bulb. As the lifetime of an LED bulb is WAY higher (typically 15,000 hours or more), it’s still worth it. As I run that bulb maybe 4h / day, it would be worth it after about 890 days. So roughly 2.4 years.
 
 ## My final savings
 

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-01-17 20:00
 category: Code
-tags: Protocols, HTTPS, AppSec, InfoSec
+tags: Protocols, HTTPS, AppSec, Security
 featured_image: logos/star.png
 subtitle: What they are and what the differences are
 medium_url: https://medium.com/plain-and-simple/https-vs-ssl-vs-tls-8a0ad0604276

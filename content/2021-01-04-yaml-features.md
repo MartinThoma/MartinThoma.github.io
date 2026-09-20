@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-01-04 20:00
 category: Code
-tags: Software Development
+tags: Software Engineering, Python
 featured_image: logos/star.png
 subtitle: Level up your YAML knowledge to write cleaner YAML files
 medium_url: https://levelup.gitconnected.com/6-yaml-features-most-programmers-dont-know-164762343af3

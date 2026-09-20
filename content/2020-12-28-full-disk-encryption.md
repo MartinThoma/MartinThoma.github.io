@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-12-28 20:00
 category: Security
-tags: Security, Cybersecurity, IT Security, InfoSec
+tags: Security
 featured_image: logos/star.png
 subtitle: Keep your data private, even if you lose your device
 medium_url: https://medium.com/faun/full-disk-encryption-2090489f9760
@@ -146,14 +146,14 @@ Detailed instructions can be found here:
 
 ### Mac: FileVault 2
 
-[FileVault](https://en.wikipedia.org/wiki/FileVault) is the FDE program that was introduced for Mac in 2003. By default, it uses XTS-AES with 128-bit blocks and a 256-bit key.
+[FileVault](https://en.wikipedia.org/wiki/FileVault) is the FDE program that was introduced for Mac in 2011 (Mac OS X 10.7). Its predecessor from 2003, FileVault 1, only encrypted the home folder ([source](https://en.wikipedia.org/wiki/FileVault)). By default, it uses XTS-AES with 128-bit blocks and a 256-bit key.
 
 Here is a guide on how to turn on FileVault on Mac:
 [Use FileVault to encrypt the startup disk on your Mac](https://support.apple.com/en-us/HT204837)
 
 ### Android
 
-Only Android 7.0 to 9 support FDE. Android 10 only supports file-based
+FDE is available since Android 3.0. Android 10 only supports file-based
 encryption
 ([source](https://source.android.com/security/encryption/full-disk)). Some
 speculated reasons why FDE was removed are issues with alarm clocks and support
@@ -169,7 +169,7 @@ On my Samsung S10, the setting to enable FDE on Android is called “Strong Prot
 
 ### Honorable Mentions
 
-* GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1995, which would be equivalent to 350k € or $427k USD in 2019.
+* GnuPG (Linux) is a free replacement for PGP released in 1999. It received 250k DM in 1999 ([source](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)), which would be equivalent to 350k € or $427k USD in 2019.
 * PGP (Linux): Pretty Good Privacy (PGP) from Symantec (now NortonLifeLock) calls the concept **W**hole **D**isk **E**ncryption (**WDE**) instead of FDE. WDE was introduced in 2014 to PGP. It uses a password as authentication before the rest of the operating system can boot. This means you can use it for Windows and Linux.
 * VeraCrypt (former TrueCrypt): If you’re interested in how to use it, have a look at Andrew Douma's article [Full Disk Encryption with VeraCrypt](https://medium.com/@securitystreak/veracrypt-full-disk-drive-encryption-fde-157eacbf0b61).
 
@@ -208,7 +208,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: **Full Disk Encryption** 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

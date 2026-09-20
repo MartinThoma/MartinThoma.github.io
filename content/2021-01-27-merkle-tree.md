@@ -94,6 +94,11 @@ The torrent files of BitTorrent are essentially dictionaries with this informati
 To summarize: A list of hash values of blocks can speed up the download of
 files over an unreliable network a lot.
 
+Note that BitTorrent v1, as shown above, uses a flat list of piece hashes, which is
+not a Merkle tree yet. BitTorrent v2 ([BEP 52](https://www.bittorrent.org/beps/bep_0052.html))
+uses a Merkle tree of the block hashes for every file. This allows verifying
+single blocks with a short proof, as explained in the next section.
+
 ## Proof of Inclusion
 
 Suppose you wanted to show that a piece of data is part of your data
@@ -128,7 +133,7 @@ Albert Acebrón.
 ## How does Bitcoin use Merkle Trees?
 
 Every single block contains a Merkle tree of transactions. The Bitcoin blocks
-have a size limitation of 4 MB for [various
+have a size limitation of 4 million weight units (since SegWit; this is about 1–4 MB, depending on the transaction types) for [various
 reasons](https://bitcoinmagazine.com/what-is-bitcoin/what-is-the-bitcoin-block-size-limit).
 Only the Merkle tree's root hash is used to hash the block. This means that
 Bitcoin nodes can throw quite a bit of data away and still compute the same

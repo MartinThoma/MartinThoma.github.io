@@ -48,7 +48,7 @@ of the **mining reward**. This reward is given to every solved hash puzzle.
 
 When Bitcoin started in 2009, the mining reward was 50 Bitcoin (BTC). In 2012,
 the reward was halved to 25 Bitcoin. In 2016 the mining reward was halved to
-12.5 BTC. The last halving was in 2020 to 6.25 BTC.
+12.5 BTC. In 2020, it was halved to 6.25 BTC and in April 2024 to 3.125 BTC ([source](https://en.bitcoin.it/wiki/Controlled_supply)).
 
 Halving happens every 210,000 blocks. It is a mechanism to keep the
 total supply of bitcoins in check. The maximum possible amount of Bitcoins is

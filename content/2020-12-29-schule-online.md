@@ -5,7 +5,7 @@ slug: online-schule
 lang: de
 author: Martin Thoma
 date: 2020-12-29 20:00
-category: My bits and bytes
+category: German posts
 tags: Education, Germany
 featured_image: logos/education.png
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-04-22 20:00
 category: Cyberculture
-tags: Crypto, Cryptocurrency, Blockchain
+tags: Crypto, Cryptocurrency, Blockchain, Security
 featured_image: logos/bitcoin.png
 subtitle: Coins, Utility and Security tokens, Stablecoins and NFTs: Bringing order to an ecosystem
 medium_url: https://levelup.gitconnected.com/the-7-types-of-cryptocurrencies-you-must-know-3b26b2ce0eb8

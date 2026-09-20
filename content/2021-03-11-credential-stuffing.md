@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-03-11 20:00
 category: Security
-tags: Software Development, Programming, Cybersecurity, OWASP, Security
+tags: Software Engineering, Programming, Security, OWASP
 featured_image: logos/cybersecurity.png
 medium_url: https://levelup.gitconnected.com/credential-stuffing-ff58ee8c3320
 ---
@@ -65,7 +65,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

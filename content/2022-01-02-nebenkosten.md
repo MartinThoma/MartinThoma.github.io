@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2022-01-02 20:00
 category: German posts
-tags: Politik, Immobilien, Investment
+tags: Politics, Immobilien, Investment, Money
 featured_image: logos/germany.png
 status: draft
 ---

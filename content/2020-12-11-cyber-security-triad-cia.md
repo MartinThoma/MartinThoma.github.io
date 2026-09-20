@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-12-11 20:00
 category: Security
-tags: Security, Cybersecurity
+tags: Security
 featured_image: logos/cybersecurity.png
 subtitle: It’s the CIA 🕵 — but maybe not what you think
 medium_url: https://medium.com/plain-and-simple/the-cyber-security-triad-df9911f85955
@@ -24,7 +24,7 @@ The Cyber Security Triad, also called the CIA triad, is a set of three goals:
 
 ## Email Example
 
-* **Confidentiality**: Only the sender and the receiver can read an email.
+* **Confidentiality**: Ideally, only the sender and the receiver can read an email. (Without end-to-end encryption, the mail providers can read it as well.)
 * **Integrity**: Only you can delete emails you received. Nobody can edit the
   emails you received.
 * **Availability**: You can read emails in your inbox whenever you want.

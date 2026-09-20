@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-10-17 20:00
 category: Code
-tags: Python, Code, Programming, Software Development, Software Engineering
+tags: Python, Programming, Software Engineering
 featured_image: logos/python.png
 medium_url: https://towardsdatascience.com/9-clean-code-patterns-i-wish-i-knew-earlier-57ee56c5892
 ---

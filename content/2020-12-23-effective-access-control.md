@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-12-23 20:00
 category: Security
-tags: InfoSec, AppSec, Security, Cybersecurity, OWASP
+tags: Security, AppSec, OWASP
 featured_image: logos/cybersecurity.png
 medium_url: https://levelup.gitconnected.com/effective-access-control-331f883cb0ff
 ---
@@ -275,7 +275,7 @@ You could implement the `change_description_text` function like this:
 
 ```python
 def change_description_text(id):
-    auction = Auction.query.filter_by(Auction.id == id).first()
+    auction = Auction.query.filter(Auction.id == id).first()
     if current_user.id != auction.seller_id:
         raise PermissionDeniedException("Only the seller may edit")
 ```
@@ -284,7 +284,7 @@ Then you realize that admins should always be able to change it:
 
 ```python
 def change_description_text(id):
-    auction = Auction.query.filter_by(Auction.id == id).first()
+    auction = Auction.query.filter(Auction.id == id).first()
     is_seller = current_user.id == auction.seller_id
     is_admin = is_admin(current_user)
     if not (is_seller or is_admin):
@@ -304,7 +304,7 @@ can be context-dependent.
 ```python
 @requires_role([SellerRole(id), AdminRole(), ModeratorRole()])
 def change_description_text(id):
-    auction = Auction.query.filter_by(Auction.id == id).first()
+    auction = Auction.query.filter(Auction.id == id).first()
 ```
 
 ## Tricks to make Access Control Effective
@@ -380,7 +380,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: **Effective Access Control** 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

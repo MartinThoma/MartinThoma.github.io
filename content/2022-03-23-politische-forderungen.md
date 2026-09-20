@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2022-03-23 20:00
 category: German posts
-tags: Politik, Germany
+tags: Politics, Germany
 featured_image: logos/de.png
 status: draft
 ---

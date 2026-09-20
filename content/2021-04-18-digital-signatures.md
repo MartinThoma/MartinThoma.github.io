@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-04-18 20:00
 category: Cyberculture
-tags: crypto
+tags: Crypto, Security
 featured_image: logos/bitcoin.png
 subtitle: Learn what they are and how they are used
 medium_url: https://levelup.gitconnected.com/5-applications-of-digital-signatures-4e785d22d439

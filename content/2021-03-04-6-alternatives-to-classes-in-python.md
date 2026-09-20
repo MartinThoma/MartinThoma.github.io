@@ -63,8 +63,8 @@ class Position:
         self._longitude = longitude
 
 
-pos1 = Position(49.0127913, 8.4231381, "Parkstraße 17")
-pos2 = Position(42.1238762, 9.1649964)
+pos1 = Position(8.4231381, 49.0127913, "Parkstraße 17")
+pos2 = Position(9.1649964, 42.1238762)
 
 
 def get_distance(p1: Position, p2: Position) -> float:
@@ -143,8 +143,8 @@ class Position(NamedTuple):
 
 
 # Both are used in the same way
-pos1 = Position(49.0127913, 8.4231381, "Parkstraße 17")
-pos2 = Position(42.1238762, 9.1649964)
+pos1 = Position(8.4231381, 49.0127913, "Parkstraße 17")
+pos2 = Position(9.1649964, 42.1238762)
 
 
 def get_distance(p1: Position, p2: Position) -> float:
@@ -195,8 +195,8 @@ class Position:
             raise ValueError(f"Latitude was {v}, but must be in [-90, +90]")
 
 
-pos1 = Position(49.0127913, 8.4231381, "Parkstraße 17")
-pos2 = Position(42.1238762, 9.1649964)
+pos1 = Position(8.4231381, 49.0127913, "Parkstraße 17")
+pos2 = Position(9.1649964, 42.1238762)
 
 
 def get_distance(p1: Position, p2: Position) -> float:
@@ -238,7 +238,7 @@ class Position:
     address: Optional[str] = None
 
 
-pos1 = Position(49.0127913, 8.4231381, "Parkstraße 17")
+pos1 = Position(8.4231381, 49.0127913, "Parkstraße 17")
 pos2 = Position(42.1238762, 9.1649964, None)
 
 
@@ -296,6 +296,8 @@ However, I don’t like that so much. It is again super verbose and removes a lo
 
 ## 6. Pydantic
 
+*Note: The examples in this section use Pydantic v1. Pydantic v2 (2023) renamed several APIs, e.g. `validator` → `field_validator`, `.json()` → `model_dump_json()`, and `parse_raw` → `model_validate_json` ([migration guide](https://docs.pydantic.dev/latest/migration/)).*
+
 [Pydantic](https://pydantic-docs.helpmanual.io/) is a third-party library that focuses on data validation and settings management. You can either inherit from pydantic.BaseModel or create a dataclass with Pydantic:
 
 ```python
@@ -323,7 +325,7 @@ class Position:
         return v
 
 
-pos1 = Position(49.0127913, 8.4231381, "Parkstraße 17")
+pos1 = Position(8.4231381, 49.0127913, "Parkstraße 17")
 pos2 = Position(longitude=42.1238762, latitude=9.1649964)
 
 

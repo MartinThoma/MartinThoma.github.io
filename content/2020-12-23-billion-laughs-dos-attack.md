@@ -1,12 +1,12 @@
 ---
 layout: post
-title: DOS via a billion laughs 😈
+title: DoS via a billion laughs 😈
 slug: billion-laughs-dos
 lang: en
 author: Martin Thoma
 date: 2020-12-23 20:00
 category: Security
-tags: InfoSec, AppSec, Security, Cybersecurity
+tags: Security, AppSec
 featured_image: logos/cybersecurity.png
 subtitle: Consume arbitrarily much RAM by repeated referencing
 medium_url: https://medium.com/bugbountywriteup/dos-via-a-billion-laughs-9a79be96e139
@@ -61,7 +61,12 @@ Assuming that you cannot control the input directly and prevent malicious XML do
 
 So, how do you do this with Python?
 
-The resource restriction is easiest:
+For XML in Python, the standard recommendation is to use the
+[defusedxml](https://pypi.org/project/defusedxml/) package instead of the standard library parsers. It forbids
+entity expansion attacks like the billion laughs attack by default.
+
+The resource restriction is easy as well. Please note that `RLIMIT_AS` limits
+the address space of the whole process, not only of a single thread:
 
 ```python
 import resource
@@ -117,7 +122,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: **DOS via a Billion Laughs** 😈
+* Part 11: **DoS via a Billion Laughs** 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

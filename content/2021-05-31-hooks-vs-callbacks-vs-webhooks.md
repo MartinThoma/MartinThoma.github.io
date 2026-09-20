@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-05-31 20:00
 category: Cyberculture
-tags: Programming, Software Development, Software Engineering, Software Architecture, Web Development
+tags: Programming, Software Engineering, Software Architecture, Web Development
 featured_image: logos/star.png
 subtitle: How do I use them and where is the difference?
 medium_url: https://medium.com/geekculture/hooks-vs-callbacks-vs-webhooks-f2f1fa6bdbcd
@@ -77,7 +77,7 @@ function as a parameter: A callback.
 They need to tell you that they will run every given callback like this:
 
 ```python
-def send_email():
+def send_email(email):
     # Execute all registered hooks
     for hook in registered_hooks:
         email = hook(email)

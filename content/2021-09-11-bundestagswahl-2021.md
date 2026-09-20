@@ -6,7 +6,7 @@ lang: de
 author: Martin Thoma
 date: 2021-09-11 20:00
 category: German posts
-tags: politics, SPD, CDU, CSU, LINKE, Grüne, FDP, Bundestagswahl
+tags: Politics, SPD, CDU, CSU, LINKE, Grüne, FDP, Bundestagswahl
 featured_image: logos/germany.png
 ---
 Die [Bundestagswahl 2021](https://de.wikipedia.org/wiki/Bundestagswahl_2021)
@@ -282,7 +282,7 @@ In den vergangenen 4 Kabinetten gab es folgende Verteilung der Ministerien:
 	    <tr>
 	        <td class="cdu">Inneres</td>
 	        <td class="cdu">CDU (Schäuble)</td>
-	        <td class="cdu">CDU (Maizi&egrave;re/ Friedrich)</td>
+	        <td class="cdu">CDU (Maizi&egrave;re) / CSU (Friedrich)</td>
 	        <td class="cdu">CDU (Maizi&egrave;re)</td>
 	        <td class="cdu">CSU (Seehofer)</td>
 	    </tr>
@@ -1219,6 +1219,15 @@ Siehe auch:
 
 * [Mögliche Koalitionen nach der Bundestagswahl 2021](https://www.bundestagswahl-2021.de/koalitionen/)
 * [Welche Koalitionen sind denkbar?](https://www.deutschlandfunk.de/bundestagswahl-2021-welche-koalitionen-sind-denkbar.2897.de.html?dram:article_id=502404)
+
+## Update: Wahlergebnis
+
+Die Wahl hat am 26. September 2021 stattgefunden ([Quelle](https://de.wikipedia.org/wiki/Bundestagswahl_2021)):
+SPD 25,7%, CDU/CSU 24,1%, Grüne 14,8%, FDP 11,5%, AfD 10,3% und Die Linke 4,9%
+(die Linke zog über drei Direktmandate in den Bundestag ein). Daraus entstand die
+Ampelkoalition aus SPD, Grünen und FDP mit Olaf Scholz als Bundeskanzler. Sie ist
+damit eine der Koalitionsmöglichkeiten, die unten anhand der Umfragen diskutiert
+werden.
 
 ## Siehe auch
 

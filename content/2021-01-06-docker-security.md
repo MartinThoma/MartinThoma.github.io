@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-02-06 20:00
 category: Security
-tags: Docker, AppSec
+tags: Docker, AppSec, DevOps, Software Engineering, Security
 featured_image: logos/docker.png
 subtitle: A hands-on guide to security for Docker
 medium_url: https://levelup.gitconnected.com/docker-security-5f4df118948c
@@ -254,7 +254,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: **Docker Security** 😇

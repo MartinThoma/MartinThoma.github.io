@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-12-02 20:00
 category: Security
-tags: Security, email, InfoSec, CyberSecurity
+tags: Security, Email
 featured_image: logos/devil.png
 subtitle: Learn what it is, how it works, and how to defend against it with SPF, DKIM, DMARC
 medium_url: https://medium.com/bugbountywriteup/email-spoofing-9da8d33406bf
@@ -128,7 +128,8 @@ Interestingly, that triggered Gmail's spam detection:
   instructions on what to do with messages that failed the SPF / DKIM test.
   Received emails that failed can on the receiver side either be rejected or
   quarantined. If that happens, DMARC can be configured to send a report back.
-  DMARC enforces an **alignment** of the MAIL FROM and the sender. This can be
+  DMARC enforces an **alignment**: The domain in the `From` header has to match the domain
+  that SPF validated (MAIL FROM) or the `d=` domain of the DKIM signature. This can be
   problematic for newsletters but also represents what users expect.
 
 As a domain owner, you can look up your SPF record like this:
@@ -197,7 +198,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

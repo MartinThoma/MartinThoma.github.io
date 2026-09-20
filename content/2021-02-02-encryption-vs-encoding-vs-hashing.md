@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-02-02 20:00
 category: Code
-tags: hash, encryption, security, encoding
+tags: Hash, Encryption, Security, Encoding
 featured_image: logos/star.png
 subtitle: They might appear in the same context, but they are vastly different
 medium_url: https://medium.com/plain-and-simple/encryption-vs-encoding-vs-hashing-bb1e166cf15a
@@ -46,23 +46,21 @@ decrypt(cipher text, key) -> plain text
 
 This is called a symmetric-key algorithm as you use the same key for encrypting and for decrypting. There are asymmetric-key algorithms as well, but this would go too far.
 
-A very early scheme to encrypt was to use a natural sentence as a key to encrypt single characters. If the sentence happens to have one character multiple times, the second and following characters are deleted:
+A very early scheme to encrypt was to use a natural sentence as a key to encrypt single characters. If the sentence happens to have one character multiple times, the second and following characters are deleted. Spaces are ignored. Afterwards, the remaining letters of the alphabet are appended:
 
 ```text
 Sentence   : The quick brown fox jumps
-Derived key: the quickbrownfxjmpsadglvyz
+Derived key: thequickbrownfxjmpsadglvyz
 ```
 
 Then you translate character by character:
 
 ```text
-Original     : the quickbrownfxjmpsadglvyz
+Original     : thequickbrownfxjmpsadglvyz
 Translates to: abcdefghijklmnopqrstuvwxyz
 ```
 
-Note that “space” translates to “d” and “z” translates to “space”.
-
-Putting it all together, the message `secret` translates to `tchkca`.
+Putting it all together, the message `secret` translates to `scgjca`.
 
 In Python, it looks like this:
 
@@ -72,7 +70,7 @@ alphabet = "".join(chr(ord("a") + i) for i in range(26))
 
 def derive_key(sentence: str) -> str:
     key = ""
-    sentence = sentence.lower()
+    sentence = sentence.lower().replace(" ", "")
     for letter in sentence + "".join(alphabet):
         if letter not in key:
             key += letter

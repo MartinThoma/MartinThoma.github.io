@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-01-28 20:00
 category: Security
-tags: AppSec, Cybersecurity
+tags: AppSec, Security
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/bugbountywriteup/insecure-deserialization-5c64e9943f0e
 ---
@@ -15,8 +15,8 @@ representation to a stream of characters or bytes. The representation of the
 serialized object should be platform- and language-independent. Data is
 serialized and deserialized in applications to **store** or **transport** it.
 In web applications, **JSON** or **XML** is often used for data exchange by
-many APIs and protocols. File formats like PNG/GIF/JPEG/MPEG use XML to store
-metadata. YAML became extremely popular for configuration files, e.g. in
+many APIs and protocols. File formats like PNG/GIF/JPEG/MPEG can use XML to store
+metadata ([XMP](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform)). YAML became extremely popular for configuration files, e.g. in
 [CloudFormation
 templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html)
 or [GitLab CI configuration files](https://docs.gitlab.com/ee/ci/yaml/).
@@ -44,8 +44,10 @@ potential side effect, they could allow **arbitrary code execution**.
 
 ## Why you should care
 
-* Insecure deserialization was number 8 in the **OWASP Top 10**
-  ([source](https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization)) 🐝
+* Insecure deserialization was number 8 in the **OWASP Top 10** of 2017
+  ([source](https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization)) 🐝.
+  In the 2021 edition, it is part of A08 "Software and Data Integrity Failures"
+  ([source](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/))
 * 2013: The YAML node package
   ([CVE-2013-4660](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4660))
   allowed remote code execution. Remote code execution is as bad as it gets:
@@ -111,7 +113,7 @@ use XML. They can be
 vulnerable.*](../xxe-attacks/)
 
 Another possible attack vector is to use the reference feature of XML in a
-billion laughs attack: [**DOS via a billion laughs 😈** *Consume arbitrary much
+billion laughs attack: [**DoS via a billion laughs 😈** *Consume arbitrary much
 RAM by repeated
 referencing*](../billion-laughs-dos/)
 
@@ -139,8 +141,9 @@ Two measures you can almost always do:
 
 For some formats, you can tell the deserializer to ignore some of its features:
 
-* **PyYAML**: Use the `yaml.safe_load` function. At some point, they changed the
-  interface so that `yaml.load` points to `yaml.safe_load`. You can still use
+* **PyYAML**: Use the `yaml.safe_load` function. PyYAML 5.1 deprecated calling
+  `yaml.load` without an explicit `Loader`, and since PyYAML 6.0 the `Loader` argument
+  is mandatory ([changelog](https://github.com/yaml/pyyaml/blob/master/CHANGES)). You can still use
   `yaml.unsafe_load`. I love that they included “unsafe” in the function call.
   This makes it obvious that something might be dangerous.
 * **XML**: For Python, there is
@@ -165,7 +168,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: **Insecure Deserialization** 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2021-01-17 20:00
 category: Cyberculture
-tags: hash, Software Development
+tags: Hash, Software Engineering, Security
 featured_image: logos/star.png
 subtitle: What they are, what the options are, and why they matter
 medium_url: https://levelup.gitconnected.com/the-3-applications-of-hash-functions-fab1a75f4d3d
@@ -165,19 +165,19 @@ Here is a short program that solves such a task:
 import hashlib
 import itertools
 import time
-from typing import Tuple
+from typing import Iterator, Tuple
 
 
 def find_hash(start: str = "00") -> Tuple[str, int]:
     nb_probed = 0
     for probe in generate_random_str():
         nb_probed += 1
-        hashval = hashlib.sha512(bytes(probe, "utf8"))
+        hashval = hashlib.sha256(bytes(probe, "utf8"))
         if hashval.hexdigest().startswith(start):
             return probe, nb_probed
 
 
-def generate_random_str(length: int = 4) -> str:
+def generate_random_str(length: int = 4) -> Iterator[str]:
     abc = "abcdefghijklmnopqrstuvwxyz"
     chars = list(abc + abc.upper() + "0123456789" + ' !"§$%&/()=?+-')
     while True:
@@ -191,7 +191,7 @@ def generate_random_str(length: int = 4) -> str:
 t0 = time.time()
 probe, nb_probed = find_hash("0000")
 t1 = time.time()
-hashval = hashlib.sha512(bytes(probe, "utf8")).hexdigest()
+hashval = hashlib.sha256(bytes(probe, "utf8")).hexdigest()
 print(f"{probe=}; {hashval=}; nb_probed={nb_probed:,}")
 ```
 
