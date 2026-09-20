@@ -2,12 +2,13 @@
 layout: post
 title: Offline First
 slug: offline-first
+lang: en
 author: Martin Thoma
-status: draft
 date: 2020-04-25 20:00
 category: My bits and bytes
-tags: Machine Learning
+tags: Web Development
 featured_image: logos/star.png
+status: draft
 ---
 
 ## See also

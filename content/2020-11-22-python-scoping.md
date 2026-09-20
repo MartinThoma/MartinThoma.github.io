@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-11-23 20:00
 category: Code
-tags: Code, Python, Scope
+tags: Python, Scope
 featured_image: logos/python.png
 subtitle: The extraordinarily short guide to Python's crazy scoping rules
 medium_url: https://towardsdatascience.com/but-its-not-declared-40501fb1e943
@@ -18,17 +18,20 @@ declared in a function, can you access the variable outside of the function?
 This kind of “variable lifetime” is known as scoping. After reading this
 article, you will know the scoping rules of Python. Let’s start!
 
-## The 3 Scopes of Python
+## The 4 Scopes of Python
 
-Python has 3 scopes:
+Python looks up names in four scopes, known as the [LEGB rule](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)
+(Local, Enclosing, Global, Built-in):
 
-* **Global**: In the main part of the script. By default, this already contains
-  the built-ins. You can access all global variables with `globals()`
-* **Enclosed**: In the outer function, if this is a nested function
 * **Local**: Within the current function. You can access all local variables
   with `locals()`. Within the main script, `locals() == globals()`
+* **Enclosed**: In the outer function, if this is a nested function
+* **Global**: In the main part of the script (the module).
+  You can access all global variables with `globals()`
+* **Built-in**: The names of the `builtins` module, e.g. `min` or `print`. This is
+  the outermost scope.
 
-You can see all three in action here:
+You can see the first three in action here:
 
 ```python
 print(min([1, 2, 3]))
@@ -207,7 +210,7 @@ def foo():
 foo()
 ```
 
-The reason is that `locals() == globals()` within the global scope. Although built-ins are a bit special, they kind of live in the global scope.
+The reason is that `locals() == globals()` within the global scope. Built-ins are not part of the global scope, but a separate scope which is searched last.
 
 ### Assignment
 

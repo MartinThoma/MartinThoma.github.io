@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-08-02 20:00
 category: Code
-tags: Python, Testing, Unit Testing, fuzzing, hypothesis
+tags: Python, Testing, Unit Testing, Fuzzing, Hypothesis, Software Engineering
 featured_image: logos/python.png
 medium_url: https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119
 ---

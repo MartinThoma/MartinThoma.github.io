@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-07-30 20:00
 category: Code
-tags: Python, DevOps
+tags: Python, DevOps, Software Engineering
 featured_image: logos/python.png
 medium_url: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38
 ---
@@ -149,7 +149,7 @@ before_script:
 
 after_script:
 - pip install codecov
-- codecov --token=7d117e6b-aab6-4283-ab19-166dafc38cf5
+- codecov --token=$CODECOV_TOKEN
 
 python36:
   image: python:3.6

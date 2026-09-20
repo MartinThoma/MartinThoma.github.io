@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-17 20:00
 category: Code
-tags: SQL, ORM, SQLAlchemy, pypika, Query Builder
+tags: SQL, ORM, SQLAlchemy, Pypika, Query Builder, Python, Database
 featured_image: logos/db.png
 medium_url: https://towardsdatascience.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275#cbe8-27a45e3740e8
 ---
@@ -97,7 +97,7 @@ def db_connection(f):
 @db_connection
 def get_titles_by_author(con, author_id: int) -> List[str]:
     cur = con.cursor(pymysql.cursors.DictCursor)
-    cur.execute(f"SELECT * FROM books WHERE author_id = %s", author_id)
+    cur.execute("SELECT * FROM books WHERE author_id = %s", author_id)
     titles = [row["title"] for row in cur.fetchall()]
     return titles
 

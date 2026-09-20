@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-06-04 20:00
 category: My bits and bytes
-tags: Headphones, Microphone, Review
+tags: Headphones, Microphone, Review, Hardware
 featured_image: logos/star.png
 ---
 I use my in-ear headphones a lot: I work from home and have a couple of video

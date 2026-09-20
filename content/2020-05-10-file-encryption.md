@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-10 20:00
 category: Code
-tags: Python, Security, file-encryption
+tags: Python, Security, File-encryption
 featured_image: logos/python.png
 ---
 I recently wondered how difficult it is to encrypt a file. In this article, I

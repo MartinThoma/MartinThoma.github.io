@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-11-13 20:00
 category: Code
-tags: Code, Linux, Windows
+tags: Linux, Windows
 featured_image: logos/star.png
 subtitle: In Windows and Linux; including prompts, fonts, and colors
 medium_url: https://towardsdatascience.com/how-to-get-an-amazing-terminal-91619a0beeb7

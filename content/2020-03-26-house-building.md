@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-02-03 20:00
 category: My bits and bytes
-tags: Machine Learning
+tags: House, Building
 featured_image: logos/star.png
 status: draft
 ---

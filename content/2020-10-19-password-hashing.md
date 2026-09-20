@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-10-19 20:00
 category: Security
-tags: InfoSec, AppSec, Security, Cybersecurity, Password
+tags: Security, AppSec, Password
 featured_image: logos/cybersecurity.png
 medium_url: https://levelup.gitconnected.com/password-hashing-eb3b97684636
 ---
@@ -33,7 +33,7 @@ There are [so many leaks](https://en.wikipedia.org/wiki/List_of_data_breaches) t
 
 * **2012**: LinkedIn leaked 6.5 million passwords. The passwords had been hashed with SHA-1 and were not salted ([source](https://arstechnica.com/information-technology/2012/06/8-million-leaked-passwords-connected-to-linkedin/)).
 * **2013**: Adobe leaked 130 million passwords ([source](https://www.theguardian.com/technology/2013/nov/07/adobe-password-leak-can-check)). The passwords were encrypted, not hashed.
-* **2016**: LinkedIn got hacked and used a weak hashing algorithm ([source](https://www.zdnet.com/article/these-are-the-worst-passwords-from-the-linkedin-hack))
+* **2016**: The full data of the 2012 LinkedIn breach (about 117 million email/password hash pairs, weakly hashed) was published ([source](https://www.zdnet.com/article/these-are-the-worst-passwords-from-the-linkedin-hack))
 * **2019**: 1.2 million passwords got leaked via the porn site Luscious ([source](https://www.forbes.com/sites/daveywinder/2019/08/20/popular-porn-site-breach-exposed-12-million-anonymous-user-profiles/#3c0cbe067039))
 * **2019**: Facebook had hundreds of millions of passwords stored in plain text ([source 1](https://about.fb.com/news/2019/03/keeping-passwords-secure/), [source 2](https://www.nytimes.com/2019/03/21/technology/personaltech/facebook-passwords.html))
 * **2019**: Zynga leaked 170 million passwords ([source](https://www.theguardian.com/games/2019/dec/19/170m-passwords-stolen-in-zynga-words-with-friends-hack-monitor-says)). Zynga used hashing and salting.
@@ -95,9 +95,11 @@ As an example:
 True
 ```
 
+Please note that 1000 iterations are far too few today. The [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) recommends at least 210,000 iterations for PBKDF2-HMAC-SHA512, and Werkzeug uses scrypt by default nowadays.
+
 You can see that the first part of the method contains all the parameters necessary for the method. This means it is easy to extend. The second part (delimited by the dollar sign) is the 8 characters of the salt. Then comes the hash of the password with the given method and salt.
 
-There are other key derivation functions. Most notably [scrypt](https://en.wikipedia.org/wiki/Scrypt), which was not only designed to be demanding on the CPU but also requires a lot of memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it doesn’t seem to be too widespread ([source](https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497)). Instead, you can create something similar on your own by using core Python functions such as [hashlib.scrypt](https://docs.python.org/3/library/hashlib.html#hashlib.scrypt). A noteworthy key derivation function is [Argon2](https://en.wikipedia.org/wiki/Argon2).
+There are other key derivation functions. Most notably [scrypt](https://en.wikipedia.org/wiki/Scrypt), which was not only designed to be demanding on the CPU but also requires a lot of memory. For Python, there is passlib which offers a lot of hashing functions and key derivation functions. However, it doesn’t seem to be too widespread ([source](https://github.com/pallets/werkzeug/issues/1917#issuecomment-710762497)). Instead, you can create something similar on your own by using core Python functions such as [hashlib.scrypt](https://docs.python.org/3/library/hashlib.html#hashlib.scrypt). [Argon2](https://en.wikipedia.org/wiki/Argon2) (Argon2id) is the first choice of the OWASP Password Storage Cheat Sheet.
 
 ## Common Mistakes
 
@@ -131,7 +133,7 @@ A strong password has high entropy. This means:
 * A rich character set (e.g. upper- and lower-case letters, digits, special characters)
 * Is not a combination of only two or three words in a dictionary
 
-You can also **change your passwords regularly**. This will make sure that people who had access for a while without being noticed will be blocked out again.
+You can also **change your passwords** if you suspect that they have been compromised. Changing passwords regularly without a reason is no longer recommended: [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) advises to change passwords only when there is evidence of compromise.
 
 ## See also
 
@@ -153,7 +155,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

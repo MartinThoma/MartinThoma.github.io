@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-03 20:00
 category: Code
-tags: Competitive Programming, Brute-Force, Dynamic Programming
+tags: Competitive Programming, Brute-Force, Dynamic Programming, Python, Programming, Algorithms, Computer Science
 featured_image: logos/python.png
 ---
 The maximum contiguous subarray sum problem is one of the classics. Given a
@@ -52,13 +52,12 @@ are correct:
 
 ```python
 from typing import List
-from itertools import accumulate
 
 
 def max_contiguous_subarray_sum(nums: List[int]) -> int:
     max_sum = nums[0]
     for right in range(len(nums)):
-        for left in range(right):
+        for left in range(right + 1):
             sum_ = sum(nums[left : right + 1])
             max_sum = max(max_sum, sum_)
     return max_sum
@@ -73,35 +72,38 @@ You might wonder why this has a time complexity of $\mathcal{O}(n^3)$, although
 there are only two loops. The answer is simply the `sum` function.
 
 You might also wonder if the fact that the inner loop does not do $n$
-operations but only $\text{right}$ operations makes any difference. In this
+operations but only $\text{right} + 1$ operations makes any difference. In this
 case, let's calculate the exact number of times we calculate `sum_`:
 
-* right=0: 0x sum_ calculations
-* right=1: 1x sum_ calculations
-* right=2: 2x sum_ calculations
+* right=0: 1x sum_ calculations
+* right=1: 2x sum_ calculations
+* right=2: 3x sum_ calculations
 * ...
-* right=n-1: (n-1)x sum_ calculations
+* right=n-1: nx sum_ calculations
 
 Hence, we calculate `sum_` exactly
-$$\sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - n}{2}$$
+$$\sum_{i=1}^{n} i = \frac{n \cdot (n + 1)}{2}$$
 times.
 
-The number of elements should also be considered:
+The number of elements should also be considered. For `right = r`, the
+subarrays have $1, 2, \dots, r + 1$ elements:
 
-* right=0: 0x sum_ calculations, sum-elements: up to 0
-* right=1: 1x sum_ calculations, sum-elements: up to 1
-* right=2: 2x sum_ calculations, sum-elements: up to 2
+* right=0: 1x sum_ calculations, sum-elements: 1
+* right=1: 2x sum_ calculations, sum-elements: 1 + 2 = 3
+* right=2: 3x sum_ calculations, sum-elements: 1 + 2 + 3 = 6
 * ...
-* right=n-1: (n-1)x sum_ calculations, sum-elements: up to (n-1)
+* right=n-1: nx sum_ calculations, sum-elements: 1 + 2 + ... + n
 
 Hence, the `sum()` function needs to do
 
 \begin{align}
 \sum_{i=1}^n (\sum_{j=1}^i j) &= \sum_{i=1}^n \frac{i^2 + i}{2}\\
-&= \frac{1}{2} \cdot \sum_{i=1}^n (i^2 + i) \\
-&= \frac{1}{2} \cdot (\sum_{i=1}^n i + \sum_{i=1}^n i^2) \\
-&= \frac{1}{2} \frac{n^2 + n}{2} + \frac{1}{2} \cdot \frac{n \cdot (n + 1) \cdot (2n + 1)}{6}\\
+&= \frac{1}{2} \cdot (\sum_{i=1}^n i^2 + \sum_{i=1}^n i) \\
+&= \frac{1}{2} \cdot \left(\frac{n \cdot (n + 1) \cdot (2n + 1)}{6} + \frac{n \cdot (n + 1)}{2}\right)\\
+&= \frac{n \cdot (n + 1) \cdot (n + 2)}{6}
 \end{align}
+
+operations.
 
 Which means it's a time complexity of $\mathcal{O}(n^3)$.
 
@@ -160,7 +162,7 @@ at each element.
 
 * [Gauss Summation formula](https://hsm.stackexchange.com/q/384)
 * [Prefix-sum](https://en.wikipedia.org/wiki/Prefix_sum) technique
-* Sliding Window technique ([Dynamic Programming](https://martin-thoma.com/dynamic-programming/))
+* Kadane's algorithm ([Dynamic Programming](../dynamic-programming/))
 
 
 ## See also

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-29 20:00
 category: Code
-tags: Big Data, Python, Bash, sorting
+tags: Big Data, Python, Bash, Sorting, Data Science, Algorithms, Computer Science
 featured_image: logos/python.png
 ---
 [Big Data](https://en.wikipedia.org/wiki/Big_data) was a common buzzword in
@@ -476,7 +476,7 @@ void sort_chunk(string filepath)
     sort(lines.begin(), lines.end());
 
     // write
-    ofstream output_file("filepath");
+    ofstream output_file(filepath);
     ostream_iterator<string> output_iterator(output_file, "\n");
     copy(lines.begin(), lines.end(), output_iterator);
 }
@@ -484,13 +484,12 @@ void sort_chunk(string filepath)
 void merge(vector<string> chunks)
 {
     ofstream output_file("cpp-sorted.txt");
-    ostream_iterator<string> output_iterator(output_file, "\n");
 
-    // iterate over the vector
+    // The chunks are ordered by their two-digit prefix. Hence it is enough to
+    // concatenate the sorted chunks in this order.
     vector<string>::iterator it_chunk;
-    #pragma omp parallel for
     for(it_chunk=chunks.begin(); it_chunk != chunks.end(); it_chunk++) {
-        cout << "Sort " << *it_chunk << endl;
+        cout << "Merge " << *it_chunk << endl;
 
         // Read file
         ifstream infile(*it_chunk);

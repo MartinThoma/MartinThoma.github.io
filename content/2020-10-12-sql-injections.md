@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-10-12 20:00
 category: Security
-tags: InfoSec, AppSec, Security, Cybersecurity
+tags: Security, AppSec
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/faun/sql-injections-e8bc9a14c95
 ---
@@ -122,8 +122,9 @@ inserts `--` at the end to make the rest of the query a comment.
 ### Information Gathering
 
 An attacker might not know the structure of the database. However, many
-databases have a special table that contains the information. For MySQL,
-MariaDB, and Postgres, it is called `information_schema`.
+databases have a special schema that contains the information. For MySQL,
+MariaDB, and Postgres, it is called `information_schema` and consists of views
+like `information_schema.tables` and `information_schema.columns`.
 
 It’s possible to restrict access to that table
 ([example](https://dba.stackexchange.com/a/25668/25983)). You should do it from
@@ -175,7 +176,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

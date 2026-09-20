@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-02-09 20:00
 category: My bits and bytes
-tags: Rant, DB, Public Transportation, Munich
+tags: Rant, DB, Public Transportation, Munich, Database
 featured_image: logos/train.png
 status: draft
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-09-27 20:00
 category: My bits and bytes
-tags: Terminology, English, InfoSec, AppSec, Security, Cybersecurity, Safety, SRE, DevOps, DevSecOps
+tags: Terminology, English, Security, AppSec, Safety, SRE, DevOps, DevSecOps, Software Engineering
 featured_image: logos/cybersecurity.png
 medium_url: https://medium.com/plain-and-simple/safe-vs-secure-456ba5ebe95b
 ---

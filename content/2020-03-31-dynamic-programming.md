@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-31 20:00
 category: Code
-tags: Algorithms, Code, Fibonacci, Python, COP, CSP
+tags: Algorithms, Fibonacci, Python, COP, CSP, Computer Science, Mathematics
 featured_image: logos/ai.png
 ---
 Dynamic Programming is a technique to find the solution to a problem by

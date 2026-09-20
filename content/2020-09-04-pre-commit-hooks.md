@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-09-04 20:00
 category: Code
-tags: Software Development, Python, git
+tags: Software Engineering, Python, Git
 featured_image: logos/git.png
 medium_url: https://towardsdatascience.com/pre-commit-hooks-you-must-know-ff247f5feb7e
 ---

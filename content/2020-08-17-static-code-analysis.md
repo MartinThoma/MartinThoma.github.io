@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-08-17 20:00
 category: Code
-tags: Unit Testing, Flake8, mypy, Security, AppSec
+tags: Unit Testing, Flake8, mypy, Security, AppSec, Software Engineering, Testing, Python
 featured_image: logos/static-code-analysis.png
 medium_url: https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-10-20 20:00
 category: Code
-tags: Code, Development, Windows
+tags: Software Engineering, Windows
 featured_image: logos/python.png
 medium_url: https://medium.com/python-in-plain-english/a-beginners-guide-to-python-development-on-windows-10-e9d80601f483
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-10-13 20:00
 category: Security
-tags: InfoSec, AppSec, Security, Cybersecurity
+tags: Security, AppSec
 featured_image: logos/cybersecurity.png
 medium_url: https://levelup.gitconnected.com/leaking-secrets-240a3484cb80
 ---
@@ -165,7 +165,7 @@ In this series about application security (AppSec), we already explained some of
 * Part 8: [Software Composition Analysis](../sca/) (SCA) 😇
 * Part 9: [XXE attacks](../xxe-attacks/) 😈🐝
 * Part 10: [Effective Access Control](../effective-access-control/) 😇
-* Part 11: [DOS via a Billion Laughs](../billion-laughs-dos/) 😈
+* Part 11: [DoS via a Billion Laughs](../billion-laughs-dos/) 😈
 * Part 12: [Full Disk Encryption](../full-disk-encryption/) 😇
 * Part 13: [Insecure Deserialization](../insecure-deserialization/) 😈🐝
 * Part 14: [Docker Security](../docker-security/) 😇

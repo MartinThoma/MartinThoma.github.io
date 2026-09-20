@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-06-21 20:00
 category: My bits and bytes
-tags: work
+tags: Work
 featured_image: logos/star.png
 ---
 How many working hours does a typical month have?

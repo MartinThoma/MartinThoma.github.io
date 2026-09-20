@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-05-14 20:00
 category: Code
-tags: Code, Style Guide
+tags: Style Guide
 featured_image: logos/python.png
 ---
 Naming styles are one of the trivial things in a style guide. Here are some of

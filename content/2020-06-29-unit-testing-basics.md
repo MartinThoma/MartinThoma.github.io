@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-06-29 20:00
 category: Code
-tags: Python, Unit Testing, pytest
+tags: Python, Unit Testing, pytest, Software Engineering, Testing
 featured_image: logos/python.png
 medium_url: https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0
 ---

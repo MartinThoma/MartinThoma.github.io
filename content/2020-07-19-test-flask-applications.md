@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-07-19 20:00
 category: Code
-tags: Python, Flask, Software Development, Unit Testing, Load Testing, Software Engineering
+tags: Python, Flask, Software Engineering, Unit Testing, Load Testing, Web Development, Testing
 featured_image: logos/flask.png
 medium_url: https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-30 20:00
 category: Code
-tags: Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound
+tags: Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound, Python, Computer Science
 featured_image: logos/ai.png
 ---
 Backtracking is a concept for solving discrete constraint satisfaction problems
@@ -51,15 +51,18 @@ permutations are also no solutions.
 Depth First Search (DFS) is a graph traversal algorithm. It is one way to
 search in the solution space for a solution that satisfies the constraints. It
 is the typical choice to iterate over the solution space. Other search algorithms
-are Breadth First Search (BFS) and A\*.
+are Breadth First Search (BFS) and A\*. (For simplicity, the n-queens
+implementation below uses a queue and thus BFS. It finds the same solutions, but
+DFS would need less memory.)
 
 
 ## Backtracking vs B&B
 
 Branch-and-Bound (B&B) is a concept to solve discrete constrained optimization
 problems (COPs). They are similar to CSPs, but besides having the constraints
-they have an optimization criterion. In contrast to backtracking, B&B uses
-Breadth-First Search.
+they have an optimization criterion. In contrast to plain backtracking, B&B
+usually explores the most promising partial solutions first (best-first search),
+although depth-first and breadth-first variants exist.[^1]
 
 B&B is a [label correction algorithm](https://martin-thoma.com/label-correction-algorithm/).
 It is a search algorithm which uses a lower bound and an upper bound for the
@@ -116,8 +119,8 @@ def all_n_queens_solutions(n: int) -> List[Tuple[int, ...]]:
 
     Returns
     -------
-    all_solutions : List[List[int]]
-        Each inner list represents a single solution.
+    all_solutions : List[Tuple[int, ...]]
+        Each inner tuple represents a single solution.
         The first digit of it is the column of the queen in the first row.
         The second digit is the column of the queen in the second row, ...
 
@@ -259,18 +262,18 @@ from typing import Optional, List, Tuple
 def find_way_out(
     maze, current_pos: Position, current_path: Tuple[Position, ...] = None
 ) -> Optional[Tuple[Position, ...]]:
+    if current_path is None:
+        current_path = (current_pos,)
     if is_exit(current_pos):
         return current_path
-    if current_path is None:
-        current_path = [current_pos]
     # Implement possible_paths for your problem
     for next_step in possible_paths(maze, current_pos):
         next_pos = step(current_pos, next_step)
-        if next_pos == current_path[-1]:
-            # We just came from this position
+        if next_pos in current_path:
+            # We were already at this position, so we would walk in circles
             continue
         solution = find_way_out(maze, next_pos, current_path + (next_pos,))
-        if solution is None:
+        if solution is not None:
             return solution
     # We didn't find a way out
     return None
@@ -292,17 +295,17 @@ from typing import Optional, List, Tuple
 def find_way_out(
     maze, current_pos: Position, current_path: Tuple[Position, ...] = None
 ) -> Optional[Tuple[Position, ...]]:
-    if is_exit(current_pos):
-        return current_path
     if current_path is None:
-        current_path = [current_pos]
+        current_path = (current_pos,)
     explore = [(current_pos, current_path)]
-    while explore and not is_exit(current_pos):
+    while explore:
         current_pos, current_path = explore.pop()
+        if is_exit(current_pos):
+            return current_path
         for next_step in possible_paths(maze, current_pos):
             next_pos = step(current_pos, next_step)
-            if next_pos == current_path[-1]:
-                # We just came from this position
+            if next_pos in current_path:
+                # We were already at this position, so we would walk in circles
                 continue
             explore.append((next_pos, current_path + (next_pos,)))
     return None
@@ -312,6 +315,7 @@ def find_way_out(
 
 ```python
 from collections import Counter
+from copy import deepcopy
 from typing import List, Iterable, Optional, Tuple
 
 
@@ -405,15 +409,15 @@ def solve_sudoku(board: SudokuBoard) -> Optional[SudokuBoard]:
         board = stack.pop()
         if board.is_solved():
             return board
-        for x, y in board.get_first_zero_position():
-            for digit in range(1, 10):
-                new_board = SudokuBoard(copy(self.board))
-                try:
-                    new_board.set(x, y, digit)
-                    stack.append(new_board)
-                except ValueError:
-                    # Setting digit at that position would make the board invalid
-                    continue
+        x, y = board.get_first_zero_position()
+        for digit in range(1, 10):
+            new_board = SudokuBoard(deepcopy(board.board))
+            try:
+                new_board.set(x, y, digit)
+                stack.append(new_board)
+            except ValueError:
+                # Setting digit at that position would make the board invalid
+                continue
 ```
 
 You can solve Sudoku with [GLPK](https://gist.github.com/ymakino/4605973), the

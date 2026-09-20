@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-07-19 20:00
 category: My bits and bytes
-tags: Machine Learning
+tags: Water, Household
 featured_image: logos/star.png
 status: draft
 ---

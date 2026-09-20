@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-02-23 20:00
 category: My bits and bytes
-tags: study, education
+tags: Study, Education
 featured_image: logos/star.png
 status: draft
 ---

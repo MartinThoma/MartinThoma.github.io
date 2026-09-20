@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-02-08 20:00
 category: Code
-tags: Python, git, black, isort, cookiecutter
+tags: Python, Git, Black, Isort, Cookiecutter
 featured_image: logos/python.png
 ---
 The Python Environment is old. Python development started before the internet.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-13 20:00
 category: Code
-tags: Code, Python, Code Golf
+tags: Python, Code Golf, Programming
 featured_image: logos/star.png
 ---
 Write a function `check_bracket_validity` which takes a sequence of brackets as

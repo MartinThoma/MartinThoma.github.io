@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-02-22 20:00
 category: My bits and bytes
-tags: compression, backup, speed
+tags: Compression, Backup, Speed
 featured_image: logos/star.png
 ---
 I'm currently creating a backup of my domain <a href="http://www.martin-thoma.de/">martin-thoma.de</a>.

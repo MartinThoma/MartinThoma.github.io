@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-07-23 20:00
 category: Code
-tags: Python, pytest, tox, nox, unit testing
+tags: Python, pytest, tox, Nox, Unit Testing, Testing, Software Engineering
 featured_image: logos/python.png
 medium_url: https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-07-09 17:00
 category: Code
-tags: Python, Unit Testing, pytest, patching, Mock, dependency-injection
+tags: Python, Unit Testing, pytest, Patching, Mock, Dependency-injection, Software Engineering, Testing
 featured_image: logos/python.png
 medium_url: https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed
 ---
@@ -88,18 +88,18 @@ def generate_filename():
 
 Similarly, you could imagine a function which returns the weather in an English sentence and uses an API to get the actual weather ([example](https://gist.github.com/MartinThoma/5c7224ceae47e74645e0145d26dc03ec)).
 
-Example 3: In my project [edapy](https://github.com/MartinThoma/edapy) I looked at metadata from PDF files. I use the dependency `PdfFileReader` and have the file itself as a dependency. As the PDF file could be broken, PyPDF2 might throw an exception. So you can imagine code like this:
+Example 3: In my project [edapy](https://github.com/MartinThoma/edapy) I looked at metadata from PDF files. I use the dependency `PdfReader` and have the file itself as a dependency. As the PDF file could be broken, pypdf (the successor of PyPDF2) might throw an exception. So you can imagine code like this:
 
 ```python
-import PyPDF2.utils
-from PyPDF2 import PdfFileReader
+from pypdf import PdfReader
+from pypdf.errors import PdfReadError
 
 
 def get_pdf_info(pdf_path):
     info = {}
     try:
-        pdf_toread = PdfFileReader(fp, strict=False)
-    except PyPDF2.utils.PdfReadError:
+        pdf_toread = PdfReader(pdf_path, strict=False)
+    except PdfReadError:
         info["is_erroneous"] = True
         return info
 

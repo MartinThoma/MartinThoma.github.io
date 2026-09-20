@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-08-23 20:00
 category: Code
-tags: Python, pytest
+tags: Python, pytest, Testing, Software Engineering
 featured_image: logos/python.png
 medium_url: https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22
 ---

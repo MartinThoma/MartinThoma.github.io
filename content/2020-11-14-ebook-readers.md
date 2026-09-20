@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-11-14 20:00
 category: My bits and bytes
-tags: devices
+tags: Devices, Hardware
 featured_image: logos/star.png
 ---
 <table>

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2020-03-15 20:00
 category: My bits and bytes
-tags: Code, CMS
+tags: CMS, Web Development
 featured_image: logos/star.png
 status: draft
 ---

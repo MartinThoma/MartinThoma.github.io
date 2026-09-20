@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-07-30 20:00
 category: Code
-tags: Python,packaging
+tags: Python, Packaging
 featured_image: logos/python.png
 ---
 The `pyproject.toml` file allows package creators to define the build system as

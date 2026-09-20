@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-01-02 20:00
 category: My bits and bytes
-tags: Machine Learning, Clustering
+tags: Machine Learning, Clustering, AI
 featured_image: logos/ml.png
 status: draft
 ---

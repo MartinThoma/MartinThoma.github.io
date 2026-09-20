@@ -84,6 +84,7 @@ File handlers store stuff in files, stream handlers write logs to a stream:
 sh = logging.StreamHandler()
 fh = logging.FileHandler("spam.log")
 logger.addHandler(sh)
+logger.addHandler(fh)
 ```
 
 If you’re using a file handler, consider using a [RotatingFileHandler](https://docs.python.org/3/howto/logging-cookbook.html#using-file-rotation). It will create a new file once the log file becomes too big. You can specify how many files there might be. When the maximum is reached, the oldest file is deleted.
