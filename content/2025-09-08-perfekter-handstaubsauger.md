@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Perfect Design: Akku-Staubsauger"
+title: Perfect Design: Akku-Staubsauger
 slug: perfekter-akku-staubsauger
 lang: de
 author: Martin Thoma

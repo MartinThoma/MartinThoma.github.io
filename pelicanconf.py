@@ -50,6 +50,10 @@ ARTICLE_SAVE_AS = "{slug}/index.html"
 ARTICLE_LANG_URL = "{slug}/"
 ARTICLE_LANG_SAVE_AS = "{slug}/index.html"
 AUTHOR_URL = "author/{slug}/"
+# The author page is content/author/martin-thoma/index.md. A generated author
+# listing would be written to author/martin-thoma.html and shadow it on
+# servers that prefer "<path>.html" over "<path>/index.html" (pelican --listen).
+AUTHOR_SAVE_AS = ""
 PAGE_URL = "pages/{slug}/"
 PAGE_SAVE_AS = "pages/{slug}/index.html"
 CATEGORY_URL = "category/{slug}/"
