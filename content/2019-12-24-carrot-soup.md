@@ -2,11 +2,11 @@
 layout: post
 title: Carrot Soup
 slug: carrot-soup
-lang: de
+lang: en
 author: Martin Thoma
 date: 2019-12-24 20:00
 category: My bits and bytes
-tags: cooking, recipe, German, vegetarian, main dish
+tags: Cooking, Recipe, Vegetarian, Main Dish
 featured_image: logos/cooking.png
 ---
 A typical German soup.

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
-tags: Docker
+tags: Docker, DevOps, Software Engineering
 featured_image: logos/docker.png
 ---
 Building a Docker container can take quite a while. However, there are some

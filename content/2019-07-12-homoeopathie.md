@@ -5,7 +5,7 @@ slug: homoeopathie
 lang: de
 author: Martin Thoma
 date: 2019-07-12 20:00
-category: My bits and bytes
+category: German posts
 tags: German posts
 featured_image: logos/star.png
 ---

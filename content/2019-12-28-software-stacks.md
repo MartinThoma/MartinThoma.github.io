@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-28 20:00
 category: Code
-tags: Development
+tags: Software Engineering
 featured_image: logos/star.png
 ---
 Software stacks are projects of software which nicely work together.

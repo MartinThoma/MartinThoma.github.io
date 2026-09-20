@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-06-02 20:00
 category: Code
-tags: SQLAlchemy, Database, MySQL
+tags: SQLAlchemy, Database, MySQL, Python
 featured_image: logos/python.png
 ---
 When you want to connect to a database in SQLAlchemy, you need a connection

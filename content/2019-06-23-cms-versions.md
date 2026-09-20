@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-06-23 20:00
 category: My bits and bytes
-tags: architecture, CMS
+tags: Architecture, CMS, Web Development
 featured_image: logos/star.png
 ---
 I'm currently building a service which contains a CMS. So I have pages for which

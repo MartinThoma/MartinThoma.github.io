@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-10-05 20:00
 category: My bits and bytes
-tags: IT Security, password
+tags: Security, Password
 featured_image: logos/star.png
 ---
 I recently thought about good solutions for passwords

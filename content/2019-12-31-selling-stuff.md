@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-09-01 20:00
 category: My bits and bytes
-tags: Sell
+tags: Selling
 featured_image: logos/star.png
 status: draft
 ---

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-28 20:00
 category: The Web
-tags: HTML, Semantic Web
+tags: HTML, Semantic Web, Web Development
 featured_image: logos/html.png
 ---
 The web is constantly evolving, and so is its language: HTML. Many

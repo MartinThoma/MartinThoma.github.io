@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-04-30 20:00
 category: My bits and bytes
-tags: cooking, recipe, Indonesia
+tags: Cooking, Recipe, Indonesia
 featured_image: logos/cooking.png
 ---
 Crispy Tofu and Tuna is the first way to prepare tofu that I liked. It's a sweet Indonesian dish which is best served with rice.

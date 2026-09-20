@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: en
 title: Python Puzzle 4
 slug: python-puzzle-4
+lang: en
 author: Martin Thoma
 date: 2019-02-25 20:00
 category: Code
-tags: Programming, Python, puzzle
+tags: Programming, Python, Puzzle
 featured_image: 2011/09/Python-Logo.png
 ---
 What is the output of

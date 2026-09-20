@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-11-28 20:00
 category: Code
-tags: Data Science
+tags: Data Science, Python
 featured_image: logos/star.png
 ---
 <div class="info">This article is not quite finished, but I recently wanted to share some ideas.</div>

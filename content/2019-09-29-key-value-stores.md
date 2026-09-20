@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-09-29 20:00
 category: Code
-tags: Database, Redis, MySQL, MariaDB, Postgres, pickledb, Python, NoSQL, sysbench, DBaaS
+tags: Database, Redis, MySQL, MariaDB, Postgres, Pickledb, Python, NoSQL, Sysbench, DBaaS
 featured_image: logos/db.png
 ---
 [Key-value stores](https://en.wikipedia.org/wiki/Key-value_database) are
@@ -327,4 +327,4 @@ to higher numbers additionally increases the throughput.
 ## Footnotes
 
 [^1]: Dictionaries are a fundamental data structure in Python. They are called
-      *associative arrays* in PHP and *hashtable* in Java.
+      *associative arrays* in PHP and *HashMap* in Java.

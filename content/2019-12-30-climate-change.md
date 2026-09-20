@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-30 20:00
 category: My bits and bytes
-tags: Climate Change, politics
+tags: Climate Change, Politics
 featured_image: logos/star.png
 ---
 I've recently had a discussion about climate change and how we should adjust

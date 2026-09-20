@@ -1,12 +1,12 @@
 ---
 layout: post
-lang: de
 title: German Politics
 slug: german-politics-2018
+lang: en
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: My bits and bytes
-tags: Germany, E-governance, politics
+tags: Germany, E-governance, Politics
 featured_image: logos/germany.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>

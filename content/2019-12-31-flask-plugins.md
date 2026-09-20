@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
-tags: Flask
+tags: Flask, Python, Web Development
 featured_image: logos/flask.png
 ---
 The Flask Ecosystem has [a lot of extensions](http://flask.pocoo.org/extensions/).

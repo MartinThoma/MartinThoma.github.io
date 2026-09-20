@@ -2,7 +2,7 @@
 layout: post
 title: Krankenkasse
 slug: krankenkasse
-lang: de
+lang: en
 author: Martin Thoma
 date: 2019-05-07 20:00
 category: My bits and bytes

@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-05-30 20:00
 category: My bits and bytes
-tags: cooking, recipe
+tags: Cooking, Recipe
 featured_image: logos/cooking.png
 ---
 [Curry](https://en.wikipedia.org/wiki/Curry) is a dish found in many Asian

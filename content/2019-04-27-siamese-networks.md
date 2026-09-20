@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-04-27 20:00
 category: Machine Learning
-tags: Machine Learning, Neural Networks
+tags: Machine Learning, Neural Networks, AI
 featured_image: logos/ml.png
 ---
 Siamese Networks are feature extractors trained to learn an embedding in $\mathbb{R}^n$

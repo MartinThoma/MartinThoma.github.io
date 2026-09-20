@@ -2,11 +2,11 @@
 layout: post
 title: Apple Pancakes
 slug: apple-pancakes
-lang: de
+lang: en
 author: Martin Thoma
 date: 2019-12-18 12:00
 category: My bits and bytes
-tags: cooking, recipe, German
+tags: Cooking, Recipe, German
 featured_image: logos/cooking.png
 ---
 Apple Pancakes are a sweet main dish. Yes, I know, for most people outside of

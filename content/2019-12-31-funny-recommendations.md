@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: My bits and bytes
-tags: Machine Learning, Funny
+tags: Machine Learning, Funny, AI
 featured_image: logos/data-science.png
 ---
 Machine Learning brings awesome results, but sometimes it fails. And sometimes

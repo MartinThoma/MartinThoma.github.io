@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-12-16 20:00
 category: My bits and bytes
-tags: cooking, recipe
+tags: Cooking, Recipe
 featured_image: logos/cooking.png
 ---
 A nice dish which takes about 30 minutes to cook.

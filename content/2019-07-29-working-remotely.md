@@ -6,7 +6,7 @@ lang: en
 author: Martin Thoma
 date: 2019-07-29 20:00
 category: My bits and bytes
-tags: work,remote
+tags: Work, Remote
 featured_image: logos/development.png
 ---
 Working remotely means working without a central office space. It means you
