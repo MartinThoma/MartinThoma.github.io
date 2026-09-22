@@ -14,16 +14,16 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Cheat Sheet, SVN, Software Engineering, Code, " />
+<meta name="keywords" content="Cheat Sheet, Version Control, Software Engineering, Code, " />
 
 <meta property="og:title" content="Subversion "/>
 <meta property="og:url" content="subversion/" />
-<meta property="og:description" content="This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows …" />
+<meta property="og:description" content="This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it. Subversion (Apache Subversion, or svn for short) is a software versioning and revision control system. This allows you to …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2014-12-29T20:57:00+01:00" />
 <meta name="twitter:title" content="Subversion ">
-<meta name="twitter:description" content="This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows …">
+<meta name="twitter:description" content="This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it. Subversion (Apache Subversion, or svn for short) is a software versioning and revision control system. This allows you to …">
 
         <title>Subversion  · Martin Thoma
 </title>
@@ -71,7 +71,6 @@ MathJax.Hub.Queue(function() {
 <span class="brand-tagline">A blog about Code, the Web and Cyberculture</span>                </a>
                 <nav class="nav" aria-label="Main">
                     <a href="../">Home</a>
-                    <a href="../categories/">Categories</a>
                     <a href="../tags/">Tags</a>
                     <a href="../archives/">Archives</a>
                     <a href="../support-me/">Support me</a>
@@ -96,8 +95,8 @@ MathJax.Hub.Queue(function() {
         <li><a href="../tags/#software-engineering-ref">Software Engineering
             <span>76</span>
 </a></li>
-        <li><a href="../tags/#svn-ref">SVN
-            <span>4</span>
+        <li><a href="../tags/#version-control-ref">Version Control
+            <span>9</span>
 </a></li>
     </ul>
 </header>
@@ -109,9 +108,9 @@ MathJax.Hub.Queue(function() {
 
 <div class="article-content" id="contentAfterTitle">
     
-    <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
-<p>Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.</p>
-<p>Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.</p>
+    <div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
+<p>Subversion (Apache Subversion, or svn for short) is a software versioning and revision control system. This allows you to step back to any point of the software and to develop simultaneously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.</p>
+<p>Here is a little cheat sheet on how to use SVN. I will demonstrate some commands on my Google Code open source project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.</p>
 <p>All commands are executed while I'm in my local working copy of the repository.</p>
 <h2 id="get-the-repository">Get the repository</h2>
 <div class="highlight"><pre><span></span><code>svn<span class="w"> </span>checkout<span class="w"> </span>https://community-chess.googlecode.com/svn/trunk/<span class="w"> </span>community-chess<span class="w"> </span>--username<span class="w"> </span>themoosemind@googlemail.com
@@ -120,13 +119,13 @@ MathJax.Hub.Queue(function() {
 <div class="highlight"><pre><span></span><code>svn<span class="w"> </span>update
 </code></pre></div>
 <h2 id="check-for-changes">Check for changes</h2>
-<p>If you only want to check which files were modified, added or deleted you can
+<p>If you only want to check which files were modified, added or deleted, you can
 execute</p>
 <div class="highlight"><pre><span></span><code>svn<span class="w"> </span>status
 </code></pre></div>
 <p>This will show your local changes.</p>
 <h2 id="file-actions">File actions</h2>
-<p>The actions are simmilar to the console commands, but you have to add svn:</p>
+<p>The actions are similar to the console commands, but you have to add svn:</p>
 <h3 id="copy">Copy</h3>
 <div class="highlight"><pre><span></span><code>svn<span class="w"> </span>cp<span class="w"> </span>myFile.php<span class="w"> </span>copiedFile.php
 </code></pre></div>
@@ -143,11 +142,11 @@ execute</p>
 <h2 id="commit-the-latest-changes_1">Commit the latest changes</h2>
 <h3 id="check-your-changes">Check your changes</h3>
 <p>First you should try <a href="#Check_for_changes-3">svn status</a>. What files did you change? Do you really want to upload those changes?</p>
-<p>If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just make</p>
-<div class="highlight"><pre><span></span><code>svn<span class="w"> </span>rever<span class="w"> </span>/path/to/your/file.php
+<p>If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just run</p>
+<div class="highlight"><pre><span></span><code>svn<span class="w"> </span>revert<span class="w"> </span>/path/to/your/file.php
 </code></pre></div>
 <h3 id="im-fine-upload-it">I'm fine: Upload it!</h3>
-<p>This is the command you use, if you want to send the changes you made on your working copy to the repository:</p>
+<p>This is the command you use if you want to send the changes you made in your working copy to the repository:</p>
 <div class="highlight"><pre><span></span><code>svn<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed"</span><span class="w"> </span>--username<span class="w"> </span>themoosemind@gmail.com
 </code></pre></div>
 <h2 id="watch-changes_1">Watch changes</h2>

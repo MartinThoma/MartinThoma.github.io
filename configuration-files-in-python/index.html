@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Configuration files in Python "/>
 <meta property="og:url" content="configuration-files-in-python/" />
-<meta property="og:description" content="Most interesting programs need some kind of configuration: Content Management Systems like WordPress blogs, WikiMedia and Joomla need to store the information where the database server is (the hostname) and how to login (username and password) Proprietary software might need to store if the software was registered already (the serial …" />
+<meta property="og:description" content="Most interesting programs need some kind of configuration: Content Management Systems like WordPress blogs, MediaWiki and Joomla need to store the information where the database server is (the hostname) and how to log in (username and password) Proprietary software might need to store whether the software was registered already (the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2014-07-27T15:46:00+02:00" />
 <meta name="twitter:title" content="Configuration files in Python ">
-<meta name="twitter:description" content="Most interesting programs need some kind of configuration: Content Management Systems like WordPress blogs, WikiMedia and Joomla need to store the information where the database server is (the hostname) and how to login (username and password) Proprietary software might need to store if the software was registered already (the serial …">
+<meta name="twitter:description" content="Most interesting programs need some kind of configuration: Content Management Systems like WordPress blogs, MediaWiki and Joomla need to store the information where the database server is (the hostname) and how to log in (username and password) Proprietary software might need to store whether the software was registered already (the …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -73,7 +73,6 @@ MathJax.Hub.Queue(function() {
 <span class="brand-tagline">A blog about Code, the Web and Cyberculture</span>                </a>
                 <nav class="nav" aria-label="Main">
                     <a href="../">Home</a>
-                    <a href="../categories/">Categories</a>
                     <a href="../tags/">Tags</a>
                     <a href="../archives/">Archives</a>
                     <a href="../support-me/">Support me</a>
@@ -106,21 +105,21 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#python-configuration-file" title="Python Configuration File">Python Configuration File</a></li><li><a class="toc-href" href="#json" title="JSON">JSON</a></li><li><a class="toc-href" href="#yaml" title="YAML">YAML</a><ul><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></li><li><a class="toc-href" href="#ini_1" title="INI">INI</a><ul><li><a class="toc-href" href="#configparser" title="ConfigParser">ConfigParser</a></li></ul></li><li><a class="toc-href" href="#xml_1" title="XML">XML</a></li><li><a class="toc-href" href="#file-endings" title="File Endings">File Endings</a></li><li><a class="toc-href" href="#resources_1" title="Resources">Resources</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#python-configuration-file" title="Python Configuration File">Python Configuration File</a></li><li><a class="toc-href" href="#json" title="JSON">JSON</a></li><li><a class="toc-href" href="#yaml" title="YAML">YAML</a><ul><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></li><li><a class="toc-href" href="#ini_1" title="INI">INI</a><ul><li><a class="toc-href" href="#configparser" title="ConfigParser">ConfigParser</a></li></ul></li><li><a class="toc-href" href="#xml_1" title="XML">XML</a></li><li><a class="toc-href" href="#file-extensions" title="File Extensions">File Extensions</a></li><li><a class="toc-href" href="#resources_1" title="Resources">Resources</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
     
     <p>Most interesting programs need some kind of configuration:</p>
 <ul>
-<li>Content Management Systems like WordPress blogs, WikiMedia and Joomla need
+<li>Content Management Systems like WordPress blogs, MediaWiki and Joomla need
   to store the information where the database server is (the hostname) and
-  how to login (username and password)</li>
-<li>Proprietary software might need to store if the software was registered already
+  how to log in (username and password)</li>
+<li>Proprietary software might need to store whether the software was registered already
   (the serial key)</li>
 <li>Scientific software could store the path to BLAS libraries</li>
 </ul>
-<p>For very simple tasks you might choose to write these configuration variables
+<p>For very simple tasks, you might choose to write these configuration variables
 directly into the source code. But this is a bad idea when you upload the code
 to GitHub.</p>
 <p>I will explain some alternatives I got to know for Python.</p>
@@ -153,7 +152,7 @@ that contains Python code. You might want to call it something like
 
 <span class="n">connect</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"user"</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"password"</span><span class="p">])</span>
 </code></pre></div>
-<p>The way you include the configuration might feel very convenient at a first
+<p>The way you include the configuration might feel very convenient at first
 glance, but imagine what happens when you get more configuration variables.
 You definitely need to provide an example configuration file. And it is hard
 to resist the temptation to include code within the configuration file.</p>
@@ -338,7 +337,7 @@ instead of a simple string.</p>
 
 <span class="n">configfile_name</span> <span class="o">=</span> <span class="s2">"config.ini"</span>
 
-<span class="c1"># Check if there is already a configurtion file</span>
+<span class="c1"># Check if there is already a configuration file</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">):</span>
     <span class="c1"># Create the configuration file as it doesn't exist yet</span>
     <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
@@ -376,7 +375,7 @@ instead of a simple string.</p>
 <span class="na">use_anonymous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
 </code></pre></div>
 <h2 id="xml_1">XML</h2>
-<p>Seems not to be used at all for configuration files by the Python community.
+<p>XML seems not to be used at all for configuration files by the Python community.
 However, parsing / writing XML is easy and there are plenty of possibilities to
 do so with Python. One is BeautifulSoup:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -407,22 +406,22 @@ do so with Python. One is BeautifulSoup:</p>
 <span class="w">    </span><span class="nt">&lt;/other&gt;</span>
 <span class="nt">&lt;/config&gt;</span>
 </code></pre></div>
-<h2 id="file-endings">File Endings</h2>
-<p>File Endings give the user and the system an indicator about the content of a
-file. Reasonable file endings for configuration files are</p>
+<h2 id="file-extensions">File Extensions</h2>
+<p>File extensions give the user and the system an indicator about the content of a
+file. Reasonable file extensions for configuration files are</p>
 <ul>
 <li><code>*config.py</code> for Python files</li>
 <li><code>*.yaml</code> or <code>*.yml</code> if the configuration is done in YAML format</li>
 <li><code>*.json</code> for configuration files written in JSON format</li>
 <li><code>*.cfg</code> or <code>*.conf</code> to indicate that it is a configuration file</li>
-<li><code>*.ini</code> for "initialization" are quite widespread (see <a href="https://en.wikipedia.org/wiki/INI_file">Wiki</a>)</li>
+<li><code>*.ini</code> for "initialization" is quite widespread (see <a href="https://en.wikipedia.org/wiki/INI_file">Wiki</a>)</li>
 <li><code>~/.[my_app_name]rc</code> is a VERY common naming scheme for configuration files on
   Linux systems. RC is a reference to an old computer system and means
-  "run common".</li>
+  "run commands".</li>
 </ul>
 <p>That said, I think I prefer <code>*.conf</code>. I think it is a choice that users
 understand.</p>
-<p>But you might also consider that <code>*.ini</code> might get opened by standard in a
+<p>But you might also consider that <code>*.ini</code> might get opened by default in a
 text editor. For the other options, users might get asked which program they
 want to use.</p>
 <h2 id="resources_1">Resources</h2>

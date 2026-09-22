@@ -73,7 +73,6 @@ MathJax.Hub.Queue(function() {
 <span class="brand-tagline">A blog about Code, the Web and Cyberculture</span>                </a>
                 <nav class="nav" aria-label="Main">
                     <a href="../">Home</a>
-                    <a href="../categories/">Categories</a>
                     <a href="../tags/">Tags</a>
                     <a href="../archives/">Archives</a>
                     <a href="../support-me/">Support me</a>
@@ -100,7 +99,7 @@ MathJax.Hub.Queue(function() {
 
 <details class="toc" open>
     <summary>Contents</summary>
-    <div id="toc"><ul><li><a class="toc-href" href="#how-to-make-tables" title="How to make tables">How to make tables</a><ul><li><a class="toc-href" href="#the-simple-way" title="The simple way">The simple way</a></li><li><a class="toc-href" href="#the-standard-way" title="The standard way">The standard way</a></li><li><a class="toc-href" href="#combining-cells" title="Combining cells">Combining cells</a></li><li><a class="toc-href" href="#line-breaks-in-cells" title="Line Breaks in Cells">Line Breaks in Cells</a></li><li><a class="toc-href" href="#page-breaking-tables" title="Page breaking tables">Page breaking tables</a></li></ul></li><li><a class="toc-href" href="#tools_1" title="Tools">Tools</a></li><li><a class="toc-href" href="#what-could-be-better" title="What could be better">What could be better</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+    <div id="toc"><ul><li><a class="toc-href" href="#how-to-make-tables" title="How to make tables">How to make tables</a><ul><li><a class="toc-href" href="#the-simple-way" title="The simple way">The simple way</a></li><li><a class="toc-href" href="#the-standard-way" title="The standard way">The standard way</a></li><li><a class="toc-href" href="#combining-cells" title="Combining cells">Combining cells</a></li><li><a class="toc-href" href="#line-breaks-in-cells" title="Line Breaks in Cells">Line Breaks in Cells</a></li><li><a class="toc-href" href="#page-breaking-tables" title="Page-breaking tables">Page-breaking tables</a></li></ul></li><li><a class="toc-href" href="#tools_1" title="Tools">Tools</a></li><li><a class="toc-href" href="#what-could-be-better" title="What could be better">What could be better</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
 </details>
 
 <div class="article-content" id="contentAfterTitle">
@@ -161,12 +160,12 @@ venenatis, vel tristique risus blandit.
 first. It is always followed by a list of characters <code>l</code>, <code>c</code>, <code>r</code> which
 define if the column is left-aligned, centered or right-aligned. You can add <code>|</code>
 to tell LaTeX if there should be a line to distinguish columns.
-After that you get to the first cells. <code>&amp;</code> starts a new cell and <code>\\</code> starts
+After that, you get to the first cells. <code>&amp;</code> starts a new cell and <code>\\</code> starts
 a new line. If you want a drawn line / rule, you can use <code>\hline</code>.</p>
 <p>Let's check out <code>table</code>:
 <code>table</code> has options after it which are commonly <code>ht</code> where <code>h</code> means
 "here" and <code>t</code> means "top". So LaTeX tries to place the table where it is in
-the text and if that doesn't work out it places the table on the top of the
+the text and if that doesn't work out, it places the table at the top of the
 page. It can get a caption
 <code>\caption{Description of the contents of the table}</code> and a
 <code>\label{table:your-label-for-internal-usage}</code>.</p>
@@ -276,12 +275,12 @@ venenatis, vel tristique risus blandit.
 </figure>
 <p>Note the <code>\cmidrule{2-4}</code> which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).</p>
-<p>If you want to combine multiple rows you need to use <code>\usepackage{multirow}</code>.</p>
+<p>If you want to combine multiple rows, you need to use <code>\usepackage{multirow}</code>.</p>
 <h3 id="line-breaks-in-cells">Line Breaks in Cells</h3>
 <div class="highlight"><pre><span></span><code><span class="k">\parbox</span><span class="na">[t]</span><span class="nb">{</span>1cm<span class="nb">}{</span>This is the first <span class="k">\\</span> cell<span class="nb">}</span>
 </code></pre></div>
 <p>See also: <a href="http://tex.stackexchange.com/q/2441/5645">How to add a forced line break inside a table cell</a></p>
-<h3 id="page-breaking-tables">Page breaking tables</h3>
+<h3 id="page-breaking-tables">Page-breaking tables</h3>
 <p>If you want your tables to be able to break over pages, you have to use
 <a href="ftp://ftp.tex.ac.uk/tex-archive/macros/latex/required/tools/longtable.pdf"><code>\usepackage{longtable}</code></a> which has <a href="http://users.sdsc.edu/~ssmallen/latex/longtable.html">an example</a>.</p>
 <p>Another option is <a href="http://ctan.org/pkg/supertabular">supertabular</a>.</p>
@@ -297,28 +296,28 @@ expect an optimization with the following thoughts in mind:</p>
 <li>It is best to have the table where it was specified.</li>
 <li>The content should have at least 2 times as many rows as the header. So when
   there is only one header row, there should be at least 2 content rows.</li>
-<li>The farer a table is away from its "original" position, the worse it is.</li>
+<li>The farther a table is away from its "original" position, the worse it is.</li>
 </ul>
 <p><strong>Headers</strong>: A semantic way to define the header and a tail would be very good.
 <code>\endhead</code> is ok.</p>
-<p><strong>Semantics, Styles and Classes</strong>: LaTeX hides some of the formatting for semantic codes.
+<p><strong>Semantics, Styles and Classes</strong>: LaTeX hides some of the formatting behind semantic commands.
 For example, you write <code>\section{MySection}</code> instead of
 <code>{\fontsize{12}{15}\textbf{MySection}}</code>
-or something similar. That should be more often the case. In fact, I think it
+or something similar. That should be the case more often. In fact, I think it
 would be very nice if LaTeX had some built-in support for pure stylesheets
 (like CSS for HTML). It would be very nice if I only had to define that I
 want to make a standard table and it inserts <code>\toprule</code>, <code>\midrule</code> and
 <code>\bottomrule</code> automatically. But to get an automatic <code>\midrule</code> we need
 a command to tell LaTeX where the header ends.</p>
-<p>Everything of the above should be standard. There should not be the need to
+<p>All of the above should be standard. There should not be the need to
 use new packages for that. Also, <code>\multirow</code>, <code>\toprule</code>, <code>\midrule</code>,
 <code>\bottomrule</code> should not be "hidden" in a package but be there by default.</p>
-<p><strong>Table seperator</strong>: It is unfortunate that the table cell seperator(s) <code>\\</code>
+<p><strong>Table separator</strong>: It is unfortunate that the table cell separator(s) <code>\\</code>
 and <code>&amp;</code> have problems with matrices. I think one environment should get closed
 before the other one can continue parsing, so I don't quite understand where the
 problem is. But there certainly is a problem (see <a href="http://stackoverflow.com/q/25971178/562769">this question</a>).</p>
 <p><strong>Tools</strong>: I don't know any tools that can export LaTeX tables and merge cells.
-Such tools should be able to import and export LaTeX tables</p>
+Such tools should be able to import and export LaTeX tables.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://www.tug.org/TUGboat/tb28-3/tb90hoeppner.pdf">Typesetting tables with LaTeX</a></li>
