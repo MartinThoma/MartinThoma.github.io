@@ -1,24 +1,24 @@
 ---
 layout: post
-lang: en
 title: Install and configure computer
 slug: install-and-configure-computer
+lang: en
 author: Martin Thoma
 date: 2014-01-25 10:14
 category: Cyberculture
 tags: Linux, Ubuntu
 featured_image: 2011/11/computer-fix-it-guy.jpg
 ---
-When I reinstall my computer, I usually do these following steps:
+When I reinstall my computer, I usually do the following steps:
 
 1. Copy all data to an external HDD
 2. Save configuration:
-    * Write down all WLAN configurations (eventually with screenshots; NOT ONLY PASSWORDS!)
+    * Write down all WLAN configurations (possibly with screenshots; NOT ONLY PASSWORDS!)
     * `.ssh` and `GPG` keys
     * Filezilla configurations
 3. Write down all programs that I use.
     1. Export configuration of those programs.
-4. Wait a week or a month and see if someting is missing in the lists from above.
+4. Wait a week or a month and see if something is missing in the lists from above.
 5. Drop the old system and install a new one
 
 
@@ -27,8 +27,8 @@ When I reinstall my computer, I usually do these following steps:
 I like to install the latest Ubuntu long term support version (LTS) with the
 MATE desktop environment: [Download link](https://ubuntu-mate.org/download/)
 
-Ubuntu is the operating system which is one of many flavors of Linux. Those
-flavours are called *distributions*. It is one
+Ubuntu is an operating system and one of many flavors of Linux. Those
+flavors are called *distributions*. It is one
 of the most popular distributions according to [distrowatch.com](https://distrowatch.com/table.php?distribution=mx),
 just behind [MX Linux](https://en.wikipedia.org/wiki/MX_Linux), [Manjaro](https://en.wikipedia.org/wiki/Manjaro)
 and [Linux Mint](https://en.wikipedia.org/wiki/Linux_Mint).
@@ -38,7 +38,7 @@ and [Linux Mint](https://en.wikipedia.org/wiki/Linux_Mint).
 
 ## Software I usually install
 
-If possible, I will give the debian package names in the following list:
+If possible, I will give the Debian package names in the following list:
 
 * [`sublime_text`](//martin-thoma.com/sublime-text/)
 * [LaTeX](../how-to-install-the-latest-latex-version/) and scientific writing
@@ -68,7 +68,7 @@ If possible, I will give the debian package names in the following list:
     * PHP: `apache2 php5 php5-mysql`
     * JavaScript: `sudo apt-get install nodejs npm`
 * Themes
-    * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
+    * Balanzan theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Work
     * [Slack](https://slack.com/intl/de-de/downloads/linux)
     * [Zoom](https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux)
@@ -78,12 +78,12 @@ If possible, I will give the debian package names in the following list:
 * DRM-caused (I want to watch DVDs!)
     * `ubuntu-restricted-extras libdvd-pkg libdvdread4 libdvdnav4`, then run
     `sudo dpkg-reconfigure libdvd-pkg`
-    * `totem banshee mplayer rythmbox`
+    * `totem banshee mplayer rhythmbox`
 
 
 ## Configure
 
-### Set standards
+### Set defaults
 
 ```bash
 update-alternatives --config editor
@@ -117,7 +117,7 @@ You can get it back in MATE by doing a right-click on the menu. Then click on
             <figcaption class="text-center">Add to panel</figcaption>
         </figure>
 
-After that, the following dialog will pop up. Choose "Menu Bar"
+After that, the following dialog will pop up. Choose "Menu Bar":
 
 <figure class="aligncenter">
             <a href="../images/2014/03/mate-add-menu-bar.png"><img src="../images/2014/03/mate-add-menu-bar.png" alt="Add menu bar" style="max-width:500px;" class=""/></a>

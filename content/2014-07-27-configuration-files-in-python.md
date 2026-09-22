@@ -11,14 +11,14 @@ featured_image: logos/python.png
 ---
 Most interesting programs need some kind of configuration:
 
-* Content Management Systems like WordPress blogs, WikiMedia and Joomla need
+* Content Management Systems like WordPress blogs, MediaWiki and Joomla need
   to store the information where the database server is (the hostname) and
-  how to login (username and password)
-* Proprietary software might need to store if the software was registered already
+  how to log in (username and password)
+* Proprietary software might need to store whether the software was registered already
   (the serial key)
 * Scientific software could store the path to BLAS libraries
 
-For very simple tasks you might choose to write these configuration variables
+For very simple tasks, you might choose to write these configuration variables
 directly into the source code. But this is a bad idea when you upload the code
 to GitHub.
 
@@ -63,7 +63,7 @@ import databaseconfig as cfg
 connect(cfg.mysql["host"], cfg.mysql["user"], cfg.mysql["password"])
 ```
 
-The way you include the configuration might feel very convenient at a first
+The way you include the configuration might feel very convenient at first
 glance, but imagine what happens when you get more configuration variables.
 You definitely need to provide an example configuration file. And it is hard
 to resist the temptation to include code within the configuration file.
@@ -202,6 +202,7 @@ There is a `yaml.dump` method, so you can write the configuration the same way.
 Just build up a dictionary.
 
 YAML is used by the Blender project.
+
 ### Resources
 
 * [Documentation](https://docs.python.org/3/library/configparser.html)
@@ -288,7 +289,7 @@ import os
 
 configfile_name = "config.ini"
 
-# Check if there is already a configurtion file
+# Check if there is already a configuration file
 if not os.path.isfile(configfile_name):
     # Create the configuration file as it doesn't exist yet
     cfgfile = open(configfile_name, "w")
@@ -332,7 +333,7 @@ use_anonymous = True
 
 ## XML
 
-Seems not to be used at all for configuration files by the Python community.
+XML seems not to be used at all for configuration files by the Python community.
 However, parsing / writing XML is easy and there are plenty of possibilities to
 do so with Python. One is BeautifulSoup:
 
@@ -369,24 +370,24 @@ where the config.xml might look like this:
 </config>
 ```
 
-## File Endings
+## File Extensions
 
-File Endings give the user and the system an indicator about the content of a
-file. Reasonable file endings for configuration files are
+File extensions give the user and the system an indicator about the content of a
+file. Reasonable file extensions for configuration files are
 
 * `*config.py` for Python files
 * `*.yaml` or `*.yml` if the configuration is done in YAML format
 * `*.json` for configuration files written in JSON format
 * `*.cfg` or `*.conf` to indicate that it is a configuration file
-* `*.ini` for "initialization" are quite widespread (see [Wiki](https://en.wikipedia.org/wiki/INI_file))
+* `*.ini` for "initialization" is quite widespread (see [Wiki](https://en.wikipedia.org/wiki/INI_file))
 * `~/.[my_app_name]rc` is a VERY common naming scheme for configuration files on
   Linux systems. RC is a reference to an old computer system and means
-  "run common".
+  "run commands".
 
 That said, I think I prefer `*.conf`. I think it is a choice that users
 understand.
 
-But you might also consider that `*.ini` might get opened by standard in a
+But you might also consider that `*.ini` might get opened by default in a
 text editor. For the other options, users might get asked which program they
 want to use.
 

@@ -20,7 +20,7 @@ of hyperlapse videos:
 
 So we are now only speaking about first-person videos. As videos created by
 a helmet camera might be very long and (as he accurately described it)
-"dead boring", you want to speed that up. A timelaps would be a subsampling to
+"dead boring", you want to speed that up. A time-lapse would be a subsampling to
 every n-th frame. Those might be very shaky and hard to watch.
 That means you would at least want some image stabilization.
 
@@ -42,7 +42,7 @@ point in time where you want to get an image. The 6 dimensions are:
 * pitch: up, down view angle
 * yaw: left, right view angle
 
-In case you have a problem with imagining roll, pitch and yaw you should take
+In case you have trouble imagining roll, pitch and yaw, you should take
 a look at the following image:
 
 <figure class="aligncenter">
@@ -58,12 +58,12 @@ The chosen path should meet several criteria:
 * Rotation should be smooth (that is what makes videos "shaky")
 * The rendering quality should be as high as possible
 
-The first 3 steps were achived by spline fitting.
+The first three criteria were achieved by spline fitting.
 
 ### Rendering
-That step combines several output frames to render the desired camera image.
+That step combines several input frames to render the desired camera image.
 
-## Nice timelapses
+## Nice time-lapses
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/8dTzy_N0Pn4" frameborder="0" allowfullscreen></iframe>
 

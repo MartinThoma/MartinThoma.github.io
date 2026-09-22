@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Highend Notebooks
+title: High-End Notebooks
 slug: highend-notebooks
 lang: en
 author: Martin Thoma
@@ -10,74 +10,74 @@ tags: Notebook, Hardware, Review
 featured_image: 2014/01/samsung-series-9-thumbnail.png
 ---
 My [Acer Travelmate 5744Z](../review-des-acer-travelmate-5744z/)
-seems to get broken in soon, so I'm currently looking for a new
+seems to be about to break, so I'm currently looking for a new
 notebook. As I use my notebook quite often and as this is the third
 notebook within three years that is not usable any longer
-(the screen of the first is defect and the graphic card / WLAN of the
-second does not work propperly with the new Linux kernel), I'm would like to have
-a high end notebook this time. I hope that I not have to think about
+(the screen of the first is defective and the graphics card / WLAN of the
+second does not work properly with the new Linux kernel), I would like to have
+a high-end notebook this time. I hope that I won't have to think about
 notebooks for at least 5 years after that.
 
 ## Requirements
 I work quite a lot with the computer, so the keyboard and the display
 have to be good. What does good mean? Well, the display has to be
-**at least 15"** and as I don't want to see my pixels any longer it
+**at least 15"** and as I don't want to see my pixels any longer, it
 has to have a **higher resolution than 1366×768**. But it has to be
 **smaller than 30cm × 38cm** to fit into my knapsack. A reason why
 I do not always have my current notebook with me is that it is
-too heavy with about 2.5kg and does only run for about 3.5h. The new
+too heavy at about 2.5kg and only runs for about 3.5h. The new
 one should be **lighter than 2.5kg** and **run at least 4h**.
 
 **Ubuntu** has to be supported completely, especially WLAN, sound and
 Bluetooth. Speaking of Bluetooth, I want **Bluetooth 4.0**, because
-it introduced a low energy protocol that might be usefull for notebooks.
-As I live in a city and as I access the internet via my neighbors
+it introduced a low energy protocol that might be useful for notebooks.
+As I live in a city and as I access the internet via my neighbor's
 WLAN (thank you!), I need a good connection: **Dual band and 802.11a/b/g/n**
 need to be supported by the notebook. (Dual band is sometimes also called 2x2).
 
 I use it mainly for writing blog articles, LaTeX stuff and some
 Python programming and watching movies. I download movies via
-Online TV Recorder which sums up quite soon. Transfering this to my
+Online TV Recorder which adds up quite quickly. Transferring this to my
 external HDD always takes a lot of time. The new notebook should
 support **USB 3.0** to speed this up. As I don't have to store
-anything large, **80 GB SSD** is enough. It should be a SSD, because
-they consume less power, are more durable and are more silent.
+anything large, **80 GB SSD** is enough. It should be an SSD, because
+they consume less power, are more durable and are quieter.
 
 I need at least **4GB RAM** because ... well, did you ever try to
 use Eclipse for Java+JBoss programming with less than 4GB? I don't
 want to have that again.
 
-It would be nice if I could use the notebook outside in the summer
+It would be nice if I could use the notebook outside in the summer,
 which means it has to have a **bright matte display**.
 
 I want a silent notebook, because I'm very sensitive to noise.
 My current notebook has **less than 30 dB in normal mode** (no heavy load).
 That should set the mark.
 
-A SD-Card Reader would be nice, but it is not required. Just like
-a RJ-45 for network cables and a DVD drive you can get it via USB.
+An SD card reader would be nice, but it is not required. Just like
+an RJ-45 port for network cables and a DVD drive, you can get it via USB.
 
-I robust case is also important. I had troubles working in the train,
-because the screen was whipping as hell. But this is not a hard
-requirement for me as I don't work in trains that often.
+A robust case is also important. I had trouble working on the train
+because the screen was wobbling like hell. But this is not a hard
+requirement for me as I don't work on trains that often.
 
 ## Current Favorites ##
-I've looked at a lot of notebooks and I did mainly focus on the
-technical specification and not at the price (I guess I might work
+I've looked at a lot of notebooks and I mainly focused on the
+technical specifications and not on the price (I guess I might work
 about 10h every day in front of this machine. A good, working
 notebook is very important to me). However, when I see some notebooks
 that are ok according to the specs from above, I will take the cheaper
 one.
 
-By the way, while searching for notebooks I discovered that much of
+By the way, while searching for notebooks, I discovered that much of
 the data on Amazon is wrong. See for example the dimensions of
 the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
-|                    | Asus Zenbook       | Samsung Notebook Serie 9            |
+|                    | Asus Zenbook       | Samsung Notebook Series 9            |
 |--------------------|--------------------|-------------------------------------|
 | Model              | UX51VZ-DB114H      | 900X4D K01                          |
 | Price              | 1380 Euro          |  995 Euro                           |
-| Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               |
+| Dimensions (W × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               |
 | Weight             | 2.2 kg             | 1.58 kg                             |
 | CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) |
 | Display Size       | 15.6"              | 15"                                 |
@@ -90,11 +90,11 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           |
 | WLAN-Chip          | ?                  | Intel Wireless-N 7260               |
 | Bluetooth          | 4.0                | 4.0                                 |
-| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 |
+| Battery            | 4750 mAh           | 8200 mAh, up to 10h                 |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              |
 | SD Card Reader     | ✔                  | ✔                                  |
 | Linux-Support      | ?                  | partially ([^1],[^2], [^3])         |
-| Keyboard           | ?                  | Chiclet-keyboard without numblock   |
+| Keyboard           | ?                  | Chiclet-keyboard without numpad   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   |
 
 <ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
@@ -124,15 +124,15 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
    </li>
 </ul>
 
-The WLAN chipset of the Samsung Serie 9 seems to cause trouble with
-Linux, but it also seems to be solved by a firmware update.[^5]
+The WLAN chipset of the Samsung Series 9 seems to cause trouble with
+Linux, but this seems to be solved by a firmware update.[^5]
 But one hint seems to be important:
 
-> Before you install Linux on a Samsung Serie 9, make sure you update the firmware,
+> Before you install Linux on a Samsung Series 9, make sure you update the firmware,
 > because that's only possible with Windows.
 
 
-Asus Zenbook seems also to work almost out of the box.[^6]
+The Asus Zenbook also seems to work almost out of the box.[^6]
 I've just learned that you can use
 
 ```bash
@@ -144,9 +144,9 @@ to determine your exact laptop product name.
 In the following, I will give you an overview of the notebooks I took
 a look at. I think all of them are very good.
 
-In many cases I will need some more equipment:
+In many cases, I will need some more equipment:
 
-* MicroHDMI 2 VGA adapter: Samsung AA-AH2NMHB/E for 29.90 Euro
+* Micro HDMI to VGA adapter: Samsung AA-AH2NMHB/E for 29.90 Euro
 * USB Ethernet adapter: "Cable Matters - SuperSpeed USB 3.0" for 16 Euro
 * External DVD burner: Samsung SE-208DB for 30 Euro works with DVD±R Dual layer disks and DVD±RW disks. Is there anything more important to look at?
 
@@ -166,7 +166,7 @@ Others:
 |--------------------|------------------------|
 | Model              | V5-573G-54208G50aii    |
 | Price              | 649  Euro              |
-| Dimensions (B × D × H)| 382 × 256 × 18      |
+| Dimensions (W × D × H)| 382 × 256 × 18      |
 | Weight             | 2.04 kg                |
 | CPU                | Intel Core i5-4200U    |
 | Display Size       | 15.6"                  |
@@ -178,7 +178,7 @@ Others:
 | Wireless           |                        |
 | WLAN-Chip          | Atheros AR5BWB222      |
 | Bluetooth          | 4.0                    |
-| Akku               | 3560 mAh               |
+| Battery            | 3560 mAh               |
 | USB                | 1× USB 3.0, 2× USB 2.0 |
 | SD Card Reader     | ✔                      |
 | Linux-Support      | ✔                      |
@@ -191,7 +191,7 @@ Others:
 |--------------------|------------------------------------|
 | Model              | Retina 15"                         |
 | Price              | 1999 Euro                          |
-| Dimensions (B × D × H)| 358.9 × 247.1 × 18 mm              |
+| Dimensions (W × D × H)| 358.9 × 247.1 × 18 mm              |
 | Weight             | 2.02 kg                            |
 | CPU                | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
 | Display Size       | 15.4"                              |
@@ -204,7 +204,7 @@ Others:
 | Wireless           | 802.11a/b/g/n                      |
 | WLAN-Chip          | ?                                  |
 | Bluetooth          | 4.0                                |
-| Akku               | up to 7h                           |
+| Battery            | up to 7h                           |
 | USB                | 2× USB 3.0                         |
 | SD Card Reader     | ✔                                  |
 | Linux-Support      | ?                                  |
@@ -222,7 +222,7 @@ both of my favorites.
 |--------------------|--------------------|-----------------------|-----------------------|
 | Model              | UX51VZ-CN035H      | UX51VZ-DB114H         | U500VZ                |
 | Price              | 1390 Euro          | 1380 Euro             | 1350 Euro             |
-| Dimensions (B × D × H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     |
+| Dimensions (W × D × H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     |
 | Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                |
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
 | Display Size       | 15.6"              | 15.6"                 | 15.6"                 |
@@ -234,11 +234,11 @@ both of my favorites.
 | Wireless           | 802.11a/g/n, 2×2 WiDi | 802.11a/g/n, WiDi  | 802.11a/b/g/n, 2×2    |
 | WLAN-Chip          | ?                  | ?                     | ?                     |
 | Bluetooth          | 4.0                | 4.0                   | 4.0                   |
-| Akku               | ?                  | 4750 mAh              | 4750 mAh              |
+| Battery            | ?                  | 4750 mAh              | 4750 mAh              |
 | USB                | 3× USB 3.0         | 3× USB 3.0            | 2× USB 3.0            |
 | SD Card Reader     | ✔                  | ✔                     | ✔                     |
 | Linux-Support      | ?                  | ?                     | ?                               |
-| Keyboard           | ?                  | ?                     | Chiclet-Keyboard with Numblock  |
+| Keyboard           | ?                  | ?                     | Chiclet-Keyboard with numpad  |
 | Noise              | ?                  | ?                     | 34 dB in normal mode, 42 dB max |
 
 ### Asus PU500CA-XO002X and Asus N550JV-CN201H ###
@@ -247,7 +247,7 @@ both of my favorites.
 |--------------------|-----------------------|------------------|
 | Model              | PU500CA-XO002X        | N550JV-CN201H    |
 | Price              | 998 Euro              | 1099             |
-| Dimensions (B × D × H)| 383 × 257 × 22.5 mm| 383 × 255 × 27   |
+| Dimensions (W × D × H)| 383 × 257 × 22.5 mm| 383 × 255 × 27   |
 | Weight             | 1.96 kg               | 2.7 kg           |
 | CPU                | Intel Core i5-3317U   | Intel Core i7-4700HQ |
 | Display Size       | 15.6"                 | 15.6"            |
@@ -259,11 +259,11 @@ both of my favorites.
 | Wireless           | 802.11 a/b/g/n, WiDi  | 802.11 b/g/n     |
 | WLAN-Chip          |                       | Atheros (AR9485) |
 | Bluetooth          | 4.0                   | 4.0              |
-| Akku               | 4000 mAh, up to 7h    | 4000 mAh         |
+| Battery            | 4000 mAh, up to 7h    | 4000 mAh         |
 | USB                | 1× USB 3.0            | 2× USB 3.0       |
 | SD Card Reader     | ✔                     | ✔                |
 | Linux-Support      | ?                     | ?                |
-| Keyboard           | Chiclet-Keyboard with Numblock      | Chiclet-Keyboard with Numblock      |
+| Keyboard           | Chiclet-Keyboard with numpad      | Chiclet-Keyboard with numpad      |
 | Noise              | 30.7 dB in normal mode, 38.4 dB max | 32.9 dB in normal mode, 38 dB max   |
 
 ## Dell ##
@@ -272,7 +272,7 @@ both of my favorites.
 |--------------------|----------------------|
 | Model              | 9530-1906            |
 | Price              | 1711  Euro           |
-| Dimensions (B × D × H)| 372 × 254 × 18    |
+| Dimensions (W × D × H)| 372 × 254 × 18    |
 | Weight             | 2.02 kg              |
 | CPU                | Intel Core i7-4702HQ |
 | Display Size       | 15.6"                |
@@ -284,7 +284,7 @@ both of my favorites.
 | Wireless           | 802.11 ac, 2x2       |
 | WLAN-Chip          | Intel AC 7260        |
 | Bluetooth          | 4.0                  |
-| Akku               | ?                    |
+| Battery            | ?                    |
 | USB                | 3× USB 3.0           |
 | SD Card Reader     | ✔                   |
 | Linux-Support      | ?                    |
@@ -305,7 +305,7 @@ However, I was not able to find any specification of those.
 |--------------------|--------------------|
 | Model              | E753               |
 | Price              | 1759  Euro         |
-| Dimensions (B × D × H)| 374 × 374 × 20  |
+| Dimensions (W × D × H)| 374 × 374 × 20  |
 | Weight             | 1.99 kg            |
 | CPU                | Intel Core i7-3632QM |
 | Display Size       | 15.6"              |
@@ -317,7 +317,7 @@ However, I was not able to find any specification of those.
 | Wireless           | 802.11 a/b/g/n     |
 | WLAN-Chip          | Centrino Advanced-N 6235 |
 | Bluetooth          | 4.0                |
-| Akku               | 6700 mAh           |
+| Battery            | 6700 mAh           |
 | USB                | 3× USB 3.0         |
 | SD Card Reader     | ✔                  |
 | Linux-Support      | ?                  |
@@ -330,7 +330,7 @@ However, I was not able to find any specification of those.
 |--------------------|-----------------------|
 | Model              | J011SG                |
 | Price              | 811 Euro              |
-| Dimensions (B × D × H)| 380 × 251 × 28     |
+| Dimensions (W × D × H)| 380 × 251 × 28     |
 | Weight             | 2.19 kg               |
 | CPU                | Intel Core i5-4200M   |
 | Display Size       | 15.6"                 |
@@ -342,28 +342,28 @@ However, I was not able to find any specification of those.
 | Wireless           | 802.11b/g/n           |
 | WLAN-Chip          | Intel AC 7260         |
 | Bluetooth          | 4.0                   |
-| Akku               | 2200 mAh              |
+| Battery            | 2200 mAh              |
 | USB                | 4× USB 3.0            |
 | SD Card Reader     | ✔                     |
 | Linux-Support      | ?                     |
-| Keyboard           | with numblock         |
+| Keyboard           | with numpad         |
 | Noise              | ?                     |
 
 
 
 ## Samsung ##
 
-### Serie 9 ###
-The next few lines show the difference of the `900X4C A0A` to...
+### Series 9 ###
+The next few lines show how the following models differ from the `900X4C A0A`:
 
 * `NP900X4C-A01`: Intel Core i5-3317U, 128GB SSD, no Dualband
 * `900X3C A03`: 3610 mAh, 1399 Euro
 * `900X4B-A01`: Intel Core i7 2637M, 1999 Euro
 * `900X4C-A04`: Intel Core i5 3317U, 1999 Euro
-* `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, no Dualband, ca 1200 Euro
+* `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, no Dualband, ca. 1200 Euro
 * `900X4C A06`: 256 GB SSD, 15.6" Display, 1629 Euro
 * `900X4C A09`: Costs 1999 Euro (any other difference?)
-* `900X4D A03` has also 15" Display, but only 4GB RAM and a
+* `900X4D A03` also has a 15" display, but only 4GB RAM and a
    [Intel Core i5-3317U](http://ark.intel.com/products/65707) and a
    128 GB SSD. But it
    costs only 799 Euro.
@@ -375,7 +375,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 |--------------------|------------------------------------|
 | Model              | NP930X5J-K01DE                     |
 | Price              |  1599 Euro                         |
-| Dimensions (B × D × H)|  ? × ? × 14.9 mm                |
+| Dimensions (W × D × H)|  ? × ? × 14.9 mm                |
 | Weight             |  1.78 kg                           |
 | CPU                | [Intel Core i7-4500U](http://ark.intel.com/products/75460) |
 | Display Size       | 15.6"                              |
@@ -388,7 +388,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 | Wireless           | 802.11 ac (2x2) ([source](http://de.samsung.com/webdownloads/pressedownloads/Presseinformation_Samsung_ATIV_Book_9_Edition_2014_1.pdf)) |
 | WLAN-Chip          | Intel Wireless-AC 7260, 802.11 ac  |
 | Bluetooth          | 4.0                                |
-| Akku               | ?, 14h                             |
+| Battery            | ?, 14h                             |
 | USB                | 2× USB 3.0, 1 × USB 2.0            |
 | SD Card Reader     | ✔                                 |
 | Linux-Support      | ?                                  |
@@ -396,7 +396,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 | Noise              | ?                                  |
 
 
-* Good audio qualit: 24-bit, 192kHz audio, 2x 2W
+* Good audio quality: 24-bit, 192kHz audio, 2x 2W
 * HDMI out, mini VGA, an SD card reader
 * 720p webcam
 
@@ -414,7 +414,7 @@ Release date should be 28.03.2014 ([source](http://www.arlt.com/Notebook/Ultrabo
 |--------------------|------------------------------------|
 | Model              | BC1503                             |
 | Price              |  763 Euro                          |
-| Dimensions (B × D × H)|  374 × 252 × 31 mm              |
+| Dimensions (W × D × H)|  374 × 252 × 31 mm              |
 | Weight             |  2.4 kg                            |
 | CPU                | [Intel Core i5 4200M](http://ark.intel.com/products/76348) |
 | Display Size       | 15.6"                              |
@@ -427,12 +427,12 @@ Release date should be 28.03.2014 ([source](http://www.arlt.com/Notebook/Ultrabo
 | Wireless           | 802.11 ac/a/b/g/n                  |
 | WLAN-Chip          | Intel Dual AC7260                  |
 | Bluetooth          | 4.0                                |
-| Akku               | 62,16 Wh, 2.5h[^4]                 |
+| Battery            | 62,16 Wh, 2.5h[^4]                 |
 | USB                | 2× USB 3.0                         |
 | SD Card Reader     | ✔                                 |
 | Linux-Support      | shipped with Linux Mint ☺        |
 | Keyboard           | ?                                  |
-| Noise              | Laut[^4]                           |
+| Noise              | Loud[^4]                           |
 
 See also: [tuxedocomputers.com](https://www.tuxedocomputers.com/Linux-Hardware/Linux-Notebooks/15-6-Zoll/TUXEDO-Book-BU1505-15-6-matt-Full-HD-IPS-bis-Intel-Core-i7-Energiespar-CPU-zwei-HDD-SSD-bis-16GB-RAM-bis-10h-Akku-bel-Tastatur-Slim-Book-LTE-opt.geek), [linux-onlineshop.de](http://www.linux-onlineshop.de/Linux-Hardware/Linux-Notebooks/15-6-Zoll/TUXEDO-Book-BU1505-15-6-matt-Full-HD-IPS-bis-Intel-Core-i7-Energiespar-CPU-zwei-HDD-SSD-bis-16GB-RAM-bis-10h-Akku-bel-Tastatur-Slim-Book-LTE-opt.geek)
 
@@ -445,7 +445,7 @@ See also: [tuxedocomputers.com](https://www.tuxedocomputers.com/Linux-Hardware/L
 |--------------------|------------------------------------|
 | Model              |                                    |
 | Price              |  2185 Euro                         |
-| Dimensions (B × D × H)|  375 × 244 × 22 mm              |
+| Dimensions (W × D × H)|  375 × 244 × 22 mm              |
 | Weight             |  2.0 kg                            |
 | CPU                | [Intel i7-5557U](http://ark.intel.com/products/84993/Intel-Core-i7-5557U-Processor-4M-Cache-up-to-3_40-GHz) (Broadwell-U architecture) |
 | Display Size       | 15.6"                              |
@@ -458,7 +458,7 @@ See also: [tuxedocomputers.com](https://www.tuxedocomputers.com/Linux-Hardware/L
 | Wireless           | 802.11 n                           |
 | WLAN-Chip          | ?                                  |
 | Bluetooth          | ✔, ?                              |
-| Akku               | 65W, 48 Wh, Up to 6 hours usage    |
+| Battery            | 65W, 48 Wh, Up to 6 hours usage    |
 | USB                | 1× USB 3.1, 2× USB 3.0             |
 | SD Card Reader     | SDXC                               |
 | Linux-Support      | ✔                                  |
@@ -467,8 +467,8 @@ See also: [tuxedocomputers.com](https://www.tuxedocomputers.com/Linux-Hardware/L
 
 
 #### Other ####
-On a first glance, the Samsung ATIV Book 8 NP880Z5E-X01 looked quite
-promising. But it doesn't have an SSD, it weights 2.54 kg, but has
+At first glance, the Samsung ATIV Book 8 NP880Z5E-X01 looked quite
+promising. But it doesn't have an SSD and it weighs 2.54 kg, although it has
 no optical drive.
 
 * Samsung ATIV 870Z5E-X03DE
@@ -485,7 +485,7 @@ Display is too small:
 * Chromebook Pixel has only 12.85"
 * XPS 13 has only 13.3"
 * Asus Zenbook has only 13.3"
-* Lenovo IdeaPad U300s have only 13.3"
+* Lenovo IdeaPad U300s has only 13.3"
 * All Samsung Series 9 X3A seem to have 13.3" displays
 * Samsung Series 9 900X3D-A02: 13.3"
 * Samsung Series 9 900X3C-A01: 13.3"
@@ -497,7 +497,7 @@ Too low resolution:
 * Asuspro PU500
 * All Acer Aspire TimelineU M5
 
-To heavy:
+Too heavy:
 
 * Lenovo IdeaPad Y510p: 2.89 kg
 * HP EliteBook 8570p-B6Q03EA-ABD: 2.91 kg
@@ -505,7 +505,7 @@ To heavy:
 
 Availability: seems not to be available on Amazon
 
-* Samsung Serie 9 NP900X4C-A02
+* Samsung Series 9 NP900X4C-A02
 * Sony Vaio SV-E1511V1EW
 * Sony Vaio VGN-TX2
 * HP Envy 6-1000sg
@@ -514,9 +514,9 @@ Other:
 
 * Acer Aspire M3-581TG: Too loud, only 667MHz RAM
 
-## Dear Notebook-Producers ##
+## Dear Notebook Manufacturers ##
 After searching so much for notebooks, I have some hints for you
-what you could do better:
+on what you could do better:
 
 * Add a single specification page for each notebook. This page should include at least:
   * Weight in kg and dimensions in mm
@@ -525,8 +525,8 @@ what you could do better:
   * Exact CPU name (not only Intel i5 - if it varies, list all possible CPUs)
   * Disk (size, SSD or not)
   * Wireless support (IEEE 802.11 supported standards? Dual band? Bluetooth? Bluetooth version?)
-  * Keyboard: Does it have a numblock? Backlit?
-  * Does it have a DVD-Player / Burner? Blue-Ray?
+  * Keyboard: Does it have a numpad? Backlit?
+  * Does it have a DVD-Player / Burner? Blu-ray?
   * Webcam (resolution)
   * Microphone
   * Sensors (GPS)
@@ -537,11 +537,11 @@ what you could do better:
 * Explain your version names!
 * Provide a possibility to compare your products like Intel does with [ark.intel.com](http://ark.intel.com/) for its processors
 * Provide a possibility to filter your products by technical specification.
-* Add an image of your product to Wikipedia Commons
+* Add an image of your product to Wikimedia Commons
 
 ## References ##
 
-[^1]: [Linux and the Samsung Series 9 NP900X3C](http://blog.jospoortvliet.com/2012/09/linux-and-samsung-series-9-np900x3c.html): A review for the NP900X3C and openSUSE on 24th or September, 2012.
+[^1]: [Linux and the Samsung Series 9 NP900X3C](http://blog.jospoortvliet.com/2012/09/linux-and-samsung-series-9-np900x3c.html): A review for the NP900X3C and openSUSE on 24th of September, 2012.
 [^2]: [Samsung Series 9 - Ubuntu Community Page](https://help.ubuntu.com/community/SamsungSeries9)
 [^3]: [Linux auf Samsung Series 9 2012](http://www.sump.org/blog/213)
 [^4]: [Tuxedo Book DC1502 im Test](http://www.pcwelt.de/produkte/Tuxedo-Book_DC1502-Standard-Notebook-Test-8115776.html)

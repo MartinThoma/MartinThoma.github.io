@@ -10,7 +10,7 @@ tags: Python, Mathematics
 featured_image: 2014/01/math-riddle-thumb.png
 ---
 Let $N \in \mathbb{N}$ be a number with digits $a_k$, where $a_0$ is the least
-significant digit and $n$ is the most significant digit.
+significant digit and $a_n$ is the most significant digit.
 
 Find all numbers with the following property:
 

@@ -57,7 +57,7 @@ A gecko-like robot from Stanford.
 <iframe width="512" height="288" src="//www.youtube.com/embed/chPanW0QWhA" frameborder="0" allowfullscreen></iframe>
 
 A robot by [Boston Dynamics](https://en.wikipedia.org/wiki/Boston_Dynamics)
-that runs 45 km/h!
+that runs at 45 km/h!
 
 ## Snakebot
 

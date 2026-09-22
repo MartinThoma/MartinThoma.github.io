@@ -9,15 +9,15 @@ category: The Web
 tags: Linux, Windows 7, Windows
 featured_image: 2012/12/tux-vs-windows.png
 ---
-<div class="info">This is a quick article I had for quite a while as a draft.It might not be finished or have other problems, but I still want to share it.</div>
+<div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
 
 Some friends wondered why I prefer Linux over Windows. As I am currently using
-only Linux, I can make some examples.
+only Linux, I can give some examples.
 
-Here is an open list, why I prefer Linux over Windows:
+Here is an open list of reasons why I prefer Linux over Windows:
 
 ## No marketing strategies
-Windows 7 comes in may flavours: Windows 7 Home, Windows 7 Home Premium,
+Windows 7 comes in many flavors: Windows 7 Home, Windows 7 Home Premium,
 Windows 7 Ultimate, Windows 7 Enterprise, Windows 7 Professional, ... (see <a
 href="../microsoft-product-flavor-hell/">Microsoft product flavor hell</a>)
 
@@ -30,21 +30,21 @@ environments</a> like GNOME and KDE. The important difference is that Linux
 flavors depend on your needs, but Windows flavors depend on your money.
 
 ## User-friendly system
-As a Ubuntu 10.04 LTS user, I think that Ubuntu is much more user friendly than
-Windows 7. You have much more control about your system than you have on
+As an Ubuntu 10.04 LTS user, I think that Ubuntu is much more user-friendly than
+Windows 7. You have much more control over your system than you have on
 Windows (see <a href="../why-are-microsoft-products-so-user-unfriendly/">Why
 are Microsoft products so User unfriendly?</a>)
 
 Here are some everyday examples:
 <ul>
-  <li>Chaning the sound volume on a Notebook: You will see an indicator in Ubuntu <a href="http://www.markshuttleworth.com/wp-content/uploads/2009/02/notify-osd-screenshot.png">like this</a>. On Windows, you have to guess or wait until your movie starts</li>
-  <li>Taking a screenshot: In Ubuntu, you only have to press "Print Screen". On Windows, you have to know Snipping tool or install some additional software. Additionally, it seems not to be possible to get a the key "Print Screen" as a shortcut for taking screenshots (<a href="http://superuser.com/q/524357/64857">source</a>).</li>
-  <li>Different workspaces, pinning a window to "always in foreground" is definitely missing in Windows.</li>
+  <li>Changing the sound volume on a notebook: You will see an indicator in Ubuntu <a href="http://www.markshuttleworth.com/wp-content/uploads/2009/02/notify-osd-screenshot.png">like this</a>. On Windows, you have to guess or wait until your movie starts.</li>
+  <li>Taking a screenshot: In Ubuntu, you only have to press "Print Screen". On Windows, you have to know the Snipping Tool or install some additional software. Additionally, it seems not to be possible to get the key "Print Screen" as a shortcut for taking screenshots (<a href="http://superuser.com/q/524357/64857">source</a>).</li>
+  <li>Different workspaces, pinning a window to "always in foreground" are definitely missing in Windows.</li>
   <li><a href="../pdf-printing-on-windows-7/">PDF-Printers</a>: oh my god. This is really sad.</li>
 </ul>
 
 ## Better community
-When I have questions for my system, I can ask them on <a
+When I have questions about my system, I can ask them on <a
 href="http://askubuntu.com/users/10425/moose?tab=questions">askubuntu.com</a>,
 <a
 href="http://unix.stackexchange.com/users/4784/moose?tab=questions">unix.stackexchange.com</a>
@@ -62,11 +62,11 @@ sudo apt-get install something
 ```
 
 When I want to install something on Windows, I have to Google for it. When I
-find a tool which seems to fit, I have to find out if it is for free or if it's
+find a tool which seems to fit, I have to find out if it is free or if it's
 only a trial version. Then I need to find a way to download it and make sure
 that it's not malware.
 
-When I want to update all software I have on my linux machine, I type:
+When I want to update all software I have on my Linux machine, I type:
 
 ```bash
 sudo apt-get update
@@ -86,16 +86,16 @@ On Windows, I have to:
   <li>Install all updates</li>
 </ol>
 
-A restart might be required. But I can't simply make the restart when I want
+A restart might be required. But I can't simply restart whenever I want
 to. No, on Windows you will get reminded. You can choose the delay (max. 4
 hours) of the reminder, but you can't disable it. And this is only an update
 for the operating system. You have to look for updates of your software by
 yourself. For every single piece of software! This is not so easy. How do you
-find a reliable source of Updates e.g. for Unreal Tournament 2004?
+find a reliable source of updates e.g. for Unreal Tournament 2004?
 
 ## Terminal
 
-You can do everything with terminal. When the system is slowing down, I press
+You can do everything with the terminal. When the system is slowing down, I press
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F4</kbd>, log into the shell,
 call `top` and `kill` the process which slows my system down.
 
@@ -103,7 +103,7 @@ And I really like [ZSH and Oh-My-ZSH](//martin-thoma.com/working-terminal/).
 
 ## Linux is gratis
 
-You don't have to pay for it. In comparison, Windows 7 costs now (31.12.2014)
+You don't have to pay for it. In comparison, Windows 7 now costs (31.12.2014)
 about 50 Euro on Amazon. Although it is already outdated.
 
 ## Simple stuff
@@ -115,15 +115,15 @@ name them all, but some that come to my mind are:
 
 Isn't it great to have the possibility to use the OS from a CD / DVD only?
 This gives you the possibility to check if your system runs (or to diagnose
-what's going wrong) without chaning anything.
+what's going wrong) without changing anything.
 
 ### Installation setup
 
 The installation setup is great. It detects at the beginning if everything is
 ok (disk space, internet connection, battery) and tells you in simple words
-what is wrong. To chose your time zone you are shown a very simple graphic
-and by now the default was always correct for me. It continues with keyboard
-detection. Although the default was always wrong for me by now, it has an
+what is wrong. To choose your time zone, you are shown a very simple graphic
+and so far the default was always correct for me. It continues with keyboard
+detection. Although the default was always wrong for me so far, it has an
 awesome auto-detection tool. You simply have to type some letters and it
 returns your layout. Great!
 
@@ -141,13 +141,13 @@ all for the person who wrote it.
 
 ### Security
 I often hear that people like Linux because of higher security. I don't think
-that this is a real reason, as I have never heared of any end user having
+that this is a real reason, as I have never heard of any end user having
 switched because of security reasons. I also don't think that there is a
-significant difference of the bare systems in security.
+significant difference in security between the bare systems.
 
 ### Freedom to change code
-Some people argue, that you can change the code of Linux / OpenSource programs
-according to your needs. This is only an argument, if you have done it at least
+Some people argue that you can change the code of Linux / open source programs
+according to your needs. This is only an argument if you have done it at least
 once.
 
 ## Pseudo reasons against Linux
@@ -159,7 +159,7 @@ it.
 
 ### Linux supports NO games!
 
-Not true either. Steam gives A LOT of high quality games to Linux and you
-also have the possibility to use wine.
+Not true either. Steam brings A LOT of high-quality games to Linux and you
+also have the possibility to use Wine.
 
-However, if you want a specific game that might be a different story.
+However, if you want a specific game, that might be a different story.

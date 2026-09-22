@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Commands for Working from home
+title: Linux Commands for Working from Home
 slug: linux-commands-for-working-from-home
 lang: en
 author: Martin Thoma
@@ -25,15 +25,15 @@ $ scp [username]@[host]:[path/to/remote/file] [path/to/local/folder]
 
 ## Shell Shortcuts
 
-Copy a selected text:
+Copy selected text:
 
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
 
-Paste a text from clipboard to the command line:
+Paste text from the clipboard to the command line:
 
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
 
-Copy a selected text from the command line and paste it:
+Copy selected text from the command line and paste it:
 
 <kbd>Mouse wheel click</kbd>
 

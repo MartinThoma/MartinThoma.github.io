@@ -10,8 +10,8 @@ tags: Competition
 featured_image: logos/logotournament.png
 ---
 The website logotournament.com offers a service for designers and owners of
-companies. You can define how much money you would like to spend for a new
-logo-set and how this logo should look like.
+companies. You can define how much money you would like to spend on a new
+logo set and what this logo should look like.
 
 <figure class="aligncenter">
             <a href="../images/2014/12/logotournament.png"><img src="../images/2014/12/logotournament.png" alt="Logo Tournament Website" style="max-width:500px;" class=""/></a>
@@ -20,7 +20,7 @@ logo-set and how this logo should look like.
 
 
 Just take a look at the contest brief of Move Ahead. I've made a screenshot of
-their Website. They use the typical Joomla-Icon. Their Logo isn't very good.
+their website. They use the typical Joomla icon. Their logo isn't very good.
 
 <figure class="aligncenter">
             <a href="../images/2014/12/logo-tournament-move-ahead.png"><img src="../images/2014/12/logo-tournament-move-ahead.png" alt="Proposed Logos on Logo Tournament" style="max-width:500px;" class=""/></a>

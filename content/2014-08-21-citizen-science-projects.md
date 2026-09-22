@@ -13,17 +13,17 @@ featured_image: logos/galaxy.png
 the research work. The idea behind that is quite simple: Some tasks of
 researchers are very simple. Everybody can do them.
 
-I think some of them are a great example of [Gamification](https://en.wikipedia.org/wiki/Gamification).
+I think some of them are a great example of [gamification](https://en.wikipedia.org/wiki/Gamification).
 
 ## Galaxy Zoo
 [Galaxy Zoo](https://en.wikipedia.org/wiki/Galaxy_Zoo) is a crowdsourced
 astronomy project which invites people to assist in the classification of
 galaxies.
 
-You get some images of Galaxies and you should see some characteristics by
+You get some images of galaxies and you should identify some characteristics by
 looking at them. You get about three possible answers to every question.
 
-It looks like that:
+It looks like this:
 <figure class="aligncenter">
             <a href="../images/2014/08/galaxyzoo.png"><img src="../images/2014/08/galaxyzoo.png" alt="Galaxy Zoo" style="max-width:500px;" class=""/></a>
             <figcaption class="text-center">Galaxy Zoo</figcaption>
@@ -47,7 +47,7 @@ It looks like this:
 
 ## EteRNA
 
-[EteRNA](https://en.wikipedia.org/wiki/EteRNA) is a browser based game,
+[EteRNA](https://en.wikipedia.org/wiki/EteRNA) is a browser-based game,
 developed by scientists at Carnegie Mellon University and Stanford University,
 that engages users to solve puzzles related to the folding of RNA molecules.
 
@@ -64,8 +64,8 @@ It looks like this:
 project is to get fast and accurate recognition of mathematical symbols.
 To do so, I needed data.
 
-Currently, the project is still under heavy development. Currently, most
-work I do is done offline. Hence the project might not improve until
+Currently, the project is still under heavy development, and most of the
+work I do is done offline. Hence the project might not improve until the
 end of October (2014).
 
 It looks like this:

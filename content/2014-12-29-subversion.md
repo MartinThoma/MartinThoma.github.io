@@ -6,14 +6,14 @@ lang: en
 author: Martin Thoma
 date: 2014-12-29 20:57
 category: Code
-tags: Cheat Sheet, SVN, Software Engineering
+tags: Cheat Sheet, Version Control, Software Engineering
 featured_image:
 ---
-<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+<div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
 
-Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.
+Subversion (Apache Subversion, or svn for short) is a software versioning and revision control system. This allows you to step back to any point of the software and to develop simultaneously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.
 
-Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.
+Here is a little cheat sheet on how to use SVN. I will demonstrate some commands on my Google Code open source project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.
 
 All commands are executed while I'm in my local working copy of the repository.
 
@@ -33,7 +33,7 @@ svn update
 
 <h2>Check for changes</h2>
 
-If you only want to check which files were modified, added or deleted you can
+If you only want to check which files were modified, added or deleted, you can
 execute
 
 ```bash
@@ -44,7 +44,7 @@ This will show your local changes.
 
 
 <h2>File actions</h2>
-The actions are simmilar to the console commands, but you have to add svn:
+The actions are similar to the console commands, but you have to add svn:
 
 <h3>Copy</h3>
 
@@ -75,14 +75,14 @@ svn add myFile.php
 <h3>Check your changes</h3>
 First you should try <a href="#Check_for_changes-3">svn status</a>. What files did you change? Do you really want to upload those changes?
 
-If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just make
+If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just run
 
 ```bash
-svn rever /path/to/your/file.php
+svn revert /path/to/your/file.php
 ```
 
 <h3>I'm fine: Upload it!</h3>
-This is the command you use, if you want to send the changes you made on your working copy to the repository:
+This is the command you use if you want to send the changes you made in your working copy to the repository:
 
 ```bash
 svn commit -m "Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed" --username themoosemind@gmail.com

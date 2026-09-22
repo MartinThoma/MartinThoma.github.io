@@ -21,16 +21,16 @@ the data a human player generates.
 
 ## Solved games
 
-There is a number of games which are definitely solved. That means the A.I.
+There are a number of games which are solved. That means the A.I.
 plays perfectly:
 
 * Tic-Tac-Toe
 * Connect Four: [A Knowledge-based Approach of Connect-Four](http://www.informatik.uni-trier.de/~fernau/DSL0607/Masterthesis-Viergewinnt.pdf). Amsterdam, 1988. Victor Allis.
-* Checkers:
+* Checkers
 
 See also: [Solved Game](https://en.wikipedia.org/wiki/Solved_game)
 
-## Computers win always
+## Computers always win
 
 A second category are games in which A.I.s always win against human players, but
 they don't have a perfect strategy. Or at least we have not proven that they
@@ -41,11 +41,11 @@ have a perfect strategy:
 * Reversi on a 4×4 board
 
 
-Update: There are advances on the 19×19 field:
+Update: There are advances on the 19×19 board:
 
 * [Paper](https://storage.googleapis.com/deepmind-data/assets/papers/deepmind-mastering-go.pdf)
 * Nature: [Mastering the game of Go with deep neural networks and tree search](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html)
-* YouTube by nature: [The computer that mastered Go](https://www.youtube.com/watch?v=g-dKXOlsf98)
+* YouTube by Nature: [The computer that mastered Go](https://www.youtube.com/watch?v=g-dKXOlsf98)
 * Google Blog: [AlphaGo: using machine learning to master the ancient game of Go](https://googleblog.blogspot.de/2016/01/alphago-machine-learning-game-go.html)
 
 
@@ -61,10 +61,10 @@ You might want to skip to 6:13 for the demo:
 Interesting parts:
 
 * `09:46` - Ridiculous Super Mario move
-* `14:20` - Super packman move
+* `14:20` - Super Pac-Man move
 * `15:57` - Tetris: The best move is not to play
 
-Research paper published in SIGBOVIK 2013: "[The first level of Super Mario Bros. is easy with lexicographic ordering a and time travel ...after that it gets a little tricky](http://tom7.org/mario/mario.pdf)."
+Research paper published in SIGBOVIK 2013: "[The first level of Super Mario Bros. is easy with lexicographic orderings and time travel ...after that it gets a little tricky](http://tom7.org/mario/mario.pdf)."
 
 There is a follow-up video with Zelda, Punch-Out, Dr. Mario (10:27), Contra
 (12:10), Wall Street Kid (14:30) and Russian Attack (18:10):
@@ -73,8 +73,8 @@ There is a follow-up video with Zelda, Punch-Out, Dr. Mario (10:27), Contra
 
 Interesting parts:
 
-* `10:25` - Exploiting a Random number generator in Dr. Mario
-* `18:15` - Russian Attack: Finding a save spot
+* `10:25` - Exploiting a random number generator in Dr. Mario
+* `18:15` - Russian Attack: Finding a safe spot
 * `20:58` - Russian Attack: Fight fast
 
 And a third episode with Super Mario, Gradius (4:06), Mega Man 2 (8:30), Pro

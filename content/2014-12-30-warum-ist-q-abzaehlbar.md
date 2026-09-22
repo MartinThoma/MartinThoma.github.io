@@ -9,7 +9,7 @@ category: German posts
 tags: Analysis, Mathematics
 featured_image:
 ---
-<div class="info">This is a quick article I had for quite a while as a draft.
+<div class="info">This is a quick article I have had as a draft for quite a while.
 It might not be finished or have other problems, but I still want to share
 it.</div>
 
@@ -21,7 +21,7 @@ Die natürlichen Zahlen sind abzählbar.
 <strong>Beh.:</strong> $\mathbb{N}$ ist abzählbar.
 
 <strong>Bew.</strong>: direkt
-Sei $f: \mathbb{N} \rightarrow \mathbb{N}$ definiert durch $f(n) := n$. $f$ ist also die identität und damit bijektiv und insbesondere surjektiv $\blacksquare$
+Sei $f: \mathbb{N} \rightarrow \mathbb{N}$ definiert durch $f(n) := n$. $f$ ist also die Identität und damit bijektiv und insbesondere surjektiv $\blacksquare$
 
 Die ganzen Zahlen sind abzählbar.
 
@@ -47,7 +47,7 @@ $$\forall x \in \mathbb{Z}: n =
 2 \cdot x + 1 & \text{, falls x positiv}
 \end{cases}$$
 
-Es gibt also für jede ganze Zahl z eine natürliche Zahl n, die ich in $f$ stecken kann um z zu erhalten $\blacksquare$
+Es gibt also für jede ganze Zahl z eine natürliche Zahl n, die ich in $f$ stecken kann, um z zu erhalten $\blacksquare$
 
 
 <strong>Beh.:</strong> $\mathbb{N} \times \mathbb{N}$ ist abzählbar.
@@ -66,14 +66,14 @@ Diese Abbildung sieht wie folgt aus:
     <figcaption>Abbildung, die N x N auf N abbildet</figcaption>
 </figure>
 
-Ich finde es ist intuitiv klar, dass diese Funktion bijektiv ist. Hat jemand dafür einen sauberen Beweis?
+Ich finde, es ist intuitiv klar, dass diese Funktion bijektiv ist. Hat jemand dafür einen sauberen Beweis?
 
 Also gibt es eine Umkehrfunktion (die auch bijektiv ist). Also ist $\mathbb{N} \times \mathbb{N}$ abzählbar $\blacksquare$
 
 <strong>Beh.:</strong> $\mathbb{Q}^+$ ist abzählbar.
 
 <strong>Bew.</strong>: über $N \times N$
-Jede Zahl $x \in \mathbb{Q}^+$ kann  mit zwei natürlichen Zahlen dargestellt werden: $x = \frac{p}{q}$. Also gibt es eine Funktion $f: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{Q}$ mit
+Jede Zahl $x \in \mathbb{Q}^+$ kann mit zwei natürlichen Zahlen dargestellt werden: $x = \frac{p}{q}$. Also gibt es eine Funktion $f: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{Q}^+$ mit
 $f(m, n) := \frac{m}{n}$. Diese Abbildung ist offensichtlich surjektiv. $\blacksquare$
 
 <h2>Material</h2>

@@ -10,19 +10,19 @@ tags: Internet, KIT, VPN, University, Security
 featured_image: 2011/10/KIT-Logo.png
 ---
 This article is about how to get internet at KIT with Linux.
-It was tested on Linux Mint 16 MATE which is based on Ubuntu which is based on
+It was tested on Linux Mint 16 MATE, which is based on Ubuntu, which is based on
 Debian.
 
 ## WLAN
-At KIT are a lot of WLANs, but only two are important: `wkit-802.1x` and `eduroam`.
+There are a lot of WLANs at KIT, but only two are important: `wkit-802.1x` and `eduroam`.
 
 * Mode: Infrastructure
 * Security: WPA & WPA2 Enterprise
-* Authentificaiton: Protected EAP (PEAP)
+* Authentication: Protected EAP (PEAP)
 * Anonymous identity: anonymous@kit.edu
 * CA certificate: deutsche-telekom-root-ca-2.crt ([source](http://www.scc.kit.edu/downloads/ism/dtag-root-ca-2.cer))
 * PEAP version: Automatic
-* Inner authentification: MSCHAPv2
+* Inner authentication: MSCHAPv2
 * Username:
   * for `wkit-802.1x`: uabcd (Your username. It begins with 'u' and has 5 letters)
   * for `eduroam`: uabcd@student.kit.edu
@@ -33,7 +33,7 @@ At KIT are a lot of WLANs, but only two are important: `wkit-802.1x` and `eduroa
 ## VPN
 I use Juniper VPN.
 
-The following lines install some prerequesites, download Juniper from [this page](http://www.scc.kit.edu/dienste/7868.php), unpack it and execute the shell script.
+The following lines install some prerequisites, download Juniper from [this page](http://www.scc.kit.edu/dienste/7868.php), unpack it and execute the shell script.
 
 ```bash
 sudo apt-get install libc6-i386 lib32z1 lib32nss-mdns
@@ -43,13 +43,13 @@ cd juniper_linux
 ./vpn-install.sh
 ```
 
-After you have done this, you can use juniper with
+After you have done this, you can use Juniper with
 
 ```bash
 jnc -n kit
 ```
 
-The `-n` flag disables GUI. It will show this:
+The `-n` flag disables the GUI. It will show this:
 
 ```bash
 Server certificate verified and CN is vpn.kit.edu. Saving in /home/moose/.juniper_networks/network_connect/config/vpn.kit.edu.der.

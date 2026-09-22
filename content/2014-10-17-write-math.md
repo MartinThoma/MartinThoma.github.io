@@ -9,7 +9,7 @@ category: Code
 tags: Python, Project Management, Software Engineering
 featured_image: logos/write-math.png
 ---
-On-line handwriting recognition systems get the information how a symbol is
+On-line handwriting recognition systems get information about how a symbol is
 written. In contrast, OCR only gets the pixel map.
 
 I've created a system that can be used to work with handwriting recognition
@@ -28,7 +28,7 @@ work with on-line handwritten symbols. The toolkit is documented at
 
 The raw data can be downloaded with this toolkit.
 
-The toolkit can be used to classify data on your computer (without internet
+The toolkit can be used to classify data on your computer (without an internet
 connection):
 
 <figure class="aligncenter">
@@ -39,12 +39,12 @@ connection):
 ## nntoolkit
 
 The [`nntoolkit`](https://github.com/MartinThoma/nntoolkit) was created to
-have a free software to create, train, test and evaluate neural networks.
+have free software to create, train, test and evaluate neural networks.
 
 
 ## HWR experiments
 
-All experiments configuration files are saved in the project
+All experiment configuration files are saved in the project
 [github.com/MartinThoma/hwr-experiments](https://github.com/MartinThoma/hwr-experiments).
 
 
@@ -66,8 +66,8 @@ this is about 3.7GB. This means sharing the data is not that easy.
 
 * [07.11.2014](http://arxiv.org/abs/1511.09030):
   My bachelor's thesis. I've got the best grade (1.0) for it ☺. Please note
-  that the submission to arxiv was later and a couple of typos were fixed as
-  well as the term "data multiplication" was replaced by "data augmentation".
+  that the submission to arXiv was later: a couple of typos were fixed and
+  the term "data multiplication" was replaced by "data augmentation".
 * [29.06.2015](http://digbib.ubka.uni-karlsruhe.de/volltexte/1000048047): An
   updated, condensed version of my bachelor's thesis.
 

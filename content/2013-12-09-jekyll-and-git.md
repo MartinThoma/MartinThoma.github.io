@@ -5,7 +5,7 @@ slug: jekyll-and-git
 lang: en
 author: Martin Thoma
 category: The Web
-tags: Git, Blog, Web Development
+tags: Version Control, Blog, Web Development
 featured_image: 2013/12/jekyll-thumbnail.png
 description: Jekyll, a static blog generator, is nice for several reasons. Those reasons and some hints how to migrate from WordPress to Jekyll are provided below.
 ---

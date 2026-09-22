@@ -13,8 +13,8 @@ pfile is a binary file format that is used in
 <abbr title="Automatic Speech Recognition">ASR</abbr>
 for storing feature vectors and their corresponding labels.
 This file format is sometimes also called
-<abbr title="International Computer ScienceInstitute">ICSI</abbr>
-feature file archive format. But this file format cannot be used for ASR only,
+<abbr title="International Computer Science Institute">ICSI</abbr>
+feature file archive format. But this file format can be used not only for ASR,
 but also for many other <abbr title="Machine Learning">ML</abbr> tasks.
 
 > The file consists of a fixed length ascii header followed by zero or more

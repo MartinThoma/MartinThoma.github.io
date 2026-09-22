@@ -1,21 +1,21 @@
 ---
 layout: post
-lang: en
-title: The Impact of strong AIs
+title: The Impact of Strong AIs
 slug: the-impact-of-strong-ais
+lang: en
 author: Martin Thoma
 date: 2014-12-02 15:18
 category: Cyberculture
-tags: AI, Politics
+tags: AI, Politics, Society
 featured_image: logos/ai.png
 ---
 An artificial intelligence (AI) is a computer program which acts - according
-to its developers - intelligent. That could be anything. Typical examples
-are route finding algorithms, chess programs, ego shooter computer opponents
+to its developers - intelligently. That could be anything. Typical examples
+are route-finding algorithms, chess programs, first-person shooter computer opponents
 and classifiers. The last category of AIs (classifiers) is huge and includes
 programs which try to find out what you were writing (see
 [my bachelor's thesis](//martin-thoma.com/write-math/)), try to
-figure out who is on an image (face recognition) or what was spoken (automatic
+figure out who is in an image (face recognition) or what was spoken (automatic
 speech recognition).
 
 ## Strong and Weak AIs
@@ -25,12 +25,12 @@ AIs.
 Currently, we only know weak AIs. They can do incredible things (see
 [A.I. in Computer Games](//martin-thoma.com/ai-in-computer-games/) and
 [Awesome Robots](//martin-thoma.com/awesome-robots/)), but that is nothing
-compared to a stong AI. Strong AIs are capable of adapting to completely new
+compared to a strong AI. Strong AIs are capable of adapting to completely new
 tasks. They can do creative work. In other words, they can do any task any
 human could do. They can do research and compose the most beautiful art. As
-they are machines which will be build by somebody (hence the term 'artificial'),
+they are machines which will be built by somebody (hence the term 'artificial'),
 they are better understood than our biological brains. Strong AIs will be able
-to understand how they work themselfes and very likely be able to improve themselfes.
+to understand how they work themselves and very likely be able to improve themselves.
 
 This is the point where a [technological singularity](https://en.wikipedia.org/wiki/Technological_singularity)
 happens. The machines start developing faster than any human can comprehend
@@ -55,45 +55,45 @@ for two reasons:
 * **Distribution**: I think we produce enough food so that nobody on earth
   would have to starve. We certainly have enough clean water for everybody. Why
   do so many people still starve and don't have access to clean water? Because
-  the distribution is not equal. Europe and the US make use of much more
+  the distribution is not equal. Europe and the US make use of many more
   resources per person than Africa does. The richest 1% of the US make use of
-  MUCH more resources than the bottom 30% (I guess the numbers are more
+  MANY more resources than the bottom 30% (I guess the numbers are more
   extreme). Who do you think would own the robots that take the jobs? Who would
-  profit from this much cheaper work hours? I think AIs that would in principle
+  profit from these much cheaper work hours? I think AIs that would in principle
   be able to solve any problem a human could solve (e.g. creating art and
   conducting research) would cause serious social problems if we don't adapt to
   the new situation. Such AIs would have the potential for a much worse world
   than we currently live in.
 
-However, with the right politics, it could vastly improve our world. Having the
-insight how such AIs work, we could make them decide ultimatively unbiased for
-a greater good. They could be used to arbitrate a dispute as a neutral,
+However, with the right politics, it could vastly improve our world. Having
+insight into how such AIs work, we could make them decide in an ultimately unbiased way for
+the greater good. They could be used to arbitrate a dispute as a neutral,
 intelligent instance. They could accelerate research. They could help us to
 understand ourselves.
 
 ## Job market
 **What is the effect of technological singularity in job market?**
 
-In a ideal world, everybody would only do the job he or she wants to do. We
+In an ideal world, everybody would only do the job he or she wants to do. We
 would eventually work less, but I think we would still work. Humans are
 resources and as such they will always be valuable in any economy.
 
 Another, darker, scenario is that AIs would gradually remove whole industries,
 starting with simple ones. Taxi and truck drivers are not necessary. They could
 step-by-step be replaced by AIs. However, no new jobs would be created for
-those people. They would have to get aid by the government. But as they would
+those people. They would have to get aid from the government. But as they would
 get less money, the economy would focus on the people who have money. That
 would be the people who own the AIs. At some point people would realize that
 they will never be able to get a new job. Even worse, their children will never
-be able to get a job. Extreme poverty would rise as the state gets less taxes
-(as less goods are consumed, because people have less money). The AIs would
+be able to get a job. Extreme poverty would rise as the state gets less tax revenue
+(as fewer goods are consumed, because people have less money). The AIs would
 predict how every single person would most likely act. How could they do so?
 Well, you have a smartphone. Your conversations on WhatsApp, Twitter, Facebook,
 Gmail, ... get tracked and automatically analyzed. You can be predicted to a
 certain degree. You can be influenced by personalized advertising. A really
 clever AI will make itself able to act in any possible scenario, replicate
-itself and make itself less dependent. In this dark scenario people would
-eventually start at some point to try to get more money from the people
+itself and make itself less dependent. In this dark scenario, people would
+at some point start trying to get more money from the people
 controlling the AIs, but how do you force them to do so? The police might also
 be replaced by AIs.
 
@@ -105,29 +105,29 @@ super-rich people and the rest giving them massages.
 
 I've just described that AIs might cause serious social problems. However,
 I think we can solve those problems by making sure that income inequality
-cannot get too high. This means there should be very high and effective
+cannot get too high. This means there should be a very high and effective
 inheritance tax as well as a taxation system that prevents people from
-getting too rich / people too poor. The most extrem action to prevent too
-poor people is an unconditional income, the most extrem action to prevent
-people getting too rich is an upper limit on what somebody could have.
+getting too rich / too poor. The most extreme measure to prevent
+poverty is an unconditional income; the most extreme measure to prevent
+people from getting too rich is an upper limit on what somebody could have.
 
-I think an unconditional income would be a good thing, but its hard to tell
+I think an unconditional income would be a good thing, but it's hard to tell
 how high that should be.
 
 The easiest way to prevent people from getting too rich is adding a tax system
 that adjusts to income:
 
 * Your first 0 - 2000 Euro / month don't get taxed at all
-* Your next 2001 - 3000 Euro / month get taxed with 0% + (100%/2) = 50%
-* Your next 3001 - 4000 Euro / month get taxed with 50% + (50%/2) = 75%
-* Your next 4001 - 5000 Euro / month get taxed with 75% + (25%/2) = 87.5%
+* Your next 2001 - 3000 Euro / month get taxed at 0% + (100%/2) = 50%
+* Your next 3001 - 4000 Euro / month get taxed at 50% + (50%/2) = 75%
+* Your next 4001 - 5000 Euro / month get taxed at 75% + (25%/2) = 87.5%
 * ...
 
 You can (and should - I think my numbers are not well-chosen!) argue about the
 exact numbers, but I guess you get what I mean. The tax should never be 100%,
 thus leaving the possibility to get more money. But the difficulty to do so
-should increase. This effectively prevents that some people get too rich and hence
-resulting in a very instable system.
+should increase. This effectively prevents some people from getting too rich, which would
+result in a very unstable system.
 
 It would be important to do so before anybody develops a strong AI.
 
@@ -139,14 +139,14 @@ It would be important to do so before anybody develops a strong AI.
 * "Zero" by Marc Elsberg: People get controlled by life improvement apps in
   a very indirect way.
 * Out-Series by [Andreas Eschbach](https://en.wikipedia.org/wiki/Andreas_Eschbach):
-  A device was developed, that lets people connect their brains. A new form of
-  conciousness develops from that.
-* [Brave new world](https://en.wikipedia.org/wiki/Brave_New_World) by [Aldous Huxley](https://en.wikipedia.org/wiki/Aldous_Huxley): People get distracted from issues by consuming many goods.
+  A device was developed that lets people connect their brains. A new form of
+  consciousness develops from that.
+* [Brave New World](https://en.wikipedia.org/wiki/Brave_New_World) by [Aldous Huxley](https://en.wikipedia.org/wiki/Aldous_Huxley): People get distracted from issues by consuming many goods.
 
 **Movies** (all fiction)
 
 * [Transcendence](https://en.wikipedia.org/wiki/Transcendence_(2014_film)):
-  The mind of one person gets transformed in a computer.
+  The mind of one person gets transferred into a computer.
 * [I, Robot](https://en.wikipedia.org/wiki/I,_Robot): An AI gets developed and
   very powerful humanoid robots get controlled by it.
 
@@ -160,7 +160,7 @@ It would be important to do so before anybody develops a strong AI.
   actually fueling, rather than closing, the global income gap. Freeland lays
   out three problems with plutocracy … and one glimmer of hope.
 
-And a coulple of talks by people who are not active within AI / ML research
+And a couple of talks by people who are not active within AI / ML research
 themselves:
 
 * Nick Bostrom: ["Superintelligence"](https://www.youtube.com/watch?v=pywF6ZzsghI) - Strong AI is inevitable; we should set the initial conditions up the right way

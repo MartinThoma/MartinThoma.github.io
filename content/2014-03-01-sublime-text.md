@@ -10,7 +10,7 @@ tags: Editor, Sublime Text, Software Engineering
 featured_image: logos/sublime-text.png
 ---
 Sublime Text is the coolest editor I have ever used. It has a lot of features,
-is blazingly fast as I expect it from every editor and has a convenient configuration.
+is blazingly fast, as I expect from every editor, and has a convenient configuration.
 It is available for Linux, Windows and Mac. You can use it for free without any
 restrictions as long as you want. But keep in mind that somebody had to develop
 this nice software.
@@ -23,13 +23,13 @@ or you could install it on Linux Mint via
 sudo apt-get install sublime-text
 ```
 
-I've added a symlink to make it easier to call it from command line:
+I've added a symlink to make it easier to call it from the command line:
 
 ```bash
 sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
 ```
 
-The editor is usable right after the installation, but you might want to make
+The editor is usable right after the installation, but you might want to do
 some fine-tuning.
 
 ## Package Control
@@ -45,7 +45,7 @@ to get this dialog:
         </figure>
 
 ## Configuration
-Sublime Text offers plenty of configuration options. You can apply them to projects, users or system wide. Most of the time, I change my preferences for me via Preferences > Settings - User:
+Sublime Text offers plenty of configuration options. You can apply them to projects, users or system-wide. Most of the time, I change my preferences via Preferences > Settings - User:
 
 <figure class="aligncenter">
             <a href="../images/2014/03/sublime-user-preferences.png"><img src="../images/2014/03/sublime-user-preferences.png" alt="Preferences > Settings - User" style="max-width:500px;" class=""/></a>
@@ -86,11 +86,11 @@ This opens such a dialog:
 
 <figure class="aligncenter">
             <a href="../images/2014/03/sublime-command-palette.png"><img src="../images/2014/03/sublime-command-palette.png" alt="Command Palette" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">automatical alignment</figcaption>
+            <figcaption class="text-center">Command Palette</figcaption>
         </figure>
 
 This will do a fuzzy search through all elements in the menu. So you don't need
-to use <kbd>Alt</kbd> + arrow keys no longer. I love it ☺
+to use <kbd>Alt</kbd> + arrow keys any longer. I love it ☺
 
 ## Plugins
 
@@ -109,31 +109,31 @@ brackets on the left side. It looks like this:
         </figure>
 
 ### Alignment
-[Sublime Alignment](http://wbond.net/sublime_packages/alignment) gives you the
-possibility to mark text, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>a</kbd> to
-align:
+[Sublime Alignment](http://wbond.net/sublime_packages/alignment) lets you mark
+text and press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>a</kbd> to
+align it:
 
 <figure class="aligncenter">
-            <a href="../images/2014/03/sublime-align.gif"><img src="../images/2014/03/sublime-align.gif" alt="automatical alignment" style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">automatical alignment</figcaption>
+            <a href="../images/2014/03/sublime-align.gif"><img src="../images/2014/03/sublime-align.gif" alt="automatic alignment" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Automatic alignment</figcaption>
         </figure>
 
 ### Colorsublime
 
-Colorsublime is a plugin for theming Sublime&nbsp;Text&nbps;3 within seconds.
+Colorsublime is a plugin for theming Sublime&nbsp;Text&nbsp;3 within seconds.
 Take a look at [colorsublime.com](http://colorsublime.com/) for some examples.
 
 
 ### TrailingSpaces
 
-Tools for easy removing trailing spaces with <kbd>Ctrl</kbd> +
+Tool for easily removing trailing spaces with <kbd>Ctrl</kbd> +
 <kbd>Shift</kbd> + <kbd>T</kbd>.
 See [GitHub repository](https://github.com/SublimeText/TrailingSpaces).
 
 
 ### Wrap Plus
 
-Tools for easy wrapping lines with <kbd>Alt</kbd> + <kbd>Q</kbd>.
+Tool for easily wrapping lines with <kbd>Alt</kbd> + <kbd>Q</kbd>.
 See [GitHub repository](https://github.com/ehuss/Sublime-Wrap-Plus).
 
 
@@ -146,7 +146,7 @@ See [GitHub repository](https://github.com/dreadatour/Flake8Lint).
 ## Themes
 First of all, make sure you have installed the `Colorsublime` package.
 After you have it, you can press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
-and enter "Install Theme". Then it contacts the server and provides you a list
+and enter "Install Theme". Then it contacts the server and provides you with a list
 of many good themes. You can go through them with the arrow keys and they will
 instantly be applied!
 
@@ -154,7 +154,7 @@ I really like the "Textmate" theme, but the "Chrome_DevTools" theme is also good
 
 ## Custom Keybindings
 
-You can create custom keybindings via *Preferences Key Bindings (User)*
+You can create custom keybindings via *Preferences Key Bindings (User)*.
 
 I have these:
 
@@ -176,10 +176,10 @@ So you could create a new <tt>.tex</tt> document, enter <tt>article</tt>, press
 <kbd>Tab</kbd> and get a template for a LaTeX document of the article document
 class.
 
-A tutorial how to create a snippet for the <tt>article</tt> document class
-was written Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](http://economistry.com/2013/01/creating-snippets-in-sublime-text-2-for-latex/)
+A tutorial on how to create a snippet for the <tt>article</tt> document class
+was written by Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](http://economistry.com/2013/01/creating-snippets-in-sublime-text-2-for-latex/)
 
-## Buildin Keybindings
+## Built-in Keybindings
 
 <kbd>Ctrl</kbd> + <kbd>p</kbd>: Goto file
 
@@ -230,7 +230,7 @@ Now compare it to this:
 Chrome tabs look much cleaner, don't they? Many others seem to think that, too ([source](http://sublimetext.userecho.com/topic/19361-move-tabs-to-the-title-bar-like-in-google-chrome/)).
 
 ### Line Wrapping
-Sublime Text 3 does wrap points and commas to the next line:
+Sublime Text 3 wraps periods and commas to the next line:
 
 <figure class="aligncenter">
             <a href="../images/2014/03/sublime-word-wrapping.png"><img src="../images/2014/03/sublime-word-wrapping.png" alt="line wrapping" style="max-width:500px;" class=""/></a>

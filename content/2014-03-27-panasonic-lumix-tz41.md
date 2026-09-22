@@ -19,7 +19,7 @@ The <span itemprop="name">Panasonic Lumix TZ41</span> is currently the best
 camera in the compact segment.
 
 <span itemprop="description">The TZ41 offers an excellent 20× zoom that is usable due to optical image
-stabilization. It is compact, leightweight and has a reasonably-sized battery.</span>
+stabilization. It is compact, lightweight and has a reasonably sized battery.</span>
 
 ## Technical specification
 
@@ -54,16 +54,16 @@ has an [<span itemprop="sameAs">official data sheet</span>](http://www.panasonic
 | EG        | European Union model |                                |
 | K         | Black colored        | W = White, R = Red, S = Silver |
 
-## Critic
+## Criticism
 
 ### Charger
 
-Panasonic doesn't use the standard european charger / cable combination that is
+Panasonic doesn't use the standard European charger / cable combination that is
 used for smartphones.
 
 <figure class="aligncenter">
-            <a href="../images/2014/03/panasonic-lumix-tz-41-charger.jpg"><img src="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" alt="Loading works via microUSB, but not via standard charger." style="max-width:500px;" class=""/></a>
-            <figcaption class="text-center">Loading works via microUSB, but not via standard charger.</figcaption>
+            <a href="../images/2014/03/panasonic-lumix-tz-41-charger.jpg"><img src="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" alt="Charging works via microUSB, but not via a standard charger." style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Charging works via microUSB, but not via a standard charger.</figcaption>
         </figure>
 
 <figure class="aligncenter">
@@ -93,10 +93,10 @@ Bus 001 Device 006: ID 04da:2372 Panasonic (Matsushita) Lumix Camera (Storage mo
 
 ### GPS Assist Tool
 
-The GPS Assist Tool seems to update the camera internal GPS information. It
+The GPS Assist Tool seems to update the camera's internal GPS information. It
 works like this:
 
-1. Connect camera with SD card in it to the computer.
+1. Connect the camera with the SD card in it to the computer.
 2. Start gpsasist.exe with wine.
 
 <ul class="gallery mw-gallery-traditional" style="max-width: 652px; width: 652px;">
@@ -182,14 +182,14 @@ environment on your camera. It looks like this:
    </li>
 </ul>
 
-The drive detection for the SD card doesn't work on Linux as you can see in the
-second image. So I've have written a Linux version of that program which can be
+The drive detection for the SD card doesn't work on Linux, as you can see in the
+second image. So I have written a Linux version of that program which can be
 found on [GitHub](https://github.com/MartinThoma/lumix_map_tool).
 
 ## Example photographs
 
-To compare the quality of the Panasonic Lumix DMC-TZ41 I have shot some photographs
-with my old Casio Lumix Exilim EX-Z200.
+To compare the quality of the Panasonic Lumix DMC-TZ41, I have shot the same photographs
+with my old Casio Exilim EX-Z200.
 
 ### Macro photographs
 
@@ -471,7 +471,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg" alt="fassade" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg" alt="facade" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -483,7 +483,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg" alt="fassade statue" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg" alt="facade statue" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -583,7 +583,7 @@ with my old Casio Lumix Exilim EX-Z200.
 
 ## Conclusion
 Overall, the Panasonic Lumix TZ41 is a great camera. But the lack of a standard
-charger and a standard cable as well as the missing Linux software is a downer.
+charger and a standard cable as well as the missing Linux software are a downer.
 This is the reason why <meta itemprop="author" property="v:reviewer" content="Martin Thoma">I <span itemprop="reviewRating" rel="v:rating" itemscope itemtype="http://schema.org/Rating">
 <meta itemprop="worstRating" content="1" property="v:worst" > give it <span itemprop="ratingValue" property="v:rating">4</span>/<span itemprop="bestRating" property="v:best">5</span> stars.</span>
 

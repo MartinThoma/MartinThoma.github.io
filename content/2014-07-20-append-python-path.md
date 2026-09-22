@@ -18,7 +18,7 @@ import sys
 print(sys.path)
 ```
 
-and apped something to it with
+and append something to it with
 
 ```python
 import sys

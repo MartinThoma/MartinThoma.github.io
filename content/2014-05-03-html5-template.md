@@ -25,7 +25,7 @@ I use:
 </html>
 ```
 
-and as a sublime snippet:
+and as a Sublime Text snippet:
 
 ```xml
 <snippet>

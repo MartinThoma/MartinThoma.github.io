@@ -10,7 +10,7 @@ tags: KIT, University
 featured_image: logos/kit.png
 ---
 <!-- <div class="info">This article is about an idea how to give students the
-possibility to proof that they were registered for an exam.</div> -->
+possibility to prove that they were registered for an exam.</div> -->
 
 Gerade ist mir aufgefallen, dass ich nicht zur Prüfung "Programmierparadigmen"
 angemeldet bin. Dabei war ich mir relativ sicher, mich sogar am ersten Tag
@@ -20,7 +20,7 @@ Meiner Meinung nach sind wir Studenten hier in einer ungerechtfertigt
 schlechten Position: Sollte tatsächlich ein Fehler passiert sein und meine
 Anmeldung nicht funktioniert haben bzw. die Anmeldung (wie oder warum auch immer)
 rückgängig gemacht worden sein, habe ich keinerlei Möglichkeit zu beweisen,
-dass ich angemeldet war und nicht etwa es einfach vergessen habe. Was ich in
+dass ich angemeldet war und es nicht etwa einfach vergessen habe. Was ich in
 meinem konkreten Fall nicht ausschließen will, schließlich ist das schon zwei
 Monate her und ich habe mich für einige Prüfungen angemeldet und keine
 automatische Bestätigung der Anmeldung erhalten.
@@ -28,11 +28,11 @@ automatische Bestätigung der Anmeldung erhalten.
 ## Verbesserungsvorschlag
 
 Kurz und gut: Ich will, dass die Uni ein digitales Signaturverfahren einsetzt
-und die technischen Möglichkeiten nutzt, um den Studenten zu helfen ihre Rechte
+und die technischen Möglichkeiten nutzt, um den Studenten zu helfen, ihre Rechte
 durchzusetzen. Wie das genau funktionieren soll, wird im Folgenden erklärt.
 
 ### Ausführlich
-Zur Verbesserung dieser Situation schlage ich folgendes vor:
+Zur Verbesserung dieser Situation schlage ich Folgendes vor:
 
 Studenten sollen die Möglichkeit bekommen, einen öffentlichen Schlüssel
 hochzuladen:
@@ -58,14 +58,14 @@ Bei jeder Prüfungsanmeldung soll innerhalb von 24h eine E-Mail in Textform
 (keine PDF) an u****@student.kit.edu, also die KIT E-Mail-Adresse des Studenten,
 geschickt werden, der sich angemeldet hat.
 
-Diese E-Mail soll folgendes beinhalten:
+Diese E-Mail soll Folgendes beinhalten:
 
 * Alle Prüfungen (mit Name, Termin der Prüfung, letzter An- und Abmeldetermin),
-  zu den der Student angemeldet ist.
+  zu denen der Student angemeldet ist.
 * Der volle Name und die Matrikelnummer des Studenten.
 * Das Datum der E-Mail.
 
-Diese E-Mail soll mit einem offiziellen KIT Schlüssel signiert werden.
+Diese E-Mail soll mit einem offiziellen KIT-Schlüssel signiert werden.
 Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:
 
 > -----BEGIN PGP SIGNED MESSAGE-----<br/>
@@ -74,8 +74,8 @@ Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:
 > Student: Martin Thoma (Matrikelnummer: 1612345)<br/>
 > Zeitpunkt: 08.04.2014, 12:34:56 Uhr<br/>
 > Angemeldete Prüfungen:<br/>
-> * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br/>
-> * Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br/>
+> * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzter Termin der Abmeldung: 08.04.2014)<br/>
+> * Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzter Termin der Abmeldung: 10.04.2014)<br/>
 > <br/>
 > -----BEGIN PGP SIGNATURE-----<br/>
 > Version: GnuPG v1.4.14 (GNU/Linux)<br/>
@@ -91,7 +91,7 @@ signierte E-Mail mit der Liste der Prüfungen und einem Datum zu erhalten.
 Nun sollen Studenten in der Klausur die Möglichkeit haben, diese E-Mail auf
 einem USB-Stick mitzubringen. Die Aufsicht müsste also einen Computer haben,
 mit dem sie die E-Mail anschauen und insbesondere die Signatur überprüfen
-können. So könnte ein Student, der einmal zu einer Klausur angemeldet das auch
+können. So könnte ein Student, der einmal zu einer Klausur angemeldet war, das auch
 belegen.
 
 ### Abmeldungen
@@ -118,15 +118,15 @@ an den Studenten verschickt, die von der oben beschriebenen Form ist.
 oder auch eine Fehlermitteilung:
 
 > Sehr geehrter Herr Thoma,<br/>
-> die Signatur ihrer Nachricht war ungültig. Bitte überprüfen Sie, ob Sie den
+> die Signatur Ihrer Nachricht war ungültig. Bitte überprüfen Sie, ob Sie den
 > korrekten privaten Schlüssel verwendet haben.
 
 Nun hätte auch die Klausuraufsicht die Möglichkeit zu belegen, dass ein
 Student sich von der Prüfung abgemeldet hat.
 
-### Technik-Afinität
+### Technikaffinität
 
-Was ist mit Studenten, die es nicht schaffen ein Schlüsselpaar zu erzeugen bzw.
+Was ist mit Studenten, die es nicht schaffen, ein Schlüsselpaar zu erzeugen bzw.
 eine Nachricht zu signieren?
 
 Nun, das ist einfach: Wer keinen öffentlichen Schlüssel hinterlegt, bekommt
@@ -138,27 +138,27 @@ dass etwas nicht geklappt hat.
 Bevor also die erste signierte E-Mail der Uni an den Studenten geschrieben wird,
 muss der Student seinen öffentlichen Schlüssel der Uni mitgeteilt haben und
 eine Nachricht mit dem privaten Schlüssel signiert haben. Damit wird
-sichergestellt, dass der Student prinzipiell in der Lage ist sich von
+sichergestellt, dass der Student prinzipiell in der Lage ist, sich von
 Prüfungen abzumelden.
 
 ### Student verliert Schlüssel
 
-Was macht man, wenn ein Student einmal einen Schlüssel eingericht hat, diesen
+Was macht man, wenn ein Student einmal einen Schlüssel eingerichtet hat, diesen
 aber verliert?
 
-Was passiert, wenn man seinen Studentenausweis verliert? Ich denke die Vorgehensweise
+Was passiert, wenn man seinen Studentenausweis verliert? Ich denke, die Vorgehensweise
 wäre dann ähnlich.
 
 Vorstellbar wäre etwas in der Art:
 
-* Der Student muss zum Studienbüro und Schriftlich bestätigen, dass der
+* Der Student muss zum Studienbüro und schriftlich bestätigen, dass der
   öffentliche Schlüssel aus dem KIT-System entfernt wird und damit ungültig wird.
 * Der Student muss sich bei allen Professoren persönlich melden und unterschreiben,
   wenn er sich von der Klausur abmelden will.
 
 ## PGP - Was ist das?
 
-Siehe [Wikpedia](https://de.wikipedia.org/wiki/Pretty_Good_Privacy).
+Siehe [Wikipedia](https://de.wikipedia.org/wiki/Pretty_Good_Privacy).
 
 Es ist für folgende Systeme verfügbar:
 
@@ -174,10 +174,10 @@ einen PGP-Schlüssel hochzuladen. Sobald man das gemacht hat, werden dort alle
 Nachrichten mit dem öffentlichen Schlüssel verschlüsselt. Der Quellcode der
 Seite ist [hier](https://www.wechall.net/de/wechall.zip) verfügbar.
 
-Mit PHP scheint das ganze sehr einfach zu sein ([Quelle](http://stackoverflow.com/q/15969740/562769)).
+Mit PHP scheint das Ganze sehr einfach zu sein ([Quelle](http://stackoverflow.com/q/15969740/562769)).
 Auch mit Python sieht die Sache sehr leicht aus ([Quelle](https://pythonhosted.org/python-gnupg/)).
 
-Da ich keine Ahnung habe was für campus.kit.edu verwendet wird, kann ich hier
+Da ich keine Ahnung habe, was für campus.kit.edu verwendet wird, kann ich hier
 leider nicht mehr dazu sagen.
 
 Dann würde man noch eine Tabelle in der Datenbank benötigen. Die würde etwa so
@@ -258,14 +258,14 @@ und
 ```html
 <div class="content_full_portal">
     <h1>Prüfungsanmeldung</h1>
-    Signieren Sie folgende Nachricht mit ihrem Schlüssel:<br>
+    Signieren Sie folgende Nachricht mit Ihrem Schlüssel:<br>
 
     <a href="">Nachricht als Textdatei herunterladen</a><br>
 
     oder<br>
 
-    Nachricht zum kopieren:<br>
-    <textarea style="width: 800px;height: 60px;">Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014, 12:34:56 Uhr) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 statt findet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.</textarea>
+    Nachricht zum Kopieren:<br>
+    <textarea style="width: 800px;height: 60px;">Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014, 12:34:56 Uhr) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 stattfindet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.</textarea>
     <h2>Anmeldung durchführen</h2>
     <form>
         <label for="filet">Signierte Bestätigung als Textdatei hochladen:</label><br>
@@ -284,28 +284,28 @@ und
 In diesem Artikel will ich nur die Prüfungsverwaltung diskutieren. Dennoch
 sollte darauf hingewiesen werden, dass Weiteres nicht gerade optimal gelöst ist:
 
-* **Informationspolitik**: Bereits zu Semesterbegin sollte  folgendes bekannt sein:
+* **Informationspolitik**: Bereits zu Semesterbeginn sollte Folgendes bekannt sein:
   * Zeitpunkt der Prüfung
   * Letztmöglicher Zeitpunkt der Anmeldung
   * Letztmöglicher Zeitpunkt der Abmeldung
-* Die **Anmeldungsfreischaltung** der Prüfungen finden zu sehr unterschiedlichen
-  Zeitpunkten statt. Die Anmeldung sollte breits zu Semesterbegin für alle
+* Die **Anmeldungsfreischaltung** der Prüfungen findet zu sehr unterschiedlichen
+  Zeitpunkten statt. Die Anmeldung sollte bereits zu Semesterbeginn für alle
   Klausuren möglich sein.
 * Die **Einsicht** ist immer schlecht organisiert. Da sich die Prüfungstermine
   größtenteils in der vorlesungsfreien Zeit befinden und darin aber stark
-  gestreut sind (manche sind zu Beginn, manche in der Mitte, manche am Ende)
+  gestreut sind (manche sind zu Beginn, manche in der Mitte, manche am Ende),
   sind die Zeitpunkte, zu denen
-  man als Student Ferien hat sehr stark eingeschränkt. Wenn man dann erst nach
+  man als Student Ferien hat, sehr stark eingeschränkt. Wenn man dann erst nach
   der Klausur erfährt, wann die Einsicht sein wird, kann man Ferien komplett
-  vergessen, weil man in Karlsruhe bleiben muss um auf den Termin der Einsicht
+  vergessen, weil man in Karlsruhe bleiben muss, um auf den Termin der Einsicht
   zu warten.<br/>
   Bei den Physikern ist wenigstens die Korrektur immer sehr schnell, sodass man
-  davon ausgehen kann, dass die Einsicht wenige Tage nach der Prüfung statt
-  findet. Bei den Informatikern ... naja, da hat man ja noch Glück wenn sie im
+  davon ausgehen kann, dass die Einsicht wenige Tage nach der Prüfung
+  stattfindet. Bei den Informatikern ... naja, da hat man ja noch Glück, wenn sie im
   selben Monat ist. Und man es dann rechtzeitig erfährt.
-* **Lösungen und Notengrenzen** sind nicht in jeder einsicht vorhanden bzw.
+* **Lösungen und Notengrenzen** sind nicht in jeder Einsicht vorhanden bzw.
   klar. Gerade wenn nicht klar ist, mit welcher Punktzahl man welche Note
-  bekommt könnte ein Fehler passieren, den man nicht überprüfen kann. Nach
+  bekommt, könnte ein Fehler passieren, den man nicht überprüfen kann. Nach
   diesen Informationen sollte man nicht in der Einsicht fragen müssen. Sie
   sollten in der Einsicht direkt verfügbar sein.
 
@@ -314,12 +314,12 @@ sollte darauf hingewiesen werden, dass Weiteres nicht gerade optimal gelöst ist
 Welche Vorteile hat das beschriebene Verfahren gegenüber der momentanen Situation?
 
 * Studenten können beweisen, dass sie zur Prüfung angemeldet sind / nicht sind
-* Prüfer können beweise, dass Studenten angemeldet sind / nicht sind
+* Prüfer können beweisen, dass Studenten angemeldet sind / nicht sind
 
 Selbst wenn man den Teil mit der asymmetrischen Verschlüsselung nicht macht, hätte man als Student
 zumindest ein bisschen was in der Hand und einen Mechanismus, der automatisch
 Feedback gibt, ob alles geklappt hat. Im Gegensatz zu der momentanen
 Situation, wo wir absolut nichts belegen können und man sehr leicht übersehen
-kann, wenn etwas bei der Anmeldung schief gegangen ist.
+kann, wenn etwas bei der Anmeldung schiefgegangen ist.
 
 **Was haltet ihr davon? Hattet ihr auch schon solche Probleme mit der Prüfungsanmeldung?**

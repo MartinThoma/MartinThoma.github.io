@@ -10,23 +10,23 @@ tags: Sublime Text, SSH, Software Engineering
 featured_image: logos/sublime-text.png
 ---
 Sublime Text is the best editor I have ever used. One argument for vim and against
-SSH could be that you can't simply use Sublime Text when you're accessing a
+Sublime Text could be that you can't simply use Sublime Text when you're accessing a
 computer via SSH. But there is a way!
 
-In the following, I will expain the simplest way how to remote edit files with
+In the following, I will explain the simplest way to edit remote files with
 Sublime Text.
 
 ## Preparation on your computer
 
 <ol>
     <li>Install and start Sublime Text.</li>
-    <li>Install the <code>rsub</code> package via Package Controll.</li>
-    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add
+    <li>Install the <code>rsub</code> package via Package Control.</li>
+    <li>Open <code>~/.ssh/config</code>. Create it if it does not exist yet. Add
         the code from below.</li>
     <li>Start SSH with <code>ssh myname</code>.</li>
 </ol>
 
-This is how the `config` file should look like:
+This is what the `config` file should look like:
 
 ```text
 Host myname
@@ -65,7 +65,7 @@ echo $PATH
 ```
 
 ### Without Root access
-When you don't have root access, you can't create a symlink for most (eventually even all)
+When you don't have root access, you can't create a symlink for most (possibly even all)
 folders in your `PATH`. But you can expand your `PATH`:
 
 ```bash
@@ -76,10 +76,10 @@ ln -s ~/rmate ~/bin/  # create symlink
 Now expand your `PATH` so that it includes `~/bin`. There are at least two ways
 to do so:
 
-* You can directly edit your shells `.rc` file (e. g. `.bashrc`, `.zshrc`, `.cshrc`, ...) or
+* You can directly edit your shell's `.rc` file (e. g. `.bashrc`, `.zshrc`, `.cshrc`, ...) or
 * you can edit your `.profile`
 
-As many shells source `.profile` I'll explain this way. First, open `~/.profile`.
+As many shells source `.profile`, I'll explain this way. First, open `~/.profile`.
 Then add
 
 ```bash

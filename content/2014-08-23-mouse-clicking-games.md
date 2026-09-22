@@ -9,7 +9,7 @@ category: Cyberculture
 tags: Python, Games
 featured_image: logos/cookie-clicker.png
 ---
-Do you know games like [cookie clicker](http://orteil.dashnet.org/cookieclicker/)
+Do you know games like [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/)
 where you only have to click a lot?
 
 <figure class="aligncenter">

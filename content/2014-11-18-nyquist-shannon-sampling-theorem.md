@@ -10,7 +10,7 @@ tags: Signal Processing, Audio
 featured_image: logos/signal.png
 ---
 The [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem)
-states that you have to sample more than twice the highest frequency.
+states that you have to sample at more than twice the highest frequency.
 If you sample less often, you will get aliasing.
 
 The following videos show what aliasing is:

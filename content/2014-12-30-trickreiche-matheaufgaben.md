@@ -9,11 +9,11 @@ category: German posts
 tags: Mathematics, Puzzle, Algebra
 featured_image:
 ---
-<div class="info">This is a quick article I had for quite a while as a draft.
+<div class="info">This is a quick article I have had as a draft for quite a while.
 It might not be finished or have other problems, but I still want to share
 it.</div>
 
-Ich finde immer wieder ein paar einfache, aber irgendwie trickreiche Matheaufgaben. Was genau ich damit meine, seht ihr am besten am folgendem Beispiel.
+Ich finde immer wieder ein paar einfache, aber irgendwie trickreiche Matheaufgaben. Was genau ich damit meine, seht ihr am besten am folgenden Beispiel.
 
 <h2>Wechselgeld</h2>
 <h3>Aufgabe</h3>
@@ -21,13 +21,14 @@ Ich finde immer wieder ein paar einfache, aber irgendwie trickreiche Matheaufgab
 Quelle: <a href="http://dsm-faq.wikidot.com/denksport">dsm-faq.wikidot.com/denksport</a>
 
 <h3>Auflösung</h3>
-Das Problem dieser Aufgabe ist, dass man sich nicht klar macht, wo man hin will. Man will scheinbar herausfinden, wo das Geld geblieben ist. Das vermischt man aber mit dem Geld, das man hatte:
+Das Problem dieser Aufgabe ist, dass man sich nicht klarmacht, wo man hinwill. Man will scheinbar herausfinden, wo das Geld geblieben ist. Das vermischt man aber mit dem Geld, das man hatte:
 
 Situation vor dem Kauf:
 <ul>
 <li>Kinder: je 10 Euro</li>
 <li>Lehrling: 0 Euro</li>
 <li>Ladeninhaber: 0 Euro</li>
+</ul>
 
 Situation nach der Geschichte:
 <ul>
@@ -54,7 +55,7 @@ Das Gewicht der Mücke ist also gleich dem Gewicht des Elefanten!</blockquote>
 Quelle: <a href="http://dsm-faq.wikidot.com/denksport">dsm-faq.wikidot.com/denksport</a>
 
 <h3>Auflösung</h3>
-Es empfiehlt sich, wie immer bei Umformungen, sich klar zu machen durch was man teilt. Es gilt: $(x-y-d) = 0$, es wurde also durch 0 geteilt. Dabei passieren schlimme Dinge. Unter anderem kann man aus einer Mücke einen Elefanten machen 😉
+Es empfiehlt sich, wie immer bei Umformungen, sich klarzumachen, wodurch man teilt. Es gilt: $(x-y-d) = 0$, es wurde also durch 0 geteilt. Dabei passieren schlimme Dinge. Unter anderem kann man aus einer Mücke einen Elefanten machen 😉
 
 <h2>Jeder Mensch hat sein Idealgewicht</h2>
 <h3>Aufgabenstellung</h3>

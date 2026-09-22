@@ -33,7 +33,7 @@ featured_image: logos/klausur.png
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/04ALNormalform-print.pdf" rel="nofollow">04</a></td>
-    <td>Aussagenlogik: Normalformen (<abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, <abbr title="Kurze konjunktive Normalform">KKNF</abbr>)</td>
+    <td>Aussagenlogik: Normalformen (<abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjunktive Normalform">DNF</abbr>, <abbr title="Kurze konjunktive Normalform">KKNF</abbr>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/05BDD-print.pdf" rel="nofollow">05</a></td>
@@ -49,11 +49,11 @@ featured_image: logos/klausur.png
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/08Pk1Semantik-print.pdf" rel="nofollow">08</a></td>
-    <td>Pradikatenlogik: Semantik; Interpretation; Koinzidenzlemma; Substitutionslemma für Terme (und das für Formeln); Hoare-Kalkül; Modell; (Logische) Folgerung; Allgemeingültigkeit; Folgerbarkeit</td>
+    <td>Prädikatenlogik: Semantik; Interpretation; Koinzidenzlemma; Substitutionslemma für Terme (und das für Formeln); Hoare-Kalkül; Modell; (Logische) Folgerung; Allgemeingültigkeit; Folgerbarkeit</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a></td>
-    <td>Pradikatenlogik: Normalformen; Negationsnormalform; Pränexe Normalform; Skolem-Normalform; Herbrand-Strukturen; Satz von Herbrand; Endlichkeitssatz der Aussagenlogik</td>
+    <td>Prädikatenlogik: Normalformen; Negationsnormalform; Pränexe Normalform; Skolem-Normalform; Herbrand-Strukturen; Satz von Herbrand; Endlichkeitssatz der Aussagenlogik</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/10IntroBeweistheorie-print.pdf" rel="nofollow">10</a></td>
@@ -116,7 +116,7 @@ featured_image: logos/klausur.png
     <td>LTL und Büchi-Automaten</td>
   </tr>
   <tr>
-      <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf" rel="nonfollow">50</a></td>
+      <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf" rel="nofollow">50</a></td>
       <td>Wiederholung</td>
   </tr>
 </table>
@@ -132,12 +132,12 @@ featured_image: logos/klausur.png
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1.pdf" rel="nofollow">ÜB 1</a>: Aussagenlogik</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1-lsg.pdf">Lsg</a></td>
-    <td>Erfüllbarkeit, Unerfüllbarkeit, Allgemeingültigkeit, Tautologie, <abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, Interpolanten</td>
+    <td>Erfüllbarkeit, Unerfüllbarkeit, Allgemeingültigkeit, Tautologie, <abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjunktive Normalform">DNF</abbr>, Interpolanten</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2.pdf" rel="nofollow">ÜB 2</a>: Aussagenlogik</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2-lsg.pdf">Lsg</a></td>
-    <td><abbr title="Kurze konjunktive Normalform">KKNF</abbr>, <abbr title="Binary decision diagram">BDD</abbr>, Shannon Graphen</td>
+    <td><abbr title="Kurze konjunktive Normalform">KKNF</abbr>, <abbr title="Binary decision diagram">BDD</abbr>, Shannon-Graphen</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, PL1</td>
@@ -152,7 +152,7 @@ featured_image: logos/klausur.png
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5-lsg.pdf">Lsg</a></td>
-    <td>Verwandschaftsbeziehungen; (Java) Integer; Interpretation/Modell/Formel; Erfüllbar / allgemeingültig / unerfüllbar</td>
+    <td>Verwandtschaftsbeziehungen; (Java) Integer; Interpretation/Modell/Formel; Erfüllbar / allgemeingültig / unerfüllbar</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: PL1</td>
@@ -182,7 +182,7 @@ featured_image: logos/klausur.png
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: Reduktionssysteme</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11-lsg.pdf">Lsg</a></td>
-    <td>reflexive, transitive Hülle; (lokal) konfluent; noetersch; irreduzibel; Ackermann-Funktion; noethersche Induktion (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a>)</td>
+    <td>reflexive, transitive Hülle; (lokal) konfluent; noethersch; irreduzibel; Ackermann-Funktion; noethersche Induktion (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: Modallogik</td>
@@ -203,7 +203,7 @@ featured_image: logos/klausur.png
 
 ### JML
 
-Ein paar Auszüge aus den Folien von Prof. Dr. Beckert. Ich finde daran sieht
+Ein paar Auszüge aus den Folien von Prof. Dr. Beckert. Ich finde, daran sieht
 man schön, wie JML funktioniert:
 
 ```java
@@ -245,7 +245,7 @@ Bereichseinschränkung und `R` der Schleifenrumpf ist. Es gibt auch noch
 `\exists int i; B; R`.
 
 
-Die Prädikatenlogischen Operatoren sind
+Die prädikatenlogischen Operatoren sind
 
 * `!`: Negation
 * `&&`: und
@@ -291,8 +291,8 @@ Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page
     </tr>
     <tr>
         <td>Zeit</td>
-        <td>A ist zu jedem zukünfigem Zeitpunkt wahr</td>
-        <td>Es gibt einen zukünftigen Zeitpunkt zu dem A wahr ist</td>
+        <td>A ist zu jedem zukünftigen Zeitpunkt wahr</td>
+        <td>Es gibt einen zukünftigen Zeitpunkt, zu dem A wahr ist</td>
     </tr>
     <tr>
         <td>Glauben</td>
@@ -306,13 +306,13 @@ Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page
     </tr>
     <tr>
         <td>Programmausführung</td>
-        <td>Nach Ausführung des Programs p gilt A</td>
-        <td>Es gibt eine Ausführung des Programs p, nach der A wahr ist</td>
+        <td>Nach Ausführung des Programms p gilt A</td>
+        <td>Es gibt eine Ausführung des Programms p, nach der A wahr ist</td>
     </tr>
 </table>
 
 
-### Kurz und Gut
+### Kurz und gut
 
 Die folgenden Stichpunkte sollte man (größtenteils nur sinngemäß) auswendig
 können und verstehen:
@@ -329,25 +329,25 @@ können und verstehen:
   erfüllt.
 * $A \rightarrow B \equiv \neg A \lor B$
 * $A \models B$ gdw. $\models A \rightarrow B$
-* Der shannon-Operator $sh(a,b,c)$ ist if(a) {c} else {b}.
+* Der Shannon-Operator $sh(a,b,c)$ ist if(a) {c} else {b}.
 * Die Craig-Interpolation von $A \rightarrow B$ ersetzt alle
   Aussagevariablen $\{\text{Aussagevariable } a \in A | a \notin B\}$ mit
   $c_i$ ($i=1,\dots,n$). Die Interpolante ist dann
   $C := \bigvee_{(c_1, \dots, c_n) \in \{0,1\}^n} A[c_1, \dots, c_n]$.
 * Eine DNF heißt "vollständig" bzgl. einer Signatur $\Sigma$, wenn
-  falls für jedes $P \in \Sigma$ in jeder Klausel entweder $P$ oder $\neg P$
+  für jedes $P \in \Sigma$ in jeder Klausel entweder $P$ oder $\neg P$
   vorkommt.
 * Eine DNF heißt "minimal", wenn jede kürzere Formel nicht äquivalent ist.
 * KKNF-Konstruktion: (1) Shortcuts $Q_1, \dots, Q_n$ für binäre Operatoren
   erstellen. Diese Shortcuts dürfen auch andere Shortcuts verwenden
   (2) Äquivalenzen auflösen (3) In KNF umformen.
-* $sh(P_i, A, B)$ heißt normiert, wenn $A$ und $B$ normiert sind und jede in
-  $A \cup B$ vorkommende Variable $P_j$ gilt $i < j$.
+* $sh(P_i, A, B)$ heißt normiert, wenn $A$ und $B$ normiert sind und für jede in
+  $A \cup B$ vorkommende Variable $P_j$ gilt: $i < j$.
 * Ein Shannon-Graph heißt reduziert, wenn es keine zwei Knoten $v,w$ gibt,
   sodass die beiden in $v$ und $w$ verwurzelten Teilbäume isomorph sind und es
-  auch keinen Knoten gibt, bei dem beide ausgehenden Kanten in den selben
+  auch keinen Knoten gibt, bei dem beide ausgehenden Kanten in denselben
   Nachfolger führen.
-* Reduzierter Shannon-Graph = OBDD = BDD = ordered binary decisio diagram
+* Reduzierter Shannon-Graph = OBDD = BDD = ordered binary decision diagram
 * Bei gegebener Indizierung sind reduzierte Shannon-Graphen bis auf Isomorphie
   eindeutig. Ist die Indizierung nicht gegeben, macht die Variablenanordnung
   einen großen Unterschied in der Größe (Knotenmenge) des reduzierten
@@ -363,7 +363,7 @@ können und verstehen:
   Quantoren stehenden Variablen sind paarweise verschieden.
 * Pränexe Normalform: $A = Q_1 x_1 Q_2 x_2 Q_3 x_3 \dots Q_n x_n B$, wobei $B$
   quantorenfrei sein muss. Dann heißt $B$ die Matrix von $A$.
-* Die Pränexe Normalform ist nicht eindeutig.
+* Die pränexe Normalform ist nicht eindeutig.
 * Skolem-Normalform: (1) geschlossene Formel (2) $\forall x_1 \dots \forall x_n B$ (3) Matrix $B$ ist in KNF
 * [Gödelscher Vollständigkeitssatz](https://de.wikipedia.org/wiki/G%C3%B6delscher_Vollst%C3%A4ndigkeitssatz):
   Es gibt einen Kalkül der PL1 derart, dass für jede Formelmenge $\Gamma$ und
@@ -394,7 +394,7 @@ können und verstehen:
   eine Menge ist und $\succ$ eine Relation auf $D$ ist.
 * $\rightarrow$ bezeichnet die reflexive, transitive Hülle von $\succ$.
 * $\stackrel{+}{\rightarrow}$ bezeichnet die transitive Hülle von $\succ$.
-* $\leftrightarrow$ bezeichnet die reflexive, transtive und symmetrische Hülle
+* $\leftrightarrow$ bezeichnet die reflexive, transitive und symmetrische Hülle
   von $\succ$.
 * $(D, \succ)$ heißt konfluent $:\Leftrightarrow \forall s_1, s_2, s_3 \in D$ mit $s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
 * $(D, \succ)$ heißt lokal konfluent $:\Leftrightarrow \forall s_1, s_2, s_3 \in D$ mit $s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
@@ -413,13 +413,13 @@ können und verstehen:
     $s \in S$ heißt also auch eine "Welt".
   * $R \subseteq S \times S$ ist die Zugänglichkeitsrelation
   * $I: (\Sigma \times S) \rightarrow \{W, F\}$ ist die Interpretation der
-    Aussagenlogischen Variablen
+    aussagenlogischen Variablen
 * $(S, R)$ heißt der Kripke-Rahmen von $\mathscr{K}$.
 * $\square A \rightarrow A$ ist nur in reflexiven Kripke-Strukturen eine Tautologie.
 * Ein endlicher Automat ist ein Tupel $(S, V, \delta, s_0, S_1)$, wobei
   * $S$ eine endliche Zustandsmenge ist,
   * $V$ ein endliches Alphabet (terminale Zeichen) ist,
-  * $\delta: S \times V \rightarrow S$ eine Funktion ist, die besagt bei welchem Eingabezeichen man von welchem Zustand aus in welchen Zustand kommt,
+  * $\delta: S \times V \rightarrow S$ eine Funktion ist, die besagt, bei welchem Eingabezeichen man von welchem Zustand aus in welchen Zustand kommt,
   * $s_0 \in S$ ein Startzustand und
   * $S_1 \subseteq S$ die Menge der Endzustände ist
 * $V^\omega$ ist die Menge der unendlichen Wörter mit Buchstaben aus $V$.
@@ -428,7 +428,7 @@ können und verstehen:
 * $\varepsilon \notin V^\omega$
 * Für $K \in V^*$ und $J \in V^\omega$ ist $KJ=\{w_1 w_2 | w_1 \in K, w_2 \in J\}$
 * Für $K \in V^*$ ist $\overset{\rightarrow}{K}=\{w \in V^\omega | w \downarrow (n) \in K \text{ für unendlich viele } n\}$
-* Ein Büchi-Automat ist ein nicht deterministischer endlicher Automat, der
+* Ein Büchi-Automat ist ein nichtdeterministischer endlicher Automat, der
   Wörter akzeptiert, wenn es eine Berechnungsfolge mit unendlich vielen
   Finalzuständen gibt. (vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6">Beispiel</a>)
 * A **U** B: A gilt, bis B gilt (das U steht für "until"). Allerdings gilt B
@@ -439,10 +439,10 @@ können und verstehen:
   'weak'.
 * $A\;\textbf{V}\;B$: B gilt so lange, bis A gilt. Daher wird V auch
   'Release-Operator' genannt.
-* $\diamond \square P$: Es gibt einen Zeitpunkt, ab dem immer B gilt.
-* Zu jeder LTL-Formel gibt es einen effektv konstruierbaren Büchi-Automaten.
-* Erfüllbarkeit und Allgmeingültigkeit von LTL-Formeln ist entscheidbar.
-* Ein Kalkül ist korrekt, wenn alles was formal ableitbar auch wahr ist. (vgl. [Korrektheit (Logik)](https://de.wikipedia.org/wiki/Korrektheit_(Logik)))
+* $\diamond \square P$: Es gibt einen Zeitpunkt, ab dem immer P gilt.
+* Zu jeder LTL-Formel gibt es einen effektiv konstruierbaren Büchi-Automaten.
+* Erfüllbarkeit und Allgemeingültigkeit von LTL-Formeln sind entscheidbar.
+* Ein Kalkül ist korrekt, wenn alles, was formal ableitbar ist, auch wahr ist. (vgl. [Korrektheit (Logik)](https://de.wikipedia.org/wiki/Korrektheit_(Logik)))
 * 08Pk1Semantik-print.pdf, Folie 34/37: QxB steht für "Quantor x B", wobei der
   Quantor entweder $\exists$ oder $\forall$ ist, $x$ eine Variable ist und $B$
   eine Formel ist.
@@ -453,7 +453,7 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * Nenne 3 Basen für die Aussagenlogik. Eine davon soll höchstens einen Operator
   haben.
 * In welcher Komplexitätsklasse ist das Erfüllbarkeitsproblem für 3-KNF?
-  In welcher 2-KNF? Wie sieht es mit dem Allgemeingültigkeitsproblemen aus?
+  In welcher 2-KNF? Wie sieht es mit den Allgemeingültigkeitsproblemen aus?
 * Was ist der Shannon-Graph von $1$?
 * Was ist der Shannon-Graph von $0$?
 * Was ist der Shannon-Graph von $a \lor b$?
@@ -471,9 +471,9 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
   - Grundterm: Ein Term, der keine Variablen enthält. Instanz: Für quantifizierte Variablen wurden Terme eingesetzt. Grundinstanz: Für alle Variablen wurden Grundterme eingesetzt. Damit enthalten Grundinstanzen überhaupt keine Variablen mehr.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?
-  - Ich vermute mal, dass $Term_\Sigma^0 := $ Menge der Grundterme. Bachte (sofern die Definition stimmt): $Term_\Sigma^0  \subseteq Term_\Sigma$, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
+  - Ich vermute mal, dass $Term_\Sigma^0 := $ Menge der Grundterme. Beachte (sofern die Definition stimmt): $Term_\Sigma^0  \subseteq Term_\Sigma$, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
 Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
-* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?
 * Haben reflexive Relationen irreduzible Elemente?
   - Laut unserer Definition nicht. Aber du kannst jede n-stellige Relation mit dem Komplement der n-stelligen Gleichheits-Relation schneiden, dann erhältst du ihr irreflexives Gegenstück.
@@ -484,21 +484,21 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt $\diamond\square P$ auf dem Graphen aus? Insbesondere: Warum ist $w_5$ nicht in $\diamond\square P$? Was wäre $[[\square \diamond P]]$?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8">21, Folie 8</a>: Was ist $Th(N)$ und was ist $Cn(PA)$?
-  - $Th(N)$: Theoreme über N, also die Menge aller Formeln, für die die natürlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Artihmetik gefolgert werden können. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).
+  - $Th(N)$: Theoreme über N, also die Menge aller Formeln, für die die natürlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Arithmetik gefolgert werden können. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16">50, Folie 16</a>: Was bedeutet es, dass $Th(N)$ nicht rekursiv ist?
-  - Rekursiv heißt entscheidbar. Da die Peano-Axiome durch die Peano-Artihmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn $Th(N)$ entscheidbar wäre und P(x) allgemeingültig, dann entsteht Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen gültig" übersetzt werden.
+  - Rekursiv heißt entscheidbar. Da die Peano-Axiome durch die Peano-Arithmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn $Th(N)$ entscheidbar wäre und P(x) allgemeingültig, dann entsteht ein Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen gültig" übersetzt werden.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?
-* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strutkuren und insbesondere was bedeutet $2^P$?
-  - Eine Omega Struktur Ordnet jedem Zeitpunkt, wenn die natürlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als "wahr" gelten sollen. $2^P$ ist die Potenzmenge von P.
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strukturen und insbesondere was bedeutet $2^P$?
+  - Eine Omega-Struktur ordnet jedem Zeitpunkt, wenn die natürlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als "wahr" gelten sollen. $2^P$ ist die Potenzmenge von P.
 * Ist $A\;\textbf{U}_W\;B$ äquivalent zu $B\;\textbf{V}\;A$?
-* [Blatt 14, 2a](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf): Warum ist $\diamond (p\;\textbf{U}\;q)$ äquivalent zu $\diamond q$? Ich dachte es wäre äquivalent zu
+* [Blatt 14, 2a](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf): Warum ist $\diamond (p\;\textbf{U}\;q)$ äquivalent zu $\diamond q$? Ich dachte, es wäre äquivalent zu
   $p\;\textbf{U}\;q$?
 * [Blatt 14, 3](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf):
   Wie würde der Automat aussehen, wenn das $X$ weggelassen würde?
 * [Blatt 14, 4](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf):
   Das würde ich gerne gemeinsam durchgehen.
 * [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): Was sind die Ziele der Beweistheorie? Was ist die Grundidee des Hilbert-Kalküls?
-  - Ziele: Automatisches Beweisen ermöglichen und die Grenzen bestimmen. Grundidee des Hilbert-Kalküls: Aus Axiomen konstruktiv Formeln folgern. Im Gegensatz zu den praxis-orientierten Beweisverfahren kann der Hilbert-Kalkül leichter in theoretischen Beweisen verwendet werden. Der Gödelsche Unvollständigkeitssatz verwendet z.B. den Hilbert-Kalkül.
+  - Ziele: Automatisches Beweisen ermöglichen und die Grenzen bestimmen. Grundidee des Hilbert-Kalküls: Aus Axiomen konstruktiv Formeln folgern. Im Gegensatz zu den praxisorientierten Beweisverfahren kann der Hilbert-Kalkül leichter in theoretischen Beweisen verwendet werden. Der Gödelsche Unvollständigkeitssatz verwendet z.B. den Hilbert-Kalkül.
 * [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): "Aussagenlogische Tableauregeln aus Wahrheitstafeln konstruieren." - was ist damit gemeint?
 * [50, 15](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=15): Was ist die Grundidee der Peano-Arithmetik?
   - Liegt doch eigentlich auf der Hand: Zahlentheoretische Aussagen automatisch beweisen.
@@ -538,8 +538,8 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
   * 1b: Was ist ein Beispiel für einen Büchi-Automaten, für den es keinen deterministischen Büchi-Automaten gibt?
   * 1b: "Für jede geschlossene prädikatenlogische Formel G gilt: Es gibt ein Modell für G oder für das Negat von G oder für beide." - Gilt das nicht für alle prädikatenlogischen Formeln (egal ob geschlossen oder nicht)?
 * WS 2008/2009, 1. Zwischentest:
-  * 1a: Wie lange dauert der kürzeste Resoultionsbeweis in Anzahl der Literale?
-  * 1b: Warum gibt es keine prädikatenlogische Interprätation, in der alle prädikatenlogischen Formeln wahr sind?
+  * 1a: Wie lange dauert der kürzeste Resolutionsbeweis in Anzahl der Literale?
+  * 1b: Warum gibt es keine prädikatenlogische Interpretation, in der alle prädikatenlogischen Formeln wahr sind?
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
@@ -558,10 +558,10 @@ StackExchange:
 * Wo sind die Übungsblätter: [Link](http://formal.iti.kit.edu/teaching/FormSysWS1415/)
 * Abgabeform: Keine Abgabe
 * Turnus: wöchentlich
-* Lösungen: Die Lösungen von jeweils zwei Blättern werden dann in den 14-tägig stattfinden Übungen am Freitag besprochen.
+* Lösungen: Die Lösungen von jeweils zwei Blättern werden dann in den 14-tägig stattfindenden Übungen am Freitag besprochen.
 * Übungsschein verpflichtend: Es gibt keinen Übungsschein.
 * Bonus durch Übungsschein: Es gibt keinen Klausurbonus durch Übungsblätter.
-* Anderer Klausurbonus: Man kann durch insgesammt 4 Zwischentests und 2 Praxisaufgaben für die wirkliche
+* Anderer Klausurbonus: Man kann durch insgesamt 4 Zwischentests und 2 Praxisaufgaben für die wirkliche
   Klausur Punkte sammeln. Die Teilnahme an den Zwischentests und den Praxisaufgaben ist freiwillig. Die erzielten Übungspunkte werden im Verhältnis 1:10 als Bonuspunkte auf die bestandene Abschlussklausur angerechnet.
 
 

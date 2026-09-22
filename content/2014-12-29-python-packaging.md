@@ -9,15 +9,15 @@ category: Code
 tags: Python, Packaging, PyPI
 featured_image: logos/python.png
 ---
-<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.
+<div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.
 
-I wrote this when I did not know much about packaging. I wrote a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well. In 2020, I gave a <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a> which is better structured, up-to-date and has way more details.</div>
+I wrote this when I did not know much about packaging. I wrote a tutorial on <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well. In 2020, I gave a <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a> which is better structured, up-to-date and has way more details.</div>
 
 The following article is a wrap-up of the talk [Python Packages](https://www.youtube.com/watch?v=MSs3QmHhvpE)
-from Daniel Hepper given at a German [PyCon 2013](https://2013.de.pycon.org/schedule/sessions/15/).
+by Daniel Hepper, given at the German [PyCon 2013](https://2013.de.pycon.org/schedule/sessions/15/).
 
-[PyPi](https://pypi.python.org/pypi) is the Python Package Index. They distribute
-packages in form of "eggs". You can install them with easy_install or with pip.
+[PyPI](https://pypi.python.org/pypi) is the Python Package Index. They distribute
+packages in the form of "eggs". You can install them with easy_install or with pip.
 
 
 ## Package Management Tools
@@ -33,20 +33,20 @@ then distutils is running.
 
 Major disadvantages of distutils are:
 
-* No Meta-data:
-  * no deinstallation
+* No metadata:
+  * no uninstallation
   * no dependencies
-* No Package listing (so you can't automatically search pypi)
+* No package listing (so you can't automatically search PyPI)
 
 ### Setuptools
 
 Setuptools is an extension for distutils. Setuptools offers dependency management.
-With setuptools, so called 'egg files' were introduced. Those files are comparable
+With setuptools, so-called 'egg files' were introduced. Those files are comparable
 to jar files in Java.
 
 ### Distribute
 
-Distribute was a fork of setuptools that got merged back to setuptools. So
+Distribute was a fork of setuptools that got merged back into setuptools. So
 don't use distribute, use setuptools.
 
 ## PIP and Creating packages

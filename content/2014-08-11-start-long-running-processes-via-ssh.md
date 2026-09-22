@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Start long running processes via SSH
+title: Start long-running processes via SSH
 slug: start-long-running-processes-via-ssh
 lang: en
 author: Martin Thoma
@@ -12,8 +12,8 @@ featured_image: logos/shell.png
 ## Screen
 
 [`screen`](https://en.wikipedia.org/wiki/GNU_Screen) is a nice tool that can be
-used to detach long running processes from the current SSH session - and be able
-to get it again!
+used to detach long-running processes from the current SSH session - and be able
+to get them back again!
 
 
 ### Basic usage
@@ -24,7 +24,7 @@ $ screen
 ```
 
 You detach it with <kbd>Ctrl</kbd> + <kbd>a</kbd> and then <kbd>d</kbd>. After
-you pressed this key combination, you will see
+you have pressed this key combination, you will see
 
 ```shell
 [detached]

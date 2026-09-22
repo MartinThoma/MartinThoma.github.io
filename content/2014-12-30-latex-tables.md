@@ -73,13 +73,13 @@ You can see two environments: `table` and `tabular`. Let's focus on `tabular`
 first. It is always followed by a list of characters `l`, `c`, `r` which
 define if the column is left-aligned, centered or right-aligned. You can add `|`
 to tell LaTeX if there should be a line to distinguish columns.
-After that you get to the first cells. `&` starts a new cell and `\\` starts
+After that, you get to the first cells. `&` starts a new cell and `\\` starts
 a new line. If you want a drawn line / rule, you can use `\hline`.
 
 Let's check out `table`:
 `table` has options after it which are commonly `ht` where `h` means
 "here" and `t` means "top". So LaTeX tries to place the table where it is in
-the text and if that doesn't work out it places the table on the top of the
+the text and if that doesn't work out, it places the table at the top of the
 page. It can get a caption
 `\caption{Description of the contents of the table}` and a
 `\label{table:your-label-for-internal-usage}`.
@@ -203,7 +203,7 @@ which looks like this:
 Note the `\cmidrule{2-4}` which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).
 
-If you want to combine multiple rows you need to use `\usepackage{multirow}`.
+If you want to combine multiple rows, you need to use `\usepackage{multirow}`.
 
 
 ### Line Breaks in Cells
@@ -215,7 +215,7 @@ If you want to combine multiple rows you need to use `\usepackage{multirow}`.
 See also: [How to add a forced line break inside a table cell](http://tex.stackexchange.com/q/2441/5645)
 
 
-### Page breaking tables
+### Page-breaking tables
 
 If you want your tables to be able to break over pages, you have to use
 [`\usepackage{longtable}`](ftp://ftp.tex.ac.uk/tex-archive/macros/latex/required/tools/longtable.pdf) which has [an example](http://users.sdsc.edu/~ssmallen/latex/longtable.html).
@@ -238,32 +238,32 @@ expect an optimization with the following thoughts in mind:
 * It is best to have the table where it was specified.
 * The content should have at least 2 times as many rows as the header. So when
   there is only one header row, there should be at least 2 content rows.
-* The farer a table is away from its "original" position, the worse it is.
+* The farther a table is away from its "original" position, the worse it is.
 
 **Headers**: A semantic way to define the header and a tail would be very good.
 `\endhead` is ok.
 
-**Semantics, Styles and Classes**: LaTeX hides some of the formatting for semantic codes.
+**Semantics, Styles and Classes**: LaTeX hides some of the formatting behind semantic commands.
 For example, you write `\section{MySection}` instead of
 `{\fontsize{12}{15}\textbf{MySection}}`
-or something similar. That should be more often the case. In fact, I think it
+or something similar. That should be the case more often. In fact, I think it
 would be very nice if LaTeX had some built-in support for pure stylesheets
 (like CSS for HTML). It would be very nice if I only had to define that I
 want to make a standard table and it inserts `\toprule`, `\midrule` and
 `\bottomrule` automatically. But to get an automatic `\midrule` we need
 a command to tell LaTeX where the header ends.
 
-Everything of the above should be standard. There should not be the need to
+All of the above should be standard. There should not be the need to
 use new packages for that. Also, `\multirow`, `\toprule`, `\midrule`,
 `\bottomrule` should not be "hidden" in a package but be there by default.
 
-**Table seperator**: It is unfortunate that the table cell seperator(s) `\\`
+**Table separator**: It is unfortunate that the table cell separator(s) `\\`
 and `&` have problems with matrices. I think one environment should get closed
 before the other one can continue parsing, so I don't quite understand where the
 problem is. But there certainly is a problem (see [this question](http://stackoverflow.com/q/25971178/562769)).
 
 **Tools**: I don't know any tools that can export LaTeX tables and merge cells.
-Such tools should be able to import and export LaTeX tables
+Such tools should be able to import and export LaTeX tables.
 
 ## See also
 * [Typesetting tables with LaTeX](https://www.tug.org/TUGboat/tb28-3/tb90hoeppner.pdf)

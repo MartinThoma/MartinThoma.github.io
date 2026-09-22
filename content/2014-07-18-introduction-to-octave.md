@@ -14,7 +14,7 @@ prototyping language for machine learning tasks. It is dynamically typed.
 
 ## Installation
 
-Octave is in the package repositories, so it can be installed by
+Octave is in the package repositories, so it can be installed with
 
 ```bash
 $ sudo apt-get install octave gnuplot-x11 octave-epstk
@@ -87,7 +87,7 @@ ans =
 
 ```
 
-If you simple want the "length" you can directly access the first element:
+If you simply want the "length", you can directly access the first element:
 
 ```octave
 >> size(a)(1)
@@ -100,7 +100,7 @@ The sequence `0 1 2 3 4 5` can be created with `[0:5]`.
 The sequence `0.2 0.3 0.4 0.5` can be created with `[0.2:0.1:0.5]`.
 In general: `[<start>:<step>:<end>]` where `<start>` and `<end>` are included.
 
-You can also very simple apply functions to each element:
+You can also very simply apply functions to each element:
 
 ```octave
 >> t = [0.2:0.1:0.5];
@@ -183,7 +183,7 @@ function y = fibonacci(n)
     end;
 ```
 
-You can also group values you want to give back like this:
+You can also return multiple values like this:
 
 ```octave
 function [succ, pred] = succ_and_pred(n)

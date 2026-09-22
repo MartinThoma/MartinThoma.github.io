@@ -56,15 +56,15 @@ And they are, of course, compressed.
 
 ## Reading the dataset
 
-Python brings all necessary tools to make it easy to read the dataset:
+Python brings all the necessary tools to make it easy to read the dataset:
 
 * [gzip](https://docs.python.org/2/library/gzip.html): A library for reading
   gzipped files
 * [unpack](https://docs.python.org/2/library/struct.html#struct.unpack) to
   read the packed binary data
 
-As the training and the testing dataset is structured the same way, we can
-create a method thad retrives the data for both files.
+As the training and the testing datasets are structured the same way, we can
+create a function that retrieves the data for both files.
 
 ```python
 from struct import unpack
@@ -133,7 +133,7 @@ def view_image(image, label=""):
     show()
 ```
 
-It tooks like this:
+It looks like this:
 
 <ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
    <li class="gallerybox" style="width: 155px">
@@ -166,9 +166,9 @@ It tooks like this:
 
 Now we can use [PyBrain](http://pybrain.org/) to classify data.
 
-The following code will first build the PyBrain datastructure for the training
+The following code will first build the PyBrain data structure for the training
 set and the testing set. Then it will build a very simple neural network called
-a *Multilayer Perceptron* (MLP) with three layers: An input layer, a hidden
+a *Multilayer Perceptron* (MLP) with three layers: an input layer, a hidden
 layer and an output layer.
 
 After creating it, the MLP will be trained with the backpropagation algorithm.

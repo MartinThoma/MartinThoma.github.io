@@ -9,12 +9,12 @@ category: Cyberculture
 tags: Bugs, Software Engineering
 featured_image: 2012/06/mars-climate-orbiter.jpg
 ---
-<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+<div class="info">This is a quick article I have had as a draft for quite a while. It might not be finished or have other problems, but I still want to share it.</div>
 
-## Mars Climate Oribiter
+## Mars Climate Orbiter
 <figure class="alignright">
-            <a href="../images/2012/06/mars-climate-orbiter.jpg"><img src="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Oribiter" style="max-width:128px;max-height:128px;" class="size-full wp-image-28651 "/></a>
-            <figcaption class="text-center">Mars Climate Oribiter</figcaption>
+            <a href="../images/2012/06/mars-climate-orbiter.jpg"><img src="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Orbiter" style="max-width:128px;max-height:128px;" class="size-full wp-image-28651 "/></a>
+            <figcaption class="text-center">Mars Climate Orbiter</figcaption>
         </figure>
 **Type of Bug**: Bad specification<br/>
 **Description**:  The flight system software on the Mars Climate Orbiter was written to calculate thruster performance using the <em>metric unit</em> Newtons (N), while the ground crew was entering course correction and thruster data using the <em>Imperial measure</em> Pound-force (lbf).<br/>
@@ -27,8 +27,8 @@ featured_image: 2012/06/mars-climate-orbiter.jpg
 The <a href="http://de.wikipedia.org/wiki/Ariane_V88">Ariane V88</a> exploded 40 seconds after its start.
 
 **Type of Bug**: The software was written for another type of hardware.<br/>
-**Description**: A 64 Bit floating point number was converted into a 16 bit integer in the "inertial reference system" → Overflow → the rocket got into a tilted position and destroyed itself for security reasons. The interesting part is, that this program wasn't even needed for the flight! It had been developed for the Ariane 4.<br/>
-**Outcome**: 290 Million Euro destroyed
+**Description**: A 64-bit floating-point number was converted into a 16-bit integer in the "inertial reference system" → Overflow → the rocket got into a tilted position and destroyed itself for safety reasons. The interesting part is that this program wasn't even needed for the flight! It had been developed for the Ariane 4.<br/>
+**Outcome**: 290 million Euro destroyed
 
 ## Other
 

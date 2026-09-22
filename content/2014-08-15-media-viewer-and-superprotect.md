@@ -10,22 +10,22 @@ tags: Wikipedia, Community
 featured_image: logos/wikipedia.png
 ---
 Recently, a heated discussion started on the German Wikipedia about Superprotect.
-This article should give a very short summary how it came to this discussion.
+This article gives a very short summary of how this discussion came about.
 
 ## Timeline
 
-* **25. July 2014**: Straw poll in the German Wiki began ([link](https://de.wikipedia.org/wiki/Wikipedia:Meinungsbilder/Medienbetrachter))
-* **08. August 2014**: Straw poll in the German Wiki ended. 72.5% voted for a
+* **25 July 2014**: Straw poll in the German Wiki began ([link](https://de.wikipedia.org/wiki/Wikipedia:Meinungsbilder/Medienbetrachter))
+* **8 August 2014**: Straw poll in the German Wiki ended. 72.5% voted for a
   default deactivation of the MediaViewer
-* **09. /10. August 2014**: The Admins [DaB.](https://de.wikipedia.org/wiki/Benutzer:DaB.),
+* **9/10 August 2014**: The admins [DaB.](https://de.wikipedia.org/wiki/Benutzer:DaB.),
   [Raymond](https://de.wikipedia.org/wiki/Benutzer:Raymond) and [JEissfeldt (WMF)](https://de.wikipedia.org/wiki/Benutzer:JEissfeldt_(WMF)) repeatedly change [MediaWiki:Common.js](https://de.wikipedia.org/wiki/MediaWiki:Common.js) to activate / deactivate the MediaViewer
   for the German wiki
-* **10. August 2014**: Superprotect got introduced and Erik Möller ([User:Eloquence](https://de.wikipedia.org/wiki/Benutzer:Eloquence)) protected MediaWiki:Common.js.
+* **10 August 2014**: Superprotect got introduced and Erik Möller ([User:Eloquence](https://de.wikipedia.org/wiki/Benutzer:Eloquence)) protected MediaWiki:Common.js.
 
 ## The MediaViewer
 
 You can [try the MediaViewer](https://en.wikipedia.org/wiki/Wikipedia:Media_Viewer)
-to get a feeling what this is all about.
+to get a feeling for what this is all about.
 
 You can view some images of the MediaViewer here:
 
@@ -113,7 +113,7 @@ account:
 > Preferences → Appearance → Files = uncheck 'Enable Media Viewer'
 
 
-The question is: Should the MediaViewer be activated per default?
+The question is: Should the MediaViewer be activated by default?
 
 ### Pro
 
@@ -125,7 +125,7 @@ The question is: Should the MediaViewer be activated per default?
 * The copyright notice doesn't get in my way.<br/>
   It is a legal obligation to show the copyright notice.
 
-### Contra
+### Con
 
 * The MediaViewer doesn't give new functionality: One could see high-resolution
   images before by simply clicking a second time on the image.
@@ -139,24 +139,24 @@ The question is: Should the MediaViewer be activated per default?
 
 #### Wrong arguments
 
-* It's in the way of long-term wikipedia editors.<br/>
-  This argument is wrong, because long-term wikipedia editors can simply disable
+* It's in the way of long-term Wikipedia editors.<br/>
+  This argument is wrong, because long-term Wikipedia editors can simply disable
   it. They should know how to do it.
-* Logged in in users don't need this feature.<br/>
+* Logged-in users don't need this feature.<br/>
   Again, they can disable it.
 
 ### Good comments
 
 * The default setting for logged-in users should be the same as for unregistered users, so that new users have fewer surprises to deal with.
 
-### Alternatives to default-enable MediaViewer
+### Alternatives to enabling MediaViewer by default
 
 * Change from opt-out to opt-in
 * Disabled for current users and enabled for newly registered users
 
 ## Superprotect
 
-The German Wikipedia community decided to disable MediaViewer per default.
+The German Wikipedia community decided to disable MediaViewer by default.
 As the MediaViewer got rolled out, some admins in the German Wikipedia enabled / disabled
 it (see [version history of Common.js](https://de.wikipedia.org/wiki/MediaWiki:Common.js)). This was the reason to create
 superprotect:
@@ -198,10 +198,10 @@ Now the question is: Should the new group right 'super protect' be kept?
   put something illegal on Wikipedia.org and abused his admin rights to keep
   it there.
 
-### Contra
+### Con
 
 * There is no need for such a tool, as the community is able to solve 'wheel wars'.
-* In case of the abuse of powers by admins, these powers can be removed (see [Review and removal of adminship](https://en.wikipedia.org/wiki/Wikipedia:Administrators#Review_and_removal_of_adminship))
+* In case of the abuse of powers by admins, these powers can be removed (see [Review and removal of adminship](https://en.wikipedia.org/wiki/Wikipedia:Administrators#Review_and_removal_of_adminship)).
 * The community wants to organize Wikipedia by themselves without intervention
   from the WMF. The problem for many users seems to be that the WMF is not
   elected, whereas admins are (see [Wikipedia:Administrators#Becoming_an_administrator](https://en.wikipedia.org/wiki/Wikipedia:Administrators#Becoming_an_administrator) - there seem to be differences in the English / German Wiki).
@@ -211,13 +211,13 @@ Now the question is: Should the new group right 'super protect' be kept?
 ### Comments
 
 I think super protect might be a good solution to temporarily freeze pages
-when more than two admins have a wheel war. In that case it could be implemented
+when more than two admins have a wheel war. In that case, it could be implemented
 so that it can only freeze a page for 7 days and after those 7 days the page
 cannot be frozen for at least 14 days (one would have to discuss the numbers).
 
 This way, it can be a tool for de-escalation and the abuse can be limited.
 
-Also, sites that get frozen must have at least two back-and-forth edits by two
+Also, pages that get frozen must have at least two back-and-forth edits by two
 admins and the community must have voted for freezing.
 
 ## Terms
@@ -229,9 +229,9 @@ can [download MediaWiki here](https://www.mediawiki.org/wiki/MediaWiki) and find
 
 **[Wikimedia Foundation](https://en.wikipedia.org/wiki/Wikimedia_Foundation)** (short: WMF) is an American non-profit and charitable organization headquartered in San Francisco, California, that operates wikipedia.org.
 
-**[MediaViewer](https://en.wikipedia.org/wiki/Wikipedia:Media_Viewer)** is a JavaScript that gives the possibility to browse through all images of an article by using a diashow.
+**[MediaViewer](https://en.wikipedia.org/wiki/Wikipedia:Media_Viewer)** is a JavaScript tool that makes it possible to browse through all images of an article as a slideshow.
 
-**Wheel war** is happening when two or more admins repeatedly revert their changes.
+A **wheel war** happens when two or more admins repeatedly revert each other's changes.
 
 ## Sources
 

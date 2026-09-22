@@ -16,13 +16,13 @@ than 1 million dollars?
 This was the title of a question I've recently found on Quora. I think this
 question is very interesting and I would like to share my thoughts about it.
 
-I think the answer is mathematics and computer science. Or lets rather say
+I think the answer is mathematics and computer science. Or let's rather say
 algorithms.
 
 There are multiple problems in mathematics and computer science which could
-have a severe impact on some areas which are important for the worlds
+have a severe impact on some areas which are important for the world's
 economy. As we live in a globalized world, this will affect most of humanity.
-As algorithms don't cost anything except for developing cost, it is certainly
+As algorithms don't cost anything except for development costs, it is certainly
 below 1 million dollars. In principle, everybody could come up with such
 algorithms.
 
@@ -30,17 +30,17 @@ algorithms.
 
 The [P versus NP problem](https://en.wikipedia.org/wiki/P_versus_NP_problem) is
 one of the [Millennium Prize Problems](https://en.wikipedia.org/wiki/Millennium_Prize_Problems).
-Stated extremely simple, it asks whether every problem whose solution can be
+Stated extremely simply, it asks whether every problem whose solution can be
 quickly verified by a computer can also be quickly solved by a computer.
-If somebody found an algorithm which solves one problem in the class NPC in
-fast, it will eventually boost many problems or allow us to solve problems
+If somebody found an algorithm which solves one problem in the class NPC
+fast, it would eventually boost many problems or allow us to solve problems
 which were not solvable before. Especially optimization problems.
 
 
 ## Optimization problems
 
 There could be other algorithms which boost optimization problems, but do not
-help for the P vs. NP problem.
+help with the P vs. NP problem.
 
 Optimization is about allocating just the right amount of resources for a
 couple of goals to get the highest outcome.
@@ -61,9 +61,9 @@ This would be a boost for technology incomparable to anything before.
 
 However, even advancements in A.I. which are not strong A.I.s will help.
 
-They can lead to many new products where humans cannot cope with  the data
-volume. One example would be medicine. IBM's Watson is one first step to help
-doctors skip through the possible thousands of diagnoses and finding the most
+They can lead to many new products where humans cannot cope with the data
+volume. One example would be medicine. IBM's Watson is a first step to help
+doctors skim through the thousands of possible diagnoses and find the most
 relevant and recent papers which could fit the problems of a patient. New
 diagnoses could be developed, the computer could help to create better (more
 accurate) tests for diseases. It could help to track the spread of diseases,
@@ -75,7 +75,7 @@ predict it and thus help to contain it.
 Developing a tool which automatically parallelizes sequential code could
 make all applications go faster. The same is true for advances in compiler
 technology. This could lead to less energy consumption and faster devices.
-As most people have contact to computers nowadays, this would affect everybody.
+As most people have contact with computers nowadays, this would affect everybody.
 
 
 Can you think of other areas where algorithms have a strong impact?

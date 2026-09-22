@@ -10,23 +10,23 @@ tags: Audio, HTML5, Web Development
 featured_image: logos/signal.png
 ---
 Our senses have a limited capability to distinguish signals. This might not be
-surpristing. However, we also have a limited capability to tell in which
+surprising. However, we also have a limited capability to tell in which
 order signals arrived at our sensory organs.
 
 As I learned this, I wanted to check it. I wrote a little JavaScript / HTML5
-page where you can check it. You can adjust the time in which two sounds are
-played. The clicking noise is played on the left and the right speaker in
-random order. A textfield below shows which speaker played the sound first.
+page where you can check it. You can adjust the time between the two
+sounds. The clicking noise is played on the left and the right speaker in
+random order. A text field below shows which speaker played the sound first.
 
 You should use headphones for this demo.
 
 According to the KIT lecture "Mensch-Maschine-Wechselwirkung in der Anthropomatik (Vorlesung Universität Karlsruhe im KIT, WS 2013/14, J. Geisler)", the time resolution of the human ear is
 between 2 and 5 ms. This means you will not be able to distinguish the two
-signlas for less than 2ms. But you will need the signals to be 30-40ms apart
+signals for less than 2ms. But you will need the signals to be 30-40ms apart
 to tell which one played first.
 
-I rather need 10ms, but this might also be caused by hardware problems. I doubt
-that JavaScripts `timeout` is accurate enough.
+For me, it's more like 10ms, but this might also be caused by hardware problems. I doubt
+that JavaScript's `timeout` is accurate enough.
 
 <h2>Audio Test</h2>
 <audio id="left_channel" src="//martin-thoma.com/audio/click_left.wav" preload="auto"></audio>

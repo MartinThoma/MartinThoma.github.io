@@ -42,6 +42,6 @@ logout
 Connection to i08fs1.ira.uka.de closed.
 ```
 
-In case you don't remember your password: Take a look at your Browser settings.
+In case you don't remember your password: Take a look at your browser settings.
 You've probably entered it already for looking at your printing account and
-eventually your browser saved it.
+your browser might have saved it.
